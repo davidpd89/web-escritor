@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788411724357",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo generar ingresos con las opciones: Así transformé la bola de nieve en avalancha (EMPRESA) se orienta a lectores interesados en economía, empresa y generación de ingresos mediante opciones. Su enfoque financiero lo separa de los libros centrados exclusivamente en bienestar personal o relaciones familiares.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cómo generar ingresos con las opciones: Así transformé la bola de nieve en avalancha (EMPRESA) se ofrece en tapa dura, con 208 páginas. El soporte rígido facilita conservarlo como libro de consulta física, y su extensión permite repartir la lectura en varias sesiones sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo generar ingresos con las opciones: Así transformé la bola de nieve en avalancha (EMPRESA) comparte el interés por las finanzas con La libreta de Dani: Tiempo y Dinero. Estrategia financiera para toda una vida. Ambos tratan cuestiones económicas, pero Renato Antinori centra su libro en generar ingresos mediante opciones, mientras que Catalina Bonías Blanchard plantea una estrategia financiera para toda una vida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409917600"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "434630b85028018a",
+  "origen": "chatgpt-web"
+}

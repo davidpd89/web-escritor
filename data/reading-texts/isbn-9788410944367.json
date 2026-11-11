@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788410944367",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes leen ensayo sobre desigualdad económica, poder político y diferencias de clase en España. Su planteamiento sobre las élites y la distribución de la riqueza se aleja de los manuales de finanzas personales y de la narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Examina la relación entre la concentración de riqueza y la aparición de nuevas divisiones sociales. Esteban Hernández sitúa el clasismo en el centro de una cuestión económica y política: cómo se amplía la distancia entre quienes acumulan recursos y quienes disponen de menos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, con 248 páginas en castellano publicadas por La Esfera de los Libros. Su extensión permite organizar la lectura por sesiones y volver a pasajes concretos en papel, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La España de dos pisos comparte con Anarquía capitalista el interés por la economía y la política, pero Esteban Hernández se centra en las élites y el clasismo español, mientras Miguel Anxo Bastos Boubeta aborda las raíces del anarcocapitalismo. Frente a Cómo ganar una guerra comercial, de Soumaya Keynes y Chad P. Bown, cambia el foco: de las reglas del comercio internacional a las diferencias de riqueza dentro de España.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457",
+        "isbn-9788423441051"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c859ef7c2bfcddc1",
+  "origen": "chatgpt-web"
+}

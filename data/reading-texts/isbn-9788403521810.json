@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788403521810",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Agotada: Reduce tu carga mental para hacer menos y ser más (Divulgación) se dirige a lectores interesados en comprender y reducir la carga mental desde el desarrollo personal y el ensayo. Su enfoque divulgativo encaja menos con quienes prefieren ficción o buscan una historia con personajes y trama.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Agotada: Reduce tu carga mental para hacer menos y ser más (Divulgación) contiene 336 páginas. Permite leer el ensayo en papel y regresar a sus apartados sobre carga mental, con una cubierta flexible para transportarlo o consultarlo en distintos momentos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Agotada / Drained: Reduce Your Mental Load to Do Less and Be More comparte autora y asunto central con Agotada: Reduce tu carga mental para hacer menos y ser más (Divulgación), aunque presenta el título en inglés. Abraza a tu niño interior: Nunca es tarde para sanar tu infancia también aborda el desarrollo personal, pero Victoria Cadarso se centra en la infancia y la sanación emocional, frente a la carga mental tratada por Leah Ruppanner.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "idioma"
+      ],
+      "enlaces": [
+        "isbn-9786073874502",
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "55c4f959465a7341",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788410438491",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tíos y Tías (AMOR DE FAMILIA) está dirigido a lectores infantiles interesados en los vínculos familiares y el afecto. Su temática se aleja de las aventuras de acción y se aproxima a las relaciones entre familiares, con espacio también para el interés por la crianza.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tíos y Tías (AMOR DE FAMILIA) se publica en tapa dura y tiene 32 páginas. Su extensión permite abordar la lectura en sesiones breves, mientras que la encuadernación rígida resulta práctica para conservarlo y compartirlo en el entorno familiar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tíos y Tías (AMOR DE FAMILIA) comparte con Querido nieto (Siempre en mi corazón) el interés por el afecto entre familiares. Margarita Del Mazo pone el foco en tíos y tías, mientras que Gregory E. Lang aborda la relación entre abuelos y nietos mediante texto rimado e ilustraciones de animales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256620"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0167c7be2a03ce67",
+  "origen": "chatgpt-web"
+}

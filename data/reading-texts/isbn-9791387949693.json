@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387949693",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Stormside (Starside 2) (Sin límites) encaja con lectores de fantasía que buscan una novela extensa de Alex Aster. Sus 592 páginas exigen más tiempo de lectura que una obra breve; el título la identifica como el n.º 2 de Starside, por lo que quien busque una historia identificada como primera entrega deberá tenerlo en cuenta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Stormside (Starside 2) (Sin límites) está disponible en tapa dura, con 592 páginas en castellano. Esta encuadernación ofrece una edición física para conservar en la estantería o regalar, aunque su extensión supone un volumen considerable para transportarlo durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Barbie dreamscape y Stormside (Starside 2) (Sin límites) tienen en común la autoría de Alex Aster. Barbie dreamscape plantea una historia relacionada con futuros escritos y la posibilidad de apartarse de ellos; Stormside (Starside 2) (Sin límites) pertenece a la fantasía y su título la identifica como el n.º 2 de Starside.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388277481"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d31296846c14e5e6",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788412972566",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi escrito taurino, de José Campos Cañizares, se dirige a lectores interesados en el ensayo y, por su título, en la temática taurina. No está orientado a quien busca una novela de ficción romántica o una historia de misterio, ya que su clasificación editorial corresponde al ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mi escrito taurino se publica en tapa blanda bajo el sello Letras de Almagre. Con 179 páginas en castellano, ofrece una extensión relativamente breve para una lectura por sesiones y un ejemplar físico manejable para consultar o conservar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0ac302ac3398bc11",
+  "origen": "chatgpt-web"
+}

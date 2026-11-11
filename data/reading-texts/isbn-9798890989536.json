@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9798890989536",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Biblia Católica Biblia de Jerusalén Latinoamericana símil piel rosada / Spanish Catholic Jerusalem Bible, Pink Leathersoft se dirige a lectores interesados en textos religiosos y espiritualidad católica. Su contenido y sus 1152 páginas la alejan de una lectura de ficción breve o de una introducción ligera a temas generales de bienestar.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Origen figura en tapa blanda, con 1152 páginas en castellano. El título identifica un acabado símil piel rosada, mientras que la ficha editorial clasifica la encuadernación como tapa blanda; por su extensión, resulta más manejable para consulta en un lugar fijo que para llevarla a diario.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Biblia Católica Biblia de Jerusalén Latinoamericana símil piel rosada / Spanish Catholic Jerusalem Bible, Pink Leathersoft y Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe, comparten el ámbito espiritual. La primera es una edición bíblica católica, mientras que la segunda presenta fundamentos y prácticas del Dharma. Se diferencian, por tanto, en la tradición religiosa y en el tipo de texto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6b07353ac635dae6",
+  "origen": "chatgpt-web"
+}

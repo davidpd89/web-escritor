@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788425377105",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El cuerpo equivocado (Novela de intriga) se orienta a lectores de misterio y thriller con interés por la historia. Sus 352 páginas ofrecen una extensión intermedia; encaja menos con quienes buscan fantasía, romance como género principal o una lectura exclusivamente documental.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El cuerpo equivocado (Novela de intriga) se publica en tapa blanda, con 352 páginas en castellano y edición de Grijalbo. La cubierta flexible facilita sostener el libro durante la lectura y transportarlo, mientras que su extensión permite distribuirlo en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El cuerpo equivocado (Novela de intriga) comparte su orientación hacia el misterio con Criminales sin sombra (Salamandra Black), de Juan Carlos Galindo. La obra de Jorge Ortega incorpora además una clasificación histórica, mientras que el título de Juan Carlos Galindo remite expresamente al ámbito criminal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387928285"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4422c9c623275058",
+  "origen": "chatgpt-web"
+}

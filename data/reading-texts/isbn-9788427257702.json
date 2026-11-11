@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788427257702",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a quienes leen ciencia ficción, fantasía y relatos de supervivencia con elementos de aventura y terror. Por su combinación de géneros, se aleja de las historias centradas exclusivamente en relaciones románticas o conflictos cotidianos.",
+      "evidencias": [
+        "categorias",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición especial de Los Juegos del Hambre 5 - Amanecer en la cosecha (edición especial) se publica en tapa dura bajo el sello Molino. Reúne 496 páginas en castellano y tiene fecha de publicación del 5 de noviembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para esta edición de 496 páginas. Su encuadernación rígida resulta práctica para conservar el volumen en una estantería, prestarlo o regalarlo, aunque ocupa más espacio que una edición de bolsillo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una corte de alas y ruina: Edición limitada a precio especial (Colección Especial), de Sarah J. Maas, comparte con el libro de Suzanne Collins su vinculación con la fantasía. Los Juegos del Hambre 5 - Amanecer en la cosecha (edición especial) combina además ciencia ficción, aventuras y supervivencia, mientras que el título de Sarah J. Maas destaca por su presentación como edición limitada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328582"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "23415c84ee298c2e",
+  "origen": "chatgpt-web"
+}

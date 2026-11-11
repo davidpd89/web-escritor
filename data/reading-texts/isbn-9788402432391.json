@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Coco Wyo - Cosas de chicas (edición oficial en español) está pensado para quienes disfrutan coloreando escenas cotidianas y buscan una actividad manual de ocio. Aunque figura en el ámbito juvenil, sus dibujos se plantean para distintas edades. No responde a la búsqueda de una novela con personajes, argumento y desenlace, porque su contenido está destinado a colorear.",
+      "texto": "Coco Wyo - Cosas de chicas (edición oficial en español), de Coco Wyo, está dirigido a quienes buscan una actividad manual de coloreado con escenas cotidianas y ambientes tranquilos. Se clasifica como juvenil, aunque sus ilustraciones se presentan para distintas edades. No es una novela ni un libro pensado principalmente para seguir una historia escrita.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,44 +15,47 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Coco Wyo - Cosas de chicas (edición oficial en español) aparece clasificado como juvenil, pero sus ilustraciones para colorear se presentan como una actividad para todas las edades. Las páginas contienen escenas domésticas y momentos de descanso, como leer o tomar una bebida caliente. Su contenido se centra en actividades cotidianas y no en conflictos narrativos.",
+      "texto": "La clasificación de edad de Coco Wyo - Cosas de chicas (edición oficial en español) es juvenil, y sus ilustraciones para colorear se presentan como una actividad para todas las edades. El contenido muestra situaciones domésticas y momentos de descanso, como leer en la cama o tomar una bebida caliente. Su propuesta se centra en colorear escenas cotidianas, sin una trama de peligro o conflicto narrativo.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "encaje_documentado",
-      "texto": "Coco Wyo - Cosas de chicas (edición oficial en español) es un libro de ocio creativo, no una novela juvenil. Sus páginas reúnen dibujos en blanco y negro de situaciones domésticas que el lector completa mediante el color. La actividad consiste en intervenir directamente sobre las ilustraciones y elegir cómo representar cada escena.",
-      "evidencias": [
-        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
-      "modulo": "que_formato_elegir",
-      "texto": "Coco Wyo - Cosas de chicas (edición oficial en español) se presenta en tapa blanda, con 96 páginas destinadas a una actividad física de coloreado. La edición incorpora papel extra grueso pensado para reducir el traspaso del color a la otra cara. El formato impreso permite trabajar directamente sobre los dibujos y guardar el libro como colección de láminas coloreadas.",
+      "modulo": "encaje_documentado",
+      "texto": "Es un libro de actividades para colorear, no una narración de ficción. Coco Wyo - Cosas de chicas (edición oficial en español) reúne ilustraciones en blanco y negro de espacios acogedores y rutinas domésticas, con papel extra grueso pensado para limitar el traspaso del color. Sus 96 páginas están orientadas al ocio creativo y al descanso mediante una actividad manual.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es de tapa blanda, con 96 páginas destinadas a una actividad física de coloreado. Este formato permite trabajar directamente sobre las ilustraciones impresas, y el papel extra grueso está pensado para reducir el traspaso del color. Puede utilizarse en casa o llevarse junto con los materiales de dibujo.",
+      "evidencias": [
         "edicion",
         "numero_paginas",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Destroza este diario. Diversión EXTREMA, de Keri Smith, comparte con Coco Wyo - Cosas de chicas (edición oficial en español) la participación manual del lector, pero propone destruir y transformar páginas en vez de colorear escenas cotidianas. Citas conmigo misma, de Isa Muguruza, también se relaciona con el autocuidado y el tiempo personal, aunque organiza planes y experiencias en lugar de ofrecer ilustraciones para colorear.",
+      "texto": "Coco Wyo - Días bonitos: Momentos cozy & comfy para colorear (Bruguera Tendencias), también de Coco Wyo, comparte la propuesta de colorear escenas de ambiente acogedor. Coco Wyo - Cosas de chicas (edición oficial en español) concreta esa actividad en situaciones cotidianas protagonizadas por chicas y destaca el papel extra grueso. Frente a Aprende a leer con los Animolones 1 - Amigos nuevos: En letra MAYÚSCULA (libros para niños a partir de 5 años) (Jóvenes lectores), de Gemma Brie, aquí el objetivo es colorear, no practicar lectura inicial.",
       "evidencias": [
         "titulo",
+        "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788419434289",
-        "isbn-9788449346026"
+        "isbn-9788402432452",
+        "isbn-9791387949808"
       ]
     }
   ],

@@ -1,0 +1,66 @@
+{
+  "id": "isbn-9791388147012",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este estuche de Brandon Sanderson está dirigido a lectores de fantasía y aventuras que quieren reunir las cuatro obras de Wax & Wayne en una sola compra. Con 1952 páginas en conjunto, encaja menos con quien busca una novela breve, un volumen independiente o una lectura alejada de los elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Estuche Wax & Wayne reúne cuatro títulos de Brandon Sanderson: Aleación de ley, Sombras de identidad, Brazales de Duelo y El metal perdido. La propuesta se sitúa entre la fantasía, las aventuras y la ciencia ficción, con el duelo también presente en su clasificación temática. Es una lectura extensa distribuida entre varias obras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición limitada especial reúne cuatro obras en un estuche de tapa dura con cantos tintados. Penguin Bolsillo fija su publicación en castellano para el 19 de noviembre de 2026; el conjunto suma 1952 páginas y se identifica mediante el ISBN 9791388147012.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El formato de este estuche Wax & Wayne es la tapa dura, con cantos tintados y 1952 páginas repartidas entre las obras incluidas. Su principal utilidad es reunir los cuatro títulos en una misma presentación física, tanto para conservarlos juntos como para regalarlos. Por volumen total, está más orientado a una biblioteca doméstica que al transporte cotidiano.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El estuche Wax & Wayne puede compararse con Los fuegos de Diciembre, de Brandon Sanderson, porque ambas propuestas pertenecen al Cosmere y comparten autor. La diferencia está en su estructura: el estuche reúne cuatro obras, mientras que Los fuegos de Diciembre es una novela independiente. Para quien busca varias lecturas del mismo autor en una sola compra, el estuche ofrece Aleación de ley, Sombras de identidad, Brazales de Duelo y El metal perdido.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410466715"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b6e8c2c1c6236132",
+  "origen": "chatgpt-web"
+}

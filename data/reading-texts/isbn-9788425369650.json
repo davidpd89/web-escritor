@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un hombre de ley (Aristócratas de Londres 1) se dirige a lectores adultos de romance con diferencias sociales, atracción entre personalidades opuestas y protagonistas marcados por experiencias difíciles. La violencia familiar del pasado de Clara y el carácter intimidante de Rafe hacen que encaje menos con quienes buscan una relación sin traumas ni conflictos de poder.",
+      "texto": "Un hombre de ley (Aristócratas de Londres 1) se dirige a lectores adultos de romance que buscan relaciones entre personajes de posiciones sociales diferentes y con heridas emocionales previas. La violencia familiar del pasado de Clara introduce asuntos delicados que lo alejan de una comedia romántica centrada únicamente en el cortejo.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,37 +14,38 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela romántica que combina diferencias de posición social, heridas familiares y una relación nacida en el entorno escolar. Susie Tate enfrenta la reserva de Clara, una maestra con un pasado de violencia, con la autoridad de Rafe Sterling, un aristócrata que aspira a ser juez. El título la identifica como el n.º 1 de Aristócratas de Londres.",
+      "texto": "La novela plantea un romance contemporáneo entre Clara, una maestra marcada por una infancia violenta, y Rafe Sterling, un aristócrata vinculado al ámbito judicial. La relación comienza con un desacuerdo sobre la educación de un niño y evoluciona entre diferencias de posición económica, atracción y secretos personales. El título lo identifica como el n.º 1 de Aristócratas de Londres.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas permite tener las 344 páginas de Un hombre de ley (Aristócratas de Londres 1) en un ejemplar físico, adecuado para guardar o prestar. La versión Kindle evita transportar el volumen y permite leerlo desde dispositivos compatibles. La diferencia práctica es el soporte, no la temática romántica de la obra.",
+      "texto": "Un hombre de ley (Aristócratas de Londres 1) puede elegirse en tapa blanda o Kindle. La edición de Grijalbo cuenta con 344 páginas y solapas para lectura en papel; Kindle permite llevar la novela en el móvil o en un lector electrónico sin cargar con el volumen.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "numero_paginas",
         "formatos_disponibles",
-        "categorias"
+        "editorial",
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los finales perfectos no existen y Un hombre de ley (Aristócratas de Londres 1) presentan romances adultos atravesados por experiencias anteriores. La novela de Violeta Reed aborda un matrimonio pendiente de divorcio y utiliza el humor; la de Susie Tate desarrolla la atracción entre una maestra y un aristócrata, con el trauma familiar como parte del conflicto. Cambian tanto la relación inicial como el peso del pasado.",
+      "texto": "Fuera de pista (Corazones al límite 2) (Sin límites), de Sara Hernández, comparte con Un hombre de ley (Aristócratas de Londres 1) su pertenencia al romance y la identificación de una serie en el título. La novela de Susie Tate desarrolla una relación marcada por las diferencias sociales, los secretos familiares y la atracción entre una maestra y un aristócrata. Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, permite comparar otra propuesta romántica, identificada como shôjo, frente a la narrativa para adultos de Susie Tate.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
+        "categorias",
+        "edad_recomendada",
         "sinopsis_editorial",
-        "categorias"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425371745"
+        "isbn-9791387962494",
+        "isbn-9791388277009"
       ]
     }
   ],

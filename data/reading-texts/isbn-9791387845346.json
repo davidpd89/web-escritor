@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387845346",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El silencio en la lluvia (SUMA), de Mariela Martínez, está dirigido a lectores de misterio y thriller. Sus 440 páginas ofrecen una novela de extensión considerable, mientras que su clasificación temática lo sitúa fuera de quienes buscan principalmente fantasía, romance o literatura práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El silencio en la lluvia (SUMA), de Mariela Martínez, permite elegir entre 440 páginas en tapa blanda o la edición Kindle. El papel ofrece la lectura en un ejemplar físico; Kindle permite llevar el libro en un dispositivo electrónico y leerlo desde una pantalla.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "998fdebf222addf0",
+  "origen": "chatgpt-web"
+}

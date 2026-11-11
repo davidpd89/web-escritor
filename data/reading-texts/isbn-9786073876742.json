@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073876742",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Kopk poj: el aliento de la montaña / Kopk poj: The Breath of the Mountain encaja con lectores interesados en la narrativa contemporánea y las cuestiones familiares. Su clasificación también incluye familia y crianza, por lo que se aleja de los libros centrados exclusivamente en aventuras fantásticas o investigación histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Kopk poj: el aliento de la montaña / Kopk poj: The Breath of the Mountain es en tapa blanda y tiene 176 páginas. Su extensión relativamente breve facilita distribuir la lectura en pocas sesiones y la encuadernación flexible permite llevarlo en el bolso o la mochila. Está publicado en castellano por Penguin Random House Grupo Editorial.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dime, niña bonita (Narrativa), de Laura Galve, es una referencia cercana por su identificación con la narrativa. Kopk poj: el aliento de la montaña / Kopk poj: The Breath of the Mountain se distingue por incorporar expresamente familia y crianza entre sus temas. También puede compararse con Celestino antes del alba (Andanzas), de Reinaldo Arenas, aunque la relación temática entre ambas obras no queda establecida por sus títulos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411078535",
+        "isbn-9791387605964"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "53cd60133184190e",
+  "origen": "chatgpt-web"
+}

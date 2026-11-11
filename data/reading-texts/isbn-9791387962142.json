@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El guardaespaldas de Honeko Akabane 7 (Shônen) encaja con lectores de manga juvenil interesados en la acción, las conspiraciones criminales y las relaciones entre estudiantes. Su conflicto continúa después de una batalla y revela nuevas amenazas, por lo que resulta menos adecuado para quienes buscan una historia independiente o centrada únicamente en la vida escolar.",
+      "texto": "El guardaespaldas de Honeko Akabane 7 (Shônen) se dirige a lectores de cómic juvenil que buscan acción, aventuras y conflictos entre compañeros de clase. La presencia de organizaciones criminales y amenazas contra los protagonistas lo aleja de las historias escolares centradas únicamente en la amistad cotidiana.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,36 +13,34 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es un manga juvenil de aventuras que combina enfrentamientos contra organizaciones criminales con secretos dentro de un entorno estudiantil. El guardaespaldas de Honeko Akabane 7 (Shônen) sitúa el conflicto en las consecuencias de una batalla anterior, una amenaza familiar y las dudas sobre la identidad de un traidor. El título lo identifica como el n.º 7.",
+      "texto": "Es un cómic de aventuras juveniles que combina la protección de una estudiante con enfrentamientos contra grupos criminales. La trama incorpora secretos sobre la identidad de un traidor y una amenaza vinculada al clan Kodô, mientras Ibuki intenta proteger a Honeko Akabane.",
       "evidencias": [
-        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El guardaespaldas de Honeko Akabane 7 (Shônen) está disponible en tapa blanda con sobrecubierta, con 192 páginas en castellano. Esta edición física permite consultar las viñetas y volver a páginas anteriores sin depender de una pantalla; la sobrecubierta forma parte de la presentación del volumen.",
+      "texto": "El guardaespaldas de Honeko Akabane 7 (Shônen) está disponible en tapa blanda, con sobrecubierta y 192 páginas. Esta edición física permite conservar el volumen junto a otros ejemplares de la colección y consultar sus páginas sin depender de una pantalla.",
       "evidencias": [
         "titulo",
         "edicion",
         "numero_paginas",
-        "idioma",
-        "formatos_disponibles",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Barreras del corazón 10 (BL), de Mika, y El guardaespaldas de Honeko Akabane 7 (Shônen), de Masamitsu Nigatsu, comparten un contexto de estudiantes de secundaria. El primero presenta una excursión de fin de bachillerato, mientras que el segundo desarrolla amenazas criminales y un misterio sobre un traidor. Ambos títulos identifican entregas numeradas, pero plantean conflictos diferentes.",
+      "texto": "Aventura Total 7 - Blastofia (Primeras lecturas) comparte con El guardaespaldas de Honeko Akabane 7 (Shônen) el componente de aventura, pero se presenta como una propuesta de primeras lecturas. El cómic de Masamitsu Nigatsu se diferencia por su conflicto escolar, los grupos criminales y la misión de protección de sus protagonistas.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788419819840"
+        "isbn-9788448875008"
       ]
     }
   ],

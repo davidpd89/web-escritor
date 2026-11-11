@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388299421",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Animales que flotan lejos de casa: 43 (Leteo) encaja con lectores de poesía interesados también en la naturaleza. El libro de Nicolás Peña tiene 126 páginas y se aleja de las expectativas de quien busca una guía práctica sobre animales o un estudio científico del medio natural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 126 páginas de Animales que flotan lejos de casa: 43 (Leteo) en un volumen físico de extensión contenida. Esta edición de Eolas Ediciones, publicada en castellano, permite leer los poemas en papel y volver a ellos sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Animales que flotan lejos de casa: 43 (Leteo), de Nicolás Peña, puede compararse con Bestiario de lo frágil (Un pájaro de niebla), de Vanesa Pérez-Sauquillo, por la presencia de animales en sus títulos y su relación con la poesía. El primero incorpora la idea de distancia respecto al hogar; el segundo destaca la fragilidad. Son obras de distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387766320"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4e7fe1745fc1bc95",
+  "origen": "chatgpt-web"
+}

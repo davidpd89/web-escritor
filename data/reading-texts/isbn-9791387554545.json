@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387554545",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los Lagos del 83: Crónica informal de la mejor Vuelta a España de la historia: 06 (Silveria) se dirige a lectores interesados en el ciclismo y las crónicas deportivas. Su enfoque en una competición concreta encaja menos con quienes buscan instrucciones para practicar deporte o una historia general de distintas disciplinas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Los Lagos del 83: Crónica informal de la mejor Vuelta a España de la historia: 06 (Silveria) es de tapa blanda y tiene 256 páginas. Este formato permite transportar la crónica en una mochila y leerla por sesiones, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los Lagos del 83: Crónica informal de la mejor Vuelta a España de la historia: 06 (Silveria) y Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA) tratan intereses vinculados al tiempo libre, pero el primero se centra en una competición ciclista y el segundo en gastronomía. Frente a 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos), la diferencia es entre leer una crónica deportiva y realizar una actividad de coloreado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328384",
+        "isbn-9791387934293"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c2e269136ffeabbb",
+  "origen": "chatgpt-web"
+}

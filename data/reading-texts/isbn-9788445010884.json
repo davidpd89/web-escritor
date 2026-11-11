@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788445010884",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Guerra de la Reina Araña nº 04/06 Extinción: 4 (D&D Reinos Olvidados) se dirige a lectores de fantasía y aventuras que buscan una entrega numerada. El título la identifica como el n.º 4 dentro de una secuencia. Por su clasificación temática, se aleja de la narrativa realista y de los libros prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Guerra de la Reina Araña nº 04/06 Extinción: 4 (D&D Reinos Olvidados) está disponible en tapa blanda, con 352 páginas en castellano. La encuadernación flexible facilita manejar el ejemplar durante la lectura y colocarlo junto a otras entregas de la colección. Minotauro publica esta edición física.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche EL REY PASTOR (TAPA BLANDA) y La Guerra de la Reina Araña nº 04/06 Extinción: 4 (D&D Reinos Olvidados) permiten comparar un estuche con una entrega numerada de fantasía y aventuras. Rachel Gillig firma el primero, mientras que Lisa Smedman y R. A. Salvatore son los autores del segundo, publicado en tapa blanda con 352 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "formatos_disponibles",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388204319"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fe25e4201923dd08",
+  "origen": "chatgpt-web"
+}

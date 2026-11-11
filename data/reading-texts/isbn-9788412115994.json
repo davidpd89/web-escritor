@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788412115994",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La sort de trobar un trèvol, de Xavier Mollà i Revert, se dirige a lectores interesados en publicaciones de arte y diseño en castellano. Con 304 páginas, se diferencia de los libros breves de esta materia y de las novelas clasificadas como narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La sort de trobar un trèvol está editado en tapa blanda y tiene 304 páginas. Su extensión permite distribuir la lectura o consulta entre varias sesiones, con la flexibilidad de una cubierta blanda frente a una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La sort de trobar un trèvol comparte autoría y ámbito de arte y diseño con 720 retrats, de Xavier Mollà i Revert. La diferencia está en la extensión y la encuadernación: La sort de trobar un trèvol tiene 304 páginas en tapa blanda, mientras que 720 retrats se presenta como una publicación de mayor extensión en tapa dura. Ambos permiten acercarse a publicaciones del mismo autor con características físicas distintas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2127872de4da79fe",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788448874971",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Malvhadas 2. Muerte por sapo (Mi primer cómic), de Huw Aaron, se dirige a lectores que buscan fantasía, aventuras y humor en formato cómic. Sus 272 páginas y la denominación Mi primer cómic apuntan a una lectura gráfica, distinta de una novela de fantasía narrada únicamente mediante texto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Malvhadas 2. Muerte por sapo (Mi primer cómic) está disponible en tapa blanda, con 272 páginas en castellano. La edición de Beascoa permite seguir las aventuras y consultar las páginas ilustradas directamente en papel, sin necesidad de un lector digital.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Malvhadas 2. Muerte por sapo (Mi primer cómic) comparte fantasía y aventuras con Superdónuts 3 - El destino de los dónuts, de Neill Cameron. El libro de Huw Aaron incorpora humor y una referencia a un sapo, mientras que el de Neill Cameron plantea un viaje al futuro y un descubrimiento aterrador. Ambos títulos identifican entregas numeradas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448873479"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "38491f03d65152ca",
+  "origen": "chatgpt-web"
+}

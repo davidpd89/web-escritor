@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9791387597436",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aristóteles y los paraguas perdidos (VARIOS) encaja con lectores que prefieren el cómic y la novela gráfica frente a la narrativa presentada únicamente en texto. Matthew Dooley firma una obra de 224 páginas en castellano, una extensión que la diferencia de los volúmenes gráficos más largos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Aristóteles y los paraguas perdidos (VARIOS) cuenta con una edición en tapa dura de 224 páginas. Este formato ofrece una cubierta rígida para conservar el cómic en una estantería o entregarlo como regalo físico. Errata naturae publica el volumen en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cddd8716d26b8746",
+  "origen": "chatgpt-web"
+}

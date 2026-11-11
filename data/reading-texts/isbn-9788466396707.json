@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788466396707",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Moscú X (Best Seller | Ficción), de David McCloskey, se sitúa entre el thriller, el misterio y la narrativa relacionada con el poder político. Se orienta a lectores interesados en conflictos de carácter político y se aparta de las historias centradas exclusivamente en relaciones sentimentales o situaciones cotidianas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Moscú X (Best Seller | Ficción) está disponible en tapa blanda y Kindle, dos opciones para leer sus 560 páginas. La edición de bolsillo de Penguin Bolsillo permite conservarlo en papel, mientras que Kindle facilita llevar la novela en un lector electrónico o dispositivo compatible sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Moscú X (Best Seller | Ficción) puede compararse con El persa (Novela (Best Seller)) y Estación Damasco (Best Seller | Ficción), ambos de David McCloskey. Los tres comparten autoría y aparecen relacionados en el catálogo; Moscú X se identifica además con el misterio, la narrativa contemporánea y el poder político, mientras que los otros dos presentan títulos y ambientaciones nominales diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387928612",
+        "isbn-9788466395632"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "77ccfaa1f68108f1",
+  "origen": "chatgpt-web"
+}

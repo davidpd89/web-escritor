@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791387924577",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Olvidar la medianoche (Desafiando las estrellas 2) (Lo más visto), de Emily McIntire, está dirigido a lectores de romance que buscan una novela extensa sobre relaciones amorosas. Sus 528 páginas requieren más tiempo que una lectura breve y no responden a la búsqueda de una obra centrada en historia o divulgación; el título lo identifica como el n.º 2.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Olvidar la medianoche (Desafiando las estrellas 2) (Lo más visto) está disponible en tapa blanda, con 528 páginas en castellano. La edición de Montena permite leer una novela romántica extensa en papel, con una cubierta flexible que facilita llevarla en una bolsa, aunque su número de páginas añade volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amor en pole position (Dirty Air 3), de Lauren Asher, comparte el género romántico con Olvidar la medianoche (Desafiando las estrellas 2) (Lo más visto), de Emily McIntire. La novela de Lauren Asher sitúa el amor en el mundo de la Fórmula 1, mientras que la de Emily McIntire se identifica con Desafiando las estrellas y cuenta con 528 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "68f06514c838a3b0",
+  "origen": "chatgpt-web"
+}

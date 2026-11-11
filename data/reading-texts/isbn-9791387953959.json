@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791387953959",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Weapons, de Jun Miura, está clasificado como cómic y novela gráfica y se dirige a lectores que buscan publicaciones de ese ámbito. Con 466 páginas, corresponde a una lectura extensa frente a los álbumes breves; no pertenece a las clasificaciones editoriales de romance ni de ensayo histórico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Weapons se publica en tapa blanda, con 466 páginas en castellano y edición de Moztros Producciones SL. Este formato permite conservar el volumen físico y consultar sus páginas directamente en papel; la elección se centra en el ejemplar impreso, que reúne toda la extensión indicada para esta edición.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "baf84d78f1631abe",
+  "origen": "chatgpt-web"
+}

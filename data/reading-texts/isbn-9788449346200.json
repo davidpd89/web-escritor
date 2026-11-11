@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788449346200",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El yo y los mecanismos de defensa: Las estrategias inconscientes de nuestra mente (Esenciales de Psicología) está dirigido a quienes buscan una lectura sobre psicología y procesos mentales inconscientes. Su temática se distancia de los libros centrados exclusivamente en consejos sobre relaciones de pareja o relatos de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El yo y los mecanismos de defensa: Las estrategias inconscientes de nuestra mente (Esenciales de Psicología) es de tapa blanda y tiene 192 páginas. El volumen de Ediciones Paidós, publicado en castellano, permite subrayar conceptos y consultar apartados directamente sobre papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El yo y los mecanismos de defensa: Las estrategias inconscientes de nuestra mente (Esenciales de Psicología), de Anna Freud, y Conectados para el amor / Wired for Love, de Stan Tatkin, comparten su relación con la psicología. El primero aborda las estrategias inconscientes de la mente, mientras que el segundo se centra en el amor y las relaciones. Sus enfoques distinguen el estudio de los mecanismos de defensa del ámbito de la pareja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bcc61a95c5d09a9f",
+  "origen": "chatgpt-web"
+}

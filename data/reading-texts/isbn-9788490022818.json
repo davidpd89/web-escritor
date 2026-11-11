@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788490022818",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bajo la condición de forajido, de Francisco Castaño, se dirige a lectores interesados en poesía en castellano. Sus 76 páginas permiten abordar el volumen en sesiones breves; no responde a la búsqueda de una novela extensa con desarrollo narrativo continuado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bajo la condición de forajido se presenta en tapa blanda y reúne 76 páginas. Su extensión facilita llevar el ejemplar físico y alternar la lectura de sus páginas con otros libros, sin necesitar un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo la condición de forajido comparte el terreno poético con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. El segundo título señala expresamente una selección amorosa, mientras que el de Francisco Castaño remite a la condición de forajido. También puede contrastarse con Antología, de Antonio Cano, que reúne la obra completa de su autor, frente al volumen de 76 páginas de Bajo la condición de forajido.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288",
+        "isbn-9791370140908"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b0e1a4d397e6e915",
+  "origen": "chatgpt-web"
+}

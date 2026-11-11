@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788448874704",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Superthings. Actividades - La película. Libro de colorear (Altea) está dirigido al público infantil interesado en colorear y en los personajes de Superthings. Su propuesta de actividades manuales se diferencia de la lectura de un cuento narrativo y requiere participar sobre las páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Este libro se utiliza para realizar actividades de coloreado relacionadas con Superthings y su película. Sus 64 páginas ofrecen un soporte físico para pintar, por lo que conviene disponer de materiales de colorear y una superficie de apoyo. La actividad puede repartirse entre distintas sesiones.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formato_edicion",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Beascoa reúne 64 páginas destinadas a actividades y coloreado. El formato impreso permite intervenir directamente sobre el papel y conservar los dibujos terminados. Es una opción física para utilizar en casa o llevar a una sesión de actividades.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Superthings. Actividades - Pinta y pega. Libro de colorear con pegatinas: Colorea tus propias pegatinas de Superthings (Altea) comparte personajes y actividad de coloreado, pero incorpora pegatinas. Superthings - El libro de la película, también de Magicbox, se centra en la historia de Kai, Finn y Mia, mientras que este título propone una actividad sobre papel.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788448874698",
+        "isbn-9788448875343"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9aece804b31be3d5",
+  "origen": "chatgpt-web"
+}

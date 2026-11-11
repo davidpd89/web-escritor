@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410476608",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Habla como un hombre: 28 (Vidas), de Nacho Duato y Lupe Bohorques, se dirige a lectores interesados en biografías, memorias, ensayo y arte. Su clasificación temática lo distancia de las novelas de ficción y de los manuales técnicos centrados exclusivamente en la práctica artística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Habla como un hombre: 28 (Vidas) tiene una edición en tapa dura de 276 páginas, publicada por Pepitas de calabaza. La cubierta rígida ofrece mayor protección física para conservar el volumen, prestarlo o regalarlo, mientras que su extensión permite valorar el espacio que ocupará en la biblioteca.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Joaquín Sabina. Perdonen la tristeza. Edición tapa blanda (Música) comparte con Habla como un hombre: 28 (Vidas) el interés por figuras vinculadas a la creación artística, aunque se centra en el ámbito musical. Notas desde una isla: 62 (Tour de force), de Tove Jansson, ofrece otra referencia de autoría personal, frente al enfoque biográfico y ensayístico de Nacho Duato y Lupe Bohorques.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399173185",
+        "isbn-9788448050115"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2e1bccf6bd37845e",
+  "origen": "chatgpt-web"
+}

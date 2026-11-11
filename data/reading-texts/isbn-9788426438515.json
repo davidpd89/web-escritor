@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788426438515",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Alfred y Emily (Narrativa), de Doris Lessing, se dirige a quienes leen narrativa contemporánea vinculada a las biografías, las memorias y el ensayo. Por su clasificación editorial, queda fuera de una búsqueda centrada exclusivamente en poesía o narrativa de género fantástico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Alfred y Emily (Narrativa) está disponible en tapa blanda, con 328 páginas en castellano. Es una opción física para leer, conservar en la biblioteca o regalar, con una extensión que permite repartir la lectura en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alfred y Emily (Narrativa) puede compararse con El largo regreso de Josefina Carabias (Ensayo), de César Suárez, por su relación con la escritura biográfica y ensayística. También se aproxima a Martín Vigil, el amigo amable: Una memoria inconfesable (Obras diversas), de Miguel Fernández, por la dimensión memorialística. La diferencia está en la clasificación de Alfred y Emily (Narrativa), que también comprende narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426433282",
+        "isbn-9788401039898"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6772c923033f207c",
+  "origen": "chatgpt-web"
+}

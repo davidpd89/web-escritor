@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388444142",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores de historia española interesados en el final del Imperio español y en las figuras militares vinculadas al Desastre del 98. Su orientación histórica y biográfica lo aleja de quienes buscan una novela de ficción o una introducción general a otras épocas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La cuestión central es la interpretación del Desastre del 98 desde la perspectiva del Almirante Cervera. El enfoque anunciado vincula ese episodio con el final del Imperio español y sitúa a una figura histórica concreta como eje de la lectura.",
+      "evidencias": [
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 480 páginas en castellano, publicadas por Sekotia. Es una opción física para consultar y releer pasajes sobre el periodo histórico tratado, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puede compararse con Corona Nostra: De Felipe VI a Felipe V, de Nieves Concostrina, por su atención a la historia española. Mientras ese título anuncia un recorrido entre figuras de la monarquía, El Desastre del 98 y el fin del Imperio español: Visión inédita del Almirante Cervera (Biblioteca de Historia) delimita su asunto a una crisis imperial y a la perspectiva de un almirante.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944176"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f8fa388059160326",
+  "origen": "chatgpt-web"
+}

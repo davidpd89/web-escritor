@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791387975302",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores interesados en la narrativa contemporánea y en obras relacionadas con la historia y el siglo XX. Por esa orientación literaria, encaja menos con quien busca un manual práctico o una guía de consulta temática.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Nocilla dream. Edición definitiva (Hispánica) se presenta como edición definitiva dentro de la colección Hispánica de Alfaguara. Está publicada en castellano, tiene 216 páginas y utiliza encuadernación de tapa blanda, con fecha de publicación del 2026-11-05.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "idioma",
+        "numero_paginas",
+        "edicion",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para Nocilla dream. Edición definitiva (Hispánica), con 216 páginas en un volumen físico. Esta extensión permite llevarlo en el bolso o la mochila y leerlo en papel sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "titulo",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El fuego de Bandung (Hispánica) comparte con Nocilla dream. Edición definitiva (Hispánica) la identificación editorial Hispánica, aunque se trata de obras de Jordi Soler y Agustín Fernández Mallo, respectivamente. Anna Karénina (edición especial en tapa dura) (Ediciones Conmemorativas) ofrece otra referencia narrativa, pero su presentación en tapa dura contrasta con la edición definitiva en tapa blanda de Alfaguara.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "edicion",
+        "editorial",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788491058397",
+        "isbn-9791387846602"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ccc935ec4aa02e91",
+  "origen": "chatgpt-web"
+}

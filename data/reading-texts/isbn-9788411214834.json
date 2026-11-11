@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788411214834",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Secretos del ayurveda: Que cambiarán tu vida (Biblioteca de la salud) se orienta a lectores interesados en el bienestar, la nutrición y el desarrollo personal desde el ayurveda. Por sus temas, responde menos a quienes buscan exclusivamente recetas de cocina o un manual centrado en el rendimiento deportivo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Secretos del ayurveda: Que cambiarán tu vida (Biblioteca de la salud) cuenta con una edición en tapa blanda de 396 páginas. Su extensión permite dedicar distintas sesiones a los temas de salud, cocina y bienestar, mientras que la encuadernación flexible facilita manejarlo durante la consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Guía completa de Mudras: El secreto para sentirse bien en 3 minutos está en tus manos (No ficción) comparte con Secretos del ayurveda: Que cambiarán tu vida (Biblioteca de la salud) el interés por prácticas de bienestar, pero se centra en los mudras frente al enfoque ayurvédico de Isabel Bautista. Cuidarse no debería ser tan difícil: Una visión más humana de la alimentación y la salud ante la cultura de la optimización constante (Salud natural) aborda también el cuidado personal, con mayor énfasis en la alimentación y la presión por optimizar la salud.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388139604",
+        "isbn-9788411193900"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "847068bd94ba30e7",
+  "origen": "chatgpt-web"
+}

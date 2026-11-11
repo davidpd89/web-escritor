@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Universidad Sorrowsong 2. Daybreak encaja con lectores de romance contemporáneo que buscan una relación marcada por secretos, conflictos familiares y deseos de venganza. La ambientación universitaria y el componente de dark academia lo alejan de las historias románticas centradas únicamente en la convivencia cotidiana.",
+      "texto": "Universidad Sorrowsong 2. Daybreak encaja con lectores de romance juvenil que buscan relaciones marcadas por secretos, conflictos familiares y deseos de venganza. Su ambientación universitaria y el enfrentamiento entre los protagonistas lo alejan de las historias románticas centradas en relaciones sin grandes rivalidades.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,37 +13,37 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Universidad Sorrowsong 2. Daybreak combina romance y narrativa contemporánea en un entorno universitario de dark academia. Ophelia debe afrontar las consecuencias de su relación con Alex mientras intenta demostrar que no es responsable de un incendio; la historia se presenta como el desenlace de Nightshade.",
+      "texto": "Es una novela de romance con ambientación académica oscura y un conflicto entre el amor y la venganza. Autumn Woods sitúa a Ophelia y Alex ante las consecuencias de una relación atravesada por el enfrentamiento familiar y las sospechas sobre un incendio. La obra se presenta como el desenlace de Nightshade.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Universidad Sorrowsong 2. Daybreak está disponible en tapa blanda y Kindle. La edición de Crossbooks reúne 440 páginas en rústica con solapas, para quienes prefieren leer en papel; Kindle permite llevar la novela en un lector electrónico o en un dispositivo compatible sin transportar el volumen físico.",
+      "texto": "La tapa blanda permite leer las 440 páginas en una edición física con solapas de Crossbooks, adecuada para conservar junto a otros volúmenes de la serie. Kindle ofrece el mismo título en formato digital para leerlo en un dispositivo compatible o en el móvil, sin transportar el ejemplar impreso.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "numero_paginas",
         "edicion",
         "editorial",
-        "numero_paginas"
+        "formatos_disponibles",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Universidad Sorrowsong 2. Daybreak y Amor en pole position (Dirty Air 3) comparten el romance como eje narrativo, pero Autumn Woods sitúa el conflicto en una universidad y Lauren Asher en el mundo de la Fórmula 1. También se relaciona con Amor sin frenos (Dirty Air 4) por su función de cierre de una historia romántica, aunque sus respectivas ambientaciones son diferentes.",
+      "texto": "Nightshade (Universidad Sorrowsong, 1): Edición limitada a precio especial (Colección Especial) comparte autora y universo con Universidad Sorrowsong 2. Daybreak, pero corresponde a la entrega anterior. Estuche Universidad Sorrowsong: Nightshade + Daybreak (Ficción) reúne ambas obras, mientras que Daybreak se presenta como volumen individual centrado en el desenlace de la historia.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055674",
-        "isbn-9788427055803"
+        "isbn-9788408328018",
+        "isbn-9788408331681"
       ]
     }
   ],

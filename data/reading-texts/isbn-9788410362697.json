@@ -4,18 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Qué pasaría si el Doctor Doom dominara el Multiverso?, de Marvel, se dirige a lectores desde los 14 años interesados en la fantasía, las aventuras y la ciencia ficción. Su planteamiento gira alrededor del poder de Doctor Doom sobre el Multiverso, por lo que se aleja de las historias realistas y de los conflictos cotidianos.",
+      "texto": "¿Qué pasaría si el Doctor Doom dominara el Multiverso? se dirige a lectores juveniles desde los 14 años interesados en la fantasía, la ciencia ficción y las aventuras de Marvel. Su planteamiento sobre el dominio del Multiverso se aleja de las historias realistas y de las lecturas dirigidas a edades inferiores.",
       "evidencias": [
         "titulo",
         "autores",
         "edad_recomendada",
-        "categorias",
-        "sinopsis_editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "La edad recomendada para ¿Qué pasaría si el Doctor Doom dominara el Multiverso? es a partir de 14 años. La historia pertenece a la narrativa juvenil y plantea un escenario de dominio sobre el Multiverso, con elementos de fantasía, aventura y ciencia ficción. El conflicto central se relaciona con el poder de Doctor Doom y sus posibles consecuencias.",
+      "texto": "La edad recomendada para ¿Qué pasaría si el Doctor Doom dominara el Multiverso? es a partir de 14 años. La historia parte de una amenaza de dominio sobre el Multiverso y combina fantasía, aventuras y ciencia ficción, elementos que sitúan su conflicto en un contexto de enfrentamiento fantástico.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -25,28 +24,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¿Qué pasaría si el Doctor Doom dominara el Multiverso? está disponible en tapa blanda, concretamente en rústica con solapas. Sus 624 páginas forman un volumen extenso que puede resultar más cómodo para leer apoyado sobre una superficie que para sostenerlo durante mucho tiempo. Es una edición física en castellano publicada por Libros Disney.",
+      "texto": "La edición de ¿Qué pasaría si el Doctor Doom dominara el Multiverso? es de tapa blanda, en rústica con solapas. Sus 624 páginas forman un volumen extenso que puede transportarse sin la rigidez de una cubierta de cartoné, aunque su longitud influye en el peso y el espacio que ocupa.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "edicion",
-        "numero_paginas",
-        "editorial",
-        "idioma"
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¿Qué pasaría si el Doctor Doom dominara el Multiverso? comparte con Aunque se acabe el mundo el interés por escenarios extraordinarios que afectan a la realidad conocida. La obra de Marvel plantea el dominio del Multiverso, mientras que la de Clara Duarte parte de una transformación de la humanidad. Ambas se alejan del realismo, aunque presentan amenazas de naturaleza diferente.",
+      "texto": "Los Vengadores. Libroaventuras: Incluye un cuento, figuritas y un tapete comparte con ¿Qué pasaría si el Doctor Doom dominara el Multiverso? la autoría de Marvel. La diferencia es el formato de lectura: el primero incorpora figuritas y un tapete, mientras que el segundo ofrece 624 páginas de fantasía y ciencia ficción juvenil desde los 14 años.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
+        "numero_paginas",
         "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "edad_recomendada"
       ],
       "enlaces": [
-        "isbn-9788427255968"
+        "isbn-9788415343806"
       ]
     }
   ],

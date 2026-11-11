@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788448049287",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Entrena tu cerebro. Concentración: 200 ejercicios para mantener y mejorar la concentración (Pasatiempos) está dirigido a quienes buscan actividades de atención y concentración para su tiempo libre. Su planteamiento práctico encaja con lectores que prefieren resolver ejercicios en lugar de seguir una exposición teórica. No está orientado a quien busque una novela o un relato continuado.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "El volumen reúne 200 ejercicios destinados a mantener y mejorar la concentración. Sus 224 páginas presentan una propuesta de pasatiempos centrada en la práctica, que puede incorporarse a sesiones de actividad individual. El contenido se orienta al entrenamiento de la atención mediante ejercicios, no a desarrollar una historia de ficción.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Libros Cúpula está disponible en tapa blanda, con 224 páginas en castellano. Al tratarse de un libro de ejercicios, el papel permite tener las actividades delante y trabajar con el volumen abierto. Este formato físico también facilita consultar de nuevo las propuestas ya realizadas.",
+      "evidencias": [
+        "editorial",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Momentos Hygge: Un libro de actividades para pausar, respirar y disfrutar de lo simple (Salud y bienestar) comparte con Entrena tu cerebro. Concentración: 200 ejercicios para mantener y mejorar la concentración (Pasatiempos) la propuesta de realizar actividades individuales. El primero se centra en la pausa y el bienestar; el segundo, en ejercitar la concentración. Flores cuquis para colorear: Colorea flores delicadas y escenas encantadoras (Anti-stress coloring) ofrece otra actividad manual, basada en colorear en vez de resolver ejercicios de atención.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328797",
+        "isbn-9788448049904"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "23cdc0971c9a2147",
+  "origen": "chatgpt-web"
+}

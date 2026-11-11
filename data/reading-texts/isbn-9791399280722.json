@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399280722",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sobre la charlatanería de los eruditos (Grandes Clásicos) se dirige a lectores de ensayo y filosofía interesados en reflexionar sobre la erudición y los conocimientos académicos. Por su clasificación temática, encaja menos con quien busca una novela de ficción, una biografía o una lectura centrada en acontecimientos narrativos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sobre la charlatanería de los eruditos (Grandes Clásicos) se publica en tapa blanda, con 208 páginas en castellano. Esta edición permite leer el ensayo en papel, subrayar pasajes y conservar el volumen como parte de una biblioteca de filosofía, sin depender de un dispositivo digital.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antes de perder el juicio comparte con Sobre la charlatanería de los eruditos (Grandes Clásicos) el interés por examinar críticamente las ideas, aunque Mauricio García Villegas aborda la verdad, la propaganda y las cámaras de eco. Cartas a Lucilio: Edición íntegra (Clásicos) también pertenece al ámbito filosófico, pero adopta la forma de cartas de Séneca, frente al ensayo de Johann Burckhardt Mencke sobre la erudición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388387302",
+        "isbn-9791388182495"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a15b696b5c42151f",
+  "origen": "chatgpt-web"
+}

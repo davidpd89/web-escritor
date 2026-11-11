@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788423370870",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La pieza invisible (Serie César Giralt, 1) (Crimen y misterio) se dirige a lectores de misterio y thriller que buscan una novela de 448 páginas. Por su orientación hacia el crimen y el misterio, encaja menos con quienes prefieren historias ajenas a estos géneros.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La pieza invisible (Serie César Giralt, 1) (Crimen y misterio) está disponible en tapa blanda, en una edición de bolsillo de Booket. Sus 448 páginas se presentan en un volumen físico que puede transportarse y consultarse sin depender de dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La pieza invisible (Serie César Giralt, 1) (Crimen y misterio) puede compararse con Donde lloran los demonios (Serie César Giralt, 2) (Crimen y misterio). Ambas obras son de Pedro Martí y pertenecen a la misma serie de crimen y misterio; sus títulos identifican la primera como n.º 1 y la segunda como n.º 2, lo que permite distinguir su posición dentro de la colección.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370894"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "46f150c22ac1dfca",
+  "origen": "chatgpt-web"
+}

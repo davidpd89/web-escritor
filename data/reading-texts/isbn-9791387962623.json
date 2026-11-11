@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387962623",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de manga de aventuras y narrativa contemporánea que buscan una entrega identificada dentro de una serie. Wind Breaker 17 (Shônen), de Satoru Nii, tiene 192 páginas; no responde a la búsqueda de una novela convencional en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Distrito Manga reúne las 192 páginas de Wind Breaker 17 (Shônen) en un volumen físico. Es una edición en castellano que permite leer y consultar las viñetas directamente sobre papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Wind Breaker 16 (Shônen), de Satoru Nii, comparte serie y autoría con Wind Breaker 17 (Shônen), pero el título identifica este último como el n.º 17 frente al n.º 16 del anterior. Wind Breaker 1 (Distrito Manga), también de Satoru Nii, lleva el n.º 1 en el título y permite distinguir otra entrega de la misma serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419819635",
+        "isbn-9791387962043"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cccae7d803e53204",
+  "origen": "chatgpt-web"
+}

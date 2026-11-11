@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408328322",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un sitio donde ser salvajes (No Ficción) se dirige a quienes leen biografías, memorias y libros relacionados con el arte. La obra de Coque Malla y Macarena Cabo se aleja de la narrativa de ficción y de los manuales prácticos sobre técnicas artísticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 280 páginas de Un sitio donde ser salvajes (No Ficción) en una edición física de Editorial Planeta. Kindle ofrece la alternativa digital para leer en un dispositivo compatible, sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un sitio donde ser salvajes (No Ficción) puede compararse con Desde que era un crío, de Locus, por su relación con las experiencias personales y el ámbito artístico. También se aproxima a Habla como un hombre: 28 (Vidas), de Nacho Duato y Lupe Bohorques, desde el terreno biográfico, aunque cambia la autoría y el protagonista de la obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399084894",
+        "isbn-9788410476608"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "59759156be466ecd",
+  "origen": "chatgpt-web"
+}

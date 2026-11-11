@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788449346118",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El arte de tener la razón (El arte de...) se dirige a lectores interesados en filosofía, psicología y desarrollo personal. Es una obra de Arthur Schopenhauer de 176 páginas, menos orientada a quienes buscan una novela de ficción que a quienes prefieren textos de reflexión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura ofrece una edición física de 176 páginas, apropiada para conservar en una biblioteca o regalar. Kindle permite consultar El arte de tener la razón (El arte de...) en un dispositivo electrónico sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de tener la razón (El arte de...) y La cara B del amor: Más allá de las dificultades (Contextos) se relacionan por su interés en la psicología, aunque el primero se sitúa también en la filosofía y el segundo aborda las dificultades del amor. Arthur Schopenhauer firma una obra de 176 páginas centrada editorialmente en filosofía y desarrollo personal, frente al enfoque sobre las relaciones afectivas del libro de Gabriel Rolón.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449346224"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f5b1faffa26b73fc",
+  "origen": "chatgpt-web"
+}

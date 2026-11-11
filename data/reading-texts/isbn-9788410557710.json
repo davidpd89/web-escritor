@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410557710",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La vida según Joselito: 14 (Policán), de Dav Pilkey, se dirige al público infantil y juvenil que disfruta del cómic y el humor. Sus 224 páginas pertenecen a una propuesta gráfica, por lo que encaja menos con lectores que buscan narrativa adulta sin elementos de cómic.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La vida según Joselito: 14 (Policán) está editado en tapa dura y tiene 224 páginas. La encuadernación rígida protege el volumen durante las lecturas repetidas y facilita conservarlo junto a otros libros de cómic infantil y juvenil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La vida según Joselito: 14 (Policán) comparte el humor infantil con Dónde están los calzoncillos de Papá Noel: Un cuento de Navidad interactivo y lleno de humor. ¡Encuentra los calzoncillos de Papá Noel! Para niños y niñas a partir de 3 años., de Becky Davies. El libro de Dav Pilkey pertenece al cómic y tiene 224 páginas, mientras que el de Becky Davies propone una búsqueda interactiva ambientada en Navidad para lectores desde los 3 años.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387948221"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a1cdba04940accb2",
+  "origen": "chatgpt-web"
+}

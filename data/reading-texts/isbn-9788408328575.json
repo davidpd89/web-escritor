@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788408328575",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está destinado a lectores de novela romántica que buscan una obra de Megan Maxwell en edición especial. Ande, ande, ande, la Mari Morena. Edición especial con cantos decorados (Colección Especial) tiene 544 páginas y se aparta de los ensayos y de la narrativa ajena al romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición especial de Ande, ande, ande, la Mari Morena se distingue por sus cantos decorados y su encuadernación en tapa dura. Booket la publica el 18 de noviembre de 2026 con 544 páginas en castellano y el ISBN 9788408328575.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura conserva la presentación con cantos decorados de esta edición especial de Ande, ande, ande, la Mari Morena. Sus 544 páginas forman un volumen físico pensado para guardarse en una colección de novelas románticas o regalarse, aunque su extensión lo hace menos cómodo para transportarlo a diario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tampoco pido tanto: Edición limitada a precio especial (Colección Especial) comparte con Ande, ande, ande, la Mari Morena. Edición especial con cantos decorados (Colección Especial) la autoría de Megan Maxwell y su pertenencia a una colección especial. La segunda se distingue por los cantos decorados y la tapa dura, mientras que la primera se identifica como edición limitada a precio especial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331599"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2cafa2a67c558327",
+  "origen": "chatgpt-web"
+}

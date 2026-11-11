@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788419913982",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El caballero Nacho y el príncipe feliz (Fora de col·lecció) pertenece a la fantasía infantil y se relaciona con la amistad. Se orienta hacia lectores que buscan historias de ese ámbito, más que hacia quienes prefieren novelas adultas de ciencia ficción o textos especializados sobre bienestar.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El caballero Nacho y el príncipe feliz (Fora de col·lecció) está disponible en tapa blanda y consta de 48 páginas. La edición en castellano de Andana Editorial reúne la obra en un volumen de cubierta flexible, adecuado para llevarlo en una mochila o guardarlo junto a otros libros infantiles.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El caballero Nacho y el príncipe feliz (Fora de col·lecció) comparte la fantasía y la amistad con Las aventuras navideñas de los Mimosaurios: Tres cuentos llenos de magia, amistad y espíritu navideño. La obra de Rafa Soler presenta un caballero y un príncipe desde el título, mientras que la de Laura Naiara Aldana Ramaker reúne tres cuentos relacionados con las celebraciones navideñas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409926671"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dff2f212f89658e8",
+  "origen": "chatgpt-web"
+}

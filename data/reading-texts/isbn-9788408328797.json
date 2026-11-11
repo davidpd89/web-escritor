@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788408328797",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Flores cuquis para colorear: Colorea flores delicadas y escenas encantadoras (Anti-stress coloring) encaja con quienes prefieren actividades manuales centradas en motivos florales. Su planteamiento de ocio y relajación mediante el coloreado se aleja de los libros de ejercicios mentales o de las guías de desarrollo personal basadas en texto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Flores cuquis para colorear: Colorea flores delicadas y escenas encantadoras (Anti-stress coloring) se presenta en tapa blanda, con 96 páginas. Este formato permite colorear directamente las escenas florales, interrumpir la actividad y retomarla sobre el mismo ejemplar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Flores cuquis para colorear: Colorea flores delicadas y escenas encantadoras (Anti-stress coloring) comparte con Momentos Hygge: Un libro de actividades para pausar, respirar y disfrutar de lo simple (Salud y bienestar) el enfoque de ocio pausado. El primero concreta la actividad en colorear flores y escenas, mientras que el segundo plantea distintas actividades relacionadas con el bienestar cotidiano.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049904"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "665d6a0caf560eea",
+  "origen": "chatgpt-web"
+}

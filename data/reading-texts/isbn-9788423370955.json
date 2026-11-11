@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788423370955",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de ensayo, memorias e historia interesados en textos relacionados con el siglo XX. Un infarto de miocardio: Sergi Pàmies (Destino Clásicos), de Josep Pla, tiene 128 páginas y se aleja de las expectativas de quien busca una novela de aventuras o una ficción de misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 128 páginas en castellano, una extensión que facilita llevar el volumen en el bolso o la mochila. Su presentación física permite consultar y releer pasajes sin depender de un dispositivo electrónico. Está publicada por Ediciones Destino.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d3963f230b4a7566",
+  "origen": "chatgpt-web"
+}

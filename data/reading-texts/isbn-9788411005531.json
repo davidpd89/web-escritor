@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788411005531",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mitos de la geografía: 8 maneras de malinterpretar el mundo (PENINSULA) se dirige a lectores de ensayo interesados en la geografía y su relación con la interpretación del mundo. Su enfoque también conecta con la historia y la política, pero se aparta de las lecturas centradas en la ficción o en el entretenimiento narrativo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mitos de la geografía: 8 maneras de malinterpretar el mundo (PENINSULA) está disponible en tapa blanda, con 344 páginas en castellano. La edición de Ediciones Península reúne en un volumen físico el planteamiento sobre las 8 maneras de interpretar erróneamente el mundo, adecuado para consultar y releer sus distintos aspectos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mitos de la geografía: 8 maneras de malinterpretar el mundo (PENINSULA) y Los pilares de la historia comparten el interés por comprender cómo se interpreta el mundo. Paul Richardson aborda esa cuestión desde los errores asociados a la geografía, mientras que Javier Fernández Sebastián plantea la capacidad explicativa de la historia ante un mundo en crisis.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430629664"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6bc455acbc23c435",
+  "origen": "chatgpt-web"
+}

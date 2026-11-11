@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788408331223",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La prueba del cielo (Autoayuda y superación) se dirige a lectores interesados en el desarrollo personal, la espiritualidad y las cuestiones relacionadas con el duelo. Por su orientación hacia la autoayuda y la religión, se aparta de las lecturas centradas exclusivamente en técnicas de bienestar físico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 272 páginas de La prueba del cielo (Autoayuda y superación) en un volumen físico que puede conservarse y regalarse. La edición Kindle permite consultar el mismo título desde un lector electrónico o una aplicación de lectura, sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La prueba del cielo (Autoayuda y superación) comparte con Duelo el interés por experiencias relacionadas con la pérdida y su interpretación personal. La diferencia está en el enfoque: el libro de Eben Alexander se sitúa también en la espiritualidad y la autoayuda, mientras que el de Michael Cholbi aborda el duelo desde la filosofía de las emociones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449344626"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7dec6afdbf3c4be9",
+  "origen": "chatgpt-web"
+}

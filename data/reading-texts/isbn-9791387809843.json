@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387809843",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aprender a leer en la Escuela de Monstruos 26 - Nevada disparatada: En letra MAYÚSCULA (libros para niños a partir de 5 años) está dirigido a niños desde los 5 años que comienzan a leer. Sus 48 páginas y el uso de mayúsculas responden a esa etapa de aprendizaje, mientras que su planteamiento se aleja de las novelas juveniles de mayor extensión.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Aprender a leer en la Escuela de Monstruos 26 - Nevada disparatada: En letra MAYÚSCULA (libros para niños a partir de 5 años) puede leerse en tapa blanda o Kindle. La edición impresa de 48 páginas permite manejar un libro físico durante las primeras lecturas; Kindle ofrece una alternativa digital para llevarlo en un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico y Aprender a leer en la Escuela de Monstruos 26 - Nevada disparatada: En letra MAYÚSCULA (libros para niños a partir de 5 años) pertenecen a la colección de Sally Rippin. El primero presenta una Casa del Terror ideada por Tato, mientras que el segundo se identifica por su temática de nevada y su escritura en mayúsculas. Ambos mantienen la orientación hacia lectores infantiles, con situaciones distintas dentro de la misma colección.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387809829",
+        "isbn-9791388417580",
+        "isbn-9791387924188"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dff2b413fffdd6bb",
+  "origen": "chatgpt-web"
+}

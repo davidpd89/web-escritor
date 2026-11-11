@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788441445086",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diatribas. 31 lecciones estoicas sobre la vida (Biblioteca Edaf), de Epicteto, se dirige a lectores interesados en la filosofía estoica y en textos de reflexión sobre la vida. Sus 160 páginas ofrecen una extensión acotada para abordar esta materia; no responde a la búsqueda de una novela de ficción ni de una guía centrada en ejercicios prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Diatribas. 31 lecciones estoicas sobre la vida (Biblioteca Edaf) está disponible en tapa blanda, con 160 páginas en castellano. Esta edición de Editorial Edaf permite consultar las lecciones en papel, marcar pasajes y regresar a ellos durante la lectura, sin el peso habitual de un volumen extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diatribas. 31 lecciones estoicas sobre la vida (Biblioteca Edaf) puede compararse con Epicuro (Biblioteca Clásica Gredos) por su vinculación con la filosofía clásica. La diferencia está en la autoría y la corriente filosófica: Epicteto aborda el estoicismo, mientras que Epicuro remite a otra tradición. El código bushido: La filosofía de los samuráis / Edición comentada por Marcos Cartagena comparte el interés por las ideas que orientan la conducta, pero desde la tradición samurái.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388080968",
+        "isbn-9791387896508"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "04d85f465aef8a30",
+  "origen": "chatgpt-web"
+}

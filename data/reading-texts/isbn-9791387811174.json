@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387811174",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Miseria (Conrad), de María Zabay, se sitúa entre el misterio, las aventuras y la narrativa contemporánea. Puede encajar con lectores que buscan ficción relacionada con esas vertientes, mientras que quienes prefieren ensayos o relatos centrados únicamente en asuntos cotidianos encontrarán aquí una orientación distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Miseria (Conrad) se publica en tapa blanda, con 264 páginas en castellano. Su extensión permite organizar la lectura en varias sesiones y el formato facilita llevar el ejemplar en una bolsa o mochila, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Miseria (Conrad) y La caza del ejecutor: Edición limitada a precio especial (Colección Especial) comparten su vinculación con el misterio. La obra de María Zabay combina ese ámbito con narrativa contemporánea y aventuras, mientras que la de Vicente Vallés plantea desde su título una persecución como elemento diferenciador.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084382"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "709a7bff57e06ff2",
+  "origen": "chatgpt-web"
+}

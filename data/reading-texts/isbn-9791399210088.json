@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399210088",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación se dirige a lectores interesados en la espiritualidad y en el estudio del Dharma. Por su planteamiento de fundamentos y práctica, se distancia de quienes buscan una novela de ficción o una lectura centrada exclusivamente en experiencias autobiográficas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación cuenta con una edición en tapa dura de 482 páginas. El formato resulta adecuado para mantener el volumen en una biblioteca personal y volver a consultar sus contenidos sobre fundamentos y práctica espiritual.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación y Astrología, filosofía y magia: Un camino de práctica espiritual comparten el interés por la espiritualidad. Tsondru Yeshe centra su obra en los fundamentos y la práctica del Dharma, mientras Soledad Davies aborda la astrología, la filosofía y la magia como vías de práctica espiritual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b6e5a24acf0abdc4",
+  "origen": "chatgpt-web"
+}

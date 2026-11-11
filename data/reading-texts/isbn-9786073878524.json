@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9786073878524",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuentos de Terror / Horror Stories, de H P Lovecraft, se dirige a quienes buscan relatos de terror vinculados a la literatura clásica. Sus 512 páginas reúnen una lectura extensa en forma de cuentos, diferente de una novela de argumento único; encaja menos con lectores que prefieren el humor o el romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuentos de Terror / Horror Stories cuenta con una edición en tapa blanda de 512 páginas, publicada por Penguin Clásicos. El volumen permite tener los relatos reunidos en un solo libro físico y alternar sesiones de lectura, aunque su extensión exige reservar espacio al llevarlo fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche Abismo Lovecraft (Minotauro Ilustrados) es una lectura afín a Cuentos de Terror / Horror Stories por la presencia de Lovecraft en ambas obras. La diferencia está en la presentación anunciada: el primero es un estuche ilustrado asociado también a Tomás Hijo, mientras que el libro de H P Lovecraft reúne cuentos de terror en tapa blanda. Son dos maneras distintas de acercarse a obras vinculadas al mismo autor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788445022856"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "70cfd0689161cb0a",
+  "origen": "chatgpt-web"
+}

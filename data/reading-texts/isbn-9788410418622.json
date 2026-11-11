@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788410418622",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Código genio: Expediente lógica | Pasatiempos infantiles +10 años | Retos matemáticos para pensar como un detective. está dirigido a lectores de más de 10 años interesados en los pasatiempos de lógica y los retos matemáticos. Su planteamiento de actividades para resolver encaja menos con quien busca una narración de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 80 páginas de pasatiempos infantiles y retos matemáticos. Es un formato físico que permite consultar los ejercicios y volver a ellos sobre papel, tanto en casa como durante los desplazamientos.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Código genio: Expediente lógica | Pasatiempos infantiles +10 años | Retos matemáticos para pensar como un detective. comparte público infantil con Aprende a contar animales, de Susaeta Ediciones, pero aborda retos de lógica en lugar de enseñar a contar del 1 al 10. Frente a Animales, también de Susaeta Ediciones, sustituye los seis cuentos ilustrados por actividades matemáticas.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370341589",
+        "isbn-9791370341176"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "afc9567547a6c6f6",
+  "origen": "chatgpt-web"
+}

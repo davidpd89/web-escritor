@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788425376917",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los descubrimientos de Jesús: 10 descubrimientos históricos que nos acercan cara a cara con Jesús (Crecimiento personal) se dirige a lectores interesados en la figura de Jesús desde una perspectiva histórica y religiosa. Su planteamiento, organizado alrededor de diez descubrimientos, se aleja de las guías de bienestar centradas en hábitos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Los descubrimientos de Jesús: 10 descubrimientos históricos que nos acercan cara a cara con Jesús (Crecimiento personal) se presenta en tapa blanda, con 224 páginas. Este formato permite consultar y señalar pasajes durante la lectura, además de transportar el volumen sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El diario íntimo del papa Francisco (Biografías y Memorias) comparte con Los descubrimientos de Jesús: 10 descubrimientos históricos que nos acercan cara a cara con Jesús (Crecimiento personal) el interés por figuras vinculadas al cristianismo, aunque aborda otro protagonista. Cara a cara con el demonio: Una historia real de posesión y liberación también trata cuestiones religiosas, pero se centra en una experiencia de posesión y liberación, frente a los diez descubrimientos históricos que estructuran la obra de Jeremiah J. Johnston.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388406331",
+        "isbn-9791388522017"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eae9cf865dc46f5f",
+  "origen": "chatgpt-web"
+}

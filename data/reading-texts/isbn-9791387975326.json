@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791387975326",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El dilema (Hispánica) se dirige a lectores adultos interesados en la narrativa contemporánea y en las novelas de Rodrigo Muñoz Avia. Sus 256 páginas corresponden a una obra narrativa, por lo que no responde a quien busca ensayo, poesía o una lectura de carácter divulgativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 256 páginas y ofrece un volumen físico de Alfaguara para leer en papel. Es la opción disponible para quien prefiere pasar las páginas y conservar el libro en su biblioteca.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ec2ded34d029f58c",
+  "origen": "chatgpt-web"
+}

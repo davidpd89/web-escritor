@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788410646971",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de misterio y thriller psicológico interesados en conflictos judiciales protagonizados por mujeres. La historia de Terry Lynn Thomas plantea la defensa de una abogada que debe demostrar su inocencia; su enfoque se aleja de las novelas sin investigación, sospechas ni tensión psicológica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, con 288 páginas en castellano. Publicada por Harper+, permite leer la historia en un volumen físico de extensión delimitada, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las mujeres de New Jersey (THRILLER Y MISTERIO) comparte con esta obra el terreno del thriller y la presencia de mujeres en su planteamiento. La diferencia identificable está en que Terry Lynn Thomas sitúa el conflicto en la defensa de la inocencia de una abogada, mientras que Astrid Dahl presenta su obra bajo un título centrado en un grupo de mujeres.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9791387595715"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "73c81a68e53f58fd",
+  "origen": "chatgpt-web"
+}

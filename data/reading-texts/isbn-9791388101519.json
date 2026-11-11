@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388101519",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sacamantecas (Novela gráfica) encaja con lectores interesados en el misterio narrado mediante imágenes y texto. Su clasificación combina thriller y novela gráfica, por lo que responde menos a quienes buscan una investigación desarrollada exclusivamente en prosa o una lectura centrada en el humor.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Sacamantecas (Novela gráfica) reúne sus 144 páginas en un volumen físico de cubierta rígida, adecuado para conservarlo en una biblioteca o entregarlo como regalo. Kindle permite leer la obra digitalmente y evita ocupar espacio con el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anna en la cueva: Anna Dédalus detective: 4 comparte con Sacamantecas (Novela gráfica) el terreno del misterio en formato gráfico, aunque está firmada por Miguel Ángel Giner Bou y su título remite a una serie detectivesca. Estuche El nombre de la rosa (novela gráfica, vols. 1 y 2) (Lumen Gráfica) también combina narración gráfica y misterio, pero reúne dos volúmenes y lleva las firmas de Umberto Eco y Milo Manara.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419605528",
+        "isbn-9788426438072"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "56315f7233c9a408",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788408331025",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vértigos (MatchStories Ficción) se dirige a lectores de narrativa romántica interesados en el amor, las relaciones de pareja y la amistad. La obra de Raquel Pérez Sierra tiene 344 páginas e incorpora también el arte entre sus ámbitos temáticos, por lo que se distancia de las lecturas centradas exclusivamente en la aventura o la fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vértigos (MatchStories Ficción) está editado en tapa blanda por Esencia, con 344 páginas en castellano. Su extensión permite organizar la lectura en varias sesiones y el formato físico facilita conservar el ejemplar o prestarlo a otros lectores de narrativa romántica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Vértigos (MatchStories Ficción) puede compararse con Si decides quedarte / If You Decide to Stay dentro de una selección de narrativa vinculada a las relaciones personales. La primera obra es de Raquel Pérez Sierra y se relaciona con el romance, la amistad y el arte; la segunda está firmada por Samara Cadenas y presenta una referencia a la permanencia en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073878241"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ce96684f8372ab04",
+  "origen": "chatgpt-web"
+}

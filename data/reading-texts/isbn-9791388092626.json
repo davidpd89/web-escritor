@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388092626",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los límites al Estado del bienestar: ¿Puede el estado del bienestar sobrevivir al siglo XXI? (Economía) se orienta a lectores interesados en la economía pública y la continuidad de los sistemas de bienestar. No se plantea como una novela ni como una guía práctica de ahorro doméstico, sino como una obra centrada en una cuestión económica y social.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Debate presenta el libro en tapa blanda, con 224 páginas de extensión. Esta edición permite leerlo y consultar sus argumentos en papel, además de transportarlo sin el volumen propio de una encuadernación rígida.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparte el interés por la organización económica y política, pero aborda el pensamiento anarcocapitalista en lugar de la supervivencia del Estado del bienestar. Cariño, ¿y este recibo? trata decisiones económicas de pareja, frente al alcance colectivo de la cuestión planteada por Marcos Eguiguren.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457",
+        "isbn-9788402431332"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "988091e6ff25bf25",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9788419981455",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Romeo y Julieta: Amantes con mala estrella (Salamandra Graphic) se orienta a lectores de romance interesados en una obra identificada con la línea Salamandra Graphic. Su planteamiento editorial se aleja de las lecturas centradas en el misterio o la divulgación histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Romeo y Julieta: Amantes con mala estrella (Salamandra Graphic) se presenta en tapa dura y reúne 160 páginas en castellano. La encuadernación rígida resulta práctica para conservar el volumen en una estantería o entregarlo como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7e5b556bd3ab8f64",
+  "origen": "chatgpt-web"
+}

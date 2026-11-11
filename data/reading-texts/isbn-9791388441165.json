@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388441165",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de cómic y novela gráfica que buscan continuar con «Las crónicas de nyur nyur». El título lo identifica como el vol. 2 y acredita la participación de Pau Castanyer y Pau Arévalo; no es una novela convencional en prosa ni un ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne sus 184 páginas en una edición física publicada por Plan B Publicaciones, S.l. Es una presentación que permite conservar el volumen junto a otros ejemplares de la colección y volver a consultar sus páginas en papel. Es el formato disponible de esta edición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6e6c49a50aa353cb",
+  "origen": "chatgpt-web"
+}

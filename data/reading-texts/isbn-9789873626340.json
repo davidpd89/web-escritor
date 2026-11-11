@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9789873626340",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Persuasiva y poética (DARK ROMANCE), de Pamela Stupia, se orienta a lectores de romance, con la referencia DARK ROMANCE incorporada al título. Sus 360 páginas corresponden a una novela de extensión intermedia; por su identificación romántica, no se dirige a quienes buscan exclusivamente misterio o narrativa histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Persuasiva y poética (DARK ROMANCE) cuenta con una edición en tapa blanda de 360 páginas, publicada por Sombras. El formato permite leer la obra completa en papel y guardarla en una biblioteca personal; el texto está editado en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0cd604fa538c0935",
+  "origen": "chatgpt-web"
+}

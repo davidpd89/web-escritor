@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388092077",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Partido por tres: El centro derecha, de la ruptura a la reconstrucción (Política), de Javier Zarzalejos, se dirige a lectores de ensayo político interesados en la evolución del centro derecha. Su enfoque sobre ruptura y reconstrucción encaja con el análisis de procesos políticos, no con quienes buscan ficción narrativa o una guía práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Partido por tres: El centro derecha, de la ruptura a la reconstrucción (Política) está editado en tapa blanda y tiene 264 páginas en castellano. La edición impresa permite subrayar argumentos y consultar pasajes durante la lectura; su extensión delimita un volumen de ensayo que puede transportarse para leer fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, comparte con Partido por tres: El centro derecha, de la ruptura a la reconstrucción (Política) el interés por las ideas políticas. El primero se centra en los fundamentos del anarcocapitalismo, mientras que Javier Zarzalejos aborda la ruptura y reconstrucción del centro derecha.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0b1183c0d8cb53b7",
+  "origen": "chatgpt-web"
+}

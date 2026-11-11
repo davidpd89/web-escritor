@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cinco cuentos se dirige a lectores a partir de 4 años interesados en relatos ilustrados, humor y situaciones protagonizadas por distintos personajes. Su combinación de álbum ilustrado y cómic también permite una lectura compartida; encaja menos con quienes buscan una única aventura extensa y continuada.",
+      "texto": "Cinco cuentos está dirigido a lectores a partir de 4 años y a quienes disfrutan de historias ilustradas con recursos del cómic. Sus relatos de humor y observación cotidiana encajan menos con quienes buscan una novela juvenil extensa o una narración exclusivamente textual.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,40 +14,35 @@
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Cinco cuentos está recomendado a partir de 4 años y reúne 152 páginas en castellano, publicadas en tapa dura por Salamandra. Contiene cinco relatos de Posy Simmonds creados entre 1987 y 2004, además de material original e introducciones de la autora. Su presentación combina recursos del álbum ilustrado y del cómic.",
+      "texto": "La edad recomendada comienza a partir de 4 años y el volumen contiene 152 páginas. Reúne cinco relatos creados entre 1987 y 2004, con una presentación narrativa que combina características del álbum ilustrado y del cómic.",
       "evidencias": [
-        "titulo",
         "edad_recomendada",
         "numero_paginas",
-        "idioma",
-        "edicion",
-        "editorial",
-        "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura de Cinco cuentos reúne sus 152 páginas y cinco relatos en un volumen físico apropiado para hojear las ilustraciones y conservar la recopilación. Kindle permite llevar los cuentos en formato digital y leerlos en una pantalla compatible; el tamaño de esta influye en la comodidad al observar las imágenes y las composiciones gráficas.",
+      "texto": "La tapa dura de Salamandra reúne las 152 páginas en un volumen físico apropiado para compartir la lectura y observar las ilustraciones. La edición Kindle permite llevar los cinco relatos en un dispositivo, aunque la visualización de las páginas dependerá de su pantalla.",
       "evidencias": [
-        "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "edicion",
+        "numero_paginas",
+        "editorial",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cinco cuentos, de Posy Simmonds, puede compararse con Capitán Patata 2 - Quietecito o te dejo frito, de Neil Coslett, porque ambos reúnen cinco historias con presencia del humor. La diferencia está en su planteamiento: Cinco cuentos combina álbum ilustrado y cómic con distintos protagonistas, mientras que Capitán Patata 2 - Quietecito o te dejo frito presenta miniaventuras disparatadas de un superhéroe y sus amigos.",
+      "texto": "Abuelas Y Abuelos (Álbumes Ilustrados castellano), de Helene Delforge, comparte con Cinco cuentos su vinculación con la lectura ilustrada. La diferencia está en el planteamiento anunciado: el primero se presenta como álbum sobre los abuelos, mientras que Posy Simmonds reúne cinco relatos con elementos de cómic, humor y personajes distintos.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo",
         "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788427254985"
+        "isbn-9788491429586"
       ]
     }
   ],

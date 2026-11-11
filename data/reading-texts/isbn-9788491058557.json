@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788491058557",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de clásicos interesados en el poder y la política dentro de la narrativa de Charles Dickens. Por su clasificación temática y sus 432 páginas, se aleja de las lecturas breves y de los manuales prácticos sobre cuestiones políticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Historia de dos ciudades (edición especial en tapa dura) (Ediciones Conmemorativas) pertenece a Penguin Clásicos y se presenta en tapa dura. Reúne 432 páginas en castellano, con publicación editorial fechada el 19 de noviembre de 2026 y el ISBN 9788491058557.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para esta edición de 432 páginas, adecuada para conservar en una biblioteca o entregar como regalo. Su encuadernación rígida favorece el uso continuado y la protección del volumen frente al desgaste habitual de una cubierta flexible.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "David Copperfield (edición especial en tapa dura) (Ediciones Conmemorativas) comparte con este libro la autoría de Charles Dickens y la presentación conmemorativa en tapa dura. Cuento de Navidad: 46 (Pequeños Placeres) también pertenece al mismo autor, pero se identifica con otra colección, mientras Historia de dos ciudades (edición especial en tapa dura) (Ediciones Conmemorativas) se vincula además con el poder y la política.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion"
+      ],
+      "enlaces": [
+        "isbn-9791399221107",
+        "isbn-9788491058250"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "278b09d25a9003c8",
+  "origen": "chatgpt-web"
+}

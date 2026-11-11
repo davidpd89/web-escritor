@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Todo lo que aprendí en terapia se dirige a lectores interesados en la salud mental, la psicología y el desarrollo personal mediante reflexiones ilustradas. Su enfoque en situaciones cotidianas y recursos visuales lo aleja de los manuales clínicos especializados o de los tratados exclusivamente teóricos.",
+      "texto": "Todo lo que aprendí en terapia está dirigido a lectores interesados en psicología, salud mental y crecimiento personal mediante reflexiones ilustradas. Su enfoque en experiencias cotidianas y recursos visuales se aleja de una novela de ficción o de un manual exclusivamente académico.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,26 +13,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Todo lo que aprendí en terapia está disponible en tapa dura, con 168 páginas y encuadernación en cartoné. Este formato permite consultar las reflexiones y observar las ilustraciones en papel, además de conservar el volumen para posteriores lecturas.",
+      "texto": "Todo lo que aprendí en terapia se publica en tapa dura, en una edición de 168 páginas. El formato cartoné permite conservar las reflexiones ilustradas en un volumen físico y volver a consultar sus páginas sin depender de una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
         "edicion",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Todo lo que aprendí en terapia y Mentes diferentes comparten el interés por comprender experiencias personales relacionadas con la salud mental y la identidad. Pablo R. Coca utiliza reflexiones ilustradas sobre el crecimiento personal, mientras Chloé Hayden combina testimonio, divulgación y activismo para abordar la neurodivergencia.",
+      "texto": "Todo lo que aprendí en terapia y Cómo sobrevivir a las putadas de la vida (Vivir Mejor) se relacionan por su atención al bienestar personal. Pablo R. Coca aborda la salud mental mediante reflexiones ilustradas, mientras que el título de Lorena Gascón plantea expresamente cómo afrontar las dificultades de la vida.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411193894"
+        "isbn-9788427055957"
       ]
     }
   ],

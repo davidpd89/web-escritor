@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791399173185",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores interesados en textos vinculados con las memorias, el ensayo y el ámbito artístico. Sus 96 páginas ofrecen una extensión breve; encaja menos con quienes buscan un estudio histórico de gran amplitud o un manual práctico de técnicas artísticas.",
+      "evidencias": [
+        "categorias",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición de editorial minúscula presenta Notas desde una isla: 62 (Tour de force) en castellano y tapa blanda, con 96 páginas. Su fecha de publicación es 2026-12-02 y el título identifica el volumen con el número 62 de Tour de force.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esta edición de Notas desde una isla: 62 (Tour de force) se presenta en tapa blanda y reúne 96 páginas. Su extensión facilita llevar el volumen en una bolsa pequeña y volver a pasajes concretos sin manejar un libro voluminoso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Habla como un hombre: 28 (Vidas) comparte con Notas desde una isla: 62 (Tour de force) su relación con las biografías y memorias, aunque el primer título pertenece a Vidas y está firmado por Nacho Duato y Lupe Bohorques. El libro de Tove Jansson figura también en ensayo y arte y diseño, y su título lo vincula a Tour de force.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788410476608"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "26fecb1ce9990232",
+  "origen": "chatgpt-web"
+}

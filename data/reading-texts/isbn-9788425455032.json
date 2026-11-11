@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788425455032",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dar a luz y nacer antes de tiempo: Salud mental perinatal se orienta a lectores interesados en la psicología del nacimiento prematuro y el bienestar durante el periodo perinatal. Margarita Ibáñez y Ana Riverola firman un ensayo de divulgación de 240 páginas, alejado de la narrativa de ficción y de los libros centrados en el embarazo desde una perspectiva exclusivamente física.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dar a luz y nacer antes de tiempo: Salud mental perinatal se publica en tapa blanda, con 240 páginas en castellano. Esta edición física de Herder Editorial permite subrayar conceptos y volver a apartados concretos sobre salud mental perinatal; su publicación está fechada el 16 de noviembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dar a luz y nacer antes de tiempo: Salud mental perinatal y Cáncer Después del diagnóstico: El libro que todo paciente oncológico necesita leer tratan cuestiones de salud vinculadas a situaciones vitales concretas. Margarita Ibáñez y Ana Riverola se centran en la salud mental perinatal, mientras que Carolina Pan aborda el periodo posterior a un diagnóstico oncológico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944145"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f5c94f975c19f326",
+  "origen": "chatgpt-web"
+}

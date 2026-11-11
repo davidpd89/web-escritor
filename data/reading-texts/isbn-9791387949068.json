@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Reap & Sow (edición en español) (Reap & Sow 1), de Charlotte B. Plumb, está dirigido al público juvenil que busca fantasía romántica con demonios, pactos sobrenaturales y dilemas morales. La explotación de personas desesperadas y el peligro que afronta una familia lo alejan de las historias de magia cotidiana o relaciones sentimentales sin amenazas oscuras.",
+      "texto": "Reap & Sow (edición en español) (Reap & Sow 1) encaja con lectores juveniles de fantasía romántica que buscan pactos demoníacos, conflictos familiares y relaciones entre seres sobrenaturales y humanos. Se aleja del romance cotidiano sin elementos fantásticos: las decisiones sentimentales están ligadas a deudas y amenazas sobrenaturales.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,45 +14,48 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Reap & Sow (edición en español) (Reap & Sow 1) está clasificado como lectura juvenil. Incluye acuerdos demoníacos que consumen años de vida, explotación de personas vulnerables, detenciones y amenazas contra familiares. Su combinación de romance y peligro sobrenatural puede resultar intensa para lectores sensibles a los sacrificios personales y la coerción.",
+      "texto": "Reap & Sow (edición en español) (Reap & Sow 1) está clasificado como juvenil, aunque incorpora elementos oscuros propios de la fantasía con romance. Aparecen pactos que comprometen años de vida, explotación de personas desesperadas, arrestos familiares y amenazas demoníacas, asuntos que pueden inquietar a lectores sensibles.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una fantasía romántica juvenil ambientada en Blackbridge, donde los deseos pueden obtenerse mediante intercambios con entidades demoníacas. Eda Shaw necesita la colaboración de Kit'rath para proteger a su familia, pero esa alianza implica nuevas obligaciones. La relación entre ambos añade un conflicto afectivo a una trama de deudas sobrenaturales y supervivencia.",
+      "texto": "La historia combina fantasía sobrenatural y romance en una ciudad donde los deseos pueden pagarse con años de vida. Charlotte B. Plumb articula la trama mediante negocios demoníacos, un rescate familiar y una alianza entre una mortal y un demonio que introduce un conflicto sentimental.",
       "evidencias": [
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Reap & Sow (edición en español) (Reap & Sow 1) se ofrece en tapa dura. La edición de Alfaguara contiene 432 páginas en castellano y permite conservar la novela como volumen físico, tanto para lectura habitual como para regalo. El título la identifica como el n.º 1 de Reap & Sow.",
+      "texto": "Reap & Sow (edición en español) (Reap & Sow 1) está disponible en tapa dura, con 432 páginas en castellano publicadas por Alfaguara. Es una edición física para quienes prefieren leer una novela de fantasía extensa en papel y conservar el volumen en su biblioteca.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
         "idioma",
-        "edicion"
+        "editorial",
+        "edicion",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Donde duermen las sombras, de Andrea Ornos, comparte con Reap & Sow (edición en español) (Reap & Sow 1) el romance unido a fuerzas sobrenaturales, pero desarrolla una maldición y el cruce de dimensiones en lugar de contratos demoníacos. El ocaso del rey (Dioses y monstruos 5), de Amber V. Nicole, se presenta como dark romantasy, una orientación próxima al componente oscuro de los pactos que condicionan la vida de Eda Shaw.",
+      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE) comparte con Reap & Sow (edición en español) (Reap & Sow 1) el cruce entre romance y elementos sobrenaturales. La obra de Charlotte B. Plumb se centra en pactos demoníacos y el rescate de una familia, mientras que el título de Kayla Edwards señala expresamente su orientación hacia el romance oscuro.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055605",
-        "isbn-9788427258280"
+        "isbn-9788415955559"
       ]
     }
   ],

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788413445878",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando las hormonas se desmadran se dirige a lectores interesados en la salud hormonal y su relación con el bienestar físico y emocional. Encaja con quienes buscan contenidos de nutrición y bienestar, no con quienes prefieren libros de ficción o ensayos alejados de la salud.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene sus 272 páginas en una edición de bolsillo de Booket. Es el formato disponible para este libro, una opción para quien prefiera consultar sus contenidos en papel y conservar el ejemplar después de leerlo.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando las hormonas se desmadran y 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, comparten el interés por la salud y el bienestar personal. El primero centra su temática en el equilibrio hormonal y sus efectos físicos y emocionales; el segundo plantea un enfoque más amplio sobre distintos aspectos de la vida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e0c96464a7e66632",
+  "origen": "chatgpt-web"
+}

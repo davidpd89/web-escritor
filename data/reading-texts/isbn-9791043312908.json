@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791043312908",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La novia maldita y el cazador de demonios, 11 (Shojo - La novia maldita), de Yuma Midori, encaja con lectores de fantasía juvenil interesados en historias contadas mediante cómic. La presencia de una novia maldita y un cazador de demonios en el título lo aleja de las lecturas realistas o centradas en situaciones cotidianas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La novia maldita y el cazador de demonios, 11 (Shojo - La novia maldita) se publica en tapa dura, con 192 páginas en castellano. Esta edición de Pika Ediciones ofrece una encuadernación rígida para conservar el volumen y colocarlo junto a otros libros de la colección; el título lo identifica como el n.º 11.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "AVATAR. La leyenda de Aang 5 - Norte y sur comparte con La novia maldita y el cazador de demonios, 11 (Shojo - La novia maldita) la fantasía y la narración gráfica. La obra de Nickelodeon amplía las aventuras de unos personajes conocidos y aborda el futuro de las Tribus Agua; la de Yuma Midori se identifica por una novia maldita y un cazador de demonios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874803"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f4df651f1e0bf660",
+  "origen": "chatgpt-web"
+}

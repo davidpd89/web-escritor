@@ -4,18 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Maktub: 'Está escrito' se dirige a lectores de poesía interesados en la experimentación con el castellano y en la obra de Ramón Buenaventura. Su extensión de 784 páginas y su carácter de poesía reunida lo alejan de quien busque una novela breve o una antología de varios autores.",
+      "texto": "Maktub: 'Está escrito' se dirige a lectores de poesía interesados en la experimentación verbal y en una obra reunida que permite recorrer distintas etapas de un autor. La atención al lenguaje y la extensión de 784 páginas lo alejan de las novelas de argumento continuo y de las selecciones poéticas breves.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "numero_paginas",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La propuesta de Maktub: 'Está escrito' es recorrer la poesía de Ramón Buenaventura a través de una recopilación de su obra. El juego con palabras de otras lenguas, su transformación en castellano y una escritura de marcado vitalismo forman parte de su planteamiento literario.",
+      "texto": "Maktub: 'Está escrito' reúne poesía de Ramón Buenaventura caracterizada por la libertad lingüística y el uso creativo de palabras procedentes de otros idiomas. El volumen permite acercarse a su escritura desde una perspectiva de conjunto, con especial atención a la invención verbal. Su propuesta pertenece a la poesía y no a la narrativa convencional.",
       "evidencias": [
         "titulo",
         "autores",
@@ -25,40 +24,41 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Ultramarinos Editorial publica Maktub: 'Está escrito' en tapa blanda, con 784 páginas en castellano y fecha de publicación del 21 de octubre de 2026. El volumen reúne la poesía de Ramón Buenaventura en una edición moderna concebida para presentar conjuntamente su obra poética.",
+      "texto": "Maktub: 'Está escrito' presenta por primera vez una edición moderna de la poesía reunida de Ramón Buenaventura. Ultramarinos Editorial publica este volumen de 784 páginas en castellano y tapa blanda, con fecha del 21 de octubre de 2026. Su carácter recopilatorio permite acceder a la obra poética del autor dentro de un mismo libro.",
       "evidencias": [
         "titulo",
         "autores",
         "editorial",
-        "edicion",
         "numero_paginas",
         "idioma",
+        "edicion",
         "fecha_publicacion",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es el formato disponible de Maktub: 'Está escrito', una recopilación poética de 784 páginas. Permite consultar distintos poemas y volver a ellos en un volumen físico, aunque su extensión supone un libro considerable para llevar a diario.",
+      "texto": "Maktub: 'Está escrito' se ofrece en tapa blanda, con una extensión de 784 páginas. La edición física de Ultramarinos Editorial concentra la poesía reunida de Ramón Buenaventura en un solo volumen, pensado para consultar poemas y regresar a distintas partes de la obra. Su extensión debe tenerse en cuenta para transportarlo durante la lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "editorial",
+        "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Maktub: 'Está escrito' comparte con Antología, de Antonio Cano, la recuperación de una obra poética reunida, aunque corresponde a otro autor y a una escritura centrada en la experimentación lingüística. Frente a Ciudad, de Luis Pérez Capitán, que sitúa la poesía ante cuestiones tecnológicas y políticas, Ramón Buenaventura trabaja especialmente con las posibilidades del idioma.",
+      "texto": "Maktub: 'Está escrito' puede compararse con Antología, de Antonio Cano, porque ambos libros reúnen poesía de un autor en una publicación de carácter recopilatorio. Antología recupera la obra completa de un poeta de los años treinta, mientras que Maktub: 'Está escrito' ofrece una edición moderna de la poesía reunida de Ramón Buenaventura, marcada por la experimentación con el idioma.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9791370140908",
-        "isbn-9788410167841"
+        "isbn-9791370140908"
       ]
     }
   ],

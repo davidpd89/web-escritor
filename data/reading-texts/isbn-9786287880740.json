@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786287880740",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historia oficial del amor (Ed. Conmemorativa) / Official History of Love (Commemorative Edition) se sitúa en la narrativa contemporánea y aborda, por su clasificación temática, el amor, la pareja y la familia. Sus 560 páginas corresponden a una lectura extensa, distinta de un ensayo sobre las relaciones personales o de un manual de consejos sentimentales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición conmemorativa de Historia oficial del amor (Ed. Conmemorativa) / Official History of Love (Commemorative Edition) se publica en tapa dura, con 560 páginas en castellano. Es un volumen físico de extensión considerable, pensado para leer y conservar en papel, publicado por Alfaguara.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Historia oficial del amor (Ed. Conmemorativa) / Official History of Love (Commemorative Edition) puede compararse con Vera, una historia de amor: Edición limitada a precio especial (Colección Especial), de Juan del Val, por su vínculo temático con el amor. La obra de Ricardo Silva Romero incorpora además la familia entre sus temas, mientras que el título de Juan del Val se presenta expresamente como una historia amorosa en una edición especial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328421"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9f912a543a078629",
+  "origen": "chatgpt-web"
+}

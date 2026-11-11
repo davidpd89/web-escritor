@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388032998",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Silencio, se come: Crónicas gourmet: 464 (Libros del Tiempo) se dirige a quienes buscan lecturas sobre gastronomía y experiencias relacionadas con la comida. Su planteamiento como crónicas gourmet se diferencia del de un recetario organizado para preparar platos paso a paso.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Silencio, se come: Crónicas gourmet: 464 (Libros del Tiempo) está publicado en tapa dura, con 160 páginas en castellano. Esta encuadernación protege mejor el volumen durante su conservación y resulta práctica para regalar una lectura gastronómica de extensión contenida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA), de David Villalón y Mario Villalón, comparte con Silencio, se come: Crónicas gourmet: 464 (Libros del Tiempo) el interés por la gastronomía. El primero identifica la huerta, los vinos, la cocina y los cócteles como asuntos centrales, mientras que Isabel Coixet presenta su obra como una colección de crónicas gourmet.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934293"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c0705a4e01b56054",
+  "origen": "chatgpt-web"
+}

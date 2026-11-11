@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Riaño se dirige a lectores interesados en la historia reciente de España y en los conflictos sociales provocados por las grandes infraestructuras. Su relato del desalojo de varios pueblos y de los enfrentamientos con la Guardia Civil puede resultar menos adecuado para quien busque una historia ajena a la violencia institucional.",
+      "texto": "Riaño está dirigido a lectores interesados en la historia contemporánea de España, los conflictos sociales y las consecuencias de las grandes obras públicas. Su atención al desalojo de poblaciones y al enfrentamiento entre ciudadanos y autoridades lo aleja de una lectura centrada exclusivamente en aspectos técnicos de ingeniería.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,35 +13,36 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El libro examina las consecuencias humanas y políticas de la construcción del embalse de Riaño, cuya presa se cerró el 31 de diciembre de 1987. Emilio Gancedo sitúa el conflicto entre los habitantes afectados, los activistas y las fuerzas de seguridad, con atención a las demoliciones y a su repercusión en medios europeos.",
+      "texto": "Riaño aborda la construcción del embalse leonés y el desalojo de una comarca cuyos habitantes se opusieron a la desaparición de sus pueblos. El episodio culminó con el cierre de la presa el 31 de diciembre de 1987, tras una confrontación que atrajo a periodistas europeos. El enfoque histórico incorpora la resistencia vecinal, la actuación de la Guardia Civil y la repercusión pública de las demoliciones.",
       "evidencias": [
         "titulo",
-        "autores",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Riaño está disponible en tapa blanda, con 320 páginas en castellano publicadas por Pepitas de calabaza. Es una edición física que permite consultar y releer los episodios históricos sin depender de un dispositivo electrónico; su encuadernación flexible facilita transportarla.",
+      "texto": "Riaño se publica en tapa blanda y tiene 320 páginas, una extensión que permite abordar el episodio histórico en varias sesiones. La edición de Pepitas de calabaza ofrece una opción física para quienes prefieren consultar y releer pasajes sobre los acontecimientos descritos. Su encuadernación facilita llevarlo en una bolsa o mochila.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
+        "edicion",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Riaño y CORONA AUTORITARIA, LA abordan conflictos entre el poder político y distintos sectores de la sociedad española. Mientras Guillermo María Muñoz estudia la monarquía y el nacionalismo durante la dictadura de Primo de Rivera, Emilio Gancedo se centra en el desalojo de poblaciones para construir un embalse.",
+      "texto": "Riaño y AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA comparten el interés por investigar episodios del pasado español. El primero se ocupa de un conflicto colectivo provocado por un embalse, mientras que el segundo gira alrededor de una investigación sobre la vida y la muerte de Federico García Lorca. Frente al enfoque territorial de Emilio Gancedo, el otro título parte de una figura literaria concreta.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788419892782"
+        "isbn-9788418567933"
       ]
     }
   ],

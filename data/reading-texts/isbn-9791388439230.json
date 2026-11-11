@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791388439230",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan un ensayo sobre Sailor Moon y su relación con el amor y la justicia. Por su enfoque en el cómic y su influencia cultural, no responde a la búsqueda de una historia romántica de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Examina el amor y la justicia en Sailor Moon desde la perspectiva de su influencia en el mundo. Iria Ros Piñeiro aborda estas cuestiones en una obra de ensayo vinculada al estudio del cómic y la novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Se publica en tapa blanda, con 176 páginas en castellano. Esta edición permite consultar el ensayo en papel, volver a pasajes concretos y guardarlo junto a otros títulos dedicados al cómic.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte con Amarte hasta perder el aliento 1 (Shôjo) su vinculación al cómic y al ámbito del amor. La diferencia está en el tratamiento: Iria Ros Piñeiro estudia la influencia cultural de Sailor Moon, mientras que el título de Keiko Iwashita pertenece al ámbito del shôjo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962494"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f54387d12871f42b",
+  "origen": "chatgpt-web"
+}

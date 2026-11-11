@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410989726",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Chanel XXI (Divulgación), de Varios autores, se dirige a lectores interesados en el arte y el diseño. Su clasificación como divulgación lo sitúa en el ámbito de los libros informativos, no en el de la narrativa de ficción; además, sus 208 páginas permiten identificar la extensión de esta edición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 208 páginas de Chanel XXI (Divulgación), de Varios autores, en un volumen de encuadernación rígida. Este formato permite conservarlo como libro de consulta o incorporarlo a una colección en papel; es la edición disponible para este título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "edicion",
+        "formato_edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ilusión y persuasión (Ensayos), de Varios autores, permite establecer una comparación por la forma de presentar sus contenidos: Chanel XXI (Divulgación), de Varios autores, se identifica como divulgación, mientras que el otro título se presenta expresamente como ensayo. Ambos comparten la autoría colectiva, aunque sus títulos sitúan cada publicación en una modalidad editorial diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408327608"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e2fc75fc6a49c6b1",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9786287640597",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Mi mamá tuvo la culpa? / Was It My Mom's Fault? se dirige a lectores interesados en la psicología, las relaciones familiares y el desarrollo personal. Por su enfoque temático, se aleja de los libros centrados en la ficción o en la crianza entendida exclusivamente como educación infantil.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de ¿Mi mamá tuvo la culpa? / Was It My Mom's Fault? está disponible en tapa blanda y tiene 264 páginas. Este formato permite consultar distintos pasajes, marcar páginas y conservar el volumen en una biblioteca dedicada a psicología y relaciones familiares.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El niño feliz (fuera de colección) comparte con ¿Mi mamá tuvo la culpa? / Was It My Mom's Fault? el interés por la familia, pero orienta su título hacia la infancia. La obra de Ana María Hoyos se centra en la figura materna y se sitúa en el ámbito de la psicología y el desarrollo personal, mientras que El niño feliz (fuera de colección) pone el foco en el bienestar infantil.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425452901"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d152f2459bb3857d",
+  "origen": "chatgpt-web"
+}

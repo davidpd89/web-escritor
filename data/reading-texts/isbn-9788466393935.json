@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788466393935",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El hombre más rico de Babilonia (Best Seller | Ediciones Conmemorativas), de George S. Clason, se dirige a lectores interesados en economía, empresa y desarrollo personal. Sus 272 páginas corresponden a una obra de orientación práctica; quienes busquen una novela de fantasía o una historia romántica encontrarán aquí otra clase de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El hombre más rico de Babilonia (Best Seller | Ediciones Conmemorativas) está editado en tapa dura, con 272 páginas en castellano. La edición de Penguin Bolsillo presenta una cubierta rígida que facilita su conservación y permite utilizar el volumen como ejemplar de consulta o regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El hombre más rico de Babilonia (Best Seller | Ediciones Conmemorativas) comparte el ámbito económico y empresarial con Construye un negocio atómico / Build an Atomic Business, de Oso Trava, aunque este último identifica la construcción de negocios como asunto central. Cómo generar ingresos con las opciones: Así transformé la bola de nieve en avalancha (EMPRESA), de Renato Antinori, delimita su contenido a las opciones financieras, mientras que la obra de George S. Clason también se encuadra en desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073880336",
+        "isbn-9788411724357"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4f8f137f73074de9",
+  "origen": "chatgpt-web"
+}

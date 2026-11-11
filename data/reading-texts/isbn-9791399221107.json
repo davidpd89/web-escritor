@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399221107",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuento de Navidad: 46 (Pequeños Placeres) encaja con lectores de clásicos literarios que buscan una obra vinculada a la Navidad y al género narrativo. Su clasificación también incluye terror, por lo que no responde exclusivamente a la búsqueda de una lectura navideña de tono festivo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuento de Navidad: 46 (Pequeños Placeres) está disponible en tapa blanda, en una edición de 176 páginas de Ediciones Invisibles. Su extensión permite leerlo en varias sesiones y el soporte físico facilita conservar esta versión concreta de la obra de Charles Dickens.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "David Copperfield (edición especial en tapa dura) (Ediciones Conmemorativas) comparte autor con Cuento de Navidad: 46 (Pequeños Placeres): ambas obras son de Charles Dickens. La diferencia editorial es concreta: la primera se presenta como edición especial en tapa dura, mientras que la segunda ofrece 176 páginas en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ],
+      "enlaces": [
+        "isbn-9788491058250"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "48c7346f02a8adae",
+  "origen": "chatgpt-web"
+}

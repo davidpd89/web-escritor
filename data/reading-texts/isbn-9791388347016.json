@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los diarios de la boticaria (la novela original) 3 encaja con lectores juveniles interesados en los enigmas palaciegos, las intrigas cortesanas y la ficción de ambientación histórica. Su conflicto gira alrededor de secretos políticos, embarazos que deben ocultarse y situaciones de peligro, por lo que se aleja de las historias infantiles centradas en aventuras sencillas.",
+      "texto": "Los diarios de la boticaria (la novela original) 3 se dirige a lectores de narrativa juvenil e histórica interesados en intrigas palaciegas, secretos políticos y situaciones de peligro. Su trama recupera personajes y relaciones anteriores, por lo que resulta menos apropiada para quien busque una historia independiente.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los diarios de la boticaria (la novela original) 3 se presenta en tapa blanda y reúne 392 páginas en castellano. Es una edición física que permite seguir los misterios de la corte en papel y conservar el volumen junto a otras entregas de la colección.",
+      "texto": "Los diarios de la boticaria (la novela original) 3 se presenta en tapa blanda, con 392 páginas en castellano. Es una edición física para seguir una trama extensa de misterios cortesanos, conservarla junto a otros volúmenes y retomar pasajes anteriores durante la lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -24,21 +24,19 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los diarios de la boticaria (la novela original) 3 y Cuando seamos inmortales comparten el interés por las rivalidades y las tensiones de poder en escenarios históricos. La obra de Hyūga Natsu y Touko Shino sitúa sus enigmas en una corte imperial, mientras la de Tony Gratacós se centra en Rubens, Velázquez y el destino político de Europa.",
+      "texto": "Los diarios de la boticaria (la novela original) 3 continúa el entorno cortesano y los personajes de Los diarios de la boticaria (la novela original) 2. Mientras el segundo título sitúa a Maomao al servicio de Jinshi, el tercero introduce una delegación extranjera y nuevas amenazas relacionadas con la corte.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788423371181"
+        "isbn-9791387962838"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f95975e46b2f2917",
+  "fuente_hash": "05c563f5d7a4c233",
   "origen": "chatgpt-web"
 }

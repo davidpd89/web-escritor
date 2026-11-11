@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788428377348",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "MP 1782. Nivel básico de Prevención de riesgos laborales (Química) está dirigido a quienes necesitan formación básica en prevención de riesgos laborales dentro del ámbito químico. Su enfoque se diferencia de los manuales generales de divulgación científica porque se centra en la seguridad laboral aplicada a un sector concreto, no en la exploración de disciplinas científicas diversas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 152 páginas en una edición física de Ediciones Paraninfo. Es la única opción de formato para este título y permite conservar el contenido en papel para consultas y estudio, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "MP 1782. Nivel básico de Prevención de riesgos laborales (Química) comparte planteamiento formativo y autor con MP 1782. Nivel básico de Prevención de riesgos laborales (Hostelería y Turismo), de Javier Rodrigo Agulló. La diferencia está en el ámbito profesional que identifica cada título: el primero se centra en Química y el segundo en Hostelería y Turismo; ambos permiten comparar la formación preventiva entre sectores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788428377355"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "92a9d2e8d8958665",
+  "origen": "chatgpt-web"
+}

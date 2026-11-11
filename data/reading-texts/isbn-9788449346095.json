@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788449346095",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La obra de Sara Rubayo se dirige a lectores interesados en la historia del arte español y en cuestiones de representación dentro de ese ámbito. Sus 384 páginas desarrollan una propuesta histórica y artística, alejada de la ficción narrativa y de los manuales centrados en aprender técnicas de dibujo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Sara Rubayo reúne 384 páginas en castellano, publicadas por Ediciones Paidós. La cubierta flexible permite transportar el volumen y consultar de nuevo sus contenidos sobre historia del arte español sin la rigidez de una tapa dura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Civilización: Una historia del arte y la cultura que dieron forma a la civilización moderna: 126 (Ático Historia), de Kenneth Clark, comparte el interés por la historia del arte, pero amplía su alcance hacia la cultura y la civilización moderna. La obra de Sara Rubayo centra su planteamiento en el arte español y la representación. El Bosco y el otro renacimiento (Arte y diseño), de Bernard Aikema y Fernando Checa Cremades, acota su temática a un artista y su contexto renacentista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387592493",
+        "isbn-9788410380219"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1ed4bbfa94b050ce",
+  "origen": "chatgpt-web"
+}

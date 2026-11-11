@@ -4,36 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los límites del infinito se dirige a lectores interesados en las matemáticas y en los problemas que conectan la geometría con situaciones cotidianas. Su planteamiento divulgativo encaja menos con quien busca una narración de ficción o un libro dedicado exclusivamente a ejercicios de cálculo.",
+      "texto": "Los límites del infinito, de Ian Stewart, se dirige a lectores interesados en comprender problemas matemáticos mediante preguntas concretas sobre geometría, optimización e infinito. Su enfoque de divulgación científica se diferencia de un manual organizado exclusivamente alrededor de ejercicios y de una obra de ficción.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Ian Stewart aborda cuestiones matemáticas relacionadas con las formas geométricas, la optimización de recorridos y el concepto de infinito. Los límites del infinito utiliza problemas como la estructura de los panales, la distribución de esferas y la coloración de mapas para explorar cómo se formulan y resuelven preguntas matemáticas.",
+      "texto": "Los límites del infinito examina cuestiones matemáticas relacionadas con los hexágonos, la distribución eficiente de esferas, las rutas mínimas y la coloración de mapas. Ian Stewart utiliza estos problemas para introducir preguntas sobre las propiedades y los límites de las matemáticas, incluido el concepto de infinito. El tratamiento corresponde a una obra de divulgación científica.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los límites del infinito cuenta con 368 páginas en una edición de tapa blanda con solapas, adecuada para detenerse en los ejemplos geométricos y regresar a ellos sobre papel. Kindle permite consultar el ensayo desde el móvil o un lector electrónico, con la ventaja de transportar toda su extensión sin añadir un libro físico.",
+      "texto": "Los límites del infinito está disponible en tapa blanda y Kindle. La edición física de Editorial Crítica tiene 368 páginas y encuadernación rústica con solapas, útil para consultar sus explicaciones en papel. Kindle permite llevar la obra en un dispositivo compatible y acceder a sus contenidos sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
         "edicion",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los límites del infinito y 50 cosas que hay que saber sobre IA comparten una orientación divulgativa hacia cuestiones científicas y tecnológicas. Ian Stewart se ocupa de problemas matemáticos, mientras Keith Mansfield introduce conceptos de inteligencia artificial; Cerebro, espacio y tiempo, por su parte, traslada las preguntas sobre espacio y orientación al funcionamiento cerebral.",
+      "texto": "Los límites del infinito y 50 cosas que hay que saber sobre IA comparten el propósito de explicar cuestiones científicas y tecnológicas. Ian Stewart aborda problemas matemáticos sobre geometría, rutas e infinito, mientras que Keith Mansfield se centra en la inteligencia artificial. Aparece un mundo, de Michael Pollan, trata la conciencia desde una perspectiva divulgativa, frente al enfoque matemático de Los límites del infinito.",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,7 +45,7 @@
       ],
       "enlaces": [
         "isbn-9788434441309",
-        "isbn-9791387941208"
+        "isbn-9791387904456"
       ]
     }
   ],

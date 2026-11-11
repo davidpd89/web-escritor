@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788466393744",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sangre caliente (El Rancho Wells 2) (Best Seller | Ficción) está dirigido a lectores que buscan novelas románticas. El título lo identifica como el n.º 2 de El Rancho Wells, una referencia relevante para quienes prefieren comenzar una serie por su primera entrega; no responde a la búsqueda de narrativa ajena al romance.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sangre caliente (El Rancho Wells 2) (Best Seller | Ficción) se ofrece en tapa blanda y Kindle. La edición de bolsillo de Penguin Bolsillo tiene 392 páginas, mientras que Kindle permite leer la novela en formato digital y llevarla en el móvil mediante una aplicación compatible.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4db453b855204dac",
+  "origen": "chatgpt-web"
+}

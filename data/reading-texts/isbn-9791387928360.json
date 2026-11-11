@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791387928360",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El mejor hotel de Kabul: Una historia en primera persona de Afganistán y sus gentes (Salamandra Miradas) se dirige a lectores de historia, memorias y relatos personales vinculados a un territorio concreto. Su enfoque testimonial y sus 432 páginas encajan menos con quien busca ficción o una introducción histórica muy breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro aborda Afganistán y sus habitantes desde una perspectiva en primera persona, tal como anuncia su título. La obra de Lyse Doucet se sitúa entre las memorias, la historia y el ensayo, por lo que combina un enfoque personal con el interés por el contexto histórico y humano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible de El mejor hotel de Kabul: Una historia en primera persona de Afganistán y sus gentes (Salamandra Miradas) es en tapa blanda. Sus 432 páginas permiten una lectura prolongada en papel, con una encuadernación flexible que facilita llevar el libro en una bolsa o mochila.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Campo de concentración: 82 (Biblioteca del Exilio) comparte con El mejor hotel de Kabul: Una historia en primera persona de Afganistán y sus gentes (Salamandra Miradas) el interés por la historia y las experiencias humanas. El primero remite al exilio y al internamiento, mientras que la obra de Lyse Doucet sitúa su perspectiva personal en Afganistán y sus habitantes.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788410148659"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ad937d7ff42d6a5d",
+  "origen": "chatgpt-web"
+}

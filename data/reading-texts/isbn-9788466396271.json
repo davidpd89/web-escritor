@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466396271",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La destrucción o el amor (Best Seller | Ediciones Conmemorativas) se dirige a lectores interesados en el amor y las relaciones como materia literaria. Su temática no corresponde a quien busque una novela de aventuras, misterio o divulgación histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa dura y contiene 136 páginas. Su extensión permite una lectura relativamente breve, mientras que la encuadernación rígida ofrece una presentación en papel para conservar el ejemplar.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo), de Carlos del Amor, comparte con La destrucción o el amor (Best Seller | Ediciones Conmemorativas), de Vicente Aleixandre, la referencia al amor desde sus respectivos títulos. Se diferencian en el tratamiento editorial: uno se presenta como ensayo y el otro se vincula al ámbito del amor y la pareja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084122",
+        "isbn-9788425373602"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e9a84a577c778355",
+  "origen": "chatgpt-web"
+}

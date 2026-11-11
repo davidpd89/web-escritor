@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788430629725",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Santas vivas: Del éxtasis al olvido (Historia) se dirige a lectores interesados en la historia religiosa y en el ensayo sobre espiritualidad. Su enfoque histórico, firmado por Rebeca Sanmartín, se aleja de las lecturas de ficción y de los manuales de práctica religiosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Santas vivas: Del éxtasis al olvido (Historia) está disponible en tapa blanda, con 400 páginas en castellano. Esta edición de Taurus permite consultar y retomar distintos pasajes en papel, sin el peso habitual de una encuadernación rígida de extensión semejante.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dominio (edición especial limitada en tapa dura con los cantos pintados): Cómo el cristianismo dio forma a Occidente (ATICO HISTORIA) comparte el interés por la historia religiosa, pero aborda la influencia del cristianismo en Occidente. Santas vivas: Del éxtasis al olvido (Historia) sitúa el foco en las santas, el éxtasis y el olvido, mientras que Lo sagrado y lo sobrenatural / The Sacred and the Supernatural plantea desde su título una aproximación más amplia a lo sagrado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387592981",
+        "isbn-9786073878593"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0cd959fad2b33c19",
+  "origen": "chatgpt-web"
+}

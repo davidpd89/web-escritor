@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788412837278",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Caníbales de caramelandia, de Carlton Mellick Iii, encaja con lectores que buscan ficción relacionada con el terror, la fantasía y la ciencia ficción. Su clasificación también incluye aventuras y relatos, por lo que se distancia de las lecturas realistas centradas únicamente en conflictos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Caníbales de caramelandia está disponible en tapa blanda, en una edición de Orciny Press de 200 páginas. Su extensión permite llevar el volumen en una bolsa y leerlo por sesiones, mientras que el formato físico facilita conservarlo y prestarlo sin utilizar dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Caníbales de caramelandia comparte el terreno de la ficción fantástica con Estuche EL REY PASTOR (TAPA BLANDA), de Rachel Gillig, aunque el primero incorpora también el terror y la ciencia ficción. Frente a la presentación en estuche de la obra de Rachel Gillig, la de Carlton Mellick Iii se publica como un volumen de 200 páginas en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388204319"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "20952b94a9b7f8cf",
+  "origen": "chatgpt-web"
+}

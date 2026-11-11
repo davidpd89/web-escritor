@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791388445446",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El reflejo de lo que somos está dirigido a lectores interesados en obras clasificadas dentro del romance. El libro de Ángel Rovira Sánchez tiene 168 páginas en castellano, una extensión más breve que la de muchas novelas largas; se aleja de quienes buscan específicamente ensayo o narrativa gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El reflejo de lo que somos se ofrece en tapa blanda, con 168 páginas. La extensión permite transportar el ejemplar físico para leerlo fuera de casa, mientras que la cubierta flexible facilita guardarlo en una bolsa. Exlibric publica esta edición en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9a82e12cd7fe7897",
+  "origen": "chatgpt-web"
+}

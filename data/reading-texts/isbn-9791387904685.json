@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387904685",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "LUST: Deseo, poder y placer (Sociedad), de Erika Lust, encaja con lectores interesados en el ensayo social y en las relaciones entre deseo, poder y placer. Su clasificación entre ensayo y memorias lo diferencia de una novela romántica o de una obra de ficción centrada en una trama sentimental.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "LUST: Deseo, poder y placer (Sociedad) se edita en tapa blanda y reúne 280 páginas en castellano. Esta presentación permite una lectura en papel, con posibilidad de señalar pasajes y recuperar reflexiones sobre los asuntos que anuncia el título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "LUST: Deseo, poder y placer (Sociedad) puede compararse con Asuntos pendientes: Hay historias que terminan, pero no se acaban (Autoconocimiento) por su interés en cuestiones personales. La obra de Erika Lust relaciona deseo, poder y placer, mientras que la de Frish Brandt se presenta desde el autoconocimiento y las historias que dejan asuntos abiertos. Ambas se apartan de una biografía política como Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes, de Andrew Paxman.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073873154",
+        "isbn-9788411193795"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dcb9b1631ab9de64",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mi amor no muere se dirige a lectores adultos interesados en historias de mujeres, relaciones sentimentales y violencia organizada con trasfondo histórico. La reconstrucción de una desaparición vinculada a la mafia italiana plantea una lectura sobre el amor y sus consecuencias, alejada del romance ligero y de los relatos sentimentales con desenlace reconfortante.",
+      "texto": "Mi amor no muere está dirigido a lectores adultos interesados en historias de mujeres, relaciones sentimentales y violencia mafiosa vinculadas a hechos reales. La desaparición de una joven y el enfrentamiento entre clanes forman parte de su contenido, por lo que encaja menos con quien busca una historia amorosa sin violencia ni consecuencias trágicas.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,28 +14,26 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Mi amor no muere aborda la relación entre el amor, la autonomía personal y la violencia de los clanes mafiosos en la Italia de finales de los años setenta. Roberto Saviano reconstruye la historia de Rossella Casini, desaparecida el 22 de febrero de 1981, a partir de una relación afectiva atravesada por lealtades familiares y amenazas criminales. El relato conecta una experiencia individual con un contexto social y político.",
+      "texto": "Roberto Saviano aborda la relación entre amor, autonomía personal y criminalidad organizada a través de la historia de Rossella Casini. La reconstrucción sitúa su desaparición en 1981 dentro de la violencia de la mafia calabresa y examina cómo los vínculos familiares y sentimentales pueden quedar sometidos al poder de los clanes.",
       "evidencias": [
-        "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Mi amor no muere está disponible en tapa blanda, Kindle y audiolibro. La edición de Alfaguara reúne 352 páginas con solapas para la lectura en papel; Kindle permite consultar el texto desde el móvil o un lector electrónico, mientras que el audiolibro ofrece la posibilidad de escuchar la reconstrucción de esta historia.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "edicion",
         "sinopsis_editorial"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "Mi amor no muere dispone de tapa blanda, Kindle y audiolibro, tres formas de acceder a su relato de 352 páginas. La edición de Alfaguara incorpora solapas para la lectura en papel; Kindle facilita llevarlo en un dispositivo y el audiolibro permite seguir la historia mediante escucha.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Mi amor no muere y Esas muchachas que escriben poemas comparten el interés por las experiencias de mujeres, aunque Roberto Saviano reconstruye una historia marcada por la mafia y Alba Donati presenta distintas personalidades vinculadas a la escritura poética. Frente a ¿Qué pensará tu hija de ti?, centrado en las dudas sobre la maternidad, Mi amor no muere examina una relación sentimental condicionada por la violencia criminal.",
+      "texto": "Mi amor no muere y La porteadora, de Ilaria Tuti, comparten el interés por experiencias femeninas situadas en Italia, aunque Roberto Saviano reconstruye una historia relacionada con la mafia y la desaparición de una joven. También se aproxima a Cuando el mundo mira hacia otro lado: 24 mujeres en la guerra de Ucrania por su atención a mujeres afectadas por la violencia, pero aborda un caso individual ligado al crimen organizado.",
       "evidencias": [
         "titulo",
         "autores",
@@ -44,8 +42,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788426434272",
-        "isbn-9791388279300"
+        "isbn-9788420477046",
+        "isbn-9791388406256"
       ]
     }
   ],

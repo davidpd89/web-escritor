@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388108433",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El viento del Este (Faeris Editorial), de Alexandria Warwick, encaja con lectores que buscan fantasía con elementos románticos y presencia del terror. Sus 504 páginas ofrecen una lectura extensa dentro de la romantasy, menos ajustada a quienes prefieren historias breves o alejadas de lo fantástico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El viento del Este (Faeris Editorial) se publica en tapa blanda y Kindle. La edición en papel de 504 páginas permite conservar el volumen en la estantería, mientras que Kindle facilita leer una obra de esta extensión en el móvil o en un lector electrónico compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El viento del Este (Faeris Editorial) puede compararse con El hechizo más oscuro (Faeris Editorial) por su vinculación editorial con Faeris y su presentación dentro de la ficción fantástica. La obra de Alexandria Warwick reúne fantasía, romance y terror, mientras que el título de Wanda Hellmund destaca el componente mágico. Son libros de autoras diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388108419"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7e6610c5868e3349",
+  "origen": "chatgpt-web"
+}

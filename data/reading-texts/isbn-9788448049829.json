@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788448049829",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias) reúne en su planteamiento poesía y espiritualidad, con una orientación hacia la reflexión personal. Se dirige a lectores interesados en esos temas, no a quienes buscan una novela de ficción o un estudio académico de religión.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias) cuenta con una edición en tapa dura de 208 páginas. El volumen de Libros Cúpula permite conservar los textos en papel y volver a ellos mediante consultas puntuales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias) comparte el interés por la espiritualidad con Autobiografía de un yogui. Matthew McConaughey presenta una obra centrada en poemas y oraciones, mientras que el título de Paramahansa Yogananda identifica un relato autobiográfico vinculado a la figura de un yogui.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388147838"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eba433388c3e648c",
+  "origen": "chatgpt-web"
+}

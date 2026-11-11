@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388222061",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hermano, me haces daño: Comprende cómo la relación entre hermanos moldeó tu identidad y aprende a sanar tus heridas (GROU) está dirigido a lectores interesados en psicología y desarrollo personal, especialmente en las relaciones familiares. No se plantea como una novela sobre hermanos, sino como una lectura centrada en la identidad y las heridas emocionales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hermano, me haces daño: Comprende cómo la relación entre hermanos moldeó tu identidad y aprende a sanar tus heridas (GROU) se publica en tapa blanda y tiene 256 páginas. Este formato reúne el contenido en un volumen físico que permite leerlo y consultarlo en papel.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Conectados para el amor / Wired for Love, de Stan Tatkin, permite comparar dos enfoques de las relaciones personales. Hermano, me haces daño: Comprende cómo la relación entre hermanos moldeó tu identidad y aprende a sanar tus heridas (GROU) pone el foco en los vínculos entre hermanos y su influencia en la identidad, mientras que Conectados para el amor / Wired for Love se identifica con el amor y las relaciones afectivas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3297efacf41a63a5",
+  "origen": "chatgpt-web"
+}

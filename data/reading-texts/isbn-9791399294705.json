@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9791399294705",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores interesados en la historia de los espacios culturales y sociales, especialmente en el proyecto identificado en el título como Plaza spñ8. Su enfoque temático se aparta de las lecturas centradas en ficción narrativa o aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El asunto central es Plaza spñ8 como espacio cultural y social de la Fundación mutua madrileña. La obra se sitúa en el ámbito de la historia y cuenta con la autoría de Almudena Dato, Pedro Corral, Miguel Ángel García Vega, Fernando Espinosa de los Monteros y Txema Ybarra.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato de esta obra de 228 páginas, una opción física para consultar y conservar el volumen. Su encuadernación rígida también permite entregarlo como regalo sin depender de un dispositivo de lectura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo) permite establecer una comparación por su relación con la cultura, aunque se centra en el vínculo entre amor y arte y no en un espacio cultural y social. Agustín penón y Federico García Lorca comparte el interés por la investigación histórica, pero aborda la vida y la muerte de un escritor en lugar de un proyecto cultural.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418567933",
+        "isbn-9788467084122"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ae34726ca5893bc4",
+  "origen": "chatgpt-web"
+}

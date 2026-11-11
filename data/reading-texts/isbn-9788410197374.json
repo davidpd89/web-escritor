@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410197374",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra de José Carlos González-Hurtado se dirige a lectores interesados en la religión, la espiritualidad y la divinidad de Jesús. Su carácter de no ficción encaja con quienes buscan una aproximación a las creencias religiosas, pero no con quienes prefieren una novela de temática bíblica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Roca Bolsillo ofrece 368 páginas en tapa blanda y formato de bolsillo. Su tamaño facilita transportarla y consultar sus contenidos sobre religión y espiritualidad en papel, tanto durante una lectura continuada como en sesiones breves.",
+      "evidencias": [
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los genios creen en Dios, de José Carlos González-Hurtado, trata la relación entre fe y ciencia, mientras que esta obra se centra en la divinidad de Jesús. Nuevas evidencias científicas de la existencia de Dios, también de José Carlos González-Hurtado, aborda la compatibilidad entre ciencia y religión; las tres comparten el interés por las creencias religiosas desde la no ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788410096547",
+        "isbn-9788466393829"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "40b06a9e0ca3b80f",
+  "origen": "chatgpt-web"
+}

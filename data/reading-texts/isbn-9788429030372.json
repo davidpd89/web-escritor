@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788429030372",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) se orienta a quienes buscan estudiar la convivencia y la mediación en el ámbito educativo. Su encuadre en derecho lo separa de las lecturas de ficción y de los manuales centrados en materias ajenas a la resolución de conflictos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Editorial Reus S.a. tiene 236 páginas y está escrita en castellano. El soporte impreso permite consultar apartados y realizar anotaciones durante el estudio de la mediación educativa.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) y Blockchain: un desafío legal (Monografía) abordan materias relacionadas con el derecho, pero desde asuntos distintos. Mari Luz Sánchez García-Arista se centra en la mediación educativa y la convivencia, mientras que Ana Isabel Quiroz Ruiz trata un desafío legal asociado a blockchain.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370610265"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d77b4a69ac058c77",
+  "origen": "chatgpt-web"
+}

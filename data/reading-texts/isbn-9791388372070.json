@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388372070",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Berto y sus mascotas, de Valeria Kiselova, se sitúa en el ámbito de la lectura infantil, con las mascotas como tema central. Sus 40 páginas lo distinguen de las obras infantiles más extensas y de los libros dirigidos a quienes buscan contenidos técnicos sobre animales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Berto y sus mascotas se presenta en tapa dura, con 40 páginas en castellano. Esta encuadernación ofrece una cubierta rígida para conservar el ejemplar, manejarlo en lecturas compartidas o entregarlo como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Querido nieto (Siempre en mi corazón) también pertenece al ámbito de las lecturas infantiles relacionadas con la familia y los animales, aunque se centra en el vínculo entre abuelos y nietos. Berto y sus mascotas, de Valeria Kiselova, desplaza el foco hacia las mascotas, mientras que el libro de Gregory E. Lang utiliza texto rimado e ilustraciones de animales para abordar el afecto familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256620"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f1d243ed8b089568",
+  "origen": "chatgpt-web"
+}

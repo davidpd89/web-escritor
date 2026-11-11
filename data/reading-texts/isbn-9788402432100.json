@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788402432100",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nuestra historia de amor: El libro para conoceros mejor y seguir escribiendo vuestra historia (Bruguera Tendencias) se dirige a quienes quieren dedicar un libro a su relación de pareja. Su enfoque en el amor y el conocimiento mutuo lo aleja de las lecturas centradas en la crianza o la psicología general.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa dura, publicada por Bruguera y con 192 páginas. Esta encuadernación permite conservar el libro como recuerdo de pareja y consultarlo en distintas ocasiones; su extensión también facilita repartir la lectura en varias sesiones.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Conectados para el amor / Wired for Love, de Stan Tatkin, comparte el interés por las relaciones de pareja, aunque se presenta desde el vínculo amoroso y no desde la construcción de una historia compartida. El arte de discutir: Cómo transformar el conflicto en relaciones más fuertes (Crecimiento personal), de Priya Parker, se centra específicamente en los desacuerdos; el libro de Madame G. Rouge aborda el conocimiento mutuo.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9786073876056",
+        "isbn-9788425376443"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3f04730b61d36674",
+  "origen": "chatgpt-web"
+}

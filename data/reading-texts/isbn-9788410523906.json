@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788410523906",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ni oriente ni occidente (Andalucía) encaja con lectores interesados en publicaciones sobre arte y diseño. La obra de Antonio Zoido Naranjo se sitúa en ese ámbito y cuenta con 448 páginas, por lo que requiere una lectura de cierta extensión. No responde a la búsqueda de un cuaderno de dibujo o un manual de ejercicios artísticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ni oriente ni occidente (Andalucía) cuenta con una edición en tapa blanda de 448 páginas. Su extensión permite dedicarle sesiones de lectura prolongadas o repartirlas a lo largo de varios días. Almuzara publica el volumen en castellano, en formato físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ni oriente ni occidente (Andalucía) y Arte Matrio comparten su vinculación con el arte y su interpretación cultural. La obra de Sara Rubayo aborda la representación en la historia del arte español, mientras que el título de Antonio Zoido Naranjo plantea una relación entre oriente, occidente y Andalucía. Son aproximaciones de distinta autoría a cuestiones relacionadas con el arte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449346095"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "74402ef4ef1490cb",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9791387901981",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vaiana. Mi libro para llevar (Disney. Vaiana), de Disney, se orienta a lectores interesados en aventuras vinculadas al personaje de Vaiana. El volumen contiene 10 páginas y está editado en cartón, por lo que se diferencia de las narraciones extensas y no está planteado como una novela larga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Vaiana se presenta en tapa dura, concretamente como libro de cartón de 10 páginas. Este soporte permite manejar el volumen en papel y transportarlo para lecturas breves, sin necesidad de un dispositivo electrónico. Libros Disney lo publica en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "112d1eacf88ae551",
+  "origen": "chatgpt-web"
+}

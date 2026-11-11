@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788467084382",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La caza del ejecutor: Edición limitada a precio especial (Colección Especial), de Vicente Vallés, se dirige a lectores interesados en el misterio, el thriller y las relaciones entre poder y política. Su combinación de historia y narrativa contemporánea encaja menos con quienes buscan romance o relatos centrados exclusivamente en la vida familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de La caza del ejecutor: Edición limitada a precio especial (Colección Especial) pertenece a Booket y se presenta en tapa dura. Reúne 560 páginas en castellano, con fecha de publicación del 2026-11-11, y se identifica como una edición limitada a precio especial dentro de la Colección Especial.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible de La caza del ejecutor: Edición limitada a precio especial (Colección Especial). Sus 560 páginas forman un volumen físico extenso, pensado para leer en papel, conservar en la biblioteca o regalar; la encuadernación rígida ofrece mayor protección frente al uso habitual.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La caza del ejecutor: Edición limitada a precio especial (Colección Especial), de Vicente Vallés, combina misterio, historia y conflictos relacionados con el poder político. El vuelo de los gansos, de Ángel Boixadós, también aborda el poder, pero desde el enfrentamiento por principios. El fuego de Bandung (Hispánica), de Jordi Soler, ofrece otra referencia de distinta autoría, mientras que la obra de Vicente Vallés se sitúa expresamente entre el thriller y la narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387846602",
+        "isbn-9788425375040"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "14c4fc86565c6dca",
+  "origen": "chatgpt-web"
+}

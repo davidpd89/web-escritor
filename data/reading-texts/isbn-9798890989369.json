@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9798890989369",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Peregrinos / Pilgrims está dirigido al público infantil interesado en temas históricos. La obra de Mary Pope Osborne combina esa orientación temática con una extensión de 128 páginas, por lo que se diferencia de los libros infantiles de cartón y de las lecturas de ficción contemporánea para adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Peregrinos / Pilgrims se publica en tapa blanda y consta de 128 páginas. Su extensión permite repartir la lectura infantil de temática histórica en varias sesiones, mientras que la encuadernación flexible facilita transportarlo. La edición en castellano corresponde a Vintage Espanol.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Peregrinos / Pilgrims se relaciona con La Independencia de Estados Unidos / American Revolution: Libro Informativo Complementario de Magic Tree House #22 Guerra Revolucionaria En Miércoles (Magic Tree House: Exploradores), también de Mary Pope Osborne, por su orientación histórica. El segundo título se identifica expresamente como libro informativo complementario, mientras que Peregrinos / Pilgrims figura como lectura infantil de historia. Ambos comparten autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890989420"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fcb84860b77f52a4",
+  "origen": "chatgpt-web"
+}

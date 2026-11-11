@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399142501",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Berlín: 7 (¡Buen viaje!) se dirige a lectores interesados en los viajes y en una lectura centrada en una ciudad concreta. Su temática se distancia de la ficción fantástica y de las novelas cuyo interés principal reside en los conflictos entre personajes.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Berlín: 7 (¡Buen viaje!) cuenta con una edición en tapa blanda de 124 páginas, publicada en castellano. Su extensión y encuadernación permiten transportarlo durante un desplazamiento y consultarlo sin utilizar el móvil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Berlín: 7 (¡Buen viaje!) puede compararse con Amsterdam de cerca 2027-2028 por su atención a ciudades europeas dentro de las lecturas de viajes. Norman Ohler dedica su título a Berlín, mientras que Catherine Le Nevez aborda Ámsterdam en una obra cuyo título señala una perspectiva cercana y una referencia temporal concreta. Ambas se distinguen por la ciudad tratada y la autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408320890"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b9793323168178c5",
+  "origen": "chatgpt-web"
+}

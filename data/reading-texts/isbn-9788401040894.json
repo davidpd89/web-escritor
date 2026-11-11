@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788401040894",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La obra de Adam J. Kurtz se dirige a lectores interesados en el desarrollo personal, el bienestar y las actividades de tiempo libre. Con 320 páginas, ofrece una extensión considerable dentro de estas materias y se aleja de las preferencias de quienes buscan ficción narrativa o estudios históricos especializados.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Plaza & Janés se presenta en tapa blanda y reúne 320 páginas en castellano. Este formato permite utilizar marcadores, señalar fragmentos y retomar la lectura en papel, aunque su extensión exige más espacio que un cuaderno breve.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Adam J. Kurtz comparte el ámbito del desarrollo personal con Cambiar para Vivir, Colección Autoayuda, de Raúl M. Mir Coll, aunque se trata de libros de distinta autoría. También puede compararse con La escalera del músculo: Ponte fuerte usando la ciencia (Fitness), de Jeff Nippard, por su relación con el bienestar, pero este último se centra específicamente en el entrenamiento físico, mientras que la obra de Kurtz abarca materias más generales de desarrollo personal y tiempo libre.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788415122562",
+        "isbn-9791387936594"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "03d36eacca3d89ef",
+  "origen": "chatgpt-web"
+}

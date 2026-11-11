@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388103810",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La leyenda de las flores de nieve nº 01/05: 1 (Manga Seinen) se dirige a lectores de manga interesados en la narrativa contemporánea y el cómic. Su planteamiento editorial encaja menos con quienes buscan una novela convencional presentada exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La leyenda de las flores de nieve nº 01/05: 1 (Manga Seinen) cuenta con una edición en tapa blanda de 168 páginas, publicada en castellano. Su encuadernación flexible facilita llevar el volumen en una mochila o guardarlo junto a otros mangas de la colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amarte hasta perder el aliento 1 (Shôjo) y La leyenda de las flores de nieve nº 01/05: 1 (Manga Seinen) comparten el formato narrativo del manga. Sus títulos identifican públicos editoriales distintos, shôjo y seinen, y sus respectivas autorías corresponden a Keiko Iwashita y a Kazuno Seta y Kikune Tsuzuki.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962494"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e0b4cc668174685f",
+  "origen": "chatgpt-web"
+}

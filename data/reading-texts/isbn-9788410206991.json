@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788410206991",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un cadáver por Navidad: 3 (Crimen y misterio) encaja con lectores de novela histórica que también buscan una trama de misterio criminal. La presencia de un cadáver en el título y su clasificación como thriller lo alejan de quienes prefieren historias navideñas sin delitos ni investigaciones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un cadáver por Navidad: 3 (Crimen y misterio) cuenta con una edición en tapa blanda de 384 páginas, publicada en castellano por Editorial Alma. Es una opción física para leer por capítulos y conservar en una estantería, con una extensión superior a la de una novela breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El asesino de la almarada (Novela Histórica), de Gastón Morata, comparte con Un cadáver por Navidad: 3 (Crimen y misterio) la combinación de referencias criminales e históricas, aunque sus títulos apuntan a conflictos diferentes. El hombre que fue casi nadie (Salamandra Black), de Victoria González Torralba, ofrece otra referencia para lectores de misterio, mientras que Edward Marston sitúa su obra también en el terreno de la novela histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370205362",
+        "isbn-9791387928599"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "78548af981916643",
+  "origen": "chatgpt-web"
+}

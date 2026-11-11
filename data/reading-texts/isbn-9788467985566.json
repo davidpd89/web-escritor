@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788467985566",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La verdadera historia del Far west: Fort alamo: 1 se dirige a lectores de cómic y novela gráfica interesados en títulos vinculados al oeste. La obra de AMEUR, GABELLA, TOULHOAT y MATINELLO tiene 56 páginas y se diferencia de una novela convencional por su formato de cómic.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La verdadera historia del Far west: Fort alamo: 1 está disponible en tapa dura, con 56 páginas en castellano. La edición de Norma Editorial ofrece una encuadernación rígida para conservar y consultar el cómic en papel, con una extensión relativamente breve para su lectura completa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d933fba95ec28b67",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788427055988",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Deja de tratarte como el culo: De la autocrítica también se sale (Vivir Mejor), de Lorena Gascón, encaja con lectores interesados en psicología, desarrollo personal y bienestar, especialmente en el ámbito de la autocrítica. No es una novela ni una obra de ficción, sino un libro de no ficción dentro del desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 240 páginas de Deja de tratarte como el culo: De la autocrítica también se sale (Vivir Mejor), de Lorena Gascón. Su edición de bolsillo facilita transportarlo y leerlo fuera de casa; también permite conservar el ejemplar físico para futuras consultas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formato_edicion",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Deja de tratarte como el culo: De la autocrítica también se sale (Vivir Mejor), de Lorena Gascón, comparte autora y orientación de desarrollo personal con Cómo sobrevivir a las putadas de la vida (Vivir Mejor). La diferencia está en el enfoque que anuncian sus títulos: uno se centra en la autocrítica y el otro en las dificultades de la vida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055957"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a426300da7d0c59c",
+  "origen": "chatgpt-web"
+}

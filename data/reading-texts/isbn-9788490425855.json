@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788490425855",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Opiniones cruzadas para la optimización presente y futura del Campus Universitario de Tafira: 1 se dirige a lectores interesados en el análisis de espacios universitarios y su evolución. Su orientación hacia el diseño y la divulgación científica lo diferencia de una novela ambientada en una universidad o de una guía turística.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra plantea la mejora actual y futura del Campus Universitario de Tafira a partir de distintas opiniones. Vicente Ángel Mirallave Izquierdo y Flora Pescador Monagas firman este volumen, situado entre el arte y diseño y la divulgación científica, con el espacio universitario como objeto central de reflexión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Opiniones cruzadas para la optimización presente y futura del Campus Universitario de Tafira: 1 está disponible en tapa blanda, con 108 páginas editadas por Universidad de las Palmas de Gran Canaria. La edición impresa permite consultar el volumen, marcar pasajes y utilizarlo como referencia física para estudiar las cuestiones relacionadas con el campus.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La vida en los establecimientos termales de la provincia de Alicante: El balneario de Salinetas de Novelda (Monografías) comparte el interés por un espacio concreto, aunque estudia un establecimiento termal y no un campus universitario. Symphony. El arte de RossDraws (ARTBOOKS) se relaciona con el ámbito artístico, pero se centra en la obra de Ross Tran, frente a las cuestiones de mejora espacial que plantea Opiniones cruzadas para la optimización presente y futura del Campus Universitario de Tafira: 1.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788497179584",
+        "isbn-9788426742858"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "705c6e58cab002b7",
+  "origen": "chatgpt-web"
+}

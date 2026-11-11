@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388051128",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Poesía completa, de E. E. Cummings, está dirigida a lectores de poesía que buscan un volumen extenso de un mismo autor. Sus 1216 páginas responden a una lectura de largo recorrido, diferente de la brevedad habitual de una selección poética o de una novela con argumento continuo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Poesía completa se presenta en tapa blanda y reúne 1216 páginas en castellano. Por su extensión, el volumen resulta más apropiado para consultar y leer por partes en casa que para transportarlo a diario como un libro de bolsillo breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antologia amorosa la voz a ti debida y razon de amor y Poesía completa comparten el género poético, pero ofrecen alcances diferentes. La obra de Pedro Salinas se presenta como una selección de temática amorosa, mientras la de E. E. Cummings reúne su poesía completa en un volumen de 1216 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "331f2ccfa4fa3e6a",
+  "origen": "chatgpt-web"
+}

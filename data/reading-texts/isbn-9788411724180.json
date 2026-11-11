@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788411724180",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Oráculo de María Magdalena (CARTOMANCIA Y TAROT), de Marisa Ventura Saban, se orienta a lectores interesados en cartomancia, tarot y espiritualidad. Sus 96 páginas ofrecen una extensión breve frente a obras de desarrollo personal más largas; no responde a la búsqueda de narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Oráculo de María Magdalena (CARTOMANCIA Y TAROT) se presenta en tapa blanda, con 96 páginas editadas por Ediciones Obelisco S.l. Es una edición física de extensión reducida, que puede guardarse y consultarse en papel sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Oráculo de María Magdalena (CARTOMANCIA Y TAROT) comparte el ámbito espiritual con Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies. El libro de Marisa Ventura Saban se centra, por su título, en el oráculo y la cartomancia, mientras que el de Soledad Davies plantea la astrología, la filosofía y la magia como vías de práctica espiritual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9133bb1b5ea01223",
+  "origen": "chatgpt-web"
+}

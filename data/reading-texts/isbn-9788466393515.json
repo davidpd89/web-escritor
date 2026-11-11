@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788466393515",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vuelo 19 (Best Seller | Ficción) se dirige a lectores interesados en historia, novela histórica y acontecimientos del siglo XX. Sus 512 páginas ofrecen una lectura de extensión amplia; no está orientado principalmente a quienes buscan romance, fantasía o desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 512 páginas en una edición de bolsillo de Penguin Bolsillo, una opción física para quien prefiere leer en papel. Kindle permite acceder al mismo título en formato digital, más cómodo para llevar la lectura en el móvil o en un dispositivo electrónico.",
+      "evidencias": [
+        "numero_paginas",
+        "formato_edicion",
+        "edicion",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando éramos pilotos: Historias de los españoles que sobrevivieron al Dakar en África (Best Seller | Ficción), de José Antonio Ponseti, comparte autor con Vuelo 19 (Best Seller | Ficción). La diferencia está en el enfoque que anuncian sus títulos: uno se centra en historias relacionadas con el Dakar en África y el otro se presenta dentro de la novela histórica y el siglo XX.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466393522"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5fd9ddd4d371cd57",
+  "origen": "chatgpt-web"
+}

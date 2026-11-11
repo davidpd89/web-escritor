@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788425375415",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Apartamento 3B (Ficción), de Carolina Moura, encaja con lectores de romance que también buscan elementos de misterio y thriller. Sus 320 páginas corresponden a una novela de extensión media; no está orientada a quien prefiere exclusivamente relatos infantiles o libros de divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Apartamento 3B (Ficción) está disponible en tapa blanda, con 320 páginas en castellano. Esta edición de Grijalbo permite leerlo en papel y transportarlo sin el peso habitual de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Apartamento 3B (Ficción) comparte el romance con CUANDO TODO FALLA. Solo nos queda la promesa del nosotros.: Una novela romántica New Adult de superación, pasión por el arte y segundas oportunidades (La promesa del nosotros). La obra de Carolina Moura incorpora también misterio y thriller, mientras que la de Marta Monroy se presenta desde la superación, el arte y las segundas oportunidades. Son propuestas de distintas autoras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409942572"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "695bff56b9440306",
+  "origen": "chatgpt-web"
+}

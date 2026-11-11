@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388417573",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Islotes (GROU) se sitúa entre las biografías, las memorias y el ensayo, por lo que encaja con lectores interesados en esos tipos de escritura. No responde a la búsqueda de una novela de ficción ni de un manual técnico; José Luis Marín Aznárez firma una obra de 192 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Islotes (GROU) se presenta en tapa blanda y tiene 192 páginas. Este formato permite llevar el volumen en el bolso o la mochila y consultar pasajes en papel, sin depender de un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Islotes (GROU) puede compararse con Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes por su relación con la escritura biográfica, aunque este último anuncia una vida organizada en episodios. Alfred y Emily (Narrativa) ofrece otra referencia vinculada a la narración de vidas, mientras que Islotes (GROU) está clasificado también como ensayo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426438515",
+        "isbn-9786073873154"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "32d6c50dbd3d7a02",
+  "origen": "chatgpt-web"
+}

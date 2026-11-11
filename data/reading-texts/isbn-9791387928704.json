@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387928704",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡Que viene el lobo! (Salamandra Narrativa) se dirige a lectores que buscan misterio dentro de la narrativa contemporánea, con presencia del humor. Por su combinación de géneros, se distancia tanto de la novela exclusivamente humorística como de las historias centradas en mundos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¡Que viene el lobo! (Salamandra Narrativa) está disponible en tapa blanda, con 352 páginas en castellano. La extensión permite distribuir la lectura entre varias sesiones, mientras que la encuadernación flexible facilita llevar el ejemplar en el bolso o la mochila.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Detectives de barrio 3 - ¿Quién la está liando en la feria? (Montena) comparte con ¡Que viene el lobo! (Salamandra Narrativa) el interés por resolver un misterio. La diferencia está en el marco de lectura: la obra de Isaac Palmiola pertenece a una serie de detectives de barrio, mientras que la de Leonie Swann combina misterio, narrativa contemporánea y humor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387924959"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7fbc476a0df20d93",
+  "origen": "chatgpt-web"
+}

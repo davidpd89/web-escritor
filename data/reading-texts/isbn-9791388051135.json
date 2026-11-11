@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388051135",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los reconocimientos (NARRATIVA SEXTO PISO), de William Gaddis, se dirige a lectores de narrativa contemporánea que buscan una obra extensa. Sus 1376 páginas requieren una lectura prolongada, por lo que encaja menos con quienes prefieren libros breves.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los reconocimientos (NARRATIVA SEXTO PISO) está disponible en tapa blanda, con 1376 páginas en castellano. Por su extensión, conviene tener en cuenta el volumen físico al transportarlo y buscar un lugar donde apoyar el libro durante las sesiones de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "069f39960cfe966a",
+  "origen": "chatgpt-web"
+}

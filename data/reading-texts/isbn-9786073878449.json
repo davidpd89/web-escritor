@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9786073878449",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cóbraselo caro / Make Him Pay Dearly, de Élmer Mendoza, encaja con lectores de narrativa contemporánea que prefieren libros de extensión breve. Sus 96 páginas lo sitúan en un formato de lectura más corto que el de una novela extensa; no está catalogado como ensayo ni como literatura infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible de Cóbraselo caro / Make Him Pay Dearly, de Élmer Mendoza. Sus 96 páginas se reúnen en una edición física de extensión reducida, apropiada para quien prefiere leer en papel y conservar el volumen en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "af9634754f5ea01a",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788408327769",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La lista de los Reyes: La lista 2. La lista de los Reyes. Edición con cantos tintados (Ficción) se dirige a lectores de romance que buscan una novela extensa en castellano. Sus 512 páginas la alejan de quienes prefieren lecturas breves o géneros distintos del romántico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "El rasgo distintivo de esta edición son los cantos tintados anunciados en el título. Crossbooks la publica el 25 de noviembre de 2026, con el ISBN 9788408327769, que permite identificar esta versión concreta al buscarla o encargarla.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La lista de los Reyes: La lista 2. La lista de los Reyes. Edición con cantos tintados (Ficción) se presenta en tapa dura, un formato apropiado para conservar sus 512 páginas en una estantería. La encuadernación rígida también permite regalar un ejemplar físico con los cantos tintados que anuncia el título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c5f91ba8ab51dd98",
+  "origen": "chatgpt-web"
+}

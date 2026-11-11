@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9780825450679",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Biblia de Una Chica Conforme Al Corazón de Dios (a Girl After God's Own Heart Bible) se dirige, por su propio título, a chicas interesadas en una lectura religiosa vinculada a la fe en Dios. Su contenido bíblico y su extensión de 1632 páginas la alejan de los libros breves de reflexión personal o de las introducciones generales a otras prácticas espirituales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de Biblia de Una Chica Conforme Al Corazón de Dios (a Girl After God's Own Heart Bible) reúne 1632 páginas en castellano. Su encuadernación rígida resulta apropiada para conservarla y consultarla repetidamente, mientras que la extensión aconseja reservarle un lugar fijo de lectura en lugar de transportarla a diario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Biblia de Una Chica Conforme Al Corazón de Dios (a Girl After God's Own Heart Bible) comparte el ámbito religioso con Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, pero se identifica como una Biblia dirigida a chicas, mientras que la obra de Tsondru Yeshe presenta un camino de liberación. Frente a Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, propone una lectura bíblica en vez de unas vivencias relacionadas con un recorrido espiritual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496",
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6bc220eb27b4bee1",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788418308406",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inversiones conscientes (EMPRESA ACTIVA) está dirigido a lectores interesados en las inversiones desde una perspectiva económica. Su temática corresponde al ámbito de las finanzas y la empresa, por lo que se aparta de los libros de desarrollo personal sin contenido económico y de las novelas sobre negocios.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Inversiones conscientes (EMPRESA ACTIVA) tiene 288 páginas en castellano. Permite consultar el contenido en papel, marcar pasajes y regresar a ellos durante el estudio de cuestiones relacionadas con la inversión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Finanzas conscientes (EMPRESA ACTIVA) es la comparación más directa: comparte autora, Elizabeth Wakefield, y su título aborda las finanzas en sentido amplio, mientras Inversiones conscientes (EMPRESA ACTIVA) delimita el interés a la inversión. Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) también trata cuestiones económicas, pero desde el pensamiento político.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418308369",
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ba7f2f091e22ea3f",
+  "origen": "chatgpt-web"
+}

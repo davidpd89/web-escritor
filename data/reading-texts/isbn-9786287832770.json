@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786287832770",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Clave de la Longevidad Sana / The Key to Healthy Longevity se dirige a lectores interesados en la nutrición, el bienestar y el desarrollo personal relacionados con una vida saludable. El libro de Doctor Bayter se orienta a estos temas y encaja menos con quienes buscan narrativa de ficción o historia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Clave de la Longevidad Sana / The Key to Healthy Longevity está disponible en tapa blanda, con 320 páginas en castellano. El ejemplar físico permite marcar apartados y volver a cuestiones relacionadas con nutrición y bienestar, una forma de uso distinta de la lectura exclusivamente seguida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito comparte con La Clave de la Longevidad Sana / The Key to Healthy Longevity el interés por mejorar la salud. El primero amplía su planteamiento a las relaciones y el éxito, mientras que el segundo se centra en la longevidad saludable.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5ff7cd52e409f30f",
+  "origen": "chatgpt-web"
+}

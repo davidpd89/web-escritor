@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073879460",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Santita del agua clara / Saint of the Clear Water, de Laura Baeza, se dirige a lectores de narrativa contemporánea interesados en las relaciones familiares y la crianza. Por su orientación temática, queda fuera de las búsquedas centradas en manuales de bienestar o desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Santita del agua clara / Saint of the Clear Water se presenta en tapa blanda, con 240 páginas en castellano. Esta edición de Penguin Random House Grupo Editorial permite leer en papel y conservar el volumen en una estantería sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Época de cerezos / Cherry Blossom Season comparte con Santita del agua clara / Saint of the Clear Water la autoría de Laura Baeza, por lo que permite comparar dos obras de una misma escritora. Celestino antes del alba (Andanzas), de Reinaldo Arenas, ofrece otra referencia literaria, aunque pertenece a una autoría distinta y no mantiene esa continuidad entre obras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073877527",
+        "isbn-9788411078535"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f76cb923d418da3a",
+  "origen": "chatgpt-web"
+}

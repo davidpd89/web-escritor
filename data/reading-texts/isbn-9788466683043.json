@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mamá necesita un respiro está dirigido a lectores adultos interesados en la maternidad cotidiana, la crianza y el humor sobre la vida familiar. Inma Sáenz relata experiencias personales relacionadas con los hijos, la pareja y el agotamiento; no es una guía técnica de pediatría ni un manual de desarrollo infantil.",
+      "texto": "Mamá necesita un respiro está dirigido a lectores adultos interesados en la maternidad, la crianza y el humor sobre la vida familiar. Tiene especial relación con las experiencias de las madres y sus contradicciones cotidianas; no corresponde a una guía infantil ni a un manual técnico de educación.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,19 +15,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mamá necesita un respiro está disponible en tapa blanda y Kindle. La edición de Ediciones B contiene 240 páginas y solapas, una opción física para regalar o leer por partes; Kindle permite acceder digitalmente a las entradas de este diario sobre maternidad desde un dispositivo compatible.",
+      "texto": "La tapa blanda con solapas ofrece sus 240 páginas en una edición física que puede conservarse o regalarse. Kindle permite llevar el libro en formato digital y leerlo desde dispositivos compatibles; ambos formatos corresponden a Mamá necesita un respiro, de Inma Sáenz.",
       "evidencias": [
         "titulo",
-        "editorial",
+        "autores",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mamá necesita un respiro y Criar juntos de verdad comparten el ámbito de la crianza, pero Inma Sáenz utiliza el diario personal y el humor, mientras Armando Bastida @armandobastidaep se centra en la colaboración entre quienes crían. Preparados, listos, ¡llegó el bebé! aborda los primeros años desde una guía práctica, frente al relato de experiencias familiares de Mamá necesita un respiro.",
+      "texto": "¡Hola, superpapá!: De marido estándar a papá regulero. 40 escenas de supervivencia paternal (Crecer en familia) comparte el humor sobre las dificultades de criar, pero aborda la experiencia desde la paternidad. El pequeño libro de los padres (Somos B), de 72 Kilos, también gira alrededor de la figura parental, mientras que Mamá necesita un respiro pone el foco en la experiencia de las madres.",
       "evidencias": [
         "titulo",
         "autores",
@@ -36,8 +35,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788423370658",
-        "isbn-9788467083613"
+        "isbn-9788425373664",
+        "isbn-9788466684101"
       ]
     }
   ],

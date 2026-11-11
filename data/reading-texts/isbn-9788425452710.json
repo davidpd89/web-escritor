@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788425452710",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las negras toman la palabra (fuera de colección), de Awa Thiam, se dirige a quienes buscan lecturas de ensayo e historia en castellano. Su clasificación temática lo aleja de quienes prefieren una novela de ficción o una lectura infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 232 páginas de Las negras toman la palabra (fuera de colección) en una edición física de Herder Editorial. Kindle permite consultar el mismo título desde un lector electrónico o un dispositivo compatible, sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las negras toman la palabra (fuera de colección) y Campo de concentración: 82 (Biblioteca del Exilio) comparten su vinculación con lecturas de interés histórico. El primero es un ensayo de Awa Thiam, mientras que el segundo se presenta bajo una colección dedicada al exilio y lleva la firma de Eduardo de Ontañón.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410148659"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d6b9bd5de6afd8f6",
+  "origen": "chatgpt-web"
+}

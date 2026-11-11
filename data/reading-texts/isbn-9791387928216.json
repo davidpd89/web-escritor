@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387928216",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ovejas descarriadas (Salamandra Narrativa), de Madeline Cash, se orienta a lectores de narrativa contemporánea interesados en asuntos familiares y misterio. Quienes busquen fantasía o una lectura ajena a los conflictos familiares encontrarán aquí un enfoque diferente, desarrollado en 304 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ovejas descarriadas (Salamandra Narrativa) tiene una edición en tapa blanda de 304 páginas. El volumen físico permite alternar sesiones de lectura y consultar páginas anteriores sin depender de una pantalla; su extensión queda entre la novela corta y los libros especialmente largos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ovejas descarriadas (Salamandra Narrativa) puede ponerse junto a Dime, niña bonita (Narrativa), de Laura Galve, dentro de una búsqueda de narrativa. El primero combina ese ámbito con el misterio y los asuntos familiares; el título del segundo permite identificar su orientación narrativa, pero no atribuirle el mismo conflicto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387605964"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "262fd8fb6bcc86cd",
+  "origen": "chatgpt-web"
+}

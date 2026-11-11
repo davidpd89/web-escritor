@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409942572",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta novela de Marta Monroy se dirige a lectores de romance New Adult interesados en las segundas oportunidades, el arte y la superación personal. Su enfoque sentimental encaja menos con quienes buscan una historia centrada exclusivamente en el misterio o el suspense.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar y retomar sus 375 páginas en papel sin depender de una pantalla. Esta edición de Marta Monroy López reúne el texto en un único volumen físico, una opción para quienes prefieren guardar sus lecturas en la estantería o prestarlas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando fuimos todo comparte con esta obra el interés por las relaciones sentimentales y la posibilidad de reconsiderar un vínculo amoroso. La novela de Marta Monroy incorpora además la superación personal y la pasión por el arte como ejes temáticos, mientras que el planteamiento conocido de Cuando fuimos todo gira alrededor de Emma y Gael.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387598440"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6bad13de3c357994",
+  "origen": "chatgpt-web"
+}

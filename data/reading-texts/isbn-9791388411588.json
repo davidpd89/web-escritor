@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388411588",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un futuro próximo se encuadra en el misterio, el thriller y la narrativa contemporánea, por lo que responde a lectores interesados en esos géneros. Su clasificación lo aleja de los manuales prácticos, la divulgación y las obras de no ficción, aunque no permite concretar una edad lectora.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un futuro próximo está disponible en tapa blanda y Kindle. La edición física de Editorial Adarve tiene 254 páginas y permite conservar la novela en papel, mientras que la versión Kindle facilita su lectura en un dispositivo electrónico compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aguas turbulentas comparte con Un futuro próximo su vinculación al misterio, aunque sitúa su conflicto en Edimburgo y relaciona acontecimientos del pasado con el presente. Corazón de sílex parte de una joven que ha perdido el recuerdo de una noche, mientras que la obra de José Manuel Granado se identifica por su pertenencia al misterio y la narrativa contemporánea.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370310318",
+        "isbn-9788467083330"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "952c348d31c560ec",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Asesinato antes de Navidad se dirige a lectores de misterio que prefieren investigar un crimen entre tensiones familiares y conflictos personales. Su ambientación navideña convive con un cadáver, secretos antiguos y un divorcio complicado, por lo que no responde a una lectura exclusivamente festiva o romántica.",
+      "texto": "Asesinato antes de Navidad encaja con lectores de misterio que buscan un crimen relacionado con secretos familiares y conflictos cotidianos. La investigación transcurre durante las celebraciones navideñas y convive con un divorcio y viejos resentimientos; no responde a una historia centrada únicamente en el ambiente festivo.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Asesinato antes de Navidad plantea un misterio criminal dentro de una historia familiar contemporánea. Katherine Black entrelaza la investigación de una muerte con el regreso de una hermana gemela, las exigencias de una madre y las dificultades personales de May Morrigan, de modo que el pasado familiar forma parte del conflicto.",
+      "texto": "Asesinato antes de Navidad plantea un misterio criminal dentro de una trama de relaciones familiares deterioradas. Katherine Black sitúa a May Morrigan ante la aparición de un cadáver, el regreso de su hermana gemela y una serie de asuntos pendientes que complican la búsqueda de respuestas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,7 +23,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Asesinato antes de Navidad puede leerse en tapa blanda o en Kindle. La edición impresa de RBA Libros reúne 304 páginas para leer y conservar en papel, mientras que Kindle permite llevar la novela en un dispositivo compatible sin transportar el volumen físico.",
+      "texto": "Asesinato antes de Navidad se ofrece en tapa blanda y Kindle, con 304 páginas en su edición impresa de RBA Libros. La tapa blanda permite conservar el volumen físico y consultar las pistas anteriores; Kindle facilita continuar la investigación desde un lector electrónico o el móvil.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -33,16 +33,15 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Asesinato antes de Navidad y El asesinato de Roger Ackroyd (Edición especial con cantos tintados) comparten la investigación de un crimen, aunque el primero incorpora conflictos familiares navideños y el segundo destaca por su enigma detectivesco. Frente a El enigmático míster Quin, compuesto por doce relatos, la novela de Katherine Black desarrolla una trama continuada.",
+      "texto": "Asesinato antes de Navidad comparte con Corazón de sílex un misterio construido alrededor de hechos que deben esclarecerse. En Corazón de sílex, la protagonista intenta reconstruir una noche que no recuerda; Katherine Black, en cambio, relaciona un cadáver con tensiones familiares y una celebración navideña.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788467083934",
-        "isbn-9788408331520"
+        "isbn-9788467083330"
       ]
     }
   ],

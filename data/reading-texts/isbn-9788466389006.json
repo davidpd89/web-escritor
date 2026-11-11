@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788466389006",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El gabinete del Dr. Leng (Inspector Pendergast 21) (Best Seller | Ficción), de Douglas Preston y Lincoln Child, se dirige a lectores de misterio y thriller que buscan una novela extensa. Con 432 páginas y una referencia a Inspector Pendergast en el título, se aleja de las lecturas breves y de los relatos ajenos al suspense.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Penguin Bolsillo permite leer las 432 páginas de El gabinete del Dr. Leng (Inspector Pendergast 21) (Best Seller | Ficción) en un volumen de bolsillo, apropiado para llevar en el bolso o la mochila. Kindle evita transportar el ejemplar físico y facilita continuar la lectura desde el móvil o un lector electrónico compatible.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La montaña muerta (Nora Kelly 4) (Best Seller | Ficción) y Tierra baldía (Nora Kelly 5) (Éxitos) comparten autoría con El gabinete del Dr. Leng (Inspector Pendergast 21) (Best Seller | Ficción): las tres obras son de Douglas Preston y Lincoln Child. La diferencia identificable está en las series que nombran sus títulos: Nora Kelly frente a Inspector Pendergast.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466392761",
+        "isbn-9788401038006"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "deeac2dc637f0e37",
+  "origen": "chatgpt-web"
+}

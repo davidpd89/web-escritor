@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788408328667",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Escribà 120 Aniversario (Pastelería y postres) se dirige a lectores interesados en la cocina, especialmente en la pastelería y los postres. Su temática gastronómica lo distancia de los libros centrados en ficción, aventuras o narrativa literaria.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de Escribà 120 Aniversario (Pastelería y postres) contiene 288 páginas y permite conservar el volumen como libro físico de consulta o regalo. La versión Kindle facilita acceder al contenido desde el móvil y consultarlo sin tener que utilizar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Escribà 120 Aniversario (Pastelería y postres) comparte el ámbito gastronómico con Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA). La obra de Christian Escribà Tholoniat se centra en la pastelería y los postres, mientras que la de David Villalón y Mario Villalón abarca también la huerta, los vinos y los cócteles. La diferencia principal está en la especialización temática de cada título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934293"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2ffa6bf7bc46e461",
+  "origen": "chatgpt-web"
+}

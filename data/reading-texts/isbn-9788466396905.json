@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466396905",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El jardín de las brujas (Best Seller | Ficción) se dirige a lectores de narrativa contemporánea con interés por los temas históricos y el siglo XX. Aunque su título menciona a las brujas, su clasificación editorial la sitúa en ficción narrativa e historia, no en un manual de prácticas esotéricas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El jardín de las brujas (Best Seller | Ficción) puede leerse en tapa blanda o Kindle. La edición de bolsillo de Penguin Bolsillo reúne 384 páginas y permite conservar el libro en papel; Kindle ofrece la alternativa digital para llevar la lectura en el móvil o en un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Corazón de oro: Edición limitada a precio especial (Colección Especial) y El jardín de las brujas (Best Seller | Ficción) se relacionan por su presencia entre lecturas de ficción con vínculos históricos. El libro de Clara Tahoces se clasifica expresamente en narrativa contemporánea, historia y siglo XX; el de Luz Gabás se distingue por presentarse como una edición limitada dentro de una colección especial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328353"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "79320e28408a8c6a",
+  "origen": "chatgpt-web"
+}

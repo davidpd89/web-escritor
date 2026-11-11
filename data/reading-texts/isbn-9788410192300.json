@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788410192300",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra se dirige a lectores interesados en la ornitología y en las aves que nidifican en Vitoria-Gasteiz. Su enfoque de divulgación científica y su extensión de 352 páginas la alejan de una lectura de ficción o de una guía general sobre animales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro aborda las aves nidificantes de Vitoria-Gasteiz desde una perspectiva de divulgación científica. Su carácter de atlas delimita el ámbito geográfico y el objeto de estudio, centrado en las especies que se reproducen en ese territorio.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, publicada por Sociedad de Ciencias Aranzadi. Sus 352 páginas permiten consultar el atlas en papel y volver a sus contenidos durante el estudio de las aves nidificantes de Vitoria-Gasteiz.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Así es la vida de los animales: Historias de crueldad, amor y supervivencia en la naturaleza (Imago Mundi), de Mario Alonso Santamaría, también aborda el mundo animal, pero desde historias sobre su comportamiento y supervivencia. El atlas de Vitoria-Gasteiz se concentra en las aves nidificantes de un territorio concreto y adopta un enfoque de divulgación científica.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788423370979"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "054ee8faeb277065",
+  "origen": "chatgpt-web"
+}

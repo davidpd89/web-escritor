@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387846107",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ficciones (Hispánica), de Jorge Luis Borges, encaja con lectores interesados en los relatos y la narrativa contemporánea. Su extensión de 208 páginas permite abordar una colección de textos breves, frente a quienes prefieren seguir una única historia extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ficciones (Hispánica) se presenta en tapa blanda, con 208 páginas en castellano publicadas por Alfaguara. Es una edición física que puede transportarse con facilidad y permite consultar o releer los relatos sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ficciones (Hispánica) y Cuentos completos (edición especial en tapa dura) comparten autor, Jorge Luis Borges, y el ámbito del relato. El segundo reúne todos sus cuentos en tapa dura, mientras que Ficciones (Hispánica) ofrece una edición de 208 páginas en tapa blanda, centrada en una obra concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466392297"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a5306700483537bc",
+  "origen": "chatgpt-web"
+}

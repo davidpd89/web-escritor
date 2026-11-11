@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788410427686",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dejar ir: 50 pequeños cambios para soltar lo innecesario y ser libre (GRANDES ÉXITOS DE ASIA), de Daisuke Yosumi, está dirigido a lectores interesados en el desarrollo personal y los cambios en la vida cotidiana. Su enfoque se aleja de la ficción y se orienta a quienes buscan lecturas relacionadas con el crecimiento personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Con 160 páginas en tapa blanda, Dejar ir: 50 pequeños cambios para soltar lo innecesario y ser libre (GRANDES ÉXITOS DE ASIA), de Daisuke Yosumi, ofrece una edición física de extensión breve. Su formato permite tener el libro en papel y consultarlo directamente, sin necesidad de utilizar dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d25b63f43d0058d8",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788425453137",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El médico en la era tecnológica (fuera de colección), de Karl Jaspers, se orienta a lectores de ensayo interesados en la filosofía y la relación entre medicina y tecnología. También conecta con la historia y el bienestar, pero no responde al planteamiento de un manual de ejercicios físicos o de nutrición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sus 176 páginas pueden leerse en tapa blanda o en Kindle, según se prefiera el papel o la pantalla. La edición física de Herder Editorial permite conservar y consultar el ensayo en una biblioteca, mientras que Kindle facilita transportarlo y acceder al texto desde distintos dispositivos compatibles.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El médico en la era tecnológica (fuera de colección) puede compararse con La naturaleza del poder: 34 (Tascabili), de Luciano Canfora, por su orientación hacia el ensayo y la reflexión sobre asuntos sociales. Karl Jaspers sitúa el foco en la medicina dentro de una época tecnológica, mientras que el título de Luciano Canfora dirige la atención al poder.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387938208"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9e755bda077b6271",
+  "origen": "chatgpt-web"
+}

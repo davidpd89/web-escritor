@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9780241839355",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mitos y leyendas (Mundo 3D): Héroes, dioses y monstruos como nunca antes los habías visto (Enciclopedia visual juvenil) está orientado al público juvenil interesado en mitología, historia y figuras religiosas. Su enfoque enciclopédico y visual lo diferencia de una novela con una trama continua. También permite consultar temas concretos sin seguir una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra aborda héroes, divinidades y criaturas monstruosas desde una perspectiva visual y juvenil. Su título la presenta como una enciclopedia del ámbito mitológico, mientras que su clasificación incorpora historia y religión. El volumen de DK tiene 208 páginas y pertenece a la línea Mundo 3D.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mitos y leyendas (Mundo 3D): Héroes, dioses y monstruos como nunca antes los habías visto (Enciclopedia visual juvenil) se publica en tapa dura. Sus 208 páginas reúnen el contenido de consulta en un volumen físico que puede utilizarse sobre una mesa para examinar sus elementos visuales. La encuadernación rígida también facilita conservarlo como libro de referencia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Biblia: Una enciclopedia ilustrada comparte con Mitos y leyendas (Mundo 3D): Héroes, dioses y monstruos como nunca antes los habías visto (Enciclopedia visual juvenil) la autoría de DK y el enfoque visual sobre cuestiones religiosas. La primera utiliza mapas, objetos históricos y materiales arqueológicos; la segunda se centra en héroes, dioses y monstruos. Antigua Grecia (Civilizaciones antiguas) (Enciclopedia visual), también de DK, orienta la consulta hacia una civilización concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241837702",
+        "isbn-9780241837610"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fbe377c9e573c784",
+  "origen": "chatgpt-web"
+}

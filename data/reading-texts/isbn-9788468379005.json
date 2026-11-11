@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788468379005",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La familia conejito (Libro guante con títeres de dedo) (Libros para bebés) está dirigido a bebés y a quienes comparten con ellos sus primeras experiencias con libros. Su propuesta de tela y títeres de dedo se aparta de la lectura autónoma de relatos extensos.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La familia conejito (Libro guante con títeres de dedo) (Libros para bebés) figura disponible en tapa dura, aunque la edición se describe como libro de tela. Sus 6 páginas y el formato de guante con títeres de dedo orientan su uso hacia la manipulación y la lectura compartida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La familia conejito (Libro guante con títeres de dedo) (Libros para bebés) puede compararse con Pequeños peluches (Libro guante con títeres de dedo) (Libros para bebés), también de Rettore. Ambos comparten el formato anunciado de guante con títeres de dedo y el público de bebés; sus títulos distinguen la temática de conejitos de la de pequeños peluches.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788468378985"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7e1f11a8eadae22c",
+  "origen": "chatgpt-web"
+}

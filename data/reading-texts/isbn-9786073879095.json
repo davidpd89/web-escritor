@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9786073879095",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Terrores cotidianos (edición bilingüe español/zoque) / Everyday Fears (Bilingual Edition) se dirige a lectores de relatos interesados en la narrativa contemporánea y en una edición que incorpora español y zoque. Su clasificación también incluye novela histórica, por lo que reúne referencias a distintas modalidades narrativas. No responde a la búsqueda de una novela extensa presentada como una única narración.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Terrores cotidianos (edición bilingüe español/zoque) / Everyday Fears (Bilingual Edition) se identifica expresamente como bilingüe en español y zoque. Penguin Random House Grupo Editorial la publica en tapa blanda, con 224 páginas y fecha editorial del 2027-01-19. La identificación bilingüe es su rasgo distintivo para diferenciarla de una edición presentada únicamente en castellano.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es la tapa blanda, publicada por Penguin Random House Grupo Editorial. Con 224 páginas, permite consultar físicamente una obra identificada como bilingüe en español y zoque. El soporte en papel resulta útil para regresar a los textos y comparar pasajes durante la lectura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "En lengua privada / In Private Language, de Emiliano Monge, comparte con Terrores cotidianos (edición bilingüe español/zoque) / Everyday Fears (Bilingual Edition) la presencia de dos lenguas en el título. La diferencia es que la obra de Jaime Sakäsmä identifica expresamente una edición bilingüe en español y zoque. Caperucita se come al lobo / Little Red Riding Hood Eats the Wolf, de Pilar Quintana, ofrece otra comparación por su presentación titular en dos idiomas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287880610",
+        "isbn-9786073878289"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2cc874432e02355f",
+  "origen": "chatgpt-web"
+}

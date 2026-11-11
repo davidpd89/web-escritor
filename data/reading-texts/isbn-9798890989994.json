@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9798890989994",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vivir con confianza: Un estudio bíblico de 8 sesiones sobre conocer y amar quién eres / Living Confidently está dirigido a quienes desean trabajar la confianza personal desde una perspectiva bíblica. Su planteamiento religioso y organizado en sesiones encaja menos con lectores que buscan una novela o un manual de desarrollo personal ajeno a la espiritualidad.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 96 páginas de Vivir con confianza: Un estudio bíblico de 8 sesiones sobre conocer y amar quién eres / Living Confidently. Su extensión permite distribuir la lectura entre las sesiones anunciadas en el título y volver a consultar cada parte en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación comparte con Vivir con confianza: Un estudio bíblico de 8 sesiones sobre conocer y amar quién eres / Living Confidently el interés por la práctica espiritual, pero aborda el Dharma en lugar del estudio bíblico. Al andar: Vivencias del Camino de Santiago se orienta hacia las vivencias de un recorrido, mientras que Joyce Meyer propone sesiones sobre confianza e identidad personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496",
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "088b2adae1215860",
+  "origen": "chatgpt-web"
+}

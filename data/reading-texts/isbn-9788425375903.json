@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788425375903",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El último verano de Melanie (Novela de intriga), de Marta Zurera, encaja con lectores interesados en el misterio y el thriller. Sus 320 páginas sitúan la obra en una extensión mayor que la de una novela breve; por su clasificación, se aparta de quienes buscan principalmente narrativa contemporánea ajena a la intriga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El último verano de Melanie (Novela de intriga) puede leerse en tapa blanda o Kindle. La edición impresa de Grijalbo tiene 320 páginas y permite conservar o prestar el libro; Kindle facilita llevar la novela en un dispositivo compatible y continuar la lectura sin cargar con el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "75f21fa20a122c2e",
+  "origen": "chatgpt-web"
+}

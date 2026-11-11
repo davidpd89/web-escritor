@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788408329282",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "GoDeik1. GoDeik y la gema maldita. Edición exclusiva: 1 (Jóvenes influencers) se dirige a lectores interesados en aventuras que combinan misterio y humor. Resulta menos afín a quienes buscan narraciones costumbristas sin enigmas o prefieren historias alejadas de la aventura.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "GoDeik1. GoDeik y la gema maldita. Edición exclusiva: 1 (Jóvenes influencers) está disponible en tapa dura y tiene 192 páginas. Esta presentación permite leerlo, prestarlo o conservarlo como ejemplar físico y mantiene la identificación de edición exclusiva que figura en el título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "GoDeiK 2. GoDeiK y los amigos enemigos (Jóvenes influencers) comparte autoría con este libro de GoDeiK y mantiene el marco de aventuras y misterio. Los títulos distinguen los números 1 y 2, mientras que Estuche GoDeiK 1 + GoDeiK 2 (Jóvenes influencers) los presenta juntos en lugar de ofrecer únicamente este volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328476",
+        "isbn-9788408328087"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b3667b0f06be2de1",
+  "origen": "chatgpt-web"
+}

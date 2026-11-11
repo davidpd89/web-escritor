@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388395147",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lacrima: El agua no olvida (Literatura), de Lucien Arcan, encaja con lectores interesados en el misterio y la narrativa contemporánea. Sus 312 páginas plantean una lectura de extensión media; quien busque fantasía o una obra centrada en el humor encontrará aquí una orientación de género distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lacrima: El agua no olvida (Literatura) se publica en tapa blanda, con 312 páginas en castellano. Esta edición de Erasmus Ediciones permite leer en papel y conservar el ejemplar en una biblioteca personal; por su extensión, resulta razonable repartir la lectura entre varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lacrima: El agua no olvida (Literatura) puede compararse con Aguas turbulentas, de Rankin Ian, por su vinculación con el misterio. Aguas turbulentas sitúa su conflicto en Edimburgo y relaciona acontecimientos del pasado con el presente; Lacrima: El agua no olvida (Literatura) combina misterio y narrativa contemporánea, sin que esa clasificación determine un escenario equivalente.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ca5d08791bb36f71",
+  "origen": "chatgpt-web"
+}

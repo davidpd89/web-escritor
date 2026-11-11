@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788428372466",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "UF0897 - Montaje y mantenimiento de máquinas eléctricas rotativas (Electricidad y Electrónica) se orienta a lectores interesados en el montaje y mantenimiento de equipos eléctricos. Por su temática especializada, se distancia de los libros de ciencia general y de las lecturas centradas en cuestiones ajenas a la electricidad.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "UF0897 - Montaje y mantenimiento de máquinas eléctricas rotativas (Electricidad y Electrónica) se presenta en tapa blanda, con una extensión de 404 páginas. El soporte físico permite recorrer y consultar sus contenidos sobre máquinas eléctricas rotativas sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "UF0897 - Montaje y mantenimiento de máquinas eléctricas rotativas (Electricidad y Electrónica) comparte con 50 cosas que hay que saber sobre IA el interés por materias tecnológicas. La diferencia está en el objeto de estudio: José Roldán Viloria se centra en máquinas eléctricas rotativas, mientras que el libro de Keith Mansfield trata sobre inteligencia artificial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "85e20a81814cd330",
+  "origen": "chatgpt-web"
+}

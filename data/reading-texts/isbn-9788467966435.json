@@ -4,40 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores de cómic y novela gráfica interesados en conflictos violentos, sociedades secretas y rescates personales. La presencia de un secuestro, un intento de suicidio y asesinatos lo aleja de quienes buscan historias sin violencia explícita en su planteamiento.",
+      "texto": "Sin City 07. Ida y vuelta al infierno (Edición de lujo) se dirige a lectores de cómic adulto interesados en el crimen, las sociedades secretas y los conflictos violentos. La historia incluye un intento de suicidio, un secuestro y un protagonista dispuesto a matar, por lo que no encaja con quien busque una lectura sin violencia.",
       "evidencias": [
+        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela gráfica de Frank Miller centrada en un artista que se enfrenta a una organización clandestina para recuperar a la mujer de la que se ha enamorado. El conflicto combina una relación sentimental, amenazas criminales y la disposición del protagonista a matar para conseguir su objetivo.",
+      "texto": "Es un cómic de intriga criminal centrado en Wallace, un artista que intenta mantener sus principios mientras se enfrenta a una organización clandestina. El secuestro de Esther convierte una relación sentimental en un conflicto de rescate, con la violencia como recurso del protagonista.",
       "evidencias": [
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de lujo se presenta en tapa dura y reúne 328 páginas, una combinación adecuada para conservar el volumen en una biblioteca o regalarlo. Es una edición física de Norma Editorial en castellano, pensada para leer las páginas ilustradas directamente en papel.",
+      "texto": "Sin City 07. Ida y vuelta al infierno (Edición de lujo) está disponible en tapa dura, con 328 páginas en castellano publicadas por Norma Editorial. Esta encuadernación permite conservar el volumen en una estantería y consultarlo repetidamente sin depender de un dispositivo electrónico; también puede entregarse como regalo físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
         "idioma",
-        "categorias"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "SIN CITY 07. IDA Y VUELTA AL INFIERNO (CARTONÉ) comparte con esta edición la autoría de Frank Miller y la historia de Wallace, un artista que mantiene sus principios. La diferencia identificable está en la presentación editorial: este volumen se denomina edición de lujo, mientras que el otro se identifica como cartoné.",
+      "texto": "Sin City 07. Ida y vuelta al infierno (Cartoné), también de Frank Miller, comparte el protagonismo de Wallace y su conflicto entre principios personales y violencia. La diferencia identificable está en la denominación editorial: una figura como Cartoné y la otra como Edición de lujo, ambas con el mismo autor y punto de partida narrativo.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
         "isbn-9788467966428"
@@ -46,6 +46,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0ab2204c18dfaf79",
+  "fuente_hash": "b9d15635b346b473",
   "origen": "chatgpt-web"
 }

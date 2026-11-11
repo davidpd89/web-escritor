@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387846558",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Amargo, amargo (Literaturas), de Joanna Bator, se orienta a lectores de narrativa contemporánea e histórica interesados en las relaciones familiares. Sus 672 páginas requieren una lectura más prolongada que la de una novela breve, y su temática se aleja de la fantasía y las aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Amargo, amargo (Literaturas) es de tapa blanda y reúne 672 páginas en castellano. Por su extensión, resulta más cómoda para leer con apoyo que para sostenerla durante sesiones largas; Alfaguara publica esta presentación física.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amargo, amargo (Literaturas), de Joanna Bator, puede compararse con Hacia otro lugar (SUMA), de Mónica Rocha, como otra propuesta de ficción de distinta autoría. También comparte el ámbito narrativo con La casa de huéspedes, de Ana Lena Rivera, aunque la obra de Joanna Bator combina expresamente novela histórica, narrativa contemporánea y temática familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388163043",
+        "isbn-9788466375375"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4f393abf778e53eb",
+  "origen": "chatgpt-web"
+}

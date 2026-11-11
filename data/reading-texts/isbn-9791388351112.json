@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791388351112",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tendencias Actuales En Psicología se orienta a lectores interesados en la psicología y el desarrollo personal. La autoría de Academia de Psicología de España sitúa el libro en ese ámbito, por lo que encaja menos con quienes buscan una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tendencias Actuales En Psicología se ofrece en tapa blanda, en una edición de 428 páginas en castellano. El formato permite consultar capítulos en papel y utilizar marcadores para localizar pasajes durante el estudio o la lectura por sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c55dc5d08462c1b2",
+  "origen": "chatgpt-web"
+}

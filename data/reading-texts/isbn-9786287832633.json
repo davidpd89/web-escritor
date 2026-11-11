@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786287832633",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Método espalda sana / The Healthy Back Method se dirige a lectores interesados en el bienestar físico y el cuidado de la espalda. Por su orientación hacia la salud y el desarrollo personal, se aleja de quienes buscan una novela o una obra de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Método espalda sana / The Healthy Back Method se presenta en tapa blanda, en una edición en castellano de Grijalbo. Este formato permite conservar el volumen en papel y consultarlo directamente, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Método espalda sana / The Healthy Back Method comparte el interés por la salud con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito. El primero centra su propuesta en la espalda, mientras que el libro de Liz Moody abarca también la felicidad, las relaciones y el éxito.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "03c809f4a804dfee",
+  "origen": "chatgpt-web"
+}

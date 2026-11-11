@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410192416",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Clave para identificar anfibios se dirige a lectores interesados en reconocer anfibios y dedicar parte de su tiempo libre a esta actividad. Su planteamiento de identificación de animales se diferencia de los libros de colorear, dibujo y otras actividades creativas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Clave para identificar anfibios cuenta con una edición de tapa blanda de 48 páginas. Su extensión breve facilita llevar el volumen en papel y consultar las claves de identificación durante una actividad relacionada con los anfibios.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Clave para identificar anfibios comparte su orientación hacia actividades de tiempo libre con 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos) y Aprende a dibujar con KPop Demon Hunters: Edición OFICIAL en español (Montena). El libro de Ion Garin Barrio, Iñaki Romero Iraola e Iñaki Sanz Azkue trata de identificar anfibios, mientras que los otros proponen colorear y aprender a dibujar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328384",
+        "isbn-9791388322778"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "242b559c8118a356",
+  "origen": "chatgpt-web"
+}

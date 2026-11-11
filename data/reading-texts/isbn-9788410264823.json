@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410264823",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Krazy Kat. Páginas dominicales 1918-1919 (NOVELA GRAFICA) se dirige a lectores de cómic interesados en el humor y las páginas dominicales históricas. La obra de George Herriman se presenta como una recopilación gráfica, por lo que no responde a la búsqueda de una novela convencional escrita únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Krazy Kat. Páginas dominicales 1918-1919 (NOVELA GRAFICA) está disponible en tapa dura, con 132 páginas. Esta encuadernación permite conservar reunidas las páginas dominicales de George Herriman y consultar sus historietas directamente en papel, tanto en lecturas completas como al volver a una página concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Krazy Kat. Páginas dominicales 1918-1919 (NOVELA GRAFICA) puede compararse con 7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica) por su vinculación con el cómic humorístico. La diferencia está en las obras y sus autores: George Herriman reúne páginas dominicales de los años indicados en el título, mientras Francisco Ibáñez firma el otro volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431790"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "773b83a2c4ad3f82",
+  "origen": "chatgpt-web"
+}

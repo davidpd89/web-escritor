@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388337192",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Wild Side: Lado salvaje: Rose Hill 3 (Contraluz), de Elsie Silver, se dirige a lectores de romance que buscan una novela de extensión considerable. Sus 440 páginas y su clasificación editorial la distinguen de las lecturas breves y de los libros centrados en géneros ajenos al romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Wild Side: Lado salvaje: Rose Hill 3 (Contraluz) está disponible en tapa blanda y Kindle. La edición física reúne sus 440 páginas en un volumen que puede conservarse o regalarse; Kindle permite llevar la misma obra en un lector electrónico o dispositivo compatible sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d8aa534c0e9a0663",
+  "origen": "chatgpt-web"
+}

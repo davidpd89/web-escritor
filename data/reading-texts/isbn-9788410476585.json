@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410476585",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ecología o economía: Hay que elegir: 136 (Ensayo), de Anselm Jappe, se dirige a lectores interesados en las relaciones entre ecología, economía y pensamiento político. Su orientación ensayística y filosófica lo separa de los manuales prácticos de sostenibilidad y de las novelas centradas en conflictos medioambientales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ecología o economía: Hay que elegir: 136 (Ensayo) tiene una edición en tapa blanda de 224 páginas, publicada por Pepitas de calabaza. El papel facilita consultar pasajes anteriores y mantener referencias durante una lectura centrada en cuestiones económicas, ecológicas y filosóficas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ecología o economía: Hay que elegir: 136 (Ensayo) puede ponerse junto a Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta. Ambos abordan cuestiones económicas y políticas desde el ensayo, pero Anselm Jappe plantea la relación entre ecología y economía, mientras que Miguel Anxo Bastos Boubeta se centra en las raíces del pensamiento anarcocapitalista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "59e984ec67153653",
+  "origen": "chatgpt-web"
+}

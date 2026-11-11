@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788429030402",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en el ensayo y en el ámbito del arte y el diseño, especialmente por su relación con los programas de cine. Su enfoque temático se aleja de la narrativa de ficción y de los manuales prácticos de creación artística.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Personas sobresalientes en los programas de cine (Otium) está disponible en tapa blanda, con 124 páginas en castellano. Su extensión permite leerla en varias sesiones y el formato físico facilita volver a consultar pasajes concretos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte el terreno del ensayo con El alfabeto infinito: Las leyes del conocimiento (Ensayo y Pensamiento), de César Hidalgo, aunque este último se centra en las leyes del conocimiento. Frente a Branding con criterio: Una novela-ensayo que, como brújula de arena, nos interpela (TEMATICOS), de Cristián Saracco, se distingue por situar los programas de cine en el centro de su título, en lugar del branding.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399168648",
+        "isbn-9791388092701"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8285dad3926c7d8e",
+  "origen": "chatgpt-web"
+}

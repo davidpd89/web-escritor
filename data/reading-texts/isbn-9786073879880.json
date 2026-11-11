@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073879880",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Muerte del Tiempo / The Dead of Time (Time Keeper) reúne fantasía, terror y romance, por lo que se dirige a lectores que buscan esos elementos en una misma obra. Sus 720 páginas exigen una lectura extensa; no encaja con quien prefiera una novela breve o quiera evitar los componentes de terror.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Muerte del Tiempo / The Dead of Time (Time Keeper) se ofrece en tapa blanda, con 720 páginas en castellano. Por su extensión, conviene contar con un volumen físico considerable para transportarlo; la cubierta flexible permite manejarlo sin la rigidez de una encuadernación en tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El hechizo más oscuro (Faeris Editorial), de Wanda Hellmund, permite comparar el interés por la oscuridad y la magia sugerido por los títulos, aunque La Muerte del Tiempo / The Dead of Time (Time Keeper) combina expresamente terror, fantasía y romance. Fuera de pista (Corazones al límite 2) (Sin límites), de Sara Hernández, ofrece otra referencia relacionada con el romance, pero su título sitúa el conflicto en un ámbito distinto del fantástico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388277009",
+        "isbn-9791388108419"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7b6abd3795a6f9b4",
+  "origen": "chatgpt-web"
+}

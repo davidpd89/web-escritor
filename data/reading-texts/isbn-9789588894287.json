@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9789588894287",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Textos costeños: 1948-1952 / Coastal Texts: 1948-1952: 1 (OBRA PERIODÍSTICA) está dirigido a lectores interesados en la escritura periodística de Gabriel García Márquez y en los textos del periodo indicado. Su clasificación entre ensayo y relatos lo distingue de una novela concebida como una única narración continua.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Textos costeños: 1948-1952 / Coastal Texts: 1948-1952: 1 (OBRA PERIODÍSTICA) cuenta con una edición en tapa blanda de 816 páginas. Es un volumen extenso en castellano, apropiado para mantenerlo como libro de consulta o leerlo por partes, aunque su tamaño puede resultar menos cómodo para llevarlo a diario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Entre cachacos: 1954-1955 / Among the Cachacos: 1954-1955: 2 (OBRA PERIODÍSTICA) comparte con Textos costeños: 1948-1952 / Coastal Texts: 1948-1952: 1 (OBRA PERIODÍSTICA) la autoría de Gabriel García Márquez y el carácter periodístico. La diferencia está en los periodos señalados por sus títulos: uno corresponde a 1954-1955 y el otro a 1948-1952. Los títulos los identifican, respectivamente, como los números 2 y 1.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789588894164"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9f7bc4f2627e9eb1",
+  "origen": "chatgpt-web"
+}

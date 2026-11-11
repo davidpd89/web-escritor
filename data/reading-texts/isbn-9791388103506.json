@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388103506",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Star Wars: Legado nº 05: 5 (Star Wars: Cómics Leyendas) se orienta a lectores juveniles interesados en las aventuras y los cómics de Star Wars. Con 424 páginas, requiere una lectura más extensa que un cómic breve; el título lo identifica como el n.º 05, por lo que no es la elección más directa para quien busque un volumen identificado como inicial.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es de tapa dura y contiene 424 páginas en castellano. Publicada por Planeta Cómic, ofrece un volumen físico de extensión considerable, apropiado para conservarlo en una colección y consultarlo sin dispositivos electrónicos.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Star Wars: Legado nº 05: 5 (Star Wars: Cómics Leyendas) comparte universo y autoría colectiva con Star Wars: Las crónicas Jedi nº 01: 1 (Star Wars: Cómics Tomo Marvel), de Varios autores. La diferencia identificable está en sus líneas editoriales y numeración: el primero pertenece a Cómics Leyendas y lleva el n.º 05; el segundo pertenece a Cómics Tomo Marvel y lleva el n.º 01.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388102349"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "07038f72cefdb589",
+  "origen": "chatgpt-web"
+}

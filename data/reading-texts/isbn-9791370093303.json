@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370093303",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Crimen y castigo: Edición especial con cantos tintados (Alianza Clásicos) se dirige a lectores de narrativa clásica que buscan una obra de Fiódor Dostoyevski en castellano. Sus 700 páginas requieren una lectura extensa, por lo que encaja menos con quienes prefieren libros breves.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Crimen y castigo: Edición especial con cantos tintados (Alianza Clásicos) se distingue por sus cantos tintados y su encuadernación en tapa dura. Alianza Editorial la publica en castellano, con 700 páginas y el ISBN 9791370093303, bajo su sello Alianza Clásicos.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "isbn13",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Crimen y castigo: Edición especial con cantos tintados (Alianza Clásicos) reúne sus 700 páginas en un volumen físico con cantos tintados, apropiado para conservar en una biblioteca o regalar. Kindle permite llevar la lectura en un dispositivo electrónico sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1192e9ec64b9dfc3",
+  "origen": "chatgpt-web"
+}

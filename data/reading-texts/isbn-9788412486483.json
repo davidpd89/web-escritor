@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788412486483",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Senderos entre los árboles, de Jordi Doce, se dirige a lectores interesados en publicaciones de arte y diseño. Con 80 páginas en castellano, tiene una extensión breve; no responde al formato de una novela larga ni al de un manual técnico de gran volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Senderos entre los árboles está editado en tapa blanda y tiene 80 páginas. La edición de Fundacióin Museo Evaristo Valle ofrece un volumen físico breve, que puede transportarse o regalarse sin recurrir a una encuadernación de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Senderos entre los árboles y 720 retrats pertenecen al ámbito del arte y el diseño dentro de esta selección. Jordi Doce firma el primero y Xavier Mollà i Revert el segundo; sus títulos apuntan, respectivamente, a senderos entre árboles y a retratos, dos motivos distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c00e0c7e4399b353",
+  "origen": "chatgpt-web"
+}

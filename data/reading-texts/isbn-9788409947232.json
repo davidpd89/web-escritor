@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788409947232",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "PAU Inglés Madrid: Exámenes de Inglés de Selectividad resueltos y explicados se dirige a estudiantes que preparan la prueba de inglés de acceso a la universidad en Madrid. Sus 120 páginas están dedicadas a exámenes resueltos y explicados, por lo que no responde a quien busca una novela juvenil ni un curso general de conversación en inglés.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 120 páginas de exámenes de inglés resueltos y explicados. El papel permite trabajar las preguntas por escrito, señalar correcciones y volver a ejercicios concretos durante la preparación de la PAU en Madrid.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "PAU Inglés Madrid: Exámenes de Inglés de Selectividad resueltos y explicados y PAU Inglés Andalucía: Exámenes de Inglés de Selectividad resueltos y explicados comparten autor, Luis Porras Wadley, y finalidad de preparación de exámenes. La diferencia indicada en sus títulos es el ámbito territorial: Madrid frente a Andalucía. Esa distinción permite escoger el volumen correspondiente a la comunidad donde se prepara la prueba.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409944262"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3597ab252ef8ec74",
+  "origen": "chatgpt-web"
+}

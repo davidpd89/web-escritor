@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408331698",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inmunidad en forma: Conoce y entrena tus defensas (Vivir Mejor), de Alfredo Corell, está dirigido a lectores interesados en bienestar, desarrollo personal y nutrición. Su temática se centra en las defensas del organismo, por lo que se diferencia de los libros del catálogo dedicados a relaciones personales, autoconocimiento o ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 400 páginas de Inmunidad en forma: Conoce y entrena tus defensas (Vivir Mejor), de Alfredo Corell. La edición de bolsillo permite transportar el ejemplar, aunque su extensión requiere más espacio que un libro breve; es la alternativa física para quien prefiera leer en papel.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formato_edicion",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Inmunidad en forma: Conoce y entrena tus defensas (Vivir Mejor), de Alfredo Corell, puede compararse con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody. Ambos títulos relacionan el bienestar con la salud, pero el primero se centra en las defensas del organismo y el segundo amplía el enfoque a la felicidad, las relaciones y el éxito.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ff4be92529585be3",
+  "origen": "chatgpt-web"
+}

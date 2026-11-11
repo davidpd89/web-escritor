@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466392884",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nunca estuviste solo (Best Seller | Ficción) encaja con quienes buscan narrativa contemporánea de extensión moderada. Con 248 páginas, se aparta de las novelas históricas extensas y de las lecturas centradas en aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 248 páginas de Nunca estuviste solo (Best Seller | Ficción) en una edición de bolsillo que puede guardarse en una mochila. Kindle facilita leerlo en el móvil o en un lector electrónico, sin necesidad de llevar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nunca estuviste solo (Best Seller | Ficción) puede compararse con Escamas doradas: La fuerza más grande del universo (Lumen Ilustrados), porque ambos llevan la firma de Albert Espinosa. El primero se presenta como narrativa contemporánea; el segundo se identifica en su título editorial como una obra de Lumen Ilustrados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426434555"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a59feb3f908bf202",
+  "origen": "chatgpt-web"
+}

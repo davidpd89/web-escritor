@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788466393461",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Únete al Club de las 5 de la mañana (Best Seller | No Ficción), de Robin Sharma, está dirigido a lectores interesados en el desarrollo personal y la autoayuda. Sus 632 páginas lo sitúan entre las lecturas extensas de no ficción, lejos de quienes buscan una novela o una introducción breve al tema.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato de Estuche Únete al Club de las 5 de la mañana (Best Seller | No Ficción), de Robin Sharma, publicado por Penguin Bolsillo. Sus 632 páginas se presentan en una edición de bolsillo que puede transportarse para leer fuera de casa, aunque su extensión supone un volumen considerable de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche Únete al Club de las 5 de la mañana (Best Seller | No Ficción) y El robot y el jardinero: Ser plenamente humano en una era artificial (Crecimiento personal) comparten autor, Robin Sharma, y orientación hacia el desarrollo personal. El segundo identifica expresamente la relación entre humanidad y era artificial, mientras que el primero sitúa en su título el hábito de comenzar el día temprano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425375965"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6ee6de89afbfdca2",
+  "origen": "chatgpt-web"
+}

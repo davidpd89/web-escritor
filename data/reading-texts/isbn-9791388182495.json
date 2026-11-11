@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388182495",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cartas a Lucilio: Edición íntegra (Clásicos) se dirige a quienes buscan filosofía de Séneca en una edición completa. Sus 656 páginas y su clasificación como ensayo y filosofía lo distancian de lectores que prefieren novelas de ficción o libros breves de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cartas a Lucilio: Edición íntegra (Clásicos) está disponible en tapa blanda y Kindle. La edición física de Clásicos Arpa tiene 656 páginas y permite consultar el texto en papel; Kindle facilita transportar esa extensión en un dispositivo electrónico sin cargar con el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cartas a Lucilio: Edición íntegra (Clásicos) comparte su orientación filosófica con La gravedad y la gracia (Contemporánea | Narrativa), de Simone Weil, pero presenta las cartas de Séneca en edición íntegra. Frente a FILOSOFÍA&CO ESPECIAL FOUCAULT: Pensamiento, vida y obra del filósofo más citado hoy (REVISTA FILOSOFIA&CO), de Javier Correa Román, cambia tanto el pensador tratado como el planteamiento editorial: correspondencia completa frente a una publicación especial sobre pensamiento, vida y obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410086555",
+        "isbn-9788466392112"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e664cc4f83517fe7",
+  "origen": "chatgpt-web"
+}

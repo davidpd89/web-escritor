@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466394642",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gaudí: el misterio (Best Seller | Ficción) encaja con lectores de ficción interesados en el misterio y los temas biográficos. Su clasificación combina intriga y biografías, por lo que se aleja de las lecturas centradas exclusivamente en la fantasía o el ensayo histórico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Gaudí: el misterio (Best Seller | Ficción) se presenta en tapa blanda, en una edición de bolsillo de 280 páginas publicada por Penguin Bolsillo. Su encuadernación flexible facilita llevarlo en el bolso o la mochila, mientras que la extensión permite organizar la lectura en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gaudí: el misterio (Best Seller | Ficción) comparte con Tor el interés por el misterio, aunque sus puntos de partida son distintos. La obra de Paloma Pía Gasset incorpora una dimensión biográfica, mientras que Tor, de Carles Porta, parte de un conflicto entre vecinos por una montaña del Pirineo y de tres muertes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388137006"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b38cb1a0197eb43c",
+  "origen": "chatgpt-web"
+}

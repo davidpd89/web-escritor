@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Marco Aurelio: El emperador estoico se dirige a lectores adultos interesados en la biografía histórica, la filosofía estoica y el ejercicio del poder. Donald J. Robertson estudia las decisiones de un gobernante a partir de sus principios morales y de los conflictos que afrontó. Su perspectiva biográfica se diferencia de una exposición puramente teórica de las enseñanzas estoicas.",
+      "texto": "Marco Aurelio: El emperador estoico está dirigido a lectores adultos interesados en las biografías históricas y en la relación entre filosofía y ejercicio del poder. Su recorrido por decisiones políticas, conflictos morales y relaciones personales se aparta de una exposición exclusivamente teórica del estoicismo.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,37 +14,34 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Marco Aurelio: El emperador estoico analiza la relación entre las convicciones filosóficas de un gobernante y sus responsabilidades políticas. Donald J. Robertson recurre a escritos personales, correspondencia y testimonios antiguos para estudiar su formación y sus decisiones. Examina cuestiones como la esclavitud, la sucesión imperial, los conflictos armados y la respuesta ante las crisis desde una perspectiva biográfica y moral.",
+      "texto": "Donald J. Robertson examina cómo Marco Aurelio aplicó sus principios estoicos a las responsabilidades de gobierno. Aborda la esclavitud, las guerras, el trato a los cristianos y la sucesión imperial mediante una reconstrucción biográfica apoyada en escritos personales, correspondencia y testimonios antiguos.",
       "evidencias": [
-        "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Marco Aurelio: El emperador estoico está disponible en tapa blanda y Kindle. Taurus publica una edición física de 312 páginas con solapas, que permite conservar la biografía y regresar a sus episodios históricos. Kindle facilita transportar el texto en un dispositivo electrónico y consultar sus reflexiones sobre filosofía y gobierno durante la lectura.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda con solapas reúne 312 páginas y permite consultar físicamente los episodios y cuestiones filosóficas tratados en la biografía. La versión Kindle ofrece el mismo título en un soporte digital, apropiado para leer durante desplazamientos o llevarlo en el móvil.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Marco Aurelio: El emperador estoico guarda relación con Churchill por su aproximación biográfica a figuras que ejercieron responsabilidades políticas. Donald J. Robertson estudia al emperador romano desde sus conflictos morales y sus principios filosóficos, mientras que Paul Johnson y Diego Pereda Sancho presentan una personalidad histórica mediante un análisis conciso. Las obras se distinguen por sus protagonistas y por el peso que conceden a la filosofía.",
+      "texto": "Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes y Marco Aurelio: El emperador estoico comparten el interés por reconstruir la trayectoria de una figura pública. El libro de Donald J. Robertson se distingue por centrarse en un emperador romano y examinar cómo sus convicciones filosóficas condicionaron sus decisiones de gobierno.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388328046"
+        "isbn-9786073873154"
       ]
     }
   ],

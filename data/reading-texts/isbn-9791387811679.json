@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387811679",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Septimo izquierda se sitúa en el ámbito del arte y el diseño, por lo que encaja con lectores interesados en publicaciones de esta temática. Su clasificación editorial lo diferencia de los títulos orientados específicamente a la psicología, los viajes o el bienestar.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Septimo izquierda está publicado en tapa blanda y tiene 80 páginas en castellano. Esta edición de Editorial Berenice ofrece un volumen breve para leer y consultar en papel, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Septimo izquierda puede compararse con 720 retrats, una obra de Xavier Mollà i Revert centrada en retratos. Ambos títulos se relacionan con el ámbito artístico, pero Septimo izquierda es una publicación de Pedro Lendinez de 80 páginas, mientras que 720 retrats identifica los retratos como asunto principal desde su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "97f2bd64807fae04",
+  "origen": "chatgpt-web"
+}

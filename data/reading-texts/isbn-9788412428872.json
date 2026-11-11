@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788412428872",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigida a quienes desean observar el cielo a simple vista e identificar constelaciones, planetas y fenómenos astronómicos durante 2027. Por su enfoque de observación directa, encaja menos con lectores que buscan una introducción general a otras disciplinas científicas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Aborda la observación de constelaciones, planetas, la Luna, eclipses y lluvias de meteoros durante 2027. Enrique Velasco Caravaca y Pedro Velasco Caravaca presentan una guía centrada en lo que puede observarse a simple vista, dentro del ámbito de la divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es la opción disponible para esta guía de 64 páginas, una extensión manejable para llevarla durante una sesión de observación del cielo. El formato físico permite consultar sus contenidos mientras se identifican constelaciones y planetas a simple vista.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cerebro, espacio y tiempo comparte con Guía del cielo 2027: Para la observación a simple vista de constelaciones y planetas, luna, eclipses y lluvias de meteoros el interés por la orientación espacial, pero se centra en cómo el cerebro reconoce la posición del individuo. Aparece un mundo, de Michael Pollan, aborda la conciencia desde la divulgación científica, mientras la guía de Enrique Velasco Caravaca y Pedro Velasco Caravaca se ocupa de la observación directa de fenómenos astronómicos.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387904456",
+        "isbn-9791387941208"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3fd19692e60ce5ab",
+  "origen": "chatgpt-web"
+}

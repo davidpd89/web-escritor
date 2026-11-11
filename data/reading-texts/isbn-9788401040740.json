@@ -4,9 +4,8 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El crimen de la Navidad. El cuaderno de pasatiempos de Crímenes ilustrados está dirigido a adultos que disfrutan resolviendo misterios mediante juegos de lógica y observación. Su propuesta requiere participar en la investigación y completar pruebas, por lo que se aleja de una novela policíaca destinada únicamente a la lectura.",
+      "texto": "Está dirigido a adultos que disfrutan resolviendo misterios mediante acertijos, observación y juegos de lógica. No responde a la búsqueda de una novela policial convencional, porque la participación del lector mediante pasatiempos forma parte de la investigación.",
       "evidencias": [
-        "titulo",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,19 +13,17 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es un cuaderno de pasatiempos detectivescos ambientado en un centro comercial durante la Navidad. Modesto García plantea la investigación de una muerte mediante sudokus, laberintos, acertijos y ejercicios de observación que permiten eliminar sospechosos. El humor y el misterio conviven en una estructura basada en resolver pruebas.",
+      "texto": "Propone investigar un asesinato ocurrido en un centro comercial durante la Navidad mediante pruebas que debe resolver el lector. La búsqueda del culpable combina sospechosos, pistas, sudokus, laberintos y retos de lógica en un cuaderno de pasatiempos.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de El crimen de la Navidad. El cuaderno de pasatiempos de Crímenes ilustrados está disponible en tapa blanda y tiene 112 páginas. El formato físico permite escribir soluciones, marcar pistas y volver a los ejercicios anteriores mientras avanza la investigación.",
+      "texto": "La edición en tapa blanda reúne 112 páginas de pasatiempos y enigmas. El papel permite trabajar directamente con las pruebas de observación, los sudokus y los laberintos mientras se avanza en la investigación.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "sinopsis_editorial"
@@ -34,15 +31,15 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Murdoku (edición especial SORTEO), de Manuel Garand, comparte con El crimen de la Navidad. El cuaderno de pasatiempos de Crímenes ilustrados los asesinatos convertidos en problemas de lógica y sudokus. La diferencia está en el marco narrativo: Modesto García sitúa sus pruebas en un crimen navideño dentro de un centro comercial, con sospechosos que deben descartarse progresivamente.",
+      "texto": "Se relaciona con Escape room para resolver mientras haces caca (Voces de hoy), de Crispin Fenwick, por su propuesta de resolver pruebas durante la lectura. El libro de Modesto García organiza los enigmas alrededor de un asesinato navideño e incorpora sudokus, laberintos y retos de observación, mientras que el de Crispin Fenwick utiliza el formato de escape room.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388279386"
+        "isbn-9791388279492"
       ]
     }
   ],

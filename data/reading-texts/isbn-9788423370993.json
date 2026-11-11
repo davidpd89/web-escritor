@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788423370993",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Frenar el odio: Un alegato por la inteligencia colectiva en tiempos de indignación (Imago Mundi) se dirige a lectores interesados en el debate político y los ensayos sobre problemas colectivos. Fernando Valladares aborda la indignación y la inteligencia colectiva, por lo que encaja menos con quienes buscan una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Frenar el odio: Un alegato por la inteligencia colectiva en tiempos de indignación (Imago Mundi) está disponible en tapa blanda y Kindle. La edición física de Ediciones Destino contiene 304 páginas en castellano y permite subrayar sobre papel; Kindle ofrece la posibilidad de leer el ensayo desde un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Frenar el odio: Un alegato por la inteligencia colectiva en tiempos de indignación (Imago Mundi) y Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparten el interés por las ideas políticas. Fernando Valladares plantea la inteligencia colectiva frente al odio, mientras Miguel Anxo Bastos Boubeta se ocupa de los fundamentos económicos y políticos del anarcocapitalismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4598a6d03101a2a5",
+  "origen": "chatgpt-web"
+}

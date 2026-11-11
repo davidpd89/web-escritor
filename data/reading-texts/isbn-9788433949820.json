@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788433949820",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Trilogia Nova, la (Compendium), de William S. Burroughs, reúne intereses asociados a la ciencia ficción, la fantasía, el humor y la narrativa contemporánea. Se orienta a lectores que buscan una obra literaria relacionada con esos géneros, más que a quienes prefieren exclusivamente ficción realista o manuales de divulgación práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Trilogia Nova, la (Compendium) se presenta en tapa blanda, con 592 páginas en castellano y edición de Editorial Anagrama. Por su extensión, permite distribuir la lectura durante varias sesiones; el ejemplar físico también facilita regresar a pasajes concretos sin recurrir a una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Trilogia Nova, la (Compendium) y 7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica) tienen en común su vinculación con el humor. La obra de William S. Burroughs se relaciona además con la ciencia ficción, la fantasía y el ensayo, mientras que el libro de Francisco Ibáñez pertenece a una colección identificada expresamente con el humor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431790"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1269ae08779e6cec",
+  "origen": "chatgpt-web"
+}

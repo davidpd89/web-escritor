@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387906276",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pocket Potters 8 - Profesora McGonagall (Harry Potter), de J.K. Rowling, se dirige a lectores interesados en la fantasía y en el personaje que identifica su título. Con 32 páginas, se aparta de las novelas extensas y encaja menos con quien busque una lectura larga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pocket Potters 8 - Profesora McGonagall (Harry Potter) está disponible en tapa dura, con 32 páginas en castellano. Su extensión permite consultarlo en sesiones cortas, mientras que la encuadernación rígida ofrece una presentación apropiada para conservarlo o regalarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pocket Potters 8 - Profesora McGonagall (Harry Potter) comparte universo y autoría con Animales fantásticos y dónde encontrarlos (Un libro de la biblioteca de Hogwarts) (Harry Potter), de J.K. Rowling, pero centra su título en la profesora McGonagall y no en criaturas fantásticas. Frente a Los cuentos de Beedle el bardo (Un libro de la biblioteca de Hogwarts) (Harry Potter), también de J.K. Rowling, se distingue por su enfoque en un personaje concreto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395687",
+        "isbn-9788466395694"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e19b7051555f48d8",
+  "origen": "chatgpt-web"
+}

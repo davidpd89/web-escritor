@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387964443",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Veinticuatro horas en la vida de una mujer, de Stefan Zweig, pertenece a la narrativa contemporánea y se dirige a lectores que buscan ficción centrada en una figura femenina. No responde a una búsqueda de ensayo biográfico o de libros prácticos sobre un tema concreto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Veinticuatro horas en la vida de una mujer puede leerse en tapa blanda o en Kindle. La edición física de Editorial Acantilado permite conservar el libro en papel, mientras que Kindle facilita llevarlo en un lector electrónico o consultarlo desde un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Veinticuatro horas en la vida de una mujer y Carta de una desconocida (Austral Esenciales) comparten autor, Stefan Zweig, y títulos que sitúan a una mujer en el centro. Frente a ambas obras, La curación por el espíritu, también de Stefan Zweig, se presenta como un ensayo biográfico, por lo que plantea una lectura de naturaleza distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331704",
+        "isbn-9788466379021"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "33ce43a30aa1be49",
+  "origen": "chatgpt-web"
+}

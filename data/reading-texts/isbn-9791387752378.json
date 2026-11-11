@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387752378",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los guardianes de la bahía mágica: 2 (Alma Juvenil) encaja con lectores infantiles y juveniles interesados en la fantasía, las aventuras y los entornos naturales. Se aleja de las lecturas realistas que prescinden de elementos mágicos y de los relatos centrados exclusivamente en situaciones cotidianas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los guardianes de la bahía mágica: 2 (Alma Juvenil) se publica en tapa dura y tiene 224 páginas en castellano. La encuadernación rígida protege el volumen durante su uso y permite conservarlo en una colección de libros infantiles y juveniles.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los guardianes de la bahía mágica: 2 (Alma Juvenil) comparte con Estuche Magic Animals. Misiones especiales 1 y 2 la combinación de magia y aventuras dirigida al público infantil. La obra de Kira Gembri sitúa la bahía en su título, mientras que la propuesta de Susanna Isern, Carles Dalmau y Nil López reúne misiones especiales en un estuche. El título identifica la obra de Kira Gembri con el n.º 2.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408327332"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "14f088be024ac2e5",
+  "origen": "chatgpt-web"
+}

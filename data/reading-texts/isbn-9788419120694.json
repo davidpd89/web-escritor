@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788419120694",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La catedral de los ahogados: 2 (Trilogía Gótica Lunar) se dirige a lectores que combinan el interés por el terror con la fantasía y la ciencia ficción. Encaja menos con quienes prefieren historias realistas o buscan una lectura alejada de los elementos propios del terror.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Lubre ofrece 200 páginas en tapa blanda y está escrita en castellano. Su extensión permite abordar la lectura en un volumen físico relativamente breve, que puede transportarse y retomarse sin necesidad de un lector electrónico.",
+      "evidencias": [
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Caníbales de caramelandia permite establecer una comparación desde el interés por las propuestas narrativas de carácter insólito. La catedral de los ahogados: 2 (Trilogía Gótica Lunar) combina terror, fantasía y ciencia ficción, mientras que el título de Carlton Mellick Iii plantea una referencia distinta por su autoría y su imaginario anunciado en el título.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788412837278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ee1d8d25a9c66f19",
+  "origen": "chatgpt-web"
+}

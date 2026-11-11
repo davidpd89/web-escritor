@@ -4,16 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Elements of corporate finance. Investment and financing in the company está dirigido a lectores que quieren comprender cómo se toman decisiones de inversión y financiación dentro de una empresa. Su enfoque teórico y aplicado encaja menos con quien busca consejos de ahorro doméstico o una introducción a los trámites financieros personales.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "encaje_documentado",
-      "texto": "La obra de Fernando Gómez-Bezares Pascual es un texto de economía empresarial centrado en las finanzas corporativas, no una narración de ficción. Organiza su contenido alrededor del análisis, la planificación, la inversión y la financiación, relacionando los fundamentos teóricos con decisiones aplicables a las compañías.",
+      "texto": "Elements of corporate finance. Investment and financing in the company está dirigido a quienes estudian o trabajan con decisiones financieras empresariales. Fernando Gómez-Bezares Pascual aborda la inversión, la financiación y la planificación desde una perspectiva aplicada a las compañías, no desde las finanzas domésticas ni la ficción empresarial.",
       "evidencias": [
         "titulo",
         "autores",
@@ -22,8 +13,16 @@
       ]
     },
     {
+      "modulo": "encaje_documentado",
+      "texto": "Se trata de una obra de economía y empresa centrada en cómo las compañías obtienen recursos y deciden dónde invertirlos. Organiza las finanzas corporativas alrededor del análisis, la planificación, la inversión y la financiación, relacionando los fundamentos teóricos con sus aplicaciones en la gestión empresarial.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
       "modulo": "que_formato_elegir",
-      "texto": "Elements of corporate finance. Investment and financing in the company se ofrece en tapa blanda, con 348 páginas publicadas por Desclée de Brouwer. La edición física permite trabajar sobre los apartados de análisis, planificación, inversión y financiación, y consultar sus explicaciones durante el estudio.",
+      "texto": "Elements of corporate finance. Investment and financing in the company se presenta en tapa blanda, con 348 páginas editadas por Desclée de Brouwer. El volumen físico permite marcar apartados y consultar sucesivamente los contenidos de análisis, planificación, inversión y financiación durante el estudio.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -34,16 +33,16 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Elements of corporate finance. Investment and financing in the company comparte con Domina el arte de los negocios su orientación hacia el funcionamiento empresarial, pero Fernando Gómez-Bezares Pascual se concentra en las decisiones financieras y Brian Tracy en habilidades de negocio y liderazgo. Cariño, ¿y este recibo? traslada las decisiones económicas al ámbito de las cuentas personales y compartidas.",
+      "texto": "Antes de liderar: Una mirada interior a un oficio comparte el ámbito de la gestión profesional, pero se centra en el liderazgo, frente a las decisiones financieras que estudia Fernando Gómez-Bezares Pascual. Branding con criterio: Una novela-ensayo que, como brújula de arena, nos interpela (TEMATICOS) incorpora una dimensión narrativa y se orienta al branding, mientras Elements of corporate finance. Investment and financing in the company desarrolla teoría financiera aplicada.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788402431332",
-        "isbn-9788466390514"
+        "isbn-9788409921980",
+        "isbn-9791399168648"
       ]
     }
   ],

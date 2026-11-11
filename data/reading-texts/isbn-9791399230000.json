@@ -4,43 +4,32 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Abajo el sistema se dirige a lectores interesados en la trayectoria de Serj Tankian, la música de System of a Down y el activismo político vinculado al rock. Su perspectiva personal y musical encaja menos con quien busca un ensayo teórico desligado de experiencias biográficas.",
+      "texto": "Abajo el sistema se dirige a lectores interesados en las memorias musicales, el activismo y las experiencias de inmigración. El recorrido personal de Serj Tankian incluye su trayectoria con System of a Down y su compromiso político; encaja menos con quien busca un manual de música o un ensayo exclusivamente teórico.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Serj Tankian relata su infancia marcada por la guerra, la emigración familiar y su posterior decisión de dedicarse a la música. El relato relaciona su carrera al frente de System of a Down con el desarrollo de su conciencia política y espiritual, desde una perspectiva autobiográfica.",
+      "texto": "Abajo el sistema aborda la identidad armenia, la emigración, la música y el despertar político desde la experiencia personal de Serj Tankian. El relato conecta su infancia en Beirut, el traslado a Los Ángeles y la decisión de abandonar una posible carrera jurídica y empresarial para dedicarse al rock. También examina las tensiones entre éxito comercial, expresión artística y censura radiofónica.",
       "evidencias": [
+        "titulo",
         "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Abajo el sistema está disponible en tapa blanda y Kindle, dos opciones para leer sus 312 páginas. El papel permite conservar el relato autobiográfico como volumen físico, mientras que Kindle facilita continuar la lectura en distintos momentos desde un dispositivo electrónico.",
+      "texto": "Abajo el sistema está disponible en tapa blanda y Kindle, con una edición física de 312 páginas publicada por Capitán Swing Libros. La tapa blanda permite conservar y consultar el volumen en papel; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro físico.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Abajo el sistema y Antes de perder el juicio comparten una preocupación por los discursos públicos y las posiciones críticas ante la sociedad. Serj Tankian aborda estas cuestiones desde su experiencia musical y activista, mientras que Mauricio García Villegas se centra en la propaganda, las consignas y la formación de opiniones.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791388387302"
+        "numero_paginas",
+        "editorial",
+        "edicion"
       ]
     }
   ],

@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791370483500",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "JoJo’s Bizarre Adventure | Colección Mundo Manganime: XXX se dirige a lectores interesados en aventuras, cómic y novela gráfica. Sus 144 páginas en tapa dura corresponden a una publicación de RBA Coleccionables España, distinta de una novela convencional presentada únicamente como texto narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "JoJo’s Bizarre Adventure | Colección Mundo Manganime: XXX está disponible en tapa dura, con 144 páginas. La cubierta rígida facilita conservar este volumen de RBA Coleccionables en una colección física y protege sus páginas durante las consultas y relecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "JoJo’s Bizarre Adventure | Colección Mundo Manganime: XXX se relaciona con Astro Royale 1 (Shônen): Universo Manga, de Ken Wakui, por su vinculación con el manga. También comparte con De la Tierra a la Luna | Julio Verne | Colección Maestros del Fantástico la autoría editorial atribuida a RBA Coleccionables España; se diferencia de ambos por su identificación con la Colección Mundo Manganime y sus 144 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788411490801",
+        "isbn-9791387962845"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1b7b1d857923f6b7",
+  "origen": "chatgpt-web"
+}

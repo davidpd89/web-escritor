@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esmorzaret (Mesa y mantel) está dirigido a adultos interesados en la gastronomía valenciana y sus costumbres sociales. Reúne historia y más de 40 combinaciones de bocadillos, de modo que su enfoque es distinto al de los manuales dedicados a técnicas generales de cocina o a dietas alimentarias.",
+      "texto": "Esmorzaret (Mesa y mantel) está dirigido a lectores adultos interesados en la cocina y en la gastronomía valenciana. Su contenido gira alrededor de una tradición gastronómica colectiva y de sus distintas combinaciones culinarias; no es un manual general de alimentación ni una obra de ficción.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,26 +15,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Esmorzaret (Mesa y mantel) se ofrece en tapa dura y Kindle, con una extensión de 248 páginas. La tapa dura permite conservar el volumen como libro de consulta o entregarlo como regalo; Kindle facilita leerlo y consultar sus contenidos desde el móvil sin llevar el ejemplar físico.",
+      "texto": "Esmorzaret (Mesa y mantel) está disponible en tapa dura y Kindle. La edición física tiene 248 páginas y ofrece un volumen en papel para consultar sus contenidos en la cocina o conservarlo; Kindle permite acceder al libro desde un dispositivo electrónico y llevarlo sin cargar con el ejemplar.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "edicion"
+        "formatos_disponibles",
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Esmorzaret (Mesa y mantel) y Artesanos del queso tratan tradiciones gastronómicas españolas, pero Marta Hortelano se ocupa del almuerzo valenciano e Ignacio Medina de las queserías artesanas. Frente a Barbacoa, de Jamie Oliver, centrado en una forma de cocinar, Esmorzaret (Mesa y mantel) aborda también el ritual social que rodea a los bocadillos.",
+      "texto": "Esmorzaret (Mesa y mantel) comparte con 20 minutos ¡y listo!, de Jamie Oliver, el interés por la cocina y las propuestas culinarias. La diferencia está en el enfoque: el libro de Marta Hortelano se centra en una tradición gastronómica valenciana y sus combinaciones, mientras que el título de Jamie Oliver pone el acento en preparar platos en veinte minutos.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788419483881",
-        "isbn-9788425374012"
+        "isbn-9788425374074"
       ]
     }
   ],

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788448875312",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para lectores que prefieren colorear y utilizar pegatinas de Peppa Pig antes que seguir un cuento. Con 32 páginas de actividades manuales, se aparta de los libros centrados en la lectura de una historia.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene 32 páginas dedicadas a colorear pegatinas de Peppa Pig. Permite trabajar directamente sobre el papel y manipular las pegatinas, dos usos vinculados al contenido de este libro de actividades.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "800 stickers sweet and cosy (Prácticos), de Amélie's Workshop, comparte el interés por las pegatinas, pero no se centra en Peppa Pig. El libro de Hasbro combina colorear y pegar, mientras que el título de Amélie's Workshop destaca la colección de pegatinas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049737"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0f41bfa6dc3bea8c",
+  "origen": "chatgpt-web"
+}

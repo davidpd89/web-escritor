@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788419605481",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cabeza Cabaña y Cabeza Árbol 2. ¡Días felices! (Primeros cómics), de Scott Campbel, encaja con lectores infantiles interesados en el humor y las historias contadas mediante cómic. Su orientación juvenil y gráfica lo distingue de las novelas para adultos y de los libros de ensayo; el título lo identifica como el n.º 2.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cabeza Cabaña y Cabeza Árbol 2. ¡Días felices! (Primeros cómics) se ofrece en tapa dura, con 100 páginas en castellano. La encuadernación rígida favorece su conservación ante consultas frecuentes y permite regalar una edición física de este cómic infantil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cabeza Cabaña y Cabeza Árbol 2. ¡Días felices! (Primeros cómics) comparte el terreno del cómic humorístico con La vida según Joselito: 14 (Policán), de Dav Pilkey. También puede compararse con Superpatata 10 - Viaje a la Edad Media (nueva edición), de Artur Laperla, aunque este último presenta una propuesta de superhéroes y el libro de Scott Campbel se identifica como parte de Primeros cómics.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410557710",
+        "isbn-9788448874926"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9bcebfcd050be496",
+  "origen": "chatgpt-web"
+}

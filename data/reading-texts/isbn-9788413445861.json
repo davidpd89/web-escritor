@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788413445861",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Tú también tienes SIBO? está dirigido a lectores interesados en la microbiota y en el tratamiento del SIBO. Encaja con quienes buscan contenidos de salud digestiva y nutrición, pero no con quienes esperan una obra de ficción o un libro de bienestar general sin un tema de salud concreto.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 336 páginas en una edición de bolsillo publicada por Booket. Es el formato disponible para este título y permite consultar en papel sus contenidos sobre el SIBO y la microbiota.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Tú también tienes SIBO? y 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, comparten su orientación hacia la salud y el bienestar. La diferencia está en el alcance: Asun González se centra en el SIBO y la microbiota, mientras que Liz Moody aborda distintos ámbitos de la vida y la salud.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8ec8af633172ca3e",
+  "origen": "chatgpt-web"
+}

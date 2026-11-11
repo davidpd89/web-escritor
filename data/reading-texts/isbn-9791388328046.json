@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Churchill está dirigido a lectores de biografías históricas interesados en el liderazgo político y las transformaciones de una época. Su recorrido por las decisiones, éxitos y fracasos de un estadista se aleja de las memorias íntimas y de los estudios centrados exclusivamente en una campaña militar.",
+      "texto": "Churchill está dirigido a lectores de biografías históricas interesados en la trayectoria política y personal de Winston Churchill. Sus 224 páginas recorren distintas etapas de su vida mediante episodios, anécdotas y citas; no responde al formato de una novela histórica ni al de unas memorias narradas por el protagonista.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Paul Johnson examina las distintas etapas de la vida de Winston Churchill, desde su servicio militar hasta sus advertencias sobre la Guerra Fría. El análisis atiende a su capacidad para adaptarse a situaciones cambiantes y utiliza episodios biográficos, citas y anécdotas para explicar su actuación pública.",
+      "texto": "Paul Johnson examina la evolución de Winston Churchill desde su experiencia militar juvenil hasta su actividad como estadista ante la llegada de la Guerra Fría. El análisis relaciona sus éxitos y fracasos con su capacidad de adaptación, su combatividad y los rasgos personales que marcaron su actuación pública.",
       "evidencias": [
         "autores",
         "sinopsis_editorial"
@@ -21,7 +22,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Churchill se ofrece en tapa blanda, con 224 páginas en castellano editadas por Ciudadela Libros. Es una edición física que permite consultar distintas etapas de la biografía, marcar pasajes y recuperar las citas y anécdotas utilizadas para caracterizar al protagonista.",
+      "texto": "Churchill está disponible en tapa blanda, con 224 páginas en castellano publicadas por Ciudadela Libros. Esta edición permite leer la biografía en papel y volver a los episodios o citas de la trayectoria del protagonista sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -33,15 +34,17 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cesar La conquista de la eternidad, de Alberto Angela, comparte con Churchill el interés por reconstruir la trayectoria de una figura histórica vinculada al poder y la actividad militar. El primero sigue las peripecias de un general romano; Churchill, de Paul Johnson, Diego Pereda Sancho, analiza la evolución de un dirigente británico hasta la Guerra Fría.",
+      "texto": "Churchill puede compararse con Anatomía de un naufragio: Shackleton, el Endurance y la fuerza del hielo por su atención a figuras y acontecimientos históricos, aunque el primero sigue una trayectoria política y el segundo se centra en un naufragio. Alfred y Emily (Narrativa), de Doris Lessing, ofrece otra referencia vinculada a vidas personales, pero desde una propuesta narrativa en lugar del análisis biográfico de Paul Johnson.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "sinopsis_editorial"
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410944329"
+        "isbn-9788426438515",
+        "isbn-9791387873141"
       ]
     }
   ],

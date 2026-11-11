@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370205904",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Iglesias de León (Arte y patrimonio) se dirige a quienes buscan información sobre edificios religiosos, historia y patrimonio artístico de León. Por su delimitación geográfica, se aparta de las obras dedicadas al arte en general o a las biografías sin relación con el patrimonio local.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Iglesias de León (Arte y patrimonio) se publica en tapa blanda, con 200 páginas en castellano y edición de Almuzara. El volumen impreso permite consultar el contenido durante una lectura sobre el patrimonio leonés y conservarlo como referencia en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Iglesias de León (Arte y patrimonio) puede compararse con Notas desde una isla: 62 (Tour de force) por la presencia de un lugar concreto en ambos títulos. Carlos Taranilla centra su obra en las iglesias de León, mientras que el título de Tove Jansson sitúa la atención en una isla; sus asuntos geográficos son diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399173185"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c890a1b784cec971",
+  "origen": "chatgpt-web"
+}

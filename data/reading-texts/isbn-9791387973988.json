@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387973988",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La lista de los deseos (Premio Jaén de Narrativa Juvenil 2026) (Serie Infinita) está dirigida al público juvenil interesado en el romance y las relaciones familiares. Su enfoque contemporáneo la diferencia de las novelas históricas y de la fantasía épica, por lo que encaja menos con lectores que busquen esos géneros.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La lista de los deseos (Premio Jaén de Narrativa Juvenil 2026) (Serie Infinita) se publica en tapa blanda, con 224 páginas. La edición de Montena ofrece un libro físico flexible, más fácil de transportar que un volumen de tapa dura de tamaño equivalente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La lista de los deseos (Premio Jaén de Narrativa Juvenil 2026) (Serie Infinita) comparte el componente romántico con Todas las navidades posibles: Esta historia de amor la eliges tú (Romántica). La obra de María Peláez García se clasifica además como narrativa juvenil contemporánea, mientras que el título de Michelle Durán destaca desde su propio nombre la elección del desarrollo de la historia amorosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419831897"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "26b7485a7b975efb",
+  "origen": "chatgpt-web"
+}

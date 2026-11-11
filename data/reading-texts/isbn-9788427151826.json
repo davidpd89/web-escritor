@@ -4,35 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a lectores interesados en psicología y desarrollo personal que prefieren acercarse a los conflictos emocionales mediante historias de personas concretas. No responde tanto a quien busque ficción desvinculada de cuestiones psicológicas: los relatos de Itziar de Barrenengoa abordan ansiedad, duelo, relaciones de pareja y dificultades en distintas etapas de la vida.",
+      "texto": "Las alas invisibles . se dirige a lectores interesados en la psicología y el desarrollo personal a través de relatos sobre experiencias humanas. Sus temas incluyen ansiedad, duelo, relaciones de pareja, culpa y cambios vitales; no es una novela de ficción convencional ni un manual centrado en una única dificultad.",
       "evidencias": [
-        "categorias",
+        "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Ediciones Mensajero ofrece sus 296 páginas en tapa blanda, una encuadernación flexible para transportar y manejar el libro. En ese volumen se reúnen los relatos inspirados en la práctica clínica de Itziar de Barrenengoa, que pueden leerse individualmente o siguiendo los conflictos emocionales que relacionan sus historias.",
+      "texto": "La edición en tapa blanda reúne las 296 páginas de Las alas invisibles . en un volumen físico. Es el formato disponible para quienes prefieren leer en papel, conservar el ejemplar o incorporarlo a su biblioteca de psicología y desarrollo personal.",
       "evidencias": [
-        "editorial",
+        "titulo",
+        "autores",
+        "edicion",
         "numero_paginas",
         "formatos_disponibles",
-        "autores",
-        "sinopsis_editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Comparte con Maleducados emocionales el interés por el bienestar psicológico, pero Itziar de Barrenengoa utiliza relatos inspirados en casos clínicos, mientras Dr. José Carbonell aborda cómo reconocer y gestionar comportamientos ajenos que perjudican ese bienestar. Frente a Mentes diferentes, centrado en la neurodivergencia, el testimonio y el activismo, aquí predominan experiencias de ansiedad, duelo y relaciones personales.",
+      "texto": "Abraza a la niña que fuiste: Sana las heridas del pasado y reconecta con tu interior, de Marta Segrelles, comparte con Las alas invisibles . el interés por las heridas emocionales y el desarrollo personal. Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, también aborda la relación entre pasado y bienestar emocional, mientras que la obra de Itziar de Barrenengoa amplía la mirada a experiencias como el duelo, la ansiedad y las relaciones de pareja.",
       "evidencias": [
-        "afines_catalogo",
+        "titulo",
         "autores",
-        "sinopsis_editorial"
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408331339",
-        "isbn-9788411193894"
+        "isbn-9788466396417",
+        "isbn-9788410944206"
       ]
     }
   ],

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786073879323",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nuestra muerte escondida / Our Hidden Death se dirige a lectores de terror interesados en relatos y narrativa contemporánea. La obra de Uriel Reyes reúne esas tres clasificaciones y tiene una extensión de 160 páginas. No corresponde a quienes buscan una novela romántica o un libro práctico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nuestra muerte escondida / Our Hidden Death está disponible en tapa blanda y cuenta con 160 páginas. Su extensión facilita distribuir la lectura entre varios trayectos o sesiones breves sin transportar un volumen grueso. Penguin Random House Grupo Editorial publica esta edición en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuentos de Terror / Horror Stories y Nuestra muerte escondida / Our Hidden Death coinciden en su relación con el terror y los relatos. El primero es una obra de H P Lovecraft, mientras que el segundo pertenece a Uriel Reyes y también se clasifica como narrativa contemporánea. La diferencia de autoría permite distinguir ambas propuestas dentro de una misma línea de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073878524"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0a3fe35341281fe9",
+  "origen": "chatgpt-web"
+}

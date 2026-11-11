@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788448873738",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La caverniña (Cuentos infantiles), de Ana Duna, se sitúa entre las lecturas infantiles relacionadas con aventuras, amistad, humor y naturaleza. Con 32 páginas, se diferencia de los ensayos extensos y de las narraciones orientadas a lectores que buscan tramas largas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La caverniña (Cuentos infantiles) está editado en tapa dura y tiene 32 páginas en castellano. Su extensión permite abordar la lectura en sesiones breves, mientras que la cubierta rígida protege el volumen durante su conservación y uso repetido.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La caverniña (Cuentos infantiles) puede compararse con El mono que vino a cenar (La ovejita que vino a cenar) (Cuentos infantiles), de Steve Smallman, por su orientación hacia los cuentos infantiles. Ana Duna presenta una obra vinculada a aventuras, amistad y naturaleza, mientras que el título de Steve Smallman identifica una historia protagonizada por un mono dentro de La ovejita que vino a cenar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d84204b07b7733ae",
+  "origen": "chatgpt-web"
+}

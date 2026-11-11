@@ -4,34 +4,32 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Buenas noches, robot se dirige al público infantil interesado en robots, exploración espacial y relatos vinculados a canciones tradicionales. Sus 7 páginas plantean una lectura breve centrada en una aventura por el espacio; no responde a quien busca una historia extensa de ciencia ficción.",
+      "texto": "Buenas noches, robot está dirigido al público infantil interesado en los robots y los escenarios espaciales de ciencia ficción. Sus 7 páginas corresponden a una lectura muy breve; no se orienta a lectores que busquen una narración extensa o una aventura juvenil de desarrollo prolongado.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Buenas noches, robot se publica en tapa dura, con 7 páginas en castellano. Esta edición física reúne en un volumen breve las escenas de exploración espacial del robot y su relación con la canción infantil Estrellita, ¿dónde estás?",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "sinopsis_editorial"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es la opción disponible para Buenas noches, robot, con una cubierta rígida y un contenido de 7 páginas. Su formato físico permite compartir el ejemplar durante la lectura infantil y conservarlo para volver a leerlo; no hay una alternativa Kindle o de audiolibro entre los formatos ofrecidos.",
+      "evidencias": [
+        "formatos_disponibles",
+        "formato_edicion",
+        "numero_paginas"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Buenas noches, robot comparte con Buenas noches, hada la autoría de Jeffrey Burton y Zoe Waring y una propuesta infantil vinculada a mundos imaginarios. Mientras el primero presenta un robot que explora el espacio, Buenas noches, hada sitúa su propuesta en un entorno de magia y vuelo.",
+      "texto": "Buenas noches, hada, de Jeffrey Burton y Zoe Waring, es el título más próximo para comparar con Buenas noches, robot: ambos comparten autores y pertenecen al catálogo infantil. La diferencia temática está en el punto de partida que identifica cada título, con un robot en uno y un hada en el otro; permite elegir entre una ambientación espacial y otra vinculada a la fantasía.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
         "isbn-9788491459347"
@@ -40,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f14a7f0769e6e0fc",
+  "fuente_hash": "d6c16a2fa484ecc4",
   "origen": "chatgpt-web"
 }

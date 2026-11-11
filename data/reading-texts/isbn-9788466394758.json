@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788466394758",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo (no) escribí nuestra historia (edición limitada) (Campaña | Ahora por menos) está orientado a lectores de novela romántica que buscan una obra extensa en edición de bolsillo. Sus 544 páginas y su enfoque romántico encajan menos con quienes prefieren relatos cortos o narraciones centradas en otros géneros.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta versión de Cómo (no) escribí nuestra historia (edición limitada) (Campaña | Ahora por menos) pertenece a Penguin Bolsillo y se identifica como edición limitada. Reúne 544 páginas en castellano, con publicación editorial fechada el 2027-02-04, y se presenta como libro de bolsillo.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es una edición de bolsillo en tapa blanda, con 544 páginas publicadas por Penguin Bolsillo. Permite llevar una novela romántica extensa en un formato de papel pensado para el transporte y la lectura cotidiana, sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de engañar al karma (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) comparte autoría con Cómo (no) escribí nuestra historia (edición limitada) (Campaña | Ahora por menos): ambas son obras de Elísabet Benavent. La primera destaca los cantos tintados como rasgo de edición, mientras que la segunda se presenta en formato de bolsillo y dentro del romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466380836"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eba921009cd3bfad",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788466381529",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Prométeme que serás libre (edición limitada) (Campaña | Ahora por menos) se dirige a quienes buscan novela histórica con elementos de aventura. Sus 784 páginas corresponden a una lectura extensa, menos ajustada a quien prefiere relatos breves o romances contemporáneos. La combinación de géneros apunta a una narración donde el contexto histórico y la acción tienen peso.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Penguin Bolsillo publica esta edición limitada de Prométeme que serás libre (edición limitada) (Campaña | Ahora por menos) como libro de bolsillo en castellano. Lleva el ISBN 9788466381529 y tiene fecha editorial 2027-02-04. La identificación como edición limitada y su presentación de bolsillo permiten diferenciarla de otras ediciones de Jorge Molist.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "isbn13",
+        "fecha_publicacion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Se ofrece en tapa blanda, dentro de la colección de bolsillo de Penguin Bolsillo. Aunque el formato facilita guardarlo y transportarlo, sus 784 páginas hacen que sea un volumen considerable para llevar a diario. Resulta una alternativa física para quien quiera conservar una novela histórica extensa en papel.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Prométeme que serás libre (Novela histórica) es la comparación más directa: comparte título principal y autor, Jorge Molist, aunque aparece con una denominación editorial distinta. Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig, ofrece otra referencia vinculada a un escenario histórico concreto. La edición limitada de Prométeme que serás libre añade la orientación hacia la aventura.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788425371387",
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d027620269966d0c",
+  "origen": "chatgpt-web"
+}

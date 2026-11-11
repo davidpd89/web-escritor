@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791388279218",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Troya, la guerra que acabó con los dioses: EDICIÓN CANTOS TINTADOS (Historias de hoy) encaja con lectores interesados en Troya, los conflictos históricos y las narraciones de temática juvenil. Pol Gise aparece vinculado aquí a una obra que reúne historia y narrativa. Por su orientación temática, resulta menos afín a quienes buscan ficción contemporánea sin referencias al pasado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "El rasgo distintivo de Troya, la guerra que acabó con los dioses: EDICIÓN CANTOS TINTADOS (Historias de hoy) es su presentación con cantos tintados, indicada expresamente en el título. Temas de Hoy publica esta versión en tapa dura, con 328 páginas en castellano y fecha editorial del 11 de noviembre de 2026. Se identifica mediante el ISBN 9791388279218.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Troya, la guerra que acabó con los dioses: EDICIÓN CANTOS TINTADOS (Historias de hoy) se ofrece en tapa dura, con 328 páginas. Esta presentación combina una cubierta rígida con los cantos tintados anunciados en el título, un detalle visible al colocar el volumen en la estantería. Es una opción física para lectura, conservación o regalo, especialmente cuando importa la presentación exterior.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Troya, la guerra que acabó con los dioses: EDICIÓN CANTOS TINTADOS (Historias de hoy) puede ponerse junto a Las sombras del Titanic (Contempla) por sus referencias a acontecimientos del pasado. La obra de Pol Gise se identifica con Troya y una guerra vinculada a los dioses; la de Cécile Roumiguière remite al Titanic. La elección depende del episodio histórico que interese al lector.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788414071038"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4110e07744ef7381",
+  "origen": "chatgpt-web"
+}

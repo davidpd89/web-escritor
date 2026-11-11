@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388205576",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La adquisición de bienes culturales en España: Tipologías, exportación, normativa y mercado (Sílex Universidad) se orienta a lectores interesados en la gestión y regulación de bienes culturales. Sus temas incluyen las modalidades de adquisición, la exportación y el mercado; no está planteado como un manual práctico de creación artística.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La adquisición de bienes culturales en España: Tipologías, exportación, normativa y mercado (Sílex Universidad) cuenta con una edición en tapa blanda de 289 páginas. El volumen de Sílex Ediciones permite consultar físicamente los apartados sobre normativa, exportación y mercado durante el estudio o la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La adquisición de bienes culturales en España puede compararse con Arte Matrio por su atención a distintos aspectos del patrimonio y la cultura. Patricia Labrador Ballestero aborda las tipologías de adquisición, la exportación, la normativa y el mercado de bienes culturales, mientras que Sara Rubayo se ocupa de la representación en la historia del arte español.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449346095"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5c802796205949eb",
+  "origen": "chatgpt-web"
+}

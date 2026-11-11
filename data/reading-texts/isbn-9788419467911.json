@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419467911",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El arte de la guerra: El influyente tratado sobre estrategia militar (Filosofía) se dirige a lectores interesados en estrategia, pensamiento filosófico y ensayo. Su enfoque en cuestiones militares lo distingue de los manuales de bienestar personal y de las obras de ficción bélica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de El arte de la guerra: El influyente tratado sobre estrategia militar (Filosofía) reúne 136 páginas en castellano. Su extensión permite consultar pasajes concretos en papel y transportarlo con mayor facilidad que un volumen de estudio de gran tamaño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de la guerra: El influyente tratado sobre estrategia militar (Filosofía) puede compararse directamente con El arte de la guerra, también atribuido a Sun Tzu. Ambas obras comparten autor y materia estratégica, pero la primera identifica expresamente su orientación filosófica y militar en el título. Frente a La incomodidad te hace libre: Un ensayo sobre libertad, disciplina e identidad para dejar de obedecer a la comodidad, cambia el centro de atención desde la disciplina personal hacia la estrategia militar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084481",
+        "isbn-9788409884339"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6f39ed0a2465aac3",
+  "origen": "chatgpt-web"
+}

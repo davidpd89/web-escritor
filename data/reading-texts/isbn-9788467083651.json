@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788467083651",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores interesados en mejorar el descanso mediante cambios en sus hábitos diarios. Dormir bien no debería ser un sueño: Reordena tus días para recuperar tus noches (Espasa Bienestar y Salud), de Rafael Guzmán García, aborda el bienestar y la psicología, no una historia de ficción ni una narración de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 320 páginas y permite consultar físicamente los contenidos relacionados con el descanso y la organización del día. Kindle ofrece una alternativa digital para leer el mismo título desde un dispositivo compatible y retomar la lectura sin llevar el volumen impreso.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dormir bien no debería ser un sueño: Reordena tus días para recuperar tus noches (Espasa Bienestar y Salud) y Deja de tratarte como el culo: De la autocrítica también se sale (Vivir Mejor), de Lorena Gascón, abordan cuestiones de bienestar personal. Rafael Guzmán García centra su libro en el descanso y la organización de los hábitos diarios, mientras que Lorena Gascón trata la autocrítica y la relación con uno mismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055988"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1cfec91758ab1f5d",
+  "origen": "chatgpt-web"
+}

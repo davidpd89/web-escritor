@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387962791",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El incidente Darwin 1 (Seinen): Universo Manga se dirige a lectores de manga interesados en la ciencia ficción y los relatos gráficos con elementos fantásticos. Su presentación como seinen lo diferencia de las propuestas infantiles, mientras que el formato de cómic lo aleja de la novela escrita únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El incidente Darwin 1 (Seinen): Universo Manga se publica en tapa blanda, con 192 páginas en castellano. Esta edición física permite seguir las viñetas sobre papel y conservar el volumen junto a otros tomos de manga.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El incidente Darwin 9 (Seinen), también de Shun Umezawa, es la comparación más directa por compartir autor y denominación de la obra; los títulos identifican los números 1 y 9, respectivamente. Wistoria. Wand and Sword, 12 (Shônen - Wistoria), de Omori Fujino, también pertenece al ámbito del manga, pero se presenta como shônen frente a la identificación seinen de El incidente Darwin 1 (Seinen): Universo Manga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962616",
+        "isbn-9791043309632"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e6b7150de063c1f1",
+  "origen": "chatgpt-web"
+}

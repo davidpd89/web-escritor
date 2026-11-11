@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788427055957",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo sobrevivir a las putadas de la vida (Vivir Mejor), de Lorena Gascón, se dirige a lectores interesados en desarrollo personal, psicología y bienestar. Su planteamiento pertenece a la no ficción práctica, por lo que no responde a quien busque una novela o una historia de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible de Cómo sobrevivir a las putadas de la vida (Vivir Mejor), de Lorena Gascón. Sus 224 páginas y su edición de bolsillo permiten llevarlo en el bolso o leerlo en sesiones cortas; también es una opción física para regalar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formato_edicion",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo sobrevivir a las putadas de la vida (Vivir Mejor), de Lorena Gascón, comparte autoría y orientación de desarrollo personal con Deja de tratarte como el culo: De la autocrítica también se sale (Vivir Mejor). El primero aborda las dificultades de la vida desde su propio planteamiento, mientras que el segundo centra su título en la autocrítica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055988"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8ed80a1caac86182",
+  "origen": "chatgpt-web"
+}

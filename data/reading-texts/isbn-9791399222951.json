@@ -4,36 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "MISS PIPELETTE 01 ¡CUIDADO! ¡BRUJA PARLANCHINA! se dirige a lectores desde los 5 años interesados en el humor, las brujas y las escuelas de magia. Su protagonista convierte su tendencia a hablar continuamente en una habilidad peculiar, por lo que encaja menos con quienes buscan una historia de magia solemne o centrada en enfrentamientos oscuros.",
+      "texto": "Miss pipelette 01 ¡Cuidado! ¡Bruja parlanchina!, de Maxe L´Hermenier, está dirigido a lectores a partir de 5 años interesados en los cómics, las brujas y las aventuras ambientadas en una escuela de magia. El humor y el protagonismo de una joven bruja habladora lo sitúan en la lectura infantil, no en la novela gráfica de temática adulta.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Este cómic de Maxe L´Hermenier combina humor y fantasía en una escuela de magia. Éléonore estudia en Boudboa, donde cada alumno posee una habilidad extraordinaria, y ella destaca por hablar tanto que puede incapacitar a otras criaturas. Sus aventuras con amigos giran alrededor de esa peculiaridad, mientras que el título identifica la entrega como el n.º 01.",
+      "texto": "Miss pipelette 01 ¡Cuidado! ¡Bruja parlanchina!, de Maxe L´Hermenier, propone una lectura infantil en formato de cómic, con una protagonista que estudia en una escuela de magia. Las aventuras con sus amigos giran alrededor de su capacidad extraordinaria para hablar sin parar y del humor que genera esa característica.",
       "evidencias": [
+        "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial",
-        "titulo"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Harriet Ediciones se presenta en tapa dura y contiene 48 páginas. La cubierta rígida permite conservar el cómic como volumen físico y consultar sus viñetas directamente en papel. Su extensión corresponde a una lectura breve dentro del formato de cómic.",
+      "texto": "La tapa dura reúne las 48 páginas de Miss pipelette 01 ¡Cuidado! ¡Bruja parlanchina!, de Maxe L´Hermenier, en un volumen físico de lectura ilustrada. Este formato permite conservar el cómic como ejemplar de colección o incorporarlo a una biblioteca infantil.",
       "evidencias": [
-        "editorial",
-        "formatos_disponibles",
         "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion",
+        "titulo",
+        "autores",
         "categorias"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "de9be9cd3cf85c55",
+  "fuente_hash": "28a8caa48e6b33bb",
   "origen": "chatgpt-web"
 }

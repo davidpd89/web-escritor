@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388387944",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las leyes del Serengeti: Cómo funciona la vida y por qué es importante saberlo (Ciencia y Tecnología) está dirigido a lectores de divulgación científica interesados en comprender el funcionamiento de la vida. Su enfoque científico y sus 344 páginas lo distinguen de una guía práctica breve o de una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las leyes del Serengeti: Cómo funciona la vida y por qué es importante saberlo (Ciencia y Tecnología) cuenta con una edición en tapa blanda de 344 páginas. El formato permite leer y consultar el texto en papel, marcar pasajes con separadores y transportarlo sin la rigidez de una encuadernación de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Así es la vida de los animales: Historias de crueldad, amor y supervivencia en la naturaleza (Imago Mundi) comparte el interés por la vida natural, aunque se presenta mediante historias de animales. Las leyes del Serengeti: Cómo funciona la vida y por qué es importante saberlo (Ciencia y Tecnología), de Sean B. Carroll, plantea una cuestión más general sobre cómo funciona la vida desde la divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370979"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7ebfda8c6582db4e",
+  "origen": "chatgpt-web"
+}

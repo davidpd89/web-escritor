@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788449345777",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Contra el esfuerzo: Por una pedagogía de la dedicación se dirige a lectores interesados en ensayos sobre educación y pedagogía. María Acaso y Pedagogías Invisibles abordan la dedicación desde un planteamiento ensayístico, por lo que no responde a quien busca una novela de ficción o una historia protagonizada por personajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Contra el esfuerzo: Por una pedagogía de la dedicación está disponible en tapa blanda y Kindle. La edición física de Ediciones Paidós reúne 224 páginas en un volumen que permite consultar y señalar pasajes sobre papel; Kindle ofrece el mismo título en formato digital para leerlo desde un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3c9d72d36e6bee2f",
+  "origen": "chatgpt-web"
+}

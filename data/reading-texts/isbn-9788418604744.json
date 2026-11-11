@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788418604744",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La obra de Cristina Carrillo de Albornoz se dirige a lectores interesados en la historia del arte y en el estudio del color azul dentro de la creación artística. Su enfoque temático se distancia de las historias generales de la cultura y de los libros dedicados a explicar múltiples disciplinas artísticas.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Libros de Vanguardia se publica en tapa blanda y contiene 152 páginas en castellano. Su encuadernación flexible facilita el transporte y permite consultar el volumen en papel, mientras que la extensión admite distribuir la lectura en varias sesiones.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Civilización: Una historia del arte y la cultura que dieron forma a la civilización moderna: 126 (Ático Historia), de Kenneth Clark, aborda un panorama histórico más amplio que el estudio del color azul de Cristina Carrillo de Albornoz. El Bosco y el otro renacimiento (Arte y diseño), de Bernard Aikema y Fernando Checa Cremades, también trata la historia artística, pero concentra su atención en un artista y su contexto histórico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387592493",
+        "isbn-9788410380219"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1dd5ce1e2c2b8b1e",
+  "origen": "chatgpt-web"
+}

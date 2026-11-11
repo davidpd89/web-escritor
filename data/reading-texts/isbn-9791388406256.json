@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388406256",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a quienes buscan testimonios de mujeres vinculados a la guerra de Ucrania y lecturas de carácter biográfico o ensayístico. Su asunto bélico y su enfoque testimonial lo alejan de las novelas de evasión y de los estudios militares centrados exclusivamente en operaciones y armamento.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 208 páginas de Cuando el mundo mira hacia otro lado: 24 mujeres en la guerra de Ucrania en una edición impresa de Plataforma Editorial. Kindle permite leer el texto en formato digital y retomarlo desde el móvil o un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mujeres que la liaron: De Hipatia de Alejandría a Simone de Beauvoir: 3000 años de historia feminista (Divulgación) también sitúa a las mujeres en el centro, pero recorre un marco histórico amplio. Cuando el mundo mira hacia otro lado: 24 mujeres en la guerra de Ucrania delimita su mirada a mujeres afectadas por un conflicto bélico concreto, con un planteamiento biográfico y ensayístico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788403527041"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "22ddfdcc71ac4d5c",
+  "origen": "chatgpt-web"
+}

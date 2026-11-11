@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408331612",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a quienes buscan narrativa contemporánea de Cristina Campos centrada en mujeres y relaciones matrimoniales. Por su temática, puede encajar menos con lectores interesados principalmente en aventuras, fantasía o tramas de investigación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición de Booket se presenta en formato de bolsillo, con 464 páginas y el ISBN 9788408331612. Forma parte de Colección Especial y está identificada como edición limitada a precio especial. La fecha de publicación indicada es 2027-01-08.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "isbn13",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El formato disponible es tapa blanda, concretamente una edición de bolsillo de Booket. Las 464 páginas permiten conservar la novela en un único volumen de papel, con dimensiones de bolsillo para facilitar su transporte frente a ediciones de mayor tamaño.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hombres en terapia comparte autoría con Historias de mujeres casadas, pues ambas obras son de Cristina Campos. La primera sitúa en su presentación a una profesional que escucha a sus pacientes, mientras que la segunda se identifica por su temática matrimonial y su enfoque en las mujeres dentro de la narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408330424"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9a46140904297beb",
+  "origen": "chatgpt-web"
+}

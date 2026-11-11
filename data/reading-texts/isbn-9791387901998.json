@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9791387901998",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Stitch. Mi libro para llevar (Disney. Lilo & Stitch), de Disney, está dirigido a quienes buscan un libro breve de aventuras relacionado con Stitch. Sus 10 páginas y su edición en cartón lo sitúan entre las publicaciones de poca extensión; no responde a la búsqueda de una novela larga sobre el personaje.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Stitch en tapa dura utiliza cartón y contiene 10 páginas. Su extensión permite llevar el volumen para lecturas breves, mientras que el soporte físico facilita pasar las páginas sin utilizar dispositivos electrónicos. Libros Disney publica esta edición en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Stitch comparte protagonista y autoría con Agente Stitch 5. Los roedores de Roswell, de Disney, donde el personaje y sus amigos afrontan un misterio intergaláctico. La diferencia está en el formato: el libro para llevar contiene 10 páginas en cartón, mientras que la otra obra plantea una misión relacionada con la protección de la Tierra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387901943"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aeed203b23adf635",
+  "origen": "chatgpt-web"
+}

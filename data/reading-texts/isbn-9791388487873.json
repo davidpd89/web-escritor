@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791388487873",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sakamoto days 26 se dirige a lectores de cómic y novela gráfica que prefieren seguir historias en entregas numeradas. El título lo identifica como el n.º 26 y sus 200 páginas en castellano lo alejan de quienes buscan una novela en prosa o una lectura infantil breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sakamoto days 26 está disponible en tapa blanda, en edición bunko de Ivrea. Sus 200 páginas en castellano forman un volumen físico que puede guardarse junto a otras entregas de la colección; la cubierta flexible facilita llevarlo en una mochila.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "25eda3dfba1e54c9",
+  "origen": "chatgpt-web"
+}

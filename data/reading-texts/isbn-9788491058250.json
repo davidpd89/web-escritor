@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788491058250",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "David Copperfield está orientado a lectores de clásicos y narrativa de Charles Dickens que buscan una obra de gran extensión. Sus 1024 páginas encajan menos con quienes prefieren novelas cortas o lecturas que puedan terminarse en pocas sesiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición especial de David Copperfield pertenece a las Ediciones Conmemorativas de Penguin Clásicos y se presenta en tapa dura. Publicada en castellano el 19 de noviembre de 2026, reúne 1024 páginas bajo el ISBN 9788491058250.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "isbn13",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es la presentación disponible para esta edición conmemorativa de 1024 páginas. Por su volumen, resulta más cómoda para leer sobre una superficie de apoyo y está orientada a quienes desean conservar una edición física de una obra extensa.",
+      "evidencias": [
+        "formatos_disponibles",
+        "titulo",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anna Karénina (edición especial en tapa dura) (Ediciones Conmemorativas) comparte con David Copperfield su condición de clásico presentado en una edición especial de tapa dura. La diferencia principal está en la autoría: Lev Tolstoi firma la primera obra y Charles Dickens la segunda.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion"
+      ],
+      "enlaces": [
+        "isbn-9788491058397"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4193bbb6517bddf1",
+  "origen": "chatgpt-web"
+}

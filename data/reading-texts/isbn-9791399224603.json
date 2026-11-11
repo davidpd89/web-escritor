@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791399224603",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Brujas, Reyes y locos: Una introducción a William Shakespeare se dirige a quienes desean acercarse a William Shakespeare mediante un ensayo introductorio. Las 368 páginas de Pablo Bujalance corresponden a una obra de no ficción, por lo que no responde a la búsqueda de una novela o de una pieza teatral del propio dramaturgo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Brujas, Reyes y locos: Una introducción a William Shakespeare está editado en tapa blanda y tiene 368 páginas en castellano. La edición de Editorial Contraseña ofrece un volumen físico que permite marcar el progreso de lectura y consultar de nuevo los apartados dedicados al autor.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ef47ff369b3bfb42",
+  "origen": "chatgpt-web"
+}

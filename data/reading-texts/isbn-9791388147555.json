@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791388147555",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de romance que buscan otra obra de Hannah Grace dentro de Maple Hills. Sus 448 páginas requieren una lectura más prolongada que una novela corta; no es la opción correspondiente a quien busca géneros como el ensayo o la novela histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de En las nubes · edición limitada (Maple Hills 3) (Campaña | Ahora por menos) se identifica como limitada y vinculada a la campaña Ahora por menos. Penguin Bolsillo la publica con el ISBN 9791388147555, que distingue esta presentación concreta de otras versiones del romance de Hannah Grace.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "isbn13",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, con 448 páginas en castellano. Es una alternativa física para leer y conservar la novela, con una extensión que exige cierto espacio al transportarla y que permite consultar sus páginas sin pantalla ni conexión.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Romper el hielo · edición limitada (Maple Hills 1) (Campaña | Ahora por menos) y Saltan chispas · edición limitada (Maple Hills 2) (Campaña | Ahora por menos) comparten autora y denominación de serie con este libro. Los títulos identifican respectivamente los números 1, 2 y 3 de Maple Hills, lo que permite diferenciarlos dentro del mismo conjunto de romances de Hannah Grace.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413145761",
+        "isbn-9788466394185"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ed8ac2c5d4f1ecd2",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788414074916",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lazos (Laude) se orienta a lectores juveniles interesados en la familia, la narrativa contemporánea y la divulgación científica. Su combinación temática se aleja de las obras centradas exclusivamente en la fantasía o la aventura, y sus 79 páginas permiten abordar la lectura en sesiones breves.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lazos (Laude) se publica en tapa dura, con 79 páginas en castellano. La encuadernación rígida facilita conservar el ejemplar o entregarlo como regalo, mientras que su extensión permite una lectura breve sin necesidad de transportar un volumen grueso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lazos (Laude) puede compararse con El clan Monet 1 - Tesoro (Ficción crossover), de Weronika Anna Marczak, por su relación con la narrativa dirigida al público joven. La obra de Elda Moreno Villanueva incorpora la familia y la divulgación científica entre sus temas, mientras que el título de Weronika Anna Marczak se presenta como ficción crossover y señala el número 1 en su denominación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427226074"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a48f7d051d37fab0",
+  "origen": "chatgpt-web"
+}

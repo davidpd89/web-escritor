@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387846602",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El fuego de Bandung (Hispánica), de Jordi Soler, se dirige a lectores interesados en la narrativa contemporánea, la historia y las relaciones entre poder y política. También incorpora el humor entre sus ámbitos temáticos; no es la elección más ajustada para quien busca una lectura centrada en fantasía o romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El fuego de Bandung (Hispánica) se publica en tapa blanda, con 402 páginas en castellano y edición de Alfaguara. Es un volumen físico de extensión considerable, apropiado para mantener una lectura continuada en papel o volver a consultar pasajes relacionados con sus temas históricos y políticos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El fuego de Bandung (Hispánica) comparte el interés por las cuestiones políticas y el humor con El viaje del profesor Caritat o Las desventuras de la Razón: Una comedia filosófica (Andanzas), de Steven Lukes. La diferencia está en el enfoque declarado: el libro de Jordi Soler se sitúa entre la narrativa contemporánea y la historia, mientras que el de Steven Lukes se presenta como una comedia filosófica. Desterrando: La arquitectura del genocidio (Historia), de Eyal Weizman, ofrece otra comparación desde un asunto histórico más delimitado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411078696",
+        "isbn-9788419399045"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "301a3954cc2aa08d",
+  "origen": "chatgpt-web"
+}

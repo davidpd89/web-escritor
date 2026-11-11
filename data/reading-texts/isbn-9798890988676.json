@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9798890988676",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores que buscan narrativa de aventuras en castellano y prefieren una obra de extensión media. Sus 352 páginas lo alejan de los relatos muy breves y de las lecturas centradas exclusivamente en el ensayo o la divulgación.",
+      "evidencias": [
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Laberinto del Quetzal / The Labyrinth of the Quetzal se presenta en tapa blanda, con 352 páginas en castellano. Es una edición física que permite avanzar por capítulos y retomar la lectura sin dispositivos, además de poder guardarse o prestarse como volumen independiente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Laberinto del Quetzal / The Labyrinth of the Quetzal puede compararse con Agente Stitch 5. Los roedores de Roswell, de Disney, por su relación con la aventura, aunque este último incorpora un misterio intergaláctico y personajes recurrentes. Otra referencia es Abre el misterio 1 - El robo de las croquetas, de Carlos G. Gurpegui, que plantea una desaparición concreta, frente a la clasificación general de aventuras de la obra de Karla Arenas Valenti.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644",
+        "isbn-9791387901943"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dfa4431ed518ee7a",
+  "origen": "chatgpt-web"
+}

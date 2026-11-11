@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410944176",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Corona Nostra: De Felipe VI a Felipe V se dirige a lectores de historia interesados en la monarquía y las figuras históricas, dentro del ámbito de la no ficción. Con 528 páginas, requiere una dedicación mayor que una introducción breve y no está orientado a quien busca una novela de aventuras o fantasía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Corona Nostra: De Felipe VI a Felipe V se ofrece en tapa blanda, con 528 páginas en castellano. Su extensión permite abordar la lectura por capítulos o sesiones, mientras que la encuadernación flexible facilita guardarlo en una mochila o llevarlo durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Desastre del 98 y el fin del Imperio español: Visión inédita del Almirante Cervera (Biblioteca de Historia) comparte con Corona Nostra: De Felipe VI a Felipe V el interés por los acontecimientos y personajes históricos. El primero se centra en el final de un imperio desde la perspectiva de un almirante, mientras que el segundo aborda la monarquía. Sus autores también son distintos: Ángel Luis Cervera Fantoni y Nieves Concostrina.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388444142"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4aaea31b91c66f22",
+  "origen": "chatgpt-web"
+}

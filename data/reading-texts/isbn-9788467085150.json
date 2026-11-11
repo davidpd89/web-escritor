@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788467085150",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Madera de líder: Claves para desarrollar las capacidades de liderazgo en la empresa y en la vida (Empresa y Talento) se dirige a lectores interesados en desarrollar capacidades de liderazgo y crecimiento personal. Su enfoque combina el ámbito empresarial con la vida personal, por lo que no se limita a quienes buscan contenidos exclusivamente económicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 224 páginas de Madera de líder: Claves para desarrollar las capacidades de liderazgo en la empresa y en la vida (Empresa y Talento) en una edición de bolsillo. Es el formato disponible para quien prefiera consultar el libro en papel.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "«Domina el arte de los negocios», de Brian Tracy, es una lectura afín por su relación con el liderazgo y las habilidades empresariales. Madera de líder: Claves para desarrollar las capacidades de liderazgo en la empresa y en la vida (Empresa y Talento), de Mario Alonso Puig, incorpora además el desarrollo personal y la aplicación del liderazgo a la vida. «Construye un negocio atómico / Build an Atomic Business», de Oso Trava, desplaza el foco hacia la construcción de negocios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073880336",
+        "isbn-9788466390514"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7dd85c8b9f7a32d4",
+  "origen": "chatgpt-web"
+}

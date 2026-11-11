@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419943583",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Otra forma de obrar: Textos sobre poesía y poéticas: 52 (Paralajes) se orienta a quienes buscan reflexiones y ensayos sobre la poesía y sus planteamientos estéticos. Por su combinación de ensayo y poesía, se distancia de los libros centrados exclusivamente en una sucesión de poemas o en una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Otra forma de obrar: Textos sobre poesía y poéticas: 52 (Paralajes) se publica en tapa blanda y tiene 224 páginas en castellano. Su presentación impresa permite alternar la lectura seguida con la consulta de textos concretos sobre poesía y poéticas, además de realizar anotaciones personales en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Otra forma de obrar: Textos sobre poesía y poéticas: 52 (Paralajes), de Tania Favela Bustillo, comparte el interés por la reflexión literaria con La Ilíada o el poema de la fuerza: Seguido de No empecemos otra vez la guerra de Troya (ENSAYO), de Simone Weil. El primero se ocupa de poesía y poéticas en general; el segundo toma como eje un poema concreto y la cuestión de la guerra. Frente a ambos, poemas de amor (Los Tres Mundos), de rupi kaur, se presenta como poesía centrada en el amor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399203035",
+        "isbn-9788432251627"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fccb3e04e09bf101",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9786287880788",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las andariegas / The Wanderers, de Albalucía Ángel, se dirige a lectores interesados en la narrativa contemporánea. Sus 128 páginas sitúan esta edición entre los volúmenes breves, mientras que su clasificación la diferencia de los ensayos y los libros de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las andariegas / The Wanderers, de Albalucía Ángel, está disponible en tapa blanda y reúne 128 páginas. Su extensión permite tener un volumen físico de pocas páginas, una opción para quienes prefieren leer en papel sin cargar con un libro voluminoso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2a76c5ae4ab2de82",
+  "origen": "chatgpt-web"
+}

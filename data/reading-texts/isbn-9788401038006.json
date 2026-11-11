@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788401038006",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tierra baldía (Nora Kelly 5) (Éxitos) se dirige a lectores de misterio, thriller y aventuras que buscan una entrega vinculada a Nora Kelly. El título la identifica como el n.º 5, por lo que quien prefiera comenzar una serie desde su primera entrega puede optar por otra lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tierra baldía (Nora Kelly 5) (Éxitos) está disponible en tapa blanda, con 352 páginas en castellano. Esta edición de Plaza & Janés permite leerla en papel y colocarla junto a otros volúmenes de la serie sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La montaña muerta comparte con Tierra baldía (Nora Kelly 5) (Éxitos) la autoría de Douglas Preston y Lincoln Child y la referencia a Nora Kelly. Los títulos identifican ambas entregas como los números 4 y 5, respectivamente. El gabinete del Dr. Leng pertenece a la serie Inspector Pendergast, por lo que ofrece otra línea de lectura de los mismos autores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466389006",
+        "isbn-9788466392761"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9a30bdfb35c951ac",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788434441149",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El príncipe espía: Cosimo III en la España de la Regencia (Ariel) se orienta a lectores interesados en la historia y la novela histórica, especialmente en personajes y contextos políticos del pasado. Su temática lo separa de quienes buscan una narración contemporánea sin referencias históricas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El príncipe espía: Cosimo III en la España de la Regencia (Ariel) se presenta en tapa dura, con 336 páginas en castellano. La encuadernación rígida de esta edición de Editorial Ariel resulta apropiada para conservar el ejemplar en una biblioteca y protegerlo durante las consultas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El príncipe espía: Cosimo III en la España de la Regencia (Ariel), de Lorenzo De Medici, comparte su vinculación con la historia con Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig. El primero sitúa su asunto en la España de la Regencia y alrededor de Cosimo III, mientras que el segundo remite a Pompeya. Son referencias históricas diferentes y también cuentan con autores distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "35010e72fa49a8ad",
+  "origen": "chatgpt-web"
+}

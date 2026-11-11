@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408321255",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en viajes, lugares del mundo y libros ilustrados. Maravillas secretas del mundo 2 (Ilustrados) responde a una búsqueda de contenido geográfico y visual, no a la de una novela centrada en personajes y conflictos ficticios.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura contiene 304 páginas en castellano y está publicada por Geoplaneta. Su encuadernación rígida permite mantener este libro ilustrado de viajes como volumen de consulta y facilita conservarlo para revisitar sus páginas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Banksy: I want to be what you saw in me (MISCELANEAS) comparte con Maravillas secretas del mundo 2 (Ilustrados) la autoría colectiva de Varios autores. La diferencia está en el asunto anunciado: el primero se centra en Banksy y el segundo en lugares del mundo vinculados a los viajes.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9789509509504"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c5499c4229055f2c",
+  "origen": "chatgpt-web"
+}

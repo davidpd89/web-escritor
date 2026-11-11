@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9786287832510",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La calma del volcán / The Calm of the Volcano, de Viña Machado, se dirige a lectores interesados en el desarrollo personal y en libros relacionados con el crecimiento individual. Su clasificación permite situarlo dentro de este ámbito, frente a quienes buscan principalmente narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece una edición física de 112 páginas publicada por Grijalbo. Es el formato disponible para quien prefiere leer en papel y conservar un ejemplar de La calma del volcán / The Calm of the Volcano en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ff165a5a495396a8",
+  "origen": "chatgpt-web"
+}

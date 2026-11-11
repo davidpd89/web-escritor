@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388102233",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Kagurabachi nº 07: 7 (Manga Shonen) se dirige a lectores de manga juvenil que prefieren las historias contadas mediante viñetas. Por su clasificación como cómic infantil y juvenil, encaja menos con quien busca una novela escrita principalmente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer las 192 páginas de Kagurabachi nº 07: 7 (Manga Shonen) en papel y conservar el volumen en una colección física. Kindle ofrece esas páginas en formato digital, con la comodidad de llevar la lectura en un dispositivo sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Kagurabachi nº 08: 8 (Manga Shonen) es la comparación más directa: comparte autor, Takeru Hokazono, y pertenece a la misma serie, aunque el título lo identifica como el n.º 8 frente al n.º 7 de Kagurabachi nº 07: 7 (Manga Shonen). Animal Jack 2 la montaña mágica también pertenece al ámbito del cómic juvenil, pero lleva la firma de Kid Toussaint y presenta otra propuesta narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388103575",
+        "isbn-9791387744410"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aba0d3e6f855d9db",
+  "origen": "chatgpt-web"
+}

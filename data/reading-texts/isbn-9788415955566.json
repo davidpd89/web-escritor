@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788415955566",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Del trono (DARK ROMANCE) se dirige a lectores de romance interesados en la vertiente oscura del género. Su identificación como dark romance lo distingue de las historias románticas de tono ligero y de las lecturas centradas en relaciones sin conflictos sombríos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estuche Del trono (DARK ROMANCE) está disponible en tapa blanda y tiene una extensión indicada de 541 páginas. Esta presentación permite leerlo en papel y conservarlo físicamente, aunque su volumen requiere más espacio que una novela breve durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hermoso veneno (DARK ROMANCE) comparte con Estuche Del trono (DARK ROMANCE) la autoría de Rina Kent y su identificación con el romance oscuro. Kiss the villain (Villanos 1), también de Rina Kent, introduce explícitamente el encuentro entre dos personajes asociados a la oscuridad, mientras que Estuche Del trono (DARK ROMANCE) se presenta bajo la denominación Del trono.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788415955627",
+        "isbn-9791387972486"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e8aca778af53ac07",
+  "origen": "chatgpt-web"
+}

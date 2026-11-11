@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388038006",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dieta sin sofocos: Verdades y mentiras sobre la alimentación, el estilo de vida y las hormonas en la menopausia (Vergara) se dirige a lectores interesados en nutrición, bienestar y menopausia. Su enfoque temático no corresponde a quien busca ficción o una guía centrada en cuestiones económicas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 304 páginas de Dieta sin sofocos: Verdades y mentiras sobre la alimentación, el estilo de vida y las hormonas en la menopausia (Vergara). Es la opción física para quien prefiere consultar el contenido en papel y conservarlo como referencia de lectura.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Todos gordos (con perdón): Tratar la obesidad en un mundo diseñado para engordar, de Julio Basulto, comparte autor con Dieta sin sofocos: Verdades y mentiras sobre la alimentación, el estilo de vida y las hormonas en la menopausia (Vergara). Ambos tratan la alimentación y la salud desde la divulgación, aunque el primero se ocupa de la obesidad y el segundo de la menopausia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466393584"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2362f21bbcd5f03d",
+  "origen": "chatgpt-web"
+}

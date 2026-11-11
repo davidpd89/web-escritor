@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788427257641",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El traidor de almas (Canción de almas perdidas 1) (Ficción juvenil), de Hugo Covelo, se dirige a lectores que buscan fantasía juvenil. Sus 592 páginas configuran una lectura extensa; no encaja con quien prefiera ensayos, obras de no ficción o novelas de misterio y thriller.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene las 592 páginas de El traidor de almas (Canción de almas perdidas 1) (Ficción juvenil), en una edición física de Molino. Es el formato disponible para quien prefiere leer en papel y conservar el volumen de fantasía juvenil en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3f83ad293c3a8657",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387597535",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Floriografía: Una guía ilustrada del lenguaje victoriano de las flores (VARIOS) se dirige a lectores interesados en el significado cultural de las flores y en los libros ilustrados de consulta. Sus 224 páginas se centran en ese lenguaje floral; no responde a quien busca una novela de ficción o un manual general de jardinería.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Floriografía: Una guía ilustrada del lenguaje victoriano de las flores (VARIOS) está editado en tapa dura y tiene 224 páginas. Esta presentación permite conservar las ilustraciones en un volumen rígido y consultar las referencias florales sobre una mesa, además de utilizarlo como libro de regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Floriografía: Una guía ilustrada del lenguaje victoriano de las flores (VARIOS) se puede comparar con Aprende a dibujar con KPop Demon Hunters: Edición OFICIAL en español (Montena), pues ambos títulos proponen acercarse a contenidos visuales. El libro de Jessica Roux se centra en interpretar el simbolismo floral, mientras que el segundo aborda el aprendizaje del dibujo. Frente a 800 stickers sweet and cosy (Prácticos), de Amélie's Workshop, ofrece una guía ilustrada de 224 páginas en lugar de una colección de pegatinas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049737",
+        "isbn-9791388322778"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "29e379d7f3683b46",
+  "origen": "chatgpt-web"
+}

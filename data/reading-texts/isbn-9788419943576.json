@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419943576",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Río en blanco: 70 (ποίησις [poíesis]), de Adalber Salas Hernández, pertenece a la poesía y se dirige a lectores que buscan obras de este género en castellano. No responde a la búsqueda de una novela de trama continua ni a la de un ensayo histórico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Río en blanco: 70 (ποίησις [poíesis]) tiene una edición en tapa blanda de 96 páginas, publicada por Libros de la Resistencia. Su extensión permite transportar el volumen con facilidad y volver a consultar pasajes durante distintas sesiones de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Río en blanco: 70 (ποίησις [poíesis]) comparte el género poético con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. El título de esta última señala una orientación amorosa, mientras que Río en blanco: 70 (ποίησις [poíesis]) se presenta como una obra de Adalber Salas Hernández dentro de la colección indicada en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ec3a9ac8a3127dfb",
+  "origen": "chatgpt-web"
+}

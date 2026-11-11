@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791399059656",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tú al cielo y yo a los infiernos, de Elvira Gutiérrez Bartolomé, se dirige a lectores interesados en novelas románticas en castellano. Sus 430 páginas permiten distinguirla de una lectura breve; por su género, no responde a quien busca principalmente misterio o thriller.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tú al cielo y yo a los infiernos está disponible en tapa blanda y Kindle. La edición física reúne sus 430 páginas en un volumen que puede prestarse o regalarse; Kindle permite llevar el texto en un lector electrónico o en el móvil sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "96c9ff018f3c05b6",
+  "origen": "chatgpt-web"
+}

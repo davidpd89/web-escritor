@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788467084207",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en el poder, las relaciones personales y el desarrollo personal desde un enfoque de leyes y principios. Por su temática, queda lejos de quienes buscan exclusivamente consejos sobre nutrición, salud o bienestar físico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición se distingue por sus cantos dorados y su encuadernación en tapa dura. Editorial Espasa la publica en castellano el 11 de noviembre de 2026, con 536 páginas y el ISBN 9788467084207, datos que permiten identificarla frente a otras presentaciones del mismo título.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para esta edición de 536 páginas, con cantos dorados como rasgo físico distintivo. Resulta una opción de papel para conservar en la estantería, regalar o consultar distintas leyes del libro, aunque su extensión hace menos cómodo transportarlo a diario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las 48 leyes del poder comparte con Estuche Vive tu menopausia el interés por cuestiones personales, aunque Robert Greene y Joost Elffers se centran en el poder y Marta Marcè aborda la salud durante la menopausia. El arte de comer, nutrir y sanar con la Medicina China, de Prof. Liu Zheng, también trata el bienestar personal, pero desde la alimentación y la medicina china, no desde las relaciones de poder.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387775421",
+        "isbn-9788413445717"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "221bbe331e9759c9",
+  "origen": "chatgpt-web"
+}

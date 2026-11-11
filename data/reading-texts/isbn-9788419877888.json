@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788419877888",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en el teatro contemporáneo y en textos vinculados a la creación dramática. No está planteado como un manual de diseño ni como un estudio general de artes visuales, aunque su clasificación editorial también lo relaciona con el arte.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Su eje es una obra teatral titulada El cerco de San Marino, vinculada al XXXI Certamen de Letras Hispánicas Rafael de Cózar. Forma parte de la colección El teatro moderno y se sitúa en el ámbito de la creación escénica contemporánea.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es de tapa blanda y tiene 92 páginas en castellano. Su extensión permite manejar el texto teatral en papel y consultar sus pasajes durante la lectura o el estudio de la obra.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puede compararse con Estuche Albert Camus (contiene: El extranjero | Calígula | El mito de Sísifo) (Contemporánea | Narrativa) por su relación con la literatura y el teatro. El libro de David Alberto Martínez Vallejo presenta una obra teatral de 92 páginas, mientras que el estuche de Albert Camus reúne tres títulos distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466390910"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1e3928e171e5b988",
+  "origen": "chatgpt-web"
+}

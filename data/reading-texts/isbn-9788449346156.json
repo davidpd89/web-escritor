@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788449346156",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tristes trópicos: La culminación literaria de un viaje al corazón de Brasil y una oda a la antropología (Esenciales) se dirige a lectores de ensayo interesados en la antropología y los viajes por Brasil. Su extensión de 608 páginas y su orientación ensayística lo alejan de quienes buscan una guía práctica breve para organizar desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tristes trópicos: La culminación literaria de un viaje al corazón de Brasil y una oda a la antropología (Esenciales) se presenta en tapa blanda, con 608 páginas en castellano. Su extensión permite una lectura prolongada y la edición física facilita consultar pasajes anteriores, aunque supone llevar un volumen considerable durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tristes trópicos: La culminación literaria de un viaje al corazón de Brasil y una oda a la antropología (Esenciales) comparte con 33 islas: Un periplo mediterráneo. De Marettimo a Venecia. el interés por los territorios recorridos. Claude Lévi-Strauss sitúa Brasil y la antropología en el centro de su ensayo, mientras que Lucio Bellomo plantea un recorrido por islas mediterráneas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387873127"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3a22fb49173a0dc8",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408331773",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inevitablemente yo: A veces hay que romper con todo para volver a empezar (Biografías y Memorias), de Antonio Orozco, se dirige a lectores interesados en biografías, memorias y desarrollo personal. Su planteamiento se aleja de la ficción y se sitúa en el terreno de las experiencias personales y el crecimiento individual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible de Inevitablemente yo: A veces hay que romper con todo para volver a empezar (Biografías y Memorias), de Antonio Orozco. Sus 176 páginas forman una edición de bolsillo fácil de transportar y manejar, también adecuada para quien prefiera regalar un libro físico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formato_edicion",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Inevitablemente yo: A veces hay que romper con todo para volver a empezar (Biografías y Memorias), de Antonio Orozco, comparte con Cuando solo queda aire: Aprender a morir es aprender a vivir (Crecimiento personal) el interés por cuestiones vitales. El primero se presenta como biografía y memorias, mientras que el segundo plantea su temática desde el aprendizaje sobre la vida y la muerte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425375286"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d86d7ccc0d407e31",
+  "origen": "chatgpt-web"
+}

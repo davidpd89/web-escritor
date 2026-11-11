@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788427258761",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La recopilación de Fiódor M. Dostoievski se dirige a lectores de clásicos literarios que buscan tres obras del mismo autor en un solo volumen. Sus 480 páginas y su contenido narrativo la diferencian de una lectura breve de título único o de un manual práctico de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esta recopilación de Fiódor M. Dostoievski se publica en tapa dura, con 480 páginas en castellano. La encuadernación rígida permite conservar juntas las tres obras y facilita su colocación en una biblioteca, aunque resulta menos flexible que una tapa blanda para transportarla o sujetarla durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esta recopilación de Fiódor M. Dostoievski comparte una de sus obras con Memorias del subsuelo (edición de lujo ilustrada) (Pensamiento), del mismo autor. La edición de Molino reúne tres textos en 480 páginas y tapa dura, mientras que la otra se centra en Memorias del subsuelo y se identifica como edición ilustrada. La diferencia principal está en el número de obras reunidas y en la presentación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430628742"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "abbc9c0c0e1fb94f",
+  "origen": "chatgpt-web"
+}

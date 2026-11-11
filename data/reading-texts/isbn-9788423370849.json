@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788423370849",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Al otro lado de la niebla (Novela) encaja con lectores interesados en aventuras ambientadas en contextos históricos. Con 384 páginas, ofrece una extensión intermedia y se aleja de las preferencias centradas en narrativa contemporánea sin componente histórico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Al otro lado de la niebla (Novela) se publica en tapa blanda, dentro de la edición de bolsillo de Booket. Sus 384 páginas permiten leerlo en papel y transportarlo sin recurrir a un volumen de gran formato; también puede guardarse como ejemplar físico tras la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al otro lado de la niebla (Novela), de Juan Luis Arsuaga, comparte la novela histórica y las aventuras con Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig. También puede compararse con El hombre de Damasco, de Alejandro Núñez Alonso, relacionado con el Imperio Romano. La diferencia está en la autoría y en que Al otro lado de la niebla (Novela) combina expresamente historia y aventuras en una obra de 384 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084870",
+        "isbn-9791387714567"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0e1f701ee92baee9",
+  "origen": "chatgpt-web"
+}

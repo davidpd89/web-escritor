@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399153712",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La antigua Grecia en cincuenta monumentos (Ilustrados) se dirige a lectores interesados en la historia antigua a través de sus construcciones y su patrimonio artístico. Su planteamiento histórico y monumental se distancia de la novela de ficción y de los manuales centrados exclusivamente en técnicas artísticas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La antigua Grecia en cincuenta monumentos (Ilustrados) se presenta en tapa dura, con 256 páginas en castellano. Esta encuadernación aporta rigidez al volumen y resulta práctica para conservarlo en una biblioteca o consultarlo repetidamente sobre una mesa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La antigua Grecia en cincuenta monumentos (Ilustrados) y Civilización: Una historia del arte y la cultura que dieron forma a la civilización moderna: 126 (Ático Historia) relacionan historia y manifestaciones artísticas. El libro de David Stuttard delimita su recorrido a monumentos de la antigua Grecia, mientras que el de Kenneth Clark aborda una perspectiva cultural más amplia. Frente a El colegio de Montesión de Palma: Arquitectura y patrimonio artístico (Plural), cambia también el ámbito geográfico del patrimonio estudiado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387592493",
+        "isbn-9791388352058"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "79bed14631da6f30",
+  "origen": "chatgpt-web"
+}

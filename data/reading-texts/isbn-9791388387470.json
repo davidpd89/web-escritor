@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388387470",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ucrania: Los años bajo el fuego (Crónica y Periodismo) se dirige a lectores de historia, ensayo y crónica interesados en Ucrania y los años de conflicto. Su orientación documental se diferencia de la ficción bélica y de las novelas históricas construidas alrededor de personajes inventados.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Debate edita Ucrania: Los años bajo el fuego (Crónica y Periodismo) en tapa blanda, con 248 páginas en castellano. El papel facilita volver a fechas, lugares y pasajes de una lectura vinculada a la historia y al periodismo.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El mejor hotel de Kabul: Una historia en primera persona de Afganistán y sus gentes (Salamandra Miradas), de Lyse Doucet, comparte con Ucrania: Los años bajo el fuego el interés por países marcados por conflictos. Lyse Doucet sitúa su relato en Afganistán y sus habitantes, mientras que Andréi Kurkov centra su crónica en Ucrania y los años bajo el fuego.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387928360"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2f94c3a6e5ea04ca",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788423370894",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Donde lloran los demonios (Serie César Giralt, 2) (Crimen y misterio) está dirigido a quienes leen novelas de misterio y thriller, especialmente si buscan títulos de una misma serie. Sus 528 páginas y su orientación hacia el crimen lo alejan de las preferencias de lectores que buscan narrativa breve o historias sin componente de misterio.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Donde lloran los demonios (Serie César Giralt, 2) (Crimen y misterio) se presenta en tapa blanda, dentro de la edición de bolsillo de Booket. El volumen reúne 528 páginas en papel y permite continuar la lectura de la serie en un formato físico transportable.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Donde lloran los demonios (Serie César Giralt, 2) (Crimen y misterio) comparte autor y serie con La pieza invisible (Serie César Giralt, 1) (Crimen y misterio). Los dos títulos pertenecen a Pedro Martí y al ámbito del crimen y el misterio, pero el primero se identifica como n.º 2 y el segundo como n.º 1, una diferencia relevante para quien quiera seguir el orden indicado en los títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2d23bd102be3fddb",
+  "origen": "chatgpt-web"
+}

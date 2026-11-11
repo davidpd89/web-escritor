@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388103773",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Conan: El cimmerio nº 12: La hora del dragón se dirige a lectores de fantasía y aventuras interesados en las obras de Robert E. Howard. Por su orientación temática, encaja menos con quienes buscan narrativa contemporánea sin elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Conan: El cimmerio nº 12: La hora del dragón se presenta en tapa dura, con 96 páginas en castellano. Es una opción física para conservar en la estantería, prestar o regalar, con una extensión que permite transportarla sin cargar con un volumen especialmente largo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alas de escarcha y oro: El canto del cisne comparte con Conan: El cimmerio nº 12: La hora del dragón el terreno de la fantasía, aunque el primero presenta a Eira y sus dones ocultos. La obra de Robert E. Howard se identifica además con las aventuras, mientras que la de Marta Morillo parte de un personaje que esconde sus capacidades.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3537834e15f3e613",
+  "origen": "chatgpt-web"
+}

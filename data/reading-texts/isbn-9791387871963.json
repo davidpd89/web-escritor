@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9791387871963",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La chica del lago (Best Seller | Ficción) encaja con lectores que buscan misterio y thriller en una novela de extensión considerable. Mikel Santiago firma esta edición de bolsillo de 688 páginas; no corresponde a quienes buscan ensayo o libros de no ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda en formato de bolsillo reúne 688 páginas en un volumen físico de Penguin Bolsillo. Es la opción disponible para leer La chica del lago (Best Seller | Ficción) en papel y conservarla en la biblioteca; su extensión hace que sea un libro de cierto grosor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2dd5db552debfb24",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387871741",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Más intenso que el placer (Vuelo y gloria 3) (Best Seller | Ficción) encaja con lectores de romance y narrativa contemporánea juvenil interesados en historias sobre el amor y las relaciones. El título lo identifica como el n.º 3 de Vuelo y gloria; su orientación romántica lo distancia de quienes buscan una lectura centrada en la divulgación o el ensayo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Penguin Bolsillo se presenta como libro de bolsillo en tapa blanda, con 528 páginas en castellano. Permite llevar una novela romántica extensa en formato físico y resulta una alternativa a los volúmenes de mayor tamaño para leer durante los desplazamientos.",
+      "evidencias": [
+        "editorial",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Legacy. Donde todo se ilumina: La faceta más romántica de la autora de la serie Empíreo: 3 (Planeta Internacional) comparte con Más intenso que el placer (Vuelo y gloria 3) (Best Seller | Ficción) la autoría de Rebecca Yarros y el enfoque romántico. Ambos títulos identifican un n.º 3, pero pertenecen a series distintas: el primero se vincula con Legacy y el segundo con Vuelo y gloria.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328452"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aea01bb0b26175b6",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788467084870",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bajo las cenizas de Pompeya (ESPASA NARRATIVA) se dirige a lectores interesados en la novela histórica, la historia y las aventuras. Con 624 páginas, plantea una lectura extensa y se aparta de las preferencias por obras breves de ambientación exclusivamente contemporánea.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bajo las cenizas de Pompeya (ESPASA NARRATIVA) se publica en tapa dura, con 624 páginas en castellano. La encuadernación rígida de Editorial Espasa permite conservar el volumen y utilizarlo como ejemplar de regalo, aunque su extensión supone más peso y espacio que un libro breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo las cenizas de Pompeya (ESPASA NARRATIVA) comparte el interés por la historia con El médico de la reina (NdeNovela), de Rubén Moreno, y El príncipe espía: Cosimo III en la España de la Regencia (Ariel), de Lorenzo De Medici. La obra de María Reig se presenta como novela histórica de aventuras, mientras que los títulos afines remiten, respectivamente, a una figura médica vinculada a la realeza y a un príncipe en la España de la Regencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410140776",
+        "isbn-9788434441149"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "97679a8f26392c53",
+  "origen": "chatgpt-web"
+}

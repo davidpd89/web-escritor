@@ -4,37 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El soñador de refugios se dirige a lectores interesados en la memoria familiar, el duelo y los vínculos entre hermanos. Anna Caballé reconstruye la figura de su hermano Carlos mediante una historia atravesada por la poesía, la música y la pérdida; su planteamiento se aleja de los manuales de bienestar con consejos prácticos.",
+      "texto": "El soñador de refugios se dirige a lectores interesados en la memoria familiar, los vínculos entre hermanos y las historias personales atravesadas por la pérdida. Sus 176 páginas desarrollan un relato relacionado con la recuperación de la memoria de un familiar; no es un manual de nutrición ni una guía de bienestar.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El soñador de refugios puede leerse en tapa blanda o Kindle. Sus 176 páginas forman un volumen impreso de extensión contenida, adecuado para conservar físicamente una historia familiar; la versión Kindle permite leerla en un dispositivo electrónico sin transportar el ejemplar en papel.",
+      "texto": "El soñador de refugios está disponible en tapa blanda y Kindle. La edición física reúne 176 páginas y permite conservar el libro en papel; Kindle facilita llevar la lectura en un dispositivo electrónico sin transportar el ejemplar.",
       "evidencias": [
         "titulo",
         "numero_paginas",
         "edicion",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El soñador de refugios y Cáncer con brújula, de Elisa Molina Buendía, se aproximan a experiencias personales marcadas por la enfermedad, pero el libro de Anna Caballé recupera la memoria de un hermano fallecido, mientras que el otro parte de un diagnóstico de cáncer. Ansiedad. ¿Cómo se sale de aquí?, de Gemma Correll, aborda el malestar desde una representación de la ansiedad, frente al relato familiar y retrospectivo de El soñador de refugios.",
+      "texto": "El soñador de refugios y 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, comparten su interés por la experiencia humana y las relaciones personales. La diferencia está en el planteamiento: Anna Caballé construye un relato familiar centrado en la memoria de un hermano, mientras que el título de Liz Moody presenta un enfoque de cambio personal relacionado con la salud, la felicidad y las relaciones.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788402431967",
-        "isbn-9788441445321"
+        "isbn-9798890981776"
       ]
     }
   ],

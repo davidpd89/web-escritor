@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408327981",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Zodiac Academy 2. Despiadados: Edición rústica (Ficción) se dirige a lectores de fantasía juvenil, romance y romantasy. Sus 592 páginas ofrecen una lectura extensa dentro de esos géneros, por lo que encaja menos con quienes buscan narrativa realista breve o sin elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Zodiac Academy 2. Despiadados: Edición rústica (Ficción) reúne 592 páginas en castellano. Permite conservar el volumen en papel y leerlo sin dispositivos, aunque su extensión supone un ejemplar más voluminoso que una novela corta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Zodiac Academy 2. Despiadados: Edición rústica (Ficción) comparte autoras y géneros con Zodiac Academy 1. El despertar, aunque el título identifica al primero como el n.º 2 y al segundo como el n.º 1. Frente a El hechizo más oscuro (Faeris Editorial), de Wanda Hellmund, la diferencia está en la autoría y en la identificación de Despiadados como entrega numerada de una saga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324317",
+        "isbn-9791388108419"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "183427cde10dd15e",
+  "origen": "chatgpt-web"
+}

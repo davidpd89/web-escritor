@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788448872625",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La casa de muñecas de Gabby. Libro de cartón - Fiesta sorpresa de cumpleaños (Pequeñas manitas) encaja con lectores interesados en las celebraciones y la amistad dentro del universo de La casa de muñecas de Gabby. Por sus 20 páginas y su encuadernación de cartón, se aparta de las lecturas largas sobre bienestar o relaciones personales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de La casa de muñecas de Gabby. Libro de cartón - Fiesta sorpresa de cumpleaños (Pequeñas manitas) es de tapa dura y está realizada en cartón. Reúne 20 páginas en un volumen físico breve, apropiado para manejarlo durante una lectura compartida o conservarlo como regalo de cumpleaños.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La casa de muñecas de Gabby. Libro de cartón - Con mucho amor, Gabby (Pequeñas manitas) pertenece al mismo universo y también está firmado por Universal Studios. Mientras Fiesta sorpresa de cumpleaños centra su título en una celebración, Con mucho amor, Gabby apunta al afecto; ambos mantienen una extensión de 20 páginas y el formato de cartón.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "numero_paginas",
+        "edicion"
+      ],
+      "enlaces": [
+        "isbn-9788448872632"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "919c14fb7ee5abf9",
+  "origen": "chatgpt-web"
+}

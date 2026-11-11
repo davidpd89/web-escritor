@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399084894",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Desde que era un crío, de Locus, se sitúa entre las biografías y memorias y los libros relacionados con el arte y el diseño. Se dirige a lectores interesados en las experiencias personales vinculadas al ámbito artístico, y encaja menos con quienes buscan una novela de ficción o un manual técnico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Desde que era un crío se publica en tapa blanda, con 156 páginas en castellano. Esta edición de Ediciones Fatcap ofrece un volumen de extensión relativamente breve, manejable para leer en papel y transportar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Desde que era un crío puede compararse con Habla como un hombre: 28 (Vidas), de Nacho Duato y Lupe Bohorques, por su relación con las vidas personales. La obra de Locus también se vincula al arte y el diseño, mientras que la otra aparece identificada dentro de una colección de vidas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410476608"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dcd6612723127407",
+  "origen": "chatgpt-web"
+}

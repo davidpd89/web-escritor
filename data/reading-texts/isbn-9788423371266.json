@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788423371266",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nada bueno germina: Edición limitada a precio especial (Colección Especial) encaja con lectores interesados en el misterio y el thriller relacionados con la historia y el siglo XX. Su extensión de 528 páginas se aleja de quienes buscan textos breves o una lectura centrada exclusivamente en cuestiones históricas sin intriga.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Nada bueno germina: Edición limitada a precio especial (Colección Especial) aparece bajo el sello Booket en una versión de bolsillo con tapa blanda. Reúne 528 páginas en castellano, está fechada para 2027-01-08 y se identifica expresamente como edición limitada a precio especial.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "formato_edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El formato disponible es la tapa blanda de bolsillo, que reúne las 528 páginas de esta edición. La cubierta flexible favorece el transporte y la lectura en papel, aunque la cantidad de páginas supone un volumen considerable para llevarlo a diario.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo tierra seca: Edición limitada a precio especial (Colección Especial) comparte con Nada bueno germina: Edición limitada a precio especial (Colección Especial) la autoría de César Pérez Gellida y el tipo de edición limitada. Criminales sin sombra (Salamandra Black), de Juan Carlos Galindo, ofrece otra referencia vinculada al ámbito criminal, pero con autoría y sello de colección distintos. Nada bueno germina añade a su clasificación de misterio las referencias históricas y al siglo XX.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423371259",
+        "isbn-9791387928285"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cede8c05a2a1f272",
+  "origen": "chatgpt-web"
+}

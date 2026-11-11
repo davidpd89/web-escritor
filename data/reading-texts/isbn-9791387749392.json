@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387749392",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Holly: El esperado spin-off de Belladonna (Umbriel narrativa), de Adalyn Grace, encaja con lectores interesados en el terror y en las historias relacionadas con Belladonna. Su condición de spin-off lo distingue de una novela presentada como independiente, y su clasificación temática lo aleja de quienes buscan una lectura sin elementos de terror.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Holly: El esperado spin-off de Belladonna (Umbriel narrativa) se publica en tapa blanda, con 312 páginas y edición de Umbriel. Es un volumen físico que puede transportarse y prestarse sin depender de dispositivos electrónicos. La extensión permite valorar el espacio que ocupará y el tiempo de lectura antes de elegirlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Holly: El esperado spin-off de Belladonna (Umbriel narrativa) se relaciona con Divinos y miserables (Umbriel narrativa) por compartir autora, Adalyn Grace, y sello editorial. Frente a esa coincidencia, Holly se identifica expresamente como un spin-off de Belladonna y está clasificado dentro del terror. También puede compararse con Cosamala, de Alana S. Portero, por su proximidad al terror, aunque esta última aborda una historia de brujas vinculada a un crimen de la guerra civil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786316947055",
+        "isbn-9788432251436"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9d9893ce9cd94652",
+  "origen": "chatgpt-web"
+}

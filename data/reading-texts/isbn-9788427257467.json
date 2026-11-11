@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788427257467",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta edición reúne tres obras de Federico García Lorca y se dirige a quienes buscan clásicos literarios en un solo volumen. Su contenido teatral y su extensión de 256 páginas la distinguen de una novela contemporánea o de una guía práctica de arte y diseño.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Molino se presenta en tapa dura y reúne Bodas de sangre, Yerma y La casa de Bernarda Alba en 256 páginas. Este formato permite conservar las tres obras juntas en un volumen físico de colección, tanto para consultar pasajes como para regalar.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sonetos del amor oscuro y Diván del Tamarit y la trilogía rural de Federico García Lorca comparten autoría y pertenecen al ámbito de los clásicos literarios. El primero reúne poesía, mientras que la trilogía contiene tres obras teatrales: Bodas de sangre, Yerma y La casa de Bernarda Alba, publicadas juntas en un volumen de 256 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396943"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1a1e4711a235334a",
+  "origen": "chatgpt-web"
+}

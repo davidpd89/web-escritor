@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791370136413",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El pintor nocturno 01. pack figura+postal está dirigido a lectores que buscan cómic y novela gráfica. Su presentación combina una historia ilustrada con una figura y una postal; quien prefiera exclusivamente narrativa en prosa encontrará otro tipo de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda (Bunko) reúne 264 páginas y forma parte de un pack que incluye figura y postal. Es una edición física de Panini Comics, pensada para quien quiere conservar tanto el cómic como los elementos adicionales del conjunto.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "titulo"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "18297fc0f1961694",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419018892",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historia moral de la España contemporánea; de 1808 a nuestros días se dirige a quienes quieren leer sobre la historia contemporánea española desde una perspectiva moral. Su recorrido temporal y sus 600 páginas encajan menos con lectores que buscan una introducción breve o una novela histórica de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Historia moral de la España contemporánea; de 1808 a nuestros días se publica en tapa blanda, con 600 páginas en castellano. Es una edición extensa para leer y consultar en papel, aunque su volumen puede resultar menos cómodo para llevar a diario que un libro de menor paginación.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Historia moral de la España contemporánea; de 1808 a nuestros días, de Ángela Vallvey, comparte el interés por el pasado con Agustín penón y Federico García Lorca, de Juan Carlos García de Polavieja. La primera abarca un periodo amplio de la historia española; la segunda se centra en una investigación sobre la vida y muerte de Federico García Lorca. La diferencia principal está entre una perspectiva histórica general y un estudio biográfico concreto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418567933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fe8b611bf584af5d",
+  "origen": "chatgpt-web"
+}

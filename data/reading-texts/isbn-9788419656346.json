@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788419656346",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Astrología para el alma (Kepler) se orienta a lectores interesados en la astrología desde una perspectiva vinculada al desarrollo personal. Por su temática, se aparta de los manuales de salud física centrados en alimentación, ejercicio o tratamientos médicos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Astrología para el alma (Kepler) tiene una edición en tapa blanda de 216 páginas, publicada en castellano por Kepler. El soporte físico permite avanzar por sus contenidos y volver a páginas anteriores sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Astrología para el alma (Kepler) se aproxima a Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia por su interés en aspectos de la experiencia interior. La obra de Hans Thörn Durefelt y Martina Thörn Durefelt toma la astrología como eje, mientras que la de Barbara Hand Clow plantea la consciencia mediante un modelo de nueve dimensiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798888505335"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "14a7d3950836a708",
+  "origen": "chatgpt-web"
+}

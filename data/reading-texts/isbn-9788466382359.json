@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788466382359",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El universo amarillo (edición limitada): La luz siempre vuelve si esperas lo suficiente (Campaña | Libros firmados), de Albert Espinosa, se dirige a lectores interesados en el desarrollo personal. Su clasificación temática lo diferencia de las novelas de ficción y de los libros orientados a adquirir habilidades técnicas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "El universo amarillo (edición limitada): La luz siempre vuelve si esperas lo suficiente (Campaña | Libros firmados) se identifica como edición limitada y pertenece a una campaña de libros firmados. Penguin Bolsillo la publica en castellano y tapa dura, con fecha editorial del 11 de marzo de 2027. Estos rasgos permiten distinguir esta presentación de otras ediciones del título.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El universo amarillo (edición limitada): La luz siempre vuelve si esperas lo suficiente (Campaña | Libros firmados) comparte autor con Escamas doradas: La fuerza más grande del universo (Lumen Ilustrados). Ambos títulos son de Albert Espinosa, pero el primero se clasifica como desarrollo personal y el segundo pertenece a una colección ilustrada. La diferencia también afecta a su presentación editorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426434555"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5973d49b688eb603",
+  "origen": "chatgpt-web"
+}

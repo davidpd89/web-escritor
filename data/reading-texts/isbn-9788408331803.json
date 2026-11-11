@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788408331803",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores interesados en el esoterismo y la espiritualidad, especialmente en cuestiones relacionadas con la noche y la supervivencia que plantea su título. No responde a la búsqueda de un manual de dibujo, una novela romántica o un tratado de economía.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Booket ofrece 400 páginas en tapa blanda y formato de bolsillo. Permite llevar una lectura extensa en un volumen físico compacto, además de marcar páginas y recuperar fragmentos sin utilizar una pantalla.",
+      "evidencias": [
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia comparte con Nocturnos: Nada nos hace sentir más vivos que ver salir el sol y saber que hemos sobrevivido a otra noche (Esoterismo) el interés por asuntos espirituales, aunque el primero anuncia un enfoque sobre la consciencia. Artefactos mágicos: El catálogo secreto (MAGIA Y OCULTISMO) se aproxima por lo esotérico, pero organiza su propuesta alrededor de objetos mágicos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798888505335",
+        "isbn-9788411724210"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a3ea9481d8b57060",
+  "origen": "chatgpt-web"
+}

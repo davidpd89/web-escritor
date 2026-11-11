@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "SWEET HOME 07 se dirige a lectores de cómic interesados en el terror de supervivencia, las transformaciones monstruosas y los conflictos dentro de un grupo aislado. La ansiedad de los personajes, el peligro físico y la escasez de recursos lo alejan de quienes buscan una historia sin amenazas ni tensión.",
+      "texto": "Sweet home 07 encaja con lectores de cómic y novela gráfica interesados en el terror y los relatos de supervivencia colectiva. La presencia de transformaciones monstruosas y la lucha por conseguir suministros sitúan esta entrega lejos del romance, la comedia o las historias de aventuras sin elementos de horror.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,29 +13,26 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "SWEET HOME 07 desarrolla una historia de supervivencia en formato de cómic, con un grupo que debe decidir si permanece encerrado o sale a buscar suministros. La aparición de síntomas de monstruolización entre sus integrantes añade un conflicto interno al peligro del exterior. El título lo identifica como el n.º 07.",
+      "texto": "Sweet home 07 plantea una lectura de terror centrada en la supervivencia de un grupo sometido a una amenaza que también afecta a sus integrantes. La escasez de recursos y los cambios físicos de algunos personajes introducen conflictos tanto dentro del grupo como en sus intentos de encontrar una salida; está publicado en formato de cómic y novela gráfica.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "SWEET HOME 07 está disponible en tapa blanda, con 424 páginas en castellano publicadas por Norma Editorial. El volumen físico permite seguir las secuencias gráficas y consultar páginas anteriores durante la lectura de este episodio de supervivencia.",
+      "texto": "La tapa blanda ofrece las 424 páginas de Sweet home 07 en una edición física de Norma Editorial. Es el formato disponible para quienes prefieren conservar el cómic en papel y recorrer sus páginas en orden; su extensión permite identificarlo como un volumen de lectura considerable dentro del formato gráfico.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "categorias",
-        "sinopsis_editorial"
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "322e46bdb9743c79",
+  "fuente_hash": "4717f091c8c4141e",
   "origen": "chatgpt-web"
 }

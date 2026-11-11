@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788411614627",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Naruto Jump Remix nº 17/24 (Manga Shonen) está dirigido a lectores de manga shonen y de cómic japonés. Sus 552 páginas corresponden a una edición recopilatoria en tapa blanda; no es una novela de narrativa convencional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda y reúne 552 páginas en un solo volumen. Es una opción física para conservar en la colección y leer sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "799b3ab4370253f0",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788466685429",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nos quisieron histéricas, nos volvimos históricas (No ficción) encaja con lectores interesados en la historia, el ensayo y las biografías y memorias, especialmente desde una perspectiva relacionada con las mujeres. No responde a la búsqueda de una novela de ficción ni de un manual técnico, pues pertenece al ámbito de la no ficción histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nos quisieron histéricas, nos volvimos históricas (No ficción) se ofrece en tapa blanda, con 304 páginas en castellano. La edición de Ediciones B permite leer el volumen en papel y señalar pasajes durante la lectura de sus contenidos históricos y ensayísticos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1b1bbbcf836febf1",
+  "origen": "chatgpt-web"
+}

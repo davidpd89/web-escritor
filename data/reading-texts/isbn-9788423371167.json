@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788423371167",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una soledad familiar (Áncora & Delfín), de Marcos Díez, se dirige a lectores de narrativa contemporánea interesados en las relaciones familiares. Por su temática, se distingue de las novelas centradas en aventuras, investigaciones criminales o mundos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una soledad familiar (Áncora & Delfín) está disponible en tapa blanda y Kindle, con una edición impresa de 256 páginas. La tapa blanda permite leer y conservar el ejemplar físico; Kindle facilita llevar el texto en un dispositivo compatible sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una soledad familiar (Áncora & Delfín) puede compararse con Amargo, amargo (Literaturas), de Joanna Bator, y Celestino antes del alba (Andanzas), de Reinaldo Arenas, dentro de la narrativa literaria. La obra de Marcos Díez se identifica expresamente con la familia y la narrativa contemporánea; las otras dos pertenecen a autores distintos y presentan títulos y colecciones diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387846558",
+        "isbn-9788411078535"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fa41db5e1974bbf3",
+  "origen": "chatgpt-web"
+}

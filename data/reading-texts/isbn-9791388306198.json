@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388306198",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dinosaurios (Coedición Capitán Swing), de Rachel Ignotosky, se dirige a lectores interesados en los dinosaurios y en publicaciones del ámbito juvenil. Su clasificación combina narrativa juvenil y ocio, por lo que se diferencia de los tratados científicos especializados o los manuales profesionales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dinosaurios (Coedición Capitán Swing) puede leerse en tapa dura o en Kindle. La tapa dura reúne sus 128 páginas en un volumen físico que puede guardarse o regalarse; Kindle permite llevar la lectura en un dispositivo compatible sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de caminar: Consejos para partir con buen pie: 4 (Senderos), de Luca Gianotti, comparte con Dinosaurios (Coedición Capitán Swing) su relación temática con actividades e intereses vinculados al mundo natural. La diferencia está en el enfoque: el primero ofrece consejos sobre caminar, mientras que el título de Rachel Ignotosky se centra en los dinosaurios y figura entre las publicaciones juveniles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419794949"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c305f35705ddb1e1",
+  "origen": "chatgpt-web"
+}

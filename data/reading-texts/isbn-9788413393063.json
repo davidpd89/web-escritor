@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788413393063",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La obra de Luigi Giussani se dirige a lectores interesados en la religión, la espiritualidad y las reflexiones sobre la identidad humana. Su enfoque temático encaja menos con quienes buscan aventuras juveniles centradas en la acción o relatos de fantasía.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Encuentro se presenta en tapa blanda y contiene 244 páginas en castellano. Esta encuadernación permite transportar el volumen con facilidad y consultar sus páginas sin depender de dispositivos electrónicos.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Luigi Giussani comparte con JESUCRISTO LÍDER!!!: El liderazgo de Jesús: Principios Cristianos, Cualidades y Valores para seguir su Ejemplo a través de los Evangelios de la Biblia el interés por cuestiones religiosas. El libro de Manolo Cámara aborda el liderazgo de Jesús y los valores cristianos, mientras que el de Luigi Giussani se centra en las dimensiones de la identidad humana. La diferencia principal está en el enfoque: liderazgo religioso frente a reflexión sobre el yo.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409944736"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0b3a630adea7524c",
+  "origen": "chatgpt-web"
+}

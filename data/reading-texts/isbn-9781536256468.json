@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9781536256468",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Osito Tito: Diversión En La Granja se dirige al público infantil interesado en los animales, la naturaleza y las aventuras. Sus 8 páginas en cartón plantean una lectura breve, menos adecuada para quien busca una historia extensa o una novela juvenil.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El libro se utiliza pasando sus 8 páginas de cartón para explorar una propuesta infantil ambientada en la granja. Su extensión permite recorrerlo de principio a fin en una sesión breve y volver a sus páginas durante la lectura compartida.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Osito Tito: Diversión En La Granja está disponible en tapa dura, con una edición de cartón de 8 páginas. Este formato permite manipular las páginas durante la lectura infantil y conservar el volumen para volver a utilizarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Osito Tito: Diversión En La Granja y Osito Tito. Calendario de Adviento comparten el personaje de Benji Davies, pero el primero se centra en la granja y el segundo en el calendario de Adviento. Ambos pertenecen al ámbito infantil y presentan temas diferentes dentro de las obras protagonizadas por Osito Tito.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408318125"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ff1f3988f974519f",
+  "origen": "chatgpt-web"
+}

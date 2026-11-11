@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408328438",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un invierno (in)esperado (Matchstories Romántica Contemporánea) se orienta a lectores de romance ambientado en un contexto contemporáneo, con el humor entre sus componentes. Quien prefiera relatos históricos, divulgación o fantasía sin trama romántica encontrará aquí un planteamiento distinto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Un invierno (in)esperado (Matchstories Romántica Contemporánea) ofrece 440 páginas en una edición física publicada por Esencia. La versión Kindle permite leer esa extensión en dispositivos electrónicos y continuar la lectura desde el móvil sin llevar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un invierno (in)esperado (Matchstories Romántica Contemporánea) puede compararse con En mi Era Pistacho: Juliette's version por su presencia en un catálogo de narrativa romántica. La obra de Enara Ziaran combina romance contemporáneo y humor en 440 páginas, mientras que la de Emily Collins presenta otra propuesta narrativa con distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410648777"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aa8e0d264b658c0b",
+  "origen": "chatgpt-web"
+}

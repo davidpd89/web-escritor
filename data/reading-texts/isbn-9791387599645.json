@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791387599645",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Juegos de estrategia: 116 (Los Versos de Cordelia) se dirige a lectores de poesía en castellano interesados en la obra de Julia Barella. Sus 192 páginas ofrecen una extensión delimitada para leer poesía; no responde a quien busca una novela de aventuras o una narración extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Juegos de estrategia: 116 (Los Versos de Cordelia) se presenta en tapa blanda, con 192 páginas. Esta encuadernación permite llevar el volumen en una bolsa y consultar sus páginas en papel, una opción práctica para alternar la lectura con la revisión de poemas concretos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Juegos de estrategia: 116 (Los Versos de Cordelia) puede compararse con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, por su pertenencia al ámbito poético. También se relaciona con Antología, de Antonio Cano, aunque esta última reúne una obra completa y el libro de Julia Barella constituye un volumen de 192 páginas con título propio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9791370140908"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9f8acbc90807697a",
+  "origen": "chatgpt-web"
+}

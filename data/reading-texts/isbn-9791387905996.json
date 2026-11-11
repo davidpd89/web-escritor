@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387905996",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hechizo de espinas (Novela), de Sofía Rhei, se dirige a quienes buscan fantasía con romance y aventuras. Por su combinación de géneros, encaja menos con lectores interesados exclusivamente en narrativa realista o histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hechizo de espinas (Novela) se presenta en tapa blanda, con 400 páginas en castellano. Es una edición física de Roca Editorial que permite leer una novela de esta extensión sin recurrir a una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alas de escarcha y oro: El canto del cisne, de Marta Morillo, comparte con Hechizo de espinas (Novela) el terreno de la fantasía, pero plantea una protagonista que oculta sus dones y debilidades. Barbie dreamscape, de Alex Aster, se distingue por el conflicto entre un futuro escrito y la posibilidad de cambiarlo; la obra de Sofía Rhei se presenta como fantasía con romance y aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938",
+        "isbn-9791388277481"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "80a64d93ae33805d",
+  "origen": "chatgpt-web"
+}

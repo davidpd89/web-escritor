@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466685481",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando vi a la muerte prestar su sombrero (Ediciones B) se dirige a quienes buscan narrativa contemporánea en castellano. Sus 256 páginas encajan con quien prefiere una extensión moderada, pero no con quien busca específicamente un ensayo o una obra de historia.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuando vi a la muerte prestar su sombrero (Ediciones B) está disponible en tapa blanda y Kindle. La edición física reúne 256 páginas y permite conservar el volumen en papel; Kindle ofrece la alternativa de leerlo en un dispositivo compatible, sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando vi a la muerte prestar su sombrero / When I Saw Death Lend Its Hat comparte autor y parte del título con Cuando vi a la muerte prestar su sombrero (Ediciones B), de Rodrigo Unda, aunque el primero presenta también un título en inglés. Donde el agua no muerde / Where the Water Doesn't Bite es otra obra de Rodrigo Unda, con un título distinto y también bilingüe.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073879613",
+        "isbn-9786073878760"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ed5aff4f17330c0e",
+  "origen": "chatgpt-web"
+}

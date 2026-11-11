@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788419487827",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Clásicos Disney. Cuento de Navidad: Una historia de Mickey y sus amigos está dirigido al público infantil interesado en los personajes de Disney y los relatos navideños. Sus 72 páginas y su relación con los clásicos lo distinguen de las lecturas juveniles extensas o centradas en aventuras de ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Cliper Plus se presenta en tapa dura y contiene 72 páginas en castellano. Es una opción física para conservar el cuento en una estantería infantil o entregarlo como regalo navideño, con una extensión que permite repartir la lectura en sesiones cortas.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Stitch. Calendario de Adviento, de Disney, comparte con Clásicos Disney el ambiente navideño y la presencia de personajes conocidos, pero reúne 24 historias para acompañar la cuenta atrás hasta Navidad. Clásicos Disney presenta una historia de Mickey y sus amigos en 72 páginas, mientras que Princesas. Unicorn Wish 1, también de Disney, reúne tres cuentos centrados en la magia, las aventuras y la amistad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387901967",
+        "isbn-9791387526863"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "66ccab0b317dcb09",
+  "origen": "chatgpt-web"
+}

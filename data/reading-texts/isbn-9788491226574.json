@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788491226574",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una asombrosa aventura de Niñera fantasma. Frida Kahlo y la noche de los muertos se dirige a lectores interesados en las aventuras y en historias con elementos fantasmales. Sus 152 páginas ofrecen una extensión relativamente breve; por su temática, encaja menos con quienes buscan narrativa realista sin componentes sobrenaturales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una asombrosa aventura de Niñera fantasma. Frida Kahlo y la noche de los muertos está disponible en tapa blanda, con 152 páginas en castellano. Esta edición de Santillana Educación, S.l. permite llevar el libro en papel y guardarlo en una estantería sin el volumen habitual de una obra más extensa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una asombrosa aventura de Niñera fantasma. Frida Kahlo y la noche de los muertos puede compararse con Abre el misterio 1 - El robo de las croquetas por su orientación hacia la aventura y el misterio. El libro de Ana Campoy introduce una niñera fantasma y una referencia a los muertos, mientras que el de Carlos G. Gurpegui plantea la desaparición de unas croquetas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8fc3e872c90306d8",
+  "origen": "chatgpt-web"
+}

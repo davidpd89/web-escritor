@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791387740535",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Macanudo. La senda del pingüino (Reservoir Gráfica), de Liniers, se dirige a lectores que buscan cómic y novela gráfica. Quien prefiera novelas narrativas en prosa, en lugar de obras clasificadas dentro del lenguaje del cómic, encontrará aquí una propuesta de otro tipo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne 192 páginas en un volumen físico publicado por Reservoir Books. Este formato permite conservar el cómic en papel y guardarlo en una biblioteca; también resulta una opción para regalar un ejemplar encuadernado en tapa rígida.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c916fe0e7f87044c",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410318977",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Qué haces con una idea? (Libros ilustrados) se dirige a quienes buscan una lectura ilustrada relacionada con el desarrollo personal. La obra de Kobi Yamada tiene 48 páginas y está publicada por Penguin Kids; su planteamiento editorial se aleja del ensayo extenso y de los manuales de consulta especializados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Qué haces con una idea? (Libros ilustrados) está disponible en tapa dura y cuenta con 48 páginas. Esta encuadernación aporta rigidez al volumen y resulta adecuada para conservarlo, regalarlo o compartir su lectura en papel, especialmente por su presentación como libro ilustrado.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Qué haces con una idea? (Libros ilustrados), de Kobi Yamada, puede compararse con Amor, de Patri Psicóloga y Yolanda Cuevas, por su vinculación con el desarrollo personal y las relaciones. El primero plantea una pregunta sobre las ideas mediante un libro ilustrado; Amor propone prácticas semanales para cuidar la pareja, con un propósito más específico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425373602"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6abc898eada0f46e",
+  "origen": "chatgpt-web"
+}

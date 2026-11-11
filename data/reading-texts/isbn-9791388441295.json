@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9791388441295",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los pecados de mis hermanas, de J. V. Gachs, encaja con lectores interesados en relatos de terror escritos en castellano. Sus 184 páginas ofrecen una extensión contenida dentro del género, por lo que se aleja de las preferencias de quien busca una novela larga o una lectura ajena al terror.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los pecados de mis hermanas está disponible en tapa blanda, con una extensión de 184 páginas. Esta edición de Stoker permite leer los relatos en papel y transportar el volumen sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los pecados de mis hermanas comparte el género de terror con Cuentos de Terror / Horror Stories, de H P Lovecraft, y Después de medianoche, de Daphne Du Maurier. Los tres títulos se relacionan con relatos de terror, pero el libro de J. V. Gachs ofrece 184 páginas en castellano y se distingue por su autoría frente a las otras dos obras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073878524"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "67c05c7422b621c0",
+  "origen": "chatgpt-web"
+}

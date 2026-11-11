@@ -4,10 +4,8 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Extraños está dirigido a lectores adultos interesados en memorias personales sobre la ruptura matrimonial, la traición y la reconstrucción de la identidad. Belle Burden examina su propia experiencia familiar, por lo que no responde al planteamiento de una guía práctica con ejercicios para superar una separación.",
+      "texto": "Está dirigido a adultos interesados en las biografías, las memorias y las experiencias personales relacionadas con las relaciones de pareja y la transformación individual. Encaja con lectores que buscan testimonios sobre el matrimonio, la ruptura de expectativas familiares y la recuperación de la propia voz; no es una novela de ficción.",
       "evidencias": [
-        "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,18 +13,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Extraños cuenta con 256 páginas y se ofrece en tapa blanda y Kindle. La edición de Aguilar incluye solapas y permite conservar el testimonio en papel; Kindle facilita leerlo en el móvil o en un lector electrónico compatible.",
+      "texto": "La tapa blanda con solapas reúne sus 256 páginas en un ejemplar físico de extensión contenida. Kindle ofrece una alternativa digital para leerlo en pantalla y llevarlo en el móvil o en un lector electrónico.",
       "evidencias": [
-        "titulo",
-        "numero_paginas",
         "edicion",
-        "editorial",
+        "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Extraños y Cómo me gustaría contarte abordan experiencias personales marcadas por las expectativas ajenas. Belle Burden examina la ruptura de su matrimonio, mientras que Ángel Gómez Merino parte de una vida condicionada por lo que otros esperaban de él. Karateka, de Sandra Sánchez, también presenta un testimonio personal, pero se centra en la perseverancia y la superación dentro del deporte, frente al conflicto familiar y sentimental de Extraños.",
+      "texto": "Cómo me gustaría contarte, de Ángel Gómez Merino, comparte con Extraños el interés por las experiencias personales y las expectativas que condicionan una vida. La diferencia está en el punto de partida: Belle Burden reconstruye su matrimonio y el cambio que provoca una ruptura inesperada, mientras que el otro título parte de los años vividos haciendo lo que se esperaba de uno.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,8 +30,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788403526723",
-        "isbn-9791388220296"
+        "isbn-9788403526723"
       ]
     }
   ],

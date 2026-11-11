@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466396424",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Padre Pío español: La vida desconocida de Fray Sebastián de Jesús (Best Seller | Ficción), de José María Zavala, encaja con lectores interesados en la novela histórica y la narrativa contemporánea. Sus 272 páginas ofrecen una extensión intermedia; no responde tanto a quien busca fantasía o novelas de gran recorrido.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para El Padre Pío español: La vida desconocida de Fray Sebastián de Jesús (Best Seller | Ficción), de José María Zavala. Sus 272 páginas se reúnen en un libro de bolsillo, un formato físico que permite conservar el volumen y consultarlo sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La madre, de José María Zavala, comparte autor con El Padre Pío español: La vida desconocida de Fray Sebastián de Jesús (Best Seller | Ficción). Ambas obras permiten comparar títulos del mismo escritor, aunque La madre se presenta en el catálogo mediante referencias a la fe, la maternidad y el perdón, mientras que El Padre Pío español lleva al lector hacia la figura de Fray Sebastián de Jesús.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466685368"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e51db3bdf89a4b3b",
+  "origen": "chatgpt-web"
+}

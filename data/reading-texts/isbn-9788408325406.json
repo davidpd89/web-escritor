@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408325406",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mirar el Prado: 18 obras para entender el arte (Varios) se dirige a quienes desean estudiar el arte a partir de obras concretas. Alejandro Vergara organiza su propuesta alrededor de 18 obras y en 232 páginas; su enfoque resulta menos ajustado a quien busca una historia general de todas las disciplinas artísticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mirar el Prado: 18 obras para entender el arte (Varios) está disponible en tapa blanda y Kindle. La edición impresa de 232 páginas permite consultar el libro físicamente, mientras que Kindle facilita llevar su contenido en un dispositivo de lectura sin cargar con el ejemplar en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "De la estética como política: Para una rehabilitación del sentido en el cine (Signo e imagen), de Noël Burch, comparte con Mirar el Prado: 18 obras para entender el arte (Varios) el interés por interpretar obras artísticas. El primero se ocupa del cine y su dimensión política; Alejandro Vergara plantea una aproximación al arte mediante 18 obras vinculadas al Prado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788437650586"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "33665da96b637f4e",
+  "origen": "chatgpt-web"
+}

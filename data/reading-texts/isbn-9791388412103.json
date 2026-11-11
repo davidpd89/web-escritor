@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791388412103",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La librería (N.Ed.) (Los Aerolitos) se dirige a lectores de narrativa contemporánea y clásicos que buscan una obra de extensión contenida. Sus 184 páginas permiten distinguirla de las novelas extensas, mientras que su clasificación literaria la separa del ensayo y de los libros prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La librería (N.Ed.) (Los Aerolitos) está disponible en tapa blanda y Kindle. La edición física de Impedimenta reúne 184 páginas en un volumen que puede guardarse en la estantería o regalarse; Kindle permite llevar la lectura en un dispositivo compatible sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "df2815a46ce52a69",
+  "origen": "chatgpt-web"
+}

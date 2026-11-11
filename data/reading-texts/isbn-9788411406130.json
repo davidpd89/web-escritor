@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Creepy nº 11/29 está dirigido a lectores de cómic de terror interesados en relatos macabros y en el trabajo de distintos autores. Su enfoque en lo siniestro se aleja de las historietas humorísticas o de aventuras ligeras y puede resultar incómodo para quienes evitan el terror.",
+      "texto": "Creepy nº 11/29 se dirige a lectores de cómic de terror interesados en relatos macabros y recopilaciones de historietas de distintos autores. Su temática oscura encaja menos con quienes buscan humor gráfico, aventuras infantiles o una novela convencional narrada únicamente en prosa.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,41 +14,44 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Creepy nº 11/29 es una recopilación de cómics de terror procedentes de la serie de Editorial Warren. Reúne aportaciones de Richard Corben, Esteban Maroto, Doug Moench y Steve Skeates, entre otros colaboradores, que desarrollan distintas aproximaciones a lo macabro. El título lo identifica como el n.º 11/29.",
+      "texto": "Creepy nº 11/29 propone una lectura de cómic de terror formada por historietas de temática macabra, recuperadas de la serie publicada por Editorial Warren. En sus 256 páginas participan distintos creadores, entre ellos Richard Corben, Esteban Maroto y Doug Moench; el título lo identifica como el n.º 11/29.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Creepy nº 11/29 puede leerse en tapa dura o en Kindle. La edición física de Planeta Cómic reúne 256 páginas en cartoné, una opción para conservar el volumen en una colección; Kindle permite consultar las historietas en un dispositivo compatible y ampliar las viñetas cuando la aplicación lo permita.",
+      "texto": "La edición de Creepy nº 11/29 en tapa dura cartoné, sin sobrecubierta, reúne 256 páginas y ofrece un soporte rígido para conservar la recopilación de historietas. Kindle permite acceder al volumen en formato digital, aunque la lectura de sus páginas de cómic depende del tamaño de pantalla del dispositivo utilizado.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
         "edicion",
-        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Creepy nº 11/29 y Creepy nº 25/29 pertenecen a la misma serie de terror y comparten la autoría colectiva. El primero reúne historietas macabras de colaboradores de Editorial Warren, mientras que la presentación del segundo pone el acento en la duda, la desesperación y la figura del Tío Creepy.",
+      "texto": "Creepy nº 11/29 y Creepy nº 25/29 pertenecen a la misma serie de terror y comparten la autoría colectiva de Varios autores; sus títulos los identifican como los números 11/29 y 25/29. Eerie nº 21/27 también reúne una propuesta de cómic de terror, pero su presentación apunta a un escenario apocalíptico, frente al contenido macabro de la recopilación Creepy nº 11/29.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411406277"
+        "isbn-9788411406277",
+        "isbn-9788411406529"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "400421f0fd5873af",
+  "fuente_hash": "cc0c6f2e914e410e",
   "origen": "chatgpt-web"
 }

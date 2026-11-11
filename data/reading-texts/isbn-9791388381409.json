@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388381409",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Casa en venta: II Premio Internacional de Poesía \"Gonzalo de Berceo\": 258 (Calle del Aire) se dirige a lectores de poesía que buscan un volumen breve en castellano. Sus 64 páginas lo distinguen de una novela extensa; no está planteado como lectura narrativa de misterio o aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Casa en venta: II Premio Internacional de Poesía \"Gonzalo de Berceo\": 258 (Calle del Aire) se publica en tapa blanda, con 64 páginas. Esta extensión permite llevar el poemario en un bolso y volver a sus textos en distintas sesiones; la edición física también permite marcar páginas para posteriores lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Casa en venta: II Premio Internacional de Poesía \"Gonzalo de Berceo\": 258 (Calle del Aire), de Gabriel Insausti, comparte género con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera. También puede compararse con Antología, de Antonio Cano, aunque esta última reúne su obra completa, mientras que Casa en venta es un volumen de 64 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9791370140908"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cf8521cd1c53bc40",
+  "origen": "chatgpt-web"
+}

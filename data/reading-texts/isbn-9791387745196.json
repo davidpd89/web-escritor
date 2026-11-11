@@ -1,0 +1,36 @@
+{
+  "id": "isbn-9791387745196",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de ensayo interesados en la historia de la novela, la Ilustración y el Romanticismo. Su planteamiento de estudio literario encaja menos con quienes buscan una narración de fantasía o ciencia ficción para leer como entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Estudia las refundaciones novelescas al español entre la Ilustración y el Romanticismo, dentro del periodo 1769-1845. El recorrido delimitado por el título va de Enrique Wanton a Ramón López Soler y plantea una aproximación filológica a las transformaciones de la narrativa.",
+      "evidencias": [
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Visor Libros se presenta en tapa blanda y contiene 464 páginas en castellano. Su extensión permite una lectura por apartados y la consulta posterior de cuestiones relacionadas con la evolución literaria estudiada.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "97395a91494a68b4",
+  "origen": "chatgpt-web"
+}

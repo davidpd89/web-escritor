@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408316572",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Acelerando en rojo. Edición especial se dirige a lectores de romance y narrativa juvenil interesados en historias sobre relaciones afectivas. Sus 592 páginas plantean una lectura extensa dentro de la ficción romántica, alejada de quienes buscan ensayo, divulgación o relatos breves.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Acelerando en rojo se distingue por sus cantos tintados y su encuadernación en tapa dura. Crossbooks publica el volumen de 592 páginas en castellano el 11 de noviembre de 2026, con una presentación especial que añade un acabado decorativo al objeto físico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Acelerando en rojo. Edición especial combina una encuadernación rígida con cantos tintados, dos características relevantes para conservarla o regalarla. Sus 592 páginas forman un volumen extenso, más orientado a la lectura en papel que a la comodidad de llevar una novela en el móvil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El clan Monet 1 - Tesoro (Ficción crossover), de Weronika Anna Marczak, comparte con Acelerando en rojo el ámbito de la ficción dirigida al público juvenil. La obra de Iryna Zubkova. ir_zu se centra en el romance y las relaciones de pareja, mientras que el título de Weronika Anna Marczak identifica su libro como el n.º 1 de El clan Monet.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788427226074"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c4c4461946c4456b",
+  "origen": "chatgpt-web"
+}

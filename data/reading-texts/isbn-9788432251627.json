@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788432251627",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "poemas de amor (Los Tres Mundos) se dirige a lectores interesados en poesía sobre el amor y las relaciones de pareja. Por su género y temática, se aparta de quienes buscan una novela de trama continuada o un ensayo centrado en el análisis de un asunto.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "poemas de amor (Los Tres Mundos) está disponible en tapa dura, con 144 páginas en castellano publicadas por Seix Barral. El formato físico permite conservar el volumen en una biblioteca personal, consultarlo por páginas y entregarlo como regalo sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puede compararse con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, por la presencia del amor y la poesía en ambos títulos. poemas de amor (Los Tres Mundos) es una obra de rupi kaur, mientras que la otra reúne una antología amorosa atribuida a Pedro Salinas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "660f90c7da29bdf5",
+  "origen": "chatgpt-web"
+}

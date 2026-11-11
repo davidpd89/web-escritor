@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073877374",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los Exploradores de Emociones / The Emotion Explorers está orientado a lectores interesados en las emociones, el bienestar y las relaciones familiares. La obra de Karmele Morales Aspra se sitúa en el ámbito del desarrollo personal y la crianza, por lo que no responde a la búsqueda de una novela de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los Exploradores de Emociones / The Emotion Explorers se presenta en tapa blanda, con 84 páginas en castellano. Su extensión permite manejar el volumen con facilidad y volver a consultar apartados relacionados con las emociones sin recurrir a una edición digital.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito comparte con Los Exploradores de Emociones / The Emotion Explorers el interés por el bienestar personal. La obra de Liz Moody abarca salud, felicidad y relaciones, mientras que la de Karmele Morales Aspra concentra su planteamiento en las emociones y el entorno familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "879a890cfb708c61",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788491999348",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las diez claves de la realidad (Drakontos), de Frank Wilczek, está dirigido a quienes buscan divulgación científica sobre la realidad. Sus 320 páginas pertenecen al ámbito de la ciencia, por lo que se aleja de la ficción narrativa y de los libros centrados en acontecimientos históricos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las diez claves de la realidad (Drakontos) se presenta en tapa blanda, con 320 páginas en castellano. La edición de Editorial Crítica ofrece un volumen físico que permite avanzar por la lectura y volver a consultar sus contenidos científicos en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las diez claves de la realidad (Drakontos) comparte el terreno de la divulgación con 50 cosas que hay que saber sobre IA, de Keith Mansfield. La diferencia está en el asunto anunciado: Frank Wilczek aborda la realidad mediante diez claves, mientras que Keith Mansfield centra su obra en la inteligencia artificial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "81a4b171a7f77a98",
+  "origen": "chatgpt-web"
+}

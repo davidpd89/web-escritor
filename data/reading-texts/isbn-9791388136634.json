@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388136634",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Stuck (Serie Click 7): Demasiado drama para Olivia (Novela gráfica), de Kayla Miller, encaja con lectores que siguen la Serie Click y prefieren historias en formato de novela gráfica. Su presentación como entrega de una serie la hace menos adecuada para quien busca una obra independiente sin referencias a una colección.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Stuck (Serie Click 7): Demasiado drama para Olivia (Novela gráfica) se publica en tapa blanda y reúne 224 páginas. El formato permite llevar el volumen impreso en una mochila y leerlo sin dispositivo electrónico, con una cubierta flexible frente a la rigidez de una encuadernación en tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Stuck (Serie Click 7): Demasiado drama para Olivia (Novela gráfica) se relaciona con Besties 3: Batalla de bromas (Novela gráfica) por su formato y por la participación de Kayla Miller. Stuck aparece firmado únicamente por Kayla Miller, mientras que Besties 3: Batalla de bromas (Novela gráfica) incorpora también a Jeffrey Canino y Sarah K. Turner; además, cada título pertenece a una serie distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388136474"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cf593e6d8d62182d",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409938964",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El pionero de la calidad: 150 años de sistema preventivo, 40 de normalización se orienta a lectores interesados en la gestión de la calidad, la prevención y la normalización. Por su temática empresarial y sus 321 páginas, encaja menos con quienes buscan ficción o una lectura breve ajena a la organización de procesos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El pionero de la calidad: 150 años de sistema preventivo, 40 de normalización está disponible en tapa blanda y Kindle. La edición física reúne 321 páginas para lectura y consulta en papel; Kindle permite acceder al contenido desde el móvil o un lector electrónico compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El pionero de la calidad: 150 años de sistema preventivo, 40 de normalización puede compararse con Branding con criterio: Una novela-ensayo que, como brújula de arena, nos interpela (TEMATICOS) por su relación con asuntos empresariales. Arturo Alonso SDB se centra en prevención y normalización, mientras que Cristián Saracco presenta una novela-ensayo sobre branding.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399168648"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "387258eb31f67ad9",
+  "origen": "chatgpt-web"
+}

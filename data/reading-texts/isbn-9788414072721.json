@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788414072721",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pop-up Cohete espacial (Ideaka), de Joalda Morancy, se dirige al público infantil interesado en los cohetes espaciales y los libros desplegables. Sus 10 páginas y su formato de tapa dura lo distinguen de las lecturas narrativas extensas, por lo que no responde a quien busca una novela de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Pop-up Cohete espacial (Ideaka) se utiliza pasando sus páginas y observando los elementos desplegables propios de un libro pop-up. La edición tiene 10 páginas encuadernadas en tapa dura, un formato físico que permite explorar el tema del cohete espacial mediante la manipulación del libro.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato de Pop-up Cohete espacial (Ideaka) y permite conservar sus páginas en una encuadernación rígida. Con 10 páginas, es un libro breve que se presta a la exploración física y al regalo, especialmente por su carácter desplegable.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pop-up Cohete espacial (Ideaka) y Aprende a contar animales comparten su orientación infantil y la interacción con un objeto físico. El primero se centra en un cohete espacial mediante un formato pop-up de 10 páginas; el segundo propone abrir un maletín y aprender a contar del 1 al 10 con animales. Animales, de Susaeta Ediciones, ofrece otra alternativa infantil, basada en seis cuentos ilustrados en lugar de desplegables.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370341589",
+        "isbn-9791370341176"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "59c93d078e2bc600",
+  "origen": "chatgpt-web"
+}

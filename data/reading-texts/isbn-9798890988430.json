@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9798890988430",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Como Ningún Lugar En El Mundo / No Place on Earth, de Andrea Beatriz Arango, pertenece a la literatura infantil y juvenil. Sus 296 páginas en castellano encajan con lectores de ese ámbito que buscan una obra de extensión media, más que con quienes prefieren narrativa dirigida específicamente a adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Como Ningún Lugar En El Mundo / No Place on Earth está editado en tapa blanda y tiene 296 páginas. La edición de Vintage Espanol reúne el texto en castellano en un volumen de cubierta flexible, adecuado para transportarlo y leerlo en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c06b6e3a8d27d54b",
+  "origen": "chatgpt-web"
+}

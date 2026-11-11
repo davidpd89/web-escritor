@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791387846169",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El oro de los tigres (Hispánica) está dirigido a quienes buscan poesía de Jorge Luis Borges en castellano. Sus 96 páginas lo distinguen de una recopilación extensa, mientras que su género lo aleja de las novelas y de los libros centrados en una narración continua.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El oro de los tigres (Hispánica) se publica en tapa blanda, con 96 páginas. La encuadernación flexible y la extensión permiten llevar el volumen en el bolso y consultar sus poemas sin transportar un libro voluminoso; la edición corresponde a Alfaguara.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El oro de los tigres (Hispánica) y Cuentos completos (edición especial en tapa dura) pertenecen a la obra de Jorge Luis Borges. El primero reúne poesía en 96 páginas, mientras que el segundo recopila sus cuentos y se presenta en tapa dura. La diferencia principal está entre leer poemas y recorrer su narrativa breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466392297"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6092e292029eeb2e",
+  "origen": "chatgpt-web"
+}

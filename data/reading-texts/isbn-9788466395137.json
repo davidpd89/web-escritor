@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788466395137",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Crónica de una muerte anunciada (Best Seller | Ediciones Conmemorativas), de Gabriel García Márquez, se dirige a lectores de narrativa contemporánea que prefieren obras de extensión reducida. Con 144 páginas, ofrece una alternativa a las novelas largas, aunque no responde a la búsqueda de poesía o ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Crónica de una muerte anunciada (Best Seller | Ediciones Conmemorativas) está disponible en tapa dura, con 144 páginas y edición de Penguin Bolsillo. La encuadernación rígida resulta práctica para conservar el ejemplar y regalarlo, mientras que su extensión permite llevarlo sin el volumen de una novela larga.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Crónica de una muerte anunciada (Best Seller | Ediciones Conmemorativas) también figura entre las obras incluidas en Estuche esencial Gabriel García Márquez: contiene: Cien años de soledad | El amor en los tiempos del cólera | Crónica de una muerte anunciada | El ... agosto nos vemos (Contemporánea | Narrativa). Ambos comparten autoría y una misma obra, pero esta edición ofrece Crónica de una muerte anunciada por separado, en tapa dura y con 144 páginas. El estuche agrupa varios títulos de Gabriel García Márquez.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788466395120"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "84331f27001f0a67",
+  "origen": "chatgpt-web"
+}

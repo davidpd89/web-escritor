@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791259579003",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta propuesta de G. T. Karber se dirige a quienes disfrutan resolviendo casos mediante puzles y actividades de lógica. Su planteamiento participativo encaja menos con lectores que buscan una novela convencional para leer de principio a fin.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de G. T. Karber se presenta en tapa dura y tiene 2 páginas registradas. Su formato físico permite realizar la actividad de montar un puzle y resolver un caso, por lo que responde a un uso recreativo y también puede entregarse como regalo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Murdle y Merry Murdle comparten autor, G. T. Karber, y el interés por resolver casos detectivescos. El primero propone montar un puzle para solucionar un caso, mientras que Merry Murdle presenta una investigación sobre asesinatos durante las fiestas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388279324"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "339473336086a5a9",
+  "origen": "chatgpt-web"
+}

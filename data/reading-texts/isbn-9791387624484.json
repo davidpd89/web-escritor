@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387624484",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Presencias en escena: El arte de actuar: 4 (Artes escénicas), de Ernesto Caballero, está dirigido a lectores interesados en el teatro, la interpretación y la reflexión sobre las artes. Su planteamiento se aleja de la narrativa de ficción y se sitúa en el terreno del ensayo y el arte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece un volumen de 240 páginas para leer en papel y consultar durante el estudio o la reflexión sobre la interpretación. Es la edición de Punto de Vista Editores disponible para este título.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Presencias en escena: El arte de actuar: 4 (Artes escénicas), de Ernesto Caballero, puede compararse con De la estética como política: Para una rehabilitación del sentido en el cine (Signo e imagen), de Noël Burch, por su interés en la reflexión sobre las artes. La diferencia está en el objeto de atención: el primero se centra en la interpretación y el segundo aborda la estética vinculada al cine.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788437650586"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "44d829505317edba",
+  "origen": "chatgpt-web"
+}

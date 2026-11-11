@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788426742841",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inteligencia artificial generativa en Microsoft Azure se dirige a lectores interesados en la inteligencia artificial y en su relación con una plataforma tecnológica concreta. El enfoque anunciado por Adrián González Sánchez, Jaime De Mora y Jorge García se diferencia de una introducción general a la ciencia sin atención específica a Microsoft Azure.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Inteligencia artificial generativa en Microsoft Azure se publica en tapa blanda, con 316 páginas en castellano. Esta edición física de Marcombo permite mantener el volumen abierto durante el estudio y consultar de nuevo sus páginas sin utilizar un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA y Inteligencia artificial generativa en Microsoft Azure comparten la inteligencia artificial como materia central. El libro de Keith Mansfield presenta su alcance como una selección de conocimientos sobre IA, mientras que Adrián González Sánchez, Jaime De Mora y Jorge García delimitan el suyo a la inteligencia artificial generativa en Microsoft Azure.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "05a62df1ac502aa6",
+  "origen": "chatgpt-web"
+}

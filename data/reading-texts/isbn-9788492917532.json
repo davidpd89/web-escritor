@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788492917532",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El mejor perro del mundo: Ensayos sobre el amor (Tendencias) está orientado a quienes prefieren reflexiones sobre el amor en lugar de una narración romántica de ficción. Su condición de ensayo lo diferencia de las novelas centradas en una relación sentimental y su desarrollo argumental.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne 224 páginas en castellano y ofrece una encuadernación rígida para conservar el volumen. Por su extensión, permite distribuir la lectura en sesiones breves, y su presentación física resulta apropiada para una biblioteca personal o como regalo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El mejor perro del mundo: Ensayos sobre el amor (Tendencias) comparte con Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo) el tratamiento del amor desde la no ficción. Alice Hoffman lo aborda mediante ensayos sobre el amor, mientras que Carlos del Amor vincula ese sentimiento con el arte. Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología) desplaza la atención hacia los procesos de enamoramiento y desenamoramiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084122",
+        "isbn-9791387534370"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b3be4863111be95d",
+  "origen": "chatgpt-web"
+}

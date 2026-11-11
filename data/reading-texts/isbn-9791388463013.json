@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Vida de Lord Byron está dirigida a lectores de biografías históricas interesados en la literatura romántica y en la relación entre vida personal y creación poética. Su recorrido por las relaciones, los viajes y las obras del poeta puede resultar menos adecuado para quien busque una introducción breve centrada únicamente en sus poemas.",
+      "texto": "Está orientado a lectores de biografías literarias, historia cultural y poesía romántica. Su atención a la trayectoria personal y a la obra de Lord Byron lo distingue de una novela histórica o de una antología dedicada únicamente a sus poemas.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Karl Elze reconstruye la trayectoria de George Gordon Byron desde sus primeros años hasta su participación en la causa de la independencia de Grecia. El estudio relaciona sus experiencias familiares, viajes y conflictos personales con su evolución literaria, e incorpora una valoración crítica de su influencia en la literatura inglesa y europea.",
+      "texto": "Karl Elze examina la trayectoria de George Gordon Byron relacionando sus experiencias personales con la evolución de su escritura. El estudio aborda sus relaciones, los viajes que influyeron en su creación y obras como Don Juan, Manfred y Caín, además de analizar su lugar en la literatura inglesa y su influencia cultural.",
       "evidencias": [
         "autores",
         "sinopsis_editorial"
@@ -22,28 +21,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Vida de Lord Byron se presenta en tapa dura, con 408 páginas en castellano editadas por El Desvelo. Su encuadernación rígida resulta apropiada para conservar una biografía extensa y consultarla durante el estudio de la vida y la obra del poeta; también permite regalar un volumen físico.",
+      "texto": "Vida de Lord Byron se publica en tapa dura, con 408 páginas en castellano y edición de El Desvelo. La encuadernación rígida resulta práctica para conservar un volumen biográfico extenso y volver a sus apartados de análisis literario.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
         "editorial",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Vida de Lord Byron y AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA relacionan la investigación biográfica con figuras del ámbito literario. Juan Carlos García de Polavieja aborda una investigación sobre la vida y muerte de Federico García Lorca, mientras Karl Elze reconstruye la trayectoria de George Gordon Byron y examina su producción poética.",
+      "texto": "Cesar La conquista de la eternidad, de Alberto Angela, comparte con Vida de Lord Byron el interés por reconstruir la trayectoria de una figura histórica. El primero se centra en un general romano; la biografía de Karl Elze examina a un poeta romántico y relaciona sus experiencias personales con su producción literaria.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788418567933"
+        "isbn-9788410944329"
       ]
     }
   ],

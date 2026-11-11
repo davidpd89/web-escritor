@@ -1,0 +1,58 @@
+{
+  "id": "isbn-9781836472568",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Al faro: Nueva traducción al español: 82 (Clásicos en español) se dirige a lectores de clásicos literarios y narrativa contemporánea interesados en la obra de Virginia Woolf. Su carácter narrativo lo diferencia de los libros prácticos de desarrollo personal, crianza o bienestar, aunque también figure asociado a esos ámbitos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta versión de Al faro: Nueva traducción al español: 82 (Clásicos en español) se distingue por anunciar una nueva traducción al castellano dentro de la colección Clásicos en español. Rosetta Edu presenta la obra de Virginia Woolf en tapa blanda, con 205 páginas, en una edición publicada en 2026.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "fecha_publicacion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Rosetta Edu ofrece Al faro: Nueva traducción al español: 82 (Clásicos en español) en tapa blanda y castellano. Sus 205 páginas permiten leer la nueva traducción en un volumen físico que también puede guardarse junto a otras obras de Virginia Woolf.",
+      "evidencias": [
+        "editorial",
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Noche y día / Night and Day y Al faro: Nueva traducción al español: 82 (Clásicos en español) comparten autora, Virginia Woolf. La señora Dalloway (edición especial limitada con cantos tintados) también pertenece a la misma escritora, pero se centra en una jornada de Clarissa y su entorno familiar, mientras que esta edición de Al faro destaca por su nueva traducción al castellano.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "idioma"
+      ],
+      "enlaces": [
+        "isbn-9786073878517",
+        "isbn-9788491057031"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ba45006a8ea3d896",
+  "origen": "chatgpt-web"
+}

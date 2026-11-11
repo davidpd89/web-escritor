@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788423371310",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cerebro y pantallas: Cómo las pantallas impactan en el desarrollo cognitivo en la infancia y la adolescencia (Divulgación), de María Couso, se dirige a lectores interesados en la relación entre tecnología y desarrollo infantil y adolescente. Su enfoque divulgativo encaja menos con quien busca ficción o una lectura de entretenimiento narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de bolsillo de Cerebro y pantallas: Cómo las pantallas impactan en el desarrollo cognitivo en la infancia y la adolescencia (Divulgación) se ofrece en tapa blanda. Sus 304 páginas permiten llevar el contenido en un único volumen impreso, con una encuadernación flexible para transportarlo y consultarlo durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cerebro y pantallas: Cómo las pantallas impactan en el desarrollo cognitivo en la infancia y la adolescencia (Divulgación) comparte el interés por la infancia con El niño feliz (fuera de colección) y Los dones de los niños altamente sensibles. La obra de María Couso se centra en el impacto de las pantallas sobre el desarrollo cognitivo; las otras se orientan, respectivamente, al bienestar infantil y a la alta sensibilidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425452901",
+        "isbn-9788408325260"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "90e28b3dee0d366f",
+  "origen": "chatgpt-web"
+}

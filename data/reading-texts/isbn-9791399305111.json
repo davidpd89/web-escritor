@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399305111",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El temple y las armas se dirige a lectores interesados en historia, filosofía y ensayo. Sus 62 páginas plantean una lectura breve, menos adecuada para quien busca una novela extensa o una obra centrada en la ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El temple y las armas está disponible en tapa blanda, con 62 páginas en castellano. Esta edición de Castellón Digital SL permite llevar el libro en papel y consultar sus contenidos sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El temple y las armas comparte el ámbito filosófico con Diatribas. 31 lecciones estoicas sobre la vida (Biblioteca Edaf), de Epicteto, aunque este último título identifica expresamente el estoicismo como materia. También puede compararse con El código bushido: La filosofía de los samuráis / Edición comentada por Marcos Cartagena, de Inazo Nitobe, que delimita su enfoque a la filosofía de los samuráis, frente al cruce de historia, ensayo y filosofía de Toño Ruiz.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788441445086",
+        "isbn-9791388080968"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c3971e50790907d0",
+  "origen": "chatgpt-web"
+}

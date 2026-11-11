@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387625108",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nuevo Diccionario Internacional Conciso de Teología y Exégesis del Nuevo Testamento: 0 está orientado a lectores que necesitan consultar conceptos teológicos y cuestiones de interpretación del Nuevo Testamento. Por su naturaleza de diccionario y sus 1520 páginas, responde a una búsqueda de referencia especializada más que a la lectura de una narración religiosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es la presentación de Nuevo Diccionario Internacional Conciso de Teología y Exégesis del Nuevo Testamento: 0, publicado por Clie. Sus 1520 páginas hacen de esta edición un volumen extenso, pensado para mantenerse en una biblioteca y consultarse por entradas, en lugar de transportarse habitualmente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nuevo Diccionario Internacional Conciso de Teología y Exégesis del Nuevo Testamento: 0 y Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación abordan asuntos religiosos desde perspectivas diferentes: el primero se centra en términos e interpretación del Nuevo Testamento, mientras que el segundo anuncia fundamentos y práctica de un camino espiritual. También se diferencia de Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, cuyo título plantea vivencias personales en vez de una obra de consulta teológica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496",
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "10c5323c4f22807d",
+  "origen": "chatgpt-web"
+}

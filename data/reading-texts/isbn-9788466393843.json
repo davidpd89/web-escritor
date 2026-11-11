@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788466393843",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la historia vikinga y en su influencia cultural más allá de su propia época. Su enfoque histórico y ensayístico se aleja de la novela de aventuras y de la ficción ambientada en el mundo nórdico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra examina la huella de la era vikinga en la cultura posterior, vinculando el pasado histórico con su permanencia en el presente. Laia San José Beltrán aborda esta materia desde el ensayo histórico, con una dimensión relacionada con la religión y la espiritualidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 352 páginas en formato de bolsillo, una presentación que facilita llevar el libro y consultarlo durante los desplazamientos. Roca Bolsillo publica esta versión en castellano, adecuada para conservar anotaciones y volver a determinados pasajes.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tejedoras de destinos: Una mirada al poder femenino que gobernó la historia de dioses y hombres (No ficción) comparte autoría con esta obra y aborda el poder femenino en la historia divina y humana, frente al legado cultural vikingo. Dominio (edición especial limitada en tapa dura con los cantos pintados): Cómo el cristianismo dio forma a Occidente (ATICO HISTORIA) también estudia una influencia histórica duradera, pero centrada en el cristianismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387905545",
+        "isbn-9791387592981"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a85e89d4f7fa7146",
+  "origen": "chatgpt-web"
+}

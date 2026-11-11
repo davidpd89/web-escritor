@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388147852",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todos los hombres del rey (Best Seller | Ficción) está dirigido a lectores que buscan fantasía y quieren incorporar una novela de este género a sus lecturas. Laura Gallego firma esta edición de Penguin Bolsillo; encaja menos con quien prefiera narrativa realista o busque específicamente otros géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El libro de bolsillo en tapa blanda reúne 544 páginas en una edición física manejable para transportar y leer fuera de casa. Es el formato disponible de Todos los hombres del rey (Best Seller | Ficción), publicado por Penguin Bolsillo.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "323001cddff925ba",
+  "origen": "chatgpt-web"
+}

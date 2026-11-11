@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788410197480",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este estuche está pensado para lectores que buscan libros de ocio y tiempo libre, con dos títulos reunidos en una misma edición. No encaja con quien busca una novela de ficción convencional o un libro centrado en una temática especializada como la gastronomía o el vino.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "800 stickers sweet and cosy (Prácticos) comparte el enfoque de entretenimiento mediante actividades con este estuche de Hellofun!. Sin embargo, son propuestas diferentes: el estuche reúne La última (página) y nos vamos y ¿Quién robó el fuet?, mientras que el otro título se presenta como una colección de 800 stickers.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049737"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b44604a34d8e1c4f",
+  "origen": "chatgpt-web"
+}

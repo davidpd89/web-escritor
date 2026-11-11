@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9791388103384",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores interesados en la novela gráfica y en las historias de carácter histórico. Orgullo y prejuicio (Novela gráfica) Edición especial, de Ana Oncina Tortosa, se presenta en formato de cómic, por lo que no responde a quien busca una novela escrita únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición especial de Orgullo y prejuicio se presenta como novela gráfica de Ana Oncina Tortosa. Planeta Cómic la publica en castellano, con 320 páginas y encuadernación en tapa dura, el 25 de noviembre de 2026; su formato gráfico es el principal rasgo que permite distinguirla de una edición narrativa convencional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "fecha_publicacion",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para las 320 páginas de esta novela gráfica. Al tratarse de una obra de cómic, la edición física permite consultar las páginas ilustradas en su disposición impresa; la cubierta rígida también resulta apropiada para conservar el ejemplar o regalarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La balada del norte 03 (nueva edición) (Sillón Orejero) comparte con Orgullo y prejuicio (Novela gráfica) Edición especial el lenguaje del cómic y su vinculación con la narrativa histórica, pero pertenece a una entrega numerada de Alfonso Zapico. Bajo las cenizas de Pompeya (ESPASA NARRATIVA) coincide en la orientación histórica, aunque se presenta como narrativa y no como novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419670373",
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4f6f3585b52c94bd",
+  "origen": "chatgpt-web"
+}

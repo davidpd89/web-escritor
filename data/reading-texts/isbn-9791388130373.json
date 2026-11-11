@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388130373",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las cuatro olas de la IA y el futuro del trabajo se dirige a quienes buscan una lectura sobre inteligencia artificial y empleo desde el ámbito de la economía y la empresa. Su enfoque temático lo distingue de una novela o de un libro dedicado exclusivamente a técnicas de programación.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las cuatro olas de la IA y el futuro del trabajo se publica en tapa blanda, con 216 páginas en castellano. La edición de LID Editorial ofrece un volumen físico que puede consultarse por partes y utilizarse para revisar cuestiones relacionadas con la inteligencia artificial y el trabajo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las cuatro olas de la IA y el futuro del trabajo puede compararse con Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, por su relación con el ámbito profesional. El libro de Isidoro Sanchez centra su asunto en la inteligencia artificial y el futuro laboral, mientras que el de Miguel Reinoso pone el foco en el liderazgo como oficio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1ce8c286deca1e3c",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Carrie (edición serie) está dirigida a lectores adultos de terror y misterio que acepten una historia sobre acoso escolar, fanatismo religioso y sucesos sobrenaturales. No encaja con quien busque una novela de instituto ligera o prefiera evitar situaciones de humillación y violencia.",
+      "texto": "Carrie (edición serie) está dirigida a lectores adultos de terror y suspense que busquen una historia de acoso escolar con consecuencias sobrenaturales. La convivencia con una madre de extremismo religioso y la violencia entre adolescentes forman parte del conflicto. No encaja con quien prefiera una novela escolar cotidiana sin elementos perturbadores.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,36 +14,36 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Carrie (edición serie), de Stephen King, es una novela de terror que transforma un conflicto adolescente en una amenaza sobrenatural. El acoso que sufre Carrie, la influencia religiosa de su madre y los acontecimientos desencadenados en el instituto conectan el drama personal con el miedo colectivo.",
+      "texto": "La novela combina terror sobrenatural, presión social y conflictos familiares en un entorno escolar. La protagonista sufre humillaciones de sus compañeras mientras vive sometida al fanatismo religioso de su madre. El componente inquietante surge del vínculo entre ese maltrato y unos acontecimientos extraordinarios que afectan a toda la comunidad.",
       "evidencias": [
-        "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Carrie (edición serie) se publica en tapa blanda de bolsillo, con 256 páginas y el sello Penguin Bolsillo. Es una edición física fácil de transportar en un bolso o una mochila, apropiada para repartir la lectura entre desplazamientos sin cargar con un volumen de tapa dura.",
+      "texto": "Carrie (edición serie) se presenta en tapa blanda de bolsillo y contiene 256 páginas. Su tamaño editorial facilita llevar la novela en una bolsa y leerla durante desplazamientos. Esta edición de Penguin Bolsillo reúne la historia en un volumen físico manejable, sin necesidad de recurrir a una encuadernación de mayor tamaño.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
+        "editorial",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Carrie (edición serie) y La abadía sin ojos incorporan la religión a conflictos personales marcados por circunstancias inquietantes. Stephen King aborda el acoso escolar y la convivencia con una madre fanática; Jordi Wild parte del exilio de un sacerdote a un monasterio hermético tras un escándalo que amenaza su vida.",
+      "texto": "It (edición especial · cantos tintados) (Campaña | Edición con cantos tintados) comparte autor con Carrie (edición serie): ambas son obras de Stephen King, aunque la segunda se centra en una adolescente acosada y una crisis sobrenatural. Cuentos de misterio y terror (edición especial en tapa dura) (Ediciones Conmemorativas), de Edgar Allan Poe, ofrece otra vía hacia el terror, con una colección de relatos frente a la historia novelística de Carrie (edición serie).",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "categorias",
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788466686884"
+        "isbn-9788466394697",
+        "isbn-9788491058458"
       ]
     }
   ],

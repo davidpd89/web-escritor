@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788410116269",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El velo de los sueños (TBR) se dirige a lectores de fantasía juvenil que buscan una combinación de elementos románticos y fantásticos. Sus géneros incluyen también el terror, por lo que se aleja de las historias exclusivamente románticas o realistas; sus 480 páginas plantean una lectura de cierta extensión.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El velo de los sueños (TBR) está editado en tapa dura por TBR, con 480 páginas en castellano. Esta encuadernación ofrece una cubierta rígida para conservar el ejemplar en la estantería y resulta apropiada para quien prefiere regalar o coleccionar libros físicos de fantasía juvenil.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El hechizo más oscuro (Faeris Editorial), de Wanda Hellmund, permite comparar El velo de los sueños (TBR) con otra obra cuyo título remite a la magia y la oscuridad. Una tempestad para matar un beso: La balada del fuego solar 2 (Inlov Romantasy), de Julia Dippel, comparte su relación con la fantasía romántica, aunque su título identifica una segunda entrega; El velo de los sueños (TBR) está firmado por C.N. Crawford y Alex Rivers.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388108419",
+        "isbn-9788410399327"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "484a5f11fbaec1d1",
+  "origen": "chatgpt-web"
+}

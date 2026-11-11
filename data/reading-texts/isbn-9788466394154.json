@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466394154",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Juan Belmonte, matador de toros (Best Seller | Ficción) encaja con lectores interesados en relatos y aventuras vinculados a la figura de un torero. Su temática taurina lo aleja de quienes prefieren historias de fantasía o romances centrados en las relaciones de pareja.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Juan Belmonte, matador de toros (Best Seller | Ficción) cuenta con una edición de bolsillo en tapa blanda publicada por Penguin Bolsillo. Sus 416 páginas ofrecen una lectura de cierta extensión en un volumen físico que puede transportarse y conservarse en una estantería.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Juan Belmonte, matador de toros (Best Seller | Ficción) y El maestro Juan Martínez que estaba allí (Best Seller | Ficción) comparten autor, Manuel Chaves Nogales. El primero se identifica por su protagonista taurino y combina aventuras y relatos; el segundo se presenta como una obra de relatos protagonizada en su título por Juan Martínez.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394147"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "52222dd5e91b6c7d",
+  "origen": "chatgpt-web"
+}

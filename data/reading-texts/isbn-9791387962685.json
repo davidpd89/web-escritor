@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387962685",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Honey lemon soda 5 (Shôjo) encaja con lectores de manga que buscan romance y relaciones de pareja en una historia contemporánea. El título lo identifica como el n.º 5, por lo que resulta menos adecuado para quien quiere empezar una historia desde su primera entrega o busca aventuras de fantasía.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Honey lemon soda 5 (Shôjo) se publica en tapa blanda, con 336 páginas en castellano. La edición física permite leer las viñetas en papel y conservar este volumen junto a los demás de la colección, con una cubierta flexible para transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Honey lemon soda 4 (Shôjo) es la comparación más directa con Honey lemon soda 5 (Shôjo): ambos títulos pertenecen a la misma colección y están firmados por Mayu Murata, aunque sus números identifican entregas distintas. Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, comparte la identificación shôjo, pero corresponde a otra obra y otra autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387962487",
+        "isbn-9791387962494"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "99a6d99db1200d05",
+  "origen": "chatgpt-web"
+}

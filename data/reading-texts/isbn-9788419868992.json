@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419868992",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El secreto de Destructor (Crónicas de Lilium 3) (Colección Salamandra Middle Grade) está orientado a lectores de fantasía interesados en historias de secretos. La pertenencia a una colección Middle Grade señala su enfoque hacia el público juvenil. Encaja menos con quienes prefieren narraciones realistas o libros de divulgación.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El secreto de Destructor (Crónicas de Lilium 3) (Colección Salamandra Middle Grade) es en tapa blanda y tiene 288 páginas. Este formato permite transportar el volumen sin la rigidez de una cubierta dura, algo práctico para una lectura repartida entre casa y desplazamientos. Salamandra lo publica en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El secreto de Destructor (Crónicas de Lilium 3) (Colección Salamandra Middle Grade) puede compararse con Colegio de poderes secretos 8 - En busca de Trece (Jóvenes lectores), de César Mallorquí, por su relación con la fantasía juvenil y los secretos. Paula Gallego firma una obra vinculada a Crónicas de Lilium, mientras que el título de César Mallorquí remite a un colegio con poderes. Ambos títulos incluyen una numeración, pero pertenecen a series diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387741297"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0657cb191450d50e",
+  "origen": "chatgpt-web"
+}

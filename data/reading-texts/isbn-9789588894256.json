@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9789588894256",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Notas de prensa / Press Releases: 5 (OBRA PERIODÍSTICA) se dirige a lectores interesados en la escritura periodística de Gabriel García Márquez y en textos vinculados al ensayo y los relatos. Su naturaleza periodística lo distingue de las novelas de ficción extensa y de las obras centradas en una única trama narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Notas de prensa / Press Releases: 5 (OBRA PERIODÍSTICA) se presenta en tapa blanda, con una extensión de 712 páginas. Es una edición impresa para quienes prefieren consultar y leer textos periodísticos sobre papel. Por su volumen, conviene tener en cuenta el espacio que ocupa al transportarla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Notas de prensa / Press Releases: 5 (OBRA PERIODÍSTICA) puede compararse con Por la libre / On the Loose: 4 (OBRA PERIODÍSTICA) y Entre cachacos: 1954-1955 / Among the Cachacos: 1954-1955: 2 (OBRA PERIODÍSTICA). Los tres títulos pertenecen a la obra periodística de Gabriel García Márquez. Se distinguen por su identificación dentro de la colección, y Entre cachacos delimita además un periodo concreto en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789588894164",
+        "isbn-9789588894270"
+      ]
+    }
+  ],
+  "descartados": [
+    "esta_edicion: copia 8 palabras seguidas de la sinopsis",
+    "faltan módulos: esta_edicion"
+  ],
+  "version": 3,
+  "fuente_hash": "96f364c7375ab784",
+  "origen": "chatgpt-web"
+}

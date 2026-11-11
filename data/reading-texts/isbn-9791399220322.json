@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399220322",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "CÓMO AYUDAR A LOS ERIZOS: Más de 100 ideas para transformar tu jardín en un refugio para la naturaleza está dirigido a personas interesadas en la jardinería, la fauna y la divulgación naturalista. Sus propuestas se centran en convertir espacios ajardinados en refugios para la naturaleza, por lo que encaja menos con quienes buscan ficción o un tratado exclusivamente teórico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Mimura se ofrece en tapa blanda, con 228 páginas en castellano. Al tratarse de un libro con más de 100 ideas relacionadas con el jardín y la naturaleza, el ejemplar físico permite consultar propuestas concretas, volver a ellas y mantenerlo a mano durante la planificación de tareas.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Así es la vida de los animales: Historias de crueldad, amor y supervivencia en la naturaleza (Imago Mundi) comparte con CÓMO AYUDAR A LOS ERIZOS: Más de 100 ideas para transformar tu jardín en un refugio para la naturaleza el interés por los animales. El libro de Mario Alonso Santamaría aborda historias de supervivencia, mientras que el de Helen Bostock y Sophie Collins propone actuaciones prácticas en el jardín.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788423370979"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "99375f3b5aa1f3e5",
+  "origen": "chatgpt-web"
+}

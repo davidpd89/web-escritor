@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387902261",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este libro de Disney encaja con lectores infantiles que buscan cuentos breves de Navidad protagonizados por Mickey Mouse. Sus 192 páginas permiten repartir la lectura en distintas sesiones, pero no responden a quien prefiere una única narración extensa y continuada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de este libro de Disney está disponible en tapa dura y contiene 192 páginas en castellano. La encuadernación rígida permite conservar el volumen para sucesivas lecturas, mientras que sus cuentos de 5 minutos facilitan repartir la lectura en sesiones breves.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Clásicos Disney. Cuento de Navidad: Una historia de Mickey y sus amigos comparte con este libro la temática navideña y los personajes de Disney. El primero presenta una historia de Mickey y sus amigos, mientras que este volumen reúne cuentos de 5 minutos. Ambos mantienen una temática común, pero difieren en la organización de la lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419487827"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4ae60e06c84e4a1d",
+  "origen": "chatgpt-web"
+}

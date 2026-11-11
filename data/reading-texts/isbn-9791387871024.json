@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387871024",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Maldita Roma (Serie Julio César 2): La conquista del poder de Julio César (Best Seller | Ficción), de Santiago Posteguillo, se dirige a lectores de narrativa contemporánea que buscan ficción histórica. Sus 896 páginas requieren una lectura de larga extensión; puede resultar menos adecuada para quien prefiera novelas cortas o libros de bolsillo con pocas páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 896 páginas de Maldita Roma (Serie Julio César 2): La conquista del poder de Julio César (Best Seller | Ficción), de Santiago Posteguillo, en un libro de bolsillo. Kindle ofrece una alternativa para leer esta novela extensa en el móvil o en otro dispositivo sin cargar con el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Roma soy yo (Serie Julio César 1): La verdadera historia de Julio César (Best Seller | Ficción), de Santiago Posteguillo, comparte autor y la referencia a Julio César. El título identifica Roma soy yo como el n.º 1 y Maldita Roma como el n.º 2. Los asesinos del emperador. Edición especial con cantos decorados, también de Santiago Posteguillo, ofrece otra comparación dentro de su narrativa histórica, esta vez vinculada a la Trilogía de Trajano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413148335",
+        "isbn-9788408326779"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4d1a5542c7f42445",
+  "origen": "chatgpt-web"
+}

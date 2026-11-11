@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788467084405",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Chicas del barrio, las (Novela), de Tania Juste, encaja con lectores interesados en la novela histórica en castellano. Sus 480 páginas corresponden a una lectura extensa, menos ajustada a quien busca un libro breve o una obra de consulta práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Chicas del barrio, las (Novela) contiene 480 páginas publicadas por Booket. Permite leer la novela en papel y transportarla sin la rigidez de una cubierta dura, aunque su extensión supone un volumen considerable para llevar a diario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig, comparte con Chicas del barrio, las (Novela) su orientación hacia la novela histórica, aunque el primero sitúa su referencia temática en Pompeya. Al otro lado de la niebla (Novela), de Juan Luis Arsuaga, es otra alternativa narrativa del catálogo, diferenciada por su autoría. La comparación permite distinguir obras de autores distintos sin atribuirles conflictos argumentales concretos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370849",
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3850de65a43243db",
+  "origen": "chatgpt-web"
+}

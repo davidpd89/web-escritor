@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791370093457",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de clásicos interesados en relatos navideños de Charles Dickens. Por su clasificación como narrativa contemporánea y clásicos, no responde a la búsqueda de un manual sobre celebraciones o tradiciones navideñas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición especial de Alianza Editorial se presenta en tapa dura, con cantos tintados y 540 páginas en castellano. Pertenece a la colección Alianza Clásicos y reúne los relatos navideños de Charles Dickens en una presentación física diferenciada por el acabado de sus páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para esta edición de 540 páginas. Su encuadernación rígida y los cantos tintados son características que cuentan para conservarla en una biblioteca o entregarla como regalo físico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuento de Navidad: 46 (Pequeños Placeres) comparte con esta edición la autoría de Charles Dickens y la temática navideña indicada en el título, aunque pertenece a una colección diferente. David Copperfield (edición especial en tapa dura) (Ediciones Conmemorativas) también es de Charles Dickens y comparte la presentación especial en tapa dura, pero se centra en otra obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399221107",
+        "isbn-9788491058250"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e94465d46f9fb32d",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788413686608",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la religión, la espiritualidad y la vida cristiana, especialmente en la cuestión del demonio. El demonio existe y actúa (Palabra Hoy. Vida cristiana), de Eduardo Toraño López, se aleja de las lecturas centradas en otras tradiciones espirituales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El demonio existe y actúa (Palabra Hoy. Vida cristiana) se presenta en tapa blanda, con 192 páginas en castellano. Es una opción física de extensión moderada, que permite consultar y recuperar pasajes sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación también aborda cuestiones espirituales, pero desde el Dharma y su práctica. El demonio existe y actúa (Palabra Hoy. Vida cristiana) se sitúa en el ámbito cristiano y centra su título en la existencia y actuación del demonio; las dos obras pertenecen a tradiciones religiosas distintas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4d8f202f33d44181",
+  "origen": "chatgpt-web"
+}

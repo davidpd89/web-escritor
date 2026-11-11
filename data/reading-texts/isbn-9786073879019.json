@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9786073879019",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Prometida / The Fiancée está dirigida a lectores que buscan romance dentro de la narrativa contemporánea. Sus 616 páginas corresponden a una lectura extensa; no es una propuesta de fantasía ni un cómic, sino una novela encuadrada en el género romántico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 616 páginas de La Prometida / The Fiancée en un volumen flexible, una opción para quien prefiere una encuadernación menos rígida en una novela extensa. Es el formato disponible en esta edición de Ediciones B.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A mil por hora, de Hannah Grace, y La Prometida / The Fiancée comparten el romance como eje de lectura. El primero sitúa su historia en el mundo de la Fórmula 1 y plantea una relación entre un piloto y una mujer que no consigue dejar atrás su pasado. La novela de Nieves Herrero se presenta dentro de la narrativa contemporánea romántica, sin el contexto deportivo que identifica al título de Hannah Grace.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b8496539283e458b",
+  "origen": "chatgpt-web"
+}

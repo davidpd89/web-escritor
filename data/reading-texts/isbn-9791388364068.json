@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388364068",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Textos recobrados 1956-1986 (Hispánica), de Jorge Luis Borges, se dirige a lectores interesados en la obra del autor y en los textos vinculados con la historia y la literatura del siglo XX. Su enfoque de recopilación y sus 368 páginas lo distinguen de un libro de relatos concebido como una narración unitaria.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda y reúne 368 páginas en un volumen físico. Es la opción para quien prefiere leer los textos en papel, conservar el ejemplar o consultarlo sin depender de una pantalla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte línea editorial con Textos recobrados. 1931-1955 (Hispánica), también de Jorge Luis Borges, otra recopilación de textos del autor correspondiente a un periodo anterior. Textos recobrados 1956-1986 (Hispánica) amplía esa secuencia cronológica hacia décadas posteriores; ambos permiten acercarse a distintas etapas de su producción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388364044",
+        "isbn-9791388364020"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6f89f6fc9d908c31",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409931699",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Matar a un jabalí encaja con lectores de misterio y thriller interesados también en las relaciones de poder y la política. Sus 618 páginas requieren una lectura más prolongada que una novela breve, por lo que se aleja de quien busque una historia corta o centrada exclusivamente en asuntos personales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Matar a un jabalí ofrece tapa blanda y Kindle para sus 618 páginas. La edición en papel permite mantener una lectura física de considerable extensión, mientras que Kindle facilita llevar el texto completo en un lector electrónico o en el móvil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Matar a un jabalí comparte con El vuelo de los gansos el interés por el poder y los conflictos que puede provocar enfrentarse a él. La obra de Ángel Boixadós plantea ese enfrentamiento como una cuestión de principios, mientras que Juan Montojo Quadreny combina en su libro el ámbito político con el misterio y el thriller.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425375040"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e47af09389d1d4d9",
+  "origen": "chatgpt-web"
+}

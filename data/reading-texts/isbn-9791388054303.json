@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388054303",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Obra completa III. Cuaderno blanco: Poemas (2009-2016) (Biblioteca de Clásicos Contemporaneos) se dirige a lectores de poesía interesados en la obra de Eduardo Chirinos. Sus 558 páginas y el periodo indicado en el título apuntan a una recopilación extensa, no a una novela ni a un poemario breve. El título lo identifica como el volumen III.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Obra completa III. Cuaderno blanco: Poemas (2009-2016) (Biblioteca de Clásicos Contemporaneos) es en tapa dura y reúne 558 páginas. La encuadernación rígida resulta práctica para conservar un volumen extenso de poesía y consultarlo repetidamente en una biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Obra completa III. Cuaderno blanco: Poemas (2009-2016) (Biblioteca de Clásicos Contemporaneos) y Antologia amorosa la voz a ti debida y razon de amor pertenecen al ámbito de la poesía. Eduardo Chirinos presenta un volumen de 558 páginas identificado con el periodo 2009-2016, mientras que el título de Pedro Salinas señala una selección de orientación amorosa. Cambian tanto la autoría como el criterio de agrupación de los poemas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dd21746983a224a4",
+  "origen": "chatgpt-web"
+}

@@ -4,15 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta obra se dirige a lectores interesados en la historia naval de Huelva, los naufragios y la conservación del patrimonio marítimo. Su atención a los acontecimientos de una provincia concreta la diferencia de los estudios generales sobre conflictos bélicos o historia política.",
+      "texto": "El libro de Paco Muñoz se dirige a lectores interesados en la historia naval de Huelva, los barcos naufragados y la investigación del patrimonio costero. Su contenido combina documentos históricos, entrevistas y visitas sobre el terreno. No responde al planteamiento de una novela de ficción marítima, ya que reconstruye acontecimientos mediante fuentes documentales.",
       "evidencias": [
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Paco Muñoz investiga episodios navales de Huelva comprendidos entre la prehistoria y la II Guerra Mundial. Recurre a documentos históricos, conversaciones con expertos y visitas a los lugares estudiados para reconstruir ese pasado. El volumen contiene dieciséis capítulos, tres apartados especiales y un catálogo complementario de naufragios registrados en la costa provincial.",
+      "texto": "Paco Muñoz estudia distintos acontecimientos vinculados al mar en la provincia de Huelva, desde las sociedades prehistóricas hasta la II Guerra Mundial. La investigación se organiza en dieciséis capítulos principales y tres adicionales, con materiales de archivo, consultas a especialistas y observaciones directas. Un anexo identifica naufragios registrados históricamente frente al litoral onubense.",
       "evidencias": [
         "autores",
         "sinopsis_editorial"
@@ -20,22 +21,23 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Editorial Niebla se publica en tapa blanda, con 178 páginas en castellano. Este formato permite consultar en papel los capítulos históricos y el anexo dedicado a los naufragios, además de señalar episodios o embarcaciones para posteriores consultas.",
+      "texto": "La obra de Paco Muñoz se presenta en tapa blanda, con 178 páginas, bajo el sello de Editorial Niebla. El volumen reúne capítulos dedicados a diferentes periodos históricos y un anexo de embarcaciones naufragadas. La edición física permite consultar ese inventario por separado y regresar a los episodios tratados en cada capítulo.",
       "evidencias": [
+        "autores",
         "editorial",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA, de Juan Carlos García de Polavieja, también se ocupa de recuperar hechos del pasado mediante una investigación histórica. Mientras esa obra examina las pesquisas sobre la vida y muerte de una figura literaria, el libro de Paco Muñoz estudia la navegación, los acontecimientos marítimos y los naufragios de Huelva.",
+      "texto": "Agustín penón y Federico García Lorca, de Juan Carlos García de Polavieja, comparte con la obra de Paco Muñoz el interés por reconstruir hechos del pasado mediante la investigación. El primero aborda la vida y muerte de Federico García Lorca, mientras que el segundo examina acontecimientos marítimos de Huelva. Ambos tratan sucesos históricos, pero difieren en su objeto de estudio y alcance geográfico.",
       "evidencias": [
-        "afines_catalogo",
         "autores",
-        "sinopsis_editorial"
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788418567933"
@@ -44,6 +46,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "97135e3aec081535",
+  "fuente_hash": "ec2f1a7f7fda9c7e",
   "origen": "chatgpt-web"
 }

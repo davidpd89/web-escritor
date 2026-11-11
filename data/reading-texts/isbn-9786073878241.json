@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786073878241",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Si decides quedarte / If You Decide to Stay se dirige a lectores de romance interesados también en las relaciones de pareja, familia y amistad. La obra de Samara Cadenas se aleja de las búsquedas centradas en ciencia ficción o aventuras sin componente sentimental.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Si decides quedarte / If You Decide to Stay está disponible en tapa blanda y tiene 528 páginas en castellano. Esta edición de Penguin Random House Grupo Editorial permite leer una obra extensa en papel, con una cubierta flexible para transportarla y guardarla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Vértigos (MatchStories Ficción) puede compararse con Si decides quedarte / If You Decide to Stay desde el terreno de la ficción, aunque son obras de Raquel Pérez Sierra y Samara Cadenas, respectivamente. Tíos y Tías (AMOR DE FAMILIA) introduce explícitamente el ámbito familiar en su título, un punto de contacto con los temas de familia y relaciones presentes en la clasificación de Si decides quedarte / If You Decide to Stay.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410438491",
+        "isbn-9788408331025"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ade5e44c5845af1c",
+  "origen": "chatgpt-web"
+}

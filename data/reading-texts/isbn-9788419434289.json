@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Citas conmigo misma se dirige a quienes quieren dedicar tiempo a actividades personales, ocio y autocuidado. Sus propuestas parten de planes cotidianos, como visitar cafeterías, leer o probar recetas, por lo que encaja menos con quien busca una novela o un manual centrado en una única disciplina.",
+      "texto": "Citas conmigo misma encaja con lectores que quieren dedicar tiempo a sus propios planes, al autocuidado y a actividades de ocio pendientes. Su propuesta se aleja de la narrativa de ficción y de los manuales centrados en una única habilidad práctica.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,30 +13,28 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Citas conmigo misma propone convertir planes personales aplazados en actividades concretas de ocio y autocuidado. Entre sus ejemplos aparecen visitas a cafeterías y restaurantes, lecturas pendientes, recetas y escapadas. Sus 256 páginas reúnen esta propuesta alrededor del tiempo dedicado a una misma, en lugar de desarrollar una historia de ficción.",
+      "texto": "El contenido gira en torno a convertir planes personales aplazados en actividades reales: visitar cafeterías o restaurantes, leer, cocinar y organizar escapadas. Isa Muguruza plantea el ocio individual como una forma de reservar tiempo para uno mismo. Sus 256 páginas desarrollan esa propuesta de autocuidado y diversión.",
       "evidencias": [
-        "titulo",
+        "autores",
+        "sinopsis_editorial",
         "numero_paginas",
-        "categorias",
-        "sinopsis_editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Citas conmigo misma se presenta en Tapa dura, con 256 páginas y encuadernación en cartoné de Planeta Gifts. Es una edición física para tener a mano al elegir actividades personales o regalar a alguien interesado en el ocio y el autocuidado. La cubierta rígida también permite conservar el volumen junto a otros libros de consulta personal.",
+      "texto": "Citas conmigo misma se publica en tapa dura de tipo cartoné, sin sobrecubierta. Es un volumen físico de 256 páginas que puede mantenerse en casa para consultar sus propuestas de ocio y autocuidado. La encuadernación rígida también permite regalarlo como objeto editorial.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
-        "numero_paginas",
         "formatos_disponibles",
-        "categorias",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Citas conmigo misma y La vida juntos, de Laia Tinaut, comparten el interés por dedicar espacio a experiencias personales. La diferencia está en el destinatario: Isa Muguruza se centra en planes individuales, mientras que La vida juntos propone crear recuerdos compartidos de una relación. Destroza este diario. Diversión EXTREMA, de Keri Smith, ofrece otra forma de ocio, basada en actividades creativas y experimentación.",
+      "texto": "Citas conmigo misma y Agenda anual semanal 2027 Isa Muguruza comparten autora e interés por el tiempo personal y el autoconocimiento. La agenda se presenta como una herramienta de planificación semanal, mientras que Citas conmigo misma se centra en llevar a la práctica planes de ocio y autocuidado. Ambas se diferencian de Calma para tensos (Bienestar, estilo de vida, salud), de Marion Deuchars, cuyo título sitúa el foco en la calma.",
       "evidencias": [
         "titulo",
         "autores",
@@ -45,8 +43,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408330813",
-        "isbn-9788449346026"
+        "isbn-9788419434210",
+        "isbn-9791388220258"
       ]
     }
   ],

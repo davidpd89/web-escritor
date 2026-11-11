@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786073878746",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La conquista perfecta / The Perfect Conquest, de América Rodas, se dirige a lectores de romance juvenil y narrativa contemporánea. Su combinación de romance y familia encaja con quienes buscan relaciones personales en un contexto actual, pero no con quienes prefieren ciencia ficción o ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La conquista perfecta / The Perfect Conquest se publica en tapa blanda, con 336 páginas en castellano. Esta edición permite leer la novela en papel y transportarla sin la rigidez de una cubierta dura; también puede guardarse en una estantería junto a otras novelas juveniles.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La conquista perfecta (Montena), de América Rodas, comparte título y autora con La conquista perfecta / The Perfect Conquest, aunque figura como una entrada diferenciada del catálogo. El clan Monet 1 - Tesoro (Ficción crossover), de Weronika Anna Marczak, ofrece otra referencia de ficción para comparar, mientras que la obra de América Rodas se identifica expresamente con el romance juvenil y la familia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388417849",
+        "isbn-9788427226074"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "68872633d84018cb",
+  "origen": "chatgpt-web"
+}

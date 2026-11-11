@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "BUSCA Y ENCUENTRA: MONSTRUOS está pensado para niños a partir de 3 años que disfrutan buscando figuras y detalles en ilustraciones. Sus escenas reúnen fantasmas, brujas y otras criaturas fantásticas; frente a un cuento de lectura continuada, propone una actividad visual de observación que puede compartirse con un adulto.",
+      "texto": "Busca y encuentra: Monstruos está dirigido a niños a partir de 3 años que disfrutan buscando figuras y pequeños detalles en ilustraciones. Sus escenas de fantasmas, brujas y otras criaturas pueden resultar menos adecuadas para quienes se inquietan con la imaginería de monstruos, aunque la actividad se plantea como un juego visual.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,25 +13,38 @@
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "BUSCA Y ENCUENTRA: MONSTRUOS se utiliza observando las ilustraciones y localizando elementos escondidos entre sus personajes y objetos. Incluye diez escenas con criaturas fantásticas que permiten detenerse en cada composición, examinar sus detalles y repetir la búsqueda. La actividad se basa en mirar y reconocer figuras, más que en seguir una narración extensa.",
+      "texto": "El juego consiste en observar diez escenas ilustradas y localizar los elementos escondidos entre monstruos y seres mágicos. Cada búsqueda requiere recorrer la imagen con atención, reconocer figuras y distinguir detalles, por lo que también permite compartir la actividad entre un adulto y un niño.",
       "evidencias": [
-        "titulo",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "BUSCA Y ENCUENTRA: MONSTRUOS se publica en tapa dura y tiene 12 páginas. Su presentación física, descrita como un libro de cartón de gran formato, permite desplegar las escenas ilustradas para buscar detalles directamente sobre el papel. El formato está vinculado a su uso como actividad visual infantil.",
+      "texto": "Busca y encuentra: Monstruos se presenta en tapa dura, con 12 páginas y un formato de cartón de gran tamaño. La superficie de sus páginas facilita examinar las escenas ilustradas y señalar los objetos encontrados, mientras que la encuadernación rígida se adapta a la manipulación durante el juego.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "sinopsis_editorial"
       ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Dónde está la caca?, de Varios autores, comparte con Busca y encuentra: Monstruos la búsqueda de elementos ocultos, aunque cambia las criaturas fantásticas por objetos relacionados con su título y distintos lugares del mundo. Atrápame si puedes (Libro interactivo), también de Varios autores, coincide en la participación activa del lector, frente a la búsqueda visual en escenas ilustradas de este libro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408323006",
+        "isbn-9791388220500"
+      ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f2b61cbe7b1706dd",
+  "fuente_hash": "59102007fae938c9",
   "origen": "chatgpt-web"
 }

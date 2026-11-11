@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410252684",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El bolsillo de la maestra (Tesoros) se sitúa entre las lecturas infantiles relacionadas con la amistad. Sus 40 páginas lo distinguen de una novela juvenil extensa; tampoco corresponde a quien busca un manual especializado para docentes, ya que su clasificación es infantil.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El bolsillo de la maestra (Tesoros) cuenta con una edición en tapa dura de 40 páginas, publicada en castellano por Carambuco Ediciones. Su extensión permite organizar lecturas breves, mientras que la encuadernación rígida resulta práctica para conservarlo y compartirlo en el ámbito familiar o escolar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El bolsillo de la maestra (Tesoros) puede compararse con Amigos de verdad por su relación con la amistad en la infancia. La obra de Joan Turu es una publicación infantil de 40 páginas, mientras que Amigos de verdad, de Iris Pérez-Bonaventura, aborda expresamente el papel de la amistad en la personalidad de niños y adolescentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994532"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cc8f4e811895862d",
+  "origen": "chatgpt-web"
+}

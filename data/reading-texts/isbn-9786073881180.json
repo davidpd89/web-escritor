@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9786073881180",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Minúsculas gotas de paz / Tiny Drops of Peace se dirige a lectores interesados en el desarrollo personal y la reflexión sobre el bienestar. Con 144 páginas, pertenece al ámbito de la autoayuda, no al de la ficción narrativa o el ensayo histórico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 144 páginas de Minúsculas gotas de paz / Tiny Drops of Peace en un volumen físico de Penguin Random House Grupo Editorial. Su extensión permite llevarlo consigo y consultarlo en distintos momentos del día.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e383f6c698580b92",
+  "origen": "chatgpt-web"
+}

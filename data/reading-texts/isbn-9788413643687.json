@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788413643687",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rainer Maria Rilke o La vida abierta: Una biografía (Tiempo Recobrado) se dirige a quienes leen biografías y se interesan por la poesía. El trabajo de Sandra Richter se sitúa en la no ficción biográfica, por lo que no responde a la búsqueda de una novela protagonizada por personajes inventados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Rainer Maria Rilke o La vida abierta: Una biografía (Tiempo Recobrado) tiene una edición en tapa blanda de 492 páginas. El volumen de Editorial Trotta, publicado en castellano, permite una lectura continuada o la consulta de pasajes concretos de esta biografía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esas muchachas que escriben poemas y Rainer Maria Rilke o La vida abierta: Una biografía (Tiempo Recobrado) relacionan la escritura poética con las vidas de sus protagonistas. La obra de Sandra Richter se concentra en una figura concreta, mientras que la de Alba Donati presenta una mirada plural sobre mujeres vinculadas a la poesía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426434272"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ed5d767a3efbfed3",
+  "origen": "chatgpt-web"
+}

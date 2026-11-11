@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788411193979",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Tus zonas: Incluye Tus zonas sagradas + Tus zonas erróneas + Tus zonas mágicas (Biblioteca Wayne W. Dyer), de Wayne W. Dyer, se dirige a lectores interesados en desarrollo personal y en los tres títulos reunidos en el estuche. Su contenido pertenece a la no ficción, por lo que no encaja con quien busque relatos o narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne 1040 páginas en el Estuche Tus zonas: Incluye Tus zonas sagradas + Tus zonas erróneas + Tus zonas mágicas (Biblioteca Wayne W. Dyer), de Wayne W. Dyer. Es una edición de bolsillo que concentra los tres títulos en un mismo conjunto físico, adecuada para quien prefiera tenerlos reunidos en papel.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formato_edicion",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche Tus zonas: Incluye Tus zonas sagradas + Tus zonas erróneas + Tus zonas mágicas (Biblioteca Wayne W. Dyer), de Wayne W. Dyer, reúne tres títulos del mismo autor. Tus zonas mágicas aborda los milagros y la «magia verdadera», mientras que Tus zonas sagradas plantea una guía de conexión espiritual; ambos aparecen también como libros individuales en el catálogo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331834",
+        "isbn-9788408331780"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fa36fe8ecb3d4274",
+  "origen": "chatgpt-web"
+}

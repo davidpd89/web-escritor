@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Una luz en la oscuridad está destinada a lectores adultos interesados en la historia de la música española y las biografías de compositores. Su recorrido por la vida y el contexto político de Joaquín Rodrigo se aleja de los manuales de interpretación musical y de las narraciones de ficción.",
+      "texto": "Una luz en la oscuridad está dirigida a lectores adultos interesados en las biografías musicales y en la historia cultural española. Su recorrido por la vida y la creación de Joaquín Rodrigo encaja menos con quienes buscan una novela, un manual de interpretación musical o una introducción exclusivamente técnica a sus composiciones.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,27 +14,27 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Walter Aaron Clark y Javier Suárez-Pajares reconstruyen la trayectoria de Joaquín Rodrigo, desde su infancia en Valencia hasta su formación en París y su consolidación como compositor. Una luz en la oscuridad relaciona su producción musical con la ceguera, las influencias artísticas y las circunstancias políticas y culturales de la España del siglo XX.",
+      "texto": "La biografía examina la trayectoria de Joaquín Rodrigo, desde su formación musical hasta la consolidación de una obra vinculada a la tradición española. Walter Aaron Clark y Javier Suárez-Pajares relacionan su actividad creativa con las circunstancias políticas y culturales del siglo XX, atendiendo tanto a su evolución artística como a su experiencia personal.",
       "evidencias": [
-        "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas reúne las 648 páginas de Una luz en la oscuridad en un volumen físico para seguir la biografía y consultar sus distintas etapas. Kindle permite leer esta obra extensa en el móvil o en un dispositivo electrónico, sin transportar el ejemplar impreso durante los desplazamientos.",
+      "texto": "Una luz en la oscuridad cuenta con una edición en tapa blanda con solapas de Taurus, de 648 páginas, adecuada para conservar y consultar una biografía extensa. Kindle permite leerla en el móvil o en un lector electrónico, con mayor facilidad para transportarla sin el peso del ejemplar físico.",
       "evidencias": [
         "titulo",
         "edicion",
+        "editorial",
         "numero_paginas",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Una luz en la oscuridad y Churchill comparten el formato biográfico y el interés por situar una trayectoria personal dentro de su contexto histórico. Walter Aaron Clark y Javier Suárez-Pajares estudian la vida musical de Joaquín Rodrigo, mientras Paul Johnson se ocupa de una figura política; Canción de amor definitiva ofrece otra aproximación a una trayectoria vinculada con la música, desde una perspectiva personal.",
+      "texto": "Una luz en la oscuridad puede compararse con Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes por su enfoque biográfico. Mientras la obra de Andrew Paxman presenta una vida mediante episodios, Walter Aaron Clark y Javier Suárez-Pajares estudian la trayectoria musical de Joaquín Rodrigo y su relación con la historia cultural española.",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,8 +43,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401042119",
-        "isbn-9791388328046"
+        "isbn-9786073873154"
       ]
     }
   ],

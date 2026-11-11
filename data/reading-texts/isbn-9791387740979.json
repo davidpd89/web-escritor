@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Han cantado bingo es una novela para adultos interesados en los vínculos entre hermanas, la memoria de la infancia y los conflictos familiares. Su tratamiento de la violencia infantil, los secretos y la culpa puede alejar a quienes busquen una lectura familiar ligera o dirigida a niños.",
+      "texto": "Han cantado bingo se dirige a lectores adultos de narrativa contemporánea interesados en los vínculos familiares, la infancia y sus consecuencias emocionales. La violencia durante la niñez, los secretos compartidos y la culpa lo alejan de una historia familiar de tono exclusivamente cotidiano o ligero.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,27 +14,25 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Han cantado bingo combina narrativa contemporánea, recuerdos de infancia y elementos de magia oscura en una historia familiar ambientada en Lanzarote. Lana Corujo organiza la novela alrededor de quince edades de la protagonista, vinculadas a los números de un cartón de bingo, y utiliza el secreto compartido por dos hermanas como eje narrativo.",
+      "texto": "La novela combina un conflicto familiar marcado por la violencia infantil con elementos de misterio y magia oscura. La relación entre dos hermanas sostiene una narración que recorre distintas edades de su protagonista y utiliza los números del bingo como parte de su estructura.",
       "evidencias": [
-        "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Han cantado bingo puede leerse en tapa dura o Kindle y tiene 184 páginas. La edición física de Reservoir Books ofrece un volumen encuadernado en tapa dura para conservar o regalar; Kindle permite llevar la novela en el móvil o en un lector electrónico.",
+      "texto": "Han cantado bingo puede leerse en tapa dura o en Kindle. La edición física de 184 páginas permite conservar un ejemplar encuadernado para la biblioteca o regalarlo, mientras que Kindle facilita llevar la novela en un dispositivo de lectura o en el móvil.",
       "evidencias": [
         "titulo",
-        "editorial",
+        "edicion",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Han cantado bingo y La casa de los espíritus comparten el interés por las historias familiares, aunque Lana Corujo concentra su novela en dos hermanas y un secreto de infancia, mientras Isabel Allende desarrolla una historia de familia de mayor alcance. Una familia moderna, de Julia Navarro, también gira alrededor de una familia, pero Han cantado bingo incorpora violencia infantil y magia oscura.",
+      "texto": "El niño (Andanzas) y Han cantado bingo se sitúan en el ámbito de la narrativa vinculada a la infancia. La novela de Lana Corujo desarrolla específicamente una relación entre hermanas atravesada por la violencia, la culpa y un secreto familiar, con elementos de magia oscura.",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,8 +41,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401042751",
-        "isbn-9788401033797"
+        "isbn-9788411074445"
       ]
     }
   ],

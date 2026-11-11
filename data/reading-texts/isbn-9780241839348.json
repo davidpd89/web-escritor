@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9780241839348",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido al público infantil y juvenil interesado en observar la naturaleza mediante un enfoque visual. Las formas de la naturaleza: Un caleidoscopio del mundo natural (Enciclopedia visual juvenil) se centra en el mundo natural, por lo que se aleja de las lecturas que buscan una trama de ficción protagonizada por personajes.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 96 páginas de esta enciclopedia visual juvenil en un volumen físico. Esta encuadernación resulta práctica para consultar sus contenidos sobre naturaleza varias veces y conservar el libro en una biblioteca infantil.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Animales y Aprende a contar animales comparten con Las formas de la naturaleza: Un caleidoscopio del mundo natural (Enciclopedia visual juvenil) el interés por el mundo animal. Animales ofrece seis cuentos ilustrados y Aprende a contar animales introduce los números del 1 al 10; Ben Hoare aborda la naturaleza desde una enciclopedia visual juvenil.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9791370341589",
+        "isbn-9791370341176"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "41f69848d58aa908",
+  "origen": "chatgpt-web"
+}

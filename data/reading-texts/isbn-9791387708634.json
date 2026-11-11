@@ -4,16 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "COLOREA KAWAII ANIMALES ADORABLES está dirigido a quienes disfrutan coloreando animales con estética japonesa y utilizando pegatinas en actividades creativas. Incluye figuras de gatos, conejos, pollitos y pequeños dragones; no está planteado como una lectura narrativa ni como una guía científica sobre fauna.",
+      "texto": "Colorea kawaii animales adorables está dirigido a quienes disfrutan coloreando figuras de animales con estética japonesa kawaii. Incluye pegatinas para decorar y elaborar composiciones, por lo que responde a una actividad creativa manual y no a la búsqueda de una historia narrativa para leer de principio a fin.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es un libro de actividades visuales basado en el estilo KAWAII y en representaciones de animales. Combina ilustraciones para colorear con pegatinas que pueden incorporarse a los dibujos o emplearse en composiciones y collages, de modo que su uso principal es manual y creativo.",
+      "texto": "Colorea kawaii animales adorables propone una actividad de coloreado basada en animales representados con estética kawaii. Sus páginas incluyen figuras como gatos, conejos, pollitos y pequeños dragones, además de pegatinas que permiten completar las ilustraciones o realizar collages. La participación del lector consiste en intervenir sobre las imágenes.",
       "evidencias": [
         "titulo",
         "sinopsis_editorial"
@@ -21,31 +21,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "COLOREA KAWAII ANIMALES ADORABLES se presenta en tapa blanda, con 96 páginas publicadas por Benvil. El soporte físico permite colorear directamente las ilustraciones, colocar las pegatinas incluidas y realizar collages, actividades que constituyen el contenido central del libro.",
+      "texto": "Colorea kawaii animales adorables se ofrece en tapa blanda y cuenta con 96 páginas destinadas a actividades de coloreado y decoración. El soporte impreso permite aplicar los colores directamente sobre las ilustraciones y utilizar las pegatinas incluidas para modificar dibujos o preparar collages.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "ANIMALES, PALETAS DE COLOR, de Lauren Wager, también relaciona animales y color, pero estudia sus combinaciones cromáticas en lugar de proponer dibujos para completar. Animales, de Susaeta Ediciones, utiliza igualmente figuras animales, aunque las presenta como protagonistas de seis cuentos ilustrados y no como material para colorear y decorar.",
+      "texto": "Colorea kawaii animales adorables y 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos) comparten el formato de actividad gráfica. El primero trabaja con animales de estética kawaii e incorpora pegatinas, mientras el segundo se identifica como un libro para colorear vinculado a Roblox y al dibujo mediante píxeles.",
       "evidencias": [
         "titulo",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370341589",
-        "isbn-9788410651074"
+        "isbn-9788408328384"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "328bf93033b9cff5",
+  "fuente_hash": "eb76383440c9bd7d",
   "origen": "chatgpt-web"
 }

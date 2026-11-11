@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788448874742",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Clic y Clara en la era de los dinosaurios: Las aventuras más científicamente divertidas (Pequeños curiosos) se dirige a lectores interesados en los dinosaurios, la naturaleza y las aventuras con elementos científicos. Su enfoque temático se aleja de las historias centradas exclusivamente en relaciones personales o conflictos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Clic y Clara en la era de los dinosaurios: Las aventuras más científicamente divertidas (Pequeños curiosos) se presenta en tapa dura y tiene 40 páginas. Es un volumen físico de extensión breve, manejable para consultar en distintas sesiones y conservar en una estantería infantil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Clic y Clara en el espacio: Las aventuras más científicamente divertidas (Pequeños curiosos) comparte protagonistas y autoría con el libro de dinosaurios de Carlos Pazos, pero cambia el entorno prehistórico por el espacial. Las aventuras navideñas de los Mimosaurios: Tres cuentos llenos de magia, amistad y espíritu navideño, de Laura Naiara Aldana Ramaker, también aborda las aventuras y la amistad, aunque incorpora elementos mágicos y una ambientación festiva.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874759",
+        "isbn-9788409926671"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e356b93a48830164",
+  "origen": "chatgpt-web"
+}

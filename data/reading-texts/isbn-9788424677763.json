@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788424677763",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La bruja Ring Ring #5. El secreto de las flores está orientado al público infantil que busca fantasía y relatos relacionados con secretos y magia. Sus 72 páginas permiten abordar una lectura de extensión reducida; su temática se aleja de las historias estrictamente realistas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La bruja Ring Ring #5. El secreto de las flores se ofrece en tapa dura, con 72 páginas en castellano. La cubierta rígida protege las páginas durante la manipulación habitual y facilita conservar el ejemplar junto a otros libros de la misma colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La bruja Ring Ring #5. El secreto de las flores comparte con El diario de Wiska 2 - Un secreto entre amigas la presencia de un secreto en el título y su orientación hacia lectores de ficción infantil. Alicia Teba presenta una historia vinculada a una bruja y unas flores, mientras que la obra de Harriet Muncaster sitúa el secreto en una relación de amistad. El título identifica el libro de Alicia Teba como el n.º 5.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388277023"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "413666d9a3dfbd45",
+  "origen": "chatgpt-web"
+}

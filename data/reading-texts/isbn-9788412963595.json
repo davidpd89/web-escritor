@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788412963595",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "INMIGRACIÓN: LA GRAN TRANSFORMACIÓN DE OCCIDENTE se dirige a lectores interesados en el poder político, la inmigración y los discursos sobre las élites. Su planteamiento, expresado en el subtítulo, encaja menos con quienes buscan una aproximación ajena a las tesis políticas o una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de INMIGRACIÓN: LA GRAN TRANSFORMACIÓN DE OCCIDENTE es de tapa blanda y reúne 452 páginas en castellano. Publicada por La Burla Negra, ofrece un volumen físico que puede consultarse por partes y transportarse sin recurrir a una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A la sombra del Estado, de Luis de la Corte Ibáñez, también aborda estructuras de poder, pero se centra en espionaje, operaciones encubiertas y desinformación. INMIGRACIÓN: LA GRAN TRANSFORMACIÓN DE OCCIDENTE, de Óscar Rivas Pérez, plantea en cambio una tesis política sobre inmigración, élites y desarraigo. Ambos tratan cuestiones de poder desde asuntos distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c4ce195e8b138b2e",
+  "origen": "chatgpt-web"
+}

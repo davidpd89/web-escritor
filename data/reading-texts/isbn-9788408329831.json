@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mañana volverás a perder encaja con lectores a partir de 16 años que buscan romance juvenil y narrativa contemporánea con conflictos familiares difíciles. Su tratamiento del miedo dentro del hogar puede alejar a quienes prefieren relaciones románticas de tono ligero y entornos familiares tranquilos.",
+      "texto": "Mañana volverás a perder está dirigida a lectores a partir de 16 años interesados en el romance juvenil y los conflictos familiares de la narrativa contemporánea. La convivencia entre el cariño y el miedo dentro del hogar forma parte de su planteamiento. Por ese motivo, se aleja de las historias románticas centradas exclusivamente en relaciones ligeras y situaciones cotidianas.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Mañana volverás a perder está recomendada a partir de 16 años y aborda situaciones familiares marcadas por el miedo. Griselda, Robbie y Cormac comparten una infancia en la que el afecto y las experiencias difíciles forman parte de la convivencia. Este contexto puede resultar incómodo para lectores sensibles a los conflictos dentro del hogar.",
+      "texto": "La edad recomendada para Mañana volverás a perder es a partir de 16 años. La historia presenta a Griselda, Robbie y Cormac, que crecen en un entorno doméstico donde conviven el afecto y el miedo. Ese componente familiar puede resultar sensible para lectores que prefieran evitar situaciones de inseguridad en el hogar.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -23,28 +23,28 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Mañana volverás a perder pertenece al romance juvenil y la narrativa contemporánea, con una historia centrada en relaciones personales complejas. Dara Kelton presenta a Griselda, Robbie y Cormac a partir de su pasado compartido en un entorno familiar donde conviven el cariño y el miedo. El conflicto emocional ocupa un lugar central frente a los elementos habituales de una comedia romántica.",
+      "texto": "Mañana volverás a perder pertenece al romance juvenil y a la narrativa contemporánea. Dara Kelton presenta a Griselda, Robbie y Cormac, que crecieron en un barrio pequeño y en una casa marcada por la convivencia entre el cariño y el miedo. El punto de partida relaciona los vínculos personales con una experiencia familiar difícil, dentro de una historia dirigida a lectores a partir de 16 años.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "edad_recomendada"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mañana volverás a perder está disponible en tapa blanda, concretamente en rústica con solapas. Sus 368 páginas forman una edición física que permite leer la novela sin dispositivos y conservarla en papel; también puede elegirse como regalo para lectores de romance juvenil.",
+      "texto": "Mañana volverás a perder está disponible en tapa blanda, en una edición rústica con solapas de Crossbooks. Sus 368 páginas forman un volumen físico que puede transportarse y leerse por sesiones sin depender de dispositivos electrónicos. Las solapas son un rasgo de esta presentación para quien prefiera conservar el ejemplar impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
-        "numero_paginas",
-        "categorias"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mañana volverás a perder y El color de la esperanza comparten el interés por los vínculos personales y las emociones difíciles. Dara Kelton plantea un romance juvenil atravesado por el miedo familiar, mientras que Danielle Steel aborda nuevos comienzos en el País Vasco francés, con una orientación más luminosa.",
+      "texto": "Mañana volverás a perder y A mil por hora, de Hannah Grace, comparten el componente romántico. La novela de Dara Kelton parte de una convivencia familiar atravesada por el miedo, mientras que A mil por hora plantea una relación vinculada a un piloto de F1 y una mujer con dificultades para dejar atrás su pasado. El contexto familiar de una contrasta con el deportivo de la otra.",
       "evidencias": [
         "titulo",
         "autores",
@@ -53,7 +53,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401040368"
+        "isbn-9788466683449"
       ]
     }
   ],

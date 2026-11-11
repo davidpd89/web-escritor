@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788410264762",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Detonación (NOVELA GRAFICA) está orientado a quienes prefieren la narración mediante viñetas frente a la novela convencional en prosa. Es una obra de Miguel Vila de 176 páginas, por lo que responde a una búsqueda de cómic y novela gráfica, no a la de un relato exclusivamente textual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Detonación (NOVELA GRAFICA) cuenta con una edición en tapa blanda de 176 páginas, publicada por Ediciones la Cúpula, S.l. El formato permite leer las páginas impresas y conservar el cómic como volumen físico, sin depender de una pantalla para seguir la narración gráfica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bb72b78ec92f024c",
+  "origen": "chatgpt-web"
+}

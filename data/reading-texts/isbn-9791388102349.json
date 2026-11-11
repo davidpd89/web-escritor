@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388102349",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Star Wars: Las crónicas Jedi nº 01: 1 (Star Wars: Cómics Tomo Marvel) encaja con lectores juveniles interesados en la ciencia ficción y los cómics del universo Star Wars. Sus 400 páginas ofrecen una lectura gráfica extensa; resulta menos adecuado para quien busca narrativa realista o una novela escrita exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Star Wars: Las crónicas Jedi nº 01: 1 (Star Wars: Cómics Tomo Marvel) cuenta con una edición en tapa dura de 400 páginas en castellano. El formato rígido facilita conservar el tomo y regalarlo, mientras que el título lo identifica como el n.º 01, una referencia útil para ordenar la colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Star Wars: Las crónicas Jedi nº 01: 1 (Star Wars: Cómics Tomo Marvel) comparte universo y autoría colectiva con Star Wars Boba Fett: Blanco, negro y rojo (Star Wars: Cómics Tomo Marvel), aunque cada título identifica un foco distinto: los Jedi y Boba Fett. Frente a Star Wars Thrawn nº 01 (manga): 1 (Manga Shonen), también de Varios autores, se presenta como tomo de cómic Marvel en lugar de manga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388100932",
+        "isbn-9791388103506",
+        "isbn-9791388103216"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3897e2e53b98e717",
+  "origen": "chatgpt-web"
+}

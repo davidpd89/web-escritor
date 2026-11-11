@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388139031",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Secretos, mentiras y Shakespeare (Novela) se dirige a lectores de narrativa contemporánea interesados en historias donde los secretos y las mentiras ocupan un lugar central. Sus 448 páginas corresponden a una novela extensa; no responde a la búsqueda de un manual sobre Shakespeare ni de una lectura especialmente corta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Secretos, mentiras y Shakespeare (Novela) tiene una edición en tapa blanda de 448 páginas, publicada en castellano por Roca Editorial. El formato permite leerla en papel durante varias sesiones y conservar un ejemplar físico sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El último secreto: Edición limitada a precio especial (Colección Especial) y Los doce secretos comparten con Secretos, mentiras y Shakespeare el interés por los secretos como eje anunciado de la lectura. La diferencia es que la novela de Patricia Lorente se sitúa en la narrativa contemporánea e incorpora las mentiras y la referencia a Shakespeare en su propio título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331483",
+        "isbn-9791387574598"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4c2d7a80f8cc6f30",
+  "origen": "chatgpt-web"
+}

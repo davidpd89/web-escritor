@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788410944374",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en el poder, la historia reciente y la divulgación científica aplicada a la inteligencia artificial. Su enfoque sobre la disputa por el dominio tecnológico encaja menos con quien busca una guía práctica para utilizar herramientas de IA.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El juego de tronos de la IA: Cómo un puñado de hombres se disputa el dominio del mundo aborda la concentración del poder alrededor de la inteligencia artificial. Gustavo Entrala plantea la cuestión desde una perspectiva que relaciona la tecnología con sus protagonistas y las disputas por el control mundial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 256 páginas en castellano y permite consultar el contenido en papel. Publicada por La Esfera de los Libros, es una opción física para leer y conservar un ensayo sobre el poder asociado a la inteligencia artificial.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El aleph digital: Del libro impreso a la lectura total: 165 (Biblioteca de Ensayo / Serie mayor) también examina transformaciones vinculadas a la tecnología, pero desde la evolución de la lectura y el libro. El juego de tronos de la IA: Cómo un puñado de hombres se disputa el dominio del mundo desplaza la atención hacia la inteligencia artificial y las disputas por el poder mundial.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo"
+      ],
+      "enlaces": [
+        "isbn-9791388032721"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2a90645632aa8fce",
+  "origen": "chatgpt-web"
+}

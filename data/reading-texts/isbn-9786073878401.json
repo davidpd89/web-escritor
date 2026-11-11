@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073878401",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El hijo de Neptuno / The Son of Neptune: 2 (Los héroes del Olimpo / The Heroes of Olympus), de Rick Riordan, encaja con lectores de fantasía interesados en referencias religiosas y mitológicas. El título lo identifica como el n.º 2 de Los héroes del Olimpo / The Heroes of Olympus; resulta menos adecuado para quien busca una lectura breve y ajena a las series.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El hijo de Neptuno / The Son of Neptune: 2 (Los héroes del Olimpo / The Heroes of Olympus) se presenta en tapa blanda, con 464 páginas en castellano. Es una edición física que puede guardarse junto a otros volúmenes de la serie, aunque su extensión requiere más espacio que la de un libro corto.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El héroe perdido / The Lost Hero: 1 (Los héroes del Olimpo / The Heroes of Olympus) es la comparación más directa con El hijo de Neptuno / The Son of Neptune: 2 (Los héroes del Olimpo / The Heroes of Olympus). Ambos pertenecen a la misma serie según sus títulos y están firmados por Rick Riordan. El primero se identifica como el n.º 1 y el segundo como el n.º 2, una distinción útil para ordenarlos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073878395"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4cb396b995fcd353",
+  "origen": "chatgpt-web"
+}

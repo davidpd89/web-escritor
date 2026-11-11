@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409939992",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Paula y Corazón en busca del pétalo perdido, de Patricia Hernández Calatayud, pertenece a la fantasía infantil y juvenil. Sus 35 páginas permiten plantear una lectura breve dentro de ese género; encaja menos con quienes buscan novelas extensas de fantasía adulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Paula y Corazón en busca del pétalo perdido puede leerse en tapa blanda o Kindle. Sus 35 páginas hacen que la edición física sea un volumen breve y fácil de transportar; la versión Kindle permite llevar la lectura en un dispositivo electrónico, también durante desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Paula y Corazón en busca del pétalo perdido comparte el ámbito infantil y fantástico con Dream Magic. El dodo musical: Libro 4 (LITERATURA INFANTIL - Narrativa infantil), de Alena Pons. La diferencia visible está en sus planteamientos: el primero presenta una búsqueda en su título, mientras que el segundo se identifica como una entrega de narrativa infantil vinculada a la magia y la música.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788414360149"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3bd21a51e0360490",
+  "origen": "chatgpt-web"
+}

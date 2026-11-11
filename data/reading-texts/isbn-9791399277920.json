@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399277920",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Qué tal nos va?, de Matilde Cuevas, se sitúa en el ámbito de la religión y la espiritualidad, por lo que encaja con lectores interesados en esas materias. Sus 124 páginas permiten abordar un volumen breve; queda fuera de las búsquedas centradas en novelas de fantasía, aventuras o suspense.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Qué tal nos va? está disponible en tapa blanda, en una edición de Logos Ediciones de 124 páginas. Su extensión reducida facilita llevar el ejemplar en el bolso o la mochila y consultarlo en distintos momentos. El texto se publica en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Qué tal nos va?, de Matilde Cuevas, puede compararse con Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe, dentro del interés por la espiritualidad. Este último identifica expresamente el Dharma y su práctica, mientras que ¿Qué tal nos va? plantea una pregunta abierta desde el título. Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, introduce las experiencias de un recorrido concreto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496",
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "179cec60e34a03cc",
+  "origen": "chatgpt-web"
+}

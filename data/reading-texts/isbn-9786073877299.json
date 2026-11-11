@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9786073877299",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Superingenioso Libro Para Colorear de Matilda / Matilda's Outrageous Coloring Adventure está dirigido a quienes buscan una actividad de colorear relacionada con Matilda. Sus 32 páginas lo sitúan entre los libros de entretenimiento y actividades, no entre las novelas destinadas a una lectura narrativa continuada.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato de El Superingenioso Libro Para Colorear de Matilda / Matilda's Outrageous Coloring Adventure, publicado con 32 páginas. El soporte físico permite trabajar directamente sobre las páginas de este libro para colorear y conservar después las actividades realizadas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Dónde está Matilda?: Un libro de busca y encuentra (Alfaguara Clásicos) comparte con El Superingenioso Libro Para Colorear de Matilda / Matilda's Outrageous Coloring Adventure el personaje de Matilda y la autoría de Roald Dahl. La diferencia está en la actividad: uno propone buscar elementos y el otro colorear. Juan y la habichuela mágica también pertenece a Roald Dahl, pero se presenta como un relato.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388277030",
+        "isbn-9791388277719"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bf5bd75cb806b814",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791043309670",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de narrativa juvenil contemporánea que prefieren historias en formato de cómic o novela gráfica. El título lo identifica como el n.º 9, una característica menos ajustada a quienes buscan comenzar por una primera entrega o leer una novela convencional en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Alya a veces me susurra en ruso 9 (Shônen - Alya) cuenta con una edición en tapa dura de 192 páginas. La encuadernación rígida permite conservar esta entrega en papel y mantenerla junto a otros volúmenes de una colección, tanto para lectura como para regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sintonía del corazón a medianoche, 9, de Masakuni Igarashi, comparte con Alya a veces me susurra en ruso 9 (Shônen - Alya) la numeración de su entrega y una referencia a la comunicación en el título. Blue Lock nº 33 (Manga Shonen), de Yusuke Nomura y Muneyuki Kaneshiro, también pertenece al ámbito shônen, pero su título identifica otra serie y una entrega distinta; Alya figura como narrativa juvenil contemporánea de SunSunSun.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388101991",
+        "isbn-9791043309663"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2e65e2faa97a34cc",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788445023273",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La máscara de la muerte roja y otros relatos (Minotauro Ilustrados) se dirige a lectores interesados en el terror y los relatos breves. La obra de Ismael Pinteño Visuara y Edgar Allan Poe tiene 56 páginas, una extensión distinta de la habitual en novelas largas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La máscara de la muerte roja y otros relatos (Minotauro Ilustrados) se publica en tapa dura y tiene 56 páginas. La edición de Minotauro ofrece un volumen físico de extensión reducida, adecuado para conservar los relatos juntos y consultarlos sin pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La máscara de la muerte roja y otros relatos (Minotauro Ilustrados) puede compararse con Cuentos de misterio y terror (edición especial en tapa dura) (Ediciones Conmemorativas). Ambas obras incluyen relatos asociados a Edgar Allan Poe y se presentan en tapa dura. La primera tiene 56 páginas y pertenece a la línea Minotauro Ilustrados, mientras que la segunda se identifica como una edición conmemorativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491058458"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "39496bf4a2ce6f9f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399122985",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Perros de batalla: 5 (Narrativa) se orienta a lectores de fantasía, ciencia ficción, aventuras y relatos. Sus 300 páginas corresponden a una obra de Pablo Rodríguez que reúne esas clasificaciones, por lo que se distancia de la narrativa realista y de las lecturas centradas únicamente en relaciones cotidianas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Perros de batalla: 5 (Narrativa) cuenta con una edición en tapa blanda de 300 páginas, publicada por Con Pluma y Píxel. El formato permite leerlo en papel y transportarlo sin la rigidez de una cubierta dura; también facilita colocarlo junto a otros volúmenes de narrativa fantástica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Perros de batalla: 5 (Narrativa) y SIZIGIA: El renacer de la leyenda: 1 comparten su proximidad a la ficción fantástica y presentan una numeración en el título. La obra de Pablo Rodríguez también figura entre los relatos, las aventuras y la ciencia ficción, mientras que la de Tamara Allegue destaca por su referencia a una leyenda. El título identifica Perros de batalla: 5 (Narrativa) con el número 5, sin establecer por sí solo su posición narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399318111"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fa371c8e16d6df5f",
+  "origen": "chatgpt-web"
+}

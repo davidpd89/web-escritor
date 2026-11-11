@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9789505187096",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Trabajo de lo negativo, el 2a ED (Psicologia y psicoanalisis) encaja con lectores interesados en la psicología, el psicoanálisis y el ensayo. Sus 416 páginas y su orientación temática lo distinguen de los libros centrados en ejercicios cotidianos de desarrollo personal o en consejos breves de bienestar.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Trabajo de lo negativo, el 2a ED (Psicologia y psicoanalisis) reúne 416 páginas en castellano. El volumen de Amorrortu permite mantener una edición física para la lectura prolongada y la consulta posterior de cuestiones relacionadas con la psicología y el psicoanálisis.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Trabajo de lo negativo, el 2a ED (Psicologia y psicoanalisis), de André Green, comparte el ámbito psicológico con Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso. El primero se identifica con el psicoanálisis y el ensayo; el segundo plantea el trabajo sobre las experiencias de la infancia desde una perspectiva de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7340764552e3fef0",
+  "origen": "chatgpt-web"
+}

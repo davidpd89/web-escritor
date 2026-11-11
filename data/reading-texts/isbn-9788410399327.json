@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788410399327",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores de fantasía juvenil que buscan romance y aventuras dentro de una misma obra. Por su combinación de romantasy y elementos de ciencia ficción, encaja menos con quienes prefieren relatos realistas sin componentes fantásticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una tempestad para matar un beso: La balada del fuego solar 2 (Inlov Romantasy) está disponible en tapa dura y tiene 512 páginas. La encuadernación rígida resulta apropiada para conservar un volumen extenso en la estantería o entregarlo como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una tempestad para matar un beso: La balada del fuego solar 2 (Inlov Romantasy), de Julia Dippel, comparte el ámbito de la fantasía romántica con El hechizo más oscuro (Faeris Editorial), de Wanda Hellmund. La diferencia identificable está en la autoría y en que el título de Julia Dippel se presenta como parte de La balada del fuego solar. También puede compararse con Saciar a la bestia - libro 1 (Faeris Editorial), de Tamara Molina, cuyo título señala expresamente un primer libro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388108419",
+        "isbn-9791388108365"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7ea734dcd9ed634c",
+  "origen": "chatgpt-web"
+}

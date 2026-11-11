@@ -4,66 +4,62 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El mago de Viena encaja con lectores interesados en la escritura, la memoria literaria y los viajes narrados desde la experiencia personal. Sergio Pitol combina reflexiones sobre otros autores con recuerdos y episodios de su trayectoria. No responde a las expectativas de quien busca una novela de argumento lineal y conflicto sostenido.",
+      "texto": "El mago de Viena se dirige a lectores interesados en la escritura, la memoria literaria y las reflexiones de un autor sobre su oficio. Su construcción fragmentaria y la mezcla de experiencias, viajes y comentarios sobre libros lo distancian de una novela con argumento lineal.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "El mago de Viena propone una lectura fragmentaria que cruza narrativa contemporánea, reflexión literaria y escritura autobiográfica. Sergio Pitol alterna recuerdos de viajes, comentarios sobre libros y observaciones acerca de su propio oficio. La estructura prescinde de un recorrido cronológico convencional y permite pasar de una experiencia vivida a una cuestión literaria.",
+      "texto": "El mago de Viena combina recuerdos, reflexiones literarias y episodios de viajes mediante fragmentos que alternan lo real y lo imaginado. Sergio Pitol utiliza esas piezas para examinar su relación con la escritura, sus lecturas y la transformación de la experiencia personal en literatura.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de El mago de Viena se publica en tapa blanda por Editorial Anagrama, con 216 páginas en castellano y prólogo de Daniel Saldaña París. Su fecha de publicación es el 21 de octubre de 2026 y corresponde al ISBN 9788433951113. El prólogo añade una intervención introductoria al texto de Sergio Pitol.",
+      "texto": "Esta edición de El mago de Viena está publicada por Editorial Anagrama en castellano, con 216 páginas y encuadernación en tapa blanda. Incorpora un prólogo de Daniel Saldaña París y tiene fecha de publicación del 2026-10-21.",
       "evidencias": [
         "titulo",
-        "autores",
         "editorial",
         "edicion",
-        "fecha_publicacion",
         "numero_paginas",
         "idioma",
-        "isbn13",
+        "fecha_publicacion",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El mago de Viena está disponible en tapa dura, tapa blanda y Kindle. La edición de tapa blanda de Editorial Anagrama reúne 216 páginas y facilita llevar el volumen en papel; la tapa dura ofrece una encuadernación más rígida para conservarlo. Kindle permite leerlo en un dispositivo electrónico sin transportar el ejemplar físico.",
+      "texto": "La tapa blanda reúne las 216 páginas de El mago de Viena en un volumen físico que permite volver a los distintos fragmentos y al prólogo. Kindle facilita la lectura digital y la consulta de pasajes sin necesidad de transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Vals de Mefisto y El mago de Viena comparten la autoría de Sergio Pitol, pero sus presentaciones editoriales destacan elementos distintos. El primero incluye un prólogo de Enrique Vila-Matas; El mago de Viena incorpora uno de Daniel Saldaña París y desarrolla una reflexión sobre literatura, memoria y viajes. La comparación permite distinguir dos libros del mismo escritor por sus textos introductorios y el enfoque descrito del segundo.",
+      "texto": "El mago de Viena puede compararse con Domar a la divina garza y Vals de Mefisto porque las tres obras pertenecen a Sergio Pitol. El primero combina memoria, viajes y reflexión sobre la escritura; Domar a la divina garza se presenta mediante referencias a la comedia y la tragedia, mientras que Vals de Mefisto incorpora un prólogo de Enrique Vila-Matas.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788433950987",
         "isbn-9788433951229"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "56abb3dd2379379c",
+  "fuente_hash": "9b7399ee19339f6c",
   "origen": "chatgpt-web"
 }

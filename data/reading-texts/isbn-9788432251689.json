@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788432251689",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un homicidio perfecto (Serie Las sombras de Oxford 1) (Biblioteca Formentor) encaja con lectores que buscan misterio y thriller dentro de la narrativa contemporánea. Sus 416 páginas y su enfoque criminal lo separan de las lecturas centradas en fantasía o aventuras sin investigación.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Un homicidio perfecto (Serie Las sombras de Oxford 1) (Biblioteca Formentor) se presenta en tapa blanda y reúne 416 páginas. Publicada por Seix Barral en castellano, permite leer una novela de misterio extensa en papel, con una encuadernación flexible para transportarla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un homicidio perfecto (Serie Las sombras de Oxford 1) (Biblioteca Formentor) comparte el ámbito criminal con Aguas turbulentas, de Rankin Ian, y Asesinato antes de Navidad, de Katherine Black. Aguas turbulentas sitúa su conflicto en Edimburgo y relaciona pasado y presente, mientras que Asesinato antes de Navidad parte de una celebración navideña; la obra de Simon Mason se identifica con Oxford y una investigación por homicidio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318",
+        "isbn-9791370310264"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "518350c9a87f19f3",
+  "origen": "chatgpt-web"
+}

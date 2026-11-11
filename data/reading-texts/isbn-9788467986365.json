@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788467986365",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los 100 ultimos dias de hitler se dirige a lectores interesados en el cómic histórico y en obras centradas en el final de Hitler. Sus 112 páginas corresponden a una novela gráfica, por lo que encaja menos con quien busca una narración histórica extensa escrita únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los 100 ultimos dias de hitler se publica en tapa dura, con 112 páginas en castellano. Esta edición física de Norma Editorial permite conservar el volumen en una estantería y consultarlo sin dispositivos electrónicos; también puede elegirse como regalo para lectores de cómic y novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7474e912d9b7ef1c",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9798890988515",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con quienes buscan humor relacionado con la escuela y las relaciones familiares. ¡La Srta. Lulú no sabe ni la U! / Miss Daisy Is Crazy!: 1 (Una Escuela Rara), de Dan Gutman, tiene 96 páginas y se aleja de las lecturas centradas en asuntos económicos o profesionales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de ¡La Srta. Lulú no sabe ni la U! / Miss Daisy Is Crazy!: 1 (Una Escuela Rara) se presenta en tapa blanda. Sus 96 páginas permiten llevar el libro en una mochila y leerlo en varias sesiones cortas; Vintage Espanol lo publica en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Más Gallina / Fight or Flight (Diario del Wimpy Kid), de Jeff Kinney, comparte con la obra de Dan Gutman su relación con el humor, aunque pertenece a otra serie. El pequeño libro de los padres (Somos B), de 72 Kilos, se acerca al ámbito familiar desde la crianza, mientras que la obra de Dan Gutman sitúa su propuesta humorística en el entorno escolar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890989772",
+        "isbn-9788466684101"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "00625bc4f443caf6",
+  "origen": "chatgpt-web"
+}

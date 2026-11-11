@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788408331483",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El último secreto: Edición limitada a precio especial (Colección Especial) se dirige a lectores de misterio, thriller y narrativa relacionada con secretos. La clasificación también incluye novela histórica y narrativa contemporánea, por lo que no corresponde a quien busque exclusivamente una obra de divulgación o un libro de actividades.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de El último secreto: Edición limitada a precio especial (Colección Especial) se identifica como una edición limitada dentro de una colección especial. Está publicada por Booket, en castellano, y tiene el ISBN 9788408331483. Su título incorpora la indicación de precio especial como parte de la denominación editorial.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El último secreto: Edición limitada a precio especial (Colección Especial) está disponible en tapa dura y tiene 832 páginas. La encuadernación rígida ofrece protección para un volumen extenso y permite conservarlo en una biblioteca personal. Por su longitud, resulta más voluminoso que una lectura breve de bolsillo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El último secreto: Edición limitada a precio especial (Colección Especial) y La hija del joyero comparten su vinculación con la novela histórica. La obra de Dan Brown también pertenece al misterio y al thriller, mientras que La hija del joyero sitúa su historia en Málaga, 1867. Con La inquilina comparte el ámbito del suspense, aunque sus autores son distintos: Dan Brown y Freida McFadden.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466685016",
+        "isbn-9791387512446"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "30ba364399900f2f",
+  "origen": "chatgpt-web"
+}

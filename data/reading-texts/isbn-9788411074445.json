@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788411074445",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El niño (Andanzas), de Fernando Aramburu, se orienta a lectores de narrativa contemporánea e histórica interesados en la infancia como tema literario. Sus 272 páginas corresponden a una novela para quien busca ficción narrativa, no a un manual de crianza ni a un libro de actividades infantiles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El niño (Andanzas) puede leerse en tapa blanda o en Kindle. La edición impresa reúne 272 páginas y permite conservar el ejemplar físico; Kindle ofrece la alternativa digital para llevar la lectura en un dispositivo compatible sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El niño que fuimos / The Child We Were coincide con El niño (Andanzas) en situar la infancia en el centro de su identificación temática, aunque son obras de Alma Delia Murillo y Fernando Aramburu, respectivamente. Infancia. Adolescencia. Juventud: 404 (El Acantilado), de Lev Tolstói, amplía el marco del título a otras etapas de la vida, frente al foco infantil de El niño (Andanzas).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073869799",
+        "isbn-9791387964788"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "12b0dc7fb255509a",
+  "origen": "chatgpt-web"
+}

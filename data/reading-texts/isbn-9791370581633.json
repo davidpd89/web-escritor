@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791370581633",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fumando juntos detras del super 09, de JINUSHI, encaja con lectores que buscan cómic y novela gráfica. Quienes prefieran narrativa en prosa o ensayo encontrarán aquí una propuesta de otro formato; el título lo identifica como el n.º 09.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Fumando juntos detras del super 09 reúne 276 páginas en formato Bunko. Es la opción disponible para quien quiera conservar el volumen en papel dentro de su colección de cómics.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "21db823074f17cf3",
+  "origen": "chatgpt-web"
+}

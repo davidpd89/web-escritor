@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Morvenn Vahl: Lanza de la Fe se dirige a lectores de ciencia ficción interesados en conflictos militares, amenazas planetarias y enfrentamientos por motivos religiosos. Su historia de defensa de un mundo sagrado encaja menos con quienes buscan ciencia ficción centrada en la exploración científica o en problemas cotidianos.",
+      "texto": "Morvenn Vahl: Lanza de la Fe se dirige a lectores de ciencia ficción interesados en conflictos militares, amenazas planetarias y disputas de autoridad. La presencia de un señor de la guerra y de un planeta dominado por el terror la aleja de las historias cotidianas o de los conflictos sin violencia.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Morvenn Vahl: Lanza de la Fe plantea un conflicto de ciencia ficción en el que la defensa de Ophelia VII enfrenta a Morvenn Vahl con una amenaza militar. La protagonista desafía al Senatorum Imperialis para intervenir contra Kol Rakhul, conocido como el Asesino de Santas, en una historia donde la autoridad y la fe condicionan las decisiones.",
+      "texto": "Morvenn Vahl: Lanza de la Fe plantea un conflicto de ciencia ficción en torno a la defensa de Ophelia VII. Morvenn Vahl actúa contra la decisión del Senatorum Imperialis ante la amenaza de Kol Rakhul, conocido como el Asesino de Santas. La trama enfrenta la autoridad institucional con una intervención militar motivada por la protección de un mundo sagrado.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -22,27 +22,28 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Morvenn Vahl: Lanza de la Fe se ofrece en tapa blanda, con 224 páginas y encuadernación rústica con solapas. Su extensión permite leer el conflicto de ciencia ficción en un volumen físico relativamente breve, que puede transportarse y guardarse sin ocupar tanto espacio como una edición extensa.",
+      "texto": "Morvenn Vahl: Lanza de la Fe está disponible en tapa blanda, con encuadernación rústica y solapas. Sus 224 páginas permiten llevar el volumen físico en una mochila o bolso sin el peso habitual de una edición extensa en tapa dura. Minotauro publica esta edición en castellano.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
         "edicion",
-        "categorias"
+        "numero_paginas",
+        "editorial",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Morvenn Vahl: Lanza de la Fe comparte con Amanecer Rojo I Deluxe Edition, de Pierce Brown, el terreno de la ciencia ficción y el interés por la estrategia, aunque sitúa su conflicto en la defensa de un mundo sagrado. Aunque se acabe el mundo, de Clara Duarte, también presenta una amenaza de alcance planetario, pero parte de una transformación de la humanidad provocada por una cúpula sobre la Tierra.",
+      "texto": "Morvenn Vahl: Lanza de la Fe y Al despertar, rompe el cascarón (Runas) comparten su presencia entre las lecturas de ficción del catálogo, pero están escritos por Jude Reid y Becky Chambers, respectivamente. En Morvenn Vahl: Lanza de la Fe, el conflicto se concreta en una amenaza militar contra Ophelia VII y en la desobediencia a una autoridad política.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370313463",
-        "isbn-9788427255968"
+        "isbn-9791370093488"
       ]
     }
   ],

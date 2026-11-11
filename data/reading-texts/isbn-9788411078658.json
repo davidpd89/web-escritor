@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788411078658",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Secaré tus lágrimas (Andanzas), de Meï Lepage, encaja con lectores interesados en el misterio y el thriller dentro de la narrativa contemporánea. También figura vinculado a la temática de mujeres; quienes prefieren fantasía o manuales prácticos encontrarán aquí una orientación de género distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Secaré tus lágrimas (Andanzas) cuenta con una edición en tapa blanda de 368 páginas, publicada por Tusquets Editores. Este formato permite leerlo en papel y transportarlo sin la rigidez de una cubierta dura; su extensión corresponde a una novela de varios centenares de páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Secaré tus lágrimas (Andanzas) puede compararse con Las mujeres de New Jersey (THRILLER Y MISTERIO), de Astrid Dahl, por la combinación de intriga y presencia temática femenina. Donde callan los niños (Imágica Intriga), de Eva Zamora Zamora, ofrece otra referencia de misterio. La diferencia más clara entre estas obras está en su foco declarado: mujeres en el título de Astrid Dahl, niños en el de Eva Zamora Zamora y una combinación de misterio y narrativa contemporánea en la clasificación de Meï Lepage.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210729",
+        "isbn-9791387595715"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9c5a5fef0d9ac5bc",
+  "origen": "chatgpt-web"
+}

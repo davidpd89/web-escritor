@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788426434555",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Escamas doradas: La fuerza más grande del universo (Lumen Ilustrados), de Albert Espinosa, aborda el desarrollo personal y el amor desde una propuesta que también incorpora fantasía. Sus 96 páginas corresponden a una obra de extensión breve. No responde a la búsqueda de un manual técnico ni de una historia centrada exclusivamente en aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Escamas doradas: La fuerza más grande del universo (Lumen Ilustrados) se presenta en tapa dura, con 96 páginas en castellano. Su extensión permite manejarlo como un volumen breve, mientras que la encuadernación rígida facilita conservarlo o entregarlo como regalo. Es una edición de Lumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El universo amarillo (edición limitada): La luz siempre vuelve si esperas lo suficiente (Campaña | Libros firmados) comparte autoría con Escamas doradas: La fuerza más grande del universo (Lumen Ilustrados), ambos de Albert Espinosa, pero sus subtítulos apuntan a temas distintos. Alas de escarcha y oro: El canto del cisne, de Marta Morillo, también incorpora fantasía, aunque presenta un personaje que oculta sus dones, mientras que Escamas doradas combina fantasía, desarrollo personal y amor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466382359",
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ad1569270c17935f",
+  "origen": "chatgpt-web"
+}

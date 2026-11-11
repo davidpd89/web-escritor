@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073882712",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Para lectores interesados en la filosofía de la conciencia y las preguntas sobre el cerebro. ¿Hay Conciencia En Tu Cerebro? / Is There Consciousness in Your Brain?, de Enric F Gel, se presenta como un ensayo de orientación filosófica, no como una novela ni como un manual de ejercicios prácticos sobre el funcionamiento cerebral.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, con 384 páginas en castellano. Este formato permite transportar el ensayo y consultar de nuevo sus reflexiones filosóficas sobre la conciencia y el cerebro. La encuadernación flexible facilita manejar el volumen durante la lectura y conservarlo para futuras consultas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cartas a Lucilio: Edición íntegra (Clásicos), de Séneca, comparte con ¿Hay Conciencia En Tu Cerebro? / Is There Consciousness in Your Brain? el interés por la reflexión filosófica. La primera obra se presenta como una colección de cartas, mientras que el ensayo de Enric F Gel plantea desde su título una pregunta concreta sobre la conciencia y el cerebro.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388182495"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3edf58c08521b98c",
+  "origen": "chatgpt-web"
+}

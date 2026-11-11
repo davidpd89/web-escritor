@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388205873",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Denis Villeneuve: Dune y otras alquimias (Cine/Claqueta) se dirige a lectores interesados en el cine y en la figura de Denis Villeneuve. La obra de Juan Laborda Barceló se sitúa en el ámbito artístico y no está planteada como una novela de ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Denis Villeneuve: Dune y otras alquimias (Cine/Claqueta) tiene 149 páginas y se presenta en tapa blanda. Esta edición en castellano de Sílex Ediciones permite una lectura en papel relativamente breve y facilita volver a consultar pasajes concretos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "720 retrats comparte con Denis Villeneuve: Dune y otras alquimias (Cine/Claqueta) el interés por las figuras individuales dentro del ámbito artístico, aunque el primero se presenta como una colección de retratos y el segundo se centra en Denis Villeneuve. Arde Talía: Una pieza teatral sobre el infierno de la creación artística aborda el proceso creativo desde el teatro, mientras que Juan Laborda Barceló dedica su obra al cine.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802",
+        "isbn-9791399289510"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "72ba2769f5befefb",
+  "origen": "chatgpt-web"
+}

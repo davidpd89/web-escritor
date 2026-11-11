@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388002045",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La maldición del amor verdadero -edición especial ilustrada (#Fantasy), de Stephanie Garber, se dirige a quienes buscan una obra de fantasía vinculada al amor y presentada en una edición ilustrada. Su planteamiento editorial se aleja de los libros prácticos sobre relaciones de pareja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición especial ilustrada se presenta en tapa dura y contiene 336 páginas en castellano. Este formato permite conservar las ilustraciones y el volumen como objeto físico, además de facilitar su colocación en una colección de libros de Stephanie Garber.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alas de escarcha y oro: El canto del cisne, de Marta Morillo, también se sitúa en la fantasía, con una protagonista que oculta sus dones. La maldición del amor verdadero -edición especial ilustrada (#Fantasy), de Stephanie Garber, se distingue por su presentación ilustrada; frente a Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo), de Carlos del Amor, se orienta hacia la ficción fantástica y no hacia el ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938",
+        "isbn-9788467084122",
+        "isbn-9788425373602"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b5b6824dfccd1981",
+  "origen": "chatgpt-web"
+}

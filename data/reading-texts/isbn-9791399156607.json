@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "INHIBICIÓN, SÍNTOMA Y ANGUSTIA (Bilingüe) se dirige a lectores interesados en el pensamiento de Sigmund Freud y en la evolución de sus conceptos psicológicos. Su enfoque teórico, centrado en la angustia y las revisiones del autor, se distancia de los manuales de consejos prácticos sobre bienestar.",
+      "texto": "Inhibición, síntoma y angustia (Bilingüe) se orienta a lectores interesados en la teoría psicoanalítica y en la evolución de las ideas de Sigmund Freud. Su contenido examina cambios conceptuales sobre la angustia, por lo que se distancia de los manuales prácticos de psicología centrados en ejercicios de bienestar personal.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,16 +14,16 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es un texto de psicología dedicado a examinar cómo Sigmund Freud reformuló su explicación de la angustia. El análisis atiende a los cambios conceptuales del manuscrito, su modificación de título y la Adenda, y muestra por qué la angustia adquiere mayor peso que la inhibición y el síntoma.",
+      "texto": "Inhibición, síntoma y angustia (Bilingüe) plantea una lectura teórica sobre las relaciones entre la angustia, los síntomas y las inhibiciones. El análisis sigue las modificaciones que Sigmund Freud introdujo en su planteamiento de 1926 y presta atención a la Adenda, donde se amplía la revisión conceptual. Su enfoque es analítico, no narrativo.",
       "evidencias": [
+        "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "INHIBICIÓN, SÍNTOMA Y ANGUSTIA (Bilingüe) se presenta en tapa blanda, con 300 páginas. Esta edición física permite consultar el desarrollo de los conceptos de inhibición, síntoma y angustia, así como las rectificaciones teóricas tratadas en el texto.",
+      "texto": "Inhibición, síntoma y angustia (Bilingüe) está disponible en tapa blanda y tiene 300 páginas. Esta presentación impresa permite subrayar conceptos, añadir anotaciones y volver a los pasajes donde se revisa la teoría de la angustia. El título identifica la edición como bilingüe.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -33,7 +33,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "INHIBICIÓN, SÍNTOMA Y ANGUSTIA (Bilingüe) y Dos casos clínicos pertenecen a la obra de Sigmund Freud. El primero estudia la revisión teórica de la angustia, mientras que el segundo reúne investigaciones clínicas sobre Catalina e Isabel de R.; ambos permiten acercarse al mismo autor desde enfoques diferentes.",
+      "texto": "Inhibición, síntoma y angustia (Bilingüe) y Dos casos clínicos comparten la autoría de Sigmund Freud y el ámbito del psicoanálisis. Dos casos clínicos reúne estudios sobre Catalina e Isabel de R., mientras Inhibición, síntoma y angustia (Bilingüe) se centra en revisar conceptos teóricos y explicar los cambios en la comprensión de la angustia.",
       "evidencias": [
         "titulo",
         "autores",
@@ -47,6 +47,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4d84c8f8a6b97777",
+  "fuente_hash": "d05147a5caed0968",
   "origen": "chatgpt-web"
 }

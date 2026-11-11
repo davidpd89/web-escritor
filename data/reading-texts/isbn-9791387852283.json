@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387852283",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a personas interesadas en abordar la dislexia mediante estrategias de confianza y reconocimiento de fortalezas aplicables al trabajo y la vida cotidiana. Su enfoque práctico y de desarrollo personal se diferencia de los ensayos centrados exclusivamente en teoría o de los manuales de alimentación y salud física.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Desbloquea tu dislexia: Guía práctica de confianza, estrategias y fortalezas para el trabajo y la vida se publica en tapa blanda, con 304 páginas en castellano. La edición de Hestia permite consultar sobre papel sus contenidos relacionados con la dislexia, el trabajo y la vida cotidiana.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología) aborda cuestiones psicológicas relacionadas con las relaciones afectivas. Desbloquea tu dislexia: Guía práctica de confianza, estrategias y fortalezas para el trabajo y la vida, de Natalie Brooks, se distingue por centrarse en la dislexia y en estrategias para el ámbito laboral y personal.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387534370"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7ccb09b2f6ca08d6",
+  "origen": "chatgpt-web"
+}

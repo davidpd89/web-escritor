@@ -1,0 +1,35 @@
+{
+  "id": "isbn-9791387748166",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Seto de las Zarzas. La fiesta del bosque.: Un libro para colorear (Blackie Little) está dirigido a lectores infantiles que buscan una actividad creativa alrededor del dibujo y el color. No es una novela para seguir una trama, sino un libro cuya propuesta principal es colorear.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Se utiliza como libro de colorear: el lector trabaja directamente sobre sus páginas, eligiendo los colores para completar las ilustraciones. Sus 48 páginas permiten repartir la actividad en distintas sesiones o dedicarle varios ratos de forma independiente.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible y ofrece 48 páginas para colorear directamente sobre el papel. Es una edición física para trabajar con lápices o pinturas, en lugar de consultar el contenido en una pantalla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4537963b441b7657",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073879200",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary, de El Aletz y Alejandro Carrillo, se sitúa en el ámbito del arte y el diseño. Por su planteamiento de diccionario, se orienta a lectores interesados en una obra de consulta temática más que a quienes buscan una novela con personajes y una trama continuada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary tiene una edición en tapa blanda de 320 páginas, publicada en castellano. El papel permite consultar distintas partes del volumen y volver a ellas sin depender de un dispositivo; la cubierta flexible facilita su transporte.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary, de El Aletz y Alejandro Carrillo, comparte el ámbito del arte y el diseño con Arte Matrio, de Sara Rubayo, aunque este último aborda la historia del arte español. All Black Cuaderno (LIBRETAS ARTÖSTICAS), de Varios autores, se presenta como cuaderno, mientras que la obra de El Aletz y Alejandro Carrillo adopta la forma de diccionario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789879871119",
+        "isbn-9788449346095"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "054cc7b3a9fa17ce",
+  "origen": "chatgpt-web"
+}

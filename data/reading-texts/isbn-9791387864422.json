@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387864422",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores de romance que buscan una novela extensa de Ashley Jade. Sus 716 páginas encajan con quien prefiere dedicar varias sesiones a una misma lectura, pero menos con quien busca una obra breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de La última octava (EDICIÓN ESPECIAL LIMITADA) (SIREN ROMANCE) se identifica como especial limitada y está publicada por Siren Books. Se presenta en castellano, con encuadernación en tapa blanda y una extensión de 716 páginas.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "idioma",
+        "formato_edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato de esta edición de 716 páginas, una opción física que permite colocar el libro en una estantería y prestarlo después de leerlo. Por su extensión, conviene tener en cuenta el volumen de páginas al transportarlo o sostenerlo durante sesiones largas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5164852ad0c9f2d9",
+  "origen": "chatgpt-web"
+}

@@ -4,38 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El dinero explicado a Blanca está dirigido a lectores que comienzan su vida laboral y quieren comprender decisiones financieras como gestionar la primera nómina o afrontar la compra de una vivienda. Su enfoque introductorio y ligado a situaciones personales se aparta de los tratados sobre mercados internacionales o estrategias empresariales.",
+      "texto": "El dinero explicado a Blanca está pensado para lectores que quieren acercarse a la educación financiera a través de situaciones de la vida adulta. Su recorrido incluye la primera nómina y la compra de una vivienda, por lo que se diferencia de los libros dedicados a crear empresas o desarrollar habilidades de liderazgo.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El dinero explicado a Blanca se publica en tapa blanda con solapas, en una edición de Zenith de 240 páginas. El papel permite consultar de nuevo los apartados sobre economía personal y mantener el libro a mano durante la planificación de decisiones financieras.",
+      "texto": "La tapa blanda reúne las 240 páginas de El dinero explicado a Blanca en una edición de rústica con solapas de Zenith. Es la opción física para quien prefiere leer sobre educación financiera en papel y conservar el libro como material de consulta.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "formatos_disponibles",
         "edicion",
-        "editorial",
-        "numero_paginas",
-        "sinopsis_editorial"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El dinero explicado a Blanca y Cariño, ¿y este recibo? tratan decisiones económicas que afectan a la vida cotidiana. Montse Cespedosa parte del inicio de la independencia financiera, mientras que Angie Gil Ribera aborda cuestiones como compartir una cuenta bancaria o mantener las finanzas separadas. Domina el arte de los negocios cambia el foco hacia las habilidades profesionales y empresariales.",
+      "texto": "Cómo generar ingresos con las opciones: Así transformé la bola de nieve en avalancha (EMPRESA), de Renato Antinori, permite ampliar la lectura hacia las finanzas desde otra perspectiva. El dinero explicado a Blanca, de Montse Cespedosa, recorre situaciones cotidianas como la primera nómina y la compra de vivienda, mientras que el título de Antinori se centra en generar ingresos mediante opciones.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466390514",
-        "isbn-9788402431332"
+        "isbn-9788411724357"
       ]
     }
   ],

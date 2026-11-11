@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409939299",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sin filtro, de Guillermo Martínez Hernández, se sitúa en el ámbito de las biografías y memorias. Sus 110 páginas ofrecen una extensión breve para lectores interesados en ese tipo de escritura personal, frente a quienes buscan una novela de ficción o un relato fantástico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sin filtro se publica en tapa blanda, con una extensión de 110 páginas. El formato físico permite consultar o releer pasajes en papel y conservar el ejemplar; por su número de páginas, ocupa menos espacio que una obra extensa de memorias.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sin filtro puede compararse con Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, por su proximidad a la escritura de experiencias personales. La diferencia es que Al andar identifica expresamente el Camino de Santiago como asunto, mientras que Sin filtro se presenta dentro de las biografías y memorias sin delimitar ese escenario en su título.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8ceea2b4d5170cc1",
+  "origen": "chatgpt-web"
+}

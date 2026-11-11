@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788410399426",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de fantasía romántica que buscan una historia vinculada al romance y las aventuras. Por sus géneros, encaja menos con quienes prefieren narrativa realista sin componentes fantásticos o libros centrados exclusivamente en la ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Ever and after 2. La boda oscura: Edición con cantos tintados (Inlov Romantasy) se presenta en tapa dura con cantos tintados. Publicada por Inlov, reúne 656 páginas en castellano y lleva el ISBN 9788410399426.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para esta edición de 656 páginas. Su encuadernación rígida resulta práctica para conservar un volumen extenso, colocarlo en una estantería o regalarlo, mientras que los cantos tintados aportan un acabado distintivo al ejemplar físico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE) comparte con este libro el terreno del romance y los elementos fantásticos, aunque su título señala expresamente el romance oscuro. Divinos y miserables (Umbriel narrativa), de Adalyn Grace, ofrece otra referencia de lectura cercana; Ever and after 2. La boda oscura: Edición con cantos tintados (Inlov Romantasy) se distingue por su identificación como romantasy y su edición de cantos tintados.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788415955559",
+        "isbn-9786316947055"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5bbf6ea38ace46aa",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788403527089",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Momentos dorados: Una guía para recuperar el control de nuestro cuerpo y mente (Inspiración), de Noelia Romero, se dirige a lectores interesados en el desarrollo personal y en trabajar aspectos relacionados con el cuerpo y la mente. Su planteamiento corresponde a una guía práctica, no a una novela de ficción ni a una lectura de romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 336 páginas y está publicada por Aguilar. Es la opción física para consultar la guía en papel y conservarla junto a otros libros de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5651641712a227f0",
+  "origen": "chatgpt-web"
+}

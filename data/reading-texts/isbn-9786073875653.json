@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073875653",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La ciencia del éxito / Napoleon Hill's Master Course: The Original Science of Success se dirige a lectores interesados en el desarrollo personal y las ideas sobre el éxito. Es una obra de Napoleon Hill orientada a la autoayuda, no a quienes buscan una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La ciencia del éxito / Napoleon Hill's Master Course: The Original Science of Success está disponible en tapa blanda, con 336 páginas en castellano. Esta edición permite consultar distintos pasajes en papel y marcar páginas durante la lectura, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Piense y hágase rico: La riqueza y la realización personal al alcance de todos comparte con La ciencia del éxito / Napoleon Hill's Master Course: The Original Science of Success la autoría de Napoleon Hill y el interés por el desarrollo personal. El primero se centra en la riqueza y la realización personal, mientras que el segundo aborda el éxito desde un planteamiento presentado como curso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394406"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "31611587040b461b",
+  "origen": "chatgpt-web"
+}

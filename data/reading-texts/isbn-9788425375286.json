@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788425375286",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando solo queda aire: Aprender a morir es aprender a vivir (Crecimiento personal), de Paul Kalanithi, se dirige a lectores interesados en las memorias, la filosofía y el desarrollo personal. Su relación explícita entre muerte y vida puede no encajar con quienes prefieren evitar reflexiones sobre la mortalidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuando solo queda aire: Aprender a morir es aprender a vivir (Crecimiento personal) se ofrece en tapa blanda, con 216 páginas en castellano. Esta edición permite leer y volver a consultar sus reflexiones en papel, con una extensión relativamente contenida para una obra de memorias y filosofía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando solo queda aire: Aprender a morir es aprender a vivir (Crecimiento personal) puede compararse con La gravedad y la gracia (Contemporánea | Narrativa), de Simone Weil, por su orientación filosófica. La obra de Paul Kalanithi combina memorias y reflexión sobre la mortalidad, mientras que el título de Simone Weil sitúa el foco en conceptos filosóficos distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466392112"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9def3389f1e64681",
+  "origen": "chatgpt-web"
+}

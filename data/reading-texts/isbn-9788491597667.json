@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788491597667",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en los estudios literarios, la escritura carcelaria y las experiencias de prisión recogidas en las letras españolas. Su orientación ensayística y académica lo diferencia de una novela de ficción ambientada en una cárcel o de una lectura infantil sobre el encarcelamiento.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Analiza la escritura producida en contextos carcelarios dentro de la tradición literaria española. El enfoque se sitúa en los estudios literarios y permite abordar la relación entre el encarcelamiento, los testimonios personales y su expresión escrita.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de UJA Editorial ofrece 540 páginas en tapa blanda y en castellano. Por su extensión y orientación hacia los estudios literarios, el papel facilita la consulta de apartados, las anotaciones y la recuperación de pasajes durante una investigación.",
+      "evidencias": [
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los niños de la Resistencia. Memorias vivas 1: Josette y Jean-Jacques, de Vincent Dugomier, comparte con el libro de Elisa Borsari y sus colaboradores el interés por las experiencias históricas y su memoria. Mientras el primero se centra en niños vinculados a la Resistencia, el segundo aborda la escritura carcelaria en las letras españolas desde los estudios literarios.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388439148"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3ae40e373144ba9b",
+  "origen": "chatgpt-web"
+}

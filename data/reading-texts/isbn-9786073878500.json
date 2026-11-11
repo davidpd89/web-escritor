@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073878500",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensado para lectores de historia y política que buscan un libro centrado en la cuestión democrática. La democracia ausente / The Absent Democracy, de Roger Bartra, pertenece al ámbito de la no ficción y se aparta de las novelas históricas o de las lecturas cuyo interés principal sea la acción narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La democracia ausente / The Absent Democracy se ofrece en tapa blanda, con 264 páginas en castellano. La encuadernación flexible permite transportarlo para leerlo fuera de casa y volver a determinados pasajes durante una consulta. También puede guardarse como volumen de referencia junto a otros libros de historia y política.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La jaula de la melancolía / The Cage of Melancholy comparte autoría con La democracia ausente / The Absent Democracy: ambos son de Roger Bartra, aunque sus títulos señalan asuntos diferentes. El primero apunta a la melancolía y el segundo a la democracia, por lo que permiten acercarse a distintas preocupaciones de un mismo autor.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9786073878463"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b2bd2dc44ea6c184",
+  "origen": "chatgpt-web"
+}

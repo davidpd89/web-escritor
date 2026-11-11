@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788419619983",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La montaña del Intocable: Itinerario de un alpinista de la Conciencia se orienta a lectores interesados en el desarrollo personal y la exploración de la conciencia. Su planteamiento se aleja de quienes buscan exclusivamente información técnica sobre nutrición o una historia de alpinismo deportivo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La montaña del Intocable: Itinerario de un alpinista de la Conciencia se ofrece en tapa blanda, con 204 páginas en castellano. Es una edición física de extensión relativamente contenida, que puede transportarse para leer o consultarse durante una reflexión personal sobre la conciencia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia comparte con el libro de Daniel Meurois el interés por la conciencia, aunque plantea ese asunto mediante nueve dimensiones. Anatomía de la Inconsciencia Cautiva: Los mecanismos invisibles que nos gobiernan se aproxima desde los mecanismos de la inconsciencia, frente al itinerario de conciencia que anuncia La montaña del Intocable: Itinerario de un alpinista de la Conciencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798888505335",
+        "isbn-9788410929999"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3bbc4e281792f50d",
+  "origen": "chatgpt-web"
+}

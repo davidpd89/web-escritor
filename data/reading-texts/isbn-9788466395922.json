@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788466395922",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vive más: Reduce tu edad biológica y aumenta tu vitalidad (Best Seller | No Ficción) está dirigido a lectores interesados en la salud, la nutrición y el bienestar. Su enfoque en la edad biológica y la vitalidad lo diferencia de las lecturas de entretenimiento o de los libros centrados exclusivamente en recetas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Vive más: Reduce tu edad biológica y aumenta tu vitalidad (Best Seller | No Ficción) se presenta en tapa blanda de bolsillo. Sus 304 páginas permiten consultar distintos pasajes en papel, y el tamaño de bolsillo facilita llevarlo en el bolso o la mochila.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Vive más: Reduce tu edad biológica y aumenta tu vitalidad (Best Seller | No Ficción) puede compararse con Saludable Mente: Hábitos para optimizar tu cerebro y mejorar tu salud a cualquier edad (Best Seller | No Ficción), también de Marcos Vázquez. Ambos abordan la salud, pero el primero se centra en la edad biológica y la vitalidad, mientras que el segundo pone el foco en los hábitos relacionados con el cerebro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466374330"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "367de04027c118d0",
+  "origen": "chatgpt-web"
+}

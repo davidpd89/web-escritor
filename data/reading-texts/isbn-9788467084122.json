@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788467084122",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan un ensayo sobre la relación entre el amor y el arte, con una perspectiva vinculada a la historia. Por su enfoque temático, encaja menos con quien espera una novela romántica o una guía práctica para resolver conflictos de pareja.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo) está disponible en tapa blanda, con 288 páginas en castellano. Es una edición física que permite consultar y releer pasajes sobre amor y arte sin depender de una pantalla; su extensión también facilita calcular el tiempo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo) puede compararse con Estuche Carlos del Amor (NO FICCIÓN), también de Carlos del Amor, por su relación con el amor, la historia y el ensayo. La diferencia está en la presentación y extensión: Amarte tiene 288 páginas, mientras que el otro título se presenta como estuche.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083958"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0f02952cdb1b1a63",
+  "origen": "chatgpt-web"
+}

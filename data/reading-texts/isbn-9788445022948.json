@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788445022948",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El subastador (Terror), de Joan Samson, se orienta a lectores de narrativa contemporánea que buscan obras del género de terror. Sus 320 páginas corresponden a una lectura de extensión media, menos adecuada para quien prefiere poesía, ensayo o relatos muy breves.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El subastador (Terror) se ofrece en tapa blanda, concretamente en una edición de bolsillo de Booket. Sus 320 páginas quedan reunidas en un formato físico pensado para llevar la novela y leerla en papel, tanto en casa como fuera de ella.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El subastador (Terror) se puede comparar con Cosamala, de Alana S. Portero, por su relación con la narrativa de terror y los elementos góticos. Cosamala incorpora un crimen real de la guerra civil y una historia de brujas, mientras que El subastador (Terror), de Joan Samson, se presenta como narrativa contemporánea de terror en una edición de bolsillo de 320 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788432251436"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "19205935b67a5bae",
+  "origen": "chatgpt-web"
+}

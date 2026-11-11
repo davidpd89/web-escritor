@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387962111",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lidiar con las hermanas Mikadono es pan comido 2 (Shônen) está orientado a lectores de manga y cómic humorístico. La obra de Aya Hirakawa se presenta como shônen y su título la identifica como el n.º 2. Quien busque un ensayo o una novela histórica encontrará aquí otro tipo de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Lidiar con las hermanas Mikadono es pan comido 2 (Shônen) tiene 408 páginas y se publica en tapa blanda. Distrito Manga ofrece este volumen en castellano, con una extensión que permite reunir bastante contenido en un único libro físico. Puede conservarse junto al resto de la colección.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La comparación más directa es Lidiar con las hermanas Mikadono es pan comido 1 (Shônen), también de Aya Hirakawa. Ambos títulos pertenecen a la misma obra, pero identifican entregas distintas; el primero presenta a Yû y su convivencia con tres hermanas. El segundo se distingue por el n.º 2 de su título y por sus 408 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962104"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "631c26181a6f7871",
+  "origen": "chatgpt-web"
+}

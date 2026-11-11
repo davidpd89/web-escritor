@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788411354783",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Iniciación en mantenimiento eléctrico industrial-ELEE0012 se dirige a lectores interesados en introducirse en el mantenimiento eléctrico dentro del ámbito industrial. Su orientación técnica lo diferencia de las lecturas centradas en ficción o reflexión política, aunque figura también entre los títulos de ensayo y economía.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Iniciación en mantenimiento eléctrico industrial-ELEE0012 está disponible en tapa blanda y tiene 198 páginas. El soporte impreso permite consultar apartados durante el estudio y volver a ellos sin depender de una pantalla; Avanza Editorial lo publica en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Boletines derivados de una instalación-IMAI0010 es la comparación más cercana a Iniciación en mantenimiento eléctrico industrial-ELEE0012: ambos títulos pertenecen a Beatriz Coronado García y tratan cuestiones vinculadas a instalaciones eléctricas. El primero se centra, según su título, en los boletines derivados de una instalación; el segundo plantea una introducción al mantenimiento eléctrico industrial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411354790"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "023a791254dba62f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387775421",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El arte de comer, nutrir y sanar con la Medicina China (Salud y Bienestar) se dirige a lectores interesados en la nutrición, el bienestar y la medicina china. Por su enfoque en la alimentación y la salud, se aleja de los libros centrados exclusivamente en las relaciones personales o la ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar las 320 páginas de El arte de comer, nutrir y sanar con la Medicina China (Salud y Bienestar) en papel y conservar el volumen para futuras consultas. La edición Kindle reúne el contenido en formato digital y facilita llevarlo en el móvil o en un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de comer, nutrir y sanar con la Medicina China (Salud y Bienestar) comparte el interés por la salud con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody. El primero se centra en alimentación y medicina china; el segundo plantea un enfoque más amplio que también abarca felicidad, relaciones y éxito.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "96e84bfbbeca7c8b",
+  "origen": "chatgpt-web"
+}

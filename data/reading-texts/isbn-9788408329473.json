@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408329473",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "España a mi manera: Comer, beber y cocinar (Grandes chefs) se dirige a lectores interesados en la cocina, la gastronomía y las actividades vinculadas al tiempo libre. Sus 396 páginas encajan con quien busca una obra extensa sobre estos asuntos, pero menos con quien prefiere novelas de ficción o relatos de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "España a mi manera: Comer, beber y cocinar (Grandes chefs) se publica en tapa dura, con 396 páginas en castellano. Esta edición de Planeta Gastro permite consultar el volumen físicamente y conservarlo como libro de referencia sobre cocina y gastronomía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "España a mi manera: Comer, beber y cocinar (Grandes chefs) comparte el interés por la gastronomía con Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA). José Andrés plantea en su título una aproximación a comer, beber y cocinar en España, mientras David Villalón y Mario Villalón destacan la huerta, los vinos y los cócteles. La diferencia principal está en los asuntos gastronómicos que anuncia cada obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934293"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1aaf6752ab112237",
+  "origen": "chatgpt-web"
+}

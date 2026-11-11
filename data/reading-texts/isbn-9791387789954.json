@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791387789954",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la filosofía y en el debate sobre las ciencias humanas y sociales. Su enfoque fenomenológico y hermenéutico lo aleja de quienes buscan una introducción general a las ciencias naturales o un manual de investigación experimental.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Examina las ciencias humanas y sociales desde perspectivas fenomenológicas y hermenéuticas. El planteamiento sitúa la discusión en el terreno filosófico, con atención a las formas de comprender e interpretar los fenómenos humanos y sociales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 240 páginas en castellano y está publicada por Guillermo Escolar Editor. Es una opción física para leer, subrayar y consultar pasajes durante el estudio de las cuestiones filosóficas que plantea.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puede compararse con Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, por su relación con la reflexión filosófica. Mientras este último título plantea una práctica espiritual, el libro de César Gómez Algarra centra su debate en las ciencias humanas y sociales mediante la fenomenología y la hermenéutica.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eeba4ee6e52dcbbb",
+  "origen": "chatgpt-web"
+}

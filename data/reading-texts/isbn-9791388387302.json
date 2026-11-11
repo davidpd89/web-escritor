@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Antes de perder el juicio se dirige a lectores adultos interesados en la filosofía, el pensamiento crítico y los problemas del debate público. Su enfoque ensayístico se aleja de la ficción y de los manuales de soluciones inmediatas: examina cómo las emociones, las creencias y la pérdida de consensos afectan a la convivencia.",
+      "texto": "Antes de perder el juicio está orientado a lectores adultos interesados en la filosofía, el pensamiento crítico y los debates públicos contemporáneos. Examina la relación entre razón, emociones y verdad mediante el ensayo; no busca ofrecer una historia de ficción ni un manual de ejercicios de desarrollo personal.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,35 +14,24 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Mauricio García Villegas examina la relación entre verdad, racionalidad y vida pública desde una perspectiva filosófica. Contrapone el legado de la Ilustración con la sensibilidad romántica y analiza cómo la propaganda, el sectarismo y la primacía de las emociones condicionan el pensamiento contemporáneo.",
+      "texto": "Antes de perder el juicio examina cómo la propaganda, las posiciones sectarias y el predominio de las emociones afectan al debate público y a la búsqueda de la verdad. Mauricio García Villegas estudia las raíces intelectuales de estas tensiones, desde la Ilustración hasta la reacción romántica. Su enfoque filosófico reivindica la racionalidad, el conocimiento científico y la recuperación de acuerdos colectivos.",
       "evidencias": [
+        "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas permite consultar y señalar pasajes de las 432 páginas de Antes de perder el juicio en papel. Kindle ofrece la misma obra como lectura digital, apropiada para llevarla en el móvil o alternar dispositivos sin transportar el volumen físico.",
+      "texto": "Antes de perder el juicio está disponible en tapa blanda y Kindle. La edición de Debate reúne 432 páginas con solapas, un soporte físico para consultar y releer sus argumentos; Kindle permite llevar el ensayo completo en un dispositivo digital. El formato impreso favorece la consulta en papel y el electrónico reduce el volumen que hay que transportar.",
       "evidencias": [
         "titulo",
         "edicion",
+        "editorial",
         "numero_paginas",
-        "formatos_disponibles"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Antes de perder el juicio y Manifiesto contra la intolerancia comparten el interés por los conflictos ideológicos contemporáneos, aunque el primero examina la racionalidad y el segundo aborda el fascismo. Esenciales también pertenece al terreno del pensamiento, pero reúne escritos de Simone Weil en lugar de desarrollar el argumento de un único ensayista.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788430629138",
-        "isbn-9791388139055"
+        "formatos_disponibles",
+        "categorias"
       ]
     }
   ],

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788412872781",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El león y Ellen: Ocho nuevas historias contadas por el león de Ellen (Libros para rumiar), de Crockett Johnson, se dirige al público infantil y juvenil interesado en relatos protagonizados por animales. Sus 80 páginas y su estructura de historias lo distinguen de una novela extensa y continuada; también se aparta de los libros centrados en explicaciones científicas sobre la naturaleza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El león y Ellen: Ocho nuevas historias contadas por el león de Ellen (Libros para rumiar) se ofrece en tapa dura, con 80 páginas publicadas por Wonder Ponder. Es una edición física que permite conservar juntas las ocho historias, compartir el ejemplar durante la lectura y guardarlo en una biblioteca infantil.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El león y Ellen: Ocho nuevas historias contadas por el león de Ellen (Libros para rumiar) puede compararse con Avni 1. Animal verdaderamente no identificado (Txikiberri) por la presencia de personajes animales en sus títulos. Crockett Johnson presenta ocho historias narradas por el león de Ellen, mientras que la obra de Romain Pujol se identifica mediante un personaje animal y una numeración de entrega. La diferencia está en la estructura de relatos anunciada por el primero frente a la identificación seriada del segundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788417575847"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4d08d6203522db1e",
+  "origen": "chatgpt-web"
+}

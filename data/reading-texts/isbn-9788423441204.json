@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788423441204",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Incorruptibles: Por qué las buenas empresas desaparecen y las excelentes siguen creciendo (Deusto) se orienta a lectores interesados en economía, empresas y continuidad empresarial. Eric Ries aborda esta materia en 464 páginas; no responde al interés de quien busca una novela de ficción o un libro centrado exclusivamente en finanzas personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Incorruptibles: Por qué las buenas empresas desaparecen y las excelentes siguen creciendo (Deusto) puede leerse en tapa blanda o Kindle. La edición impresa de 464 páginas permite trabajar con el texto en papel; Kindle evita transportar ese volumen y facilita llevar la lectura en un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, comparte con Incorruptibles: Por qué las buenas empresas desaparecen y las excelentes siguen creciendo (Deusto) el interés por el ámbito empresarial, pero se centra en el liderazgo individual. Branding con criterio: Una novela-ensayo que, como brújula de arena, nos interpela (TEMATICOS), de Cristián Saracco, aborda el branding mediante una novela-ensayo, frente al enfoque de continuidad y crecimiento empresarial de Eric Ries.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921980",
+        "isbn-9791399168648"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2155b08759fd7cb0",
+  "origen": "chatgpt-web"
+}

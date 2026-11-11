@@ -4,7 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pido el fin de la vida se dirige a lectores de poesía interesados en el vínculo entre deseo, belleza y mortalidad. Angélica Liddell plantea una reflexión intensa sobre la desaparición y el suicidio, por lo que puede resultar incómodo a quienes prefieren lecturas alejadas de estos asuntos o buscan una narración convencional.",
+      "texto": "Pido el fin de la vida se dirige a lectores de poesía que buscan una reflexión intensa sobre la mortalidad, el deseo y la creación artística. Sus referencias al suicidio, la autodestrucción y la violencia histórica pueden resultar difíciles para quienes prefieren una poesía de tono sereno o centrada en experiencias cotidianas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Pido el fin de la vida adopta la forma de un poema extenso sobre las relaciones entre belleza, erotismo y desaparición. Angélica Liddell incorpora referencias a Yukio Mishima, el Hagakure y distintas figuras culturales para examinar la muerte como cuestión estética y filosófica, junto con sus implicaciones personales.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,38 +22,29 @@
       ]
     },
     {
-      "modulo": "encaje_documentado",
-      "texto": "Pido el fin de la vida adopta la forma de un poema extenso que examina la muerte desde una perspectiva estética y filosófica. Angélica Liddell dialoga con el pensamiento de Yukio Mishima y el Hagakure, e incorpora referencias biográficas y culturales para explorar la relación entre creación artística y destrucción personal.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial",
-        "categorias"
-      ]
-    },
-    {
       "modulo": "que_formato_elegir",
-      "texto": "Pido el fin de la vida se ofrece en tapa blanda y Kindle, con una extensión de 112 páginas. La edición en papel de La Bella Varsovia permite releer y localizar pasajes del poema, mientras que Kindle facilita su lectura en dispositivos electrónicos y móviles.",
+      "texto": "Pido el fin de la vida está disponible en tapa blanda y Kindle. La edición en papel de La Bella Varsovia contiene 112 páginas y permite volver a los pasajes del poema en un volumen físico; Kindle ofrece la misma opción de lectura en formato digital, sin necesidad de transportar el libro.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
         "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Pido el fin de la vida y Catulo / Marcial comparten el interés poético por el erotismo, pero Angélica Liddell lo relaciona con la muerte y la creación artística, mientras que la obra de Ernesto Cardenal incorpora sátira y crítica social. Ciudad, de Luis Pérez Capitán, también aborda conflictos morales, aunque los sitúa en la identidad personal y el deterioro del entorno.",
+      "texto": "Antologia amorosa la voz a ti debida y razon de amor permite comparar distintas aproximaciones poéticas al amor: Pedro Salinas aparece vinculado a la temática amorosa, mientras Angélica Liddell relaciona el deseo con la muerte. Bestiario de lo frágil (Un pájaro de niebla) ofrece otra referencia poética del catálogo, frente al poema extenso y las referencias filosóficas de Pido el fin de la vida.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467084320",
-        "isbn-9788410167841"
+        "isbn-9788466396288",
+        "isbn-9791387766320"
       ]
     }
   ],

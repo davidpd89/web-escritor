@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399180510",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La violencia de los verbos está dirigida a lectores de poesía en castellano que buscan una obra de Adriana Rocha. Sus 106 páginas corresponden a una edición de extensión contenida, distinta de una novela larga o de un manual de escritura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La violencia de los verbos se presenta en tapa blanda y reúne 106 páginas. El volumen físico permite alternar la lectura continuada con la consulta de páginas concretas, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La violencia de los verbos comparte el ámbito poético con Bajo la condición de forajido y Antologia amorosa la voz a ti debida y razon de amor. La diferencia está en la autoría: Adriana Rocha firma el primero, Francisco Castaño el segundo y Pedro Salinas el tercero. La obra de Pedro Salinas se identifica además como una antología amorosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288",
+        "isbn-9791370140908",
+        "isbn-9788490022818"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2c6e583199dee32b",
+  "origen": "chatgpt-web"
+}

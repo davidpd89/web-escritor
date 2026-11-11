@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399297928",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Malas raíces (Narrativa) se dirige a lectores de terror y misterio que buscan una obra de ficción en castellano. Sus 300 páginas y su clasificación dentro del thriller la distinguen de las lecturas centradas exclusivamente en aventuras, humor o narrativa romántica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Malas raíces (Narrativa) se presenta en tapa blanda, con 300 páginas publicadas por Ediciones Versátil. Es una edición física que permite leer la novela por sesiones, conservarla en una estantería o prestarla sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Malas raíces (Narrativa) comparte el terreno del terror con Carrie (edición serie) y Coraline, aunque sus planteamientos conocidos son distintos. Carrie (edición serie) aborda el acoso escolar y el fanatismo religioso, mientras Coraline introduce una versión alternativa del hogar; Malas raíces (Narrativa) combina las etiquetas de terror, misterio y thriller.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396806",
+        "lib-0001"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d4dcd65211b2af26",
+  "origen": "chatgpt-web"
+}

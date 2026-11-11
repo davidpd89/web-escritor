@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419605528",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Anna en la cueva: Anna Dédalus detective: 4 encaja con lectores de cómic que buscan misterio y aventuras vinculadas a una figura detectivesca. Su propuesta se aleja de la novela exclusivamente textual y de las historias centradas en el romance.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Andana Gráfica contiene 160 páginas en castellano y permite leer la obra en un volumen físico. Por su extensión, resulta manejable para llevarlo en una mochila y conservarlo junto a otros cómics.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anna en la cueva: Anna Dédalus detective: 4 comparte el componente detectivesco con Mi primer Mortadelo y Filemón - ¡Detectives del montón! (Bruguera Clásica), aunque pertenecen a obras de distintos autores. También coincide con Abre el misterio 1 - El robo de las croquetas en el interés por resolver misterios; este último parte de la desaparición de unas croquetas, mientras que el título de Miguel Ángel Giner Bou sitúa a Anna en una cueva.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402432148",
+        "isbn-9788427256644"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "375d09f9637d304c",
+  "origen": "chatgpt-web"
+}

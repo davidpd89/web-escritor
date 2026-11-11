@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388019920",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ojos que no ven (Narrativa) se dirige a lectores interesados en el misterio y la narrativa contemporánea. La obra de Martín Caparrós pertenece a esos ámbitos, por lo que se diferencia de los libros de investigación documental o de las historias centradas en mundos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ojos que no ven (Narrativa) cuenta con una edición en tapa blanda de 192 páginas, publicada por Galaxia Gutenberg. La encuadernación flexible facilita transportar el volumen y leerlo en papel fuera de casa, mientras que su extensión permite organizar la lectura en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ojos que no ven (Narrativa) y Corazón de sílex se relacionan por el misterio dentro de sus planteamientos narrativos. Martín Caparrós firma el primero, clasificado también como narrativa contemporánea; el segundo, de Emilia Landaluce y Rosa Belmonte, parte de una joven que despierta sin recordar los sucesos de la noche anterior.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083330"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bc8884d524fef342",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788410783676",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tomando el pulso a la relación entre Inteligencia Artificial, Derecho y Ética (Estudios) se dirige a lectores interesados en las conexiones entre tecnología, normas jurídicas y cuestiones éticas. Su orientación hacia el Derecho y sus 845 páginas lo alejan de una introducción breve a las herramientas digitales o de una novela sobre tecnología.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Aranzadi se presenta en tapa blanda y reúne 845 páginas en castellano. Es una opción de lectura física extensa, que permite señalar fragmentos y consultar distintas partes del estudio sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Blockchain: un desafío legal (Monografía) también relaciona tecnología y Derecho, pero concentra su asunto en blockchain. Tomando el pulso a la relación entre Inteligencia Artificial, Derecho y Ética (Estudios), de Pablo M Melgarejo Cordon y Francisco Herr, incorpora expresamente la dimensión ética y sitúa la Inteligencia Artificial en el centro del análisis.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370610265"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "95a4c2c26a39b7cd",
+  "origen": "chatgpt-web"
+}

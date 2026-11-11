@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388019777",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La redención de la sombra (Ensayo) se sitúa entre la filosofía, la religión y la espiritualidad, por lo que encaja con lectores interesados en esos ámbitos de reflexión. Por su clasificación como ensayo, se diferencia de una novela de ficción o de un manual de cocina y otras actividades prácticas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La redención de la sombra (Ensayo) está disponible en tapa blanda y Kindle, con una extensión de 120 páginas en la edición impresa. El papel permite conservar y consultar el volumen físicamente, mientras que Kindle ofrece una alternativa digital para leerlo en dispositivos compatibles.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La redención de la sombra (Ensayo) comparte su orientación espiritual y filosófica con Astrología, filosofía y magia: Un camino de práctica espiritual y Donde no supe: Entre el éxtasis místico y las experiencias extrasensoriales (Ensayo). El libro de Soledad Davies se centra en una práctica espiritual vinculada a la astrología y la magia. El de Luce López-Baralt aborda el misticismo y las experiencias extrasensoriales, mientras que la obra de Franz Jalics se presenta como un ensayo de filosofía, religión y espiritualidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315",
+        "isbn-9791388019760"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0eb274bdee5d842c",
+  "origen": "chatgpt-web"
+}

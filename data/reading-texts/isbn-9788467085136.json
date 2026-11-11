@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788467085136",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se anuncia un asesinato: Edición limitada a precio especial (Colección Especial) se dirige a lectores de misterio y thriller que también buscan narrativa contemporánea. Sus 288 páginas ofrecen una extensión menor que la de una novela de gran volumen; no responde a la búsqueda de ensayo o divulgación.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Booket ofrece Se anuncia un asesinato: Edición limitada a precio especial (Colección Especial) en una presentación de bolsillo con 288 páginas. La encuadernación es de tapa blanda, el idioma es castellano y su fecha de publicación figura como 2027-01-08; el título distingue esta versión mediante la indicación de edición limitada.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formato_edicion",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de bolsillo es la presentación disponible para esta obra de 288 páginas. Su extensión y su cubierta flexible permiten llevarla para leer durante desplazamientos, sin el peso añadido de una encuadernación rígida.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El asesinato de Roger Ackroyd (Edición especial con cantos tintados) comparte con Se anuncia un asesinato: Edición limitada a precio especial (Colección Especial) la autoría de Agatha Christie y el ámbito detectivesco. El primero destaca por sus cantos tintados y un sobre sellado con la resolución del enigma; el segundo se presenta como edición limitada de bolsillo. El enigmático míster Quin, también de Agatha Christie, se diferencia por reunir doce relatos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083934",
+        "isbn-9788408331520"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "977ee28ff8773760",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788403526990",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Seijaku: El arte japonés de cultivar la calma en un mundo caótico (Inspiración), de Miki Fujito, se dirige a lectores interesados en la calma, el desarrollo personal y la filosofía japonesa. Por su enfoque, encaja menos con quienes buscan una novela de ficción o un manual centrado en cuestiones económicas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Seijaku: El arte japonés de cultivar la calma en un mundo caótico (Inspiración) está disponible en tapa blanda, con 168 páginas en castellano. Su extensión permite llevarla en el bolso y consultar distintos pasajes en papel; Aguilar publica esta edición física.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Seijaku: El arte japonés de cultivar la calma en un mundo caótico (Inspiración) comparte con Duelo el interés por abordar experiencias personales desde la reflexión filosófica. Mientras Miki Fujito se centra en cultivar la calma, Michael Cholbi examina el duelo y su dimensión emocional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449344626"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1eeccde59b30a7b0",
+  "origen": "chatgpt-web"
+}

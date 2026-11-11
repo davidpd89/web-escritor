@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788495754868",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Guía vinos gourmets 2027 está destinada a lectores interesados en los vinos y en las publicaciones de consulta gastronómica. Su extensión de 1280 páginas encaja con quien busca un volumen amplio sobre esta materia, pero no con quien prefiere un recetario breve para cocinar a diario.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Guía vinos gourmets 2027 se ofrece en tapa blanda y reúne 1280 páginas en castellano. Por su considerable extensión, esta edición de Grupo Gourmets resulta más manejable como volumen de consulta en casa que como lectura para transportar habitualmente; la encuadernación flexible evita añadir la rigidez de una tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Guía vinos gourmets 2027 comparte el interés por el vino con Atlas Mundial Del Vino (NATURART), de Hugh Johnson. El primero se identifica como guía correspondiente a 2027, mientras el segundo plantea una aproximación geográfica desde su título. También puede compararse con Champagne: El vino más famoso del mundo (GASTRONOMIA), de Aurélie Soubiran, centrado expresamente en un tipo de vino.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418075933",
+        "isbn-9791387934170"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "336f07b58c773163",
+  "origen": "chatgpt-web"
+}

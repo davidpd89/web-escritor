@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788422024590",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Obras completas IX/1, de Joseph Ratzinger, se dirige a lectores interesados en religión y espiritualidad que buscan una obra extensa en castellano. Sus 736 páginas la alejan de quienes prefieren lecturas breves o libros de otras temáticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Obras completas IX/1 se publica en tapa blanda, con 736 páginas editadas por BAC. El formato físico permite consultar distintos pasajes y conservar el volumen en una biblioteca dedicada a religión y espiritualidad.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Obras completas IX/1 comparte el ámbito espiritual con Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe. La obra de Joseph Ratzinger reúne 736 páginas dentro de sus obras completas, mientras que el otro título presenta fundamentos y práctica de un camino de liberación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bee8655c197c3bad",
+  "origen": "chatgpt-web"
+}

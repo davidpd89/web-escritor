@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "De la discusión a la conexión está dirigido a quienes buscan herramientas de desarrollo personal para afrontar desacuerdos en la pareja, la familia, las amistades o el trabajo. Su enfoque práctico sobre la gestión de conflictos se diferencia de una novela sobre relaciones o de un ensayo centrado exclusivamente en el duelo.",
+      "texto": "De la discusión a la conexión se dirige a lectores interesados en gestionar desacuerdos y comprender los conflictos en sus relaciones personales y laborales. Su enfoque de desarrollo personal se centra en la convivencia y la comunicación, no en el tratamiento específico del duelo ni en cuestiones económicas.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,29 +13,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de De la discusión a la conexión presenta 336 páginas en una edición rústica con solapas de Zenith, que permite volver a los apartados sobre conflictos y relaciones. Kindle facilita consultar el contenido desde el móvil o un lector electrónico, especialmente cuando se quiere evitar llevar el volumen físico.",
+      "texto": "De la discusión a la conexión puede leerse en tapa blanda con solapas o en Kindle. La edición impresa reúne 336 páginas y permite marcar pasajes en papel; la digital facilita consultar el contenido desde un dispositivo compatible durante desplazamientos o fuera de casa.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "edicion",
-        "editorial",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "edicion",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "De la discusión a la conexión y El cerebro enamorado tratan dificultades que pueden surgir en las relaciones personales. Gabrielle Rifkind se centra en gestionar los desacuerdos, mientras Lucy Vincent explica los cambios del amor desde la neurobiología y plantea recursos prácticos. Frente a ambos, Neurocambios aborda patrones mentales perjudiciales y la regulación de las emociones desde el desarrollo personal.",
+      "texto": "De la discusión a la conexión y El cerebro enamorado comparten el interés por comprender las relaciones humanas y sus dificultades. Gabrielle Rifkind aborda la gestión de conflictos cotidianos, mientras que Lucy Vincent explica el amor desde la neurobiología y propone herramientas relacionadas con los cambios en la pareja. Duelo, de Michael Cholbi, desplaza el enfoque hacia la pérdida y su interpretación filosófica.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408324874",
-        "isbn-9788408325291"
+        "isbn-9788449344626",
+        "isbn-9788408324874"
       ]
     }
   ],

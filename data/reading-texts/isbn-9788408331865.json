@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788408331865",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lo bueno de tener un mal día: Cómo cuidar de nuestras emociones para estar mejor. Edición limitada a precio especial (Colección Especial) se dirige a quienes buscan lecturas de psicología y desarrollo personal centradas en las emociones. No responde a una búsqueda de ficción ni de narrativa fantástica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Booket presenta esta obra en una edición de bolsillo en castellano, identificada como edición limitada a precio especial. Tiene 288 páginas y el ISBN 9788408331865 permite localizar esta presentación concreta.",
+      "evidencias": [
+        "editorial",
+        "edicion",
+        "titulo",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar el libro en papel y volver a pasajes anteriores sin utilizar una pantalla. Es el formato de compra recogido para esta obra, con una encuadernación de bolsillo que facilita transportarla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza a la niña que fuiste comparte con la obra de Anabel Gonzalez el interés por el bienestar emocional y el desarrollo personal. Marta Segrelles centra su libro en las heridas del pasado y la reconexión personal, mientras que Lo bueno de tener un mal día aborda el cuidado de las emociones ante las dificultades cotidianas.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788466396417"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b187e2f6532ee97b",
+  "origen": "chatgpt-web"
+}

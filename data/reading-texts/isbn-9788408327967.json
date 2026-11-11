@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788408327967",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Zodiac Academy 2. Despiadados. Edición especial: Edición con cantos tintados (Ficción) se dirige a lectores de fantasía interesados en continuar una serie de Caroline Peckham y Susanne Valenti. Su identificación como segunda entrega la hace menos adecuada para quienes buscan una historia independiente o prefieren empezar por el primer libro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición especial de Crossbooks se distingue por sus cantos tintados y su encuadernación en tapa dura. Contiene 592 páginas en castellano, tiene el ISBN 9788408327967 y figura con fecha de publicación del 25 de noviembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "isbn13",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para esta edición especial de 592 páginas, que incorpora cantos tintados. Se trata de una presentación física orientada a conservar el volumen y sus detalles de acabado, especialmente cuando se reúne la serie en una estantería.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Zodiac Academy 1. El despertar comparte autoría y serie con Despiadados, pero corresponde al volumen inicial, mientras que el título de este último lo identifica como segunda entrega; ambos son obras de Caroline Peckham y Susanne Valenti. Frente al primer volumen, Despiadados se presenta en una edición especial de 592 páginas con cantos tintados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324317"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1fa72e1b68cdcdb6",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387512613",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La estudiante de intercambio (SUMA), de Pablo Rivero, encaja con lectores que buscan narrativa contemporánea en castellano. Su clasificación como ficción narrativa la separa de las lecturas centradas en divulgar conocimientos o desarrollar argumentos ensayísticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La estudiante de intercambio (SUMA) se publica en tapa blanda, con 384 páginas y edición de Suma de Letras. Esta presentación permite leerla en papel y llevarla de un lugar a otro sin el peso añadido de las cubiertas rígidas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La estudiante de intercambio (SUMA) puede compararse con Penitencia, ya que ambas obras están firmadas por Pablo Rivero. La primera se clasifica como narrativa contemporánea, mientras que la segunda aparece identificada como ficción; la coincidencia de autoría permite relacionarlas sin atribuirles el mismo argumento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395779"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "702dc34facf0d561",
+  "origen": "chatgpt-web"
+}

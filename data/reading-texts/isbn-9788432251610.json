@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788432251610",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Miss Merkel. Asesinato en terapia de grupo: 4 (Novela), de David Safier, se dirige a lectores de narrativa contemporánea que buscan humor y personajes femeninos. El título lo identifica como el n.º 4, un dato relevante para quienes prefieren comenzar por una primera entrega; su planteamiento se aleja de la ficción de tono exclusivamente dramático.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Booket publica Miss Merkel. Asesinato en terapia de grupo: 4 (Novela) como libro de bolsillo en tapa blanda. Esta presentación reúne sus 368 páginas en un volumen de cubierta flexible, que puede guardarse junto a otros libros de la misma colección o llevarse para leer durante los desplazamientos.",
+      "evidencias": [
+        "editorial",
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Miss Merkel. Asesinato en terapia de grupo: 4 (Novela) puede compararse con Mamá necesita un respiro, de Inma Sáenz, por su relación con el humor y las experiencias femeninas. La segunda obra aborda la maternidad, mientras el libro de David Safier incorpora un asesinato y una terapia de grupo desde su propio título. Ambos se diferencian también por su autoría y el conflicto que anuncian.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683043"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b233299501fda4f5",
+  "origen": "chatgpt-web"
+}

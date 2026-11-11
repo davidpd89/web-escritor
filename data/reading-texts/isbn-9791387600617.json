@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387600617",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores de ensayo interesados en el poder político y en cuándo los líderes influyen en los acontecimientos históricos. Reyes, jefes, ases y dioses: ¿Cuándo marcan diferencias los líderes? (Historia), de Jared Diamond, aborda una cuestión de liderazgo desde el ámbito de la historia, no desde la ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Reyes, jefes, ases y dioses: ¿Cuándo marcan diferencias los líderes? (Historia) se presenta en tapa dura y tiene 312 páginas. Es un volumen físico publicado por Debate, con encuadernación rígida para conservarlo en una biblioteca o consultarlo de nuevo.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte el interés por el poder con La España de dos pisos: Cómo las élites han creado un nuevo clasismo Y por qué ellos son cada vez más ricos y los demás, cada vez más pobres, de Esteban Hernández. Mientras este último se centra en las élites y las desigualdades económicas, Jared Diamond plantea cuándo los líderes marcan diferencias en la historia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944367"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c8b29e448b908806",
+  "origen": "chatgpt-web"
+}

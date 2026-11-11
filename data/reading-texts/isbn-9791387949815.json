@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387949815",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aprende a leer con los Animolones 2 - Me equivoqué: En letra MAYÚSCULA (libros para niños a partir de 5 años) (Jóvenes lectores), de Gemma Brie, está dirigido a niños desde los 5 años que comienzan a leer. La letra mayúscula y sus 48 páginas corresponden a una propuesta de lectura infantil inicial, no a una novela de lectura autónoma para público juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 48 páginas de Aprende a leer con los Animolones 2 - Me equivoqué: En letra MAYÚSCULA (libros para niños a partir de 5 años) (Jóvenes lectores), de Gemma Brie. Es un ejemplar físico de extensión breve, pensado para tenerlo a mano durante las primeras lecturas y compartirlo con un niño.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprende a leer con los Animolones 1 - Amigos nuevos: En letra MAYÚSCULA (libros para niños a partir de 5 años) (Jóvenes lectores), de Gemma Brie, es la comparación más directa: comparte autora, formato de letra y público infantil, pero corresponde al volumen 1. También puede compararse con Aprender a leer con Las Fantasticotas 16. Alejandra encuentra una salamandra: En letra MAYÚSCULA para aprender a leer (Libros para niños a partir de 5 años), de Laura Vila, que comparte el planteamiento de lectura inicial y cambia de autora y personajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949808",
+        "isbn-9788408330264"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e1b1d91e841173e5",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,63 @@
+{
+  "id": "isbn-9791388395161",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El templo de Debod: Historia, transcripción y traducción de todas sus inscripciones jeroglíficas (Nun) se dirige a lectores interesados en historia religiosa, monumentos y escritura jeroglífica. Su enfoque documental encaja menos con quien busque una novela histórica o una introducción general a numerosas civilizaciones, porque concentra el estudio en un templo concreto.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición de Erasmus Ediciones está encuadernada en tapa blanda y contiene 256 páginas en castellano. Su fecha editorial es el 17 de noviembre de 2026 y el ISBN 9791388395161 identifica este volumen. La combinación de historia, transcripción y traducción de inscripciones jeroglíficas define el contenido anunciado en su título.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro aborda la historia del templo de Debod mediante el estudio de sus inscripciones jeroglíficas. Francisco Martín-Valentín reúne tres dimensiones anunciadas en el título: contextualización histórica, transcripción y traducción de los textos. Su orientación combina el interés por el monumento con el análisis de testimonios escritos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El templo de Debod se ofrece en tapa blanda, con 256 páginas. Este formato permite transportar el volumen para leerlo o consultarlo fuera de casa, mientras que su extensión delimita un estudio centrado en un monumento y sus inscripciones. Es una edición impresa para quien prefiera trabajar con las transcripciones y traducciones sobre papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El templo de Debod puede compararse con El judaísmo del Segundo Templo: Historia y religión en tiempos de Jesús: 184 (Biblioteca de Estudios Bíblicos), de Lester L. Grabbe. Ambos relacionan historia y religión, pero Francisco Martín-Valentín se concentra en las inscripciones de un monumento, mientras que el otro título delimita un periodo del judaísmo y su contexto religioso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430123162"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3f799dc0b48542fb",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788402432452",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Coco Wyo - Días bonitos: Momentos cozy & comfy para colorear (Bruguera Tendencias) está dirigido a quienes prefieren colorear escenas de ambiente acogedor antes que seguir una historia. Sus 96 páginas se orientan a la actividad artística, por lo que no responde a la búsqueda de una novela o un manual de dibujo técnico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Coco Wyo - Días bonitos: Momentos cozy & comfy para colorear (Bruguera Tendencias) se publica en tapa blanda, con 96 páginas destinadas a colorear. El formato físico permite trabajar directamente sobre las páginas y transportar el cuaderno para utilizarlo en distintos lugares.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Coco Wyo - Días bonitos: Momentos cozy & comfy para colorear (Bruguera Tendencias) y Coco Wyo - Cosas de chicas (edición oficial en español) comparten autoría y la propuesta de colorear escenas acogedoras. El primero se centra en momentos cotidianos de ambiente cómodo, mientras que el segundo presenta una temática vinculada a las chicas. Ambos se diferencian de Aprende a dibujar con KPop Demon Hunters: Edición OFICIAL en español (Montena), que propone aprender a dibujar en lugar de colorear.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402432391",
+        "isbn-9791388322778"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6db77d32354d937a",
+  "origen": "chatgpt-web"
+}

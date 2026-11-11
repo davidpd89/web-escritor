@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9791387938055",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aquí tu libertad: Nueve lugares para el rock argentino: 53 (Ensayo), de Alejandro Droznes, se dirige a lectores interesados en el ensayo y en acercarse al rock argentino desde una perspectiva vinculada a este género. No encaja tanto con quien busca narrativa de ficción o una novela como lectura principal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne sus 144 páginas en un volumen físico de extensión contenida. Es el formato disponible para quien prefiere leer en papel y conservar el ensayo en su biblioteca.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4f25f5998dc8d6cb",
+  "origen": "chatgpt-web"
+}

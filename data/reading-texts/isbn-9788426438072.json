@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788426438072",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche El nombre de la rosa (novela gráfica, vols. 1 y 2) (Lumen Gráfica) se dirige a quienes buscan misterio contado mediante el lenguaje del cómic. La participación de Umberto Eco y Milo Manara y su presentación como novela gráfica lo distinguen de una edición convencional de narrativa exclusivamente textual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estuche El nombre de la rosa (novela gráfica, vols. 1 y 2) (Lumen Gráfica) se ofrece en tapa blanda y reúne, según su título, los volúmenes 1 y 2. La edición de Lumen declara 144 páginas y está publicada en castellano, con una presentación física que permite consultar las ilustraciones sobre papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche El nombre de la rosa (novela gráfica, vols. 1 y 2) (Lumen Gráfica) comparte el terreno del misterio y la investigación con Anna en la cueva: Anna Dédalus detective: 4. La obra de Umberto Eco y Milo Manara se presenta como una novela gráfica en dos volúmenes, mientras que el título de Miguel Ángel Giner Bou identifica una entrega numerada de una serie detectivesca.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419605528"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3ed8391f892298c8",
+  "origen": "chatgpt-web"
+}

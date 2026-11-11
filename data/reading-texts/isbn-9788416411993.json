@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788416411993",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Charlotte Perriand. La libertad de repensar el mundo se dirige a lectores interesados en la historia, el arte y el diseño desde una perspectiva ensayística. Su planteamiento temático se distancia de la ficción narrativa y de los libros de actividades prácticas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Charlotte Perriand. La libertad de repensar el mundo cuenta con una edición en tapa dura de 148 páginas, publicada por Fund. Joan Miro. La encuadernación rígida facilita su conservación en una biblioteca dedicada al arte y permite consultarlo repetidamente como volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Banksy: I want to be what you saw in me (MISCELANEAS) y Charlotte Perriand. La libertad de repensar el mundo comparten el interés por figuras vinculadas al arte, pero sus títulos sitúan el foco en protagonistas diferentes. Chanel XXI (Divulgación) aporta otra aproximación cultural desde el diseño y la divulgación; los tres títulos están firmados por Varios autores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789509509504",
+        "isbn-9788410989726"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bdfb2d3c9f55762a",
+  "origen": "chatgpt-web"
+}

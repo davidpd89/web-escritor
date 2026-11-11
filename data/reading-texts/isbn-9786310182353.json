@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9786310182353",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historias que el miedo ocultó: Relatos reales, oscuros y emocionales que nunca debieron ser contados se dirige a lectores interesados en el misterio y los relatos de temática oscura. Por su enfoque en el miedo y las emociones, se aleja de las lecturas que buscan asuntos ligeros o ajenos al suspense.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Historias que el miedo ocultó: Relatos reales, oscuros y emocionales que nunca debieron ser contados es de tapa dura y reúne 322 páginas. Publicada por Teresa Isabel Molinas en castellano, permite leer y conservar los relatos en un único volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "667eda22d4ecdf3c",
+  "origen": "chatgpt-web"
+}

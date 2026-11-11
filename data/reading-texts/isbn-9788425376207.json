@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788425376207",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sissi investiga. Los diamantes de la emperatriz (Ficción), de Fritzi von Wahl, se dirige a lectores interesados en historias protagonizadas por mujeres y en investigaciones sugeridas por el título. No responde a la búsqueda de una novela gráfica ni de una lectura especialmente extensa: tiene 240 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sissi investiga. Los diamantes de la emperatriz (Ficción) se publica en tapa blanda, con 240 páginas en castellano. Es una edición física de Grijalbo que permite leer y conservar el libro sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sissi investiga. Los diamantes de la emperatriz (Ficción) puede compararse con Asesinato en la Casa Rosa (edición limitada) (Los crímenes de Loeiro 1) (Campaña | Ahora por menos) por su vinculación con la investigación criminal o detectivesca. La obra de Fritzi von Wahl alude a una emperatriz y sus diamantes, mientras que la de Arantza Portabales sitúa el crimen en el centro de su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396363"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d3dc03f7433a4ebe",
+  "origen": "chatgpt-web"
+}

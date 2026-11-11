@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387811730",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Alhambra Negra (Poe) se dirige a quienes buscan lecturas del ámbito biográfico y memorialístico. La obra de César Girón tiene 144 páginas, una extensión más contenida que la de una biografía de gran volumen, y no se presenta como novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Alhambra Negra (Poe) se ofrece en tapa blanda, con 144 páginas en castellano y edición de Editorial Berenice. Su extensión permite transportarlo sin el volumen de una obra de varios centenares de páginas, mientras que la cubierta flexible resulta práctica para leerlo fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alhambra Negra (Poe) se puede comparar con Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes por su relación con la escritura biográfica. La diferencia visible está en el planteamiento editorial: la obra de Andrew Paxman anuncia una biografía organizada en episodios, mientras que el libro de César Girón se presenta con un título propio y una extensión de 144 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073873154"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fec9a970efc9dfd6",
+  "origen": "chatgpt-web"
+}

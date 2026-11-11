@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388003240",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los Padrinos. Érase una vez en Nueva York (Súper BD) se dirige a lectores interesados en el misterio y en obras clasificadas como ensayo. Su orientación temática lo diferencia de los libros centrados en romance, fantasía o narrativa juvenil.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los Padrinos. Érase una vez en Nueva York (Súper BD) cuenta con una edición en tapa dura de 232 páginas. Cartem Cómics lo publica en castellano, en un volumen físico que permite consultar sus páginas y conservarlo en la estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los Padrinos. Érase una vez en Nueva York (Súper BD) comparte el interés por el misterio con Las aventuras de Lucía el misterio de albohera: 0 (El gato León). La diferencia más visible está en su planteamiento: el primero se clasifica también como ensayo y lleva la firma de David Chauvel y Erwan Le Saëc, mientras que el segundo es obra de Concepción Prats Ortuño.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388150395"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3c0ff8f6723a64f1",
+  "origen": "chatgpt-web"
+}

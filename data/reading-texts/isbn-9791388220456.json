@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388220456",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este libro interactivo de Cat2heory se dirige a quienes disfrutan resolviendo misterios mediante retos y buscando culpables entre numerosos sospechosos. Su estructura de calendario de adviento con 24 pruebas encaja menos con lectores que prefieren una novela de suspense convencional sin actividades.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 190 páginas y permite utilizar el libro como soporte físico para sus 24 retos. Este formato facilita consultar páginas anteriores durante la resolución del misterio y conservar el calendario una vez completado.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El crimen de la Navidad. El cuaderno de pasatiempos de Crímenes ilustrados comparte la investigación criminal y el contexto navideño, pero presenta un delito ocurrido en un centro comercial. El libro de Cat2heory propone 24 retos organizados como calendario de adviento para identificar a un único culpable entre numerosos sospechosos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401040740"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3457e43bd5873565",
+  "origen": "chatgpt-web"
+}

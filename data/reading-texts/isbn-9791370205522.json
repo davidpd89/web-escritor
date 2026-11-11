@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791370205522",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Largo das Almas: Premio Jaén de Novela 2026, de Diego Doncel, se orienta a quienes leen narrativa contemporánea en castellano. Con 216 páginas, se sitúa entre las novelas de extensión moderada y queda fuera de las preferencias de quienes buscan específicamente fantasía o libros de no ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Largo das Almas: Premio Jaén de Novela 2026 contiene 216 páginas y está publicada por Almuzara. Permite leer la novela en papel, transportarla y conservarla como ejemplar físico; la cubierta flexible facilita su manejo durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8eec80a821c0dbc7",
+  "origen": "chatgpt-web"
+}

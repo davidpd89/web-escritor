@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788410435438",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dos desechos de mujer: 47 (Narrativa) se dirige a lectores de narrativa contemporánea que prefieren obras de extensión breve. Armanda Guiducci firma un volumen de 136 páginas, alejado por su clasificación editorial de las lecturas centradas en fantasía o literatura infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dos desechos de mujer: 47 (Narrativa) se presenta en tapa blanda, con 136 páginas en castellano. Esta edición de Altamarea Ediciones permite llevar el volumen en papel sin el peso habitual de una novela extensa y resulta manejable para leer durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d484e90eec7cc3c1",
+  "origen": "chatgpt-web"
+}

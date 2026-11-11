@@ -4,43 +4,45 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La ContraHistoria del mundo en 25 mitos se orienta a lectores interesados en revisar creencias populares sobre distintas épocas históricas. Su organización alrededor de episodios y personajes variados encaja menos con quienes prefieren seguir un único periodo mediante una narración cronológica continua.",
+      "texto": "Está dirigido a quienes leen divulgación histórica y quieren contrastar creencias populares con interpretaciones basadas en hechos. No se orienta a quienes buscan ficción histórica, ya que Fernando Díaz Villanueva examina episodios y personajes reales mediante 25 mitos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Fernando Díaz Villanueva examina relatos históricos extendidos y contrasta sus versiones populares con una interpretación centrada en los hechos. Entre los asuntos tratados figuran las Termópilas, los vikingos, la Edad Media y Napoleón, con especial atención a cómo se forman y transmiten los tópicos.",
+      "texto": "Examina 25 mitos de la historia universal y cuestiona versiones populares de acontecimientos y personajes. Entre sus asuntos figuran los espartanos de las Termópilas, los vikingos, la Edad Media y la estatura de Napoleón, tratados mediante divulgación y revisión histórica.",
       "evidencias": [
-        "autores",
-        "sinopsis_editorial"
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de La ContraHistoria del mundo en 25 mitos tiene 288 páginas y permite consultar por separado los episodios históricos tratados. Kindle ofrece una alternativa digital para leerlos en el móvil o en un lector electrónico, sin necesidad de llevar el ejemplar físico.",
+      "texto": "La tapa blanda permite consultar físicamente las 288 páginas y volver a los distintos episodios históricos. Kindle ofrece el mismo título en formato digital, una opción para leerlo en el móvil o en un lector electrónico sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles",
-        "edicion",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La ContraHistoria del mundo en 25 mitos y Cesar La conquista de la eternidad acercan al lector a acontecimientos del pasado, pero el primero revisa creencias de distintas épocas y el segundo reconstruye la trayectoria de un general romano. CORONA AUTORITARIA, LA también examina cuestiones históricas, aunque delimita su estudio a la monarquía y el nacionalismo durante una dictadura concreta.",
+      "texto": "76, de Felipe Pigna, comparte con La ContraHistoria del mundo en 25 mitos su vinculación con la historia, aunque los títulos delimitan asuntos distintos. Agustín penón y Federico García Lorca, de Juan Carlos García de Polavieja, se concentra en una investigación biográfica concreta, frente al examen de 25 creencias históricas que plantea Fernando Díaz Villanueva.",
       "evidencias": [
         "titulo",
+        "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410944329",
-        "isbn-9788419892782"
+        "isbn-9788408329695",
+        "isbn-9788418567933"
       ]
     }
   ],

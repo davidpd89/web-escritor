@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409925810",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi chico de Utah: 30 años, 4 amores, un mapa para reconocer el tuyo se orienta a lectores interesados en las experiencias personales, las relaciones afectivas y el desarrollo personal. Su combinación de memorias y bienestar encaja menos con quienes buscan ficción romántica o un manual exclusivamente técnico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 344 páginas en castellano y permite leer el libro sin dispositivos electrónicos. Su presentación física facilita volver a pasajes concretos y conservarlo junto a otras obras de memorias y desarrollo personal.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Por si tu avión se cae: El viaje del héroe: de los Andes a tus travesías vitales (Literatura no ficción Desnivel) comparte con Mi chico de Utah: 30 años, 4 amores, un mapa para reconocer el tuyo la relación entre experiencias vitales y reflexión personal. El libro de Dani Paz centra su propuesta declarada en los vínculos amorosos, mientras que la obra de Eduardo Strauch Urioste y Beatriz Ogando Díaz toma los Andes como referencia para abordar las travesías vitales.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788498297478"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0e750b6263cdfa81",
+  "origen": "chatgpt-web"
+}

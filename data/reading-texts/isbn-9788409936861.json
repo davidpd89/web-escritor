@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409936861",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ser padre o tener hijos: El posparto del que nadie habla: las 12 creencias que cambian cuando nace tu hijo y cómo trabajarlas en 65 + 1 días (Gestión por creencias para la vida) se dirige a quienes quieren examinar sus creencias durante la llegada de un hijo. Su enfoque de psicología y crianza se aleja de las lecturas centradas exclusivamente en cuidados físicos del bebé.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar y retomar los ejercicios de trabajo personal en papel durante los 65 + 1 días que plantea el título. Sus 130 páginas reúnen el contenido en un volumen físico manejable, que puede guardarse junto a otras lecturas sobre crianza.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Conectados para el amor / Wired for Love, de Stan Tatkin, comparte el interés por las relaciones afectivas, pero se centra en la pareja, mientras que el libro de Enrique Llimona Valonero aborda las creencias asociadas a la paternidad. Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología), de Ramón Nogueras Pérez, trata el enamoramiento y el desenamoramiento, frente al trabajo personal tras el nacimiento de un hijo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387534370",
+        "isbn-9786073876056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9fe11deb6f8bd572",
+  "origen": "chatgpt-web"
+}

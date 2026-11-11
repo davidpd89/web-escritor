@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388366048",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Memento Administrativo 2027 está dirigido a lectores que trabajan o estudian materias de derecho administrativo. Sus 2064 páginas corresponden a una obra jurídica extensa, alejada de la lectura narrativa y de los libros de divulgación general.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Memento Administrativo 2027 se publica en tapa blanda, con una extensión de 2064 páginas. Por su volumen, resulta más manejable como libro de consulta sobre una mesa que como lectura para transportar diariamente. La edición física permite revisar páginas sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Memento Administrativo 2027 comparte el ámbito jurídico con Blockchain: un desafío legal (Monografía), de Ana Isabel Quiroz Ruiz. La diferencia está en el alcance anunciado: Lefebvre aborda el derecho administrativo, mientras que la monografía de Ana Isabel Quiroz Ruiz se centra en los desafíos legales de blockchain. Son enfoques distintos dentro del estudio del derecho.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370610265"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b01d8256a4c25423",
+  "origen": "chatgpt-web"
+}

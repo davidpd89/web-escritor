@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788466396714",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Dicker (contiene: La verdad sobre el caso Harry Quebert | El caso Alaska Sanders | El libro de los Baltimore) (Best Seller | Ficción) está pensado para lectores interesados en el misterio y el thriller que buscan reunir tres títulos de Joël Dicker en un mismo estuche. No es una edición de una sola novela, sino un conjunto que incluye tres obras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La verdad sobre el caso Harry Quebert (edición limitada cantos tintados) (Campaña | Edición con cantos tintados), de Joël Dicker, comparte con este estuche una de las novelas incluidas y la misma autoría. La diferencia está en el contenido: aquella edición se centra en un título y presenta cantos tintados, mientras que el estuche reúne también El caso Alaska Sanders y El libro de los Baltimore.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466353991"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bd8422554d53c116",
+  "origen": "chatgpt-web"
+}

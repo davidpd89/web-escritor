@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786073877817",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El árbitro / The Referee se dirige a lectores interesados en el deporte desde una perspectiva de ensayo y reflexión. La obra de Augusto Cruz pertenece al ámbito de la no ficción deportiva y el ocio, por lo que se diferencia de una novela de competición o de una guía de entrenamiento físico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene las 232 páginas de El árbitro / The Referee en un volumen de cubierta flexible. Su extensión permite distribuir la lectura del ensayo en varias sesiones y volver a los pasajes de interés sin utilizar un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fútbol y anarquismo (RELECTURAS), de Miguel Fernández Ubiría, comparte con El árbitro / The Referee el terreno deportivo, pero introduce explícitamente una dimensión política. Kylian Mbappé: La biografía definitiva (Deportes), de Julien Laurens, aborda el deporte desde la vida de una figura concreta, mientras que el libro de Augusto Cruz se presenta como ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410677548",
+        "isbn-9788448049669"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5bf3fcacd04ad2e7",
+  "origen": "chatgpt-web"
+}

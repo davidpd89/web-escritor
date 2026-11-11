@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073879057",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Libera la fiera / Free the Beast, de Jorge Lozano H., se encuadra en el desarrollo personal y en los asuntos relacionados con la familia y la crianza. Por su clasificación, responde a intereses distintos de los de quienes buscan ficción fantástica, narrativa histórica o divulgación sobre salud física.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Libera la fiera / Free the Beast se publica en tapa blanda y tiene 256 páginas en castellano. La edición de Penguin Random House Grupo Editorial ofrece una lectura en soporte físico que permite marcar páginas, hacer anotaciones y recuperar fragmentos sin utilizar un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Libera la fiera / Free the Beast comparte el ámbito del desarrollo personal y la familia con Conectados para el amor / Wired for Love, de Stan Tatkin. Este último orienta su propuesta hacia las relaciones amorosas, mientras que Criar juntos de verdad, de Armando Bastida, concreta su atención en la crianza en equipo y la colaboración familiar.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876056",
+        "isbn-9788423370658"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d08c95f3ad934536",
+  "origen": "chatgpt-web"
+}

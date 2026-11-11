@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791399311907",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esperanza en París: 1 (El legado del tiempo) está dirigido a lectores que buscan novela histórica con elementos de misterio, política y referencias al siglo XX. Su combinación de géneros se aleja de la ficción centrada exclusivamente en el romance o de los ensayos históricos sin trama novelesca. El título lo identifica como el n.º 1.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esperanza en París: 1 (El legado del tiempo), de Miguel Tarín, se presenta en tapa blanda con 409 páginas. La edición en castellano de Lacruz Editorial ofrece una lectura física de extensión considerable, apropiada para quienes prefieren mantener una novela histórica en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esperanza en París: 1 (El legado del tiempo) puede compararse con El hombre que fue casi nadie (Salamandra Black) y La caza del ejecutor: Edición limitada a precio especial (Colección Especial) por su relación con el misterio y el thriller. La novela de Miguel Tarín incorpora además una clasificación histórica centrada en el siglo XX, el poder y la política, que la distingue temáticamente de esos títulos. El título la identifica como el n.º 1 de El legado del tiempo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387928599",
+        "isbn-9788467084382"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6cda0dc3e3cc424a",
+  "origen": "chatgpt-web"
+}

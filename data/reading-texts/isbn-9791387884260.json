@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387884260",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El lago de los monstruos (INFANTIL), de Leo Timmers, pertenece a la literatura infantil y combina elementos de terror, fantasía y humor. Su temática de monstruos puede resultar menos adecuada para lectores que evitan las criaturas inquietantes o prefieren historias realistas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El lago de los monstruos (INFANTIL) cuenta con una edición en tapa dura de 44 páginas, publicada en castellano. Su encuadernación rígida resulta práctica para conservar el volumen y manipularlo durante lecturas compartidas, especialmente frente al desgaste de las cubiertas flexibles.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El lago de los monstruos (INFANTIL) y Cacahuete, el elfo pedorrete (Libros ilustrados) comparten un marco infantil con criaturas alejadas del realismo. Leo Timmers reúne monstruos, fantasía y terror con humor, mientras que el título de Rafael Ordóñez señala expresamente a un elfo y un componente humorístico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410318526"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8c620b6f07492615",
+  "origen": "chatgpt-web"
+}

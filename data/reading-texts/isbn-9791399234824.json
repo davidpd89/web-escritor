@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399234824",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La visita: Una novela de Jack Reacher encaja con lectores de misterio y thriller interesados en una novela de Lee Child vinculada a Jack Reacher. Sus 512 páginas la sitúan entre las lecturas de cierta extensión y la alejan de quienes prefieren romance juvenil o ensayos de no ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La visita: Una novela de Jack Reacher está disponible en tapa blanda, con 512 páginas en la edición de Blatt & Ríos. El formato permite leer y conservar la novela en papel, aunque su extensión supone un volumen considerable para llevarlo a diario.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La visita: Una novela de Jack Reacher comparte el ámbito del misterio con Aguas turbulentas, de Rankin Ian, cuya descripción sitúa el conflicto en Edimburgo y relaciona sucesos del pasado con el presente. También se aproxima a Corazón de sílex, de Emilia Landaluce y Rosa Belmonte, que parte de una joven incapaz de recordar la noche anterior. La visita: Una novela de Jack Reacher se distingue por identificar expresamente a Jack Reacher en su título.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318",
+        "isbn-9788467083330"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "66c3c7f9f9d7d85c",
+  "origen": "chatgpt-web"
+}

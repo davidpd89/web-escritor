@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387871499",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores de filosofía y religión interesados en la relación entre la fe y la incertidumbre. El planteamiento de Pedro García Cuartango se sitúa en la reflexión espiritual, por lo que se distancia de las lecturas centradas en técnicas prácticas de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Penguin Bolsillo ofrece 352 páginas en tapa blanda y tamaño de libro de bolsillo. Su presentación facilita transportarlo y leerlo por etapas, una opción para abordar las cuestiones filosóficas y religiosas que plantea El enigma de Dios: De la fe a la incertidumbre (Best Seller | No Ficción).",
+      "evidencias": [
+        "editorial",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Donde no supe: Entre el éxtasis místico y las experiencias extrasensoriales (Ensayo) comparte el interés por la espiritualidad, pero se centra en experiencias místicas, mientras que El enigma de Dios: De la fe a la incertidumbre (Best Seller | No Ficción) plantea la relación entre creencia y duda. Autobiografía de un yogui (Best Seller | No Ficción) propone desde su título una perspectiva autobiográfica, frente al enfoque filosófico de Pedro García Cuartango.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388147838",
+        "isbn-9791388019760"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9112f43f8714e274",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388387098",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La emperatriz de las Galápagos: Aventuras alemanas en América Latina (Historia), de Michi Strausfeld, está dirigida a lectores interesados en la historia, el siglo XX y las aventuras vinculadas a América Latina. Su planteamiento se sitúa en el ensayo histórico, no en la ficción narrativa ni en los manuales de filosofía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda presenta las 256 páginas de La emperatriz de las Galápagos: Aventuras alemanas en América Latina (Historia), de Michi Strausfeld, en un volumen físico. Su extensión permite tener reunido el contenido en un único ejemplar de papel, sin necesidad de dispositivos de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La emperatriz de las Galápagos: Aventuras alemanas en América Latina (Historia), de Michi Strausfeld, comparte el interés por el pasado con Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig. La diferencia está en su enfoque: el primero se presenta como ensayo histórico sobre aventuras alemanas en América Latina, mientras que el segundo se identifica como narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a779601f8aa51e64",
+  "origen": "chatgpt-web"
+}

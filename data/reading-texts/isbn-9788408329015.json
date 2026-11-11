@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408329015",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La sombra de la sirena (Los crímenes de Fjällbacka) (Biblioteca Camilla Läckberg) está orientada a lectores de misterio y thriller que también se interesan por la narrativa contemporánea. Con 496 páginas y su vinculación a Los crímenes de Fjällbacka, encaja menos con quienes buscan novelas cortas o lecturas alejadas del crimen.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La sombra de la sirena (Los crímenes de Fjällbacka) (Biblioteca Camilla Läckberg) se publica en tapa blanda, en la edición de bolsillo de Booket. Sus 496 páginas permiten disponer de la novela completa en papel, tanto para leerla durante desplazamientos como para conservarla en una colección física.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La sombra de la sirena (Los crímenes de Fjällbacka) (Biblioteca Camilla Läckberg) comparte el ámbito del misterio con Aguas turbulentas y Asesinato antes de Navidad. La obra de Camilla Läckberg se identifica con Los crímenes de Fjällbacka, mientras que la de Rankin Ian sitúa su conflicto en Edimburgo y la de Katherine Black parte de una Navidad que su protagonista desea tranquila.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318",
+        "isbn-9791370310264"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "72622bf694201149",
+  "origen": "chatgpt-web"
+}

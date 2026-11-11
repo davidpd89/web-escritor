@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788448874865",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Peppa Pig. Un cuento - Navidad en familia se dirige al público infantil que disfruta de las historias de Peppa Pig y de los temas familiares y navideños. Sus 40 páginas ofrecen una extensión breve; no responde a quien busca una novela juvenil larga.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 40 páginas de Peppa Pig. Un cuento - Navidad en familia en un volumen físico adecuado para conservar y regalar. Kindle permite leer el mismo título en un dispositivo compatible sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Peppa Pig. Un cuento - Navidad en familia comparte protagonista y autoría con Peppa Pig. Libro juguete - ¿Dónde está Peppa? Busca y encuentra en España, de Hasbro; el primero trata la Navidad en familia y el segundo propone buscar personajes en escenarios españoles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788448872915"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b4c6feb8035378fe",
+  "origen": "chatgpt-web"
+}

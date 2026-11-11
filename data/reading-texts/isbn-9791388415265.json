@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388415265",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "UMBRA NOVA: El ladrón de sombras se dirige a lectores de fantasía que prefieren el lenguaje del cómic y la novela gráfica. Sus 80 páginas ofrecen una extensión reducida frente a las novelas largas, aunque no responde a quien busca narrativa exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato de UMBRA NOVA: El ladrón de sombras, publicado por Serendipia Editorial con 80 páginas. La encuadernación rígida resulta apropiada para conservar un cómic en una estantería o entregarlo como regalo, mientras que su extensión permite leerlo en pocas sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Agencia de animales mágicos: Medianoche y la leyenda de Santuario (Mi primer cómic) comparte con UMBRA NOVA: El ladrón de sombras la combinación de elementos fantásticos y formato de cómic. La obra de Steve Smallman se presenta como un primer cómic y gira en torno a animales mágicos; la de José A. Fideu anuncia desde el título un ladrón de sombras, sin esa orientación inicial explícita.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448875381"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3a8d3bd04a39bf1b",
+  "origen": "chatgpt-web"
+}

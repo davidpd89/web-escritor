@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791387973094",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Solo esta vez (La familia King 1): La familia King (Montena), de Lena Hendrix, encaja con lectores de romance que buscan historias relacionadas con el amor, la pareja y la familia. Sus 416 páginas se alejan de la novela corta, y su enfoque romántico puede no responder a quienes prefieren relatos sin relaciones sentimentales como tema central.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Solo esta vez (La familia King 1): La familia King (Montena) se edita en tapa blanda, con 416 páginas en castellano. La cubierta flexible permite sujetar el libro con comodidad y transportarlo, mientras que su extensión ofrece una lectura más prolongada que la de un relato breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Solo esta vez (La familia King 1): La familia King (Montena), de Lena Hendrix, puede compararse con La guerra de las librerías (Lo más visto), de Ali Brady, como otra lectura de ficción incluida entre sus títulos relacionados. También aparece Irresistibles Navidades, de Cherry Chic, presentado como un estuche que reúne Imperfectas navidades e Inesperadas Navidades. Frente a ese conjunto de obras, Solo esta vez (La familia King 1): La familia King (Montena) es un volumen individual de 416 páginas en tapa blanda, centrado en el romance y las relaciones familiares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387871482",
+        "isbn-9791387924492"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4bdda5d078a5dbcb",
+  "origen": "chatgpt-web"
+}

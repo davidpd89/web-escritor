@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9786287878389",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Escudo de Valor / The Value Shield se dirige a lectores interesados en economía y empresa. Es una obra de David Gómez publicada por Ediciones B, por lo que no responde a una búsqueda de narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Escudo de Valor / The Value Shield está disponible en tapa blanda, con 384 páginas en castellano. Esta edición de Ediciones B permite consultar el contenido en papel y transportarlo sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparte con El Escudo de Valor / The Value Shield el ámbito económico, aunque el primero delimita su enfoque al pensamiento anarcocapitalista. Antes de liderar: Una mirada interior a un oficio se centra, por su título, en el liderazgo, frente al encuadre económico más amplio de la obra de David Gómez.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457",
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2371c0697df80a51",
+  "origen": "chatgpt-web"
+}

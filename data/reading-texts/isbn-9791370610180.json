@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370610180",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fundamentos para un nuevo derecho victimal en el sistema de justicia penal (Estudios) se orienta a lectores interesados en el papel de las víctimas dentro de la justicia penal. Por su planteamiento jurídico y sus 316 páginas, se distancia de los relatos de crímenes y de los manuales generales de divulgación.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Fundamentos para un nuevo derecho victimal en el sistema de justicia penal (Estudios) contiene 316 páginas en castellano. Es una edición física que permite subrayar, señalar pasajes y volver a los fundamentos jurídicos durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Derecho penal 4.0: el Derecho penal en la cuarta revolución industrial: 124 (Propiedad Intelectual), de Raquel Roso Cañadillas, José-Zamir Vega Gutiérrez, Carmen Pérez-Sauquillo Muñoz, comparte el interés por el derecho penal, pero lo relaciona con los cambios tecnológicos. El abordaje y registro de buques en el proceso penal (Monografía), de Javier Blanco Vargas, trata una actuación procesal concreta, mientras que la obra de Manuel Jose Garcia Rodriguez se centra en los fundamentos del derecho victimal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788429030396",
+        "isbn-9791370610487"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "250fb04d1db19c11",
+  "origen": "chatgpt-web"
+}

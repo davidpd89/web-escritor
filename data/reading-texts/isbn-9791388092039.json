@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Confitería cantábrica (Mesa y mantel) está orientado a lectores adultos interesados en la repostería tradicional y en el origen cultural de las recetas. María Mieres reúne preparaciones vinculadas a obradores, conventos y confiterías del norte de España. Su atención a las elaboraciones históricas lo diferencia de los recetarios centrados en cocinar rápidamente o simplificar tareas cotidianas.",
+      "texto": "Confitería cantábrica (Mesa y mantel) está dirigido a adultos interesados en la repostería tradicional del norte de España y en su contexto cultural. No responde al planteamiento de un manual de cocina rápida o de alimentación general, pues se concentra en dulces regionales y en su elaboración.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,37 +14,33 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Confitería cantábrica (Mesa y mantel) reúne recetas de repostería tradicional recuperadas mediante visitas a establecimientos históricos y conversaciones con profesionales del oficio. María Mieres incorpora especialidades como la larpeira, las marañuelas y la quesada pasiega. Sus 184 páginas permiten consultar preparaciones concretas y conocer el papel de las mujeres en la conservación de estas tradiciones culinarias.",
+      "texto": "El libro reúne recetas de repostería tradicional obtenidas mediante visitas a obradores, confiterías y conventos, además de conversaciones con profesionales del oficio. Incluye elaboraciones como la larpeira, las marañuelas, la quesada pasiega, la pantxineta y la costrada de Aoiz, junto con referencias al papel de las mujeres en esta tradición.",
       "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Confitería cantábrica (Mesa y mantel) se ofrece en tapa dura y Kindle. La edición de Debate tiene 184 páginas y una encuadernación rígida, apropiada para conservar el recetario y consultarlo repetidamente. Kindle permite acceder a las preparaciones desde el móvil o una tableta, una alternativa para seguir las recetas sin manejar el libro físico.",
+      "texto": "La tapa dura de Debate contiene 184 páginas y permite mantener el recetario como libro físico de consulta en la cocina. La versión Kindle facilita consultar las elaboraciones desde un móvil o lector electrónico, sin necesidad de transportar el volumen impreso.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
-        "edicion",
-        "editorial",
         "numero_paginas",
+        "editorial",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Confitería cantábrica (Mesa y mantel) y Artesanos del queso comparten el interés por los oficios alimentarios y las tradiciones regionales de España. María Mieres documenta recetas dulces transmitidas por confiterías y obradores, mientras que Ignacio Medina recorre queserías y la diversidad del queso artesano. El primero funciona como recetario de postres; el segundo pone el foco en los productores y sus elaboraciones.",
+      "texto": "20 minutos ¡y listo!, de Jamie Oliver, también se ocupa de la preparación de comida, pero pone el acento en cocinar con poco tiempo. Confitería cantábrica (Mesa y mantel), de María Mieres, se diferencia por concentrarse en recetas dulces regionales, su transmisión histórica y los establecimientos donde se han conservado.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788419483881"
+        "isbn-9788425374074"
       ]
     }
   ],

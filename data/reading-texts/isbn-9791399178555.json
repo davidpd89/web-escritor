@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399178555",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bajo la estela de un legado está dirigido a lectores de narrativa juvenil y contemporánea que prefieren obras breves. Con 82 páginas, se diferencia por extensión de las novelas largas y no está clasificado como ensayo histórico ni como divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bajo la estela de un legado se presenta en tapa blanda, con 82 páginas en castellano. Es un volumen de extensión reducida que resulta sencillo de transportar y guardar, tanto para leer durante desplazamientos como para incorporarlo a una colección de narrativa juvenil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo la estela de un legado puede compararse con El clan Monet 1 - Tesoro (Ficción crossover), de Weronika Anna Marczak, por su orientación hacia lectores jóvenes. La obra de Carmen Galvañ Bernabé pertenece a la narrativa juvenil y contemporánea, mientras que la de Weronika Anna Marczak se identifica como ficción crossover. Además, el título de esta última señala el número 1, frente a la presentación independiente de Bajo la estela de un legado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427226074"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a5630be869dd94a1",
+  "origen": "chatgpt-web"
+}

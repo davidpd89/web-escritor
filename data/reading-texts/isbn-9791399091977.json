@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399091977",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Japón a mano alzada (VAGAMUNDOS) se dirige a quienes buscan lecturas de viajes centradas en Japón. Antonio Fernández Montoya firma un volumen de 182 páginas que responde a un interés geográfico y cultural concreto, en lugar de centrarse en otros destinos o en una narración de ficción fantástica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Japón a mano alzada (VAGAMUNDOS) se ofrece en tapa blanda, con 182 páginas en castellano. Es una edición física de Traspies,c.b que puede transportarse y consultarse durante una lectura sobre Japón; su fecha de publicación editorial es el 16 de noviembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Japón a mano alzada (VAGAMUNDOS) y Al andar: Vivencias del Camino de Santiago comparten el interés por los viajes y los lugares recorridos. Antonio Fernández Montoya sitúa su libro en Japón, mientras que Carlos Díaz Ballesta se ocupa de las vivencias del Camino de Santiago; la diferencia principal para el lector está en el destino y el enfoque anunciado por cada título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7050396c497bdbe9",
+  "origen": "chatgpt-web"
+}

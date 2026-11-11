@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791387526795",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido al público infantil que busca una lectura navideña protagonizada por Mickey, con mecanismos y páginas de cartón. Por sus 8 páginas y su carácter interactivo, encaja menos con quienes prefieren aventuras largas o relatos con abundante texto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Se utiliza como un libro de cartón con mecanismos que permiten interactuar físicamente con sus páginas. Sus 8 páginas ofrecen una actividad breve centrada en Mickey y la Navidad, que combina la exploración de los elementos móviles con la lectura.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa dura, con páginas de cartón y mecanismos incorporados. Sus 8 páginas permiten manejarlo en sesiones breves, mientras que el soporte físico resulta necesario para utilizar los mecanismos que anuncia el título.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Clásicos Disney. Cuento de Navidad: Una historia de Mickey y sus amigos comparte el protagonista y la temática navideña, pero se presenta como una historia en lugar de un libro con mecanismos. Stitch. Calendario de Adviento también gira en torno a la Navidad, aunque ofrece 24 historias para la cuenta atrás, frente a las 8 páginas de cartón y los mecanismos de este volumen.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "edicion",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788419487827",
+        "isbn-9791387526863"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "705c5acc60a5da22",
+  "origen": "chatgpt-web"
+}

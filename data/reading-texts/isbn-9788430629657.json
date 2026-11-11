@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788430629657",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El arte de organizar los pensamientos: Sabiduría pausada para un mundo acelerado se dirige a quienes buscan reflexionar sobre sus procesos mentales desde el desarrollo personal, la filosofía y la psicología. No responde a la búsqueda de una narración de ficción ni de una aventura protagonizada por personajes.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Taurus publica este libro de Shigehiko Toyama en tapa blanda, con 256 páginas en castellano. El volumen impreso permite detener la lectura para tomar notas aparte y regresar a las reflexiones sobre pensamiento y desarrollo personal.",
+      "evidencias": [
+        "editorial",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de organizar los pensamientos: Sabiduría pausada para un mundo acelerado puede compararse con La cara B del amor: Más allá de las dificultades (Contextos) por su relación con la psicología. Shigehiko Toyama aborda la organización del pensamiento desde la filosofía y el desarrollo personal, mientras que la obra de Gabriel Rolón centra su atención en las dificultades vinculadas al amor y las relaciones personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449346224"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fb41e3ce53889a27",
+  "origen": "chatgpt-web"
+}

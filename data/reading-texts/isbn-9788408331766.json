@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408331766",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rodeados de mentirosos: Cómo evitar que las mentiras y las medias verdades arruinen tu vida (Empresa y Talento), de Thomas Erikson, se dirige a lectores interesados en el desarrollo personal y las relaciones familiares. Su planteamiento gira en torno a las mentiras y las medias verdades, por lo que encaja con quienes quieren abordar esas cuestiones desde una perspectiva de crecimiento personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece una edición de bolsillo de 368 páginas, pensada para leer en papel sin ocupar tanto espacio como un volumen de tapa dura. Es el formato disponible para Rodeados de mentirosos: Cómo evitar que las mentiras y las medias verdades arruinen tu vida (Empresa y Talento), de Thomas Erikson.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formato_edicion",
+        "formatos_disponibles",
+        "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Conectados para el amor / Wired for Love, de Stan Tatkin, y Rodeados de mentirosos: Cómo evitar que las mentiras y las medias verdades arruinen tu vida (Empresa y Talento), de Thomas Erikson, comparten un punto de interés en las relaciones personales. El primero centra su título en el vínculo amoroso, mientras que el segundo pone el foco en las mentiras y las medias verdades; dos perspectivas distintas sobre las relaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "68664fe999e0c714",
+  "origen": "chatgpt-web"
+}

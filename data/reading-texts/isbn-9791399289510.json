@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791399289510",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en el teatro y en los conflictos relacionados con la creación artística. Su planteamiento como pieza teatral lo aleja de quienes buscan una novela convencional o un manual práctico de técnicas artísticas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene las 204 páginas de esta pieza teatral sobre la creación artística. Es una edición física que permite seguir el texto, consultar pasajes y conservar la obra en papel, sin depender de un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "720 retrats comparte el interés por la expresión artística, aunque se presenta como una obra centrada en retratos. Arde Talía: Una pieza teatral sobre el infierno de la creación artística aborda ese ámbito desde el teatro y sitúa las dificultades del proceso creativo en el centro de su propuesta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b61abac1ae3fe8d1",
+  "origen": "chatgpt-web"
+}

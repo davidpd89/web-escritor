@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Japón 2027-2028 está dirigido a quienes preparan una visita a Japón y quieren combinar grandes ciudades, gastronomía y lugares menos conocidos. Abarca desde Tokio y Kioto hasta Shikoku, Kyūshū y Okinawa; no responde a quien busque una novela ambientada en el país, porque es una guía de viajes.",
+      "texto": "Japón 2027-2028 está dirigido a viajeros que quieren preparar una visita a Japón y conocer tanto sus grandes ciudades como otros destinos del país. Su planteamiento de guía turística resulta menos adecuado para quien busca una novela ambientada en Japón o una obra dedicada exclusivamente a su historia.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,27 +13,27 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Japón 2027-2028 es una guía de viajes centrada en destinos, cultura y gastronomía japonesa. Sus 856 páginas reúnen tanto lugares reconocibles, como el monte Fuji, como regiones menos habituales en los recorridos turísticos, entre ellas Shikoku y Kyūshū.",
+      "texto": "Japón 2027-2028 propone una consulta turística extensa sobre destinos, tradiciones, gastronomía y cultura contemporánea japonesa. Su cobertura incluye Tokio, Kioto y el monte Fuji, además de Shikoku, Kyūshū y Okinawa. Las 856 páginas permiten abordar el país con mayor amplitud que una selección centrada en una sola ciudad.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "categorias",
-        "sinopsis_editorial",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Japón 2027-2028 reúne sus 856 páginas en una edición rústica sin solapas, apropiada para consultar sobre papel durante la planificación. Kindle permite llevar el mismo título en un dispositivo de lectura o en el móvil, sin transportar el volumen físico.",
+      "texto": "La tapa blanda de Japón 2027-2028 reúne 856 páginas en una edición rústica sin solapas, pensada para consultar el contenido en papel. Kindle evita transportar ese volumen durante los desplazamientos y permite llevar la guía en un dispositivo digital, incluido el móvil.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "edicion",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Japón 2027-2028 e Indonesia 7 comparten a Ray Bartlett entre sus autores y tratan destinos asiáticos, aunque cada guía se centra en un país distinto. Frente a Amsterdam de cerca 2027-2028, dedicado a una ciudad, Japón 2027-2028 abarca varias regiones y destinos de un territorio nacional.",
+      "texto": "Explora Japón 2027-2028 (Guías Explora Lonely Planet) comparte destino y periodo con Japón 2027-2028, además de la participación de Ray Bartlett y Phillip Tang, aunque presenta una autoría colectiva diferente. Allí donde fueres... también trata aspectos de Japón, pero se centra en las costumbres y los saludos, mientras que Japón 2027-2028 abarca numerosos destinos turísticos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -42,8 +42,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408329534",
-        "isbn-9788408320890"
+        "isbn-9788408324324",
+        "isbn-9788408324331"
       ]
     }
   ],

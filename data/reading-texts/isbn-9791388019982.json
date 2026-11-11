@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388019982",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuentos de invierno (Narrativa), de Ingvild H. Rishøi, se dirige a lectores interesados en obras narrativas vinculadas a la familia y la crianza. Sus 200 páginas en castellano permiten abordar esa temática en una extensión contenida; no responde a quien busca un manual extenso de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuentos de invierno (Narrativa) se publica en tapa blanda, con 200 páginas en castellano. Esta edición de Galaxia Gutenberg reúne el contenido en un volumen físico que puede transportarse y consultarse sin dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuentos de invierno (Narrativa) puede compararse con Abuelas Y Abuelos (Álbumes Ilustrados castellano) por su relación temática con la familia. La obra de Helene Delforge se presenta como álbum ilustrado, mientras que la de Ingvild H. Rishøi pertenece a la narrativa y tiene 200 páginas. La diferencia principal está en el tipo de libro y su planteamiento editorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491429586"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aed59369949b94ee",
+  "origen": "chatgpt-web"
+}

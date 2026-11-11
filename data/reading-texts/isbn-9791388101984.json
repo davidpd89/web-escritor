@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388101984",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gundam the Origin nº 05: 5 (Manga Seinen) encaja con lectores de manga y narrativa gráfica juvenil que buscan una entrega identificada dentro de una serie. No responde a la búsqueda de una novela convencional en prosa ni a la de un volumen presentado como independiente. El título lo identifica como el n.º 5.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Gundam the Origin nº 05: 5 (Manga Seinen) se presenta en tapa blanda, con 464 páginas en castellano. Esta edición permite consultar las páginas impresas y mantener el volumen junto a otros ejemplares de la serie. Su extensión requiere más espacio de almacenamiento que un tomo breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Blue Lock nº 33 (Manga Shonen) y Gundam the Origin nº 05: 5 (Manga Seinen) comparten el formato narrativo del manga y la numeración de sus entregas. Se distinguen por su identificación editorial como shonen y seinen, respectivamente, además de sus autores: Yusuke Nomura y Muneyuki Kaneshiro frente a Yoshikazu Yasuhiko. Ambos títulos se presentan como entregas numeradas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388101991"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e1ec14e010d2fe71",
+  "origen": "chatgpt-web"
+}

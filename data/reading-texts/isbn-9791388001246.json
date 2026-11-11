@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388001246",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La lavandería de almas de Marigold: El best seller coreano que ha vendido más de 250.000 ejemplares (Books4pocket narrativa), de Yoon Jeong-eun, pertenece a la narrativa contemporánea. Se dirige a quienes buscan ese tipo de ficción en castellano, no a lectores que prioricen una obra clasificada como thriller o fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La lavandería de almas de Marigold: El best seller coreano que ha vendido más de 250.000 ejemplares (Books4pocket narrativa) está disponible en tapa blanda, con 224 páginas. La edición de Books4pocket ofrece un volumen de cubierta flexible para leer en papel y transportar entre sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1a2c611d2c87c165",
+  "origen": "chatgpt-web"
+}

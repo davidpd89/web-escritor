@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388139451",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todo lo que somos: Lo que el mundo animal revela sobre nuestra propia naturaleza (No ficción) se orienta a lectores interesados en la naturaleza, el comportamiento animal y las preguntas sobre la condición humana. Su enfoque de ensayo y desarrollo personal lo diferencia de los relatos protagonizados por animales o de los manuales exclusivamente prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Todo lo que somos: Lo que el mundo animal revela sobre nuestra propia naturaleza (No ficción) está disponible en tapa blanda, con 288 páginas en castellano. El formato impreso permite detenerse en las reflexiones, volver a pasajes anteriores y conservar el libro como lectura de consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La vida de los animales: 21 (esenciales) y ¿Por qué miramos a los animales? comparten con Todo lo que somos el interés por la relación entre los animales y la reflexión humana. La obra de Laura Camón plantea esa relación desde lo que el mundo animal revela sobre nuestra naturaleza; el ensayo de John Berger aborda el lugar que hemos concedido a los animales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399281019",
+        "isbn-9788425236716"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cc97c33028cd34e8",
+  "origen": "chatgpt-web"
+}

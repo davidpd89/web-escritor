@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791370202132",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historia Universal de la Alimentación se orienta a lectores interesados en la alimentación desde una perspectiva histórica y en los temas relacionados con la cocina. Sus 640 páginas corresponden a una obra extensa, más adecuada para una lectura prolongada que para quien busca un recetario breve o una consulta rápida de preparaciones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Historia Universal de la Alimentación se presenta en tapa blanda y reúne 640 páginas en castellano. Por su extensión, conviene tener en cuenta el espacio y el peso de un volumen físico de estas dimensiones, especialmente para transportarlo. La edición de Almuzara permite conservar la obra en papel y consultarla por separado de otros libros de cocina.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Historia Universal de la Alimentación y Atlas Mundial Del Vino (NATURART), de Hugh Johnson, abordan materias relacionadas con la cultura alimentaria desde enfoques distintos. Almudena Villegas Becerril trata la alimentación en su dimensión histórica, mientras que Hugh Johnson centra su título en el vino y su alcance mundial. La primera obra tiene 640 páginas y un objeto de estudio más amplio que el vino.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418075933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e2d059548f528d00",
+  "origen": "chatgpt-web"
+}

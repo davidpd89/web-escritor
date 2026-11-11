@@ -4,36 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "CINEXIN. ¡LUCES, CÁMARAS, ACCIÓN! se dirige a lectores interesados en la historia de los juguetes, el cine doméstico y los recuerdos de infancia vinculados al Cinexin. No está planteado como una aventura de ficción: Aser Queipo recorre la evolución de los proyectores, sus películas, la publicidad y los personajes que aparecían en ellas.",
+      "texto": "Cinexin. ¡Luces, cámaras, acción! está dirigido a lectores interesados en la historia de los juguetes, el cine y los recuerdos asociados a la infancia. Su contenido también conecta con quienes sienten curiosidad por la publicidad, los personajes y las distintas versiones de un proyector de juguete; no es una novela de ficción convencional.",
       "evidencias": [
         "titulo",
-        "autores",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Propone una lectura histórica sobre el Cinexin, centrada en su evolución como juguete y en su presencia en los hogares desde 1971. Aser Queipo repasa los distintos proyectores, películas, anuncios y curiosidades, con referencias a personajes como Chaplin, el Pato Donald y la Pantera Rosa, dentro de una obra clasificada como cómic y novela gráfica.",
+      "texto": "Cinexin. ¡Luces, cámaras, acción! propone una lectura centrada en la historia de un juguete y su relación con la cultura cinematográfica popular. Recorre sus proyectores, películas, campañas publicitarias, personajes y curiosidades, combinando la evolución del objeto con los recuerdos de quienes crecieron utilizándolo.",
       "evidencias": [
-        "autores",
-        "categorias",
+        "titulo",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es el formato disponible para las 280 páginas de esta edición de Diabolo Ediciones en castellano. Su encuadernación rígida permite conservar el volumen y consultar las secciones dedicadas a la historia del Cinexin, sus diferentes proyectores, las películas y la publicidad asociada al juguete.",
+      "texto": "La edición disponible es en tapa dura y reúne 280 páginas. Este formato ofrece una encuadernación rígida para conservar el volumen físico, una característica relevante en un libro dedicado también a imágenes, personajes y recuerdos del universo Cinexin. No se ofrecen otros formatos para esta edición.",
       "evidencias": [
-        "formatos_disponibles",
-        "numero_paginas",
-        "editorial",
         "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo",
         "sinopsis_editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2c79dd8e1ccab8c9",
+  "fuente_hash": "e363f0725c8dc21b",
   "origen": "chatgpt-web"
 }

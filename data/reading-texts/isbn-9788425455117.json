@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788425455117",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Qué es una persona? (Pensamiento Herder), de Guillermo Hurtado, se dirige a lectores interesados en la filosofía y las preguntas sobre la condición humana. Es un ensayo de 152 páginas, por lo que se aparta de la narrativa de ficción y de los tratados filosóficos de gran extensión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Qué es una persona? (Pensamiento Herder) está disponible en tapa blanda y Kindle, con 152 páginas en su edición impresa. El papel permite subrayar y consultar fragmentos directamente, mientras que Kindle facilita llevar el ensayo en un dispositivo compatible y acceder a él sin cargar con el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cartas a Lucilio: Edición íntegra (Clásicos), de Séneca, y ¿Qué es una persona? (Pensamiento Herder), de Guillermo Hurtado, comparten su relación con el pensamiento filosófico. La obra de Séneca presenta textos en forma de cartas y en edición íntegra; la de Guillermo Hurtado plantea una pregunta sobre el concepto de persona mediante un ensayo de 152 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182495"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c5ea1c38b82f9594",
+  "origen": "chatgpt-web"
+}

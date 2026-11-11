@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410647756",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El cardadismo ilustrado: Filosofía para sobrevivir a las caídas sin despeinarte, de Mario Vaquerizo, se dirige a lectores interesados en el humor, las memorias y el arte y diseño. Su combinación temática se aparta de quienes buscan exclusivamente un manual académico de filosofía o una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El cardadismo ilustrado: Filosofía para sobrevivir a las caídas sin despeinarte ofrece tapa blanda y Kindle. La edición física reúne 208 páginas y permite conservar o regalar el ejemplar; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro de papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El cardadismo ilustrado: Filosofía para sobrevivir a las caídas sin despeinarte puede compararse con Habla como un hombre: 28 (Vidas), de Nacho Duato y Lupe Bohorques, por su proximidad al ámbito de las vidas personales. La obra de Mario Vaquerizo incorpora además el humor y el arte y diseño entre sus clasificaciones. Iglesias de León (Arte y patrimonio), de Carlos Taranilla, comparte la vertiente artística, pero su título delimita el interés al patrimonio religioso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410476608",
+        "isbn-9791370205904"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bcc3f888850226a7",
+  "origen": "chatgpt-web"
+}

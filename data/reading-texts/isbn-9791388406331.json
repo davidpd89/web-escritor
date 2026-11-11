@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388406331",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en testimonios personales relacionados con la religión, la espiritualidad y las experiencias de posesión y liberación. Por su planteamiento de historia real, encaja menos con quienes prefieren el terror de ficción o los estudios religiosos desvinculados de una experiencia personal.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Plataforma Editorial contiene 400 páginas y permite leer en papel una obra extensa de Ania Goledzinowska. Kindle ofrece una alternativa digital para avanzar por el texto desde un dispositivo electrónico sin transportar el volumen físico.",
+      "evidencias": [
+        "editorial",
+        "numero_paginas",
+        "autores",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Autobiografía de un yogui comparte el interés por las experiencias personales relacionadas con la espiritualidad, aunque su título sitúa el relato en el ámbito del yoga. Cara a cara con el demonio: Una historia real de posesión y liberación aborda una experiencia vinculada a la posesión y la liberación, con un enfoque testimonial y religioso.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388147838"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "859d844b6e1fcfa0",
+  "origen": "chatgpt-web"
+}

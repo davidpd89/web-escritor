@@ -4,26 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Reconexión se orienta a lectores juveniles de ciencia ficción que buscan distopías con conflictos personales, traiciones y situaciones inquietantes. Su continuidad con acontecimientos anteriores y la presencia de personajes cuyas vidas ya han cambiado dificultan abordarla como una aventura independiente o una lectura infantil ligera.",
+      "texto": "Reconexión se dirige a lectores de ciencia ficción juvenil interesados en distopías, traiciones y personajes enfrentados a situaciones extremas. Su conflicto gira alrededor de las consecuencias de un episodio violento y de una existencia inexplicable, por lo que se aleja de las historias infantiles de tono ligero.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Reconexión puede leerse en tapa blanda o en Kindle, dos opciones para sus 496 páginas. La edición impresa de Fandom Books permite conservar el volumen en papel, mientras que Kindle facilita llevar una novela extensa en un lector electrónico o en el móvil.",
+      "texto": "Reconexión está disponible en tapa blanda y Kindle. La edición impresa de Fandom Books reúne 496 páginas en castellano y permite conservar el volumen en papel; Kindle ofrece la misma obra en formato digital para leerla en un dispositivo compatible sin transportar el libro físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "editorial",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Reconexión y Evangelion Anima (novela) nº 04 comparten la ciencia ficción y los conflictos que afectan al futuro de sus personajes. Neal Shusterman desarrolla una distopía centrada en las consecuencias de acontecimientos anteriores, mientras que Evangelion Anima (novela) nº 04 plantea un conflicto relacionado con el destino del mundo. Superdónuts 3 - El destino de los dónuts también aborda un futuro inquietante, pero introduce el viaje temporal como punto de partida.",
+      "texto": "Reconexión y Duelo con varitas (Harry Potter): Guía oficial de hechizos para aprendices de magia se sitúan en el ámbito de la ficción juvenil con elementos extraordinarios. La diferencia está en el enfoque: Neal Shusterman desarrolla una distopía de ciencia ficción con traiciones y conflictos personales, mientras que el título de J.K. Rowling se presenta como una guía de hechizos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,8 +34,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788448873479",
-        "isbn-9791388101861"
+        "isbn-9788419868800"
       ]
     }
   ],

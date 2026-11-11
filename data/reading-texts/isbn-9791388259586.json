@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388259586",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los clásicos que hay que leer al menos una vez en la vida (Cofanetto) se dirige a lectores interesados en los clásicos literarios y la narrativa. Por su orientación hacia la literatura, encaja menos con quienes buscan libros de actividades, manuales prácticos o contenidos especializados de no ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Newton Compton Editores se ofrece en tapa blanda y consta de 128 páginas en castellano. Su extensión facilita llevar el volumen en una bolsa y leerlo en sesiones breves, sin necesidad de recurrir a una pantalla.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Banksy: I want to be what you saw in me (MISCELANEAS) comparte con Los clásicos que hay que leer al menos una vez en la vida (Cofanetto) la autoría atribuida a Varios autores. La diferencia está en el asunto: el primero se identifica con Banksy, mientras el segundo se centra en los clásicos literarios y la narrativa.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9789509509504"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5bd100803e99be6c",
+  "origen": "chatgpt-web"
+}

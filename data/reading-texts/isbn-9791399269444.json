@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399269444",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El legado del anarquismo negro: 4 (Devenir), de Lorenzo Kom’boa Ervin, se dirige a lectores interesados en la historia del anarquismo negro. Sus 144 páginas corresponden a una obra histórica breve, alejada de la ficción narrativa y de los manuales generales de historia de gran extensión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El legado del anarquismo negro: 4 (Devenir) se ofrece en tapa blanda, con 144 páginas en castellano. La edición de Calumnia permite leer y consultar en papel un volumen de extensión contenida; el título lo identifica como el n.º 4 de Devenir.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El legado del anarquismo negro: 4 (Devenir) y 76, de Felipe Pigna, figuran entre las lecturas relacionadas con la historia. El primero identifica expresamente el anarquismo negro como asunto central y está firmado por Lorenzo Kom’boa Ervin; el segundo presenta otra autoría y un título numérico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329695"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7010eb38c028d4ca",
+  "origen": "chatgpt-web"
+}

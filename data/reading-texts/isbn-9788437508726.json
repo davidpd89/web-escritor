@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788437508726",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡No me mires! (Popular), de Carlos Quílez Lázaro, se dirige a lectores interesados en el misterio y el thriller. Sus 236 páginas en castellano ofrecen una extensión intermedia, mientras que su clasificación por género lo aleja de quienes buscan específicamente narrativa infantil o cómic.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¡No me mires! (Popular) está disponible en tapa blanda, en una edición de 236 páginas publicada por FCE de España. Su encuadernación flexible facilita transportarlo para leer fuera de casa, sin el peso añadido de una cubierta rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3d7698b5961983bb",
+  "origen": "chatgpt-web"
+}

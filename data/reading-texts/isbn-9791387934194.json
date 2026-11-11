@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791387934194",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a quienes quieren cocinar arroz mediante recetas del sudeste asiático y convertirlo en el elemento principal de sus comidas. Su especialización en este ingrediente encaja menos con lectores que buscan un recetario general de cocina occidental o un manual dedicado a otros alimentos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Rice: Convierte el arroz en el centro de tu mesa con recetas del sudeste asiático (GASTRONOMIA) reúne propuestas culinarias centradas en el arroz y vinculadas a esa región. Las 24 páginas de la edición permiten manejar un volumen breve como referencia durante la preparación de comidas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es la encuadernación de esta edición de Cinco Tintas, que contiene 24 páginas dedicadas a recetas con arroz. Su cubierta rígida resulta práctica para conservar el volumen en una colección de cocina y consultarlo repetidamente sobre una superficie de trabajo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA), de David Villalón y Mario Villalón, comparte con Rice: Convierte el arroz en el centro de tu mesa con recetas del sudeste asiático (GASTRONOMIA) el ámbito gastronómico. El primero abarca huerta, bebidas y cocina, mientras que el libro de Ping Coombes concentra sus recetas en el arroz y el sudeste asiático.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934293"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8e02e1888092f46a",
+  "origen": "chatgpt-web"
+}

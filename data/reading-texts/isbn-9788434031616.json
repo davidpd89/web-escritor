@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788434031616",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El ocaso del Consejo Real de Castilla (1808-1834) (Derecho Histórico), de José María Puyol Montero, se dirige a lectores interesados en la historia y el derecho. Sus 1364 páginas corresponden a una obra de amplia extensión, alejada de la lectura narrativa breve o de quienes busquen ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne 1364 páginas, una extensión que conviene tener presente al elegir el ejemplar físico. Es el formato disponible de El ocaso del Consejo Real de Castilla (1808-1834) (Derecho Histórico), de José María Puyol Montero.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La formación de España: Una historia de pueblos, costumbres y leyes, de José María Pérez Zúñiga, comparte el interés por la historia y las leyes con El ocaso del Consejo Real de Castilla (1808-1834) (Derecho Histórico), de José María Puyol Montero. La diferencia está en el enfoque que indican sus títulos: uno aborda pueblos, costumbres y leyes; el otro se centra en el Consejo Real de Castilla durante el periodo 1808-1834.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430629770"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6d74ace6523d4697",
+  "origen": "chatgpt-web"
+}

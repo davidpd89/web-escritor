@@ -4,46 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Perdiendo el control (edición especial) (Windy City 3) encaja con lectores de narrativa juvenil interesados en el romance deportivo, la convivencia familiar y las relaciones condicionadas por proyectos de vida diferentes. Liz Tomforde desarrolla el vínculo entre un padre soltero y una repostera que trabaja temporalmente como cuidadora. No encaja con quien busca una historia centrada exclusivamente en la competición deportiva.",
+      "texto": "Encaja con lectores de romance deportivo que buscan una relación marcada por la crianza, el trabajo y una despedida anunciada. Aunque Montena lo clasifica como juvenil, sus conflictos sentimentales y familiares se alejan de las historias infantiles de aprendizaje.",
       "evidencias": [
-        "titulo",
-        "autores",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "editorial"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Perdiendo el control (edición especial) (Windy City 3) se presenta como edición especial en tapa dura de Montena. Tiene 480 páginas en castellano, fecha de publicación del 28 de enero de 2027 e ISBN 9791388222856. El título la identifica como el n.º 3 de Windy City, sin atribuirle características físicas adicionales a las indicadas.",
+      "texto": "Esta edición especial de Perdiendo el control (edición especial) (Windy City 3) se publica en tapa dura bajo el sello Montena. Reúne 480 páginas en castellano, con fecha editorial del 28 de enero de 2027; el título la identifica como la entrega n.º 3 de Windy City.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
         "numero_paginas",
         "idioma",
-        "fecha_publicacion",
-        "isbn13"
+        "fecha_publicacion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Perdiendo el control (edición especial) (Windy City 3) está disponible en tapa dura, tapa blanda, Kindle y audiolibro. La edición especial de Montena reúne 480 páginas en tapa dura, frente a la mayor flexibilidad de la tapa blanda para transportarla. Kindle permite leer en dispositivos electrónicos y el audiolibro sustituye la lectura visual por la escucha.",
+      "texto": "La tapa dura es el formato disponible para esta edición especial de 480 páginas. Su encuadernación rígida resulta práctica para conservar el volumen en una colección física o entregarlo como regalo, aunque ocupa más espacio que una edición digital.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Rozando el cielo (edición especial) (Windy City 1) y Perdiendo el control (edición especial) (Windy City 3) pertenecen a la misma serie de romances deportivos de Liz Tomforde. Sus títulos los identifican como los números 1 y 3, respectivamente. Perdiendo el control (edición especial) (Windy City 3) centra su conflicto en un jugador de béisbol, su hijo y una repostera cuya estancia en Chicago tiene fecha de finalización.",
+      "texto": "Perdiendo el control (edición especial) (Windy City 3) comparte autora y romance deportivo con Rozando el cielo (edición especial) (Windy City 1). Mientras el primero aborda la paternidad y el béisbol, el segundo sitúa la atracción entre un jugador de hockey y una auxiliar de vuelo. Ambos títulos identifican entregas distintas de Windy City.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791388417757"
@@ -52,6 +47,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1c221ee87c7b3c19",
+  "fuente_hash": "67a16b9394ecf0e7",
   "origen": "chatgpt-web"
 }

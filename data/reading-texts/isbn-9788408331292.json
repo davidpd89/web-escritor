@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ver de oídas se dirige a lectores interesados en la naturaleza, la divulgación científica y los paisajes sonoros de España. Su enfoque basado en grabaciones de campo y escucha ambiental se aparta de las guías prácticas de identificación de especies o de actividades al aire libre.",
+      "texto": "Ver de oídas se dirige a lectores interesados en la naturaleza, los paisajes de España y la observación del entorno a través de sus sonidos. Su enfoque literario y sonoro se distancia de los manuales prácticos de identificación de especies y de quienes prefieren una narración de ficción con una trama protagonizada por personajes inventados.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,37 +13,38 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Ver de oídas aborda la riqueza acústica de los espacios naturales españoles mediante una combinación de divulgación y escritura literaria. Carlos de Hita recurre a cuatro décadas de registros ambientales para mostrar cómo los animales y sus vocalizaciones permiten conocer un territorio, tomando como antecedente una grabación de 1985 realizada en los Montes de Toledo.",
+      "texto": "Carlos de Hita examina la naturaleza a partir de los sonidos que ha registrado durante cuarenta años de trabajo sobre el terreno. Su experiencia incluye una primera grabación del bramido de un ciervo realizada en 1985 en los Montes de Toledo y posteriores registros de distintos entornos españoles. El libro combina recuerdos personales y descripciones literarias para mostrar cómo la escucha permite conocer un paisaje.",
       "evidencias": [
-        "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Ver de oídas está editado en tapa dura de cartoné, sin sobrecubierta, con 240 páginas publicadas por Geoplaneta. Esta presentación reúne en un volumen físico el recorrido por los sonidos naturales de España y permite conservarlo para consultas o relecturas.",
+      "texto": "Ver de oídas está disponible en tapa dura, en una edición de cartoné sin sobrecubierta publicada por Geoplaneta. Sus 240 páginas ofrecen un volumen encuadernado con cubiertas rígidas, apropiado para conservarlo y volver a consultar sus pasajes sobre paisajes sonoros. Es una edición física para leer el texto y recorrer las experiencias de escucha descritas por Carlos de Hita.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "numero_paginas",
         "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La botica natural comparte con Ver de oídas el interés por el entorno natural, pero aborda las plantas medicinales desde la preparación de un botiquín herbal, mientras Carlos de Hita se ocupa de los sonidos del paisaje. El acorde secreto se aproxima desde la neurociencia y la autoría de Daniel J. Levitin, frente al trabajo de grabación de campo que estructura Ver de oídas.",
+      "texto": "Así es la vida de los animales: Historias de crueldad, amor y supervivencia en la naturaleza (Imago Mundi) comparte con Ver de oídas el interés por el mundo natural, aunque el libro de Carlos de Hita se centra en los sonidos del paisaje y el de Mario Alonso Santamaría en las experiencias de los animales. 33 islas: Un periplo mediterráneo. De Marettimo a Venecia. propone un recorrido geográfico, frente a la exploración sonora de paisajes de España.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "categorias",
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788449345975",
-        "isbn-9791387905620"
+        "isbn-9788423370979",
+        "isbn-9791387873127"
       ]
     }
   ],

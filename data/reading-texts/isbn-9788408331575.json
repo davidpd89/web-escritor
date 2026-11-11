@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408331575",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "The Defender (Dioses del juego, 2) (Novela), de Ana Huang, está dirigido a lectores de romance contemporáneo interesados en historias de pareja. El título lo identifica como el n.º 2 de Dioses del juego, por lo que quienes buscan continuar esa serie encontrarán aquí una nueva entrega; no es una propuesta de ensayo o divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 512 páginas de The Defender (Dioses del juego, 2) (Novela), de Ana Huang, en una edición de bolsillo. Es una opción en papel para quien prefiere conservar el volumen físico y leer sin depender de una pantalla; es el formato disponible para esta edición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "edicion",
+        "formato_edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dioses del juego 3. The Keeper, de Ana Huang, es la comparación más directa con The Defender (Dioses del juego, 2) (Novela), de Ana Huang: comparten autora y pertenecen a la serie Dioses del juego. El título de The Defender lo identifica como el n.º 2, mientras que The Keeper aparece identificado como la tercera entrega y se presenta como sports romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408330783"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4891b77916af751c",
+  "origen": "chatgpt-web"
+}

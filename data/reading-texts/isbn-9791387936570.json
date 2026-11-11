@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387936570",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El punto clave: Cómo liderar con visión estratégica (Negocios) se dirige a lectores interesados en el liderazgo empresarial y las decisiones estratégicas. Richard Rumelt aborda un ámbito vinculado a la economía y la empresa, por lo que queda fuera de las búsquedas centradas en ficción o entretenimiento narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El punto clave: Cómo liderar con visión estratégica (Negocios) se presenta en tapa blanda y reúne 432 páginas. El volumen de Tenos permite consultar el contenido en papel y volver a determinados apartados durante el estudio de cuestiones empresariales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antes de liderar: Una mirada interior a un oficio comparte con El punto clave: Cómo liderar con visión estratégica (Negocios) el interés por el liderazgo, aunque el primero anuncia una mirada interior y el segundo se centra en la visión estratégica. ANTES DE QUE OCURRA: Vender, formar y proteger el futuro desplaza el foco hacia la venta, la formación y la protección del futuro.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921980",
+        "isbn-9788409935604"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "08d5bf5d0d42a975",
+  "origen": "chatgpt-web"
+}

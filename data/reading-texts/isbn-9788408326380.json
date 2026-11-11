@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La Guerra Fría contada para escépticos se dirige a lectores de historia interesados en el espionaje, los conflictos internacionales y las tensiones políticas del siglo xx. Su enfoque divulgativo y poco solemne se distancia de quienes buscan una narración histórica centrada exclusivamente en la cronología militar o en el análisis académico especializado.",
+      "texto": "La Guerra Fría contada para escépticos se dirige a lectores interesados en la historia contemporánea, las rivalidades internacionales y los conflictos políticos y militares. Su enfoque histórico encaja menos con quienes buscan una novela de espionaje o una narración de ficción ambientada en ese periodo.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Juan Eslava Galán examina la rivalidad entre Estados Unidos y la Unión Soviética mediante episodios de espionaje, amenazas nucleares, campañas propagandísticas e intervenciones políticas. La Guerra Fría contada para escépticos aborda las consecuencias internacionales de ese enfrentamiento durante la segunda mitad del siglo xx, con una perspectiva histórica que evita el tono solemne.",
+      "texto": "Juan Eslava Galán aborda la Guerra Fría desde sus dimensiones políticas, militares y sociales, con especial atención al espionaje, la propaganda y el peligro nuclear. El libro examina cómo la rivalidad de las grandes potencias condicionó gobiernos, fronteras y conflictos regionales durante el siglo xx, mediante una narración histórica que evita el tono solemne.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,25 +23,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa dura con sobrecubierta reúne 384 páginas y ofrece un volumen físico para conservar, consultar o regalar. Kindle permite leer La Guerra Fría contada para escépticos en formato digital, con la comodidad de transportarlo en un dispositivo sin llevar el libro impreso.",
+      "texto": "La Guerra Fría contada para escépticos está disponible en tapa dura y Kindle. La edición física de Editorial Planeta tiene 384 páginas y sobrecubierta, adecuada para conservarla o regalarla; Kindle permite leer el mismo título en formato digital sin transportar el volumen.",
       "evidencias": [
         "titulo",
-        "edicion",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Auge y caída del Tercer Reich (edición especial) comparte con La Guerra Fría contada para escépticos el interés por la historia política y los grandes conflictos del siglo xx, pero se centra en el régimen nazi. CORONA AUTORITARIA, LA también estudia relaciones entre poder y política, aunque delimita su investigación a la monarquía y el nacionalismo español durante la dictadura de Primo de Rivera.",
+      "texto": "76, de Felipe Pigna, comparte con La Guerra Fría contada para escépticos, de Juan Eslava Galán, su pertenencia al ámbito de la historia. La obra de Juan Eslava Galán aborda las disputas geopolíticas, el espionaje y la amenaza nuclear del siglo xx, mientras que 76 se presenta con un título numérico que no delimita por sí mismo un conflicto internacional concreto.",
       "evidencias": [
         "titulo",
+        "autores",
+        "categorias",
         "afines_catalogo",
         "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788411005555",
-        "isbn-9788419892782"
+        "isbn-9788408329695"
       ]
     }
   ],

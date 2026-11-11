@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408327905",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuenta atrás para Navidad: Libro de enigmas: 24 enigmas para encontrar a los renos perdidos (Varios) está dirigido al público infantil y juvenil interesado en resolver misterios. Sus 24 enigmas giran alrededor de la búsqueda de unos renos, por lo que se aparta de las lecturas centradas exclusivamente en una narración sin acertijos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuenta atrás para Navidad: Libro de enigmas: 24 enigmas para encontrar a los renos perdidos (Varios) se presenta en tapa blanda y tiene 192 páginas. La edición de Planeta Junior permite manejar el libro en papel durante la resolución de sus 24 enigmas y transportarlo sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuenta atrás para Navidad: Libro de enigmas: 24 enigmas para encontrar a los renos perdidos (Varios) comparte con Detectograms: El topo que se infiltró la resolución de misterios, aunque el segundo se centra en descifrar códigos. Abre el misterio 1 - El robo de las croquetas también plantea una desaparición, pero sustituye los renos y los 24 enigmas por el robo de unas croquetas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644",
+        "isbn-9788408325024"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ed3444b2d3ed551f",
+  "origen": "chatgpt-web"
+}

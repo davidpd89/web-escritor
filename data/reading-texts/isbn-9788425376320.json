@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788425376320",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El viaje: Un año para transformar tu vida: 365 reflexiones para cultivar el autoconocimiento y la paz interior (Crecimiento personal) está dirigido a lectores interesados en el desarrollo personal y la reflexión cotidiana. Sus 365 reflexiones plantean un recorrido de lectura vinculado al autoconocimiento; no es una propuesta de ficción narrativa ni un relato de viajes centrado en destinos geográficos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 400 páginas de El viaje: Un año para transformar tu vida: 365 reflexiones para cultivar el autoconocimiento y la paz interior (Crecimiento personal). Es la edición disponible para quien prefiere leer en papel y conservar un ejemplar al que volver durante sus momentos de reflexión.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Viaje al mundo de las emociones (de la A a la Z) (Cuentos que cuentan), de Ana Serna Vara, comparte con El viaje: Un año para transformar tu vida: 365 reflexiones para cultivar el autoconocimiento y la paz interior (Crecimiento personal) el interés por el mundo interior. La diferencia está en el enfoque: uno propone 365 reflexiones relacionadas con el autoconocimiento y la paz interior, mientras el otro organiza su recorrido alrededor de las emociones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410318953"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e2c2506ebbf840bb",
+  "origen": "chatgpt-web"
+}

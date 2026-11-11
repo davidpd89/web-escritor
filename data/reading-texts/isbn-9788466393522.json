@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788466393522",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando éramos pilotos: Historias de los españoles que sobrevivieron al Dakar en África (Best Seller | Ficción), de José Antonio Ponseti, se orienta a lectores interesados en experiencias de pilotos españoles, viajes y supervivencia. Encaja menos con quienes buscan un libro centrado en desplazamientos turísticos o una guía práctica de destinos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje del libro son las experiencias de españoles que afrontaron el Dakar en África y sobrevivieron a esa competición. Su planteamiento conecta los testimonios personales con el viaje y el riesgo, desde una perspectiva próxima a las memorias de sus protagonistas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda de bolsillo, con 528 páginas publicadas por Penguin Bolsillo. Permite leer una obra extensa en papel y transportarla sin el volumen habitual de una edición de gran formato, aunque sigue siendo un libro de considerable extensión.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Vuelo 19 (Best Seller | Ficción) comparte autoría con Cuando éramos pilotos: Historias de los españoles que sobrevivieron al Dakar en África (Best Seller | Ficción): ambos son de José Antonio Ponseti. Frente a ese otro título, Cuando éramos pilotos identifica expresamente su asunto: las experiencias de españoles que sobrevivieron al Dakar africano.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788466393515"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "48fc5cf9887d41a4",
+  "origen": "chatgpt-web"
+}

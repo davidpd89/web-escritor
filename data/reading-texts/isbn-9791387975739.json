@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387975739",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores que buscan historias relacionadas con crímenes y misterio, especialmente dentro de la narrativa negra. El título sitúa la trama en torno a unos crímenes; quienes prefieren lecturas centradas en desarrollo personal o divulgación encontrarán otra clase de propuesta.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 328 páginas y ofrece una lectura en papel. Es la modalidad disponible para quienes prefieren un ejemplar físico que puedan llevar consigo y consultar sin utilizar dispositivos electrónicos.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Asesinato en la Casa Rosa (edición limitada) (Los crímenes de Loeiro 1) (Campaña | Ahora por menos), de Arantza Portabales, comparte con Los crímenes de Encina Rota (Alfaguara Negra), de Diego Rodríguez Báez, el protagonismo de los crímenes. El título de Arantza Portabales identifica además una serie y su primera entrega, mientras que el de Diego Rodríguez Báez presenta una historia ambientada en Encina Rota.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396363"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "386b504394a9858f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466393874",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Familia rica, familia lista: Aumenta el coeficiente financiero de tu familia y toma el control de tu futuro (Best Seller | No Ficción), de Robert T. Kiyosaki, aborda la educación financiera desde el ámbito familiar. Se ajusta a intereses relacionados con economía y desarrollo personal, no a quienes buscan una novela o un manual dedicado únicamente a cuestiones empresariales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Familia rica, familia lista: Aumenta el coeficiente financiero de tu familia y toma el control de tu futuro (Best Seller | No Ficción) se presenta en tapa blanda de bolsillo. Sus 232 páginas facilitan transportarlo y consultar en papel los contenidos sobre finanzas familiares, con una extensión menor que la de muchos manuales voluminosos.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Familia rica, familia lista, de Robert T. Kiyosaki, comparte temática económica con Cómo generar ingresos con las opciones, de Renato Antinori. La primera obra aborda la educación financiera familiar y la segunda se centra en obtener ingresos mediante opciones, por lo que sus enfoques responden a necesidades diferentes dentro de las finanzas personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724357"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fb59bdbe2a2c071a",
+  "origen": "chatgpt-web"
+}

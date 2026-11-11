@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399278606",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La ciencia de equilibrar juegos se orienta a lectores interesados en cómo se ajusta el equilibrio de los juegos. Por su temática vinculada al tiempo libre, se distancia de los libros de actividades manuales y de quienes buscan una historia de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La ciencia de equilibrar juegos está disponible en tapa blanda y tiene 192 páginas en castellano. Su extensión permite abordar el equilibrio de juegos en un volumen físico relativamente breve, que puede consultarse y guardarse junto a otros libros sobre esta actividad.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La ciencia de equilibrar juegos y 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos) comparten una relación con el mundo de los juegos. Sergi Subirats se ocupa del equilibrio de juegos, mientras que el título de Varios autores propone una actividad de coloreado vinculada a Roblox.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328384"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e59c2fc488540740",
+  "origen": "chatgpt-web"
+}

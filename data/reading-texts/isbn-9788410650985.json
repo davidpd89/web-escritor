@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788410650985",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diseñar logos con el espacio negativo, de Ralph Kenke, se orienta a lectores interesados en el diseño gráfico y la creación de identidades visuales. Su tema concreto es el uso del espacio negativo en los logotipos, por lo que se aleja de las lecturas centradas en historia del arte o narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Diseñar logos con el espacio negativo se publica en tapa blanda, con 192 páginas. Esta edición física permite consultar el contenido durante el trabajo de diseño y volver a páginas concretas sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diseñar logos con el espacio negativo y 720 retrats comparten su relación con las artes visuales. Ralph Kenke aborda el diseño de logotipos mediante el espacio negativo, mientras que el título de Xavier Mollà i Revert se centra en los retratos. La diferencia está en el objeto de estudio: identidad gráfica frente a representación visual de personas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c4266f232aed55aa",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788466394079",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La guardiana de la rosa (Best Seller | Ficción), de Nieves Corte, se dirige a lectores que buscan aventuras dentro de la novela histórica. Sus 440 páginas corresponden a una narración de extensión media, alejada de las lecturas muy breves y de quienes prefieren historias contemporáneas sin componente histórico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La guardiana de la rosa (Best Seller | Ficción) se presenta en tapa blanda, como libro de bolsillo de Penguin Bolsillo. Sus 440 páginas permiten leer una novela histórica de aventuras en un único volumen físico, aunque su extensión exige más espacio y tiempo de lectura que un libro corto.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La guardiana de la rosa (Best Seller | Ficción) puede compararse con Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig, por su relación con la novela histórica. También se aproxima a El hombre de Damasco, de Alejandro Núñez Alonso, cuyo referente histórico es el Imperio Romano. La obra de Nieves Corte combina además la orientación histórica con las aventuras y cuenta con 440 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788467084870",
+        "isbn-9791387714567"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "73830e13330c477e",
+  "origen": "chatgpt-web"
+}

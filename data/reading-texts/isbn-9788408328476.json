@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788408328476",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este estuche se orienta a lectores interesados en aventuras con misterio y humor vinculadas a la colección Jóvenes influencers. Reúne dos entregas de GoDeiK en 368 páginas, por lo que responde mejor a quien quiere ambos títulos que a quien busca una obra independiente de esa colección.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El estuche se presenta en tapa dura y reúne GoDeiK 1 y GoDeiK 2, con una extensión conjunta de 368 páginas. Permite adquirir las dos entregas en una misma presentación física, tanto para conservarlas juntas como para regalarlas. La edición corresponde a Destino Infantil & Juvenil.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche GoDeiK 1 + GoDeiK 2 (Jóvenes influencers) comparte autoría y colección con GoDeik1. GoDeik y la gema maldita. Edición exclusiva: 1 (Jóvenes influencers), también de GoDeiK. La diferencia está en que el estuche reúne dos entregas de aventuras, misterio y humor en tapa dura, con 368 páginas en total, mientras que el título afín corresponde a la primera entrega.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias",
+        "formatos_disponibles",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788408329282"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "075b8b0606af2582",
+  "origen": "chatgpt-web"
+}

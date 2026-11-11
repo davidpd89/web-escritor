@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788403527126",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Confesiones de una Top Model travesti (Primera persona) se dirige a lectores interesados en biografías y memorias. La obra de Samantha Hudson tiene 288 páginas y pertenece al ámbito de los relatos personales, por lo que se aleja de quienes buscan ficción o una guía práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Confesiones de una Top Model travesti (Primera persona) se publica en tapa blanda, con 288 páginas en castellano. Esta presentación permite leer el volumen en papel y transportarlo sin la rigidez de una cubierta dura; es la opción recogida para esta edición de Aguilar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Confesiones de una Top Model travesti (Primera persona) comparte con Al andar: Vivencias del Camino de Santiago el interés por las experiencias personales. La obra de Samantha Hudson se presenta como biografía o memoria, mientras que el título de Carlos Díaz Ballesta sitúa sus vivencias en el Camino de Santiago.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9f86ac16e4b28883",
+  "origen": "chatgpt-web"
+}

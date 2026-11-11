@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788449346248",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La obra de Elisha Goldstein se dirige a lectores interesados en mindfulness, psicología y desarrollo personal. Su propuesta de 7 pasos para trabajar la mente y el estado de ánimo no corresponde a quienes buscan una novela o un estudio histórico.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "El libro plantea un recorrido de 7 pasos centrado en la atención plena y la relación con los propios pensamientos y emociones. Su planteamiento permite utilizarlo como lectura de desarrollo personal orientada al estado de ánimo y al autocuidado mental.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece 320 páginas físicas para leer y consultar, mientras que Kindle permite llevar el contenido en un dispositivo compatible sin cargar con el volumen. Ambos formatos sirven para seguir el recorrido de mindfulness, pero el primero favorece la consulta en papel y el segundo la lectura digital.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza a la niña que fuiste comparte con la obra de Elisha Goldstein su orientación hacia el desarrollo personal y el bienestar emocional. Marta Segrelles aborda las heridas del pasado y la reconexión interior, mientras que el libro de Elisha Goldstein propone 7 pasos vinculados al mindfulness y al estado de ánimo.",
+      "evidencias": [
+        "afines_catalogo",
+        "autores",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788466396417"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "61460704fc088c9e",
+  "origen": "chatgpt-web"
+}

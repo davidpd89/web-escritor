@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409921065",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El duelo: cómo atenderte: Una guía para acompañarte después de la muerte de una persona amada se dirige a quienes buscan orientación sobre el duelo por una pérdida humana. Por su enfoque de desarrollo personal y bienestar, encaja menos con lectores que buscan una novela o una obra centrada en la crianza.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar las 132 páginas de El duelo: cómo atenderte: Una guía para acompañarte después de la muerte de una persona amada en papel y volver a sus apartados durante el proceso de duelo. Kindle ofrece la misma elección de lectura en soporte digital, con la comodidad de acceder al libro desde el móvil.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El duelo: cómo atenderte: Una guía para acompañarte después de la muerte de una persona amada comparte con Duelo animal: Entre el dolor de la ausencia y el amor que permanece (Crecimiento personal) el interés por afrontar una pérdida. Irma Vallès Hernàndez aborda la muerte de una persona amada, mientras que David Gómez centra su libro en el duelo por un animal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789507885365"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a2b060256c069137",
+  "origen": "chatgpt-web"
+}

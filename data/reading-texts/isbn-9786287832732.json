@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786287832732",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores interesados en el desarrollo personal, el ensayo y los asuntos relacionados con la economía y la empresa. Por su clasificación temática y sus 224 páginas, se distancia de la ficción narrativa y de los manuales especializados exclusivamente en procedimientos técnicos.",
+      "evidencias": [
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Supernova (Spanish Edition) cuenta con una edición en tapa blanda de 224 páginas, publicada en castellano. El soporte físico permite subrayar, añadir notas y consultar apartados durante la lectura, algo que puede resultar útil en un libro situado entre el ensayo y el desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Supernova (Spanish Edition) comparte el ámbito del desarrollo personal con La persona que eliges ser (Un café con Marisa) / The Person You Choose to Be (Coffee with Marisa), de Marisa Lazo. También puede compararse con El alfabeto infinito: Las leyes del conocimiento (Ensayo y Pensamiento), de César Hidalgo, por su vertiente ensayística, aunque Supernova (Spanish Edition) abarca además desarrollo personal y economía y empresa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073882132",
+        "isbn-9791388092701"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b4465c92b9353459",
+  "origen": "chatgpt-web"
+}

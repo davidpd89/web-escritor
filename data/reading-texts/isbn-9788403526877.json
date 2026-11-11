@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Rosalía, universo creador se dirige a lectores adultos interesados en las biografías musicales y en cómo se desarrolla la identidad de una artista. Daniel Gómez Sánchez aborda la trayectoria personal y creativa de Rosalía, por lo que su enfoque es biográfico y no el de una guía práctica de música.",
+      "texto": "Rosalía, universo creador está dirigido a lectores adultos interesados en las biografías musicales y en la trayectoria artística de Rosalía. Su atención a la formación de una identidad creativa encaja menos con quienes buscan ficción o un estudio exclusivamente técnico de la música.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,34 +14,35 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Rosalía, universo creador examina la formación artística de Rosalía desde sus primeras influencias musicales y familiares. Daniel Gómez Sánchez relaciona el descubrimiento de Camarón con la importancia de sus abuelas y la construcción de una identidad pública vinculada a distintas etapas creativas. El relato utiliza la trayectoria vital como eje para explicar su universo musical.",
+      "texto": "Daniel Gómez Sánchez reconstruye la formación artística de Rosalía desde sus primeras influencias musicales y familiares hasta la construcción de su identidad pública. El enfoque es biográfico: relaciona experiencias personales, referentes culturales y decisiones creativas para explicar la evolución de la cantante.",
       "evidencias": [
-        "titulo",
         "autores",
-        "sinopsis_editorial"
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Rosalía, universo creador puede leerse en tapa dura o Kindle. La edición física de Aguilar reúne 416 páginas y permite conservar el volumen en una biblioteca o regalarlo; Kindle ofrece la alternativa de llevar esa lectura en un dispositivo electrónico sin transportar el libro impreso.",
+      "texto": "La edición en tapa dura de Rosalía, universo creador reúne 416 páginas y ofrece una encuadernación rígida para conservar el volumen y consultarlo en papel. La versión Kindle permite leer el mismo título en un dispositivo compatible o en el móvil, sin transportar el libro físico.",
       "evidencias": [
         "titulo",
-        "editorial",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Canción de amor definitiva, de Jorge Martí Aguas, comparte con Rosalía, universo creador el interés por las experiencias personales relacionadas con la música. Mientras Daniel Gómez Sánchez reconstruye la formación de una artista concreta, el texto de Jorge Martí Aguas presenta cambios de ánimo, país y profesión como parte de su perspectiva personal.",
+      "texto": "Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes y Rosalía, universo creador comparten el interés por reconstruir la trayectoria de una persona real. La primera presenta una biografía organizada en episodios, mientras que Daniel Gómez Sánchez centra su libro en la formación musical y la identidad creativa de Rosalía.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "afines_catalogo",
         "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788401042119"
+        "isbn-9786073873154"
       ]
     }
   ],

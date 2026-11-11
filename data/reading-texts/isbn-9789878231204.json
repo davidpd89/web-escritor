@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9789878231204",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La nueva oligarquía tecnológica (HISTORIA URGENTE), de Ariel Alejandro Goldstein, se dirige a lectores interesados en el poder asociado a la tecnología y en cuestiones de divulgación. Sus 152 páginas y su enfoque temático lo separan de los manuales de programación, las novelas de ficción y las guías de actividades prácticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La nueva oligarquía tecnológica (HISTORIA URGENTE) está editado en tapa blanda y reúne 152 páginas en castellano. La extensión contenida y la cubierta flexible permiten transportarlo para leerlo durante desplazamientos o conservarlo como volumen de consulta sobre cuestiones tecnológicas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La nueva oligarquía tecnológica (HISTORIA URGENTE) y 50 cosas que hay que saber sobre IA comparten su relación con el ámbito tecnológico. Ariel Alejandro Goldstein centra su título en las élites vinculadas a la tecnología, mientras que Keith Mansfield presenta una introducción a la inteligencia artificial. El primero pone el foco en el poder; el segundo, en el conocimiento de una tecnología concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "28ce75c7595273db",
+  "origen": "chatgpt-web"
+}

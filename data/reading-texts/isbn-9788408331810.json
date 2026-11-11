@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "A sangre y fuego se dirige a lectores interesados en relatos sobre la Guerra Civil española y en la mirada periodística de Manuel Chaves Nogales. Su tratamiento del enfrentamiento evita las divisiones simples entre bandos, por lo que encaja menos con quien busca una narración histórica centrada en héroes y villanos.",
+      "texto": "A sangre y fuego está dirigido a quienes buscan relatos literarios sobre la Guerra Civil española y sus consecuencias humanas. Su enfoque sobre un enfrentamiento histórico encaja menos con lectores que prefieren ficción desligada de conflictos políticos o narraciones de evasión.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "A sangre y fuego reúne relatos literarios sobre la Guerra Civil española escritos por Manuel Chaves Nogales. El conflicto se aborda desde una perspectiva periodística que cuestiona el maniqueísmo y las interpretaciones propagandísticas, en lugar de organizarse como una exposición histórica convencional.",
+      "texto": "A sangre y fuego reúne relatos de Manuel Chaves Nogales centrados en la Guerra Civil española. La perspectiva periodística del autor se traslada a una narración literaria que evita reducir el enfrentamiento a una división sencilla entre buenos y malos, con atención a la complejidad del conflicto.",
       "evidencias": [
         "titulo",
         "autores",
@@ -24,18 +23,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "A sangre y fuego está disponible en tapa blanda y Kindle. La edición física de Austral Editorial tiene 304 páginas y encuadernación rústica sin solapas, mientras que Kindle permite llevar los relatos en un lector electrónico o en el móvil sin transportar el volumen.",
+      "texto": "La tapa blanda ofrece una edición rústica sin solapas de 304 páginas, apropiada para leer los relatos en papel y conservarlos juntos. Kindle permite llevar el mismo título en un lector electrónico o en el móvil, sin transportar el volumen físico.",
       "evidencias": [
-        "titulo",
-        "editorial",
-        "edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "A sangre y fuego y La semana de colores y Andamos huyendo Lola comparten la forma narrativa del relato, aunque Manuel Chaves Nogales aborda la Guerra Civil española desde el periodismo y Elena Garro se vincula con una escritura imaginativa. Sherlock también reúne relatos, pero su presentación destaca la participación de diez autores, frente a la autoría única de A sangre y fuego.",
+      "texto": "El maestro Juan Martínez que estaba allí y Juan Belmonte, matador de toros comparten con A sangre y fuego la autoría de Manuel Chaves Nogales. La diferencia está en el asunto identificado: A sangre y fuego reúne relatos sobre la Guerra Civil española, mientras los otros títulos se centran, por sus propios nombres, en figuras concretas. Los tres permiten acercarse a distintas obras del mismo escritor.",
       "evidencias": [
         "titulo",
         "autores",
@@ -44,8 +41,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467084856",
-        "isbn-9791388279379"
+        "isbn-9788466394147",
+        "isbn-9788466394154"
       ]
     }
   ],

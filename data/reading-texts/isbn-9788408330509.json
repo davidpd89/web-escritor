@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408330509",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El buen dinero: Cómo dejar de sufrir por lo que se tiene, se gana o se debe (Autoayuda y superación) se dirige a lectores interesados en la relación psicológica con el dinero, las ganancias y las deudas. Su orientación hacia el desarrollo personal lo diferencia de los manuales dedicados exclusivamente a operaciones financieras o contabilidad.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Zenith se presenta en tapa dura y reúne 120 páginas en castellano. Su extensión permite leer el volumen en varias sesiones breves, mientras que la encuadernación rígida facilita conservarlo para consultas posteriores sobre los asuntos que plantea.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Detrás de una Estrella comparte autor con El buen dinero: Cómo dejar de sufrir por lo que se tiene, se gana o se debe (Autoayuda y superación), pero aborda la transformación de una empresa cervecera en lugar de la relación personal con el dinero. De la discusión a la conexión también trata dificultades cotidianas desde una perspectiva práctica, aunque se ocupa de los conflictos entre personas y del fortalecimiento de las relaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423441075",
+        "isbn-9788408328773"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0bf0dbe567f9b254",
+  "origen": "chatgpt-web"
+}

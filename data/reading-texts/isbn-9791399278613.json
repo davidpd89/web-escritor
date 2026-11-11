@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399278613",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El gen lúdico: Un recorrido personal y profesional por el diseño de juegos serios se orienta a lectores interesados en el diseño de juegos y su dimensión profesional. El enfoque anunciado por Mikel Calvo se aleja de los manuales dedicados únicamente a practicar una actividad recreativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El gen lúdico: Un recorrido personal y profesional por el diseño de juegos serios se publica en tapa blanda y reúne 420 páginas en castellano. El formato físico permite consultar distintos pasajes sobre diseño de juegos y mantener el volumen como referencia de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprende a dibujar con KPop Demon Hunters: Edición OFICIAL en español (Montena) también se relaciona con el aprendizaje creativo, pero se centra en el dibujo, mientras que El gen lúdico: Un recorrido personal y profesional por el diseño de juegos serios aborda el diseño de juegos desde una perspectiva personal y profesional. Destinos vintage: 40 láminas misteriosas para colorear (GEOPLANETA COLOREA) propone una actividad artística concreta, en lugar de un recorrido sobre diseño.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388322778",
+        "isbn-9788408324836",
+        "isbn-9791388322952"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f86c595946a98375",
+  "origen": "chatgpt-web"
+}

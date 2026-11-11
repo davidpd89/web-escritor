@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466388535",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El faro de la sirena (Best Seller | Ficción), de Lucía Lago, está dirigido a lectores de narrativa contemporánea. Su clasificación se aparta de la fantasía y de la novela histórica, por lo que encaja menos con quienes buscan específicamente esos géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El faro de la sirena (Best Seller | Ficción) se publica en tapa blanda de bolsillo, con 408 páginas, para quienes prefieren leer y conservar un ejemplar físico. La versión Kindle permite llevar la novela en un lector electrónico o en el móvil sin ocupar espacio en la estantería.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El faro de la sirena (Best Seller | Ficción) puede compararse con Las hijas del norte (SUMA) porque ambas obras están firmadas por Lucía Lago. La diferencia editorial está en sus denominaciones: El faro de la sirena aparece en Penguin Bolsillo y Las hijas del norte figura vinculada a SUMA.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387512002"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0ddb6e06efc6cfe4",
+  "origen": "chatgpt-web"
+}

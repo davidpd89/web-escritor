@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388387937",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Voces de Chernóbil: Crónica del futuro (Historia), de Svetlana Alexievich, encaja con lectores de historia, memorias y ensayo. Su enfoque histórico y testimonial, anunciado en el título y su clasificación editorial, se aleja de la ficción de entretenimiento y de los manuales prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Voces de Chernóbil: Crónica del futuro (Historia) puede leerse en tapa blanda o Kindle. La edición física de Debate tiene 408 páginas y permite conservar el volumen en papel; Kindle facilita llevar la lectura en un dispositivo electrónico sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Voces de Chernóbil: Crónica del futuro (Historia) puede compararse con El mejor hotel de Kabul: Una historia en primera persona de Afganistán y sus gentes (Salamandra Miradas), de Lyse Doucet, por su vinculación con la historia y las experiencias humanas. El primero se sitúa en Chernóbil; el segundo presenta una perspectiva personal sobre Afganistán.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387928360"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f00a8c73d784f333",
+  "origen": "chatgpt-web"
+}

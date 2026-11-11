@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388032677",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Viruta Galindo y la lógica aplastante: 347 (Las Tres Edades), de Sara Bonet, pertenece a la literatura infantil y juvenil. Sus 232 páginas permiten situarlo entre las lecturas de cierta extensión para este público, frente a los cuentos infantiles muy breves o los libros dirigidos específicamente a lectores adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Viruta Galindo y la lógica aplastante: 347 (Las Tres Edades) cuenta con una edición en tapa blanda de 232 páginas, publicada por Ediciones Siruela. Este formato permite llevar el libro en una mochila y leerlo en distintos lugares, sin el peso añadido de una cubierta rígida. El texto está en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a40ccd30e123c15a",
+  "origen": "chatgpt-web"
+}

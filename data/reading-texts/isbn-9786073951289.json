@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786073951289",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pueblo / The People encaja con lectores interesados en historia, política y memorias vinculadas a figuras públicas. La obra de Andrés Manuel López Obrador tiene 744 páginas, por lo que exige más tiempo que una lectura breve y no pertenece al terreno de la ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pueblo / The People se presenta en tapa blanda, con 744 páginas en castellano. Su extensión favorece una lectura repartida en varias sesiones; el formato físico permite consultar pasajes y volver a ellos sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes aborda desde la biografía a la figura que firma Pueblo / The People, mientras este último se atribuye al propio Andrés Manuel López Obrador. Antes de irme (Espasa Actualidad), de Miguel Ángel Revilla, ofrece otra referencia vinculada a una figura política, pero cambia tanto el autor como el protagonista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073873154",
+        "isbn-9788467085044"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ba6b38a9381b4199",
+  "origen": "chatgpt-web"
+}

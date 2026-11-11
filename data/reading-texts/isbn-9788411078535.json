@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788411078535",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Celestino antes del alba (Andanzas), de Reinaldo Arenas, se sitúa en la narrativa contemporánea con vinculación temática a la familia. Sus 240 páginas se ajustan a quien busca una obra literaria sobre ese ámbito, pero no a quien necesita instrucciones prácticas de crianza o una guía familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Celestino antes del alba (Andanzas) tiene edición en tapa blanda de 240 páginas y también formato Kindle. La primera permite leer y conservar el libro en papel; la segunda facilita llevar el texto digital en el móvil o en un lector compatible, sin ocupar espacio físico en la mochila.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El portero comparte autor con Celestino antes del alba (Andanzas): ambos son de Reinaldo Arenas. La diferencia temática identificable está en El portero, que presenta a un cubano exiliado trabajando en un rascacielos de Nueva York, mientras Celestino antes del alba (Andanzas) se vincula a la narrativa familiar. La comparación permite distinguir una historia de desarraigo de una obra asociada a la familia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411078399"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "449e2aa59ef4ca64",
+  "origen": "chatgpt-web"
+}

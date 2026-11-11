@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388277009",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fuera de pista (Corazones al límite 2) (Sin límites) reúne romance, aventuras y elementos de fantasía y ciencia ficción. Puede encajar con lectores que alternan relaciones sentimentales y géneros especulativos, pero menos con quienes buscan una historia exclusivamente realista o centrada solo en el romance.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fuera de pista (Corazones al límite 2) (Sin límites) cuenta con una edición en tapa blanda de 440 páginas, publicada por Alfaguara. Su extensión permite organizar la lectura en varias sesiones y la encuadernación flexible facilita llevar el volumen en una bolsa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fuera de pista (Corazones al límite 2) (Sin límites) puede compararse con El hechizo más oscuro (Faeris Editorial), de Wanda Hellmund, por su relación con la fantasía. El libro de Sara Hernández también incorpora romance, aventuras y ciencia ficción, mientras que el título de Wanda Hellmund pone el acento en un hechizo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388108419"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e157d419d5d1e3e8",
+  "origen": "chatgpt-web"
+}

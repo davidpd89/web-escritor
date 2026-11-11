@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788425375675",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lo improbable no es imposible: La historia de una madre que llegó a la Luna (Biografías y memorias) se dirige a quienes buscan historias personales dentro de la no ficción. La obra de María Jesús Puerta Angulo pertenece al ámbito biográfico, por lo que se aleja de las novelas de ficción y de los manuales prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Lo improbable no es imposible: La historia de una madre que llegó a la Luna (Biografías y memorias) está disponible en tapa blanda. Sus 176 páginas permiten llevar el volumen en el bolso o consultarlo durante los desplazamientos. Grijalbo publica esta edición en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al andar: Vivencias del Camino de Santiago comparte con Lo improbable no es imposible: La historia de una madre que llegó a la Luna (Biografías y memorias) el interés por las experiencias personales. El primero presenta vivencias vinculadas al Camino de Santiago, mientras que María Jesús Puerta Angulo firma una obra biográfica centrada en la historia de una madre.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8dd18cc6c30d8b67",
+  "origen": "chatgpt-web"
+}

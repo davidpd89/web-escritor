@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788411782944",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un libro por Navidad (Alba Clásica) se orienta a lectores de clásicos y narrativa literaria interesados en obras de Selma Lagerlöf. Por su clasificación editorial, se distingue de las lecturas que buscan principalmente thriller, ciencia ficción o fantasía de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de Un libro por Navidad (Alba Clásica) contiene 280 páginas y permite conservar la obra de Selma Lagerlöf en formato físico o regalarla. Kindle ofrece una alternativa digital para leerla en el móvil y prescindir del volumen impreso durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un libro por Navidad (Alba Clásica) tiene como lectura afín El cochero, también de Selma Lagerlöf. Ambos títulos permiten leer obras de una misma autora, aunque El cochero aborda expresamente cuestiones de fe y moralidad. Un libro por Navidad (Alba Clásica) figura entre los clásicos y cuenta con una edición de 280 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388306389"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b364aa7a4dc500f0",
+  "origen": "chatgpt-web"
+}

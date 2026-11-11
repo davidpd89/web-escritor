@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387904456",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El libro de Michael Pollan se dirige a lectores interesados en comprender la conciencia desde la filosofía, la psicología y la divulgación científica. Su enfoque temático se distancia de los manuales centrados en técnicas de productividad, organización personal o aprendizaje.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Debate está disponible en tapa blanda, con 352 páginas en castellano. Este formato permite leer el estudio sobre la conciencia en papel, señalar pasajes y volver a las cuestiones filosóficas y psicológicas durante distintas sesiones de lectura.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El perfecto cerebro imperfecto / The Perfect Imperfect Brain, de Eduardo Calixto, comparte el interés por la mente, aunque sitúa el cerebro en el centro de su planteamiento. El efecto ritual: El poder transformador de nuestros hábitos cotidianos (Divulgación), de Michael Norton, aborda los hábitos y sus efectos, mientras Michael Pollan centra su libro en la conciencia desde una perspectiva filosófica, psicológica y científica.",
+      "evidencias": [
+        "afines_catalogo",
+        "autores",
+        "categorias",
+        "titulo"
+      ],
+      "enlaces": [
+        "isbn-9788449346163",
+        "isbn-9786073880107"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f8cbca09c47cde79",
+  "origen": "chatgpt-web"
+}

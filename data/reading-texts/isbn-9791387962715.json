@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387962715",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cross Game 8 (Shônen) se dirige a lectores de manga que buscan continuar una colección de cómic japonés. El título lo identifica como el n.º 8, por lo que resulta menos adecuado para quienes prefieren empezar por una primera entrega o leer una historia independiente.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cross Game 8 (Shônen) está disponible en tapa blanda, con 296 páginas en castellano. Este formato permite conservar el volumen junto a las demás entregas de la colección y leer sus páginas impresas sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cross Game 7 (Shônen) es la comparación más directa para Cross Game 8 (Shônen): ambos pertenecen a la misma colección y están firmados por Mitsuru Adachi. El título identifica al primero como el n.º 7, cuya descripción presenta un enfrentamiento deportivo entre Seishû y Ryûô, mientras que el segundo se identifica como el n.º 8.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788410305755"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1ee814369a4749a1",
+  "origen": "chatgpt-web"
+}

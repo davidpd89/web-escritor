@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788425371387",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Prométeme que serás libre (Novela histórica) se dirige a lectores de aventuras ambientadas en contextos históricos que buscan una novela extensa. Sus 784 páginas pueden resultar menos adecuadas para quienes prefieren relatos breves o historias centradas en escenarios contemporáneos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Prométeme que serás libre (Novela histórica) ofrece tapa dura y Kindle para sus 784 páginas. La tapa dura permite conservar un volumen físico de Jorge Molist, mientras que Kindle evita transportar un libro de esa extensión y permite leerlo en un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Prométeme que serás libre (Novela histórica) puede compararse con Bajo las cenizas de Pompeya (ESPASA NARRATIVA) por su vinculación con la narrativa de ambientación histórica. La primera combina novela histórica y aventuras bajo la autoría de Jorge Molist; la segunda, escrita por María Reig, sitúa Pompeya en el centro de su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466381529",
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "db3fede7c49f696b",
+  "origen": "chatgpt-web"
+}

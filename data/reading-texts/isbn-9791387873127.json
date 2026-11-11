@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387873127",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "33 islas: Un periplo mediterráneo. De Marettimo a Venecia. se dirige a lectores interesados en viajes, territorios mediterráneos y ensayo. Su enfoque geográfico se aleja de las novelas de aventuras y de los manuales de planificación turística.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "33 islas: Un periplo mediterráneo. De Marettimo a Venecia. está editado en tapa blanda y reúne 280 páginas en castellano. Su presentación en papel permite consultar el recorrido mediterráneo y regresar a las partes dedicadas a distintos lugares.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "33 islas: Un periplo mediterráneo. De Marettimo a Venecia. comparte el interés por los lugares con Descifrando Washington (Ciudades contadas), de Sara Canals Serra, aunque se centra en un recorrido mediterráneo entre islas y no en una ciudad concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408321491"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d0993e9fddd919ea",
+  "origen": "chatgpt-web"
+}

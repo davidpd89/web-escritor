@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9798890989963",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Peregrino (Edición de Lujo, Cantos Pintados) / The Pilgrimage (Deluxe Edition, Sprayed Edges) encaja con lectores interesados en viajes y relatos de carácter autobiográfico. Su presentación de lujo con cantos pintados también responde al interés por las ediciones de colección, pero resulta menos adecuada para quien prioriza un ejemplar flexible y ligero.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La particularidad de esta edición de El Peregrino (Edición de Lujo, Cantos Pintados) / The Pilgrimage (Deluxe Edition, Sprayed Edges) es su presentación de lujo con cantos pintados. Vintage Espanol la publica en castellano, con tapa dura y 288 páginas, y fecha editorial del 23 de febrero de 2027.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "idioma",
+        "numero_paginas",
+        "fecha_publicacion",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El formato disponible es la tapa dura, con 288 páginas y cantos pintados como elemento distintivo. Esta presentación favorece su conservación en una biblioteca personal y su uso como regalo, mientras que quien prefiera doblar las cubiertas durante la lectura encontrará una encuadernación más rígida.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche El Alquimista (Edición especial con cantos tintados) (Biblioteca Paulo Coelho) comparte autoría con El Peregrino (Edición de Lujo, Cantos Pintados) / The Pilgrimage (Deluxe Edition, Sprayed Edges) y el interés por los acabados especiales. La diferencia está en la presentación: uno se identifica como estuche y el otro como edición de lujo en tapa dura centrada en una obra vinculada a los viajes.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788408328063"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3117d2fe29e2ebd4",
+  "origen": "chatgpt-web"
+}

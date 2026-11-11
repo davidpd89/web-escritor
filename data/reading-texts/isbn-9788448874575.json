@@ -4,42 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mi mamá es... - Una unicornia solitaria está dirigido a niños a partir de 4 años que disfrutan de las criaturas fantásticas y las aventuras de búsqueda. La historia gira alrededor de una pequeña dragona que intenta encontrar a su madre, por lo que se aleja de los relatos realistas o centrados en situaciones escolares.",
+      "texto": "Mi mamá es... - Una unicornia solitaria está pensado para niños a partir de 4 años que disfrutan de criaturas fantásticas y búsquedas familiares. La aventura de una pequeña dragona que busca a su madre se aleja de los relatos realistas y de las lecturas juveniles de mayor extensión.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Mi mamá es... - Una unicornia solitaria está recomendado a partir de 4 años y tiene 32 páginas. La edición de Beascoa es en tapa dura y en castellano, con una extensión que permite abordar la aventura de Pepita y Gruñón en sesiones breves de lectura compartida.",
+      "texto": "La edad recomendada para Mi mamá es... - Una unicornia solitaria comienza a los 4 años. La edición de Beascoa tiene 32 páginas y tapa dura, características que permiten compartir la lectura y manejar el libro físico durante varias sesiones.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
-        "numero_paginas",
         "editorial",
-        "edicion",
-        "idioma",
-        "sinopsis_editorial"
+        "numero_paginas",
+        "formato_edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mi mamá es... - Una unicornia solitaria se publica en tapa dura y Kindle. La edición física de Beascoa reúne 32 páginas en una encuadernación rígida, adecuada para manipular el libro durante la lectura compartida; Kindle permite llevar la historia en un dispositivo compatible sin transportar el ejemplar impreso.",
+      "texto": "Mi mamá es... - Una unicornia solitaria se ofrece en tapa dura y Kindle. La edición física reúne sus 32 páginas en un volumen rígido, apropiado para manejarlo durante la lectura compartida; Kindle permite llevar el cuento en un dispositivo sin transportar el libro.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
-        "numero_paginas",
         "formatos_disponibles",
-        "edad_recomendada"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mi mamá es... - Una unicornia solitaria comparte con Capitán Patata 2 - Quietecito o te dejo frito la presencia de personajes fantásticos y aventuras de tono disparatado. Steve Smallman centra su historia en una dragona que busca a su madre, mientras Neil Coslett presenta a un superhéroe y sus amigos en cinco miniaventuras. La primera sigue una búsqueda familiar; la segunda reúne episodios protagonizados por un grupo.",
+      "texto": "La ovejita va al espacio comparte con Mi mamá es... - Una unicornia solitaria la autoría de Steve Smallman y el protagonismo de criaturas animales. La primera propone una aventura espacial en un libro de cartón con mecanismos, mientras la segunda presenta la búsqueda de una madre en un bosque encantado. Agencia de animales mágicos: Medianoche y la leyenda de Santuario (Mi primer cómic), también de Steve Smallman, permite comparar otra historia de criaturas fantásticas, esta vez presentada como cómic.",
       "evidencias": [
         "titulo",
         "autores",
@@ -47,7 +43,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427254985"
+        "isbn-9788448875435",
+        "isbn-9788448875381"
       ]
     }
   ],

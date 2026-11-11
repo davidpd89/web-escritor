@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791399293517",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ecos de Medianoche: Cuentos clásicos del siniestro fantástico: 1 (Ultravioleta) se dirige a lectores de terror interesados en cuentos de temática siniestra y fantástica. Por su planteamiento de relatos, se aleja de quien busca una única historia desarrollada como novela continua.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Ecos de Medianoche: Cuentos clásicos del siniestro fantástico: 1 (Ultravioleta) es en tapa blanda y tiene 202 páginas. Este formato permite llevar el volumen de relatos en papel y alternar su lectura con otros libros, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ecos de Medianoche: Cuentos clásicos del siniestro fantástico: 1 (Ultravioleta) puede compararse con 25 días hasta Navidad, de Per Jacobsen, por su relación con las lecturas de suspense y terror. La diferencia está en el enfoque: Noviembre Nocturno presenta cuentos de lo siniestro fantástico, mientras que la obra de Per Jacobsen se identifica como un thriller de adviento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d570c2e160bceb4f",
+  "origen": "chatgpt-web"
+}

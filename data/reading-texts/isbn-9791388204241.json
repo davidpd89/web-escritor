@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388204241",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Incandescente (Kraken), de Emily Tesh, se sitúa entre la fantasía, la aventura y la ciencia ficción. Su clasificación la acerca a lectores de ficción especulativa y la aleja de quienes buscan una historia realista o una obra de divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Incandescente (Kraken) está disponible en tapa dura, con 432 páginas en castellano. Esta presentación permite conservar la novela en una colección física de fantasía y ofrece una encuadernación rígida para quienes prefieren leer en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aftermyth 1. Penelope y la prueba de los dioses y Incandescente (Kraken) comparten su orientación hacia la ficción fantástica. Tracy Wolff plantea una prueba vinculada a los dioses, mientras la obra de Emily Tesh se clasifica también entre la aventura y la ciencia ficción, ampliando el marco de géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324102"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9dbeb6122212bac7",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788467981421",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La llamada del oeste. 5 historias de lucky luke se dirige a lectores de cómic que buscan varias historias reunidas en un mismo volumen. Sus 96 páginas y su edición en tapa dura se apartan del formato de novela extensa, por lo que encaja menos con quienes prefieren narrativa exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La llamada del oeste. 5 historias de lucky luke se publica en tapa dura, con 96 páginas en castellano. La cubierta rígida protege el volumen durante su conservación y permite mantener reunidas las historias que anuncia el título, en una edición física manejable por su extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La llamada del oeste. 5 historias de lucky luke comparte el formato de cómic con Creepy nº 11/29, de Varios autores, y Pack biografias en viñetas, también de Varios autores. Frente al contenido de terror de Creepy nº 11/29 y el enfoque biográfico del segundo título, reúne historias de lucky luke. La coincidencia está en la lectura mediante viñetas, no en los asuntos tratados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411406130",
+        "isbn-9791399295214"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f6e6ee871ec87cdc",
+  "origen": "chatgpt-web"
+}

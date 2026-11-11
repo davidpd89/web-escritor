@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788448873851",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El jardín mágico de las Pequeflores - Susto en la nieve (Primeras lecturas) está dirigido a quienes se inician en la lectura y buscan aventuras con elementos fantásticos y amistad. Sus 64 páginas plantean una extensión breve; encaja menos con lectores que prefieren novelas largas o historias sin componentes mágicos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El jardín mágico de las Pequeflores - Susto en la nieve (Primeras lecturas) se ofrece en tapa blanda, con 64 páginas. Es una edición física breve que puede transportarse fácilmente y utilizarse en sesiones de primeras lecturas, tanto individuales como acompañadas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Onin 1 - Onin y la isla del tesoro comparte con El jardín mágico de las Pequeflores - Susto en la nieve (Primeras lecturas) la combinación de aventuras y magia, aunque su título sitúa la acción en una isla del tesoro. Las aventuras navideñas de los Mimosaurios: Tres cuentos llenos de magia, amistad y espíritu navideño también reúne fantasía y amistad, pero propone cuentos de temática navideña frente a la aventura nevada de Begoña Oro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409926671",
+        "isbn-9791387994549"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f7785947c3f906e7",
+  "origen": "chatgpt-web"
+}

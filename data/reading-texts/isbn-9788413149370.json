@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788413149370",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Terapia para llevar (edición limitada): 100 herramientas psicológicas para llevar mejor tu día a día (Best Seller | No Ficción) se dirige a lectores interesados en recursos psicológicos aplicados a situaciones cotidianas. Su enfoque de desarrollo personal y bienestar familiar se aparta de la ficción y de los manuales centrados exclusivamente en cuestiones profesionales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición limitada de Terapia para llevar reúne 100 herramientas psicológicas en un volumen de bolsillo publicado por Penguin Bolsillo. Está escrita por Ana Pérez (nacídramática), tiene 224 páginas y se presenta en castellano con encuadernación de tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es una tapa blanda de bolsillo con 224 páginas, pensada para ocupar menos espacio que una edición de mayor tamaño. Su formato facilita llevar el libro consigo y consultar las herramientas psicológicas por escrito en distintos momentos del día.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Terapia para llevar (edición limitada): 100 herramientas psicológicas para llevar mejor tu día a día (Best Seller | No Ficción) comparte con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito el interés por introducir cambios personales mediante recursos prácticos. Ana Pérez (nacídramática) se centra en herramientas psicológicas cotidianas, mientras que Liz Moody aborda también la salud, las relaciones y el éxito.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c571b61e8be1cbfc",
+  "origen": "chatgpt-web"
+}

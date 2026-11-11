@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788408319337",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este diario de Paige Towler se dirige al público infantil interesado en los viajes, las actividades y las curiosidades sobre distintos lugares. Su propuesta de registrar experiencias y realizar actividades encaja menos con quienes buscan una novela de aventuras con una trama continua.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El libro se utiliza como diario de viajes, combinando el registro de aventuras con sugerencias, actividades y datos curiosos. Sus 96 páginas permiten repartir esas propuestas entre distintos momentos de una excursión o unas vacaciones, en lugar de leerlo necesariamente de principio a fin.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Geoplaneta se presenta en tapa blanda y reúne 96 páginas en castellano. Es un formato físico que puede acompañar las salidas y permite consultar las actividades o volver a las anotaciones durante el viaje.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Frente a Costa amalfitana (VIAJES), de Natasha Penot, este libro de Paige Towler orienta el tema de los viajes hacia actividades y curiosidades para el público infantil, en vez de centrarse en un destino concreto. También comparte el interés por los desplazamientos con Pipoka y la Fábrica del Desastre, de Jose Such, aunque allí la propuesta gira en torno a personajes y criaturas legendarias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388277085",
+        "isbn-9791387934156"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cbb602f11d88d37a",
+  "origen": "chatgpt-web"
+}

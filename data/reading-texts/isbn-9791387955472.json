@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387955472",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se rueda: El ciclismo y las bicicletas en el cine se orienta a quienes buscan lecturas sobre la relación entre el deporte, el ocio y las artes audiovisuales. Su enfoque temático se distancia de las novelas deportivas y de los manuales de entrenamiento ciclista.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Se rueda: El ciclismo y las bicicletas en el cine tiene una edición en tapa blanda de 368 páginas, publicada por Libros de Ruta. El volumen físico permite consultar apartados durante la lectura y conservarlo como libro de referencia sobre ciclismo y cine.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Se rueda: El ciclismo y las bicicletas en el cine puede compararse con Manual de ilustración científica - Nueva edición con láminas (Ilustrados), de Varios autores, por su relación con la divulgación y las disciplinas visuales. También se aproxima a Symphony. El arte de RossDraws (ARTBOOKS), de Ross Tran, desde el interés por las artes, aunque Jordi Rodríguez Ruiz centra su libro en las bicicletas y su presencia cinematográfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328117",
+        "isbn-9788426742858"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9b051b2be1af2872",
+  "origen": "chatgpt-web"
+}

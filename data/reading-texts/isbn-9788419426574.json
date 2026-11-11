@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788419426574",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El poder de las ideas: Palabras de FE y sabiduria se dirige a lectores interesados en el ensayo filosófico y en cuestiones de religión y espiritualidad. Por su orientación temática, se aleja de la narrativa de ficción y de los manuales centrados en ejercicios prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El poder de las ideas: Palabras de FE y sabiduria se presenta en tapa blanda y reúne 408 páginas en castellano. Este formato permite transportar el volumen con una cubierta flexible y consultar distintos pasajes durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El poder de las ideas: Palabras de FE y sabiduria y La redención de la sombra (Ensayo), de Franz Jalics, comparten su relación con la reflexión espiritual. El primero, de Jonathan Sacks, aborda desde su título las ideas, la fe y la sabiduría; el segundo sitúa la redención y la sombra en el centro de su planteamiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388019777"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cd4763cd3d20a3c9",
+  "origen": "chatgpt-web"
+}

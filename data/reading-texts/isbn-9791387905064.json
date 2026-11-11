@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387905064",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Última Navidad en Madrid (Novela) está dirigida a quienes buscan terror y misterio en una lectura vinculada a la Navidad y a Madrid. No responde a la expectativa de una historia navideña centrada únicamente en celebraciones familiares o romance; sus géneros apuntan hacia el suspense.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Última Navidad en Madrid (Novela) tiene 408 páginas en su edición de tapa blanda de Roca Editorial, una opción para quienes prefieren leer en papel. La versión Kindle permite llevar esa extensión en formato digital y continuar la lectura desde un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Última Navidad en Madrid (Novela), de J. K. Franko, comparte la ambientación navideña y el suspense con 25 días hasta Navidad, de Per Jacobsen, presentado como thriller de adviento. La diferencia está en que el primero incorpora también el terror y sitúa Madrid en su título, mientras que el segundo destaca su estructura vinculada al adviento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "726f3758e24d511d",
+  "origen": "chatgpt-web"
+}

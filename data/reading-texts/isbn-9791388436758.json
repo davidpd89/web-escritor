@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388436758",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lumo y los colores (LA MIRADA DE DANIEL) encaja con lectores interesados en obras breves relacionadas con la psicología y el desarrollo personal. Sus 36 páginas ofrecen una extensión reducida frente a los ensayos largos, por lo que no responde a quien busca un tratado extenso sobre estas materias.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lumo y los colores (LA MIRADA DE DANIEL) está disponible en tapa dura y contiene 36 páginas en castellano. La encuadernación rígida resulta práctica para conservar un volumen breve, manipularlo repetidamente o entregarlo como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lumo y los colores (LA MIRADA DE DANIEL), de Francisco Puebla Campos, se relaciona por su orientación psicológica con Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso. El segundo identifica expresamente la infancia y su recuperación emocional como asunto central, mientras que el primero presenta los colores en su título. También difieren en autoría y en el enfoque anunciado al lector.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "68f5d13b0db93ad5",
+  "origen": "chatgpt-web"
+}

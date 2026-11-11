@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788491058670",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El arte de la prudencia (Serie Great Ideas): Ediciones icónicas (Penguin Clásicos | Vintage) se dirige a lectores interesados en la filosofía, el ensayo y el desarrollo personal. Por su orientación reflexiva, encaja menos con quienes buscan una novela de ficción o una guía de ejercicios prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, con 128 páginas y tamaño de libro de bolsillo. Este formato permite transportar El arte de la prudencia (Serie Great Ideas): Ediciones icónicas (Penguin Clásicos | Vintage) y consultar sus páginas en papel sin cargar con un volumen extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La incomodidad te hace libre: Un ensayo sobre libertad, disciplina e identidad para dejar de obedecer a la comodidad comparte con la obra de Baltasar Gracián el interés por el desarrollo personal, aunque plantea expresamente la disciplina y la identidad. Astrología, filosofía y magia: Un camino de práctica espiritual también aborda la filosofía, pero desde una propuesta vinculada a la astrología y la práctica espiritual.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315",
+        "isbn-9788409884339"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d81f213d6a1fcfed",
+  "origen": "chatgpt-web"
+}

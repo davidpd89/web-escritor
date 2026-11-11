@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788409902552",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Damián, de J O'Pater, se orienta a lectores interesados en fantasía, aventuras y ciencia ficción, con elementos relacionados con la historia y la Edad Media. Sus 596 páginas lo sitúan entre las lecturas extensas, lejos de quienes prefieren relatos breves o libros centrados exclusivamente en hechos históricos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Damián se presenta en tapa blanda, con 596 páginas en castellano. Por su extensión, conviene tener en cuenta el tamaño de la lectura física: permite mantener toda la obra en un solo volumen, aunque resulta menos ligero de transportar que un libro corto.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aftermyth 1. Penelope y la prueba de los dioses, de Tracy Wolff, y Damián, de J O'Pater, se relacionan por su vinculación con la fantasía. El primero identifica desde el título una prueba ligada a los dioses, mientras que Damián combina fantasía y aventuras con referencias a la historia, la ciencia ficción y la Edad Media en 596 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324102"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5a3a58f328ac6e69",
+  "origen": "chatgpt-web"
+}

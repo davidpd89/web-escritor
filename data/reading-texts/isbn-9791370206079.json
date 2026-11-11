@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791370206079",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los hijos malditos de la historia: Por qué los jóvenes buscan respuestas en la derecha y en la fe (Sociedad actual) se dirige a lectores interesados en el pensamiento político, la religión y las inquietudes de la juventud. Por su carácter de ensayo, no está orientado a quien busca una novela o un manual práctico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El ensayo plantea por qué determinados jóvenes buscan respuestas en la derecha política y en la fe religiosa. Wall Street Wolverine (Víctor Domínguez) sitúa ambas cuestiones en el marco de la sociedad actual, con una extensión de 224 páginas dedicada a ese ámbito de reflexión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los hijos malditos de la historia: Por qué los jóvenes buscan respuestas en la derecha y en la fe (Sociedad actual) se presenta en tapa blanda. La edición de Almuzara reúne 224 páginas en castellano, un formato físico que permite señalar pasajes y volver a ellos durante la lectura del ensayo.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "081a80d3f47338d6",
+  "origen": "chatgpt-web"
+}

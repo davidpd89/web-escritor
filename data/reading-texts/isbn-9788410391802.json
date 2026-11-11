@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410391802",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una magia tan familiar (Titania fresh) encaja con lectores interesados en la fantasía y las historias relacionadas con la familia. Sus 384 páginas ofrecen una novela de mayor extensión, por lo que se diferencia de los libros breves y de quienes buscan relatos alejados de estos dos temas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 384 páginas en un volumen físico de Titania, con cubierta flexible y un formato manejable para leer fuera de casa. Es la opción disponible para quien prefiere el papel y quiere conservar una novela de cierta extensión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Casi familia / Almost Family, de Ana Romero, comparte con Una magia tan familiar (Titania fresh) la referencia familiar desde sus propios títulos. La diferencia está en el componente fantástico, presente en la propuesta de Natasha Ngan, frente a una obra de Ana Romero cuyo título pone el acento en los vínculos familiares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073875011"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "be7ae3b3f5c30ccd",
+  "origen": "chatgpt-web"
+}

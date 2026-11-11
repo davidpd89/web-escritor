@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788403527010",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aborda la búsqueda de excelencia y plenitud personal en un entorno cambiante, con conexiones entre desarrollo personal y ámbito profesional. El camino de la excelencia: Alcanza la grandeza y la plenitud en un mundo caótico (Divulgación), de Brad Stulberg, no está centrado en procedimientos financieros concretos ni en la creación de empresas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El camino de la excelencia: Alcanza la grandeza y la plenitud en un mundo caótico (Divulgación) se presenta en tapa blanda y tiene 296 páginas. Su edición física permite subrayar ideas sobre desarrollo personal y consultar de nuevo los pasajes señalados, sin necesidad de utilizar un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Domina el arte de los negocios, de Brian Tracy, comparte el interés por el desarrollo de capacidades, aunque se concentra en las habilidades empresariales y el liderazgo. El camino de la excelencia: Alcanza la grandeza y la plenitud en un mundo caótico (Divulgación), de Brad Stulberg, plantea una cuestión más amplia: la relación entre excelencia, grandeza y plenitud.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466390514"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fd06b4f673b5d8cf",
+  "origen": "chatgpt-web"
+}

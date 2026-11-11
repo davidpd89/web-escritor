@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9780241838044",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Warhammer Age of Sigmar. La guía visual definitiva se dirige a lectores interesados en el universo de Warhammer Age of Sigmar y en las publicaciones visuales relacionadas con el ocio. Es una guía de 288 páginas, no una novela narrativa centrada en desarrollar una trama de ficción.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Warhammer Age of Sigmar. La guía visual definitiva tiene una edición en tapa dura de 288 páginas, publicada en castellano por DK. Su presentación física permite consultar la guía visual sobre una mesa o conservarla en una estantería junto a otros libros dedicados a juegos y aficiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El libro 800 stickers sweet and cosy (Prácticos) y Warhammer Age of Sigmar. La guía visual definitiva se relacionan con el ocio y las actividades recreativas. El primero reúne 800 pegatinas, mientras que el segundo es una guía visual de 288 páginas sobre el universo de Warhammer Age of Sigmar, escrita por Phil Kelly y Jordan Green.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049737"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e73517349762e9a4",
+  "origen": "chatgpt-web"
+}

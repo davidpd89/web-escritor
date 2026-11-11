@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387962616",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El incidente Darwin 9 (Seinen), de Shun Umezawa, encaja con lectores de manga, ciencia ficción y fantasía. Su identificación como seinen lo diferencia de las lecturas infantiles, mientras que su formato de cómic lo aleja de quienes prefieren novelas escritas únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El incidente Darwin 9 (Seinen) se presenta en tapa blanda, con 160 páginas en castellano. Esta edición física permite seguir las viñetas sobre papel y conservar el volumen junto a otros tomos de manga; su extensión facilita llevarlo en una mochila o bolso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El incidente Darwin 1 (Seinen): Universo Manga, de Shun Umezawa, es la comparación más directa con El incidente Darwin 9 (Seinen): ambos comparten autor y serie, aunque sus títulos identifican los números 1 y 9 respectivamente. Wistoria. Wand and Sword, 12 (Shônen - Wistoria), de Omori Fujino, también pertenece al manga, pero se presenta como shônen frente al seinen de Shun Umezawa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962791",
+        "isbn-9791043309632"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "33e5766de6a6ea3e",
+  "origen": "chatgpt-web"
+}

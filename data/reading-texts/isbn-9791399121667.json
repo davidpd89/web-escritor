@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791399121667",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Brasil: Un viaje viaje por las junglas de sentimientos y canibalismo de almas en el corazón del ... se orienta a lectores interesados en el cómic, la novela gráfica y las experiencias vinculadas a lugares y personas. Su clasificación entre biografías y memorias lo distancia de quienes buscan una guía práctica de viaje o un manual turístico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Marcello Quintanilha plantea una aproximación a Brasil relacionada con los sentimientos y las experiencias humanas. La obra se sitúa entre el cómic, la novela gráfica y las memorias, con una extensión de 128 páginas que concentra su propuesta en un volumen breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Autsaider Cómics se publica en tapa dura, con 128 páginas en castellano. La encuadernación rígida ofrece protección al volumen durante su conservación y consulta, una característica pertinente para una obra clasificada como cómic y novela gráfica.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, comparte el interés por las experiencias vinculadas a un lugar, pero sitúa su recorrido en el Camino de Santiago. Brasil: Un viaje viaje por las junglas de sentimientos y canibalismo de almas en el corazón del ... se relaciona con Brasil y adopta el formato de cómic o novela gráfica, frente al planteamiento de vivencias de viaje del otro título.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e1bf873aba875f81",
+  "origen": "chatgpt-web"
+}

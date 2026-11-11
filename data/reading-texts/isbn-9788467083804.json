@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Millennial cantabile se dirige a lectores de poesía interesados en la experiencia de una generación marcada por internet, el trabajo precario y los cambios en las relaciones personales. Martín Rodríguez-Gaona emplea una escritura fragmentaria e irónica, distante de quien busca una narración lineal o poesía de estructura necesariamente tradicional.",
+      "texto": "Millennial cantabile se dirige a lectores de poesía interesados en la cultura digital, las relaciones personales y las condiciones de vida de la generación millennial. Martín Rodríguez-Gaona utiliza una escritura fragmentaria e irónica; quienes busquen una narración convencional con argumento lineal encontrarán una estructura distinta.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Millennial cantabile propone una lectura poética sobre la identidad millennial y la influencia de la vida digital en el deseo, la cultura, el trabajo y el amor. Martín Rodríguez-Gaona utiliza fragmentación, ironía y musicalidad para abordar esas experiencias, en lugar de desarrollar una trama narrativa convencional.",
+      "texto": "Millennial cantabile es una obra poética centrada en cómo internet, el trabajo precario y la construcción de la identidad afectan a una generación. Martín Rodríguez-Gaona emplea fragmentos, ironía y recursos musicales para abordar el deseo, el amor y la cultura contemporánea. Su estructura responde a una propuesta de poesía, no a una novela narrativa.",
       "evidencias": [
         "titulo",
         "autores",
@@ -24,19 +24,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Millennial cantabile está disponible en tapa blanda y Kindle. La edición en papel de Editorial Espasa tiene 224 páginas, encuadernación rústica y solapas, mientras que Kindle permite llevar los poemas en formato digital y alternar su lectura con otras obras sin cargar con el libro físico.",
+      "texto": "La tapa blanda de Millennial cantabile contiene 224 páginas en rústica con solapas, apropiadas para consultar y releer sus textos poéticos en papel. Kindle permite acceder a la obra en formato digital y llevarla en un dispositivo compatible, una alternativa para leer sus fragmentos sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
-        "editorial",
         "numero_paginas",
-        "categorias"
+        "edicion",
+        "formatos_disponibles",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Millennial cantabile y El libro de los gatos comparten la escritura poética, aunque se ocupan de asuntos diferentes. Martín Rodríguez-Gaona explora la identidad de una generación atravesada por internet y la precariedad; Ursula K. Le Guin reúne poemas, meditaciones y dibujos sobre gatos, con un foco temático distinto del retrato generacional.",
+      "texto": "Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, comparte con Millennial cantabile el género poético y el interés por el amor. La obra de Martín Rodríguez-Gaona incorpora además internet, precariedad e identidad generacional, mientras que el título de Pedro Salinas sitúa expresamente el foco en la poesía amorosa.",
       "evidencias": [
         "titulo",
         "autores",
@@ -45,7 +44,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388306297"
+        "isbn-9788466396288"
       ]
     }
   ],

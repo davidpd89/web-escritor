@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788402431981",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sobrevivir a padres tóxicos: El método japonés para superar las heridas familiares y recuperar tu vida (Bruguera Tendencias), de Takaaki Kawashiwa, se dirige a lectores interesados en la psicología y en las relaciones familiares difíciles. Su foco está en los vínculos con los padres, por lo que se diferencia de los libros dedicados principalmente a las relaciones de pareja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para Sobrevivir a padres tóxicos: El método japonés para superar las heridas familiares y recuperar tu vida (Bruguera Tendencias), de Takaaki Kawashiwa. Sus 224 páginas ofrecen una edición física para leer, consultar y conservar sin depender de dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sobrevivir a padres tóxicos: El método japonés para superar las heridas familiares y recuperar tu vida (Bruguera Tendencias), de Takaaki Kawashiwa, puede compararse con El niño feliz (fuera de colección), de Dorothy Corkille Briggs, por su referencia común al ámbito familiar y a la infancia. El primero aborda las heridas relacionadas con los padres; el segundo sitúa al niño en el centro de su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425452901"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "875f1ccd669a3d83",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,58 @@
+{
+  "id": "isbn-9791388220272",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Poeta en Nueva York se dirige a lectores de poesía que también muestran interés por las ediciones ilustradas y el diseño editorial. Esta versión asociada a Federico García Lorca y Ricardo Cavolo tiene 256 páginas y no responde a quien busca una novela convencional de argumento lineal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La particularidad de esta edición de Poeta en Nueva York es su presentación ilustrada con cantos tintados y encuadernación en tapa dura. Lunwerg Editores publica el volumen de 256 páginas en castellano el 11 de noviembre de 2026, con Federico García Lorca y Ricardo Cavolo como autores acreditados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Poeta en Nueva York ofrece una presentación rígida con cantos tintados, vinculada a su carácter de edición ilustrada. Sus 256 páginas permiten conservar la obra como volumen de biblioteca o regalar una versión en papel que incorpora el diseño editorial a la experiencia de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sonetos del amor oscuro y Diván del Tamarit comparte con Poeta en Nueva York la autoría de Federico García Lorca y el género poético, aunque reúne otros títulos de su obra. Bodas de sangre. Edición ilustrada también permite comparar presentaciones visuales del mismo autor, pero pertenece a una obra distinta y no a este volumen de poesía.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788408328148",
+        "isbn-9788466396943"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "66cd223e7939e61b",
+  "origen": "chatgpt-web"
+}

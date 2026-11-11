@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419434500",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuaderno creativo: Las cuentas claras se orienta a quienes buscan un cuaderno relacionado con el desarrollo personal y las actividades de ocio. Su planteamiento como cuaderno creativo lo distingue de una novela o de un ensayo centrado exclusivamente en la exposición de ideas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuaderno creativo: Las cuentas claras está disponible en tapa blanda, con 176 páginas en castellano. La encuadernación flexible permite transportarlo junto a otros materiales de escritura y utilizarlo en distintos lugares; Planeta Gifts publica esta edición física.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Citas conmigo misma comparte con Cuaderno creativo: Las cuentas claras su relación con el tiempo personal, aunque propone momentos de autocuidado y diversión frente al enfoque de las cuentas del cuaderno de Cristina Benito. Diario de pequeñas alegrías: Una zambullida en la belleza de lo cotidiano (Inspiración) dirige la atención hacia las experiencias cotidianas, mientras que Cuaderno creativo: Las cuentas claras se presenta como un cuaderno creativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419434289",
+        "isbn-9788403524743"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d3b89eb2194d18fe",
+  "origen": "chatgpt-web"
+}

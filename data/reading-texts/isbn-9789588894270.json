@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9789588894270",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Por la libre / On the Loose: 4 (OBRA PERIODÍSTICA) se orienta a quienes leen ensayo, relatos y textos periodísticos de Gabriel García Márquez. Su pertenencia a una colección periodística lo diferencia de las novelas centradas en una única trama de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Por la libre / On the Loose: 4 (OBRA PERIODÍSTICA) es de tapa blanda y reúne 344 páginas en castellano. El volumen físico permite conservarlo junto a otros títulos de la colección periodística y volver a sus textos durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Notas de prensa / Press Releases: 5 (OBRA PERIODÍSTICA) y Por la libre / On the Loose: 4 (OBRA PERIODÍSTICA) pertenecen a la obra periodística de Gabriel García Márquez. Los títulos identifican volúmenes distintos de la colección, aunque comparten autoría y orientación periodística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789588894256"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b6c8d164140c36d3",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370610227",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a quienes estudian el cumplimiento normativo y los riesgos jurídicos que plantea la inteligencia artificial en las empresas. Su enfoque de derecho empresarial y sus 800 páginas lo separan de una introducción breve a la IA o de un manual centrado en su funcionamiento técnico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Aranzadi contiene 800 páginas en castellano y permite trabajar con un volumen físico de consulta. Por su extensión, resulta más apropiada para mantenerla en una mesa de estudio o trabajo que para transportarla a diario; también permite señalar pasajes y añadir anotaciones.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Se relaciona con Blockchain: un desafío legal (Monografía) por el análisis jurídico de tecnologías emergentes, pero Xabier Ribas centra su obra en el cumplimiento normativo empresarial ante la IA. Derecho penal 4.0: el Derecho penal en la cuarta revolución industrial: 124 (Propiedad Intelectual) aborda también la transformación tecnológica del derecho, aunque desde el ámbito penal y no desde la gestión de riesgos en las empresas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370610265",
+        "isbn-9788429030396"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5a6e0ec0f8512806",
+  "origen": "chatgpt-web"
+}

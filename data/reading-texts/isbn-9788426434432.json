@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788426434432",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Maruja. Una biografía de Maruja Mallo (Lumen Gráfica) está destinada a lectores interesados en las biografías y las trayectorias personales. La obra de María Herreros se centra en una figura identificada por su nombre, por lo que se diferencia de los ensayos generales y de las novelas de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Maruja. Una biografía de Maruja Mallo (Lumen Gráfica) se ofrece en tapa dura, con 192 páginas en castellano. Esta edición de Lumen proporciona una encuadernación rígida para conservar el volumen y volver a consultarlo, además de una presentación adecuada para regalar una biografía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Maruja. Una biografía de Maruja Mallo (Lumen Gráfica) y Al andar: Vivencias del Camino de Santiago comparten el interés por las experiencias personales, pero la primera presenta la biografía de una persona concreta y la segunda se centra en vivencias vinculadas a un camino. Alfred y Emily (Narrativa), de Doris Lessing, ofrece otra aproximación a las vidas individuales, aunque aparece identificada como narrativa y no como biografía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496",
+        "isbn-9788426438515"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a63f4aeb390ee8b5",
+  "origen": "chatgpt-web"
+}

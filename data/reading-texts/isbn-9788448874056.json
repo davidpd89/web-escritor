@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788448874056",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El mono que vino a cenar (La ovejita que vino a cenar) (Cuentos infantiles) está orientado a la lectura infantil, especialmente a quienes disfrutan de historias sobre animales, amistad y humor. Su extensión de 32 páginas responde a un formato de cuento breve, distinto de las novelas juveniles de mayor recorrido.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El mono que vino a cenar (La ovejita que vino a cenar) (Cuentos infantiles) se publica en tapa dura y Kindle. La edición de Beascoa tiene 32 páginas: el volumen físico permite compartir la lectura pasando páginas, mientras que Kindle facilita llevar el cuento en un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El mono que vino a cenar (La ovejita que vino a cenar) (Cuentos infantiles) pertenece al mismo universo editorial que Caja metálica con cinco cuentos (La ovejita que vino a cenar): Incluye las historias de la ovejita, los lobos, el cocodrilo, el tigre y la patita (Cuentos infantiles). El primero es un cuento de 32 páginas firmado por Steve Smallman; el segundo reúne cinco historias y acredita también a Joëlle Dreidemy.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1a714f96926531ac",
+  "origen": "chatgpt-web"
+}

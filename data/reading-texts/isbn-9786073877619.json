@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9786073877619",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Drama mental. (Por qué tu mente no se calla y cómo recuperar el control) / Mind Drama. The Science of Rumination, de Donna Jackson Nakazawa, está dirigido a lectores interesados en la rumiación mental desde la psicología y el desarrollo personal. Su enfoque se aparta de quienes buscan ficción o un manual centrado exclusivamente en relaciones de pareja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Drama mental. (Por qué tu mente no se calla y cómo recuperar el control) / Mind Drama. The Science of Rumination tiene 320 páginas en castellano. El papel permite marcar apartados sobre los que volver y distribuir la lectura en sesiones, con una cubierta flexible para transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, y Drama mental. (Por qué tu mente no se calla y cómo recuperar el control) / Mind Drama. The Science of Rumination se relacionan con el bienestar psicológico. El primero se centra en la infancia y su reparación emocional; el segundo identifica la rumiación y el control de los pensamientos como asuntos principales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d12b49a383877e88",
+  "origen": "chatgpt-web"
+}

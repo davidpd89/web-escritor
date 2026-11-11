@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791388352058",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El colegio de Montesión de Palma: Arquitectura y patrimonio artístico (Plural) se dirige a lectores interesados en la historia de los edificios y su dimensión artística. Por su enfoque histórico y patrimonial, no responde a quien busque una novela o una guía general de técnicas de diseño.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje del libro es el patrimonio arquitectónico y artístico del colegio de Montesión de Palma. Marià Carbonell Buades y Concepció Bauçà de Mirabò abordan un edificio concreto desde la historia y el arte, en lugar de ofrecer una panorámica de la arquitectura sin un lugar central.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, publicada por Documenta Balear S.l. Sus 452 páginas permiten consultar el contenido por partes y volver a los pasajes de interés sobre arquitectura y patrimonio artístico. Es una opción física para conservar en una biblioteca de historia del arte.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Frente a Civilización: Una historia del arte y la cultura que dieron forma a la civilización moderna: 126 (Ático Historia), de Kenneth Clark, este libro concentra su atención en el patrimonio de un colegio de Palma, no en una historia cultural amplia. También comparte el interés artístico de El Bosco y el otro renacimiento (Arte y diseño), de Bernard Aikema y Fernando Checa Cremades, pero cambia el foco de la pintura a la arquitectura y el patrimonio de un edificio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387592493",
+        "isbn-9788410380219"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "16938f14335e89c2",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399258127",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la psicología, el desarrollo personal y las cuestiones familiares. Síndrome del gemelo perdido: Me falta algo para ser feliz... (EL LIBRO ORIGINAL), de Alfred R. Austermann y Bettina Austermann, aborda estas materias en 320 páginas; no responde a quien busca una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Síndrome del gemelo perdido: Me falta algo para ser feliz... (EL LIBRO ORIGINAL) se presenta en tapa blanda y tiene 320 páginas. Es una opción física para consultar y retomar sus contenidos sobre psicología y desarrollo personal, con una encuadernación flexible que facilita llevar el volumen en una bolsa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Síndrome del gemelo perdido: Me falta algo para ser feliz... (EL LIBRO ORIGINAL) comparte el ámbito psicológico con Las últimas enseñanzas de Hellinger., de Angélica Olvera y Francesc Miralles. Frente a Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología), de Ramón Nogueras Pérez, centrado en las relaciones amorosas, el libro de Alfred R. Austermann y Bettina Austermann se sitúa en el terreno del desarrollo personal y la familia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387534370",
+        "isbn-9791388248030"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c741dfa0fc7e3118",
+  "origen": "chatgpt-web"
+}

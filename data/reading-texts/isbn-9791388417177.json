@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388417177",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a quienes buscan aventuras relacionadas con el k-pop y una lectura de 192 páginas. Por su combinación de aventuras y arte y diseño, encaja menos con quienes prefieren ensayos musicales o novelas de gran extensión.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer sus 192 páginas en papel y conservar el volumen en una colección. La edición Kindle ofrece el mismo título en formato digital para llevarlo en el móvil o en un lector electrónico, sin cargar con el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comeback inesperado, un (Kpop Girls 2) (Sin límites), de Silvia Aliaga, comparte con este libro la referencia al k-pop y la identificación como segunda entrega en el título. El diario de una princesa desastrosa (Diarios), de Maidy, propone desde su título un enfoque de diario, mientras que Tami Tamako 2 - Lista para triunfar: Una historia de k-pop (Montena) se presenta como una aventura vinculada a la música.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949907",
+        "isbn-9788408331148"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "77fda7642ab2d68f",
+  "origen": "chatgpt-web"
+}

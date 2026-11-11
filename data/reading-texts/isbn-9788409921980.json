@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788409921980",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en el liderazgo entendido como oficio y en la reflexión personal previa a ejercerlo. Por su enfoque introspectivo y su relación con la economía y la empresa, resulta menos afín a quienes buscan ficción de aventuras o contenidos alejados de la gestión profesional.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 411 páginas de Antes de liderar: Una mirada interior a un oficio en un volumen para leer y consultar en papel. Kindle permite acceder al mismo título desde un dispositivo electrónico y retomar sus reflexiones sin llevar consigo la edición impresa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "ANTES DE QUE OCURRA: Vender, formar y proteger el futuro comparte el ámbito profesional, pero su título pone el foco en la venta, la formación y la prevención. Antes de liderar: Una mirada interior a un oficio se diferencia por situar la reflexión personal sobre el liderazgo en el centro de su propuesta.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788409935604"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b1b70137cb5b11ad",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788408231158",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El cartero simpático (Baobab), de Janet Ahlberg y Allan Ahlberg, está orientado al público infantil y a quienes buscan libros de este ámbito para compartir en familia. Sus 72 páginas en castellano lo diferencian de las novelas extensas destinadas a lectores adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El cartero simpático (Baobab) se presenta en tapa dura, con 72 páginas en castellano. La encuadernación rígida de esta edición de Destino Infantil & Juvenil facilita conservar el libro en una biblioteca infantil y manipularlo durante lecturas compartidas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "300ecf1d8a4eb422",
+  "origen": "chatgpt-web"
+}

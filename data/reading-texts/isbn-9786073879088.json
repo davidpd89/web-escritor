@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9786073879088",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nosotras también contamos. Mujeres célebres del México Antiguo / We Matter Too: Famous Women of Ancient Mexico se dirige a lectores interesados en relatos sobre mujeres vinculadas al pasado de México. Su clasificación combina narrativa contemporánea y relatos, con el protagonismo femenino anunciado desde el título. No se presenta como un manual académico ni como una novela de ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La obra propone una lectura narrativa centrada en mujeres célebres del México Antiguo, según el tema expresado en su título. Está clasificada como narrativa contemporánea y relatos, y reúne la autoría de Blanca López de Mariscal, Denise Carpinteyro, Mónica Castellanos, Gabriela Riveros y Maria De Alva. El enfoque temático se sitúa en las figuras femeninas y su presencia en el pasado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Penguin Random House Grupo Editorial ofrece esta obra en tapa blanda, con 256 páginas en castellano. El volumen físico permite leer los relatos y regresar a las distintas figuras mencionadas a lo largo del libro. Es el formato disponible para esta edición, publicada el 2027-01-19.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lo mejor de las mujeres de Bruguera (Bruguera Clásica), de Raquel Gu y Antoni Guiral, comparte con Nosotras también contamos. Mujeres célebres del México Antiguo / We Matter Too: Famous Women of Ancient Mexico el interés por las mujeres. La diferencia está en el ámbito anunciado: una obra remite a Bruguera y la otra a figuras del México Antiguo. Esas muchachas que escriben poemas, de Alba Donati, se acerca al protagonismo femenino desde la escritura poética.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402432216",
+        "isbn-9788426434272"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b2a8e97c41a98bfe",
+  "origen": "chatgpt-web"
+}

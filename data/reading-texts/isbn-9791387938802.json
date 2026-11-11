@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387938802",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Conversaciones sobre la escritura: 10 (Tascabili) se dirige a quienes buscan reflexiones sobre la escritura de Andrea Camilleri y Manuel Vázquez Montalbán. Es un ensayo de 96 páginas, por lo que no responde a la búsqueda de una novela de ficción ni de una narración extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Conversaciones sobre la escritura: 10 (Tascabili) se presenta en tapa blanda, con 96 páginas editadas por Altamarea Ediciones. El volumen físico permite subrayar y volver a consultar pasajes sobre escritura, además de ocupar menos espacio que un ensayo de mayor extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Conversaciones sobre la escritura: 10 (Tascabili) puede compararse con El traje gris (Salamandra Narrativa) por la presencia de Andrea Camilleri en ambos libros. El primero reúne a Andrea Camilleri y Manuel Vázquez Montalbán en un título dedicado a la escritura y clasificado como ensayo; el segundo figura como obra de Andrea Camilleri dentro de una colección narrativa. La diferencia principal está en el enfoque sobre el oficio de escribir frente a la lectura narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388428067"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aaf7cc483af48566",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788410481602",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cecilia (Clásicos), de Frances Burney, está dirigida a lectores interesados en la literatura clásica. Sus 865 páginas corresponden a una obra de gran extensión, por lo que no encaja tanto con quien busca una lectura breve o prefiere centrarse en narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cecilia (Clásicos) se encuentra disponible en tapa blanda. La edición de Libros de Seda contiene 865 páginas en un volumen físico de gran extensión, adecuado para quien prefiere leer en papel y conservar una obra clásica en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0deb58338d7628d6",
+  "origen": "chatgpt-web"
+}

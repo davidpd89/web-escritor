@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788482898490",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La vida secreta de Papá Noel, de Rena Ortega, se dirige al público infantil y juvenil interesado en historias relacionadas con Papá Noel. Sus 48 páginas plantean una lectura de extensión reducida, menos ajustada a quienes buscan una novela larga o una obra de temática adulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La vida secreta de Papá Noel se presenta en tapa dura, con 48 páginas en castellano. La encuadernación rígida de esta edición de Edicións Do Cumio favorece su conservación y permite regalar un ejemplar físico de extensión breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "482713de58d79bc8",
+  "origen": "chatgpt-web"
+}

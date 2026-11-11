@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419686305",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La luna en una noche de lluvia 9 (Yuri), de Kuzushiro, encaja con lectores que buscan manga de romance y relaciones afectivas. Su orientación hacia el amor y la pareja lo diferencia de quienes prefieren cómic de aventuras o narraciones ajenas al género romántico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 144 páginas de La luna en una noche de lluvia 9 (Yuri), de Kuzushiro, en un volumen físico. Su extensión es más reducida que la de una novela de varios cientos de páginas, por lo que resulta un ejemplar manejable para leer en papel.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La luna en una noche de lluvia 9 (Yuri), de Kuzushiro, tiene una referencia directa en La luna en una noche de lluvia 1 (Yuri): Universo Manga, también de Kuzushiro. Ambos comparten título, autoría y presentación como manga yuri; la diferencia identificable es su numeración, n.º 9 frente a n.º 1.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962814"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "870b5535c2be9706",
+  "origen": "chatgpt-web"
+}

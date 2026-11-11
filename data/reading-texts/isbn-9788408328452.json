@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408328452",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Legacy. Donde todo se ilumina: La faceta más romántica de la autora de la serie Empíreo: 3 (Planeta Internacional) está dirigido a lectores de romance contemporáneo. Quienes busquen una obra clasificada principalmente como fantasía encontrarán aquí una orientación diferente, centrada en el género romántico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Legacy. Donde todo se ilumina: La faceta más romántica de la autora de la serie Empíreo: 3 (Planeta Internacional) se presenta en tapa blanda. Con 200 páginas en castellano, ofrece una extensión más contenida que la de otras novelas largas y permite leerla en un volumen físico relativamente breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Legacy. Donde todo se ilumina comparte autora con El día de la Trilla (Empíreo), de Rebecca Yarros, pero se orienta al romance contemporáneo frente a la vinculación del segundo con la serie Empíreo. También puede compararse con A mil por hora, de Hannah Grace, por su componente romántico, aunque este último presenta una relación entre un piloto de F1 y una mujer marcada por su pasado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408326847",
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5a94a10a6b2ee5dc",
+  "origen": "chatgpt-web"
+}

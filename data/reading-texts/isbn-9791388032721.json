@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791388032721",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El aleph digital: Del libro impreso a la lectura total: 165 (Biblioteca de Ensayo / Serie mayor) se dirige a lectores interesados en la historia del libro y en la transformación de la lectura. Su orientación ensayística lo aleja de quienes buscan una novela o un manual de instrucciones tecnológicas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La evolución del libro impreso hacia la lectura digital es el tema central de El aleph digital: Del libro impreso a la lectura total: 165 (Biblioteca de Ensayo / Serie mayor). El enfoque combina historia y ensayo para tratar los cambios en los soportes de lectura y el concepto de lectura total.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El aleph digital: Del libro impreso a la lectura total: 165 (Biblioteca de Ensayo / Serie mayor) está disponible en tapa blanda, con 120 páginas en castellano. Esta edición permite consultar y releer sus apartados en papel, con una extensión que facilita llevar el volumen en el bolso o la mochila.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El infinito en un junco (edición limitada · cantos tintados): La invención de los libros en el mundo antiguo (Campaña | Edición con cantos tintados) comparte el interés por la historia del libro, pero se centra en sus orígenes antiguos. El aleph digital: Del libro impreso a la lectura total: 165 (Biblioteca de Ensayo / Serie mayor) desplaza la atención hacia la transición entre la lectura impresa y la digital.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788466393041"
+      ]
+    }
+  ],
+  "descartados": [
+    "lecturas_afines: nombres sin respaldo: Antigüedad",
+    "faltan módulos: lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "200e9a0bef98d066",
+  "origen": "chatgpt-web"
+}

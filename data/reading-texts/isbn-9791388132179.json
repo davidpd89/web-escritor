@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388132179",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aquí cabemos todos (NUBEOCHO), de Raquel Díaz Reguera, está dirigido al público infantil y puede encajar en momentos de lectura compartida. Sus 40 páginas lo sitúan en una extensión breve, distinta de la que buscan lectores interesados en novelas juveniles largas o narrativa adulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Aquí cabemos todos (NUBEOCHO) se presenta en tapa dura y tiene 40 páginas en castellano. Su encuadernación rígida resulta práctica para conservarlo y manipularlo durante las lecturas compartidas, y permite regalar un ejemplar físico de extensión breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aquí cabemos todos (NUBEOCHO) comparte autora con El caos de Beca 3. Vale, este no era el plan y El caos de Beca 4. ¿Y ahora qué hago?, ambos de Raquel Díaz Reguera. La diferencia para el lector está en la presentación: Aquí cabemos todos (NUBEOCHO) es un título infantil de 40 páginas, mientras que los otros se identifican por sus títulos como entregas numeradas de una serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408326342",
+        "isbn-9788408331278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e3092ca39cd7837c",
+  "origen": "chatgpt-web"
+}

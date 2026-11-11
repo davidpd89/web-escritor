@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788448875329",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan actividades de colorear y pegar pegatinas con Bluey, más que una historia para leer de principio a fin. Sus 32 páginas se centran en el entretenimiento manual y no en una narración extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 32 páginas de actividades para colorear y trabajar con pegatinas de Bluey. Es un formato físico que permite pintar directamente sobre las páginas y utilizar las pegatinas durante la actividad.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos), de Varios autores, comparte la actividad de colorear, pero utiliza el universo de Roblox en lugar de Bluey. Ambos se orientan al entretenimiento manual, aunque el libro de Bluey incorpora pegatinas para colorear.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788408328384"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7fd14e64fa8da2d0",
+  "origen": "chatgpt-web"
+}

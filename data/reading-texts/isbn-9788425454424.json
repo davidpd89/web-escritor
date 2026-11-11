@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788425454424",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El tonto y los canallas: Genealogías del republicanismo transmoderno (Contrapunto), de Santiago Castro-Gómez, se dirige a lectores interesados en la filosofía política, la historia de las ideas y el ensayo. Su enfoque sobre el republicanismo transmoderno se aleja tanto de la ficción narrativa como de los manuales de historia general.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El tonto y los canallas: Genealogías del republicanismo transmoderno (Contrapunto) cuenta con una edición en tapa blanda de 296 páginas. El formato impreso permite consultar y releer los apartados de este ensayo filosófico e histórico, además de incorporarlo a una biblioteca dedicada al pensamiento político.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El tonto y los canallas: Genealogías del republicanismo transmoderno (Contrapunto) comparte el terreno filosófico con Diatribas. 31 lecciones estoicas sobre la vida (Biblioteca Edaf), de Epicteto, aunque aborda el republicanismo en lugar del estoicismo aplicado a la vida. También se relaciona con El código bushido: La filosofía de los samuráis / Edición comentada por Marcos Cartagena, de Inazo Nitobe, por su interés en las ideas, pero desde tradiciones y asuntos diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788441445086",
+        "isbn-9791388080968"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "609f80dfc063cb85",
+  "origen": "chatgpt-web"
+}

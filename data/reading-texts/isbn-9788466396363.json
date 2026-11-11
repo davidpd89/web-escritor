@@ -1,0 +1,58 @@
+{
+  "id": "isbn-9788466396363",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Asesinato en la Casa Rosa (edición limitada) (Los crímenes de Loeiro 1) (Campaña | Ahora por menos) se dirige a lectores interesados en relatos de crímenes y en obras identificadas como parte de una serie. Sus 440 páginas en formato de bolsillo encajan menos con quien busca una lectura corta o una novela ajena a las investigaciones criminales.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es la tapa blanda, presentada por Penguin Bolsillo como libro de bolsillo. Sus 440 páginas ofrecen una lectura extensa en un volumen flexible, más sencillo de transportar que una encuadernación rígida y adecuado para quien acostumbra a leer durante los desplazamientos.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Donde callan los niños (Imágica Intriga) puede compararse con Asesinato en la Casa Rosa (edición limitada) (Los crímenes de Loeiro 1) (Campaña | Ahora por menos) por su vinculación con la intriga. La obra de Eva Zamora Zamora se identifica con ese género en su título editorial, mientras que la de Arantza Portabales señala expresamente un asesinato y su pertenencia a Los crímenes de Loeiro.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9791399210729"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición limitada de Penguin Bolsillo se ofrece en castellano, como libro de bolsillo con encuadernación de tapa blanda. Tiene 440 páginas y su ISBN es 9788466396363. La identificación Los crímenes de Loeiro 1 figura en el título y permite reconocer esta entrega de Arantza Portabales dentro de la serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formato_edicion",
+        "idioma",
+        "isbn13"
+      ]
+    }
+  ],
+  "descartados": [
+    "esta_edicion: repite otro bloque",
+    "faltan módulos: esta_edicion"
+  ],
+  "version": 3,
+  "fuente_hash": "2585e0070e319ba4",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un baile en Versalles se dirige a lectores adultos de novela romántica interesados en las relaciones familiares, las expectativas sociales y las decisiones sentimentales de varias protagonistas. Su ambientación en 1959 y el peso de los conflictos personales lo alejan de la fantasía romántica y de las historias centradas en una única pareja.",
+      "texto": "Un baile en Versalles está dirigido a lectores adultos de novela romántica interesados en las relaciones familiares, las expectativas sociales y las decisiones personales. No responde a una búsqueda de fantasía o aventuras de acción: sus conflictos nacen de los vínculos afectivos y las obligaciones que rodean a sus protagonistas.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,37 +14,36 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Un baile en Versalles es una novela romántica de Danielle Steel ambientada en una gala de presentación en sociedad celebrada en 1959. La historia sigue a cuatro jóvenes con distintas aspiraciones académicas, relaciones familiares y experiencias amorosas, cuyos conflictos contrastan con las convenciones sociales del acontecimiento.",
+      "texto": "Danielle Steel sitúa Un baile en Versalles en 1959, durante una celebración que reúne a jóvenes de familias estadounidenses y francesas. La narración sigue a cuatro invitadas con aspiraciones diferentes y tensiones relacionadas con sus familias, sus estudios y sus relaciones sentimentales. El baile funciona como punto de encuentro entre sus decisiones individuales y las convenciones sociales.",
       "evidencias": [
-        "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Un baile en Versalles está disponible en tapa blanda con solapas, con 304 páginas para una lectura continuada en papel. La versión Kindle permite seguir las historias de sus protagonistas desde el móvil o un lector electrónico, sin necesidad de transportar el ejemplar impreso.",
+      "texto": "Un baile en Versalles puede leerse en tapa blanda con solapas o en Kindle. La edición impresa tiene 304 páginas y permite conservar el volumen en papel, mientras que Kindle facilita llevar la novela en un lector electrónico o en una aplicación compatible sin cargar con el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "edicion",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "edicion",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Un baile en Versalles y La casa de los espíritus comparten el interés por las relaciones familiares y las experiencias de sus personajes en un contexto social determinado. Danielle Steel construye su novela alrededor de cuatro jóvenes y una celebración en 1959, mientras que Isabel Allende desarrolla una historia familiar de alcance más amplio.",
+      "texto": "El color de la esperanza comparte con Un baile en Versalles la autoría de Danielle Steel y el interés por las relaciones personales. La primera sitúa una historia de nuevos comienzos en el País Vasco francés, mientras que Un baile en Versalles transcurre en torno a una gala de 1959 y aborda las expectativas familiares y sentimentales de cuatro jóvenes.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788401042751"
+        "isbn-9788401040368"
       ]
     }
   ],

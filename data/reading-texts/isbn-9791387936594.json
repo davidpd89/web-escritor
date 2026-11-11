@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387936594",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La escalera del músculo: Ponte fuerte usando la ciencia (Fitness) se dirige a lectores interesados en el desarrollo muscular desde una perspectiva científica. Su enfoque deportivo resulta menos adecuado para quien busca exclusivamente recetas de cocina, relatos de competición o bienestar desvinculado del entrenamiento.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne 368 páginas y permite conservar el libro como volumen de consulta sobre entrenamiento muscular. La versión Kindle ofrece el mismo título en formato digital, útil para leerlo en el móvil o llevarlo sin cargar con el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La escalera del músculo: Ponte fuerte usando la ciencia (Fitness), de Jeff Nippard, comparte el interés por la ciencia aplicada al deporte con El código del rendimiento: La ciencia detrás de lo que el deportista consume, de Eztizen Pérez Díaz. El primero se centra en el desarrollo muscular, mientras que el segundo aborda lo que consume el deportista. Ambos permiten distinguir entre el entrenamiento de fuerza y la alimentación vinculada al rendimiento físico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409934010"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "95ba7724aefd19f8",
+  "origen": "chatgpt-web"
+}

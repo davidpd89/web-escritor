@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788410439498",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El expreso a cualquier lugar (Plata), de Samantha Sotto Yambao, pertenece a la narrativa contemporánea y se dirige a lectores que buscan obras de este ámbito. Su clasificación no corresponde a quienes desean específicamente una novela de terror, un thriller policial o un manual de no ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El expreso a cualquier lugar (Plata) está disponible en tapa blanda y Kindle. La edición física reúne sus 480 páginas en un volumen de cubierta flexible, mientras que Kindle permite llevar la lectura en un dispositivo compatible sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dd54f56dd4e693c5",
+  "origen": "chatgpt-web"
+}

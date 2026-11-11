@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788467986167",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Blade runner 2019 integral: 1 encaja con lectores que buscan ciencia ficción en castellano y prefieren un volumen físico de cierta extensión. Tiene 336 páginas y no está orientado, por su clasificación temática, a quien quiera una lectura histórica o biográfica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Blade runner 2019 integral: 1 se presenta en tapa dura y reúne 336 páginas. Es una opción física para leer, conservar o regalar el volumen completo en castellano, publicada por Norma Editorial.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Blade runner 2019 integral: 1 puede compararse con Al despertar, rompe el cascarón (Runas), de Becky Chambers, como otra referencia de lectura del catálogo. La diferencia comprobable está en la autoría: Blade runner 2019 integral: 1 reúne a Andres Guinaldo, Mike Johnson, Marco Lesko y Michael Green, mientras que la otra obra corresponde a Becky Chambers. El primero está clasificado como ciencia ficción y tiene 336 páginas.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9791370093488"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e0ac9e22c947c7c0",
+  "origen": "chatgpt-web"
+}

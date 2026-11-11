@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387995423",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Two-fisted tales volumen 4 se dirige a lectores de cómic y novela gráfica que buscan una entrega identificada como volumen 4 y firmada por Varios autores. Su formato de historieta lo separa de quienes prefieren novelas exclusivamente en prosa, y el título lo identifica como el n.º 4.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Two-fisted tales volumen 4 cuenta con una edición en tapa dura de 216 páginas, publicada por Diabolo Ediciones. El volumen físico permite recorrer sus páginas ilustradas y conservar la entrega en una estantería, con una encuadernación rígida para sucesivas consultas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Creepy nº 11/29 comparte con Two-fisted tales volumen 4 la autoría colectiva y el formato de cómic, pero presenta una recopilación orientada al terror. Eerie nº 21/27 también figura firmado por Varios autores y plantea un escenario apocalíptico, mientras que Two-fisted tales volumen 4 se identifica por su cuarta entrega sin concretar ese mismo tema.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788411406130",
+        "isbn-9788411406529"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "24369ee0e3b67684",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "En ese silencio se dirige a lectores de suspense familiar que buscan secretos heredados y una investigación ligada al pasado personal. Su combinación de misterio y narrativa contemporánea se distancia de las historias centradas en operaciones policiales o conflictos políticos.",
+      "texto": "En ese silencio encaja con lectores de misterio que buscan conflictos familiares y secretos vinculados al pasado. Su combinación de thriller y narrativa contemporánea se aleja de una historia centrada únicamente en la investigación policial o en la acción física.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,37 +13,35 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "En ese silencio plantea un thriller familiar construido alrededor de la memoria y la confianza en los relatos transmitidos entre generaciones. Carmen Amoraga utiliza el hallazgo de una caja durante la organización de una vivienda para abrir dudas sobre la historia que una mujer conoce de su familia.",
+      "texto": "En ese silencio plantea un misterio doméstico que comienza cuando Antonia García encuentra una caja mientras organiza la vivienda de su tía. El conflicto surge al cuestionarse la historia que conocía de su familia, con una investigación ligada a los recuerdos heredados y a la confianza entre generaciones.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "En ese silencio está disponible en tapa dura con sobrecubierta, en una edición de 288 páginas publicada por Ediciones Martínez Roca. Es una presentación física que protege el volumen mediante una cubierta rígida y añade una sobrecubierta exterior, dos elementos relevantes para conservarlo o regalarlo.",
+      "texto": "La tapa dura es el formato disponible de En ese silencio. Esta edición de Ediciones Martínez Roca reúne 288 páginas e incorpora sobrecubierta, una presentación física que permite conservar la novela en la biblioteca o entregarla como regalo.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
+        "formatos_disponibles",
         "edicion",
-        "formatos_disponibles"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Corazón de sílex comparte con En ese silencio una intriga que parte de una incertidumbre sobre hechos pasados, aunque en el primero el conflicto nace de una pérdida de memoria y en el segundo de secretos familiares. El enigmático míster Quin también pertenece al terreno del misterio, pero reúne doce relatos frente a la historia familiar de Carmen Amoraga.",
+      "texto": "En ese silencio puede compararse con Aguas turbulentas por la importancia de un pasado que afecta al presente. La novela de Carmen Amoraga sitúa el conflicto en una familia, mientras que Aguas turbulentas presenta una conexión entre acontecimientos de distintas épocas en Edimburgo. Ambas parten de misterios, pero sus escenarios y núcleos narrativos son diferentes.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467083330",
-        "isbn-9788408331520"
+        "isbn-9791370310318"
       ]
     }
   ],

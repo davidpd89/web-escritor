@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La misteriosa pastelería de medianoche se dirige a lectores adultos interesados en la fantasía, los misterios familiares y la cocina tradicional. La historia combina el duelo por una abuela, una herencia y encuentros con espíritus; se aleja de los libros centrados en recetas prácticas o investigaciones criminales convencionales.",
+      "texto": "La misteriosa pastelería de medianoche se dirige a lectores adultos interesados en relatos que combinan fantasía, misterio y vínculos familiares. Su trama de espíritus, recuerdos y elaboración de dulces encaja menos con quienes buscan un recetario práctico o una historia estrictamente realista.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,38 +14,34 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "La misteriosa pastelería de medianoche contiene una narración de 240 páginas organizada alrededor de una pastelería que abre de diez a doce de la noche. Los encargos de sus visitantes sobrenaturales relacionan dulces tradicionales con recuerdos personales, mientras la protagonista investiga el pasado de su familia. Es ficción sobre cocina y memoria, no un manual de repostería.",
+      "texto": "La misteriosa pastelería de medianoche desarrolla una historia alrededor de una pastelería heredada, la preparación de dulces tradicionales y las visitas nocturnas de espíritus. Cada petición culinaria conecta con recuerdos y asuntos pendientes, mientras Yeon-hwa investiga su historia familiar. La cocina funciona como parte del conflicto narrativo, no como una sucesión de instrucciones para preparar recetas.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda con solapas de Salamandra reúne las 240 páginas de La misteriosa pastelería de medianoche en un volumen físico que puede conservarse o regalarse. Kindle permite leer esa misma extensión desde un dispositivo compatible, sin transportar el ejemplar impreso. La elección depende de si se prefiere pasar páginas en papel o leer en pantalla.",
+      "texto": "La misteriosa pastelería de medianoche se publica en tapa blanda con solapas y tiene 240 páginas, una extensión manejable para leer en papel durante los desplazamientos. También está disponible en Kindle, que permite llevar la novela en el móvil o en un lector electrónico sin ocupar espacio físico.",
       "evidencias": [
         "titulo",
         "edicion",
-        "editorial",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La misteriosa pastelería de medianoche y El mundo perdido comparten elementos de misterio, aunque Lee Onhwa utiliza una pastelería frecuentada por espíritus y Michael Crichton plantea una amenaza relacionada con dinosaurios. Frente a 20 minutos ¡y listo!, de Jamie Oliver, que aborda la cocina desde su aplicación práctica, la novela convierte los dulces en parte de un conflicto familiar y sobrenatural.",
+      "texto": "Cuando vi a la muerte prestar su sombrero / When I Saw Death Lend Its Hat y La misteriosa pastelería de medianoche comparten la presencia de la muerte en sus planteamientos. La obra de Rodrigo Unda introduce ese motivo desde su propio título, mientras que Lee Onhwa lo desarrolla mediante espíritus que acuden a una pastelería para resolver asuntos pendientes.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788466392143",
-        "isbn-9788425374074"
+        "isbn-9786073879613"
       ]
     }
   ],

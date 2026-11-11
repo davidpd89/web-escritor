@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788466382328",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Babilonia (Best Seller | Ficción), de Yasmina Reza, se dirige a lectores que buscan narrativa contemporánea en una novela de extensión contenida. Sus 216 páginas permiten una lectura más breve que la de novelas extensas; encaja menos con quien busca específicamente fantasía o ficción histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 216 páginas de Babilonia (Best Seller | Ficción), de Yasmina Reza, en un libro de bolsillo. Es la opción física para quien prefiere leer en papel, conservar el ejemplar o transportarlo sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hammerklavier y Ninguna parte (Best Seller | Ficción), de Yasmina Reza, es el título más cercano para comparar con Babilonia (Best Seller | Ficción). Ambos comparten autora y pertenecen a la narrativa contemporánea del catálogo. La comparación permite acercarse a dos títulos distintos de Yasmina Reza sin atribuirles una temática o un tono que sus títulos no permiten establecer.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466382298"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a70a5dfb1d109d09",
+  "origen": "chatgpt-web"
+}

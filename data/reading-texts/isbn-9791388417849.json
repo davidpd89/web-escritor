@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388417849",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La conquista perfecta (Montena), de América Rodas, se dirige a lectores interesados en historias de romance y relaciones de pareja. Con 400 páginas, responde a la búsqueda de una lectura romántica extensa, pero se aleja de las preferencias de quienes buscan obras centradas en otros géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La conquista perfecta (Montena) puede leerse en tapa blanda o en Kindle. La edición física reúne 400 páginas y permite conservar el libro en papel, mientras que Kindle facilita llevar la lectura completa en un dispositivo compatible sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La conquista perfecta (Montena) tiene una comparación directa con La conquista perfecta / The Perfect Conquest: ambas obras aparecen atribuidas a América Rodas y comparten el nombre principal. La primera se presenta en castellano dentro del romance, mientras que la segunda utiliza un título bilingüe; esa diferencia permite distinguir las fichas sin atribuirles contenidos distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "idioma",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073878746"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2decd36efd83391c",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791399279412",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores de historia interesados en los debates sobre la superioridad inglesa y las interpretaciones de la Gran Armada. Sus 516 páginas y su planteamiento de réplica lo alejan de quienes buscan una introducción breve o una narración histórica sin discusión de otras obras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Cuestiona la idea de superioridad inglesa mediante una réplica a la obra sobre la Gran Armada de Colin Martin y Geoffrey Parker. Antonio Luis Gómez Beltrán adopta un enfoque de discusión histórica, desarrollado en 516 páginas y vinculado a Salamina Series.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda y contiene 516 páginas en castellano. Se trata de un volumen físico extenso que permite consultar y releer los argumentos de esta réplica histórica, publicado por Ediciones Salamina.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "76, de Felipe Pigna, comparte su vinculación con la historia, aunque su título no plantea una réplica a una interpretación de la Gran Armada. Agustín penón y Federico García Lorca aborda una investigación sobre la vida y la muerte de Federico García Lorca; aquí el centro es una controversia historiográfica sobre la superioridad inglesa.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788408329695",
+        "isbn-9788418567933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bbbebf9f6629169c",
+  "origen": "chatgpt-web"
+}

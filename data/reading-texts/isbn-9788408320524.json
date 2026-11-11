@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788408320524",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi primer Carnaval de los animales. Con 7 melodías (Libros con sonido) está orientado a quienes buscan un primer acercamiento infantil a la música y los animales. La propuesta de Séverine Cordier combina un libro de cartón de 14 páginas con el componente sonoro anunciado en el título. No está planteado como una lectura narrativa extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mi primer Carnaval de los animales. Con 7 melodías (Libros con sonido) se ofrece en tapa dura, mediante una edición de cartón de 14 páginas. El soporte físico reúne las páginas y las 7 melodías anunciadas en el título, por lo que la experiencia se vincula al propio libro. Timun Mas Infantil publica esta edición en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Agencia de animales mágicos: Medianoche y la leyenda de Santuario (Mi primer cómic) comparte con Mi primer Carnaval de los animales. Con 7 melodías (Libros con sonido) la presencia de animales y su orientación hacia primeras lecturas. El título de Steve Smallman se presenta como cómic de animales mágicos, mientras que el de Séverine Cordier es un libro de cartón con 7 melodías.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448875381"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ffe1a1840387333a",
+  "origen": "chatgpt-web"
+}

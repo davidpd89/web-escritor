@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9786073871884",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡Atrapa a ese Yeti! / Catch That Yeti, de Charlotte Habersack, se orienta a lectores que disfrutan de la fantasía con monstruos, humor y elementos de terror. Con 80 páginas, encaja con quienes prefieren historias cortas; puede resultar menos adecuado para quienes evitan las criaturas inquietantes o buscan novelas extensas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¡Atrapa a ese Yeti! / Catch That Yeti se presenta en tapa blanda y reúne 80 páginas en castellano. Su extensión y encuadernación flexible facilitan llevarlo en una mochila y leerlo en sesiones breves, sin necesidad de reservar espacio para un volumen grueso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¡Atrapa a ese Yeti! / Catch That Yeti, de Charlotte Habersack, comparte autora con El lago de los monstruos (INFANTIL), de Leo Timmers, únicamente en su interés por las criaturas monstruosas. La diferencia está en la autoría y en la criatura anunciada: un yeti frente a los monstruos de un lago. La obra de Charlotte Habersack tiene 80 páginas y combina fantasía, terror y humor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427255470",
+        "isbn-9791387884260"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fa7644ebd69103c4",
+  "origen": "chatgpt-web"
+}

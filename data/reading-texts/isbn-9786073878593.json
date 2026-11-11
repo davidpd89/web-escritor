@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073878593",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lo sagrado y lo sobrenatural / The Sacred and the Supernatural se dirige a quienes buscan ensayos relacionados con historia, religión y espiritualidad. La obra de Lourdes Gómez tiene 304 páginas y se sitúa en el terreno de la no ficción, lejos de las novelas fantásticas que utilizan lo sobrenatural como recurso narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lo sagrado y lo sobrenatural / The Sacred and the Supernatural se ofrece en tapa blanda, con 304 páginas en castellano. Es una edición física que permite marcar el avance con un separador y volver a pasajes anteriores durante la lectura; la cubierta flexible facilita su transporte.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lo sagrado y lo sobrenatural / The Sacred and the Supernatural comparte con Dominio (edición especial limitada en tapa dura con los cantos pintados): Cómo el cristianismo dio forma a Occidente (ATICO HISTORIA) el interés por la religión desde una perspectiva histórica. La obra de Lourdes Gómez abarca lo sagrado y lo sobrenatural, mientras que la de Tom Holland delimita su asunto a la influencia histórica del cristianismo en Occidente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387592981"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7dd93874178a246e",
+  "origen": "chatgpt-web"
+}

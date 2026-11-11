@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410043985",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Frankenstein (Novela gráfica): 1 (Obras maestras en novela gráfica) se dirige a lectores que prefieren acercarse a una obra literaria mediante el lenguaje del cómic. Esta edición de Mary Shelley tiene 160 páginas; no responde a quien busca específicamente una novela presentada solo en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Frankenstein (Novela gráfica): 1 (Obras maestras en novela gráfica) se ofrece en tapa dura, con 160 páginas. La encuadernación rígida proporciona soporte para consultar las páginas ilustradas y conservar el volumen en una biblioteca, además de darle una presentación adecuada para regalar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Frankenstein (Novela gráfica): 1 (Obras maestras en novela gráfica) se relaciona directamente con Frankenstein, también de Mary Shelley, porque ambas ediciones comparten la misma obra de referencia. La diferencia para el lector está en la presentación: la primera se identifica expresamente como novela gráfica de 160 páginas, mientras que la segunda conserva el título sin esa indicación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310486"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7333bb746d6dfa01",
+  "origen": "chatgpt-web"
+}

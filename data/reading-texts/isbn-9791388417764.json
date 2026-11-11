@@ -1,0 +1,58 @@
+{
+  "id": "isbn-9791388417764",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta novela de Liz Tomforde se dirige a lectores de romance interesados en las relaciones de pareja y el humor. Sus 464 páginas y su pertenencia a Windy City la sitúan lejos de quien busca una obra de ensayo o una historia ajena a las relaciones sentimentales.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición especial de Jugando fuerte (edición especial) (Windy City 2) (Lo más visto) se publica en tapa dura bajo el sello Montena. El título la identifica como el n.º 2 de Windy City, y esta presentación en castellano cuenta con 464 páginas, fecha editorial del 26 de noviembre de 2026 e ISBN 9791388417764.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "formato_edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato de esta edición especial de 464 páginas, pensada para conservar el volumen físico de Windy City. Su encuadernación favorece el uso como regalo o como parte de una colección, aunque ocupa más espacio que una edición de bolsillo durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rozando el cielo (edición especial) (Windy City 1) y Perdiendo el control (edición especial) (Windy City 3) comparten autoría de Liz Tomforde y su vinculación al romance deportivo. Sus títulos los identifican como los números 1 y 3 de Windy City, respectivamente, mientras que Jugando fuerte (edición especial) (Windy City 2) (Lo más visto) ocupa la posición indicada como n.º 2.",
+      "evidencias": [
+        "afines_catalogo",
+        "autores",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388222856",
+        "isbn-9791388417757"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "22d0a0d3ec1e9482",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388038358",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La obra de Raúl Durán Sánchez se dirige a lectores interesados en la Cábala y su relación con el desarrollo personal. Sus 288 páginas abordan esta tradición desde el ámbito de la autoayuda, por lo que encaja menos con quienes buscan una novela de ficción o una narración protagonizada por personajes.",
+      "evidencias": [
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La obra de Raúl Durán Sánchez está disponible en tapa blanda y Kindle. La edición física de Vergara reúne 288 páginas en castellano y permite consultar el contenido sobre papel; Kindle ofrece una alternativa digital para leer en dispositivos compatibles sin transportar el volumen impreso.",
+      "evidencias": [
+        "autores",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "611f10d89aa01858",
+  "origen": "chatgpt-web"
+}

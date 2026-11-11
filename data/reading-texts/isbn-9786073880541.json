@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9786073880541",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡No te enamores! / Don't Fall in Love! se orienta a lectores de desarrollo personal interesados en las relaciones familiares y de pareja. Sus 288 páginas y su clasificación en autoayuda lo distinguen de una novela romántica de ficción, por lo que encaja menos con quien busca una historia de amor narrada mediante personajes y acontecimientos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¡No te enamores! / Don't Fall in Love!, de Johnny Abraham, se ofrece en tapa blanda con 288 páginas en castellano. Esta presentación permite leer y consultar el contenido en papel, sin recurrir a dispositivos electrónicos. La edición pertenece a Penguin Random House Grupo Editorial y mantiene una extensión manejable para el transporte cotidiano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¡No te enamores! / Don't Fall in Love!, de Johnny Abraham, comparte el interés por las relaciones personales con Conectados para el amor / Wired for Love, de Stan Tatkin. El primero se clasifica en desarrollo personal y familia, mientras que el segundo centra su título en la conexión amorosa. La obra de Johnny Abraham tiene 288 páginas y se publica en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "39da483842be751c",
+  "origen": "chatgpt-web"
+}

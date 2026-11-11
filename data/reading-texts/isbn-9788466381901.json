@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788466381901",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Victorian Psycho (Best Seller | Ficción), de Virginia Feito, encaja con lectores que buscan misterio y thriller vinculados a la novela histórica. Sus 216 páginas ofrecen una extensión relativamente breve frente a novelas de mayor recorrido; no responde a la búsqueda de narrativa ajena al suspense.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Victorian Psycho (Best Seller | Ficción) se ofrece en tapa blanda y Kindle. La edición física de Penguin Bolsillo tiene 216 páginas y permite leerla en papel sin recurrir a un volumen de tapa dura. Kindle facilita llevar el libro en el móvil o en un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Victorian Psycho (Best Seller | Ficción) puede compararse con El hombre que fue casi nadie (Salamandra Black), de Victoria González Torralba, dentro de una selección de lecturas relacionadas con el misterio. La primera está firmada por Virginia Feito y combina thriller, narrativa contemporánea y novela histórica. Otra referencia es El último secreto: Edición limitada a precio especial (Colección Especial), de Dan Brown, cuya denominación destaca una edición limitada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331483",
+        "isbn-9791387928599"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "357db44d6223a29d",
+  "origen": "chatgpt-web"
+}

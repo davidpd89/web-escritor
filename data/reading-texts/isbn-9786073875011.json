@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073875011",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Casi familia / Almost Family, de Ana Romero, se sitúa entre la fantasía y las historias sobre vínculos familiares y amistad. Se ajusta a lectores interesados en esas relaciones dentro de un marco fantástico, más que a quienes busquen un manual práctico sobre crianza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Casi familia / Almost Family se ofrece en tapa blanda, con 264 páginas en castellano. Esta edición permite leer una historia de extensión moderada en papel y conservarla en una biblioteca personal sin recurrir a dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Casi familia / Almost Family comparte con Tíos y Tías (AMOR DE FAMILIA) el interés por los vínculos familiares. La obra de Ana Romero incorpora además fantasía y amistad, mientras que el título de Margarita Del Mazo señala expresamente las relaciones con tíos y tías como asunto central.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410438491"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "863844bda94b7528",
+  "origen": "chatgpt-web"
+}

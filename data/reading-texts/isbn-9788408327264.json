@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788408327264",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este estuche se dirige a lectores de literatura infantil interesados en las historias familiares y en reunir varios libros de una misma serie. Quienes busquen un volumen independiente de ficción adulta encontrarán aquí una propuesta diferente, identificada por su título como una recopilación de entregas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El estuche permite leer conjuntamente las entregas que el título identifica como 1-2 de El caos de Beca. Puede utilizarse para seguir la lectura de ambas en orden y conservarlas agrupadas, con una extensión total indicada de 416 páginas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es tapa dura, descrita editorialmente como libro de cartón, con 416 páginas en castellano. Su presentación en estuche permite mantener reunidas las entregas identificadas en el título y conservarlas como conjunto físico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El caos de Beca 3. Vale, este no era el plan y El caos de Beca 4. ¿Y ahora qué hago?, de Raquel Díaz Reguera, comparten con este estuche la autoría y la serie El caos de Beca. La diferencia es la numeración: el estuche identifica las entregas 1-2, mientras los otros títulos corresponden a las numeradas 3 y 4.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788408326342",
+        "isbn-9788408331278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5981485da3636785",
+  "origen": "chatgpt-web"
+}

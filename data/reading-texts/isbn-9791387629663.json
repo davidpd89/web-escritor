@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791387629663",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Soplo (No ficción), de Fernando Botella, se dirige a lectores interesados en desarrollo personal y psicología. Sus 304 páginas lo sitúan entre los libros de no ficción de cierta extensión, por lo que se aleja de quienes buscan una novela o una lectura breve de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Soplo (No ficción) está disponible en tapa blanda, con 304 páginas en castellano publicadas por Roca Editorial. La cubierta flexible facilita transportarlo y sus páginas permiten volver a los apartados de interés durante una lectura centrada en psicología y desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Conectados para el amor / Wired for Love, de Stan Tatkin, y Soplo (No ficción), de Fernando Botella, se relacionan por su interés en cuestiones psicológicas. El primero centra su propuesta en las relaciones amorosas, mientras que Soplo (No ficción) aborda el ámbito del desarrollo personal y la psicología en 304 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b5436c79fafe0744",
+  "origen": "chatgpt-web"
+}

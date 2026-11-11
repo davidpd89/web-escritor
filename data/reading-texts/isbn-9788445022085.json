@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788445022085",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "UNO: Una distopía sobre la individualidad (Ciencia Ficción) se dirige a lectores de ciencia ficción interesados en los conflictos entre el individuo y su entorno social. Su planteamiento distópico encaja menos con quienes prefieren fantasía de ambientación mágica o relatos infantiles de humor.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "UNO: Una distopía sobre la individualidad (Ciencia Ficción) está disponible en tapa blanda, con 312 páginas en castellano. La edición de Minotauro permite leer la obra en papel y conservarla como volumen independiente, sin necesidad de un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "UNO: Una distopía sobre la individualidad (Ciencia Ficción) y Alas de Hierro. Edición Especial Limitada Con Cantos Decorados / Iron Flame. Limited Special Edition with Sprayed Edges: 2 (Empíreo / Empyrean) pertenecen al ámbito de la ficción especulativa, pero el primero plantea una distopía sobre la individualidad y el segundo se presenta como fantasía. Frente a Estuche Abismo Lovecraft (Minotauro Ilustrados), comparte el sello Minotauro, aunque cambia el formato de estuche ilustrado por una novela en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "editorial",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073950664",
+        "isbn-9788445022856"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "255a9cdebf83dd29",
+  "origen": "chatgpt-web"
+}

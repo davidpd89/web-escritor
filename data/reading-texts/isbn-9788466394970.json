@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466394970",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Chamán (Trilogía de la familia Cole 2) (Best Seller) se orienta a quienes leen novela histórica con aventuras y relaciones familiares. Sus 640 páginas requieren una lectura prolongada; encaja menos con quien busca una novela corta o una historia ajena a los conflictos familiares.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 640 páginas de Chamán (Trilogía de la familia Cole 2) (Best Seller) en un volumen físico de bolsillo, aunque su extensión añade grosor. Kindle permite llevar la misma obra en un lector electrónico o en el móvil, sin cargar con el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Chamán (Trilogía de la familia Cole 2) (Best Seller) comparte autor y pertenencia a una trilogía familiar con El médico (Trilogía de la familia Cole 1) (Best Seller) y La doctora Cole (Trilogía de la familia Cole 3) (Best Seller). Los títulos los identifican respectivamente como entregas 2, 1 y 3, lo que permite distinguir su posición dentro de la serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394963",
+        "isbn-9788466394987"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a9cf2cef03dc7056",
+  "origen": "chatgpt-web"
+}

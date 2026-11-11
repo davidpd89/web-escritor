@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuando no queden más estrellas que contar. Edición especial con cantos decorados se dirige a lectores de romance interesados en conflictos personales, secretos y relaciones afectivas. La historia de Maya, marcada por su dedicación al ballet y por una mentira que altera su vida, se aleja de las aventuras fantásticas y de la narrativa centrada en la acción.",
+      "texto": "Cuando no queden más estrellas que contar. Edición especial con cantos decorados se dirige a lectores de romance interesados en las consecuencias personales de los secretos y las decisiones vitales. El ballet forma parte del contexto de Maya, por lo que se aleja de quienes buscan una novela centrada exclusivamente en competiciones deportivas o aventuras fantásticas.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,20 +13,18 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La novela propone un romance construido alrededor de una crisis personal y de las consecuencias de descubrir una mentira. María Martínez presenta a Maya, una solista de ballet cuya trayectoria ha exigido sacrificios desde la infancia, y amplía esta edición con capítulos narrados desde el punto de vista de Lucas.",
+      "texto": "Es una novela romántica que vincula las relaciones personales con la reconstrucción de una vida marcada por el sacrificio y el engaño. Maya ha dedicado su infancia y juventud al ballet, mientras el conflicto plantea cómo afrontar una verdad capaz de alterar sus planes. Esta edición incorpora además la perspectiva de Lucas en capítulos adicionales.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Cuando no queden más estrellas que contar. Edición especial con cantos decorados se presenta en tapa dura de cartoné, con cantos decorados y 512 páginas. La edición de Booket incorpora capítulos adicionales desde la perspectiva de Lucas, por lo que su contenido narrativo se amplía respecto a la versión anterior.",
+      "texto": "Esta edición de Cuando no queden más estrellas que contar. Edición especial con cantos decorados añade capítulos extra narrados desde el punto de vista de Lucas. Se presenta en tapa dura sin sobrecubierta, con cantos decorados y 512 páginas. La combinación de contenido ampliado y acabado exterior permite distinguirla de una edición convencional del mismo relato.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
         "numero_paginas",
         "sinopsis_editorial"
@@ -34,7 +32,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura de esta edición de 512 páginas reúne los cantos decorados y los capítulos extra de Lucas en un volumen de cartoné, pensado también para conservar o regalar. La tapa blanda ofrece una alternativa física; Kindle permite leer en el móvil y el audiolibro seguir la novela mediante la escucha.",
+      "texto": "La tapa dura de Cuando no queden más estrellas que contar. Edición especial con cantos decorados reúne 512 páginas, capítulos adicionales desde la perspectiva de Lucas y cantos decorados, características relevantes para conservar o regalar el ejemplar. El audiolibro permite seguir la narración durante desplazamientos y actividades cotidianas sin manejar el libro físico.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -46,6 +44,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6868c5f2e0ba4729",
+  "fuente_hash": "0a7cd5b4c21ef625",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388277450",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi querido rebelde (Los diabólicos Darling 3) (Sin límites) se dirige a lectores de romance interesados en historias centradas en las relaciones amorosas. Alexandra Moody firma esta novela de 352 páginas; el título la identifica como el n.º 3 de Los diabólicos Darling, por lo que se distingue de una historia presentada como independiente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mi querido rebelde (Los diabólicos Darling 3) (Sin límites) se presenta en tapa blanda, con 352 páginas en castellano. Esta edición de Alfaguara permite leer la novela en papel y colocarla junto a otros volúmenes de la serie identificada en el título. Su encuadernación flexible facilita transportarla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi querido rebelde (Los diabólicos Darling 3) (Sin límites) comparte el género romántico con Amor en pole position (Dirty Air 3), de Lauren Asher. Ambos títulos llevan el número 3, aunque pertenecen a series diferentes: Los diabólicos Darling y Dirty Air. La obra de Lauren Asher sitúa el romance en la Fórmula 1, mientras que la de Alexandra Moody se identifica por su pertenencia a Los diabólicos Darling.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f65c1da1c007cf0f",
+  "origen": "chatgpt-web"
+}

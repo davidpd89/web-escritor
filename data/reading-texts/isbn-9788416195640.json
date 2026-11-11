@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788416195640",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "No descendáis (Reservoir Narrativa) se dirige a lectores interesados en la narrativa contemporánea y en obras de Raúl E. Asencio. Sus 272 páginas ofrecen una extensión mayor que la de una lectura breve; no encaja con quien busque ensayo o prefiera libros de pocas páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne 272 páginas en una edición física de Reservoir Books. Es el formato para quien prefiere leer en papel y conservar el ejemplar; su extensión permite tener en cuenta que se trata de un volumen más largo que los libros breves de narrativa.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formato_edicion",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "34e67756ca5b3231",
+  "origen": "chatgpt-web"
+}
