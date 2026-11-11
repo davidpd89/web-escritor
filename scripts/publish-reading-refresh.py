@@ -75,13 +75,14 @@ def resume_pending(branch):
     new code instead of being queried again, 06/11: one failed test discarded 181 accepted books) or 'regenerate'
     (red after its rerun and already on current main: closed, the caller runs the full intake).
     Old HTML/indices may conflict with a newer renderer or lack new workflows, so stale output is never merged.
-    Never close a human PR or a proposal containing non-generated changes.
+    Never close a human PR or a proposal containing non-generated changes (generated_by_bot lo decide por los
+    commits, no por quién abrió la PR).
     """
     if not re.fullmatch(r'automation/reading-catalogue-[a-zA-Z0-9-]+', branch):
         raise ValueError('Only generated reading-catalogue branches are accepted')
     repo = publication.gh('repo', 'view', '--json', 'nameWithOwner', '--jq', '.nameWithOwner')
     pr = json.loads(publication.gh('pr', 'view', branch, '--json',
-                                  'number,headRefOid,baseRefName,state,author'))
+                                  'number,headRefOid,baseRefName,state'))
     if pr['state'] != 'OPEN' or pr['baseRefName'] != 'main':
         raise ValueError('Expected an open PR targeting main')
     comparison = json.loads(publication.gh('api',
@@ -92,7 +93,7 @@ def resume_pending(branch):
     if not comparison['behind_by'] and not failed:
         run(branch)
         return 'resumed'
-    if not pr['author'].get('is_bot') or pr['author']['login'] != 'app/github-actions':
+    if not generated_by_bot(repo, pr['number']):
         raise ValueError('Refusing to replace a stale proposal not authored by the catalogue bot')
     pages = json.loads(publication.gh('api', '--paginate', '--slurp',
         f'repos/{repo}/pulls/{pr["number"]}/files?per_page=100'))
@@ -110,6 +111,25 @@ def resume_pending(branch):
                    'como referencia; el escritor diario vuelve a consultar las fuentes y regenera los artefactos con el código actual. '
                    'No se fusionan páginas ni índices obsoletos.')
     return 'regenerate'
+
+
+# bot_identity (refresh-reading-catalogue.py) firma cada commit de la carga con esta identidad, sea cual sea el
+# token que abra la PR. Es la seña invariante de que la propuesta es trabajo generado, no humano.
+BOT_COMMIT_EMAIL = '41898282+github-actions[bot]@users.noreply.github.com'
+
+
+def generated_by_bot(repo, number):
+    """True si todos los commits de la PR los firmó la cuenta de la carga.
+
+    El autor de la PR (quien ejecutó `gh pr create`) depende del token: en la CI nocturna es github-actions,
+    pero una publicación lanzada en local con credencial de usuario abre la MISMA propuesta generada bajo otro
+    login, y comprobar ese login dejaba la carga encallada cada noche (run 42945302882). Lo que no cambia es el
+    autor de los commits, fijado por bot_identity; un PR con algún commit humano no es trabajo generado.
+    """
+    pages = json.loads(publication.gh('api', '--paginate', '--slurp',
+        f'repos/{repo}/pulls/{number}/commits?per_page=100'))
+    commits = [item for page in pages for item in page]
+    return bool(commits) and all(c['commit']['author']['email'] == BOT_COMMIT_EMAIL for c in commits)
 
 
 def close_proposal(number, comment):
