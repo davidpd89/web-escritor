@@ -54,7 +54,7 @@ def main() -> int:
         "redes-sociales/index.html": ['href="/comunidad/#telegram"', 'href="/comunidad/#discord"',
                                       "Comunidad de Telegram", "Comunidad de Discord"],
         "recomendaciones/index.html": ["Únete a nuestra comunidad de", 'href="/comunidad/"', "Únete a la comunidad de Telegram o Discord",
-                                       'href="#comunidad"', 'href="' + config["platforms"]["discord"]["invite"] + '"'],
+                                       'id="comunidad"', 'class="catalogue-shortcuts"', 'v1-catalogue-community.css', 'href="' + config["platforms"]["discord"]["invite"] + '"'],
         "index.html": ['class="ft-social" href="/comunidad/#telegram"', 'class="ft-social" href="/comunidad/#discord"'],
         "mapa-del-sitio/index.html": ['href="/comunidad/"'],
     }

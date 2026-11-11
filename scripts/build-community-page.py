@@ -28,8 +28,8 @@ PAGE = "comunidad/index.html"
 URL = "https://davidportodiaz.com/comunidad/"
 TITLE = "Comunidad lectora en Telegram y Discord | David Porto Díaz"
 META_DESCRIPTION = (
-    "Únete gratis a los canales de Telegram y al servidor de Discord: resumen diario de "
-    "novedades editoriales a las 11:30, libro a libro, próximos lanzamientos y canales por género."
+    "Únete gratis a Telegram o Discord: resumen diario de novedades editoriales a las 11:30, "
+    "próximos lanzamientos cada lunes y un canal por género."
 )
 INVITE_HOSTS = {
     "telegram": {"t.me", "telegram.me"},
