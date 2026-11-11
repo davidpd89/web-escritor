@@ -1162,7 +1162,7 @@ def render_hub(data, books, template, page_number=1):
     quiz='<details class="catalogue-quiz"><summary>¿Qué te apetece leer? Haz el test y encuentra tu próximo libro</summary><div class="catalogue-quiz__panel"><p>Puedes recorrer las páginas del catálogo para consultar todas las fichas.</p></div></details>' if books and page_number == 1 else ''
     page=template.replace('{{catalogue}}',quiz+catalogue)
     if page_number == 1:
-        page = page.replace('<link rel="stylesheet" href="/assets/reading-catalogue.css?v=33">', '<link rel="stylesheet" href="/assets/reading-catalogue.css?v=33"><link rel="stylesheet" href="/assets/v1-catalogue-community.css?v=1">', 1)
+        page = page.replace('<link rel="stylesheet" href="/assets/reading-catalogue.css?v=33">', '<link rel="stylesheet" href="/assets/reading-catalogue.css?v=33"><link rel="stylesheet" href="/assets/v1-catalogue-community.css?v=2">', 1)
     page = page.replace('data-reading-catalogue data-family=', f'data-reading-catalogue data-catalogue-total="{len(books)}" data-catalogue-version="{version}" data-family=')
     modified=max((b['fecha_actualizacion'] for b in books),default='2026-10-20')
     page=re.sub(r'("dateModified":\s*")[^"]*',lambda match:match[1]+modified,page,count=1)

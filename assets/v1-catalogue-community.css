@@ -1,22 +1,26 @@
 /* Comunidad de Telegram y Discord en /recomendaciones/: desplegable junto a «Ver los próximos lanzamientos».
    Plegado no añade altura (la primera tarjeta tiene presupuesto en qa/catalogue-mobile-discovery.mjs). */
 html.v1 .catalogue-shortcuts{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem 1.5rem;margin:0;}
-html.v1 .catalogue-community{display:contents;}
-html.v1 .catalogue-community>summary{cursor:pointer;list-style:none;text-decoration:underline;text-decoration-color:var(--catalogue-gold);text-underline-offset:.15em;}
+/* Ambos accesos miden al menos 24 px de alto (WCAG 2.5.8) aunque queden apilados sin hueco. */
+html.v1 .catalogue-shortcuts>.catalogue-upcoming-link,html.v1 .catalogue-community>summary{display:inline-flex;align-items:center;min-height:24px;}
+html.v1 .catalogue-community{flex:0 1 auto;min-width:0;max-width:100%;}
+html.v1 .catalogue-community[open]{flex-basis:100%;}
+html.v1 .catalogue-community:not([open])>.catalogue-community__panel{display:none;}
+html.v1 .catalogue-community>summary{display:flex;width:max-content;max-width:100%;cursor:pointer;list-style:none;text-decoration:underline;text-decoration-color:var(--catalogue-gold);text-underline-offset:.15em;}
 html.v1 .catalogue-community>summary::-webkit-details-marker{display:none;}
 html.v1 .catalogue-community>summary::after{content:" ▾";}
 html.v1 .catalogue-community[open]>summary::after{content:" ▴";}
 html.v1 .catalogue-community>summary:focus-visible{outline:2px solid var(--catalogue-blue);outline-offset:2px;}
-html.v1 .catalogue-community__panel{flex:1 0 100%;margin-top:.5rem;padding:1.25rem 1.5rem;border:1px solid var(--catalogue-rule);border-top:3px solid var(--catalogue-blue);box-shadow:inset 0 2px 0 var(--catalogue-gold);background:#fff;font:1rem/1.55 var(--font-ui);}
+html.v1 .catalogue-community__panel{box-sizing:border-box;max-width:100%;overflow-wrap:anywhere;margin-top:.5rem;padding:1.25rem 1.5rem;border:1px solid var(--catalogue-rule);border-top:3px solid var(--catalogue-blue);box-shadow:inset 0 2px 0 var(--catalogue-gold);background:#fff;font:1rem/1.55 var(--font-ui);}
 html.v1 .catalogue-community__panel h3{margin:0 0 .5rem;color:var(--catalogue-deep);font:700 1.2rem/1.3 var(--font-ui);}
 html.v1 .catalogue-community__panel p{margin:.5rem 0;}
 html.v1 .catalogue-community__options{margin:.5rem 0 1rem;padding-left:1.25rem;}
 html.v1 .catalogue-community__options li{margin-block:.25rem;}
 html.v1 .catalogue-community__actions{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.25rem;}
-html.v1 .catalogue-community__join{display:inline-flex;align-items:center;min-height:44px;padding:.5rem 1.1rem;border-radius:999px;color:#fff;text-align:center;font-weight:700;text-decoration:none;}
+html.v1 .catalogue-community__join{display:inline-flex;align-items:center;box-sizing:border-box;max-width:100%;min-height:44px;padding:.5rem 1.1rem;border-radius:999px;color:#fff;text-align:center;font-weight:700;text-decoration:none;}
 html.v1 .catalogue-community__join--telegram{background:#136b94;}
 html.v1 .catalogue-community__join--discord{background:#3d47c4;}
 html.v1 .catalogue-community__join:hover,html.v1 .catalogue-community__join:focus-visible{filter:brightness(1.12);color:#fff;}
 html.v1 .catalogue-community__note{color:#4b5563;font-size:.875rem;}
 /* En móvil los dos accesos ocupan dos líneas: se recupera ese alto con espaciados algo más justos. */
-@media (max-width:450px){html.v1 .catalogue-shortcuts{row-gap:0;} html.v1 .catalogue-results-head{row-gap:.25rem;} html.v1 .catalogue-community__panel{padding:1rem;} html.v1 .catalogue-community__join{width:100%;justify-content:center;}}
+@media (max-width:450px){html.v1 .catalogue-shortcuts{row-gap:0;} html.v1 .catalogue-main .catalogue-results-head{padding-top:.375rem;} html.v1 .catalogue-results-head{row-gap:.25rem;} html.v1 .catalogue-community__panel{padding:1rem;} html.v1 .catalogue-community__join{width:100%;justify-content:center;}}
