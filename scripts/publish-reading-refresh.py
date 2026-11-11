@@ -119,17 +119,27 @@ BOT_COMMIT_EMAIL = '41898282+github-actions[bot]@users.noreply.github.com'
 
 
 def generated_by_bot(repo, number):
-    """True si todos los commits de la PR los firmó la cuenta de la carga.
+    """True si ningún commit de la PR introduce trabajo humano.
 
     El autor de la PR (quien ejecutó `gh pr create`) depende del token: en la CI nocturna es github-actions,
     pero una publicación lanzada en local con credencial de usuario abre la MISMA propuesta generada bajo otro
     login, y comprobar ese login dejaba la carga encallada cada noche (run 42945302882). Lo que no cambia es el
-    autor de los commits, fijado por bot_identity; un PR con algún commit humano no es trabajo generado.
+    autor de los commits de contenido, fijado por bot_identity; un PR con algún commit humano no es trabajo
+    generado.
+
+    El único commit de la propuesta que no firma la carga es el merge que GitHub crea al actualizar la rama con
+    main: cuando la PR queda BEHIND, `run()` llama a update-branch y GitHub añade un «Merge branch 'main'…»
+    firmado por su propia cuenta, no por bot_identity. Ese merge es maquinaria del reintento, no trabajo humano;
+    exigir que TODOS los commits fueran del bot dejaba la carga encallada en cuanto se había actualizado la rama
+    (run 42958539544). Por eso solo los commits que aportan cambios propios (sin segundo padre) han de llevar la
+    identidad de la carga; un merge de GitHub no cuenta. La política de artefactos (allowed_path sobre los
+    ficheros de la PR, en resume_pending) sigue siendo la red que impide colar ficheros no generados.
     """
     pages = json.loads(publication.gh('api', '--paginate', '--slurp',
         f'repos/{repo}/pulls/{number}/commits?per_page=100'))
     commits = [item for page in pages for item in page]
-    return bool(commits) and all(c['commit']['author']['email'] == BOT_COMMIT_EMAIL for c in commits)
+    return bool(commits) and all(len(c['parents']) > 1 or c['commit']['author']['email'] == BOT_COMMIT_EMAIL
+                                 for c in commits)
 
 
 def close_proposal(number, comment):
