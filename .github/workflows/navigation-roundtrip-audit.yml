@@ -88,10 +88,10 @@ jobs:
           key: playwright-chromium-${{ hashFiles('package-lock.json') }}
       - name: Install browser and OS dependencies
         if: steps.browsers.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps chromium
+        run: bash scripts/ci/playwright-install-deps.sh full chromium
       - name: Install OS dependencies for cached browser
         if: steps.browsers.outputs.cache-hit == 'true'
-        run: npx playwright install-deps chromium
+        run: bash scripts/ci/playwright-install-deps.sh deps chromium
       - name: Follow links and exercise real document history
         run: node qa/reading-navigation-roundtrips.mjs
       - name: Publish diagnostic summary

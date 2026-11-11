@@ -207,6 +207,53 @@ class EditorialTelegramTests(unittest.TestCase):
                 else:
                     self.assertEqual(report["resolved"], 0)
 
+    def test_editorial_with_several_amazon_links_picks_the_verified_print_one(self):
+        # 11/11: Planeta linked print + ebook (or an older edition) and the day stayed unverified.
+        print_offer = {
+            "formato": "tapa-blanda",
+            "fuente_url": "https://www.amazon.es/dp/8401042751",
+            "fecha_verificacion": "2026-11-01",
+        }
+        two = (
+            '<a href="https://www.amazon.es/dp/8401042751">Papel</a>'
+            '<a href="https://www.amazon.es/dp/B0G2TKY2WG">Ebook</a>'
+        )
+        cases = [
+            ([print_offer], two, "8401042751"),
+            ([], two, None),  # no Amazon check of its own: still ambiguous
+            ([print_offer], self.html + '<a href="https://www.amazon.es/dp/B0HC3Y2XLT">x</a>', None),
+        ]
+        for offers, document, expected in cases:
+            with self.subTest(offers=offers, document=document), patch(
+                "reading_telegram_worker.penguin_edition", return_value=self.edition
+            ):
+                _, report = verified_snapshot(
+                    {"libros": [{**self.book, "formatos_compra": offers}]},
+                    self.intake,
+                    date(2026, 11, 1),
+                    lambda u, s: document,
+                )
+                if expected:
+                    self.assertEqual(report["verified"][0]["asin"], expected)
+                else:
+                    self.assertEqual(report["resolved"], 0)
+
+    def test_author_social_handle_on_editorial_page_is_same_identity(self):
+        # 11/11: Planeta showed 'Marcos Serén @chefmspin.recetas' for 'Marcos Serén'.
+        book = {**self.book, "autores": ["Marcos Serén"]}
+        edition = {**self.edition, "autores": ["Marcos Serén @chefmspin.recetas"]}
+        with patch("reading_telegram_worker.penguin_edition", return_value=edition):
+            _, report = verified_snapshot(
+                {"libros": [book]}, self.intake, date(2026, 11, 1), lambda u, s: self.html
+            )
+        self.assertEqual(report["resolved"], 1)
+        other = {**self.edition, "autores": ["Otra Persona @chefmspin.recetas"]}
+        with patch("reading_telegram_worker.penguin_edition", return_value=other):
+            _, report = verified_snapshot(
+                {"libros": [book]}, self.intake, date(2026, 11, 1), lambda u, s: self.html
+            )
+        self.assertEqual(report["resolved"], 0)
+
     def test_books_seeded_from_todostuslibros_are_verified_on_its_record(self):
         url = "https://www.todostuslibros.com/libros/libro_9788401042751"
         book = {

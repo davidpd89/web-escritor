@@ -142,11 +142,11 @@ jobs:
 
       - name: Install Playwright Chromium (with OS deps)
         if: steps.sel.outputs.run == 'true' && steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps chromium
+        run: bash scripts/ci/playwright-install-deps.sh full chromium
 
       - name: Install Playwright OS deps only (browser cached)
         if: steps.sel.outputs.run == 'true' && steps.playwright-cache.outputs.cache-hit == 'true'
-        run: npx playwright install-deps chromium
+        run: bash scripts/ci/playwright-install-deps.sh deps chromium
 
       - name: Materializar generados
         if: steps.sel.outputs.run == 'true'

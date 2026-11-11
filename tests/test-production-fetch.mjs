@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import http from 'node:http';
 process.env.EXPECTED_RELEASE_SHA='ABC123';
 process.env.QA_SLOW_COOLDOWN_MS='300';
-const { auditUrl, fetchStats, fetchWithBackoff, isTransientStatus } = await import('../qa/production-fetch.mjs');
+const { auditUrl, currentGapMs, fetchStats, fetchWithBackoff, isTransientStatus } = await import('../qa/production-fetch.mjs');
 
 // Clave anti-caché común por release: conserva la query y usa el SHA auditado.
 assert.equal(auditUrl('/assets/a.js?v=4','https://example.test').href,'https://example.test/assets/a.js?v=4&__qa_release=abc123');
@@ -81,6 +81,11 @@ assert.equal(hits['/always429'],3);
 const lanes=await Promise.all(['/lane-a','/lane-b','/lane-c'].map(p=>fetchWithBackoff(`${o}${p}`,{},{attempts:1})));
 assert.deepEqual(lanes.map(x=>x.status),[200,200,200]);
 assert.equal(laneMax,1,`el carril lento solapó ${laneMax} peticiones`);
+
+// Tras la tormenta (el carril lento dejó la separación en 1 s) el ritmo vuelve a ser libre en pocas respuestas.
+assert.equal(currentGapMs(),1000);
+for(let i=0;i<50;i++) await fetchWithBackoff(`${o}/x`,{},{read:'none'});
+assert.equal(currentGapMs(),0,`tras 50 respuestas buenas la separación sigue en ${currentGapMs()} ms`);
 
 // read:'none' descarta el cuerpo.
 assert.equal((await fetchWithBackoff(`${o}/x`,{},{read:'none'})).body,null);

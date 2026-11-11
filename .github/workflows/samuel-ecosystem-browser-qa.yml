@@ -69,15 +69,31 @@ jobs:
 
       - name: Install Playwright Chromium (with OS deps)
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps chromium
+        run: bash scripts/ci/playwright-install-deps.sh full chromium
 
       - name: Install Playwright OS deps only (browser cached)
         if: steps.playwright-cache.outputs.cache-hit == 'true'
-        run: npx playwright install-deps chromium
+        run: bash scripts/ci/playwright-install-deps.sh deps chromium
+
+      # Los .deb de poppler se guardan en caché: si apt se queda sin red (11/11: DNS de Azure caído durante
+      # horas), se instalan con dpkg sin descargar nada. Solo se baja lo que falta en la imagen fijada.
+      - name: Cache poppler-utils packages
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/poppler-debs
+          key: poppler-debs-ubuntu-24.04-v1
 
       - name: Install poppler-utils
         run: |
+          debs=~/.cache/poppler-debs
+          if ls "$debs"/*.deb >/dev/null 2>&1 && sudo dpkg -i "$debs"/*.deb; then
+            exit 0
+          fi
+          bash scripts/ci/apt-ready.sh || true
           sudo apt-get update -qq
+          sudo apt-get install -y -qq --download-only poppler-utils
+          mkdir -p "$debs"
+          cp /var/cache/apt/archives/*.deb "$debs"/ 2>/dev/null || true
           sudo apt-get install -y -qq poppler-utils
 
       - name: Materializar generados
