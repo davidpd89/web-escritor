@@ -131,6 +131,51 @@ class ReadingTelegramTests(unittest.TestCase):
             )
         self.assertEqual(post.call_count, 1)
 
+    def test_connection_error_is_retried_not_abandoned(self):
+        """A ConnectionError never reaches Telegram: unlike an ambiguous timeout, it must be
+        retried on a later cycle instead of staying 'uncertain' (and therefore unsent) forever."""
+        import requests
+        from reading_telegram import CONNECTION_RETRY_DELAY
+
+        with (
+            patch("reading_telegram.requests.post", side_effect=requests.ConnectionError()),
+            patch("reading_telegram.time.time", return_value=1000),
+        ):
+            status, mid = send("secret", "@test", "text")
+        self.assertEqual(mid, None)
+        self.assertTrue(status.startswith("retry:"))
+        self.assertEqual(status, f"retry:{1000 + CONNECTION_RETRY_DELAY}")
+
+    def test_discord_connection_error_before_delivery_is_retried(self):
+        import requests
+        from reading_telegram import CONNECTION_RETRY_DELAY, send_discord
+
+        with (
+            patch("reading_telegram.requests.post", side_effect=requests.ConnectionError()),
+            patch("reading_telegram.time.time", return_value=1000),
+        ):
+            status, mid = send_discord("https://discord.com/api/webhooks/1/a", "d", "text")
+        self.assertEqual(mid, None)
+        self.assertEqual(status, f"retry:{1000 + CONNECTION_RETRY_DELAY}")
+
+    def test_discord_connection_error_after_partial_delivery_stays_uncertain(self):
+        """Once part of a multi-part digest is already public, a later connection error must
+        not be retried: resending would duplicate the parts that already went out."""
+        import requests
+        from reading_telegram import send_discord
+
+        text = "\n".join("• <b>Título</b> — " + "x" * 300 for _ in range(12))
+        ok = Mock(status_code=200, json=lambda: {"id": "11"})
+        with (
+            patch(
+                "reading_telegram.requests.post",
+                side_effect=[ok, requests.ConnectionError()],
+            ),
+            patch("reading_telegram.time.sleep"),
+        ):
+            status, mid = send_discord("https://discord.com/api/webhooks/1/a", "d", text)
+        self.assertEqual((status, mid), ("uncertain", 11))
+
     def test_rate_limit_wait_is_persisted(self):
         with (
             patch(

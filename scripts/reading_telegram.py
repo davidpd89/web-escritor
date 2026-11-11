@@ -362,6 +362,12 @@ def failure_reason(platform: str, method: str, code, description) -> None:
     print(f"{platform} {method}: HTTP {code} {text}".rstrip(), file=sys.stderr)
 
 
+# A ConnectionError (DNS, TCP refused, connect timeout) happens before any byte reaches the
+# server: unlike a read timeout or a mid-response drop, it is never ambiguous, so it is safe
+# to retry automatically instead of abandoning the message as 'uncertain' forever.
+CONNECTION_RETRY_DELAY = 300
+
+
 def send_discord(
     webhook: str, chat_id: str, text: str, photo_url: str | None = None
 ) -> tuple[str, int | None]:
@@ -411,6 +417,12 @@ def send_discord(
                 return "rejected", None
             return "uncertain", None
         return "sent", first_id
+    except requests.ConnectionError as exc:
+        if delivered:
+            # Part of the message is already public: never resend the whole digest.
+            failure_reason("Discord", "webhook", None, "partial digest before connection error")
+            return "uncertain", first_id
+        return f"retry:{int(time.time()) + CONNECTION_RETRY_DELAY}", None
     except (requests.RequestException, ValueError, AttributeError, TypeError) as exc:
         failure_reason("Discord", "request", None, type(exc).__name__)
     return "uncertain", first_id
@@ -449,6 +461,8 @@ def send(
         failure_reason("Telegram", method, response.status_code, data.get("description"))
         if 400 <= response.status_code < 500 and data.get("ok") is False:
             return "rejected", None
+    except requests.ConnectionError:
+        return f"retry:{int(time.time()) + CONNECTION_RETRY_DELAY}", None
     except (requests.RequestException, ValueError, AttributeError, TypeError) as exc:
         failure_reason("Telegram", "request", None, type(exc).__name__)
     return "uncertain", None
