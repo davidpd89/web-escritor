@@ -83,7 +83,7 @@ jobs:
 
       - name: Install Playwright Chromium (solo si hay tests de navegador)
         if: ${{ contains(inputs.tests, 'node:') }}
-        run: npx playwright install --with-deps chromium
+        run: bash scripts/ci/playwright-install-deps.sh full chromium
 
       - name: Ejecutar el grupo
         env:

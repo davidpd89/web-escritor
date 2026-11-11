@@ -90,11 +90,11 @@ jobs:
 
       - name: Install Playwright Chromium (with OS deps)
         if: steps.changes.outputs.relevant == 'true' && steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps chromium
+        run: bash scripts/ci/playwright-install-deps.sh full chromium
 
       - name: Install Playwright OS deps only (browser cached)
         if: steps.changes.outputs.relevant == 'true' && steps.playwright-cache.outputs.cache-hit == 'true'
-        run: npx playwright install-deps chromium
+        run: bash scripts/ci/playwright-install-deps.sh deps chromium
 
       - name: Run visual regression comparison
         if: steps.changes.outputs.relevant == 'true'
@@ -133,7 +133,7 @@ jobs:
         run: npm ci
 
       - name: Install Playwright Chromium (with OS deps)
-        run: npx playwright install --with-deps chromium
+        run: bash scripts/ci/playwright-install-deps.sh full chromium
 
       - name: Capture baselines
         run: node qa/visual-regression-browser.mjs --update-baseline
