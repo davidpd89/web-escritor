@@ -93,6 +93,10 @@ jobs:
           excluded = [p for p in pending_today if not p.get('transient', True)]
           print('Telegram cycle:', data['status'], json.dumps(detail, sort_keys=True),
                 'pendientes de verificar hoy:', len(retrying), '| excluidos hoy:', len(excluded))
+          # El motivo de cada pendiente de hoy (id público del libro + motivo, sin chats ni secretos): sin él,
+          # un ciclo en rojo no decía qué arreglar y la autorreparación no podía diagnosticarlo (11/11).
+          for p in pending_today:
+              print(f"  pendiente hoy: {p.get('id')}: {p.get('reason')}")
           with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as out:
               out.write('Telegram cycle: ' + str(data['status']) + '\n\n')
               out.write(json.dumps(counts) + '\n')

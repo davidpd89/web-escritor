@@ -107,7 +107,10 @@ permissions:
   contents: read
 
 concurrency:
-  group: postdeploy-deep-audit-${{ github.event_name }}-${{ github.event_name == 'workflow_run' && 'production' || github.ref }}
+  # Un solo grupo para todo lo que audita producción (deploy, cron y lanzamiento manual): dos auditorías a
+  # la vez se reparten la cuota de GitHub Pages, provocan tormentas de 429 y agotan el límite del job
+  # (11/11: 11:20+11:25 y 12:32+12:33). PR y push solo prueban la rama y siguen agrupados por ref.
+  group: postdeploy-deep-audit-${{ (github.event_name == 'pull_request' || github.event_name == 'push') && github.ref || 'production' }}
   cancel-in-progress: ${{ github.event_name == 'workflow_run' }}
 
 

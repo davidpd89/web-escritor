@@ -71,6 +71,11 @@ def main_json(name):
     return data
 
 
+def author_key(name):
+    """Author identity without the social handles some publishers append ('Name @user')."""
+    return normalize_text(re.sub(r"@[\w.]+", " ", str(name)))
+
+
 def editorial_product(document, url, book, source, today=None):
     """Accept a unique direct Amazon link on the verified selected edition page."""
     provider = source.get("provider")
@@ -88,8 +93,8 @@ def editorial_product(document, url, book, source, today=None):
     if (
         isbn13(book.get("isbn13")) != edition["isbn13"]
         or normalize_text(book["titulo"]) != normalize_text(edition["titulo"])
-        or {normalize_text(a) for a in book["autores"]}
-        != {normalize_text(a) for a in edition["autores"]}
+        or {author_key(a) for a in book["autores"]}
+        != {author_key(a) for a in edition["autores"]}
     ):
         raise SourceError("Editorial edition identity changed")
     # Never derive an ASIN from ISBN and never follow an Amazon search link.
@@ -102,11 +107,13 @@ def editorial_product(document, url, book, source, today=None):
     date.fromisoformat(published)  # Partial dates fail closed.
     if len(products) == 1:
         return next(iter(products)), published
-    if not products and today is not None:
-        # Many publishers never link Amazon: the edition and date are verified here,
-        # the product comes from the nightly Amazon check of this same book.
+    if today is not None:
+        # Many publishers never link Amazon, and others link several products (print and ebook,
+        # or a previous edition): the edition and date are verified here, the product comes from
+        # the nightly Amazon check of this same book, and if the page links products it must be
+        # one of them.
         asin = catalogue_print_asin(book, today)
-        if asin:
+        if asin and (not products or asin in products):
             return asin, published
     raise SourceError("No unique direct Amazon product on editorial edition page")
 

@@ -6,7 +6,7 @@
 //    usaba su propio parámetro y cada recorrido volvía a golpear el origen (~12.000 peticiones).
 // 2. Pausa común: ante un 429 esperan todos los hilos (Retry-After si viene; si no, espera creciente).
 // 3. Ritmo adaptativo (AIMD, como TCP): cada 429 duplica la separación mínima entre peticiones del
-//    proceso (hasta 1 s) y cada respuesta buena la reduce un poco.
+//    proceso (hasta 1 s) y cada respuesta buena la reduce un 10 %.
 
 const MAX_RETRY_AFTER_MS = 60000;
 const MAX_PAUSE_MS = 30000;
@@ -38,6 +38,15 @@ async function waitTurn() {
   nextStart = at + gapMs;
   if (at > now) await sleep(at - now);
 }
+
+// Cada respuesta buena reduce la separación un 10 %: tras una tormenta (1 s) se vuelve a ritmo libre en
+// ~45 respuestas. Antes restaba 2 ms por respuesta (~500 respuestas, varios minutos a 1 petición/s), y una
+// auditoría de 15 s pasaba a durar 10-18 min y agotaba el límite del job.
+function relaxGap() {
+  gapMs = gapMs < 10 ? 0 : Math.floor(gapMs * 0.9);
+}
+
+export const currentGapMs = () => gapMs;
 
 function noteRateLimited(retryAfter, attempt) {
   fetchStats.rateLimited++;
@@ -94,7 +103,7 @@ export async function fetchWithBackoff(url, init = {}, { attempts = 8, slowAttem
     try {
       last = await once(url, init, read, timeoutMs);
       if (!isTransientStatus(last.status)) {
-        if (gapMs > 0) gapMs = Math.max(0, gapMs - 2);
+        relaxGap();
         return last;
       }
       if (last.status === 429) noteRateLimited(last.headers.get('retry-after'), attempt);
