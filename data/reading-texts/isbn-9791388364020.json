@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388364020",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes quieren acercarse a los textos de Jorge Luis Borges correspondientes al periodo 1919-1929. Su clasificación abarca relatos, historia, biografías y memorias y literatura del siglo XX, por lo que interesa especialmente a lectores de su obra y de la literatura de ese periodo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene 520 páginas, la mayor extensión de los dos volúmenes de textos recobrados aquí comparados. Su edición física de Alfaguara permite conservar y consultar este conjunto de textos de Jorge Luis Borges.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "autores",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Textos recobrados. 1931-1955 (Hispánica), de Jorge Luis Borges, comparte autor y planteamiento, pero reúne el periodo 1931-1955, posterior al de este volumen. Textos recobrados 1956-1986 (Hispánica), de Jorge Luis Borges, permite comparar otra etapa posterior de su producción, frente al periodo 1919-1929 que identifica este título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388364068",
+        "isbn-9791388364044"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3211325b8d7cd71d",
+  "origen": "chatgpt-web"
+}

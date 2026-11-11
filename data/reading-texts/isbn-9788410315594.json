@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410315594",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este manual de Sergio Ramón Ruiz Mahillo está orientado a lectores interesados en la implantación de VERI *FACTU y los SIF desde sus dimensiones normativa, técnica y sancionadora. Su enfoque especializado se aleja de los libros de economía general y de las lecturas empresariales centradas en liderazgo o motivación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne 240 páginas en castellano, apropiadas para mantener el volumen como material de consulta en una mesa de trabajo. La encuadernación rígida facilita conservar un manual al que se puede volver para revisar sus distintos apartados.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) aborda ideas económicas y políticas, mientras que el manual de Sergio Ramón Ruiz Mahillo se concentra en VERI *FACTU y los SIF. Antes de liderar: Una mirada interior a un oficio se orienta hacia el liderazgo, frente al tratamiento de requisitos técnicos y sanciones de este manual.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9791388182457",
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eda28cff034198ef",
+  "origen": "chatgpt-web"
+}

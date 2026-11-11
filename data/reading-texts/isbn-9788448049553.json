@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788448049553",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Libro oficial de actividades y pegatinas de Alas de Sangre: Los archivos de los jinetes (Hobbies) se dirige a quienes buscan actividades vinculadas a un universo de fantasía y romance. Por su naturaleza de libro de actividades, encaja menos con lectores que esperan una novela centrada únicamente en seguir una trama.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Libro oficial de actividades y pegatinas de Alas de Sangre: Los archivos de los jinetes (Hobbies) está editado en tapa dura y tiene 228 páginas. El formato físico de Libros Cúpula permite utilizar sus actividades y pegatinas sobre papel, además de conservar el volumen como complemento de la colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Libro oficial de actividades y pegatinas de Alas de Sangre: Los archivos de los jinetes (Hobbies) comparte con Star Wars Boba Fett: Blanco, negro y rojo (Star Wars: Cómics Tomo Marvel) la autoría colectiva de Varios autores y su relación con la fantasía. La diferencia está en el tipo de contenido: el primero reúne actividades y pegatinas, mientras que el segundo pertenece al formato cómic. Frente a Star Wars Thrawn nº 01 (manga): 1 (Manga Shonen), identificado como manga, propone una participación mediante actividades en papel.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388100932",
+        "isbn-9791388103216",
+        "isbn-9791388102349",
+        "isbn-9791388103506"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "05848875793d5d59",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791387905422",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El lenguaje de los hilos, de Mara Costa, está dirigido a lectores que buscan narrativa contemporánea y novelas de ficción alejadas de los géneros romántico o detectivesco. Sus 592 páginas permiten una lectura extensa dentro de la narrativa actual; no encaja con quien prefiera exclusivamente historias de misterio, thriller o fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 592 páginas de El lenguaje de los hilos, de Mara Costa, en una edición física de Roca Editorial. Es el formato disponible para quien prefiere leer en papel y conservar un volumen de narrativa contemporánea en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f565cf9ee7d672a8",
+  "origen": "chatgpt-web"
+}

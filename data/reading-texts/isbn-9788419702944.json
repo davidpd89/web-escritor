@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788419702944",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Echar el lazo se orienta a lectores de romance que buscan una historia identificada con el ambiente cowboy y las poblaciones pequeñas. El título anuncia además un componente spicy y su pertenencia a Silver Pines 3, por lo que encaja menos con quien evita el romance de contenido sexual o busca una novela ajena a ese entorno.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Echar el lazo se publica en tapa blanda, con 384 páginas en castellano. La cubierta flexible permite manejar el volumen durante sesiones de lectura prolongadas y transportarlo sin la rigidez de una tapa dura; es una edición física para quienes prefieren pasar páginas en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Paisley Hope se puede comparar con Foxx (Los Soldados de Bedlam 3): El zorro y la diosa (Novela de intriga), de la misma autora. Echar el lazo pertenece al romance y se identifica con el ambiente cowboy de una población pequeña, mientras que la otra obra se presenta como novela de intriga. Los títulos sitúan ambas historias bajo el número 3 de sus respectivas series.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425377068"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8dcbeb7e51028b65",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387741297",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Colegio de poderes secretos 8 - En busca de Trece (Jóvenes lectores), de César Mallorquí, está orientado a lectores juveniles que buscan fantasía, poderes y secretos en un entorno escolar. Su propuesta se aparta de la narrativa realista y de los libros de divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Colegio de poderes secretos 8 - En busca de Trece (Jóvenes lectores) se ofrece en tapa blanda, con 128 páginas. Es un volumen físico de extensión breve dentro de la colección, adecuado para transportar en una mochila y continuar la lectura en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Colegio de poderes secretos 8 - En busca de Trece (Jóvenes lectores) y El diario de Wiska 2 - Un secreto entre amigas comparten el interés por los secretos en colecciones de ficción juvenil. César Mallorquí sitúa su libro en el terreno de los poderes y la fantasía escolar, mientras que el título de Harriet Muncaster señala un secreto entre amigas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388277023"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f7484fe2cf259fe3",
+  "origen": "chatgpt-web"
+}

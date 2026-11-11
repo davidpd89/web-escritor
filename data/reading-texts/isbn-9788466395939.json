@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788466395939",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores que buscan recetas saludables y una aproximación a la alimentación desde sus orígenes hasta la actualidad. Su planteamiento culinario lo diferencia de los ensayos dedicados exclusivamente a hábitos de salud o desarrollo personal, ya que el título anuncia 100 recetas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "El libro reúne 100 recetas saludables y plantea un recorrido culinario desde los orígenes hasta la actualidad. Marcos Vázquez y Elizabeth Ochoa firman este volumen de 264 páginas, que combina el interés por la cocina con la nutrición y el bienestar y puede utilizarse para seleccionar preparaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esta edición de Penguin Bolsillo se presenta en tapa blanda y formato de libro de bolsillo, con 264 páginas. Su tamaño editorial está orientado al transporte y a la consulta en papel, aunque para utilizar las recetas en la cocina hay que mantener abierto el ejemplar.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "formato_edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Saludable Mente: Hábitos para optimizar tu cerebro y mejorar tu salud a cualquier edad (Best Seller | No Ficción) comparte la autoría de Marcos Vázquez y el interés por la salud, pero se centra en hábitos relacionados con el cerebro. Chef sapiens: De los orígenes a la actualidad en 100 recetas saludables (Best Seller | No Ficción), firmado también por Elizabeth Ochoa, lleva ese interés al terreno de la cocina mediante recetas.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788466374330"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ea0a0af5247ee8cf",
+  "origen": "chatgpt-web"
+}

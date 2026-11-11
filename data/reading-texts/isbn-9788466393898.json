@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788466393898",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nunca digas nunca (Best Seller | Ficción) se dirige a lectores interesados en narrativa contemporánea y relaciones familiares. Sus 256 páginas plantean una extensión más contenida que la de novelas largas; quien busque principalmente fantasía, thriller o una trama histórica encontrará otra clase de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para Nunca digas nunca (Best Seller | Ficción), con 256 páginas en una edición de bolsillo de Penguin Bolsillo. Su extensión permite llevar un ejemplar físico de tamaño manejable, aunque no ofrece aquí una alternativa digital Kindle.",
+      "evidencias": [
+        "numero_paginas",
+        "formato_edicion",
+        "edicion",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los Whittier (Best Seller | Ficción), de Danielle Steel, comparte autora con Nunca digas nunca (Best Seller | Ficción), por lo que ambos títulos permiten comparar distintas novelas de la misma escritora. Un baile en Versalles, de Danielle Steel, también comparte autoría y se distingue por su ambientación en el verano de 1959 y una gala en el Palacio de Versalles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466389716",
+        "isbn-9788401037894"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "868dc679365165ea",
+  "origen": "chatgpt-web"
+}

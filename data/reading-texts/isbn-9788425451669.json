@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788425451669",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Как дела? - Ruso nivel B1 (fuera de colección) está orientado a lectores interesados en estudiar ruso en el nivel B1 indicado en el título. La obra de Kseniia Aiukova Zheludkova tiene 280 páginas y está editada en castellano; su nivel declarado la distingue de los materiales destinados a una primera aproximación al idioma.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Как дела? - Ruso nivel B1 (fuera de colección) está disponible en tapa blanda, con 280 páginas. La encuadernación permite llevar el volumen físico a clases o sesiones de estudio y consultarlo sin depender de una pantalla. Herder Editorial publica esta edición en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e727cde810618e4a",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788467981445",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "The tin can society (El club de la lata) se dirige a lectores interesados en la ciencia ficción. Sus 256 páginas en castellano permiten distinguirlo de lecturas más extensas; por su clasificación temática, no responde a quien busque historia o biografías.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "The tin can society (El club de la lata) está disponible en tapa dura, con 256 páginas en castellano. Esta edición de Norma Editorial permite conservar el volumen en formato físico y consultarlo sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al despertar, rompe el cascarón (Runas), de Becky Chambers, es una referencia de comparación para The tin can society (El club de la lata) dentro de esta selección de lecturas. Son obras de distinta autoría: la primera corresponde a Becky Chambers y la segunda a Peter Warren, Francesco Mobili y Chris Chuckry. La segunda se presenta como ciencia ficción en una edición de 256 páginas.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9791370093488"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3e942e4a1303b7d6",
+  "origen": "chatgpt-web"
+}

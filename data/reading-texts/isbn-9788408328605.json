@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408328605",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores de narrativa contemporánea interesados en cuestiones religiosas y espirituales, especialmente en una edición ilustrada. Sus 624 páginas y su presentación en tapa dura encajan menos con quien busca una lectura breve o un manual de espiritualidad organizado por ejercicios.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición especial ilustrada incorpora dibujos de Raúl Allén y pertenece a Biblioteca J. J. Benítez. Editorial Planeta la publica en castellano, en tapa dura y con 624 páginas; el título identifica el volumen con el número 1 de Caballo de Troya.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura ofrece un volumen físico de 624 páginas que reúne el texto y las ilustraciones de Raúl Allén, apropiado para conservar en una biblioteca o entregar como regalo. Kindle permite llevar la obra en un dispositivo de lectura o en el móvil, evitando transportar el volumen encuadernado.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche El Alquimista (Edición especial con cantos tintados) (Biblioteca Paulo Coelho) comparte con la edición especial ilustrada de Jerusalén el interés por una presentación editorial diferenciada. El primero destaca por sus cantos tintados y su formato de estuche, mientras que la obra de J. J. Benítez incorpora ilustraciones de Raúl Allén y se presenta en tapa dura con 624 páginas.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788408328063"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8afe4727072c4aaf",
+  "origen": "chatgpt-web"
+}

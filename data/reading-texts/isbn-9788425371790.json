@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Resistencia biológica se dirige a lectores adultos interesados en la relación entre hábitos cotidianos, alimentación, exposición a la luz y funcionamiento del organismo. Su planteamiento cuestiona determinadas costumbres modernas desde el desarrollo personal y el bienestar, por lo que no encaja con quien busca una novela o un recetario centrado exclusivamente en preparar comidas.",
+      "texto": "Resistencia biológica, de José Manuel Ruiz Lorenzo, está orientado a adultos interesados en los hábitos de salud, la alimentación y la relación entre el entorno cotidiano y el funcionamiento corporal. Su planteamiento cuestiona determinadas prácticas modernas, por lo que encaja menos con lectores que buscan un manual de recetas o una exposición exclusivamente técnica.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,26 +15,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas reúne 304 páginas y permite consultar en papel las cuestiones relacionadas con hábitos y salud. Kindle ofrece la misma elección de lectura en pantalla, útil para llevar el libro en el móvil. El audiolibro permite seguir su contenido mediante escucha, por ejemplo durante desplazamientos, sin necesidad de sostener el volumen.",
+      "texto": "Resistencia biológica está disponible en tapa blanda, Kindle y audiolibro. La edición de Grijalbo tiene 304 páginas y solapas para leer y consultar en papel; Kindle facilita llevar el texto en un dispositivo compatible, mientras que el audiolibro permite seguir el contenido mediante escucha.",
       "evidencias": [
+        "titulo",
+        "formatos_disponibles",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cómo no tener diabetes y Resistencia biológica tratan cuestiones relacionadas con la salud, pero el primero se centra en la diabetes y el segundo examina la influencia de los hábitos cotidianos sobre el organismo. La fibra es la solución aborda específicamente el consumo de fibra y sus efectos sobre la salud. Resistencia biológica amplía el enfoque a la alimentación, la exposición a la luz y las condiciones de vida modernas.",
+      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, comparte con Resistencia biológica el interés por la salud y los hábitos personales. La obra de José Manuel Ruiz Lorenzo se centra en la alimentación, la exposición a la luz y la influencia de las condiciones de vida modernas sobre el funcionamiento corporal.",
       "evidencias": [
         "titulo",
-        "afines_catalogo",
+        "autores",
+        "categorias",
         "sinopsis_editorial",
-        "categorias"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425373152",
-        "isbn-9788425374869"
+        "isbn-9798890981776"
       ]
     }
   ],

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410318526",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cacahuete, el elfo pedorrete (Libros ilustrados) se orienta al público infantil interesado en personajes fantásticos y humor. Rafael Ordóñez firma un libro de 48 páginas vinculado también a la poesía, por lo que se distancia de las novelas extensas de fantasía destinadas a lectores que buscan tramas largas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cacahuete, el elfo pedorrete (Libros ilustrados) se publica en tapa dura, con 48 páginas en castellano. Esta presentación permite manejar el libro ilustrado en papel y conservarlo en una biblioteca infantil; es también la edición física que puede entregarse como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cacahuete, el elfo pedorrete (Libros ilustrados) puede compararse con El lago de los monstruos (INFANTIL), de Leo Timmers, por su orientación infantil y la presencia de criaturas imaginarias en los títulos. El libro de Rafael Ordóñez incorpora el humor y la poesía entre sus rasgos, mientras que el de Leo Timmers sitúa a los monstruos en el centro de su propuesta. Son obras de distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387884260"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fc5a4d7caaad6222",
+  "origen": "chatgpt-web"
+}

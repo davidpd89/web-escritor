@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788467083958",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Carlos del Amor (NO FICCIÓN) está orientado a quienes leen ensayo y buscan temas relacionados con el amor y la historia en una presentación de mayor extensión. Sus 736 páginas lo alejan de las lecturas breves y de quienes prefieren una novela de ficción romántica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estuche Carlos del Amor (NO FICCIÓN) figura en tapa blanda y suma 736 páginas, una extensión que conviene considerar antes de elegirlo para transportar a diario. Su presentación como estuche también permite distinguirlo de un volumen individual al escoger una edición física para regalar o conservar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche Carlos del Amor (NO FICCIÓN) y Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo) comparten autor, Carlos del Amor, y asuntos relacionados con el amor y la historia. El primero se presenta como estuche de 736 páginas; Amarte centra su título en el vínculo entre amor y arte, por lo que plantea un foco temático más delimitado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084122"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ca4ae585bc96f596",
+  "origen": "chatgpt-web"
+}

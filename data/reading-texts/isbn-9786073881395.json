@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9786073881395",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Más gritos, menos susurros / More Shouting, Less Whispering está dirigido a quienes leen ensayo y prefieren obras de cierta extensión. Denise Dresser firma un volumen de 576 páginas, más cercano a una lectura prolongada de no ficción que a una novela breve o una guía práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Más gritos, menos susurros / More Shouting, Less Whispering se presenta en tapa blanda, con 576 páginas en castellano. Por su extensión, es un volumen para leer en varias sesiones; la encuadernación flexible permite manejarlo sin recurrir a una cubierta rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8357f5ee30bf98e3",
+  "origen": "chatgpt-web"
+}

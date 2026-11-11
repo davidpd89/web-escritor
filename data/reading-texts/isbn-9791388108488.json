@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388108488",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La corona de Jasad: El trono calcinado libro 2 (Faeris Editorial) se dirige a lectores de fantasía con elementos románticos que buscan una novela extensa. El título la identifica como el libro n.º 2 de El trono calcinado, por lo que no responde a la búsqueda de una historia presentada como volumen independiente.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La corona de Jasad: El trono calcinado libro 2 (Faeris Editorial) puede leerse en tapa blanda o Kindle; la edición física tiene 672 páginas. La tapa blanda permite conservar el volumen junto a otros libros de la serie, mientras que Kindle facilita llevar una novela de esta extensión en el móvil o en un lector electrónico compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Casa de cielo y aliento (Ciudad Medialuna 2) comparte con La corona de Jasad: El trono calcinado libro 2 (Faeris Editorial) la fantasía y la identificación de una segunda entrega, aunque pertenece a otra serie y tiene distinta autora. Donde duermen las sombras también combina romance y elementos fantásticos, pero su planteamiento contemporáneo y el cruce de dimensiones lo diferencian del marco sugerido por El trono calcinado.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788466396080",
+        "isbn-9788427055605"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1a6185f42de61c3a",
+  "origen": "chatgpt-web"
+}

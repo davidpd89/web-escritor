@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788430628742",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Memorias del subsuelo (edición de lujo ilustrada) (Pensamiento) está dirigido a lectores interesados en los clásicos literarios y la filosofía. Por su orientación hacia el pensamiento y la narrativa, resulta menos afín a quienes buscan manuales prácticos o historias juveniles de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Memorias del subsuelo (edición de lujo ilustrada) (Pensamiento) está disponible en tapa dura, con 208 páginas. Esta edición de Taurus se presenta como una versión de lujo ilustrada, de modo que el formato físico y las ilustraciones forman parte de su propuesta para la lectura y la conservación.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Memorias del subsuelo (edición de lujo ilustrada) (Pensamiento) comparte autor y obra con la edición coleccionista que reúne Noches blancas, Memorias del subsuelo y El jugador. La edición de Taurus se centra en una sola obra de Fiódor M. Dostoievski, con ilustraciones y tapa dura, mientras que la otra reúne tres títulos del mismo escritor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427258761"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7eb3346e0e8b7276",
+  "origen": "chatgpt-web"
+}

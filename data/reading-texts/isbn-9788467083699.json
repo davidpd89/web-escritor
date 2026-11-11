@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788467083699",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en el desarrollo personal, especialmente en afrontar retos y encontrar un propósito, con elementos propios de las memorias. Su planteamiento encaja menos con quien busca ficción de aventuras o una obra centrada exclusivamente en técnicas de productividad.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Palacios en el aire: Afrontar un reto, encontrar un propósito (Espasa Crecimiento personal) se ofrece en tapa blanda y Kindle. La edición física reúne 200 páginas y permite consultar el texto en papel; Kindle facilita llevar la lectura en un dispositivo compatible y retomarla sin transportar el ejemplar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Palacios en el aire: Afrontar un reto, encontrar un propósito (Espasa Crecimiento personal) comparte con Cuando solo queda aire: Aprender a morir es aprender a vivir (Crecimiento personal) el interés por el sentido de la vida. Rosa Rodríguez plantea el propósito desde los retos personales, mientras que el título de Paul Kalanithi relaciona ese aprendizaje con la muerte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425375286"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0f7a70a5cee7f182",
+  "origen": "chatgpt-web"
+}

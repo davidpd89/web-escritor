@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9798237728583",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A Força Aerea Portuguesa en Africa, 1961-74 se dirige a lectores interesados en la historia militar y la divulgación científica. Su enfoque histórico y especializado lo diferencia de los ensayos generales sobre viajes, cultura o cuestiones ambientales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 114 páginas de A Força Aerea Portuguesa en Africa, 1961-74 en una edición física en castellano. Es el formato disponible para quienes prefieren leer en papel y conservar el ensayo.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A Força Aerea Portuguesa en Africa, 1961-74 puede compararse con 33 islas: Un periplo mediterráneo, de Lucio Bellomo, por su aproximación a territorios desde una perspectiva temática concreta. Se diferencian en el objeto de estudio: el primero aborda una fuerza aérea y un periodo histórico delimitado, mientras que el segundo se centra en un recorrido por distintas islas.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387873127"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7a3a077756255787",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9791388441349",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Juez dredd: El Pozo está dirigido a quienes leen cómics y novelas gráficas en castellano, especialmente si buscan una obra firmada por Carlos Ezquerra, Colin MacNeil y Lee Sullivan. Sus 256 páginas lo sitúan en una extensión concreta para este tipo de lectura; no responde a la búsqueda de una novela convencional presentada únicamente como texto narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Juez dredd: El Pozo se presenta en tapa dura, con 256 páginas y edición en castellano publicada por Albion. Esta encuadernación rígida permite conservar el volumen en una biblioteca de cómics y facilita su presentación como regalo físico. Es una edición destinada a la lectura en papel, con un formato que requiere espacio para transportarlo y guardarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "21d37f9a64fdb170",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388147975",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cambiar el juego (Game Changers 1): Game Changer (Best Seller | Ficción) encaja con lectores adultos que buscan historias de romance y relaciones de pareja. Sus 432 páginas corresponden a una novela romántica; quien busque principalmente misterio, novela histórica o ficción política encontrará aquí un género distinto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 432 páginas en una edición de bolsillo de Penguin Bolsillo, adecuada para quien prefiere conservar el libro físico. Kindle permite llevar la lectura en un dispositivo electrónico y continuarla desde el móvil sin cargar con el ejemplar.",
+      "evidencias": [
+        "numero_paginas",
+        "formato_edicion",
+        "edicion",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Más que rivales (Game Changers 2): Heated Rivalry (Best Seller | Ficción), de Rachel Reid, comparte autora y la identificación Game Changers con Cambiar el juego (Game Changers 1): Game Changer (Best Seller | Ficción). El Partido Más Largo / The Long Game (Game Changers), de Rachel Reid, también pertenece a los títulos relacionados con Game Changers; los tres permiten comparar distintas lecturas de una misma propuesta de romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388147982",
+        "isbn-9798890988355"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "32bd4abb53a4e3dc",
+  "origen": "chatgpt-web"
+}

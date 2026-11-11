@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791399310207",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Elegía simpática de la gula y otros poemas: Antología del I Premio Góngora y Quevedo de Poesía Satírico-Burlesca: 3 se dirige a lectores interesados en la poesía satírica y burlesca. Sus 88 páginas reúnen textos de varios autores, por lo que encaja menos con quienes buscan una novela extensa o una historia protagonizada por un único personaje.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La obra propone una lectura de poesía satírico-burlesca organizada como antología de distintas voces. El título sitúa la recopilación en el I Premio Góngora y Quevedo de Poesía Satírico-Burlesca y la identifica con el número 3; la autoría colectiva permite encontrar diferentes firmas dentro de un mismo volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Archiletras Libros se presenta en tapa blanda y contiene 88 páginas. Es un volumen físico de extensión breve que permite consultar poemas por separado, volver a determinados textos y transportarlo sin el peso de una recopilación extensa.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "XLV premio José hierro de poesia y relato breve 2026 comparte con esta antología la vinculación entre poesía, relato breve y una convocatoria literaria. La diferencia está en que Elegía simpática de la gula y otros poemas: Antología del I Premio Góngora y Quevedo de Poesía Satírico-Burlesca: 3 delimita su propuesta a la poesía satírico-burlesca y reúne una autoría colectiva.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387799267"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a28e31cd8f3dbc7e",
+  "origen": "chatgpt-web"
+}

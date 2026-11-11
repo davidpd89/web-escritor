@@ -4,49 +4,46 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Matemagia está dirigido a lectores de divulgación científica interesados en las matemáticas explicadas mediante juegos, desafíos y trucos de magia. Fernando Blasco relaciona el entretenimiento con el razonamiento matemático, por lo que el planteamiento se aleja de una exposición centrada exclusivamente en teoría y fórmulas.",
+      "texto": "Matemagia está dirigido a lectores interesados en comprender las matemáticas mediante juegos, desafíos y demostraciones relacionadas con la magia. Su planteamiento divulgativo se aleja de quienes buscan una novela de ficción o un manual centrado exclusivamente en ejercicios académicos y procedimientos formales.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Matemagia explora la relación entre las matemáticas y la magia mediante juegos y desafíos que despiertan preguntas sobre su funcionamiento. Fernando Blasco utiliza la sorpresa como punto de partida para acercar el razonamiento científico al lector. El enfoque conecta la curiosidad provocada por un truco con la búsqueda de explicaciones.",
+      "texto": "Fernando Blasco explora la relación entre los principios matemáticos y los efectos que producen los juegos de magia. El enfoque utiliza la sorpresa, la curiosidad y los desafíos como vías para plantear preguntas sobre el funcionamiento de distintos fenómenos. La divulgación científica aparece vinculada a experiencias lúdicas en lugar de presentarse únicamente como teoría abstracta.",
       "evidencias": [
-        "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Matemagia puede leerse en tapa blanda o en Kindle. La edición física de Editorial Ariel tiene 288 páginas y encuadernación rústica con solapas, adecuada para volver a consultar juegos y desafíos; Kindle permite llevar el contenido en un dispositivo de lectura o en el móvil sin transportar el ejemplar impreso.",
+      "texto": "Matemagia puede leerse en tapa blanda o Kindle, dos opciones para consultar sus 288 páginas de juegos e ideas matemáticas. La edición rústica con solapas permite mantener el libro físico a mano al revisar un desafío o una explicación. Kindle facilita llevar el contenido en un dispositivo y consultarlo sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "edicion",
-        "editorial",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "50 cosas que hay que saber sobre IA, de Keith Mansfield, comparte con Matemagia la divulgación de conocimientos científicos, aunque se centra en la inteligencia artificial y no en los juegos matemáticos. Cerebro, espacio y tiempo, de Liset Ménendez de la Prida, también parte de preguntas científicas, pero aborda cómo el cerebro determina la posición espacial, frente a la relación entre magia y matemáticas que estudia Fernando Blasco.",
+      "texto": "Matemagia y 50 cosas que hay que saber sobre IA comparten su orientación divulgativa, pero Fernando Blasco explica conceptos matemáticos mediante juegos de magia y Keith Mansfield se ocupa de la inteligencia artificial. Así es la vida de los animales: Historias de crueldad, amor y supervivencia en la naturaleza (Imago Mundi), de Mario Alonso Santamaría, también aborda conocimientos científicos, aunque se centra en las relaciones y la supervivencia de los animales en lugar de los desafíos matemáticos.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
         "isbn-9788434441309",
-        "isbn-9791387941208"
+        "isbn-9788423370979"
       ]
     }
   ],

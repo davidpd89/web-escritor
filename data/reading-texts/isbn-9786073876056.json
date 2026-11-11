@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073876056",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Conectados para el amor / Wired for Love se dirige a quienes buscan una lectura de psicología y desarrollo personal centrada en el amor y las relaciones de pareja. Stan Tatkin se sitúa en el terreno de los vínculos personales y familiares, no en el de la novela romántica de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Conectados para el amor / Wired for Love se presenta en tapa blanda, con 304 páginas que pueden leerse de forma continuada o consultarse de nuevo por temas. La cubierta flexible permite transportarlo con facilidad y mantener un ejemplar físico para señalar pasajes relacionados con la pareja y la psicología.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología), de Ramón Nogueras Pérez, comparte con Conectados para el amor / Wired for Love el interés psicológico por la pareja, pero delimita su pregunta al enamoramiento y el desenamoramiento. El arte de discutir: Cómo transformar el conflicto en relaciones más fuertes (Crecimiento personal), de Priya Parker, concentra su enfoque en el conflicto y su relación con los vínculos personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387534370",
+        "isbn-9788425376443"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d1698a5594874588",
+  "origen": "chatgpt-web"
+}

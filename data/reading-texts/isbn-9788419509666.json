@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788419509666",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pan: Elaboración intuitiva con masa madre. (NeoPerson Cook) se dirige a quienes quieren dedicar tiempo a la elaboración de pan con masa madre. Es un libro de cocina de Richard Hart, no una lectura centrada en recetas de otros tipos de platos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne las 304 páginas de Pan: Elaboración intuitiva con masa madre. (NeoPerson Cook) en un volumen físico. Esta encuadernación permite conservarlo como libro de consulta en la cocina y volver a sus páginas durante la elaboración del pan.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pan: Elaboración intuitiva con masa madre. (NeoPerson Cook) y Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA) comparten el interés por la cocina. Richard Hart centra su libro en el pan con masa madre, mientras que David Villalón y Mario Villalón abarcan huerta, vinos, cocina y cócteles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934293"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "99377d4fb59ae8bd",
+  "origen": "chatgpt-web"
+}

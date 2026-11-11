@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388364235",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Frenesí (Literaturas), de Joyce Carol Oates, se dirige a lectores de narrativa contemporánea que prefieren los relatos a una novela extensa. Por su clasificación literaria, encaja menos con quienes buscan fantasía, aventuras o una historia de romance como eje principal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Frenesí (Literaturas) está disponible en tapa blanda, con 344 páginas en castellano publicadas por Alfaguara. Esta edición física permite leer los relatos por separado y volver a ellos sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Frenesí (Literaturas) comparte el terreno del relato con Después de medianoche. Trece historias para no dormir: Prólogo de Stephen King (Espasa Narrativa), de Daphne Du Maurier. La diferencia está en la orientación: el segundo título anuncia historias para no dormir, mientras que la obra de Joyce Carol Oates se presenta como narrativa contemporánea. En lengua privada / In Private Language, de Emiliano Monge, es otra referencia de autoría distinta dentro de las lecturas relacionadas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084429",
+        "isbn-9786073878289"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b67904009b333b46",
+  "origen": "chatgpt-web"
+}

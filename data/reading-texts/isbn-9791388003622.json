@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388003622",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El círculo de Acheron (Pulp) se dirige a lectores de cómic y novela gráfica interesados en la fantasía y la ciencia ficción. Por sus géneros y sus 80 páginas, se distingue de las novelas extensas de narrativa realista o histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El círculo de Acheron (Pulp) está disponible en tapa dura, con 80 páginas en castellano. Esta edición de Cartem Cómics permite conservar el volumen en formato físico y consultarlo sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El círculo de Acheron (Pulp) comparte con El incidente Darwin 1 (Seinen): Universo Manga su pertenencia al cómic, aunque el primero incorpora fantasía y ciencia ficción. También puede compararse con Criaturas míticas 1. Un invierno interminable: 6 (La Sonrisa del Gato) por su relación con lo fantástico; la diferencia está en la autoría y en el formato editorial identificado en cada título.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399054552",
+        "isbn-9791387962791"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6fe967440f7a795a",
+  "origen": "chatgpt-web"
+}

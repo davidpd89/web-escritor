@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408318125",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Osito Tito. Calendario de Adviento, de Benji Davies, se orienta al público infantil y a quienes buscan una lectura vinculada al calendario de Adviento. Por su presentación como libro de cartón, se diferencia de las novelas juveniles de aventuras destinadas a una lectura narrativa prolongada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Osito Tito. Calendario de Adviento se utiliza como lectura infantil vinculada al calendario de Adviento. Su edición en libro de cartón permite manejar físicamente el volumen y consultar sus 192 páginas durante las actividades familiares relacionadas con esta celebración.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Osito Tito. Calendario de Adviento está disponible en tapa dura, con una edición descrita como libro de cartón. Sus 192 páginas forman un volumen físico pensado para la consulta y la manipulación directa, especialmente en el contexto de las lecturas infantiles relacionadas con el Adviento.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Osito Tito: Diversión En La Granja comparte con el calendario de Adviento de Osito Tito el personaje y la autoría de Benji Davies, pero sitúa su propuesta en una granja en lugar de vincularla a una celebración. Por su parte, el libro de memoria dedicado a las estaciones, también de Benji Davies, se centra en ese aprendizaje, mientras que el calendario de Adviento propone una lectura infantil asociada a una época concreta del año.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781536256468"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "67835a1c154d5a35",
+  "origen": "chatgpt-web"
+}

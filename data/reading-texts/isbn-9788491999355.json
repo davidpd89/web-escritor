@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788491999355",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Paralelo 53: Tras las huellas de los primeros europeos (Drakontos) se dirige a lectores interesados en la historia humana y la divulgación científica. Su asunto central, relacionado con los primeros europeos, lo diferencia de una novela histórica basada en personajes ficticios o de un libro dedicado a acontecimientos contemporáneos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Paralelo 53: Tras las huellas de los primeros europeos (Drakontos) está editado en tapa dura y reúne 416 páginas. Esta edición en castellano de Editorial Crítica permite conservar el volumen en papel, señalar pasajes y consultarlos posteriormente sin recurrir a una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Paralelo 53: Tras las huellas de los primeros europeos (Drakontos) e Hijos de África son obras de José María Bermúdez de Castro vinculadas al estudio de la historia humana. La primera se centra en los primeros europeos, mientras que la segunda reúne las claves de la evolución humana. Comparten autor y ámbito científico, pero delimitan sus asuntos de manera distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788484598251"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7c0bb4897ea63bd5",
+  "origen": "chatgpt-web"
+}

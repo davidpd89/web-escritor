@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788430628681",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rosalía de Castro (Españoles Eminentes) se dirige a lectores interesados en las biografías, las memorias y la narrativa contemporánea. La autoría de María Xesus Lama sitúa el libro en el ámbito de las obras dedicadas a figuras literarias, mientras que su clasificación también permite identificarlo como una lectura de no ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El largo regreso de Josefina Carabias (Ensayo), de César Suárez, comparte con Rosalía de Castro (Españoles Eminentes) el interés por las figuras vinculadas al ámbito literario y cultural. La diferencia está en sus protagonistas y autorías: María Xesus Lama firma una obra sobre Rosalía de Castro, mientras César Suárez firma un ensayo dedicado a Josefina Carabias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788426433282"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "537e08360314f876",
+  "origen": "chatgpt-web"
+}

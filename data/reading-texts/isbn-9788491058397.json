@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788491058397",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de clásicos literarios interesados en una obra extensa de Lev Tolstoi. Sus 1024 páginas y su clasificación como narrativa e historia la sitúan lejos de los ensayos breves o los manuales prácticos; requiere tiempo para completar la lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Anna Karénina (edición especial en tapa dura) (Ediciones Conmemorativas) pertenece a la colección de ediciones conmemorativas de Penguin Clásicos. Esta presentación en tapa dura contiene 1024 páginas en castellano, se publica el 19 de noviembre de 2026 y tiene el ISBN 9788491058397.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 1024 páginas de Anna Karénina en un volumen físico de gran extensión. Esta encuadernación responde a una edición conmemorativa destinada a conservarse en una biblioteca o regalarse; por su tamaño, resulta menos manejable para llevarla diariamente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "David Copperfield (edición especial en tapa dura) (Ediciones Conmemorativas), de Charles Dickens, comparte con Anna Karénina (edición especial en tapa dura) (Ediciones Conmemorativas) su condición de clásico y su presentación conmemorativa. La diferencia principal es la autoría: Lev Tolstoi firma Anna Karénina, mientras que Charles Dickens es el autor de David Copperfield.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491058250"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eb994a195ff76097",
+  "origen": "chatgpt-web"
+}

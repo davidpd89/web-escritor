@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788466374330",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Saludable Mente: Hábitos para optimizar tu cerebro y mejorar tu salud a cualquier edad (Best Seller | No Ficción) se dirige a lectores interesados en el bienestar cerebral y los hábitos personales. Su enfoque de desarrollo personal y salud lo aleja de la narrativa de ficción y de los manuales dedicados exclusivamente a recetas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar las 336 páginas de Saludable Mente: Hábitos para optimizar tu cerebro y mejorar tu salud a cualquier edad (Best Seller | No Ficción) en papel. La edición de Penguin Bolsillo resulta transportable y permite volver a los apartados de hábitos durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Saludable Mente: Hábitos para optimizar tu cerebro y mejorar tu salud a cualquier edad (Best Seller | No Ficción) comparte autor con Vive más: Reduce tu edad biológica y aumenta tu vitalidad (Best Seller | No Ficción). Marcos Vázquez aborda en el primero los hábitos relacionados con el cerebro, mientras que el título del segundo centra la atención en la edad biológica y la vitalidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395922"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "77e5516566469361",
+  "origen": "chatgpt-web"
+}

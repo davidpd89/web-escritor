@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788467085235",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Delito: Edición limitada a precio especial (Colección Especial) está dirigido a quienes leen misterio y thriller. Con 512 páginas, responde a una búsqueda de narrativa de intriga de cierta extensión, no a la de un relato corto ni a la de un ensayo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Delito: Edición limitada a precio especial (Colección Especial) cuenta con una presentación de bolsillo publicada por Booket. Esta versión en tapa blanda tiene 512 páginas, está escrita en castellano y lleva la fecha editorial 2027-01-08, además de identificarse como edición limitada a precio especial.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "formato_edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Delito: Edición limitada a precio especial (Colección Especial) está disponible en tapa blanda de bolsillo. Sus 512 páginas ofrecen una lectura extensa en papel, con una cubierta flexible que facilita guardarlo y transportarlo frente a una edición rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "No decepciones a tu padre (edición limitada) (Campaña | Ahora por menos) y Delito: Edición limitada a precio especial (Colección Especial) comparten autora, Carme Chaparro, y una presentación editorial identificada como limitada. Delito se sitúa expresamente en el misterio y el thriller, mientras que el otro título destaca en su denominación una campaña comercial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388147593"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "de9d1d3250774310",
+  "origen": "chatgpt-web"
+}

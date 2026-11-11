@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788466375375",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La casa de huéspedes (Best Seller | Ficción), de Ana Lena Rivera, encaja con lectores de novela histórica y narrativa contemporánea interesados en asuntos familiares. Sus 544 páginas ofrecen una lectura extensa, alejada de los libros breves y de los géneros centrados en la fantasía o el terror.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La casa de huéspedes (Best Seller | Ficción) puede leerse en tapa blanda o Kindle. La edición física de Penguin Bolsillo reúne sus 544 páginas en un volumen de bolsillo; Kindle permite llevar esa misma extensión en un lector electrónico o en el móvil, sin cargar con el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amargo, amargo (Literaturas), de Joanna Bator, es otra referencia para quienes buscan narrativa vinculada al ámbito familiar, aunque cambia la autoría respecto a La casa de huéspedes (Best Seller | Ficción), de Ana Lena Rivera. El médico (Trilogía de la familia Cole 1) (Best Seller), de Noah Gordon, ofrece una comparación desde la narrativa histórica y la familia, con una diferencia clara: su título lo identifica como el n.º 1 de una trilogía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387846558",
+        "isbn-9788466394963"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "de9d6de8105be2ca",
+  "origen": "chatgpt-web"
+}

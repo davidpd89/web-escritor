@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387624736",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuentos completos de Arsène Lupin: 16 (Clásicos) encaja con lectores interesados en la narrativa clásica y en reunir relatos de un mismo autor. Sus 896 páginas forman un volumen extenso, por lo que no responde a quien busca una lectura breve o una selección reducida de cuentos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece los 896 páginas de Cuentos completos de Arsène Lupin: 16 (Clásicos) en una única edición física de Punto de Vista Editores. Es un volumen extenso que permite conservar reunido el conjunto de cuentos en papel, aunque su longitud hace que sea menos manejable que un libro breve. Es el formato disponible para esta edición.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dd3c658b1a559768",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788435065702",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Caudillo de Britania: Carataco, rebelde a Roma II (Narrativas Históricas) encaja con lectores interesados en los relatos históricos ambientados en conflictos con Roma. Sus 512 páginas plantean una lectura extensa, menos ajustada a quien busca una obra breve o una historia contemporánea. El título lo identifica como el n.º II.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Caudillo de Britania: Carataco, rebelde a Roma II (Narrativas Históricas) se presenta en tapa dura, con 512 páginas en castellano. La encuadernación rígida permite conservar el volumen y facilita su incorporación a una colección de narrativa histórica en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Caudillo de Britania: Carataco, rebelde a Roma II (Narrativas Históricas) puede contrastarse con 76, de Felipe Pigna, por su vinculación con la historia. El libro de Simon Scarrow identifica un conflicto entre Carataco y Roma y se presenta como narrativa histórica; 76 queda identificado por un título numérico y una autoría diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329695"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4de151f74ecb6191",
+  "origen": "chatgpt-web"
+}

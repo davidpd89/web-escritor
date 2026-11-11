@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788410264465",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una navidad con Croqueta y Empanadilla (NOVELA GRAFICA), de Ana Oncina, está dirigida a lectores de cómic y novela gráfica que buscan una lectura vinculada a la Navidad. Sus 52 páginas la distinguen de una novela extensa en prosa, por lo que no responde a quien busca ese tipo de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una navidad con Croqueta y Empanadilla (NOVELA GRAFICA) cuenta con una edición en tapa blanda de 52 páginas. El formato físico permite recorrer sus páginas como novela gráfica y, por su extensión, resulta manejable para transportar o regalar durante la Navidad.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "26ea1a239f3ef556",
+  "origen": "chatgpt-web"
+}

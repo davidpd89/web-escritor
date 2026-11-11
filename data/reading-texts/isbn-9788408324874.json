@@ -4,38 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El cerebro enamorado está dirigido a quienes quieren comprender las relaciones de pareja desde la neurobiología y explorar formas de cuidar el vínculo afectivo. Lucy Vincent aborda tanto el enamoramiento como los cambios posteriores en la relación; no plantea una historia romántica de ficción ni se limita a consejos sentimentales.",
+      "texto": "El cerebro enamorado encaja con lectores interesados en comprender el amor, las relaciones de pareja y los cambios que experimenta un vínculo. Sus 224 páginas se dirigen a quien busca una aproximación desde la neurobiología y herramientas prácticas, no a quien prefiere un ensayo centrado exclusivamente en el duelo.",
       "evidencias": [
         "titulo",
         "autores",
+        "numero_paginas",
         "sinopsis_editorial",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El cerebro enamorado puede leerse en tapa blanda o Kindle. La edición impresa de Zenith reúne 224 páginas en rústica con solapas, útil para consultar pasajes en papel; la versión Kindle facilita recuperar esas explicaciones sobre el amor y la pareja desde un dispositivo electrónico.",
+      "texto": "La tapa blanda de El cerebro enamorado concentra sus 224 páginas en una edición física con solapas, manejable para la lectura en papel. Kindle ofrece una alternativa digital para consultar el contenido desde el móvil o un lector electrónico, sin llevar el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
         "numero_paginas",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El cerebro enamorado comparte con De la discusión a la conexión el interés por las relaciones personales, pero Lucy Vincent explica sus mecanismos cerebrales y Gabrielle Rifkind se ocupa de gestionar conflictos cotidianos. Neurocambios también trata procesos mentales, aunque Begoña del Campo los relaciona con las emociones y los patrones de pensamiento individuales.",
+      "texto": "El cerebro enamorado comparte con «De la discusión a la conexión», de Gabrielle Rifkind, el interés por comprender y mejorar las relaciones. Lucy Vincent aborda el amor desde la neurobiología y el funcionamiento del cerebro; Gabrielle Rifkind se centra en gestionar los conflictos cotidianos y fortalecer los vínculos.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788408328773",
-        "isbn-9788408325291"
+        "isbn-9788408328773"
       ]
     }
   ],

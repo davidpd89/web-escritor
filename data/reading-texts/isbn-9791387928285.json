@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387928285",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Criminales sin sombra (Salamandra Black) se dirige a lectores interesados en el misterio, el thriller y la historia. Por su clasificación temática, encaja menos con quienes buscan romance o una lectura centrada en el desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Criminales sin sombra (Salamandra Black) está disponible en tapa blanda, con 336 páginas en castellano. Esta edición de Salamandra permite leerlo en papel y transportarlo sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Criminales sin sombra (Salamandra Black) comparte la línea Salamandra Black con El hombre que fue casi nadie (Salamandra Black), de Victoria González Torralba, aunque sus autores son distintos. También se aproxima a El cuerpo equivocado (Novela de intriga), de Jorge Ortega, por su relación con el misterio; este último se presenta expresamente como novela de intriga, mientras que Criminales sin sombra (Salamandra Black) también se clasifica dentro de la historia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425377105",
+        "isbn-9791387928599"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "18e5f29db3741373",
+  "origen": "chatgpt-web"
+}

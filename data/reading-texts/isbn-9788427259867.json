@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788427259867",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Que no se te pase la vida: Menos scroll, menos comparaciones y más tiempo para lo que te hace feliz (No ficción juvenil) se dirige a lectores interesados en reducir el tiempo dedicado a las pantallas y las comparaciones personales. Su enfoque de desarrollo personal y bienestar se aleja de la ficción y de los libros centrados en contar una historia.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Que no se te pase la vida: Menos scroll, menos comparaciones y más tiempo para lo que te hace feliz (No ficción juvenil) tiene una edición en tapa blanda de 160 páginas. El formato permite consultar sus contenidos sobre bienestar y hábitos de uso de pantallas en papel, sin depender de un dispositivo para la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Que no se te pase la vida: Menos scroll, menos comparaciones y más tiempo para lo que te hace feliz (No ficción juvenil) comparte con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito el interés por el bienestar personal. La obra de Noelia Méndez concreta ese enfoque en las pantallas y las comparaciones, mientras que la de Liz Moody abarca salud, relaciones y éxito.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4b4aae8f2e6ccb14",
+  "origen": "chatgpt-web"
+}

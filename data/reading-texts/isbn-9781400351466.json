@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9781400351466",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La abolición del hombre: El peligro del progreso sin principios encaja con lectores de filosofía interesados en los fundamentos éticos del progreso y su relación con las creencias. Su planteamiento se sitúa entre la reflexión filosófica y la espiritualidad, por lo que no responde a la búsqueda de una novela de aventuras o una historia romántica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La abolición del hombre: El peligro del progreso sin principios cuenta con una edición en tapa blanda de 160 páginas, publicada por Grupo Nelson en castellano. Su extensión permite abordar la lectura en sesiones relativamente breves y volver a los pasajes dedicados a cuestiones filosóficas. El formato en papel resulta manejable para transportar y consultar el texto.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La abolición del hombre: El peligro del progreso sin principios y Los milagros: Cuando lo eterno irrumpe en lo natural son obras de un mismo autor, C S Lewis. La primera aborda la relación entre progreso y principios desde la filosofía, mientras que la segunda se centra en los milagros y su vínculo con la naturaleza. Ambas tratan cuestiones espirituales, pero sus temas principales son distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781400351442"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2e7fc09bcd64c463",
+  "origen": "chatgpt-web"
+}

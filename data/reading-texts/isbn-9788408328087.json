@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788408328087",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "GoDeiK 2. GoDeiK y los amigos enemigos (Jóvenes influencers) se orienta a quienes leen aventuras con misterio y humor. Su combinación de géneros resulta menos afín a lectores que prefieren historias realistas sin intrigas ni situaciones humorísticas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa dura y contiene 176 páginas. Este formato permite conservar GoDeiK 2. GoDeiK y los amigos enemigos (Jóvenes influencers) como libro físico, prestarlo o regalarlo sin depender de un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "GoDeik y la gema maldita comparte autoría con este libro de GoDeiK y también combina aventuras, misterio y humor. El título identifica GoDeiK y los amigos enemigos como el número 2, mientras que Estuche GoDeiK 1 + GoDeiK 2 reúne ambos números en una presentación conjunta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328476"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b61e7b71e7d2d617",
+  "origen": "chatgpt-web"
+}

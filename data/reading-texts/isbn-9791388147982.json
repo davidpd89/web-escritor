@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388147982",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Más que rivales (Game Changers 2): Heated Rivalry (Best Seller | Ficción), de Rachel Reid, encaja con lectores que buscan romance y relaciones de pareja. Sus 432 páginas ofrecen una novela de extensión media; no responde a quien busca fantasía u otros géneros ajenos al romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer Más que rivales (Game Changers 2): Heated Rivalry (Best Seller | Ficción), de Rachel Reid, en su edición física de bolsillo, con 432 páginas. Kindle ofrece la alternativa digital para llevar la lectura en el móvil o en un lector electrónico sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Más que rivales (Game Changers 2): Heated Rivalry (Best Seller | Ficción), de Rachel Reid, comparte autora y serie con Cambiar el juego (Game Changers 1): Game Changer (Best Seller | Ficción). La diferencia está en el número que identifica cada título: el primero aparece como entrega 2 y el segundo como entrega 1 de Game Changers.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388147975"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "70d746cfbb59bb61",
+  "origen": "chatgpt-web"
+}

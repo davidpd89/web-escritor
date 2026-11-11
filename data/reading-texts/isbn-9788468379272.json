@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788468379272",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El marinero de la Media luna: 3 (Los bregonautas), de Borja Cabada, está dirigido al público de narrativa juvenil. Sus 352 páginas corresponden a una novela de extensión considerable, menos ajustada a quienes prefieren cuentos breves o lecturas infantiles de pocas páginas. El título lo identifica como el n.º 3 de Los bregonautas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El marinero de la Media luna: 3 (Los bregonautas) tiene una edición en tapa dura de 352 páginas, publicada por Edebé. La cubierta rígida favorece su conservación y permite incorporarlo a una colección física. Por su extensión, resulta más apropiado para leer en varias sesiones que para llevar un libro especialmente ligero.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El marinero de la Media luna: 3 (Los bregonautas) puede contrastarse con Acelerando en rojo. Edición especial: Edición con cantos tintados (Ficción), de Iryna Zubkova. Ambos pertenecen al ámbito de la ficción, pero el primero se identifica como narrativa juvenil y el segundo destaca por una edición especial con cantos tintados. También se diferencia de American Caper nº 01: 1 (Thriller), cuyo título señala expresamente una orientación hacia el thriller.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408316572",
+        "isbn-9788491738107"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a5d838adf50966d2",
+  "origen": "chatgpt-web"
+}

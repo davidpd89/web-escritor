@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788414360149",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dream Magic. El dodo musical: Libro 4 (LITERATURA INFANTIL - Narrativa infantil), de Alena Pons, está dirigido a lectores infantiles interesados en la fantasía y la ciencia ficción. Sus 120 páginas ofrecen narrativa infantil de extensión moderada, no una novela adulta de gran volumen. El título lo identifica como el n.º 4.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dream Magic. El dodo musical: Libro 4 (LITERATURA INFANTIL - Narrativa infantil) se publica en tapa blanda, con 120 páginas en castellano. La edición de Anaya Infantil y Juvenil permite llevar el libro en papel con una encuadernación flexible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dream Magic. El dodo musical: Libro 4 (LITERATURA INFANTIL - Narrativa infantil) y Duelo con varitas (Harry Potter): Guía oficial de hechizos para aprendices de magia comparten el interés por la magia; la obra de Alena Pons es narrativa infantil fantástica de 120 páginas y la de J.K. Rowling se presenta como una guía de hechizos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419868800"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "22b198c3883639c5",
+  "origen": "chatgpt-web"
+}

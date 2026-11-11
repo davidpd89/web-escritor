@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388259401",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Amor con aroma a jengibre (ROMÁNTICA), de Victoria Walters, encaja con lectores interesados en las relaciones de pareja dentro de la narrativa contemporánea. Su orientación romántica y sus 320 páginas lo alejan de las lecturas centradas en la divulgación científica, los manuales prácticos o los relatos de aventuras sin componente amoroso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Amor con aroma a jengibre (ROMÁNTICA) se publica en tapa dura, con 320 páginas y texto en castellano. La encuadernación rígida ofrece mayor protección física para conservar el ejemplar, prestarlo o regalarlo, aunque ocupa más espacio que una edición flexible de extensión equivalente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amor con aroma a jengibre (ROMÁNTICA) coincide con Amor en pole position (Dirty Air 3) en su interés por las relaciones amorosas. Victoria Walters firma una obra de narrativa contemporánea, mientras que Lauren Asher sitúa la historia de Amor en pole position (Dirty Air 3) en el mundo de la Fórmula 1. Esta última incorpora, por tanto, un entorno deportivo concreto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "96e6a0dbd75be450",
+  "origen": "chatgpt-web"
+}

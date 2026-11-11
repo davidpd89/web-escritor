@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388032714",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un laberinto propio: La lectura como conversación con la vida: 177 (El Ojo del Tiempo), de Luis González, se dirige a lectores interesados en el ensayo, la filosofía y las memorias. Por su enfoque en la lectura y la reflexión, encaja menos con quienes buscan una novela de ficción o una guía de ejercicios prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Un laberinto propio: La lectura como conversación con la vida: 177 (El Ojo del Tiempo) se presenta en tapa blanda y reúne 400 páginas. Este formato permite consultar y releer pasajes sin depender de un dispositivo electrónico, aunque requiere transportar un volumen de cierta extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un laberinto propio: La lectura como conversación con la vida: 177 (El Ojo del Tiempo) comparte el interés filosófico con Cartas a Lucilio: Edición íntegra (Clásicos), de Séneca. La diferencia está en el planteamiento: Luis González vincula lectura y experiencia vital, mientras que el otro título presenta una colección de cartas. También puede compararse con La gravedad y la gracia (Contemporánea | Narrativa), de Simone Weil, por su orientación hacia la reflexión filosófica y su distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182495",
+        "isbn-9788466392112"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "60b50f2e773054e6",
+  "origen": "chatgpt-web"
+}

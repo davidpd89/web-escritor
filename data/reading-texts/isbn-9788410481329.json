@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410481329",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo arruinar a un vizconde (Academia Miriñaque 1) (CLEAN ROMANCE) está dirigido a lectores de romance y novela histórica. La identificación CLEAN ROMANCE orienta hacia esa modalidad romántica, mientras que quienes buscan terror o ciencia ficción encontrarán un planteamiento de género diferente. El título identifica esta entrega como el n.º 1 de Academia Miriñaque.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cómo arruinar a un vizconde (Academia Miriñaque 1) (CLEAN ROMANCE) se ofrece en tapa blanda, con 352 páginas en castellano. Es una edición física que puede guardarse junto a otras novelas de romance histórico y permite seguir la lectura sin dispositivos electrónicos. Su extensión invita a distribuirla entre varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo arruinar a un vizconde (Academia Miriñaque 1) (CLEAN ROMANCE) comparte autora y la identificación Clean Romance con La carta perdida (Clean Romance), también de Mimi Matthews. La diferencia visible es que el primero lleva en su título la referencia Academia Miriñaque 1, que lo identifica como el n.º 1 de esa serie. Ambos se sitúan en el ámbito de la narrativa romántica de la autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410481442"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7a0abdef9a8dd805",
+  "origen": "chatgpt-web"
+}

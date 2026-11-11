@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388136467",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La valentía de soñar: Cree en ti para llegar más lejos (Álbumes ilustrados) se dirige al público infantil interesado en historias sobre la confianza personal y las aspiraciones. Su planteamiento como álbum ilustrado se aleja de las novelas juveniles extensas y de las lecturas centradas en conflictos adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura tiene 48 páginas y pertenece a la colección de álbumes ilustrados. Su encuadernación rígida facilita conservar el ejemplar entre lecturas y presentarlo como regalo, mientras que la extensión permite recorrerlo en sesiones breves.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Qué haces con una idea? (Libros ilustrados) es la comparación más directa por su autoría compartida con Kobi Yamada y su pertenencia a los libros ilustrados. La valentía de soñar: Cree en ti para llegar más lejos (Álbumes ilustrados) pone el acento en creer en uno mismo, mientras que el otro título plantea una pregunta sobre las ideas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410318977"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2087cdeab554f879",
+  "origen": "chatgpt-web"
+}

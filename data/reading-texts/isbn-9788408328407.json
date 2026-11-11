@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408328407",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pizzería Vesubio (Novela) se dirige a quienes leen narrativa contemporánea con interés por los asuntos familiares. Sus 336 páginas corresponden a una novela, por lo que se aparta de las expectativas de quienes buscan exclusivamente una guía práctica sobre familia y crianza.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pizzería Vesubio (Novela) está disponible en tapa blanda, en la colección de bolsillo de Booket. Las 336 páginas se presentan en un volumen físico que puede llevarse fuera de casa y conservarse para futuras lecturas, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pizzería Vesubio (Novela) comparte autor con Ama y no sufras, de Walter Riso, aunque este último aborda la vida en pareja desde un enfoque práctico. La afectividad masculina, también de Walter Riso, trata las emociones y la masculinidad. Pizzería Vesubio (Novela) se diferencia de ambos por presentarse como narrativa contemporánea vinculada a la familia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408325239",
+        "isbn-9788408325246"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "76f341fe413a5b77",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399115956",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la naturaleza y, en particular, en las Galápagos. Su inclusión en Clásicos de la naturaleza lo distingue de las historias de animales fantásticos o los cuentos ilustrados infantiles.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Editorial Carbrame reúne 516 páginas en castellano. Por su extensión, permite distribuir la lectura en numerosas sesiones y conservar un ejemplar físico para regresar a los pasajes dedicados a las Galápagos.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Animales, de Susaeta Ediciones, comparte el interés por los animales, pero reúne seis cuentos ilustrados, frente al enfoque de naturaleza de Galápagos: El fin del mundo (Clásicos de la naturaleza). Animales fantásticos y dónde encontrarlos (Un libro de la biblioteca de Hogwarts) (Harry Potter), de J.K. Rowling, se diferencia por su orientación hacia las criaturas fantásticas, mientras que William Beebe sitúa su libro en las Galápagos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370341589",
+        "isbn-9788466395687"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "35e5b80ba4cb6815",
+  "origen": "chatgpt-web"
+}

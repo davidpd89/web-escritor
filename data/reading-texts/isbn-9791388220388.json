@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388220388",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mamutland 3 (Lunwergg), de KOLDERIU, se sitúa entre las lecturas relacionadas con el deporte y el tiempo libre. Su clasificación lo aleja de los manuales especializados de investigación académica, mientras que sus 200 páginas delimitan una extensión concreta para quien busca una lectura de ocio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mamutland 3 (Lunwergg) está disponible en tapa blanda, con 200 páginas en castellano publicadas por Lunwerg Editores. Es una edición física que puede transportarse y guardarse sin la rigidez de una encuadernación en cartoné, por lo que la elección se centra en la lectura sobre papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mamutland 3 (Lunwergg) y El árbitro / The Referee figuran entre los títulos relacionados con el ámbito deportivo, aunque corresponden a obras de KOLDERIU y Augusto Cruz, respectivamente. Frente a la identificación general de Mamutland 3 (Lunwergg) con el ocio y el deporte, El árbitro / The Referee señala desde su título una figura concreta del deporte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073877817"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6ba8bfaab25369a6",
+  "origen": "chatgpt-web"
+}

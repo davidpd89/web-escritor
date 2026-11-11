@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786287897373",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El jurado / The Runaway Jury encaja con lectores que buscan misterio y thriller en una narración extensa. Sus 592 páginas requieren una lectura más prolongada que la de una novela breve, por lo que resulta menos adecuado para quien prefiera historias cortas o géneros alejados del suspense.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El jurado / The Runaway Jury cuenta con una edición en tapa blanda de 592 páginas, publicada por Debolsillo. Su extensión favorece una lectura repartida en varias sesiones; el formato físico permite retomarla con un marcador y conservar el volumen en la biblioteca.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La tapadera (La tapadera 1) y El jurado / The Runaway Jury comparten autor, John Grisham, y pueden compararse desde el interés por el suspense. La primera sitúa su punto de partida en un graduado en Derecho que recibe ofertas de bufetes, mientras que El jurado / The Runaway Jury se presenta como una obra de misterio cuyo título remite a un jurado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401042706"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "18378df3be5dc0ae",
+  "origen": "chatgpt-web"
+}

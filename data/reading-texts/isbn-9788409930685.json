@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788409930685",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aunque nunca lo sepas: 2 (Becados de la LUHS), de Nazaret Rodríguez, se dirige a quienes buscan novelas románticas en castellano. Con 368 páginas, se ajusta menos a lectores interesados exclusivamente en otros géneros o en narraciones de extensión breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Aunque nunca lo sepas: 2 (Becados de la LUHS) cuenta con una edición en tapa blanda de 368 páginas. El formato permite llevar la novela en papel con una cubierta flexible, tanto para leerla fuera de casa como para conservarla en una estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0c76326dd27d6ca1",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408331674",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La locura más ardiente: 2 (Novela), de Danielle Lori, se dirige a lectores de romance contemporáneo con interés por el humor. El título lo identifica como el n.º 2; quienes buscan narrativa sin componente romántico encontrarán una propuesta de género diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La locura más ardiente: 2 (Novela) se publica en tapa blanda de bolsillo, dentro de la edición de Booket. Sus 416 páginas pueden llevarse en papel durante desplazamientos y permiten conservar el volumen en una colección física sin recurrir a una edición de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La locura más ardiente: 2 (Novela), de Danielle Lori, puede compararse con Irresistibles Navidades, de Cherry Chic, por su orientación hacia la ficción romántica. El título de Danielle Lori identifica la obra como el n.º 2, mientras que el estuche de Cherry Chic reúne Imperfectas navidades e Inesperadas Navidades. En mi Era Pistacho: Juliette's version, de Emily Collins, aporta otra referencia del catálogo con una autoría diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410648777",
+        "isbn-9791387871482"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "755b2086ee67b197",
+  "origen": "chatgpt-web"
+}

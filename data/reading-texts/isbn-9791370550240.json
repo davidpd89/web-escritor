@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370550240",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La culpa materna: 01 (Psicologia) se dirige a lectores interesados en la psicología, la maternidad y las relaciones familiares. Su temática de desarrollo personal y crianza encaja menos con quienes buscan ficción familiar o relatos infantiles para compartir con sus hijos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La culpa materna: 01 (Psicologia) se publica en tapa blanda, con 244 páginas en castellano. Esta edición de Editorial Sintesis SA permite consultar en papel los contenidos relacionados con la maternidad y la psicología, además de señalar páginas para volver a ellas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La culpa materna: 01 (Psicologia) comparte con Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología) el interés por las experiencias personales y las relaciones desde la psicología. Cecilia Peñacoba Puente y Patricia Catalá Mesón se centran en la culpa vinculada a la maternidad, mientras que Ramón Nogueras Pérez aborda el enamoramiento y el desenamoramiento. La primera lectura se relaciona con la crianza y la segunda con los vínculos de pareja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387534370"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d7eae4ba7d6086ff",
+  "origen": "chatgpt-web"
+}

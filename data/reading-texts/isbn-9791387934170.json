@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387934170",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en el champán, los vinos y la gastronomía. Sus 202 páginas se centran en una bebida concreta, por lo que responde a una búsqueda distinta de la de un recetario general de cocina o un manual sobre alimentación.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Champagne: El vino más famoso del mundo (GASTRONOMIA) se publica en tapa dura, con 202 páginas en castellano. La cubierta rígida permite conservar el volumen como libro de consulta gastronómica y utilizarlo en una biblioteca dedicada a vinos y cocina.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA) comparte el interés por el vino, pero también incluye huerta, cocina y cócteles. Champagne: El vino más famoso del mundo (GASTRONOMIA), de Aurélie Soubiran, concentra su tema en el champán. Atlas Mundial Del Vino (NATURART), de Hugh Johnson, plantea un alcance geográfico y vinícola más amplio, frente al enfoque sobre una bebida específica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934293",
+        "isbn-9788418075933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5a595785244d293f",
+  "origen": "chatgpt-web"
+}

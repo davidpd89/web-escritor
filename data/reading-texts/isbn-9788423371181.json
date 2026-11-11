@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuando seamos inmortales está dirigido a lectores de novela histórica interesados en el arte y las rivalidades entre creadores. La presencia de Rubens y Velázquez, junto con el contexto político del Imperio español, lo aleja de las novelas centradas exclusivamente en conflictos personales contemporáneos.",
+      "texto": "Cuando seamos inmortales se dirige a lectores de novela histórica interesados en la pintura y las rivalidades artísticas. Su marco es la corte española de 1628, con Rubens y Velázquez vinculados al destino del Imperio español; no responde a la búsqueda de una historia contemporánea.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,36 +13,35 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Cuando seamos inmortales es una novela histórica ambientada en 1628, con Rubens y Velázquez como figuras centrales de una rivalidad artística. La creación pictórica se relaciona con la situación del Imperio español y el destino político de Europa, de modo que el conflicto combina arte e historia.",
+      "texto": "La lectura combina ficción histórica, creación artística y conflictos de poder en la España de 1628. Tony Gratacós sitúa a Rubens y Velázquez en un escenario donde la pintura sirve para observar las tensiones políticas y la permanencia de la memoria histórica.",
       "evidencias": [
-        "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cuando seamos inmortales está disponible en tapa dura con sobrecubierta y cuenta con 528 páginas. Esta presentación protege el volumen durante su conservación en una biblioteca y ofrece una edición física para quienes prefieren leer una novela histórica extensa en papel.",
+      "texto": "Cuando seamos inmortales está disponible en tapa dura con sobrecubierta, una presentación apropiada para conservar el volumen en una biblioteca. Sus 528 páginas hacen de esta edición una lectura extensa en formato físico, con una encuadernación rígida que también facilita su elección como regalo.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "edicion",
-        "numero_paginas",
-        "categorias"
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuando seamos inmortales y Hijos del Mediodía, de Eva Diaz Perez, pertenecen a la novela histórica y sitúan sus conflictos en distintas etapas de la historia de España. Tony Gratacós se ocupa del arte y la política del Imperio español, mientras que Hijos del Mediodía aborda Sevilla, la generación del 27 y la Guerra Civil.",
+      "texto": "Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig, permite establecer una comparación dentro de la narrativa histórica. Cuando seamos inmortales, de Tony Gratacós, concreta su escenario en la corte española de 1628 y centra el conflicto en Rubens y Velázquez, mientras que el otro título remite a Pompeya.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788419188908"
+        "isbn-9788467084870"
       ]
     }
   ],

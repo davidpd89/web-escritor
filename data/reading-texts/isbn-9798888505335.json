@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9798888505335",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia se dirige a lectores interesados en espiritualidad, consciencia y desarrollo personal. Su planteamiento se aleja de los manuales centrados exclusivamente en nutrición o ejercicio físico, aunque comparte el ámbito general del bienestar.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 320 páginas de la edición física de Inner Traditions Bear And Company, adecuada para consultar y señalar apartados. Kindle permite llevar la lectura en un dispositivo compatible y acceder al texto sin transportar el volumen impreso.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia comparte con El asiento del alma; La expansión de la percepción humana más allá de los cinco sentidos (ESPIRITUALIDAD Y VIDA INTERIOR) el interés por ampliar la percepción humana. Barbara Hand Clow organiza su propuesta alrededor de nueve dimensiones, mientras que el título de Gary Zukav plantea la percepción más allá de los cinco sentidos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788411724449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "01e7e4aee616107c",
+  "origen": "chatgpt-web"
+}

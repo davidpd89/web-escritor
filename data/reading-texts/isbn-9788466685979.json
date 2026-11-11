@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466685979",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las chicas de la fábrica (Grandes novelas) se dirige a lectores de novela histórica y narrativa contemporánea. Por su clasificación editorial, se aparta de quienes buscan principalmente cómic, divulgación o manuales prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las chicas de la fábrica (Grandes novelas) se publica en tapa blanda, con 480 páginas en castellano. Esta edición de Ediciones B permite consultar el texto en papel y conservarlo en una biblioteca sin el peso habitual de una encuadernación de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las chicas de la fábrica (Grandes novelas) puede compararse con Amargo, amargo (Literaturas) por su pertenencia al ámbito de la narrativa. La primera, de Naomi López, se clasifica como novela histórica y narrativa contemporánea, mientras que la segunda está escrita por Joanna Bator y se presenta bajo el sello Literaturas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387846558"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c1211bc5dbd4efef",
+  "origen": "chatgpt-web"
+}

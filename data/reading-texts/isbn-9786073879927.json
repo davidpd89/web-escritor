@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9786073879927",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Boulevard 2: Después de Él (Edición Ilustrada Por Mmivens) / Boulevard 2: After Him (Illustrated Edition by Mmivens) (Wattpad. Boulevard) encaja con lectores de romance interesados en una edición ilustrada. El título lo identifica como el n.º 2 de Boulevard, por lo que no responde a la búsqueda de una historia presentada como entrega inicial e independiente.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Boulevard 2: Después de Él (Edición Ilustrada Por Mmivens) / Boulevard 2: After Him (Illustrated Edition by Mmivens) (Wattpad. Boulevard) se distingue por su presentación ilustrada por Mmivens, identificada expresamente en el título. Montena la publica en tapa dura, con 272 páginas en castellano. La combinación de ilustraciones y encuadernación es su principal rasgo editorial identificable.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La versión disponible es en tapa dura, con 272 páginas y una edición ilustrada por Mmivens. Esta presentación permite conservar las ilustraciones en un volumen físico y utilizarlo como ejemplar de colección o regalo. Montena publica esta edición en castellano, dentro de la línea Wattpad. Boulevard.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "89737ab36fc1bdf9",
+  "origen": "chatgpt-web"
+}

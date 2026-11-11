@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399159400",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rebrotar: Un camino a la renaturalización: 7 (Centella) se dirige a lectores interesados en la renaturalización desde el ámbito de la divulgación científica. Sus 116 páginas ofrecen una extensión contenida para abordar esa materia; no responde a la búsqueda de una novela ni de un relato de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Rebrotar: Un camino a la renaturalización: 7 (Centella) contiene 116 páginas. Su extensión facilita transportarlo y consultarlo en papel, tanto durante la lectura continuada como al volver a cuestiones relacionadas con la renaturalización.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rebrotar: Un camino a la renaturalización: 7 (Centella), de Pablo Izquierdo, se aproxima a Así es la vida de los animales: Historias de crueldad, amor y supervivencia en la naturaleza (Imago Mundi), de Mario Alonso Santamaría, por su interés en el mundo natural. El primero sitúa la renaturalización en el centro; el segundo se ocupa de las experiencias y la supervivencia de los animales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370979"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7f1d1e6d0f85e98b",
+  "origen": "chatgpt-web"
+}

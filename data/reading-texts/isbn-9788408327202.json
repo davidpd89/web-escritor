@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408327202",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Te receto un gato + Te receto otro gato (Planeta Internacional) está orientado a lectores de narrativa contemporánea que buscan reunir dos títulos de Syou Ishida en una misma edición. Sus 640 páginas ofrecen una lectura extensa; encaja menos con quien prefiere libros prácticos de actividades o manuales temáticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El estuche Estuche Te receto un gato + Te receto otro gato (Planeta Internacional) se comercializa en tapa dura y suma 640 páginas en castellano. Reúne los dos títulos indicados en su nombre, por lo que permite adquirirlos juntos en una edición física pensada para conservar o regalar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche Te receto un gato + Te receto otro gato (Planeta Internacional) y 800 stickers sweet and cosy se relacionan con propuestas de lectura y ocio, aunque el primero reúne narrativa contemporánea de Syou Ishida y el segundo se presenta como una colección de pegatinas de Amélie's Workshop. Frente a Aprende a dibujar con KPop Demon Hunters: Edición OFICIAL en español (Montena), el estuche ofrece dos obras narrativas en lugar de una actividad de dibujo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049737",
+        "isbn-9791388322778"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "04c01286bef7b0cc",
+  "origen": "chatgpt-web"
+}

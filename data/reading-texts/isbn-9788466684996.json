@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788466684996",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de novela histórica que buscan aventuras de largo recorrido y narraciones extensas. Las legiones malditas, de Santiago Posteguillo, tiene 864 páginas y pertenece a Trilogía Africanus, por lo que se aleja de las novelas breves o de la ficción ambientada en el presente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Se trata de una edición conmemorativa del 20.º aniversario de Las legiones malditas, publicada por Ediciones B. El título la identifica como el n.º 2 de Trilogía Africanus; esta presentación en tapa dura, con 864 páginas en castellano, tiene fecha de publicación del 26 de noviembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para esta edición conmemorativa de 864 páginas. La encuadernación rígida favorece su conservación y su presentación como regalo, aunque la extensión del volumen hace más práctico leerlo sobre una superficie de apoyo que sostenerlo durante desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los asesinos del emperador. Edición especial con cantos decorados comparte autor y ambientación histórica, pero abre Trilogía de Trajano, mientras que el título de Las legiones malditas lo identifica como el n.º 2 de Trilogía Africanus. Los tres mundos (Serie Julio César 3) también es de Santiago Posteguillo, aunque se centra en la conquista de las Galias por Julio César y pertenece a otra serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408326779",
+        "isbn-9791388147302"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "697aa86246ede18d",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788419831897",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de romance juvenil que buscan una historia de amor ambientada en las fiestas navideñas y con elecciones que intervienen en su desarrollo. Su planteamiento resulta menos afín a quienes prefieren una narración lineal sin decisiones del lector o buscan una historia alejada de las relaciones sentimentales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 336 páginas de Todas las navidades posibles: Esta historia de amor la eliges tú (Romántica) en un volumen físico que facilita volver a las distintas elecciones. Kindle permite llevar la misma obra en un lector electrónico o en el móvil, sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Irresistibles Navidades comparte la temática navideña y reúne Imperfectas navidades e Inesperadas Navidades en un estuche. Todas las navidades posibles: Esta historia de amor la eliges tú (Romántica), de Michelle Durán, se diferencia por plantear una historia de amor en la que el lector toma decisiones sobre su desarrollo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387871482"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3f5ab37314fec944",
+  "origen": "chatgpt-web"
+}

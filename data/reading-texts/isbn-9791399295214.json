@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399295214",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pack biografias en viñetas se dirige a quienes buscan biografías mediante el lenguaje del cómic y la novela gráfica. Sus 256 páginas se sitúan entre la narración biográfica y la lectura visual, por lo que no responde a quien busque una biografía escrita exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pack biografias en viñetas se publica en tapa dura, con 256 páginas en castellano. El formato físico permite consultar las viñetas directamente sobre papel y conservar el conjunto encuadernado; también resulta una opción de regalo para lectores de biografías gráficas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pack biografias en viñetas comparte con Revista novela gráfica 3 el uso del lenguaje de la novela gráfica y la autoría colectiva. La diferencia está en el enfoque: el primero se identifica como un pack de biografías, mientras que el segundo se presenta como una revista de novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388441219"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9678a5f40fbf151b",
+  "origen": "chatgpt-web"
+}

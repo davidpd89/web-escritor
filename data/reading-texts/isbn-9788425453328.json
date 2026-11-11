@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788425453328",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los intelectuales en la Edad Media (Caja Verde) está destinado a lectores interesados en la historia medieval y, especialmente, en las figuras vinculadas al pensamiento y la actividad intelectual de ese periodo. Su delimitación histórica lo aleja de las biografías contemporáneas y de los estudios centrados en acontecimientos recientes.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los intelectuales en la Edad Media (Caja Verde) se ofrece en tapa blanda, con 208 páginas en castellano. El formato impreso permite consultar distintos pasajes sobre la historia intelectual medieval y conservar el libro como volumen de referencia para lecturas posteriores.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los intelectuales en la Edad Media (Caja Verde), de Jacques Le Goff, comparte el interés histórico con Agustín penón y Federico García Lorca, de Juan Carlos García de Polavieja. El primero se centra en los intelectuales medievales, mientras que el segundo aborda una investigación biográfica sobre Federico García Lorca. Anatomía de un naufragio: Shackleton, el Endurance y la fuerza del hielo, de Jukka Tuhkuri, cambia el foco hacia una expedición y su naufragio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418567933",
+        "isbn-9791387873141"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e8444d7a8db9f9bc",
+  "origen": "chatgpt-web"
+}

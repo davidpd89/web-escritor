@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788410391727",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Oye, Catrina (Titania fresh) se dirige a lectores de fantasía romántica que buscan una obra donde convivan elementos fantásticos y relaciones sentimentales. Por su clasificación en fantasía, romantasy y romance, se distancia de quienes prefieren narrativa realista sin componentes fantásticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Oye, Catrina (Titania fresh) está disponible en tapa blanda, con una extensión de 336 páginas. Esta edición en castellano permite leer la obra completa en papel y conservarla en una colección de fantasía romántica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [
+    "lecturas_afines: habla de las fuentes en vez de informar: la fuente",
+    "faltan módulos: lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "4ccf18716c00d983",
+  "origen": "chatgpt-web"
+}

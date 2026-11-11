@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788410391826",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Finding cinderella (Titania fresh), de Colleen Hoover, se dirige a quienes buscan una lectura de romance en castellano. Sus 192 páginas permiten abordar una novela de extensión contenida; encaja menos con lectores que prefieren fantasía o ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Finding cinderella (Titania fresh) está disponible en tapa blanda, con 192 páginas en castellano. Es una opción física manejable para transportar y guardar en la estantería, sin necesidad de un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Finding cinderella (Titania fresh) comparte autoría y orientación romántica con Losing Hope: Buscando la redención (Titania fresh), también de Colleen Hoover. La diferencia está en la obra elegida: son títulos distintos de la misma autora, y Finding cinderella (Titania fresh) ofrece una extensión de 192 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788410391796",
+        "isbn-9781668270493"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d64dce96a416f1de",
+  "origen": "chatgpt-web"
+}

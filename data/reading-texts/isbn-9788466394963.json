@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466394963",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El médico (Trilogía de la familia Cole 1) (Best Seller) está dirigido a lectores de novela histórica que también buscan aventuras y conflictos familiares. Con 704 páginas, exige más tiempo que una lectura breve; el título lo identifica como el n.º 1 de la trilogía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer las 704 páginas de El médico (Trilogía de la familia Cole 1) (Best Seller) en una edición física de bolsillo, aunque el volumen será considerable. Kindle evita transportar ese grosor y permite continuar la lectura desde el móvil o un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El médico (Trilogía de la familia Cole 1) (Best Seller) comparte autor y serie con Chamán (Trilogía de la familia Cole 2) (Best Seller) y La doctora Cole (Trilogía de la familia Cole 3) (Best Seller). Sus títulos los identifican como las entregas 1, 2 y 3, respectivamente, de modo que se diferencian por su posición dentro de la trilogía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394970",
+        "isbn-9788466394987"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5adca13fa600d28c",
+  "origen": "chatgpt-web"
+}

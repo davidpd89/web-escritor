@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9780241837696",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la divulgación científica y en conocer distintos tipos de aeronaves mediante una enciclopedia visual. Su contenido abarca aviones, helicópteros, planeadores y dirigibles; se aleja de las lecturas centradas en relatos de ficción o aventuras protagonizadas por pilotos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa dura, con 320 páginas en castellano publicadas por DK. Este formato permite consultar el volumen por temas y mantenerlo en una estantería como obra de referencia sobre aeronaves; también puede entregarse como regalo físico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antigua Grecia (Civilizaciones antiguas) (Enciclopedia visual) comparte con este libro la autoría de DK y el planteamiento de enciclopedia visual, pero aborda una civilización en lugar de aeronaves. La luna: Una historia ilustrada (La guía visual definitiva) también relaciona imágenes y divulgación científica, aunque se centra en el satélite natural y su influencia cultural e histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241837610",
+        "isbn-9780241837597"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b74ad23a0350e360",
+  "origen": "chatgpt-web"
+}

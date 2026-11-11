@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788410305809",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores de manga que buscan aventuras y fantasía en formato de cómic, especialmente dentro de la colección Saiyuki. Al identificarse en el título como la edición definitiva 4, resulta menos adecuado para quien busque una historia independiente sin referencias a entregas anteriores.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Saiyuki: la edición definitiva 4 (Shônen) se presenta en tapa dura, con 552 páginas en castellano y el sello Distrito Manga. El título lo identifica como el n.º 4 de la edición definitiva, y esta entrega tiene fecha de publicación del 18 de febrero de 2027.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es la presentación disponible de Saiyuki: la edición definitiva 4 (Shônen), con 552 páginas. Su encuadernación rígida favorece la conservación de un volumen extenso de manga y su colocación junto a otras entregas de la colección, aunque añade volumen al transportarlo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Saiyuki: la edición definitiva 3 (Shônen) es la comparación más directa: comparte autor, colección y el recorrido de sus personajes hacia el Oeste, mientras que el título de esta entrega la identifica como el n.º 4. Astro Royale 1 (Shônen): Universo Manga también pertenece al ámbito del manga shônen, pero está firmado por Ken Wakui en lugar de Kazuya Minekura.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788410305793",
+        "isbn-9791387962845"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "42e99453098889b1",
+  "origen": "chatgpt-web"
+}

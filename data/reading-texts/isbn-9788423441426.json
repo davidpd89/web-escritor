@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788423441426",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este ensayo está dirigido a lectores interesados en los debates sobre nacionalismo, poder político y privilegios. Por el planteamiento argumentativo de su título, encaja menos con quien busque una exposición histórica general sin una posición crítica explícita frente al nacionalismo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Guillermo Díaz Gómez plantea una crítica del nacionalismo a partir de sus mitos, los privilegios asociados a él y las preguntas que considera pendientes de respuesta. El título anuncia un enfoque polémico y argumentativo, centrado en cuestionar posiciones políticas más que en ofrecer una introducción neutral al conjunto de las ideologías nacionalistas.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Deusto se presenta únicamente en tapa blanda, con 300 páginas en castellano. Es un volumen físico que permite señalar argumentos y volver a pasajes concretos durante la lectura de un ensayo político. La encuadernación flexible facilita su manejo frente a una edición de cubierta rígida.",
+      "evidencias": [
+        "editorial",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Manual para callar a un nacionalista: De los mitos a los privilegios: las preguntas a las que el nacionalismo nunca responde (Deusto) puede compararse con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) por su atención a las ideas políticas. El primero cuestiona el nacionalismo y sus privilegios; el segundo se presenta como una introducción a las bases económicas y políticas del anarcocapitalismo. Ambos abordan cuestiones ideológicas desde asuntos distintos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fd14cce26cf22821",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388540042",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la depresión desde el ámbito del bienestar y el desarrollo personal. Por su temática de salud mental, se aparta de las lecturas de entretenimiento y de quienes buscan una historia de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "DEPRESIÓN: La enfermedad invisible se presenta en tapa blanda y tiene 176 páginas en castellano. La edición impresa permite interrumpir la lectura, señalar fragmentos y volver a ellos sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte autor con El último baile, de Manel Rodriguez Moreno, pero DEPRESIÓN: La enfermedad invisible identifica expresamente la salud mental como asunto central. También puede compararse con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, que plantea un campo de bienestar más amplio, mientras este libro se concentra en la depresión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388540073",
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7487b19b498d59ac",
+  "origen": "chatgpt-web"
+}

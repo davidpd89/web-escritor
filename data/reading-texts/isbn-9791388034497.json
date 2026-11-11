@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388034497",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dibujos para colorear, ¡qué misterio! Naturaleza (Hachette HEROES - DISNEY - Arteterapia) se dirige a quienes buscan una actividad de coloreado relacionada con la naturaleza y el tiempo libre. No responde a quien espera una novela de misterio con argumento y personajes, pese a la palabra «misterio» de su título.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dibujos para colorear, ¡qué misterio! Naturaleza (Hachette HEROES - DISNEY - Arteterapia) se presenta en tapa blanda, con 128 páginas destinadas a una actividad de coloreado. El soporte físico permite trabajar directamente sobre las páginas, por lo que resulta distinto del uso de un libro digital pensado principalmente para leer texto.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dibujos para colorear, ¡qué misterio! Superclásicos (Hachette HEROES - DISNEY - Arteterapia) pertenece a la misma línea de libros para colorear que Dibujos para colorear, ¡qué misterio! Naturaleza (Hachette HEROES - DISNEY - Arteterapia), pero cambia el tema de naturaleza por superclásicos. Colorea kawaii animales adorables también propone colorear, aunque centra su propuesta en animales de estilo kawaii en lugar de la temática natural del título de Hachette.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo",
+        "editorial"
+      ],
+      "enlaces": [
+        "isbn-9791388034510",
+        "isbn-9791387708634"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a09cafe4a24fea53",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387962661",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ranger Reject 18 (Shônen) está dirigido a lectores de manga de aventuras que siguen colecciones por entregas. El título lo identifica como el n.º 18, de modo que encaja menos con quienes buscan una primera toma de contacto o una obra autoconclusiva.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ranger Reject 18 (Shônen) cuenta con una edición en tapa blanda de 192 páginas, publicada en castellano por Distrito Manga. El volumen físico permite mantener la colección ordenada y consultar sus páginas sin recurrir a un lector digital.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Wind Breaker 17 (Shônen) y Ranger Reject 18 (Shônen) comparten su identificación como manga shônen y su pertenencia a colecciones numeradas. Se diferencian en la autoría, Satoru Nii frente a Negi Haruba, y en el lugar que indican sus títulos: n.º 17 y n.º 18, respectivamente.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788419819635",
+        "isbn-9791387962623"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "978c881391d127a8",
+  "origen": "chatgpt-web"
+}

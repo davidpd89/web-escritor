@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9786287880627",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la narrativa contemporánea, los clásicos y las cuestiones de poder y política. Sus 648 páginas plantean una lectura extensa, distinta de la que busca quien prefiere relatos breves o argumentos alejados de los asuntos políticos.",
+      "evidencias": [
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Alfaguara consta de 648 páginas en tapa blanda y está publicada en castellano. La encuadernación flexible facilita manejar un libro de esta extensión, aunque el volumen sigue siendo considerable para llevarlo durante los desplazamientos.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Se aproxima a El vuelo de los gansos, de Ángel Boixadós, por el interés en el poder y sus conflictos. Antonio Caballero figura en el ámbito de los clásicos y la narrativa contemporánea, mientras que El vuelo de los gansos plantea expresamente el enfrentamiento al poder como una cuestión de principios.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425375040"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2c8891ae1b4d7a3e",
+  "origen": "chatgpt-web"
+}

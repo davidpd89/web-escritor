@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791388365089",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A medio salto (Romántica), de Valera Gomalva, se dirige a quienes buscan una lectura centrada en el romance. Por su clasificación temática, encaja menos con lectores que prefieren la fantasía o la ciencia ficción como género principal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "A medio salto (Romántica) está disponible en tapa blanda y Kindle. La edición física de Fandom Books tiene 272 páginas y permite conservar el ejemplar en papel; Kindle facilita llevar la lectura en el móvil sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "421783a7ac5e8a92",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791388108457",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las reliquias del Zodiaco: Astralea libro 1 (Faeris Editorial), de Mei Segura, está dirigida a lectores que buscan fantasía y relatos desarrollados dentro de ese género. Sus 456 páginas ofrecen una novela de extensión considerable; no es una elección orientada a quien busca romance o narrativa realista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 456 páginas en un ejemplar físico publicado por Faeris. Kindle permite acceder a la misma lectura en formato digital, una alternativa para llevar el libro en un dispositivo y no depender del volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3bcce1d1daa997b3",
+  "origen": "chatgpt-web"
+}

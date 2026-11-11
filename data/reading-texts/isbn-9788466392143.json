@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El mundo perdido se dirige a lectores adultos que buscan ciencia ficción con aventuras, misterio y amenazas relacionadas con experimentos biológicos. Su combinación de dinosaurios peligrosos y una expedición arriesgada encaja menos con quienes prefieren relatos realistas sin elementos especulativos ni situaciones de peligro.",
+      "texto": "El mundo perdido se dirige a lectores adultos de ciencia ficción, aventuras y suspense que buscan una amenaza ligada a la experimentación científica. Los dinosaurios y una expedición peligrosa articulan el conflicto; no sigue el planteamiento de una fantasía centrada en la magia ni de una narración cotidiana sin peligro físico.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,37 +14,22 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "El mundo perdido combina ciencia ficción y suspense alrededor de una expedición a una isla vinculada con la cría artificial de dinosaurios. Michael Crichton plantea un conflicto entre la manipulación científica, los intereses económicos y las consecuencias de perder el control sobre criaturas peligrosas.",
+      "texto": "El mundo perdido combina ciencia ficción y thriller de supervivencia mediante una expedición a una isla vinculada a la cría artificial de dinosaurios. La intervención humana sobre estos animales desencadena riesgos que superan el ámbito de la investigación. La narración enfrenta el conocimiento científico con sus consecuencias y con una amenaza física creciente.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El mundo perdido se ofrece en tapa dura y Kindle. La edición física de Penguin Bolsillo tiene 480 páginas y permite conservar el volumen en la estantería; Kindle facilita transportar esa extensión en un lector electrónico o consultarla desde el móvil.",
+      "texto": "El mundo perdido puede leerse en tapa dura o Kindle. La edición física de Penguin Bolsillo reúne 480 páginas y permite conservar el volumen en una biblioteca; Kindle facilita llevar esa misma lectura en un dispositivo sin cargar con el libro. La elección depende de si se prefiere el ejemplar impreso o la lectura digital.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
         "editorial",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "El mundo perdido y Expediente 411 comparten elementos de ciencia ficción, aunque sus escenarios son distintos. Michael Crichton sitúa su historia en una isla donde la manipulación de dinosaurios provoca una amenaza, mientras que Anna C. Jaquet presenta una historia ambientada en Nova Barcelona, 2097. El primero combina una expedición peligrosa con las consecuencias de la experimentación científica; el segundo parte de un escenario urbano futurista.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791387905446"
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
       ]
     }
   ],

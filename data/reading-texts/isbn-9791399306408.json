@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399306408",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Colonialismo digital: Por una crítica hacker-fanoniana se dirige a lectores de ensayo interesados en la relación entre tecnología, colonialismo y pensamiento crítico. Por su enfoque filosófico y sus 316 páginas, se aleja de los manuales de informática centrados en instrucciones prácticas o de las obras de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Colonialismo digital: Por una crítica hacker-fanoniana se publica en tapa blanda, con 316 páginas en castellano. La edición de Pleca Ediciones permite leer y consultar el ensayo en papel, además de señalar pasajes o incorporar anotaciones durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ecología o economía: Hay que elegir: 136 (Ensayo), de Anselm Jappe, y Colonialismo digital: Por una crítica hacker-fanoniana, de Deivison Faustino y Walter Lippold, pertenecen al ámbito del ensayo. El primero plantea una elección entre ecología y economía, mientras que el segundo aborda el colonialismo digital desde una perspectiva hacker-fanoniana. Ambos tratan cuestiones diferentes y cuentan con autores distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410476585"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9198b2e23035bb4a",
+  "origen": "chatgpt-web"
+}

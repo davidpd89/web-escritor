@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388032882",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Espa?A interminable (El ojo del tiempo) encaja con lectores interesados en los libros de viajes y en las lecturas centradas en destinos y territorios. Puede interesar menos a quien busque una guía práctica de una ciudad concreta o prefiera narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Espa?A interminable (El ojo del tiempo) comparte el interés por los viajes con 33 islas: Un periplo mediterráneo. De Marettimo a Venecia. La diferencia está en el enfoque: uno se identifica con un recorrido territorial y el otro con un periplo por distintas islas; ambos se dirigen a lectores interesados en descubrir destinos a través de los libros.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387873127"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "285b63c08214afe0",
+  "origen": "chatgpt-web"
+}

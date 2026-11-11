@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388054570",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vida privada de la muerte (La Cruz del Sur) se dirige a lectores de poesía interesados en una obra cuyo título sitúa la muerte en el centro de su planteamiento. No responde a la búsqueda de una novela de intriga o de una narración extensa en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vida privada de la muerte (La Cruz del Sur) cuenta con una edición en tapa blanda de 116 páginas, publicada en castellano. Su extensión permite manejar el volumen con facilidad y volver a sus páginas durante distintas sesiones de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Vida privada de la muerte (La Cruz del Sur), de José María Parreño, comparte el ámbito de la poesía con Antología, de Antonio Cano. La diferencia editorial es concreta: Antología reúne la obra completa de su autor, mientras que Vida privada de la muerte (La Cruz del Sur) se presenta como un volumen de 116 páginas firmado por José María Parreño.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370140908"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1169263807e2b383",
+  "origen": "chatgpt-web"
+}

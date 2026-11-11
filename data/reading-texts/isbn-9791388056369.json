@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388056369",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tierra (Libros del Asteroide) encaja con lectores que buscan narrativa contemporánea y están dispuestos a leer una novela de 464 páginas. No responde a la búsqueda de un ensayo o de una obra clasificada dentro del romance.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tierra (Libros del Asteroide) ofrece dos opciones: tapa blanda, con sus 464 páginas en un volumen físico, y Kindle, para leer la obra en formato digital desde un dispositivo compatible. El papel permite conservar el ejemplar; Kindle facilita llevar la lectura sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dc489b031a9d332a",
+  "origen": "chatgpt-web"
+}

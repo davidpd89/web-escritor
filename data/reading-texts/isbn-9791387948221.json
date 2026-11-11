@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387948221",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dónde están los calzoncillos de Papá Noel está dirigido a niños y niñas a partir de 3 años que disfrutan de los cuentos navideños con humor y participación. Su propuesta de buscar una prenda perdida se aleja de las lecturas juveniles con tramas extensas y conflictos complejos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dónde están los calzoncillos de Papá Noel se ofrece en tapa dura, con 32 páginas en castellano. El formato físico permite compartir la búsqueda de los calzoncillos durante la lectura y conservar el cuento para volver a utilizarlo en otras ocasiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dónde están los calzoncillos de Papá Noel comparte con A la caza de Papá Noel: 3 la presencia de Papá Noel como elemento central. El cuento de Becky Davies propone buscar sus calzoncillos mediante una actividad interactiva y humorística, mientras que el título de Emma S. Varela y Robert García plantea una caza relacionada con el mismo personaje navideño.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419135650"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d39c877a319eceea",
+  "origen": "chatgpt-web"
+}

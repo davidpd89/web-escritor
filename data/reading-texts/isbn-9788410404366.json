@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410404366",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fugitivo de la desesperación (Poetica satori), de Sakutarô Hagiwara, está dirigido a lectores de poesía. Su clasificación poética lo diferencia de las novelas narrativas y de los libros prácticos, por lo que responde a una búsqueda centrada en el verso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fugitivo de la desesperación (Poetica satori) cuenta con una edición de tapa dura presentada como libro de tela. Sus 232 páginas en castellano forman un volumen físico de cubierta rígida, apropiado para conservarlo y consultar sus poemas en distintas sesiones de lectura.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antologia amorosa la voz a ti debida y razon de amor y Fugitivo de la desesperación (Poetica satori) pertenecen al ámbito de la poesía, pero sus títulos señalan intereses diferentes. La obra de Pedro Salinas identifica el amor como eje, mientras que la de Sakutarô Hagiwara sitúa la desesperación en primer plano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b78cad12c1802e89",
+  "origen": "chatgpt-web"
+}

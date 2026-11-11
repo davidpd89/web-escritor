@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Si el corazón se equivoca, se le perdona se dirige a quienes leen memorias personales sobre los vínculos familiares, el amor y las pérdidas. María del Monte aborda estas experiencias desde sus propios recuerdos, por lo que encaja menos con quien busca una biografía cronológica centrada en acontecimientos públicos.",
+      "texto": "Se dirige a quienes leen memorias personales sobre vínculos familiares, afectos y experiencias de vida. María del Monte aborda también las pérdidas y las decepciones, por lo que encaja menos con quien busca una biografía centrada en fechas y acontecimientos públicos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,24 +14,26 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El libro examina cómo influyen la familia, las creencias y las relaciones afectivas en la manera de afrontar las dificultades. María del Monte utiliza recuerdos personales y reflexiones sobre la escucha, el cuidado mutuo y la necesidad de dedicar tiempo a los demás, sin plantear un método de autoayuda.",
+      "texto": "El libro examina el papel de la familia, la amistad, la pareja y la fe en la experiencia personal de María del Monte. Su enfoque parte de recuerdos y conversaciones, con atención al dolor, las relaciones cercanas y la necesidad de dedicar tiempo a los demás, sin plantear un método de autoayuda.",
       "evidencias": [
         "autores",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne las 224 páginas de Si el corazón se equivoca, se le perdona en un volumen físico que permite consultar y releer sus reflexiones. La versión Kindle ofrece el mismo título en formato digital, con la comodidad de llevar la lectura en un móvil o lector electrónico.",
+      "texto": "La tapa blanda reúne las 224 páginas de Si el corazón se equivoca, se le perdona en una edición física de Harpercollins, adecuada para leer y conservar en papel. Kindle permite llevar el texto en un dispositivo de lectura o en el móvil, sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
         "numero_paginas",
+        "edicion",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Canción de amor definitiva y Si el corazón se equivoca, se le perdona comparten una mirada personal sobre las experiencias vitales y los cambios emocionales. El libro de María del Monte se centra en recuerdos familiares y relaciones afectivas, mientras que el de Jorge Martí Aguas presenta cambios de ánimo, país y profesión.",
+      "texto": "Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, comparte con Si el corazón se equivoca, se le perdona el interés por las experiencias vividas, aunque sitúa su propuesta en torno al Camino de Santiago. El libro de María del Monte se concentra en los afectos, la familia y las reflexiones personales, mientras que el otro se presenta como unas vivencias vinculadas a un recorrido concreto.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,7 +41,7 @@
         "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788401042119"
+        "isbn-9791388099496"
       ]
     }
   ],

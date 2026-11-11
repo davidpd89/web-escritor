@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788466393959",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Herejes de Dune se orienta a lectores de Frank Herbert que buscan continuar una serie de clásicos en una edición de lujo. El título lo identifica como el n.º 5 de Las crónicas de Dune, de modo que no está planteado como punto de partida para quien prefiere comenzar por el primer volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Herejes de Dune reúne 640 páginas en una edición de lujo publicada por Penguin Bolsillo. Su encuadernación rígida resulta apropiada para conservar el volumen en una colección o regalarlo, aunque ocupa más espacio que una edición flexible de extensión comparable.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Casa Capitular: Dune (Las crónicas de Dune 6) (Best Seller | Ficción) pertenece a la misma serie y comparte la autoría de Frank Herbert con Herejes de Dune. Los títulos identifican los números 6 y 5, respectivamente, mientras que Herejes de Dune se distingue por presentarse como edición de lujo en tapa dura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "edicion",
+        "formatos_disponibles"
+      ],
+      "enlaces": [
+        "isbn-9788466393263"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3240b9037ec2018d",
+  "origen": "chatgpt-web"
+}

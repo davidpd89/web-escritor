@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387964788",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Infancia. Adolescencia. Juventud: 404 (El Acantilado) se dirige a lectores de clásicos interesados en las etapas de crecimiento desde la infancia hasta la juventud. Por su planteamiento temático y su pertenencia a la narrativa clásica, encaja menos con quienes buscan una historia centrada en la acción o en conflictos de fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Infancia. Adolescencia. Juventud: 404 (El Acantilado) tiene una edición en tapa blanda de 512 páginas en castellano. Es un volumen extenso para una lectura continuada o distribuida en varias sesiones, con una cubierta flexible que facilita transportarlo frente a una edición rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El niño (Andanzas) y Infancia. Adolescencia. Juventud: 404 (El Acantilado) coinciden en su interés por la infancia, aunque el libro de Lev Tolstói amplía su recorrido temático hasta la adolescencia y la juventud. El niño que fuimos / The Child We Were también remite a esa etapa vital desde su título, mientras que la obra de Lev Tolstói se sitúa expresamente en el ámbito de los clásicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411074445",
+        "isbn-9786073869799"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "26432bb25a70e469",
+  "origen": "chatgpt-web"
+}

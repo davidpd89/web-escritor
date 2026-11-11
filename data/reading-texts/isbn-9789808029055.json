@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9789808029055",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Geodesia: 50 años de ciencia y vivencia, de Melvin J. Hoyer R., se orienta a lectores interesados en la geodesia y en su dimensión científica y experiencial. Por su materia, se distancia de las obras centradas en la ficción y de los libros de divulgación dedicados a otras disciplinas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 263 páginas en castellano y está publicada por Athena Ediciones. El soporte impreso permite consultar el contenido sobre geodesia, realizar anotaciones y mantener el volumen como referencia física de lectura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Geodesia: 50 años de ciencia y vivencia comparte el ámbito de la divulgación científica con Aparece un mundo, de Michael Pollan, aunque este último se centra en la conciencia y no en la geodesia. Frente a 50 cosas que hay que saber sobre IA, de Keith Mansfield, dedicado a la inteligencia artificial, el libro de Melvin J. Hoyer R. aborda la geodesia desde una perspectiva que combina ciencia y experiencia personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309",
+        "isbn-9791387904456"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "79b084c7d6051be8",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399156270",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a quienes leen cuentos, diarios y textos vinculados con la narrativa contemporánea, la poesía y el ensayo. Su combinación de formas literarias lo diferencia de una novela convencional con una única historia continuada.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Gary en tu bolsillo: Cuentos y diarios de Gary Fisher: 1 (Teorías del caos) cuenta con una edición en tapa blanda de 362 páginas. El volumen físico reúne cuentos y diarios en castellano, con una extensión que permite alternar la lectura de sus distintas piezas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Se aproxima a Obras completas III: Ensayo. Narrativa. Poesía: 285 (Biblioteca Castro), de Antonio Buero Vallejo, por reunir distintas formas de escritura, aunque Gary en tu bolsillo: Cuentos y diarios de Gary Fisher: 1 (Teorías del caos) identifica específicamente cuentos y diarios. Otra forma de obrar: Textos sobre poesía y poéticas: 52 (Paralajes), de Tania Favela Bustillo, se concentra en la reflexión sobre la poesía, frente a la combinación de géneros del libro de Gary Fisher.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399023176",
+        "isbn-9788419943583"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "df17f12797b6f9f2",
+  "origen": "chatgpt-web"
+}

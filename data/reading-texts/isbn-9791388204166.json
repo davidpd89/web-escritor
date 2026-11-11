@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388204166",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores de fantasía y aventuras que buscan una novela extensa. La copa mancillada (Tapa dura) (La sombra del leviatan), de Robert Jackson Bennett, reúne 480 páginas y se aleja de la narrativa realista y de los libros de divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La copa mancillada (Tapa dura) (La sombra del leviatan) se presenta en tapa dura, una encuadernación rígida para conservar sus 480 páginas y mantenerlas protegidas en la estantería. La edición de Hidra Adulto está publicada en castellano y también puede utilizarse como regalo en formato físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alas de escarcha y oro: El canto del cisne comparte con La copa mancillada (Tapa dura) (La sombra del leviatan) el terreno de la fantasía, aunque presenta a Eira y el ocultamiento de sus dones como elementos de su conflicto. Anatema (edición limitada) (El Bosque Voraz 1) ofrece otra referencia de ficción fantástica, con una identificación de primer volumen en el título, frente a la pertenencia de la obra de Robert Jackson Bennett a La sombra del leviatan.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "504bcdc4283b2c4d",
+  "origen": "chatgpt-web"
+}

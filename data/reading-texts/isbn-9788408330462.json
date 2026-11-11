@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788408330462",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Club Cookies 1. Amigas para siempre encaja con lectores interesados en narrativa de temática familiar y en historias donde la amistad ocupa un lugar destacado desde el propio título. Sus 128 páginas ofrecen una lectura de extensión contenida; no está planteado como un ensayo ni como un libro de divulgación.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda concentra las 128 páginas de Club Cookies 1. Amigas para siempre en una edición física ligera y manejable. Es el formato disponible para este libro, adecuado para transportarlo y guardarlo sin necesitar el espacio de una edición de mayor tamaño.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Club Cookies 1. Amigas para siempre comparte colección, autoría y extensión con Club Cookies 2. Una fiesta muy dulce, de Véronique Delamarre, Pascale Perrier y Lorena Calderón. Los dos títulos tienen 128 páginas y temática familiar; el primero destaca la amistad en su título, mientras que el segundo introduce una fiesta como referencia central.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408330486"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e6c7f8cdd8b5e6d2",
+  "origen": "chatgpt-web"
+}

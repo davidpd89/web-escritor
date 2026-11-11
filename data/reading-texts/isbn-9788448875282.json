@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788448875282",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este pack está dirigido a lectores infantiles que disfrutan de Bluey y de los libros para compartir en familia. Reúne tres títulos de cuentos infantiles, por lo que no encaja con quien busca una novela extensa o lecturas de misterio y suspense.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte personaje y autoría con Bluey. Un cuento - La noche antes de Navidad (Cuentos infantiles) y Bluey. Un cuento con solapas - Fiesta de pijamas (Cuentos infantiles). La diferencia está en la composición: este pack reúne tres libros, entre ellos ¿Dónde están Bluey y Bingo?, Bluey se divierte y Unicorsio, mientras que los otros títulos se presentan como cuentos individuales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874858",
+        "isbn-9788448875541"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "78c2e84a5e45dd70",
+  "origen": "chatgpt-web"
+}

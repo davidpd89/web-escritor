@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ciencias del comportamiento (Edición especial) se dirige a lectores interesados en comprender la conducta humana y aplicar técnicas de comunicación y negociación a situaciones cotidianas. Su planteamiento práctico encaja menos con quienes buscan una investigación exclusivamente académica o una obra de ficción psicológica.",
+      "texto": "Ciencias del comportamiento (Edición especial) se dirige a lectores interesados en aplicar la psicología del comportamiento a la comunicación y la negociación cotidiana. Su enfoque práctico se aleja de los estudios históricos o de los tratados exclusivamente teóricos sobre las relaciones humanas.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,43 +13,42 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Ciencias del comportamiento (Edición especial) se presenta en una edición de Temas de Hoy encuadernada en tapa dura sin sobrecubierta. El volumen contiene 512 páginas en castellano y lleva el ISBN 9791388279263. Esta presentación en cartoné distingue físicamente la edición especial de la alternativa en tapa blanda.",
+      "texto": "Esta edición especial de Ciencias del comportamiento (Edición especial) está publicada por Temas de Hoy en tapa dura de cartoné sin sobrecubierta. Reúne 512 páginas en castellano y lleva el ISBN 9791388279263, que permite identificarla frente a otras presentaciones de la obra.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
+        "editorial",
         "numero_paginas",
         "idioma",
-        "isbn13",
-        "formatos_disponibles"
+        "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura de Ciencias del comportamiento (Edición especial) ofrece una encuadernación rígida para conservar y consultar sus 512 páginas. La tapa blanda es una alternativa física más flexible, mientras que Kindle permite leer el contenido en el móvil o en un lector electrónico. La elección depende de si se prioriza la conservación del volumen, su manejo o la lectura digital.",
+      "texto": "La tapa dura reúne las 512 páginas de Ciencias del comportamiento (Edición especial) en un volumen físico de cartoné, adecuado para consultar pasajes y conservarlo en una estantería. Kindle permite llevar el mismo título en un dispositivo de lectura o en el móvil, sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
-        "edicion",
         "numero_paginas",
+        "edicion",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ciencias del comportamiento (Edición especial) y Despierto pero disperso comparten una orientación práctica hacia la conducta y las habilidades personales. El primero aborda la comunicación y la negociación en situaciones cotidianas, mientras que el segundo trabaja las funciones ejecutivas infantiles y se dirige a familias y docentes. Las leyes fundamentales de la estupidez humana ofrece, en cambio, una reflexión ensayística sobre el comportamiento humano.",
+      "texto": "Despierto pero disperso también aborda herramientas prácticas relacionadas con el comportamiento, aunque se centra en las habilidades ejecutivas infantiles y en la intervención de padres y profesores. Ciencias del comportamiento (Edición especial), de Juan Manuel García Pincho, orienta su método hacia la comunicación y la negociación en situaciones cotidianas, sin limitarlo al ámbito educativo.",
       "evidencias": [
         "titulo",
+        "autores",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788449345999",
-        "isbn-9788491995913"
+        "isbn-9788449345999"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1a52fa882a15fa40",
+  "fuente_hash": "9b7f89c061b8ab3a",
   "origen": "chatgpt-web"
 }

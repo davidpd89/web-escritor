@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788410391758",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Primero llegó el escándalo (Titania época) se dirige a lectores que buscan romance dentro de una novela histórica. Sus 320 páginas ofrecen una extensión intermedia; quien prefiera historias centradas en escenarios actuales o alejadas de las relaciones románticas encontrará aquí otro enfoque.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Primero llegó el escándalo (Titania época) se ofrece en tapa dura, con 320 páginas en castellano. Esta edición de Titania permite conservar el libro con una cubierta rígida y utilizarlo como ejemplar físico de regalo o de biblioteca.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Primero llegó el escándalo (Titania época) comparte autora y sello editorial con Por un beso (Bridgerton 7) Edición Especial (Titania época), de Julia Quinn. Ambos se relacionan con el romance de época, pero el segundo se presenta como edición especial y su título lo identifica como el número 7 de Bridgerton; el primero figura como una edición en tapa dura de 320 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "categorias",
+        "formatos_disponibles",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786316863201"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b0b12b7d5cb98bab",
+  "origen": "chatgpt-web"
+}

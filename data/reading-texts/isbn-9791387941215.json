@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387941215",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los microbios de leonardo y otras historias de la microbiología (Divulgación Científica) se dirige a lectores interesados en la microbiología y la divulgación científica. Sus 256 páginas se centran en una materia científica, por lo que no responde a quien busca una novela de ficción o una guía de ejercicios prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Los microbios de leonardo y otras historias de la microbiología (Divulgación Científica) está disponible en tapa blanda. Sus 256 páginas en castellano permiten consultar el contenido en papel y retomar la lectura por secciones, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA comparte con Los microbios de leonardo y otras historias de la microbiología (Divulgación Científica) el interés por explicar materias científicas. La diferencia está en el objeto de estudio: Keith Mansfield aborda la inteligencia artificial, mientras Raul Rivas Gonzalez se centra en la microbiología y sus historias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cac0971f43a163f8",
+  "origen": "chatgpt-web"
+}

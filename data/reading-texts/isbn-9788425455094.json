@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788425455094",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gramática sucinta de la lengua inglesa (Idiomas) se dirige a quienes quieren dedicar su lectura al estudio de la gramática inglesa mediante un libro en castellano. Sus 336 páginas y su clasificación como ensayo la separan de las lecturas de ficción; no responde a quien busca una novela o una historia protagonizada por personajes.",
+      "evidencias": [
+        "titulo",
+        "idioma",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Gramática sucinta de la lengua inglesa (Idiomas) ofrece 336 páginas impresas en castellano, publicadas por Herder Editorial. El soporte físico permite consultar apartados, retroceder a páginas anteriores y mantener el volumen abierto durante el estudio, sin necesidad de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2cb18bf0c4fae3ab",
+  "origen": "chatgpt-web"
+}

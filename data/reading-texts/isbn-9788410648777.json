@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788410648777",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "En mi Era Pistacho: Juliette's version se dirige a lectores de romance contemporáneo que también buscan componentes de humor. Su combinación de narrativa actual y relaciones sentimentales se aparta de las novelas históricas y de las historias centradas en la fantasía épica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las 400 páginas de En mi Era Pistacho: Juliette's version pueden leerse en tapa blanda o en Kindle. La edición física permite conservar el volumen en la biblioteca o regalarlo, mientras que Kindle facilita llevar la novela completa en un lector electrónico o dispositivo compatible sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "En mi Era Pistacho: Juliette's version comparte el interés por las relaciones románticas con La locura más ardiente: 2 (Novela), de Danielle Lori. La obra de Emily Collins combina romance contemporáneo y humor, mientras que el título de Danielle Lori identifica una entrega numerada de una serie. La diferencia para el lector está entre una propuesta con componentes humorísticos y otra cuya numeración señala una continuidad editorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d5a5d3cc50e90f56",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408316022",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El ratoncito Pérez. Libro con solapas (Libros con solapas y lengüetas) está orientado al público infantil que disfruta explorando cuentos mediante elementos manipulables. Sus 14 páginas de cartón y sus solapas plantean una experiencia distinta de la lectura continuada de una novela juvenil o de un cuento sin mecanismos interactivos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "La lectura combina el seguimiento del libro con la apertura de las solapas que anuncia su título. El formato de cartón y sus 14 páginas permiten recorrerlo por partes, detenerse en los elementos móviles y repetir la exploración durante una lectura compartida.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El ratoncito Pérez. Libro con solapas (Libros con solapas y lengüetas) se ofrece en tapa dura, en una edición de cartón de 14 páginas de Timun Mas Infantil. El soporte físico permite manipular las solapas, una característica ligada al funcionamiento del libro que resulta relevante tanto para el uso infantil como para regalarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuentos del mundo para ir a dormir (Recopilatorio de cuentos) comparte el público infantil, pero reúne relatos para leer, mientras El ratoncito Pérez. Libro con solapas (Libros con solapas y lengüetas) incorpora manipulación de solapas. La noche de Reyes: ¡Con un calendario de retos para cada día desde Navidad hasta la noche de Reyes! (Castellano - A PARTIR DE 3 AÑOS - ÁLBUMES - Otros álbumes) también propone participación, aunque mediante retos diarios y con una temática navideña.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo",
+        "edicion"
+      ],
+      "enlaces": [
+        "isbn-9788408314592",
+        "isbn-9788469646816"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a5ca34bf78123d73",
+  "origen": "chatgpt-web"
+}

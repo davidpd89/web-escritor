@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388528026",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lucrecia: La hermosura no contada de mi violador: 47 (Letra Bastarda), de Rodrigo García Marina, pertenece al ámbito de la poesía y plantea desde su título una referencia explícita a la violencia sexual. Puede interesar a lectores de poesía que acepten esa temática, pero no a quienes prefieran evitar alusiones a la violación. Tiene 230 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lucrecia: La hermosura no contada de mi violador: 47 (Letra Bastarda) está disponible en tapa blanda, con 230 páginas en castellano. El formato impreso permite consultar y releer pasajes de una obra clasificada como poesía; Letraversal publica esta edición.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lucrecia: La hermosura no contada de mi violador: 47 (Letra Bastarda) comparte su clasificación poética con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. La diferencia temática aparece en los títulos: Rodrigo García Marina alude a la violencia sexual, mientras que Pedro Salinas se vincula al amor. También puede compararse con Bajo la condición de forajido, de Francisco Castaño, aunque sus títulos apuntan a asuntos distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288",
+        "isbn-9788490022818"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ce3bfc89372ac739",
+  "origen": "chatgpt-web"
+}

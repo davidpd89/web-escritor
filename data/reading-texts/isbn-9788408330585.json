@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408330585",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tiendas cuquis para colorear (Zenith Original), de Varios autores, está pensado para lectores que buscan actividades de coloreado dentro del ocio y el tiempo libre. Sus 64 páginas delimitan una propuesta breve en formato de libro; no es una novela ni un manual de lectura narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite utilizar Tiendas cuquis para colorear (Zenith Original), de Varios autores, como libro de actividades de 64 páginas. Su encuadernación flexible facilita manejarlo mientras se colorea y abrirlo sobre una superficie de trabajo; es el formato disponible para esta edición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "edicion",
+        "formato_edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos), de Varios autores, comparte con Tiendas cuquis para colorear (Zenith Original), de Varios autores, la propuesta de colorear. La diferencia está en el referente que identifica cada título: uno menciona Roblox y el otro sitúa sus ilustraciones en tiendas de estilo cuqui.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328384"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "34caee88384ef029",
+  "origen": "chatgpt-web"
+}

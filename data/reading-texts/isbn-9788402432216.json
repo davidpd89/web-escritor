@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788402432216",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en las mujeres, el ensayo y los relatos vinculados a Bruguera. Lo mejor de las mujeres de Bruguera (Bruguera Clásica), de Raquel Gu y Antoni Guiral, se aparta de la novela de ficción extensa por su clasificación temática y sus 144 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Lo mejor de las mujeres de Bruguera (Bruguera Clásica) se presenta en tapa dura, con 144 páginas en castellano. Es una opción física para conservar en una estantería, consultar de nuevo o regalar, con una encuadernación rígida que protege las páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte el interés por las mujeres con Nosotras también contamos. Mujeres célebres del México Antiguo / We Matter Too: Famous Women of Ancient Mexico, aunque este último título delimita su asunto al México Antiguo. Lo mejor de las mujeres de Bruguera (Bruguera Clásica) se centra en Bruguera y combina ensayo y relatos, con Raquel Gu y Antoni Guiral como autores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073879088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "28e077939ed21a6f",
+  "origen": "chatgpt-web"
+}

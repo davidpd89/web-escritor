@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791399067347",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Colecciones de cuentos, de Leopoldo Lugones, se dirige a lectores de relatos vinculados al terror, la fantasía y la ciencia ficción. Su condición de colección de cuentos la distingue de las novelas concebidas como una única narración extensa, por lo que encaja menos con quienes buscan ese formato narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Colecciones de cuentos, de Leopoldo Lugones, comparte con Krabat (Alma Juvenil), de Otfried Preussler, su vinculación con la fantasía. La diferencia está en la presentación: el primero reúne cuentos y también se clasifica dentro del terror y la ciencia ficción, mientras que el segundo se identifica como una obra juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387752453"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4302264c2e23503b",
+  "origen": "chatgpt-web"
+}

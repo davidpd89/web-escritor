@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387975593",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Volverás a Región (Hispánica), de Juan Benet, pertenece al ámbito de los clásicos y la narrativa contemporánea. Se dirige a lectores interesados en esa tradición literaria, más que a quienes busquen una obra identificada principalmente con la fantasía, el romance o la aventura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Volverás a Región (Hispánica) se ofrece en tapa blanda, con 336 páginas en castellano. La edición de Alfaguara concentra el texto en un volumen físico de extensión media, que puede guardarse en una estantería o llevarse para leer fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Volverás a Región (Hispánica) comparte autor con Camino de Región (Hispánica), otra obra de Juan Benet. Los dos títulos se sitúan entre los clásicos y la narrativa contemporánea, por lo que la comparación responde principalmente a su autoría y orientación literaria. Volverás a Región (Hispánica) tiene 336 páginas en esta edición y ofrece una alternativa dentro de la obra del mismo escritor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387975616"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6e8e89544ba445ae",
+  "origen": "chatgpt-web"
+}

@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pesadilla antes de Navidad. La sombra sobre la reina de Halloween se dirige a lectores juveniles desde los 12 años interesados en la fantasía, las aventuras y los conflictos entre personajes conocidos. Su trama de amenazas pendientes y enfrentamientos con un villano se aleja de las lecturas realistas o centradas en situaciones cotidianas.",
+      "texto": "Pesadilla antes de Navidad. La sombra sobre la reina de Halloween se dirige a lectores a partir de 12 años que buscan fantasía juvenil con aventuras oscuras. Megan Shepherd y Disney sitúan a Sally ante una amenaza que afecta a su reino. Su conflicto con un enemigo peligroso se distancia de las historias centradas exclusivamente en el humor o la celebración.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,43 +15,46 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "La edad recomendada para Pesadilla antes de Navidad. La sombra sobre la reina de Halloween es a partir de 12 años. La historia incorpora un reino oscuro, un enemigo peligroso y una amenaza contra la ciudad de Halloween, elementos que pueden inquietar a lectores sensibles a los escenarios sombríos y al peligro.",
+      "texto": "Pesadilla antes de Navidad. La sombra sobre la reina de Halloween está recomendada a partir de 12 años. Incluye un reino oscuro, un adversario amenazante y el peligro que afrontan Sally y Jack Skelleton al intentar proteger su hogar. La ambientación sombría y el enfrentamiento con el villano son aspectos que conviene considerar para lectores sensibles al miedo.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela juvenil de fantasía y aventuras construida alrededor de un conflicto que continúa abierto después de anteriores amenazas. Sally ocupa el centro de la acción como reina de la ciudad de Halloween, mientras la búsqueda de un adversario todavía libre sostiene la tensión de la historia.",
+      "texto": "Pesadilla antes de Navidad. La sombra sobre la reina de Halloween combina fantasía juvenil y aventuras alrededor de una amenaza todavía activa. Sally, reina de la ciudad de Halloween, debe enfrentarse a un enemigo relacionado con peligros anteriores y cuenta con Jack Skelleton para detenerlo. La historia parte de acontecimientos previos y traslada parte del conflicto a la ciudad de las Sombras.",
       "evidencias": [
+        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Pesadilla antes de Navidad. La sombra sobre la reina de Halloween reúne 416 páginas en una edición rústica con solapas, apropiada para conservar físicamente o regalar. Kindle permite llevar la misma lectura en un dispositivo compatible y ajustar la presentación del texto sin transportar el volumen impreso.",
+      "texto": "Pesadilla antes de Navidad. La sombra sobre la reina de Halloween se encuentra en tapa blanda y Kindle. La edición física de Libros Disney tiene 416 páginas y encuadernación rústica con solapas, apropiada para conservar el volumen en papel. Kindle permite llevar la novela completa en el móvil o en un lector electrónico sin cargar con el libro.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
+        "formatos_disponibles",
         "edicion",
-        "formatos_disponibles"
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Disney. Alas de estrella comparte con la historia de Sally la fantasía de Disney, pero aborda una elección entre el deber y los sentimientos en lugar de la persecución de un enemigo. Disney. Alas de ensueño también presenta magia y un reino amenazado, aunque se centra en las hadas, mientras Megan Shepherd sitúa el conflicto en la ciudad de Halloween.",
+      "texto": "Pesadilla antes de Navidad. La sombra sobre la reina de Halloween comparte con Agente Stitch 5. Los roedores de Roswell el protagonismo de personajes de Disney ante situaciones peligrosas. La obra de Megan Shepherd y Disney desarrolla una aventura de fantasía oscura protagonizada por Sally, mientras que la otra presenta una investigación de amenazas extraterrestres donde intervienen Stitch y sus compañeros.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387901813",
-        "isbn-9791387526320"
+        "isbn-9791387901943"
       ]
     }
   ],

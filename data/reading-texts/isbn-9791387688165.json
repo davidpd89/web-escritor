@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387688165",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ojos de agua: 47 (Colección Escolar de / Literatura) se orienta a lectores juveniles interesados en el misterio y el thriller. Sus 272 páginas ofrecen una extensión menor que la de muchas novelas largas del género; encaja menos con quienes buscan fantasía, romance o una lectura centrada en la aventura sin intriga.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ojos de agua: 47 (Colección Escolar de / Literatura) se presenta en tapa blanda, con 272 páginas en castellano. Su extensión permite organizar la lectura en varias sesiones y la encuadernación flexible facilita llevar el ejemplar entre casa y el lugar de estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El último barco: 3 (Nuevos Tiempos / Policiaca) comparte autor y temática de misterio con Ojos de agua: 47 (Colección Escolar de / Literatura), pero incorpora también aventuras y se presenta en una colección policiaca. American Caper nº 01: 1 (Thriller) coincide en el género de intriga, aunque tiene autoría colectiva frente a la firma individual de Domingo Villar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788417624279",
+        "isbn-9788491738107"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a159393e4832937d",
+  "origen": "chatgpt-web"
+}

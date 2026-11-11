@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408328537",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Kintsukuroi: El arte de curar heridas emocionales (Autoayuda y superación), de Tomás Navarro, aborda el desarrollo personal desde la recuperación emocional. Se dirige a lectores interesados en la superación y el duelo, no a quienes buscan una novela de ficción o un tratado de historia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Kintsukuroi: El arte de curar heridas emocionales (Autoayuda y superación) puede leerse en tapa blanda o Kindle. La edición física de 272 páginas permite consultar y señalar pasajes sobre recuperación emocional; Kindle facilita llevar la lectura en un dispositivo sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Kintsukuroi: El arte de curar heridas emocionales (Autoayuda y superación) y Duelo, de Michael Cholbi, coinciden en el interés por las experiencias emocionales difíciles. Tomás Navarro sitúa su libro en la autoayuda y la superación, mientras que Michael Cholbi examina el duelo mediante un ensayo filosófico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449344626"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fb6926edff8355b5",
+  "origen": "chatgpt-web"
+}

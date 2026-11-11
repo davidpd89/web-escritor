@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9786073879668",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La República / The Republic, de Jorge Volpi, se dirige a lectores que buscan narrativa contemporánea y prefieren la ficción a los textos de ensayo o desarrollo personal. Su extensión de 280 páginas permite identificarlo como una novela de formato relativamente breve frente a otros volúmenes más extensos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de La República / The Republic, de Jorge Volpi, contiene 280 páginas. Es el formato disponible para quien prefiere tener el libro en papel, transportarlo o incorporarlo a su biblioteca sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e3181b2d03fbf27a",
+  "origen": "chatgpt-web"
+}

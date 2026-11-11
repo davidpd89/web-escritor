@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388228032",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Viajes fuera del cuerpo: La obra de referencia sobre las experiencias extracorpóreas. está dirigido a lectores interesados en las experiencias extracorpóreas y su relación con las inquietudes personales. Por su temática, se aleja de quienes buscan una guía de destinos turísticos o un manual centrado exclusivamente en alimentación y ejercicio físico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Viajes fuera del cuerpo: La obra de referencia sobre las experiencias extracorpóreas. se publica en tapa blanda y tiene 352 páginas. La edición en castellano de Arkano Books permite leerlo en papel y volver a consultar pasajes sobre las experiencias extracorpóreas a lo largo de su extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Viajes fuera del cuerpo, de Robert A. Monroe, aborda las experiencias extracorpóreas, mientras que Cultos y sombras, de Acheron Delacroix, trata las tradiciones ocultas del mundo. Ambos exploran asuntos relacionados con lo desconocido, pero desde enfoques distintos: las experiencias individuales frente a las tradiciones culturales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387667948"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "13b26f43a4f12359",
+  "origen": "chatgpt-web"
+}

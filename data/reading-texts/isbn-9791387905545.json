@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791387905545",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tejedoras de destinos: Una mirada al poder femenino que gobernó la historia de dioses y hombres (No ficción) se dirige a lectores interesados en historia, creencias religiosas y representaciones del poder femenino. Por su condición de ensayo, se aleja de quienes buscan una novela de fantasía protagonizada por diosas o personajes mitológicos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Laia San José Beltrán aborda el poder femenino en relación con los dioses, los seres humanos y la historia. El libro combina un enfoque histórico con cuestiones religiosas y espirituales, dentro de una obra de ensayo de 320 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Roca Editorial está disponible en tapa blanda y reúne 320 páginas en castellano. Permite leer el ensayo en papel y conservarlo como volumen de consulta sobre historia, poder femenino y creencias religiosas.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La huella vikinga: Una era que trascendió la historia y ha conquistado nuestra cultura (No ficción) comparte autora con Tejedoras de destinos: Una mirada al poder femenino que gobernó la historia de dioses y hombres (No ficción), pero se centra en la herencia cultural vikinga. Mitologías: Los mitos grecorromanos a través del arte (Enciclopedia visual), de Camille Jouneaux, también trata el ámbito mitológico, aunque desde las representaciones artísticas y con un planteamiento de enciclopedia visual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466393843",
+        "isbn-9780241829011"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8f5f68f5701b9692",
+  "origen": "chatgpt-web"
+}

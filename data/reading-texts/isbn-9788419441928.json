@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788419441928",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Watashi no nihongo N4 (edición revisada y ampliada): Aprende japonés de forma divertida, ordenada y muy aesthetic. Orientado a conseguir el nivel Noken 4 (Idiomas) está dirigido a quienes estudian japonés con el objetivo de alcanzar el nivel Noken 4. Su planteamiento de aprendizaje ordenado no corresponde a una lectura de ficción ni a un ensayo sobre la cultura japonesa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición revisada y ampliada de la obra de Sandra Carrascosa Urbán está publicada por Random Cómic en castellano. Reúne 280 páginas en tapa blanda, con fecha editorial del 12 de noviembre de 2026. Su título identifica expresamente la revisión y ampliación y mantiene el objetivo de preparación para Noken 4.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "fecha_publicacion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro aborda el aprendizaje del japonés con una organización orientada al nivel Noken 4. Sandra Carrascosa Urbán presenta una propuesta que, según el título, combina un orden de estudio definido con una estética visual reconocible. Sus 280 páginas corresponden a una edición revisada y ampliada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite trabajar con las 280 páginas de este libro de aprendizaje del japonés en un volumen físico. Es una edición de Random Cómic en castellano, adecuada para consultar contenidos y volver a ellos durante la preparación del nivel Noken 4. Su encuadernación flexible facilita transportarlo frente a un volumen de cubierta rígida.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "294f448ffb29c490",
+  "origen": "chatgpt-web"
+}

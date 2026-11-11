@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387804138",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra se dirige a lectores interesados en la historia de PlayStation y en los 150 videojuegos seleccionados en su título. Sus 232 páginas se sitúan en el terreno del ensayo histórico sobre videojuegos, por lo que no responde a la búsqueda de ficción narrativa ni de un manual de instrucciones para jugar.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Random Cómic está disponible en tapa dura, con 232 páginas en castellano. Su encuadernación rígida permite conservar el volumen en una biblioteca y consultarlo posteriormente; también constituye una opción de regalo vinculada al interés por la historia de PlayStation.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra dedicada a PlayStation comparte con Bestiario de España: Mitos y leyendas de nuestro país (No ficción ilustrados), de Javier Prado Coronel, el interés por reunir contenidos relacionados con un ámbito cultural concreto. La primera se centra en una selección de 150 videojuegos, mientras que la segunda aborda mitos y leyendas de España. También se diferencia de Diatribas. 31 lecciones estoicas sobre la vida (Biblioteca Edaf), de Epicteto, cuyo contenido pertenece al campo de la filosofía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949976",
+        "isbn-9788441445086"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cca5a7d05d68b989",
+  "origen": "chatgpt-web"
+}

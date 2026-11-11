@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073869799",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El niño que fuimos / The Child We Were se dirige a lectores de narrativa contemporánea interesados en la infancia como tema literario. La obra de Alma Delia Murillo se sitúa fuera de los géneros de fantasía y divulgación práctica, por lo que responde a una búsqueda distinta de la lectura de aventuras o de manuales educativos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer las 304 páginas de El niño que fuimos / The Child We Were en un volumen físico de cubierta flexible. Este formato facilita llevar la novela en una bolsa y conservarla en una estantería sin el volumen adicional que suele aportar una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El niño (Andanzas), de Fernando Aramburu, comparte con El niño que fuimos / The Child We Were el interés por la infancia, aunque pertenece a una autoría distinta. Infancia. Adolescencia. Juventud: 404 (El Acantilado), de Lev Tolstói, amplía el recorrido temático hacia otras etapas de la vida, mientras que la obra de Alma Delia Murillo se presenta dentro de la narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411074445",
+        "isbn-9791387964788"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2c0823816ec8097d",
+  "origen": "chatgpt-web"
+}

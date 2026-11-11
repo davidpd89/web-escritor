@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788419820143",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Entre hormonas y comilonas (Vergara) encaja con lectores interesados en la alimentación dentro del ámbito familiar. Juan Llorca y Melisa Gómez firman un volumen de 160 páginas vinculado a cocina y crianza; por su temática, se aleja de quienes buscan exclusivamente ficción o aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Entre hormonas y comilonas (Vergara) se publica en tapa blanda, con 160 páginas en castellano. Esta edición de Vergara permite consultar el contenido en papel y transportarlo sin el peso habitual de un volumen de tapa dura de extensión equivalente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Entre hormonas y comilonas (Vergara) comparte su interés por la cocina con Cocina japonesa familiar: 60 recetas de cocina casera (Comerse el mundo). Juan Llorca y Melisa Gómez relacionan alimentación, familia y crianza en una obra de 160 páginas, mientras que Saori Ichihara centra su libro en 60 recetas de cocina japonesa casera. La diferencia está en el enfoque familiar y de crianza frente a una propuesta culinaria delimitada por una tradición gastronómica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419483911"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "84ec9d11dce1c43b",
+  "origen": "chatgpt-web"
+}

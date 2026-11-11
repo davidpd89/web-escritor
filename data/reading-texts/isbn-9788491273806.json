@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788491273806",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores de poesía interesados en la obra de José María Valverde y en una recopilación publicada con motivo del centenario de su nacimiento. Por su carácter de antología poética, se aleja de la narrativa de argumento continuo y de los manuales de escritura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El volumen reúne una antología de la poesía de José María Valverde en el marco conmemorativo del centenario de su nacimiento. Su planteamiento se sitúa entre la recopilación literaria y el ámbito del ensayo, con la obra poética del autor como eje central.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda tiene 326 páginas y permite consultar los poemas en papel, marcar fragmentos y regresar a distintas partes de la antología. Publicauex Editorial la presenta en castellano dentro de la colección Textos UEx.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "titulo",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Otra forma de obrar: Textos sobre poesía y poéticas: 52 (Paralajes) comparte el interés por la poesía, pero se presenta como una recopilación de textos sobre poesía y poéticas, mientras esta obra es una antología de José María Valverde. Obras completas III: Ensayo. Narrativa. Poesía: 285 (Biblioteca Castro) reúne varios géneros de Antonio Buero Vallejo, frente al enfoque exclusivamente poético de esta selección.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399023176",
+        "isbn-9788419943583"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4a7efe1d7f212c00",
+  "origen": "chatgpt-web"
+}

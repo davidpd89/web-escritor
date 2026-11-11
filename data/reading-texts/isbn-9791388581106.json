@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388581106",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pero no se lo digas: 148 (VdB Teatro contemporáneo) se dirige a quienes leen teatro contemporáneo o buscan textos vinculados a las artes escénicas. Sus 122 páginas y su identificación teatral lo distinguen de una novela extensa o de una guía práctica de técnicas artísticas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 122 páginas de Pero no se lo digas: 148 (VdB Teatro contemporáneo) en un volumen físico. Permite marcar intervenciones, tomar notas en los márgenes y consultar fragmentos concretos durante el trabajo con un texto teatral.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pero no se lo digas: 148 (VdB Teatro contemporáneo) se relaciona con Arde Talía: Una pieza teatral sobre el infierno de la creación artística por su carácter teatral. Ferran González firma la primera obra, mientras que la segunda tiene cinco autoras y aborda expresamente la creación artística. La diferencia más clara para el lector está en esa autoría y en el asunto anunciado por cada título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399289510"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "48078264163846b3",
+  "origen": "chatgpt-web"
+}

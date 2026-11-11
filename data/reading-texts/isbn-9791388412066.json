@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388412066",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Terrores ancestrales: Cuentos espeluznantes de la noche de los tiempos (Impedimenta) se dirige a lectores de relatos de miedo y narrativa de varios autores. La presencia de cuentos espeluznantes lo aleja de quienes prefieren historias sin elementos inquietantes o novelas de una sola autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Terrores ancestrales: Cuentos espeluznantes de la noche de los tiempos (Impedimenta) propone una colección de relatos de terror vinculados a motivos ancestrales. El volumen reúne textos de distintos autores, entre ellos Robert Aickman, Joan Aiken, Algernon Blackwood y Ramsey Campbell. Sus 384 páginas en castellano permiten abordar la lectura como una sucesión de cuentos en lugar de una única narración extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Terrores ancestrales: Cuentos espeluznantes de la noche de los tiempos (Impedimenta) está disponible en Tapa dura y Kindle. La edición de Impedimenta reúne 384 páginas en un volumen físico que puede conservarse y consultarse por cuentos; Kindle permite alternar los relatos desde un dispositivo electrónico sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "851917aaeafd0a03",
+  "origen": "chatgpt-web"
+}

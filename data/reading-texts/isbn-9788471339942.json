@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788471339942",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Peritación técnica de manuscritos (Instrumenta Bibliologica) se dirige a lectores interesados en el estudio técnico de manuscritos dentro del ámbito del arte y el diseño. Por su orientación especializada, se aleja de las lecturas centradas en la creación artística práctica o la ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Peritación técnica de manuscritos (Instrumenta Bibliologica) está disponible en tapa blanda, con 300 páginas en castellano. Esta edición física permite consultar distintos apartados y volver a páginas anteriores durante el estudio de los manuscritos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Peritación técnica de manuscritos (Instrumenta Bibliologica) y 720 retrats comparten su vinculación con el ámbito visual. El libro de Elisa Ruiz García se centra en la peritación técnica de manuscritos, mientras que el título de Xavier Mollà i Revert remite al retrato. Ambos abordan materias distintas dentro del arte y el diseño.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "81768c8b08797ec2",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387595715",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las mujeres de New Jersey (THRILLER Y MISTERIO) encaja con lectores que buscan una novela de misterio y thriller con presencia temática de mujeres. La obra de Astrid Dahl se aleja de las preferencias por la narrativa romántica o las historias sin componentes de intriga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las mujeres de New Jersey (THRILLER Y MISTERIO) puede leerse en tapa blanda o en Kindle. La edición impresa reúne 320 páginas y permite conservar el libro en papel, mientras que Kindle facilita llevar la lectura en un dispositivo compatible o en el móvil mediante la aplicación correspondiente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las mujeres de New Jersey (THRILLER Y MISTERIO), de Astrid Dahl, comparte el terreno del suspense con Donde callan los niños (Imágica Intriga), de Eva Zamora Zamora. El primer título destaca expresamente a las mujeres y sitúa New Jersey como referencia geográfica; el segundo pone el foco de su título en los niños y el silencio. La comparación permite distinguir dos puntos de partida dentro de la narrativa de intriga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210729"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bb5ab77685ede29d",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9791388387494",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sapiens. Una historia gráfica - Edición estuche con los 4 volúmenes: El nacimiento de la humanidad | Los pilares de la civilización | Los amos de la historia | La era de las revoluciones se dirige a lectores interesados en historia y divulgación científica mediante una presentación gráfica. Su extensión de 1040 páginas y su composición en varios volúmenes lo alejan de quienes buscan una lectura breve en un único tomo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra de Yuval Noah Harari organiza su recorrido histórico alrededor del origen de la humanidad, la civilización, las estructuras de poder y las revoluciones. La presentación gráfica combina su clasificación histórica con una orientación divulgativa. Los títulos de los volúmenes permiten identificar esas grandes etapas sin reducirlas a un único periodo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El estuche está disponible en tapa dura y reúne 1040 páginas repartidas entre los 4 volúmenes anunciados. Esta presentación permite conservar los tomos juntos, separarlos para la lectura y mantener la colección agrupada en una estantería. También constituye una opción de regalo en formato físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sapiens. Una historia gráfica 4 - La era de las revoluciones, de Yuval Noah Harari y David Vandermeulen, corresponde a uno de los títulos incluidos en el estuche. La obra individual se centra en la etapa de las revoluciones, mientras que el conjunto de Yuval Noah Harari incorpora también los volúmenes dedicados al nacimiento de la humanidad, la civilización y los amos de la historia. La diferencia práctica está entre adquirir ese título por separado o reunir la colección anunciada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387904661"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3f24be815c69cdb7",
+  "origen": "chatgpt-web"
+}

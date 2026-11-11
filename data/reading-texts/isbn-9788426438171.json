@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788426438171",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tan poca vida (Narrativa), de Hanya Yanagihara, encaja con lectores de narrativa contemporánea dispuestos a abordar una novela de 1004 páginas. Por su extensión, se aleja de las lecturas breves y de quienes buscan terminar un libro en pocas sesiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tan poca vida (Narrativa) está disponible en tapa blanda y Kindle, dos opciones para afrontar sus 1004 páginas. La edición física de Lumen permite conservar el volumen en papel, mientras que Kindle facilita llevar una obra de esta extensión en un lector electrónico o en el móvil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tan poca vida (Narrativa) se compara directamente con Estuche Tan poca vida (Narrativa), ya que ambas ediciones corresponden a una obra de Hanya Yanagihara publicada por Lumen. La primera ofrece una edición en tapa blanda de 1004 páginas, mientras que la segunda se distingue por su presentación en estuche. Ambas pertenecen a la narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426438164"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aa933772edd46dfe",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410944145",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cáncer Después del diagnóstico: El libro que todo paciente oncológico necesita leer, de Carolina Pan, está dirigido a personas interesadas en el proceso posterior a un diagnóstico de cáncer. Su orientación hacia el bienestar, la psicología y el desarrollo personal lo diferencia de los manuales de ficción o de los libros centrados en el entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cáncer Después del diagnóstico: El libro que todo paciente oncológico necesita leer está disponible en tapa blanda, con 278 páginas en castellano. Esta edición de La Esfera de los Libros permite consultar y releer apartados en papel, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cáncer Después del diagnóstico: El libro que todo paciente oncológico necesita leer, de Carolina Pan, se relaciona por su orientación psicológica con Recupera tu mente, reconquista tu vida (Edición especial con cantos tintados) (Espasa Crecimiento personal), de Marian Rojas Estapé. El primero se centra en el contexto de un diagnóstico oncológico, mientras que el segundo plantea una recuperación personal de alcance más general.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084061"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fd30d4874d731d6f",
+  "origen": "chatgpt-web"
+}

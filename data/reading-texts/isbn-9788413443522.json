@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788413443522",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Alimenta tu vida se dirige a quienes buscan lecturas sobre nutrición y bienestar, con interés en la relación entre alimentación y cuidado personal. Sus 256 páginas lo sitúan en una extensión moderada dentro de los libros divulgativos; no responde al perfil de una novela de ficción ni al de una obra centrada en aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Alimenta tu vida, de Pablo Ojeda, cuenta con una edición en tapa blanda de 256 páginas. Es una opción física para leer y consultar contenidos sobre nutrición y bienestar, con una extensión inferior a la de los manuales de gran volumen. La publicación corresponde a Alienta Editorial y está escrita en castellano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alimenta tu vida puede compararse con 5 semanas para desinflamarte (edición limitada), de Blanca García-Orea Haro, por su relación con la alimentación y el bienestar. Pablo Ojeda aborda un marco general de nutrición y bienestar, mientras que el título de Blanca García-Orea Haro plantea un objetivo concreto vinculado a la inflamación. Alimenta tu vida tiene 256 páginas y está publicado por Alienta Editorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394390"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "89114a2233b0cb9b",
+  "origen": "chatgpt-web"
+}

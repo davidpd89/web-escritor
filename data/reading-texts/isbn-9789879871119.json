@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9789879871119",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "All Black Cuaderno (LIBRETAS ARTÖSTICAS), de Varios autores, encaja con quienes buscan una publicación vinculada al arte y el diseño en formato de cuaderno. Sus 128 páginas y su edición en tapa dura lo distinguen de una novela convencional; responde menos a una búsqueda de narrativa que a un interés por los objetos editoriales de temática artística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "All Black Cuaderno (LIBRETAS ARTÖSTICAS) se presenta en tapa dura, con 128 páginas. Esta encuadernación proporciona una cubierta rígida para conservarlo, transportarlo o regalarlo como objeto editorial relacionado con el arte y el diseño. Su formato físico permite tenerlo a mano sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "All Black Cuaderno (LIBRETAS ARTÖSTICAS) comparte el ámbito del arte y el diseño con Banksy: I want to be what you saw in me (MISCELANEAS) y Chanel XXI (Divulgación), ambos atribuidos a Varios autores. La diferencia está en el enfoque anunciado por los títulos: All Black Cuaderno se identifica como cuaderno, mientras los otros dos remiten a asuntos artísticos o de divulgación concretos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789509509504",
+        "isbn-9788410989726"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a0e62fcb501a7d03",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788403526952",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El camino: Tu guía hacia una vida con sentido y alegría (Inspiración), de Konosuke Matsushita, se dirige a lectores interesados en el desarrollo personal y la filosofía. Su enfoque se aleja de quienes buscan ficción, tramas narrativas o aventuras como centro de la lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 280 páginas de El camino: Tu guía hacia una vida con sentido y alegría (Inspiración), de Konosuke Matsushita, en papel. Es una opción para quien quiere consultar el libro físicamente y conservarlo como parte de su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El camino: Tu guía hacia una vida con sentido y alegría (Inspiración), de Konosuke Matsushita, comparte el interés por la reflexión vital con Cuando solo queda aire: Aprender a morir es aprender a vivir (Crecimiento personal), de Paul Kalanithi. Ambos títulos abordan cuestiones relacionadas con la vida, aunque el primero se encuadra en el desarrollo personal y la filosofía, mientras que el segundo sitúa su planteamiento en el aprendizaje de vivir y morir.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425375286"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2fe884669c9d3a34",
+  "origen": "chatgpt-web"
+}

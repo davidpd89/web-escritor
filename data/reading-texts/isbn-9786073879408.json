@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9786073879408",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes disfrutan de las actividades de colorear y del universo de Kpop Demon Hunters. Su planteamiento pertenece al ocio creativo, por lo que encaja con lectores que buscan dibujar y colorear, no con quienes prefieren una narración o una novela.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible y reúne 96 páginas para colorear. Es una edición física que permite trabajar directamente sobre el papel y guardar las ilustraciones terminadas, sin depender de una pantalla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprende a dibujar con KPop Demon Hunters: Edición OFICIAL en español (Montena) comparte el universo de Kpop Demon Hunters, pero se centra en aprender a dibujar, mientras que este título propone colorear. 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos) también gira alrededor del coloreado, aunque parte del universo de Roblox en lugar de Kpop Demon Hunters.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328384",
+        "isbn-9791388322778"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "553edf101a6f813d",
+  "origen": "chatgpt-web"
+}

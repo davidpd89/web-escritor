@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788491058564",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Humillados y ofendidos se dirige a lectores de clásicos que buscan una obra de Fiodor M Dostoievski en castellano. Sus 512 páginas requieren una lectura más extensa que la de un libro breve; por género, no responde a quien busca una novedad de narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Humillados y ofendidos está disponible en tapa blanda y Kindle. La edición física de Penguin Clásicos reúne 512 páginas y permite conservar el ejemplar en papel; Kindle ofrece la alternativa digital para leerlo en un dispositivo compatible sin transportar ese volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El doble y Humillados y ofendidos comparten autor: Fiodor M Dostoievski. La diferencia comprobable para elegir entre ambos es que Humillados y ofendidos cuenta con una edición de 512 páginas en Penguin Clásicos, mientras que la comparación con El doble se establece por la autoría, no por una equivalencia de argumento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "numero_paginas",
+        "editorial"
+      ],
+      "enlaces": [
+        "isbn-9788491058571"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "692c65f4bfe4f83e",
+  "origen": "chatgpt-web"
+}

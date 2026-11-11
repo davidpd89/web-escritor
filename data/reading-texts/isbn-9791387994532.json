@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Amigos de verdad está pensado para lectores a partir de 9 años que quieran comprender mejor sus amistades, los conflictos y los límites personales. Iris Pérez-Bonaventura propone actividades y consejos relacionados con las emociones; no es una novela de aventuras ni una historia de ficción protagonizada por un grupo de amigos.",
+      "texto": "Amigos de verdad se dirige a lectores a partir de 9 años interesados en comprender sus amistades, reconocer conflictos y aprender a poner límites. Su enfoque de desarrollo personal y sus actividades de reflexión encajan menos con quien busca una historia de ficción protagonizada por personajes.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,51 +14,48 @@
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "Amigos de verdad se utiliza como una guía práctica para examinar situaciones habituales entre amigos y pensar cómo afrontarlas. Incluye tests, ejemplos, ilustraciones, consejos y espacios donde escribir reflexiones propias. Las actividades permiten trabajar la identificación de problemas, la gestión emocional y el establecimiento de límites en las relaciones.",
+      "texto": "Amigos de verdad combina lectura y participación mediante tests, ejemplos de conflictos entre amigos y espacios para escribir reflexiones. Las ilustraciones y los consejos de Iris Pérez-Bonaventura permiten trabajar el reconocimiento de emociones, los límites personales y las relaciones de amistad a partir de situaciones cotidianas.",
       "evidencias": [
         "titulo",
+        "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Amigos de verdad está recomendado a partir de 9 años y contiene 176 páginas en castellano. La edición de Ediciones B se presenta en tapa blanda con solapas y combina explicaciones con recursos ilustrados y ejercicios de reflexión. Su enfoque corresponde a la no ficción infantil y juvenil sobre amistad y desarrollo personal.",
+      "texto": "Amigos de verdad está recomendado a partir de 9 años y tiene 176 páginas. La edición de Ediciones B es en castellano, con tapa blanda y solapas, y reúne explicaciones, ilustraciones, tests y espacios para reflexionar sobre las amistades.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
         "numero_paginas",
-        "idioma",
-        "editorial",
         "edicion",
-        "categorias",
+        "editorial",
+        "idioma",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Amigos de verdad permite utilizar sus 176 páginas en papel, especialmente los espacios reservados para escribir reflexiones y realizar actividades. Kindle ofrece una lectura digital de la guía, útil para consultar sus consejos y ejemplos desde un dispositivo. El papel facilita trabajar directamente sobre el ejemplar.",
+      "texto": "La tapa blanda de Amigos de verdad permite consultar sus 176 páginas y utilizar los espacios destinados a reflexiones por escrito. La edición Kindle facilita llevar la lectura en el móvil o en un lector electrónico, aunque las actividades pensadas para escribir sobre el papel resultan más directas en el ejemplar físico.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "edicion",
         "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Amigos de verdad y Me llamo Goa 12 - ¡Eres única, Goa! comparten el interés por las experiencias de crecimiento de lectores jóvenes, pero Iris Pérez-Bonaventura ofrece herramientas sobre amistad y Míriam Tirado presenta situaciones de la adolescencia mediante un personaje. Enzo Brown: loco por el basket 5 - La cancha es de todos se acerca a las relaciones entre compañeros desde el baloncesto, frente al enfoque práctico de Amigos de verdad.",
+      "texto": "Amigos de verdad y Tíos y Tías (AMOR DE FAMILIA) comparten el interés por los vínculos personales, aunque el primero se centra en las amistades y el segundo sitúa las relaciones familiares en su título. Frente a El bolsillo de la maestra (Tesoros), de Joan Turu, el libro de Iris Pérez-Bonaventura aborda específicamente los conflictos entre amigos mediante tests y ejercicios de reflexión.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "edad_recomendada",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387994563",
-        "isbn-9791387994303"
+        "isbn-9788410438491",
+        "isbn-9788410252684"
       ]
     }
   ],

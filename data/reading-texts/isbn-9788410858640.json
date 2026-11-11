@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410858640",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores que investigan las relaciones entre el Derecho de la Unión Europea y los procedimientos jurídicos nacionales. Juan Jorge Piernas Lopez aborda el impacto del marco europeo sobre el Derecho Procesal Nacional; no está orientado a quien busca una introducción general a las instituciones europeas desligada de sus consecuencias procesales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Aranzadi se presenta en tapa blanda, con 400 páginas en castellano. Permite mantener en papel un estudio sobre la influencia del Derecho de la Unión Europea en el Derecho Procesal Nacional, con una extensión suficiente para organizar la lectura en varias sesiones y volver a los apartados consultados.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El abordaje y registro de buques en el proceso penal (Monografía), de Javier Blanco Vargas, coincide en su atención al ámbito procesal, aunque se concentra en actuaciones sobre buques dentro del proceso penal. El estudio de Juan Jorge Piernas Lopez adopta otro enfoque: examina la influencia del Derecho de la Unión Europea sobre el Derecho Procesal Nacional, en lugar de una actuación procesal específica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370610487"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d6849af0d1e51771",
+  "origen": "chatgpt-web"
+}

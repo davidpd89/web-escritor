@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788466392112",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La gravedad y la gracia (Contemporánea | Narrativa), de Simone Weil, se dirige a lectores interesados en filosofía, ensayo y cuestiones relacionadas con el poder y la política. Su clasificación temática la aleja de una novela de entretenimiento centrada en una trama de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La gravedad y la gracia (Contemporánea | Narrativa) se publica en libro de bolsillo de Penguin Bolsillo, con 216 páginas, para quienes prefieren un ejemplar físico de tamaño manejable. Kindle ofrece una alternativa digital para consultar y leer el texto sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La gravedad y la gracia (Contemporánea | Narrativa) comparte autora con Esenciales, de Simone Weil, que propone una panorámica de sus escritos. La primera se presenta como un volumen de 216 páginas dentro del ensayo y la filosofía, mientras que Esenciales plantea un recorrido más amplio por su obra. También coincide en autoría con La Ilíada o el poema de la fuerza: Seguido de No empecemos otra vez la guerra de Troya (ENSAYO), cuyo título delimita otros textos y asuntos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430629138",
+        "isbn-9791399203035"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4a43c2f355abf077",
+  "origen": "chatgpt-web"
+}

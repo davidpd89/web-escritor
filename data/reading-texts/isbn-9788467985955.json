@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788467985955",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Matteo. Edición integral: 1 se dirige a lectores de cómic y novela gráfica que buscan una edición extensa en castellano. La obra de Jean-Pierre Gibrat reúne 448 páginas, por lo que se aleja de las lecturas gráficas breves y de quienes prefieren narrativa exclusivamente textual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Matteo. Edición integral: 1 se presenta en tapa dura, con 448 páginas en castellano. Esta encuadernación permite conservar el volumen como parte de una colección de cómics y novelas gráficas, aunque exige transportar un libro físico de considerable extensión. Es la edición publicada por Norma Editorial.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1baa106544982b65",
+  "origen": "chatgpt-web"
+}

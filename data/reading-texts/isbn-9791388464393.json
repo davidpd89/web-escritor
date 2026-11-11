@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388464393",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la sumillería, el análisis sensorial y la elaboración de ofertas vinculadas al enoturismo. Sus 242 páginas se centran en un ámbito gastronómico especializado, por lo que encaja menos con quien busca un recetario de cocina doméstica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 242 páginas de esta obra sobre análisis sensorial y enoturismo. El formato impreso permite consultar sus contenidos y volver a distintos apartados durante el estudio o la preparación de ofertas de sumillería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Atlas Mundial Del Vino (NATURART) comparte el interés por el vino, pero aborda una perspectiva geográfica frente al análisis sensorial y el diseño de ofertas de sumillería. Champagne: El vino más famoso del mundo (GASTRONOMIA) se concentra en un tipo de vino, mientras que esta obra se orienta al trabajo con productos selectos en enoturismo.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418075933",
+        "isbn-9791387934170"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fbb04e658e2300be",
+  "origen": "chatgpt-web"
+}

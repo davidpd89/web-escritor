@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9798890981776",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra de Liz Moody se dirige a quienes buscan desarrollo personal relacionado con la salud, el bienestar, las relaciones y la vida familiar. Su enfoque temático se aleja de la ficción narrativa y de los libros dedicados exclusivamente a la cocina o al ejercicio físico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Vintage Espanol se presenta en tapa blanda y reúne 368 páginas en castellano. El formato físico permite consultar distintos apartados sobre bienestar y relaciones, volver a páginas anteriores y conservar el volumen para futuras lecturas.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología), de Ramón Nogueras Pérez, se concentra en las relaciones amorosas, mientras que la obra de Liz Moody abarca también salud, felicidad y éxito. El duelo: cómo atenderte: Una guía para acompañarte después de la muerte de una persona amada, de Irma Vallès Hernàndez, aborda una experiencia emocional más concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387534370",
+        "isbn-9788409921065"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "daf5a9f003b36aa7",
+  "origen": "chatgpt-web"
+}

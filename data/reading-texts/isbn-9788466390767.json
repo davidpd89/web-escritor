@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466390767",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Minnesota (Best Seller | Ficción), de Jo Nesbo, encaja con lectores que buscan narrativa de misterio y thriller. Su clasificación apunta a una lectura centrada en la intriga, por lo que se distancia de las novelas cuyo interés principal es el romance o la fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Minnesota (Best Seller | Ficción) está disponible en tapa blanda y Kindle. La edición de bolsillo reúne sus 376 páginas en un volumen físico para leer y conservar, mientras que Kindle permite llevar la novela en un lector electrónico o en un móvil compatible sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Minnesota (Best Seller | Ficción) puede compararse con Sin piedad (Harry Hole 14), también de Jo Nesbo. Ambas lecturas comparten autoría y se relacionan con el misterio, pero Sin piedad (Harry Hole 14) presenta una investigación policial vinculada a Oleg Fauke y la sección de Homicidios de Oslo. Minnesota (Best Seller | Ficción) se identifica por su título propio, sin una numeración de serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387740382"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ce72cb8bf620251a",
+  "origen": "chatgpt-web"
+}

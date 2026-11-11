@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las aventuras de Tom Sawyer se orienta a lectores de relatos de aventuras protagonizados por muchachos que desafían las normas escolares y sociales. Su planteamiento de travesuras y situaciones peligrosas se aleja de las novelas centradas en conflictos adultos o relaciones sentimentales.",
+      "texto": "Las aventuras de Tom Sawyer, de Mark Twain, encaja con lectores interesados en peripecias juveniles, personajes que desafían las normas y escenarios vinculados al río Mississippi. Su planteamiento se aleja de las novelas centradas principalmente en relaciones sentimentales o conflictos de la vida adulta.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Las aventuras de Tom Sawyer presenta una narración de aventuras en una localidad próxima al río Mississippi. Su protagonista evita las obligaciones escolares y busca experiencias arriesgadas, de modo que la desobediencia y la exploración impulsan los acontecimientos.",
+      "texto": "Las aventuras de Tom Sawyer propone una narración de aventuras protagonizada por un muchacho que cuestiona las reglas de su entorno. La escuela, las escapadas y la vida junto al Mississippi forman el escenario de una historia donde la curiosidad y la desobediencia impulsan los acontecimientos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -22,27 +23,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las aventuras de Tom Sawyer está disponible en tapa dura, tapa blanda y Kindle, tres opciones para leer una obra de 304 páginas. La tapa dura de Austral Editorial utiliza encuadernación en cartoné para conservar el ejemplar; la tapa blanda facilita su manejo y Kindle permite leerlo sin transportar el libro físico.",
+      "texto": "La edición de tapa dura de Las aventuras de Tom Sawyer reúne 304 páginas en encuadernación de cartoné, adecuada para conservar el ejemplar físico. La tapa blanda ofrece otra opción impresa, mientras que Kindle permite leer la obra en formato digital y modificar el tamaño del texto.",
       "evidencias": [
         "titulo",
         "numero_paginas",
         "edicion",
-        "editorial",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Las aventuras de Tom Sawyer comparte con Abre el misterio 1 - El robo de las croquetas la presencia de situaciones que rompen la rutina, aunque la obra de Mark Twain sigue las peripecias de un muchacho junto al Mississippi y la de Carlos G. Gurpegui parte de una desaparición. Agente Stitch 5. Los roedores de Roswell también incorpora aventuras, pero desarrolla un misterio intergaláctico con personajes que trabajan en equipo, frente a las travesuras escolares de Tom Sawyer.",
+      "texto": "Las aventuras de Tom Sawyer y El mágico refugio de gatos de Agnes Aubert comparten el interés por personajes y situaciones alejados de la rutina, aunque la obra de Mark Twain se centra en las travesuras de un muchacho junto al Mississippi. Frente a El médico, de Noah Gordon, Las aventuras de Tom Sawyer sitúa el protagonismo en la infancia, la desobediencia escolar y las escapadas.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427256644",
-        "isbn-9791387901943"
+        "isbn-9791387749316",
+        "isbn-9788466394963"
       ]
     }
   ],

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466396097",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Casa de llama y sombra (Ciudad Medialuna 3) (Best Seller | Ficción), de Sarah J. Maas, está dirigida a lectores interesados en la fantasía y las novelas extensas. Sus 872 páginas requieren espacio para una lectura prolongada; no encaja con quien busca una historia breve o prefiere otros géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Casa de llama y sombra (Ciudad Medialuna 3) (Best Seller | Ficción), de Sarah J. Maas, está disponible en tapa blanda y Kindle. El volumen físico reúne 872 páginas y permite conservar la edición en papel; Kindle facilita leer la obra en un dispositivo electrónico sin manejar un libro de ese tamaño.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Casa de llama y sombra (Ciudad Medialuna 3) (Best Seller | Ficción), de Sarah J. Maas, comparte autora y serie con Casa de tierra y sangre (Ciudad Medialuna 1) (Best Seller | Ficción). Los números de sus títulos identifican posiciones distintas dentro de Ciudad Medialuna: el primero corresponde al número 3 y el segundo al número 1.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396073"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6ae849e05c4c9626",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399180503",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "ROMA 2023 D. C., de Antonio Tello, se dirige a quienes buscan poesía en castellano en un volumen breve de 66 páginas. Por su clasificación editorial, no corresponde a quien busca una novela narrativa o un manual de consulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "ROMA 2023 D. C. está disponible en tapa blanda, con 66 páginas. Esta edición en papel permite leer el volumen por partes y volver a sus páginas sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El libro de Antonio Tello comparte su clasificación poética con Antología, de Antonio Cano, y Bajo la condición de forajido, de Francisco Castaño. Antología reúne la obra completa de su autor, mientras que el volumen de Antonio Tello tiene 66 páginas. Bajo la condición de forajido pertenece al mismo género, pero está firmado por otro autor.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370140908",
+        "isbn-9788490022818"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "030ccdb69042bf03",
+  "origen": "chatgpt-web"
+}

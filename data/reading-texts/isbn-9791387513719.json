@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387513719",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Innovación al estilo Microsoft (Liderazgo y gestión) está orientado a lectores interesados en innovación, dirección de equipos y gestión empresarial. Su enfoque económico y organizativo queda lejos de quienes buscan una novela o una guía de bienestar personal.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Conecta ofrece Innovación al estilo Microsoft (Liderazgo y gestión) en tapa blanda, con 248 páginas en castellano. El ejemplar en papel permite subrayar conceptos de liderazgo y consultar apartados durante el trabajo o el estudio.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, también aborda el liderazgo, pero desde una perspectiva centrada en el propio oficio de dirigir. Innovación al estilo Microsoft, de Dean Carignan y Joann Garbin, vincula esa materia con la innovación y una empresa tecnológica concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "30e0ef30319d0cfa",
+  "origen": "chatgpt-web"
+}

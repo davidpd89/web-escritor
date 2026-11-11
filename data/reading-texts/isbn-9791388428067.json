@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388428067",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El traje gris (Salamandra Narrativa) está dirigido a lectores de narrativa contemporánea y misterio que prefieren novelas de extensión breve. Sus 160 páginas permiten abordar una historia en un volumen reducido; quienes busquen una novela extensa o una trama de fantasía encontrarán aquí una propuesta de otro género.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda concentra las 160 páginas de El traje gris (Salamandra Narrativa) en un volumen manejable. Es la edición disponible para quien quiere leer en papel, transportarlo con facilidad o incorporar un libro de extensión reducida a su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aguas turbulentas, de Rankin Ian, comparte con El traje gris (Salamandra Narrativa) el terreno del misterio. La diferencia está en el escenario que presenta su descripción: Edimburgo, con un pasado siniestro y un presente oscuro. El traje gris se identifica, además, con la narrativa contemporánea, por lo que permite comparar dos aproximaciones distintas al género.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5f6913642d027eae",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388137723",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi novio caballo (Reservoir Gráfica) encaja con lectores interesados en biografías y memorias, especialmente en obras de extensión contenida. Sus 160 páginas y su clasificación temática lo sitúan fuera de las lecturas centradas en fantasía o ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mi novio caballo (Reservoir Gráfica) se publica en tapa blanda y reúne 160 páginas en castellano. Este formato permite llevar el libro en papel y consultarlo sin dispositivos electrónicos; su extensión también facilita organizar la lectura en sesiones breves.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi novio caballo (Reservoir Gráfica) comparte el ámbito de las vivencias personales con Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta. El segundo título identifica expresamente el Camino de Santiago como asunto, mientras que la obra de Xiomara Correa Docampo se presenta dentro de las biografías y memorias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2ed0f607eb167703",
+  "origen": "chatgpt-web"
+}

@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La casa de los espíritus está orientada a lectores adultos interesados en las sagas familiares, las relaciones amorosas y los conflictos sociales que atraviesan varias generaciones. Isabel Allende incorpora presencias sobrenaturales y violencia política, elementos que la alejan de quienes buscan una historia estrictamente realista o centrada únicamente en el romance.",
+      "texto": "La casa de los espíritus está dirigida a lectores adultos interesados en las sagas familiares, las relaciones entre generaciones y los conflictos sociales y políticos. Su combinación de memoria, violencia y elementos sobrenaturales encaja menos con quienes buscan una historia exclusivamente romántica o ajena a las tensiones históricas.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,36 +14,34 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La casa de los espíritus es una novela de saga familiar que combina narrativa contemporánea, historia y realismo mágico. Isabel Allende sigue a distintas generaciones de los Trueba y relaciona sus vínculos personales con las desigualdades sociales y los cambios políticos. Las capacidades sobrenaturales de Clara del Valle conviven con conflictos de clase, herencias familiares y consecuencias de la violencia.",
+      "texto": "Es una novela de saga familiar que combina realismo mágico, memoria y conflicto político a través de distintas generaciones. La historia relaciona las decisiones privadas de la familia Trueba con las desigualdades sociales y la violencia colectiva, mientras las capacidades sobrenaturales de Clara del Valle introducen otra dimensión en la narración.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La casa de los espíritus está disponible en tapa dura, Kindle y audiolibro. La edición de Plaza & Janés reúne 560 páginas en tapa dura con sobrecubierta, una opción para conservar el ejemplar físico; Kindle permite leerlo sin transportar ese volumen y el audiolibro ofrece una alternativa de escucha durante desplazamientos o actividades cotidianas.",
+      "texto": "La tapa dura con sobrecubierta reúne las 560 páginas en un volumen físico pensado para conservar y releer. Kindle permite llevar la novela en el móvil o lector electrónico, mientras que el audiolibro ofrece una alternativa para seguir la historia mediante la escucha.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
         "edicion",
-        "editorial"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La casa de los espíritus y Un baile en Versalles relacionan las experiencias personales con un contexto histórico y social. Isabel Allende desarrolla una historia familiar de varias generaciones atravesada por conflictos políticos y elementos sobrenaturales, mientras Danielle Steel sitúa su narración alrededor de una gala en el Palacio de Versalles durante el verano de 1959. Difieren en la amplitud temporal y en el peso de lo fantástico.",
+      "texto": "La hora antes del alba y Mi nombre es Emilia del Valle (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) comparten autoría con La casa de los espíritus: las tres obras están firmadas por Isabel Allende. Esta última se distingue por su saga de varias generaciones, la presencia de lo sobrenatural y la relación entre memoria familiar y violencia política.",
       "evidencias": [
-        "titulo",
+        "afines_catalogo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "titulo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788401037894"
+        "isbn-9788408328834",
+        "isbn-9788466393706"
       ]
     }
   ],

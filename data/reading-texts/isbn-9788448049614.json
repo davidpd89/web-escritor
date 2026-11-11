@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788448049614",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan preparar recetas veganas con una freidora de aire. Por su enfoque en cocina vegetal, encaja con lectores interesados en elaborar platos sin ingredientes de origen animal, pero no con quienes buscan recetas basadas en carne o pescado.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Reúne recetas de cocina vegana pensadas para preparar en airfryer, con una extensión de 200 páginas. El libro de Aida Lídice se centra en combinar la alimentación vegetal con este electrodoméstico, de modo que sirve como recetario de consulta para cocinar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar sus 200 páginas en papel mientras se cocina y volver a las recetas cuando se necesiten. Kindle ofrece el mismo título en formato digital, útil para tener el recetario en el móvil o consultarlo sin ocupar espacio físico en la cocina.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nepal (Sabores del mundo), de Tiana Salles, comparte el interés por la cocina, pero se centra en los sabores y las especias de Nepal, mientras que Recetas veganas para airfryer: Begin Vegan Begun (Cocina), de Aida Lídice, propone cocina vegetal con freidora de aire. Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA), de David Villalón y Mario Villalón, también aborda la gastronomía, aunque incorpora vinos y cócteles frente al enfoque específico en recetas veganas para airfryer.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241831403",
+        "isbn-9791387934293"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3465b24a9a2ff1a5",
+  "origen": "chatgpt-web"
+}

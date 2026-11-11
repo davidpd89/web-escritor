@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370206093",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Relatos de la dehesa: I Premio Maximiliano Jabugo de Relatos de la Dehesa (Naturaleza y Mundo Rural) se dirige a lectores interesados en relatos, narrativa contemporánea y naturaleza. Su orientación hacia el mundo rural lo diferencia de una novela urbana o de un manual técnico sobre el medio natural.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Relatos de la dehesa: I Premio Maximiliano Jabugo de Relatos de la Dehesa (Naturaleza y Mundo Rural) cuenta con una edición en tapa dura de 216 páginas. La encuadernación rígida resulta apropiada para conservar el volumen en una estantería o entregarlo como regalo, mientras que su extensión permite organizar la lectura por sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Relatos de la dehesa: I Premio Maximiliano Jabugo de Relatos de la Dehesa (Naturaleza y Mundo Rural) puede compararse con Historia Universal de la Alimentación por compartir autora, Almudena Villegas Becerril. El primero pertenece a los relatos de temática rural y natural; el segundo se centra, según su título, en la historia de la alimentación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370202132"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6719630d589f7516",
+  "origen": "chatgpt-web"
+}

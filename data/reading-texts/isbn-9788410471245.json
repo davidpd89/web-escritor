@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410471245",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La obra de Robert Kirkman y Charlie Adlard se dirige a lectores de cómic y novela gráfica que buscan una entrega numerada dentro de una colección. El título la identifica como el volumen 08/08, por lo que se diferencia de una novela independiente en prosa o de una publicación sin numeración.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Planeta Cómic se presenta en tapa dura y reúne 672 páginas en castellano. La encuadernación rígida permite conservar y consultar este volumen extenso de cómic, aunque su número de páginas hace menos cómodo transportarlo que un libro breve de bolsillo.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Robert Kirkman y Charlie Adlard puede compararse con El poder del fuego nº 06/06: 6 (Fantasía), que también cuenta con Robert Kirkman entre sus autores. La primera pertenece al ámbito del cómic y la novela gráfica y lleva la numeración 08/08, mientras que la segunda está firmada junto a Chris Samnee y presenta una referencia explícita a la fantasía en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388103469"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ee31b9191392b4fd",
+  "origen": "chatgpt-web"
+}

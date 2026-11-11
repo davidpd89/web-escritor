@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388277290",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Isadora Moon 1 - Isadora Moon va al colegio (edición 10º aniversario): ¡Un libro mágico con purpurina en la cubierta! (Harriet Muncaster) se orienta a lectores de fantasía interesados en historias relacionadas con el colegio y la familia. Sus 160 páginas y su temática lo diferencian de una novela extensa de fantasía adulta o de un manual de crianza.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esta edición de Isadora Moon 1 - Isadora Moon va al colegio (edición 10º aniversario): ¡Un libro mágico con purpurina en la cubierta! (Harriet Muncaster) está disponible en tapa dura. Incluye 160 páginas y una cubierta con purpurina, dos características concretas para quien busca una edición física conmemorativa del décimo aniversario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Isadora Moon 1 - Isadora Moon va al colegio (edición 10º aniversario): ¡Un libro mágico con purpurina en la cubierta! (Harriet Muncaster) y El diario de Wiska 2 - Un secreto entre amigas comparten la autoría de Harriet Muncaster. El primero aborda el colegio desde la fantasía y se presenta como edición de aniversario, mientras que el segundo anuncia un secreto entre amigas. El título identifica a cada obra con un número distinto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388277023"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e1638502c248abd2",
+  "origen": "chatgpt-web"
+}

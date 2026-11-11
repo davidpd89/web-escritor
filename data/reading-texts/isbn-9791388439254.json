@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388439254",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los niños de la Resistencia 10. La guerra no ha acabado, de Benoît Ers y Vincent Dugomier, se dirige a lectores de cómic y novela gráfica interesados en la historia del siglo XX y la infancia. Su contexto bélico lo aleja de las historietas de humor cotidiano o de las aventuras desligadas de acontecimientos históricos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los niños de la Resistencia 10. La guerra no ha acabado se edita en tapa dura y tiene 56 páginas en castellano. La cubierta rígida protege el volumen durante su consulta y facilita conservarlo junto a otros títulos de la misma colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los niños de la Resistencia 10. La guerra no ha acabado se relaciona directamente con Los niños de la Resistencia. Memorias vivas 1: Josette y Jean-Jacques por su denominación compartida y la participación de Vincent Dugomier. El primero lleva también la firma de Benoît Ers y el título lo identifica con el número 10; el segundo se presenta como Memorias vivas 1 y nombra a Josette y Jean-Jacques.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388439148"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9b46fb5240c148d6",
+  "origen": "chatgpt-web"
+}

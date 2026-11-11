@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9798890989444",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una Familia Moderna / A Modern Family, de Julia Navarro, se dirige a lectores de narrativa contemporánea interesados en asuntos familiares. Su clasificación temática se centra en la familia, por lo que no responde a una búsqueda de fantasía o de ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una Familia Moderna / A Modern Family puede compararse con Una familia moderna, también de Julia Navarro, por su autoría y su temática familiar. El segundo título presenta a Martha y Thomas, mientras que Una Familia Moderna / A Modern Family figura como una edición en tapa dura de Plaza & Jana(c)s.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "edicion"
+      ],
+      "enlaces": [
+        "isbn-9788401033797"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9560d522b0479d48",
+  "origen": "chatgpt-web"
+}

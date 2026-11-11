@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387896508",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Epicuro (Biblioteca Clásica Gredos) se dirige a lectores interesados en la filosofía clásica y su relación con la historia del pensamiento. Por su orientación filosófica y ensayística, se distancia de la narrativa de entretenimiento y de los libros centrados en acontecimientos históricos sin reflexión conceptual.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Epicuro (Biblioteca Clásica Gredos) se publica en tapa dura y cuenta con 296 páginas en castellano. La encuadernación rígida permite conservarlo como volumen de biblioteca y consultarlo en distintas sesiones, una opción práctica para una lectura filosófica que se retoma por partes.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Epicuro (Biblioteca Clásica Gredos) y Diatribas. 31 lecciones estoicas sobre la vida (Biblioteca Edaf), de Epicteto, comparten el interés por la filosofía clásica. El primero se identifica con Epicuro y otros, mientras que el segundo aborda expresamente lecciones estoicas sobre la vida. El código bushido: La filosofía de los samuráis / Edición comentada por Marcos Cartagena, de Inazo Nitobe, también trata cuestiones filosóficas, pero desde una tradición vinculada a los samuráis.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788441445086",
+        "isbn-9791388080968"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3873d52ce734fdbb",
+  "origen": "chatgpt-web"
+}

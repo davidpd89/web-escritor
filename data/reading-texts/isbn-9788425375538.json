@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788425375538",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Deja sitio para el bizcocho: Más de 80 bizcochos clásicos y modernos para todos los días (Cocina casera) se dirige a quienes buscan preparar repostería doméstica. Susana Pérez y Jesús Cerezo reúnen una propuesta centrada en bizcochos, por lo que no responde a quien necesita un recetario general de platos salados o técnicas de cocina profesional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Deja sitio para el bizcocho: Más de 80 bizcochos clásicos y modernos para todos los días (Cocina casera) es de tapa blanda y tiene 280 páginas en castellano. El papel permite consultar las preparaciones durante el trabajo en la cocina y marcar las recetas que se quieran repetir, sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA), de David Villalón y Mario Villalón, comparte con Deja sitio para el bizcocho: Más de 80 bizcochos clásicos y modernos para todos los días (Cocina casera) el interés por la preparación de alimentos. La diferencia está en el alcance: Angelita abarca cocina y bebidas, mientras que el libro de Susana Pérez y Jesús Cerezo se concentra en bizcochos clásicos y modernos para elaborar en casa.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387934293"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "717480fdb505e278",
+  "origen": "chatgpt-web"
+}

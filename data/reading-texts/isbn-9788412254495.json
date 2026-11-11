@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788412254495",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Querida Amalia, de Carmen Amil Vena, encaja con lectores interesados en novelas de romance. Su clasificación la aleja de las preferencias de quienes buscan principalmente misterio, thriller o ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Querida Amalia se presenta en tapa blanda, con 192 páginas en castellano. Esta edición de LiterUp Ediciones ofrece una lectura en papel de extensión relativamente breve, que puede transportarse sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4e9ddfe5be0da277",
+  "origen": "chatgpt-web"
+}

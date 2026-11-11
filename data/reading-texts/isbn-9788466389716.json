@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788466389716",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los Whittier se dirige a lectores de narrativa contemporánea interesados en historias vinculadas con la familia. Por su orientación temática, encaja menos con quien busca un manual práctico de crianza o una lectura centrada en asuntos ajenos a las relaciones familiares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los Whittier está disponible en tapa blanda, con 272 páginas y edición de bolsillo de Penguin Bolsillo. Su extensión permite distribuir la lectura en sesiones relativamente cortas, y la encuadernación flexible facilita transportarlo en un bolso o mochila.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nunca digas nunca (Best Seller | Ficción) comparte con Los Whittier la autoría de Danielle Steel y su presentación como ficción. Los Whittier se distingue por su clasificación temática familiar, mientras que Un baile en Versalles sitúa su punto de partida en una gala durante el verano de 1959.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466393898",
+        "isbn-9788401037894"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3042afa9d1071985",
+  "origen": "chatgpt-web"
+}

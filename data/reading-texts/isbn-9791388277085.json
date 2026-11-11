@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pipoka y la Fábrica del Desastre se dirige a lectores a partir de 9 años interesados en la fantasía, los viajes y la defensa de la naturaleza. La aventura combina criaturas legendarias con un conflicto sobre la destrucción de un bosque; encaja menos con quienes prefieren historias realistas sin elementos mágicos.",
+      "texto": "Pipoka y la Fábrica del Desastre se dirige a lectores a partir de 9 años interesados en la fantasía, las aventuras y las criaturas legendarias. Su conflicto gira alrededor de la protección de un bosque, la imaginación y el valor de las palabras; encaja menos con quienes buscan historias realistas sin elementos mágicos.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,37 +14,38 @@
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "La edición de Alfaguara está recomendada a partir de 9 años y contiene 288 páginas en tapa dura. Es una narración de fantasía y aventuras que incorpora viajes por la Península, personajes mágicos y cuestiones relacionadas con la familia, la imaginación y el cuidado de la naturaleza.",
+      "texto": "Pipoka y la Fábrica del Desastre está recomendado a partir de 9 años y tiene 288 páginas. La edición de Alfaguara es en castellano y tapa dura, con una historia de fantasía y aventuras que combina viajes por la Península, seres legendarios y defensa de la naturaleza.",
       "evidencias": [
-        "editorial",
+        "titulo",
         "edad_recomendada",
         "numero_paginas",
+        "editorial",
         "edicion",
+        "idioma",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 288 páginas en un volumen físico para leer en casa o conservar en la biblioteca infantil. Kindle permite llevar la aventura en un lector electrónico o en el móvil, mientras que el audiolibro ofrece la posibilidad de seguir el recorrido de los protagonistas mediante la escucha.",
+      "texto": "La tapa dura permite conservar las 288 páginas de Pipoka y la Fábrica del Desastre en un volumen físico, apropiado también para regalar. Kindle ofrece la lectura digital sin transportar el libro impreso, mientras que el audiolibro permite seguir la aventura mediante la escucha.",
       "evidencias": [
-        "formatos_disponibles",
+        "titulo",
         "numero_paginas",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Campamento Mestizo 1 - La zona rebelde, de Rick Riordan y Annabelle Oh, comparte con Pipoka y la Fábrica del Desastre su orientación hacia la aventura infantil, aunque sitúa su punto de partida en un campamento. La novela de Jose Such propone un recorrido por pueblos y paisajes de la Península, con criaturas legendarias y un conflicto centrado en proteger un bosque.",
+      "texto": "Pipoka y la Fábrica del Desastre comparte con Onin 1 - Onin y la isla del tesoro la aventura y los elementos mágicos. La obra de Jose Such se centra en proteger la naturaleza y en el poder de las palabras, mientras que la de Ibon Martín presenta una aventura de amigos con misterios y la búsqueda de un tesoro.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788419868466"
+        "isbn-9791387994549"
       ]
     }
   ],

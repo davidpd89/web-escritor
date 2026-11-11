@@ -4,7 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La llamada de los olores se dirige a lectores interesados en la memoria sensorial, la escritura poética y las narraciones construidas mediante relatos breves. Ryoko Sekiguchi utiliza el olfato para relacionar recuerdos, lugares y experiencias, por lo que encaja menos con quienes buscan una trama lineal centrada en la acción.",
+      "texto": "La llamada de los olores se dirige a lectores interesados en la prosa poética, la memoria y la relación entre los sentidos y las experiencias personales. Su estructura de relatos conectados por reflexiones sobre el olfato se aparta de la narrativa centrada en una única trama de acción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Ryoko Sekiguchi construye en La llamada de los olores una narración híbrida que relaciona aromas y recuerdos mediante historias situadas en diferentes épocas y ciudades. Cada relato incorpora un cuaderno de olores con preguntas y reflexiones, de modo que la lectura alterna episodios narrativos y exploración poética de la percepción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,36 +22,27 @@
       ]
     },
     {
-      "modulo": "encaje_documentado",
-      "texto": "La llamada de los olores combina narración y reflexión poética alrededor de la relación entre aromas y recuerdos. Ryoko Sekiguchi enlaza historias situadas en Granada, Ferrara, Teherán y París, y cierra cada una con un cuaderno de observaciones sobre el olfato. La estructura alterna episodios narrativos y preguntas acerca de la memoria, la ausencia y las emociones.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial"
-      ]
-    },
-    {
       "modulo": "que_formato_elegir",
-      "texto": "La llamada de los olores se ofrece en tapa blanda y Kindle. La edición de Editorial Periférica contiene 192 páginas y permite consultar en papel tanto los relatos como los cuadernos de olores; Kindle facilita retomar esas secciones en el móvil o en un lector electrónico durante trayectos y pausas.",
+      "texto": "La llamada de los olores se publica en tapa blanda y Kindle, con una extensión de 192 páginas. El papel permite volver sobre los relatos y sus cuadernos de olores, mientras que Kindle facilita llevar el texto completo en un dispositivo de lectura o en el móvil.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "numero_paginas",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La llamada de los olores y El libro de los gatos comparten una aproximación literaria que incorpora poesía y observación de experiencias concretas. Ryoko Sekiguchi articula relatos y reflexiones sobre aromas y memoria, mientras que Ursula K. Le Guin reúne poemas, meditaciones y dibujos dedicados a los gatos. El primero combina escenarios históricos y sensaciones; el segundo concentra su atención en un motivo animal.",
+      "texto": "Antología, de Antonio Cano, y La llamada de los olores, de Ryoko Sekiguchi, comparten su vinculación con la escritura poética, pero presentan estructuras diferentes. La primera reúne la obra completa de un poeta, mientras que la segunda combina relatos de distintas épocas con reflexiones sobre el olfato y la memoria.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "categorias",
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9791388306297"
+        "isbn-9791370140908"
       ]
     }
   ],

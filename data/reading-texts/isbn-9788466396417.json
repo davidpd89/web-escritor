@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788466396417",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Abraza a la niña que fuiste: Sana las heridas del pasado y reconecta con tu interior (Best Seller | No Ficción), de Marta Segrelles, se dirige a lectores interesados en la psicología y el desarrollo personal desde la revisión de experiencias pasadas. Su enfoque se diferencia de las novelas y de los libros centrados en la salud física o la alimentación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Abraza a la niña que fuiste: Sana las heridas del pasado y reconecta con tu interior (Best Seller | No Ficción) cuenta con una edición de bolsillo en tapa blanda de 280 páginas. Publicada por Penguin Bolsillo en castellano, permite transportar el libro y consultar en papel sus contenidos sobre psicología y desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza a la niña que fuiste: Sana las heridas del pasado y reconecta con tu interior (Best Seller | No Ficción) comparte el interés por las relaciones emocionales con Constelar la vida: Del amor ciego al amor lúcido (Vivir Mejor), de Joan Garriga. Marta Segrelles aborda las heridas del pasado y la relación con uno mismo, mientras que Joan Garriga sitúa el amor y sus distintas formas en el centro de su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370856"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "09c82ee464e8c93d",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073878180",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La merma / The Decline se dirige a quienes leen narrativa contemporánea y buscan una obra de extensión breve. Sus 160 páginas encajan con quien prefiere una lectura contenida, pero no con quien busca una novela extensa de misterio o aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La merma / The Decline se publica en tapa blanda, con 160 páginas en castellano. Es una edición física de extensión breve, manejable para llevar en el bolso o leer fuera de casa, sin el volumen de una novela larga.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La merma comparte título y autoría con La merma, de María Moreno, una obra centrada en la recuperación tras un ACV y en la observación del propio cuerpo. La merma / The Decline figura como narrativa contemporánea de 160 páginas; la relación entre ambas fichas permite comparar su enfoque editorial sin atribuirles diferencias argumentales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788439746621"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dc1f19e93cea3560",
+  "origen": "chatgpt-web"
+}

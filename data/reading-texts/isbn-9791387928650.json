@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387928650",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las nueve vidas del gato del escritor (Salamandra Narrativa), de Kentaro Utsugi, se dirige a lectores interesados en el misterio y en temas relacionados con el bienestar y la familia. Por su clasificación temática, encaja menos con quienes buscan exclusivamente historia o narrativa romántica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Salamandra reúne 240 páginas en castellano. Es una opción física para leer y conservar en la biblioteca, con una extensión concreta que permite valorar el tiempo de lectura antes de elegirla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Frente a 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, Las nueve vidas del gato del escritor (Salamandra Narrativa) comparte el interés por el bienestar. La diferencia está en que el libro de Kentaro Utsugi también se clasifica como misterio, mientras que el de Liz Moody plantea cambios personales desde la ciencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9c0079a9680a1027",
+  "origen": "chatgpt-web"
+}

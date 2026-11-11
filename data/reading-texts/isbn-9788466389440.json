@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466389440",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de novela histórica y narrativa contemporánea que buscan una ficción extensa ambientada, según su título, en torno al Kilimanjaro. El cielo sobre el Kilimanjaro (Sueños de África 1) (Best Seller | Ficción), de Anne Jacobs, tiene 584 páginas y resulta menos afín a quien prefiere relatos breves o ensayos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El cielo sobre el Kilimanjaro (Sueños de África 1) (Best Seller | Ficción) puede leerse en tapa blanda o Kindle. La edición física es un libro de bolsillo de 584 páginas, mientras que Kindle permite llevar la misma obra en un dispositivo de lectura o en el móvil sin cargar con el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte la novela histórica con Chamán (Trilogía de la familia Cole 2) (Best Seller), de Noah Gordon. El cielo sobre el Kilimanjaro (Sueños de África 1) (Best Seller | Ficción), de Anne Jacobs, también incorpora narrativa contemporánea y sitúa África en el título; los dos títulos identifican entregas de series distintas, sin que eso determine por sí solo su posición narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394970"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "feb4c95e041c7433",
+  "origen": "chatgpt-web"
+}

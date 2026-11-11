@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466393584",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todos gordos (con perdón): Tratar la obesidad en un mundo diseñado para engordar (Best Seller | No Ficción) se dirige a lectores interesados en obesidad, salud y nutrición. Su enfoque sobre el tratamiento de la obesidad y el entorno que favorece el aumento de peso encaja menos con quien busca un recetario o una novela.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Todos gordos (con perdón): Tratar la obesidad en un mundo diseñado para engordar (Best Seller | No Ficción) se publica en tapa blanda, en una edición de bolsillo de Penguin Bolsillo. Sus 304 páginas en castellano pueden consultarse en papel y transportarse en un formato pensado para ocupar menos espacio que una edición de mayor tamaño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Todos gordos (con perdón): Tratar la obesidad en un mundo diseñado para engordar (Best Seller | No Ficción) comparte autor con Dieta sin sofocos: Verdades y mentiras sobre la alimentación, el estilo de vida y las hormonas en la menopausia (Vergara), de Julio Basulto. Ambos tratan cuestiones de alimentación y salud, pero el primero se centra en la obesidad y el segundo en la menopausia y sus relaciones con la dieta y las hormonas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388038006"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0f4b4288469f6b12",
+  "origen": "chatgpt-web"
+}

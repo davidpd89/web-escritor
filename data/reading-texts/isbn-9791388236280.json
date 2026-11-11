@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La luz del despertar se dirige a lectores de ensayo interesados en los derechos humanos, la situación de Palestina y la participación ciudadana. Su planteamiento reivindicativo, centrado en la acción colectiva y en la denuncia política, se distancia de una exposición histórica exclusivamente descriptiva.",
+      "texto": "La luz del despertar se dirige a lectores de ensayo interesados en los derechos humanos, Palestina y las posibilidades de acción ciudadana. No responde a la búsqueda de una novela de ficción ni de una exposición desligada de los debates políticos y sociales contemporáneos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,9 +13,8 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "La luz del despertar aborda los derechos humanos del pueblo palestino, la situación en los territorios ocupados y las posibilidades de participación ciudadana. Francesca Albanese relaciona estos asuntos con el ejercicio de las libertades democráticas, la solidaridad y la emancipación colectiva, y plantea la organización social como respuesta ante las vulneraciones de derechos.",
+      "texto": "Francesca Albanese aborda la situación del pueblo palestino desde una perspectiva de derechos humanos y responsabilidad internacional. El ensayo relaciona la denuncia de las políticas de Israel con la participación democrática, la esperanza política y la emancipación colectiva, mediante referencias a experiencias históricas de resistencia.",
       "evidencias": [
-        "titulo",
         "autores",
         "categorias",
         "sinopsis_editorial"
@@ -23,26 +22,13 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La luz del despertar ofrece 256 páginas y puede leerse en tapa blanda o Kindle. La edición impresa permite conservar y consultar físicamente sus reflexiones sobre derechos humanos; Kindle facilita llevar el ensayo en un lector electrónico o dispositivo compatible y retomar la lectura fuera de casa.",
+      "texto": "La luz del despertar puede leerse en tapa blanda o en Kindle. La edición física de Galaxia Gutenberg reúne 256 páginas y permite consultar el ensayo en papel; Kindle ofrece una alternativa digital para llevar la lectura en un dispositivo compatible.",
       "evidencias": [
         "titulo",
+        "editorial",
         "numero_paginas",
         "formatos_disponibles",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "La luz del despertar y Antes de perder el juicio comparten el interés por el debate público y los problemas de las sociedades contemporáneas. Mauricio García Villegas parte de la tensión entre verdad, propaganda y discursos sectarios, mientras Francesca Albanese concentra su reflexión en Palestina, los derechos humanos y la movilización colectiva.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791388387302"
+        "edicion"
       ]
     }
   ],

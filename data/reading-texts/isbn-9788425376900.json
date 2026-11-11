@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788425376900",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El asesinato del muñeco de nieve (Ocio, entretenimiento y viajes) se dirige a quienes buscan lecturas relacionadas con el misterio y el ocio, dentro de una clasificación que también incluye novela histórica. Su planteamiento editorial se aleja de los manuales de viajes centrados exclusivamente en destinos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El asesinato del muñeco de nieve (Ocio, entretenimiento y viajes) está disponible en tapa blanda, con 224 páginas en castellano. Esta edición de Grijalbo permite leerlo en papel y transportarlo sin el volumen habitual de un libro de mayor extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Dónde está el asesino?: Rastrea pistas, descarta ciudades y caza al culpable (Ocio, entretenimiento y viajes) comparte autoría con El asesinato del muñeco de nieve (Ocio, entretenimiento y viajes). El primero anuncia una búsqueda de pistas y ciudades en su título; el segundo presenta un asesinato como eje de su propuesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425376924"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c83fe2a091ac23e5",
+  "origen": "chatgpt-web"
+}

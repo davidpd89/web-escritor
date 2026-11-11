@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788427245785",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nachín y Renacho 1 - Mutantes en la ciudad (Ficción Kids), de Jota Jota, encaja con lectores que buscan aventuras con humor y elementos de fantasía urbana. Su planteamiento se distancia de las historias centradas en relaciones sentimentales o conflictos históricos, pues combina la presencia de mutantes con una propuesta de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura contiene 176 páginas y es la única modalidad disponible. Su cubierta rígida ofrece una presentación física más resistente al uso continuado que una edición en tapa blanda; es la opción para quien quiere conservar el ejemplar en papel.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nachín y Renacho 1 - Mutantes en la ciudad (Ficción Kids), de Jota Jota, puede compararse con 7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica), de Francisco Ibáñez, por su conexión con el humor y el entretenimiento infantil. Se diferencia de Anna Kadabra. El Gran Libro de Anna Kadabra. El despertar de las brujas: 1, de Pedro Mañas y David Sierra Listón, cuyo título sitúa sus aventuras en un universo de brujas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431790",
+        "isbn-9788408328933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bfd669260018921b",
+  "origen": "chatgpt-web"
+}

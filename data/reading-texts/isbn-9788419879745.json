@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788419879745",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores de romance que buscan una obra identificada también como erótica y romántica. Para nadar hay que mojarse. Primera ola: 28 (Erótica | Romántica), de Jackie Valand, se aleja de las preferencias de quienes buscan narrativa sin componentes románticos o eróticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Para nadar hay que mojarse. Primera ola: 28 (Erótica | Romántica) está disponible en tapa blanda. Sus 366 páginas ofrecen una lectura de extensión media en un volumen físico de cubierta flexible, que puede guardarse y transportarse sin la rigidez de una tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3c80cedc0c60cf8b",
+  "origen": "chatgpt-web"
+}

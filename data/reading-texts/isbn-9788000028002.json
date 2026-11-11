@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788000028002",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta publicación de Varios autores está dirigida a quienes leen ensayos breves y contenidos relacionados con el arte y el diseño. Su extensión de 6 páginas y su carácter de revista la separan de los estudios monográficos extensos y de las obras de narrativa convencional.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de La Fabrica se presenta en tapa blanda, con 6 páginas impresas en castellano. Es un ejemplar físico de extensión reducida que puede leerse en una sesión breve y archivarse junto a otras publicaciones periódicas.",
+      "evidencias": [
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Charlotte Perriand. La libertad de repensar el mundo y esta revista comparten la autoría de Varios autores y su relación con el arte y el diseño. La primera se centra en Charlotte Perriand, mientras que la revista se presenta como una publicación numerada de 6 páginas. Banksy: I want to be what you saw in me (MISCELANEAS), también de Varios autores, constituye otra referencia dedicada a una figura artística concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788416411993",
+        "isbn-9789509509504"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "415b44db05d1fe51",
+  "origen": "chatgpt-web"
+}

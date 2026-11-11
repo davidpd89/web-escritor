@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788413434568",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un bicho extraño (Formato grande) (Acartonados) está dirigido al público infantil y a quienes buscan libros de cartón para compartir con niños. Sus 14 páginas lo sitúan entre las lecturas breves, no entre los relatos extensos destinados a lectores juveniles.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Un bicho extraño (Formato grande) (Acartonados) puede utilizarse en sesiones breves de lectura compartida, pasando sus 14 páginas de cartón con el niño. El formato grande permite colocar el libro abierto ante varios participantes y volver a recorrer sus páginas durante la actividad.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un bicho extraño (Formato grande) (Acartonados) se presenta en tapa dura, mediante una edición de cartón publicada por Kalandraka. Sus 14 páginas forman un volumen físico de lectura breve, pensado para manipularlo y pasar las páginas directamente, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4f78d89076ddffda",
+  "origen": "chatgpt-web"
+}

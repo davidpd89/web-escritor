@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786287880474",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Serafín (Spanish Edition), de Daniel Samper Ospina, encaja con lectores de narrativa contemporánea que buscan humor y temas relacionados con la naturaleza. Su enfoque se aleja de la ficción histórica y del ensayo político; sus 192 páginas ofrecen una extensión relativamente breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Serafín (Spanish Edition) está disponible en tapa blanda, con 192 páginas en castellano. Esta edición de Alfaguara permite llevar el libro en el bolso o la mochila y leerlo en papel sin cargar con un volumen especialmente extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Serafín (Spanish Edition) comparte el componente humorístico con Boni vs. Mono 9. Boni Bonanza, de Jamie Smart. La diferencia está en el enfoque: Daniel Samper Ospina se sitúa en la narrativa contemporánea, con la naturaleza entre sus temas, mientras que el otro título pertenece a una serie protagonizada por Boni y Mono.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331131"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "247bbc2b826b187a",
+  "origen": "chatgpt-web"
+}

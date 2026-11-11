@@ -4,28 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Migraña: Manual para no perder la cabeza se dirige a personas que conviven con la migraña y a quienes quieren comprender sus síntomas, diagnóstico y tratamientos. Su enfoque combina la experiencia de un paciente con la perspectiva de un neurólogo, por lo que encaja menos con quien busca una narración de ficción o soluciones milagrosas.",
+      "texto": "Está dirigido a personas interesadas en comprender la migraña y sus consecuencias cotidianas, tanto desde la experiencia del paciente como desde la neurología. No plantea una curación milagrosa ni se centra en consejos generales de bienestar ajenos a esta enfermedad.",
       "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Migraña: Manual para no perder la cabeza aborda cómo se diagnostica la migraña, qué tratamientos existen y cómo afecta a la vida cotidiana. Cristian Morales aporta el conocimiento clínico de la neurología y Javier González Alcázar relata la experiencia de convivir con la enfermedad; ambas perspectivas sirven para entender sus consecuencias y las opciones para afrontarla.",
+      "texto": "El manual aborda el diagnóstico de la migraña, sus tratamientos y las dificultades de convivir con una enfermedad crónica. Cristian Morales aporta el enfoque médico y Javier González Alcázar la experiencia del paciente, reuniendo explicaciones clínicas y herramientas prácticas en 240 páginas.",
       "evidencias": [
-        "titulo",
+        "sinopsis_editorial",
         "autores",
-        "sinopsis_editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Migraña: Manual para no perder la cabeza puede leerse en tapa blanda o Kindle, con una extensión de 240 páginas en la edición impresa. La tapa blanda permite consultar físicamente los apartados sobre diagnóstico y tratamientos; Kindle facilita llevar el texto en el móvil y recuperar sus explicaciones sin transportar el libro.",
+      "texto": "La tapa blanda permite consultar y marcar físicamente las 240 páginas del manual, mientras que Kindle facilita llevar el contenido en un dispositivo de lectura. Ambos formatos sirven para volver a las explicaciones sobre diagnóstico, tratamientos y convivencia con la migraña.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "sinopsis_editorial"
@@ -33,16 +30,15 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Migraña: Manual para no perder la cabeza y Ansiedad. ¿Cómo se sale de aquí?, de Gemma Correll, abordan problemas relacionados con el bienestar, aunque el primero combina neurología y testimonio personal y el segundo presenta la ansiedad mediante la imagen de un parque de atracciones. Cáncer con brújula, de Elisa Molina Buendía, también parte de una enfermedad que altera la vida cotidiana, pero trata el cáncer en lugar de la migraña.",
+      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, también relaciona ciencia y salud, pero aborda distintos aspectos de la vida. Migraña: Manual para no perder la cabeza se concentra en una enfermedad concreta y combina la perspectiva de un neurólogo con la de un paciente.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788402431967",
-        "isbn-9788441445321"
+        "isbn-9798890981776"
       ]
     }
   ],

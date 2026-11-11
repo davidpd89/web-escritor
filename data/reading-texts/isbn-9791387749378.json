@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791387749378",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Turncloak: La misión (Umbriel narrativa), de L. K. Steven, se dirige a lectores de fantasía que también buscan narrativa contemporánea. Su extensión de 648 páginas supone una lectura larga; por género, queda fuera de las preferencias de quienes buscan exclusivamente narrativa realista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Turncloak: La misión (Umbriel narrativa) está disponible en tapa dura, con 648 páginas en castellano. Esta edición de Umbriel permite conservar el volumen en formato físico y consultarlo por páginas, aunque su extensión exige más espacio para transportarlo que la de un libro breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Turncloak: La misión (Umbriel narrativa), de L. K. Steven, comparte sello editorial con El trono de las pesadillas (Umbriel narrativa), de Kerri Maniscalco. Ambas obras permiten explorar propuestas de distintos autores dentro de Umbriel, aunque la primera combina fantasía y narrativa contemporánea y tiene una extensión de 648 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387749255"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "87d32beb98315039",
+  "origen": "chatgpt-web"
+}

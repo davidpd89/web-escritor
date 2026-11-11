@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388075513",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La genética de los colores de la piel, el pelo y los ojos: Por qué somos rubios, morenos, pelirrojos o tenemos los ojos azules (Divulgación científica) se dirige a lectores interesados en las causas genéticas de los rasgos físicos humanos. Su enfoque científico encaja menos con quienes buscan consejos de estética o una explicación de los colores basada únicamente en su apariencia.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 304 páginas en castellano, una extensión que permite consultar distintos aspectos de la pigmentación humana en un único volumen. El soporte impreso facilita regresar a los apartados sobre piel, pelo y ojos durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La genética de los colores de la piel, el pelo y los ojos: Por qué somos rubios, morenos, pelirrojos o tenemos los ojos azules (Divulgación científica) puede compararse con Humanos. La evolución de nuestra especie (Enciclopedia visual) por su interés en las características de nuestra especie. Lluís Montoliu concentra su obra en la genética de la pigmentación, mientras que Alice Roberts plantea una perspectiva más amplia sobre la evolución humana.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241837627"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "60d742544bd6199b",
+  "origen": "chatgpt-web"
+}

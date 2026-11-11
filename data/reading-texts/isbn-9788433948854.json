@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788433948854",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nunca muere (La Bella Varsovia), de Miriam Reyes, se dirige a quienes buscan poesía contemporánea en castellano. Sus 72 páginas encajan con una lectura de extensión breve, pero no con quien prefiera una novela de trama extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer y conservar las 72 páginas de Nunca muere (La Bella Varsovia) en un volumen físico. La edición Kindle ofrece el mismo título en formato digital, para llevarlo en un lector electrónico o consultarlo desde el móvil.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nunca muere (La Bella Varsovia) comparte el ámbito de la poesía con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. La diferencia identificable está en la autoría y en que el título de Pedro Salinas presenta una selección amorosa, mientras que el de Miriam Reyes no se identifica como antología.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288",
+        "isbn-9791370140908"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a0099e78a0a8abc2",
+  "origen": "chatgpt-web"
+}

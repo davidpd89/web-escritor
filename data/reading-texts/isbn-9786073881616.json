@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9786073881616",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El canto invisible / The Invisible Song se dirige a lectores de narrativa contemporánea interesados en obras de este género. Su clasificación editorial la sitúa en la ficción contemporánea, en lugar de en el ensayo o la literatura de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda presenta El canto invisible / The Invisible Song en un volumen de 288 páginas, publicado por Penguin Random House Grupo Editorial. Es una edición física en castellano para quienes prefieren la lectura en papel.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8af93c529b70b615",
+  "origen": "chatgpt-web"
+}

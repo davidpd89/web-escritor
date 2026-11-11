@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El pan está dirigido a quienes quieren conocer la historia de este alimento, las variedades elaboradas en distintas culturas y los procedimientos de panificación. Su enfoque combina cocina e historia, por lo que se diferencia de un recetario limitado a cantidades, tiempos y pasos de elaboración.",
+      "texto": "El pan está dirigido a quienes se interesan por la historia de la alimentación, las variedades de pan y las técnicas de elaboración. Combina cultura gastronómica y conocimientos de panificación, por lo que se diferencia de los recetarios centrados exclusivamente en preparar platos rápidos para el día a día.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,26 +13,28 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Maite Izquierdo recorre la evolución del pan desde las primeras comunidades recolectoras hasta la elaboración contemporánea con masas y levaduras desarrolladas mediante tecnología. Examina las variedades presentes en diferentes lugares, las técnicas de panificación y la influencia cultural de este alimento. Sus 256 páginas sirven para consultar tanto aspectos históricos como procedimientos de elaboración.",
+      "texto": "El pan reúne un recorrido histórico por este alimento, una aproximación a sus variedades en distintas partes del mundo y una explicación de las técnicas de panificación. Maite Izquierdo conecta las prácticas de los primeros recolectores con el trabajo contemporáneo sobre masas y levaduras, para entender cómo la elaboración del pan ha evolucionado junto a las sociedades.",
       "evidencias": [
+        "titulo",
         "autores",
-        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El pan cuenta con una edición en tapa dura de 256 páginas, destinada a una lectura que combina historia alimentaria y técnicas de panificación. El volumen físico permite volver a los apartados sobre variedades y elaboración, además de conservarlo como obra de consulta gastronómica.",
+      "texto": "El pan se presenta en tapa dura, con 256 páginas en castellano editadas por Susaeta Ediciones. El volumen físico permite consultar sus contenidos sobre historia, variedades y técnicas de panificación, y conservarlo como libro de referencia gastronómica.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
+        "editorial",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El pan y Cesar La conquista de la eternidad comparten una perspectiva histórica, pero Maite Izquierdo sigue la evolución de un alimento y Alberto Angela se centra en un general romano. Frente a CORONA AUTORITARIA, LA, dedicada a las relaciones entre monarquía y nacionalismo durante una dictadura, El pan examina prácticas culinarias y transformaciones culturales.",
+      "texto": "El pan se diferencia de 20 minutos ¡y listo!, de Jamie Oliver, porque estudia la evolución cultural y técnica de un alimento en lugar de centrarse en la cocina rápida. También contrasta con Al micro y listo, de Dani García: ambos pertenecen al ámbito culinario, pero Maite Izquierdo aborda la historia y los procedimientos de panificación frente a una propuesta orientada a cocinar.",
       "evidencias": [
         "titulo",
         "autores",
@@ -41,8 +43,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410944329",
-        "isbn-9788419892782"
+        "isbn-9788425374074",
+        "isbn-9788467084757"
       ]
     }
   ],

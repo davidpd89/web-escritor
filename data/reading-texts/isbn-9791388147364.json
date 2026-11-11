@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388147364",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Islas de la Ascuaoscura: Una novela del Cosmere (Best Seller | Ficción), de Brandon Sanderson, se dirige a lectores de fantasía y aventuras interesados en el Cosmere. Con 560 páginas, responde a la búsqueda de una novela extensa de género, no a la de una historia realista o una lectura breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Islas de la Ascuaoscura: Una novela del Cosmere (Best Seller | Ficción) está disponible en tapa blanda y Kindle. La edición de Penguin Bolsillo contiene 560 páginas en formato físico de bolsillo, mientras que Kindle permite leer una novela de esa extensión en dispositivos electrónicos sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los fuegos de Diciembre comparte con Islas de la Ascuaoscura: Una novela del Cosmere (Best Seller | Ficción) la autoría de Brandon Sanderson y la vinculación con el Cosmere; el primero se presenta como una novela independiente. Alas de escarcha y oro: El canto del cisne, de Marta Morillo, también pertenece a la fantasía, pero su planteamiento gira alrededor de Eira y sus dones ocultos, frente a la identificación explícita con el Cosmere del libro de Brandon Sanderson.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410466715",
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "17771bfa5fc7bb6c",
+  "origen": "chatgpt-web"
+}

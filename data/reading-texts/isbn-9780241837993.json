@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "LEGO® Ninjago - El dragón Riyu está dirigido a lectores desde los 7 años interesados en dragones, ninjas y aventuras fantásticas con ilustraciones. La historia de Matt Piper se centra en una persecución y en la ayuda entre amigos, por lo que se aleja de las narraciones realistas y de los relatos sin conflictos de acción.",
+      "texto": "LEGO® Ninjago - El dragón Riyu está dirigido a lectores a partir de 7 años interesados en aventuras de fantasía, ninjas y dragones. Su combinación de humor, ilustraciones a todo color y búsqueda de objetos encaja menos con quienes prefieren relatos realistas sin actividades interactivas.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,31 +14,29 @@
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "La edad recomendada es a partir de 7 años y la extensión es de 80 páginas. DK publica esta edición en castellano y tapa blanda, con ilustraciones a todo color que acompañan una historia de fantasía y aventuras presentada dentro del ámbito infantil del cómic y la novela gráfica.",
+      "texto": "La edad recomendada para LEGO® Ninjago - El dragón Riyu es a partir de 7 años. Tiene 80 páginas, está publicado en castellano y se presenta en tapa blanda, con ilustraciones a todo color y un desafío de búsqueda de nunchakus ocultos durante la lectura.",
       "evidencias": [
+        "titulo",
         "edad_recomendada",
         "numero_paginas",
-        "editorial",
-        "idioma",
         "edicion",
-        "categorias",
+        "idioma",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "LEGO® Ninjago - El dragón Riyu se presenta en tapa blanda y tiene 80 páginas, una extensión que facilita transportarlo y leerlo en sesiones breves. El volumen incorpora ilustraciones a todo color y un desafío de búsqueda de nunchakus ocultos, elementos que se consultan directamente durante la lectura en papel.",
+      "texto": "LEGO® Ninjago - El dragón Riyu se comercializa en tapa blanda, con 80 páginas que reúnen la aventura ilustrada y la actividad de búsqueda. Este formato permite consultar las imágenes y volver a las páginas anteriores para localizar los objetos ocultos sin depender de una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Onin 1 - Onin y la isla del tesoro y LEGO® Ninjago - El dragón Riyu comparten la aventura y los elementos fantásticos. Ibon Martín plantea misterios con un grupo de amigos, mientras Matt Piper sitúa el conflicto en la protección de un dragón perseguido y añade ilustraciones a color y un juego de búsqueda.",
+      "texto": "LEGO® Ninjago - El dragón Riyu comparte con Piratix. Primeras lecturas 2 - El banquete del Kraken las aventuras infantiles con criaturas extraordinarias y situaciones de peligro. La diferencia está en el conflicto: Matt Piper presenta una persecución de dragones y una actividad visual, mientras que la historia de Magicbox gira alrededor de un terremoto y un barco legendario.",
       "evidencias": [
         "titulo",
         "autores",
@@ -47,7 +44,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387994549"
+        "isbn-9788448874834"
       ]
     }
   ],

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788467979688",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Indomito: SA YE 02: 2 se orienta a lectores interesados en el romance y el cómic o la novela gráfica. Sus 440 páginas requieren una lectura más extensa que la de un volumen breve; no responde a la búsqueda de ensayo o narrativa ajena a las relaciones sentimentales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Indomito: SA YE 02: 2 está disponible en tapa blanda, con 440 páginas en castellano. Esta edición de Norma Editorial reúne una lectura extensa en un volumen físico flexible, aunque menos rígido que una encuadernación de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Indomito: SA YE 02: 2 puede compararse con Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, por su vinculación con las lecturas románticas. La diferencia visible está en su identificación editorial: el segundo lleva la denominación Shôjo, mientras que Indomito: SA YE 02: 2 aparece clasificado como romance y cómic o novela gráfica. El título de Wu Zhe identifica este volumen como el n.º 2.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962494"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a8b3fc8f68ded267",
+  "origen": "chatgpt-web"
+}

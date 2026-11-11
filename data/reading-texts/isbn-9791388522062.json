@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9791388522062",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pack Fantasía y amistad reúne referencias a la fantasía, la amistad y el ensayo, por lo que se dirige a lectores interesados en esos ámbitos. Puede encajar con quien busca una propuesta que combine el componente fantástico con las relaciones personales, pero no con quien busca exclusivamente narrativa de ficción o un ensayo centrado en otro tema.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pack Fantasía y amistad comparte el componente fantástico con Agencia de animales mágicos: Medianoche y la leyenda de Santuario (Mi primer cómic), aunque este último se presenta como cómic y el pack incorpora también la amistad y el ensayo. Frente a Harry Potter Y El Misterio del Príncipe (Edición Con Ilustraciones de Xavier Bonet) / Harry Potter and the Half-Blood Prince, la diferencia está en que el título de Laura Fernandez plantea una combinación temática más amplia, mientras que el otro se identifica como una entrega de una obra de fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448875381",
+        "isbn-9798901230695"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "557a2ff05b15a8c1",
+  "origen": "chatgpt-web"
+}

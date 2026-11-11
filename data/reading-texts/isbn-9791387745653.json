@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791387745653",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fernando Quiñones y el flamenco: 38 (Visor Literario) se dirige a lectores interesados en la relación entre literatura y flamenco desde el ensayo. José Jurado Morales y Alberto Romero Ferrer firman una obra menos orientada a quienes buscan ficción narrativa o una novela sobre músicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fernando Quiñones y el flamenco: 38 (Visor Literario) está disponible en tapa blanda, con 408 páginas en castellano. Su extensión permite organizar la lectura en varias sesiones, mientras que el ejemplar impreso facilita señalar páginas y consultar fragmentos durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d5d43e289202ba2b",
+  "origen": "chatgpt-web"
+}

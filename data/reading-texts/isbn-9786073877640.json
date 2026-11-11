@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073877640",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ángeles de Praga / Angels of Prague está orientado a lectores interesados en la historia del siglo XX. Su clasificación histórica lo diferencia de la ficción contemporánea y de las guías prácticas, por lo que encaja menos con quienes buscan una novela romántica o ejercicios de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ángeles de Praga / Angels of Prague se presenta en tapa blanda, con 240 páginas en castellano. La encuadernación flexible facilita llevar el volumen durante los desplazamientos y su extensión permite organizar la lectura histórica en varias sesiones. La edición corresponde a Penguin Random House Grupo Editorial.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "76, de Felipe Pigna, figura entre los títulos con los que puede compararse Ángeles de Praga / Angels of Prague. Este último se identifica expresamente con la historia del siglo XX, mientras que el título 76 no permite precisar por sí solo su alcance temático. Agustín penón y Federico García Lorca, de Juan Carlos García de Polavieja, ofrece una comparación más concreta por su investigación sobre la vida y la muerte de Federico García Lorca.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329695",
+        "isbn-9788418567933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d680ff984e8cbe36",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466395090",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Mago. La historia de Thomas Mann (Contemporánea | Narrativa) se dirige a lectores de narrativa contemporánea interesados en relatos centrados en figuras literarias. Con 568 páginas, exige más tiempo que una novela breve y encaja menos con quienes buscan fantasía, aventuras o una lectura de extensión reducida.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de bolsillo de El Mago. La historia de Thomas Mann (Contemporánea | Narrativa) reúne sus 568 páginas en tapa blanda, un formato físico pensado para transportar y guardar con facilidad. Kindle permite llevar la obra en formato digital y leerla sin cargar con el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formato_edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un largo invierno y El Mago. La historia de Thomas Mann (Contemporánea | Narrativa) comparten autor, Colm Tóibín, pero presentan focos narrativos distintos. El primero parte de la desaparición de una madre tras una discusión familiar en el Pirineo catalán; el segundo se centra, desde su propio título, en la historia de Thomas Mann.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788426434456"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f2f2fda3e76409c2",
+  "origen": "chatgpt-web"
+}

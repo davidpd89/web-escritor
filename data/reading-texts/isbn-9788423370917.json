@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788423370917",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Erguido hacia las estrellas: Una vida de Francisco de Vitoria (Áncora & Delfín) encaja con lectores interesados en las biografías de figuras vinculadas al pensamiento filosófico. La combinación de narrativa contemporánea, ensayo y filosofía lo distancia de quienes buscan exclusivamente ficción de aventuras o manuales prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Erguido hacia las estrellas: Una vida de Francisco de Vitoria (Áncora & Delfín) se presenta en tapa dura y contiene 192 páginas. El formato físico de Ediciones Destino permite conservar el volumen en una biblioteca y consultar sus páginas sin depender de dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Erguido hacia las estrellas: Una vida de Francisco de Vitoria (Áncora & Delfín) comparte con Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes el interés por una figura concreta, aunque cambia el personaje estudiado. Frente a Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), se centra en una trayectoria personal en lugar de presentar una corriente política y económica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457",
+        "isbn-9786073873154"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8a5065ca92de1f5f",
+  "origen": "chatgpt-web"
+}

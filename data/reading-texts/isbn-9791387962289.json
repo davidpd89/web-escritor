@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387962289",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tomogui: que comience la caza 2 (Seinen) se dirige a quienes leen manga de misterio y thriller, especialmente si buscan conflictos desarrollados en formato de cómic. Por su orientación hacia el suspense, encaja menos con quienes prefieren aventuras humorísticas o relatos centrados en el romance.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tomogui: que comience la caza 2 (Seinen) está disponible en tapa blanda, con 192 páginas en castellano. Esta edición de Distrito Manga permite leer el volumen en papel y conservarlo junto a otros tomos de la colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tomogui: que comience la caza 1 (Seinen) comparte autoría con este volumen y presenta un conflicto de venganza entre compañeros de clase relacionado con una profesora. Caminando con la muerte 4 (Seinen), de ryoko, ofrece otra referencia de manga seinen, aunque pertenece a una obra de distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962272",
+        "isbn-9788410305830"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "387fd5dc020b2e52",
+  "origen": "chatgpt-web"
+}

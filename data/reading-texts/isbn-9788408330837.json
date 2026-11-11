@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788408330837",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "The wrong quarterback: Ella es su mayor obsesión (Ficción) se orienta a lectores de romance que buscan una historia en la que la obsesión amorosa forma parte del planteamiento anunciado por el título. Sus 440 páginas lo distancian de quienes prefieren romances breves o novelas centradas en géneros ajenos a las relaciones sentimentales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "The wrong quarterback: Ella es su mayor obsesión (Ficción) está disponible en tapa blanda, con 440 páginas en castellano editadas por Crossbooks. La edición en papel permite leerlo sin pantalla y conservarlo en la biblioteca, aunque requiere transportar un volumen físico durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "772b7d9a17a7fd0c",
+  "origen": "chatgpt-web"
+}

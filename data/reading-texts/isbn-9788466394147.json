@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466394147",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El maestro Juan Martínez que estaba allí (Best Seller | Ficción) se orienta a lectores que buscan narrativa en forma de relatos. Su clasificación literaria lo distancia de los manuales prácticos y de quienes prefieren libros centrados en consejos sobre salud o bienestar.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El maestro Juan Martínez que estaba allí (Best Seller | Ficción) puede leerse en tapa blanda o en Kindle. La edición de bolsillo de Penguin Bolsillo tiene 352 páginas y permite la lectura en papel; Kindle facilita llevar el texto en formato digital y ajustar su visualización en dispositivos compatibles.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El maestro Juan Martínez que estaba allí (Best Seller | Ficción) guarda relación con A sangre y fuego, también de Manuel Chaves Nogales. Ambas obras comparten autor, aunque A sangre y fuego se presenta mediante un testimonio literario sobre un enfrentamiento, mientras que El maestro Juan Martínez que estaba allí (Best Seller | Ficción) se identifica como una obra de relatos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331810"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a013b41c96bacace",
+  "origen": "chatgpt-web"
+}

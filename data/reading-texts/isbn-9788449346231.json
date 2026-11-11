@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788449346231",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La razón de ser feliz: Los beneficios inesperados de pensar con claridad (Contextos) se dirige a quienes buscan reflexionar sobre el bienestar personal desde el pensamiento y la psicología. Su enfoque se aleja de las lecturas centradas específicamente en la crianza o las relaciones familiares.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La razón de ser feliz: Los beneficios inesperados de pensar con claridad (Contextos) está disponible en tapa blanda, con 216 páginas en castellano. Esta edición física permite consultar y releer sus planteamientos sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La razón de ser feliz: Los beneficios inesperados de pensar con claridad (Contextos) comparte con Abraza a tu niño interior: Nunca es tarde para sanar tu infancia el interés por el bienestar psicológico. El libro de Kaushik Basu se centra en pensar con claridad, mientras que el de Victoria Cadarso aborda la infancia y sus heridas emocionales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a15e4c452ee99b48",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9798890988690",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mexikid: Sueña / Mexikid: Dreams: A Graphic Memoir se dirige a lectores interesados en las memorias gráficas, la historia y el humor. La obra de Pedro Martín tiene 320 páginas y se aparta de la novela fantástica al presentarse como un relato de carácter autobiográfico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mexikid: Sueña / Mexikid: Dreams: A Graphic Memoir cuenta con una edición en tapa blanda de 320 páginas, publicada por Vintage Espanol. El soporte físico permite recorrer sus memorias gráficas y volver a consultar las páginas, sin depender de una pantalla para la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Risa de mi vida comparte con Mexikid: Sueña / Mexikid: Dreams: A Graphic Memoir la presencia del humor como punto de encuentro para el lector. Jorge Bolaños parte de la adopción de una perra, mientras que Pedro Martín presenta unas memorias gráficas vinculadas también a la historia. La diferencia reside en el punto de partida y en el carácter gráfico anunciado por Mexikid: Sueña / Mexikid: Dreams: A Graphic Memoir.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466684606"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b5a71e9952e67a45",
+  "origen": "chatgpt-web"
+}

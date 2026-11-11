@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788445022979",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Baldur's Gate 3: Astarion: 1 (D&D Reinos Olvidados) encaja con lectores de fantasía y aventuras interesados en el universo mencionado en su título. La obra de T. Kingfisher se sitúa en esos géneros, no en la narrativa realista; el título la identifica como el n.º 1, sin establecer por sí mismo una secuencia de lectura obligatoria.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Baldur's Gate 3: Astarion: 1 (D&D Reinos Olvidados) se presenta en tapa dura y reúne 336 páginas. Este formato proporciona una encuadernación rígida para conservar el volumen en una colección física y permite leer la obra completa de T. Kingfisher en papel.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Baldur's Gate 3: Astarion: 1 (D&D Reinos Olvidados) y Alas de escarcha y oro: El canto del cisne comparten el terreno de la fantasía. La obra de T. Kingfisher se identifica con el universo indicado en su título, mientras que la de Marta Morillo presenta a Eira, un personaje que oculta sus dones y debilidades.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "41c697f8c4412784",
+  "origen": "chatgpt-web"
+}

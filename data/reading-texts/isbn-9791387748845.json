@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387748845",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra de Nadia Shireen se dirige al público infantil y juvenil que busca lecturas de 264 páginas. Su clasificación editorial la diferencia de la narrativa contemporánea para adultos. El título Grimwood 4 identifica el volumen como el n.º 4.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Grimwood 4. ¡Fiesta bestia! tiene una edición en tapa dura de 264 páginas, publicada por Blackie Books. La encuadernación rígida favorece su conservación en una biblioteca infantil y permite regalar un ejemplar físico resistente al uso repetido.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5efa5c07253762c0",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791387883409",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan actividades navideñas para compartir en familia, con historias, recetas y manualidades como ejes principales. Por su combinación de cocina y actividades familiares, encaja menos con quien busca exclusivamente un recetario o una obra de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Reúne historias, recetas y manualidades relacionadas con la Navidad y pensadas para realizar actividades en compañía. Sus 112 páginas permiten alternar la lectura con propuestas de cocina y trabajos manuales, dentro de un mismo volumen en castellano.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es la tapa dura, apropiada para un libro que combina lectura y consulta de recetas y manualidades. Sus 112 páginas pueden mantenerse reunidas en un volumen físico para volver a las actividades durante las celebraciones navideñas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Entre hormonas y comilonas (Vergara) comparte con Ya es Navidad: Historias, recetas y manualidades para vivir la Navidad juntos. (Álbumes locomotora) el interés por la alimentación y la vida familiar, aunque aborda una temática distinta de las celebraciones navideñas. Ambas obras se diferencian de Chef sapiens, centrado en la historia de la cocina y las recetas saludables, mientras el libro de Birgitta Sif reúne historias, recetas y manualidades para compartir.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788419820143",
+        "isbn-9788466395939"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a994682c7379653f",
+  "origen": "chatgpt-web"
+}

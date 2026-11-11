@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370610326",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las Ultrafalsificaciones: retos probatorios (Monografía) encaja con lectores interesados en los problemas jurídicos de la prueba ante las ultrafalsificaciones. Su orientación hacia el derecho probatorio la distingue de los libros que tratan la tecnología únicamente desde su funcionamiento técnico o sus aplicaciones cotidianas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las Ultrafalsificaciones: retos probatorios (Monografía) se presenta en tapa blanda, con 280 páginas publicadas por Aranzadi. La extensión permite trabajar con un volumen físico relativamente contenido, tanto para la lectura seguida como para localizar y revisar cuestiones jurídicas concretas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Derecho penal 4.0: el Derecho penal en la cuarta revolución industrial: 124 (Propiedad Intelectual), de Raquel Roso Cañadillas, José-Zamir Vega Gutiérrez, Carmen Pérez-Sauquillo Muñoz, comparte el cruce entre tecnología y derecho penal, aunque Las Ultrafalsificaciones: retos probatorios (Monografía) se concentra en la prueba. Blockchain: un desafío legal (Monografía), de Ana Isabel Quiroz Ruiz, examina otro desafío jurídico tecnológico, vinculado en su caso a blockchain.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370610265",
+        "isbn-9788429030396"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e88879e71515f601",
+  "origen": "chatgpt-web"
+}

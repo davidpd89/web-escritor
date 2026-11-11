@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788427259973",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tú eres Elizabeth Bennet. Construye tu propio romance del universo Jane Austen (Ficción crossover), de Emma Campbell Webster, se dirige a lectores interesados en el romance, las aventuras y la novela histórica. Su planteamiento gira alrededor del universo de Jane Austen; quienes busquen fantasía o una historia centrada en otros géneros pueden encontrar aquí un enfoque distinto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda y reúne 256 páginas. Es un volumen físico de extensión contenida, pensado para quien prefiere leer en papel y conservar el libro en su biblioteca; no hay otra modalidad de edición entre los formatos disponibles.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tú eres Elizabeth Bennet. Construye tu propio romance del universo Jane Austen (Ficción crossover), de Emma Campbell Webster, comparte con Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig, el interés por escenarios históricos. La diferencia está en el punto de partida: el primero plantea un romance dentro del universo de Jane Austen, mientras que el segundo sitúa su referencia histórica en Pompeya.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "550114ca53a4d4fe",
+  "origen": "chatgpt-web"
+}

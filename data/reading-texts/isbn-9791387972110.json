@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387972110",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diario de un alien pringado: Atrapado en las redes (Montena) se dirige a lectores que buscan aventuras con humor. La obra de María Menéndez-Ponte tiene 224 páginas; quienes prefieran el ensayo o una lectura centrada en cuestiones económicas encontrarán aquí un género distinto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Diario de un alien pringado: Atrapado en las redes (Montena) está disponible en tapa dura, con 224 páginas en castellano. Esta edición de Montena reúne la obra en un volumen de cubierta rígida, que puede conservarse en una estantería o utilizarse para sucesivas lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diario de un alien pringado: Atrapado en las redes (Montena) comparte el humor con 7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica), aunque incorpora también la aventura. Frente a Animalize 21 3. Animalize 21 y el misterioso show de teatro (Jóvenes influencers), de Animalize21, la obra de María Menéndez-Ponte combina aventuras y humor sin situar el teatro en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431790",
+        "isbn-9788408328131"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f25c2100434caec0",
+  "origen": "chatgpt-web"
+}

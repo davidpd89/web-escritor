@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387740016",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Paseo conmigo mismo (Reservoir Gráfica) se dirige a lectores de narrativa contemporánea interesados también en el humor. La obra de Carlos Giménez tiene 128 páginas y encaja menos con quienes buscan una lectura extensa de ciencia ficción o fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Paseo conmigo mismo (Reservoir Gráfica) puede leerse en tapa dura o en Kindle. La edición física de Reservoir Books reúne 128 páginas en castellano y resulta adecuada para conservarla en una estantería o regalarla; Kindle permite llevar la lectura en un dispositivo compatible sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Paseo conmigo mismo (Reservoir Gráfica) puede compararse con El día que lo fuimos todo por su relación con la narrativa contemporánea y el humor. Carlos Giménez firma una obra de 128 páginas, mientras que el libro de Ángel Martín se presenta como una historia sobre experiencias que transforman la vida. La diferencia más clara está en la autoría y en el enfoque anunciado de cada título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408327134"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0df0e06ff535d4e8",
+  "origen": "chatgpt-web"
+}

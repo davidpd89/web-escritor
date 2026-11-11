@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788466380836",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores de narrativa contemporánea que buscan una novela de Elísabet Benavent en una presentación especial. Por su género y sus 696 páginas, se aleja de los manuales prácticos y de las lecturas breves; su extensión exige dedicar tiempo a una obra larga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición limitada de El arte de engañar al karma se distingue por sus cantos tintados y su encuadernación en tapa dura. Publicada por Penguin Bolsillo el 19 de noviembre de 2026, reúne 696 páginas en castellano y lleva el ISBN 9788466380836.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura permite conservar los cantos tintados que identifican esta edición limitada de El arte de engañar al karma. Sus 696 páginas forman un volumen extenso, más orientado a la lectura en casa y a la colección física que al transporte cotidiano; también puede regalarse como edición especial.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo (no) escribí nuestra historia (edición limitada) (Campaña | Ahora por menos) comparte autoría con El arte de engañar al karma (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados): ambas obras son de Elísabet Benavent. La diferencia identificable está en la presentación editorial: la segunda destaca expresamente sus cantos tintados y su tapa dura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394758"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "41564da47dd3aeaf",
+  "origen": "chatgpt-web"
+}

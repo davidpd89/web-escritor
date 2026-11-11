@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9798890989819",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sanguinaria / Daggermouth (Corazón) se dirige a lectores que buscan una combinación de fantasía, romance y ciencia ficción. Sus 608 páginas encajan con quienes prefieren novelas largas, pero menos con quienes buscan relatos breves o narrativa realista sin elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sanguinaria / Daggermouth (Corazón) está disponible en tapa blanda, con 608 páginas en castellano. La edición de Plaza & Janés ofrece una lectura extensa en papel, adecuada para conservar y releer, aunque el volumen requiere espacio al transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE), de Kayla Edwards, permite comparar Sanguinaria / Daggermouth (Corazón) con otra obra cuyo título identifica una vertiente romántica oscura. El hechizo más oscuro (Faeris Editorial), de Wanda Hellmund, introduce una referencia explícita a la magia; la novela de H M Wolfe combina fantasía, romance y ciencia ficción en 608 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788415955559",
+        "isbn-9791388108419"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "047b478036c4a0e2",
+  "origen": "chatgpt-web"
+}

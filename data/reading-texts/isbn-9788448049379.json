@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "David Summers: en persona se dirige a quienes buscan una lectura biográfica sobre un músico vinculado a Hombres G. Su atención a la figura personal y artística de David Summers lo aleja de los manuales musicales o de las novelas de ficción.",
+      "texto": "David Summers: en persona se dirige a lectores interesados en las biografías musicales y en la trayectoria del cantante de Hombres G. Su atención a la vida y carrera de David Summers lo diferencia de un estudio general de la música española o de una obra centrada exclusivamente en el análisis de canciones.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El libro examina la dimensión personal y profesional de David Summers, cantante, bajista y compositor de Hombres G. Javier Menéndez Flores sitúa esa figura en una trayectoria musical desarrollada durante más de 40 años, con presencia en España y distintos países de América.",
+      "texto": "La obra aborda la trayectoria personal y artística de David Summers, cantante, bajista y compositor de Hombres G. Javier Menéndez Flores sitúa esa figura dentro de una carrera de más de 40 años, con actividad musical en España y distintos países de América.",
       "evidencias": [
         "titulo",
         "autores",
@@ -22,28 +22,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura presenta las 328 páginas de David Summers: en persona en cartoné sin sobrecubierta, una opción para conservar la biografía en papel o regalarla. Kindle permite leer el mismo título en un dispositivo electrónico sin llevar el volumen físico.",
+      "texto": "David Summers: en persona puede leerse en tapa dura o Kindle. La edición física de Libros Cúpula tiene 328 páginas y encuadernación en cartoné sin sobrecubierta, adecuada para conservarla como volumen de consulta; Kindle permite leer la biografía desde el móvil o un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "edicion",
         "formatos_disponibles",
-        "categorias"
+        "edicion",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Dustin Hoffman: look at me y David Summers: en persona comparten el interés biográfico por figuras del espectáculo, aunque el primero aborda el cine y el segundo la música. Mentalidad ganadora también recorre una trayectoria profesional, pero desde el testimonio en primera persona de Juan Carlos Ferrero sobre el tenis, frente al retrato de David Summers escrito por Javier Menéndez Flores.",
+      "texto": "Joaquín Sabina. Perdonen la tristeza. Edición tapa blanda (Música) y David Summers: en persona comparten autor, Javier Menéndez Flores, y su atención a figuras musicales. Se diferencian por el protagonista y la presentación: el primero se centra en Joaquín Sabina y se identifica como edición en tapa blanda; el segundo aborda a David Summers y está disponible en tapa dura y Kindle.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "edicion",
+        "formatos_disponibles"
       ],
       "enlaces": [
-        "isbn-9788448049843",
-        "isbn-9788411005463"
+        "isbn-9788448050115"
       ]
     }
   ],

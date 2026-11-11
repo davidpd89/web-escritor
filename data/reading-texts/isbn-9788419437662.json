@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La reina de otoño se dirige a lectores adultos de cómic y novela gráfica que buscan misterios, criaturas extrañas y un recorrido por escenarios fantásticos. Su conflicto gira alrededor de una salida difícil de encontrar y un encantamiento que altera el entorno; se distancia así de los thrillers centrados en investigaciones criminales realistas.",
+      "texto": "La reina de otoño está dirigida a lectores adultos de cómic que buscan misterio, criaturas fantásticas y escenarios de carácter laberíntico. Su combinación de encantamientos y una búsqueda para escapar de un territorio extraño encaja menos con quienes prefieren historias realistas o relatos sin elementos sobrenaturales.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La reina de otoño combina la narración gráfica con un misterio de carácter fantástico. Una loba, un cerdito y una princesa atraviesan territorios poblados por seres desconocidos mientras buscan a quien posee la llave que necesitan para salir. Las puertas introducen cambios inesperados en el recorrido, de modo que el espacio y sus reglas forman parte del conflicto.",
+      "texto": "La reina de otoño plantea una aventura de misterio fantástico en formato de novela gráfica. Sus protagonistas atraviesan un territorio de bosques y ruinas donde las puertas alteran la realidad, mientras buscan a quien posee la llave que permitiría abandonarlo.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -23,19 +23,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La reina de otoño tiene edición en tapa dura y versión Kindle. El volumen de Reservoir Books reúne 208 páginas en una encuadernación rígida, apropiada para conservar el cómic en una biblioteca física. Kindle permite llevar la obra en formato digital; al tratarse de una novela gráfica, conviene utilizar una pantalla donde las páginas puedan verse con comodidad.",
+      "texto": "La reina de otoño puede leerse en tapa dura o Kindle y tiene 208 páginas. La tapa dura permite conservar el cómic como volumen físico y observar sus páginas impresas; Kindle ofrece una alternativa digital para leerlo sin transportar el libro, con una experiencia visual condicionada por el tamaño de la pantalla.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La reina de otoño y Tomogui: que comience la caza 1 (Seinen), de Nobuaki Kanazawa, RAZEN, comparten el misterio y las situaciones de amenaza dentro de la narrativa gráfica. Borja González plantea un recorrido fantástico condicionado por criaturas y puertas encantadas; Tomogui: que comience la caza 1 (Seinen) parte de una venganza escolar relacionada con el suicidio de una alumna.",
+      "texto": "La reina de otoño y Anna en la cueva: Anna Dédalus detective: 4 comparten su relación con el misterio y el cómic. La obra de Borja González introduce criaturas fantásticas, encantamientos y una búsqueda de salida, mientras que el título de Miguel Ángel Giner Bou se presenta dentro de una serie detectivesca.",
       "evidencias": [
         "titulo",
         "autores",
@@ -44,7 +42,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387962272"
+        "isbn-9788419605528"
       ]
     }
   ],

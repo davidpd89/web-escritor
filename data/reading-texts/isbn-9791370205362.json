@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370205362",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El asesino de la almarada (Novela Histórica) encaja con lectores que buscan ficción histórica combinada con misterio y elementos de thriller. Sus 336 páginas corresponden a una novela de extensión media; por su clasificación, se aleja de la fantasía juvenil y de la narrativa romántica sin componente de intriga.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El asesino de la almarada (Novela Histórica) se publica en tapa blanda, con 336 páginas en castellano. Esta edición de Almuzara permite llevar la novela en papel y avanzar por capítulos durante varios días; la cubierta flexible facilita transportarla frente a una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El asesino de la almarada (Novela Histórica) comparte con El hombre que fue casi nadie (Salamandra Black) su proximidad al terreno de la intriga, pero añade una identificación explícita con la novela histórica. Frente a Esperanza en París: 1 (El legado del tiempo), el libro de Gastón Morata destaca por combinar en su clasificación historia, misterio y thriller.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387928599",
+        "isbn-9791399311907"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "56e5055e08f231bc",
+  "origen": "chatgpt-web"
+}

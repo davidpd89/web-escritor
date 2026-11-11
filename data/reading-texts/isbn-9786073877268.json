@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9786073877268",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lee esto (cuando necesites una señal) / Read This (When You Need a Sign), de Ali Begun, se dirige a quienes leen sobre desarrollo personal y bienestar. Por su temática, se aparta de la narrativa de ficción y de los manuales centrados exclusivamente en conocimientos técnicos; sus 256 páginas corresponden a una obra de autoayuda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lee esto (cuando necesites una señal) / Read This (When You Need a Sign) se presenta en tapa blanda y tiene 256 páginas. La edición física de Penguin Random House Grupo Editorial permite leer por sesiones y regresar a los pasajes que interesen sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lee esto (cuando necesites una señal) / Read This (When You Need a Sign) comparte el interés por el desarrollo personal con 100 formas de cambiar tu vida, de Liz Moody. La obra de Liz Moody anuncia un enfoque basado en la ciencia y aplicado a la salud, las relaciones y otros ámbitos cotidianos; la de Ali Begun se presenta dentro de la autoayuda y el bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "298c66b0cc2d9c4c",
+  "origen": "chatgpt-web"
+}

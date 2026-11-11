@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388001260",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cleopatra y Frankenstein (Books4pocket narrativa) se dirige a quienes leen narrativa contemporánea y prefieren novelas de cierta extensión. Sus 448 páginas requieren más tiempo que un relato breve; no corresponde a quienes buscan principalmente fantasía, cómic o literatura infantil.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cleopatra y Frankenstein (Books4pocket narrativa) tiene una edición en tapa blanda de 448 páginas, publicada por Books4pocket. El formato permite llevar la novela en papel y continuarla a lo largo de distintas sesiones; la cubierta flexible ocupa menos espacio que una encuadernación rígida equivalente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5466033cdc672610",
+  "origen": "chatgpt-web"
+}

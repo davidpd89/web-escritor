@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410558120",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El pollo Pepe y los deportes (El pollo Pepe y sus amigos) se dirige al público infantil interesado en los animales y los deportes. Sus 12 páginas plantean una lectura breve, distinta de las historias extensas que buscan los lectores de novelas juveniles.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El pollo Pepe y los deportes (El pollo Pepe y sus amigos) está disponible en tapa dura. Sus 12 páginas forman un volumen breve que puede manejarse en sesiones cortas de lectura y conservarse para volver a él.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Animales comparte con El pollo Pepe y los deportes (El pollo Pepe y sus amigos) la presencia de animales en una lectura infantil, pero reúne seis cuentos ilustrados. Aprende a contar animales también utiliza animales, aunque se centra en enseñar a contar del 1 al 10, mientras que el título de Ant Parker se refiere a los deportes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370341589",
+        "isbn-9791370341176"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0ed37a01603d2f29",
+  "origen": "chatgpt-web"
+}

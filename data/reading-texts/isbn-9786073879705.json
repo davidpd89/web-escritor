@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786073879705",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Filosofía para florecer / Philosophy for Flourishing está orientado a lectores que buscan relacionar la reflexión filosófica con el desarrollo personal. Dany Ayala firma una obra de 216 páginas que se aparta de la ficción narrativa y de los manuales centrados en habilidades técnicas o profesionales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Filosofía para florecer / Philosophy for Flourishing se presenta en tapa blanda, con 216 páginas en castellano. Su extensión permite distribuir la lectura en varias sesiones y el formato físico facilita subrayar ideas o volver a determinados pasajes durante la reflexión personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Duelo, de Michael Cholbi, también utiliza la filosofía para examinar cuestiones relacionadas con la experiencia humana. Mientras ese ensayo se concentra en la pérdida y las emociones asociadas, Filosofía para florecer / Philosophy for Flourishing, de Dany Ayala, se sitúa en la intersección entre filosofía y desarrollo personal, con un planteamiento temático más amplio.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788449344626"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "38092c4fbdcb4d72",
+  "origen": "chatgpt-web"
+}

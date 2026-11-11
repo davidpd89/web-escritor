@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9798890989451",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Divorcio / The Divorce se dirige a lectores de misterio y thriller que buscan una novela de Freida McFadden. Sus 376 páginas corresponden a una obra de ficción, por lo que no responde a quien busca una guía práctica sobre separaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Divorcio / The Divorce está disponible en tapa blanda, con 376 páginas en castellano. Esta edición de Vintage Espanol permite leerlo en papel y transportarlo sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El divorcio comparte con El Divorcio / The Divorce la autoría de Freida McFadden y el mismo título en español, aunque las entradas aparecen diferenciadas en el catálogo. La asistenta, también de Freida McFadden, ofrece otra referencia de thriller psicológico frente a la clasificación más general de misterio y thriller de esta edición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388163531",
+        "isbn-9788466390729"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e8cafab361cd293b",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791399142365",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Jayber Crow (CHAI EDITORA), de Wendell Berry, está dirigido a lectores de narrativa contemporánea que buscan una obra extensa en castellano. Sus 512 páginas requieren más tiempo de lectura que una novela corta; por su clasificación editorial, no responde a una búsqueda centrada en cómic o novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Jayber Crow (CHAI EDITORA) se publica en tapa blanda, con 512 páginas, en una edición de Chai Editora. Es un libro extenso para leer en soporte físico, que puede dividirse en varias sesiones y conservarse en papel; la edición está en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "10af73c30402bd70",
+  "origen": "chatgpt-web"
+}

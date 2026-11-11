@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388103698",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Eyeshield 21 nº 12/13 (Manga Shonen) se dirige a lectores que buscan manga shonen y cómic japonés. Sus 424 páginas forman una edición recopilatoria en tapa blanda, por lo que encaja con quienes prefieren leer manga en papel frente a la narrativa en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 424 páginas en un único volumen físico. Permite incorporar el libro a una colección de manga y leerlo en papel; es el único formato disponible para esta edición.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "66e8ceb7e8e3ae2d",
+  "origen": "chatgpt-web"
+}

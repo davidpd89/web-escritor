@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788410362604",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Spidey y su superequipo. Mi libro para llevar, de Marvel, se dirige a lectores interesados en aventuras de superhéroes y en el personaje de Spidey. Con 10 páginas y una edición de cartón, responde a la búsqueda de un libro corto, no a la de una narración extensa sobre el universo Marvel.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Spidey y su superequipo. Mi libro para llevar está editado en tapa dura, en forma de libro de cartón. Las 10 páginas concentran la publicación en un volumen reducido, que puede transportarse para lecturas breves. Libros Disney firma esta edición en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Spidey comparte autoría de Marvel con Los Vengadores. Libroaventuras: Incluye un cuento, figuritas y un tapete, una publicación que combina lectura y materiales adicionales. El libro de Spidey contiene 10 páginas en cartón, mientras que el de Los Vengadores incorpora un cuento acompañado de figuritas y un tapete.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788415343806"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0865c90861c42622",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399318111",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "SIZIGIA: El renacer de la leyenda: 1 reúne fantasía, aventuras y relatos, por lo que se orienta a lectores interesados en la ficción imaginativa. Su clasificación también incluye ciencia ficción; encaja menos con quienes buscan exclusivamente realismo cotidiano o narrativa documental.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "SIZIGIA: El renacer de la leyenda: 1 se publica en tapa blanda y tiene 300 páginas. Esta edición de Mimaia Ediciones reúne el contenido en un único volumen físico, adecuado para leer en papel y guardar en una estantería sin utilizar aplicaciones de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "SIZIGIA: El renacer de la leyenda: 1 comparte el terreno de la fantasía con Alas de Hierro. Edición Especial Limitada Con Cantos Decorados / Iron Flame. Limited Special Edition with Sprayed Edges: 2 (Empíreo / Empyrean), de Rebecca Yarros. La diferencia editorial es concreta: la obra de Tamara Allegue tiene 300 páginas en tapa blanda, mientras que el título de Rebecca Yarros se presenta como edición especial limitada con cantos decorados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073950664"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7a74f36e108531a1",
+  "origen": "chatgpt-web"
+}

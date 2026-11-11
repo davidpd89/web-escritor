@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387962494",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Amarte hasta perder el aliento 1 (Shôjo) encaja con lectores de manga romántico interesados en las relaciones de pareja y la narrativa contemporánea. Su orientación hacia el romance lo aleja de quienes buscan principalmente fantasía épica o aventuras de acción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Amarte hasta perder el aliento 1 (Shôjo) está disponible en tapa blanda, con 192 páginas en castellano. Esta edición de Distrito Manga permite leerlo en papel y guardarlo junto a otros volúmenes de manga, sin ocupar el espacio de una edición de mayor extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amarte hasta perder el aliento 1 (Shôjo) puede compararse con Honey lemon soda 4 (Shôjo) por su pertenencia al manga shôjo. Keiko Iwashita firma el primero y Mayu Murata el segundo; además, los títulos identifican entregas distintas, por lo que Amarte hasta perder el aliento 1 (Shôjo) se presenta como primer volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962487"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b9434c857d71ccea",
+  "origen": "chatgpt-web"
+}

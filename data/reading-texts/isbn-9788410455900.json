@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788410455900",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cocido madrileño: 213 (Narrativa), de José Francisco Alonso, encaja con lectores interesados en el misterio y el thriller. Con 340 páginas, ofrece una extensión intermedia dentro de la narrativa de suspense; no responde a quien busque principalmente romance o una lectura de pocas páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Cocido madrileño: 213 (Narrativa) es de tapa blanda y contiene 340 páginas en castellano. El volumen publicado por Editorial Alreves, S.l permite leerlo en papel y conservarlo en la estantería, sin necesidad de pantalla ni batería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6db0a08219e31d51",
+  "origen": "chatgpt-web"
+}

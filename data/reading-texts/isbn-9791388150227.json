@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388150227",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Candy: 0 (El gato León), de Ana Lojo Chan, se sitúa en el ámbito de la psicología, el ensayo y el desarrollo personal. Sus 48 páginas ofrecen una extensión breve para quien busca una lectura de ese ámbito, frente a quienes prefieren tratados extensos o novelas largas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Candy: 0 (El gato León) se presenta en tapa dura y tiene 48 páginas en castellano. La edición de Editorial Rimpompante reúne una extensión reducida en un volumen de cubierta rígida, adecuado para guardar en una estantería o transportar como libro físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Candy: 0 (El gato León) puede compararse con Abraza a tu niño interior: Nunca es tarde para sanar tu infancia por su relación con el ámbito psicológico. La obra de Victoria Cadarso aborda expresamente la infancia y su reparación emocional, mientras que Candy: 0 (El gato León), de Ana Lojo Chan, se clasifica también como ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "28abdeeaea6824cb",
+  "origen": "chatgpt-web"
+}

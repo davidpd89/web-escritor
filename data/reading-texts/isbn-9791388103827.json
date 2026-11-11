@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388103827",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "One Piece Academia nº 07: 7 (Manga Shonen) se dirige a lectores de manga shonen interesados en una colección de entregas numeradas. El título lo identifica como el n.º 07, de modo que responde a la búsqueda de un volumen concreto más que a la de una lectura independiente.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "One Piece Academia nº 07: 7 (Manga Shonen) se presenta en tapa blanda, con 176 páginas en castellano. La encuadernación flexible facilita llevar el volumen y colocarlo junto a otras entregas de manga en una estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "One Piece nº 114 (Manga Shonen), de Eiichiro Oda, comparte autoría y denominación de manga shonen con One Piece Academia nº 07: 7 (Manga Shonen). La diferencia identificable está en la colección y la numeración: el primero pertenece a One Piece y lleva el n.º 114, mientras que el segundo pertenece a One Piece Academia y lleva el n.º 07.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388102271"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "672f0174ab6fbd06",
+  "origen": "chatgpt-web"
+}

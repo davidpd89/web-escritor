@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399203042",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Qué es el fascismo?: Textos escogidos (ENSAYO), de George Orwell, se dirige a lectores interesados en el pensamiento político y el ensayo sobre el poder. Su enfoque temático lo aleja de quienes buscan una novela de ficción o una lectura centrada en conflictos personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de ¿Qué es el fascismo?: Textos escogidos (ENSAYO) está disponible en tapa blanda y reúne 192 páginas en castellano. Este formato permite llevar el volumen en una bolsa y consultar distintos pasajes en papel; su extensión también facilita repartir la lectura en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "1984 (edición especial limitada con cantos tintados) comparte con ¿Qué es el fascismo?: Textos escogidos (ENSAYO) la autoría de George Orwell y el interés por el control político, aunque el primero presenta una ficción sobre la vigilancia y el segundo reúne textos de ensayo. Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, también aborda ideas políticas, pero desde el pensamiento anarcocapitalista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491058298",
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "66a6813022d4338c",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788408331490",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El pájaro y el corazón de piedra: Serie los Reinos de Nyaxia, 3 (Novela) está dirigido a lectores interesados en la fantasía y en las novelas de gran extensión. Sus 608 páginas permiten identificarlo como una lectura larga, y el título lo identifica como el n.º 3 de la serie los Reinos de Nyaxia; no corresponde al perfil de quien busca una lectura breve o independiente en su presentación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El pájaro y el corazón de piedra: Serie los Reinos de Nyaxia, 3 (Novela) se publica en tapa blanda y formato de bolsillo, con 608 páginas. Es una edición física para quien prefiere leer en papel, aunque su extensión hace que sea un volumen más amplio que una novela corta.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a5e2b029651bd796",
+  "origen": "chatgpt-web"
+}

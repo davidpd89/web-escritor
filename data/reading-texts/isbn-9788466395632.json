@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788466395632",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estación Damasco (Best Seller | Ficción) se orienta a lectores de narrativa interesados en el poder y la política. Sus 560 páginas corresponden a una obra extensa, distinta de una introducción breve o de un ensayo divulgativo sobre instituciones políticas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estación Damasco (Best Seller | Ficción) puede leerse en tapa blanda o en Kindle. La edición física reúne 560 páginas en formato de bolsillo, mientras que Kindle permite llevar el texto en un dispositivo compatible sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El persa (Novela (Best Seller)) y Moscú X (Best Seller | Ficción) comparten con Estación Damasco (Best Seller | Ficción) la autoría de David McCloskey, aunque son títulos distintos. A la sombra del Estado, de Luis de la Corte Ibáñez, aborda el espionaje, las operaciones encubiertas y el poder clandestino, mientras que Estación Damasco (Best Seller | Ficción) se presenta como narrativa de ficción vinculada al poder y la política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387928612",
+        "isbn-9788466396707",
+        "isbn-9788434441057"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b0eaf3b131f1c8c4",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388107009",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Equipo capibara está dirigido al público infantil y juvenil, especialmente a quienes buscan libros de extensión reducida. Sus 32 páginas permiten organizar la lectura en sesiones cortas; por su clasificación editorial, no responde a la búsqueda de una novela adulta extensa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Equipo capibara cuenta con una edición en tapa dura de 32 páginas, publicada por Editorial Sargantana. La cubierta rígida protege el volumen durante su manipulación y permite conservarlo como libro físico para compartir o regalar; su extensión facilita leerlo en pocas sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "17998b6764a69da1",
+  "origen": "chatgpt-web"
+}

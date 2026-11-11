@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788447231485",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la historia del arte, la escultura adrianea y los estudios sobre patrimonio cultural. Su carácter de reunión académica hispano-italiana lo distancia de las introducciones generales al arte y de los libros centrados en técnicas de creación escultórica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Escultura adrianea: nuevas aportaciones: Reunión hispano-italiana en recuerdo de Antonio Blanco Freijeiro: 11 (Cultura y Patrimonio) aborda la escultura adrianea desde una perspectiva histórica y patrimonial. El volumen vincula las nuevas aportaciones sobre esta materia con una reunión hispano-italiana dedicada al recuerdo de Antonio Blanco Freijeiro.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La versión impresa de este estudio sobre escultura adrianea se ofrece únicamente en tapa blanda, con una extensión de 196 páginas. Publicada por Editorial Universidad de Sevilla-secretariado de Publicaciones, permite mantener reunido el contenido de la reunión hispano-italiana en un volumen físico para su lectura y consulta.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Civilización: Una historia del arte y la cultura que dieron forma a la civilización moderna: 126 (Ático Historia) comparte el interés por la historia artística, pero abarca el desarrollo cultural de la civilización moderna. Escultura adrianea: nuevas aportaciones: Reunión hispano-italiana en recuerdo de Antonio Blanco Freijeiro: 11 (Cultura y Patrimonio) se concentra en la escultura adrianea y las aportaciones de un encuentro académico hispano-italiano.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387592493"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f213ccc086e89d8d",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791387740771",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Perreo, una revolución (Reservoir Narrativa), de Cazzu, se sitúa en la narrativa contemporánea y se dirige a quienes buscan una lectura relativamente breve. Sus 168 páginas lo diferencian de las novelas extensas, mientras que su clasificación editorial lo separa de las obras centradas específicamente en el misterio o el romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Perreo, una revolución (Reservoir Narrativa) tiene una edición en tapa blanda de 168 páginas, publicada por Reservoir Books. Su extensión facilita distribuir la lectura en sesiones cortas y el formato permite transportarlo como libro físico, sin recurrir a una aplicación de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "504aca08f485f386",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,63 @@
+{
+  "id": "isbn-9791387592981",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dominio (edición especial limitada en tapa dura con los cantos pintados): Cómo el cristianismo dio forma a Occidente (ATICO HISTORIA) está dirigido a lectores de historia, ensayo y religión interesados en la influencia cultural del cristianismo. Su planteamiento histórico se diferencia de una narración de ficción o de un manual práctico de creencias.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición se distingue por la tapa dura y los cantos pintados anunciados en el título, además de su carácter especial limitado. Publicada por Atico de los Libros, reúne 624 páginas en castellano y tiene fecha editorial del 30 de noviembre de 2026. Su ISBN 9791387592981 identifica esta presentación específica.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro examina la relación entre el cristianismo y la formación histórica de Occidente. Tom Holland aborda esa cuestión en una obra clasificada como historia, ensayo y religión y espiritualidad. El enfoque anunciado sitúa la influencia de una tradición religiosa sobre una civilización como asunto central, más allá de la exposición de creencias aisladas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para esta edición de Dominio, que cuenta con 624 páginas. Los cantos pintados aportan un rasgo físico diferenciador para quien quiera conservarla o regalarla, mientras que la encuadernación rígida facilita su colocación en una biblioteca. Su extensión también permite plantear una lectura repartida en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dominio puede compararse con Santas vivas: Del éxtasis al olvido (Historia), de Rebeca Sanmartín, por su relación con la historia religiosa. Tom Holland plantea una cuestión amplia, la influencia del cristianismo en Occidente, mientras que el título de Santas vivas delimita su atención a las santas y al tránsito del éxtasis al olvido. Ambos presentan escalas temáticas diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430629725"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ba330de7a5964afb",
+  "origen": "chatgpt-web"
+}

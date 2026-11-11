@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387949976",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bestiario de España: Mitos y leyendas de nuestro país (No ficción ilustrados) se dirige a lectores interesados en los mitos españoles desde una perspectiva histórica y divulgativa. Por su enfoque de no ficción ilustrada, no responde a quien busque una novela fantástica con personajes y una trama de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Bestiario de España: Mitos y leyendas de nuestro país (No ficción ilustrados) está disponible en tapa dura, con 96 páginas en castellano. Este formato permite conservar el volumen en una estantería y consultarlo físicamente, además de ofrecer una encuadernación rígida para regalar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bestiario de España: Mitos y leyendas de nuestro país (No ficción ilustrados) puede compararse con Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo) por su orientación hacia temas culturales. El primero se centra en mitos y leyendas de España, mientras que el libro de Carlos del Amor aborda la relación entre amor y arte.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084122"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f66125b165c06aa5",
+  "origen": "chatgpt-web"
+}

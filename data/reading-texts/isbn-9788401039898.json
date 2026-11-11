@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788401039898",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Martín Vigil, el amigo amable: Una memoria inconfesable (Obras diversas) se dirige a lectores interesados en las memorias personales y el ensayo biográfico. Por su enfoque, queda fuera de las búsquedas centradas en aventuras fantásticas o ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Martín Vigil, el amigo amable: Una memoria inconfesable (Obras diversas) está disponible en tapa blanda. Sus 328 páginas en castellano permiten consultar y releer pasajes en papel, con una encuadernación flexible que facilita llevar el volumen en una bolsa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El tiempo que pasa comparte con Martín Vigil, el amigo amable: Una memoria inconfesable (Obras diversas) el interés por la memoria, aunque el libro de Manuel Medina aborda los recuerdos infantiles de la posguerra española. Recuerdos. Breve historia de un amor se centra, en cambio, en el testimonio de Juan Ramírez de Lucas sobre su relación con Federico García Lorca, mientras que la obra de Miguel Fernández se presenta como una memoria de alcance biográfico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401040580",
+        "isbn-9788432251467"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bc3ce6218223fe6f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388322952",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "KPop Demon Hunters - Libro de muñecas recortables: Edición OFICIAL en español (Montena), de Netflix, está dirigido a lectores interesados en las actividades creativas y el ocio relacionado con KPop Demon Hunters. Sus 32 páginas y su propuesta de muñecas recortables lo diferencian de los libros de lectura narrativa; no encaja con quien busca una novela.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 32 páginas de KPop Demon Hunters - Libro de muñecas recortables: Edición OFICIAL en español (Montena), de Netflix, en un volumen físico dedicado a las actividades con muñecas recortables. Es la opción disponible para quien quiera conservar el libro y trabajar directamente sobre sus páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "KPop Demon Hunters - Libro de muñecas recortables: Edición OFICIAL en español (Montena), de Netflix, comparte universo y autoría con Aprende a dibujar con KPop Demon Hunters: Edición OFICIAL en español (Montena). La diferencia está en la actividad: el primero se centra en las muñecas recortables, mientras que el segundo plantea el dibujo como eje de su propuesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388322778"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "78369ad03bd0664c",
+  "origen": "chatgpt-web"
+}

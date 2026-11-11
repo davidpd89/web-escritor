@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388136436",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pack Una detective con intuición (MAEVA noir), de Jacqueline Winspear, se dirige a lectores de misterio y thriller interesados en historias de detectives. Con 1072 páginas, responde a una búsqueda de lectura extensa más que a la de una novela corta o una obra ajena al género detectivesco.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pack Una detective con intuición (MAEVA noir) se comercializa en tapa blanda y reúne una extensión de 1072 páginas en castellano. Su formato permite leer en papel, aunque la cantidad de páginas aconseja considerar el espacio necesario para guardarlo o transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "928147eaad7e547a",
+  "origen": "chatgpt-web"
+}

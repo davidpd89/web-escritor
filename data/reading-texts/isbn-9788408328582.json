@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788408328582",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una corte de alas y ruina: Edición limitada a precio especial (Colección Especial), de Sarah J. Maas, se dirige a lectores de fantasía que buscan una combinación de romance, aventuras y conflictos de supervivencia. Sus 672 páginas corresponden a una novela extensa, alejada de las lecturas breves y de las historias realistas sin elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Una corte de alas y ruina: Edición limitada a precio especial (Colección Especial) se identifica en el título como limitada y perteneciente a una colección especial. Booket la publica en tapa dura, en castellano, con 672 páginas y fecha editorial del 11 de noviembre de 2026. La denominación comercial también señala un precio especial, sin alterar los datos de extensión y encuadernación.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "fecha_publicacion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato de esta edición de Una corte de alas y ruina: Edición limitada a precio especial (Colección Especial). Sus 672 páginas forman un volumen de cubierta rígida, apropiado para conservarlo en una biblioteca personal o entregarlo como regalo. Booket lo presenta como una edición limitada de colección especial.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una corte de alas y ruina: Edición limitada a precio especial (Colección Especial) y Casa de cielo y aliento (Ciudad Medialuna 2) son obras de Sarah J. Maas. La primera combina fantasía, romance y aventuras en una edición limitada de tapa dura, mientras que la segunda se identifica en su título como la segunda entrega de Ciudad Medialuna. Ambas permiten seguir la narrativa de la misma autora, pero pertenecen a propuestas editoriales diferenciadas por sus títulos y colecciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396080"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e74ca6150d907c70",
+  "origen": "chatgpt-web"
+}

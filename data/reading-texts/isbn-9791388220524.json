@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388220524",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Being Biotiful: El libro de referencia sobre el método batch cooking (Gastronomía) se dirige a lectores interesados en la cocina y en el método batch cooking. Su enfoque gastronómico y práctico lo diferencia de una novela o de un libro dedicado exclusivamente al entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Being Biotiful: El libro de referencia sobre el método batch cooking (Gastronomía) cuenta con una edición en tapa blanda de 272 páginas. El soporte impreso permite consultar el contenido mientras se organiza el trabajo en la cocina y volver a distintas secciones sin utilizar dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Being Biotiful: El libro de referencia sobre el método batch cooking (Gastronomía), de Chloé Sucrée, puede compararse con Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA), de David Villalón y Mario Villalón, por su temática gastronómica. El primero se centra en el método batch cooking, mientras que el segundo reúne huerta, vinos, cocina y cócteles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934293"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cdd90ba7f6fe3b7a",
+  "origen": "chatgpt-web"
+}

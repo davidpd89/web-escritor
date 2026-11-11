@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788427226074",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El clan Monet 1 - Tesoro (Ficción crossover) se dirige a lectores de narrativa juvenil interesados en el romance, las relaciones familiares y los conflictos contemporáneos. Por su orientación temática, se aleja de quienes buscan principalmente fantasía épica o ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El clan Monet 1 - Tesoro (Ficción crossover) cuenta con una edición en tapa blanda de 448 páginas en castellano. El formato permite leer una novela extensa en papel y colocarla en la estantería junto a otros volúmenes de narrativa juvenil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El clan Monet 1 - Tesoro (Ficción crossover) comparte con Todas las navidades posibles: Esta historia de amor la eliges tú (Romántica) el interés por las relaciones amorosas. La obra de Weronika Anna Marczak combina romance, narrativa juvenil y conflictos familiares, mientras que la de Michelle Durán plantea desde su título una historia de amor en la que el lector elige.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419831897"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "38956a3230c23a1d",
+  "origen": "chatgpt-web"
+}

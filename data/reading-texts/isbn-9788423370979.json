@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788423370979",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Así es la vida de los animales: Historias de crueldad, amor y supervivencia en la naturaleza (Imago Mundi) encaja con lectores interesados en el comportamiento animal y la divulgación sobre naturaleza. Sus temas de crueldad y supervivencia pueden resultar menos adecuados para quienes buscan exclusivamente historias amables sobre animales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro trata las relaciones entre los animales, sus conductas de supervivencia y las manifestaciones de afecto o violencia en la naturaleza. Mario Alonso Santamaría reúne estos asuntos bajo un enfoque vinculado con la divulgación científica, las aventuras y el mundo natural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es la presentación disponible de este volumen de 288 páginas publicado por Ediciones Destino. Su encuadernación rígida permite conservarlo para consultas posteriores sobre naturaleza y utilizarlo como regalo en formato físico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de caminar: Consejos para partir con buen pie: 4 (Senderos), de Luca Gianotti, comparte con este libro la atención al entorno natural, pero su título plantea consejos para caminar. Así es la vida de los animales: Historias de crueldad, amor y supervivencia en la naturaleza (Imago Mundi), de Mario Alonso Santamaría, se centra en los animales y sus formas de supervivencia.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788419794949"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "67d39e57f1721876",
+  "origen": "chatgpt-web"
+}

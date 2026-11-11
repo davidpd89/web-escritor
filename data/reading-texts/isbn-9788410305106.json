@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410305106",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los pecados de la familia Ichinose 6 (Shônen) se dirige a lectores de manga interesados en conflictos familiares, misterio y narrativa contemporánea con elementos de humor. El título lo identifica como el n.º 6, por lo que se diferencia de una historia presentada como volumen único o independiente.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los pecados de la familia Ichinose 6 (Shônen) cuenta con una edición de 200 páginas en tapa blanda publicada por Distrito Manga. Su formato físico de cubierta flexible permite incorporarlo a una colección de manga y consultar las páginas ilustradas sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El pecado original de Takopi (pack 1-2) (Shônen) y Los pecados de la familia Ichinose 6 (Shônen) comparten autor, Taizan 5, y la identificación editorial shônen. El primero se presenta como un paquete de dos entregas, mientras que el título del segundo lo identifica como el n.º 6. Este último incorpora temas familiares y misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962982"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0f4f9f98a808ca61",
+  "origen": "chatgpt-web"
+}

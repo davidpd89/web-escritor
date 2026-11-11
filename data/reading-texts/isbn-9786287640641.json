@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9786287640641",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Yo también fui diagnosticada con TDAH / I Was Also Diagnosed with ADHD se dirige a lectores interesados en el TDAH desde la psicología y el desarrollo personal. Por su enfoque temático, no responde a quien busca una novela de ficción o una historia de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Yo también fui diagnosticada con TDAH / I Was Also Diagnosed with ADHD está disponible en tapa blanda y tiene 176 páginas. Es un volumen impreso que permite consultar distintos pasajes y volver a ellos durante la lectura, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Yo también fui diagnosticada con TDAH / I Was Also Diagnosed with ADHD puede compararse con Conectados para el amor / Wired for Love, de Stan Tatkin, por su relación con la psicología y el desarrollo personal. Carolina Molina O. centra su obra en el TDAH, mientras que el título de Stan Tatkin orienta la lectura hacia las relaciones amorosas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "80c97a4ddeb15c60",
+  "origen": "chatgpt-web"
+}

@@ -4,30 +4,30 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Auge y caída del Tercer Reich (edición especial) se dirige a lectores interesados en la historia política del nazismo y en el análisis extenso de un régimen histórico. Sus 1600 páginas y su enfoque documental encajan menos con quien busque una introducción breve o una novela ambientada en ese periodo.",
+      "texto": "Auge y caída del Tercer Reich (edición especial) está dirigido a lectores de historia interesados en el ascenso y derrumbe del régimen nazi. Sus 1600 páginas exigen tiempo para una lectura extensa; encaja menos con quien busca una introducción breve o una novela de ficción ambientada en ese periodo.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición especial de Auge y caída del Tercer Reich (edición especial) está publicada por Ediciones Península en tapa dura con sobrecubierta. Contiene 1600 páginas en castellano, lleva el ISBN 9788411005555 y tiene fecha de publicación del 18 de noviembre de 2026.",
+      "texto": "Esta edición especial de Auge y caída del Tercer Reich se presenta en tapa dura con sobrecubierta y consta de 1600 páginas. Ediciones Península la publica en castellano el 18 de noviembre de 2026, con el ISBN 9788411005555. La sobrecubierta es un rasgo concreto de esta presentación física.",
       "evidencias": [
         "titulo",
         "editorial",
         "edicion",
+        "fecha_publicacion",
         "numero_paginas",
         "idioma",
-        "isbn13",
-        "fecha_publicacion"
+        "isbn13"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "La obra estudia la formación, el apogeo y el derrumbe del régimen nazi, con atención al papel de Adolf Hitler en su ascenso al poder. William L. Shirer aborda ese proceso desde su experiencia como corresponsal y testigo de parte de los acontecimientos, combinando perspectiva histórica y conocimiento directo del periodo.",
+      "texto": "La obra aborda la formación, el apogeo y el colapso del Tercer Reich, con especial atención al ascenso de Adolf Hitler y al régimen nazi. William L. Shirer fue corresponsal y conoció parte de los acontecimientos que relata, lo que aporta una perspectiva vinculada al periodismo y a la observación directa de la historia.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,17 +37,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Auge y caída del Tercer Reich (edición especial) se ofrece en tapa dura y Kindle, una elección relevante por sus 1600 páginas. La edición física, con sobrecubierta, permite conservar el volumen como obra de consulta; Kindle facilita transportar y leer un texto de esta extensión sin cargar con el libro impreso.",
+      "texto": "La tapa dura con sobrecubierta permite conservar físicamente las 1600 páginas de Auge y caída del Tercer Reich y consultarlas en una biblioteca. Kindle ofrece una alternativa digital para llevar una obra de esta extensión en un lector electrónico o dispositivo compatible, sin transportar el volumen impreso. La elección depende principalmente del lugar y la forma de lectura.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "edicion",
         "numero_paginas",
-        "edicion"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Auge y caída del Tercer Reich (edición especial) y CORONA AUTORITARIA, LA examinan sistemas políticos autoritarios desde una perspectiva histórica. William L. Shirer estudia el régimen nazi, mientras que Guillermo María Muñoz se ocupa de la monarquía y el nacionalismo español durante la dictadura de Primo de Rivera.",
+      "texto": "Auge y caída del Tercer Reich puede compararse con 76, de Felipe Pigna, por su relación con la historia, aunque el título de William L. Shirer delimita su estudio al régimen nazi. También comparte interés por la investigación histórica con Agustín penón y Federico García Lorca, de Juan Carlos García de Polavieja, centrado en una investigación sobre la vida y muerte del poeta.",
       "evidencias": [
         "titulo",
         "autores",
@@ -56,7 +56,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788419892782"
+        "isbn-9788408329695",
+        "isbn-9788418567933"
       ]
     }
   ],

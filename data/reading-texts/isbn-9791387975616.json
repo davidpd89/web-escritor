@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387975616",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Camino de Región (Hispánica), de Juan Benet, se sitúa entre los clásicos y la narrativa contemporánea, por lo que encaja con lectores interesados en esas dos vertientes literarias. Quien busque romance o aventuras como género principal encontrará aquí una clasificación distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Camino de Región (Hispánica) se publica en tapa blanda, con 528 páginas en castellano. La edición de Alfaguara reúne una lectura extensa en un solo volumen físico, algo que conviene tener presente para transportarlo o reservarle espacio en la estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Camino de Región (Hispánica) puede compararse con Volverás a Región (Hispánica), también de Juan Benet. Ambos títulos comparten autoría y pertenecen al ámbito de los clásicos y la narrativa contemporánea. Camino de Región (Hispánica) cuenta con 528 páginas en esta edición, mientras que Volverás a Región (Hispánica) constituye otra opción del mismo autor dentro del catálogo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387975593"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4c32d5da7c92cb3e",
+  "origen": "chatgpt-web"
+}

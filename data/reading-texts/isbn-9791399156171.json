@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399156171",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Libro anual de psicoanalisis 2026 se dirige a lectores interesados en psicología, psicoanálisis y ensayo. Es una obra colectiva de Varios autores, distinta de los libros centrados en ejercicios de desarrollo personal o actividades prácticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Libro anual de psicoanalisis 2026 se presenta en tapa blanda, con 152 páginas en castellano. Esta edición de Editorial Psimatica permite consultar sus contenidos en papel y volver a los distintos apartados durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Libro anual de psicoanalisis 2026 comparte la autoría colectiva con Pack autoras con great ideas y Pack biografias en viñetas. El primero reúne obras de autoras y el segundo se centra en biografías ilustradas, mientras que Libro anual de psicoanalisis 2026 pertenece al ámbito del ensayo y la psicología. Los tres títulos figuran bajo la autoría de Varios autores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430631094",
+        "isbn-9791399295214"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "32d3b8af666cab39",
+  "origen": "chatgpt-web"
+}

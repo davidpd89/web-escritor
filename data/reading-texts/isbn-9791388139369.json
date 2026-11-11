@@ -4,46 +4,51 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los ricos siempre ganan se dirige a lectores interesados en las decisiones empresariales, la relación con el dinero y los hábitos de actuación de personas con grandes patrimonios. Su enfoque sobre responsabilidad, ambición y conducta personal se distancia de los manuales que buscan únicamente instrucciones para invertir o cálculos financieros.",
+      "texto": "Los ricos siempre ganan se dirige a lectores interesados en la economía, el éxito profesional y las decisiones personales relacionadas con el dinero. Iñaki Arcocha Torres parte de su experiencia asesorando grandes patrimonios para examinar hábitos, errores y formas de actuar. Encaja menos con quienes buscan ficción narrativa o instrucciones de inversión basadas en fórmulas financieras.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Iñaki Arcocha Torres plantea una lectura de economía y empresa basada en experiencias de asesoramiento a grandes patrimonios. Examina patrones de comportamiento ante el riesgo, los errores y las decisiones difíciles, combinando historias profesionales con reflexiones sobre responsabilidad individual y acción.",
+      "texto": "Los ricos siempre ganan es una obra de no ficción sobre los comportamientos y decisiones que Iñaki Arcocha Torres ha observado entre personas con grandes patrimonios. Su enfoque combina experiencias de asesoramiento, historias personales y reflexiones sobre responsabilidad, ambición y miedo. Las 240 páginas se centran en patrones de conducta ante los errores y las oportunidades, no en una trama novelesca.",
       "evidencias": [
+        "titulo",
         "autores",
+        "sinopsis_editorial",
         "categorias",
-        "sinopsis_editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los ricos siempre ganan se ofrece en tapa blanda, con 240 páginas en castellano publicadas por Roca Editorial. El volumen impreso permite subrayar las observaciones sobre decisiones y comportamiento, consultar pasajes anteriores y conservar las anotaciones junto al texto.",
+      "texto": "Los ricos siempre ganan se ofrece en tapa blanda, con 240 páginas publicadas por Roca Editorial en castellano. El ejemplar físico permite volver sobre las historias y reflexiones acerca del dinero, las decisiones y la responsabilidad personal. Su extensión queda reunida en un único volumen de papel, adecuado para una lectura seguida o por apartados.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "edicion",
         "numero_paginas",
-        "idioma",
         "editorial",
+        "idioma",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Domina el arte de los negocios comparte con Los ricos siempre ganan el interés por las conductas relacionadas con el éxito profesional, aunque Brian Tracy se centra en enseñar habilidades empresariales y Iñaki Arcocha Torres analiza patrones observados al asesorar patrimonios. Deja de regalar tu dinero aborda también las decisiones económicas, pero David Jiménez se ocupa de contratos, trámites y ahorro cotidiano en lugar de las actitudes ante el riesgo y la ambición.",
+      "texto": "Los ricos siempre ganan, de Iñaki Arcocha Torres, puede compararse con Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, por su atención a la conducta y las decisiones profesionales. El primero examina patrones observados entre grandes patrimonios; el segundo plantea una reflexión sobre el liderazgo. También se relaciona con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, aunque este último se orienta hacia las ideas económicas y políticas.",
       "evidencias": [
         "titulo",
         "autores",
         "sinopsis_editorial",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388139567",
-        "isbn-9788466390514"
+        "isbn-9791388182457",
+        "isbn-9788409921980"
       ]
     }
   ],

@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788427055858",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hoy no es mi día (Matchstories) está dirigido a lectores de romance que prefieren una novela de extensión intermedia. Sus 336 páginas ofrecen una lectura más larga que un relato breve; encaja menos con quien busca principalmente ensayo, divulgación o fantasía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hoy no es mi día (Matchstories) se publica en tapa blanda, con 336 páginas en castellano. Este formato permite leer la novela en papel, transportarla y conservarla después de terminarla, sin depender de una aplicación de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "003d46f2d7c34c32",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388353123",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El rugido de la máquina está dirigido a lectores de poesía en castellano y a quienes buscan obras de Zheng Xiaoqiong. Su clasificación literaria lo diferencia de una novela narrativa o de un manual técnico, aunque el título haga referencia a una máquina.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El rugido de la máquina se presenta en tapa blanda, con 180 páginas y edición en castellano de RIL Editores. El formato impreso permite marcar poemas o pasajes concretos y regresar a ellos sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El rugido de la máquina puede compararse con Antología, de Antonio Cano, y Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, por su pertenencia a la poesía. La diferencia está en la autoría y en el carácter recopilatorio de Antología, que reúne la obra completa de Antonio Cano, frente al volumen firmado por Zheng Xiaoqiong.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288",
+        "isbn-9791370140908"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7e6c8f66944041b2",
+  "origen": "chatgpt-web"
+}

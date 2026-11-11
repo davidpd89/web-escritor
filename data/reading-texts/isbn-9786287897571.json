@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786287897571",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Fin de la Eternidad / The End of Eternity, de Isaac Asimov, se dirige a lectores interesados en obras clasificadas como clásicos. Su extensión de 288 páginas puede encajar con quienes buscan una lectura de tamaño intermedio, pero menos con quienes prefieren manuales prácticos o libros infantiles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Fin de la Eternidad / The End of Eternity está editado por Debolsillo en tapa blanda y castellano, con 288 páginas. Esta presentación facilita llevar el libro en una bolsa y conservar una copia física para futuras lecturas.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los Propios Dioses / The Gods Themselves y El Fin de la Eternidad / The End of Eternity comparten autor, Isaac Asimov, pero son títulos distintos de su bibliografía. Los límites de la Fundación / Fundación y Tierra: 134 (Alamut Serie Fantástica) ofrece otra lectura del mismo escritor, identificada en su título con Fundación y Tierra, frente al título independiente de El Fin de la Eternidad / The End of Eternity.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788498891751",
+        "isbn-9786287897472"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b9f984409de1f812",
+  "origen": "chatgpt-web"
+}

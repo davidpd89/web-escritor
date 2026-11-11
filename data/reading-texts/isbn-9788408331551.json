@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788408331551",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rose in chains (Trilogía Evermore, 1): Edición limitada a precio especial (Colección Especial) se dirige a lectores de fantasía que buscan una novela extensa. Sus 608 páginas requieren más tiempo de lectura que una obra breve, por lo que encaja menos con quien prefiere historias cortas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Rose in chains (Trilogía Evermore, 1): Edición limitada a precio especial (Colección Especial) se distingue por su presentación como edición limitada dentro de la Colección Especial. Publicada por Booket, corresponde al ISBN 9788408331551 y tiene como fecha de publicación editorial 2027-01-08.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "isbn13",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible para Rose in chains (Trilogía Evermore, 1): Edición limitada a precio especial (Colección Especial) es la tapa blanda. Sus 608 páginas se presentan en un volumen físico de bolsillo, que permite leer sin dispositivo electrónico y conservar el ejemplar en una estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "26fccb99222865a0",
+  "origen": "chatgpt-web"
+}

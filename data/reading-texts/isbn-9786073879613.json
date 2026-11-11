@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786073879613",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando vi a la muerte prestar su sombrero / When I Saw Death Lend Its Hat, de Rodrigo Unda, encaja con lectores interesados en fantasía, aventuras y misterio, especialmente si también buscan temas relacionados con el duelo. Sus 256 páginas ofrecen una extensión intermedia; no responde tanto a quien busca una historia exclusivamente realista o ajena a estos temas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuando vi a la muerte prestar su sombrero / When I Saw Death Lend Its Hat está disponible en tapa dura, con 256 páginas en castellano. La encuadernación rígida resulta práctica para conservar el ejemplar y regalarlo, mientras que su extensión permite transportarlo sin el volumen de una novela mucho más larga.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando vi a la muerte prestar su sombrero / When I Saw Death Lend Its Hat puede compararse con Cuando vi a la muerte prestar su sombrero (Ediciones B), también de Rodrigo Unda, por compartir autor y título principal, aunque se presentan con denominaciones editoriales diferentes. Donde el agua no muerde / Where the Water Doesn't Bite pertenece igualmente a la obra de Rodrigo Unda, pero se identifica como otro título. La comparación permite distinguir una coincidencia de obra de una afinidad por autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073878760",
+        "isbn-9788466685481"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fcc12a2364c0a82b",
+  "origen": "chatgpt-web"
+}

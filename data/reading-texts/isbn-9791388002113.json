@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388002113",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mejor que en las películas (#Romance), de Lynn Painter, encaja con lectores que buscan historias del género romántico. Quienes prefieren una lectura clasificada como narrativa contemporánea sin orientación romántica encontrarán aquí una propuesta de otro género.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Mejor que en las películas (#Romance) es de tapa dura y reúne 360 páginas. Publicada por Puck en castellano, ofrece una encuadernación rígida para conservar el ejemplar en la biblioteca o entregarlo como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c371f0295cb72944",
+  "origen": "chatgpt-web"
+}

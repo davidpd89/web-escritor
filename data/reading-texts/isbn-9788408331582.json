@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408331582",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en el estoicismo y la filosofía tratados desde el ensayo. Quienes buscan una novela de ficción o una historia protagonizada por personajes encontrarán aquí una propuesta de orientación filosófica, firmada por Massimo Pigliucci.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta versión de Cómo ser un estoico pertenece a Colección Especial de Booket y se identifica como edición limitada a precio especial. Se publica en libro de bolsillo, con 256 páginas y el ISBN 9788408331582. Su fecha editorial es 2027-01-08.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "isbn13",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es la opción disponible y corresponde a un libro de bolsillo de 256 páginas. Su extensión facilita llevarlo para leer por sesiones y volver a consultar sus contenidos filosóficos en papel, sin necesidad de manejar un volumen especialmente extenso.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo ser un escéptico: El poder de la duda para una vida con sentido: lecciones de la filosofía de Cicerón (Ariel) comparte autor con Cómo ser un estoico: Edición limitada a precio especial (Colección Especial). Ambos se ocupan de cuestiones filosóficas, pero el primero se centra en el escepticismo y la duda, mientras que el segundo aborda el estoicismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441286"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5599cdcc999c6d25",
+  "origen": "chatgpt-web"
+}

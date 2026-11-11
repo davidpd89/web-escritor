@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387690595",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rey Dolor: 53 (Noches Negras) encaja con lectores que buscan terror combinado con misterio y thriller. Sus 960 páginas requieren disposición para una lectura extensa, mientras que quienes prefieren historias breves o alejadas del terror encontrarán una propuesta distinta de sus gustos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Rey Dolor: 53 (Noches Negras) se publica en tapa blanda, con 960 páginas en castellano. Es una edición física extensa, por lo que conviene tener en cuenta su volumen al transportarla o leerla fuera de casa. La edición corresponde a Nocturna Ediciones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rey Dolor: 53 (Noches Negras), de Joe Hill, puede compararse con Carrie (edición serie), de Stephen King, por su relación con el terror. Carrie sitúa su conflicto en el acoso escolar y una convivencia familiar marcada por el fanatismo religioso, mientras que Rey Dolor se presenta dentro del terror y el misterio. Coraline, de Neil Gaiman, introduce otra variante inquietante mediante una puerta hacia una versión alternativa del hogar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396806",
+        "lib-0001"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "74c539ed0ed65a91",
+  "origen": "chatgpt-web"
+}

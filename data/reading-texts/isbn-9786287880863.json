@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786287880863",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a quienes buscan narrativa contemporánea con interés por las relaciones familiares. Plegarias nocturnas (Nueva edición) / Nighttime Prayers (New Edition), de Santiago Gamboa, se sitúa en ese ámbito temático y no responde a una búsqueda de manuales de crianza o consejos prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Plegarias nocturnas (Nueva edición) / Nighttime Prayers (New Edition) se presenta en tapa blanda, con 312 páginas. Este formato permite llevar la novela en el bolso o la mochila y consultar pasajes en papel. La publicación corre a cargo de Alfaguara.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Plegarias nocturnas (Nueva edición) / Nighttime Prayers (New Edition) puede compararse con Dime, niña bonita (Narrativa), de Laura Galve, por su vinculación con la narrativa. También comparte ese terreno literario con Celestino antes del alba (Andanzas), de Reinaldo Arenas. La diferencia identificable está en la autoría y en el enfoque familiar con el que se clasifica la obra de Santiago Gamboa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411078535",
+        "isbn-9791387605964"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f50c7fdb1760c9d0",
+  "origen": "chatgpt-web"
+}

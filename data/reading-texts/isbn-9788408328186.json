@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408328186",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tailandia 10 (Guías de País Lonely Planet) se dirige a lectores que preparan una estancia en Tailandia y buscan una guía de país en castellano. Sus 632 páginas corresponden a una publicación de viajes pensada para consultar, por lo que encaja menos con quienes prefieren una novela o un relato personal de experiencias viajeras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 632 páginas de Tailandia 10 (Guías de País Lonely Planet) en un volumen físico que puede consultarse durante la preparación del viaje. Kindle permite llevar la guía en el móvil o en un lector electrónico y evita cargar con el ejemplar impreso durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tailandia 10 (Guías de País Lonely Planet) y Amsterdam de cerca 2027-2028 son publicaciones de viajes, pero la primera aborda un país y la segunda se centra en una ciudad. También puede compararse con Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, aunque esta última se presenta como un relato de vivencias y no como una guía de país.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496",
+        "isbn-9788408320890"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a870bfe788a9cda2",
+  "origen": "chatgpt-web"
+}

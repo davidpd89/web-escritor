@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788478857517",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Guía farmacológica Podología 2026 se orienta a lectores interesados en la farmacología aplicada al ámbito de la podología. Por su materia científica y especializada, se aleja de las lecturas generales sobre naturaleza, viajes o divulgación tecnológica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite manejar las 512 páginas de Guía farmacológica Podología 2026 como volumen físico de consulta. La edición de Grupo Aula Médica, S.l. reúne una extensión considerable, por lo que conviene tener en cuenta su tamaño al transportarla o utilizarla sobre una mesa de trabajo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA, de Keith Mansfield, comparte con Guía farmacológica Podología 2026 el interés por conocimientos científicos, pero se centra en la inteligencia artificial en lugar de la farmacología podológica. Así es la vida de los animales: Historias de crueldad, amor y supervivencia en la naturaleza (Imago Mundi), de Mario Alonso Santamaría, aborda la vida animal y la supervivencia en la naturaleza, frente al enfoque sanitario especializado de la guía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309",
+        "isbn-9788423370979"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5d50dd824263338c",
+  "origen": "chatgpt-web"
+}

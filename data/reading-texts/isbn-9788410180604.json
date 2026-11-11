@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788410180604",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las almas muertas, de Nikolái Gógol, se dirige a lectores interesados en los clásicos literarios publicados en castellano. Sus 368 páginas ofrecen una extensión intermedia; por su clasificación editorial, queda fuera de una búsqueda centrada exclusivamente en novedades de narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las almas muertas está disponible en tapa dura y Kindle. La edición física de Navona Editorial reúne 368 páginas en una encuadernación rígida, mientras que Kindle permite llevar el texto en un dispositivo de lectura compatible sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cecb7662565ead4e",
+  "origen": "chatgpt-web"
+}

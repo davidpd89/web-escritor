@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387934248",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "ATP No. 1 Club. Iconos del tenis masculino (CONOCIMIENTO) está dirigido a lectores interesados en el tenis masculino y sus figuras destacadas. Por su temática deportiva, encaja menos con quienes buscan una novela de ficción o un libro centrado en practicar actividades ajenas al tenis.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Cinco Tintas se presenta en tapa dura, con 304 páginas en castellano. Su encuadernación rígida resulta apropiada para conservar el volumen en una biblioteca personal o entregarlo como regalo a alguien interesado en el tenis.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA) comparte con ATP No. 1 Club. Iconos del tenis masculino (CONOCIMIENTO) su orientación hacia intereses específicos del tiempo libre. David Villalón y Mario Villalón se ocupan de la gastronomía, mientras Mark Hodgkinson centra su libro en los iconos del tenis masculino.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387934293"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "18d9ef00c4822218",
+  "origen": "chatgpt-web"
+}

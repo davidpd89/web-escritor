@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788413445847",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mente fit: Meditación, neurociencia y cuatro pasos para una felicidad duradera (Alienta) se orienta a lectores interesados en relacionar la meditación con la psicología y la neurociencia. Su planteamiento de desarrollo personal se distancia de las obras dedicadas exclusivamente a la investigación científica o a la narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "El contenido de Mente fit: Meditación, neurociencia y cuatro pasos para una felicidad duradera (Alienta) se articula alrededor de la meditación, la neurociencia y un planteamiento de cuatro pasos. Sus 266 páginas permiten abordar estas cuestiones dentro de una misma obra de desarrollo personal. El propósito anunciado es trabajar hacia una felicidad duradera.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mente fit: Meditación, neurociencia y cuatro pasos para una felicidad duradera (Alienta) se ofrece en tapa blanda, con 266 páginas en castellano. La edición de Alienta Editorial permite leer en papel y volver a los apartados relacionados con la meditación y los pasos propuestos. Es el formato disponible para consultar el contenido sin dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mente fit: Meditación, neurociencia y cuatro pasos para una felicidad duradera (Alienta) comparte con Conectados para el amor / Wired for Love el interés por la psicología aplicada a la vida personal. Liam McClintock aborda la meditación y la neurociencia mediante cuatro pasos orientados al bienestar, mientras que Stan Tatkin centra su obra en las relaciones amorosas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4e4f326295e2fbb8",
+  "origen": "chatgpt-web"
+}

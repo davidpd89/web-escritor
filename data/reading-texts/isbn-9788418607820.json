@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788418607820",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Magnificat enero 2027: N°278 se dirige a lectores interesados en publicaciones periódicas de religión y espiritualidad. Su identificación con un mes y un número concreto lo diferencia de los tratados generales sobre espiritualidad y de las novelas con una trama independiente.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Magnificat enero 2027: N°278 contiene 432 páginas en castellano. El soporte impreso permite consultar sus contenidos durante el periodo indicado en el título y conservar el número como parte de una colección física.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Magnificat enero 2027: N°278 y Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación se relacionan con la lectura espiritual. La publicación de MAGNIFICAT, Pablo Cervera Barranco y Pierre Marie Dumont está identificada por un mes y un número, mientras que el libro de Tsondru Yeshe se presenta como una exposición de fundamentos y práctica del Dharma. Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, incorpora además el componente de experiencia personal ligada a un recorrido.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496",
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1807ebfdb628bdb2",
+  "origen": "chatgpt-web"
+}

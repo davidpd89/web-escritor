@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788409940585",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores interesados en textos sobre pensamiento político y la Falange. Sus 240 páginas corresponden a una obra de temática política, no a una novela de ficción ni a un manual de actividades prácticas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 240 páginas en castellano y está publicada por Amadís Ediciones. El soporte impreso permite consultar distintos pasajes y volver a ellos durante el estudio de los textos políticos reunidos en el volumen.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparte el interés por las ideas políticas, pero se centra expresamente en el anarcocapitalismo. Los fundamentos de la Falange y otros textos aborda, por su título, la Falange. A la sombra del Estado se ocupa del espionaje, las operaciones encubiertas y el poder clandestino, con un enfoque distinto del estudio de fundamentos políticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057",
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f28ea505f556d726",
+  "origen": "chatgpt-web"
+}

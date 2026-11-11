@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388054525",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "En la noche mediante (Poesía) está dirigido a lectores de poesía en castellano que prefieren un volumen de extensión contenida. Sus 92 páginas permiten distribuir la lectura en sesiones breves, aunque no responde a quien busca una novela de argumento continuo o una obra narrativa extensa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "En la noche mediante (Poesía) se publica en tapa blanda, con 92 páginas en castellano. Su extensión facilita llevar el libro en el bolso o la mochila y regresar a sus páginas en distintas sesiones, sin necesitar un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Animales que flotan lejos de casa: 43 (Leteo), de Nicolás Peña, y En la noche mediante (Poesía), de Juan Antonio Bernier, pertenecen al ámbito poético, pero tienen distinta autoría. También puede compararse con Antología, de Antonio Cano, que reúne la obra completa de su autor. Frente a esa recopilación, En la noche mediante (Poesía) se presenta como un volumen individual de 92 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388299421",
+        "isbn-9791370140908"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a601134b303efe26",
+  "origen": "chatgpt-web"
+}

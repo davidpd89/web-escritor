@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387928599",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El hombre que fue casi nadie (Salamandra Black) encaja con lectores de novela histórica y misterio interesados en el siglo XX. Sus 272 páginas ofrecen una extensión contenida frente a quienes buscan novelas históricas de gran recorrido; también se dirige a quienes prefieren el componente de intriga a una lectura centrada exclusivamente en otros periodos históricos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 272 páginas de El hombre que fue casi nadie (Salamandra Black) en una edición física de extensión moderada. Es la alternativa disponible para quien prefiere leer en papel, llevar el ejemplar consigo o conservarlo en su biblioteca sin recurrir a dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig, comparte con El hombre que fue casi nadie (Salamandra Black) el interés por la narrativa histórica. La diferencia está en el marco temporal que sugieren sus títulos: uno se vincula al siglo XX y el otro sitúa su referencia histórica en Pompeya. Son dos puntos de partida distintos para quien busca ficción relacionada con el pasado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "68813488539c2538",
+  "origen": "chatgpt-web"
+}

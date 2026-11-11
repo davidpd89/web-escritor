@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9786073878982",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Horneando el éxito / Baking Success se orienta a lectores interesados en el desarrollo personal, las experiencias biográficas y el ámbito empresarial. Su clasificación lo distancia de los manuales centrados exclusivamente en técnicas culinarias y de las obras de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Horneando el éxito / Baking Success cuenta con una edición en tapa blanda de 184 páginas, publicada por Penguin Random House Grupo Editorial. Su extensión permite leerlo en varias sesiones y volver a consultar pasajes concretos en papel, sin necesidad de utilizar un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Horneando el éxito / Baking Success puede compararse con Detrás de una Estrella, de Fernando Trías de Bes, por su vinculación con el mundo empresarial. Detrás de una Estrella aborda la transformación de una empresa cervecera catalana en un negocio internacional, mientras la obra de Gabriel Torres combina su clasificación empresarial con desarrollo personal y biografías.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423441075"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9a9a0ad5d7899855",
+  "origen": "chatgpt-web"
+}

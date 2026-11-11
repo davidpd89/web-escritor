@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387991500",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de ensayo interesados en las experiencias urbanas, los cuidados y las formas de resistencia social. «Co-crear desde los márgenes: Saberes, cuidados y resistencias urbanas: 207 (Akademeia)», de Anna Clua Infante y Núria Benach, se sitúa en el ámbito de la reflexión sobre la sociedad y la ciudad, por lo que no corresponde a quien busca narrativa de ficción o una novela de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 254 páginas en una edición física publicada por Icaria Editorial. Es el formato disponible para quien prefiere leer en papel, consultar el contenido y conservar un ejemplar en su biblioteca; su extensión permite hacerse una idea del volumen de lectura que supone el ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "620de47d779e1c0c",
+  "origen": "chatgpt-web"
+}

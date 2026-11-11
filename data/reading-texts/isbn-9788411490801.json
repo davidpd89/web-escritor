@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788411490801",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "De la Tierra a la Luna | Julio Verne | Colección Maestros del Fantástico se dirige a lectores de clásicos que buscan una edición en castellano de RBA Coleccionables. Sus 296 páginas y su encuadre en narrativa contemporánea la alejan de quien prefiere lecturas infantiles breves.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de De la Tierra a la Luna | Julio Verne | Colección Maestros del Fantástico está disponible en tapa dura. Sus 296 páginas, publicadas por RBA Coleccionables en castellano, forman un volumen físico que puede guardarse en una colección o entregarse como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ce144321b01f8ec9",
+  "origen": "chatgpt-web"
+}

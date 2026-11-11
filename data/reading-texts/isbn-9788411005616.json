@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788411005616",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en comprender el síndrome de la impostora y su relación con la confianza de las mujeres en sí mismas. Elisabeth Cadoche y Anne de Montarlot abordan esta cuestión desde el desarrollo personal, el ensayo y la psicología; no es una obra de ficción ni una novela romántica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición especial de Ediciones Península se publica en tapa dura y contiene 336 páginas en castellano. Su fecha de publicación es el 25 de noviembre de 2026 y se identifica mediante el ISBN 9788411005616, lo que permite distinguirla de otras presentaciones de la obra.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato de esta edición especial de 336 páginas, pensado para conservar el volumen físico y consultarlo en distintas ocasiones. Su encuadernación rígida también permite regalar un ejemplar de un ensayo sobre psicología y desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, comparte el interés por cuestiones personales y psicológicas, pero se centra en la infancia y su reparación emocional. El síndrome de la impostora (edición especial): ¿Por qué las mujeres siguen sin creer en ellas mismas? (FEMINISMO) aborda específicamente la confianza de las mujeres en sus capacidades.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "274cbe05c6c3f6d6",
+  "origen": "chatgpt-web"
+}

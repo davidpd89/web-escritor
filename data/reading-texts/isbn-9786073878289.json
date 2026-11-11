@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073878289",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "En lengua privada / In Private Language se dirige a quienes leen ensayo, relatos y narrativa contemporánea. Su combinación de géneros se distancia de los manuales prácticos y de las obras dedicadas exclusivamente a un asunto técnico, mientras que sus 240 páginas ofrecen una extensión intermedia.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "En lengua privada / In Private Language cuenta con una edición en tapa blanda de 240 páginas, publicada en castellano. El volumen físico permite señalar fragmentos y alternar la lectura con la consulta de pasajes, una posibilidad útil para un libro situado entre el ensayo y la narrativa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "En lengua privada / In Private Language puede compararse con Entre cachacos: 1954-1955 / Among the Cachacos: 1954-1955: 2 (OBRA PERIODÍSTICA) por su proximidad a la escritura de no ficción. Emiliano Monge combina ensayo y narrativa contemporánea, mientras que el título de Gabriel García Márquez pertenece a su obra periodística. Son dos aproximaciones distintas a la escritura fuera de la novela convencional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789588894164"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ad3f495e2849e3f1",
+  "origen": "chatgpt-web"
+}

@@ -4,17 +4,18 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Otros mundos (El Talismán 3) se dirige a lectores adultos de fantasía, terror y misterio interesados en amenazas sobrenaturales que afectan a varios mundos. Su conflicto reúne adolescentes infectados y fuerzas destructivas, por lo que puede resultar menos adecuado para quienes prefieren aventuras realistas o historias independientes de una serie.",
+      "texto": "Otros mundos (El Talismán 3) se dirige a lectores adultos de fantasía, terror y misterio que buscan conflictos entre realidades y amenazas de alcance colectivo. Sus 920 páginas y la presencia de personajes procedentes de entregas anteriores lo alejan de quienes prefieren relatos breves e independientes.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
         "categorias",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Otros mundos (El Talismán 3) combina fantasía oscura, terror y aventura entre realidades conectadas. Jack Sawyer debe enfrentarse a adolescentes infectados y a las fuerzas de Gullet, una amenaza vinculada al Mundo Medio; el título identifica esta entrega como el n.º 3 de El Talismán.",
+      "texto": "La novela combina fantasía oscura, terror y suspense mediante una amenaza que afecta a varios mundos. Jack Sawyer vuelve a enfrentarse a fuerzas sobrenaturales, esta vez con adolescentes infectados y un peligro relacionado con el Mundo Medio. El conflicto amplía las consecuencias de sus aventuras anteriores y sitúa la supervivencia de distintas realidades en el centro de la trama.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -23,19 +24,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Otros mundos (El Talismán 3) está disponible en tapa dura, tapa blanda, Kindle y audiolibro. La edición de Plaza & Janés tiene 920 páginas, sobrecubierta e ilustraciones en blanco y negro de Gabriel Rodríguez; Kindle evita cargar con un volumen extenso, la tapa blanda facilita el transporte y el audiolibro permite seguir la historia mediante escucha.",
+      "texto": "La tapa dura con sobrecubierta reúne las 920 páginas de Otros mundos (El Talismán 3) en un volumen físico apropiado para conservar en una colección. Kindle permite transportar esa extensión en un dispositivo de lectura o móvil, mientras que el audiolibro ofrece la posibilidad de escuchar la historia sin sostener el volumen.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
         "numero_paginas",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Otros mundos (El Talismán 3) comparte con Carrie (edición serie) la autoría de Stephen King y la presencia de adolescentes ante situaciones amenazantes. La primera, escrita con Peter Straub, desarrolla una crisis sobrenatural entre mundos; Carrie (edición serie) se concentra en el acoso escolar y una convivencia familiar marcada por el fanatismo religioso.",
+      "texto": "El pistolero (edición cantos tintados) (La Torre Oscura 1) comparte con Otros mundos (El Talismán 3) la autoría de Stephen King y la presencia de otros mundos en su planteamiento. La diferencia está en que Otros mundos (El Talismán 3), escrito también por Peter Straub, recupera a Jack Sawyer y plantea una amenaza contra varias realidades. Carrie (edición serie) coincide en la autoría de Stephen King, pero centra su conflicto en una joven acosada en el instituto y su relación familiar, frente al peligro sobrenatural de alcance colectivo de Otros mundos (El Talismán 3).",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,12 +42,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396806"
+        "isbn-9788466396806",
+        "isbn-9788466392259"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4c082159a1c2d01a",
+  "fuente_hash": "b7a11d15a1f5a615",
   "origen": "chatgpt-web"
 }

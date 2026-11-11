@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409936601",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aún no es tu día se orienta a lectores de misterio y aventuras que prefieren dedicar tiempo a una narración extensa. Sus 618 páginas lo alejan de quienes buscan una lectura breve, y su clasificación en misterio y thriller marca una diferencia respecto a las novelas centradas en el romance o la comedia.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Aún no es tu día reúne 618 páginas en un volumen físico, una opción para quienes prefieren leer en papel y conservar el ejemplar. Kindle permite transportar digitalmente esa extensión y continuar la lectura desde un móvil o lector electrónico sin llevar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aún no es tu día comparte el misterio con Abre el misterio 1 - El robo de las croquetas, de Carlos G. Gurpegui, aunque este último plantea la desaparición de unas croquetas. También puede compararse con Alas de escarcha y oro: El canto del cisne, de Marta Morillo, por su relación con las aventuras, pero la obra de David E. Jardón se clasifica específicamente como misterio y thriller y cuenta con 618 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644",
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2653f1c7f48d05cb",
+  "origen": "chatgpt-web"
+}

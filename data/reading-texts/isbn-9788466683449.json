@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "A mil por hora se dirige a lectores de romance contemporáneo interesados en las relaciones sentimentales dentro del automovilismo profesional. Su historia combina una relación pendiente, tensiones laborales y competición deportiva, por lo que se aleja de las novelas centradas exclusivamente en las carreras o en la técnica de los vehículos.",
+      "texto": "A mil por hora se dirige a lectores de romance contemporáneo interesados en las segundas oportunidades sentimentales y las relaciones vinculadas al deporte profesional. Quien busque una novela centrada exclusivamente en las competiciones automovilísticas encontrará aquí un conflicto principalmente amoroso, marcado por los límites que Ivy Miller intenta mantener frente a Saint Thompson.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,37 +13,35 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "A mil por hora desarrolla un romance contemporáneo ambientado en un equipo de Fórmula 1. Ivy Miller debe trabajar junto a Saint Thompson, un piloto con quien tuvo una relación inconclusa y cuyo pasado deportivo estuvo marcado por un escándalo. La tensión surge del choque entre los límites sentimentales de ella y la intención de él de recuperar aquella oportunidad.",
+      "texto": "Hannah Grace plantea un romance contemporáneo situado en el entorno profesional de la Fórmula 1. El conflicto nace del reencuentro de Ivy Miller y Saint Thompson, cuya relación quedó interrumpida tras un escándalo deportivo, y enfrenta la decisión de ella de evitar compromisos con el deseo de él de recuperar aquella oportunidad.",
       "evidencias": [
-        "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "A mil por hora está disponible en tapa dura, con una extensión de 424 páginas. La edición física de Ediciones B permite conservar el volumen en una encuadernación rígida y entregarlo como regalo. Es una elección en papel para quienes prefieren leer una novela romántica extensa sin depender de un dispositivo electrónico.",
+      "texto": "A mil por hora figura en tapa dura, con 424 páginas publicadas por Ediciones B. Es una presentación física que permite conservar la novela en una encuadernación rígida y utilizarla como regalo; por su extensión, conviene contar con espacio para transportarla durante los desplazamientos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion",
-        "editorial",
-        "categorias"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "A mil por hora comparte con Amor en pole position (Dirty Air 3) el romance ambientado en la Fórmula 1. Hannah Grace centra su historia en el reencuentro de un piloto con una mujer que trabaja para su equipo, mientras que el título de Lauren Asher se presenta como otra relación sentimental dentro del automovilismo. Naranja con canela también aborda el amor, pero desde una perspectiva generacional.",
+      "texto": "Romper el hielo · edición limitada (Maple Hills 1) (Campaña | Ahora por menos) comparte autoría con A mil por hora y aparece vinculado a su autora como antecedente de romance. En las nubes · edición limitada (Maple Hills 3) (Campaña | Ahora por menos) también es de Hannah Grace, pero su título lo identifica como el n.º 3 de Maple Hills; A mil por hora sitúa su relación amorosa en la Fórmula 1.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788427055674",
-        "isbn-9791388163661"
+        "isbn-9791388147555",
+        "isbn-9788413145761"
       ]
     }
   ],

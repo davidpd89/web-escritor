@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409942541",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La piel del duelo, de Esther Ramirez Matos, encaja con lectores interesados en el duelo, la superación personal y las relaciones familiares. Sus 120 páginas ofrecen una extensión breve; por su temática, queda lejos de quienes buscan una lectura de ficción o humor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La piel del duelo está disponible en tapa blanda, con una extensión de 120 páginas. Es una edición física relativamente breve que permite volver a los pasajes relacionados con el duelo y la superación personal sin manejar un volumen extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La piel del duelo coincide en su temática con El duelo: cómo atenderte: Una guía para acompañarte después de la muerte de una persona amada, de Irma Vallès Hernàndez. El segundo título delimita el acompañamiento tras una muerte, mientras que el de Esther Ramirez Matos se sitúa también en el desarrollo personal y el ámbito familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921065"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5edd31a64bd0c7d4",
+  "origen": "chatgpt-web"
+}

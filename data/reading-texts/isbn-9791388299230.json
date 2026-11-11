@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pienso para pájaros encaja con lectores de poesía que buscan reflexiones sobre el lenguaje, el canto y el silencio mediante imágenes de aves. Su planteamiento abstracto se aleja de los libros de divulgación ornitológica y de la poesía centrada en contar acontecimientos concretos.",
+      "texto": "Pienso para pájaros se dirige a lectores de poesía interesados en la relación entre lenguaje, canto y silencio. Su planteamiento reflexivo y sus imágenes sobre los pájaros se alejan de una narración con personajes y acontecimientos encadenados.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,36 +13,35 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Sergio Artero Pérez utiliza la figura de los pájaros para explorar las relaciones entre expresión, identidad y silencio. El poemario convierte el canto en una cuestión sobre los límites del lenguaje y establece un diálogo con las ideas presentes en La novela nueva de Juan Luis Martínez, citada en su presentación.",
+      "texto": "Es un poemario que utiliza el canto de los pájaros para explorar los límites del lenguaje y su relación con el silencio. La referencia a La novela nueva, de Juan Luis Martínez, sitúa esa exploración en un terreno de reflexión sobre la propia expresión poética.",
       "evidencias": [
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Pienso para pájaros está disponible en tapa blanda, con 108 páginas en castellano publicadas por Eolas Ediciones. El volumen permite una lectura seguida del poemario y posteriores consultas de los pasajes dedicados al canto, las aves y el silencio.",
+      "texto": "Pienso para pájaros está disponible en tapa blanda, con 108 páginas en castellano. Esta edición permite leer el poemario en papel, volver sobre sus pasajes y consultar distintos fragmentos sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial",
-        "sinopsis_editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Pienso para pájaros y El libro de los gatos comparten la presencia de animales en textos poéticos. Sergio Artero Pérez utiliza las aves para reflexionar sobre la voz y el silencio; Ursula K. Le Guin reúne poemas, meditaciones y dibujos dedicados a los gatos. El primero plantea una exploración del lenguaje, mientras que el segundo incorpora también una dimensión visual.",
+      "texto": "Pienso para pájaros puede compararse con Antología, de Antonio Cano, por su pertenencia al ámbito poético. La diferencia está en el contenido: Antología reúne la obra completa de su autor, mientras que Sergio Artero Pérez presenta un poemario centrado en el canto, el lenguaje y el silencio.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388306297"
+        "isbn-9791370140908"
       ]
     }
   ],

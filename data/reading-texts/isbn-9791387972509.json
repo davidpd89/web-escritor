@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387972509",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mentiras y deseo (Bourbon Boys 1) (Lo más visto) encaja con lectores que buscan romance y relaciones de pareja con elementos de humor. Quienes prefieran historias centradas en aventuras fantásticas o divulgación encontrarán aquí una orientación temática diferente; el título lo identifica como el n.º 1 de Bourbon Boys.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mentiras y deseo (Bourbon Boys 1) (Lo más visto) se presenta en tapa blanda, con 504 páginas en castellano publicadas por Montena. Esta encuadernación permite llevar la novela en papel sin la rigidez de una tapa dura, aunque su extensión aconseja contar con espacio para transportarla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mentiras y deseo (Bourbon Boys 1) (Lo más visto) y La guerra de las librerías (Lo más visto) comparten el romance y el humor como referencias temáticas. Victoria Wilder firma la primera, cuyo título la identifica como el n.º 1 de Bourbon Boys; Ali Brady escribe la segunda, que también incorpora una dimensión familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387924492"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9d614fc1ac7d0558",
+  "origen": "chatgpt-web"
+}

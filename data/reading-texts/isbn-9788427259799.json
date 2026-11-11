@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788427259799",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una vida con sentido: Lo que San Benito puede enseñarte hoy (No ficción crossover) se dirige a lectores interesados en la espiritualidad, la filosofía y las enseñanzas religiosas aplicadas a la vida actual. Por su orientación temática, encaja menos con quien busca una novela de ficción o una lectura desvinculada de cuestiones religiosas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje del libro es la relación entre las enseñanzas de San Benito y la búsqueda de sentido en la vida contemporánea. Marta González Cambronero (Sor Marta) aborda esta cuestión en una obra situada entre la religión, la espiritualidad y la filosofía, con una extensión de 192 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una vida con sentido: Lo que San Benito puede enseñarte hoy (No ficción crossover) está disponible en tapa blanda, con 192 páginas en castellano. Esta edición de Molino permite leer por apartados, volver a los pasajes sobre espiritualidad y conservar el ejemplar para futuras consultas o regalarlo en formato físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una vida con sentido: Lo que San Benito puede enseñarte hoy (No ficción crossover) y Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, comparten el interés por la espiritualidad, pero el primero se centra en las enseñanzas de San Benito y el segundo vincula la práctica espiritual con la astrología y la magia. Donde no supe: Entre el éxtasis místico y las experiencias extrasensoriales (Ensayo), de Luce López-Baralt, aborda experiencias místicas, frente al enfoque filosófico y religioso del libro de Marta González Cambronero (Sor Marta).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315",
+        "isbn-9791388019760"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cc88a2242a2ee3c7",
+  "origen": "chatgpt-web"
+}

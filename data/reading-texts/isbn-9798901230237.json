@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9798901230237",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Santo sin redención / The Saint of Zero F*cks, de Diego Garijo, se dirige a lectores interesados en las biografías, las memorias y el arte. Su enfoque resulta menos afín a quienes buscan una novela de ficción o un manual práctico de dibujo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Santo sin redención / The Saint of Zero F*cks está disponible en tapa blanda, con 256 páginas en castellano. Esta presentación permite manejar el volumen con facilidad y transportarlo para leer fuera de casa, sin renunciar a una edición física.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Santo sin redención / The Saint of Zero F*cks puede compararse con Joaquín Sabina. Perdonen la tristeza. Edición tapa blanda (Música) por su vinculación con las biografías y las figuras creativas. El libro de Diego Garijo se sitúa entre las memorias y el arte, mientras que el de Javier Menéndez Flores centra su propuesta en una figura musical.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448050115"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "85b7d4277e2b8331",
+  "origen": "chatgpt-web"
+}

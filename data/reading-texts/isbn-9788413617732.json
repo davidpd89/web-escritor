@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788413617732",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para lectores infantiles que quieran conocer historias religiosas mediante la lectura y las actividades. La Biblia para niños: Las mejores historias del Antiguo y del Nuevo Testamento | Libro infantil con juegos y actividades extra (Mi primera biblioteca), de Javier Alonso López, encaja menos con quien busque una novela infantil ajena a la religión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El libro combina la lectura de historias del Antiguo y del Nuevo Testamento con juegos y actividades complementarias. Sus 128 páginas permiten alternar el relato con propuestas de participación, de modo que el niño puede trabajar los contenidos religiosos además de leerlos. La tapa dura facilita conservar el volumen para volver a utilizarlo.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 128 páginas de La Biblia para niños: Las mejores historias del Antiguo y del Nuevo Testamento | Libro infantil con juegos y actividades extra (Mi primera biblioteca). Esta edición de Shackleton Kids ofrece una encuadernación rígida para manejar el libro durante la lectura de historias y la realización de actividades, además de servir como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antigua Roma (Civilizaciones antiguas para niños), de DK, comparte con La Biblia para niños: Las mejores historias del Antiguo y del Nuevo Testamento | Libro infantil con juegos y actividades extra (Mi primera biblioteca) el acercamiento infantil a contenidos históricos. El primero trata la vida en una civilización antigua, mientras el libro de Javier Alonso López se centra en relatos religiosos e incorpora juegos y actividades.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241839362"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "00e1980553c61df6",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9791388147531",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El escalón 33 (edición limitada) (Campaña | Ahora por menos) se orienta a lectores de novela histórica que prefieren una obra de cierta extensión. Sus 496 páginas y su clasificación temática lo distinguen de una novela breve o de fantasía; la propuesta se sitúa en el ámbito de la ficción histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "El escalón 33 (edición limitada) (Campaña | Ahora por menos) se presenta como libro de bolsillo de Penguin Bolsillo, con tapa blanda y 496 páginas. Esta edición en castellano tiene el ISBN 9791388147531; la denominación «edición limitada» figura en el título comercial.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "formato_edicion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El escalón 33 (edición limitada) (Campaña | Ahora por menos) está disponible en tapa blanda, en edición de bolsillo. Sus 496 páginas permiten conservar la novela histórica en un único volumen de papel, sin depender de batería ni pantalla; para transportarlo, conviene considerar que es una lectura de extensión considerable.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig, permite comparar El escalón 33 (edición limitada) (Campaña | Ahora por menos) con otra obra cuyo título remite a un escenario histórico concreto. La novela de Luis Zueco se clasifica como histórica, mientras que Caza en el KGB (Istoría), de Jon Ander Franco, introduce desde su título una referencia a un organismo de inteligencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084870",
+        "isbn-9791387714543"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "86ca4e2d41871e31",
+  "origen": "chatgpt-web"
+}

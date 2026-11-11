@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387962067",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Para Dafne 3 (Distrito Manhwa) encaja con lectores que buscan romance en formato de cómic y novela gráfica. Su planteamiento editorial se sitúa en el género romántico, por lo que no responde a quien busque principalmente terror, suspense o fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 288 páginas en un volumen físico. Es la alternativa disponible para quien prefiere leer cómic en papel, pasar sus páginas y conservar el ejemplar, en lugar de recurrir a una lectura digital.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Para Dafne 2 es la comparación más directa: comparte a Dafne como referencia y está firmado por KKAM, 3_jokseom; su descripción menciona una cicatriz provocada por la flecha de Eros. Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, permite ampliar la comparación dentro del romance en manga, aunque cambia la autoría y la identificación editorial de la obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962050",
+        "isbn-9791387962494"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "63d45ad2553be304",
+  "origen": "chatgpt-web"
+}

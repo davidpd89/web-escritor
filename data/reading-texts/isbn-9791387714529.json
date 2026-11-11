@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Por la gracia de Dios encaja con lectores de novela histórica interesados en la dictadura, el poder y la memoria política del siglo XX. Su atención a los recuerdos y la psicología de un gobernante lo aleja de una aventura histórica centrada en viajes o enfrentamientos militares continuos.",
+      "texto": "Por la gracia de Dios se dirige a lectores de novela histórica interesados en el siglo XX y en la psicología del poder político. Su reconstrucción de los recuerdos de Francisco Franco se aparta de una narración histórica centrada exclusivamente en batallas o acontecimientos militares.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,36 +13,36 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Por la gracia de Dios es una novela histórica ambientada en 1973 y centrada en los recuerdos de Francisco Franco. José Antonio Fortea aborda la guerra civil, la consolidación del poder y las tensiones internas del régimen desde la memoria y la psicología del protagonista.",
+      "texto": "Por la gracia de Dios presenta una ficción histórica construida alrededor de la memoria de Francisco Franco en 1973. Desde los jardines de El Pardo, el protagonista recuerda episodios de su trayectoria política y militar, mientras la proximidad de su muerte introduce una perspectiva de revisión personal.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura con sobrecubierta de Istoría presenta las 592 páginas de Por la gracia de Dios en un volumen físico pensado para conservarse en la biblioteca. Kindle permite leer esta novela extensa en formato digital y llevarla en el móvil o en un lector electrónico sin cargar con el libro impreso.",
+      "texto": "Por la gracia de Dios está disponible en tapa dura y Kindle. La edición impresa de Istoría consta de 592 páginas y lleva sobrecubierta, mientras que Kindle permite transportar la novela completa en un dispositivo electrónico o leerla desde el móvil.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
+        "formatos_disponibles",
         "edicion",
-        "formatos_disponibles"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cosamala comparte con Por la gracia de Dios el trasfondo de la guerra civil, pero lo transforma en una ficción gótica con brujas, frente a la reconstrucción psicológica de un dictador. Cuando seamos inmortales también utiliza figuras históricas y conflictos de poder, aunque se ocupa de Rubens, Velázquez y el destino de Europa.",
+      "texto": "Por la gracia de Dios y Caza en el KGB (Istoría) pueden compararse desde el interés por relatos vinculados al poder y a sus instituciones, aunque el segundo título orienta la atención hacia el KGB. La novela de José Antonio Fortea concreta su perspectiva en los recuerdos de Francisco Franco durante 1973. Frente a Bajo las cenizas de Pompeya (ESPASA NARRATIVA), también se distingue por el periodo histórico señalado en su planteamiento.",
       "evidencias": [
         "titulo",
-        "categorias",
+        "autores",
         "sinopsis_editorial",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788432251436",
-        "isbn-9788423371181"
+        "isbn-9788467084870",
+        "isbn-9791387714543"
       ]
     }
   ],

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788448050115",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Joaquín Sabina. Perdonen la tristeza. Edición tapa blanda (Música) se dirige a lectores interesados en las biografías de artistas y en la música. Sus 520 páginas ofrecen una edición extensa para quienes buscan una obra biográfica, no una novela ni un manual de arte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 520 páginas en un volumen físico, adecuado para quien prefiere leer en papel y conservar el libro en su biblioteca. Es el formato de esta edición de Libros Cúpula, por lo que la elección se centra en la lectura física y no en alternativas digitales o de audio.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "David Summers: en persona comparte con Joaquín Sabina. Perdonen la tristeza. Edición tapa blanda (Música) el interés por la figura del artista más allá de su obra musical. Ambos títulos están escritos por Javier Menéndez Flores; la diferencia está en el protagonista de cada biografía, Joaquín Sabina y David Summers.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049379"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3219b07e9fc80d7d",
+  "origen": "chatgpt-web"
+}

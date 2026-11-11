@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410466937",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las puertas de Anubis (edición ilustrada) (Nova), de Tim Powers, está dirigida a lectores de fantasía que también buscan una edición ilustrada. Sus 560 páginas plantean una lectura extensa, menos ajustada a quien prefiere libros breves o géneros alejados de lo fantástico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Las puertas de Anubis (edición ilustrada) (Nova) se distingue por su presentación ilustrada y su encuadernación en tapa dura. La edición de Nova reúne 560 páginas en castellano, lleva el ISBN 9788410466937 y tiene como fecha de publicación el 2027-02-04.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "isbn13",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las puertas de Anubis (edición ilustrada) (Nova) se ofrece en tapa dura, una encuadernación apropiada para conservar una edición ilustrada de 560 páginas. Su formato físico favorece la consulta de las ilustraciones y la conservación en estantería, aunque resulta menos ligero para transportar que una edición de bolsillo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d4ce382cfd88fea4",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788425454998",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Simbología católica (fuera de colección) se dirige a lectores interesados en la religión, la espiritualidad y el simbolismo católico. La obra de Raimon Arola se sitúa fuera de la narrativa de ficción, por lo que no responde a la búsqueda de una novela de aventuras o misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Simbología católica (fuera de colección) está disponible en tapa blanda, con 232 páginas en castellano. Esta edición de Herder Editorial permite consultar el contenido en papel y volver a pasajes concretos durante una lectura centrada en cuestiones religiosas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Simbología católica (fuera de colección) comparte el interés espiritual con Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, aunque la obra de Raimon Arola se centra en el ámbito católico y la de Tsondru Yeshe aborda el Dharma. Frente a Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, el título de Raimon Arola apunta al estudio de símbolos en lugar de a las vivencias de un camino.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496",
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "686d53cb15ddd172",
+  "origen": "chatgpt-web"
+}

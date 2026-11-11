@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387513627",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Piensa en grande: Una guía práctica para tener una vida extraordinaria (Desarrollo personal), de Brian Tracy, se dirige a lectores interesados en el desarrollo personal y su aplicación práctica. Su enfoque de guía y su relación con la economía y la empresa lo separan de la ficción y de los ensayos exclusivamente teóricos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Piensa en grande: Una guía práctica para tener una vida extraordinaria (Desarrollo personal) cuenta con una edición en tapa blanda de 272 páginas. El soporte impreso permite consultar apartados, marcar pasajes y regresar a las ideas que se quieran aplicar en el ámbito personal o profesional.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Piensa en grande: Una guía práctica para tener una vida extraordinaria (Desarrollo personal) comparte autor con Domina el arte de los negocios, de Brian Tracy. El primero aborda el desarrollo personal desde una perspectiva amplia, mientras que el segundo se concentra en habilidades empresariales y liderazgo. También guarda relación con Piensa en grande / Think Big: For an Extraordinary Life, cuyo título presenta el mismo planteamiento general en una formulación bilingüe.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466390514",
+        "isbn-9786073877695"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "11f2cdba19b90237",
+  "origen": "chatgpt-web"
+}

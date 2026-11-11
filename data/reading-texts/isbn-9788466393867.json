@@ -1,0 +1,58 @@
+{
+  "id": "isbn-9788466393867",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El juego del alma está dirigido a lectores de misterio y thriller interesados en las novelas de Javier Castillo y en la Serie La chica de nieve. Con 536 páginas, encaja menos con quienes buscan una lectura breve o una historia ajena a la intriga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición limitada de El juego del alma se presenta con cantos tintados y encuadernación de bolsillo en tapa blanda. Penguin Bolsillo la publica en castellano el 19 de noviembre de 2026, con 536 páginas y el ISBN 9788466393867.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "formato_edicion",
+        "numero_paginas",
+        "fecha_publicacion",
+        "isbn13",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de bolsillo es el formato disponible para esta edición de 536 páginas. Permite transportar el libro sin la rigidez de una cubierta dura y conserva el acabado de cantos tintados que identifica esta versión limitada.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "formato_edicion",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El susurro del fuego comparte autor con El juego del alma y también se relaciona con una intriga criminal, pues plantea un crimen sin respuesta. El juego del alma se identifica además con la Serie La chica de nieve, una referencia que lo distingue dentro de las obras de Javier Castillo.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788466390217"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9195a9f46796100c",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419188960",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "This is Macarena (MEMORIA) se sitúa entre las lecturas de memoria e historia, con una vertiente relacionada con el ocio y el tiempo libre. La obra de José de León se orienta hacia esos intereses y no hacia la ficción fantástica ni los manuales técnicos especializados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "This is Macarena (MEMORIA) se publica en tapa blanda y tiene 192 páginas en castellano. La edición de El Paseo Editorial ofrece un volumen relativamente breve y manejable para leer fuera de casa o conservar en una biblioteca personal sin recurrir a una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los pilares de la historia, de Javier Fernández Sebastián, comparte con This is Macarena (MEMORIA) su vinculación con la historia, aunque plantea una reflexión sobre la capacidad de esta disciplina para explicar el presente. Cómo me gustaría contarte, de Ángel Gómez Merino, se aproxima más al terreno de la experiencia personal, mientras que This is Macarena se clasifica también dentro de la memoria y el ocio.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430629664",
+        "isbn-9788403526723"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8487c7b64e9174c1",
+  "origen": "chatgpt-web"
+}

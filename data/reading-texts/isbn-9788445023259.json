@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788445023259",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El árbol de la buena muerte y otros cuentos (Minotauro Esenciales) se dirige a lectores interesados en los relatos y las colecciones de textos breves. H.G. Oesterheld firma este volumen de 136 páginas, vinculado también al ensayo, por lo que se diferencia de una novela extensa con una única narración continuada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El árbol de la buena muerte y otros cuentos (Minotauro Esenciales) está disponible en tapa blanda, con 136 páginas en castellano publicadas por Minotauro. Su extensión permite transportar el ejemplar con facilidad y organizar la lectura de los cuentos en sesiones separadas, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El árbol de la buena muerte y otros cuentos (Minotauro Esenciales) y En lengua privada / In Private Language son obras de autores diferentes que pueden situarse en una selección de literatura en castellano. H.G. Oesterheld presenta una colección de cuentos de 136 páginas, mientras que En lengua privada / In Private Language está firmada por Emiliano Monge y utiliza un título bilingüe.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073878289"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6b27a6a4da99339a",
+  "origen": "chatgpt-web"
+}

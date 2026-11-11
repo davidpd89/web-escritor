@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388417337",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los hijos de Plutón (Montena) encaja con lectores de narrativa juvenil que buscan fantasía y romance, con elementos asociados al terror y la ciencia ficción. Su combinación de géneros se aparta tanto del romance estrictamente realista como de la fantasía sin componente sentimental.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los hijos de Plutón (Montena) puede leerse en tapa blanda o en Kindle. La edición impresa reúne sus 432 páginas en un volumen físico que se puede regalar o conservar, mientras que Kindle permite llevar la lectura en un dispositivo compatible sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El hechizo más oscuro (Faeris Editorial), de Wanda Hellmund, es una referencia próxima por su planteamiento fantástico sugerido desde el título, mientras Los hijos de Plutón (Montena) combina fantasía y romance juvenil. También puede compararse con Saciar a la bestia - libro 1 (Faeris Editorial), de Tamara Molina, cuyo título identifica un primer libro, a diferencia de Los hijos de Plutón (Montena), que no lleva numeración de entrega.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388108419",
+        "isbn-9791388108365"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2eed4b65d0ffc48f",
+  "origen": "chatgpt-web"
+}

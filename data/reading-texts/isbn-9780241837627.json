@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9780241837627",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Humanos. La evolución de nuestra especie (Enciclopedia visual) se dirige a lectores interesados en la evolución humana y la divulgación científica. Su enfoque temático se aleja de los manuales centrados exclusivamente en hábitos cotidianos o desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Humanos. La evolución de nuestra especie (Enciclopedia visual) es en tapa dura y reúne 320 páginas en castellano. Este formato permite conservar el volumen en una biblioteca física y consultarlo sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El perfecto cerebro imperfecto / The Perfect Imperfect Brain y Humanos. La evolución de nuestra especie (Enciclopedia visual) comparten el interés por la divulgación científica. El primero se centra en el cerebro, mientras que la obra de Alice Roberts aborda la evolución de nuestra especie. El efecto ritual: El poder transformador de nuestros hábitos cotidianos (Divulgación) trata los hábitos diarios, frente al enfoque evolutivo de Humanos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449346163",
+        "isbn-9786073880107"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f291a0a94ca32462",
+  "origen": "chatgpt-web"
+}

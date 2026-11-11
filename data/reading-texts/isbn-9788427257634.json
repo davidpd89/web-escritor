@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788427257634",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La sexta facción 2 - El último testimonio (Veronica Roth) se orienta a lectores de ciencia ficción interesados en continuar con una obra identificada por entregas. El título la presenta como el n.º 2, de modo que encaja menos con quienes buscan una historia presentada como primer volumen o prefieren narrativa realista.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La sexta facción 2 - El último testimonio (Veronica Roth) cuenta con una edición en tapa blanda de 448 páginas, publicada en castellano por Molino. Es un volumen físico de extensión considerable, apropiado para quien prefiere leer en papel y conservar las entregas en una estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La sexta facción 2 - El último testimonio (Veronica Roth) se relaciona directamente con La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados), también de Veronica Roth. Los títulos identifican los números 2 y 1 de la misma denominación; la edición del primero de estos libros es en tapa blanda, mientras que el título del otro destaca sus cantos tintados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427257627"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "568f216fd279cc26",
+  "origen": "chatgpt-web"
+}

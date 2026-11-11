@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788000079806",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Babymoni: ¡Soy Feliz!: 5 (Babymoni en Español) pertenece a la lectura infantil y aborda la felicidad desde su propio título. Su presentación en libro de cartón de 20 páginas responde a un uso distinto del de las novelas extensas o las guías de desarrollo personal para lectores mayores.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Babymoni: ¡Soy Feliz!: 5 (Babymoni en Español) puede utilizarse como lectura breve en papel, pasando sus 20 páginas de cartón durante una sesión compartida. El título permite introducir una conversación sobre la felicidad, sin necesidad de convertir la lectura en una actividad con reglas o ejercicios.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Babymoni: ¡Soy Feliz!: 5 (Babymoni en Español) se presenta en tapa dura, concretamente como libro de cartón de 20 páginas. Esta construcción permite manipular las páginas durante la lectura infantil y conservar el volumen físico para volver a utilizarlo en sesiones breves.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Babymoni: ¡Soy Feliz!: 5 (Babymoni en Español) y Amigos de verdad se relacionan con el desarrollo personal infantil, pero abordan aspectos diferentes. El primero es un libro de cartón de 20 páginas cuyo título se centra en la felicidad; el segundo trata las amistades, los conflictos y las emociones mediante consejos y ejercicios. Tíos y Tías (AMOR DE FAMILIA) ofrece otra referencia sobre vínculos personales, esta vez desde el ámbito familiar.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "edicion",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994532",
+        "isbn-9788410438491"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7d245f515c58f72f",
+  "origen": "chatgpt-web"
+}

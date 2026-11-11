@@ -1,0 +1,58 @@
+{
+  "id": "isbn-9788411078733",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La tierra de las cosas perdidas: Ilustraciones de Riki Blanco (MAXI) encaja con lectores interesados en la fantasía y la narrativa contemporánea. Por su clasificación literaria y sus 416 páginas, se diferencia de los libros de actividades y de las lecturas breves orientadas a una consulta puntual.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de La tierra de las cosas perdidas: Ilustraciones de Riki Blanco (MAXI) incorpora las ilustraciones de Riki Blanco, tal como anuncia su título. Maxi-tusquets la publica en castellano, en formato de bolsillo con tapa blanda y una extensión de 416 páginas.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La tierra de las cosas perdidas: Ilustraciones de Riki Blanco (MAXI) puede compararse con El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa) por su vinculación con la fantasía narrativa. John Connolly firma una edición de bolsillo con ilustraciones de Riki Blanco, mientras que la obra de Heather Fawcett presenta desde su título un refugio de gatos con carácter mágico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387749316"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tierra de las cosas perdidas: Ilustraciones de Riki Blanco (MAXI) está disponible en tapa blanda, dentro de una edición de bolsillo de 416 páginas. Esta presentación permite leer la novela y consultar sus ilustraciones en papel. Su formato resulta práctico para transportar una narración de esta extensión.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [
+    "que_formato_elegir: repite otro bloque",
+    "faltan módulos: que_formato_elegir"
+  ],
+  "version": 3,
+  "fuente_hash": "3f76c7385c35a555",
+  "origen": "chatgpt-web"
+}

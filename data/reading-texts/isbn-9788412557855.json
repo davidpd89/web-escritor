@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788412557855",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El peso de la abulia, de Ismael Rojas Pozo, se encuadra en la narrativa contemporánea y se dirige a quienes buscan ficción de ese género en castellano. No responde a una búsqueda centrada en las convenciones del thriller o de la fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El peso de la abulia se publica en tapa blanda y reúne 254 páginas. La edición de Anantes ofrece una lectura en papel con cubierta flexible, que facilita llevar el volumen y retomarlo en distintas sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cbd32d65db67624d",
+  "origen": "chatgpt-web"
+}

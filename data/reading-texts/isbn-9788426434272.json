@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esas muchachas que escriben poemas se dirige a lectores adultos interesados en la vida de las escritoras, la poesía y las dificultades sociales que afrontaron distintas mujeres. Alba Donati reúne retratos biográficos en lugar de desarrollar una única historia de ficción. Se aleja, por tanto, de quien busque una novela de argumento continuo.",
+      "texto": "Esas muchachas que escriben poemas se dirige a lectores adultos interesados en la poesía, las biografías de escritoras y la historia de las mujeres. Alba Donati reúne retratos de poetas y sus circunstancias personales, por lo que su enfoque es biográfico y literario, no el de una antología destinada únicamente a leer poemas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,37 +15,33 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Esas muchachas que escriben poemas aborda la relación entre creación poética, identidad femenina y restricciones sociales. Alba Donati construye una sucesión de retratos que incluyen conflictos familiares, censura, relaciones personales y exigencias públicas. El enfoque biográfico conecta experiencias de escritoras de distintas épocas sin seguir una cronología única.",
+      "texto": "La relación entre creación poética y experiencia vital organiza los retratos de Alba Donati. El libro aborda la censura, las relaciones familiares, las presiones sociales y las dificultades que afrontaron escritoras como Dickinson, Ajmátova, Antonia Pozzi, Szymborska y Sylvia Plath, atendiendo a episodios concretos de sus vidas.",
       "evidencias": [
-        "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Esas muchachas que escriben poemas está disponible en tapa blanda con solapas y en Kindle. La edición de Lumen contiene 152 páginas, una extensión manejable para leer los retratos por separado en papel. Kindle permite consultar el libro desde el móvil o un lector electrónico y retomar cada perfil sin transportar el ejemplar físico.",
+      "texto": "Esas muchachas que escriben poemas está disponible en tapa blanda y Kindle, con una extensión de 152 páginas. La edición física permite consultar los distintos retratos y marcar referencias literarias; Kindle facilita llevarlos en el móvil o en un lector electrónico sin transportar el volumen.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "edicion",
         "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Esas muchachas que escriben poemas puede compararse con ¿Qué pensará tu hija de ti? por su atención a experiencias femeninas y decisiones condicionadas por el entorno. Alba Donati reúne vidas de poetas de diferentes épocas, mientras que Diana López Varela parte de sus dudas personales sobre la maternidad. Uno utiliza retratos biográficos múltiples; el otro presenta una experiencia individual.",
+      "texto": "Esas muchachas que escriben poemas se aproxima a Mujeres de París, mujeres de letras (Salamandra Narrativa), de Irène Némirovsky, por su atención a las mujeres y la literatura. Alba Donati se concentra en episodios biográficos de poetas de distintas épocas, mientras que el título de Irène Némirovsky delimita su asunto a las mujeres de letras de París.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388279300"
+        "isbn-9791387928636"
       ]
     }
   ],

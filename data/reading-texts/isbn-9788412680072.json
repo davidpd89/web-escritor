@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788412680072",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las diosas que hay en MÍ / les deesses que HI ha en mi, de Amalia Sanchís, se dirige a lectores interesados en poesía. Sus 90 páginas ofrecen una extensión breve y no responden a la búsqueda de una novela larga o de una narración de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Las diosas que hay en MÍ / les deesses que HI ha en mi es de tapa blanda y tiene 90 páginas. Su extensión permite transportar el volumen físico con facilidad y conservarlo en una biblioteca de poesía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las diosas que hay en MÍ / les deesses que HI ha en mi comparte el ámbito poético con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. La obra de Amalia Sanchís presenta un título en dos formulaciones lingüísticas, mientras que la de Pedro Salinas se identifica expresamente como antología amorosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288",
+        "isbn-9791370140908"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "27f37588de8b18c7",
+  "origen": "chatgpt-web"
+}

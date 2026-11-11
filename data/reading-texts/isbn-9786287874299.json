@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9786287874299",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores interesados en la historia política de Estados Unidos y en la relación entre república y poder imperial. Su marco histórico de 1776 a 2026 encaja menos con quienes buscan una historia centrada exclusivamente en acontecimientos recientes o una biografía individual.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro aborda la trayectoria de Estados Unidos desde la fundación de su república hasta 2026, bajo el concepto de república imperial. Carlos Alberto Patiño sitúa así el poder político y la evolución histórica en un marco temporal amplio, con una perspectiva que vincula la historia nacional y la dimensión imperial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para esta edición de 320 páginas, publicada por Debate. Permite mantener el volumen físico a mano para consultar distintos periodos históricos y volver a los pasajes relacionados con la evolución política de Estados Unidos.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El papel de la violencia en la historia: Texto esencial de Engels sobre violencia, Bismarck y lucha de clases en la Alemania del siglo XIX (No ficción) también relaciona historia y poder, pero se centra en la violencia y la lucha de clases en un contexto alemán. Estados Unidos: 250 años de la república imperial, 1776 - 2026 / United States: 250 Years of the Imperial Republic, 17762026 amplía el marco temporal y sitúa su análisis en la república estadounidense.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388115479"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "952874b3c602c5a4",
+  "origen": "chatgpt-web"
+}

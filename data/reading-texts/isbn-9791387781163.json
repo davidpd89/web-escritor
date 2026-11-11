@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387781163",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pesadilla Antes de Navidad Guía Visual Definitiva (Disney Cómics) se dirige a lectores juveniles interesados en las guías visuales, el arte y el diseño. Por su planteamiento visual y sus 176 páginas, se diferencia de una novela juvenil convencional y encaja menos con quien busca una historia narrada exclusivamente mediante prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pesadilla Antes de Navidad Guía Visual Definitiva (Disney Cómics) se ofrece en tapa dura, con una edición descrita como libro de cartón. Sus 176 páginas en castellano forman un volumen físico de Planeta Cómic pensado para consultar y conservar una guía visual, también como objeto de regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pesadilla Antes de Navidad Guía Visual Definitiva (Disney Cómics) se aproxima a Chema Madoz.: Manual de un distraído. (Libros de Autor.) por su relación con el arte y la presentación visual. Frente a Federico. Mi corazón, tu casa (Álbumes ilustrados), de Antonio Lorente, la obra de Tim Burton se identifica expresamente como guía visual y está vinculada a Disney Cómics.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387960391",
+        "isbn-9788414076118"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4e388d1493164ab8",
+  "origen": "chatgpt-web"
+}

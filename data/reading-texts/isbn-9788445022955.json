@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788445022955",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuentos victorianos de fantasmas para Navidad (Clásica) se dirige a lectores interesados en el terror, los relatos de fantasmas y la ambientación navideña. Su propuesta de Varios autores se aleja de quienes buscan una historia única y continuada, pues el propio título presenta una colección de cuentos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible de Cuentos victorianos de fantasmas para Navidad (Clásica), con 352 páginas en castellano. Esta edición de Austral Editorial permite leer los cuentos por separado y conservarlos reunidos en un único volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuentos victorianos de fantasmas para Navidad (Clásica) comparte con Creepy nº 11/29 el terror y la autoría colectiva de Varios autores. El primero se centra en cuentos de fantasmas vinculados a la Navidad y la época victoriana, mientras que Creepy nº 11/29 presenta otra recopilación de terror sin ese marco temático en su descripción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411406130"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "438e7b89cf3b6634",
+  "origen": "chatgpt-web"
+}

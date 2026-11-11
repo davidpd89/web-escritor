@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786316947055",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Divinos y miserables (Umbriel narrativa) se dirige a quienes leen fantasía con romance y aventuras. Adalyn Grace desarrolla esta combinación de géneros en 576 páginas, una extensión menos adecuada para quien busca una lectura corta o una historia exclusivamente realista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Divinos y miserables (Umbriel narrativa) se presenta en tapa blanda, con 576 páginas en castellano. Es un volumen físico de extensión considerable, pensado para leer en papel y conservar en una estantería, con el contenido reunido en un único ejemplar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Divinos y miserables (Umbriel narrativa) comparte autora con Holly: El esperado spin-off de Belladonna (Umbriel narrativa), de Adalyn Grace. También puede compararse con Ciudad de dioses y monstruos (DARK ROMANCE), de Kayla Edwards, por su proximidad a la fantasía romántica; Divinos y miserables (Umbriel narrativa) incorpora además las aventuras entre sus géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387749392",
+        "isbn-9788415955559"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "857d24d02b810a77",
+  "origen": "chatgpt-web"
+}

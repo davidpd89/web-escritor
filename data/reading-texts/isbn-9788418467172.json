@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788418467172",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Destinados a la bienaventuranza: Un estudio tomístico sobre escatología y ética (ESTUDIOS TOMISTAS) está dirigido a lectores interesados en la reflexión religiosa sobre el destino último y la conducta moral. Su enfoque tomístico lo separa de las obras centradas en experiencias personales de espiritualidad o en prácticas de bienestar.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Destinados a la bienaventuranza: Un estudio tomístico sobre escatología y ética (ESTUDIOS TOMISTAS) cuenta con una edición en tapa dura de 150 páginas. El volumen físico facilita la consulta de sus contenidos sobre escatología y ética, así como su conservación para posteriores lecturas de estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Destinados a la bienaventuranza: Un estudio tomístico sobre escatología y ética (ESTUDIOS TOMISTAS), de Reinhard Hütter, puede compararse con Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe. Ambos abordan cuestiones religiosas relacionadas con el destino o la liberación, pero el primero adopta una perspectiva tomística sobre ética y escatología, mientras que el segundo se centra en fundamentos y práctica del Dharma.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "86a35d1c59289cf4",
+  "origen": "chatgpt-web"
+}

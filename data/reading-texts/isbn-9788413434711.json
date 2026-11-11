@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788413434711",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El cuento de don Quijote (Álbum ilustrado. Obras de autor/a) se dirige a lectores infantiles interesados en los álbumes ilustrados y en la figura de don Quijote. Sus 56 páginas y su vinculación con la poesía lo diferencian de las novelas extensas y de los libros de actividades.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El cuento de don Quijote (Álbum ilustrado. Obras de autor/a) cuenta con una edición en tapa dura de 56 páginas. Su encuadernación rígida resulta adecuada para conservar el álbum, compartirlo en lecturas familiares o entregarlo como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El cuento de don Quijote (Álbum ilustrado. Obras de autor/a), de Emilio Pascual, comparte el terreno de la literatura infantil y la poesía con Esperando la Navidad. Cuentos, poemas y otras sorpresas para el Adviento, de Mar Benegas. El primero gira alrededor de don Quijote en formato de álbum ilustrado; el segundo reúne 24 cuentos, poemas y canciones vinculados al Adviento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408326564"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "37ce1adeeae83790",
+  "origen": "chatgpt-web"
+}

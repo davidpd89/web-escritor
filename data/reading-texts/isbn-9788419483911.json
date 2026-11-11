@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788419483911",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cocina japonesa familiar: 60 recetas de cocina casera (Comerse el mundo) está dirigido a quienes quieren preparar platos japoneses en un contexto doméstico y familiar. Su orientación culinaria no corresponde a quien busca una historia de la gastronomía japonesa o un ensayo sobre alimentación.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "El libro de Saori Ichihara reúne 60 recetas de cocina japonesa casera en 152 páginas. Su contenido se centra en preparaciones para el ámbito familiar y puede utilizarse para seleccionar platos y organizar sesiones de cocina en casa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura permite utilizar este recetario de 152 páginas como volumen de consulta habitual en la cocina. Su encuadernación rígida aporta protección a las cubiertas cuando se guarda entre otros libros y facilita conservarlo para volver a sus recetas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cocina japonesa familiar: 60 recetas de cocina casera (Comerse el mundo), de Saori Ichihara, comparte con Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA), de David Villalón y Mario Villalón, el interés por la preparación de alimentos. La diferencia está en el enfoque: el primero reúne recetas japonesas para el ámbito familiar, mientras que el segundo incorpora huerta, vinos y cócteles a su propuesta gastronómica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934293"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fa5d3c40495928ca",
+  "origen": "chatgpt-web"
+}

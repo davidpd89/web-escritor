@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Qué hago, ¿me mato? se dirige a lectores adultos que buscan humor crítico sobre la convivencia, el comportamiento social y el hartazgo cotidiano. Marc Biarnés recurre a la exageración y al sarcasmo para expresar su rechazo a determinadas conductas. No encaja con quien busque un manual de desarrollo personal de tono sereno o ejercicios de reflexión estructurados.",
+      "texto": "Qué hago, ¿me mato?, de Marc Biarnés, está dirigido a adultos que disfrutan del humor crítico sobre la convivencia y las contradicciones sociales. Su mirada sarcástica sobre la gente y la actualidad puede no encajar con quienes buscan un discurso sereno o un manual convencional de bienestar.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,19 +15,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Qué hago, ¿me mato? está disponible en tapa blanda y Kindle, con una extensión de 288 páginas. La edición impresa de Roca Editorial incorpora solapas y permite leer sin pantalla; Kindle facilita llevar el texto en el móvil o en un lector electrónico. Ambos formatos corresponden a una obra de humor dirigida al público adulto.",
+      "texto": "Qué hago, ¿me mato? puede leerse en tapa blanda o Kindle. La edición física tiene 288 páginas y solapas, mientras que Kindle permite llevar el texto en un lector electrónico o consultarlo desde el móvil sin transportar el libro.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "edicion",
         "formatos_disponibles",
-        "categorias",
-        "edad_recomendada"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Qué hago, ¿me mato? comparte con Mortadeluxe, de Francisco Ibáñez, el uso del humor, aunque Marc Biarnés se centra en la irritación ante la sociedad y Mortadeluxe presenta las peripecias festivas de Mortadelo y Filemón. Frente a El crimen de la Navidad. El cuaderno de pasatiempos de Crímenes ilustrados, de Modesto García, cambia el misterio recreativo por una mirada sarcástica a la convivencia.",
+      "texto": "Qué hago, ¿me mato? comparte el humor con La vida según Ibáñez (Bruguera Clásica), de Francisco Ibáñez. El libro de Marc Biarnés utiliza una voz sarcástica para hablar de la sociedad, mientras que el título de Francisco Ibáñez remite a la mirada personal de otro autor. Ambos se relacionan por el humor, aunque parten de autorías distintas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -36,8 +34,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401040740",
-        "isbn-9788402432063"
+        "isbn-9788402431554"
       ]
     }
   ],

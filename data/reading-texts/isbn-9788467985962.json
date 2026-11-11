@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788467985962",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El convoy. Nueva edición integral se dirige a quienes buscan cómic o novela gráfica en una edición identificada expresamente como integral. La obra de Denis Lapière y Eduard Torrents reúne 144 páginas en castellano, por lo que se diferencia de una novela extensa centrada exclusivamente en texto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El convoy. Nueva edición integral está publicado en tapa dura y reúne 144 páginas bajo el sello de Norma Editorial. La encuadernación rígida permite conservar esta edición integral como un único volumen físico, tanto para consulta y relectura como para incorporarlo a una colección de cómics.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0caa80e5ba632d01",
+  "origen": "chatgpt-web"
+}

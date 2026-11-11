@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410492684",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dragon Quest: The Hero Avan and the Dark Lord of Hellfire nº 09: 9 (Manga Shonen) se dirige a lectores de manga interesados en la fantasía y las historias publicadas por entregas. El título lo identifica como el n.º 09, por lo que no responde a la búsqueda de un volumen inicial o de una novela exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dragon Quest: The Hero Avan and the Dark Lord of Hellfire nº 09: 9 (Manga Shonen) se publica en tapa blanda, con 200 páginas en castellano. Es una edición física que permite seguir la lectura del manga sobre papel y conservar este volumen junto a otros de la colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dragon Quest: The Hero Avan and the Dark Lord of Hellfire nº 09: 9 (Manga Shonen) y After God 8 (Shônen) comparten su identificación como manga shonen y su presentación mediante volúmenes numerados. El primero figura firmado por Riku Sanjo y Yusaku Shibata y se vincula a la fantasía; el segundo está firmado por Sumi Eno.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962647"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4e617fe4f6c071f5",
+  "origen": "chatgpt-web"
+}

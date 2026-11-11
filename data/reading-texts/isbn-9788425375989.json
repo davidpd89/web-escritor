@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788425375989",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Misterio en la noche de Reyes (Novela de intriga), de Minna Gin, se dirige a lectores interesados en el misterio y el thriller. Sus 304 páginas ofrecen una extensión intermedia; por género, queda fuera de las preferencias de quienes buscan principalmente romance o narrativa sin componentes de intriga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Misterio en la noche de Reyes (Novela de intriga) se publica en tapa blanda, con 304 páginas en castellano. La edición de Grijalbo permite seguir la lectura en papel, utilizar un marcapáginas y conservar el volumen en una biblioteca doméstica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4c7858aca7568521",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399297522",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inventario del tránsito encaja con lectores que buscan poesía y prefieren obras breves frente a novelas extensas. Sus 130 páginas permiten acercarse a la lectura poética en un volumen de tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Inventario del tránsito se publica en tapa blanda y reúne 130 páginas en un único volumen. Es un formato físico manejable para leer en papel y conservar junto a otros libros de poesía.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Inventario del tránsito comparte espacio de lectura poética con Antología, de Antonio Cano, y Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. La comparación permite acercarse a tres propuestas vinculadas a la poesía, aunque cambian los autores y los títulos que articulan cada volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288",
+        "isbn-9791370140908"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "73a4b3fc0290ef8b",
+  "origen": "chatgpt-web"
+}

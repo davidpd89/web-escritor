@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388396397",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El código de Dios: La ley del universo para que las cosas sucedan (Enigma), de Jorge Muñoz Parral, se orienta a lectores interesados en religión y espiritualidad. El título plantea una relación entre las leyes del universo y los acontecimientos; quien busque una novela de aventuras o una historia de detectives encontrará un enfoque temático diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El código de Dios: La ley del universo para que las cosas sucedan (Enigma) tiene una edición en tapa blanda de 336 páginas. El volumen de Arcopress está publicado en castellano y permite consultar de nuevo sus páginas en papel, además de utilizar marcadores físicos para localizar pasajes durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El código de Dios: La ley del universo para que las cosas sucedan (Enigma) comparte el ámbito espiritual con Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia, de Barbara Hand Clow. El primero plantea desde su título una ley universal vinculada a lo que sucede; el segundo centra su propuesta declarada en las dimensiones y la consciencia.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798888505335"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5c239577af26c7e1",
+  "origen": "chatgpt-web"
+}

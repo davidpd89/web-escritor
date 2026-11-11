@@ -1,0 +1,34 @@
+{
+  "id": "isbn-9791388487576",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Versus 05, de One Kyoutarou y Azuma Bose, se dirige a lectores de cómic y novela gráfica que buscan una entrega numerada. Sus 200 páginas están publicadas en castellano y el título lo identifica como una continuación dentro de una serie; no encaja con quien prefiera novelas independientes escritas exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Versus 05 está editado en tapa blanda de tipo bunko, con 200 páginas en castellano. Esta edición física de Ivrea permite leer y conservar el cómic en papel; el formato bunko identifica la presentación del volumen dentro de su colección.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9055c321036e6142",
+  "origen": "chatgpt-web"
+}

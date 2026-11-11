@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788408328933",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de aventuras con humor y elementos de terror, dentro del universo de Anna Kadabra. Por su combinación de géneros, encaja menos con quienes buscan relatos realistas sin componentes inquietantes.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible de Anna Kadabra. El Gran Libro de Anna Kadabra. El despertar de las brujas: 1. Sus 336 páginas forman un volumen encuadernado que puede conservarse en una biblioteca personal o regalarse como libro físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anna Kadabra. Estuche Aventuras legendarias 1 y 2 comparte universo y autoría con este libro de Pedro Mañas y David Sierra Listón. La diferencia está en la presentación: el estuche reúne las aventuras identificadas como 1 y 2, mientras que el volumen sobre el despertar de las brujas se presenta como una obra individual de 336 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408295518"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "021b9f87ce747733",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788433040138",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la obra y el legado de Otto Kernberg desde una perspectiva psicológica y biográfica. Sus 192 páginas presentan una introducción a esa figura, por lo que se aparta de los manuales centrados en ejercicios de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Desclée de Brouwer reúne 192 páginas en castellano. Su extensión es menor que la de un manual de consulta amplio y el soporte impreso permite revisar pasajes sobre la obra y el legado de Otto Kernberg.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología) comparte el ámbito psicológico con el libro de Frank E. Yeomans, Diana Diamond y Eve Caligor. Ramón Nogueras Pérez aborda el enamoramiento y el desenamoramiento, mientras que Otto Kernberg. Una introducción contemporánea a su obra y legado: 307 (Biblioteca de Psicología) se ocupa de la trayectoria intelectual y el legado de una figura de la psicología.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387534370"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "069eda3268e5f36b",
+  "origen": "chatgpt-web"
+}

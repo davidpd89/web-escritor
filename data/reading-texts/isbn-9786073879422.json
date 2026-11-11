@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073879422",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tribanas (Spanish Edition), de Olga González Domínguez, se sitúa entre las lecturas de desarrollo personal y las relacionadas con la familia y la crianza. Su clasificación temática responde a intereses distintos de los de quien busca una novela de aventuras o una obra de divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tribanas (Spanish Edition) cuenta con una edición en tapa blanda de 384 páginas, publicada por Penguin Random House Grupo Editorial. El formato en papel permite avanzar por una lectura de cierta extensión, colocar marcadores y retomar los pasajes anteriores sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tribanas (Spanish Edition) puede compararse con Criar juntos de verdad por su vinculación con el ámbito familiar y el desarrollo personal. El libro de Armando Bastida se centra expresamente en la crianza compartida, mientras que el de Olga González Domínguez presenta una orientación temática más amplia dentro de esas materias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370658"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1f419e51a1ebcb19",
+  "origen": "chatgpt-web"
+}

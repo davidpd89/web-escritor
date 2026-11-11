@@ -4,18 +4,18 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Morir es gratis. Heredar, un atraco se dirige a lectores interesados en las consecuencias económicas y familiares de las herencias. Iñaki Barredo aborda testamentos, decisiones patrimoniales y desacuerdos entre familiares desde su experiencia como abogado, por lo que su enfoque se aparta de las novelas sobre disputas sucesorias.",
+      "texto": "Morir es gratis. Heredar, un atraco se dirige a quienes quieren comprender cómo las decisiones sobre una herencia pueden afectar al patrimonio y a las relaciones familiares. Su planteamiento jurídico y económico encaja menos con lectores que buscan una novela de ficción o una historia familiar centrada exclusivamente en las emociones.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una obra de economía y empresa centrada en los problemas que pueden surgir al organizar una herencia. Iñaki Barredo examina cómo la ausencia de testamento, las decisiones tomadas antes del fallecimiento y los desacuerdos familiares pueden desencadenar conflictos; el punto de partida es jurídico y patrimonial, no narrativo.",
+      "texto": "Morir es gratis. Heredar, un atraco aborda las herencias desde sus consecuencias económicas, legales y familiares, con especial atención a los testamentos y los desacuerdos entre herederos. Iñaki Barredo plantea situaciones en las que la falta de planificación puede generar conflictos. Es una obra de economía y empresa, no una novela narrativa.",
       "evidencias": [
+        "titulo",
         "autores",
         "categorias",
         "sinopsis_editorial"
@@ -23,27 +23,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Morir es gratis. Heredar, un atraco tiene una edición en tapa blanda, con encuadernación rústica y solapas. Sus 224 páginas permiten consultar en papel las cuestiones relacionadas con testamentos y conflictos hereditarios, con una cubierta flexible que facilita transportar el volumen y volver a los apartados de interés.",
+      "texto": "Morir es gratis. Heredar, un atraco se publica en rústica con solapas, dentro del formato de tapa blanda, y consta de 224 páginas. La edición de Deusto en castellano permite consultar en papel las cuestiones relativas a testamentos, herencias y conflictos familiares, además de conservarla como lectura de referencia.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "edicion",
+        "formatos_disponibles",
         "numero_paginas",
+        "editorial",
+        "idioma",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Morir es gratis. Heredar, un atraco comparte con Deja de regalar tu dinero la atención a decisiones económicas que pueden tener consecuencias para el bolsillo, aunque Iñaki Barredo se ocupa de herencias y David Jiménez de contratos y trámites. Cariño, ¿y este recibo? también aborda decisiones financieras personales, pero Angie Gil Ribera plantea cuestiones de organización del dinero en pareja en lugar de conflictos sucesorios.",
+      "texto": "Morir es gratis. Heredar, un atraco y ANTES DE QUE OCURRA: Vender, formar y proteger el futuro comparten una orientación preventiva, aunque Iñaki Barredo se ocupa de las herencias y Rafael De la Torre Pérez plantea la protección del futuro desde su título. Frente a Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), el primero trata decisiones patrimoniales familiares y no teoría política y económica.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788402431332",
-        "isbn-9791388139567"
+        "isbn-9791388182457",
+        "isbn-9788409935604"
       ]
     }
   ],

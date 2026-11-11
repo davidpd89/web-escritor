@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370201234",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cocina con Jerez (Gastronomía) se dirige a lectores interesados en la cocina y en publicaciones gastronómicas. La obra de Javier Muñoz Soto pertenece también al ámbito del ocio y tiempo libre, por lo que se aleja de las novelas de ficción y de los manuales sobre materias ajenas a la gastronomía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cocina con Jerez (Gastronomía) se publica en tapa dura, con 240 páginas en castellano. Esta encuadernación permite conservar el volumen como libro de consulta gastronómica y colocarlo en una biblioteca de cocina; su extensión también facilita localizarlo y consultarlo en distintas sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cocina con Jerez (Gastronomía) comparte el ámbito gastronómico con Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA), aunque este último reúne expresamente huerta, vinos y cócteles. También puede compararse con Atlas Mundial Del Vino (NATURART): ambos títulos se relacionan con el vino, pero uno lo vincula a la cocina y el otro adopta el formato de atlas mundial.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934293",
+        "isbn-9788418075933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3509270d89010241",
+  "origen": "chatgpt-web"
+}

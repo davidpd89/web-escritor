@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387695682",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Iris y Luna: cuidadoras de cachorritos mágicos 8 - ¡Un reno en apuros!: ¡Un libro con purpurina en la cubierta! (Primeras lecturas) se orienta a lectores infantiles interesados en fantasía, animales y aventuras. El título lo identifica como el n.º 8 y pertenece a primeras lecturas, por lo que no responde a la búsqueda de fantasía adulta.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Iris y Luna: cuidadoras de cachorritos mágicos 8 - ¡Un reno en apuros!: ¡Un libro con purpurina en la cubierta! (Primeras lecturas) contiene 128 páginas en castellano. La cubierta incorpora purpurina, un detalle físico que forma parte de esta presentación. Ediciones B publica el volumen en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las aventuras navideñas de los Mimosaurios: Tres cuentos llenos de magia, amistad y espíritu navideño comparte con Iris y Luna: cuidadoras de cachorritos mágicos 8 - ¡Un reno en apuros!: ¡Un libro con purpurina en la cubierta! (Primeras lecturas) la presencia de animales y magia. El primero reúne tres cuentos, mientras que el segundo es un volumen de 128 páginas identificado como el n.º 8. A la caza de Papá Noel: 3 también remite a una temática navideña, pero presenta otra autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409926671",
+        "isbn-9788419135650"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "61a998d19a7bfdd2",
+  "origen": "chatgpt-web"
+}

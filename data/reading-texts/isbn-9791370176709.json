@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791370176709",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El arte de amarte en Transilvania: 241 (Miniserie Bianca), de Michele Renae, pertenece al romance y se dirige a lectores interesados en ese género. El título sitúa Transilvania como referencia y lo identifica con el número 241 de Miniserie Bianca; no está clasificado como thriller.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El arte de amarte en Transilvania: 241 (Miniserie Bianca) cuenta con una edición en tapa blanda de 192 páginas. El formato de Harlequin Ibérica, S.a. permite llevar el libro en papel y manejar sus páginas con una cubierta flexible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "840a3ed17a729018",
+  "origen": "chatgpt-web"
+}

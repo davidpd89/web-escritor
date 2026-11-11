@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788413445687",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Belleza con cabeza: Las claves para verte bien sin dejar de ser tú (Alienta) se orienta a lectores interesados en el cuidado de la imagen desde el desarrollo personal. El enfoque anunciado por María Cudeiro relaciona la apariencia con la identidad, por lo que se aparta de quienes buscan ficción o un manual dedicado exclusivamente a técnicas estéticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Belleza con cabeza: Las claves para verte bien sin dejar de ser tú (Alienta) ofrece 304 páginas en tapa blanda y también está disponible en Kindle. La edición impresa permite marcar y consultar apartados en papel; Kindle facilita llevar el contenido completo en un lector electrónico o en el móvil, sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Belleza con cabeza: Las claves para verte bien sin dejar de ser tú (Alienta) y El camino de la excelencia: Alcanza la grandeza y la plenitud en un mundo caótico (Divulgación) comparten el interés por el desarrollo personal. María Cudeiro centra su título en la imagen y la identidad, mientras que Brad Stulberg plantea la excelencia y la plenitud como ejes de su obra. Ambos abordan cuestiones personales desde objetivos diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788403527010"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a9fb06b7a2fde9e0",
+  "origen": "chatgpt-web"
+}

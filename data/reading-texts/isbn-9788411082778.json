@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788411082778",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la psicología, las relaciones familiares y el desarrollo personal, especialmente en el tema de los traumas heredados. Su enfoque de ensayo y bienestar encaja menos con quienes buscan ficción o una lectura centrada exclusivamente en nutrición.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 352 páginas en castellano y se presenta como una versión ampliada y actualizada. El formato físico permite consultar distintos pasajes y volver a ellos durante la lectura, además de conservar el ejemplar para futuras consultas.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología), de Ramón Nogueras Pérez, comparte el interés por la psicología, pero se centra en las relaciones amorosas frente a los traumas familiares heredados que aborda Mark Wolynn. Recupera tu mente, reconquista tu vida (Edición especial con cantos tintados) (Espasa Crecimiento personal), de Marian Rojas Estapé, se aproxima desde el crecimiento personal, aunque su título plantea la recuperación de la propia mente y no específicamente la herencia familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387534370",
+        "isbn-9788467084061"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "52149b542fba2d93",
+  "origen": "chatgpt-web"
+}

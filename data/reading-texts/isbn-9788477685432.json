@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788477685432",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Zeniza (Creativa), de Ecequiel Barricart, se dirige a lectores interesados en la poesía y en temas relacionados con el desarrollo personal y el bienestar. Sus 112 páginas ofrecen una extensión breve; no responde a quien busca una novela extensa ni un tratado especializado de nutrición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Zeniza (Creativa) se publica en tapa blanda y consta de 112 páginas. La edición de Ediciones Eunate permite llevar el libro en papel y volver a consultar sus páginas sin depender de una pantalla. Es un volumen en castellano de extensión reducida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Zeniza (Creativa) puede compararse con Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia por su proximidad a cuestiones de desarrollo personal. El libro de Barbara Hand Clow se centra, según su título, en la consciencia, mientras que el de Ecequiel Barricart también se sitúa en el ámbito de la poesía. Anatomía de la Inconsciencia Cautiva: Los mecanismos invisibles que nos gobiernan aborda, desde su propio título, los mecanismos que condicionan la conducta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798888505335",
+        "isbn-9788410929999"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aedb67f67ca78cd8",
+  "origen": "chatgpt-web"
+}

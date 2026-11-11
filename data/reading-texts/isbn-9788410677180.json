@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788410677180",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la historia del antiguo Egipto, la arqueología y las excavaciones desarrolladas en Luxor. Su enfoque histórico y divulgativo encaja menos con quienes buscan una novela de ficción o una historia centrada en personajes inventados.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una ventana abierta al antiguo Egipto: Proyecto Djehuty: 25 años excavando en Luxor (DIVULGACION) se publica en tapa blanda y reúne 384 páginas. Este formato permite consultar el contenido histórico en papel y volver a los apartados de interés durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El infinito en un junco (edición limitada · cantos tintados): La invención de los libros en el mundo antiguo (Campaña | Edición con cantos tintados) comparte el interés por el pasado y su estudio. Irene Vallejo aborda la historia de los libros, mientras José Manuel Galán se centra en el antiguo Egipto y las excavaciones del Proyecto Djehuty en Luxor.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788466393041"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "489eda5134c040ce",
+  "origen": "chatgpt-web"
+}

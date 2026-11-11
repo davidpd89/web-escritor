@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466393928",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dios emperador de Dune (edición de lujo) (Las crónicas de Dune 4) (Best Seller | Ficción) se dirige a lectores que siguen la obra narrativa de Frank Herbert y buscan continuar con Las crónicas de Dune. El título lo identifica como el n.º 4, por lo que no está planteado editorialmente como el comienzo de la serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dios emperador de Dune (edición de lujo) (Las crónicas de Dune 4) (Best Seller | Ficción) cuenta con una edición de tapa dura de 584 páginas en castellano. El formato físico resulta apropiado para conservar el volumen junto a otros títulos de la serie, aunque su extensión implica transportar un libro considerablemente más largo que una novela breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Casa Capitular: Dune (Las crónicas de Dune 6) (Best Seller | Ficción) y Herejes de Dune (edición de lujo) (Las crónicas de Dune 5) (Best Seller | Ficción) comparten autoría con Dios emperador de Dune (edición de lujo) (Las crónicas de Dune 4) (Best Seller | Ficción), de Frank Herbert. Los títulos identifican respectivamente los números 6, 5 y 4 de la misma serie, y los dos últimos comparten además la denominación de edición de lujo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466393263",
+        "isbn-9788466393959"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2c0bb6831603af05",
+  "origen": "chatgpt-web"
+}

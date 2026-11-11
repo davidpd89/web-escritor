@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370205881",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este libro de Eduardo Caamaño se dirige a lectores interesados en la historia de la época victoriana. Su enfoque en un periodo histórico concreto encaja con quienes buscan conocer el pasado, pero menos con quienes prefieren novelas de ficción o estudios que abarquen varias épocas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Almuzara se presenta en tapa blanda, con 384 páginas en castellano. Permite leer y consultar el contenido en papel, aunque su extensión supone un volumen considerable para transportarlo a diario.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Eduardo Caamaño puede compararse con 76, de Felipe Pigna, por su relación con la historia. La primera aborda la época victoriana, mientras que el título de Felipe Pigna señala un periodo mediante una cifra, sin identificarlo expresamente. Ambas presentan autores diferentes y permiten aproximarse a asuntos históricos desde obras independientes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329695"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "451258ab2113735b",
+  "origen": "chatgpt-web"
+}

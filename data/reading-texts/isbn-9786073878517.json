@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9786073878517",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Noche y día / Night and Day se dirige a lectores de clásicos literarios y narrativa de Virginia Woolf. Sus 624 páginas plantean una lectura extensa, menos ajustada a quien busca un relato breve o una obra práctica de consulta inmediata.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Noche y día / Night and Day cuenta con una edición en tapa blanda de 624 páginas, publicada en castellano por Penguin Random House Grupo Editorial. La encuadernación flexible permite manejar el volumen durante la lectura, aunque su extensión supone un libro físico considerable para transportarlo a diario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Noche y día / Night and Day puede compararse con La señora Dalloway (edición especial limitada con cantos tintados), otra obra de Virginia Woolf. La segunda se centra en una jornada de Clarissa dentro de la sociedad londinense, mientras que Noche y día / Night and Day figura como una lectura clásica más extensa, con 624 páginas en esta edición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491057031"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "78e839959e802bd3",
+  "origen": "chatgpt-web"
+}

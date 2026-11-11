@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los secretos de una buena masa se dirige a quienes quieren preparar panes y otras masas dulces o saladas en casa, incluso con poca experiencia. Su enfoque práctico, basado en recetas sencillas y explicaciones paso a paso, encaja menos con quien busca un ensayo sobre la historia de la alimentación.",
+      "texto": "Los secretos de una buena masa está dirigido a quienes quieren preparar panes y masas dulces o saladas en casa, con instrucciones progresivas y pocos ingredientes. No se centra en la cocina general ni en recetas que prescindan del trabajo con masas y fermentación.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "El libro reúne más de 60 recetas de panadería y preparaciones dulces y saladas, con instrucciones paso a paso. Dannys González aborda la fermentación y el trabajo con masas utilizando pocos ingredientes, de modo que sus 288 páginas pueden consultarse durante la preparación de cada receta.",
+      "texto": "Incluye más de 60 recetas de panadería y otras preparaciones dulces y saladas, con explicaciones paso a paso. Dannys González dedica el contenido al trabajo doméstico con masas, incluidos los procesos de fermentación. Sus 288 páginas reúnen instrucciones para preparar distintas elaboraciones y repetirlas en casa.",
       "evidencias": [
         "autores",
         "sinopsis_editorial",
@@ -22,25 +22,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite consultar las 288 páginas de Los secretos de una buena masa junto a los ingredientes y utensilios de cocina. La edición en rústica con solapas resulta adecuada para conservar el recetario en papel; Kindle permite acceder a las instrucciones desde un móvil o lector electrónico mientras se cocina.",
+      "texto": "Los secretos de una buena masa puede adquirirse en tapa blanda o Kindle. La edición física, de 288 páginas, permite tener las instrucciones abiertas junto a los ingredientes; Kindle facilita consultar las recetas desde el móvil o un lector electrónico. Ambas opciones sirven para seguir las elaboraciones paso a paso.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "edicion",
-        "formatos_disponibles"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los secretos de una buena masa y El acorde secreto comparten el interés por explicar conocimientos concretos, aunque el primero enseña a trabajar masas y fermentaciones y el segundo aborda la música desde la neurociencia. El secreto mejor guardado del gran Museo del Prado también propone aprender sobre un tema, pero mediante una aproximación narrativa al arte y los cuentos.",
+      "texto": "Los secretos de una buena masa y Secretos del ayurveda: Que cambiarán tu vida (Biblioteca de la salud), de Isabel Bautista, comparten una orientación práctica, pero tratan asuntos distintos: elaboración de masas frente a ayurveda y salud. El primero, firmado por Dannys González, propone recetas y técnicas de fermentación, no una introducción a hábitos de bienestar.",
       "evidencias": [
         "titulo",
+        "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788449345975",
-        "isbn-9791388306181"
+        "isbn-9788411214834"
       ]
     }
   ],

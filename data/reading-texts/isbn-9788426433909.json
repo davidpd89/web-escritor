@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788426433909",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El dilema del erizo (Narrativa) se sitúa entre la narrativa contemporánea, la filosofía y el ensayo, con la naturaleza como otro de sus ámbitos temáticos. Se dirige a lectores interesados en esos cruces y se distancia de quienes buscan exclusivamente una exposición científica especializada sobre animales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El dilema del erizo (Narrativa) está editado en tapa dura por Lumen y tiene 160 páginas. Es un volumen físico de extensión relativamente breve, con cubierta rígida para conservarlo y volver a consultar sus páginas sin depender de un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Por qué miramos a los animales? y El dilema del erizo (Narrativa) comparten el interés por los animales y la reflexión filosófica. John Berger examina en su ensayo la relación histórica de los seres humanos con ellos, mientras que la obra de Toon Tellegen combina narrativa contemporánea, filosofía y naturaleza. Ambas presentan enfoques distintos dentro de una temática relacionada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425236716"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7171a0110a983008",
+  "origen": "chatgpt-web"
+}

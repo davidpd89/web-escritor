@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9798890988713",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gracias a Mr. Jacobs / Because of Our Student Teacher se orienta a lectores interesados en las relaciones familiares y la amistad. La obra de Rob Buyea se relaciona con esos ámbitos y resulta menos afín a quienes buscan aventuras fantásticas o divulgación técnica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Gracias a Mr. Jacobs / Because of Our Student Teacher se publica en tapa blanda, con 352 páginas en castellano. La edición de Vintage Espanol permite una lectura en papel que puede distribuirse en varias sesiones y resulta transportable para quienes leen fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gracias a Mr. Jacobs / Because of Our Student Teacher y Casi familia / Almost Family permiten establecer una comparación alrededor de los vínculos familiares. El primero, de Rob Buyea, también se relaciona con la amistad, mientras que el segundo, de Ana Romero, sitúa la idea de familia en el propio título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073875011"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b5a52fad046f1f7b",
+  "origen": "chatgpt-web"
+}

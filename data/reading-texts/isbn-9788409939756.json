@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409939756",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Plagio, de Julia Muñoz Ramírez, se dirige a lectores que buscan una combinación de romance y misterio en una misma obra. Por su clasificación temática, encaja menos con quienes prefieren relatos centrados exclusivamente en la fantasía o la divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Plagio está disponible en tapa blanda y Kindle. La edición impresa reúne 439 páginas y permite conservar el volumen en una estantería o regalarlo; Kindle ofrece la alternativa de leerlo en un dispositivo electrónico sin transportar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Plagio comparte el terreno del misterio con Donde callan los niños (Imágica Intriga), de Eva Zamora Zamora, aunque también incorpora el romance entre sus temas. Frente a El juego del alma (edición limitada · cantos tintados) (Serie La chica de nieve) (Campaña | Edición con cantos tintados), de Javier Castillo, Plagio combina misterio y relaciones románticas, mientras que el otro título se identifica como parte de una serie.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210729",
+        "isbn-9788466393867"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bc0adfc3e98f18a8",
+  "origen": "chatgpt-web"
+}

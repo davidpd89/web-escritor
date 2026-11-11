@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9786073870696",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Persecución y modorra. La Inquisición en la nueva España / Persecution and Drowsiness. The Inquisition in the New Spain está dirigido a lectores de historia interesados en la Inquisición y su presencia en la Nueva España. Su asunto es histórico e institucional, por lo que se distancia de la narrativa de ficción y de los manuales prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro trata la Inquisición en la Nueva España desde una perspectiva histórica. El título reúne las ideas de persecución y modorra para delimitar su asunto, y presenta también su formulación en inglés. Úrsula Camba Ludlow firma una obra de 216 páginas dedicada a ese contexto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La obra se ofrece en tapa blanda, en una edición de Penguin Random House Grupo Editorial. Sus 216 páginas permiten leerla en un volumen físico y regresar a apartados concretos durante una consulta histórica. La encuadernación flexible facilita transportarla junto con otros materiales de lectura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Agustín penón y Federico García Lorca, de Juan Carlos García de Polavieja, comparte con esta obra el interés por investigar hechos del pasado. Aquel título se centra en una investigación sobre la vida y la muerte de Federico García Lorca; Persecución y modorra. La Inquisición en la nueva España / Persecution and Drowsiness. The Inquisition in the New Spain aborda una institución histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418567933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3e72ef5209589f9a",
+  "origen": "chatgpt-web"
+}

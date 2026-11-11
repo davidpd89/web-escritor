@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El libro de la cocina judía se dirige a lectores interesados tanto en preparar recetas como en comprender la historia cultural de la gastronomía judía. Su recorrido por las tradiciones asquenazí y sefardí se aleja de los recetarios centrados exclusivamente en comidas rápidas o instrucciones breves.",
+      "texto": "El libro de la cocina judía se dirige a lectores interesados en cocinar y conocer las tradiciones alimentarias judías desde una perspectiva histórica y cultural. Sus más de 800 recetas se acompañan de relatos familiares, costumbres y festividades; no responde al enfoque de un recetario dedicado exclusivamente a preparaciones rápidas.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,20 +13,21 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Col&col Ediciones publica El libro de la cocina judía en tapa dura, con 632 páginas en castellano y fecha de publicación del 21 de octubre de 2026. Esta edición conmemorativa del XXV aniversario incorpora nuevas historias y recetas, además de ampliar el recorrido por las comunidades neerlandesa, checa y argelina establecida en Francia.",
+      "texto": "Esta edición conmemorativa del XXV aniversario incorpora nuevas historias y recetas, con atención adicional a comunidades judías neerlandesas, checas y argelinas establecidas en Francia. Col&col Ediciones la presenta en tapa dura, con 632 páginas en castellano. Su ISBN es 9788419483867 y su fecha editorial, el 21 de octubre de 2026.",
       "evidencias": [
         "titulo",
+        "sinopsis_editorial",
         "editorial",
         "edicion",
         "numero_paginas",
         "idioma",
-        "fecha_publicacion",
-        "sinopsis_editorial"
+        "isbn13",
+        "fecha_publicacion"
       ]
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "El libro de la cocina judía contiene más de 800 recetas acompañadas de historia familiar, costumbres y contexto cultural. Claudia Roden aborda las cocinas asquenazí y sefardí, las normas alimentarias religiosas y las celebraciones, con un recorrido geográfico que permite consultar platos y conocer sus orígenes.",
+      "texto": "El libro reúne más de 800 recetas y las relaciona con historias familiares, festividades y tradiciones de las comunidades judías. Claudia Roden aborda las cocinas asquenazí y sefardí, además de cuestiones como la kashrut y la alimentación durante el shabat. Puede utilizarse tanto para preparar platos como para consultar su contexto cultural e histórico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -35,25 +36,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es el formato disponible de El libro de la cocina judía, con 632 páginas destinadas a recetas y explicaciones culturales. Su encuadernación rígida permite mantenerlo como volumen de consulta en casa, aunque el tamaño de la obra hace menos práctico transportarlo para consultas ocasionales.",
+      "texto": "El libro de la cocina judía está disponible en tapa dura y tiene 632 páginas. Su encuadernación rígida resulta práctica para conservar un recetario extenso y consultarlo repetidamente en casa. Al reunir más de 800 recetas junto con explicaciones culturales, el volumen sirve para alternar la preparación de platos con la lectura de sus antecedentes.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "edicion",
         "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El libro de la cocina judía comparte con Artesanos del queso, de Ignacio Medina, el interés por relacionar alimentación, territorio y tradiciones. Claudia Roden estudia la cocina judía mediante recetas e historia de distintas comunidades, mientras Artesanos del queso se concentra en 23 queserías y la diversidad quesera española.",
+      "texto": "El libro de la cocina judía y 20 minutos ¡y listo!, de Jamie Oliver, comparten su orientación culinaria, pero responden a usos distintos. Claudia Roden reúne más de 800 recetas vinculadas a la historia y las costumbres judías; el título de Jamie Oliver pone el acento en el tiempo de preparación y en cocinar con una agenda ocupada. Uno prioriza el contexto cultural y el otro, la rapidez.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788419483881"
+        "isbn-9788425374074"
       ]
     }
   ],

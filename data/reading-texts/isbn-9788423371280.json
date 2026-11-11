@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788423371280",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Alas para volar: Una guía transformadora para volver a empezar (Vivir Mejor), de Elsa Punset, está dirigido a lectores interesados en el desarrollo personal. Su clasificación lo sitúa en ese ámbito, no en la narrativa de ficción ni en la literatura infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de bolsillo reúne las 256 páginas de Alas para volar: Una guía transformadora para volver a empezar (Vivir Mejor) en tapa blanda. Este formato de Booket permite llevar el libro cómodamente y leerlo en papel sin recurrir a una edición de mayor tamaño.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formato_edicion",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1e186c63f40e6467",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788419930279",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Madres: 20 (Clásicos modernos), de Teodora Dímova, encaja con quienes buscan narrativa contemporánea en castellano. Con 192 páginas, se aparta de las lecturas extensas y de quienes prefieren específicamente el cómic o la novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Madres: 20 (Clásicos modernos) se publica en tapa blanda, con 192 páginas en castellano. Esta edición de Caleidoscopio de Libros, S.l. permite llevar el volumen en un bolso sin la rigidez de una cubierta de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "396283742328b2df",
+  "origen": "chatgpt-web"
+}

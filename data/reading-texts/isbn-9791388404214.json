@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388404214",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Love Song (edición en tapa dura con cantos pintados): La siguiente generación de Kiss Me, de la serie Off Campus (WonderLove) se dirige a lectores de romance interesados en la siguiente generación de una serie. La propuesta de Elle Kennedy se aleja de quienes buscan una lectura centrada en otros géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Wonderbooks se distingue por la tapa dura con cantos pintados anunciada en el título. Reúne 480 páginas en castellano y tiene prevista su publicación el 30 de noviembre de 2026. Su ISBN es 9791388404214, útil para identificar esta presentación concreta.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato de Love Song (edición en tapa dura con cantos pintados): La siguiente generación de Kiss Me, de la serie Off Campus (WonderLove) y combina encuadernación rígida con cantos pintados. Sus 480 páginas forman un volumen físico pensado para conservar en la estantería o entregar como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4206b7acd63e39c5",
+  "origen": "chatgpt-web"
+}

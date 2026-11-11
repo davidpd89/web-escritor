@@ -4,7 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Viajar por el mundo 3 se dirige a lectores interesados en la geografía, las costumbres y las curiosidades de distintos países. Malcolm Croft reúne datos sobre territorios, animales, paisajes y tradiciones para explorar el mundo mediante información breve y variada. No responde a quien necesite una guía práctica centrada en los transportes, alojamientos o itinerarios de un único destino.",
+      "texto": "Viajar por el mundo 3 está orientado a quienes disfrutan con las curiosidades geográficas, las costumbres de otros países y los datos culturales inesperados. Su recorrido por lugares muy diversos responde menos a quien busca instrucciones para organizar un itinerario concreto que a quien quiere conocer particularidades del planeta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Viajar por el mundo 3 propone una lectura divulgativa sobre países, paisajes, fauna y tradiciones. Malcolm Croft utiliza curiosidades geográficas y culturales, como las particularidades de las banderas o ciertos edificios singulares, para presentar lugares distintos sin desarrollar una historia de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,21 +22,12 @@
       ]
     },
     {
-      "modulo": "encaje_documentado",
-      "texto": "Viajar por el mundo 3 propone una lectura de divulgación geográfica basada en curiosidades de países de todo el mundo. Incluye ejemplos sobre la bandera de Nepal, la situación ecuatorial de Ecuador y un museo singular de Corea del Sur, junto con referencias a paisajes, fauna y tradiciones. El título incorpora el número 3, sin que ello determine un orden de lectura.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
       "modulo": "que_formato_elegir",
-      "texto": "Viajar por el mundo 3 está disponible en tapa dura. La edición de Geoplaneta consta de 212 páginas y utiliza una encuadernación en cartoné sin sobrecubierta, pensada para conservar el volumen y consultarlo físicamente. Es también una presentación apropiada para regalar a quienes prefieren los libros impresos sobre viajes y geografía.",
+      "texto": "Viajar por el mundo 3 se ofrece en tapa dura sin sobrecubierta, con encuadernación cartoné. Esta edición de Geoplaneta tiene 212 páginas y permite conservar el volumen para consultas y relecturas, además de utilizarlo como regalo físico para personas interesadas en la geografía y los viajes.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
+        "editorial",
         "numero_paginas",
         "formatos_disponibles",
         "categorias"
@@ -35,16 +35,17 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Viajar por el mundo 3 y Austria 7 comparten el interés por los lugares y paisajes, pero Malcolm Croft recorre países de todo el mundo mediante curiosidades, mientras que Anthony Haywood se centra en el patrimonio y la naturaleza de Austria. Chile y la Isla de Pascua 9, de Mark Johanson, Isabel Albiston, Kevin Raub y Wendy Yanagihara, ofrece experiencias e itinerarios para organizar un viaje concreto, frente al enfoque panorámico del primero.",
+      "texto": "Allí donde fueres... comparte con Viajar por el mundo 3 el interés por las costumbres de otros países, aunque se centra en situaciones culturales concretas, como las formas de saludar. Al andar: Vivencias del Camino de Santiago aborda experiencias vinculadas a un recorrido específico, mientras Malcolm Croft reúne curiosidades geográficas, animales y tradiciones de distintos lugares del planeta.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408322221",
-        "isbn-9788408317869"
+        "isbn-9791388099496",
+        "isbn-9788408324331"
       ]
     }
   ],

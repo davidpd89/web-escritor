@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788466395199",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "PACK Kristin Hannah (contiene: El Ruiseñor | La niña salvaje | Las mujeres de la guerra) (Best Seller | Ficción) encaja con lectores interesados en novela histórica, aventuras y relatos protagonizados por mujeres. Reúne tres títulos de Kristin Hannah; puede interesar menos a quien busque fantasía, ensayo empresarial o ficción alejada de estos temas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La porteadora, de Ilaria Tuti y Persiguiendo las estrellas (Las mujeres Hard 1), de Sarah Lark son referencias afines por su presencia de personajes femeninos y su relación con la narrativa de aventuras. El PACK Kristin Hannah reúne tres títulos de una misma autora y se vincula además con la novela histórica; las otras dos propuestas tienen autorías distintas y planteamientos propios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788420477046",
+        "isbn-9791387652609"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c3908b48ea7b4817",
+  "origen": "chatgpt-web"
+}

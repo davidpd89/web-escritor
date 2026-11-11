@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399201130",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Idolatría de lo plano: 46 (CHAMÁN ANTE EL FUEGO), de Pedro Serrano, se dirige a lectores de poesía en castellano. Sus 86 páginas permiten abordar una obra breve, frente a quienes buscan una novela extensa o una narración centrada en una trama.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Idolatría de lo plano: 46 (CHAMÁN ANTE EL FUEGO) está disponible en tapa blanda. Sus 86 páginas ofrecen un volumen físico breve, fácil de transportar y consultar en papel, con una encuadernación flexible que ocupa poco espacio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Idolatría de lo plano: 46 (CHAMÁN ANTE EL FUEGO) puede compararse con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, por su pertenencia al ámbito poético. También comparte ese terreno con Animales que flotan lejos de casa: 43 (Leteo), de Nicolás Peña; la diferencia comprobable entre estas lecturas está en la autoría y en los títulos de cada obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9791388299421"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6e28dea851d9d946",
+  "origen": "chatgpt-web"
+}

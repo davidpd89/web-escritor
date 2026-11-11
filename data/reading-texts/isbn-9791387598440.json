@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuando fuimos todo encaja con lectores de romance juvenil que buscan historias de ruptura, reconstrucción personal y nuevas relaciones. La pérdida de una relación importante y el vínculo entre una alumna y un profesor forman parte del conflicto; no se orienta a quien prefiere aventuras sin trama sentimental.",
+      "texto": "Cuando fuimos todo se dirige a lectores de romance juvenil interesados en las rupturas sentimentales, la reconstrucción personal y las nuevas relaciones. Encaja menos con quienes buscan una historia romántica sin conflictos emocionales, porque la separación de Emma y Gael y el proceso de duelo amoroso forman parte de su argumento.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Cuando fuimos todo está clasificado como juvenil y aborda el desamor, la separación y la recuperación emocional después de una ruptura. También presenta una atracción entre una estudiante de una academia artística y uno de sus profesores, una relación marcada por esa diferencia de posición. Su conflicto principal es sentimental.",
+      "texto": "Cuando fuimos todo está clasificada como lectura juvenil y aborda el desamor, la pérdida de una relación importante y la dificultad de volver a confiar sentimentalmente. También incluye una relación de atracción entre una alumna de una academia artística y uno de sus profesores, un elemento que puede resultar relevante al valorar su contenido.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -24,37 +24,36 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela romántica juvenil centrada en las consecuencias de una separación y la posibilidad de iniciar otra relación. La Academia de Artes funciona como espacio de reconstrucción personal para Emma, mientras la aparición de Adrián introduce un nuevo conflicto afectivo. El duelo sentimental y las decisiones emocionales sostienen la historia.",
+      "texto": "Cuando fuimos todo es una novela romántica juvenil centrada en las consecuencias de una ruptura y en la posibilidad de iniciar otra relación. La Academia de Artes funciona como escenario de cambio personal para Emma, mientras que su vínculo con Adrián introduce un conflicto entre el deseo de acercarse a alguien y el temor a sufrir otra pérdida.",
       "evidencias": [
+        "titulo",
         "categorias",
+        "edad_recomendada",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cuando fuimos todo puede leerse en tapa blanda con solapas o en Kindle. La edición física tiene 256 páginas y permite conservar el volumen en papel o regalarlo; Kindle facilita llevar la novela en un móvil o lector electrónico sin transportar el libro. Ambos formatos corresponden a la misma obra de Noelia Dopazo.",
+      "texto": "La edición en tapa blanda con solapas reúne las 256 páginas de Cuando fuimos todo en un ejemplar físico, apropiado para quien quiera conservarlo o regalarlo. Kindle permite leer la misma obra en formato digital desde un dispositivo compatible, sin necesidad de llevar el libro impreso.",
       "evidencias": [
         "titulo",
-        "autores",
-        "formatos_disponibles",
+        "numero_paginas",
         "edicion",
-        "numero_paginas"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuando fuimos todo y Amor en pole position (Dirty Air 3), de Lauren Asher, comparten el romance, pero la novela de Noelia Dopazo aborda una ruptura juvenil y la reconstrucción personal, mientras la otra sitúa el amor en la Fórmula 1. También se aproxima a Solo un juego más (CAR HOCKEY 1), de Susanna Herrero, por el cruce entre relaciones y cambios vitales, aunque esta última parte de un protagonista que ha terminado Matemáticas y se vincula al hockey.",
+      "texto": "Cuando fuimos todo y Duelo animal: Entre el dolor de la ausencia y el amor que permanece (Crecimiento personal) coinciden en tratar la pérdida y el vínculo afectivo. La obra de Noelia Dopazo desarrolla una ruptura y un nuevo romance juvenil, mientras que la de David Gómez se centra en el duelo por la ausencia de un animal desde el crecimiento personal.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "edad_recomendada",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055674",
-        "isbn-9791388222801"
+        "isbn-9789507885365"
       ]
     }
   ],

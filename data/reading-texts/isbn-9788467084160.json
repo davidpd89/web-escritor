@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788467084160",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Plata en los ojos: Una historia de la Generación del 27 (Espasa Lengua y Literatura) se dirige a lectores interesados en la poesía española y su contexto histórico. Su orientación hacia la historia literaria y las biografías se aparta de la lectura de poemarios centrados únicamente en la expresión personal.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Benjamín Prado sitúa a la Generación del 27 en el centro de una obra vinculada con la poesía, la memoria biográfica y la historia del siglo XX. La clasificación como narrativa contemporánea introduce también una dimensión narrativa en el tratamiento de ese periodo literario.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Plata en los ojos: Una historia de la Generación del 27 (Espasa Lengua y Literatura) se publica en tapa dura y cuenta con 200 páginas. Esta encuadernación facilita su conservación y permite consultar en papel una obra dedicada a un movimiento literario y su contexto histórico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Políticas poéticas, canon y texto en la poesía española contemporánea comparte el interés por la poesía española, pero Juan José Lanz reúne investigaciones sobre su desarrollo contemporáneo. Benjamín Prado delimita su atención a la Generación del 27 y combina el componente histórico con el biográfico, frente al planteamiento investigador de la obra de Lanz.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387745202"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8d59a678f5707d0a",
+  "origen": "chatgpt-web"
+}

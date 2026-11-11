@@ -1,0 +1,58 @@
+{
+  "id": "isbn-9791388147739",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Su olor después de la lluvia (edición limitada) (Campaña | Ahora por menos) se orienta a lectores de biografías y memorias que buscan una obra de Cédric Sapin-Defour en formato de bolsillo. Sus 304 páginas y su encuadernación flexible encajan menos con quien prefiere libros ilustrados de gran formato o ediciones de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta versión de Su olor después de la lluvia (edición limitada) (Campaña | Ahora por menos) se identifica como edición limitada y pertenece al sello Penguin Bolsillo. Tiene 304 páginas, está publicada en castellano y se presenta como libro de bolsillo, con fecha editorial 2027-02-04.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda y se comercializa como libro de bolsillo, una presentación que facilita transportarlo y leerlo fuera de casa. Con 304 páginas, Su olor después de la lluvia (edición limitada) (Campaña | Ahora por menos) mantiene una extensión propia de una lectura sostenida sin recurrir a un volumen de tapa dura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al andar: Vivencias del Camino de Santiago comparte con Su olor después de la lluvia (edición limitada) (Campaña | Ahora por menos) su vinculación con las experiencias personales. El libro de Carlos Díaz Ballesta identifica expresamente el Camino de Santiago como eje de sus vivencias, mientras que la obra de Cédric Sapin-Defour se presenta dentro de las biografías y memorias en una edición limitada de bolsillo.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "43f1beeaa5193408",
+  "origen": "chatgpt-web"
+}

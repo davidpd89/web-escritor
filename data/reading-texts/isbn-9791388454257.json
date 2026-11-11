@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388454257",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Freddie Mercury. Una vida en verso, de Mary Austin, se orienta a lectores interesados en Freddie Mercury y en publicaciones vinculadas al arte y el diseño. Su planteamiento anunciado en el título lo diferencia de los manuales de técnicas artísticas y de las obras de ficción juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Freddie Mercury. Una vida en verso se ofrece en tapa dura, con 320 páginas en castellano. La encuadernación rígida proporciona una cubierta resistente para conservar el volumen en una biblioteca personal o entregarlo como regalo relacionado con Freddie Mercury.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "720 retrats, de Xavier Mollà i Revert, comparte con Freddie Mercury. Una vida en verso su relación con la representación de personas dentro del ámbito artístico. Por su parte, Arte Matrio, de Sara Rubayo, aborda la historia del arte español y la representación, mientras que la obra de Mary Austin se centra en Freddie Mercury y anuncia un tratamiento en verso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802",
+        "isbn-9788449346095"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6616e3181c2be967",
+  "origen": "chatgpt-web"
+}

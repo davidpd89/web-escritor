@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9786073872096",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las Otras / The Others, de Alia Trabucco Zerán, se dirige a lectores que prefieren el ensayo como forma de lectura y reflexión. Su clasificación lo diferencia de una novela, un libro de relatos o una obra concebida principalmente como entretenimiento narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las Otras / The Others tiene 224 páginas y se presenta en tapa blanda, en castellano. Esta edición permite leer y consultar el ensayo en papel, con una cubierta flexible que facilita guardarlo y transportarlo para continuar la lectura en distintos lugares.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9c55eef16a0dec10",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387927417",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ya no llama nadie (Sillón Orejero), de Elisabeth Casillas Blanca Vazquez, corresponde a lectores interesados en el cómic y la novela gráfica. Sus 160 páginas en castellano lo sitúan en una extensión acotada; quien busque específicamente una novela de narrativa convencional encontrará aquí otro tipo de obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ya no llama nadie (Sillón Orejero) tiene una edición en tapa dura de 160 páginas, publicada por Astiberri Ediciones. La cubierta rígida aporta protección al ejemplar durante su conservación y permite regalarlo en formato físico; sus páginas se consultan directamente en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9e572c4a2c5d244c",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410318984",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este cuento de Aiora Larrañaga Zugarramurdi aborda cómo entender y gestionar la frustración. Sus 48 páginas lo sitúan entre las lecturas breves sobre emociones; por su planteamiento narrativo, se diferencia de los manuales extensos de desarrollo personal y de las guías centradas en relaciones de pareja.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Penguin Kids se publica en tapa dura y contiene 48 páginas en castellano. Este formato permite conservar el cuento en papel y volver a consultar sus páginas al tratar situaciones relacionadas con la frustración.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Este cuento sobre la frustración y Yo, mi, me, pero contigo: Terapia de pareja para construir una relación sana sin dejar de ser tú (Salud y bienestar) comparten el interés por las emociones y las relaciones. Aiora Larrañaga Zugarramurdi aborda la gestión de la frustración mediante un cuento de 48 páginas, mientras que la obra de Dra. Marisa Navarro se centra en la terapia de pareja y la construcción de relaciones sanas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049997"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9c60c3b9836d0e55",
+  "origen": "chatgpt-web"
+}

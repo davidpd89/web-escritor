@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788466684088",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Horóscopo chino 2027 (No ficción), de Ludovica Squirru Dari, se dirige a lectores interesados en el horóscopo chino y en contenidos vinculados al año 2027. Sus 448 páginas lo presentan como una lectura extensa dentro de la no ficción; no responde a la búsqueda de una novela ni de un manual centrado exclusivamente en nutrición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Horóscopo chino 2027 (No ficción) cuenta con una edición en tapa blanda de 448 páginas, publicada en castellano por Ediciones B. El soporte físico permite señalar apartados y volver a consultarlos durante el año indicado en el título. Por su extensión, resulta más voluminoso que una guía breve de consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Horóscopo chino 2027 (No ficción) puede compararse con Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia por su proximidad a las inquietudes espirituales y de desarrollo personal. Ludovica Squirru Dari centra su obra en el horóscopo chino de 2027, mientras que Barbara Hand Clow plantea una exploración de la consciencia. Son enfoques distintos dentro de las lecturas alejadas de la ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798888505335"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5d2ebdda9c8815f3",
+  "origen": "chatgpt-web"
+}

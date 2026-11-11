@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788410463523",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Megalith: La saga del Olimpo se dirige a lectores de cómic y novela gráfica que prefieren la narración visual a la novela escrita únicamente en prosa. Sus 184 páginas, firmadas por Matt Kind y Lewis LaRosa, plantean una lectura de extensión acotada dentro de ese formato.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Megalith: La saga del Olimpo se presenta en tapa blanda, con 184 páginas en castellano. Esta edición física de Moztros Producciones SL permite consultar las páginas ilustradas y volver a ellas sin utilizar un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ca5e7f34bbddf16a",
+  "origen": "chatgpt-web"
+}

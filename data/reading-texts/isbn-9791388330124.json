@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388330124",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aunque el cielo se desmorone (Tríada 3) se orienta a lectores de romance y narrativa contemporánea que buscan una novela extensa. Tiene 512 páginas y su título la identifica como el n.º 3 de Tríada; por temática, encaja menos con quienes prefieren aventuras fantásticas o relatos centrados en el misterio.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Ediciones Kiwi está publicada en tapa blanda y reúne 512 páginas en castellano. Es un volumen físico de extensión considerable, apropiado para mantener en una biblioteca personal o leer por sesiones, aunque su grosor lo hace menos compacto que una novela corta.",
+      "evidencias": [
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A mil por hora y Aunque el cielo se desmorone (Tríada 3) comparten el romance como eje narrativo. La novela de Hannah Grace plantea una relación vinculada a un piloto de F1, mientras que la de Carol S. Brown pertenece a la narrativa contemporánea y su título señala el n.º 3 de Tríada, sin identificar un entorno deportivo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0cc1b2e25dce31a6",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791388147630",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a quienes leen novela histórica y buscan una obra extensa dentro de ese género. Con 560 páginas, se distancia de las novelas breves y de las lecturas centradas principalmente en el romance contemporáneo o la fantasía.",
+      "evidencias": [
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta presentación de La biblioteca de Córdoba (edición limitada) (Campaña | Ahora por menos) se distingue por su condición de edición limitada vinculada a la campaña Ahora por menos. Está publicada por Penguin Bolsillo y su ISBN 9791388147630 permite identificarla de forma precisa entre las distintas presentaciones de la obra.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Se ofrece en tapa blanda, dentro de la colección de libros de bolsillo de Penguin Bolsillo. Sus 560 páginas forman un volumen físico extenso que puede transportarse sin recurrir a un lector electrónico, aunque requiere más espacio que un bolsillo de pocas páginas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig, comparte con La biblioteca de Córdoba la referencia a un lugar histórico desde el propio título. Al otro lado de la niebla (Novela), de Juan Luis Arsuaga, ofrece otra comparación dentro de la narrativa. La biblioteca de Córdoba se identifica expresamente como novela histórica y está escrita por Andrea D. Morales, mientras que las otras obras tienen distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370849",
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "983657f693a2135a",
+  "origen": "chatgpt-web"
+}

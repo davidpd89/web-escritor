@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791388182457",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en el pensamiento anarcocapitalista y sus fundamentos económicos, políticos y filosóficos. No está planteado como una novela ni como un manual de gestión empresarial, sino como una introducción ensayística a una corriente de pensamiento.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Estudia las raíces económicas y políticas del anarcocapitalismo desde un planteamiento introductorio. Su encuadre combina filosofía, economía y cuestiones sobre el poder, con atención a las bases intelectuales de esta corriente.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para este ensayo de 176 páginas. Permite conservar un ejemplar físico para consultar sus planteamientos sobre economía y política, así como realizar anotaciones durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El papel de la violencia en la historia: Texto esencial de Engels sobre violencia, Bismarck y lucha de clases en la Alemania del siglo XIX (No ficción), de Friedrich Engels, también examina cuestiones políticas, pero desde la violencia y la lucha de clases. La España de dos pisos: Cómo las élites han creado un nuevo clasismo Y por qué ellos son cada vez más ricos y los demás, cada vez más pobres, de Esteban Hernández, trata las desigualdades sociales, frente a la introducción al pensamiento anarcocapitalista de Miguel Anxo Bastos Boubeta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388115479",
+        "isbn-9788410944367"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5eb08227de9142b0",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408324324",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Explora Japón 2027-2028 (Guías Explora Lonely Planet) está orientado a lectores que buscan una guía de viajes dedicada a Japón. Sus 258 páginas responden a una consulta sobre ese destino, por lo que encaja menos con quien prefiera narrativa de ficción o una guía centrada en varios países.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Explora Japón 2027-2028 (Guías Explora Lonely Planet) tiene 258 páginas y permite consultar la guía en papel durante la preparación del viaje. Kindle facilita llevarla en el móvil o en un lector electrónico, evitando añadir otro libro físico al equipaje.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Japón 2027-2028 comparte destino con Explora Japón 2027-2028 (Guías Explora Lonely Planet), aunque se presenta como una guía sobre tradiciones, cultura pop, gastronomía y modernidad. Indonesia 7 pertenece también al ámbito de los viajes, pero cambia Japón por Indonesia; además, Ray Bartlett participa en las tres obras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329534",
+        "isbn-9788408323181"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bc4f4ca5a131fb3a",
+  "origen": "chatgpt-web"
+}

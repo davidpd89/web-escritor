@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788415122562",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cambiar para Vivir, Colección Autoayuda, de Raúl M. Mir Coll, se dirige a lectores interesados en el desarrollo personal y el bienestar. También se relaciona con la familia y el tiempo libre, mientras que quien busque una novela de ficción encontrará aquí una propuesta de orientación práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cambiar para Vivir, Colección Autoayuda se ofrece en tapa blanda, con 320 páginas en castellano. Esta presentación permite consultar el contenido en papel, marcar pasajes y regresar a apartados anteriores durante la lectura, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cambiar para Vivir, Colección Autoayuda comparte su interés por el bienestar con El código del rendimiento: La ciencia detrás de lo que el deportista consume, de Eztizen Pérez Díaz. La obra de Raúl M. Mir Coll se sitúa en el desarrollo personal y la autoayuda, mientras que la de Eztizen Pérez Díaz aborda la alimentación desde la perspectiva del rendimiento deportivo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409934010"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5c9e2fe0849557ed",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387994426",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Amanda Black 15 - El laberinto del minotauro (Juan Gómez-Jurado y Bárbara Montes) se orienta al público infantil y juvenil interesado en aventuras y misterios. Su combinación de intriga y exploración se distancia de las lecturas centradas exclusivamente en relaciones sentimentales o situaciones cotidianas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Amanda Black 15 - El laberinto del minotauro (Juan Gómez-Jurado y Bárbara Montes) se publica en tapa dura y Kindle. La edición física de Ediciones B tiene 264 páginas y ofrece una encuadernación rígida para conservar o regalar; Kindle permite llevar la historia en un dispositivo electrónico o en el móvil.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amanda Black 15 - El laberinto del minotauro (Juan Gómez-Jurado y Bárbara Montes) comparte el interés por los enigmas con Abre el misterio 1 - El robo de las croquetas, de Carlos G. Gurpegui. La diferencia está en el planteamiento anunciado: el primero combina aventura y misterio alrededor de un laberinto, mientras que el segundo parte de la desaparición de unas croquetas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "959517d1a8e8f34f",
+  "origen": "chatgpt-web"
+}

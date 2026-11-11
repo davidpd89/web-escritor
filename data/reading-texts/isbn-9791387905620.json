@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La botica natural está orientado a quienes quieren aprender a recolectar, conservar y preparar plantas medicinales para usos cotidianos. Juan Carlos Pastor y Zaira Vidal plantean una guía práctica sobre remedios herbales, menos adecuada para quien busca exclusivamente explicaciones teóricas sobre botánica.",
+      "texto": "Pensado para lectores interesados en las plantas medicinales y en elaborar preparados herbales para cuidados cotidianos. La botica natural aborda infusiones, aceites, ungüentos y jarabes desde una perspectiva práctica; no es una novela ni un tratado centrado exclusivamente en la teoría botánica.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "La botica natural trata el aprovechamiento doméstico de plantas medicinales y la recuperación de conocimientos tradicionales sobre su preparación. Juan Carlos Pastor y Zaira Vidal explican procedimientos para elaborar infusiones, ungüentos, aceites y jarabes, con aplicaciones relacionadas con el estrés, la ansiedad y las migrañas.",
+      "texto": "La botica natural explica cómo recolectar, conservar y transformar plantas medicinales en preparados de uso cotidiano. Juan Carlos Pastor y Zaira Vidal recuperan prácticas tradicionales y las relacionan con molestias como el estrés, la ansiedad, los dolores de cabeza y las migrañas, mediante un enfoque práctico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,17 +22,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La botica natural se presenta en tapa blanda, con 480 páginas dedicadas al conocimiento y la preparación de remedios vegetales. El volumen físico permite consultar las instrucciones durante la recolección o elaboración de preparados y volver a las explicaciones de conservación cuando se necesiten.",
+      "texto": "Se ofrece en tapa blanda, en una edición de Roca Editorial de 480 páginas. La extensión permite reunir instrucciones sobre recolección, conservación y elaboración de distintos preparados herbales; el formato físico facilita consultar el contenido durante esas tareas.",
       "evidencias": [
-        "titulo",
-        "numero_paginas",
         "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La botica natural y Gran enciclopedia de los minerales comparten el interés por materiales presentes en la naturaleza, aunque sus objetivos son distintos. Juan Carlos Pastor y Zaira Vidal explican aplicaciones domésticas de plantas medicinales, mientras que Borja Sainz de Baranda aborda los minerales y la creciente demanda de materias primas.",
+      "texto": "La botica natural y 50 cosas que hay que saber sobre IA comparten un planteamiento divulgativo, pero sus aplicaciones son diferentes. Juan Carlos Pastor y Zaira Vidal explican la preparación de remedios herbales, mientras Keith Mansfield presenta conceptos de inteligencia artificial y cuestiones éticas y sociales relacionadas con esa tecnología.",
       "evidencias": [
         "titulo",
         "autores",
@@ -42,7 +41,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370342883"
+        "isbn-9788434441309"
       ]
     }
   ],

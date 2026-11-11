@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791399271386",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nuevo Ficcionario, de Jose María Arenzana Seisdedos, se orienta a lectores que buscan un ensayo en castellano. Sus 277 páginas corresponden a una obra de no ficción, por lo que encaja menos con quienes prefieren novelas de intriga o relatos de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nuevo Ficcionario cuenta con una edición en tapa blanda de 277 páginas, publicada por Última Línea. El formato permite consultar y releer pasajes en papel, mientras que la cubierta flexible facilita llevar el volumen en una bolsa durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "db915aeb11c23f0d",
+  "origen": "chatgpt-web"
+}

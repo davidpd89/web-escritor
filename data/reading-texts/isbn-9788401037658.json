@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788401037658",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La visigoda (Saga de la Reconquista) (Éxitos) se orienta a lectores de novela histórica con interés por las tramas románticas. Su combinación de historia y romance la aleja de las narraciones centradas exclusivamente en relaciones contemporáneas o en mundos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La visigoda (Saga de la Reconquista) (Éxitos) se presenta en tapa dura y reúne 384 páginas. La edición de Plaza & Janés ofrece un volumen físico de extensión media, adecuado para leer en casa y conservar en una biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La visigoda (Saga de la Reconquista) (Éxitos) puede compararse con Cómo arruinar a un vizconde (Academia Miriñaque 1) (CLEAN ROMANCE) por la presencia del romance. La obra de Isabel San Sebastián incorpora además la novela histórica como eje de clasificación, mientras que el título de Mimi Matthews se identifica expresamente con el romance. Son obras de distintas autoras y con planteamientos editoriales diferenciados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410481329"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bd6fbb9ffb726b75",
+  "origen": "chatgpt-web"
+}

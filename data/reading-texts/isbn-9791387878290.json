@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387878290",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un deseo, de Martina Aranda, se orienta al público infantil y a quienes buscan lecturas relacionadas con el humor. Sus 52 páginas ofrecen una extensión breve frente a libros infantiles más largos; no está planteado como ensayo ni como narrativa dirigida específicamente a adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un deseo se publica en tapa dura, con 52 páginas y edición de Editorial Entredos. La encuadernación rígida resulta práctica para conservar el ejemplar, compartirlo en lecturas familiares o entregarlo como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cacahuete, el elfo pedorrete (Libros ilustrados) comparte con Un deseo su orientación hacia lectores infantiles y el humor, aunque su título anuncia un personaje fantástico y una situación cómica concreta. El lago de los monstruos (INFANTIL) ofrece otra referencia infantil, pero desplaza el interés hacia los monstruos, mientras que Un deseo sitúa una aspiración en el centro de su título.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410318526",
+        "isbn-9791387884260"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2b7e6f6c97692e88",
+  "origen": "chatgpt-web"
+}

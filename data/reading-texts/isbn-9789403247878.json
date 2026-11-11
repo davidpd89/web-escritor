@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9789403247878",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La magia de las luces - un dia con los bomberos, de BALLON, encaja con lectores interesados en la fantasía y en los bomberos como tema de lectura. Sus 12 páginas lo sitúan entre los libros breves, no entre las novelas extensas o las lecturas de largo recorrido.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La magia de las luces - un dia con los bomberos está editado en tapa dura y tiene 12 páginas. Esta presentación permite manejarlo como libro físico de lectura breve y conservarlo en una estantería; Ballon es la editorial responsable de la edición en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La magia de las luces - el baile de las princesas es su comparación más directa: ambos libros pertenecen a la propuesta La magia de las luces y están firmados por BALLON. La diferencia está en el asunto anunciado por cada título: uno se centra en los bomberos y el otro en un baile de princesas. La elección depende de cuál de esos dos temas interese más al lector.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789403247854"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "95ce0be019797f6e",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387714543",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Caza en el KGB (Istoría) se dirige a lectores de novela histórica interesados en una obra cuyo título remite al KGB. No responde a la búsqueda de un ensayo documental: la clasificación editorial corresponde a ficción histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Caza en el KGB (Istoría) contiene 464 páginas y ofrece una encuadernación rígida para conservar el volumen en una biblioteca. La edición de Istoría está publicada en castellano y permite consultar el texto en papel sin depender de dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Caza en el KGB (Istoría) y Bajo las cenizas de Pompeya (ESPASA NARRATIVA) pueden compararse desde el interés por la narrativa de ambientación histórica. Sus títulos apuntan a referentes distintos: el KGB en la obra de Jon Ander Franco y Pompeya en la de María Reig.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a326f47c96c53860",
+  "origen": "chatgpt-web"
+}

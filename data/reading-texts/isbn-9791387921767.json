@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387921767",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Jurassic Park: VHS (Series y películas) se dirige al público infantil y juvenil interesado en la fantasía, la ciencia ficción y el universo de Jurassic Park. Sus 170 páginas encajan con quien busca una obra de extensión moderada, pero menos con lectores que prefieren temáticas realistas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura presenta las 170 páginas de Jurassic Park: VHS (Series y películas) en una encuadernación rígida. Esta edición de Planeta Cómic en castellano puede guardarse en una colección física o elegirse como regalo para lectores interesados en Jurassic Park.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Star Wars Boba Fett: Blanco, negro y rojo (Star Wars: Cómics Tomo Marvel) comparte con Jurassic Park: VHS (Series y películas) la ciencia ficción y la autoría atribuida a Varios autores. La diferencia está en sus universos y públicos: el primero se presenta como cómic juvenil de Star Wars, mientras que el segundo se orienta al público infantil y juvenil desde Jurassic Park.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388100932",
+        "isbn-9791388102349"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "61ad8e5c42af0f53",
+  "origen": "chatgpt-web"
+}

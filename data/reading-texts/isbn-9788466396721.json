@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788466396721",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Autocuidado: 52 semanas para cuidar de ti (Best Seller | No Ficción), de Patri Psicóloga y Yolanda Cuevas, se dirige a quienes buscan incorporar el cuidado personal a una rutina semanal. Su enfoque de desarrollo personal se aparta de las lecturas de ficción y de los libros centrados en una única actividad recreativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Autocuidado: 52 semanas para cuidar de ti (Best Seller | No Ficción) se publica en tapa blanda, dentro de la edición de bolsillo de Penguin Bolsillo. Sus 224 páginas permiten conservar en papel las propuestas organizadas alrededor de 52 semanas y volver a ellas durante el año sin utilizar dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Autocuidado: 52 semanas para cuidar de ti (Best Seller | No Ficción) y Amor comparten autoría: Patri Psicóloga y Yolanda Cuevas. Ambos utilizan una estructura semanal, pero el primero se centra en el cuidado personal y el segundo propone prácticas dirigidas a la relación de pareja. La diferencia principal está en el destinatario de esas actividades.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425373602"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fed85872aa022a51",
+  "origen": "chatgpt-web"
+}

@@ -4,17 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La desgracia inevitable (Carl el Mazmorrero 7) se dirige a lectores de ciencia ficción interesados en conflictos bélicos, alianzas y supervivencia dentro de una competición mortal. Sus 896 páginas y la continuidad de personajes y acontecimientos lo alejan de una lectura breve o de una historia independiente de su universo.",
+      "texto": "La desgracia inevitable (Carl el Mazmorrero 7) se dirige a lectores de ciencia ficción interesados en enfrentamientos estratégicos, ejércitos y escenarios de supervivencia. Sus 896 páginas y su vinculación con una serie pueden encajar menos con quienes buscan novelas breves o conflictos alejados de la guerra.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial",
-        "numero_paginas"
+        "numero_paginas",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La desgracia inevitable (Carl el Mazmorrero 7) combina ciencia ficción y enfrentamientos militares en una competición donde varios ejércitos disputan el control de un castillo. La participación de los mazmorreros y de los PNJ conscientes altera las fuerzas enfrentadas, mientras que las muertes definitivas convierten la supervivencia en el principal conflicto.",
+      "texto": "La historia combina ciencia ficción y competición bélica en un escenario donde varios ejércitos luchan por controlar una fortaleza. Carl, Dónut y Katia participan en un conflicto que incorpora combatientes antes subordinados y consecuencias mortales definitivas; el título identifica esta entrega como el n.º 7.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -23,17 +23,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La desgracia inevitable (Carl el Mazmorrero 7) puede leerse en tapa blanda o Kindle. La edición física de Nova reúne sus 896 páginas en un volumen, mientras que Kindle permite llevar esa misma extensión en un dispositivo compatible sin cargar con el libro de papel.",
+      "texto": "La desgracia inevitable (Carl el Mazmorrero 7) está disponible en tapa blanda y Kindle, con 896 páginas en su edición física de Nova. El papel permite conservar el volumen en la estantería, mientras que Kindle facilita transportar una lectura de esta extensión en un dispositivo compatible.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El ojo de la novia frenopática (Carl el Mazmorrero 6) comparte autor y universo con La desgracia inevitable (Carl el Mazmorrero 7), pero plantea la captura de un monstruo frente a una guerra entre facciones. Aunque se acabe el mundo, de Clara Duarte, también presenta una amenaza para la supervivencia, aunque su conflicto parte de una transformación de la humanidad.",
+      "texto": "El ojo de la novia frenopática (Carl el Mazmorrero 6) comparte autor, Matt Dinniman, y serie con La desgracia inevitable (Carl el Mazmorrero 7), pero el primero plantea la captura de un monstruo y el segundo una guerra entre ejércitos. Carl el Mazmorrero (Character Limited Edition) (Nova) ofrece otra referencia de la misma autoría, diferenciada por su identificación como edición limitada.",
       "evidencias": [
         "titulo",
         "autores",
@@ -41,13 +41,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410466470",
-        "isbn-9788427255968"
+        "isbn-9788419260734",
+        "isbn-9788410466470"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "dc4f8b7f0c72b862",
+  "fuente_hash": "27b5a1630fe35094",
   "origen": "chatgpt-web"
 }

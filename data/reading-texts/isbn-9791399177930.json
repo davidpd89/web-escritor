@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399177930",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuaderno Bunik: 65 (Comba) se dirige a lectores interesados en la poesía y en libros de formato breve. Por su género, encaja con quien busca una propuesta poética, no con quien espera una novela o una obra narrativa extensa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda tiene 112 páginas y es el formato disponible para Cuaderno Bunik: 65 (Comba). Su extensión permite conservar una edición física de tamaño contenido, frente a las alternativas digitales o de tapa dura que no forman parte de esta oferta.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuaderno Bunik: 65 (Comba) puede compararse con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, por su relación con la poesía. La diferencia está en el planteamiento que anuncia cada título: el de Pedro Salinas identifica expresamente una antología amorosa, mientras que Cuaderno Bunik: 65 (Comba) no presenta esa misma orientación temática en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288",
+        "isbn-9791370140908"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "73907d824ee90f91",
+  "origen": "chatgpt-web"
+}

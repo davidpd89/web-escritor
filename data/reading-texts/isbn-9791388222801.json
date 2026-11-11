@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Solo un juego más (CAR HOCKEY 1) se dirige al público juvenil que busca romance ambientado en el deporte y relaciones marcadas por la rivalidad. Encaja menos con lectores que prefieren historias deportivas centradas exclusivamente en la competición, porque el conflicto entre Cannon Donnelly y Benji ocupa un lugar importante en el argumento.",
+      "texto": "Solo un juego más (CAR HOCKEY 1) se dirige a lectores de romance juvenil que buscan relaciones conflictivas en un entorno deportivo, especialmente el hockey sobre hielo. Encaja menos con quienes esperan una historia centrada únicamente en la competición, porque el enfrentamiento personal entre Cannon Donnelly y Benji ocupa un lugar central.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Solo un juego más (CAR HOCKEY 1) tiene clasificación juvenil y combina relaciones sentimentales con conflictos personales. La protagonista afronta la posibilidad de regresar al hockey, trabajar con otras personas y entrenar a alguien con quien mantiene una relación hostil, por lo que la tensión interpersonal forma parte de la lectura.",
+      "texto": "Solo un juego más (CAR HOCKEY 1) está clasificada como novela juvenil y desarrolla una relación marcada por la hostilidad entre dos personajes vinculados por una familia reconstituida. También aborda la incertidumbre profesional de Cannon Donnelly y su incomodidad ante la convivencia social, dentro de un contexto de entrenamiento deportivo.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -24,7 +24,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Solo un juego más (CAR HOCKEY 1) plantea un romance juvenil en el entorno de un centro de alto rendimiento de hockey sobre hielo. Cannon Donnelly recibe una propuesta profesional que la obliga a considerar su regreso al deporte y la convivencia con Benji, un personaje con quien mantiene una rivalidad previa y vínculos familiares indirectos.",
+      "texto": "Solo un juego más (CAR HOCKEY 1) combina romance juvenil y deporte en un centro de alto rendimiento dedicado al hockey sobre hielo. Su conflicto nace de una propuesta laboral que obligaría a Cannon Donnelly a regresar al hielo, trabajar con un equipo y entrenar a Benji, con quien mantiene una relación especialmente difícil.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -33,26 +33,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con sobrecubierta reúne las 480 páginas de Solo un juego más (CAR HOCKEY 1) en una edición física que puede conservarse en la estantería. Kindle permite llevar la novela en el móvil o lector electrónico sin cargar con el volumen, y el audiolibro ofrece una opción para seguir la historia escuchándola.",
+      "texto": "La tapa blanda con sobrecubierta reúne las 480 páginas de Solo un juego más (CAR HOCKEY 1) en un ejemplar físico para leer o conservar. Kindle evita transportar ese volumen durante los desplazamientos, mientras que el audiolibro permite seguir la novela mediante escucha en lugar de lectura visual.",
       "evidencias": [
         "titulo",
-        "edicion",
         "numero_paginas",
+        "edicion",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Rinkmates comparte con Solo un juego más (CAR HOCKEY 1) el hockey sobre hielo como escenario de relaciones personales, aunque su planteamiento se centra en un jugador estrella y sus secretos. Amor en pole position (Dirty Air 3) también relaciona romance y deporte, pero traslada el conflicto sentimental al mundo de la Fórmula 1 en lugar del hockey.",
+      "texto": "Solo un juego más (CAR HOCKEY 1) y Rinkmates comparten el hockey sobre hielo como escenario de sus conflictos personales. La novela de Susanna Herrero enfrenta a una posible entrenadora con un jugador al que no soporta; la de Nova Banks sitúa su historia en Nueva York y presenta a Riley Huntington como una estrella de ese deporte.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387598815",
-        "isbn-9788427055674"
+        "isbn-9791387598815"
       ]
     }
   ],

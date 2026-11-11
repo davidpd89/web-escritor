@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791370174606",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dos semanas para seducirla: 3258 (Bianca), de Rebecca Hunter, se dirige a lectores de romance que buscan una novela de 160 páginas. Su clasificación corresponde a la narrativa romántica, no a géneros como el ensayo o la fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dos semanas para seducirla: 3258 (Bianca) está disponible en tapa blanda, con 160 páginas en castellano. La edición de Harlequin Ibérica, S.a. permite leerla en papel y transportarla sin necesidad de un lector electrónico; su extensión también facilita calcular el tiempo dedicado a la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "29d4062c2a8c5b0c",
+  "origen": "chatgpt-web"
+}

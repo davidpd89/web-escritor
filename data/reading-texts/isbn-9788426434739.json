@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788426434739",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La fragilidad (Narrativa), de Charlotte Casiraghi, encaja con lectores interesados en la filosofía y en cuestiones relacionadas con la condición humana. No se orienta a quien busca una novela de aventuras, fantasía o una narración de ficción como eje de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 360 páginas de La fragilidad (Narrativa), de Charlotte Casiraghi, en un ejemplar físico. Es la alternativa para quien prefiere pasar las páginas en papel y guardar el libro en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La fragilidad (Narrativa), de Charlotte Casiraghi, puede compararse con A vivir también se aprende: Los 5 pilares de la sabiduría para ubicarse en tiempos de cambio (Deusto), de Frédéric Lenoir, por su proximidad al pensamiento filosófico. El primero se centra en la fragilidad; el segundo plantea la sabiduría como herramienta para afrontar tiempos de cambio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423440887"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4a3c8b6080ef4008",
+  "origen": "chatgpt-web"
+}

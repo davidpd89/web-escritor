@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388540035",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La bruja buena del tiempo se dirige a quienes buscan narrativa contemporánea en castellano y prefieren libros de extensión moderada. Sus 160 páginas ofrecen una alternativa a las novelas de gran volumen, aunque su clasificación editorial no la sitúa específicamente dentro de la narrativa juvenil.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La bruja buena del tiempo tiene una edición en tapa blanda de 160 páginas, publicada por Livensoul. Su encuadernación flexible y su extensión contenida facilitan llevar el ejemplar en el bolso o la mochila para leer fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La bruja buena del tiempo y El último baile comparten autor, Manel Rodriguez Moreno. La primera está clasificada como narrativa contemporánea, mientras que la segunda ofrece otra referencia dentro de la bibliografía del mismo escritor. Para quien busca continuidad de autoría, la relación es directa, aunque son títulos distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388540073"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "309b7c02392e8427",
+  "origen": "chatgpt-web"
+}

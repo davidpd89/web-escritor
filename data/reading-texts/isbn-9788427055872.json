@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788427055872",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Reina de sueños y pesadillas (Matchstories Romantasy), de Siria Dobrev, está orientada a lectores que buscan fantasía combinada con romance y motivos relacionados con los sueños y las pesadillas. Su planteamiento genérico se aparta del romance realista y de la narrativa sin elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Reina de sueños y pesadillas (Matchstories Romantasy) consta de 368 páginas en tapa blanda, publicadas por Ediciones Martínez Roca. Permite leer la novela en papel y conservarla en una biblioteca física; su cubierta flexible facilita abrirla y manejarla durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alas de escarcha y oro: El canto del cisne, de Marta Morillo, comparte con Reina de sueños y pesadillas (Matchstories Romantasy), de Siria Dobrev, el terreno de la fantasía, aunque el primero presenta a una protagonista que oculta sus dones y debilidades. Casa de cielo y aliento (Ciudad Medialuna 2), de Sarah J. Maas, ofrece otra referencia fantástica, con una diferencia editorial clara: su título identifica una segunda entrega, mientras que Reina de sueños y pesadillas no incorpora una numeración de saga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938",
+        "isbn-9788466396080"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "19b9fe2082f9403d",
+  "origen": "chatgpt-web"
+}

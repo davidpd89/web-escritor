@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788408328803",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gatos cuquis para colorear: Colorea un universo de magia felina (Anti-stress coloring) está dirigido a quienes buscan colorear motivos de gatos con elementos de fantasía. Es una actividad de ocio en papel, no una novela de aventuras ni un libro de lectura continuada.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Gatos cuquis para colorear: Colorea un universo de magia felina (Anti-stress coloring) reúne 96 páginas destinadas al coloreado. El soporte físico permite trabajar directamente sobre las páginas y guardar el libro para continuar la actividad en otra sesión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gatos cuquis para colorear: Colorea un universo de magia felina (Anti-stress coloring) y 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos) comparten la actividad de colorear. El primero utiliza motivos felinos y fantasía, mientras que el segundo se centra en píxeles vinculados a Roblox.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328384"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "26dd3d6f0090464e",
+  "origen": "chatgpt-web"
+}

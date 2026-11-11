@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "50 cosas que hay que saber sobre IA se dirige a quienes buscan una introducción divulgativa a la inteligencia artificial, sus fundamentos y sus consecuencias sociales. Keith Mansfield organiza el contenido en entradas breves, por lo que su planteamiento encaja menos con quien busca un manual de programación o ejercicios técnicos.",
+      "texto": "Dirigido a lectores interesados en comprender los fundamentos de la inteligencia artificial desde la divulgación científica. Keith Mansfield organiza la materia en 50 entradas breves sobre conceptos, historia y cuestiones sociales; no está planteado como un manual de programación.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,27 +14,26 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El libro examina los fundamentos de la inteligencia artificial, las figuras que han contribuido a su desarrollo y los dilemas éticos asociados a su expansión. Keith Mansfield distribuye estas cuestiones en 50 entradas e incorpora una perspectiva histórica sobre la computación, junto con sus implicaciones sociales.",
+      "texto": "Examina los principios de la inteligencia artificial, sus principales pensadores y la evolución histórica de la computación. Keith Mansfield incorpora también los problemas éticos y sociales asociados a esta tecnología, mediante 50 explicaciones breves que ofrecen una visión de conjunto.",
       "evidencias": [
-        "titulo",
         "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de 50 cosas que hay que saber sobre IA reúne 224 páginas en rústica con solapas. Su organización en entradas breves permite consultar conceptos concretos y regresar a ellos sin necesidad de seguir una lectura continua; el formato físico facilita señalar y localizar apartados.",
+      "texto": "La edición disponible es en tapa blanda, concretamente rústica con solapas, publicada por Editorial Ariel. Sus 224 páginas reúnen 50 entradas breves, una estructura que permite consultar conceptos concretos sin necesidad de seguir una lectura continua.",
       "evidencias": [
-        "titulo",
-        "numero_paginas",
-        "edicion",
         "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "50 cosas que hay que saber sobre IA y Cerebro, espacio y tiempo comparten el propósito de explicar cuestiones científicas a lectores no especializados. Keith Mansfield se centra en la inteligencia artificial y sus consecuencias sociales, mientras que Liset Ménendez de la Prida aborda cómo el cerebro representa la posición espacial.",
+      "texto": "50 cosas que hay que saber sobre IA y Así es la vida de los animales: Historias de crueldad, amor y supervivencia en la naturaleza (Imago Mundi) comparten su orientación divulgativa. Keith Mansfield explica los fundamentos de la inteligencia artificial, su historia y sus implicaciones éticas, mientras que Mario Alonso Santamaría aborda la vida de los animales, sus relaciones y su supervivencia en la naturaleza.",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,7 +42,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387941208"
+        "isbn-9788423370979"
       ]
     }
   ],

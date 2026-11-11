@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387846923",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Curso de Literatura inglesa y norteamericana: Universidad de Mar del Plata, 1966 (Hispánica), de Jorge Luis Borges, se dirige a lectores interesados en el estudio literario y en la literatura inglesa y norteamericana. Su naturaleza de curso universitario lo diferencia de una novela o una colección de relatos de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Curso de Literatura inglesa y norteamericana: Universidad de Mar del Plata, 1966 (Hispánica) se publica en tapa blanda y cuenta con 368 páginas. La edición en castellano de Alfaguara permite leer y consultar el curso en papel, con una encuadernación flexible para su manejo habitual.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Curso de Literatura inglesa y norteamericana: Universidad de Mar del Plata, 1966 (Hispánica) y Cuentos completos (edición especial en tapa dura) son obras de Jorge Luis Borges. El primero recoge en su título un curso universitario de literatura, mientras que el segundo reúne sus cuentos, por lo que permiten acercarse a su faceta docente y a su narrativa, respectivamente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466392297"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0b5592a4f07cbf8b",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Una navidad en Bramble Falls encaja con lectores de romance juvenil que buscan una historia de amistad, sentimientos cambiantes y celebraciones navideñas. La atracción entre Sloane, su mejor amigo y un jugador de hockey ocupa el conflicto principal, por lo que se distancia de las novelas centradas en aventuras fantásticas o intrigas criminales.",
+      "texto": "Una navidad en Bramble Falls se dirige a lectores de romance juvenil que prefieren historias sentimentales ambientadas en celebraciones navideñas. La relación entre amistad y atracción romántica ocupa el centro del conflicto, por lo que encaja menos con quienes buscan una trama de acción o fantasía.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,8 +13,9 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Una navidad en Bramble Falls es una novela romántica juvenil ambientada durante la preparación de un festival de invierno. La protagonista debe compaginar su participación en el evento con la confusión que le provocan dos vínculos afectivos distintos. La relación entre amistad y enamoramiento pesa más en la trama que la organización turística del pueblo.",
+      "texto": "Misty Wilson sitúa la historia en Bramble Falls, donde la organización de un festival invernal coincide con las dudas sentimentales de Sloane Sullivan. La protagonista debe interpretar lo que siente por su mejor amigo, Asher, mientras surge una nueva atracción por Micah. El romance juvenil se construye alrededor de la amistad, los preparativos comunitarios y la elección afectiva.",
       "evidencias": [
+        "autores",
         "titulo",
         "categorias",
         "sinopsis_editorial"
@@ -22,29 +23,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Una navidad en Bramble Falls está disponible en tapa blanda con solapas y en Kindle. La edición física de Montena contiene 344 páginas y permite conservar el libro en papel o entregarlo como regalo; la digital facilita llevar la novela en un lector electrónico o dispositivo compatible. Ambas opciones corresponden a la misma obra de Misty Wilson.",
+      "texto": "Una navidad en Bramble Falls está disponible en tapa blanda con solapas, con 344 páginas para quienes prefieren conservar y leer la novela en papel. La edición Kindle permite seguir la historia en el móvil o en un lector electrónico y evita llevar el volumen físico durante los desplazamientos.",
       "evidencias": [
         "titulo",
-        "autores",
         "edicion",
-        "editorial",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Una navidad en Bramble Falls y Amor en pole position (Dirty Air 3) comparten el romance y la presencia de personajes vinculados al deporte, aunque Misty Wilson sitúa el conflicto en un festival navideño juvenil y Lauren Asher lo ambienta en la Fórmula 1. Cuando fuimos todo también aborda relaciones sentimentales, pero parte de la convicción de Emma de que Gael sería su pareja definitiva, frente a las dudas de Sloane entre dos personas.",
+      "texto": "Amor en pole position (Dirty Air 3) y Una navidad en Bramble Falls comparten el romance como eje narrativo. La novela de Lauren Asher sitúa la relación en el mundo de la Fórmula 1, mientras que Misty Wilson utiliza un festival navideño y las dudas entre amistad y atracción para desarrollar una historia de amor juvenil.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788427055674",
-        "isbn-9791387598440"
+        "isbn-9788427055674"
       ]
     }
   ],

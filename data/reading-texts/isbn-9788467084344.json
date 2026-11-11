@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788467084344",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "cibercaja (ESPASAesPOESÍA) está dirigido a lectores de poesía en castellano que buscan un volumen de extensión reducida. Sus 88 páginas lo distinguen de las novelas largas y de los libros centrados en desarrollar una narración extensa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura ofrece las 88 páginas de cibercaja (ESPASAesPOESÍA) en una edición física de Editorial Espasa, mientras que Kindle permite llevar el texto en formato digital. La primera opción facilita conservar el poemario en papel; la segunda permite consultarlo desde el móvil o un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "cibercaja (ESPASAesPOESÍA) comparte el género poético con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. La obra de Javier Adrada de la Torre se presenta como un volumen de 88 páginas, mientras que el título de Pedro Salinas identifica expresamente una antología amorosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288",
+        "isbn-9791370140908"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "10092f67573c17a6",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788411628280",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en el Derecho internacional de los derechos humanos, especialmente en la protección jurídica de las personas sometidas a migraciones forzadas. El estudio de Andrea Bartomeu Navarro aborda el principio de non-refoulement desde la prohibición de la tortura y la actuación del Tribunal Europeo de Derechos Humanos; no responde a una búsqueda de narrativa sobre migraciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Aranzadi reúne 360 páginas en castellano. Es un volumen físico que permite consultar y revisar los apartados dedicados al principio de non-refoulement y a la protección frente a la tortura, con una extensión que conviene tener presente para el transporte y el estudio.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El abordaje y registro de buques en el proceso penal (Monografía), de Javier Blanco Vargas, también examina una cuestión jurídica concreta, pero desde las actuaciones del proceso penal. El trabajo de Andrea Bartomeu Navarro se centra en la protección de víctimas de migraciones forzadas ante el Tribunal Europeo de Derechos Humanos, mientras que el otro título se ocupa de intervenciones sobre buques.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370610487"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4cde67200435bbb2",
+  "origen": "chatgpt-web"
+}

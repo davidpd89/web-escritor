@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410467804",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Habitar el silencio (Vergara) encaja con lectores que buscan obras relacionadas con la familia y la crianza. Su clasificación temática lo distingue de las novelas familiares de ficción y de los libros centrados exclusivamente en el entretenimiento infantil.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Habitar el silencio (Vergara) se presenta en tapa blanda, con 288 páginas en castellano. La edición de Vergara ofrece una extensión que permite repartir la lectura en varias sesiones y volver a determinados pasajes en papel, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Habitar el silencio (Vergara) comparte el ámbito familiar con Abuelas Y Abuelos (Álbumes Ilustrados castellano), aunque este último se presenta como álbum ilustrado y se centra en los abuelos. También puede compararse con Amar no duele (No ficción), de Júlia Martí, por su proximidad a las cuestiones personales y relacionales, aunque sus títulos apuntan a enfoques diferentes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491429586",
+        "isbn-9791388139017"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cd6ff92231a60cab",
+  "origen": "chatgpt-web"
+}

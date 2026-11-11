@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791399211467",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hasta que no queden más fantasmas: 2, de Nerea Franco, pertenece al romance y se dirige a lectores interesados en historias de ese género. El título lo identifica como el n.º 2, un detalle que conviene tener en cuenta frente a quien busca una lectura romántica identificada como primera entrega.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hasta que no queden más fantasmas: 2 cuenta con una edición en tapa blanda de 272 páginas, publicada por Romantic Ediciones. Es un volumen físico de extensión intermedia que puede transportarse y leerse sin dispositivo electrónico, con una encuadernación flexible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "77f188a51c3cd836",
+  "origen": "chatgpt-web"
+}

@@ -4,18 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El día de la Trilla (Empíreo), de Rebecca Yarros, se dirige a lectores de fantasía juvenil desde los 14 años que buscan dragones, pruebas de supervivencia y conflictos entre cadetes. Su escenario militar y la posibilidad de morir durante la prueba lo alejan de las historias escolares de tono cotidiano.",
+      "texto": "El día de la Trilla (Empíreo) está dirigido a lectores desde los 14 años interesados en fantasía juvenil, dragones y pruebas de supervivencia. No se centra en una aventura de bajo riesgo: los aspirantes a jinetes afrontan combates mortales para conseguir establecer un vínculo con un dragón.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
         "edad_recomendada",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "La edad recomendada para El día de la Trilla (Empíreo) es a partir de 14 años. La historia presenta una prueba de vinculación con dragones en la que los cadetes afrontan combates, fuego y riesgo de muerte. La violencia del enfrentamiento y la amenaza constante sobre los participantes son aspectos que conviene considerar para lectores sensibles.",
+      "texto": "La edad recomendada para El día de la Trilla (Empíreo) es a partir de 14 años. La historia presenta enfrentamientos violentos, peligro de muerte y un campo de batalla sangriento, por lo que su contenido puede resultar intenso para lectores sensibles a la violencia fantástica.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -24,31 +23,34 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "El día de la Trilla (Empíreo) plantea una fantasía juvenil centrada en una prueba decisiva para futuros jinetes de dragón. Trece cadetes deben atravesar un enfrentamiento mortal para conseguir su vínculo con estas criaturas. El conflicto combina competición, supervivencia y peligro dentro del Colegio de Guerra Basgiath.",
+      "texto": "El día de la Trilla (Empíreo) propone una lectura de fantasía juvenil centrada en una prueba decisiva para futuros jinetes de dragón. Rebecca Yarros sitúa la acción en el Colegio de Guerra Basgiath, donde trece cadetes deben sobrevivir mientras intentan establecer el vínculo que determinará su destino.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El día de la Trilla (Empíreo) está disponible en tapa dura, Kindle y audiolibro. La edición de tapa dura con sobrecubierta reúne sus 304 páginas en un volumen físico que puede conservarse o regalarse; Kindle permite llevar la lectura en un dispositivo compatible. El audiolibro ofrece la alternativa de escuchar la historia durante desplazamientos o actividades cotidianas.",
+      "texto": "La tapa dura con sobrecubierta reúne las 304 páginas de El día de la Trilla (Empíreo) en una edición física de Editorial Planeta. Kindle facilita la lectura digital en el móvil o lector electrónico, mientras que el audiolibro permite seguir la historia mediante escucha en lugar de lectura visual.",
       "evidencias": [
         "titulo",
-        "edicion",
         "numero_paginas",
+        "edicion",
+        "editorial",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El día de la Trilla (Empíreo) puede compararse con El día de la Trilla (Empíreo) Edición limitada con cantos tintados, también de Rebecca Yarros. Ambos títulos remiten a la misma obra y autoría, pero el segundo identifica expresamente una presentación limitada con cantos tintados. La edición de El día de la Trilla (Empíreo) se presenta en tapa dura con sobrecubierta.",
+      "texto": "El día de la Trilla (Empíreo) Edición limitada con cantos tintados comparte título base y autoría con El día de la Trilla (Empíreo), ambos de Rebecca Yarros. La diferencia identificable está en la presentación: la primera anuncia cantos tintados y carácter limitado, mientras que la segunda figura en tapa dura con sobrecubierta y también dispone de Kindle y audiolibro.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "edicion"
+        "edicion",
+        "formatos_disponibles",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788408326861"

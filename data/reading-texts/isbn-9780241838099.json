@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9780241838099",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dungeons & Dragons. El libro de los dragones se dirige a quienes buscan una lectura sobre dragones dentro del universo de Dungeons & Dragons. Por su temática de fantasía y ocio, se diferencia de los libros dedicados a actividades manuales o a relatos contemporáneos sin elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dungeons & Dragons. El libro de los dragones tiene una edición en tapa dura de 224 páginas, publicada por DK. El formato permite conservar el volumen como libro físico de consulta o incorporarlo a una colección relacionada con Dungeons & Dragons, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dungeons & Dragons. El libro de los dragones y Símbolos mágicos: 300 símbolos para descubrir, comprender y vivir la magia (Mistica), de Federica Vanini, comparten el interés por asuntos mágicos. El primero se centra en los dragones de Dungeons & Dragons, mientras que el segundo aborda símbolos y su significado. Frente a ambos, Gatos cuquis para colorear: Colorea un universo de magia felina (Anti-stress coloring), de Varios autores, propone una actividad de coloreado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328803",
+        "isbn-9791387934200"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "824a27df751b80a4",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788419831958",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todas las veces que se te acelera el corazón (Romántica) se dirige a lectores de romance juvenil que buscan una novela centrada en las relaciones afectivas. Su clasificación editorial la aleja de las lecturas orientadas principalmente al ensayo, la divulgación o la narrativa histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Todas las veces que se te acelera el corazón (Romántica) cuenta con una edición en tapa blanda de 424 páginas, adecuada para quien prefiere conservar y leer un ejemplar físico. También está disponible en Kindle, que permite llevar esta novela juvenil en formato digital y continuar la lectura desde un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Todas las veces que se te acelera el corazón (Romántica) puede compararse con La última historia de Abby Bloom (Romántica), también de Carmen Arteaga, por compartir autora y orientación romántica. El hechizo más oscuro (Faeris Editorial), de Wanda Hellmund, introduce desde su título una referencia al hechizo, frente al enfoque romántico y juvenil con el que se clasifica la obra de Carmen Arteaga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388365041",
+        "isbn-9791388108419"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fa27a6d1ac1c9cdc",
+  "origen": "chatgpt-web"
+}

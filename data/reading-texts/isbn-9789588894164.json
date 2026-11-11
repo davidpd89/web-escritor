@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9789588894164",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Entre cachacos: 1954-1955 / Among the Cachacos: 1954-1955: 2 (OBRA PERIODÍSTICA) encaja con el interés por el periodismo y los relatos de Gabriel García Márquez. Su extensión y su orientación hacia textos periodísticos lo separan de las novelas breves o de las lecturas que siguen una sola trama de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Entre cachacos: 1954-1955 / Among the Cachacos: 1954-1955: 2 (OBRA PERIODÍSTICA) se publica en tapa blanda y reúne 920 páginas en castellano. Por su extensión, el papel facilita conservar el volumen y consultar fragmentos, aunque exige más espacio y resulta menos ligero para los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Textos costeños: 1948-1952 / Coastal Texts: 1948-1952: 1 (OBRA PERIODÍSTICA) es la comparación más directa por autoría y tipo de escritura. Ambos pertenecen a la obra periodística de Gabriel García Márquez, pero sus títulos sitúan los textos en periodos distintos: 1948-1952 frente a 1954-1955. El título de Entre cachacos: 1954-1955 / Among the Cachacos: 1954-1955: 2 (OBRA PERIODÍSTICA) lo identifica como el n.º 2.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9789588894287"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "250934aa1b9b03be",
+  "origen": "chatgpt-web"
+}

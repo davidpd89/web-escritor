@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788411005678",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aprende mejor (Make It Stick): El método científico que te ayudará a recordar más y durante más tiempo (IMPULSA) está dirigido a lectores interesados en el desarrollo personal y en mejorar sus hábitos de aprendizaje. Su planteamiento encaja con quienes buscan lecturas de este ámbito, mientras que quienes prefieran novelas de ficción encontrarán aquí un libro de carácter práctico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible de Aprende mejor (Make It Stick): El método científico que te ayudará a recordar más y durante más tiempo (IMPULSA). Sus 320 páginas reúnen el contenido en una edición física que permite consultar sus capítulos y volver sobre ellos durante las sesiones de lectura o estudio.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b8e846ea40b10847",
+  "origen": "chatgpt-web"
+}

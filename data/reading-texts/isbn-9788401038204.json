@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788401038204",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vasmora (Edición limitada en español) (El Bosque Voraz 3) (Éxitos) se dirige a lectores de fantasía y aventuras que buscan una novela extensa. Sus 680 páginas implican una dedicación mayor que la de una lectura breve, por lo que encaja menos con quienes prefieren historias cortas o realistas. El título la identifica como el n.º 3 de El Bosque Voraz.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición de Plaza & Janés de Vasmora (Edición limitada en español) (El Bosque Voraz 3) (Éxitos) se publica en castellano y tapa dura. Tiene 680 páginas, fecha de publicación del 18 de marzo de 2027 e ISBN 9788401038204. La denominación comercial incluye expresamente «Edición limitada en español».",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vasmora (Edición limitada en español) (El Bosque Voraz 3) (Éxitos) está disponible en tapa dura. Sus 680 páginas hacen de esta edición un volumen considerable, más orientado a la lectura en casa y a conservarlo en una estantería que a transportarlo diariamente. La cubierta rígida también resulta práctica para proteger el ejemplar durante su conservación.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anatema (edición limitada) (El Bosque Voraz 1) (Campaña | Ahora por menos) y Oscura (edición limitada) (El Bosque Voraz 2) (Campaña | Ahora por menos) son las comparaciones más directas con Vasmora (Edición limitada en español) (El Bosque Voraz 3) (Éxitos). Las tres obras llevan la firma de Keri Lake y sus títulos las identifican respectivamente como los números 1, 2 y 3 de El Bosque Voraz. La diferencia verificable es su numeración dentro de la serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466393553",
+        "isbn-9788466395434"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aadeb6aa969ebc4d",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tierra baldía se dirige a lectores de ensayo interesados en geopolítica, transformaciones sociales y perspectivas sobre el futuro internacional. Su combinación de interpretación política, referencias filosóficas y reflexión cultural se distancia de una biografía personal o de una exposición puramente cronológica de acontecimientos.",
+      "texto": "Tierra baldía se dirige a lectores interesados en la geopolítica, la historia de las ideas y los cambios sociales contemporáneos. Su planteamiento ensayístico, que relaciona conflictos internacionales con filosofía y literatura, se aleja de una narración histórica centrada exclusivamente en acontecimientos y personajes.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,35 +13,35 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Robert D. Kaplan relaciona los conflictos internacionales y las rivalidades de poder con el cambio climático, la tecnología, la urbanización y los medios digitales. Su enfoque ensayístico utiliza referencias literarias y filosóficas para interpretar las transformaciones posteriores a la Guerra Fría y formular hipótesis sobre su evolución.",
+      "texto": "Robert D. Kaplan examina las tensiones internacionales, la transformación tecnológica y las consecuencias sociales de la urbanización. Utiliza referencias filosóficas y literarias para interpretar distintas etapas históricas y plantea hipótesis sobre el rumbo político y cultural del mundo contemporáneo.",
       "evidencias": [
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Tierra baldía se ofrece en tapa dura y Kindle, dos opciones para abordar sus 304 páginas de ensayo. La edición física de RBA Libros permite conservar el volumen y consultarlo en papel, mientras que Kindle facilita la lectura digital y el acceso al texto desde un dispositivo compatible.",
+      "texto": "Tierra baldía está disponible en tapa dura y Kindle. La edición física de RBA Libros reúne 304 páginas y permite consultar el ensayo en papel; Kindle facilita llevar el texto en el móvil o en un lector electrónico, especialmente para alternar su lectura con otras obras.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
         "editorial",
-        "categorias"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Tierra baldía y Antes de perder el juicio comparten el interés por las tensiones del presente, aunque Robert D. Kaplan adopta una perspectiva geopolítica y Mauricio García Villegas se ocupa de la verdad frente a la propaganda y las cámaras de eco. Ambos plantean cuestiones políticas, pero Tierra baldía amplía el análisis hacia las relaciones internacionales y los cambios tecnológicos.",
+      "texto": "Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes comparte con Tierra baldía el interés por la política, pero se centra en una figura concreta, mientras Robert D. Kaplan analiza procesos internacionales. Campo de concentración: 82 (Biblioteca del Exilio) ofrece otra aproximación a experiencias históricas, frente al enfoque geopolítico y prospectivo de este ensayo.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388387302"
+        "isbn-9786073873154",
+        "isbn-9788410148659"
       ]
     }
   ],

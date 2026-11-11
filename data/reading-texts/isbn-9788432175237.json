@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788432175237",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Meditaciones (I): Adviento, Navidad, Cuaresma, Semana Santa y Pascua (Religión. Fuera de Colección) se dirige a lectores interesados en la reflexión religiosa vinculada al calendario cristiano. Su contenido se centra en esos periodos litúrgicos, por lo que no responde a la búsqueda de una novela de ficción o de espiritualidad ajena a ese marco.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 696 páginas de Meditaciones (I): Adviento, Navidad, Cuaresma, Semana Santa y Pascua (Religión. Fuera de Colección) en un volumen físico para consultar durante los distintos periodos religiosos. Kindle permite acceder al texto digitalmente y evitar transportar un libro de esa extensión.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Meditaciones (I): Adviento, Navidad, Cuaresma, Semana Santa y Pascua (Religión. Fuera de Colección) y Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación comparten el ámbito espiritual, pero siguen tradiciones y enfoques distintos. El primero organiza sus temas alrededor de celebraciones cristianas; el libro de Tsondru Yeshe aborda los fundamentos y la práctica del Dharma.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "540ce2ee2703e8af",
+  "origen": "chatgpt-web"
+}

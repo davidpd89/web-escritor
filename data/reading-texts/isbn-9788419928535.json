@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788419928535",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La vaca que quería ser un pez, de Nery Santos Gómez y Pedro Gabriel Gómez Santos, está dirigida al público infantil y juvenil. Sus 32 páginas permiten una lectura breve, distinta de las novelas extensas y de los libros de ensayo para adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La vaca que quería ser un pez cuenta con una edición en tapa blanda de 32 páginas, publicada por Grupo Editorial Sial Pigmalión. Es un volumen físico breve que puede guardarse y transportarse con facilidad, además de utilizarse para lecturas compartidas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d9bbfd06ebd0be4c",
+  "origen": "chatgpt-web"
+}

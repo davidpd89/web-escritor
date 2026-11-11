@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408331858",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los amores paralelos (Novela), de Mayte Uceda, encaja con lectores interesados en la narrativa contemporánea que incorpora historia, relaciones familiares y amorosas. Su clasificación incluye el siglo XX, por lo que se distancia de quienes buscan una novela centrada exclusivamente en mundos fantásticos o conflictos sobrenaturales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los amores paralelos (Novela) se publica en tapa blanda, dentro de la edición de bolsillo de Booket. Sus 544 páginas forman un volumen extenso que puede transportarse y leerse por tramos, con una cubierta flexible que facilita sujetarlo durante sesiones prolongadas de lectura.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los amores paralelos (Novela) puede compararse con Anna Karénina (edición especial en tapa dura) (Ediciones Conmemorativas) por su vinculación con la narrativa y las relaciones personales, aunque sus autores son Mayte Uceda y Lev Tolstoi, respectivamente. La primera se clasifica como narrativa contemporánea con componentes históricos y familiares; la segunda se presenta en una edición especial de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491058397"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "69b68203bb7c2512",
+  "origen": "chatgpt-web"
+}

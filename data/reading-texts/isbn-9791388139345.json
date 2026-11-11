@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388139345",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La fábrica del yo (No ficción), de Javier Lacort, se dirige a lectores interesados en el ensayo en castellano. Por su clasificación editorial, encaja menos con quienes buscan una novela de ficción o una historia construida alrededor de personajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La fábrica del yo (No ficción) está disponible en tapa blanda, con 288 páginas publicadas por Roca Editorial. Es una edición física que permite consultar pasajes y volver a ellos sobre papel, además de transportarla sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c4c05694bc3e1c7f",
+  "origen": "chatgpt-web"
+}

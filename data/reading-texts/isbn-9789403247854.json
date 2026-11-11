@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9789403247854",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La magia de las luces - el baile de las princesas, de BALLON, pertenece a la fantasía y presenta en su título un baile de princesas. Sus 12 páginas corresponden a una extensión breve, por lo que no encaja con quien busque una novela fantástica extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La magia de las luces - el baile de las princesas se ofrece en tapa dura, con 12 páginas en castellano. La encuadernación rígida de Ballon proporciona una cubierta resistente para manejar el volumen y conservarlo en una estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "75fdf72ff6c472f6",
+  "origen": "chatgpt-web"
+}

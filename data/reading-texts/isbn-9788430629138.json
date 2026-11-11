@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esenciales está destinado a adultos interesados en filosofía, pensamiento político y debates sobre la condición humana. Sus ensayos y manuscritos abordan el totalitarismo, el trabajo y la espiritualidad, por lo que se aleja de una lectura narrativa centrada en personajes y acontecimientos ficticios.",
+      "texto": "Esenciales se dirige a lectores adultos interesados en filosofía, pensamiento político y espiritualidad. Simone Weil examina cuestiones sociales y morales desde su experiencia y sus escritos; no responde al formato de una novela con personajes y una trama continuada, sino al de una recopilación de textos reflexivos.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,26 +15,27 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Esenciales reúne reflexiones de Simone Weil sobre la opresión política, la experiencia laboral, la dignidad personal y las necesidades espirituales. La selección combina ensayos, artículos y manuscritos, con un prólogo de Remedios Zafra que acompaña esta aproximación a su pensamiento.",
+      "texto": "Esenciales aborda el totalitarismo, el trabajo industrial, la dignidad personal y las necesidades espirituales. La antología reúne ensayos, artículos y manuscritos de Simone Weil, con un prólogo de Remedios Zafra. Su enfoque combina reflexión filosófica, experiencia laboral y análisis de los conflictos políticos y humanos del siglo XX.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Esenciales puede leerse en tapa blanda o en Kindle, dos opciones para recorrer sus 224 páginas. La edición impresa permite marcar pasajes y consultar distintos textos del volumen; Kindle facilita llevar la antología en un lector electrónico o dispositivo compatible.",
+      "texto": "La tapa blanda de Esenciales reúne 224 páginas y permite consultar los textos en papel, marcar pasajes y volver a ellos durante la lectura. Kindle ofrece una alternativa digital para transportar la antología en un dispositivo compatible y acceder a sus ensayos sin llevar el volumen físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Esenciales se aproxima a Manifiesto contra la intolerancia por su atención a los peligros del pensamiento autoritario. Simone Weil aborda también el trabajo y la vida espiritual mediante escritos de distintos tipos, mientras que Rafael Narbona centra el planteamiento de su obra en las nuevas manifestaciones del fascismo.",
+      "texto": "La gravedad y la gracia (Contemporánea | Narrativa) comparte con Esenciales la autoría de Simone Weil y su vinculación con la reflexión filosófica. Esenciales ofrece una selección de ensayos, artículos y manuscritos sobre política, trabajo y espiritualidad, mientras que La gravedad y la gracia (Contemporánea | Narrativa) se presenta como una obra individual de la misma autora.",
       "evidencias": [
         "titulo",
         "autores",
@@ -41,7 +43,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388139055"
+        "isbn-9788466392112"
       ]
     }
   ],

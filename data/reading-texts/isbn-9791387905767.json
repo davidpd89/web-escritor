@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387905767",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Marcada por los dioses (Novela) se dirige a lectores de fantasía que buscan una historia con romance y aventuras. Su combinación de géneros encaja menos con quienes prefieren narrativa realista sin elementos fantásticos ni tramas románticas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Marcada por los dioses (Novela) está disponible en tapa blanda, con una extensión de 512 páginas. Esta edición física permite conservar el volumen en la estantería y consultarlo sin dispositivos electrónicos; por su extensión, requiere más espacio que una lectura breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Marcada por los dioses (Novela) comparte el terreno fantástico con Alas de escarcha y oro: El canto del cisne, donde Eira oculta sus dones y debilidades. La obra de Ariadna Celdrán combina fantasía, romance y aventuras, mientras que la de Marta Morillo presenta expresamente el conflicto de una protagonista que esconde sus capacidades.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ac93ccadddd3461c",
+  "origen": "chatgpt-web"
+}

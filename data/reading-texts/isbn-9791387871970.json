@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387871970",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando caiga la nieve (Best Seller | Ficción), de Hannah Grace, se dirige a lectores de romance con componentes de humor. Sus 432 páginas ofrecen una novela de extensión considerable para quienes prefieren las relaciones sentimentales como eje de lectura, en lugar de historias centradas en el terror o el misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuando caiga la nieve (Best Seller | Ficción) está disponible en tapa blanda y Kindle. La edición de Penguin Bolsillo reúne 432 páginas en formato de bolsillo, apropiado para conservar o regalar un ejemplar físico; Kindle permite llevar la lectura en el móvil o en un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A mil por hora comparte con Cuando caiga la nieve (Best Seller | Ficción) la autoría de Hannah Grace y el género romántico, pero sitúa su relación en el entorno de un piloto de F1. Romper el hielo · edición limitada (Maple Hills 1) (Campaña | Ahora por menos), también de Hannah Grace, ofrece otra referencia de la autora y su título lo identifica como el n.º 1 de Maple Hills, mientras que Cuando caiga la nieve (Best Seller | Ficción) no lleva esa numeración en el título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683449",
+        "isbn-9788413145761"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5415bda563ba3897",
+  "origen": "chatgpt-web"
+}

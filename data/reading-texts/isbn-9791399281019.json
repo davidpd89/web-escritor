@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399281019",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La vida de los animales: 21 (esenciales) encaja con lectores de ensayo interesados en la relación entre animales, filosofía y naturaleza. Su clasificación temática incluye también el derecho, por lo que se aparta de las expectativas de quien busque una narración de aventuras protagonizada por animales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La vida de los animales: 21 (esenciales) se publica en tapa blanda, con 148 páginas en castellano. La edición de Bauplan reúne el texto en un volumen de extensión contenida, adecuado para transportarlo y volver a consultar sus apartados durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Por qué miramos a los animales? comparte con La vida de los animales: 21 (esenciales) el interés por los animales desde el pensamiento, aunque el ensayo de John Berger examina especialmente cómo ha cambiado nuestra manera de relacionarnos con ellos. Temporada de mariposas: Lo que la naturaleza me enseñó sobre el sentido de la vida se aproxima desde las enseñanzas personales de la naturaleza, frente al encuadre filosófico y jurídico de la obra de JM Coetzee.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425236716",
+        "isbn-9788430629251"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "77d3e6f268501b0f",
+  "origen": "chatgpt-web"
+}

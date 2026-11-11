@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388248030",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las últimas enseñanzas de Hellinger. se dirige a lectores interesados en psicología, desarrollo personal y relaciones familiares. Angélica Olvera y Francesc Miralles firman una obra de 160 páginas que se aleja de la ficción y de los relatos infantiles para situarse en el ámbito del bienestar y la reflexión personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar y releer las 160 páginas de Las últimas enseñanzas de Hellinger. en papel, con una extensión manejable para transportar. La edición Kindle ofrece el mismo título en formato digital, con la posibilidad de llevarlo en el móvil o en un lector electrónico sin cargar con el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las últimas enseñanzas de Hellinger. comparte el interés por la psicología y los vínculos personales con Conectados para el amor / Wired for Love, de Stan Tatkin. Mientras el título de Angélica Olvera y Francesc Miralles se sitúa también en el ámbito familiar y del desarrollo personal, el de Stan Tatkin centra su propuesta en el amor. Ambos se apartan de la narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c8c1f8a66d4459c0",
+  "origen": "chatgpt-web"
+}

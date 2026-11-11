@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387973001",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta entrega de Ana Punset se orienta a lectores de fantasía interesados en el universo de Unicornia. Sus 128 páginas y su cubierta con purpurina la sitúan entre las lecturas breves con presentación decorativa, frente a quienes buscan una obra extensa o de carácter realista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Montena reúne las 128 páginas de Unicornia 18 - Una noche luminosa: ¡Un libro mágico con purpurina en la cubierta! (Universo Unicornia). La purpurina de la cubierta es un elemento propio de esta edición física, que puede guardarse junto a otros títulos de la colección.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Unicornia - El libro de recetas mágicas: ¡Más de 25 recetas para cocinar en familia con mucho brilli-brilli! (Universo Unicornia) comparte autora y universo con esta entrega. La diferencia es la actividad propuesta: el primero se centra en preparar recetas en familia, mientras que Unicornia 18 - Una noche luminosa: ¡Un libro mágico con purpurina en la cubierta! (Universo Unicornia) pertenece a la serie de fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387973025"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6e99c8fc3e6a0dfb",
+  "origen": "chatgpt-web"
+}

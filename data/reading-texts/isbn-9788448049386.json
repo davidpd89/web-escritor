@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788448049386",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Michael Douglas: Toda una aventura: La biografía (Biografías y memorias) se dirige a quienes buscan una lectura biográfica en castellano. Sus 496 páginas y su clasificación en biografías y memorias la distinguen de una novela de aventuras o de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer sus 496 páginas en papel, mientras que Kindle ofrece una alternativa digital para llevar la lectura en el móvil o en un lector electrónico. La edición física de Libros Cúpula resulta apropiada para quien prefiere conservar y consultar el volumen en una estantería.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Michael Douglas: Toda una aventura: La biografía (Biografías y memorias) puede compararse con Cómo me gustaría contarte, de Ángel Gómez Merino, por su relación con las experiencias personales. La primera se presenta como biografía, mientras que el segundo parte de una vida marcada por las expectativas ajenas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788403526723"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5734e7ed18c8c92d",
+  "origen": "chatgpt-web"
+}

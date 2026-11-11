@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788413148335",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Roma soy yo (Serie Julio César 1): La verdadera historia de Julio César (Best Seller | Ficción), de Santiago Posteguillo, se orienta a lectores de narrativa contemporánea interesados en la ficción histórica. Sus 752 páginas plantean una lectura extensa; no encaja tanto con quien busca novelas breves o lecturas de pocas sesiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece el volumen físico de 752 páginas de Roma soy yo (Serie Julio César 1): La verdadera historia de Julio César (Best Seller | Ficción), de Santiago Posteguillo. Kindle permite llevar la misma lectura en un dispositivo móvil sin transportar el libro de bolsillo, una alternativa para quien prioriza la portabilidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Maldita Roma (Serie Julio César 2): La conquista del poder de Julio César (Best Seller | Ficción), de Santiago Posteguillo, comparte autor y protagonista histórico con esta novela. La diferencia está en la numeración: Roma soy yo lleva el n.º 1 y Maldita Roma el n.º 2. Los asesinos del emperador. Edición especial con cantos decorados, también de Santiago Posteguillo, permite comparar su narrativa histórica desde otra obra centrada en la Trilogía de Trajano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387871024",
+        "isbn-9788408326779"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d31beb56771f5f13",
+  "origen": "chatgpt-web"
+}

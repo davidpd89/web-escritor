@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466684187",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hate Me, Take Me. Amor a ciegas (Ediciones B) se dirige a lectores de romance interesados en las relaciones de pareja, con elementos de humor y misterio. Su combinación temática se aparta de las novelas centradas exclusivamente en la investigación criminal o en conflictos ajenos a las relaciones sentimentales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hate Me, Take Me. Amor a ciegas (Ediciones B) puede leerse en tapa blanda o Kindle. La edición física de Ediciones B tiene 440 páginas y permite conservar el volumen en papel; Kindle ofrece la misma elección de título para leer en un dispositivo electrónico sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hate Me, Take Me. Amor a ciegas (Ediciones B) y Los finales perfectos no existen se relacionan por el romance y las convenciones de las comedias románticas, aunque son obras de Laura Bishop y Violeta Reed, respectivamente. La guerra de las librerías comparte el ámbito de la ficción romántica, pero sitúa las librerías en el centro de su título, frente al énfasis en las relaciones sentimentales de la obra de Laura Bishop.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387924492",
+        "isbn-9788425371745"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "22603798f18b8502",
+  "origen": "chatgpt-web"
+}

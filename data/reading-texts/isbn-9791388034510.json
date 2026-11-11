@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388034510",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dibujos para colorear, ¡qué misterio! Superclásicos (Hachette HEROES - DISNEY - Arteterapia) está orientado a quienes buscan actividades de coloreado relacionadas con los clásicos de Disney. Sus 96 páginas corresponden a una propuesta de ocio creativo, no a una novela de misterio con una trama que seguir.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Hachette contiene 96 páginas destinadas a una actividad de coloreado. El soporte impreso permite trabajar directamente sobre las páginas con materiales de dibujo adecuados al papel. Es un volumen físico que puede utilizarse por sesiones y conservarse con los dibujos realizados.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dibujos para colorear, ¡qué misterio! Vidrieras (Hachette HEROES - DISNEY - Arteterapia) comparte colección y actividad con Dibujos para colorear, ¡qué misterio! Superclásicos (Hachette HEROES - DISNEY - Arteterapia), pero distingue sus propuestas mediante las vidrieras y los superclásicos. Flores cuquis para colorear: Colorea flores delicadas y escenas encantadoras (Anti-stress coloring) también se centra en colorear, aunque utiliza motivos florales en lugar de referencias a Disney.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410301214",
+        "isbn-9788408328797"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "58439f085308ff2f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788449602122",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Madrid siglo 21: Arquitectura Urbanismo Paisaje se dirige a lectores interesados en la arquitectura, el urbanismo y el paisaje de Madrid. Sus 128 páginas y su orientación hacia el arte y el diseño lo alejan de quienes buscan una novela de ficción o una guía de viajes centrada en itinerarios turísticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Madrid siglo 21: Arquitectura Urbanismo Paisaje está disponible en tapa blanda, con 128 páginas en castellano. Es una edición física de Tanais.architecta que permite consultar el contenido sobre arquitectura, urbanismo y paisaje sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Madrid siglo 21: Arquitectura Urbanismo Paisaje y 720 retrats comparten su relación con las artes visuales, pero el primero aborda la arquitectura, el urbanismo y el paisaje de Madrid, mientras que el segundo se centra en retratos. All Black Cuaderno (LIBRETAS ARTÖSTICAS) se presenta como un cuaderno, frente al volumen de 128 páginas sobre arquitectura y urbanismo publicado por Tanais.architecta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802",
+        "isbn-9789879871119"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "98a21f7b6fba5846",
+  "origen": "chatgpt-web"
+}

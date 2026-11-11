@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788491459408",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Quién serás cuando seas mayor? (ÁLBUMES ILUSTRADOS) encaja con lectores interesados en la identidad personal y las relaciones, dentro del formato de álbum ilustrado. Sus 32 páginas lo alejan de los manuales extensos de autoayuda y de las novelas centradas en una trama larga.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Quién serás cuando seas mayor? (ÁLBUMES ILUSTRADOS) se presenta en tapa dura, con 32 páginas en castellano. Esta edición de Picarona permite leerlo como álbum físico, conservarlo y compartirlo sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Este álbum de Molly Potter puede compararse con ¿Qué es una familia? (ÁLBUMES ILUSTRADOS), de la misma autora. Ambos comparten formato ilustrado, pero el primero plantea una cuestión sobre el futuro personal y el segundo aborda la familia. También se relaciona con Eres perfecta tal y como eres: Un cuento para potenciar la autoestima, la felicidad y la positividad de las niñas (Montena), de Soledad Gutiérrez Puerto, que centra su propuesta en la autoestima.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491459422",
+        "isbn-9791387724368"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "29182839314e2033",
+  "origen": "chatgpt-web"
+}

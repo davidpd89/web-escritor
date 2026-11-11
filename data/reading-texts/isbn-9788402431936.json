@@ -4,62 +4,61 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ibáñez Mítico 2 - El preboste de seguridad está dirigido a lectores a partir de 7 años interesados en las historietas de Mortadelo y Filemón. También aborda la historia editorial de Francisco Ibáñez, por lo que responde menos a quien busca únicamente una aventura nueva sin materiales históricos ni explicaciones sobre su publicación.",
+      "texto": "Ibáñez Mítico 2 - El preboste de seguridad se dirige a lectores desde los 7 años interesados en las historietas de Mortadelo y Filemón. También aborda la historia editorial de Francisco Ibáñez, por lo que se distancia de quienes buscan únicamente una narración nueva sin materiales complementarios.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de Ibáñez Mítico 2 - El preboste de seguridad recupera la historieta íntegra con viñetas restauradas y material inédito, buscando respetar la versión dibujada por Francisco Ibáñez en 1985. Incluye un prólogo de Jordi Canyissà y se publica en tapa dura con sobrecubierta bajo el sello Bruguera.",
+      "texto": "Esta edición de Ibáñez Mítico 2 - El preboste de seguridad recupera la historieta íntegra, con viñetas restauradas y material inédito. Incluye un prólogo de Jordi Canyissà y busca respetar la versión dibujada en 1985, presentada en 64 páginas de tapa dura con sobrecubierta.",
       "evidencias": [
         "titulo",
-        "autores",
         "sinopsis_editorial",
-        "edicion",
-        "editorial"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Ibáñez Mítico 2 - El preboste de seguridad está clasificado para lectores a partir de 7 años y pertenece al cómic infantil y juvenil. Sus 64 páginas se presentan en una edición de tapa dura con sobrecubierta, con la historieta completa y contenido adicional sobre su contexto editorial.",
+      "texto": "Ibáñez Mítico 2 - El preboste de seguridad está indicado a partir de 7 años y reúne 64 páginas en castellano. Bruguera lo publica en tapa dura con sobrecubierta, con una historieta de Mortadelo y Filemón acompañada de contenido sobre su recuperación editorial.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
         "numero_paginas",
+        "idioma",
+        "editorial",
         "edicion",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Ibáñez Mítico 2 - El preboste de seguridad puede elegirse en tapa dura o Kindle. La edición física reúne sus 64 páginas en un volumen con sobrecubierta, apropiado para conservar la historieta restaurada; Kindle permite leerla en un dispositivo compatible sin transportar el libro impreso.",
+      "texto": "La tapa dura con sobrecubierta de Ibáñez Mítico 2 - El preboste de seguridad permite conservar sus 64 páginas y el material gráfico restaurado en una edición física. Kindle ofrece la alternativa digital para leer la historieta sin transportar el volumen, aunque las viñetas requieren una pantalla donde puedan apreciarse los detalles.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
         "edicion",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Resuelve el caso con Mortadelo y Filemón comparte con Ibáñez Mítico 2 - El preboste de seguridad la autoría de Francisco Ibáñez y sus personajes, pero plantea al lector un reto de agente secreto, mientras esta edición recupera una historieta histórica. Capitán Patata 2 - Quietecito o te dejo frito también recurre al humor en viñetas, aunque presenta varias miniaventuras protagonizadas por un superhéroe.",
+      "texto": "Ibáñez Mítico 2 - El preboste de seguridad y Mi primer Mortadelo y Filemón - ¡Detectives del montón! (Bruguera Clásica) comparten personajes y autor, Francisco Ibáñez. La diferencia es que el primero recupera una historieta con restauración y contexto editorial, mientras que el segundo se presenta como una entrada a las aventuras de los detectives. La vida según Ibáñez (Bruguera Clásica) comparte la autoría, pero no el mismo título ni el enfoque de recuperación de esta historieta.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788402431578",
-        "isbn-9788427254985"
+        "isbn-9788402431554",
+        "isbn-9788402432148"
       ]
     }
   ],

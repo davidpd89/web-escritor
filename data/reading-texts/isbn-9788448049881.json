@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788448049881",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El poder del no: Aprender a poner límites para ser más libres (Divulgación) se dirige a lectores interesados en los límites personales y la psicología aplicada a la vida cotidiana. Su planteamiento pertenece al desarrollo personal, por lo que no responde a la búsqueda de ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de El poder del no: Aprender a poner límites para ser más libres (Divulgación) tiene 200 páginas. Es un volumen físico de Libros Cúpula que permite subrayar y consultar pasajes sobre límites personales durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El poder del no: Aprender a poner límites para ser más libres (Divulgación) y Conectados para el amor / Wired for Love comparten el interés por cuestiones personales y relacionales. Anna Holmes centra el título de su obra en establecer límites, mientras que el libro de Stan Tatkin anuncia un enfoque relacionado con el amor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "50d6d237f7b4d576",
+  "origen": "chatgpt-web"
+}

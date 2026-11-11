@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388003479",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Winter Blood 4 (Uprising Comics) se orienta a lectores de cómic que buscan terror y aventuras en una entrega breve. Por su combinación de géneros, se distancia de las historias infantiles centradas en aprender a leer y de las aventuras sin elementos de terror.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Winter Blood 4 (Uprising Comics) se presenta en tapa blanda, con encuadernación grapada y 24 páginas. Es un volumen físico de extensión reducida, que puede guardarse junto a otras entregas de cómic y transportarse sin ocupar tanto espacio como un tomo extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dead Mount Death Play 9 (Seinen) y Winter Blood 4 (Uprising Comics) comparten el formato narrativo del cómic y una numeración en sus títulos. El primero se identifica como seinen, mientras que el segundo se presenta como una obra de terror y aventuras firmada por Antonio Rojo y Jason Michalski.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962319"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2a74d05fa8fcec21",
+  "origen": "chatgpt-web"
+}

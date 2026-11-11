@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388414077",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La vida empieza muchas veces (ENIGMAS Y CONSPIRACIONES) se dirige a lectores interesados en el desarrollo personal y la autoayuda. Su clasificación también incluye poder y política, aunque el enfoque editorial señalado es la autoayuda. No corresponde a quien busca una novela de ficción o una narración de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La vida empieza muchas veces (ENIGMAS Y CONSPIRACIONES) se publica en tapa blanda, con 176 páginas en castellano. Su extensión permite transportarlo sin el volumen de un manual de gran tamaño y consultar pasajes en papel. La edición corresponde a Luciérnaga CAS.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de comer, nutrir y sanar con la Medicina China (Salud y Bienestar) y La vida empieza muchas veces (ENIGMAS Y CONSPIRACIONES) se relacionan con el interés por el bienestar personal. El primero delimita su enfoque a la alimentación y la Medicina China, mientras que el libro de Alicia González se clasifica como desarrollo personal y autoayuda. Sus autores son Prof. Liu Zheng y Alicia González, respectivamente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387775421"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f280b59a8b57851b",
+  "origen": "chatgpt-web"
+}

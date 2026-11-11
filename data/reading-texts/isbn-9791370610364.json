@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370610364",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan una aproximación jurídica al teletrabajo y su relación con la conciliación familiar y laboral en España. No responde al mismo interés que una lectura sobre organización personal o productividad, porque su tema central es la relación entre trabajo, familia y derecho.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La obra de Jorge Gabriel Pol Pujol está disponible en tapa blanda, con 320 páginas en castellano. Esta edición de Aranzadi permite leer y consultar en papel el tratamiento del teletrabajo y la conciliación, además de realizar anotaciones para recuperar cuestiones concretas.",
+      "evidencias": [
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Se relaciona con Familia y sucesiones en la jurisprudencia: tendencias actuales (Monografía) por su atención a asuntos familiares desde el derecho. Jorge Gabriel Pol Pujol estudia el teletrabajo y la conciliación en España; Romina Santillan Santa Cruz se ocupa de las tendencias jurisprudenciales en familia y sucesiones. La diferencia está entre el ámbito laboral y el análisis jurisprudencial familiar y sucesorio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370610425"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f1edd565cf417e3b",
+  "origen": "chatgpt-web"
+}

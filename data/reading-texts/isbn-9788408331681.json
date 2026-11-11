@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788408331681",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nightshade (Universidad Sorrowsong, 1): Edición limitada a precio especial (Colección Especial) encaja con lectores que buscan romance combinado con misterio, thriller y aventuras. Por esa mezcla de géneros, se aparta tanto del romance sin intriga como de la narrativa dedicada exclusivamente a la acción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Booket publica Nightshade (Universidad Sorrowsong, 1): Edición limitada a precio especial (Colección Especial), de Autumn Woods, en una presentación de bolsillo con tapa blanda. Esta versión contiene 432 páginas, está fechada el 2027-01-08 y se identifica con el ISBN 9788408331681; el título señala su posición como n.º 1 de Universidad Sorrowsong.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "formato_edicion",
+        "numero_paginas",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de tapa blanda ofrece 432 páginas en formato de bolsillo para leer la historia en papel. Es una opción transportable para una novela que combina romance, aventuras y misterio, y permite conservar físicamente esta entrega de Universidad Sorrowsong.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Universidad Sorrowsong 2. Daybreak, también de Autumn Woods, se presenta como el desenlace de Nightshade y comparte su ambientación académica oscura. Fuera de pista (Corazones al límite 2) (Sin límites), de Sara Hernández, ofrece otra lectura vinculada al romance, pero pertenece a una serie distinta y no comparte la combinación de misterio y aventuras indicada para Nightshade.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324485",
+        "isbn-9791388277009"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b5710bfa83e9f9ae",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388137693",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las aventuras de Cliff Booth (Reservoir Narrativa), de Quentin Tarantino, se sitúa entre la narrativa contemporánea y las aventuras. Se dirige a quienes buscan ficción de ese ámbito, no a lectores interesados exclusivamente en ensayos, manuales o libros de divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las aventuras de Cliff Booth (Reservoir Narrativa) se ofrece en tapa blanda, con 256 páginas en castellano. La edición de Reservoir Books permite leer y transportar la obra en papel, sin necesidad de pantalla ni conexión para continuar la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las aventuras de Cliff Booth (Reservoir Narrativa) y El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa) comparten su vinculación con la ficción narrativa. Quentin Tarantino sitúa a Cliff Booth en el centro de una obra de aventuras contemporáneas, mientras que Heather Fawcett presenta una historia cuyo título introduce un refugio de gatos y un elemento mágico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387749316"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0f04e939366e1deb",
+  "origen": "chatgpt-web"
+}

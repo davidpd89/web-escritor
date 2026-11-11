@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788425377013",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las cenizas del mal (Novela de intriga), de Daldo Bonet, se dirige a lectores interesados en el misterio, el thriller y las novelas de intriga. Sus 464 páginas corresponden a una lectura de extensión considerable; no es una propuesta de fantasía, romance o divulgación práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las cenizas del mal (Novela de intriga), de Daldo Bonet, está disponible en tapa blanda y Kindle. La edición física reúne sus 464 páginas en papel, mientras que la digital permite leer la novela desde un dispositivo electrónico sin transportar el ejemplar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f2e26575990756b8",
+  "origen": "chatgpt-web"
+}

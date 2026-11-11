@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786287832657",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dentro de casa. Rituales de bienestar / Inside the Home: Rituals of Well-Being se dirige a lectores interesados en el bienestar personal y el diseño del entorno doméstico. Laura Casas aborda una temática vinculada al desarrollo personal y al arte y diseño; no responde a la búsqueda de una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Dentro de casa. Rituales de bienestar / Inside the Home: Rituals of Well-Being está disponible en tapa blanda, con 352 páginas en castellano. Este formato permite consultar el volumen en papel y volver a sus contenidos sobre bienestar y diseño sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gabinete de maravillas para colorear (Somos B), de Carlota Santos, comparte con el libro de Laura Casas su relación con las actividades creativas y el ámbito visual. La diferencia está en el enfoque: el primero se presenta como una propuesta para colorear, mientras que Dentro de casa. Rituales de bienestar / Inside the Home: Rituals of Well-Being vincula el bienestar personal con el diseño.",
+      "evidencias": [
+        "afines_catalogo",
+        "autores",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788466685542"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fbc19ff09cca562d",
+  "origen": "chatgpt-web"
+}

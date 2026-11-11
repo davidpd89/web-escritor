@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788403524743",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diario de pequeñas alegrías: Una zambullida en la belleza de lo cotidiano (Inspiración), de Taesoo y Moonjung, se dirige a lectores interesados en el desarrollo personal y en prestar atención a los pequeños momentos cotidianos. Queda fuera del enfoque de quienes buscan principalmente ejercicios de concentración o recetas de cocina.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es la opción disponible para Diario de pequeñas alegrías: Una zambullida en la belleza de lo cotidiano (Inspiración), de Taesoo y Moonjung. Sus 224 páginas ofrecen una edición física que se puede conservar y consultar en distintos momentos, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diario de pequeñas alegrías: Una zambullida en la belleza de lo cotidiano (Inspiración), de Taesoo y Moonjung, comparte con Citas conmigo misma, de Isa Muguruza, el interés por dedicar tiempo a una misma. El primero pone el foco en las pequeñas alegrías cotidianas; el segundo se presenta alrededor del autocuidado y los planes personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419434289"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f529fd29bb4d28f3",
+  "origen": "chatgpt-web"
+}

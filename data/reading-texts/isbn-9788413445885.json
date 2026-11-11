@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788413445885",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estimula tu nervio vago: Edición limitada a precio especial (Colección Especial) se dirige a lectores interesados en la salud y el bienestar, especialmente en el nervio vago. Su enfoque temático lo diferencia de una novela o de una obra de ficción; quien busque una historia con personajes y argumento encontrará otro tipo de lectura.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta presentación pertenece a la Colección Especial y se identifica como edición limitada a precio especial. Booket la publica como libro de bolsillo, con fecha editorial del 2027-01-08 e ISBN 9788413445885. Estos identificadores permiten reconocer el ejemplar concreto al buscarlo en librerías.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es de tapa blanda y pertenece al formato de bolsillo de Booket. Sus 400 páginas permiten consultar el contenido en un único ejemplar físico, transportarlo y volver a pasajes concretos durante la lectura. Es una alternativa en papel para quien prefiera prescindir de pantallas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "5 semanas para desinflamarte (edición limitada), de Blanca García-Orea Haro, comparte el ámbito de la salud y el bienestar con Estimula tu nervio vago: Edición limitada a precio especial (Colección Especial). La diferencia es el asunto central anunciado: el primero aborda la desinflamación, mientras el segundo se concentra en la estimulación del nervio vago.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394390"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8a9fe59c646b43d6",
+  "origen": "chatgpt-web"
+}

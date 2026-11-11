@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786073877527",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Época de cerezos / Cherry Blossom Season se orienta a lectores de narrativa contemporánea, relatos y misterio. Con 192 páginas, ofrece una extensión relativamente breve y se aleja de las preferencias de quienes buscan novelas largas de fantasía o ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Época de cerezos / Cherry Blossom Season está disponible en tapa blanda, con 192 páginas en castellano. Esta edición de Penguin Random House Grupo Editorial tiene una extensión que facilita llevar el libro en el bolso o la mochila y distribuir su lectura en sesiones cortas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Santita del agua clara / Saint of the Clear Water comparte autoría con Época de cerezos / Cherry Blossom Season: ambas obras son de Laura Baeza. Caperucita se come al lobo / Little Red Riding Hood Eats the Wolf, de Pilar Quintana, permite explorar otra autoría, mientras que Época de cerezos / Cherry Blossom Season combina narrativa contemporánea, relatos y misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073879460",
+        "isbn-9786287880610"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e682d3005e7bea8e",
+  "origen": "chatgpt-web"
+}

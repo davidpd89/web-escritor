@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788491459422",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Qué es una familia? (ÁLBUMES ILUSTRADOS) se dirige a quienes buscan una lectura ilustrada sobre la familia. Sus 32 páginas y su temática lo distinguen de los libros de desarrollo personal para adultos o de las novelas extensas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de ¿Qué es una familia? (ÁLBUMES ILUSTRADOS) está disponible en tapa dura, con 32 páginas en castellano. Es una presentación física que permite conservar el álbum en una estantería y compartir su lectura pasando las páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Este álbum sobre la familia puede compararse con ¿Quién serás cuando seas mayor? (ÁLBUMES ILUSTRADOS), también de Molly Potter. Ambos comparten autora y formato ilustrado, pero uno aborda la familia y el otro plantea una pregunta sobre el futuro personal. La diferencia principal está en el asunto que cada lectura propone tratar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491459408"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "58a576e96a4b2b3f",
+  "origen": "chatgpt-web"
+}

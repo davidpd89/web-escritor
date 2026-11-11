@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788448875435",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La ovejita va al espacio (La ovejita que vino a cenar. Libro de cartón con mecanismos) (Pequeñas manitas) está dirigido al público infantil interesado en las aventuras espaciales y los libros manipulativos. Sus 10 páginas y su construcción en cartón responden a una lectura breve con participación física; no está planteado como una novela de ciencia ficción extensa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Este libro combina la lectura con la manipulación de mecanismos integrados en sus páginas de cartón. El título identifica una aventura espacial de la ovejita y la edición pertenece a la colección Pequeñas manitas. Sus 10 páginas permiten recorrer el contenido en una sesión breve, alternando la observación con el uso de los elementos móviles.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa dura, con páginas de cartón y mecanismos pensados para manipularse durante la lectura. Sus 10 páginas forman un volumen físico breve, apropiado para compartir y explorar los elementos móviles. El formato conserva la interacción manual que identifica a esta entrega de La ovejita que vino a cenar.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Agencia de animales mágicos: Medianoche y la leyenda de Santuario (Mi primer cómic) comparte con este libro la autoría de Steve Smallman y el protagonismo de animales, pero se presenta como cómic en lugar de libro de cartón con mecanismos. Buenas noches, robot también introduce una referencia al despegue, mientras que La ovejita va al espacio se distingue por su personaje y su formato manipulativo.",
+      "evidencias": [
+        "afines_catalogo",
+        "autores",
+        "titulo",
+        "edicion"
+      ],
+      "enlaces": [
+        "isbn-9788448875381",
+        "isbn-9788491459354"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "36356c1551004d9c",
+  "origen": "chatgpt-web"
+}

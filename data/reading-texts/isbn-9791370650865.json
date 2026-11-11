@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370650865",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a inversores particulares interesados en las obligaciones fiscales relacionadas con las criptomonedas y las monedas virtuales. Su enfoque jurídico y tributario lo diferencia de una guía sobre estrategias de inversión, análisis de mercados o funcionamiento técnico de las redes digitales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fiscalidad de las criptomonedas: Monedas virtuales e impuestos: claves fiscales básicas para el inversor particular se ofrece en tapa blanda, con 136 páginas en castellano. La edición de Colex permite consultar físicamente los contenidos fiscales y localizar de nuevo los apartados relacionados con impuestos y monedas virtuales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Blockchain: un desafío legal (Monografía), de Ana Isabel Quiroz Ruiz, comparte el interés por las implicaciones jurídicas de las tecnologías digitales. Fiscalidad de las criptomonedas: Monedas virtuales e impuestos: claves fiscales básicas para el inversor particular, de Iberley Departamento de documentación, delimita su enfoque a los impuestos que afectan al inversor particular.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370610265"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0f02771a4c5b15d1",
+  "origen": "chatgpt-web"
+}

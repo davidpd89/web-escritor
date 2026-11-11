@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788467981032",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dorohedoro 03. Integral: 3, de Q-HAYASHIDA, está dirigido a lectores de cómic y novela gráfica que buscan una entrega identificada como parte de una colección. El título lo identifica como el n.º 3, por lo que resulta menos adecuado para quien quiera comenzar con una obra presentada como volumen independiente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dorohedoro 03. Integral: 3 se publica en tapa blanda, con 346 páginas en castellano y edición de Norma Editorial. El formato físico permite consultar sus páginas ilustradas directamente y conservar este volumen junto a otros ejemplares de la colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f1c40842eaeef65e",
+  "origen": "chatgpt-web"
+}

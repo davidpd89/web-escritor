@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Barbie dreamscape se dirige a lectores a partir de 12 años interesados en fantasía juvenil, aventuras mágicas y relatos sobre la identidad personal. La protagonista cuestiona un sistema que asigna el futuro de cada habitante, por lo que encaja menos con quienes prefieren historias realistas sin reinos imaginarios, poderes ni secretos familiares.",
+      "texto": "Barbie dreamscape se dirige a lectores a partir de 12 años interesados en la fantasía juvenil, las aventuras y los mundos con reglas que condicionan el futuro de sus habitantes. Su conflicto gira alrededor de una protagonista que debe afrontar la ausencia de un destino predeterminado, por lo que se aleja de las historias centradas exclusivamente en el romance cotidiano.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,16 +14,17 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Barbie dreamscape está recomendado a partir de 12 años. Su conflicto incluye la pérdida de un futuro considerado seguro, la ruptura de las reglas que organizan un reino y la investigación de secretos relacionados con el pasado familiar. El contenido fantástico se apoya en la incertidumbre sobre la identidad y en los riesgos de una aventura fuera del entorno conocido.",
+      "texto": "La edad recomendada para Barbie dreamscape es a partir de 12 años. La historia aborda la incertidumbre sobre el futuro, la pérdida de seguridad personal y los secretos familiares mediante una aventura fantástica con magia y desafíos. Estos conflictos pueden generar inquietud en lectores sensibles a las situaciones de desorientación y pérdida de control.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Barbie dreamscape combina fantasía juvenil, aventura y elementos de ciencia ficción en un reino donde cada habitante tiene un futuro asignado. Barbie es la primera persona que queda fuera de ese sistema y utiliza un collar heredado de su madre para investigar su pasado. El conflicto enfrenta la libertad de elegir el propio destino con las reglas que organizan el país del Corazón.",
+      "texto": "Barbie dreamscape combina fantasía juvenil, aventuras y elementos de ciencia ficción alrededor de una sociedad donde el futuro de cada persona está establecido. La ruptura de esa norma desencadena una búsqueda relacionada con la identidad, los vínculos familiares y el funcionamiento del reino. El conflicto enfrenta la libertad individual con un orden aparentemente perfecto.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -32,29 +33,28 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Barbie dreamscape está disponible en tapa blanda con solapas, en una edición de Alfaguara de 376 páginas. Este formato permite leerlo como volumen físico, guardarlo en una estantería o regalarlo sin recurrir a una encuadernación rígida. Las solapas forman parte de la presentación de esta edición en castellano.",
+      "texto": "Barbie dreamscape está disponible en tapa blanda, en una edición con solapas de Alfaguara. Sus 376 páginas permiten seguir la aventura en un único volumen físico, que puede transportarse y retomarse durante distintas sesiones de lectura. Las solapas forman parte de la presentación de esta edición en castellano.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
-        "editorial",
         "numero_paginas",
+        "editorial",
         "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Alas de escarcha y oro: El canto del cisne, de Marta Morillo, comparte con Barbie dreamscape la fantasía alrededor de una protagonista y sus capacidades ocultas, aunque Barbie afronta un sistema de destinos asignados y Eira esconde sus dones. Donde duermen las sombras, de Andrea Ornos, incorpora amor y dimensiones a su romantasy contemporáneo, frente al reino fantástico y la búsqueda de identidad de Alex Aster.",
+      "texto": "Barbie dreamscape puede compararse con Stormside (Starside 2) (Sin límites), también de Alex Aster, por su autoría y su presencia entre las lecturas de ficción juvenil y fantástica. Frente al título que identifica su pertenencia a una segunda entrega, Barbie dreamscape plantea un conflicto sobre el destino individual dentro de un reino organizado mediante reglas que parecen inalterables.",
       "evidencias": [
         "titulo",
         "autores",
+        "afines_catalogo",
         "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9791387949938",
-        "isbn-9788427055605"
+        "isbn-9791387949693"
       ]
     }
   ],

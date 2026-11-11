@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786287880610",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a quienes leen narrativa contemporánea en forma de relatos y prefieren libros de extensión reducida. Con 96 páginas, se diferencia de las novelas largas y de las recopilaciones que requieren un recorrido de lectura más prolongado.",
+      "evidencias": [
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Alfaguara ofrece 96 páginas en tapa blanda y está escrita en castellano. Su extensión permite llevarla en un bolso y leerla en sesiones cortas, sin el volumen físico de una recopilación de varios centenares de páginas.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte el terreno de la narrativa contemporánea con En lengua privada / In Private Language, de Emiliano Monge. Pilar Quintana presenta una obra de 96 páginas clasificada entre los relatos, mientras que la comparación con Emiliano Monge permite explorar otra autoría dentro del catálogo sin atribuirle el mismo argumento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073878289"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "be59a29e4135fa32",
+  "origen": "chatgpt-web"
+}

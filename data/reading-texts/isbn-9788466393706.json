@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788466393706",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi nombre es Emilia del Valle se dirige a lectores interesados en la novela histórica, las aventuras y la narrativa contemporánea de Isabel Allende. Por su orientación narrativa, encaja menos con quienes buscan ensayos históricos o relatos centrados exclusivamente en el misterio.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición limitada de Mi nombre es Emilia del Valle incorpora cantos tintados y encuadernación en tapa dura. Penguin Bolsillo la publica en castellano el 19 de noviembre de 2026, con 368 páginas e ISBN 9788466393706, características que identifican esta presentación concreta.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "isbn13",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esta versión se ofrece en tapa dura, con 368 páginas y cantos tintados que forman parte de su presentación física. Es una opción para quien prefiere conservar el volumen en papel o regalar una edición diferenciada por su acabado exterior.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La casa de los espíritus comparte autoría con Mi nombre es Emilia del Valle y pertenece también al ámbito de la narrativa. La primera presenta una historia familiar, mientras que Mi nombre es Emilia del Valle se sitúa entre la novela histórica, la aventura y la narrativa contemporánea.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788401042751"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "941a59e751fdc7fb",
+  "origen": "chatgpt-web"
+}

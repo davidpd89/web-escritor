@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788425372506",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la nutrición, el bienestar y la relación entre los hábitos de vida y la salud. Por su enfoque práctico, queda fuera de las preferencias de quienes buscan una novela o una obra de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Grijalbo reúne 288 páginas en castellano. Es una opción física para leer por apartados, volver a consultar pasajes y conservar el volumen junto a otros libros sobre nutrición y bienestar.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alimenta tu vida comparte con este libro el interés por la alimentación y su relación con el bienestar, mientras que Libre de fármacos centra su planteamiento en la biología y el uso de medicamentos. También puede compararse con 5 semanas para desinflamarte (edición limitada), cuyo título plantea un objetivo más acotado y un plazo concreto, frente al enfoque general sobre salud de Alejandro Dietista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394390",
+        "isbn-9788413443522"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "93e5dee0699e455f",
+  "origen": "chatgpt-web"
+}

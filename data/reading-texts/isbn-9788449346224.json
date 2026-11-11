@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788449346224",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La cara B del amor: Más allá de las dificultades (Contextos) se dirige a lectores interesados en las relaciones de pareja desde la psicología y el desarrollo personal. Por su enfoque temático, se aleja de quienes buscan una novela romántica o una historia de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La cara B del amor: Más allá de las dificultades (Contextos) está disponible en tapa blanda, con 296 páginas en castellano. Esta edición de Ediciones Paidós permite consultar y releer pasajes en papel, además de incorporar anotaciones durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La cara B del amor: Más allá de las dificultades (Contextos) y El duelo: Cuando el dolor se hace carne (Ciencias Humanas y Sociales) comparten autor, Gabriel Rolón. El primero aborda las dificultades amorosas desde la psicología, mientras que el segundo se centra en el duelo y el dolor. Ambos tratan experiencias personales, aunque desde asuntos diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331544"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e4fefdd7b2f86787",
+  "origen": "chatgpt-web"
+}

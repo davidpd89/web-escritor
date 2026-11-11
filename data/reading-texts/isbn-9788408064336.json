@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788408064336",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡Cuac! ¡Cuac!: Con texturas en el interior (Libros con texturas) está orientado a lectores infantiles que disfrutan explorando libros mediante el tacto. Su propuesta de 14 páginas y superficies táctiles se aleja de las lecturas extensas basadas únicamente en texto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Se utiliza pasando las páginas y explorando con los dedos las texturas que incorpora en su interior. El formato de cartón permite manipular físicamente el libro, mientras que sus 14 páginas delimitan una actividad de exploración breve.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¡Cuac! ¡Cuac!: Con texturas en el interior (Libros con texturas) se ofrece en tapa dura, mediante una edición de cartón de 14 páginas. El soporte físico resulta fundamental para tocar las texturas interiores, por lo que la experiencia de uso depende de manipular el ejemplar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¡Cuac! ¡Cuac!: Con texturas en el interior (Libros con texturas) comparte con Animales, de Susaeta Ediciones, su orientación infantil y la presencia de animales. Animales reúne seis cuentos ilustrados, mientras que el libro de Louise Rupnik y Cristina Feliu Martínez incorpora texturas para una exploración táctil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370341589"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ea60868afb8c17f9",
+  "origen": "chatgpt-web"
+}

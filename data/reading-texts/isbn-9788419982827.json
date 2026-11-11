@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419982827",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Steelborn: Hija del acero (Steelborn 1) (Sin límites) se dirige a lectores de fantasía que buscan aventuras con elementos románticos. Por su combinación de fantasía, romance y aventuras, se aleja de la narrativa realista y de las historias centradas exclusivamente en relaciones sentimentales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Steelborn: Hija del acero (Steelborn 1) (Sin límites) se presenta en tapa dura, con 544 páginas en castellano. Este formato permite conservar el volumen en una encuadernación rígida y regalar una edición física de una novela extensa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Steelborn: Hija del acero (Steelborn 1) (Sin límites) comparte fantasía y elementos románticos con Alas de escarcha y oro: El canto del cisne, de Marta Morillo. En este último, Eira oculta sus dones y debilidades, mientras que el libro de Taylor J. LaRue se presenta como una combinación de fantasía, romance y aventuras. Ambas obras tienen autoras distintas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "26af102b205e8b12",
+  "origen": "chatgpt-web"
+}

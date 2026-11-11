@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788466394185",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Es una lectura orientada a quienes buscan romance y siguen los títulos de Maple Hills, de Hannah Grace. El título lo identifica como el n.º 2 de esa serie, por lo que encaja menos con quien busca una obra ajena a las relaciones románticas o prefiere evitar las series de libros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición limitada de Penguin Bolsillo corresponde a un volumen en castellano, de tapa blanda y formato de bolsillo. Reúne 400 páginas y se identifica mediante el ISBN 9788466394185. La denominación Maple Hills 2 aparece en el título y diferencia esta entrega de Hannah Grace de las demás obras de la serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formato_edicion",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato recogido para esta edición de Saltan chispas · edición limitada (Maple Hills 2) (Campaña | Ahora por menos), con 400 páginas. Al tratarse de un libro de bolsillo, puede llevarse en papel para leer durante desplazamientos o descansos. También puede guardarse junto a otras entregas físicas de Maple Hills.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Romper el hielo · edición limitada (Maple Hills 1) (Campaña | Ahora por menos) y En las nubes · edición limitada (Maple Hills 3) (Campaña | Ahora por menos), ambos de Hannah Grace, comparten autoría y serie con Saltan chispas · edición limitada (Maple Hills 2) (Campaña | Ahora por menos). Los títulos los identifican respectivamente como los números 1, 3 y 2, lo que permite diferenciarlos dentro de Maple Hills.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388147555",
+        "isbn-9788413145761"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f14a56307f4f3543",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788423371143",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las muñecas no arden en el hielo: 3 (Áncora & Delfín), de Jordi Llobregat, se dirige a lectores de misterio y thriller con interés por las temáticas relacionadas con mujeres. Sus 512 páginas plantean una lectura extensa, distinta de la narrativa breve o de las aventuras infantiles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las muñecas no arden en el hielo: 3 (Áncora & Delfín) cuenta con una edición en tapa blanda de 512 páginas. Este formato reúne la obra en un volumen físico que puede transportarse y conservarse, aunque su extensión supone más páginas que una novela corta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las muñecas no arden en el hielo: 3 (Áncora & Delfín) comparte el ámbito del misterio con Las mujeres de New Jersey (THRILLER Y MISTERIO), de Astrid Dahl. Ambas se relacionan con el thriller y las mujeres, aunque corresponden a autores distintos; el título de Jordi Llobregat incorpora además el número 3, mientras que el de Astrid Dahl identifica New Jersey como referencia geográfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387595715"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b33304d2ab89fbd0",
+  "origen": "chatgpt-web"
+}

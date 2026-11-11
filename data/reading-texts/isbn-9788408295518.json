@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788408295518",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Anna Kadabra. Estuche Aventuras legendarias 1 y 2 está dirigido a lectores que buscan aventuras con humor y componentes de terror. Encaja menos con quienes prefieren historias cotidianas sin elementos inquietantes o buscan un único volumen independiente.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El formato disponible es tapa dura, con una extensión total de 384 páginas. Anna Kadabra. Estuche Aventuras legendarias 1 y 2 se presenta como estuche, una opción física para conservar juntas las aventuras que el título identifica como 1 y 2.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anna Kadabra. El Gran Libro de Anna Kadabra. El despertar de las brujas: 1 comparte universo y autoría con este estuche de Pedro Mañas y David Sierra Listón. Ambos combinan aventuras, humor y terror, pero el estuche reúne las aventuras identificadas como 1 y 2, mientras que el libro afín se presenta como un volumen individual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "40093b1d1ef8bfd2",
+  "origen": "chatgpt-web"
+}

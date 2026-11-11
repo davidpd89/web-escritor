@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788495794161",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sorry! But I Am With Hurry, de Araceli Durán Fernández, está dirigido a lectores que buscan ensayos en castellano. Por su clasificación editorial, se ajusta menos a quienes prefieren una novela de romance o una trama de misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sorry! But I Am With Hurry cuenta con una edición en tapa blanda de 208 páginas. El volumen publicado por Letra Clara permite consultar y releer pasajes directamente en papel, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "53124dc773c791a1",
+  "origen": "chatgpt-web"
+}

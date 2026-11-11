@@ -4,37 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tu mejor medicina eres tú, de Javier Dols Juste, se dirige a lectores interesados en mejorar sus hábitos de salud mediante explicaciones médicas y herramientas de uso cotidiano. Su planteamiento es divulgativo y práctico, por lo que se diferencia de los testimonios personales y de los libros centrados en una sola enfermedad.",
+      "texto": "Tu mejor medicina eres tú encaja con lectores que buscan información práctica sobre desarrollo personal, nutrición y bienestar. Sus 416 páginas permiten abordar el cuidado de la salud desde una perspectiva cotidiana; no está dirigido a quien busca una novela o una lectura de ficción.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Tu mejor medicina eres tú contiene 416 páginas en una edición rústica con solapas de Zenith, apropiada para consultar sus explicaciones en papel. Kindle permite acceder al contenido desde el móvil o un lector electrónico y evita transportar el volumen físico.",
+      "texto": "La tapa blanda de Tu mejor medicina eres tú reúne sus 416 páginas en una edición física con solapas, adecuada para consultar y conservar. Kindle permite llevar el contenido en formato digital y leerlo desde un dispositivo electrónico sin transportar el volumen.",
       "evidencias": [
         "titulo",
         "numero_paginas",
         "edicion",
-        "editorial",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Tu mejor medicina eres tú y Cómo no tener diabetes tratan cuestiones relacionadas con la salud, aunque difieren en su alcance. Javier Dols Juste aborda el cuidado cotidiano desde una perspectiva médica general, mientras que Adrián Díaz Alonso centra su libro en la diabetes; el primero plantea un marco amplio y el segundo delimita una enfermedad concreta.",
+      "texto": "Tu mejor medicina eres tú comparte con «100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito», de Liz Moody, el interés por aplicar conocimientos al bienestar personal. El primero se centra en la salud y el cuidado cotidiano; el segundo amplía el enfoque a la felicidad, las relaciones y el éxito.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788425373152"
+        "isbn-9798890981776"
       ]
     }
   ],

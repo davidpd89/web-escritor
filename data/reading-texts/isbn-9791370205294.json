@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370205294",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estados Unidos y la España escondida: En busca de la esencia hispana de USA (Historia), de Paco Reyero, se dirige a lectores interesados en las conexiones históricas entre España y Estados Unidos. Su planteamiento sobre la huella hispana se aparta de las novelas históricas de ficción y de las guías turísticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estados Unidos y la España escondida: En busca de la esencia hispana de USA (Historia) se ofrece en tapa blanda, con 216 páginas. Esta edición de Almuzara permite consultar el texto en papel y trasladarlo con facilidad para leerlo fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estados Unidos y la España escondida: En busca de la esencia hispana de USA (Historia) y 76, de Felipe Pigna, permiten acercarse a la historia desde autores distintos. Paco Reyero delimita su tema mediante la presencia hispana en Estados Unidos, mientras que 76 presenta una referencia numérica en su título y una autoría diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329695"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2e3d47f299c6f875",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788466395977",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes cuidan de un ser querido y buscan atender también su propio bienestar. Margarita Rojas aborda el cuidado familiar desde el desarrollo personal, por lo que su enfoque difiere del de un manual centrado exclusivamente en cuestiones médicas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Cuidar al que cuida: Claves para el bienestar del que cuida a un ser querido (Best Seller | No Ficción) se presenta en tapa blanda y formato de bolsillo. Sus 216 páginas permiten llevar el volumen en el bolso y volver a consultar sus contenidos sobre bienestar y cuidado familiar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte con Criar juntos de verdad el interés por las responsabilidades familiares, aunque Armando Bastida se centra en la crianza en equipo y Margarita Rojas en el bienestar de quien cuida. Conectados para el amor / Wired for Love, de Stan Tatkin, desplaza la atención hacia las relaciones de pareja, frente al cuidado de un ser querido que trata este libro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876056",
+        "isbn-9788423370658"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d471e40755ac8252",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399046465",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El mundo de Suzie Wong, de Richard Mason, se dirige a lectores de romance y narrativa contemporánea con interés por las historias vinculadas al siglo XX. Sus 480 páginas plantean una lectura extensa, menos ajustada a quienes buscan relatos breves o una obra centrada exclusivamente en la divulgación histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El mundo de Suzie Wong cuenta con una edición en tapa blanda de 480 páginas, publicada en castellano por Albo & Zarco. El formato permite llevar una novela extensa en papel sin la rigidez de una cubierta dura, aunque su número de páginas supone cierto volumen para transportarla diariamente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El mundo de Suzie Wong puede compararse con La carta perdida (Clean Romance) por su vinculación con el romance. La primera, escrita por Richard Mason, también se sitúa en la narrativa contemporánea y el ámbito del siglo XX; la segunda es una obra de Mimi Matthews identificada con la denominación Clean Romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410481442"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "93ef3b51289ab9a6",
+  "origen": "chatgpt-web"
+}

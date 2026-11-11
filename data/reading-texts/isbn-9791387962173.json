@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387962173",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Kiyoshi, el exorcista 3 (Shônen) encaja con lectores interesados en aventuras fantásticas contadas mediante manga. Quienes busquen narrativa realista o una novela sin ilustraciones encontrarán aquí un género y una forma de lectura diferentes.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Kiyoshi, el exorcista 3 (Shônen) está disponible en tapa blanda, con 192 páginas en castellano. Su extensión permite leerlo en papel y guardarlo junto a otros volúmenes de manga, sin necesidad de utilizar un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Kiyoshi, el exorcista 4 (Shônen) comparte autor, Shoichi Usui, y denominación de serie con Kiyoshi, el exorcista 3 (Shônen). Los títulos los identifican respectivamente con los números 4 y 3, una diferencia relevante para quien quiera distinguir ambos volúmenes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962678"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dc71164efe331e90",
+  "origen": "chatgpt-web"
+}

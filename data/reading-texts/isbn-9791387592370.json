@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791387592370",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores de narrativa juvenil que buscan una obra clásica con elementos de aventura. Más allá del viento del norte, de George MacDonald, se distancia de las lecturas centradas exclusivamente en el realismo contemporáneo o en la narrativa adulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición limitada de Más allá del viento del norte incorpora una encuadernación en tapa dura con cantos pintados. Ático de los Libros la publica en castellano el 30 de noviembre de 2026, con 400 páginas y una presentación especial que la distingue de una edición convencional sin ese acabado.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura con cantos pintados es la opción disponible para esta edición limitada de 400 páginas. Su acabado exterior tiene especial relevancia para quien busca conservar o regalar un ejemplar físico, mientras que el volumen encuadernado requiere más espacio que una lectura digital.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El poder del fuego nº 06/06: 6 (Fantasía) comparte con Más allá del viento del norte su proximidad a la literatura de imaginación y aventura, aunque pertenece a una entrega numerada y cuenta con otros autores. Star Wars: Legado nº 05: 5 (Star Wars: Cómics Leyendas) también se sitúa en la ficción de aventuras, pero remite a una serie de cómics, frente al carácter de clásico juvenil de George MacDonald.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388103469",
+        "isbn-9791388103506"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a5d92957b6827fae",
+  "origen": "chatgpt-web"
+}

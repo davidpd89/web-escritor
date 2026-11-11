@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410301214",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dibujos para colorear, ¡qué misterio! Vidrieras (Hachette HEROES - DISNEY - Arteterapia) está dirigido a quienes buscan una actividad manual de coloreado con temática de vidrieras. Encaja menos con lectores que prefieren una novela de misterio con personajes, investigación y una trama continua.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite trabajar directamente sobre las páginas de Dibujos para colorear, ¡qué misterio! Vidrieras (Hachette HEROES - DISNEY - Arteterapia). Sus 128 páginas forman un volumen físico destinado al coloreado, que puede utilizarse por sesiones sin necesidad de seguir una lectura consecutiva.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dibujos para colorear, ¡qué misterio! Superclásicos (Hachette HEROES - DISNEY - Arteterapia) comparte colección y autoría colectiva con Dibujos para colorear, ¡qué misterio! Vidrieras (Hachette HEROES - DISNEY - Arteterapia), pero cambia la temática de Superclásicos por las vidrieras. Flores cuquis para colorear: Colorea flores delicadas y escenas encantadoras (Anti-stress coloring) mantiene la actividad de colorear, aunque se centra en motivos florales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388034510",
+        "isbn-9788408328797"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "76146936e0e00843",
+  "origen": "chatgpt-web"
+}

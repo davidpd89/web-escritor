@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788491999249",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Infografías del nazismo se dirige a lectores interesados en la historia y en el estudio del poder político. Sus 176 páginas lo sitúan en una extensión relativamente breve; por su temática histórica, se aleja de las lecturas de ficción y de los manuales de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Infografías del nazismo está disponible en tapa blanda y Kindle. La edición impresa de Editorial Crítica reúne 176 páginas y permite consultar el volumen físicamente; Kindle ofrece acceso digital al contenido desde dispositivos compatibles, sin necesidad de transportar el ejemplar en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Infografías del nazismo comparte con Desterrando: La arquitectura del genocidio (Historia), de Eyal Weizman, el interés por cuestiones históricas vinculadas a la violencia. El primero aborda el nazismo mediante infografías, mientras que el segundo centra su planteamiento, según su título, en la arquitectura del genocidio.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419399045"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "45830ac3aaf719e9",
+  "origen": "chatgpt-web"
+}

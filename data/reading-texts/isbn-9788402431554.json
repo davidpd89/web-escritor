@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788402431554",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La vida según Ibáñez (Bruguera Clásica) está dirigida a lectores interesados en el humor gráfico y la obra de Francisco Ibáñez. Su contenido se sitúa en el ámbito del cómic y el entretenimiento, por lo que se aleja de quienes buscan una novela extensa de narración exclusivamente textual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La vida según Ibáñez (Bruguera Clásica) se publica en tapa dura, con 168 páginas en castellano. La encuadernación rígida de Bruguera permite incorporarlo a una colección física de cómics y conservarlo como volumen independiente para posteriores lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mortadeluxe y La vida según Ibáñez (Bruguera Clásica) comparten la autoría de Francisco Ibáñez y su vinculación con el humor gráfico. Mortadeluxe presenta a Mortadelo y Filemón en un contexto festivo, mientras que La vida según Ibáñez (Bruguera Clásica) se identifica por su referencia general a la vida y su pertenencia a Bruguera Clásica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402432063"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "93a43b6c3d09ef20",
+  "origen": "chatgpt-web"
+}

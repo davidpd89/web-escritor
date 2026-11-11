@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370610500",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La salud laboral ante los riesgos emergentes: Digitalización, vulnerabilidad, clima y tutela preventiva (Monografía) se orienta a lectores interesados en el derecho laboral y la prevención de riesgos profesionales. Su enfoque jurídico sobre digitalización, vulnerabilidad y clima se aleja de los manuales de bienestar personal o alimentación.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La salud laboral ante los riesgos emergentes: Digitalización, vulnerabilidad, clima y tutela preventiva (Monografía) se publica en tapa blanda, con 300 páginas en castellano. Es un volumen físico que permite marcar apartados y consultar cuestiones jurídicas durante el estudio o el trabajo, sin necesidad de pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La salud laboral ante los riesgos emergentes: Digitalización, vulnerabilidad, clima y tutela preventiva (Monografía) y Blockchain: un desafío legal (Monografía) comparten el enfoque jurídico ante cuestiones actuales, aunque uno aborda los riesgos laborales y el otro la tecnología blockchain. Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) trata la gestión de conflictos en el ámbito educativo, frente a la tutela preventiva laboral del libro de Maria Olaya Martin Rodriguez.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788429030372",
+        "isbn-9791370610265"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e7463882605e9be6",
+  "origen": "chatgpt-web"
+}

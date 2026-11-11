@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791370203818",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en las biografías políticas, la monarquía y la historia del siglo XX. Sus 838 páginas y el enfoque sobre José María de Areilza lo alejan de quienes buscan una introducción breve a la política o una panorámica histórica sin protagonista individual.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Examina la trayectoria de José María de Areilza desde una perspectiva biográfica centrada en su dimensión política y monárquica. El marco histórico es el siglo XX y la obra se sitúa en el estudio de las dinámicas sociales, culturales y políticas, con una extensión de 838 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Se publica en tapa blanda y en castellano, con 838 páginas dedicadas a una biografía política. Por su extensión, es una edición física pensada para una lectura prolongada y para conservarla como volumen de consulta sobre historia del siglo XX.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes también aborda una figura política mediante la biografía, aunque organiza su materia en episodios. Crónica de un desafío al Estado se centra en la tensión política catalana y el Procés, frente al recorrido personal y monárquico por el siglo XX que plantea esta obra.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9786073873154",
+        "isbn-9788423441303"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "338baada92523253",
+  "origen": "chatgpt-web"
+}

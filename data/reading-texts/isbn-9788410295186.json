@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788410295186",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra se dirige a lectores de Derecho interesados en la protección de las personas mayores y con discapacidad desde las perspectivas civil y procesal. Su ámbito especializado la distancia de quienes buscan relatos personales sobre el envejecimiento o una aproximación sanitaria a la discapacidad.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mayores, ancianos y discapacidad se publica en tapa blanda, con 322 páginas en castellano. La edición de Aranzadi permite trabajar sobre el texto impreso, marcar pasajes y volver a las cuestiones civiles y procesales durante su consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) también trata cuestiones vinculadas a las relaciones y los conflictos, pero desde la mediación educativa. Mayores, ancianos y discapacidad se concentra en los derechos de las personas vulnerables y en su tratamiento civil y procesal, no en la convivencia escolar.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo"
+      ],
+      "enlaces": [
+        "isbn-9788429030372"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a20a41009851f705",
+  "origen": "chatgpt-web"
+}

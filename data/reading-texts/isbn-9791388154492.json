@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388154492",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Perro Apestoso en la prehistoria, de Colas Gutman, se dirige a quienes buscan una lectura protagonizada por un personaje animal en un contexto prehistórico. Sus 112 páginas en tapa dura ofrecen una extensión delimitada; no responde a quien busca un tratado extenso sobre historia natural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Perro Apestoso en la prehistoria se presenta en tapa dura, con 112 páginas en castellano. El volumen permite leerlo en papel, guardarlo en una estantería y volver a consultarlo sin depender de un dispositivo electrónico; también puede entregarse como ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Animales, de Susaeta Ediciones, comparte con Perro Apestoso en la prehistoria la presencia de animales, pero reúne seis cuentos ilustrados en lugar de centrarse en el personaje del título. Agencia de animales mágicos: Medianoche y la leyenda de Santuario (Mi primer cómic), de Steve Smallman, incorpora animales mágicos y se identifica como cómic, mientras que la obra de Colas Gutman sitúa a su protagonista en la prehistoria.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448875381",
+        "isbn-9791370341589"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "02e82feb923409e9",
+  "origen": "chatgpt-web"
+}

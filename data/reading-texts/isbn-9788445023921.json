@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788445023921",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dragón: el mito alrededor del mundo (Minotauro Ilustrados) encaja con lectores interesados en la fantasía y en las figuras míticas de los dragones. Sus 104 páginas ofrecen una extensión delimitada para quienes prefieren libros breves; no responde, en cambio, al perfil de quien busca una novela extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para Dragón: el mito alrededor del mundo (Minotauro Ilustrados). Sus 104 páginas forman un volumen físico de extensión breve, adecuado para quien prefiere leer en papel y conservar el libro en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b4a6d37ab6cadb60",
+  "origen": "chatgpt-web"
+}

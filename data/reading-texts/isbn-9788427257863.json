@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788427257863",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este estuche reúne los tres títulos de Time Keeper y se dirige a lectores de fantasía con elementos de romance. Sus 1888 páginas permiten leer la saga completa en una misma edición; no responde a quien busca una novela independiente y breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es un estuche en tapa blanda publicado por Molino, con 1888 páginas en total. Reúne El eco del destino, El imperio del caos y La muerte del tiempo en formato físico, por lo que permite conservar los tres títulos juntos o regalarlos como conjunto.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puede compararse con Ciudad de dioses y monstruos (DARK ROMANCE), de Kayla Edwards, por su relación con la fantasía y el romance. También comparte ese terreno con El hechizo más oscuro (Faeris Editorial), de Wanda Hellmund. La diferencia identificable es que Time Keeper reúne tres títulos en un estuche de 1888 páginas, frente a las obras individuales citadas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788415955559",
+        "isbn-9791388108419"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1eaf3d9a2d3daf6a",
+  "origen": "chatgpt-web"
+}

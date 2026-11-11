@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388103636",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dragon Ball Z Anime Androides nº 03: 3 (Manga Shonen) está dirigido a lectores interesados en el manga shonen y la fantasía en formato de cómic. El título lo identifica como el n.º 03, por lo que se orienta a quienes buscan una entrega concreta y no una obra independiente.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Dragon Ball Z Anime Androides nº 03: 3 (Manga Shonen) consta de 176 páginas en tapa blanda y está publicada en castellano. Su encuadernación flexible permite transportarla y guardarla junto a otros volúmenes de una colección de manga.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "After God 8 (Shônen), de Sumi Eno, comparte con Dragon Ball Z Anime Androides nº 03: 3 (Manga Shonen) su identificación como manga shonen y como entrega numerada. Astro Royale 1 (Shônen): Universo Manga, de Ken Wakui, pertenece también a ese ámbito, pero se identifica como primera entrega, frente al n.º 03 indicado en el título de Akira Toriyama.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962647",
+        "isbn-9791387962845"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b91c471d6719f39c",
+  "origen": "chatgpt-web"
+}

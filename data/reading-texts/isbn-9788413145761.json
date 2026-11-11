@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788413145761",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Romper el hielo · edición limitada (Maple Hills 1) (Campaña | Ahora por menos) encaja con lectores que buscan una novela centrada en el romance. El título la vincula a Maple Hills y la identifica como el n.º 1. Por género y extensión, sus 464 páginas se alejan de la lectura breve y de las historias centradas principalmente en la intriga histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La presentación de Penguin Bolsillo corresponde a una edición limitada en castellano y formato de bolsillo. Se identifica mediante el ISBN 9788413145761 y la fecha editorial 2027-02-04. El título incorpora Maple Hills 1, una referencia útil para distinguir esta entrega de las demás obras de Hannah Grace.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "idioma",
+        "isbn13",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Para esta edición de Romper el hielo · edición limitada (Maple Hills 1) (Campaña | Ahora por menos), el formato disponible es tapa blanda. Sus 464 páginas se presentan en un libro de bolsillo, pensado para la lectura física y más manejable por tamaño que una edición de gran formato. También permite conservar en papel esta entrega identificada como Maple Hills 1.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Saltan chispas · edición limitada (Maple Hills 2) (Campaña | Ahora por menos) y En las nubes · edición limitada (Maple Hills 3) (Campaña | Ahora por menos) comparten autora, Hannah Grace, y la referencia Maple Hills. Sus títulos señalan entregas distintas: Romper el hielo · edición limitada (Maple Hills 1) (Campaña | Ahora por menos) se identifica como el n.º 1, mientras las otras llevan los números posteriores.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9791388147555",
+        "isbn-9788466394185"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5a24cc1c785f8f35",
+  "origen": "chatgpt-web"
+}

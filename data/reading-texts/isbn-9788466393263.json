@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466393263",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de Frank Herbert interesados en los clásicos y en continuar Las crónicas de Dune. El título identifica Casa Capitular: Dune como el n.º 6, por lo que no es la elección más directa para quien busca comenzar la serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Casa Capitular: Dune reúne 616 páginas en una edición de bolsillo de Penguin Bolsillo. Es una opción física para llevar una lectura extensa sin recurrir a una encuadernación rígida, aunque el volumen de páginas puede resultar menos cómodo para leer de pie.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Herejes de Dune (edición de lujo) (Las crónicas de Dune 5) (Best Seller | Ficción) comparte autor y serie con Casa Capitular: Dune. Los títulos los identifican como los números 5 y 6, respectivamente; el primero se presenta como edición de lujo y el segundo como libro de bolsillo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "edicion"
+      ],
+      "enlaces": [
+        "isbn-9788466393959"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "af4c44149ee9e835",
+  "origen": "chatgpt-web"
+}

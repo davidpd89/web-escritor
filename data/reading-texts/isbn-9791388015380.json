@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388015380",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El libro de Rami Abou Jamous se dirige a lectores interesados en la narrativa contemporánea en castellano. Sus 192 páginas ofrecen una extensión más breve que la de novelas de mayor volumen, mientras que su clasificación editorial lo diferencia de las obras centradas específicamente en el romance o los clásicos.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Newton Compton Editores se presenta en tapa dura y contiene 192 páginas en castellano. La encuadernación rígida protege el volumen durante su conservación en una estantería y permite entregarlo como ejemplar físico de regalo.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2345bc39bffbb3cb",
+  "origen": "chatgpt-web"
+}

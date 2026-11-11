@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387924188",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Escuela de Monstruos - PACK ARTISTA: Libro de colorear + Aprende a dibujar: Pasatiempos creativos para pequeños artistas. Coloreando y dibujando, ¡el tiempo pasa volando! está pensado para quienes prefieren colorear y practicar el dibujo. Sus 96 páginas están dedicadas a actividades creativas, por lo que no responde a la búsqueda de una historia para leer de principio a fin.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El pack de Sally Rippin se presenta en tapa blanda y contiene 96 páginas dedicadas al dibujo y al coloreado. Su formato físico permite trabajar directamente sobre las páginas, una característica importante en un material que combina ejercicios para aprender a dibujar con actividades para colorear.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprender a leer en la Escuela de Monstruos 24 - Dos artistas muy solistas y este pack comparten autora, Sally Rippin, y el entorno de Escuela de Monstruos. El primero presenta a Nacho y Lucho con sus actuaciones musicales; el pack cambia la lectura de una historia por actividades de dibujo y coloreado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387724184",
+        "isbn-9791388417580"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fe0eb7aed0d71f8c",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mentes diferentes se dirige a quienes buscan comprender el autismo, el TDAH y las experiencias de las personas neurodivergentes desde una perspectiva personal y divulgativa. Chloé Hayden incorpora también una dimensión activista, de modo que no se plantea como un manual exclusivamente clínico.",
+      "texto": "Mentes diferentes, de Chloé Hayden, está dirigido a lectores interesados en psicología, desarrollo personal y bienestar. Aborda el autismo y el TDAH desde una combinación de experiencia personal, divulgación y activismo; no es una novela de ficción ni un manual centrado exclusivamente en nutrición.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,29 +14,28 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mentes diferentes se publica en tapa blanda, con encuadernación rústica con solapas y 240 páginas en castellano. Es una edición física manejable para leer por capítulos, consultar pasajes y conservar anotaciones sobre los temas de psicología y neurodivergencia que aborda.",
+      "texto": "La tapa blanda reúne las 240 páginas de Mentes diferentes en una edición rústica con solapas de Diana. Es la opción física para quien prefiere conservar el libro y consultar sus contenidos en papel; su extensión permite manejarlo sin cargar con un volumen extenso.",
       "evidencias": [
-        "titulo",
-        "edicion",
         "numero_paginas",
-        "idioma",
-        "formatos_disponibles",
-        "categorias",
-        "sinopsis_editorial"
+        "formato_edicion",
+        "edicion",
+        "editorial",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mentes diferentes y Todo lo que aprendí en terapia comparten el interés por la salud mental, pero Chloé Hayden aborda específicamente la neurodivergencia mediante testimonio y activismo, mientras Pablo R. Coca (@occimorons) recurre a reflexiones ilustradas sobre el bienestar personal. Frente a Ansiedad. ¿Cómo se sale de aquí?, centrado en la ansiedad mediante la imagen de un parque de atracciones, Mentes diferentes amplía el foco al autismo y el TDAH.",
+      "texto": "Cómo sobrevivir a las putadas de la vida (Vivir Mejor), de Lorena Gascón, comparte con Mentes diferentes, de Chloé Hayden, un enfoque relacionado con el bienestar personal, aunque sus títulos apuntan a preocupaciones distintas: las dificultades vitales y la diversidad de las mentes. Deja de tratarte como el culo: De la autocrítica también se sale (Vivir Mejor), de Lorena Gascón, introduce otro punto de comparación desde la autocrítica y el trato hacia uno mismo.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388220517",
-        "isbn-9788402431967"
+        "isbn-9788427055957",
+        "isbn-9788427055988"
       ]
     }
   ],

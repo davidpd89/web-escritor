@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788418589454",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historias de la guerra 4 - nuestros gansos salvajes se orienta a lectores de cómic y novela gráfica que buscan una obra relacionada con la guerra. También figura entre las lecturas juveniles, aunque no responde al formato de una novela extensa escrita únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Historias de la guerra 4 - nuestros gansos salvajes es de tapa blanda y contiene 80 páginas en castellano. Su extensión permite manejar el volumen sin el peso de una recopilación de varios centenares de páginas y conservarlo como ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Federico. Mi corazón, tu casa (Álbumes ilustrados) y Historias de la guerra 4 - nuestros gansos salvajes comparten su relación con las publicaciones visuales. El primero se presenta como álbum ilustrado de Antonio Lorente, mientras que el segundo es un cómic de Garth Ennis vinculado por su título a la guerra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788414076118"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dd0e690c3d65d8fd",
+  "origen": "chatgpt-web"
+}

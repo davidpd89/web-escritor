@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Austria 7 está dirigido a quienes preparan recorridos por Austria y buscan información sobre ciudades históricas como Viena, Salzburgo y Graz, además de los Alpes, lagos y pueblos de montaña. Su contenido turístico y geográfico no encaja con quienes prefieren novelas de aventuras o relatos personales de viajeros.",
+      "texto": "Austria 7 se dirige a viajeros interesados en combinar ciudades históricas, patrimonio cultural y recorridos por espacios naturales. Encaja menos con quien busca una novela de viajes o una lectura centrada exclusivamente en una ciudad, porque su contenido abarca distintos destinos del país.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,38 +13,36 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Austria 7 es una guía de viajes que presenta el patrimonio histórico y los paisajes de Austria, desde Viena, Salzburgo y Graz hasta los Alpes y las zonas de lagos. Anthony Haywood reúne referencias a monumentos, antiguas residencias imperiales, pueblos de montaña y recorridos panorámicos para situar los distintos atractivos del país.",
+      "texto": "Austria 7 plantea una lectura de viajes centrada en el patrimonio urbano y los paisajes de Austria. Incluye referencias a Viena, Salzburgo y Graz, además de los Alpes, lagos, pueblos de montaña y rutas panorámicas, por lo que combina intereses culturales y naturales dentro de un mismo destino.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Austria 7 se ofrece en tapa blanda, en una edición de Geoplaneta con 432 páginas y rústica sin solapas. El ejemplar físico permite consultar los contenidos sobre ciudades, monumentos y paisajes durante la preparación del viaje y llevar la guía para revisar lugares concretos sobre el terreno.",
+      "texto": "La tapa blanda de Austria 7 contiene 432 páginas en una edición rústica sin solapas. Permite consultar el contenido en papel durante la preparación del viaje o llevarlo como guía física, aunque su extensión supone transportar un volumen relativamente amplio durante los desplazamientos.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "editorial",
         "numero_paginas",
-        "edicion",
-        "sinopsis_editorial"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Amsterdam de cerca 2027-2028 y Austria 7 comparten el enfoque turístico, pero la primera se concentra en una ciudad mientras la segunda abarca destinos urbanos y naturales de un país. Chile y la Isla de Pascua 9 también es una guía de viaje, con experiencias e itinerarios flexibles, aunque trata un territorio diferente y destaca expresamente la organización de rutas.",
+      "texto": "Polonia 6 (Guías de País Lonely Planet) y Suiza 5 (Guías de País Lonely Planet) son alternativas de lectura sobre otros destinos europeos y comparten la participación de Anthony Haywood con Austria 7. La diferencia principal está en el país tratado: Austria 7 reúne ciudades y paisajes austriacos, mientras las otras guías se identifican con Polonia y Suiza.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408320890",
-        "isbn-9788408317869"
+        "isbn-9788408323914",
+        "isbn-9788408320838"
       ]
     }
   ],

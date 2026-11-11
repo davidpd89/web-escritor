@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387752767",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sudokus Originales Nikoli Nivel 4 (Sudokus Nikoli) está dirigido a quienes buscan resolver sudokus y prefieren un nivel identificado como 4. No responde a la búsqueda de una novela ni de actividades de dibujo o coloreado: su propuesta se centra en los pasatiempos numéricos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sudokus Originales Nikoli Nivel 4 (Sudokus Nikoli) se presenta en tapa blanda y tiene 160 páginas. El soporte impreso permite escribir las soluciones directamente sobre el papel y utilizar el libro en sesiones de pasatiempos sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sudokus Originales Nikoli Nivel 1 (Sudokus Nikoli) es la comparación más directa con Sudokus Originales Nikoli Nivel 4 (Sudokus Nikoli): ambos pertenecen a la misma serie y están firmados por NIKOLI. Sus títulos distinguen el nivel 1 del nivel 4, una diferencia relevante para escoger el grado de dificultad buscado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387752750"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "71871f1ea3f7d637",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788408314936",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado al público infantil que disfruta buscando elementos en las páginas y con los motivos navideños. Sus 20 páginas de cartón lo sitúan entre los libros de actividad visual breve, no entre las novelas juveniles de lectura continuada.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Se utiliza observando las páginas y buscando los elementos que propone el juego de busca y encuentra, dentro de una ambientación navideña. El formato de cartón permite pasar sus 20 páginas y volver a examinar las imágenes en sucesivas partidas. Puede compartirse entre un adulto y un niño para señalar y localizar elementos.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es física, en libro de cartón, identificada también como tapa dura. Sus 20 páginas están pensadas para manipularse y observarse durante la búsqueda de elementos, por lo que el soporte material forma parte de la actividad. Puede guardarse y recuperarse para repetir el juego navideño.",
+      "evidencias": [
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Busca y encuentra: Monstruos comparte el mecanismo de localizar elementos en escenas ilustradas, pero utiliza fantasmas, brujas y duendes en lugar de una ambientación navideña. ¡Ya es Navidad! (Pop-up de cuento) coincide en la temática de Navidad, aunque propone un formato desplegable en vez de centrar la actividad en buscar elementos por las páginas.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410333963",
+        "isbn-9788410318557"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "78bbc668b9dccb93",
+  "origen": "chatgpt-web"
+}

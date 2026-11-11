@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791388002007",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nueva York: Ciudad de dragones (LITTLE REX), de Mari Mancusi, se dirige a lectores de fantasía interesados en historias cuyo título reúne una ciudad y criaturas fantásticas. Sus 320 páginas en castellano plantean una lectura de extensión media; no corresponde a quien busque específicamente un ensayo o una obra realista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nueva York: Ciudad de dragones (LITTLE REX) se publica en tapa blanda, con 320 páginas en castellano. Esta edición de Puck ofrece una lectura física que puede dividirse en varias sesiones; la cubierta flexible facilita transportarla y guardarla sin el volumen añadido de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "667ddaefd541a6f8",
+  "origen": "chatgpt-web"
+}

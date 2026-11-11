@@ -4,37 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los compis 3 Consumir sin moderación está dirigido al público infantil que lee cómics y disfruta de situaciones humorísticas relacionadas con la vida cotidiana. Sus escenas transcurren alrededor del comedor y combinan bromas con momentos emotivos; se distancia de las aventuras centradas en combates o grandes conflictos fantásticos.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Los compis 3 Consumir sin moderación se presenta en tapa blanda, con 64 páginas en castellano. Es una edición física de Kómikids que permite recorrer las escenas del cómic en papel y volver a sus viñetas sin utilizar una pantalla. Su extensión corresponde a un volumen breve dentro de la lectura infantil.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Los compis 3 Consumir sin moderación puede compararse con Capitán Patata 2 - Quietecito o te dejo frito por su humor dirigido a lectores infantiles. El libro de Nob sitúa las situaciones cómicas en un comedor, mientras que el de Neil Coslett presenta cinco pequeñas aventuras absurdas protagonizadas por un superhéroe y sus amigos.",
+      "texto": "Los compis 3 Consumir sin moderación encaja con lectores infantiles y juveniles que disfrutan del cómic y la novela gráfica. Sus 64 páginas ofrecen una lectura en formato de cómic; no está dirigido a quien busca una novela extensa o un ensayo.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 64 páginas de Los compis 3 Consumir sin moderación en un volumen físico ligero, fácil de manejar y transportar. Es el formato disponible para quien prefiere pasar las páginas de un cómic en papel y conservarlo en su colección.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los compis 3 Consumir sin moderación comparte con «Besties 3: Batalla de bromas (Novela gráfica)», de Kayla Miller, Jeffrey Canino, Sarah K. Turner, el formato de novela gráfica y su orientación infantil y juvenil. La diferencia está en la autoría y el planteamiento: el primero pertenece a la serie Los compis, de Nob; el segundo presenta una historia de Besties.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788427254985"
+        "isbn-9791388136474"
       ]
     }
   ],

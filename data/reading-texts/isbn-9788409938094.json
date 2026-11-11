@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409938094",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La virtud olvidada: Pensamiento crítico y humanidad en tiempos de miedo y odio se dirige a lectores interesados en filosofía, psicología y desarrollo personal. Su enfoque declarado sobre el pensamiento crítico y la humanidad, desarrollado en 360 páginas, lo aleja de quienes buscan ficción narrativa o una guía centrada exclusivamente en alimentación y ejercicio.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La virtud olvidada: Pensamiento crítico y humanidad en tiempos de miedo y odio se publica en tapa blanda, con 360 páginas. La edición de Gimeno Imprenta Alfafar, S.l. permite leer el contenido en papel, señalar pasajes y volver a consultar los apartados durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La virtud olvidada: Pensamiento crítico y humanidad en tiempos de miedo y odio puede compararse con Cuando zarpa el amor (vamos y hundimos el barco), de Ramón Nogueras Pérez, por su relación con la psicología y el comportamiento humano. El libro de Ramón Nogueras Pérez aborda el enamoramiento y el desenamoramiento, mientras que E. M. Gimeno centra su obra en el pensamiento crítico y la humanidad ante el miedo y el odio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387534370"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6c999e8af8d249c0",
+  "origen": "chatgpt-web"
+}

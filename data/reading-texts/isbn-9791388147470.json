@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791388147470",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) se dirige a lectores que buscan ficción con elementos de ciencia ficción, aventura y misterio. Su combinación de géneros se aparta de una lectura exclusivamente ensayística, aunque el catálogo también la incluye en ese ámbito. La edición está pensada para quienes prefieren un libro físico con acabado especial.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) se distingue por sus cantos tintados y su presentación en tapa dura. Penguin Bolsillo reúne el texto en 384 páginas en castellano, con publicación prevista para el 19 de noviembre de 2026. El acabado de los bordes es el rasgo que identifica esta versión limitada.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) se ofrece en tapa dura con cantos tintados. Sus 384 páginas y el acabado exterior hacen de esta versión una opción física para regalar, exponer o conservar junto a otras ediciones especiales. El formato permite apreciar los cantos decorados al colocar el libro en la estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El marciano (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) comparte con Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) la autoría de Andy Weir y el acabado especial de los cantos. Proyecto Hail Mary (edición deluxe) (Nova) también es de Andy Weir, pero se identifica como edición deluxe en lugar de edición limitada con cantos tintados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388147272",
+        "isbn-9788410466876"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8ae5ce6a0a4a25be",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388279690",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mantequilla (Novela), de Asako Yuzuki, se dirige a lectores de narrativa contemporánea con interés por el misterio y el thriller. Su clasificación también incluye arte y diseño, de modo que reúne ámbitos temáticos distintos; quien busque exclusivamente un ensayo histórico encontrará aquí una novela.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mantequilla (Novela) está disponible en tapa blanda, concretamente en una edición de bolsillo de Booket. Sus 496 páginas reúnen una lectura extensa en un volumen de encuadernación flexible, que puede guardarse en una bolsa y llevarse durante los desplazamientos sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aguas turbulentas y Mantequilla (Novela) comparten su vinculación con el misterio, aunque el primero sitúa su conflicto entre un pasado siniestro y un presente oscuro en Edimburgo. Asesinato antes de Navidad también plantea una situación de intriga, pero incorpora un contexto navideño alrededor de May Morrigan. La novela de Asako Yuzuki se clasifica además como narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318",
+        "isbn-9791370310264"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "277c005153f6be03",
+  "origen": "chatgpt-web"
+}

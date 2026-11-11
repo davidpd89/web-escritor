@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9798384561019",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a quienes buscan una lectura devocional de temática religiosa y espiritual para incorporar a su rutina diaria. Mi Experiencia Con Dios Día a Día: Diario Devocional, de Henry T Blackaby y Richard Blackaby, se aleja de la narrativa de ficción y de los manuales sobre cuestiones materiales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa dura, con 384 páginas en castellano. Este formato permite conservar el volumen como libro de consulta habitual y mantenerlo en una estantería para volver a sus lecturas devocionales. La encuadernación rígida también resulta apropiada para entregarlo como regalo físico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación comparte el interés por la práctica espiritual, aunque se centra expresamente en el Dharma. Mi Experiencia Con Dios Día a Día: Diario Devocional plantea, desde su propio título, una relación cotidiana con Dios mediante la lectura devocional.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a100c10df34b8367",
+  "origen": "chatgpt-web"
+}

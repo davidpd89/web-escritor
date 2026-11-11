@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388222214",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Reach out (Montena), de Alexandra Monet, se dirige a quienes buscan lecturas relacionadas con el romance, las relaciones de pareja y la familia. Por su clasificación temática, queda fuera de las búsquedas centradas exclusivamente en aventuras o ficción histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Reach out (Montena) se presenta en tapa blanda, con 400 páginas en castellano. Es una opción física que permite llevar la lectura consigo y consultar pasajes sin depender de una pantalla, aunque su extensión supone cierto volumen al transportarla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Reach out (Montena), de Alexandra Monet, puede compararse con Estuche Universidad Sorrowsong: Nightshade + Daybreak (Ficción), de Autumn Woods, por su vinculación con la ficción. La diferencia está en la presentación: el primero es un libro de 400 páginas en tapa blanda, mientras que el segundo reúne dos títulos en un estuche. También se distingue por su enfoque romántico frente a las propuestas de alimentación y bienestar presentes entre sus lecturas afines.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328018"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0c6a729322ec7264",
+  "origen": "chatgpt-web"
+}

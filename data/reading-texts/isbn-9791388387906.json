@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388387906",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores de historia, ensayo y periodismo interesados en Ruanda y en relatos sobre asesinatos de familias. Queremos informarle de que mañana seremos asesinados con nuestras familias: Historias de Ruanda (Crónica y Periodismo), de Philip Gourevitch, se aleja de la ficción ligera y de las lecturas que evitan asuntos violentos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato de Queremos informarle de que mañana seremos asesinados con nuestras familias: Historias de Ruanda (Crónica y Periodismo). Sus 376 páginas en castellano ofrecen una lectura de cierta extensión en un volumen de cubierta flexible, que puede transportarse y guardarse sin ocupar el espacio de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puede compararse con Campo de concentración: 82 (Biblioteca del Exilio), por su vinculación temática con episodios de violencia y sufrimiento colectivo. Queremos informarle de que mañana seremos asesinados con nuestras familias: Historias de Ruanda (Crónica y Periodismo) identifica expresamente Ruanda como escenario y se presenta como historia y ensayo, mientras que el otro título pertenece a la Biblioteca del Exilio.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410148659"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "585ceda9a119fe9b",
+  "origen": "chatgpt-web"
+}

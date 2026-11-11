@@ -4,17 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La Norteamérica española (1493-1898) se dirige a lectores interesados en la historia de la presencia española en el territorio norteamericano y sus conflictos políticos y territoriales. Robert Goodwin reconstruye este periodo mediante personajes y testimonios históricos, por lo que se aleja de una exposición limitada a fechas y acontecimientos militares.",
+      "texto": "La Norteamérica española (1493-1898) se dirige a lectores de historia interesados en la presencia española en Norteamérica y en los conflictos coloniales. Sus 576 páginas y su recorrido por varios siglos encajan menos con quienes buscan una introducción breve o una narración limitada a un único acontecimiento.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "La obra examina la expansión territorial española en Norteamérica, las relaciones con los pueblos indígenas y la competencia entre potencias coloniales. Robert Goodwin utiliza biografías, documentos y representaciones artísticas para mostrar tanto las aspiraciones de los protagonistas como sus derrotas y las transformaciones políticas que terminaron con el dominio español.",
+      "texto": "La Norteamérica española (1493-1898) examina la expansión y pérdida de los territorios españoles en Norteamérica, atendiendo a colonos, pueblos indígenas, misioneros y potencias rivales. Robert Goodwin utiliza trayectorias personales, documentos y obras artísticas para explicar los conflictos territoriales, las ambiciones individuales y los cambios políticos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,25 +23,28 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La Norteamérica española (1493-1898) puede leerse en tapa blanda o Kindle. La edición impresa reúne 576 páginas y permite consultar físicamente los episodios y personajes de esta historia; Kindle facilita transportar una obra de esa extensión y leerla en dispositivos compatibles sin cargar con el volumen.",
+      "texto": "La Norteamérica española (1493-1898) está disponible en tapa blanda y Kindle. La edición física de Editorial Edaf reúne 576 páginas en castellano para su consulta y lectura en papel; Kindle permite transportar digitalmente una obra de esta extensión y acceder a ella desde un dispositivo compatible.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "edicion",
+        "editorial",
         "numero_paginas",
-        "sinopsis_editorial"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cesar La conquista de la eternidad y La Norteamérica española (1493-1898) coinciden en abordar procesos históricos a través de sus protagonistas, pero el primero sigue a un general romano y el segundo examina la expansión española en Norteamérica. Auge y caída del Tercer Reich (edición especial) también estudia el desarrollo y declive de un poder político, aunque se centra en el régimen nazi.",
+      "texto": "La Norteamérica española (1493-1898) y 76 pertenecen al ámbito de la historia, aunque Robert Goodwin aborda la presencia española en Norteamérica y sus conflictos coloniales. La obra de Felipe Pigna se presenta con un título numérico, mientras que la de Goodwin delimita expresamente su territorio y periodo histórico.",
       "evidencias": [
         "titulo",
+        "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411005555",
-        "isbn-9788410944329"
+        "isbn-9788408329695"
       ]
     }
   ],

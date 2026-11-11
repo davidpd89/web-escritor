@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388412042",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Vivo (Impedimenta), de Anna Starobinets, encaja con lectores de ciencia ficción y fantasía que también buscan narrativa contemporánea. Sus 384 páginas corresponden a una novela de extensión considerable, por lo que se aleja de las lecturas breves y de los libros de carácter exclusivamente divulgativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Vivo (Impedimenta) está disponible en tapa blanda y Kindle, dos maneras de leer sus 384 páginas. La edición de Impedimenta en papel permite conservar y prestar el ejemplar físico, mientras que Kindle facilita llevarlo en un dispositivo electrónico o continuar la lectura desde el móvil.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Vivo (Impedimenta) y El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa) coinciden en su vinculación con la fantasía. La obra de Anna Starobinets también se clasifica como ciencia ficción y narrativa contemporánea, mientras que el título de Heather Fawcett sitúa a los gatos y un refugio mágico en el centro de su planteamiento. Son dos aproximaciones de autoras distintas al terreno de lo fantástico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387749316"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1a5bfb83617e8dbf",
+  "origen": "chatgpt-web"
+}

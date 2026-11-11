@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788419819994",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Blood Bank 2 (Distrito Manhwa) se dirige a lectores interesados en el terror y en las obras identificadas como manhwa. Su clasificación temática lo aleja de quienes prefieren historias sin componentes de terror o buscan lecturas de carácter humorístico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Blood Bank 2 (Distrito Manhwa) se publica en tapa blanda, con una extensión de 432 páginas. Esta edición permite conservar la obra en papel y leerla sin pantalla, aunque requiere transportar un volumen de cierta extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "25 días hasta Navidad y Blood Bank 2 (Distrito Manhwa) permiten comparar dos orientaciones narrativas: el primero se presenta como thriller de adviento y el segundo está clasificado como terror. También cambia la autoría, con Per Jacobsen frente a Silb, y Blood Bank 2 (Distrito Manhwa) se identifica expresamente como manhwa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3af951b318782590",
+  "origen": "chatgpt-web"
+}

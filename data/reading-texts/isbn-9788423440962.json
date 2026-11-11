@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788423440962",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en gestionar herencias y donaciones, especialmente desde sus consecuencias fiscales y jurídicas. El enfoque práctico sobre impuestos y prevención de problemas lo aleja de quienes buscan ficción familiar o reflexiones generales sobre las relaciones personales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 264 páginas en castellano, publicadas por Deusto. El formato físico permite consultar distintos apartados sobre herencias, donaciones e impuestos y volver a ellos durante la preparación de trámites.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte el interés por las cuestiones económicas con Cómo generar ingresos con las opciones: Así transformé la bola de nieve en avalancha (EMPRESA), de Renato Antinori, aunque aquel título se centra en generar ingresos mediante opciones y este aborda herencias, donaciones e impuestos. También puede compararse con La libreta de Dani: Tiempo y Dinero. Estrategia financiera para toda una vida., de Catalina Bonías Blanchard, cuyo planteamiento financiero general contrasta con el enfoque jurídico y fiscal de Alejandro Ebrat Picart.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724357",
+        "isbn-9788409917600"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b00873b08e7d4a2f",
+  "origen": "chatgpt-web"
+}

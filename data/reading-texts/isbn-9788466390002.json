@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466390002",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una casa propia se orienta a lectores de memorias y ensayo interesados en perspectivas relacionadas con las mujeres. Su clasificación se aleja de la narrativa de ficción convencional, por lo que encaja menos con quien busca una novela de trama y personajes ficticios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una casa propia se presenta en tapa blanda, con 224 páginas en una edición de bolsillo de Penguin Bolsillo. La extensión permite organizar su lectura en varias sesiones y el formato flexible facilita llevarlo fuera de casa sin cargar con una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mujeres que la liaron: De Hipatia de Alejandría a Simone de Beauvoir: 3000 años de historia feminista (Divulgación) comparte con Una casa propia el interés por las mujeres desde la no ficción. La diferencia está en el enfoque declarado: el primero aborda la historia feminista mediante divulgación, mientras que el libro de Deborah Levy se clasifica entre las memorias y el ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788403527041"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b08654f8d1689866",
+  "origen": "chatgpt-web"
+}

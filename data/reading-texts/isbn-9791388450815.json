@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388450815",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dungeon elf 03 se orienta a lectores interesados en obras vinculadas al humor y al ámbito del arte y el diseño. El título lo identifica como el n.º 03, de modo que quien busque una entrega inicial puede preferir comenzar por otra numeración.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dungeon elf 03 está disponible en tapa blanda, en edición bunko de Ivrea. Sus 200 páginas ofrecen un volumen físico de extensión contenida, que puede transportarse y guardarse junto a otras entregas de la colección.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dungeon elf 03 y El diario de una princesa desastrosa (Diarios), de Maidy, coinciden en su vinculación con el humor. Frente al enfoque de diario que anuncia el segundo título, Dungeon elf 03 se presenta como una entrega numerada de River Slan. También puede contrastarse con 720 retrats, de Xavier Mollà i Revert, por su relación con el ámbito artístico, aunque sus títulos plantean enfoques diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331148",
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "38e2e4d7f81d6fc5",
+  "origen": "chatgpt-web"
+}

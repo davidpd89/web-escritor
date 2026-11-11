@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387934156",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Costa amalfitana (VIAJES), de Natasha Penot, está dirigido a quienes buscan lecturas sobre destinos turísticos y viajes. Por su temática, encaja menos con lectores interesados en novelas de ficción o libros centrados en el desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Costa amalfitana (VIAJES) se presenta en tapa dura, con 290 páginas en castellano. La encuadernación rígida favorece su conservación en una estantería y su consulta sobre una mesa, aunque ocupa más espacio que una edición flexible de extensión semejante.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Costa amalfitana (VIAJES) comparte su orientación viajera con Córcega de cerca 1 (Guías De cerca Lonely Planet). La obra de Natasha Penot se centra en la costa amalfitana, mientras que la de Claire Angot, Élodie Lecadieu y Clara Jaeger aborda Córcega y se identifica expresamente como guía de viaje. La elección depende del destino que interese conocer.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d173b359f8254518",
+  "origen": "chatgpt-web"
+}

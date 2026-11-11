@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399188585",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diccionario de cocina se dirige a lectores interesados en la cocina como actividad de ocio y consulta. Por su planteamiento de diccionario, se aleja de quienes buscan una narración de ficción o una historia protagonizada por personajes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Diccionario de cocina está disponible en tapa blanda, con 220 páginas en castellano. Esta edición permite consultar el volumen en papel y volver a sus contenidos durante la lectura, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diccionario de cocina comparte el ámbito gastronómico con Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA), de David Villalón y Mario Villalón. Mientras este último reúne en su título huerta, vinos, cocina y cócteles, la obra de Alejandro Dumas plantea el contenido culinario en forma de diccionario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934293"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3753d33520cf92c5",
+  "origen": "chatgpt-web"
+}

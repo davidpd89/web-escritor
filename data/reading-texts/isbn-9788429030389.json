@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788429030389",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en el Derecho deportivo y en la posición jurídica de la persona deportista. El principio de primacía de la persona deportista: Un nuevo paradigma de interpretación del Derecho deportivo, de José Manuel Chía Salas, se centra en la interpretación jurídica, no en la práctica ni en el entrenamiento deportivo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 176 páginas en castellano, publicadas por Editorial Reus S.a. Es una opción física para consultar el texto, marcar pasajes y conservar referencias durante el estudio del Derecho deportivo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte el enfoque jurídico con Blockchain: un desafío legal (Monografía), de Ana Isabel Quiroz Ruiz, aunque este último aborda los desafíos legales de la tecnología blockchain. Frente a El abordaje y registro de buques en el proceso penal (Monografía), de Javier Blanco Vargas, el libro de José Manuel Chía Salas sitúa la interpretación del Derecho en el ámbito deportivo, no en el procedimiento penal marítimo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370610265",
+        "isbn-9791370610487"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "81dc5446d873a65f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791043309885",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores infantiles y juveniles que buscan cómics y novelas gráficas en castellano. Sus 192 páginas y su identificación como volumen 4 lo distinguen de una novela en prosa o de una historia presentada como entrega inicial.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Capitán Tsubasa, 4 (Shônen - Captain Tsubasa) se publica en tapa dura, con 192 páginas en castellano. Esta encuadernación permite conservar el volumen en una colección física y ofrece una presentación rígida para regalar o releer.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Animal Jack 2 la montaña mágica, de Kid Toussaint, comparte con Capitán Tsubasa, 4 (Shônen - Captain Tsubasa) la identificación de una entrega numerada, aunque su título apunta a una aventura de montaña. AVATAR. La leyenda de Aang 5 - Norte y sur, de Nickelodeon, también presenta una entrega numerada, pero sitúa su propuesta en el universo de las Tribus Agua, frente al enfoque shônen identificado en el título de Yoichi Takahashi.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387744410",
+        "isbn-9788448874803"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "439edb1416ef9523",
+  "origen": "chatgpt-web"
+}

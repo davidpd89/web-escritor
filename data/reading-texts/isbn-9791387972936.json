@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387972936",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Abril Abremundos 1 - El bosque susurrador (Montena), de Mar Benegas, encaja con lectores que buscan historias de fantasía. Sus 128 páginas ofrecen una extensión más breve que la de muchas novelas para adultos; no es la opción indicada para quien busca ensayo, biografías o lecturas de temática empresarial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 128 páginas de Abril Abremundos 1 - El bosque susurrador (Montena), de Mar Benegas, en un volumen físico de extensión contenida. Es el formato disponible y permite llevar el libro en papel, guardarlo o prestarlo sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abril Abremundos 1 - El bosque susurrador (Montena), de Mar Benegas, se relaciona directamente con Abril Abremundos 2 - El laberinto de las ilusiones (Montena), también de Mar Benegas: ambos comparten la denominación Abril Abremundos y el enfoque fantástico. El segundo título se identifica como el n.º 2, mientras que el primero lleva el n.º 1; sus títulos presentan escenarios distintos, el bosque y el laberinto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410298163"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "abac61f9ce24af64",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9780241838075",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Star Wars. Los diseños: Planos y dibujos técnicos originales de la saga Skywalker se dirige a lectores interesados en los diseños técnicos y visuales del universo Star Wars. Sus 336 páginas y su enfoque en planos y dibujos lo distinguen de una novela centrada en narrar nuevas aventuras de ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Star Wars. Los diseños: Planos y dibujos técnicos originales de la saga Skywalker se presenta en tapa dura, con 336 páginas en castellano. Esta edición física de DK permite consultar los planos y dibujos técnicos originales de la saga Skywalker en un volumen que también puede conservarse como libro de consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Star Wars. Los diseños: Planos y dibujos técnicos originales de la saga Skywalker comparte autoría con El libro de los aviones (Transportes): Helicópteros, planeadores, dirigibles y otras aeronaves (Enciclopedia visual), ambos de DK. Los dos se relacionan con la representación técnica y visual, pero el primero aborda diseños de una saga de ciencia ficción y el segundo se ocupa de aeronaves. Antigua Grecia (Civilizaciones antiguas) (Enciclopedia visual), también de DK, cambia ese ámbito por una civilización histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241837610",
+        "isbn-9780241837696"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a707750bbbb2796a",
+  "origen": "chatgpt-web"
+}

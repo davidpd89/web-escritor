@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387512002",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las hijas del norte (SUMA), de Lucía Lago, se dirige a lectores de narrativa contemporánea interesados en las relaciones familiares y la crianza. Por su temática, se aleja de las lecturas centradas en la fantasía o la aventura; la edición tiene 448 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las hijas del norte (SUMA) se publica en tapa dura, con 448 páginas en castellano. Esta encuadernación ofrece una cubierta rígida para conservar el ejemplar y colocarlo en una biblioteca personal; también puede utilizarse como regalo en formato físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las hijas del norte (SUMA), de Lucía Lago, puede compararse con Celestino antes del alba (Andanzas), de Reinaldo Arenas, por su pertenencia al ámbito de la narrativa literaria. La primera se clasifica como narrativa contemporánea y aborda el entorno familiar y la crianza, mientras que la segunda ofrece una alternativa de distinta autoría. La comparación permite elegir entre una obra centrada en temas familiares y otra propuesta literaria.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411078535"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d9e99ad055aab386",
+  "origen": "chatgpt-web"
+}

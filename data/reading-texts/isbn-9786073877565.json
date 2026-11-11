@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073877565",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dios: Una Historia Humana / God: A Human History se dirige a lectores interesados en la historia de las religiones y la espiritualidad. Por su clasificación histórica y religiosa, encaja menos con quienes buscan una novela fantástica de temática divina o una guía práctica de meditación.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dios: Una Historia Humana / God: A Human History se presenta en tapa blanda, con 368 páginas en castellano. Su extensión permite organizar la lectura histórica y religiosa en varias sesiones, mientras que la encuadernación flexible facilita llevar el volumen durante los desplazamientos. La edición corresponde al sello Debolsillo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dominio (edición especial limitada en tapa dura con los cantos pintados): Cómo el cristianismo dio forma a Occidente (ATICO HISTORIA), de Tom Holland, comparte el interés por la religión desde una perspectiva histórica. Dios: Una Historia Humana / God: A Human History plantea desde su título una mirada más general sobre la divinidad, frente al enfoque explícito en el cristianismo y Occidente del primero. El judaísmo del Segundo Templo: Historia y religión en tiempos de Jesús: 184 (Biblioteca de Estudios Bíblicos), de Lester L. Grabbe, delimita todavía más su ámbito histórico y religioso.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387592981",
+        "isbn-9788430123162"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "31339fcd2025ed39",
+  "origen": "chatgpt-web"
+}

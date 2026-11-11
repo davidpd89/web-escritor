@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788467083675",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El libro de Tomás Alía se dirige a lectores interesados en la artesanía española, su historia y su relación con el arte y el diseño. Su enfoque de ensayo cultural también conecta con quienes buscan conocer las tradiciones del país, pero se aleja de la ficción narrativa y de los manuales prácticos de técnicas artesanales.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La obra de Tomás Alía está disponible en tapa dura, con 320 páginas en castellano y edición de Editorial Espasa. La encuadernación rígida permite conservar el volumen en una biblioteca personal y consultarlo en papel; también resulta una opción para regalar a personas interesadas en la artesanía y el diseño español.",
+      "evidencias": [
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Tomás Alía comparte con Charlotte Perriand. La libertad de repensar el mundo el interés por el diseño y su dimensión cultural. La primera aborda la artesanía española desde la historia y el arte, mientras que la segunda, firmada por Varios autores, se centra en Charlotte Perriand y su relación con una forma distinta de pensar el mundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788416411993"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c22165c8ce81a4d8",
+  "origen": "chatgpt-web"
+}

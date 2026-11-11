@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788418052095",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La ciudad y los perros (Reservoir Gráfica), de Mario Vargas Llosa, encaja con lectores que buscan una obra presentada como cómic o novela gráfica. Su clasificación la aleja de quienes prefieren una edición de narrativa exclusivamente textual, y sus 160 páginas delimitan una lectura en un volumen relativamente breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La ciudad y los perros (Reservoir Gráfica) está disponible en tapa dura, con 160 páginas en castellano. Esta encuadernación permite conservar el volumen como libro físico de consulta o colección; frente a la lectura en pantalla, requiere disponer del ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La ciudad y los perros (Reservoir Gráfica) puede compararse con Los desafíos de la sociedad abierta: La libertad y sus enemigos (Obra periodística Vargas Llosa IV), pues ambos títulos llevan la firma de Mario Vargas Llosa. El primero se presenta como novela gráfica, mientras que el segundo aborda la libertad y sus enemigos desde la obra periodística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788420460444"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f8c73eda11e70dbc",
+  "origen": "chatgpt-web"
+}

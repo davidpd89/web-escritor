@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409912865",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "GED Complexity Index: La metodología para medir la complejidad de una interfaz se dirige a lectores interesados en la divulgación científica y en el análisis de interfaces. Sus 217 páginas se centran en una metodología de medición, por lo que su planteamiento corresponde a la no ficción técnica, no a una lectura narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 217 páginas de GED Complexity Index: La metodología para medir la complejidad de una interfaz en un único volumen físico. Es la edición disponible para quien prefiera leer, consultar y conservar el contenido en papel, en lugar de utilizar un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA comparte con GED Complexity Index: La metodología para medir la complejidad de una interfaz el interés por explicar cuestiones tecnológicas mediante la divulgación. La diferencia está en el objeto de estudio: uno aborda la inteligencia artificial y el otro se concentra en medir la complejidad de las interfaces mediante una metodología.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "24a18e0478933c38",
+  "origen": "chatgpt-web"
+}

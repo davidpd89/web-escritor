@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791399273601",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ofelia ya duerme (DOS BIGOTES), de Lucía Lara Gavilán, se dirige a lectores de narrativa contemporánea en castellano. Sus 160 páginas permiten abordar la obra en una extensión relativamente breve; por género, se aleja de las lecturas centradas en el misterio y el thriller.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ofelia ya duerme (DOS BIGOTES) está disponible en tapa blanda y Kindle. La edición física de Editorial Dos Bigotes reúne 160 páginas y permite conservar o prestar el ejemplar; Kindle ofrece la alternativa de leerlo en un dispositivo compatible sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "919a3d0d5c530ebb",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073860284",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El ministro del poder. Un infiltrado en el 4T/ The Secretary in Power: Un infiltrado en el 4T se dirige a lectores interesados en el poder y la política. Su enfoque lo sitúa en la narrativa política, por lo que no responde a quien busca ficción de entretenimiento o una historia centrada en otros géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 328 páginas de El ministro del poder. Un infiltrado en el 4T/ The Secretary in Power: Un infiltrado en el 4T en un único volumen físico. Es el formato disponible en esta edición, con Hernn Gmez Bruera como autor y Grijalbo Mondadori como editorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A la sombra del Estado, de Luis de la Corte Ibáñez, aborda el espionaje, las operaciones encubiertas y el poder clandestino, mientras que El ministro del poder. Un infiltrado en el 4T/ The Secretary in Power: Un infiltrado en el 4T se sitúa en el ámbito del poder y la política. Ambos permiten acercarse a las relaciones de poder desde perspectivas distintas: las operaciones clandestinas y la política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bdb66c61fae7bb1f",
+  "origen": "chatgpt-web"
+}

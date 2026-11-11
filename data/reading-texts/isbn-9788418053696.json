@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El ego es tu enemigo se dirige a lectores interesados en filosofía y desarrollo personal que quieran examinar cómo influye el ego en la ambición, los logros y las dificultades. Ryan Holiday recurre a reflexiones y figuras históricas para abordar sus consecuencias; no es un tratado centrado exclusivamente en teoría filosófica abstracta ni una guía de bienestar físico.",
+      "texto": "El ego es tu enemigo se dirige a lectores de filosofía y desarrollo personal interesados en cómo el ego influye en la ambición, el éxito y la respuesta ante el fracaso. Ryan Holiday aborda estas cuestiones mediante reflexiones y ejemplos de figuras históricas, por lo que no responde al planteamiento de una novela de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,19 +14,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El ego es tu enemigo está disponible en tapa blanda, en una edición de Conecta de 264 páginas. El volumen físico permite consultar los ejemplos históricos y las reflexiones sobre el ego sin utilizar una pantalla, además de conservarlo o prestarlo. Su extensión es menor que la de un manual de gran formato, aunque la comodidad de transporte dependerá de las preferencias de lectura.",
+      "texto": "El ego es tu enemigo se ofrece en tapa blanda, con 264 páginas en castellano publicadas por Conecta. La encuadernación flexible permite llevarlo en una mochila o bolso y consultar sus reflexiones durante desplazamientos o sesiones de lectura separadas.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "edicion",
-        "editorial",
         "numero_paginas",
-        "sinopsis_editorial"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El ego es tu enemigo y Duelo, de Michael Cholbi, utilizan la reflexión filosófica para examinar experiencias humanas, pero Ryan Holiday se ocupa del ego ante el éxito y el fracaso, mientras que Michael Cholbi estudia la pérdida. Antes de perder el juicio, de Mauricio García Villegas, desplaza la atención hacia la verdad, la propaganda y las cámaras de eco, frente al enfoque individual de El ego es tu enemigo.",
+      "texto": "Has nacido para esto comparte la autoría de Ryan Holiday y aborda las lecciones personales extraídas de la experiencia de George Raveling. El ego es tu enemigo, en cambio, examina la influencia del ego sobre las decisiones, los logros y los fracasos mediante una reflexión vinculada a la filosofía estoica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,8 +33,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788449344626",
-        "isbn-9791388387302"
+        "isbn-9791387513146"
       ]
     }
   ],

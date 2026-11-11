@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410427631",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "En noches solitarias, escribe: La aventura de entenderte a ti mismo (GRANDES ÉXITOS DE ASIA) se dirige a lectores interesados en el autoconocimiento, el desarrollo personal y el bienestar emocional. Su orientación hacia la reflexión sobre uno mismo lo aleja de quienes buscan principalmente una novela de aventuras o una historia de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "En noches solitarias, escribe: La aventura de entenderte a ti mismo (GRANDES ÉXITOS DE ASIA) está disponible en tapa blanda y tiene 272 páginas. La edición en castellano de Neko Books permite mantener el libro a mano para volver a sus contenidos sobre autoconocimiento y desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "En noches solitarias, escribe: La aventura de entenderte a ti mismo (GRANDES ÉXITOS DE ASIA) comparte con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito el interés por el desarrollo personal. Fumitake Koga sitúa el autoconocimiento y la escritura en el centro de su título, mientras que Liz Moody plantea cambios relacionados con la salud, la felicidad y las relaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "806bf50bf141c602",
+  "origen": "chatgpt-web"
+}

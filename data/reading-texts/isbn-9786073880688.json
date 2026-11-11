@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9786073880688",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Kpop Demon Hunters. Libro Oficial de Retos / Kpop Demon Hunters: Official Would You Rather? se dirige a quienes buscan retos relacionados con Kpop Demon Hunters y contenidos vinculados a la fantasía y las aventuras. Por su planteamiento como libro de retos, no responde a la búsqueda de una novela de ficción con una trama extensa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Kpop Demon Hunters. Libro Oficial de Retos / Kpop Demon Hunters: Official Would You Rather? está disponible en tapa blanda, con 112 páginas en castellano. Es una opción física para consultar los retos, compartir el ejemplar o regalarlo, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Kpop Demon Hunters: Official Would You Rather? comparte con Kpop Demon Hunters. Fan Book Oficial (Spanish Edition) el universo de Kpop Demon Hunters y la autoría de Jessica Yoon. Mientras que el primero plantea retos y elecciones, el segundo se presenta como un libro para seguidores, con un enfoque distinto dentro de la misma temática.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073882996"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6f0127780ea547fa",
+  "origen": "chatgpt-web"
+}

@@ -4,28 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Maleducados emocionales está dirigido a quienes quieren reconocer comportamientos que deterioran sus relaciones personales. Dr. José Carbonell examina los desprecios cotidianos y sus consecuencias psicológicas; encaja menos con lectores que buscan ficción o un tratado general sobre todas las ramas de la psicología.",
+      "texto": "Maleducados emocionales se dirige a lectores interesados en la psicología, las relaciones personales y el bienestar emocional. Encaja con quienes quieren comprender conductas que deterioran los vínculos y la autoestima; no está planteado como una novela ni como un libro de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Maleducados emocionales se publica en tapa blanda con solapas y tiene 256 páginas. Esta edición permite consultar en papel las explicaciones sobre conductas relacionales y regresar a los apartados que interesen durante la lectura.",
+      "texto": "La tapa blanda reúne las 256 páginas de Maleducados emocionales en una edición rústica con solapas. Es el formato disponible para este título y permite incorporar un libro de psicología a la lectura habitual sin optar por una edición de tapa dura.",
       "evidencias": [
-        "titulo",
-        "edicion",
         "numero_paginas",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Maleducados emocionales y El arte de la negociación tratan dificultades que aparecen al relacionarse con otras personas. Dr. José Carbonell se ocupa de identificar desprecios y gestionar sus efectos, mientras que Giorgio Nardone y Stefano Bartoli abordan la negociación como herramienta para alcanzar acuerdos y objetivos compartidos.",
+      "texto": "Maleducados emocionales comparte con Conectados para el amor / Wired for Love, de Stan Tatkin, el interés por las relaciones y el comportamiento emocional. Su diferencia está en el foco: el libro de Dr. José Carbonell aborda los gestos de desprecio que deterioran los vínculos, mientras que el título de Stan Tatkin sitúa el amor en el centro de la lectura.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,7 +30,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425453304"
+        "isbn-9786073876056"
       ]
     }
   ],

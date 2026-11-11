@@ -4,19 +4,18 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Métricas se dirige a lectores de filosofía interesados en cómo los sistemas de puntuación condicionan la vida cotidiana. C. Thi Nguyen examina prácticas como contar los «me gusta», registrar datos mediante relojes inteligentes y utilizar calificaciones. No está planteado como un manual para mejorar indicadores personales o profesionales.",
+      "texto": "Métricas encaja con lectores de filosofía interesados en cómo las puntuaciones condicionan la vida diaria. Sus 416 páginas examinan prácticas digitales y sistemas de evaluación, por lo que se aleja de una lectura centrada exclusivamente en técnicas para mejorar resultados personales.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Métricas estudia la transformación de actividades cotidianas en experiencias medidas mediante puntuaciones y resultados cuantificables. C. Thi Nguyen utiliza ejemplos de redes sociales, dispositivos inteligentes y sistemas de calificación para examinar qué sucede cuando los números influyen en las prioridades personales. Su enfoque filosófico cuestiona la relación entre medir una actividad y determinar su importancia.",
+      "texto": "C. Thi Nguyen estudia la conversión de actividades cotidianas en resultados cuantificables. Los relojes inteligentes, los «me gusta» y las calificaciones sirven para examinar cómo las puntuaciones influyen en las prioridades personales. El planteamiento es filosófico y cuestiona qué aspectos de la experiencia merecen atención más allá de los números.",
       "evidencias": [
-        "titulo",
         "autores",
         "categorias",
         "sinopsis_editorial"
@@ -24,18 +23,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Métricas ofrece tres posibilidades: tapa blanda, Kindle y audiolibro. Sus 416 páginas pueden leerse en la edición rústica con solapas de Ediciones Península, mientras que Kindle permite transportar el texto digitalmente. El audiolibro cambia la lectura por la escucha y facilita seguir su reflexión filosófica sin utilizar un ejemplar físico.",
+      "texto": "La tapa blanda de Métricas ofrece 416 páginas en rústica con solapas para leer y consultar en papel. Kindle permite acceder al texto desde dispositivos compatibles, mientras que el audiolibro ofrece la alternativa de escuchar la reflexión filosófica durante otras actividades.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
         "edicion",
-        "editorial"
+        "formatos_disponibles",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Métricas comparte con Bobadas la preocupación por aquello que las personas consideran importante en su vida cotidiana. C. Thi Nguyen examina los sistemas de puntuación, mientras que Javier Urra Portillo y Cristina González Reche plantean preguntas sobre las prioridades personales ante la abundancia de estímulos. Antes de perder el juicio aborda otro problema relacionado con el entorno informativo: la influencia de la propaganda y las cámaras de eco sobre la percepción de la verdad.",
+      "texto": "Métricas y Antes de perder el juicio examinan problemas relacionados con la manera de interpretar la realidad. C. Thi Nguyen analiza los sistemas de puntuación y la ludificación cotidiana; Mauricio García Villegas aborda la verdad frente a la propaganda y las cámaras de eco. El primero se centra en la cuantificación de la experiencia y el segundo en las distorsiones del juicio público.",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,8 +42,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388387302",
-        "isbn-9788426741622"
+        "isbn-9791388387302"
       ]
     }
   ],

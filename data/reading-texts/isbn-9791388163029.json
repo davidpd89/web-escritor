@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791388163029",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Obsesión mortal, de Nora Roberts, está dirigido a lectores que buscan misterio y thriller, especialmente a quienes prefieren este tipo de ficción frente a otros géneros. Sus 528 páginas ofrecen una lectura de extensión considerable; no encaja con quien busque principalmente romance, fantasía o contenidos de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 528 páginas de Obsesión mortal, de Nora Roberts, en una edición física de Suma de Letras. Es el formato disponible para quien prefiere leer en papel, transportar el libro y conservarlo en su biblioteca después de terminarlo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7d2686c745c6a56c",
+  "origen": "chatgpt-web"
+}

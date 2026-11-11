@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788466395687",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Animales fantásticos y dónde encontrarlos (Un libro de la biblioteca de Hogwarts) (Harry Potter), de J.K. Rowling, se dirige a lectores interesados en el universo de Harry Potter y sus criaturas fantásticas. Su orientación hacia los animales de ficción lo diferencia de una novela de aventuras centrada en una sucesión de conflictos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Animales fantásticos y dónde encontrarlos (Un libro de la biblioteca de Hogwarts) (Harry Potter) se presenta en tapa blanda, en una edición de bolsillo de 160 páginas. El formato de Penguin Bolsillo facilita llevarlo en una bolsa y colocarlo junto a otros volúmenes de la biblioteca de Hogwarts.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Animales fantásticos y dónde encontrarlos (Un libro de la biblioteca de Hogwarts) (Harry Potter) comparte universo y autoría con Los cuentos de Beedle el bardo (Un libro de la biblioteca de Hogwarts) (Harry Potter). El primero se identifica por sus animales fantásticos y el segundo por sus cuentos; ambos aparecen también relacionados con Estuche Biblioteca de Hogwarts: contiene: Animales fantásticos | Los cuentos de Beedle el bardo | Quidditch a través de los tiempos (Harry Potter).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395724",
+        "isbn-9788466395694"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a986c192343ba6d8",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410466876",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Proyecto Hail Mary (edición deluxe) (Nova) encaja con lectores de ciencia ficción que también buscan elementos de misterio. La obra de Andy Weir combina ambas clasificaciones, de modo que se aleja de las lecturas centradas exclusivamente en conflictos realistas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Proyecto Hail Mary (edición deluxe) (Nova) cuenta con una edición en tapa dura de 544 páginas, publicada por Nova. Su encuadernación rígida resulta apropiada para conservar el volumen en una biblioteca personal o regalar una edición física de extensión considerable.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) y El marciano (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) comparten autor, Andy Weir, con Proyecto Hail Mary (edición deluxe) (Nova). Las dos primeras destacan los cantos tintados en sus títulos, mientras que esta edición se presenta como deluxe y combina ciencia ficción y misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388147470",
+        "isbn-9791388147272"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "701a6ce3376d3320",
+  "origen": "chatgpt-web"
+}

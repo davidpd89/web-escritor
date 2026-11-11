@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788430123193",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "No tocarás al otro en vano: Hacia una ética de la sexualidad: 132 (El Peso de los Días) se dirige a lectores interesados en la reflexión filosófica sobre la sexualidad y la ética. El planteamiento ensayístico de Lorena Santos de Torregroza se aparta de la ficción romántica y de las narraciones centradas en una relación sentimental.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "No tocarás al otro en vano: Hacia una ética de la sexualidad: 132 (El Peso de los Días) se publica en tapa blanda y consta de 128 páginas. La edición en castellano de Ediciones Sígueme reúne en un volumen breve un ensayo filosófico que puede leerse en papel y consultarse por pasajes.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "No tocarás al otro en vano: Hacia una ética de la sexualidad: 132 (El Peso de los Días) comparte el terreno de la reflexión filosófica con Cartas a Lucilio: Edición íntegra (Clásicos), de Séneca, aunque Lorena Santos de Torregroza delimita su tema a la ética sexual. Frente a Antes de perder el juicio, de Mauricio García Villegas, centrado en cuestiones de verdad y propaganda, el ensayo aborda la sexualidad desde una perspectiva ética.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388387302",
+        "isbn-9791388182495"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b0aeb8b29cf983dc",
+  "origen": "chatgpt-web"
+}

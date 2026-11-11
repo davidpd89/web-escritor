@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791388147593",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores que buscan misterio y thriller con elementos de novela histórica. Sus 552 páginas apuntan a una lectura extensa, menos adecuada para quien prefiere relatos cortos o historias centradas exclusivamente en el romance.",
+      "evidencias": [
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición limitada de No decepciones a tu padre (edición limitada) (Campaña | Ahora por menos) forma parte de la campaña Ahora por menos. Penguin Bolsillo la identifica mediante el ISBN 9791388147593, una referencia específica para localizar esta presentación de la novela de Carme Chaparro frente a otras ediciones.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "isbn13",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Está disponible en tapa blanda y se presenta como libro de bolsillo de 552 páginas. Permite llevar una novela extensa en un volumen físico de formato reducido, aunque el número de páginas implica más grosor que en otros libros de bolsillo más cortos.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Delito: Edición limitada a precio especial (Colección Especial) comparte autoría con esta novela: ambas son de Carme Chaparro. El hombre que fue casi nadie (Salamandra Black), de Victoria González Torralba, ofrece otra referencia de narrativa vinculada al misterio, mientras que No decepciones a tu padre combina thriller y novela histórica.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467085235",
+        "isbn-9791387928599"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "de84863d64f744ad",
+  "origen": "chatgpt-web"
+}

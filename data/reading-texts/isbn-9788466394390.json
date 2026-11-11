@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "5 semanas para desinflamarte (edición limitada) se dirige a quienes buscan incorporar hábitos alimentarios y recetas para abordar la inflamación. Su programa de cinco semanas combina cambios cotidianos y pautas de bienestar; no está planteado como un recetario exclusivamente gastronómico.",
+      "texto": "5 semanas para desinflamarte (edición limitada) se dirige a lectores interesados en alimentación, hábitos cotidianos y bienestar mediante un programa organizado por semanas. Sus menús y recetas responden a una búsqueda práctica, por lo que encaja menos con quien prefiere un ensayo exclusivamente teórico sobre nutrición.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,50 +13,55 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "5 semanas para desinflamarte (edición limitada) se presenta en tapa blanda bajo el sello Penguin Bolsillo. Esta edición en castellano tiene 368 páginas y se identifica con el ISBN 9788466394390. Su fecha de publicación editorial es 2027-01-07, y el propio título la distingue como edición limitada.",
+      "texto": "La edición limitada de 5 semanas para desinflamarte (edición limitada) aparece en tapa blanda bajo el sello Penguin Bolsillo. Tiene 368 páginas en castellano, fecha editorial 2027-01-07 e ISBN 9788466394390. Estos datos identifican esta presentación concreta de la obra de Blanca García-Orea Haro.",
       "evidencias": [
         "titulo",
-        "editorial",
+        "autores",
         "edicion",
+        "editorial",
         "numero_paginas",
         "idioma",
-        "isbn13",
-        "fecha_publicacion"
+        "fecha_publicacion",
+        "isbn13"
       ]
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "El contenido se articula alrededor de un programa de cinco semanas para modificar hábitos relacionados con la alimentación y el bienestar. Incluye consejos prácticos, menús y recetas, además de orientaciones para reconocer posibles desencadenantes de la inflamación. Permite trasladar esas pautas a la planificación de comidas cotidianas.",
+      "texto": "El contenido se articula alrededor de un programa de 5 semanas orientado a modificar hábitos relacionados con la alimentación y la inflamación. Blanca García-Orea Haro incorpora consejos prácticos, menús y recetas que pueden consultarse al planificar comidas. Las 368 páginas permiten reunir las pautas y las propuestas culinarias en un mismo volumen.",
       "evidencias": [
         "titulo",
-        "sinopsis_editorial"
+        "autores",
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 368 páginas de 5 semanas para desinflamarte (edición limitada) en un volumen físico que permite consultar menús y recetas mientras se cocina. Kindle facilita llevar el contenido en el móvil y el audiolibro permite escucharlo sin mantener el libro abierto. La elección depende de si se prefiere consultar, leer en pantalla o escuchar.",
+      "texto": "La tapa blanda permite consultar las 368 páginas de 5 semanas para desinflamarte (edición limitada) en papel, especialmente al preparar menús o seguir recetas en la cocina. Kindle ofrece una alternativa digital para llevar las indicaciones en el móvil y consultarlas fuera de casa sin transportar el volumen físico.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La fibra es la solución, de Kristen Stavridis, también aborda la inflamación desde la alimentación, pero centra su propuesta en consumir 30 gramos diarios de fibra. La revolución de la glucosa: el Método, de Jessie Inchauspé, comparte el planteamiento práctico y las recetas, aunque organiza su guía en cuatro semanas. 5 semanas para desinflamarte (edición limitada) plantea cinco semanas de hábitos y menús.",
+      "texto": "Quemar grasa no es perder grasa: Guía práctica de 4 semanas para decir adiós a la ansiedad y a los antojos​ (Bienestar, salud y vida sana) comparte autoría con 5 semanas para desinflamarte (edición limitada), pero centra su propuesta en la grasa corporal, la ansiedad y los antojos. La revolución de la glucosa: el Método también utiliza una planificación de 4 semanas, aunque aborda la glucosa y reúne 100 recetas.",
       "evidencias": [
         "titulo",
+        "autores",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425374869",
+        "isbn-9788425363061",
         "isbn-9788411191937"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a69421adbe3f6acf",
+  "fuente_hash": "f7dc68eac4b67c67",
   "origen": "chatgpt-web"
 }

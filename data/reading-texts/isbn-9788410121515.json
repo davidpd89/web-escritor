@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788410121515",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Algoritmo: La fórmula de hipercrecimiento que transformó Tesla y SpaceX se dirige a lectores interesados en la expansión empresarial y las estrategias de crecimiento. Por su enfoque económico, no responde a quien busca una novela de ficción ni una introducción general a las finanzas personales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Reverté Management (rem) está encuadernada en tapa dura y reúne 416 páginas. Es una presentación pensada para conservar el volumen en una biblioteca y volver a consultar sus contenidos sobre crecimiento empresarial.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antes de liderar: Una mirada interior a un oficio comparte el interés por la gestión, pero sitúa el foco en el ejercicio del liderazgo, mientras que El Algoritmo: La fórmula de hipercrecimiento que transformó Tesla y SpaceX aborda el crecimiento empresarial. Branding con criterio: Una novela-ensayo que, como brújula de arena, nos interpela (TEMATICOS) se aproxima desde la marca y adopta una forma de novela-ensayo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921980",
+        "isbn-9791399168648"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "610c9438152a2d5b",
+  "origen": "chatgpt-web"
+}

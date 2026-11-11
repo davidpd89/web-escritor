@@ -4,7 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Gloria Fuertes. Tanto amas, tanto vales se dirige a quienes buscan poesía y textos breves vinculados con la literatura infantil. Gloria Fuertes reúne cuentos, adivinanzas y versos humorísticos, por lo que su contenido se aparta de una novela de argumento continuo y también de una antología exclusivamente adulta.",
+      "texto": "Gloria Fuertes. Tanto amas, tanto vales se dirige a quienes buscan poesía infantil, cuentos y juegos verbales con humor. Sus adivinanzas y versos permiten alternar distintas formas de lectura; no responde a la búsqueda de una novela con una trama continuada.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Gloria Fuertes. Tanto amas, tanto vales reúne textos de poesía infantil distribuidos por temas. Gloria Fuertes combina cuentos, poemas y adivinanzas con el amor y el humor como elementos recurrentes, de modo que el volumen permite leer piezas independientes.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,19 +22,8 @@
       ]
     },
     {
-      "modulo": "encaje_documentado",
-      "texto": "Gloria Fuertes. Tanto amas, tanto vales propone una lectura fragmentada, organizada alrededor de los asuntos recurrentes de la escritura infantil de Gloria Fuertes. Alterna formas narrativas y poéticas, con el humor y el afecto como elementos comunes. Sus 304 páginas permiten escoger textos individuales en lugar de seguir una historia de principio a fin.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial",
-        "numero_paginas",
-        "categorias"
-      ]
-    },
-    {
       "modulo": "que_formato_elegir",
-      "texto": "Gloria Fuertes. Tanto amas, tanto vales está disponible en tapa dura. Esta edición de Susaeta Ediciones reúne 304 páginas y permite conservar juntos poemas, cuentos y adivinanzas en un volumen físico, tanto para la lectura compartida como para volver a textos concretos.",
+      "texto": "La edición disponible de Gloria Fuertes. Tanto amas, tanto vales es en tapa dura, publicada por Susaeta Ediciones. Sus 304 páginas reúnen diferentes tipos de textos breves en un volumen físico que puede consultarse por temas y conservarse para sucesivas lecturas.",
       "evidencias": [
         "titulo",
         "editorial",
@@ -36,7 +34,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Gloria Fuertes. Tanto amas, tanto vales comparte con Antología la reunión de escritos poéticos, pero la obra de Gloria Fuertes incorpora cuentos y adivinanzas infantiles, mientras que la de Antonio Cano recopila su producción completa. El libro de los gatos también combina poemas con otras formas expresivas, aunque Ursula K. Le Guin centra su volumen en los gatos y añade meditaciones y dibujos.",
+      "texto": "Gloria Fuertes. Tanto amas, tanto vales comparte con Antología, de Antonio Cano, la reunión de textos poéticos en un volumen, aunque esta última recoge una obra completa y la primera se organiza por temas infantiles. Frente a Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, incorpora también cuentos y adivinanzas, además de poemas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -44,8 +42,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370140908",
-        "isbn-9791388306297"
+        "isbn-9788466396288",
+        "isbn-9791370140908"
       ]
     }
   ],

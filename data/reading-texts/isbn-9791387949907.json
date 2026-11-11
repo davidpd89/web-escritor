@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387949907",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Comeback inesperado, un (Kpop Girls 2) (Sin límites), de Silvia Aliaga, se orienta a lectores interesados en la fantasía, las aventuras y el entorno artístico. El título incorpora una referencia al k-pop y lo identifica como el n.º 2; se aleja de las lecturas exclusivamente realistas y de las obras centradas en el ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Comeback inesperado, un (Kpop Girls 2) (Sin límites) tiene una edición en tapa dura de 192 páginas, publicada en castellano por Alfaguara. La cubierta rígida permite conservar el volumen en una colección física, especialmente cuando el título identifica una entrega numerada; también ofrece una presentación adecuada para regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tami Tamako 2 - Lista para triunfar: Una historia de k-pop (Montena), de Tami Tamako, comparte con Comeback inesperado, un (Kpop Girls 2) (Sin límites) la referencia al k-pop y la identificación de una segunda entrega en el título. La obra de Silvia Aliaga incorpora además fantasía y aventuras, mientras que la de Tami Tamako se presenta expresamente como una historia de k-pop. Son propuestas de distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388417177"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eb466e4722d18dbd",
+  "origen": "chatgpt-web"
+}

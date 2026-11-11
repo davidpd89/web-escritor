@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408328414",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de narrativa contemporánea interesados en historias relacionadas con la familia y el contexto histórico del siglo XX. Su orientación hacia los vínculos familiares y la historia lo aleja de las lecturas centradas exclusivamente en fantasía o aventuras.",
+      "evidencias": [
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Cuando el viento hable: Edición limitada a precio especial (Colección Especial) se presenta como una tirada limitada de Booket en tapa dura. Publicada el 11 de noviembre de 2026, reúne 368 páginas en castellano y se identifica con el ISBN 9788408328414. La mención a precio especial forma parte de la denominación de esta edición.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es la tapa dura de Booket, con 368 páginas en castellano. Su encuadernación rígida resulta práctica para conservar el ejemplar, colocarlo en una biblioteca o entregarlo como regalo. Es una edición física para quien prefiere leer en papel.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dime, niña bonita (Narrativa), de Laura Galve, comparte con Cuando el viento hable: Edición limitada a precio especial (Colección Especial) su orientación narrativa, aunque este último se sitúa también en el ámbito de la familia y la historia del siglo XX. Celestino antes del alba (Andanzas), de Reinaldo Arenas, es otra referencia narrativa del catálogo, con una autoría diferente y sin la identificación editorial de edición limitada que acompaña al libro de Ángela Banzas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411078535",
+        "isbn-9791387605964"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6c031db5561c665c",
+  "origen": "chatgpt-web"
+}

@@ -4,16 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Frankenstein encaja con lectores de terror interesados en los dilemas morales de la creación, la ambición y el aislamiento. El conflicto entre Victor Frankenstein y su criatura concede importancia a las consecuencias de los actos, por lo que se aleja de una historia centrada exclusivamente en sobresaltos o amenazas físicas.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "encaje_documentado",
-      "texto": "Frankenstein combina el terror con una reflexión narrativa sobre los límites de la intervención humana y la responsabilidad ante sus resultados. Mary Shelley articula estas cuestiones mediante la relación entre un creador y el ser al que da vida, con la soledad y las consecuencias de la ambición como ejes del conflicto.",
+      "texto": "Frankenstein, de Mary Shelley, encaja con lectores de terror interesados en la ambición humana, la soledad y las consecuencias de desafiar los límites de lo posible. Su conflicto moral y su tratamiento de la creación humana lo alejan de quienes prefieren relatos cotidianos sin elementos inquietantes.",
       "evidencias": [
         "titulo",
         "autores",
@@ -22,18 +13,28 @@
       ]
     },
     {
-      "modulo": "que_formato_elegir",
-      "texto": "Frankenstein está disponible en tapa dura y Kindle, con una extensión de 256 páginas en esta edición de RBA Libros. La tapa dura ofrece una encuadernación rígida para conservar el volumen y regalarlo; Kindle permite leer la novela en formato digital y transportarla sin llevar el ejemplar físico.",
+      "modulo": "encaje_documentado",
+      "texto": "Frankenstein combina el terror con una reflexión narrativa sobre la responsabilidad de quien crea una vida. La relación entre Victor Frankenstein y su criatura articula cuestiones de ambición, aislamiento y consecuencias personales, con un conflicto que va más allá de la amenaza física.",
       "evidencias": [
         "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Frankenstein está disponible en tapa dura y Kindle, con una edición física de RBA Libros de 256 páginas. La tapa dura permite conservar el volumen en una biblioteca o entregarlo como regalo, mientras que Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
         "numero_paginas",
-        "formatos_disponibles",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Frankenstein y Coraline recurren a situaciones inquietantes que alteran la experiencia de sus protagonistas. Neil Gaiman plantea el acceso a una versión distinta del hogar de Coraline, mientras Mary Shelley explora la responsabilidad de Victor Frankenstein ante su criatura y las consecuencias de intentar superar los límites humanos.",
+      "texto": "Cosamala comparte con Frankenstein el territorio de lo gótico y lo inquietante, pero parte de un crimen real relacionado con la guerra civil y las brujas, frente al conflicto entre un creador y su criatura. Colecciones de cuentos, de Leopoldo Lugones, ofrece una alternativa en forma de relatos, distinta de la novela de Mary Shelley.",
       "evidencias": [
         "titulo",
         "autores",
@@ -42,7 +43,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "lib-0001"
+        "isbn-9791399067347",
+        "isbn-9788432251436"
       ]
     }
   ],

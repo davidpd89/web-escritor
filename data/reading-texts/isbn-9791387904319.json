@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387904319",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ruido: Cómo resistir el dominio digital y recuperar tu vida, de Esther Paniagua, se dirige a lectores interesados en el impacto de la tecnología digital y en recuperar espacio frente a su influencia cotidiana. Sus 448 páginas corresponden a un ensayo, por lo que no encaja con quien busca una historia de ficción o una narración de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece una edición física de 448 páginas, adecuada para quien prefiere leer un ensayo en papel y conservarlo para futuras consultas. Es el formato disponible de Ruido: Cómo resistir el dominio digital y recuperar tu vida, de Esther Paniagua, y permite leerlo sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7445bdebc44fb8c1",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388030260",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡No te asustes, solo soy un dinosaurio! (Miau) se dirige al público infantil interesado en los dinosaurios y los animales. El libro de Ben Lerwill tiene 40 páginas y se diferencia de las lecturas juveniles extensas por su formato breve y su temática vinculada a la naturaleza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¡No te asustes, solo soy un dinosaurio! (Miau) se ofrece en tapa dura, con 40 páginas en castellano. La encuadernación rígida de esta edición de Ediciones Jaguar permite manipular el libro durante lecturas compartidas y proporciona una cubierta resistente para guardarlo junto a otros títulos infantiles.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¡No te asustes, solo soy un dinosaurio! (Miau) comparte el interés por los animales con Animales, de Susaeta Ediciones, que reúne seis cuentos ilustrados protagonizados por ellos, mientras que Ben Lerwill centra su título en un dinosaurio. También se aproxima a Aprende a contar animales, de Susaeta Ediciones, aunque este último incorpora el aprendizaje de los números del 1 al 10 y el libro de Ben Lerwill se presenta como una lectura infantil sobre un dinosaurio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370341589",
+        "isbn-9791370341176"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "46f2a3691f5c9484",
+  "origen": "chatgpt-web"
+}

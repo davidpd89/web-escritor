@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419981448",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Qué es una vida buena?: Sócrates y lo que de verdad importa (Salamandra Graphic) se dirige a lectores interesados en la historia, las biografías y las preguntas sobre la vida. Sus 144 páginas plantean una lectura de extensión breve alrededor de Sócrates; no responde al perfil de quien busca una novela de ficción o una narración de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer ¿Qué es una vida buena?: Sócrates y lo que de verdad importa (Salamandra Graphic) en una edición física de 144 páginas. Su extensión contenida facilita transportarlo y consultarlo en distintos momentos, sin necesitar un dispositivo electrónico para seguir la lectura.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cesar La conquista de la eternidad, de Alberto Angela, comparte con ¿Qué es una vida buena?: Sócrates y lo que de verdad importa (Salamandra Graphic) el interés por las figuras históricas. La diferencia está en el enfoque: el primero presenta un recorrido centrado en una figura del pasado, mientras el segundo plantea preguntas sobre la vida a partir de Sócrates. Ambos permiten acercarse a la historia desde perspectivas diferentes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944329"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "29b18ba5a62e7d8b",
+  "origen": "chatgpt-web"
+}

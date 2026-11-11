@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419670373",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la historia narrada mediante cómic y novela gráfica. La balada del norte 03 (nueva edición) (Sillón Orejero), de Alfonso Zapico, combina el ámbito histórico con el lenguaje gráfico, por lo que se aleja de los ensayos históricos exclusivamente escritos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La balada del norte 03 (nueva edición) (Sillón Orejero) está disponible en tapa dura, con 256 páginas en castellano. Esta encuadernación permite conservar el volumen en una estantería y consultarlo físicamente, algo pertinente para una obra clasificada como cómic y novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig, comparte con La balada del norte 03 (nueva edición) (Sillón Orejero) el interés por la ficción histórica. La diferencia está en la presentación: la obra de Alfonso Zapico pertenece también al cómic y la novela gráfica, mientras que el título de María Reig se presenta como narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ffbad4f695f2d10c",
+  "origen": "chatgpt-web"
+}

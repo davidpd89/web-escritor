@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788427256354",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un nuevo enemigo (La orden de las sombras 2) (Ficción Kids) se orienta a lectores de fantasía y ciencia ficción interesados en una historia identificada como parte de una serie. El título la presenta como la entrega n.º 2, por lo que quienes busquen una lectura expresamente independiente pueden preferir otra obra.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Molino se publica en tapa dura y contiene 416 páginas en castellano. Este formato proporciona una cubierta rígida para conservar el volumen, prestarlo o reunirlo con otros títulos de la misma colección en una estantería.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aftermyth 1. Penelope y la prueba de los dioses comparte con Un nuevo enemigo (La orden de las sombras 2) (Ficción Kids) su vinculación con la fantasía y una numeración visible en el título. El primero se identifica como entrega n.º 1, mientras que el libro de Lauren Magaziner figura como n.º 2 y combina fantasía con ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324102"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a3a34c3713842b73",
+  "origen": "chatgpt-web"
+}

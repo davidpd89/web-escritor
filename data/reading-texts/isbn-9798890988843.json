@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9798890988843",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores que buscan narrativa de terror y fantasía de Isabel Cañas en castellano. Sus 304 páginas y la edición con cantos pintados combinan una lectura de extensión moderada con un acabado decorativo; no responde a la búsqueda de una novela exclusivamente romántica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La casa de las gardenias (Edición cantos pintados) / The House of Gardenias (Sprayed Edges Edition) se distingue por el acabado decorativo de sus cantos pintados. Vintage Espanol la publica en castellano, en tapa blanda y con 304 páginas, bajo el ISBN 9798890988843.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "idioma",
+        "formato_edicion",
+        "numero_paginas",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, con 304 páginas y cantos pintados. El acabado decorativo tiene interés para quien conserva libros en papel o busca una edición para regalar, mientras que la extensión permite transportarla sin el volumen de una novela mucho más larga.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La casa de las gardenias (Edición cantos pintados) / The House of Gardenias (Sprayed Edges Edition) y Bones: ¿Cuál es tu razón para sobrevivir?: 1 (Matchstories Romántica Fantasy) comparten elementos de fantasía. La obra de Isabel Cañas incorpora también el terror y se presenta con cantos pintados, mientras que el título de K. L. Speer señala una orientación romántica y fantástica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055964"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0bb1b1da80959636",
+  "origen": "chatgpt-web"
+}

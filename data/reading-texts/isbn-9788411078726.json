@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788411078726",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Primer amor: High & Dry (MAXI) se dirige a lectores de narrativa contemporánea interesados en historias relacionadas con el amor y las relaciones de pareja. Su clasificación temática lo separa de las lecturas centradas en la divulgación científica o los manuales de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de bolsillo en tapa blanda reúne las 176 páginas de Primer amor: High & Dry (MAXI) en un volumen pensado para transportar y guardar con facilidad. Al tratarse de una edición física, permite leer sin pantalla y conservar el ejemplar en una biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Primer amor: High & Dry (MAXI) y Amor en pole position (Dirty Air 3) comparten el interés por las relaciones amorosas. La obra de Banana Yoshimoto pertenece a la narrativa contemporánea, mientras que la de Lauren Asher sitúa su historia romántica en el mundo de la Fórmula 1. La ambientación deportiva constituye una diferencia concreta entre ambas propuestas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b1d3240283500a4d",
+  "origen": "chatgpt-web"
+}

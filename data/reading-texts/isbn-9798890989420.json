@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9798890989420",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Independencia de Estados Unidos / American Revolution: Libro Informativo Complementario de Magic Tree House #22 Guerra Revolucionaria En Miércoles (Magic Tree House: Exploradores), de Mary Pope Osborne, se dirige a lectores interesados en la historia de Estados Unidos y los acontecimientos políticos. Su planteamiento informativo lo diferencia de quienes buscan una novela de fantasía o una aventura en formato de cómic.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para esta edición de La Independencia de Estados Unidos / American Revolution: Libro Informativo Complementario de Magic Tree House #22 Guerra Revolucionaria En Miércoles (Magic Tree House: Exploradores). Sus 128 páginas conforman un volumen físico de extensión contenida, pensado para conservarlo en papel y consultarlo fuera de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Independencia de Estados Unidos / American Revolution: Libro Informativo Complementario de Magic Tree House #22 Guerra Revolucionaria En Miércoles (Magic Tree House: Exploradores), de Mary Pope Osborne, comparte autora y universo editorial con Dinosaurios Al Atardecer (Novela Gráfica) / Dinosaurs Before Dark (Graphic Novel) (Magic Tree House Novela Gráfica), de Mary Pope Osborne. La diferencia está en el enfoque: el primero aborda contenidos históricos y políticos, mientras el segundo presenta fantasía y aventuras mediante una novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890989642"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c73e0eb80c91a624",
+  "origen": "chatgpt-web"
+}

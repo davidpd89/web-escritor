@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388510250",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La infancia migrante como titular de derechos fundamentales: de la especial protección a la criminalización, de Carlos Arce Jiménez, se dirige a lectores interesados en los derechos de la infancia migrante. El título plantea una cuestión de protección jurídica y criminalización, por lo que no encaja con quien busca cuentos infantiles o ficción de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La infancia migrante como titular de derechos fundamentales: de la especial protección a la criminalización tiene 186 páginas y se publica en tapa blanda, en edición Shinsho. Su extensión permite manejarlo como un volumen de consulta sobre derechos de la infancia. Está editado en castellano por Atelier.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La infancia migrante como titular de derechos fundamentales: de la especial protección a la criminalización y Abraza a tu niño interior: Nunca es tarde para sanar tu infancia comparten la infancia como asunto central. Carlos Arce Jiménez aborda los derechos fundamentales de menores migrantes; Victoria Cadarso trata la relación personal con la propia infancia. El primero plantea una cuestión jurídica y social; el segundo, una perspectiva de sanación personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2e3e951fd3ac315a",
+  "origen": "chatgpt-web"
+}

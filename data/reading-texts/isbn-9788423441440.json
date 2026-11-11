@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788423441440",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La generación ansiosa encaja con lectores interesados en la psicología juvenil y en el efecto de las redes sociales sobre la salud mental. Se dirige a quienes buscan un ensayo sobre adolescencia y tecnología, no a quienes prefieren una guía general de desarrollo personal o una obra de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 384 páginas en una edición de bolsillo de Booket. Es el único formato disponible para esta edición, por lo que resulta la opción para quien quiera leer el libro en papel y conservarlo en su biblioteca.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La generación ansiosa y Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología), de Ramón Nogueras Pérez, comparten el interés por la psicología y el comportamiento humano. La diferencia está en el foco: Jonathan Haidt aborda la juventud y las redes sociales, mientras que Ramón Nogueras Pérez centra su libro en las relaciones amorosas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387534370"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2bbce2363a0c4386",
+  "origen": "chatgpt-web"
+}

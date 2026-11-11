@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073877831",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Otra historia de México / Another History of Mexico se dirige a lectores interesados en la historia de México y en sus relaciones con el poder y la política. Juan Miguel Zunzunegui aborda un terreno de no ficción histórica, por lo que se distancia de las novelas de aventuras y de quienes buscan una trama protagonizada por personajes ficticios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Otra historia de México / Another History of Mexico cuenta con una edición en tapa blanda de 260 páginas, publicada por Penguin Random House Grupo Editorial. Su extensión permite distribuir la lectura en varias sesiones y volver a determinados pasajes sobre historia y política utilizando el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Otra historia de México / Another History of Mexico puede compararse con Zunzunegui, también de Juan Miguel Zunzunegui. Ambos se relacionan con la historia de México, pero Zunzunegui plantea expresamente el encuentro entre dos mundos tras la conquista, mientras que Otra historia de México / Another History of Mexico presenta un marco histórico vinculado al poder y la política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944183"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "18d9d139abb3fd33",
+  "origen": "chatgpt-web"
+}

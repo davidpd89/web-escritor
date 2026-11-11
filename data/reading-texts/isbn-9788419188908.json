@@ -4,51 +4,50 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Hijos del Mediodía se dirige a lectores de novela histórica interesados en la vida cultural y los cambios políticos de España durante los años previos a la Guerra Civil. Sus 528 páginas y su atención a la generación del 27 y a la historia de Sevilla encajan menos con quien busca una narración breve o alejada de acontecimientos históricos.",
+      "texto": "Hijos del Mediodía se dirige a lectores de novela histórica interesados en la cultura española anterior a la Guerra Civil y en la transformación política de aquella época. Sus 528 páginas y su atención a la vida literaria y urbana encajan menos con quienes buscan narraciones breves o ambientaciones alejadas de la historia de España.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Hijos del Mediodía sitúa su narración en Sevilla durante los años de la revista Mediodía, la generación del 27 y la Exposición Iberoamericana de 1929. Eva Diaz Perez relaciona ese ambiente cultural con el tránsito político hacia la Segunda República y la proximidad de la Guerra Civil; el volumen también incluye un recorrido literario por la ciudad de aquella época.",
+      "texto": "Hijos del Mediodía reconstruye un periodo de cambios culturales y políticos en Sevilla durante las décadas anteriores a la Guerra Civil. La novela incorpora la generación del 27, la revista Mediodía y la Exposición Iberoamericana de 1929, además del tránsito de la dictadura monárquica a la Segunda República.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Hijos del Mediodía se publica en tapa blanda, con 528 páginas. La edición en papel reúne una novela histórica extensa y un recorrido literario por la Sevilla de la época, que puede consultarse durante la lectura.",
+      "texto": "Hijos del Mediodía se publica en tapa blanda y tiene 528 páginas en castellano. Su extensión permite una lectura prolongada y la edición física facilita consultar pasajes anteriores; por su número de páginas, conviene considerar el volumen que ocupará al transportarlo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "sinopsis_editorial"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cosamala y Hijos del Mediodía comparten la Guerra Civil como referencia histórica, aunque la abordan de manera distinta. Alana S. Portero recurre a elementos góticos y brujería a partir de un crimen real, mientras que Eva Diaz Perez reconstruye el ambiente literario y político de Sevilla antes del conflicto.",
+      "texto": "Hijos del Mediodía y Bajo las cenizas de Pompeya (ESPASA NARRATIVA) comparten su pertenencia a la novela histórica. La obra de Eva Diaz Perez se centra en la Sevilla cultural y política anterior a la Guerra Civil, mientras que el título de María Reig remite a Pompeya y sitúa su referencia histórica en un escenario diferente.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788432251436"
+        "isbn-9788467084870"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5b420b8bf3bdf8b8",
+  "fuente_hash": "b58cb0fbce1d335c",
   "origen": "chatgpt-web"
 }

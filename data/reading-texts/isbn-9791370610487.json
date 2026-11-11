@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370610487",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El abordaje y registro de buques en el proceso penal (Monografía) se dirige a lectores interesados en las actuaciones sobre embarcaciones dentro del procedimiento penal. Su enfoque jurídico concreto no corresponde a una lectura sobre navegación recreativa, historia marítima o aventuras en el mar.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de El abordaje y registro de buques en el proceso penal (Monografía) tiene 184 páginas. Frente a monografías jurídicas más extensas, ofrece un volumen físico de menor tamaño para estudiar y consultar esta cuestión procesal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Derecho penal 4.0: el Derecho penal en la cuarta revolución industrial: 124 (Propiedad Intelectual), de Raquel Roso Cañadillas, José-Zamir Vega Gutiérrez, Carmen Pérez-Sauquillo Muñoz, comparte el marco penal, pero se ocupa de los cambios asociados a la revolución industrial. El Compliance en la era de la IA: La gestión de los riesgos jurídicos tras la irrupción de la IA en las empresas (Gran tratado), de Xabier Ribas, desplaza la atención hacia los riesgos jurídicos empresariales, frente al abordaje y registro de buques en el proceso penal.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788429030396",
+        "isbn-9791370610227"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "97d2edde4d28f992",
+  "origen": "chatgpt-web"
+}

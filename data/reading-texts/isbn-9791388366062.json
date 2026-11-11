@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388366062",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Memento Penal 2027 se dirige a lectores que trabajan o estudian materias de derecho penal y necesitan una obra extensa de consulta. Sus 2274 páginas y su orientación jurídica lo alejan de las introducciones breves al derecho y de la lectura narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Memento Penal 2027 está disponible en tapa blanda, con 2274 páginas en castellano. Por su volumen, resulta más apropiado para la consulta sobre una mesa que para transportarlo diariamente; la edición impresa permite señalar y revisar apartados durante el estudio jurídico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Memento Penal 2027 comparte el ámbito jurídico con Derecho penal 4.0: el Derecho penal en la cuarta revolución industrial: 124 (Propiedad Intelectual), que delimita su temática mediante la relación entre derecho penal y transformación tecnológica. También se aproxima a El abordaje y registro de buques en el proceso penal (Monografía), aunque este último se concentra en una actuación procesal concreta y Memento Penal 2027 presenta un título de alcance más general.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788429030396",
+        "isbn-9791370610487"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "73012790ad994f45",
+  "origen": "chatgpt-web"
+}

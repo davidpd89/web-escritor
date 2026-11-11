@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387714499",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los héroes del Capitolio (Novela histórica) se dirige a lectores de novela histórica que también buscan aventuras. Sus 656 páginas plantean una lectura extensa; encaja menos con quienes prefieren novelas breves o narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los héroes del Capitolio (Novela histórica) está disponible en tapa blanda, en una edición de bolsillo de Booket. Sus 656 páginas ofrecen una lectura larga en formato físico, que puede llevarse en el bolso o la mochila y conservarse en la estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los héroes del Capitolio (Novela histórica) comparte la novela histórica y las aventuras con Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig. También puede compararse con El hombre de Damasco, de Alejandro Núñez Alonso, vinculado al Imperio Romano. La diferencia identificable está en la autoría y, frente al segundo título, en que Los héroes del Capitolio (Novela histórica) se presenta expresamente como una novela de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084870",
+        "isbn-9791387714567"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9e34da572b70a024",
+  "origen": "chatgpt-web"
+}

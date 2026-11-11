@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA se dirige a lectores de historia interesados en la investigación biográfica y en las circunstancias que rodearon la muerte de Federico García Lorca. Juan Carlos García de Polavieja reconstruye la trayectoria del investigador Agustín Penón, por lo que el centro del libro no es una recopilación de poemas ni una biografía convencional del poeta.",
+      "texto": "Agustín penón y Federico García Lorca se dirige a lectores interesados en la historia literaria, las pesquisas biográficas y los archivos del franquismo. Juan Carlos García de Polavieja reconstruye el trabajo de Agustín Penón para esclarecer el destino de Federico García Lorca, por lo que encaja menos con quienes buscan una antología poética o una narración de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,20 +14,20 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA estudia el trabajo de Agustín Penón para esclarecer la vida y la muerte del poeta. Juan Carlos García de Polavieja recorre sus entrevistas en Granada, la vigilancia policial que sufrió y las dificultades para publicar sus investigaciones. El enfoque histórico se apoya en más de 200 fotografías y documentos, incluidos materiales poco conocidos.",
+      "texto": "Agustín penón y Federico García Lorca reconstruye la investigación que Agustín Penón realizó en Granada desde 1955 sobre el destino del poeta. Juan Carlos García de Polavieja aborda sus entrevistas con personas cercanas y adversarios de Federico García Lorca, la vigilancia policial franquista y las dificultades para publicar el trabajo biográfico.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA está disponible en tapa blanda. La edición de Alvarellos Editora tiene 275 páginas e incorpora más de 200 fotografías y documentos, de modo que el ejemplar físico permite consultar el material visual junto al relato de la investigación histórica.",
+      "texto": "Agustín penón y Federico García Lorca se ofrece en tapa blanda, en una edición de Alvarellos Editora de 275 páginas. El volumen incorpora más de 200 fotografías y documentos, por lo que el ejemplar físico permite recorrer el material gráfico junto al texto y volver a las imágenes durante la lectura.",
       "evidencias": [
         "titulo",
         "editorial",
+        "edicion",
         "numero_paginas",
         "formatos_disponibles",
         "sinopsis_editorial"
@@ -35,21 +35,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA y CORONA AUTORITARIA, LA abordan investigaciones históricas relacionadas con contextos políticos españoles. Juan Carlos García de Polavieja sigue las pesquisas sobre la muerte de Federico García Lorca y la vigilancia de su investigador, mientras que Guillermo María Muñoz examina las relaciones entre monarquía y nacionalismo durante la dictadura de Primo de Rivera. Uno se articula alrededor de una investigación personal; el otro, de instituciones e ideas políticas.",
+      "texto": "Agustín penón y Federico García Lorca puede compararse con Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo), de Carlos del Amor, por su relación con el ámbito artístico. La obra de Juan Carlos García de Polavieja se concentra en una investigación histórica sobre Federico García Lorca, mientras que Amarte plantea desde su título una relación más amplia entre el amor y el arte.",
       "evidencias": [
         "titulo",
         "autores",
         "sinopsis_editorial",
-        "afines_catalogo",
-        "categorias"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788419892782"
+        "isbn-9788467084122"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3c1945768af1b9e4",
+  "fuente_hash": "cec3adfcfcc8b2a2",
   "origen": "chatgpt-web"
 }

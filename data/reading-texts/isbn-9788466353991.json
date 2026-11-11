@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788466353991",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta edición de La verdad sobre el caso Harry Quebert (edición limitada cantos tintados) (Campaña | Edición con cantos tintados) se dirige a lectores de misterio y thriller. Sus 800 páginas plantean una lectura extensa, menos ajustada a quien busca una novela breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición de Penguin Bolsillo se distingue por su tapa dura y sus cantos tintados. Publicada el 19 de noviembre de 2026, reúne 800 páginas en castellano y corresponde al ISBN 9788466353991.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para esta edición de 800 páginas. Su encuadernación rígida permite conservar el volumen en una estantería y sus cantos tintados aportan un acabado visual específico, también relevante al elegirlo como regalo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La verdad sobre el caso Harry Quebert aparece también en Estuche Dicker, que reúne esa obra con El caso Alaska Sanders y El libro de los Baltimore. Ambas opciones comparten la autoría de Joël Dicker, pero se diferencian en el contenido y la presentación. La edición individual ofrece 800 páginas en tapa dura con cantos tintados, mientras que el estuche agrupa tres títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396714"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f399648f319f65b1",
+  "origen": "chatgpt-web"
+}

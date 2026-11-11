@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388017537",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Zeinab (Doble orilla narrativa), de Muhammad Husayn Haykal, encaja con lectores interesados en los clásicos y en obras situadas entre la narrativa y el ensayo. Su clasificación editorial lo aleja de una búsqueda centrada en manuales prácticos o literatura infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Zeinab (Doble orilla narrativa) se publica en tapa blanda y reúne 310 páginas en castellano. La edición de Cántico permite una lectura continuada en papel y facilita marcar el avance o consultar pasajes anteriores sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alfred y Emily (Narrativa), de Doris Lessing, comparte con Zeinab (Doble orilla narrativa) su vinculación con la narrativa literaria, aunque corresponde a otra autoría. El largo regreso de Josefina Carabias (Ensayo), de César Suárez, ofrece una comparación desde la vertiente ensayística; Zeinab (Doble orilla narrativa), de Muhammad Husayn Haykal, reúne ambas clasificaciones y también figura entre los clásicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426438515",
+        "isbn-9788426433282"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cb866e0c62f341b3",
+  "origen": "chatgpt-web"
+}

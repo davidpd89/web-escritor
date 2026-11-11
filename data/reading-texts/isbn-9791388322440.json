@@ -4,18 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cómo derrotar a un rey demonio en diez sencillos pasos se dirige a lectores adultos de fantasía que disfrutan de las aventuras con humor y mecanismos propios de los videojuegos. Sus 272 páginas presentan mazmorras, niveles y una protagonista que desafía las reglas establecidas, por lo que se distancia de la fantasía realista o de tono estrictamente solemne.",
+      "texto": "Cómo derrotar a un rey demonio en diez sencillos pasos se dirige a lectores adultos de fantasía que disfrutan de las aventuras con humor y reglas propias de los videojuegos. Su planteamiento de niveles, mazmorras y clases de personaje encaja menos con quienes prefieren fantasía sin elementos de juego.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
-        "numero_paginas",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La novela de Andrew Rowe combina fantasía de aventuras, humor y progresión mediante reglas semejantes a las de un videojuego. Yui debe enfrentarse al Rey Demonio sin pertenecer a la clase destinada a vencerlo, lo que convierte la búsqueda de alternativas al sistema establecido en el motor de la acción.",
+      "texto": "Andrew Rowe plantea una aventura fantástica en la que Yui intenta vencer a un Rey Demonio sin pertenecer a la clase de héroe destinada a derrotarlo. La progresión mediante niveles, objetos especiales y compañeros convierte las reglas del mundo en obstáculos que la protagonista debe sortear mediante estrategias poco convencionales.",
       "evidencias": [
         "autores",
         "categorias",
@@ -24,27 +23,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cómo derrotar a un rey demonio en diez sencillos pasos tiene una edición en tapa blanda con solapas de 272 páginas, adecuada para quien prefiere leer y conservar el volumen físico. Kindle permite seguir las aventuras de Yui desde el móvil o un lector electrónico, sin transportar el ejemplar impreso.",
+      "texto": "La edición de tapa blanda con solapas de Cómo derrotar a un rey demonio en diez sencillos pasos tiene 272 páginas y permite leer la aventura en papel. La opción Kindle facilita continuar la lectura desde el móvil o un lector electrónico, especialmente cuando se prefiere no transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cómo derrotar a un rey demonio en diez sencillos pasos puede compararse con El ojo de la novia frenopática (Carl el Mazmorrero 6) por su relación con aventuras y enfrentamientos contra criaturas. La novela de Andrew Rowe se centra en Yui, que intenta superar un sistema de clases y niveles, mientras el título de Matt Dinniman plantea la captura de un monstruo.",
+      "texto": "Malvhadas 2. Muerte por sapo (Mi primer cómic) y Cómo derrotar a un rey demonio en diez sencillos pasos permiten acercarse a relatos de fantasía con componentes humorísticos. La obra de Huw Aaron se presenta como un cómic de iniciación, mientras que Andrew Rowe desarrolla una novela para adultos basada en aventuras y mecánicas de juego.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial",
-        "categorias"
+        "categorias",
+        "edad_recomendada",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788410466470"
+        "isbn-9788448874971"
       ]
     }
   ],

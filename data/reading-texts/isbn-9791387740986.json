@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387740986",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La seducción (Reservoir Narrativa) se sitúa entre el romance, la narrativa contemporánea y el cómic o novela gráfica. Se dirige a quienes buscan esas formas de abordar las relaciones, mientras que su clasificación se aleja de la fantasía épica y de los relatos de aventuras. La edición tiene 168 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La seducción (Reservoir Narrativa) se ofrece en tapa dura, con 168 páginas en castellano. Su extensión permite conservar una obra relativamente breve en encuadernación rígida, una opción para quien prefiere leer en papel o regalar un volumen físico de Reservoir Books.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La seducción (Reservoir Narrativa) comparte la temática romántica con Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita. La obra de Sara Torres se clasifica también como narrativa contemporánea, mientras que el título de Keiko Iwashita se identifica como shôjo. Se trata de autorías distintas dentro de lecturas relacionadas con el romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962494"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f5db47c984f61c6b",
+  "origen": "chatgpt-web"
+}

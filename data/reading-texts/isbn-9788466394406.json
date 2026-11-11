@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788466394406",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Piense y hágase rico: La riqueza y la realización personal al alcance de todos (Best Seller | Ediciones Conmemorativas), de Napoleon Hill, se orienta a lectores interesados en el desarrollo personal y la economía. Por su enfoque en la riqueza y la realización personal, se distancia de quienes buscan ficción o un manual dedicado exclusivamente a operaciones financieras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Piense y hágase rico: La riqueza y la realización personal al alcance de todos (Best Seller | Ediciones Conmemorativas) se ofrece en tapa dura, con 272 páginas publicadas por Penguin Bolsillo. La encuadernación rígida facilita conservar el volumen como libro de consulta y volver a sus contenidos sobre desarrollo personal y economía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Piense y hágase rico: La riqueza y la realización personal al alcance de todos (Best Seller | Ediciones Conmemorativas) y La ciencia del éxito / Napoleon Hill's Master Course: The Original Science of Success comparten autor, Napoleon Hill, y una orientación hacia el éxito personal. El primero menciona expresamente la riqueza y la realización personal, mientras que el segundo presenta la ciencia del éxito como asunto central de su título. Frente a ambos, Construye un negocio atómico / Build an Atomic Business, de Oso Trava, sitúa el negocio en primer plano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073875653",
+        "isbn-9786073880336"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "02564065b902d68b",
+  "origen": "chatgpt-web"
+}

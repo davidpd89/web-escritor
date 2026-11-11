@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791399308709",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta antología se dirige a quienes prefieren leer relatos de distintos autores en lugar de seguir una única narración extensa. Sus 246 páginas reúnen una propuesta colectiva que encaja con el interés por la narrativa breve, pero no con quien busca una novela de argumento continuado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Esta antología propone una lectura de relatos escritos por trece autores, entre ellos Javier Vázquez Losada y Sofía Corrales Funes. Sus 246 páginas reúnen distintas aportaciones literarias en un volumen colectivo publicado por Editorial Graviola, con una estructura diferente de la novela de argumento único.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne los relatos en un volumen físico de 246 páginas publicado por Editorial Graviola. Este formato permite transportar el libro y alternar las lecturas sin depender de un dispositivo electrónico; también ofrece una opción de regalo en papel.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A sangre y fuego comparte con esta antología el terreno de la narrativa breve, aunque la obra de Manuel Chaves Nogales se centra en el enfrentamiento histórico y Diversos reúne autores diferentes. Caníbales de caramelandia, de Carlton Mellick Iii, ofrece otra referencia narrativa, frente al carácter colectivo de los relatos publicados por Editorial Graviola.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "editorial",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788408331810",
+        "isbn-9788412837278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0cd02e7eb37f2291",
+  "origen": "chatgpt-web"
+}

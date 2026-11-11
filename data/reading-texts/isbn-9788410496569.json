@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410496569",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Teatro inédito (Literaturas), de Yasmina Reza, encaja con quienes buscan textos teatrales y se interesan por la escritura dramática. Por su naturaleza teatral, se distingue de una novela narrativa convencional y de los manuales prácticos de creación artística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Teatro inédito (Literaturas) se publica en tapa blanda, con 472 páginas en castellano. El volumen físico permite volver sobre escenas y diálogos durante la lectura o el estudio de los textos teatrales, sin necesidad de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Teatro inédito (Literaturas) comparte autoría con Babilonia y Hammerklavier y Ninguna parte, obras también firmadas por Yasmina Reza. La diferencia está en la forma literaria: Teatro inédito (Literaturas) se presenta como una obra teatral, mientras que los otros títulos pertenecen al ámbito de la ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466382328",
+        "isbn-9788466382298"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ca368e2f1b007eb2",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408328872",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Premio Planeta 2026: La hora antes del alba + La añoranza (Autores Españoles e Iberoamericanos) reúne dos obras para lectores interesados en narrativa contemporánea, historia y relaciones familiares. Sus 824 páginas corresponden a un conjunto de lectura extensa, menos orientado a quienes buscan un único volumen breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El estuche se ofrece en tapa blanda y reúne La hora antes del alba y La añoranza, con 824 páginas en total. Su presentación conjunta permite conservar ambas obras en papel o entregarlas como un mismo regalo, sin necesidad de adquirirlas por separado.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche Premio Planeta 2026: La hora antes del alba + La añoranza (Autores Españoles e Iberoamericanos) agrupa los títulos que también figuran individualmente como La hora antes del alba, de Isabel Allende, y La añoranza, de Sergio Hernández. La diferencia para el lector es la presentación conjunta de ambas obras en un estuche de 824 páginas, frente a las referencias individuales del catálogo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ],
+      "enlaces": [
+        "isbn-9788408328858",
+        "isbn-9788408328834"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e829ddb70d57dd21",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9791388163852",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores interesados en historias románticas de ambientación histórica y en la narrativa de Beth Brower. El título lo identifica como el n.º 7 de Los diarios de Emma M. Lion, de modo que resulta menos orientado a quienes prefieren empezar por una obra sin numeración de serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Suma de Letras presenta esta edición en tapa blanda, con 464 páginas en castellano. Es un volumen físico de mayor extensión que Los diarios de Emma M. Lion 6 (SUMA), por lo que requiere más espacio para transportarlo y permite continuar la colección en papel.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los diarios de Emma M. Lion 6 (SUMA) y Los diarios de Emma M. Lion 5 comparten autora, Beth Brower, y pertenecen a la misma serie de romance y novela histórica. El volumen 7 se diferencia por su numeración posterior y por una extensión de 464 páginas en la edición de Suma de Letras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388163111",
+        "isbn-9791388163258"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0e5cd0a688a6e909",
+  "origen": "chatgpt-web"
+}

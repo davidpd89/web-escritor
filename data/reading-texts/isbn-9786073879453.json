@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9786073879453",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Paseo de la reforma (edición 30 aniversario) / Paseo de la Reforma (30th Anniversary Edition) se dirige a lectores que buscan narrativa contemporánea y conocen o quieren acercarse a la obra de Elena Poniatowska. Sus 192 páginas conforman una edición de extensión intermedia; no está orientada a quien busca ensayo o cómic.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Paseo de la reforma (edición 30 aniversario) / Paseo de la Reforma (30th Anniversary Edition) contiene 192 páginas. Es la opción impresa para quien prefiere leer en papel y conservar un ejemplar físico de la obra de Elena Poniatowska.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f733888a57be6930",
+  "origen": "chatgpt-web"
+}

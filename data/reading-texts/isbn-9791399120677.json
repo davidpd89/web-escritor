@@ -4,50 +4,53 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "HIJOS DE UN DIOS MEZQUINO se orienta a lectores interesados en la historia social, los conflictos de clase y el origen de las desigualdades. Su recorrido mundial y sus 656 páginas lo alejan de las biografías individuales y de las introducciones históricas breves.",
+      "texto": "Hijos de un Dios mezquino se dirige a lectores interesados en la historia social, la desigualdad y los conflictos entre grupos dominantes y subordinados. Gonzalo Pontón Gómez recorre distintas épocas desde la perspectiva de las clases oprimidas, por lo que no responde al enfoque de una historia centrada exclusivamente en gobernantes, batallas o instituciones.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "sinopsis_editorial",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Gonzalo Pontón Gómez analiza cómo las clases dirigentes han impuesto desigualdades y cómo han respondido los grupos sometidos a ellas. El recorrido comienza con las primeras transformaciones agrícolas y llega hasta la actualidad, con una perspectiva mundial que concede protagonismo a la población corriente frente a los grandes gobernantes.",
+      "texto": "Hijos de un Dios mezquino aborda la persistencia de la desigualdad social y las respuestas de quienes han sufrido las estructuras de dominación. Gonzalo Pontón Gómez organiza una interpretación histórica de alcance mundial que parte de la revolución neolítica y llega hasta la actualidad, con la lucha de clases como eje explicativo.",
       "evidencias": [
+        "titulo",
         "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "HIJOS DE UN DIOS MEZQUINO se ofrece en tapa dura, con 656 páginas en castellano editadas por Editorial Pasado y Presente. Por su extensión y recorrido histórico, la edición física permite mantener el volumen en una biblioteca y retomarlo durante una lectura prolongada.",
+      "texto": "Hijos de un Dios mezquino se publica en tapa dura, con 656 páginas editadas por Editorial Pasado y Presente. La encuadernación rígida resulta práctica para conservar y consultar un volumen extenso, especialmente cuando se vuelve a diferentes periodos de una historia que abarca desde la revolución neolítica hasta la época actual.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
         "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "HIJOS DE UN DIOS MEZQUINO y Auge y caída del Tercer Reich (edición especial) estudian relaciones de poder desde la historia. Gonzalo Pontón Gómez aborda las desigualdades sociales a escala mundial y durante un periodo muy extenso; William L. Shirer concentra su obra en el ascenso y la desaparición del régimen nazi.",
+      "texto": "Hijos de un Dios mezquino puede contrastarse con 76, de Felipe Pigna, por su vinculación con la historia, aunque el título de Gonzalo Pontón Gómez propone expresamente una lectura mundial de la desigualdad desde la revolución neolítica. También se diferencia de Agustín penón y Federico García Lorca, centrado en una investigación biográfica y documental, por su escala temporal y social mucho más amplia.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411005555"
+        "isbn-9788408329695",
+        "isbn-9788418567933"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8d8ac349e96da17b",
+  "fuente_hash": "2c9225ea6a74bdc6",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9786073877732",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Crímenes Atroces: ¿Qué hay en la mente de los asesinos más crueles? / Atrocious Crimes: What Goes on in the Minds of the Cruelest Killers? se dirige a quienes leen ensayo sobre conductas criminales y sus protagonistas. Su asunto central puede alejar a lectores que evitan contenidos relacionados con asesinatos o que buscan ficción policial.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Enrique Zúñiga plantea una aproximación a los crímenes graves centrada en las personas que los cometen. La pregunta del título sitúa el interés en la mente de los asesinos y no únicamente en los hechos delictivos. Su clasificación como ensayo y biografías y memorias orienta la lectura hacia la reflexión y las experiencias humanas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para las 304 páginas de esta obra de Enrique Zúñiga. La edición en castellano de Penguin Random House Grupo Editorial permite una lectura en papel y la consulta posterior de sus apartados sin necesidad de pantalla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes, de Andrew Paxman, ofrece un punto de comparación por su orientación hacia personas reales. Frente al enfoque biográfico anunciado en esa obra, Enrique Zúñiga centra Crímenes Atroces en la mente de los asesinos. El interés pasa de una trayectoria personal a una cuestión relacionada con la conducta criminal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073873154"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e608c9ba60a7b019",
+  "origen": "chatgpt-web"
+}

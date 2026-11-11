@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788466680233",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Organiza tu boda con Weddings With Love (Somos B) se dirige a lectores interesados en la organización de bodas y las actividades relacionadas con el tiempo libre. Su temática se centra en la preparación de una celebración, por lo que no responde a quien busca ficción narrativa o una lectura sobre historia del arte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Organiza tu boda con Weddings With Love (Somos B) está disponible en tapa dura y tiene 192 páginas. Esta edición permite conservar el libro como volumen físico y consultarlo durante la preparación de la boda, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Organiza tu boda con Weddings With Love (Somos B) y Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA) se relacionan con la planificación de experiencias y celebraciones. Patricia Gómez y Lidia Gómez se centran en la organización de bodas, mientras que David Villalón y Mario Villalón abordan la huerta, los vinos, la cocina y los cócteles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934293"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e62c3f55bd68725c",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9781400351428",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El gran divorcio: Un relato intemporal sobre el cielo y el infierno se orienta a lectores de clásicos y ensayo filosófico interesados en las representaciones del cielo y el infierno. Su combinación de relato y reflexión lo distingue de una novela centrada exclusivamente en acontecimientos cotidianos o relaciones de pareja.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El gran divorcio: Un relato intemporal sobre el cielo y el infierno está editado en tapa blanda, con 176 páginas en castellano. La edición de Grupo Nelson reúne el texto en un volumen de extensión contenida, apropiado para llevar en una bolsa y consultar sus pasajes filosóficos. La cubierta flexible ocupa menos espacio que una encuadernación rígida equivalente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El gran divorcio: Un relato intemporal sobre el cielo y el infierno comparte autor con La abolición del hombre: El peligro del progreso sin principios y ambos pertenecen al ámbito filosófico. El primero presenta una narración relacionada con el cielo y el infierno, mientras que el segundo plantea una reflexión sobre el progreso y sus fundamentos éticos. La distinción principal reside en el carácter narrativo del primero y el asunto filosófico del segundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781400351466"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4720b891920f0e31",
+  "origen": "chatgpt-web"
+}

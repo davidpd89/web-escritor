@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dos veces Poe encaja con lectores interesados en el terror, los misterios y las historias que incorporan referencias literarias. Su protagonista infantil y la presencia de un posible fantasma orientan la lectura hacia la intriga; no responde a la búsqueda de una novela de terror centrada exclusivamente en amenazas sobrenaturales.",
+      "texto": "Dos veces Poe se dirige a lectores interesados en el terror, los enigmas y las historias que incorporan referencias literarias. Su protagonista infantil y la investigación sobre un escritor ofrecen una perspectiva distinta de la del terror centrado exclusivamente en amenazas físicas.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,15 +13,16 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una historia de terror construida alrededor de una identidad enigmática y la figura de Edgar Allan Poe. Edgar y su perro investigan a un desconocido del parque mientras conocen aspectos de la vida del escritor y tratan de averiguar qué secreto oculta ese hombre.",
+      "texto": "Dos veces Poe combina el misterio de una identidad desconocida con el acercamiento a la vida de Edgar Allan Poe. La investigación de un niño y su perro permite explorar la relación entre las apariciones inquietantes, la memoria de un escritor y los secretos personales.",
       "evidencias": [
+        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Dos veces Poe está disponible en tapa dura, con 108 páginas en castellano y edición de Lóguez Ediciones. La encuadernación rígida permite conservar el volumen para posteriores lecturas y utilizarlo como regalo físico; su extensión también facilita leerlo en varias sesiones breves.",
+      "texto": "Dos veces Poe está disponible en tapa dura, con 108 páginas en castellano. Esta edición de Lóguez Ediciones reúne una narración de extensión breve en un volumen de cubierta rígida, adecuado para conservarlo en una biblioteca o entregarlo como regalo físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -32,16 +33,16 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Coraline, de Neil Gaiman, comparte con Dos veces Poe el misterio que surge alrededor de elementos aparentemente cotidianos: una casa en el primero y un desconocido del parque en el segundo. Carrie (edición serie), de Stephen King, también aborda el terror, pero sitúa su conflicto en el acoso escolar y la convivencia familiar, frente a la investigación literaria de Dos veces Poe.",
+      "texto": "Dos veces Poe puede compararse con 25 días hasta Navidad por su componente de intriga, aunque la obra de Mónica Rodríguez Suárez relaciona el misterio con una figura literaria y la de Per Jacobsen se presenta como un thriller de adviento. Anna Kadabra. El Gran Libro de Anna Kadabra. El despertar de las brujas: 1 ofrece otra aproximación a lo extraordinario, vinculada a la brujería en lugar de a una identidad misteriosa.",
       "evidencias": [
         "titulo",
-        "categorias",
+        "autores",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396806",
-        "lib-0001"
+        "isbn-9788427055063",
+        "isbn-9788408328933"
       ]
     }
   ],

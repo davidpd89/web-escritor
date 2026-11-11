@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "ANIMALES, PALETAS DE COLOR está dirigido a lectores interesados en la naturaleza y en la aplicación del color al diseño, la ilustración o la fotografía. Su contenido técnico, con referencias cromáticas y ejemplos creativos, encaja menos con quien busca relatos protagonizados por animales o una guía de zoología centrada en su comportamiento.",
+      "texto": "Animales, paletas de color está orientado a personas interesadas en el diseño, la fotografía, la ilustración y las combinaciones cromáticas presentes en la naturaleza. Su contenido técnico, con valores CMYK y RGB, se aleja de los libros centrados en narrar historias de animales o describir únicamente su comportamiento.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,18 +13,18 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "ANIMALES, PALETAS DE COLOR propone estudiar las combinaciones cromáticas presentes en distintas especies animales y trasladarlas a proyectos visuales. Lauren Wager acompaña las imágenes con ruedas cromáticas, códigos CMYK y RGB y ejemplos aplicados al arte, la moda, el diseño y la fotografía.",
+      "texto": "La obra de Lauren Wager combina observación de especies animales y análisis del color aplicado a proyectos creativos. Presenta perfiles cromáticos de insectos, aves y fauna marina, acompañados de ruedas de color y paneles que trasladan esas combinaciones al diseño, el arte, la moda y la fotografía.",
       "evidencias": [
-        "titulo",
         "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "ANIMALES, PALETAS DE COLOR se presenta en tapa blanda y tiene 264 páginas. El formato impreso permite consultar conjuntamente los retratos de animales, las ruedas de color y las referencias CMYK y RGB durante el trabajo creativo.",
+      "texto": "La edición de Animales, paletas de color es de tapa blanda y contiene 264 páginas. Su soporte impreso reúne fotografías de especies, diagramas cromáticos y referencias numéricas para reproducir tonalidades en proyectos creativos. Puede utilizarse como volumen de consulta al trabajar con las combinaciones de color que Lauren Wager extrae del mundo animal.",
       "evidencias": [
         "titulo",
+        "autores",
         "formatos_disponibles",
         "numero_paginas",
         "sinopsis_editorial"
@@ -32,12 +32,12 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Animales y ANIMALES, PALETAS DE COLOR comparten la presencia de especies animales, aunque su finalidad es diferente. El título de Susaeta Ediciones reúne seis cuentos ilustrados, mientras que Lauren Wager utiliza la apariencia cromática de los animales como referencia para actividades de diseño y creación visual.",
+      "texto": "Animales, de Susaeta Ediciones, también sitúa a los animales en el centro, pero ofrece seis cuentos ilustrados en lugar de un estudio de sus colores. Animales, paletas de color, de Lauren Wager, utiliza las especies como referencias visuales para elaborar combinaciones cromáticas aplicables a disciplinas creativas.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791370341589"
@@ -46,6 +46,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f9704c166d096060",
+  "fuente_hash": "c08c7b1fb065c428",
   "origen": "chatgpt-web"
 }

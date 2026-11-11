@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788411078672",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inverness, California (Andanzas), de Francisco Serrano, se sitúa entre el misterio, la narrativa contemporánea y la historia del siglo XX. Se orienta a lectores interesados en la intriga con una dimensión histórica, frente a quienes buscan exclusivamente fantasía o divulgación práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Inverness, California (Andanzas) está disponible en tapa blanda, en una edición de Tusquets Editores de 352 páginas. Su encuadernación flexible permite transportarlo en una bolsa y leerlo por sesiones, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Inverness, California (Andanzas) comparte el ámbito del misterio con Criminales sin sombra (Salamandra Black), de Juan Carlos Galindo, y El cuerpo equivocado (Novela de intriga), de Jorge Ortega. La diferencia identificable está en su vinculación adicional con la historia y el siglo XX, mientras los otros títulos se presentan desde la intriga y la narrativa criminal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387928285",
+        "isbn-9788425377105"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9196d5e70d3a811f",
+  "origen": "chatgpt-web"
+}

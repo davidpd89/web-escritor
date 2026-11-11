@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387938482",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aprender a decir adiós: 8 (Marea gráfica) se dirige a quienes buscan biografías y memorias en una edición breve. Sus 144 páginas permiten abordar una lectura de extensión contenida; no responde a la búsqueda de una novela extensa de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Aprender a decir adiós: 8 (Marea gráfica) está disponible en tapa dura, con 144 páginas en castellano. Esta edición de Altamarea Ediciones permite conservar el volumen en una encuadernación rígida, tanto para una biblioteca personal como para regalar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprender a decir adiós: 8 (Marea gráfica) puede compararse con Al andar: Vivencias del Camino de Santiago por su vinculación con las experiencias personales. El libro de Bei Lynn pertenece a biografías y memorias, mientras que el de Carlos Díaz Ballesta anuncia en su título unas vivencias ligadas a un camino concreto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4f77c75e452a5e87",
+  "origen": "chatgpt-web"
+}

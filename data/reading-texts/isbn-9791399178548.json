@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399178548",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El lienzo de las musas: Relatos premiados encaja con lectores juveniles interesados en la narrativa contemporánea y los libros de relatos. Sus 88 páginas permiten abordar una obra breve; por su clasificación y su título, se diferencia de los manuales divulgativos y de las novelas extensas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El lienzo de las musas: Relatos premiados está editado en tapa blanda y contiene 88 páginas en castellano. Su extensión y encuadernación flexible permiten llevarlo con facilidad, mientras que el formato físico reúne los relatos bajo una misma cubierta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El lienzo de las musas: Relatos premiados y Bajo la estela de un legado son obras de Carmen Galvañ Bernabé vinculadas a la narrativa juvenil y contemporánea. El primer título se presenta como relatos premiados, mientras que el segundo remite al legado desde su denominación. La diferencia más clara para el lector está en la identificación expresa del primero como libro de relatos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399178555"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2371394430cb5f2a",
+  "origen": "chatgpt-web"
+}

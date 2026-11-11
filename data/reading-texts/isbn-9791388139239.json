@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388139239",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El factor tú: Claves para comunicar con autenticidad y conseguir lo que te propongas (No ficción), de Rafa Rodrigo, está orientado a quienes desean trabajar su comunicación personal desde la autenticidad. Por su planteamiento, encaja menos con lectores que buscan una novela o una guía centrada exclusivamente en inversiones y gestión financiera.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El factor tú: Claves para comunicar con autenticidad y conseguir lo que te propongas (No ficción) está disponible en tapa blanda y tiene 256 páginas. Esta edición de Roca Editorial permite leer en papel y regresar a los apartados relacionados con la comunicación personal sin utilizar dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El factor tú: Claves para comunicar con autenticidad y conseguir lo que te propongas (No ficción) puede compararse con Hecho una mierda, pero en casa (Cuadernos creativos) por su relación con el ámbito personal. Rafa Rodrigo pone el foco en comunicar con autenticidad, mientras que el libro de Ferran Cases se presenta como un cuaderno creativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419434364"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a195cde73113f079",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788408328353",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Corazón de oro: Edición limitada a precio especial (Colección Especial) encaja con lectores de narrativa contemporánea que buscan aventuras, historia y conflictos vinculados a la familia. La obra de Luz Gabás reúne esas líneas temáticas en una edición de 560 páginas. Por su extensión y orientación narrativa, resulta menos afín a quienes prefieren ensayos breves o manuales prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Corazón de oro: Edición limitada a precio especial (Colección Especial) pertenece a la Colección Especial de Booket y se identifica como edición limitada a precio especial. Esta versión en tapa dura contiene 560 páginas en castellano y tiene fecha de publicación del 11 de noviembre de 2026. Su ISBN, 9788408328353, distingue esta presentación editorial de otras posibles ediciones.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Corazón de oro: Edición limitada a precio especial (Colección Especial) está disponible en tapa dura. Con 560 páginas, es un libro de extensión considerable, apropiado para leer con apoyo sobre una mesa o conservar en una estantería. La encuadernación rígida también aporta protección a un ejemplar destinado a sucesivas lecturas o a entregarse como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Corazón de oro: Edición limitada a precio especial (Colección Especial) y Cuando el viento hable: Edición limitada a precio especial (Colección Especial) comparten sello editorial de colección y presentación como ediciones limitadas. La obra de Luz Gabás se vincula a la aventura, la historia y la narrativa contemporánea; la de Ángela Banzas permite comparar otra autoría dentro de la misma línea de ediciones especiales. La diferencia comprobable está en la obra y su autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328414"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e06305fa4ef5b181",
+  "origen": "chatgpt-web"
+}

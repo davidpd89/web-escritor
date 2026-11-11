@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399226997",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "K-On! Vol. 3 se dirige a lectores de cómic y novela gráfica que buscan humor. Por su clasificación, se aleja de quienes prefieren una novela convencional en prosa o una lectura centrada en el drama.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "K-On! Vol. 3 cuenta con una edición en tapa blanda de 128 páginas, publicada por Sekai Editorial. Su extensión permite manejar el volumen con facilidad y leerlo por sesiones sin cargar con un libro especialmente grueso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "K-On! Vol. 3 puede compararse con 7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica), de Francisco Ibáñez, por su relación con el cómic y el humor. La diferencia está en la autoría y en la identificación editorial de las obras: Kakifly firma un volumen de K-On!, mientras que la otra pertenece a una colección de humor de Bruguera.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431790"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b6f964b74859fe57",
+  "origen": "chatgpt-web"
+}

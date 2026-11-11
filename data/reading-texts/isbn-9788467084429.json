@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788467084429",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para lectores de terror que prefieren una colección de relatos a una novela de argumento único. Las trece historias de Daphne Du Maurier y su vinculación con los clásicos del género encajan con ese interés, pero no con quien busca una narración continua o alejada del miedo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición de Después de medianoche. Trece historias para no dormir: Prólogo de Stephen King (Espasa Narrativa) incorpora un prólogo de Stephen King y reúne trece historias. Editorial Espasa la publica en tapa dura, en castellano, con 648 páginas y fecha del 11 de noviembre de 2026. Su ISBN es 9788467084429.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "numero_paginas",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura permite conservar en un volumen físico las 648 páginas de relatos y el prólogo de Stephen King. Kindle facilita llevar la colección en un dispositivo digital y alternar las historias sin transportar el libro. La elección depende de si se prefiere una edición rígida para la biblioteca o una lectura digital portátil.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuentos de Terror / Horror Stories, de H P Lovecraft, comparte con Después de medianoche. Trece historias para no dormir: Prólogo de Stephen King (Espasa Narrativa) el terror en forma de relatos, aunque se trata de colecciones de distinta autoría. Estuche Abismo Lovecraft (Minotauro Ilustrados) también se relaciona con el terror clásico, pero se presenta como un estuche ilustrado, frente al volumen de trece historias de Daphne Du Maurier.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073878524",
+        "isbn-9788445022856"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bfb8c75972802ba1",
+  "origen": "chatgpt-web"
+}

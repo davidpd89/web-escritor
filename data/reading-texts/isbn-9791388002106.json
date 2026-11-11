@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388002106",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de romance que buscan una obra extensa de Jennifer Armentrout vinculada al romance paranormal. La orientación romántica indicada en el título la distancia de quienes prefieren historias centradas exclusivamente en asuntos históricos o documentales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición se identifica expresamente como Especial Limitada y lleva la etiqueta #RomanceParanormal. Puck la publica en tapa dura, con 672 páginas en castellano y fecha editorial del 17 de noviembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 672 páginas de esta edición especial limitada en un volumen de encuadernación rígida. Por su extensión, requiere más espacio para transportarlo que un libro breve, mientras que su presentación física permite conservarlo como ejemplar de colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una corona de ruinas (#Fantasy) comparte la autoría de Jennifer Armentrout y la referencia a una corona en el título. La diferencia explícita está en su presentación: Una corona de ruinas (#Fantasy) se identifica con la fantasía, mientras que Una corona de huesos dorados - Edición Especial Limitada (#RomanceParanormal) destaca el romance paranormal y su condición de edición limitada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388002083"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ebb4884804510f7c",
+  "origen": "chatgpt-web"
+}

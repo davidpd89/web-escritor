@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9786316863201",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Por un beso (Bridgerton 7) Edición Especial (Titania época) está dirigido a lectores de novela histórica interesados en la obra de Julia Quinn. Su clasificación editorial lo aleja de quienes buscan ciencia ficción o fantasía como género principal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Por un beso (Bridgerton 7) Edición Especial (Titania época) se presenta como edición especial en tapa dura de Titania. Tiene 352 páginas en castellano y fecha editorial del 2027-01-01; el título lo identifica como el n.º 7 de Bridgerton.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para Por un beso (Bridgerton 7) Edición Especial (Titania época). Sus 352 páginas forman un volumen físico de cubierta rígida, apropiado para quien prioriza conservar la edición especial en una colección o entregarla como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Por un beso (Bridgerton 7) Edición Especial (Titania época) y Bajo las cenizas de Pompeya (ESPASA NARRATIVA) comparten su vinculación con la narrativa histórica. La primera pertenece a la obra de Julia Quinn y se identifica como parte de Bridgerton; la segunda lleva la firma de María Reig y remite en su título a Pompeya.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "86f60bd86ce5af35",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408328612",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para lectores que buscan aventuras con humor, amistad y referencias al K-pop. Las Ratitas 18. Aventura K-pop (Jóvenes influencers), de Las Ratitas, se aleja de las lecturas centradas en el ensayo o en conflictos adultos y sitúa su propuesta en la aventura juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 144 páginas de Las Ratitas 18. Aventura K-pop (Jóvenes influencers) en un volumen físico que puede guardarse junto a otros libros de la colección. La versión Kindle permite llevar la misma lectura en un dispositivo compatible sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las Ratitas 18. Aventura K-pop (Jóvenes influencers) comparte el terreno de la narrativa juvenil con Lyniel. El juego final - Edición de España (Primeras lecturas), de Lyna Vallejos y Daniel Morro. La obra de Las Ratitas señala una aventura vinculada al K-pop, mientras que el título de Lyniel pone el foco en un juego final y se presenta dentro de las primeras lecturas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448876043"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "76f8de881aae6183",
+  "origen": "chatgpt-web"
+}

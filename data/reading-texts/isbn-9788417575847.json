@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788417575847",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Avni 1. Animal verdaderamente no identificado (Txikiberri) se orienta a lectores infantiles interesados en los animales, el cómic y las historias breves. Sus 64 páginas y su clasificación como novela gráfica lo distinguen de las novelas juveniles extensas o de los libros dedicados exclusivamente a explicar la naturaleza.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Avni 1. Animal verdaderamente no identificado (Txikiberri) se presenta en tapa blanda, con 64 páginas editadas por Astiberri. El formato permite leer y consultar sus páginas ilustradas en papel, y su extensión facilita transportarlo para sesiones de lectura cortas.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La vida según Joselito: 14 (Policán) y Avni 1. Animal verdaderamente no identificado (Txikiberri) comparten una propuesta de lectura vinculada al cómic infantil. Se diferencian por sus protagonistas y por la numeración que figura en sus títulos, además de estar firmados por Dav Pilkey y Romain Pujol, respectivamente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410557710"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4ad9afd0ea12c7f4",
+  "origen": "chatgpt-web"
+}

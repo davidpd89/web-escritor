@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788419962911",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tú también tienes dislexia: Cómo compensarla en casa, en el aula o antes de estudiar un examen (Padres y educadores) se orienta a familias, educadores y personas interesadas en afrontar la dislexia durante el estudio. Por su enfoque de desarrollo personal y crianza, se aleja de las lecturas de ficción y de los manuales dedicados a materias de examen concretas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Tú también tienes dislexia: Cómo compensarla en casa, en el aula o antes de estudiar un examen (Padres y educadores) es de tapa blanda y tiene 200 páginas. El formato en papel permite consultar apartados durante el estudio, en casa o en el aula, y volver a ellos sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tú también tienes dislexia: Cómo compensarla en casa, en el aula o antes de estudiar un examen (Padres y educadores) coincide con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito en su orientación al desarrollo personal. El primero delimita su asunto a la dislexia en contextos familiares y educativos; el libro de Liz Moody aborda salud, felicidad, relaciones y éxito.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "84e6af12702ae01a",
+  "origen": "chatgpt-web"
+}

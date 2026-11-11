@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9786287880542",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las ermitañas del mar / The Hermits of the Sea, de Alejandra Jaramillo Morales, se orienta a lectores que buscan narrativa contemporánea. Sus 208 páginas corresponden a una edición de extensión intermedia; no es una propuesta de ensayo ni de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Las ermitañas del mar / The Hermits of the Sea ofrece 208 páginas en castellano, bajo el sello Alfaguara. Su extensión permite organizar la lectura en varios tramos y su encuadernación flexible facilita llevar el ejemplar fuera de casa. Es la opción disponible para quien prefiere el libro físico frente a la lectura digital.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "idioma",
+        "numero_paginas",
+        "formato_edicion",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fcd12303a2c382aa",
+  "origen": "chatgpt-web"
+}

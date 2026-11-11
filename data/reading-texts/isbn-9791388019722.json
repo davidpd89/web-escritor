@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388019722",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Schönberg o la muerte de la música: Cuarteto de la guerra IV (Narrativa) se dirige a lectores interesados en la novela histórica, el ensayo y la narrativa contemporánea. Su combinación de géneros se aleja de quienes buscan una lectura exclusivamente fantástica o de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Schönberg o la muerte de la música: Cuarteto de la guerra IV (Narrativa) está disponible en tapa dura, con 248 páginas en castellano. Es una presentación física que permite conservar el volumen en una biblioteca personal y consultarlo de nuevo sin depender de un dispositivo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Schönberg o la muerte de la música: Cuarteto de la guerra IV (Narrativa) comparte con Conspiración en Londres su vinculación con la narrativa histórica dentro de esta selección. Frente a Cosamala, que aborda un crimen de la guerra civil mediante elementos góticos y brujería, el libro de Xavier Güell se presenta también como ensayo y narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329688",
+        "isbn-9788432251436"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4b4d492f057e03ef",
+  "origen": "chatgpt-web"
+}

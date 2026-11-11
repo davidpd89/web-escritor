@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788403521773",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El diablo envía correos a medianoche: Lo que los buenos líderes pueden aprender de los malos jefes (Divulgación) se orienta a lectores interesados en liderazgo, comportamiento laboral y psicología aplicada a la empresa. Su enfoque sobre las relaciones entre jefes y líderes lo diferencia de los manuales dedicados exclusivamente a finanzas o inversión.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El diablo envía correos a medianoche: Lo que los buenos líderes pueden aprender de los malos jefes (Divulgación) tiene una edición en tapa blanda de 240 páginas. El formato físico permite marcar pasajes y volver a las ideas sobre liderazgo y gestión de equipos durante su consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Domina el arte de los negocios comparte con El diablo envía correos a medianoche: Lo que los buenos líderes pueden aprender de los malos jefes (Divulgación) el interés por las habilidades de liderazgo. Brian Tracy aborda competencias empresariales generales, mientras que Mita Mallick centra su libro en lo que puede aprenderse de las conductas de los malos jefes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466390514"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a06cdffabb4789d5",
+  "origen": "chatgpt-web"
+}

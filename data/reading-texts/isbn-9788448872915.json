@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788448872915",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Peppa Pig. Libro juguete - ¿Dónde está Peppa? Busca y encuentra en España se dirige al público infantil que disfruta buscando personajes y elementos en las páginas. Su propuesta de juego visual encaja menos con quien busca una narración extensa o una lectura centrada en el texto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El juego consiste en buscar y encontrar a Peppa a lo largo del libro, siguiendo la actividad que plantea su título. Sus 32 páginas permiten repartir la búsqueda en varias sesiones y volver a examinar las ilustraciones para localizar elementos que hayan pasado inadvertidos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Peppa Pig. Libro juguete - ¿Dónde está Peppa? Busca y encuentra en España se presenta en tapa dura, con 32 páginas en castellano. Este formato permite apoyar el libro abierto durante la búsqueda y utilizarlo repetidamente como actividad visual.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Peppa Pig. Un cuento - Navidad en familia comparte con el libro de búsqueda el personaje de Peppa Pig y la autoría de Hasbro, pero se centra en un cuento familiar en lugar de localizar elementos. Peppa Pig. Actividades - Pinta y pega propone otra forma de participación infantil mediante el coloreado y las pegatinas, mientras que el libro de búsqueda invita a encontrar a Peppa en España.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874865",
+        "isbn-9788448875312"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d9cdeac74e34caf3",
+  "origen": "chatgpt-web"
+}

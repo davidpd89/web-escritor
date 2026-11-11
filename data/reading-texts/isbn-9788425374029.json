@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788425374029",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Por qué tenemos hábitos de mierda (Crecimiento personal) se dirige a lectores interesados en el desarrollo personal y en comprender sus propios hábitos. Su enfoque corresponde a los libros prácticos de crecimiento personal, no a quienes buscan ficción, romance o una narración de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 224 páginas y permite consultar el contenido en un ejemplar físico. Es la opción disponible de Grijalbo para quien prefiere leer en papel y tener el libro a mano.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8a8d7662ecd55230",
+  "origen": "chatgpt-web"
+}

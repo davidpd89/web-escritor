@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388102172",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Haikyû!! nº 43/45 (Manga Shonen) se dirige a lectores de manga juvenil que prefieren las historias contadas mediante viñetas. Su clasificación como cómic y narrativa juvenil lo aleja de quienes buscan una novela convencional escrita principalmente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Haikyû!! nº 43/45 (Manga Shonen) está disponible en tapa blanda, con 208 páginas publicadas por Planeta Cómic. Es una opción física para leer y conservar las viñetas en papel, con una encuadernación flexible que facilita su transporte.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Haikyû!! nº 43/45 (Manga Shonen) comparte autor y colección con Haikyû!! nº 44, cuyo argumento presenta el reencuentro de Hinata y Kageyama en la V.League. El arte de Haikyû!!, también de Haruichi Furudate, reúne ilustraciones del manga de voleibol en lugar de presentarse como otra entrega numerada de la serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411617765",
+        "isbn-9791388103667"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bc34c020e1d0a300",
+  "origen": "chatgpt-web"
+}

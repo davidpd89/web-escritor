@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370205003",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El maestro armero: Iniciación al cuidado, el ajuste, la reparación y la puesta a punto de las armas de caza y tiro deportivo (Cinegética) se dirige a lectores interesados en el mantenimiento de armas utilizadas en actividades cinegéticas y deportivas. Su orientación técnica lo separa de las lecturas recreativas centradas en relatos o ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El maestro armero: Iniciación al cuidado, el ajuste, la reparación y la puesta a punto de las armas de caza y tiro deportivo (Cinegética) puede compararse con Aprende a dibujar con KPop Demon Hunters: Edición OFICIAL en español (Montena) por su orientación hacia una actividad concreta. El primero aborda el mantenimiento de armas de caza y tiro deportivo; el segundo se centra en aprender a dibujar.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388322778"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El maestro armero: Iniciación al cuidado, el ajuste, la reparación y la puesta a punto de las armas de caza y tiro deportivo (Cinegética) se ofrece en tapa blanda, con 312 páginas en castellano. La edición física de Almuzara permite consultar apartados concretos y utilizar separadores de papel para volver a ellos sin necesidad de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "que_formato_elegir: repite otro bloque",
+    "faltan módulos: que_formato_elegir"
+  ],
+  "version": 3,
+  "fuente_hash": "2d3ca39ceae4a224",
+  "origen": "chatgpt-web"
+}

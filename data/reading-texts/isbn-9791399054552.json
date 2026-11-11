@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399054552",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Criaturas míticas 1. Un invierno interminable: 6 (La Sonrisa del Gato) encaja con lectores interesados en fantasía y cómic, especialmente si también buscan historias relacionadas con la superación y el duelo. Sus 120 páginas se apartan de las novelas extensas y de las lecturas centradas exclusivamente en el realismo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Criaturas míticas 1. Un invierno interminable: 6 (La Sonrisa del Gato) tiene una edición en tapa dura de 120 páginas. La encuadernación rígida favorece su conservación y permite volver a consultar las páginas de esta obra vinculada al cómic y la fantasía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Criaturas míticas 1. Un invierno interminable: 6 (La Sonrisa del Gato) puede ponerse junto a Duelo con varitas (Harry Potter): Guía oficial de hechizos para aprendices de magia por su relación con lo fantástico. La diferencia es que el segundo se presenta como una guía de hechizos, mientras que la obra de Miila Westin se sitúa también en el ámbito del cómic y la novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419868800"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "16c6bd380ff40f1c",
+  "origen": "chatgpt-web"
+}

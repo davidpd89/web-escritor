@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410404403",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "LA ERA DE LOS SAMURÁIS: Pasajes de la historia del Japón feudal está dirigido a lectores interesados en la historia japonesa y su periodo feudal. Su planteamiento histórico se distancia de las novelas de aventuras ambientadas en otras épocas y de las obras de ficción protagonizadas por guerreros.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "LA ERA DE LOS SAMURÁIS: Pasajes de la historia del Japón feudal se publica en tapa blanda, con 392 páginas en castellano. Esta edición física permite avanzar por sus pasajes históricos y recuperar secciones anteriores mediante marcadores o anotaciones personales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Agustín penón y Federico García Lorca, de Juan Carlos García de Polavieja, comparte con LA ERA DE LOS SAMURÁIS: Pasajes de la historia del Japón feudal el interés por acontecimientos y figuras del pasado. La primera obra se vincula a una investigación sobre Federico García Lorca, mientras que R. Ibarzabal aborda episodios de la historia del Japón feudal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418567933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9a9152280cf25920",
+  "origen": "chatgpt-web"
+}

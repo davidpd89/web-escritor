@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788467023909",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ricardo II: 1 (Clásica), de William Shakespeare, encaja con lectores interesados en obras clásicas vinculadas al ámbito artístico. La edición en castellano tiene 160 páginas y está clasificada en arte y diseño; no responde a la búsqueda de un manual práctico de dibujo o de técnicas artísticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ricardo II: 1 (Clásica) está disponible en tapa blanda, con 160 páginas. Su extensión y encuadernación flexible facilitan transportarlo para leer fuera de casa o trabajar sobre el texto durante varias sesiones; la edición corresponde a Austral Editorial.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ricardo II: 1 (Clásica) y Arde Talía: Una pieza teatral sobre el infierno de la creación artística comparten su relación con el teatro. William Shakespeare firma el primero, mientras que el segundo reúne a Alba Quintas Garciandia, Ana Saiz, Talita Isla, Carmen Romero Lorenzo e Inés Galiano y centra su título en la creación artística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399289510"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "01a01f04ce4a41bc",
+  "origen": "chatgpt-web"
+}

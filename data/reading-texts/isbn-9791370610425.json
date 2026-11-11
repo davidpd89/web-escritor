@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370610425",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores que buscan estudiar el derecho de familia y sucesiones desde la jurisprudencia y sus tendencias actuales. Su carácter de monografía jurídica lo aleja de las lecturas sobre relaciones familiares planteadas desde la ficción o el relato personal.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Familia y sucesiones en la jurisprudencia: tendencias actuales (Monografía) se presenta en tapa blanda y tiene 400 páginas. La edición de Aranzadi, en castellano, permite consultar en papel un estudio extenso sobre jurisprudencia familiar y sucesoria, así como marcar apartados para posteriores consultas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Coincide con El teletrabajo y la conciliación de la vida familiar y laboral en España (Monografía) en su relación con cuestiones familiares y jurídicas. Romina Santillan Santa Cruz se ocupa de la jurisprudencia sobre familia y sucesiones, mientras Jorge Gabriel Pol Pujol aborda el teletrabajo y la conciliación. El primero se centra en tendencias jurisprudenciales; el segundo, en la relación entre empleo y vida familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370610364"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "529307c6cf60c329",
+  "origen": "chatgpt-web"
+}

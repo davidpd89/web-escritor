@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788423370856",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Constelar la vida: Del amor ciego al amor lúcido (Vivir Mejor) se orienta a lectores interesados en desarrollo personal, psicología y relaciones de pareja. Su enfoque temático encaja menos con quienes buscan una novela romántica de ficción o una historia centrada en personajes y acontecimientos narrativos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Constelar la vida: Del amor ciego al amor lúcido (Vivir Mejor) se ofrece en tapa blanda, en edición de bolsillo de Booket. Sus 256 páginas permiten leerlo en papel y volver a consultar apartados durante una lectura centrada en cuestiones personales y de pareja.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Constelar la vida: Del amor ciego al amor lúcido (Vivir Mejor) comparte el interés por las relaciones afectivas con Conectados para el amor / Wired for Love y La cara B del amor: Más allá de las dificultades (Contextos). La obra de Joan Garriga plantea desde su título el paso del amor ciego al lúcido, mientras que la de Stan Tatkin se centra nominalmente en la conexión amorosa y la de Gabriel Rolón señala las dificultades de las relaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876056",
+        "isbn-9788449346224"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1a5be507775f5d4a",
+  "origen": "chatgpt-web"
+}

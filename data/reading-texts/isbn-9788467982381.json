@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788467982381",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "MAD 03: 3 se dirige a lectores de ciencia ficción interesados en el lenguaje del cómic y la novela gráfica. Sus 200 páginas responden a ese tipo de lectura visual, por lo que se aleja de quienes buscan narrativa exclusivamente en prosa o libros prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "MAD 03: 3 está disponible en tapa blanda, con 200 páginas en un volumen físico publicado por Norma Editorial. Esta edición permite seguir la lectura gráfica directamente sobre papel y conservar el ejemplar en una colección impresa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "MAD 03: 3 puede compararse con El incidente Darwin 1 (Seinen): Universo Manga por su pertenencia al ámbito del cómic y la novela gráfica. Yusuke Otori firma MAD 03: 3, mientras que Shun Umezawa es el autor del otro título; la diferencia identificable está en la obra y su numeración, con un 3 en el primero y un 1 en el segundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962791"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "024a3525f1080eea",
+  "origen": "chatgpt-web"
+}

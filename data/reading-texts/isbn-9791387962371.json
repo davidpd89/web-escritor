@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Una comedia romántica entre dos exnovios (BL) se dirige a lectores adultos interesados en el romance entre hombres, el humor y las relaciones que continúan después de una ruptura. Su conflicto nace de la atracción persistente entre antiguos novios que trabajan juntos; no se orienta a quien busca acción fantástica o una historia romántica sin discusiones.",
+      "texto": "Una comedia romántica entre dos exnovios (BL) se dirige a lectores adultos de manga que buscan romance entre hombres, humor y conflictos sentimentales cotidianos. Su historia gira alrededor de una expareja que sigue sintiendo atracción mutua, por lo que encaja menos con quienes prefieren relatos sin componente romántico.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,9 +14,8 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Una comedia romántica entre dos exnovios (BL) combina romance y humor en formato de manga. Kishimoto plantea una relación entre antiguos novios que comparten lugar de trabajo, discuten con frecuencia y siguen sintiendo atracción mutua. La intervención de sus compañeros introduce una dimensión colectiva en el conflicto sentimental.",
+      "texto": "Es una comedia romántica en formato manga construida alrededor de una relación interrumpida que ninguno de sus protagonistas ha superado. Kishimoto sitúa el conflicto en un restaurante donde las discusiones entre Aihara y Kashima conviven con la posibilidad de reconciliación y la intervención de sus compañeros.",
       "evidencias": [
-        "titulo",
         "autores",
         "categorias",
         "sinopsis_editorial"
@@ -24,10 +23,11 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Una comedia romántica entre dos exnovios (BL) se ofrece en tapa blanda y Kindle. La edición impresa de Distrito Manga incorpora sobrecubierta y reúne 188 páginas, una presentación física para conservar el manga. Kindle permite leerlo en formato digital y llevarlo en un dispositivo sin ocupar espacio en la estantería.",
+      "texto": "Una comedia romántica entre dos exnovios (BL) está disponible en tapa blanda y Kindle. La edición de Distrito Manga tiene 188 páginas y sobrecubierta, características de interés para conservar el volumen físico; Kindle permite leerlo en formato digital, con una visualización de las viñetas condicionada por el tamaño de pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "editorial",
         "edicion",
         "numero_paginas",
         "categorias"
@@ -35,17 +35,17 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los finales perfectos no existen comparte con Una comedia romántica entre dos exnovios (BL) el interés por las relaciones sentimentales y las convenciones de la comedia romántica. La obra de Kishimoto concreta ese enfoque en dos hombres que fueron pareja y siguen trabajando juntos. La Risa de mi vida coincide en el componente humorístico, aunque su punto de partida es la adopción de una perra.",
+      "texto": "Una comedia romántica entre dos exnovios (BL) comparte el interés por las relaciones sentimentales en manga con Mi amor por Yamada está al Nv. 999 1 (Shôjo): Universo Manga. La obra de Kishimoto se centra en dos hombres que fueron pareja, mientras que el título de Mashiro se identifica como shôjo. También puede compararse con Pink & Habanero 3 (Shôjo), aunque este último se presenta como una tercera entrega y pertenece a otra autoría.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425371745",
-        "isbn-9788466684606"
+        "isbn-9791387962951",
+        "isbn-9791387962562"
       ]
     }
   ],

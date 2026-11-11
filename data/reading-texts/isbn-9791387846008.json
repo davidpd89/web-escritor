@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La hipótesis más peligrosa se dirige a lectores adultos interesados en aventuras marítimas, enigmas históricos y conflictos familiares. Su combinación de navegación, tráfico de arte y una relación difícil entre padre e hijo encaja menos con quienes buscan una historia cotidiana alejada del peligro y la intriga.",
+      "texto": "La hipótesis más peligrosa está dirigida a lectores adultos de aventuras con intriga histórica, navegación y conflictos familiares. Aunque su protagonista es adolescente, la combinación de tráfico de arte, investigación y peligros marítimos la aleja de una aventura infantil sencilla.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,27 +14,26 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Arturo Pérez-Reverte combina la aventura de iniciación con una investigación personal y una trama policíaca ambientada en el Mediterráneo. Cal Gadea, de dieciséis años, busca respuestas sobre su padre mientras aprende a navegar en un velero vinculado al comercio ilegal de obras de arte. La historia relaciona ese aprendizaje con episodios y referencias históricas del mar Mediterráneo.",
+      "texto": "La hipótesis más peligrosa combina una aventura marítima con una historia de iniciación y una investigación de carácter policíaco. La búsqueda del padre conduce a un conflicto de confianza y supervivencia, mientras el Mediterráneo aporta referencias históricas al desarrollo de la trama.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura con sobrecubierta reúne 392 páginas y ofrece una edición física para conservar o regalar; la tapa blanda permite elegir otra presentación impresa. Kindle facilita llevar la novela en el móvil durante los desplazamientos, mientras que el audiolibro permite seguir la aventura marítima mediante la escucha.",
+      "texto": "La tapa dura con sobrecubierta reúne las 392 páginas de La hipótesis más peligrosa en un volumen físico para conservar o regalar. Kindle facilita la lectura en el móvil o en un lector electrónico; el audiolibro permite seguir la historia mediante escucha, sin depender de la página impresa.",
       "evidencias": [
-        "numero_paginas",
+        "titulo",
         "edicion",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La hipótesis más peligrosa y El hombre de Damasco comparten el interés por escenarios vinculados a la historia, aunque Arturo Pérez-Reverte sitúa su aventura en el Mediterráneo y Alejandro Núñez Alonso remite al Imperio Romano. También puede compararse con El mundo perdido, de Michael Crichton, por la presencia del peligro. En este último, la amenaza procede de dinosaurios en una isla de Costa Rica, no de una trama marítima y familiar.",
+      "texto": "La hipótesis más peligrosa y El problema final (edición serie) comparten la autoría de Arturo Pérez-Reverte y un componente de intriga. La primera desarrolla una aventura marítima con búsqueda familiar y trasfondo histórico, mientras la segunda parte de un crimen imposible. La diferencia principal está entre la iniciación ligada a la navegación y la investigación de un delito.",
       "evidencias": [
         "titulo",
         "autores",
@@ -42,13 +41,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387714567",
-        "isbn-9788466392143"
+        "isbn-9788466389136"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "43e2584c9bfce9d3",
+  "fuente_hash": "0dce44543f732345",
   "origen": "chatgpt-web"
 }

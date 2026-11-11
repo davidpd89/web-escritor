@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788426742810",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Seguridad en la aviación. De la gestión de riesgos al impacto ambiental (Alfaomega) se orienta a lectores interesados en la seguridad aérea, la gestión de riesgos y sus implicaciones ambientales. Por su temática técnica y su relación con la economía y la divulgación científica, encaja menos con quien busca relatos de viajes o ficción ambientada en aviones.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra relaciona la seguridad en la aviación con dos ámbitos concretos: la gestión de riesgos y el impacto ambiental. Su enfoque se sitúa entre la divulgación científica y las cuestiones de gestión, con una extensión de 224 páginas que delimita el volumen de la edición publicada por Marcombo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Seguridad en la aviación. De la gestión de riesgos al impacto ambiental (Alfaomega) está disponible en tapa blanda, con 224 páginas en castellano. Es una edición física de Marcombo que permite consultar el contenido en papel, marcar pasajes y volver a los apartados de interés durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Seguridad en la aviación. De la gestión de riesgos al impacto ambiental (Alfaomega) y La era de la extracción: Cómo las plataformas tecnológicas conquistaron la economía y amenazan nuestro futuro (Shackleton Books) comparten el interés por las consecuencias de actividades tecnológicas y económicas. La primera se concentra en los riesgos y el medioambiente dentro de la aviación; la segunda sitúa su análisis en las plataformas tecnológicas y la economía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413619460"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d7c5913b300784d4",
+  "origen": "chatgpt-web"
+}

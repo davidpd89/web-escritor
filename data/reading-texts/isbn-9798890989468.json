@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9798890989468",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Horóscopo Chino 2027 / Chinese Horoscope 2027 se orienta a lectores interesados en el horóscopo chino y en temas relacionados con el bienestar y el desarrollo personal. Por su temática, queda fuera de las preferencias de quien busca ficción narrativa o un manual centrado exclusivamente en nutrición.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Horóscopo Chino 2027 / Chinese Horoscope 2027 reúne 448 páginas en castellano. El papel permite consultar distintas partes del volumen y volver a ellas durante el año indicado en el título, aunque su extensión supone un libro considerable para transportar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Horóscopo Chino 2027 / Chinese Horoscope 2027 coincide en su orientación hacia el desarrollo personal con Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia, de Barbara Hand Clow. El primero se centra en el horóscopo chino de un año concreto, mientras que el segundo anuncia un enfoque sobre la consciencia. Ambos se apartan de la ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798888505335"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ec7f0a1fba79b3fa",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388102721",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este estuche de Quique Palomo e Ian Gibson se dirige a lectores interesados en biografías, historia del siglo XX y cómic documental. Sus 392 páginas abordan figuras creativas mediante narrativa gráfica; encaja menos con quienes buscan ficción histórica en prosa o relatos de aventuras.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Planeta Cómic está disponible en tapa dura, con 392 páginas en castellano. La encuadernación rígida permite conservar el conjunto en una biblioteca o entregarlo como regalo físico; el estuche reúne contenido biográfico e histórico presentado mediante narrativa gráfica.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Quique Palomo e Ian Gibson comparte el interés por la memoria histórica con Los niños de la Resistencia. Memorias vivas 1: Josette y Jean-Jacques, aunque se centra en creadores y no en testimonios de resistencia. Frente a Campo de concentración: 82 (Biblioteca del Exilio), relacionado con el exilio y los campos de concentración, utiliza el formato de novela gráfica para abordar contenidos biográficos.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388439148",
+        "isbn-9788410148659"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4109e435afbbf325",
+  "origen": "chatgpt-web"
+}

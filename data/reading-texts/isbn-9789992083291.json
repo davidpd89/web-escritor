@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9789992083291",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La muerte en Venecia · La engañada: 54 (Piteas) se dirige a lectores de clásicos literarios y narrativa que prefieren reunir dos obras bajo un mismo volumen. Sus 216 páginas ofrecen una extensión contenida; por su orientación literaria, encaja menos con quienes buscan fantasía o aventuras juveniles.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Trotalibros publica La muerte en Venecia · La engañada: 54 (Piteas) en tapa dura, con 216 páginas en castellano. La encuadernación rígida protege el volumen durante su conservación y facilita tener ambas obras juntas en una biblioteca, sin necesidad de adquirirlas por separado.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Muerte en Venecia y La muerte en Venecia · La engañada: 54 (Piteas) comparten autor, Thomas Mann, y la referencia a Venecia. La diferencia editorial más visible es que el segundo título reúne también La engañada en una edición de tapa dura de 216 páginas, mientras que el primero se identifica por una sola obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "edicion",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9791370310431"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9e4f32c9c2fbe9ea",
+  "origen": "chatgpt-web"
+}

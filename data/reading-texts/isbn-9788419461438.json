@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788419461438",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la salud de la mujer y en el estudio de casos clínicos desde una perspectiva científica. Casos clínicos internacionales en salud de la mujer se centra en material clínico, por lo que no corresponde a quien busca una novela o un manual general de bienestar cotidiano.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 160 páginas de Casos clínicos internacionales en salud de la mujer en castellano. El volumen físico permite consultar los casos y volver a sus páginas durante el estudio sin necesidad de utilizar una pantalla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dar a luz y nacer antes de tiempo: Salud mental perinatal comparte con Casos clínicos internacionales en salud de la mujer el interés por cuestiones de salud relacionadas con las mujeres. Margarita Ibáñez y Ana Riverola se centran en la salud mental perinatal, mientras que la obra colectiva aborda casos clínicos internacionales sobre salud femenina.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788425455032"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d5735e8dea38ee20",
+  "origen": "chatgpt-web"
+}

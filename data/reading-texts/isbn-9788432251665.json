@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788432251665",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los ojos del Prado (Biblioteca Breve) se orienta a lectores que combinan el interés por la fantasía y las aventuras con la narrativa contemporánea. Sus 320 páginas ofrecen una extensión intermedia; por género, se distancia de quienes buscan exclusivamente realismo cotidiano o novela policial.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los ojos del Prado (Biblioteca Breve) puede leerse en tapa blanda o en Kindle. La edición física de Seix Barral tiene 320 páginas y permite conservar el volumen en papel; Kindle ofrece la misma obra en un dispositivo de lectura o en el móvil, sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los ojos del Prado (Biblioteca Breve) y El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa), de Heather Fawcett, comparten el terreno de la ficción fantástica. La obra de Alejandro Molina Bravo incorpora también aventuras y narrativa contemporánea, mientras que el título de Heather Fawcett identifica un refugio de gatos como elemento central.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387749316"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "faaf7e906c309331",
+  "origen": "chatgpt-web"
+}

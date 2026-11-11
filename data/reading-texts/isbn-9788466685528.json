@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788466685528",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La voz del desierto: El Dakar me enseñó a competir. El desierto me enseñó a vivir (No ficción) se orienta a lectores de memorias deportivas y desarrollo personal. La relación entre competición y experiencia vital aparece en el propio título; no corresponde a quien busque una novela de aventuras ficticias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 312 páginas de La voz del desierto: El Dakar me enseñó a competir. El desierto me enseñó a vivir (No ficción). Permite leer por sesiones y conservar el volumen para volver a sus pasajes sobre competición y experiencia personal, temas anunciados en el título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El código del rendimiento: La ciencia detrás de lo que el deportista consume coincide con La voz del desierto: El Dakar me enseñó a competir. El desierto me enseñó a vivir (No ficción) en su relación con el deporte. El primero se centra, según su título, en la alimentación del deportista; la obra de Cristina Gutiérrez vincula la competición con las vivencias personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409934010"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1acfbbb8c40c28d4",
+  "origen": "chatgpt-web"
+}

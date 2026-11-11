@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788430629770",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La formación de España: Una historia de pueblos, costumbres y leyes, de José María Pérez Zúñiga, está orientado a lectores interesados en historia, derecho y política. Sus 472 páginas se ajustan a una lectura extensa sobre estas materias, no a quien busque una novela de ficción o un libro introductorio muy breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La formación de España: Una historia de pueblos, costumbres y leyes se ofrece en tapa blanda, en una edición de Taurus de 472 páginas. El papel permite consultar y volver a localizar pasajes durante el estudio de cuestiones históricas y jurídicas, aunque supone manejar un volumen extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La formación de España: Una historia de pueblos, costumbres y leyes comparte el interés por la historia jurídica con El ocaso del Consejo Real de Castilla (1808-1834) (Derecho Histórico). José María Pérez Zúñiga aborda en su título pueblos, costumbres y leyes, mientras que la obra de José María Puyol Montero delimita su asunto a una institución y un periodo histórico concretos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434031616"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c1b38d9299ec1ee9",
+  "origen": "chatgpt-web"
+}

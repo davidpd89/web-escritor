@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9786073873697",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Wishbone (Spanish Edition), de Laia Jufresa, está dirigido a lectores interesados en la narrativa contemporánea. Sus 424 páginas lo sitúan entre las novelas de mayor extensión de esta selección, por lo que se distingue de las lecturas narrativas más breves.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece una edición física de 424 páginas publicada por Penguin Random House Grupo Editorial. Es el formato disponible para leer Wishbone (Spanish Edition) en papel y conservar un ejemplar de mayor extensión en la biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ef4adb6062edd158",
+  "origen": "chatgpt-web"
+}

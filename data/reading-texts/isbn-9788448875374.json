@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788448875374",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Piratix. Libro juguete - Súper busca y encuentra (Pequeños curiosos), de Magicbox, se dirige a quienes buscan un libro de fantasía con actividades de búsqueda visual. Por su planteamiento de libro juguete y sus 48 páginas, se aparta de las novelas extensas centradas en una narración continua.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Piratix. Libro juguete - Súper busca y encuentra (Pequeños curiosos) se presenta en tapa dura, con 48 páginas en castellano. Esta encuadernación permite manejar el volumen durante las actividades de búsqueda y conservarlo para volver a utilizarlas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Piratix comparte con Superthings el formato de libro juguete dedicado a buscar elementos y la autoría de Magicbox. La diferencia está en sus protagonistas: el primero pertenece al universo Piratix, mientras que el segundo propone localizar héroes y villanos en escenarios urbanos. Frente a estas actividades visuales, las primeras lecturas de Piratix presentan una aventura relacionada con una moneda de poder y un barco legendario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874698"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8ebe5ef1b78b1468",
+  "origen": "chatgpt-web"
+}

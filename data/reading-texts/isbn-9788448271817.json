@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788448271817",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Regina de Miguel: Aguas intoxicadas se dirige a lectores interesados en publicaciones de arte y diseño. La obra del Instituto Valenciano de Arte Moderno, con 260 páginas, responde a ese ámbito y no al de quienes buscan una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Regina de Miguel: Aguas intoxicadas se presenta en tapa blanda, con 260 páginas en castellano. Esta edición de Generalitat Valenciana permite consultar el volumen en papel y colocarlo en una biblioteca dedicada al arte y el diseño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Regina de Miguel: Aguas intoxicadas comparte el ámbito del arte y el diseño con 720 retrats, de Xavier Mollà i Revert. Mientras este último sitúa los retratos en el centro de su título, la publicación del Instituto Valenciano de Arte Moderno se centra en Regina de Miguel. Son obras de distinta autoría dentro del ámbito artístico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2236ff49231b3276",
+  "origen": "chatgpt-web"
+}

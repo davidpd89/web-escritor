@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788467084306",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "España y la creación de Estados Unidos: Más de 250 años de historia compartida (Espasa Historia de España) está dirigido a lectores interesados en la historia compartida de ambos países. Sus 304 páginas desarrollan un asunto histórico concreto, por lo que encaja menos con quien busca ficción o una panorámica de historia universal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "España y la creación de Estados Unidos: Más de 250 años de historia compartida (Espasa Historia de España) se publica en tapa blanda. La edición de Editorial Espasa contiene 304 páginas en castellano y permite leer y consultar el contenido histórico directamente en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Agustín penón y Federico García Lorca, de Juan Carlos García de Polavieja, comparte con España y la creación de Estados Unidos: Más de 250 años de historia compartida (Espasa Historia de España) el interés por investigar el pasado. El primero se concentra en la vida y la muerte de Federico García Lorca; el libro de José Luis López-Linares examina las relaciones históricas entre España y Estados Unidos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418567933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "21f4ac378591162a",
+  "origen": "chatgpt-web"
+}

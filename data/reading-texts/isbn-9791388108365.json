@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388108365",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Saciar a la bestia - libro 1 (Faeris Editorial) encaja con lectores de fantasía juvenil que buscan una combinación de romance y elementos de terror. Su mezcla de géneros se aleja de las novelas exclusivamente románticas y de las historias realistas sin componentes fantásticos. El título lo identifica como el n.º 1.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Saciar a la bestia - libro 1 (Faeris Editorial) está disponible en tapa blanda y Kindle. Sus 432 páginas en papel permiten mantener un ejemplar físico para lectura y colección, mientras que Kindle facilita llevar esa extensión en un lector electrónico o móvil. La edición impresa corresponde a Faeris.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El hechizo más oscuro (Faeris Editorial) comparte con Saciar a la bestia - libro 1 (Faeris Editorial) la vinculación editorial con Faeris, aunque son obras de Wanda Hellmund y Tamara Molina, respectivamente. Una tempestad para matar un beso: La balada del fuego solar 2 (Inlov Romantasy) ofrece otra referencia relacionada con la fantasía romántica. Frente a esta última, el título de Tamara Molina se identifica como libro 1 y también se clasifica dentro del terror juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388108419",
+        "isbn-9788410399327"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8957f5c6080f359e",
+  "origen": "chatgpt-web"
+}

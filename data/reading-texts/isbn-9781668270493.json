@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9781668270493",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Losing Hope (Spanish edition): Buscando la redención, de Colleen Hoover, se dirige a lectores interesados en la narrativa contemporánea y en una obra cuyo título plantea la redención como eje temático. Su clasificación también incluye el ensayo, por lo que no se presenta como una propuesta de fantasía o narrativa histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 320 páginas de Losing Hope (Spanish edition): Buscando la redención en una edición física de cubierta flexible. Permite leer en castellano sin recurrir a dispositivos electrónicos y facilita transportar el volumen o conservarlo junto a otros libros de Colleen Hoover.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Losing Hope: Buscando la redención (Titania fresh) comparte autora y título principal con Losing Hope (Spanish edition): Buscando la redención, de Colleen Hoover. La diferencia identificable está en la denominación editorial: la primera incorpora Titania fresh, mientras que la segunda corresponde a una edición de Simon & Schuster en castellano, con 320 páginas y tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "editorial",
+        "idioma",
+        "numero_paginas",
+        "formatos_disponibles"
+      ],
+      "enlaces": [
+        "isbn-9788410391796"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bc8f35ffdd3f7e64",
+  "origen": "chatgpt-web"
+}

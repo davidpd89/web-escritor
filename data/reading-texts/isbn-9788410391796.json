@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410391796",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores de romance interesados en una historia cuyo título sitúa la redención en el centro. Sus 320 páginas y su clasificación romántica lo diferencian de las lecturas de fantasía épica o divulgación, aunque el título no permite concretar el desarrollo del conflicto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Losing Hope: Buscando la redención (Titania fresh) cuenta con una edición en tapa blanda de 320 páginas, publicada por Titania. El volumen físico permite leer la novela sin pantalla y transportarla entre distintos lugares; su extensión también ayuda a calcular el tiempo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Losing Hope (Spanish edition): Buscando la redención comparte autora y título principal con Losing Hope: Buscando la redención (Titania fresh), aunque sus denominaciones editoriales son distintas. Finding cinderella (Titania fresh) también está firmado por Colleen Hoover y comparte el sello de colección indicado en el título, pero se presenta como una obra diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410391826",
+        "isbn-9781668270493"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "26858cb1d9260227",
+  "origen": "chatgpt-web"
+}

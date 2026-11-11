@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9786287880566",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El desbarrancadero (Ed. 25 Aniversario) / The Abyss (25th Anniversary Edition), de Fernando Vallejo, está dirigido a lectores interesados en la narrativa contemporánea. Su edición conmemorativa identifica una publicación vinculada al 25 aniversario; no responde a quien busca un ensayo o un libro de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura presenta una edición física de 168 páginas publicada por Alfaguara. Es el formato disponible para quien prefiere un ejemplar encuadernado en lugar de una edición de tapa blanda.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c9fcfad95a644a94",
+  "origen": "chatgpt-web"
+}

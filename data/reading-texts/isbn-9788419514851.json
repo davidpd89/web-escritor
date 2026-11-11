@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788419514851",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Wonder - La lección de August (Nube de Tinta), de R.J. Palacio, se dirige a lectores interesados en libros de desarrollo personal. Su clasificación permite situarlo frente a quienes buscan este tipo de lectura, en lugar de ensayo o narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 416 páginas de Wonder - La lección de August (Nube de Tinta) en un volumen físico; Kindle permite leerlo en formato digital desde dispositivos compatibles. La primera opción responde a quien prefiere conservar un ejemplar en papel y la segunda a quien prioriza la lectura electrónica.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ddaefe11f56612f9",
+  "origen": "chatgpt-web"
+}

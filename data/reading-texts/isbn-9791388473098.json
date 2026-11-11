@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791388473098",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La luna (Hispánica), de Marina Yuszczuk, se dirige a lectores que buscan narrativa contemporánea. Sus 288 páginas forman una novela encuadrada en ese ámbito literario, no un ensayo ni una obra clasificada dentro del romance o el misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 288 páginas de La luna (Hispánica), de Marina Yuszczuk, en una edición física publicada por Alfaguara. Es el formato indicado para quien prefiere tener el libro en papel y conservarlo en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7d2e96425c8fb424",
+  "origen": "chatgpt-web"
+}

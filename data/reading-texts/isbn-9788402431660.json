@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788402431660",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Con Dios todo lo puedo: Enseñanzas cristianas para la vida desde san Pedro hasta san Juan Pablo II (Bruguera Tendencias) se orienta a lectores interesados en aplicar enseñanzas cristianas a su desarrollo personal. Su perspectiva religiosa lo diferencia de los libros de autoayuda que abordan el bienestar sin recurrir a la tradición cristiana.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Con Dios todo lo puedo: Enseñanzas cristianas para la vida desde san Pedro hasta san Juan Pablo II (Bruguera Tendencias) está disponible en tapa blanda, con 224 páginas en castellano. Esta edición permite una lectura física continuada y facilita volver a pasajes concretos de sus enseñanzas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual comparte el interés por la espiritualidad, pero plantea una aproximación desde la astrología, la filosofía y la magia, frente a las enseñanzas cristianas de María Gómez Zúñiga y Laura Trueba. Ama tu sistema nervioso, de Elsa Bonafonte, se acerca más al cuidado personal que a la tradición religiosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419820853",
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e689aa677b674d6d",
+  "origen": "chatgpt-web"
+}

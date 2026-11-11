@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399190274",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "TORRE DE ESPINAS: Fiero y Espina, libro 2 (LA OTRA FANTASIA), de Juliet Marillier, se dirige a lectores de fantasía interesados en series identificadas por entregas. El título lo identifica como el n.º 2 de Fiero y Espina, por lo que resulta menos adecuado para quien busque expresamente una obra presentada como independiente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "TORRE DE ESPINAS: Fiero y Espina, libro 2 (LA OTRA FANTASIA) está disponible en tapa blanda, con 520 páginas en castellano. La edición de Duermevela Ediciones reúne esta entrega en un volumen físico que puede conservarse junto a otros libros de la serie.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "TORRE DE ESPINAS: Fiero y Espina, libro 2 (LA OTRA FANTASIA) comparte el ámbito fantástico con Alas de Hierro, de Rebecca Yarros, y Aftermyth 1. Penelope y la prueba de los dioses, de Tracy Wolff. Las tres obras presentan entregas numeradas, pero la de Juliet Marillier pertenece a Fiero y Espina, mientras que las otras se identifican con series distintas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324102"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2650949334c7e3ed",
+  "origen": "chatgpt-web"
+}

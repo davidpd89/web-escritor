@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387752774",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sudokus Originales Nikoli Nivel 8 (Sudokus Nikoli) encaja con quienes buscan resolver sudokus como actividad de ocio y prefieren un nivel identificado con el número 8. NIKOLI firma este volumen de pasatiempos, que no responde a una búsqueda de relatos, novelas o ejercicios de comprensión lectora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sudokus Originales Nikoli Nivel 8 (Sudokus Nikoli) se publica en tapa blanda y tiene 160 páginas. La edición de Editorial Alma permite resolver los pasatiempos directamente sobre papel, sin depender de una pantalla para consultar las cuadrículas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sudokus Originales Nikoli Nivel 1 (Sudokus Nikoli) y Sudokus Originales Nikoli Nivel 4 (Sudokus Nikoli) pertenecen a la misma colección y comparten la autoría de NIKOLI. Frente a ellos, Sudokus Originales Nikoli Nivel 8 (Sudokus Nikoli) se identifica con un nivel numérico superior, una diferencia relevante al escoger entre los volúmenes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387752750",
+        "isbn-9791387752767"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "287048a821d58658",
+  "origen": "chatgpt-web"
+}

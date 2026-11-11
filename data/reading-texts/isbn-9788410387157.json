@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788410387157",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La mata (Poesía), de Eliana Hernández, se dirige a lectores que buscan poesía en castellano en un volumen breve. Sus 96 páginas encajan con la lectura pausada de poemas, pero no con quien prefiere una novela de desarrollo narrativo extenso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La mata (Poesía) se publica en tapa blanda, con 96 páginas que permiten manejar el volumen sin el peso de una edición extensa. La edición de Cuatro Lunas reúne la obra en un libro físico que puede llevarse en el bolso y consultarse directamente sobre papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La mata (Poesía) comparte género con Antología, de Antonio Cano, y Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. La primera reúne la obra completa de su autor y la segunda se presenta como una antología amorosa, mientras que La mata (Poesía) es un volumen de 96 páginas firmado por Eliana Hernández.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288",
+        "isbn-9791370140908"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "03c76150241a91b9",
+  "origen": "chatgpt-web"
+}

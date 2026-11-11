@@ -1,0 +1,62 @@
+{
+  "id": "isbn-9788466393041",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes leen ensayos de historia y quieren conocer la invención de los libros en el mundo antiguo. Por su enfoque histórico y divulgativo, se aleja de la ficción y de las lecturas centradas en una trama narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición limitada de El infinito en un junco (edición limitada · cantos tintados): La invención de los libros en el mundo antiguo (Campaña | Edición con cantos tintados) incorpora cantos tintados y encuadernación en tapa dura. Penguin Bolsillo la publica en castellano, con 600 páginas y fecha de publicación del 19 de noviembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "idioma",
+        "numero_paginas",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Aborda la invención de los libros en el mundo antiguo desde una perspectiva histórica. El trabajo de Irene Vallejo se sitúa entre el ensayo y la divulgación, con el libro y su origen como asuntos centrales, en lugar de plantear una historia de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 600 páginas de esta edición limitada en un volumen físico con cantos tintados. Es una opción para conservar en una biblioteca, consultar en papel o regalar por sus características materiales.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Manifiesto por la lectura / Manifesto for Reading comparte con El infinito en un junco el interés por los libros y la autoría de Irene Vallejo. El primero se centra en la lectura, mientras que el segundo aborda la invención de los libros en el mundo antiguo desde una perspectiva histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9786073878470"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0cd1d667dcf8dbb1",
+  "origen": "chatgpt-web"
+}

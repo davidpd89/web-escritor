@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387740269",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Guerra mundial Z: Una historia oral de la guerra zombi (Reservoir Narrativa) se dirige a lectores de terror interesados en los zombis y en una narración planteada como historia oral. Su temática y sus 456 páginas lo alejan de quienes buscan relatos breves de tono cotidiano o lecturas sin elementos de terror.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Guerra mundial Z: Una historia oral de la guerra zombi (Reservoir Narrativa) está disponible en tapa dura y Kindle. La edición física de Reservoir Books reúne 456 páginas en un volumen para conservar o regalar; Kindle permite leer la obra de Max Brooks en un dispositivo compatible sin cargar con el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Guerra mundial Z: Una historia oral de la guerra zombi (Reservoir Narrativa) comparte el terreno del terror con Creepy nº 11/29, aunque la obra de Max Brooks se presenta como una historia oral sobre una guerra zombi y Creepy nº 11/29 como una recopilación de terror de Varios autores. Caminando con la muerte 4 (Seinen), de ryoko, introduce otra referencia a la muerte desde una obra identificada como seinen y numerada, frente al planteamiento de historia oral de Guerra mundial Z: Una historia oral de la guerra zombi (Reservoir Narrativa).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410305830",
+        "isbn-9788411406130"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0b0f98c3867948a0",
+  "origen": "chatgpt-web"
+}

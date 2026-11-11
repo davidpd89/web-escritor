@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788425375552",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La ilusión de ser mamá: Diario de mi embarazo (Embarazo, bebé y crianza) se dirige a quienes buscan una lectura relacionada con la maternidad y el embarazo. Nazareth Olivera Belart aborda este ámbito desde un libro identificado como diario, dentro de familia y crianza. No responde a la búsqueda de una novela de ficción ajena a la experiencia familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La ilusión de ser mamá: Diario de mi embarazo (Embarazo, bebé y crianza) se publica en tapa blanda, con 176 páginas en castellano. Este formato físico permite tener el libro a mano durante el embarazo y guardarlo después en una estantería. La edición corresponde a Grijalbo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abuelas Y Abuelos (Álbumes Ilustrados castellano) y La ilusión de ser mamá: Diario de mi embarazo (Embarazo, bebé y crianza) comparten el ámbito de las relaciones familiares. El libro de Helene Delforge se presenta como álbum ilustrado sobre los abuelos, mientras que el de Nazareth Olivera Belart adopta la forma de un diario centrado en el embarazo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491429586"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d5d2f0e35663fd11",
+  "origen": "chatgpt-web"
+}

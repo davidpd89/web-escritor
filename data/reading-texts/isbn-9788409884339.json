@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409884339",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La incomodidad te hace libre: Un ensayo sobre libertad, disciplina e identidad para dejar de obedecer a la comodidad se dirige a lectores interesados en el desarrollo personal desde una perspectiva filosófica. Su enfoque en la disciplina y la identidad lo diferencia de quienes buscan ficción narrativa o un manual centrado exclusivamente en alimentación y ejercicio.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene las 211 páginas de La incomodidad te hace libre: Un ensayo sobre libertad, disciplina e identidad para dejar de obedecer a la comodidad y permite consultar físicamente sus reflexiones. Kindle facilita llevar el ensayo en el móvil o en un lector electrónico y acceder a él sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La incomodidad te hace libre comparte el interés filosófico con Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies. Sebastián Romero centra su ensayo en la libertad, la disciplina y la identidad, mientras que la otra obra aborda la práctica espiritual. También se relaciona con ¿Dónde están las llaves?: Reflexiones sobre cómo habitar, de Aruca Gómez, aunque esta última orienta sus reflexiones hacia el hecho de habitar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315",
+        "isbn-9788409933419"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6fe2f4da29e8ac44",
+  "origen": "chatgpt-web"
+}

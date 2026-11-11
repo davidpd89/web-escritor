@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La fibra es la solución está dirigido a adultos que quieren aumentar el consumo de fibra mediante cambios concretos en su alimentación. Su orientación nutricional y sus recetas lo alejan de los libros de cocina centrados exclusivamente en preparar platos, sin explicar su relación con la salud.",
+      "texto": "La fibra es la solución está dirigido a adultos interesados en mejorar sus hábitos alimentarios mediante cambios concretos en el consumo de fibra. Su combinación de pautas nutricionales, recetas y planificación semanal responde a una búsqueda práctica, más que a la de un tratado exclusivamente teórico sobre alimentación.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,18 +14,19 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "La fibra es la solución organiza su propuesta en un método de seis pasos para alcanzar un consumo diario de 30 gramos de fibra. Incluye 30 recetas de distintas comidas, cuatro planes semanales y consejos para adaptar la alimentación a objetivos como controlar el peso o mantener una dieta rica en proteínas. También examina la relación de la fibra con la salud intestinal.",
+      "texto": "La fibra es la solución presenta un método de seis pasos para incorporar más fibra a la alimentación diaria. Kristen Stavridis explica sus efectos sobre la salud intestinal e incluye 30 recetas de desayunos, platos principales, tentempiés y dulces. Cuatro planes semanales permiten trasladar las pautas a la organización de las comidas.",
       "evidencias": [
         "titulo",
+        "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas de La fibra es la solución reúne 264 páginas y permite consultar físicamente las recetas y los planes semanales mientras se cocina. Kindle facilita llevar las indicaciones nutricionales y las preparaciones en el móvil o en un lector electrónico, sin necesitar el ejemplar de papel.",
+      "texto": "La tapa blanda con solapas de Grijalbo reúne las 264 páginas en un ejemplar que puede consultarse mientras se preparan recetas o se planifican comidas. Kindle permite acceder digitalmente al método y a los planes semanales desde un móvil o lector compatible, sin llevar el volumen impreso.",
       "evidencias": [
-        "titulo",
         "edicion",
+        "editorial",
         "numero_paginas",
         "formatos_disponibles",
         "sinopsis_editorial"
@@ -33,16 +34,16 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La fibra es la solución y Neurocambios comparten una orientación práctica hacia la modificación de hábitos, aunque Kristen Stavridis trabaja sobre alimentación y Begoña del Campo sobre patrones mentales y emociones. El cerebro enamorado también combina explicación y herramientas aplicables, pero Lucy Vincent se centra en los mecanismos cerebrales del amor y las relaciones, no en la nutrición.",
+      "texto": "Chef sapiens comparte con La fibra es la solución el interés por las recetas saludables, pero recorre la historia de la cocina mientras Kristen Stavridis se centra en aumentar el consumo de fibra. Secretos del ayurveda: Que cambiarán tu vida (Biblioteca de la salud) también aborda cuestiones de bienestar, aunque desde el ayurveda y no desde un método alimentario basado en recetas y planes semanales.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408324874",
-        "isbn-9788408325291"
+        "isbn-9788466395939",
+        "isbn-9788411214834"
       ]
     }
   ],

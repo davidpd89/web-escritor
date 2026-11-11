@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9798901230640",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Por si las moscas / In Case of las Moscas se dirige a quienes buscan libros sobre familia y crianza. Sus 40 páginas permiten abordar esa temática en una extensión breve; no responde a la búsqueda de un manual extenso sobre educación familiar.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Por si las moscas / In Case of las Moscas está disponible en tapa dura, con 40 páginas en castellano. Esta edición permite conservar el volumen en formato físico y resulta manejable por su extensión, tanto para consultas como para compartirlo en familia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Por si las moscas / In Case of las Moscas puede compararse con Abuelas Y Abuelos (Álbumes Ilustrados castellano) por su vinculación con el ámbito familiar. El primero figura entre los libros de familia y crianza, mientras que el segundo centra su título en los abuelos y se presenta como álbum ilustrado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491429586"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "00ed45a55928b49b",
+  "origen": "chatgpt-web"
+}

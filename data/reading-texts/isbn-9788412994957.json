@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788412994957",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Perro de Diógenes: 5 (Filonimal), de Alice Brière-Haquet, se orienta a quienes buscan una lectura breve relacionada con la filosofía y el ensayo. Sus 32 páginas permiten abordarlo en poco tiempo, aunque su extensión y temática lo alejan de los tratados filosóficos extensos y de las novelas de ficción. El título lo identifica como el n.º 5 de Filonimal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Perro de Diógenes: 5 (Filonimal) se ofrece en tapa dura, con 32 páginas en castellano. La cubierta rígida facilita conservar el volumen y consultarlo de nuevo, mientras que su reducida extensión permite una lectura de corta duración. Es una edición física manejable para colocar junto a otros libros de filosofía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Perro de Diógenes: 5 (Filonimal) comparte el terreno filosófico con Cartas a Lucilio: Edición íntegra (Clásicos), de Séneca, aunque el primero tiene 32 páginas y el segundo se presenta como una edición íntegra de cartas. También puede compararse con Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies. Este último vincula la filosofía con la práctica espiritual, mientras que Alice Brière-Haquet parte de la figura de Diógenes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315",
+        "isbn-9791388182495"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f5a7f094d78812bf",
+  "origen": "chatgpt-web"
+}

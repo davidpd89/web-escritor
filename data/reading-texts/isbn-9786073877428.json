@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073877428",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El doble / The Double, de Jacobo Grinberg-Zylberbaum, se dirige a quienes leen sobre psicología, espiritualidad y desarrollo personal. Su combinación temática lo diferencia de una obra exclusivamente empresarial o de una narración de ficción histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El doble / The Double dispone de una edición en tapa blanda de 152 páginas, publicada por Penguin Random House Grupo Editorial. Es un volumen de extensión reducida que permite leerlo en papel durante varias sesiones y localizar fragmentos con facilidad.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La voz del ver / The Voice of Seeing comparte autor, Jacobo Grinberg-Zylberbaum, con El doble / The Double, por lo que permite explorar otra obra de la misma firma. Frente a esa coincidencia de autoría, El doble / The Double aparece clasificado dentro de la psicología, la espiritualidad y el desarrollo personal, y cuenta con 152 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073877459"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "36459f29341663e2",
+  "origen": "chatgpt-web"
+}

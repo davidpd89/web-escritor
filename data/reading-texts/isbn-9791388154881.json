@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388154881",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Odisea. Nueva Edición Portátil / The Odyssey: New Pocket Edition se dirige a quienes buscan leer una obra de Homero en una edición portátil en castellano. Su clasificación histórica y su presentación como obra literaria la alejan de los manuales de consulta práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La nueva edición portátil de Odisea. Nueva Edición Portátil / The Odyssey: New Pocket Edition tiene 352 páginas y encuadernación en tapa blanda. Blackie Books la publica en castellano, en un formato físico pensado para poder trasladar el ejemplar y continuar la lectura en distintos lugares.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Odisea: Ediciones icónicas (Penguin Clásicos | Vintage) comparte obra y autoría con Odisea. Nueva Edición Portátil / The Odyssey: New Pocket Edition, de Homero, pero esta última se presenta expresamente como edición portátil. Ilíada: Ediciones icónicas (Penguin Clásicos | Vintage) permite cambiar de título sin abandonar la autoría de Homero.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491058779",
+        "isbn-9788491058762"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3e437c5106b9ae2c",
+  "origen": "chatgpt-web"
+}

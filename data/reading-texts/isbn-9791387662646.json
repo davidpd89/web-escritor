@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387662646",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tu mente es mágica: Cómo desarrollar un cerebro manifestador (Crecimiento personal), de James Doty, se dirige a lectores interesados en el desarrollo personal y el funcionamiento de la mente. Su enfoque declarado sobre el cerebro manifestador se aleja de la narrativa de ficción y de los manuales centrados exclusivamente en alimentación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Tu mente es mágica: Cómo desarrollar un cerebro manifestador (Crecimiento personal) se publica en tapa blanda y reúne 264 páginas. El formato permite consultar pasajes en papel y retomar la lectura por sesiones, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tu mente es mágica: Cómo desarrollar un cerebro manifestador (Crecimiento personal) y Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia abordan cuestiones relacionadas con la mente o la consciencia. James Doty centra su título en desarrollar un cerebro manifestador, mientras Barbara Hand Clow plantea el despertar de la consciencia mediante nueve dimensiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798888505335"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "722d9be7ce11ed7e",
+  "origen": "chatgpt-web"
+}

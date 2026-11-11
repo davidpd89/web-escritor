@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9798901230749",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Harry Potter Y La Piedra Filosofal / Harry Potter and the Philosophers Stone se dirige a lectores que buscan fantasía y aventuras en una novela de 288 páginas. Por su clasificación, se aleja de la narrativa realista y de los libros de consulta, con una extensión menor que la de muchas novelas largas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Harry Potter Y La Piedra Filosofal / Harry Potter and the Philosophers Stone está editado en tapa blanda, con 288 páginas en castellano. La edición de Salamandra ofrece un volumen de cubierta flexible para la lectura en papel, fácil de colocar en una mochila o llevar durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Harry Potter Y La Piedra Filosofal / Harry Potter and the Philosophers Stone comparte autora, J K Rowling, con Harry Potter Y El Misterio del Príncipe (Edición Con Ilustraciones de Xavier Bonet) / Harry Potter and the Half-Blood Prince. Ambos pertenecen al universo identificado en sus títulos, pero el segundo destaca una edición ilustrada, mientras que el primero se presenta aquí en tapa blanda de 288 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "formatos_disponibles",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798901230695"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1194aa8d01680207",
+  "origen": "chatgpt-web"
+}

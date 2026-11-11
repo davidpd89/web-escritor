@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387640705",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El milagro de San Genaro (Salamandra Narrativa) se dirige a lectores de clásicos y narrativa contemporánea relacionados con el siglo XX y la historia. Su clasificación literaria lo diferencia de los manuales históricos o de los ensayos dedicados a explicar acontecimientos mediante un enfoque académico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El milagro de San Genaro (Salamandra Narrativa), publicada por Salamandra, tiene 336 páginas en tapa blanda. Es un volumen físico que permite leer la obra en castellano y llevarla durante los desplazamientos sin el peso adicional habitual de una cubierta rígida.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anna Karénina (edición especial en tapa dura) (Ediciones Conmemorativas) y El milagro de San Genaro (Salamandra Narrativa) comparten su vinculación con la narrativa clásica, aunque corresponden a autores distintos y se presentan en encuadernaciones diferentes. David Copperfield (edición especial en tapa dura) (Ediciones Conmemorativas) ofrece otra referencia de narrativa clásica en tapa dura, frente a la edición en tapa blanda de Sándor Márai.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491058397",
+        "isbn-9788491058250"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "018b21644ea2bd1e",
+  "origen": "chatgpt-web"
+}

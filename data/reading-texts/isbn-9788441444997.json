@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788441444997",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la historia de España, las figuras destacadas y la aportación española al humanitarismo. Sus 256 páginas y su enfoque histórico y biográfico encajan menos con quienes buscan ficción de aventuras o un estudio dedicado exclusivamente a conflictos militares.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Trata la contribución de España al humanitarismo desde una perspectiva histórica centrada en figuras presentadas como héroes. Javier Santamarta del Pozo firma esta edición actualizada y ampliada, integrada en Crónicas de la historia y compuesta por 256 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Está disponible en tapa blanda, con 256 páginas en castellano y edición de Editorial Edaf. Es un volumen físico de extensión intermedia que permite leer por sesiones y conservar esta versión actualizada y ampliada de la obra.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anatomía de un naufragio: Shackleton, el Endurance y la fuerza del hielo también aborda experiencias humanas vinculadas a la historia, pero se concentra en una expedición y las condiciones del hielo. El Desastre del 98 y el fin del Imperio español: Visión inédita del Almirante Cervera (Biblioteca de Historia) comparte el interés por España y su pasado, aunque se centra en un episodio imperial y una perspectiva naval, frente al humanitarismo de esta obra.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387873141",
+        "isbn-9791388444142"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ec1250a9aeaae6ce",
+  "origen": "chatgpt-web"
+}

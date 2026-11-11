@@ -4,17 +4,18 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "MUNDO EN MI MALETA, EL se orienta a lectores interesados en la historia familiar, la diplomacia y los acontecimientos internacionales. Su recorrido por distintas épocas, con episodios vinculados a Turquía y la Segunda Guerra Mundial, se aleja de la ficción de aventuras puramente imaginarias; sus 528 páginas exigen una lectura de cierta extensión.",
+      "texto": "Encaja con lectores adultos interesados en la narrativa contemporánea, las biografías familiares y la historia internacional. Su extensión de 528 páginas permite desarrollar un relato que abarca dos siglos; quienes busquen una novela de ficción centrada exclusivamente en una trama imaginaria encontrarán aquí otro planteamiento.",
       "evidencias": [
         "titulo",
-        "sinopsis_editorial",
+        "autores",
+        "categorias",
         "numero_paginas",
-        "categorias"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "MUNDO EN MI MALETA, EL combina memoria familiar y relato histórico a través de las experiencias diplomáticas de los padres de Pilar D E Arístegui. La narración conecta destinos internacionales, cambios culturales y decisiones personales, entre ellas la protección de personas perseguidas durante la Segunda Guerra Mundial. Su enfoque parte de vidas reales y acontecimientos históricos.",
+      "texto": "El mundo en mi maleta, de Pilar D E Arístegui, combina memoria familiar, biografía y acontecimientos históricos desde una perspectiva vinculada a la diplomacia. El relato aborda decisiones personales durante periodos de conflicto y cambios políticos, con una narración que recorre distintas generaciones.",
       "evidencias": [
         "titulo",
         "autores",
@@ -24,17 +25,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "MUNDO EN MI MALETA, EL cuenta con una edición en tapa dura de 528 páginas publicada por Iman Comunicacion Ag.hiperactiva. La encuadernación rígida resulta práctica para conservar un volumen extenso y regalarlo; por su tamaño de lectura, conviene más para mantenerlo en casa que para llevarlo a diario.",
+      "texto": "La tapa dura reúne las 528 páginas de El mundo en mi maleta en un volumen físico, adecuado para conservar y consultar una obra extensa. Es el formato disponible de la edición de Pilar D E Arístegui, una opción para quien prefiere leer en papel y mantener el libro en su biblioteca.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "autores",
         "numero_paginas",
-        "editorial"
+        "formatos_disponibles"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "37b0c9de86541988",
+  "fuente_hash": "34fadf39fe60d511",
   "origen": "chatgpt-web"
 }

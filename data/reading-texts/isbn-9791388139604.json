@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388139604",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en los mudras, la espiritualidad y el bienestar personal mediante prácticas breves. Su enfoque en las manos y en ejercicios de tres minutos lo aleja de los libros centrados en nutrición o en explicaciones históricas de las tradiciones espirituales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Guía completa de Mudras: El secreto para sentirse bien en 3 minutos está en tus manos (No ficción) se presenta en tapa blanda y tiene 320 páginas. Este formato permite consultar distintas partes del volumen y transportarlo sin la rigidez de una encuadernación de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Secretos del ayurveda: Que cambiarán tu vida (Biblioteca de la salud) comparte el interés por el bienestar desde prácticas tradicionales, mientras que Guía completa de Mudras: El secreto para sentirse bien en 3 minutos está en tus manos (No ficción) se centra en los mudras. Astrología, filosofía y magia: Un camino de práctica espiritual aborda otra vía de práctica espiritual, vinculada a la astrología y la filosofía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214834",
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e9ad9e3f0c46e85d",
+  "origen": "chatgpt-web"
+}

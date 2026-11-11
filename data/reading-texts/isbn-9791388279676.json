@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388279676",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de desarrollo personal interesados en la búsqueda de libertad desde una perspectiva vinculada a la mente Shaolin. Por su enfoque de ensayo y autoayuda, se distingue de las novelas de ficción y de los manuales dedicados exclusivamente a procedimientos técnicos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 288 páginas y permite consultar el texto de Shi Heng Yi en papel. Su extensión y su enfoque de desarrollo personal facilitan una lectura distribuida en varias sesiones, con posibilidad de volver a los pasajes que interesen al lector.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mente Shaolin: La búsqueda de la verdadera libertad (Vivir hoy) se relaciona con La persona que eliges ser (Un café con Marisa) / The Person You Choose to Be (Coffee with Marisa) por su interés en la dimensión personal de las decisiones. Shi Heng Yi plantea la libertad desde la mente Shaolin, mientras que el título de Marisa Lazo sitúa el foco en la persona que cada uno decide ser. Frente a El alfabeto infinito: Las leyes del conocimiento (Ensayo y Pensamiento), el primero aborda el desarrollo personal y el segundo anuncia una reflexión sobre el conocimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073882132",
+        "isbn-9791388092701"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a0d3fc06374a7324",
+  "origen": "chatgpt-web"
+}

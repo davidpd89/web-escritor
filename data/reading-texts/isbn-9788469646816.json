@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788469646816",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La noche de Reyes está dirigido a niños a partir de 3 años y a familias que buscan actividades relacionadas con las fiestas navideñas. Su calendario de retos entre Navidad y la noche de Reyes lo diferencia de los cuentos infantiles pensados únicamente para leer, por lo que encaja menos con quienes prefieren una narración sin actividades.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La noche de Reyes se presenta en tapa dura, con 36 páginas en castellano y un calendario de retos para cada día desde Navidad hasta la noche de Reyes. Su encuadernación rígida permite conservar el álbum y consultarlo durante los días que abarca la propuesta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La noche de Reyes comparte con El ratoncito Pérez. Libro con solapas (Libros con solapas y lengüetas), de Ignacio Hernández Fernández, el formato infantil asociado a una tradición reconocible. La diferencia está en la participación: el primero propone retos diarios navideños y el segundo se identifica como un libro con solapas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408316022"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "22015c43a36c24a2",
+  "origen": "chatgpt-web"
+}

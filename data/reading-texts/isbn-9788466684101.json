@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788466684101",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El pequeño libro de los padres (Somos B), de 72 Kilos, se dirige a quienes buscan contenidos sobre familia y crianza tratados desde el humor y el lenguaje del cómic. Sus 112 páginas encajan con una lectura breve, pero no con quien prefiera un manual extenso de psicología o educación infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El pequeño libro de los padres (Somos B) está disponible en tapa dura, con 112 páginas en castellano publicadas por Ediciones B. Su encuadernación rígida resulta práctica para conservarlo, consultarlo de nuevo o regalarlo a alguien interesado en la crianza y el humor gráfico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¡Hola, superpapá!: De marido estándar a papá regulero. 40 escenas de supervivencia paternal (Crecer en familia) comparte con El pequeño libro de los padres (Somos B) el interés por la paternidad y el humor. El primero anuncia escenas de supervivencia paternal, mientras que el libro de 72 Kilos se presenta dentro del cómic y la novela gráfica, con 112 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425373664"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "37b7a30764b2c5c1",
+  "origen": "chatgpt-web"
+}

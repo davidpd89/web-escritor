@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387960391",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Chema Madoz.: Manual de un distraído. (Libros de Autor.) se dirige a lectores interesados en arte y diseño, con una clasificación editorial que también abarca la narrativa juvenil. La participación de Chema Madoz, Irene Vallejo, Nazareth Castellanos y Borja Casani lo distingue de un libro firmado por un único autor; no responde a quien busque exclusivamente una novela de autoría individual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Chema Madoz.: Manual de un distraído. (Libros de Autor.) está disponible en tapa dura, con 312 páginas en castellano. Esta edición de La Fábrica permite conservar el volumen en una encuadernación rígida, tanto para consulta como para regalo; es una elección física frente a la lectura en pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Manifiesto por la lectura / Manifesto for Reading comparte con Chema Madoz.: Manual de un distraído. (Libros de Autor.) la participación de Irene Vallejo, pero el primero se centra en la lectura y el segundo se clasifica también dentro del arte y el diseño. Madrid.: Retrato de una ciudad. (Libros de Autor) coincide en la colección editorial, aunque su título delimita el asunto a una ciudad, frente a la propuesta de autoría compartida de Chema Madoz.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073878470",
+        "isbn-9791387960476"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8992e2645ea26239",
+  "origen": "chatgpt-web"
+}

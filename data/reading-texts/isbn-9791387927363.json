@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387927363",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Elsa. La huella de Oesterheld (Sillón Orejero), de Javier Mora e IÑAKET, se dirige a lectores interesados en la historia del siglo XX contada mediante cómic y novela gráfica. Su orientación histórica lo distancia de quienes buscan una narración centrada en mundos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Elsa. La huella de Oesterheld (Sillón Orejero) se presenta en tapa dura, con 136 páginas en castellano. La encuadernación rígida protege el volumen durante su conservación y resulta adecuada para mantenerlo en una colección de novelas gráficas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Elsa. La huella de Oesterheld (Sillón Orejero) comparte el terreno histórico y gráfico con La balada del norte 03 (nueva edición) (Sillón Orejero). Javier Mora e IÑAKET firman la primera, mientras que Alfonso Zapico es el autor de la segunda; sus títulos sitúan el foco en referentes históricos distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419670373"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1e606846ea46894c",
+  "origen": "chatgpt-web"
+}

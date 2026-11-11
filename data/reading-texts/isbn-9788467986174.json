@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788467986174",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El mesias de Dune. La novela grafica libro 01 se dirige a lectores de ciencia ficción que prefieren seguir una historia mediante narrativa gráfica. Sus 128 páginas en tapa dura ofrecen una extensión contenida frente a novelas más largas; encaja menos con quien busca una obra exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El mesias de Dune. La novela grafica libro 01 se publica en tapa dura, con 128 páginas en castellano. Esta encuadernación permite conservar el volumen en una estantería y consultarlo repetidamente; también resulta apropiada para entregarlo como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El mesias de Dune. La novela grafica libro 01 comparte con Casa Capitular: Dune (Las crónicas de Dune 6) el universo de ciencia ficción creado por Frank Herbert, pero se presenta como novela gráfica de 128 páginas. Casa Capitular: Dune pertenece a una entrega posterior de la serie, identificada en su título con el número 6, mientras que la novela gráfica se identifica como libro 01.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788466393263"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b76e37d3539fc507",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El ocaso del rey (Dioses y monstruos 5) se dirige a lectores de fantasía romántica oscura que buscan conflictos entre poderes sobrenaturales, alianzas difíciles y personajes de moral ambigua. No encaja tanto con quienes prefieren romances cotidianos o historias sin amenazas de alcance colectivo, ya que la supervivencia de varios dominios está en juego.",
+      "texto": "El ocaso del rey (Dioses y monstruos 5) se dirige a lectores de fantasía romántica oscura, con personajes moralmente ambiguos y relaciones de contenido adulto. No encaja tanto con quienes buscan fantasía sin romance o conflictos alejados de la violencia y las luchas de poder.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,35 +13,34 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La novela desarrolla una fantasía romántica oscura centrada en la redistribución del poder, la cooperación forzada y el enfrentamiento con criaturas peligrosas. Dianna, Kaden y Isaiah necesitan regresar de una realidad ajena mientras una reliquia antigua adquiere importancia para la supervivencia de los dominios.",
+      "texto": "Es una novela de fantasía y romantasy centrada en alianzas difíciles, rivalidades entre seres poderosos y amenazas que afectan a distintos dominios. Dianna, Kaden y Isaiah deben colaborar con figuras de su pasado mientras intentan regresar de una realidad ajena; el título la identifica como el n.º 5.",
       "evidencias": [
+        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El ocaso del rey (Dioses y monstruos 5) se ofrece en tapa blanda, en una edición de Molino de 672 páginas. La cubierta flexible facilita manejar el volumen durante la lectura, aunque su extensión supone un libro físico considerable para transportar a diario.",
+      "texto": "La edición disponible es en tapa blanda, publicada por Molino y con 672 páginas en castellano. Es una opción física para quienes prefieren conservar una novela extensa en papel, aunque su longitud requiere tener en cuenta el volumen al transportarla.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "edicion",
-        "editorial",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Casa de cielo y aliento (Ciudad Medialuna 2), de Sarah J. Maas, comparte la fantasía romántica y los conflictos que afectan a comunidades enteras, pero se centra en una rebelión y sus consecuencias. Donde duermen las sombras, de Andrea Ornos, también incorpora realidades distintas y fuerzas oscuras, aunque destaca el amor entre dimensiones frente a las alianzas y disputas de poder de El ocaso del rey (Dioses y monstruos 5).",
+      "texto": "Casa de cielo y aliento (Ciudad Medialuna 2) comparte con El ocaso del rey (Dioses y monstruos 5) la fantasía vinculada al romance y la pertenencia a una serie identificada en el título. Ciudad de dioses y monstruos (DARK ROMANCE) también permite comparar la combinación de elementos fantásticos y románticos, aunque destaca expresamente el romance oscuro en su título.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788466396080",
-        "isbn-9788427055605"
+        "isbn-9788415955559"
       ]
     }
   ],

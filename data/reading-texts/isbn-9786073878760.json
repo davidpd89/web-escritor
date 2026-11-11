@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073878760",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores que buscan temas de desarrollo personal y familia relacionados con elementos de fantasía o ciencia ficción. Su clasificación temática lo diferencia de los manuales centrados exclusivamente en técnicas profesionales o conocimientos científicos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Donde el agua no muerde / Where the Water Doesn't Bite se presenta en tapa blanda, con 136 páginas y texto en castellano. Es una edición física de extensión contenida, que permite transportarla y conservarla en papel sin recurrir a un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando vi a la muerte prestar su sombrero / When I Saw Death Lend Its Hat comparte autoría con Donde el agua no muerde / Where the Water Doesn't Bite, pues ambos son de Rodrigo Unda. La diferencia identificable está en sus títulos y en que el segundo se clasifica también dentro del desarrollo personal, la familia, la fantasía y la ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073879613",
+        "isbn-9788466685481"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ecfd00b8ae894083",
+  "origen": "chatgpt-web"
+}

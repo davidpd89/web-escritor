@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788403527041",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mujeres que la liaron: De Hipatia de Alejandría a Simone de Beauvoir: 3000 años de historia feminista (Divulgación) está dirigido a quienes buscan historia de las mujeres, biografías y ensayo divulgativo. Su recorrido histórico de 3000 años no corresponde a una novela de ficción ni a un estudio centrado en una sola figura.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Tatiana Gómez Montero aborda la historia feminista mediante un recorrido que el título sitúa entre Hipatia de Alejandría y Simone de Beauvoir. El enfoque combina la atención a figuras femeninas con una perspectiva histórica y divulgativa, dentro de los ámbitos del ensayo y las biografías.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Aguilar está disponible en tapa blanda y reúne 320 páginas. Su cubierta flexible permite llevar el volumen para leer fuera de casa, mientras que la extensión ofrece espacio para desarrollar el recorrido histórico anunciado en el título.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nos quisieron histéricas, nos volvimos históricas (No ficción) comparte con este libro la atención a las mujeres y a su presencia en la historia, aunque el título de Tatiana Gómez Montero delimita un recorrido de 3000 años. Cuando el mundo mira hacia otro lado: 24 mujeres en la guerra de Ucrania se concentra en mujeres vinculadas a un conflicto concreto, frente al alcance histórico más amplio de Mujeres que la liaron: De Hipatia de Alejandría a Simone de Beauvoir: 3000 años de historia feminista (Divulgación).",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388406256",
+        "isbn-9788466685429"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3e7a4aa21a827ad0",
+  "origen": "chatgpt-web"
+}

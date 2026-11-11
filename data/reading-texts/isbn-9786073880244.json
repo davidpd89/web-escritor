@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786073880244",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La cara oculta de Sheinbaum / The Hidden Face of the President se dirige a quienes leen sobre figuras públicas, poder y política. Elena Chávez firma una obra situada entre la biografía y el ensayo, por lo que responde a intereses distintos de los de quien busca ficción histórica o una novela política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La cara oculta de Sheinbaum / The Hidden Face of the President cuenta con una edición en tapa blanda de 216 páginas. El volumen físico permite marcar pasajes y regresar a ellos durante la lectura de un ensayo político o biográfico. Lo publica Penguin Random House Grupo Editorial en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La cara oculta de Sheinbaum / The Hidden Face of the President puede compararse con Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes, de Andrew Paxman. Ambas obras se relacionan con el interés por las figuras políticas, aunque la segunda se presenta expresamente como una biografía organizada en episodios. La obra de Elena Chávez se clasifica también como ensayo sobre el poder.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073873154"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "69a29dc269a51214",
+  "origen": "chatgpt-web"
+}

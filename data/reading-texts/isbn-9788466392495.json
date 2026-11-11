@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788466392495",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nadie lo vio venir (Best Seller | Ficción), de Shari Lapena, encaja con lectores que buscan misterio y thriller. Sus 360 páginas corresponden a una novela de extensión moderada; no es la opción indicada para quien prefiere fantasía, romance u otros géneros distintos del suspense.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nadie lo vio venir (Best Seller | Ficción), de Shari Lapena, está disponible en tapa blanda de bolsillo y reúne 360 páginas. Es una edición física que permite leer y conservar el libro en papel, con un volumen más manejable que las novelas de mayor extensión del catálogo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nadie lo vio venir (Best Seller | Ficción), de Shari Lapena, comparte autora con ¿Se saldrán con la suya? (SUMA). Ambos títulos permiten comparar dos libros de Shari Lapena dentro del catálogo; el primero aparece clasificado como misterio y thriller y el segundo se identifica por su título y sello editorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388163197"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c591f0dd26cc6768",
+  "origen": "chatgpt-web"
+}

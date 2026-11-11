@@ -1,0 +1,27 @@
+{
+  "id": "isbn-9798890988225",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inglés sin estrés / Stress-Free English se orienta, por su título, a personas interesadas en el aprendizaje del inglés. Su planteamiento temático se distingue de los ensayos centrados en cuestiones históricas, políticas o científicas, aunque comparte con ellos su clasificación editorial como ensayo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Inglés sin estrés / Stress-Free English cuenta con una edición en tapa blanda de 320 páginas. El formato físico permite consultar el volumen sin pantalla y volver a páginas anteriores durante el estudio, con una extensión que requiere reservar espacio para transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ef7e02ff6c321e57",
+  "origen": "chatgpt-web"
+}
