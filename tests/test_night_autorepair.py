@@ -16,6 +16,20 @@ def run(conclusion='failure', attempt=1, horas=2, status='completed'):
             'createdAt': (AHORA - dt.timedelta(hours=horas)).isoformat().replace('+00:00', 'Z')}
 
 
+class TelegramRecovery(unittest.TestCase):
+    def test_telegram_retries_failed_run_without_test_dispatch(self):
+        from unittest.mock import patch
+        with patch.object(na, 'sh') as sh:
+            na.relanzar('reading-telegram-publish.yml', {'databaseId': 42, 'event': 'schedule'})
+        sh.assert_called_once_with(['gh', 'run', 'rerun', '42', '--failed', '--repo', na.GH_REPO], check=True)
+
+    def test_other_workflows_dispatch_current_main(self):
+        from unittest.mock import patch
+        with patch.object(na, 'sh') as sh:
+            na.relanzar('reading-catalogue-sync.yml', {'databaseId': 42})
+        sh.assert_called_once_with(['gh', 'workflow', 'run', 'reading-catalogue-sync.yml', '--ref', 'main', '--repo', na.GH_REPO], check=True)
+
+
 class Decidir(unittest.TestCase):
     def test_primer_fallo_se_relanza(self):
         self.assertEqual(na.decidir(run(), None, AHORA, 0), 'relanzar')
@@ -334,6 +348,20 @@ class Pasada(unittest.TestCase):
         na.pasada(solo='x.yml')
         self.assertIn(('gh', 'pr', 'close'), self.hechos)
         self.assertTrue(self.estado['x.yml']['pr_cerrada'])
+
+    def test_error_al_crear_pr_cuenta_y_no_repite_sin_limite(self):
+        from unittest.mock import patch
+        hoy = dt.datetime.now(dt.timezone.utc)
+        self.estado['x.yml'] = {'relanzado': (hoy - dt.timedelta(hours=3)).isoformat()}
+        na.ultima_ejecucion = lambda f: {**run(), 'createdAt': (hoy - dt.timedelta(hours=1)).isoformat()}
+        na.fallo_de_infraestructura = lambda i: False
+        with patch.object(na, 'reparar', side_effect=RuntimeError('No commits between main and repair')) as reparar:
+            for _ in range(na.MAX_INTENTOS_DIA + 2):
+                na.pasada(solo='x.yml')
+        self.assertEqual(reparar.call_count, na.MAX_INTENTOS_DIA)
+        self.assertEqual(len(self.estado['x.yml']['intentos']), na.MAX_INTENTOS_DIA)
+        self.assertIn('No commits', self.estado['x.yml']['historial'][-1]['resultado'])
+        self.assertEqual(self.hechos.count(('avisar', 'x.yml')), 1)
 
     def test_agotado_avisa_una_vez_al_dia(self):
         hoy = dt.datetime.now(dt.timezone.utc)
