@@ -4,20 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Krabat (Alma Juvenil) se orienta a lectores de fantasía y clásicos que también acepten elementos de terror. Su combinación de géneros se aparta de una lectura exclusivamente realista o de una historia centrada únicamente en el romance.",
+      "texto": "Krabat (Alma Juvenil) se sitúa entre la fantasía, el terror y los clásicos, por lo que encaja con lectores interesados en relatos fantásticos con elementos oscuros. Su orientación juvenil y su clasificación literaria lo separan de los manuales divulgativos y de la narrativa estrictamente realista.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Krabat (Alma Juvenil) cuenta con una edición en tapa dura de 272 páginas, publicada por Editorial Alma. La encuadernación rígida resulta práctica para conservar el volumen en una biblioteca y protegerlo durante las relecturas; también permite regalarlo como libro físico.",
+      "texto": "Editorial Alma publica Krabat (Alma Juvenil) en tapa dura, con 272 páginas en castellano. Esta encuadernación proporciona una cubierta rígida para conservar el ejemplar en la biblioteca y resulta adecuada para quienes prefieren leer y releer en papel.",
       "evidencias": [
         "titulo",
+        "editorial",
+        "edicion",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Endemoniada (Faeris Editorial), de Laura Thalassa, comparte con Krabat (Alma Juvenil) una referencia a lo sobrenatural, aunque sus títulos presentan enfoques distintos. Otfried Preussler firma una obra clasificada entre los clásicos, la fantasía y el terror, mientras que el libro de Laura Thalassa se identifica por su temática demoníaca y su publicación bajo Faeris Editorial.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388108303"
       ]
     }
   ],

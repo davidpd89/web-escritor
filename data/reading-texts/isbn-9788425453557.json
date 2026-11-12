@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788425453557",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Filosofía para médicos (Caja Verde), de Mario Bunge, se orienta a lectores que buscan relacionar la medicina con cuestiones filosóficas. Su clasificación incluye filosofía, historia y ensayo, de modo que responde a un interés teórico más que a la búsqueda de instrucciones clínicas o consejos cotidianos de alimentación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Filosofía para médicos (Caja Verde) cuenta con una edición en tapa blanda de 272 páginas, publicada por Herder Editorial. El soporte impreso permite subrayar conceptos y consultar de nuevo pasajes durante el estudio de sus cuestiones filosóficas, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Filosofía para médicos (Caja Verde), de Mario Bunge, se relaciona con El médico en la era tecnológica (fuera de colección), de Karl Jaspers, por situar la medicina en un marco de reflexión. La diferencia visible está en el punto de partida: Mario Bunge anuncia una aproximación filosófica dirigida a médicos, mientras que Karl Jaspers destaca la dimensión tecnológica de la profesión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425453137"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b33caad38dd733fa",
+  "origen": "chatgpt-web"
+}

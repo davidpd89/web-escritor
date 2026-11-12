@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La adquisición de bienes culturales en España: Tipologías, exportación, normativa y mercado (Sílex Universidad) se orienta a lectores interesados en la gestión y regulación de bienes culturales. Sus temas incluyen las modalidades de adquisición, la exportación y el mercado; no está planteado como un manual práctico de creación artística.",
+      "texto": "La adquisición de bienes culturales en España: Tipologías, exportación, normativa y mercado (Sílex Universidad) se dirige a lectores interesados en el arte, su circulación comercial y su regulación en España. Por su enfoque temático, se aleja de los manuales de creación artística y de los libros centrados en técnicas de dibujo o diseño.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,12 +12,23 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La adquisición de bienes culturales en España: Tipologías, exportación, normativa y mercado (Sílex Universidad) cuenta con una edición en tapa blanda de 289 páginas. El volumen de Sílex Ediciones permite consultar físicamente los apartados sobre normativa, exportación y mercado durante el estudio o la lectura.",
+      "texto": "La edición de La adquisición de bienes culturales en España: Tipologías, exportación, normativa y mercado (Sílex Universidad) se presenta en tapa blanda y tiene 289 páginas. Este soporte permite consultar distintos apartados en papel, marcar páginas y conservar anotaciones durante el estudio de la materia.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "editorial"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "España en la escena global. Redes de poder, comercio y cultura (siglos XV-XXI): 1 (Plural) comparte con La adquisición de bienes culturales en España: Tipologías, exportación, normativa y mercado (Sílex Universidad) el interés por España, el comercio y la cultura. El libro de Patricia Labrador Ballestero delimita su objeto a los bienes culturales, su exportación, normativa y mercado; el otro título abarca también las redes de poder y una perspectiva histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370380779"
       ]
     }
   ],

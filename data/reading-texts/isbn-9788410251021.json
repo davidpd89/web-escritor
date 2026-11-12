@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788410251021",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "José María Gil: 10 (Islas de Memoria), de Benito Cabrera Hernández, se dirige a lectores interesados en las biografías, la memoria y el arte. Su orientación documental y biográfica lo diferencia de la ficción narrativa y de los libros dedicados exclusivamente a enseñar técnicas artísticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "José María Gil: 10 (Islas de Memoria) se publica en tapa blanda, con 168 páginas en castellano. Su extensión permite manejarlo como un volumen físico relativamente breve, mientras que la encuadernación flexible facilita llevarlo para leer o consultar fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "José María Gil: 10 (Islas de Memoria) comparte el interés por la memoria y el arte con RECONSTRUYENDO LA MEMORIA: Un mural dedicado a Federico García Lorca en la Universidad de Granada: 21 (Cuadernos Técnicos de Patrimonio), de José Ignacio Barrera Maturana. El primero se presenta como obra biográfica, mientras que el segundo centra su título en un mural y su relación con el patrimonio.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788433875884"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5dfc2f908d65d43f",
+  "origen": "chatgpt-web"
+}

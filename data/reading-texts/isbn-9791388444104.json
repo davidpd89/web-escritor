@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388444104",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La lista de Epstein (Mi expediente favorito) se dirige a lectores de ensayo y biografías interesados en asuntos relacionados con Epstein. Por su planteamiento documental y su extensión de 320 páginas, se distancia de las novelas de ficción y de los manuales de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La lista de Epstein (Mi expediente favorito) está disponible en tapa blanda, con 320 páginas en castellano. La edición de Sekotia permite leer el volumen en papel, marcar páginas y consultar distintos apartados sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La lista de Epstein (Mi expediente favorito) y Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes comparten el interés por personas identificadas en sus títulos. Concha Calleja aborda el asunto Epstein, mientras que Andrew Paxman presenta una biografía de Andrés Manuel organizada en episodios. La comparación distingue un ensayo sobre un expediente de una biografía estructurada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073873154"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fac0831c4a7fd47d",
+  "origen": "chatgpt-web"
+}

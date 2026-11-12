@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788412994971",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores interesados en la filosofía y el ensayo, especialmente en obras breves vinculadas a la colección Filonimal. Sus 32 páginas y su planteamiento filosófico lo distinguen de los ensayos extensos sobre política o historia.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura contiene 32 páginas en castellano y está publicada por Yekibud Editores. Su extensión permite leerla en sesiones breves, mientras que la encuadernación rígida facilita conservarla junto a otros títulos de Filonimal.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Perro de Diógenes: 5 (Filonimal) es la comparación más directa: comparte autora, Alice Brière-Haquet, y pertenece a la misma colección, aunque el título identifica cada obra con un número diferente. Arendt y la antropología de la condición plural en doble movimiento, de Javier Pons-Gallach, también pertenece al ámbito filosófico, pero aborda expresamente la condición plural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412994957",
+        "isbn-9791399308358"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3674a9d089db4ee4",
+  "origen": "chatgpt-web"
+}

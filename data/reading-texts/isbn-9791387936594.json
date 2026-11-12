@@ -4,20 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se orienta a lectores interesados en el entrenamiento de fuerza y en comprender el desarrollo muscular desde una perspectiva científica. La escalera del músculo: Ponte fuerte usando la ciencia (Fitness), de Jeff Nippard, se sitúa en el ámbito del deporte y el bienestar físico; no está dirigido a quien busca ficción deportiva o memorias de competición.",
+      "texto": "La escalera del músculo: Ponte fuerte usando la ciencia (Fitness), de Jeff Nippard, está dirigida a lectores interesados en el entrenamiento muscular, el deporte y el bienestar. Sus 368 páginas corresponden a una obra extensa de temática práctica, alejada de quien busque ficción deportiva o una lectura narrativa breve.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa dura reúne 368 páginas en un volumen físico que puede conservarse y consultarse durante la planificación del entrenamiento. Kindle permite leer el contenido en dispositivos digitales, incluido el móvil, sin transportar el ejemplar impreso. El papel favorece la consulta en un lugar fijo; el formato electrónico facilita llevar la lectura fuera de casa.",
+      "texto": "La tapa dura de La escalera del músculo: Ponte fuerte usando la ciencia (Fitness) reúne 368 páginas en un ejemplar rígido, adecuado para conservar y consultar en papel. Kindle facilita llevar la lectura en un dispositivo compatible y acceder al libro sin cargar con el volumen físico.",
       "evidencias": [
+        "titulo",
         "numero_paginas",
-        "formatos_disponibles",
-        "titulo"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La escalera del músculo: Ponte fuerte usando la ciencia (Fitness) puede compararse con MENTE DE JUEGO: Psicología clínica, rendimiento mental y construcción de equipos aplicada al fútbol de competición. Ambos abordan aspectos del rendimiento deportivo desde disciplinas diferentes. Jeff Nippard se centra en la fuerza muscular y su fundamento científico, mientras que Sergio Pérez Serer y Thalía Pérez Vieco tratan la psicología y el trabajo en equipo dentro del fútbol competitivo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409824816"
       ]
     }
   ],

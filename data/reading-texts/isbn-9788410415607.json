@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788410415607",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La biblioteca desaparecida: 150 (Biblioteca de Ensayo / Serie mayor) se dirige a lectores interesados en la historia y el ensayo de Luciano Canfora. Sus 192 páginas corresponden a una obra de no ficción, por lo que se aparta de las novelas de aventuras y de la narrativa fantástica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La biblioteca desaparecida: 150 (Biblioteca de Ensayo / Serie mayor) está editada en tapa blanda por Ediciones Siruela. Sus 192 páginas permiten transportarla y consultar sus contenidos de historia y ensayo en papel, sin necesitar un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La biblioteca desaparecida: 150 (Biblioteca de Ensayo / Serie mayor) comparte autor con La naturaleza del poder: 34 (Tascabili), también de Luciano Canfora. El primero se sitúa en el ámbito de la historia y el ensayo, con 192 páginas, mientras que el segundo plantea desde su título una cuestión relacionada con el poder.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387938208"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fefc605166b30b08",
+  "origen": "chatgpt-web"
+}

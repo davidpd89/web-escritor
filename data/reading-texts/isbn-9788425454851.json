@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788425454851",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "De cuerpo presente: Las ciencias cognitivas y la experiencia humana (Caja Verde) se dirige a lectores interesados en la relación entre cognición, filosofía, psicología y experiencia humana. Su planteamiento ensayístico y sus 416 páginas lo alejan de los manuales breves de ejercicios de bienestar o de las obras centradas exclusivamente en consejos personales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "De cuerpo presente: Las ciencias cognitivas y la experiencia humana (Caja Verde) cuenta con una edición en tapa blanda de 416 páginas publicada por Herder Editorial. El soporte físico permite subrayar conceptos, anotar relaciones entre ideas y regresar a pasajes concretos durante la lectura de este ensayo sobre ciencias cognitivas y experiencia humana.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "De cuerpo presente: Las ciencias cognitivas y la experiencia humana (Caja Verde) comparte con Aparece un mundo, de Michael Pollan, el interés por la conciencia y la experiencia humana. Francisco Varela, Evan Thompson y Eleanor Rosch abordan estas cuestiones desde las ciencias cognitivas, la filosofía y la psicología, mientras que la obra de Michael Pollan se centra en la conciencia desde el ámbito de la ciencia y la tecnología.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387904456"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "264aac7d8a52a08a",
+  "origen": "chatgpt-web"
+}

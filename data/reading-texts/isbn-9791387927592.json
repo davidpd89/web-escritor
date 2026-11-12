@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387927592",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensado para lectores de cómic y novela gráfica que siguen obras publicadas en volúmenes integrales. El título identifica esta entrega como el volumen 3, por lo que quien busque comenzar una colección desde su primera entrega encontrará aquí una numeración posterior.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Marshal Bass integral volumen 3 (CMYK) cuenta con 240 páginas en tapa dura, una presentación adecuada para conservar el volumen en una colección de cómics. Su encuadernación rígida facilita guardarlo junto a otras entregas y consultarlo repetidamente en formato físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los pecados de la familia Ichinose 6 (Shônen), de Taizan 5, comparte el formato narrativo del cómic, aunque pertenece a una serie identificada como shônen. Cinco cuentos, de Posy Simmonds, reúne cinco relatos creados entre 1987 y 2004; Marshal Bass integral volumen 3 (CMYK), en cambio, se presenta como una entrega numerada de una colección integral.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410305106",
+        "isbn-9788419981035"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3de9d7e0c64b440c",
+  "origen": "chatgpt-web"
+}

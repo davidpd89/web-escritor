@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388381386",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Litoral: Málaga 1926-1929: 27 (Facsímiles de Revistas) se orienta a lectores interesados en publicaciones literarias históricas, poesía y ensayo. Su identificación como facsímil de revistas lo distingue de una novela contemporánea con una trama continua y personajes protagonistas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Editorial Renacimiento publica esta edición en tapa blanda, con 392 páginas en castellano. El soporte impreso permite consultar y releer las páginas de Litoral: Málaga 1926-1929: 27 (Facsímiles de Revistas), una obra vinculada a publicaciones de un periodo histórico concreto.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antología final: 282 (LITORAL), de Varios autores, comparte con Litoral: Málaga 1926-1929: 27 (Facsímiles de Revistas) la referencia a LITORAL. La primera se identifica como antología, mientras que la obra de Valender James pertenece a una colección de facsímiles de revistas y delimita su contenido mediante las fechas 1926-1929.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788412931075"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ad297f107865c3ec",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370651428",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra del Departamento de Documentación Iberley se dirige a quienes necesitan abordar Veri*Factu y la factura electrónica obligatoria B2B desde una perspectiva jurídica. Su enfoque sobre requisitos, plazos y aplicación resulta más pertinente para consultas normativas que para lectores interesados en ficción o divulgación general.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Colex se presenta en tapa blanda y reúne 104 páginas en castellano. El formato en papel permite consultar los apartados relativos a Veri*Factu, requisitos y plazos durante el trabajo con documentación sobre facturación electrónica obligatoria B2B.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "ITPyAJD: de la norma a la liquidación. Paso a paso: Claves para comprender, liquidar y aplicar el impuesto en transmisiones patrimoniales, operaciones societarias y actos jurídicos documentados comparte autoría con esta obra del Departamento de Documentación Iberley. La diferencia está en el objeto de consulta: aquel aborda un impuesto concreto y este se centra en Veri*Factu y la facturación electrónica B2B.",
+      "evidencias": [
+        "afines_catalogo",
+        "autores",
+        "titulo"
+      ],
+      "enlaces": [
+        "isbn-9791370651688"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a18f080bfbf4b9fe",
+  "origen": "chatgpt-web"
+}

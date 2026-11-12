@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788419599889",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Principito (El Jardín Secreto), de Antoine de Saint-Exupéry, se dirige a quienes buscan clásicos con contenido filosófico y una extensión breve. Sus 144 páginas también permiten acercarse a la narrativa contemporánea, mientras que quien prefiera una obra extensa encontrará aquí una lectura más corta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Principito (El Jardín Secreto) se presenta en tapa dura, con 144 páginas en castellano. Esta edición de Editorial Alma permite conservar el volumen en una biblioteca física o regalarlo sin necesidad de escoger entre distintas encuadernaciones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Principito (El Jardín Secreto) comparte con El secreto mejor guardado del gran Museo del Prado la posibilidad de acercarse a contenidos culturales mediante un libro. La diferencia está en el enfoque: Antoine de Saint-Exupéry figura entre los clásicos y la filosofía, mientras que Diego Arboleda introduce el Museo del Prado y los cuentos de Andersen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388306181"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "80b71ab3cbf17200",
+  "origen": "chatgpt-web"
+}

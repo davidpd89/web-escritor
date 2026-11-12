@@ -4,25 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mi chico de Utah: 30 años, 4 amores, un mapa para reconocer el tuyo se orienta a lectores interesados en las experiencias personales, las relaciones afectivas y el desarrollo personal. Su combinación de memorias y bienestar encaja menos con quienes buscan ficción romántica o un manual exclusivamente técnico.",
+      "texto": "Mi chico de Utah: 30 años, 4 amores, un mapa para reconocer el tuyo se dirige a lectores interesados en las experiencias personales, las relaciones afectivas y el desarrollo personal. Por su clasificación entre biografías y memorias, se aleja de quienes buscan una novela de ficción o una guía centrada exclusivamente en nutrición.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda contiene 344 páginas en castellano y permite leer el libro sin dispositivos electrónicos. Su presentación física facilita volver a pasajes concretos y conservarlo junto a otras obras de memorias y desarrollo personal.",
+      "texto": "La tapa blanda permite leer las 344 páginas de Mi chico de Utah: 30 años, 4 amores, un mapa para reconocer el tuyo en una edición física flexible. La tapa dura ofrece una encuadernación rígida para conservarlo o regalarlo, mientras que Kindle permite llevar la lectura en un dispositivo electrónico sin transportar el volumen.",
       "evidencias": [
-        "formatos_disponibles",
+        "titulo",
         "numero_paginas",
-        "idioma",
-        "categorias"
+        "formatos_disponibles"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0e750b6263cdfa81",
+  "fuente_hash": "a06ff46ace0b753e",
   "origen": "chatgpt-web"
 }

@@ -4,20 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sabes lo que te importa: ¿Por qué sigues eligiendo otra cosa?, de Emily Falk, se dirige a lectores interesados en el desarrollo personal, el bienestar y las decisiones relacionadas con la familia. No está orientado a quien busca ficción, una historia de personajes o una lectura de entretenimiento narrativo.",
+      "texto": "Sabes lo que te importa: ¿Por qué sigues eligiendo otra cosa? se dirige a lectores interesados en el desarrollo personal y en la distancia entre sus prioridades y sus decisiones. Emily Falk plantea esta cuestión en un libro de 320 páginas relacionado con el bienestar; no está orientado a quien busca una historia de ficción.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne sus 320 páginas en un volumen que permite leer y consultar el contenido en papel. Es la opción disponible para quien prefiera pasar las páginas físicamente y conservar el libro en su biblioteca.",
+      "texto": "Sabes lo que te importa: ¿Por qué sigues eligiendo otra cosa? se publica en tapa blanda, con 320 páginas y edición de Hestia. El formato físico permite subrayar ideas sobre decisiones personales, volver a pasajes concretos y consultar el contenido sin depender de una pantalla.",
       "evidencias": [
-        "numero_paginas",
+        "titulo",
         "formatos_disponibles",
-        "formato_edicion"
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sabes lo que te importa: ¿Por qué sigues eligiendo otra cosa? comparte con Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta el interés por las decisiones personales y sus consecuencias cotidianas. Emily Falk centra su libro en la distancia entre las prioridades y las elecciones, mientras Anca Martínez aborda los aprendizajes de la vida adulta. Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida también trata el bienestar personal, pero Kelly Ann Street orienta su propuesta hacia las heridas emocionales y el equilibrio interior.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410451988",
+        "isbn-9788409938490"
       ]
     }
   ],

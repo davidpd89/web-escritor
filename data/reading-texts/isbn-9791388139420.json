@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La biblia del football americano: Historia, equipos y secretos de la NFL (No ficción), de Carlos Báidez, se dirige a quienes buscan conocer la historia y los equipos del football americano. Su enfoque deportivo y documental se aleja de las novelas centradas en personajes ficticios.",
+      "texto": "La biblia del football americano: Historia, equipos y secretos de la NFL (No ficción) se dirige a lectores interesados en el deporte y en conocer su historia, sus equipos y sus secretos. Es una obra de no ficción de Carlos Báidez, por lo que no responde a la búsqueda de una novela deportiva.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,11 +13,23 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne 288 páginas para leer y consultar en papel. La versión Kindle de La biblia del football americano: Historia, equipos y secretos de la NFL (No ficción) permite llevar el contenido en un lector electrónico o en el móvil sin transportar el volumen físico.",
+      "texto": "La tapa blanda reúne las 288 páginas de La biblia del football americano: Historia, equipos y secretos de la NFL (No ficción) en un volumen físico que permite consultar distintos apartados. Kindle ofrece el mismo título en formato digital para leerlo en el móvil o en un dispositivo compatible.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Arte del Balón: Enciclopedia práctica de las jugadas del fútbol. 240 técnicas explicadas e ilustradas aborda otro deporte desde una perspectiva práctica, mientras que La biblia del football americano: Historia, equipos y secretos de la NFL (No ficción) se centra en la historia y los equipos de la NFL. Ambos tratan asuntos deportivos, pero el primero anuncia técnicas de juego y el segundo, contenidos históricos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409937110"
       ]
     }
   ],

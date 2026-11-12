@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788412356199",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en la arquitectura española del siglo XX y en el estudio de edificios concretos. El trabajo de Julián García Hernández se centra en la sede de la Diputación Provincial de Huesca y en el periodo 1974-1987; no responde a quien busque una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 112 páginas en castellano, publicadas por Colegio de Arquitectos de Almería. Es un volumen físico de extensión contenida, que permite consultar el estudio arquitectónico y volver a sus páginas sin depender de una pantalla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte con 720 retrats el interés por las disciplinas visuales, aunque el libro de Julián García Hernández aborda una sede arquitectónica y el de Xavier Mollà i Revert se presenta como una obra de retratos. Frente a All Black Cuaderno (LIBRETAS ARTÖSTICAS), de Varios autores, propone el estudio de un edificio y su contexto histórico en lugar de un cuaderno artístico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802",
+        "isbn-9789879871119"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a48afb45e862a50f",
+  "origen": "chatgpt-web"
+}

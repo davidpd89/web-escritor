@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los hijos malditos de la historia: Por qué los jóvenes buscan respuestas en la derecha y en la fe (Sociedad actual) se dirige a lectores interesados en el pensamiento político, la religión y las inquietudes de la juventud. Por su carácter de ensayo, no está orientado a quien busca una novela o un manual práctico.",
+      "texto": "Los hijos malditos de la historia: Por qué los jóvenes buscan respuestas en la derecha y en la fe (Sociedad actual) se dirige a lectores interesados en el ensayo sobre juventud, política y religión. No responde a la búsqueda de una novela de ficción ni de una obra centrada exclusivamente en acontecimientos históricos.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,28 +12,26 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El ensayo plantea por qué determinados jóvenes buscan respuestas en la derecha política y en la fe religiosa. Wall Street Wolverine (Víctor Domínguez) sitúa ambas cuestiones en el marco de la sociedad actual, con una extensión de 224 páginas dedicada a ese ámbito de reflexión.",
+      "texto": "La obra aborda la búsqueda de respuestas entre los jóvenes a través de la derecha política y la fe religiosa. Wall Street Wolverine (Víctor Domínguez) plantea esta cuestión en forma de ensayo sobre la sociedad actual, con atención a las inquietudes de una generación.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los hijos malditos de la historia: Por qué los jóvenes buscan respuestas en la derecha y en la fe (Sociedad actual) se presenta en tapa blanda. La edición de Almuzara reúne 224 páginas en castellano, un formato físico que permite señalar pasajes y volver a ellos durante la lectura del ensayo.",
+      "texto": "Los hijos malditos de la historia: Por qué los jóvenes buscan respuestas en la derecha y en la fe (Sociedad actual) se ofrece en tapa blanda y Kindle. La edición impresa de Almuzara tiene 224 páginas para consultar y releer en papel; Kindle permite llevar el ensayo en un lector electrónico o en el móvil.",
       "evidencias": [
         "titulo",
-        "editorial",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "081a80d3f47338d6",
+  "fuente_hash": "5494506ff2710ee9",
   "origen": "chatgpt-web"
 }

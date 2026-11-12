@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410647008",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La novela de N V Peacock se dirige a lectores de thriller psicológico interesados en las consecuencias de huir del pasado. Su conflicto gira en torno al miedo y la amenaza, por lo que se aleja de las lecturas de misterio de tono ligero o humorístico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La novela de N V Peacock se publica en tapa blanda, con 368 páginas en castellano y edición de Harper+. Este formato permite transportarla en una mochila o bolso y leerla en papel sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La novela de N V Peacock comparte con Aguas turbulentas, de Rankin Ian, el misterio relacionado con acontecimientos del pasado. La primera se centra en la huida y sus consecuencias psicológicas, mientras que Aguas turbulentas sitúa el encuentro entre pasado y presente en Edimburgo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d1eabeecfdd711a8",
+  "origen": "chatgpt-web"
+}

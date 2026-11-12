@@ -4,29 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El ingenioso hidalgo don Quijote de la Mancha, de Miguel de Cervantes, se dirige a lectores interesados en los clásicos de la literatura en castellano. Esta edición de 896 páginas exige asumir una lectura extensa y se aleja de lo que busca quien prefiere libros breves.",
+      "texto": "El ingenioso hidalgo don Quijote de la Mancha se dirige a lectores de clásicos que buscan una obra extensa de Miguel de Cervantes. Sus 896 páginas requieren una lectura prolongada y pueden resultar menos adecuadas para quien prefiera libros breves o narrativa contemporánea de menor extensión.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "idioma",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El ingenioso hidalgo don Quijote de la Mancha puede elegirse en tapa dura o Kindle. La edición física de Harpercollins reúne 896 páginas en una encuadernación rígida, adecuada para conservar el volumen o regalarlo; Kindle permite leer la obra en un dispositivo compatible sin transportar ese libro de papel.",
+      "texto": "La edición de Harpercollins de El ingenioso hidalgo don Quijote de la Mancha ofrece 896 páginas en tapa dura, una presentación apropiada para conservar el volumen y regalarlo. Kindle permite llevar la lectura en un dispositivo sin cargar con el libro físico, mientras que el audiolibro ofrece la alternativa de escucharlo.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "edicion",
-        "editorial"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Don Quijote de la Mancha (Clásicos ilustrados) es la comparación más directa con El ingenioso hidalgo don Quijote de la Mancha, ya que ambas ediciones corresponden a Miguel de Cervantes. La primera se identifica como una edición ilustrada; la segunda, publicada por Harpercollins, reúne 896 páginas en tapa dura y ofrece también opciones de lectura digital y escucha.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387752385"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8acb8f224bce4962",
+  "fuente_hash": "78686c08c2dfc902",
   "origen": "chatgpt-web"
 }

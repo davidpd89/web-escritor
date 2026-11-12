@@ -4,25 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La libreta de Dani: Tiempo y Dinero. Estrategia financiera para toda una vida. se orienta a lectores interesados en organizar sus finanzas desde una perspectiva de desarrollo personal. Su enfoque económico y práctico se distancia de quienes buscan ficción o una lectura exclusivamente literaria.",
+      "texto": "La libreta de Dani: Tiempo y Dinero. Estrategia financiera para toda una vida. se dirige a lectores interesados en organizar sus finanzas desde una perspectiva de desarrollo personal y economía familiar. Sus 405 páginas encajan con una lectura prolongada sobre planificación financiera, no con quien busca ficción o una introducción muy breve.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de La libreta de Dani: Tiempo y Dinero. Estrategia financiera para toda una vida. es de tapa blanda y contiene 405 páginas en castellano. El soporte físico permite consultar distintos apartados y volver a ellos durante la planificación financiera personal.",
+      "texto": "La libreta de Dani: Tiempo y Dinero. Estrategia financiera para toda una vida. puede elegirse en tapa dura o tapa blanda, ambas opciones de lectura física. Para sus 405 páginas, la tapa dura favorece la conservación y el regalo, mientras que la tapa blanda ofrece una encuadernación más flexible para consultar el contenido.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La libreta de Dani: Tiempo y Dinero. Estrategia financiera para toda una vida. y Cómo generar ingresos con las opciones: Así transformé la bola de nieve en avalancha (EMPRESA) abordan cuestiones económicas desde perspectivas distintas. La obra de Catalina Bonías Blanchard plantea una estrategia financiera a lo largo de la vida, mientras que la de Renato Antinori se centra en generar ingresos mediante opciones.",
+      "texto": "La libreta de Dani: Tiempo y Dinero. Estrategia financiera para toda una vida. comparte el interés por las finanzas con Cómo generar ingresos con las opciones: Así transformé la bola de nieve en avalancha (EMPRESA), de Renato Antinori. Catalina Bonías Blanchard aborda una estrategia financiera para toda la vida, mientras que Renato Antinori centra su título en la generación de ingresos mediante opciones.",
       "evidencias": [
         "titulo",
         "autores",
@@ -36,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bba9a1a004617f05",
+  "fuente_hash": "576924ed5dd85150",
   "origen": "chatgpt-web"
 }

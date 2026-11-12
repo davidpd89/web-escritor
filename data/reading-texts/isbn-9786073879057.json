@@ -4,22 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Libera la fiera / Free the Beast, de Jorge Lozano H., se encuadra en el desarrollo personal y en los asuntos relacionados con la familia y la crianza. Por su clasificación, responde a intereses distintos de los de quienes buscan ficción fantástica, narrativa histórica o divulgación sobre salud física.",
+      "texto": "Libera la fiera / Free the Beast se orienta a lectores de desarrollo personal con interés en cuestiones familiares y de crianza. Su clasificación en autoayuda y familia lo aleja de quienes buscan una novela o un estudio especializado en psicología clínica.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Libera la fiera / Free the Beast se publica en tapa blanda y tiene 256 páginas en castellano. La edición de Penguin Random House Grupo Editorial ofrece una lectura en soporte físico que permite marcar páginas, hacer anotaciones y recuperar fragmentos sin utilizar un lector electrónico.",
+      "texto": "La edición de Libera la fiera / Free the Beast es de tapa blanda y reúne 256 páginas en castellano. El formato permite llevar el volumen y volver a consultar sus páginas sin depender de un dispositivo electrónico. Penguin Random House Grupo Editorial publica esta presentación en papel.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Libera la fiera / Free the Beast puede compararse con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody. Ambos se relacionan con el desarrollo personal, aunque el título de Liz Moody anuncia cambios en diversos ámbitos vitales y el de Jorge Lozano H. está clasificado también en familia y crianza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
       ]
     }
   ],

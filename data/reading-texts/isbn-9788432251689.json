@@ -4,22 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un homicidio perfecto (Serie Las sombras de Oxford 1) (Biblioteca Formentor) se dirige a lectores de misterio, thriller y narrativa contemporánea. Su planteamiento pertenece al terreno del crimen y la intriga, por lo que se distancia de las lecturas centradas exclusivamente en relaciones cotidianas o conflictos familiares sin componente de misterio.",
+      "texto": "Un homicidio perfecto (Serie Las sombras de Oxford 1) (Biblioteca Formentor), de Simon Mason, se orienta a lectores de misterio y thriller dentro de la narrativa contemporánea. No responde a la búsqueda de fantasía o aventuras juveniles; el título lo identifica como el n.º 1 de la serie Las sombras de Oxford.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "autores"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Un homicidio perfecto (Serie Las sombras de Oxford 1) (Biblioteca Formentor) está disponible en tapa blanda y Kindle. La edición física de Seix Barral tiene 416 páginas y permite conservar el libro en papel; Kindle ofrece la misma obra en formato digital para leer desde un dispositivo compatible, sin transportar el volumen impreso.",
+      "texto": "Las 416 páginas de Un homicidio perfecto (Serie Las sombras de Oxford 1) (Biblioteca Formentor) pueden leerse en tapa blanda o Kindle. La primera permite conservar la novela en papel, mientras que Kindle facilita llevar toda su extensión en un lector electrónico o en el móvil.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aguas turbulentas, de Rankin Ian, comparte con Un homicidio perfecto (Serie Las sombras de Oxford 1) (Biblioteca Formentor) el terreno del misterio, aunque sitúa su conflicto entre el pasado y el presente de Edimburgo. Asesinato antes de Navidad, de Katherine Black, introduce el crimen en un contexto navideño, frente a la referencia a Oxford y a una serie que figura en el título de Simon Mason.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318",
+        "isbn-9791370310264"
       ]
     }
   ],

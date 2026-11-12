@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387687205",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La guardia infinita: Crónica de una enfermera en tiempos de pandemia está orientado a lectores de testimonios sanitarios y relatos sobre la experiencia profesional durante una crisis de salud. Natalia Bonillo y Álex Zahinos firman una obra vinculada a las memorias y al ensayo, por lo que se distancia de los manuales clínicos y de los libros de instrucciones sobre bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La guardia infinita: Crónica de una enfermera en tiempos de pandemia tiene una edición en tapa blanda de 192 páginas, publicada por Barlin Libros. El volumen en castellano permite seguir la crónica en papel y consultar pasajes concretos sin depender de un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La guardia infinita: Crónica de una enfermera en tiempos de pandemia y Dar a luz y nacer antes de tiempo: Salud mental perinatal, de Margarita Ibáñez y Ana Riverola, coinciden en su relación con la salud, pero el primero se presenta como crónica de enfermería durante una pandemia y el segundo aborda la salud mental perinatal. Frente a La máquina infinita: Demis Hassabis, DeepMind y la búsqueda de la superinteligencia (Ciencia y Tecnología), de Sebastian Mallaby, la obra de Natalia Bonillo y Álex Zahinos se centra en una experiencia sanitaria humana y no en el desarrollo tecnológico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425455032",
+        "isbn-9791387904234"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4b2004166bcf6941",
+  "origen": "chatgpt-web"
+}

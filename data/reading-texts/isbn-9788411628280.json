@@ -4,22 +4,32 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a lectores interesados en el Derecho internacional de los derechos humanos, especialmente en la protección jurídica de las personas sometidas a migraciones forzadas. El estudio de Andrea Bartomeu Navarro aborda el principio de non-refoulement desde la prohibición de la tortura y la actuación del Tribunal Europeo de Derechos Humanos; no responde a una búsqueda de narrativa sobre migraciones.",
+      "texto": "Esta obra se dirige a lectores interesados en la protección jurídica de las personas afectadas por migraciones forzadas, especialmente ante el Tribunal Europeo de Derechos Humanos. Su atención al principio de non-refoulement y a la prohibición de la tortura la distingue de los estudios generales sobre movimientos migratorios sin perspectiva jurídica.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Aranzadi reúne 360 páginas en castellano. Es un volumen físico que permite consultar y revisar los apartados dedicados al principio de non-refoulement y a la protección frente a la tortura, con una extensión que conviene tener presente para el transporte y el estudio.",
+      "texto": "El principio de non-refoulement en el Tribunal Europeo de Derechos Humanos: Un análisis de la protección de las víctimas de migraciones forzadas a la luz de la prohibición de la tortura (Estudios) se presenta en tapa blanda y tiene 360 páginas. El ejemplar impreso facilita el subrayado y la consulta de pasajes relacionados con la protección de derechos.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "editorial",
-        "idioma",
-        "titulo"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) comparte el interés por los conflictos y su tratamiento, pero se sitúa en la mediación educativa. La obra de Andrea Bartomeu Navarro estudia, en cambio, la protección frente a la devolución de víctimas de migraciones forzadas desde el Derecho europeo de los derechos humanos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788429030372"
       ]
     }
   ],

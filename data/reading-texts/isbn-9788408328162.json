@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788408328162",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Narración de Arthur Gordon Pym (Clásica) está dirigida a lectores de clásicos literarios y relatos de aventuras. Esta obra de Edgar Allan Poe cuenta con 304 páginas y se diferencia de las lecturas centradas exclusivamente en poesía o divulgación por su clasificación narrativa y aventurera.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Narración de Arthur Gordon Pym (Clásica) se publica en tapa blanda, con 304 páginas, bajo el sello Austral Editorial. Esta edición física permite llevar la narración en papel y conservarla dentro de una colección identificada como clásica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuentos de misterio y terror (edición especial en tapa dura) (Ediciones Conmemorativas) comparte autor con Narración de Arthur Gordon Pym (Clásica): Edgar Allan Poe. El primero se presenta como una colección de cuentos de misterio y terror en tapa dura; el segundo pertenece a los clásicos de aventuras y se publica en tapa blanda con 304 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491058458"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ceddd1a53d420efa",
+  "origen": "chatgpt-web"
+}

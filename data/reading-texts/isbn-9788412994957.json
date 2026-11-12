@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El Perro de Diógenes: 5 (Filonimal), de Alice Brière-Haquet, se orienta a quienes buscan una lectura breve relacionada con la filosofía y el ensayo. Sus 32 páginas permiten abordarlo en poco tiempo, aunque su extensión y temática lo alejan de los tratados filosóficos extensos y de las novelas de ficción. El título lo identifica como el n.º 5 de Filonimal.",
+      "texto": "El Perro de Diógenes: 5 (Filonimal), de Alice Brière-Haquet, se dirige a lectores interesados en la filosofía y el ensayo de extensión corta. Sus 32 páginas permiten abordar el volumen en una lectura breve, pero no responden a quien busque un tratado filosófico extenso; el título lo identifica como el n.º 5 de Filonimal.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,13 +14,25 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El Perro de Diógenes: 5 (Filonimal) se ofrece en tapa dura, con 32 páginas en castellano. La cubierta rígida facilita conservar el volumen y consultarlo de nuevo, mientras que su reducida extensión permite una lectura de corta duración. Es una edición física manejable para colocar junto a otros libros de filosofía.",
+      "texto": "El Perro de Diógenes: 5 (Filonimal) se ofrece en tapa dura, con 32 páginas encuadernadas en un volumen físico. Es una opción para conservarlo en una colección de filosofía o regalar un ejemplar impreso; el título lo identifica como el n.º 5 de Filonimal.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Perro de Diógenes: 5 (Filonimal) se compara directamente con El Cisne de Popper: 6 (Filonimal), también de Alice Brière-Haquet. Ambos pertenecen a Filonimal y comparten autoría; los títulos los identifican como los números 5 y 6, respectivamente, con distintas referencias filosóficas en sus nombres.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412994971"
       ]
     }
   ],

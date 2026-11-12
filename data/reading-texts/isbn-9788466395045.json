@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466395045",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cincuenta sombras más oscuras (Cincuenta sombras 2) (Best Seller | Ficción) se dirige a lectores de romance interesados en continuar una serie. El título lo identifica como el n.º 2, por lo que quien busque una historia independiente puede preferir otra lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de tapa blanda de Penguin Bolsillo reúne las 592 páginas de Cincuenta sombras más oscuras (Cincuenta sombras 2) (Best Seller | Ficción). Su presentación de bolsillo permite llevar el volumen en el bolso o la mochila y leerlo en papel sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A la deriva contigo (Best Seller | Ficción) comparte con Cincuenta sombras más oscuras (Cincuenta sombras 2) (Best Seller | Ficción) su vinculación con la narrativa romántica. La diferencia identificable está en la autoría: Beth O'Leary firma el primero y E.L. James el segundo, cuyo título lo identifica como el n.º 2 de una serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466390200"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "de600165294afeb5",
+  "origen": "chatgpt-web"
+}

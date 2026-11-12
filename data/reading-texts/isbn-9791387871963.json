@@ -4,30 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La chica del lago (Best Seller | Ficción) encaja con lectores que buscan misterio y thriller en una novela de extensión considerable. Mikel Santiago firma esta edición de bolsillo de 688 páginas; no corresponde a quienes buscan ensayo o libros de no ficción.",
+      "texto": "La chica del lago (Best Seller | Ficción), de Mikel Santiago, se dirige a quienes buscan narrativa de misterio y thriller. Sus 688 páginas permiten abordar una lectura extensa; no encaja con quien prefiera un libro breve o un ensayo alejado de la ficción.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "edicion"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda en formato de bolsillo reúne 688 páginas en un volumen físico de Penguin Bolsillo. Es la opción disponible para leer La chica del lago (Best Seller | Ficción) en papel y conservarla en la biblioteca; su extensión hace que sea un libro de cierto grosor.",
+      "texto": "La tapa blanda corresponde a la edición de bolsillo de Penguin Bolsillo, con 688 páginas; la tapa dura ofrece una encuadernación más rígida para conservarla o regalarla. Kindle permite llevar esa extensión en un dispositivo de lectura o en el móvil, mientras que el audiolibro ofrece la opción de escucharla.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La chica del lago (Best Seller | Ficción) comparte el terreno del misterio con Aguas turbulentas, de Rankin Ian, que sitúa su conflicto entre el pasado y el presente de Edimburgo. También puede compararse con Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir), de Ann Cleeves; son obras de distinta autoría dentro del ámbito del misterio.",
       "evidencias": [
         "titulo",
         "autores",
-        "edicion",
-        "numero_paginas",
-        "formatos_disponibles",
-        "editorial"
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410424524",
+        "isbn-9791370310318"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2dd5db552debfb24",
+  "fuente_hash": "6819ba65a4b6fc10",
   "origen": "chatgpt-web"
 }

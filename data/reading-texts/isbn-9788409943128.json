@@ -4,20 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Te cuento un secreto?: El momento ha llegado. se dirige a lectores interesados en los secretos y las relaciones familiares, dentro del ámbito infantil. Por su temática, se aleja de las aventuras fantásticas y de las historias centradas en la acción.",
+      "texto": "¿Te cuento un secreto?: El momento ha llegado. se sitúa entre las lecturas infantiles relacionadas con la familia y los secretos. Sus 50 páginas permiten abordar una lectura breve en el entorno familiar; quienes busquen una novela juvenil extensa o una obra de temática adulta encontrarán un enfoque diferente.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¿Te cuento un secreto?: El momento ha llegado. está disponible en tapa blanda, con 50 páginas en castellano. Su extensión permite leerlo en sesiones breves y el formato físico facilita compartir la lectura y volver a páginas concretas.",
+      "texto": "¿Te cuento un secreto?: El momento ha llegado. está disponible en tapa blanda, con 50 páginas en castellano. Su extensión permite manejarlo como un libro físico breve, tanto para leerlo en casa como para llevarlo en una bolsa durante los desplazamientos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Te cuento un secreto?: El momento ha llegado. y Abuelas Y Abuelos (Álbumes Ilustrados castellano) coinciden en su vinculación con las lecturas infantiles y el ámbito familiar. Isabel Muñiz Ordieres incorpora los secretos al planteamiento de su libro, mientras que Helene Delforge centra el título de su obra en los abuelos y las abuelas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491429586"
       ]
     }
   ],

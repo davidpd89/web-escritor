@@ -4,22 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta antología se dirige a quienes leen poesía y buscan una selección de voces diferentes en un mismo volumen. Por sus obras los conoceréis. 200 poetas seleccionan su \"poema\": Antología: 168 (Anaquel de Poesía) reúne una propuesta colectiva, distinta de un poemario dedicado a la obra de un solo autor.",
+      "texto": "Esta antología se dirige a lectores de poesía interesados en una selección de poemas realizada por sus propios autores. Reúne a 200 poetas en una edición de 304 páginas; no está planteada como una novela de argumento continuo.",
       "evidencias": [
         "titulo",
         "categorias",
-        "autores"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne 304 páginas de poesía en castellano. Su encuadernación permite llevar el volumen en una bolsa y consultar poemas concretos sin necesidad de seguir una lectura continua.",
+      "texto": "La edición disponible es en tapa blanda, con 304 páginas en castellano. Permite consultar los poemas por separado y volver a ellos sin seguir necesariamente una lectura continua; el volumen físico reúne la selección en un solo libro.",
       "evidencias": [
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "categorias",
         "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Por sus obras los conoceréis. 200 poetas seleccionan su \"poema\": Antología: 168 (Anaquel de Poesía) y Antología final: 282 (LITORAL) comparten su carácter antológico. La primera reúne una selección realizada por 200 poetas y está firmada por Alicia Arés y Enrique Gracia Trinidad; la segunda figura como obra de Varios autores y pertenece a la colección LITORAL.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412931075"
       ]
     }
   ],

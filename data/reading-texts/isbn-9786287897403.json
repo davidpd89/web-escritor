@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786287897403",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores de Mario Benedetti que buscan textos situados entre el ensayo, los relatos y la narrativa contemporánea. No corresponde a un manual práctico especializado ni a una novela presentada exclusivamente como fantasía o ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vivir adrede / To Live Purposely se publica en tapa blanda, con 244 páginas en castellano. Esta edición de Debolsillo permite leerlo y conservarlo en papel, además de volver a pasajes concretos sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Vivir adrede / To Live Purposely y En lengua privada / In Private Language, de Emiliano Monge, se sitúan en el ámbito de la escritura literaria contemporánea, aunque corresponden a autores distintos. Frente a El genio griego: Ilíada o el poema de la fuerza y otros textos (Contemporánea | Narrativa), de Simone Weil, el libro de Mario Benedetti reúne una orientación hacia el ensayo y los relatos sin centrar su título en el mundo clásico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073878289",
+        "isbn-9788466394604"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8f63ab60e330fb9f",
+  "origen": "chatgpt-web"
+}

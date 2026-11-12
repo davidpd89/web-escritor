@@ -4,36 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Récords para entender el planeta se dirige a lectores interesados en la geografía, las curiosidades territoriales y los datos extremos de distintos lugares del mundo. Su enfoque divulgativo y de consulta se distancia de una guía centrada en organizar desplazamientos, alojamientos o itinerarios turísticos.",
+      "texto": "Récords para entender el planeta se dirige a quienes sienten curiosidad por la geografía, los lugares extremos y las particularidades de distintos territorios. Su enfoque divulgativo y sus 240 páginas encajan menos con quien busca una novela de viajes protagonizada por personajes ficticios.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "encaje_documentado",
-      "texto": "Récords para entender el planeta plantea una lectura divulgativa organizada alrededor de singularidades geográficas y récords mundiales. Un Mundo Inmenso aborda cuestiones como el aislamiento de las ciudades, las diferencias horarias entre países y las particularidades de determinados territorios, dentro del ámbito de los viajes y las obras de referencia.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 240 páginas de Récords para entender el planeta en un volumen físico adecuado para consultar en casa o regalar. Kindle permite acceder al contenido desde un dispositivo digital y consultar sus curiosidades geográficas sin llevar el libro impreso.",
+      "texto": "La tapa dura reúne las 240 páginas de Récords para entender el planeta en una edición física de Ediciones Península, apropiada para consultar en casa o regalar. Kindle permite llevar el contenido en un lector electrónico o en el móvil, sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles",
-        "edicion"
+        "editorial",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "33 islas: Un periplo mediterráneo comparte con Récords para entender el planeta el interés por la geografía, pero se centra en islas del Mediterráneo frente a los récords de distintos lugares del mundo. Diccionario de conceptos y términos para entender y moverse en política: 16 (Biblos) también tiene una finalidad divulgativa, aunque aborda el vocabulario político en lugar de las singularidades geográficas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388175671",
+        "isbn-9791387873127"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "01bb3e1c3eb4446a",
+  "fuente_hash": "6f456d2acfb31a06",
   "origen": "chatgpt-web"
 }

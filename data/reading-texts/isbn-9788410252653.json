@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788410252653",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Y si sale bien? Atrévete a vencer tus miedos (Tesoros) está dirigido al público infantil interesado en los miedos, la confianza personal y las emociones. Sus 40 páginas permiten compartir la lectura en familia; por su orientación infantil, queda más lejos de quienes buscan un manual extenso de desarrollo personal para adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Y si sale bien? Atrévete a vencer tus miedos (Tesoros) se presenta en tapa dura, con 40 páginas en castellano. Esta encuadernación resulta práctica para conservar el libro en una biblioteca infantil, prestarlo o regalarlo; su extensión también permite repartir la lectura en momentos compartidos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Y si sale bien? Atrévete a vencer tus miedos (Tesoros) y Amigos de verdad comparten el interés por las emociones y las relaciones durante la infancia. El libro de Marta Prada se centra en afrontar los miedos, mientras que el de Iris Pérez-Bonaventura aborda la amistad y su importancia en el desarrollo infantil. La elección depende de si se quiere tratar el miedo o las relaciones de amistad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994532",
+        "isbn-9791388410109"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a404d3249e56806b",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788412908565",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Kenji mizoguchi: El pesaroso rocío de la existencia vol 2: Segunda plenitud encaja con lectores interesados en las biografías y los estudios de arte. Sus 622 páginas apuntan a una lectura extensa, menos adecuada para quien busque una introducción breve o una novela de ficción. El título lo identifica como el volumen 2.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato de Kenji mizoguchi: El pesaroso rocío de la existencia vol 2: Segunda plenitud, publicado por Providence Ediciones. Sus 622 páginas en castellano permiten una lectura prolongada y la consulta de pasajes concretos, aunque su extensión exige más espacio para transportarlo que un libro breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Kenji mizoguchi el pesaroso rocío de la existencia, también de Fernando Usón Forniés, es la comparación más directa por autoría y tema; el título de la obra consultada la identifica como volumen 2 y añade el subtítulo Segunda plenitud. El cine de los ochenta y 80 directores: Generaciones, géneros y geografías de una década decisiva: 14 (FilaSiete), de Fernando Gil Delgado Manrique de Lara, amplía la mirada hacia múltiples directores y una década concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412908572",
+        "isbn-9791399182231"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bd21163b446ddd6b",
+  "origen": "chatgpt-web"
+}

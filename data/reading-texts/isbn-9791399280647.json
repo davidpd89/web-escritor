@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399280647",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Amor en tiempos de guerra: [nueva edición], de Iñaki Fuertes, se dirige a lectores de romance interesados en las relaciones de pareja. Su clasificación temática lo aleja de quienes buscan una lectura centrada en el misterio o la aventura sin componente romántico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Amor en tiempos de guerra: [nueva edición] se presenta en tapa blanda, con 260 páginas en castellano. Esta edición de Kabo&bero Ediciones permite leer el volumen en papel y transportarlo sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amor en tiempos de guerra: [nueva edición] y Amor en pole position (Dirty Air 3) comparten el interés por las relaciones románticas. Iñaki Fuertes sitúa la guerra en el título de su obra, mientras que la novela de Lauren Asher se ambienta en el mundo de la Fórmula 1. Son dos contextos distintos para lectores de romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6276b04cf196904c",
+  "origen": "chatgpt-web"
+}

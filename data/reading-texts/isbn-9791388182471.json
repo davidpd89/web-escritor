@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388182471",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores de ensayo interesados en el narcisismo y su relación con la política reaccionaria. Sé tú mismo y que arda el mundo: El narcisismo como combustible de la revolución reaccionaria (Ensayo), de Pedro Vallín, aborda esa cuestión desde un enfoque político y psicológico, distinto de los manuales de desarrollo personal centrados en hábitos individuales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Sé tú mismo y que arda el mundo: El narcisismo como combustible de la revolución reaccionaria (Ensayo) está disponible en tapa blanda, con 128 páginas en castellano. Su extensión permite leer el ensayo por sesiones y volver a determinados pasajes en papel; Arpa publica esta edición física.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sé tú mismo y que arda el mundo: El narcisismo como combustible de la revolución reaccionaria (Ensayo) comparte el interés por la psicología con Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, pero trata el narcisismo desde su dimensión política. También se relaciona con Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio., de Beatriz García Saez, aunque este último se centra en el trabajo personal y el cambio individual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206",
+        "isbn-9788409924059"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5f5068fb46de58ea",
+  "origen": "chatgpt-web"
+}

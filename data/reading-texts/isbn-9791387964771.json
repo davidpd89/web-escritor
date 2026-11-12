@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387964771",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A lomos de mi borrico: 537 (El Acantilado), de Andrzej Stasiuk, se dirige a lectores que buscan textos de viajes con un enfoque ensayístico. Por su clasificación temática, se aparta de las novelas de aventuras y de los relatos de ficción centrados en una trama imaginaria.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "A lomos de mi borrico: 537 (El Acantilado) está disponible en tapa blanda, con 224 páginas en castellano. Es una edición física de extensión intermedia que puede transportarse para leer durante desplazamientos y conservarse en una biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "33 islas: Un periplo mediterráneo. De Marettimo a Venecia., de Lucio Bellomo, comparte con A lomos de mi borrico: 537 (El Acantilado) el interés por los viajes. El primero delimita su recorrido a islas mediterráneas, mientras que el libro de Andrzej Stasiuk se presenta dentro del ensayo y la literatura viajera, sin concretar un itinerario en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387873127"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2ce0703a7592e600",
+  "origen": "chatgpt-web"
+}

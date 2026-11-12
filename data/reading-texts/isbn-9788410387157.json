@@ -4,23 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La mata (Poesía), de Eliana Hernández, se dirige a lectores que buscan poesía en castellano y prefieren libros breves. Sus 96 páginas se alejan de la extensión habitual de una novela larga, por lo que no responde a quien busca una narración extensa.",
+      "texto": "La mata (Poesía), de Eliana Hernández, se dirige a lectores que buscan poesía en castellano en lugar de narrativa extensa. Sus 96 páginas ofrecen una extensión relativamente breve; encaja menos con quien prefiere novelas construidas alrededor de una trama y personajes.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "idioma",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La mata (Poesía) puede leerse en tapa blanda o escucharse en audiolibro. La edición impresa de Cuatro Lunas reúne 96 páginas y permite volver a los textos en papel; el audiolibro ofrece una alternativa para escuchar la obra durante desplazamientos o sin tener el libro delante.",
+      "texto": "La mata (Poesía) puede elegirse en tapa blanda para leer sus 96 páginas sobre papel y volver a pasajes concretos. El audiolibro ofrece una alternativa de escucha, sin necesidad de mantener la vista sobre el texto, especialmente útil durante desplazamientos o actividades cotidianas.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La mata (Poesía) puede compararse con Advenir, de Jose Eceolaza, y Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. El punto de encuentro es la lectura poética; el segundo título identifica expresamente una selección amorosa, mientras que La mata (Poesía) no delimita su asunto de esa manera en el título. Eliana Hernández firma una obra diferenciada de las de ambos autores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410212749",
+        "isbn-9788466396288"
       ]
     }
   ],

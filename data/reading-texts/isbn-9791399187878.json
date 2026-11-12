@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399187878",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historia de vidas y personajes de mi fantasía se dirige a lectores de poesía interesados en la imaginación y en los personajes de creación literaria. Con 78 páginas, se presta a sesiones breves y se aleja de la extensión habitual de una novela de fantasía larga.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Historia de vidas y personajes de mi fantasía es de tapa blanda, publicada por Huerga & Fierro Editores. Sus 78 páginas en castellano forman un volumen corto, cómodo para transportar y para alternar su lectura con otros libros.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "223 esquinas: 16 (La garza roja) y Advenir son dos referencias del catálogo para comparar con Historia de vidas y personajes de mi fantasía. La obra de Alfonso Abril Zaccagnini se distingue por reunir en su título las vidas, los personajes y la fantasía, mientras que las otras corresponden a Antonio Fernández Lera y Jose Eceolaza, respectivamente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "408bbc36b5e96a24",
+  "origen": "chatgpt-web"
+}

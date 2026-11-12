@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409924400",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El gran libro de los pequeños exploradores y exploradoras: Pasaporte de la Naturaleza se orienta a lectores infantiles interesados en la naturaleza y las aventuras. Sus 132 páginas encajan con quien busca una lectura de temática natural, pero no con quien prefiere historias centradas en la magia o la fantasía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El gran libro de los pequeños exploradores y exploradoras: Pasaporte de la Naturaleza tiene una edición en tapa blanda de 132 páginas. Su extensión permite manejarlo y transportarlo con relativa facilidad, tanto para leerlo en casa como para llevarlo en una mochila.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El gran libro de los pequeños exploradores y exploradoras: Pasaporte de la Naturaleza y Los guardianes de la bahía mágica: 2 (Alma Juvenil) se relacionan por su orientación juvenil y la presencia de aventuras, aunque el primero se centra en la naturaleza. Frente a Estuche Magic Animals. Misiones especiales 1 y 2, de Susanna Isern, Carles Dalmau y Nil López, la obra de Pedro Javier Prieto Ocete y Clara Muñoz García propone una temática natural en un volumen de 132 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408327332",
+        "isbn-9791387752378"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8e00d0ac76b9417d",
+  "origen": "chatgpt-web"
+}

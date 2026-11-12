@@ -4,22 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Infamia (Crimen y misterio) encaja con lectores que buscan misterio y thriller, especialmente si también les interesan los relatos vinculados a la historia y al siglo XX. Sus 288 páginas plantean una extensión moderada, mientras que su orientación hacia el crimen la separa de lecturas centradas exclusivamente en la historia divulgativa.",
+      "texto": "Infamia (Crimen y misterio), de Ledicia Costas, se orienta a quienes leen misterio con componentes históricos y referencias al siglo XX. Su combinación temática se aparta de las lecturas centradas únicamente en la fantasía o en aventuras infantiles.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Infamia (Crimen y misterio) se presenta en tapa blanda, concretamente en una edición de bolsillo de Booket con 288 páginas. Este formato facilita transportarlo y leerlo fuera de casa, con un volumen físico más manejable que las ediciones de mayor tamaño.",
+      "texto": "Infamia (Crimen y misterio) se presenta en tapa blanda, en una edición de bolsillo de 288 páginas publicada por Booket. Su tamaño editorial y extensión permiten transportarlo en papel y guardarlo sin el espacio que suele exigir una edición de mayor formato.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "edicion",
-        "editorial",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Infamia (Crimen y misterio) y Criminales sin sombra (Salamandra Black), de Juan Carlos Galindo, se relacionan por su orientación hacia el crimen. La obra de Ledicia Costas incorpora además historia y siglo XX, mientras que la de Juan Carlos Galindo se presenta desde su título como una lectura sobre criminales. También comparte autoría con Brujas y dragones 2: La bruja mala del oeste, aunque esta última se orienta hacia las brujas y los dragones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387501877",
+        "isbn-9791387928285"
       ]
     }
   ],

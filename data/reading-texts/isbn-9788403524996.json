@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788403524996",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fuego y raíz: Cancionero (Primera persona), de Gata Cattana, se dirige a quienes buscan textos vinculados a la poesía, el ensayo y la expresión artística. Su identificación como cancionero lo diferencia de una novela convencional; encaja menos con lectores que esperan una trama narrativa continua.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fuego y raíz: Cancionero (Primera persona) está disponible en tapa dura, con 208 páginas en castellano. La encuadernación rígida resulta práctica para conservar el volumen y regalar una edición física, además de facilitar su consulta repetida como cancionero.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fuego y raíz: Cancionero (Primera persona) comparte el ámbito poético con Poeta en Nueva York (edición especial con cantos tintados) (Literatura ilustrada). La obra de Gata Cattana se identifica como cancionero y también pertenece al ensayo y al arte, mientras que la de Federico García Lorca y Ricardo Cavolo destaca por su presentación ilustrada. Son aproximaciones distintas a la relación entre palabra y expresión artística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388220272"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "622cda5061000ede",
+  "origen": "chatgpt-web"
+}

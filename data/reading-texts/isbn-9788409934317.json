@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409934317",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "LAS COORDENADAS IMPOSIBLES.: Una red de alineaciones irrealizable hace 500 años sin GPS... O no? se dirige a lectores interesados en la historia, la Edad Media y las preguntas sobre conocimientos técnicos del pasado. El ensayo de Salvador Navarro Masip aborda las alineaciones y su relación con la orientación, por lo que se aleja de la ficción histórica y de las novelas de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de LAS COORDENADAS IMPOSIBLES.: Una red de alineaciones irrealizable hace 500 años sin GPS... O no? está disponible en tapa blanda. Sus 266 páginas permiten consultar el ensayo en papel y volver a los pasajes sobre historia y alineaciones sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bestiario de España: Mitos y leyendas de nuestro país (No ficción ilustrados) comparte con el ensayo de Salvador Navarro Masip el interés por cuestiones relacionadas con el pasado. Javier Prado Coronel aborda los mitos y las leyendas de España, mientras Salvador Navarro Masip plantea una cuestión sobre alineaciones y orientación hace 500 años. La diferencia está entre el estudio de las tradiciones legendarias y una investigación planteada desde la historia y la Edad Media.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949976"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "df3af0c1559f5a09",
+  "origen": "chatgpt-web"
+}

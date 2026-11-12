@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388102554",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Overgeared nº 01: 1 (Manhwa) se dirige a lectores juveniles interesados en el cómic, la novela gráfica y la narrativa contemporánea. Encaja menos con quienes buscan novelas históricas en prosa o libros de divulgación, porque su clasificación editorial corresponde al ámbito gráfico y juvenil.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Overgeared nº 01: 1 (Manhwa) se publica en tapa blanda, con 288 páginas en castellano. La edición de Planeta Cómic permite leer y conservar el volumen en papel con una encuadernación flexible, frente a la rigidez de una tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Overgeared nº 01: 1 (Manhwa) puede compararse con Star Wars: Las crónicas Jedi nº 01: 1 (Star Wars: Cómics Tomo Marvel), también firmado por Varios autores. Ambos pertenecen al ámbito del cómic, pero el primero se identifica como manhwa juvenil y el segundo como un tomo de Star Wars centrado en las crónicas Jedi.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388102349",
+        "isbn-9791388103506"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "08215aa3e15593a3",
+  "origen": "chatgpt-web"
+}

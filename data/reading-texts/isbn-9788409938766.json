@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409938766",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "BIM ON SITE: Consultoría e implantación BIM en PYME se orienta a lectores interesados en la aplicación de BIM dentro de pequeñas y medianas empresas. Por su enfoque de consultoría e implantación y su clasificación en economía y empresa, se aleja de la ficción y de los libros centrados exclusivamente en cuestiones personales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "BIM ON SITE: Consultoría e implantación BIM en PYME se presenta en tapa blanda, con 250 páginas en castellano. El formato físico permite consultar y releer apartados sobre consultoría e implantación BIM, y su extensión ofrece un volumen de trabajo que puede mantenerse a mano durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "BIM ON SITE: Consultoría e implantación BIM en PYME y Antes de liderar: Una mirada interior a un oficio se sitúan en el ámbito empresarial, aunque abordan asuntos distintos. Mario B.G. centra su título en la consultoría y la implantación BIM en pequeñas y medianas empresas; Miguel Reinoso pone el foco en el liderazgo y su dimensión profesional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fdbffc9394cff88a",
+  "origen": "chatgpt-web"
+}

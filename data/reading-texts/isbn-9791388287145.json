@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388287145",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un día para sopas, pan y gatos (VR), de Yoko Mure, se dirige a lectores de narrativa contemporánea interesados en temas familiares. Su clasificación incluye familia y crianza, por lo que se aparta de las obras centradas en mundos fantásticos o aventuras de ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un día para sopas, pan y gatos (VR) se publica en tapa blanda y tiene 240 páginas. La edición en castellano de VR reúne esta obra de narrativa contemporánea en un volumen de cubierta flexible, manejable para leer fuera de casa y guardar en una estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un día para sopas, pan y gatos (VR) puede compararse con Dime, niña bonita (Narrativa) dentro de la narrativa, aunque sus autoras son distintas. Yoko Mure aparece vinculada a la narrativa contemporánea y los temas familiares, mientras que el título de Laura Galve se presenta como una obra narrativa sin esa referencia temática en su nombre.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387605964"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e73e3da770722b41",
+  "origen": "chatgpt-web"
+}

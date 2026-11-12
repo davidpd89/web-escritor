@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409933570",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Beyond the Channels: Los canales, de José Javier Nicolás Tejedor, se orienta a lectores interesados en economía y empresa. Sus 287 páginas permiten abordar esa materia en un volumen de extensión media; por su clasificación temática, queda fuera de las lecturas centradas en el romance o la fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Beyond the Channels: Los canales se presenta en tapa blanda, con 287 páginas en castellano. Es una edición física que puede transportarse y consultarse por apartados, con una extensión manejable para repartir la lectura entre distintas sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Beyond the Channels: Los canales y Beyond the Channels: Los cimientos comparten autor, José Javier Nicolás Tejedor, y la denominación Beyond the Channels. Sus títulos distinguen dos enfoques nominales, los canales y los cimientos, sin establecer por sí mismos un orden de lectura. Frente a ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido, de Rory Sutherland, también cambia la autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409918768",
+        "isbn-9791399087222"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "663958c1db2a06ed",
+  "origen": "chatgpt-web"
+}

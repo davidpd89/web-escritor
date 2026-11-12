@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399008685",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Progenie (LA BIBLIOTECA DE CARFAX), de Jack Ketchum, pertenece al terror y se dirige a lectores interesados en ese género. Sus 256 páginas ofrecen una extensión intermedia; quien prefiera historias alejadas del terror encontrará aquí una orientación distinta de sus gustos habituales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Progenie (LA BIBLIOTECA DE CARFAX) se publica en tapa blanda, con 256 páginas en castellano. Esta edición de La biblioteca de Carfax permite leer en papel y transportar el libro sin el peso habitual de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Progenie (LA BIBLIOTECA DE CARFAX) y 25 días hasta Navidad comparten una orientación hacia lecturas de tensión, aunque el primero pertenece al terror y el segundo se presenta como thriller de adviento. Jack Ketchum firma una obra de 256 páginas, mientras que Per Jacobsen figura como autor del título vinculado a la Navidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5a2c257e1ef6a007",
+  "origen": "chatgpt-web"
+}

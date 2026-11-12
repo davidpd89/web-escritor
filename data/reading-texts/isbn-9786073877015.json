@@ -4,20 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Entre la pluma y la política / Between the Pen and Politics, de Roberto Ampuero, se dirige a lectores interesados en biografías, memorias y cuestiones relacionadas con el poder político. No encaja con quien busca ficción narrativa o una lectura centrada en otros ámbitos ajenos a la política.",
+      "texto": "Entre la pluma y la política / Between the Pen and Politics, de Roberto Ampuero, se dirige a lectores interesados en las memorias y en el ámbito político. Sus 456 páginas corresponden a una obra de no ficción vinculada a la experiencia personal y al poder, distinta de una novela política imaginaria o de un tratado jurídico.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne sus 456 páginas en un volumen manejable para leer y consultar sin necesidad de una edición de gran formato. Es la opción disponible para quien quiera conservar el libro en papel o incorporarlo a su biblioteca.",
+      "texto": "Entre la pluma y la política / Between the Pen and Politics tiene una edición en tapa blanda de 456 páginas. El volumen de Penguin Random House Grupo Editorial permite consultar el texto en papel, señalar pasajes y conservar una obra extensa de carácter biográfico y político.",
       "evidencias": [
-        "numero_paginas",
+        "titulo",
         "formatos_disponibles",
-        "formato_edicion"
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Entre la pluma y la política / Between the Pen and Politics puede compararse con Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes, de Andrew Paxman. Ambas obras relacionan la trayectoria personal con la política, pero la segunda se presenta como una biografía organizada en 50 episodios, mientras que la de Roberto Ampuero pertenece al ámbito de las biografías y memorias y aborda también el poder.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073873154"
       ]
     }
   ],

@@ -4,38 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tierra negra: Algunos secretos crecen en la oscuridad (MAEVA noir) se dirige a lectores de misterio y thriller interesados en historias construidas alrededor de secretos. Por su clasificación temática, se aleja de las lecturas centradas en la fantasía o el humor.",
+      "texto": "Tierra negra: Algunos secretos crecen en la oscuridad (MAEVA noir) se dirige a lectores de misterio y thriller interesados en historias construidas alrededor de secretos. Su clasificación y su pertenencia a la línea MAEVA noir la alejan de la fantasía épica y de la narrativa romántica como géneros principales.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Tierra negra: Algunos secretos crecen en la oscuridad (MAEVA noir) está disponible en tapa blanda, con 320 páginas en castellano. Este formato permite llevar la novela en el bolso o la mochila y leerla sin depender de un dispositivo electrónico.",
+      "texto": "La edición en tapa blanda de Maeva Ediciones tiene 320 páginas en castellano y permite conservar el texto en papel para leerlo por sesiones. El audiolibro ofrece otra forma de seguir la historia mediante la escucha, útil durante desplazamientos o actividades en las que no se puede sostener un libro.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "editorial",
         "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Tierra negra: Algunos secretos crecen en la oscuridad (MAEVA noir) comparte con La inquilina el terreno del misterio y la intriga. La diferencia está en el enfoque presentado: el libro de Ángela Armero destaca los secretos desde su título, mientras que La inquilina, de Freida McFadden, presenta a Blake Porter como figura de partida. También cambia la autoría.",
+      "texto": "El último secreto: Edición limitada a precio especial (Colección Especial), de Dan Brown, comparte con Tierra negra: Algunos secretos crecen en la oscuridad (MAEVA noir) el interés por los secretos y el misterio. La obra de Ángela Armero se presenta dentro de MAEVA noir y consta de 320 páginas, mientras que el título de Dan Brown se identifica por su edición limitada dentro de una colección especial.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
+        "numero_paginas"
       ],
       "enlaces": [
-        "isbn-9791387512446"
+        "isbn-9788408331483"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9287581cb9eb9f5f",
+  "fuente_hash": "28a0b107337ddf06",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409936441",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El último pase (Los casos de Inés Robles) se dirige a lectores de misterio y thriller que buscan una novela vinculada a una serie de casos. Su planteamiento de intriga se aparta de las historias centradas en la fantasía o el desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El último pase (Los casos de Inés Robles) está editado en tapa blanda, con 273 páginas en castellano. Su extensión permite organizar la lectura en varias sesiones y conservar el ejemplar físico junto a otras novelas de misterio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El último pase (Los casos de Inés Robles) puede compararse con Donde callan los niños (Imágica Intriga), de Eva Zamora Zamora, por su vinculación con el misterio y la intriga. Carlos Polo Araujo identifica su obra con Los casos de Inés Robles, mientras que el título de Eva Zamora Zamora aparece asociado a Imágica Intriga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210729"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6b6c5faffd21fc90",
+  "origen": "chatgpt-web"
+}

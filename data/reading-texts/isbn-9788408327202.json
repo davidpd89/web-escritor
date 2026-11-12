@@ -4,22 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Estuche Te receto un gato + Te receto otro gato (Planeta Internacional) está orientado a lectores de narrativa contemporánea que buscan reunir dos títulos de Syou Ishida en una misma edición. Sus 640 páginas ofrecen una lectura extensa; encaja menos con quien prefiere libros prácticos de actividades o manuales temáticos.",
+      "texto": "Estuche Te receto un gato + Te receto otro gato (Planeta Internacional), de Syou Ishida, se dirige a lectores de narrativa contemporánea interesados en historias relacionadas con los gatos. Reúne dos títulos en una misma edición, por lo que se diferencia de quienes buscan una obra independiente o un libro práctico sobre el cuidado de animales.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El estuche Estuche Te receto un gato + Te receto otro gato (Planeta Internacional) se comercializa en tapa dura y suma 640 páginas en castellano. Reúne los dos títulos indicados en su nombre, por lo que permite adquirirlos juntos en una edición física pensada para conservar o regalar.",
+      "texto": "Estuche Te receto un gato + Te receto otro gato (Planeta Internacional) se comercializa en tapa dura, con una extensión indicada de 640 páginas. El estuche reúne ambos títulos en una presentación física que permite conservarlos juntos y entregarlos como regalo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche Te receto un gato + Te receto otro gato (Planeta Internacional) y Good Rebels (Spanish Edition) comparten su presencia entre las obras narrativas del catálogo. El primero reúne dos títulos de Syou Ishida relacionados con los gatos, mientras que el segundo es una obra de Gabby Araya presentada como edición en español.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876773"
       ]
     }
   ],

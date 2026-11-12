@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409943265",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sé tu guía: Comprende lo que te condiciona y recupera tu capacidad de elegir se dirige a lectores interesados en el desarrollo personal y en examinar los factores que influyen en sus decisiones. La obra de José Manuel Berenguer Aguilar aborda ese terreno, no el de la ficción ni el de los estudios históricos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sé tu guía: Comprende lo que te condiciona y recupera tu capacidad de elegir se publica en tapa blanda, con 219 páginas en castellano. El ejemplar físico permite subrayar ideas y añadir anotaciones mientras se trabaja sobre los temas de desarrollo personal que plantea el título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sé tu guía: Comprende lo que te condiciona y recupera tu capacidad de elegir comparte el interés por el cambio personal con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito. El libro de José Manuel Berenguer Aguilar pone el foco en los condicionamientos y la capacidad de elegir, mientras que el de Liz Moody anuncia un enfoque más amplio sobre salud, relaciones y bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cfc3b3fdc2217917",
+  "origen": "chatgpt-web"
+}

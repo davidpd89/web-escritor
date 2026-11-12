@@ -4,29 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pelayo. El rey rebelde (HISTORIA ANTIGUA), de José Soto Chica y Francisco Aguado Blázquez, se dirige a lectores interesados en historia y Edad Media. Su enfoque temático encaja menos con quienes buscan ficción contemporánea o una lectura centrada en asuntos actuales.",
+      "texto": "Pelayo. El rey rebelde (HISTORIA ANTIGUA) se dirige a lectores interesados en la historia y la Edad Media. Por su enfoque histórico, encaja menos con quienes buscan una novela de ficción o una guía práctica sobre acontecimientos actuales.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece una edición física en castellano publicada por Desperta Ferro Ediciones, adecuada para consultar y conservar en papel. Kindle permite llevar Pelayo. El rey rebelde (HISTORIA ANTIGUA) en un lector electrónico o en el móvil, sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Pelayo. El rey rebelde (HISTORIA ANTIGUA) y 76 comparten su orientación hacia la historia, aunque el primero se sitúa en el ámbito de la Edad Media y el segundo aparece firmado por Felipe Pigna. También puede compararse con Agustín penón y Federico García Lorca por su interés histórico, pero este último se centra en una investigación sobre la vida y la muerte de Federico García Lorca, mientras que el primero aborda la figura de Pelayo.",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA) comparte con Pelayo. El rey rebelde (HISTORIA ANTIGUA) el interés por el pasado y sus protagonistas. El primero se centra en el derrumbe de una democracia, mientras que el segundo se sitúa en el ámbito de la historia medieval. También puede compararse con 76, de Felipe Pigna, por su orientación histórica, aunque son obras de distinta autoría.",
       "evidencias": [
         "titulo",
         "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "autores"
       ],
       "enlaces": [
-        "isbn-9788408329695",
-        "isbn-9788418567933"
+        "isbn-9788411005517",
+        "isbn-9788408329695"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "800ca6a59cc4160e",
+  "fuente_hash": "19a77eb995f3a904",
   "origen": "chatgpt-web"
 }

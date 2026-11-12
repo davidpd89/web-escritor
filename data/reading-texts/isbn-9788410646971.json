@@ -4,22 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores de thriller psicológico interesados en conflictos judiciales y personajes que deben demostrar su inocencia. La novela de Terry Lynn Thomas plantea la defensa de una abogada acusada y se aleja de las historias centradas exclusivamente en el romance o carentes de misterio.",
+      "texto": "Esta novela de Terry Lynn Thomas se dirige a lectores de thriller psicológico y misterio interesados en conflictos judiciales y acusaciones personales. Su protagonista es una abogada que debe defender su propia inocencia, por lo que se aleja de las historias de fantasía, aventuras y conflictos sobrenaturales.",
       "evidencias": [
-        "titulo",
         "autores",
+        "titulo",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda contiene las 288 páginas de esta novela de Terry Lynn Thomas y permite conservarla en papel. Kindle ofrece la misma lectura en formato digital, sin necesidad de transportar el volumen físico; ambas opciones corresponden a la edición en castellano.",
+      "texto": "La tapa blanda reúne las 288 páginas de esta novela de Terry Lynn Thomas en un volumen físico que puede prestarse o regalarse. Kindle permite leer el mismo título en un dispositivo electrónico o en el móvil, sin transportar el ejemplar impreso.",
       "evidencias": [
         "autores",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "edicion"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La novela de Terry Lynn Thomas comparte el misterio con El último pase (Los casos de Inés Robles), de Carlos Polo Araujo. La primera plantea el conflicto de una abogada que debe demostrar su inocencia, mientras que el título de la segunda remite a una serie de casos protagonizada por Inés Robles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409936441"
       ]
     }
   ],

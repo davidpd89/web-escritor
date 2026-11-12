@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387974435",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Juegos y terapia para adolescentes: 150 actividades para mejorar la autoestima, la comunicación y aprender a afrontar los desafíos está orientado a quienes buscan recursos prácticos relacionados con la adolescencia y el bienestar psicológico. Su propuesta de actividades lo diferencia de los ensayos teóricos o de las novelas juveniles.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Editorial Sirio ofrece una edición en tapa blanda de 352 páginas, escrita en castellano. El formato físico permite consultar las 150 actividades, regresar a ejercicios anteriores y trabajar con el libro en distintas sesiones dedicadas a la autoestima y la comunicación.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos), de Toño Ramos, comparte el interés por la adolescencia y las herramientas psicológicas. Kevin Gruzewski concentra su libro en 150 actividades sobre autoestima, comunicación y desafíos adolescentes; Toño Ramos amplía el ámbito a la convivencia familiar en distintas etapas vitales.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9791399249682"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fcffbb62742ba089",
+  "origen": "chatgpt-web"
+}

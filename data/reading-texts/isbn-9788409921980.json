@@ -4,28 +4,30 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en el liderazgo entendido como oficio y en la reflexión personal previa a ejercerlo. Por su enfoque introspectivo y su relación con la economía y la empresa, resulta menos afín a quienes buscan ficción de aventuras o contenidos alejados de la gestión profesional.",
+      "texto": "Antes de liderar: Una mirada interior a un oficio se dirige a lectores interesados en el liderazgo y su relación con el ámbito empresarial. Sus 411 páginas y su enfoque económico lo alejan de una novela de ficción o de una lectura breve de entretenimiento.",
       "evidencias": [
         "titulo",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 411 páginas de Antes de liderar: Una mirada interior a un oficio en un volumen para leer y consultar en papel. Kindle permite acceder al mismo título desde un dispositivo electrónico y retomar sus reflexiones sin llevar consigo la edición impresa.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "categorias",
         "numero_paginas"
       ]
     },
     {
-      "modulo": "lecturas_afines",
-      "texto": "ANTES DE QUE OCURRA: Vender, formar y proteger el futuro comparte el ámbito profesional, pero su título pone el foco en la venta, la formación y la prevención. Antes de liderar: Una mirada interior a un oficio se diferencia por situar la reflexión personal sobre el liderazgo en el centro de su propuesta.",
+      "modulo": "que_formato_elegir",
+      "texto": "Antes de liderar: Una mirada interior a un oficio cuenta con 411 páginas y puede elegirse en tapa dura, tapa blanda o Kindle. La tapa dura ofrece una cubierta rígida para conservarlo, la tapa blanda facilita manejar el volumen en papel y Kindle permite consultarlo desde un dispositivo digital.",
       "evidencias": [
         "titulo",
-        "afines_catalogo",
-        "categorias"
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antes de liderar: Una mirada interior a un oficio puede compararse con ANTES DE QUE OCURRA: Vender, formar y proteger el futuro, de Rafael De la Torre Pérez, por su relación con cuestiones profesionales. Miguel Reinoso plantea desde el título una mirada interior al liderazgo, mientras que la otra obra anuncia asuntos vinculados a la venta, la formación y la protección del futuro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788409935604"
@@ -34,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b1b70137cb5b11ad",
+  "fuente_hash": "bc835a4eff0db818",
   "origen": "chatgpt-web"
 }

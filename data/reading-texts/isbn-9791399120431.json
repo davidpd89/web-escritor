@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399120431",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La princesa de la calle 72 (Narrativa), de Elaine Kraf, se sitúa entre la narrativa contemporánea, la literatura juvenil y los temas de desarrollo personal y familia. Encaja con intereses que cruzan ficción y reflexión personal, pero no responde específicamente a la búsqueda de un manual técnico especializado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La princesa de la calle 72 (Narrativa) se ofrece en tapa blanda, con 176 páginas en castellano. El formato permite leerla en papel, llevarla en el bolso o conservarla como volumen físico de extensión relativamente breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La princesa de la calle 72 (Narrativa), de Elaine Kraf, comparte el ámbito del desarrollo personal con Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta, de Anca Martínez. Este último aborda el aprendizaje de la vida adulta, mientras que La princesa de la calle 72 (Narrativa) también se clasifica como narrativa contemporánea y juvenil. Good Rebels (Spanish Edition), de Gabby Araya, es otra obra de distinta autoría incluida entre sus lecturas afines.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876773",
+        "isbn-9788409938490"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7473775a943fbc44",
+  "origen": "chatgpt-web"
+}

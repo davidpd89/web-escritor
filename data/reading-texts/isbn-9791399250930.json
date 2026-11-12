@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399250930",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los sueños no soñados: Del duelo al consuelo: 15 (Trayectos) se dirige a lectores interesados en el duelo, la superación personal y la dimensión espiritual de la pérdida. Por su temática y sus 128 páginas, se aleja de las lecturas centradas en la ficción o en cuestiones ajenas al bienestar emocional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los sueños no soñados: Del duelo al consuelo: 15 (Trayectos) está disponible en tapa blanda, con 128 páginas en castellano. Esta edición física permite consultar pasajes sobre el duelo y el consuelo, volver a ellos y conservar el volumen en papel sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los sueños no soñados: Del duelo al consuelo: 15 (Trayectos) comparte el tema de la pérdida con El duelo: cómo atenderte: Una guía para acompañarte después de la muerte de una persona amada, de Irma Vallès Hernàndez. Mientras este último título plantea el acompañamiento tras la muerte de una persona querida, el de Santiago Roldán vincula el duelo con el consuelo y la espiritualidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921065"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f9420a27a4315c79",
+  "origen": "chatgpt-web"
+}

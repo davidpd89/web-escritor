@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788409941728",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Susurros del olvido encaja con lectores interesados en relatos de fantasía y ciencia ficción escritos por distintas voces. Sus 401 páginas reúnen una autoría colectiva, por lo que su planteamiento difiere del de una novela atribuida a un único escritor.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Susurros del olvido se presenta en tapa blanda, con 401 páginas en castellano. Es un volumen físico de extensión considerable que permite alternar la lectura con consultas posteriores, manteniendo reunidas las aportaciones de sus distintos autores.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Susurros del olvido puede compararse con Al despertar, rompe el cascarón (Runas), de Becky Chambers, por su relación con la narrativa de imaginación. La diferencia comprobable está en la autoría: Susurros del olvido reúne diez nombres, mientras que Al despertar, rompe el cascarón (Runas) figura firmado por Becky Chambers.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370093488"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4801544b1f2fefc5",
+  "origen": "chatgpt-web"
+}

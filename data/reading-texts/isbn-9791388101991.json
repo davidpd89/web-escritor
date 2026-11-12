@@ -4,21 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Blue Lock nº 33 (Manga Shonen) se dirige a lectores de manga juvenil y cómic japonés. Su clasificación como narrativa juvenil y contemporánea lo distingue de las obras de ensayo o divulgación, por lo que no responde a una búsqueda de lectura informativa.",
+      "texto": "Blue Lock nº 33 (Manga Shonen) está dirigido a lectores juveniles de manga y narrativa gráfica contemporánea. El título lo identifica como el n.º 33, por lo que quienes quieran comenzar una lectura desde su primer volumen pueden optar por otra entrega. Reúne 192 páginas en castellano.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Blue Lock nº 33 (Manga Shonen) está disponible en tapa blanda, con 192 páginas en castellano. Esta edición de Planeta Cómic permite leerlo en papel y guardarlo junto a otros volúmenes de la colección, cuyo número 33 figura en el título.",
+      "texto": "Blue Lock nº 33 (Manga Shonen) se publica en tapa blanda, con 192 páginas en castellano. Este formato permite consultar las viñetas directamente sobre papel y guardar el volumen junto a otras entregas de la colección. La edición corresponde a Planeta Cómic.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Blue Lock nº 33 (Manga Shonen) y As the Gods Will: La secuela 10 (Shônen) comparten a Muneyuki Kaneshiro en la autoría y pertenecen al manga shōnen. La segunda obra presenta a Yasuto Akashi en una situación relacionada con su amistad y las clases, mientras que Blue Lock nº 33 (Manga Shonen) se identifica como el n.º 33 de su colección.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962005"
       ]
     }
   ],

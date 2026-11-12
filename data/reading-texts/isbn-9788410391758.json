@@ -4,43 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Primero llegó el escándalo (Titania época) se dirige a lectores que buscan romance dentro de una novela histórica. Sus 320 páginas ofrecen una extensión intermedia; quien prefiera historias centradas en escenarios actuales o alejadas de las relaciones románticas encontrará aquí otro enfoque.",
+      "texto": "Primero llegó el escándalo (Titania época) está dirigido a lectores de romance ambientado en un contexto histórico. Por su combinación de novela histórica y romance, se aleja de quienes buscan ficción contemporánea sin ambientación de época o relatos centrados en otros géneros.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas"
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Primero llegó el escándalo (Titania época) se ofrece en tapa dura, con 320 páginas en castellano. Esta edición de Titania permite conservar el libro con una cubierta rígida y utilizarlo como ejemplar físico de regalo o de biblioteca.",
+      "texto": "Primero llegó el escándalo (Titania época) tiene 320 páginas y está disponible en tapa dura y tapa blanda. La tapa dura ofrece una encuadernación rígida para conservar el ejemplar o regalarlo; la tapa blanda resulta más flexible para sujetarlo y transportarlo durante la lectura.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Primero llegó el escándalo (Titania época) comparte autora y sello editorial con Por un beso (Bridgerton 7) Edición Especial (Titania época), de Julia Quinn. Ambos se relacionan con el romance de época, pero el segundo se presenta como edición especial y su título lo identifica como el número 7 de Bridgerton; el primero figura como una edición en tapa dura de 320 páginas.",
+      "texto": "Corazón de una bridgerton (Titania época) comparte con Primero llegó el escándalo (Titania época) la autoría de Julia Quinn y la identificación editorial de época. Cómo arruinar a un vizconde (Academia Miriñaque 1) (CLEAN ROMANCE), de Mimi Matthews, ofrece otra referencia de romance con personajes de título nobiliario, pero pertenece a una autoría distinta y su título identifica el n.º 1 de Academia Miriñaque.",
       "evidencias": [
         "titulo",
         "autores",
-        "editorial",
         "categorias",
-        "formatos_disponibles",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9786316863201"
+        "isbn-9788410391772",
+        "isbn-9788410481329"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b0b12b7d5cb98bab",
+  "fuente_hash": "ed0355644137439b",
   "origen": "chatgpt-web"
 }

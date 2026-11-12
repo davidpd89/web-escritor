@@ -4,21 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Éxodo y exilio del arte: La odisea del Museo del Prado durante la Guerra Civil se dirige a lectores interesados en la historia del arte, el exilio y los acontecimientos del siglo XX. Sus 536 páginas plantean una lectura extensa y temática, menos adecuada para quien busca ficción o una introducción breve al arte.",
+      "texto": "Éxodo y exilio del arte: La odisea del Museo del Prado durante la Guerra Civil, de Arturo Colorado, se dirige a lectores interesados en la historia española del siglo XX y el patrimonio artístico. Sus 536 páginas corresponden a una obra histórica extensa, no a una guía práctica de arte ni a una novela de ficción.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite consultar las 536 páginas de Éxodo y exilio del arte: La odisea del Museo del Prado durante la Guerra Civil en papel, una opción para mantener el volumen en una biblioteca de historia. Kindle facilita transportar digitalmente una obra de esta extensión y continuar la lectura en dispositivos compatibles.",
+      "texto": "La edición en tapa blanda reúne las 536 páginas de Éxodo y exilio del arte: La odisea del Museo del Prado durante la Guerra Civil en un volumen físico para consultar y conservar. Kindle permite leer esa misma obra en un dispositivo electrónico y transportarla sin cargar con el libro impreso.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "edicion"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Éxodo y exilio del arte: La odisea del Museo del Prado durante la Guerra Civil comparte el contexto del exilio con Campo de concentración: 82 (Biblioteca del Exilio), de Eduardo de Ontañón, pero centra su atención en el patrimonio artístico. También se relaciona con Charlotte Perriand. La libertad de repensar el mundo, de Varios autores, por su vinculación con el arte, aunque la obra de Arturo Colorado aborda específicamente la historia del Museo del Prado durante la Guerra Civil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410148659",
+        "isbn-9788416411993"
       ]
     }
   ],

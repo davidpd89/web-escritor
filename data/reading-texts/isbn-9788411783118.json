@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788411783118",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Moonwalk (Trayectos), de Michael Jackson, se sitúa entre las lecturas vinculadas al ámbito artístico. Sus 360 páginas encajan con quien busca un volumen dedicado a una figura musical concreta, más que un manual de técnicas de dibujo o diseño.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Moonwalk (Trayectos) publicada por Alba Editorial se presenta en tapa blanda y castellano. Con 360 páginas, ofrece un volumen físico para leer, conservar o regalar, sin necesidad de utilizar un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "formatos_disponibles",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Moonwalk (Trayectos) y All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial comparten el ámbito musical. Michael Jackson firma el primero, mientras Daniel Sedcontra aborda en el segundo la música industrial y su dimensión cultural, una diferencia de enfoque entre ambos títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788410045538"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5fc92dda91ce3b42",
+  "origen": "chatgpt-web"
+}

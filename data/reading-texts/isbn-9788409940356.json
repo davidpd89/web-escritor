@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409940356",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Qué hago con esto que me pasa?: Manual práctico para gestionar tu mente, tus emociones y tu conducta está orientado a lectores interesados en comprender y gestionar sus procesos mentales, emocionales y de comportamiento. La propuesta de Silvia Pérez Martín pertenece al desarrollo personal y el bienestar, por lo que no responde a quien busca ficción o una obra de entretenimiento narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Qué hago con esto que me pasa?: Manual práctico para gestionar tu mente, tus emociones y tu conducta se presenta en tapa dura, con 331 páginas en castellano. La encuadernación rígida resulta práctica para conservar un manual de consulta frecuente, mientras que su extensión permite abordar los distintos asuntos del título en un único volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Qué hago con esto que me pasa?: Manual práctico para gestionar tu mente, tus emociones y tu conducta comparte el interés por el bienestar personal con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody. Silvia Pérez Martín centra su manual en mente, emociones y conducta, mientras que Liz Moody amplía el enfoque a salud, relaciones y éxito.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fe953579aaf24c6c",
+  "origen": "chatgpt-web"
+}

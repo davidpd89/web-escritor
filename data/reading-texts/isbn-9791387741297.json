@@ -4,20 +4,31 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a jóvenes lectores interesados en la fantasía, los colegios con poderes y los secretos. Colegio de poderes secretos 8 - En busca de Trece (Jóvenes lectores), de César Mallorquí, plantea desde su título una búsqueda dentro de ese universo; quienes prefieran historias realistas sin elementos mágicos encontrarán una propuesta diferente.",
+      "texto": "Colegio de poderes secretos 8 - En busca de Trece (Jóvenes lectores) está dirigido al público juvenil interesado en la fantasía, los secretos y los entornos escolares con elementos extraordinarios. Por su orientación hacia los jóvenes lectores, se aparta de las obras de fantasía concebidas específicamente para adultos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 128 páginas de Colegio de poderes secretos 8 - En busca de Trece (Jóvenes lectores) en un libro físico que puede transportarse y prestarse. Kindle ofrece la misma obra como lectura digital para dispositivos compatibles, una alternativa cuando se prefiere no llevar el ejemplar en papel.",
+      "texto": "La edición en tapa blanda de Colegio de poderes secretos 8 - En busca de Trece (Jóvenes lectores) tiene 128 páginas y permite conservar el libro en una colección física. Kindle facilita llevar la lectura en un dispositivo digital sin transportar el ejemplar impreso.",
       "evidencias": [
-        "formatos_disponibles",
+        "titulo",
         "numero_paginas",
-        "titulo"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El secreto de los unicornios: Especial Unicornios 2 (Tea Stilton) comparte con Colegio de poderes secretos 8 - En busca de Trece (Jóvenes lectores) el interés por los secretos y la fantasía. La diferencia está en su planteamiento anunciado: el primero gira alrededor de los unicornios y el segundo pertenece a una serie sobre un colegio de poderes secretos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408323969"
       ]
     }
   ],

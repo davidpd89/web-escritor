@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9781836066385",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Acurrúcate a mi lado (Cuentos para peques) se orienta a lectores infantiles y a quienes buscan cuentos para compartir con niños pequeños. Su planteamiento como libro de cuentos se distancia de las lecturas juveniles centradas en sagas extensas o conflictos de adolescentes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Acurrúcate a mi lado (Cuentos para peques) está editado en tapa dura y tiene 128 páginas en castellano. La encuadernación rígida resulta práctica para conservarlo en una biblioteca infantil y utilizarlo en sesiones de lectura compartida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Acurrúcate a mi lado (Cuentos para peques) y Cacahuete, el elfo pedorrete (Libros ilustrados) se sitúan en el ámbito de las lecturas infantiles. Rosie Dickins presenta una propuesta de cuentos para pequeños, mientras Rafael Ordóñez identifica desde el título a un elfo y un componente humorístico, con un enfoque distinto para elegir la siguiente lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410318526"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "38a0478e78f1d358",
+  "origen": "chatgpt-web"
+}

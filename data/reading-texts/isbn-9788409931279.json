@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409931279",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El camino correcto de la vida se dirige a lectores interesados en el desarrollo personal, la psicología y las cuestiones familiares. Por su orientación temática, se aleja de las lecturas centradas exclusivamente en la aventura o la fantasía.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El camino correcto de la vida está disponible en tapa blanda, con 584 páginas en castellano. Es una edición física extensa, adecuada para consultar distintos pasajes y retomar la lectura sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El camino correcto de la vida comparte el interés por el desarrollo personal con Cuando no sé lo que quiero: 150 enseñanzas para encontrar tu camino (Bruguera Tendencias), de Seung-hwan Jeon. Este último plantea 150 enseñanzas sobre la búsqueda de orientación personal, mientras que la obra de A.m. A.m. también se sitúa en el ámbito de la psicología, la familia y el bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431684"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "920a05d99726dd2b",
+  "origen": "chatgpt-web"
+}

@@ -4,24 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Filosofía de la mitología: 0 (LECTURAS DE FILOSOFÍA) se dirige a lectores interesados en el ensayo filosófico y el estudio de la mitología. Sus 488 páginas y su clasificación como filosofía lo sitúan lejos de la narrativa de ficción y de los libros de divulgación práctica.",
+      "texto": "Filosofía de la mitología: 0 (LECTURAS DE FILOSOFÍA) se dirige a lectores interesados en el estudio filosófico de la mitología y en el ensayo. Su planteamiento temático se aleja de las narraciones mitológicas de ficción y de los libros centrados exclusivamente en contar leyendas.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda presenta las 488 páginas de Filosofía de la mitología: 0 (LECTURAS DE FILOSOFÍA) en un volumen físico. Es la edición en castellano publicada por Abada Editores, S.l., para quienes prefieren leer el ensayo en papel y conservarlo en su biblioteca.",
+      "texto": "Filosofía de la mitología: 0 (LECTURAS DE FILOSOFÍA) se publica en tapa blanda, con 488 páginas en castellano. Este formato reúne el ensayo de F.W.J. Schelling en un volumen físico que permite consultar pasajes, utilizar marcadores y volver a apartados anteriores durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Filosofía de la mitología: 0 (LECTURAS DE FILOSOFÍA) puede compararse con Astrología, filosofía y magia: Un camino de práctica espiritual por su relación con cuestiones filosóficas y tradiciones de pensamiento. La obra de F.W.J. Schelling se centra en la mitología, mientras que la de Soledad Davies vincula filosofía, astrología, magia y práctica espiritual.",
       "evidencias": [
         "titulo",
         "autores",
-        "edicion",
-        "numero_paginas",
-        "formatos_disponibles",
-        "idioma"
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
       ]
     }
   ],

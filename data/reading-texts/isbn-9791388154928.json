@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El Pensamiento Musical / This Is What It Sounds Like: A Legendary Producer Turned Neuroscientist on Finding Yourself Through Music se dirige a lectores interesados en la relación entre música, psicología y desarrollo personal. Su enfoque de ensayo lo distingue de las novelas y de los libros centrados exclusivamente en técnicas musicales.",
+      "texto": "El Pensamiento Musical / This Is What It Sounds Like: A Legendary Producer Turned Neuroscientist on Finding Yourself Through Music se dirige a lectores interesados en la psicología, el desarrollo personal y la relación entre música y pensamiento. Por su enfoque ensayístico, se aleja de la narrativa de ficción y de los manuales centrados exclusivamente en técnicas musicales.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,13 +12,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El Pensamiento Musical / This Is What It Sounds Like: A Legendary Producer Turned Neuroscientist on Finding Yourself Through Music se publica en tapa blanda, con 288 páginas en castellano. La edición de Blackie Books permite leer el ensayo en papel y volver a consultar sus páginas durante la lectura.",
+      "texto": "La edición de El Pensamiento Musical / This Is What It Sounds Like: A Legendary Producer Turned Neuroscientist on Finding Yourself Through Music se presenta en tapa blanda, con 288 páginas en castellano. Es una opción física para leer y consultar sus contenidos sobre psicología y desarrollo personal, sin el peso habitual de un ensayo mucho más extenso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando no sé lo que quiero: 150 enseñanzas para encontrar tu camino (Bruguera Tendencias), de Seung-hwan Jeon, comparte con la obra de Susan Rogers y Ogi Ogas el interés por el desarrollo personal, aunque plantea ese recorrido mediante enseñanzas. Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio., de Beatriz García Saez, aborda el cambio personal desde un método estructurado, frente al enfoque musical del ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409924059",
+        "isbn-9788402431684"
       ]
     }
   ],

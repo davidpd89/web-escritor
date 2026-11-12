@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410647121",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los Gatos Guerreros: Comienzan las profecías (una novela gráfica) (COMIC) se dirige a lectores de fantasía y aventuras que prefieren seguir una historia mediante viñetas. Su formato de novela gráfica lo diferencia de las narraciones presentadas exclusivamente en prosa y de los libros de contenido práctico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los Gatos Guerreros: Comienzan las profecías (una novela gráfica) (COMIC) está disponible en tapa blanda, con 272 páginas en castellano. La edición de Harperkids permite leer las viñetas directamente en papel y transportar el volumen con una cubierta flexible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los Gatos Guerreros: Comienzan las profecías (una novela gráfica) (COMIC) comparte autora y universo felino con Los Gatos Guerreros | El augurio de las estrellas 6 - La última esperanza. Ambos son títulos de Erin Hunter, pero el primero se presenta expresamente como novela gráfica, mientras que el segundo se identifica por su título como el n.º 6 de El augurio de las estrellas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419275424"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5c26908ca7e2ed3c",
+  "origen": "chatgpt-web"
+}

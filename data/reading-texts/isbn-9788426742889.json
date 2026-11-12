@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788426742889",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "GuÍA. Dele contexto a la IA se orienta a lectores interesados en la inteligencia artificial desde una perspectiva divulgativa. Camilo Chacón Sartori aborda este asunto en un volumen de 76 páginas, más cercano a una lectura breve sobre tecnología que a una novela o a un tratado científico extenso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "GuÍA. Dele contexto a la IA está publicado en tapa blanda y tiene 76 páginas en castellano. Su extensión permite recorrer el volumen en sesiones relativamente cortas y consultar de nuevo sus contenidos en papel, sin necesidad de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "GuÍA. Dele contexto a la IA y 50 cosas que hay que saber sobre IA comparten el interés divulgativo por la inteligencia artificial. El libro de Camilo Chacón Sartori enfoca su título en la importancia de proporcionar contexto a la IA, mientras que el de Keith Mansfield plantea una aproximación mediante 50 cuestiones. La diferencia principal para el lector está entre un asunto delimitado y un recorrido más amplio por la materia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "26151fb26ce4514c",
+  "origen": "chatgpt-web"
+}

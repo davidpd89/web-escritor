@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399308327",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estética y fragilidad se sitúa en el ensayo filosófico y encaja con lectores interesados en la reflexión conceptual. Sus 158 páginas, firmadas por Ílber Alexánder Salcedo Velásquez, responden a una lectura de no ficción y no a la búsqueda de una novela con trama y personajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estética y fragilidad se presenta en tapa blanda, con 158 páginas en castellano. El volumen permite una lectura física relativamente breve y facilita volver a los pasajes de interés mediante anotaciones o marcadores de papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Arendt y la antropología de la condición plural en doble movimiento comparte con Estética y fragilidad su orientación filosófica, pero el título de Javier Pons-Gallach delimita su estudio a la condición plural. Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, también incorpora la filosofía, aunque la vincula expresamente con la astrología y la práctica espiritual, frente al eje de estética y fragilidad de Ílber Alexánder Salcedo Velásquez.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399308358",
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "598f4209bc3a8e81",
+  "origen": "chatgpt-web"
+}

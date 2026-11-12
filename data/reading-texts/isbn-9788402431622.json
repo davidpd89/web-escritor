@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cansadas de quedar bien se dirige a personas adultas interesadas en comprender la complacencia, la necesidad de aprobación y la dificultad para establecer límites. Tamara Gómez aborda la culpa, el perfeccionismo y el cuidado de las propias necesidades desde la psicología. No está planteado como una novela ni como una lectura de entretenimiento ajena al desarrollo personal.",
+      "texto": "Cansadas de quedar bien se dirige a personas adultas interesadas en la complacencia, la autoexigencia y las dificultades para poner límites. Tamara Gómez aborda el miedo al rechazo y la búsqueda de aprobación, por lo que su enfoque no corresponde a quien busca una novela de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,13 +15,28 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cansadas de quedar bien se publica en tapa blanda con solapas y Kindle, con 224 páginas. El ejemplar físico permite volver a los apartados sobre límites, autoexigencia y relaciones personales sin utilizar una pantalla. Kindle facilita consultar esos mismos temas desde el móvil o un lector electrónico, sin transportar el libro impreso.",
+      "texto": "Cansadas de quedar bien está disponible en tapa blanda y Kindle. La edición física de Bruguera tiene 224 páginas y solapas, apropiadas para consultar y señalar ejercicios o ideas; Kindle permite llevar el texto en el móvil y recuperar los apartados durante la lectura.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "numero_paginas",
         "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
         "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cansadas de quedar bien y El síndrome de la impostora (edición especial): ¿Por qué las mujeres siguen sin creer en ellas mismas? (FEMINISMO) abordan dificultades relacionadas con la percepción personal de las mujeres. El primero se centra en la complacencia y los límites; el segundo plantea la falta de confianza en una misma. Mamá necesita un respiro introduce, en cambio, la experiencia de la maternidad.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005616",
+        "isbn-9788466683043"
       ]
     }
   ],

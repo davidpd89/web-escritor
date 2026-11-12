@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ser padre o tener hijos: El posparto del que nadie habla: las 12 creencias que cambian cuando nace tu hijo y cómo trabajarlas en 65 + 1 días (Gestión por creencias para la vida) se dirige a quienes quieren examinar sus creencias durante la llegada de un hijo. Su enfoque de psicología y crianza se aleja de las lecturas centradas exclusivamente en cuidados físicos del bebé.",
+      "texto": "Se dirige a padres interesados en los cambios personales que acompañan al nacimiento de un hijo y en trabajar sus propias creencias durante el posparto. Su planteamiento psicológico y familiar resulta menos afín a quien busca exclusivamente información médica sobre embarazo o puerperio.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,11 +12,22 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite consultar y retomar los ejercicios de trabajo personal en papel durante los 65 + 1 días que plantea el título. Sus 130 páginas reúnen el contenido en un volumen físico manejable, que puede guardarse junto a otras lecturas sobre crianza.",
+      "texto": "La tapa blanda es el formato disponible para sus 130 páginas, con una extensión manejable para la lectura y la consulta de los ejercicios planteados en el título. Permite conservar el ejemplar físico y volver a los apartados sobre creencias y paternidad.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos) aborda la organización familiar desde la psicología conductual. Ser padre o tener hijos: El posparto del que nadie habla: las 12 creencias que cambian cuando nace tu hijo y cómo trabajarlas en 65 + 1 días (Gestión por creencias para la vida) se concentra en la experiencia paterna tras el nacimiento.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399249682"
       ]
     }
   ],

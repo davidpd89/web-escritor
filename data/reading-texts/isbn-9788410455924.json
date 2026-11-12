@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410455924",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dolor magenta: 214 (Narrativa), de Erik González de Lopidana (Erik Oz), se dirige a lectores de misterio y thriller. Su clasificación lo aleja de quienes busquen principalmente romance o fantasía, mientras que sus 290 páginas delimitan la extensión de la lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dolor magenta: 214 (Narrativa) cuenta con una edición en tapa blanda de 290 páginas. Es una opción física para leer y conservar este título de misterio, con posibilidad de marcar pasajes o consultar páginas anteriores.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dolor magenta: 214 (Narrativa) comparte el misterio con Aguas turbulentas, de Rankin Ian, que sitúa su conflicto entre el pasado y el presente de Edimburgo. También se relaciona con 25 días hasta Navidad, de Per Jacobsen, identificado como thriller de adviento. Frente a esa ambientación navideña, Dolor magenta: 214 (Narrativa) se presenta dentro del misterio y el thriller sin esa referencia temática en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063",
+        "isbn-9791370310318"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "04b5725313ae28ea",
+  "origen": "chatgpt-web"
+}

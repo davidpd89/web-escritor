@@ -4,20 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cómo decirte que te quiero: Porque el amor está en las pequeñas cosas (Serres) se dirige a lectores interesados en el amor, la pareja y los vínculos familiares. Su planteamiento editorial gira alrededor de las pequeñas expresiones de afecto, por lo que no se presenta como una novela romántica de ficción.",
+      "texto": "Cómo decirte que te quiero: Porque el amor está en las pequeñas cosas (Serres), de Jess Bircham, está dirigido a quienes buscan una lectura sobre las formas cotidianas de expresar afecto. Sus temas se relacionan con el amor, la pareja y los vínculos familiares. No corresponde a quien busca un tratado especializado de psicología ni una novela romántica extensa.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne 128 páginas en una edición física compacta. Es un formato manejable para conservar o regalar, especialmente si se busca un libro ilustrado o de consulta ocasional en papel, sin depender de un dispositivo electrónico.",
+      "texto": "Cómo decirte que te quiero: Porque el amor está en las pequeñas cosas (Serres) se ofrece en tapa dura, con 128 páginas en castellano. Su extensión permite leerlo en sesiones relativamente cortas, mientras que la cubierta rígida favorece su conservación como libro de regalo. Molino publica esta edición de Jess Bircham.",
       "evidencias": [
-        "numero_paginas",
+        "titulo",
+        "autores",
         "formatos_disponibles",
-        "edicion"
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bienvenido, bebé: Un libro muy tierno para dar la bienvenida a un nuevo bebé y celebrar el amor que lo rodea: 15 (Álbumes ilustrados), de Jane Chapman, comparte con Cómo decirte que te quiero: Porque el amor está en las pequeñas cosas (Serres), de Jess Bircham, el interés por expresar afecto. El primero se centra en la llegada de un bebé y el entorno familiar; el segundo aborda los pequeños gestos con los que se comunica el amor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387948160"
       ]
     }
   ],

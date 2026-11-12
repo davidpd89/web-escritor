@@ -4,41 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta obra de José Carlos González-Hurtado se dirige a lectores interesados en la religión, la espiritualidad y la divinidad de Jesús. Su carácter de no ficción encaja con quienes buscan una aproximación a las creencias religiosas, pero no con quienes prefieren una novela de temática bíblica.",
+      "texto": "Esta obra de José Carlos González-Hurtado se dirige a lectores interesados en la religión, la espiritualidad y la cuestión de la divinidad de Jesús. Sus 368 páginas desarrollan una lectura de no ficción, distinta de una novela o de un manual dedicado exclusivamente al bienestar físico.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Roca Bolsillo ofrece 368 páginas en tapa blanda y formato de bolsillo. Su tamaño facilita transportarla y consultar sus contenidos sobre religión y espiritualidad en papel, tanto durante una lectura continuada como en sesiones breves.",
+      "texto": "La edición de bolsillo de Roca Bolsillo reúne 368 páginas en tapa blanda, una opción para leer en papel y transportar el volumen. Kindle permite llevar el contenido en un lector electrónico o en el móvil, mientras que el audiolibro ofrece una alternativa de escucha durante desplazamientos o actividades cotidianas.",
       "evidencias": [
-        "editorial",
         "edicion",
+        "editorial",
         "numero_paginas",
-        "formatos_disponibles",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los genios creen en Dios, de José Carlos González-Hurtado, trata la relación entre fe y ciencia, mientras que esta obra se centra en la divinidad de Jesús. Nuevas evidencias científicas de la existencia de Dios, también de José Carlos González-Hurtado, aborda la compatibilidad entre ciencia y religión; las tres comparten el interés por las creencias religiosas desde la no ficción.",
+      "texto": "Esta obra sobre la divinidad de Jesús comparte autor y temática religiosa con Nuevas evidencias científicas de la existencia de Dios, de José Carlos González-Hurtado. La segunda aborda expresamente la relación entre ciencia y religión, mientras que la primera centra su planteamiento en la identidad divina de Jesús.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410096547",
         "isbn-9788466393829"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "40b06a9e0ca3b80f",
+  "fuente_hash": "d924a58a26fd78f8",
   "origen": "chatgpt-web"
 }

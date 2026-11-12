@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788413055510",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Neandertal: La humanidad frente al espejo (Historia Incógnita), de Fernando Diez Martín, está dirigido a lectores interesados en la historia de la humanidad y los neandertales. Su enfoque histórico encaja menos con quien busca una novela de aventuras o una narración fantástica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Neandertal: La humanidad frente al espejo (Historia Incógnita) se presenta en tapa blanda, con 460 páginas en castellano. Es una edición física que permite consultar distintos pasajes y volver a ellos sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, comparte con Neandertal: La humanidad frente al espejo (Historia Incógnita) el interés por el pasado. La diferencia está en el periodo abordado: Fernando Diez Martín se centra en los neandertales, mientras que el título de Timothy W. Ryback sitúa su asunto en el derrumbe de una democracia bajo Hitler.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1c067f101ac29606",
+  "origen": "chatgpt-web"
+}

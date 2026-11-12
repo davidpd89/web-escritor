@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788417898632",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Lluvia De Camille (FONDO), de Esther Bengoechea, se dirige a lectores de narrativa juvenil interesados en la novela histórica. Por su clasificación, resulta menos afín a quienes buscan exclusivamente fantasía, ciencia ficción o relatos ambientados en el futuro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Lluvia De Camille (FONDO) se ofrece en tapa blanda, con 136 páginas en castellano. Su extensión permite llevar el volumen en una mochila o bolso y leerlo en papel durante desplazamientos o sesiones breves.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Lluvia De Camille (FONDO) coincide con Ave César (Narrativas Históricas) en su vinculación con la narrativa histórica. La obra de Esther Bengoechea también se clasifica como juvenil, mientras que el título de Rex Warner se presenta dentro de las narrativas históricas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788435064125"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2cd9c94592970ba1",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788419990921",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Flush (FICCIÓN), de Virginia Woolf, encaja con lectores interesados en los clásicos y la narrativa literaria. Sus 128 páginas permiten abordar una obra breve de la autora, mientras que quienes busquen un ensayo práctico o una lectura extensa encontrarán aquí un planteamiento distinto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Flush (FICCIÓN) se presenta en tapa blanda, con 128 páginas en castellano, en una edición de Ediciones Godot. Su extensión facilita llevarlo en el bolso o leerlo durante desplazamientos, y el formato físico permite conservar una edición breve de Virginia Woolf en la biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al faro: Nueva traducción al español: 82 (Clásicos en español) y Noche y día / Night and Day comparten con Flush (FICCIÓN) la autoría de Virginia Woolf. El primero destaca en su título una nueva traducción al español, mientras que el segundo presenta un título bilingüe; Flush (FICCIÓN) se distingue en esta edición por sus 128 páginas y su publicación en Ediciones Godot.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "numero_paginas",
+        "editorial"
+      ],
+      "enlaces": [
+        "isbn-9781836472568",
+        "isbn-9786073878517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2891fc33a1c76da4",
+  "origen": "chatgpt-web"
+}

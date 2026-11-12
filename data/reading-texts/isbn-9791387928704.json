@@ -4,25 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¡Que viene el lobo! (Salamandra Narrativa) se dirige a lectores que buscan misterio dentro de la narrativa contemporánea, con presencia del humor. Por su combinación de géneros, se distancia tanto de la novela exclusivamente humorística como de las historias centradas en mundos fantásticos.",
+      "texto": "¡Que viene el lobo! (Salamandra Narrativa) se dirige a lectores de misterio y narrativa contemporánea que también buscan elementos de humor. Con 352 páginas, se sitúa en una extensión intermedia; su combinación de géneros resulta menos afín a quienes prefieren exclusivamente fantasía épica o romance.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¡Que viene el lobo! (Salamandra Narrativa) está disponible en tapa blanda, con 352 páginas en castellano. La extensión permite distribuir la lectura entre varias sesiones, mientras que la encuadernación flexible facilita llevar el ejemplar en el bolso o la mochila.",
+      "texto": "La edición en tapa blanda de ¡Que viene el lobo! (Salamandra Narrativa), publicada por Salamandra, contiene 352 páginas en castellano y permite leer en papel. Kindle ofrece una alternativa digital para llevar la novela en el móvil o en un lector electrónico sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
+        "edicion",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Detectives de barrio 3 - ¿Quién la está liando en la feria? (Montena) comparte con ¡Que viene el lobo! (Salamandra Narrativa) el interés por resolver un misterio. La diferencia está en el marco de lectura: la obra de Isaac Palmiola pertenece a una serie de detectives de barrio, mientras que la de Leonie Swann combina misterio, narrativa contemporánea y humor.",
+      "texto": "¡Que viene el lobo! (Salamandra Narrativa), de Leonie Swann, comparte el interés por el misterio con Los pecados de la familia Ichinose 6 (Shônen), de Taizan 5. La obra de Leonie Swann combina misterio, narrativa contemporánea y humor, mientras que el título de Taizan 5 se identifica como una entrega de una serie Shônen. La diferencia también está en la autoría y en la orientación editorial de ambas obras.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +33,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387924959"
+        "isbn-9788410305106"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7fbc476a0df20d93",
+  "fuente_hash": "11ddaaadf15b2050",
   "origen": "chatgpt-web"
 }

@@ -4,23 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Historia nocturna de la arquitectura se orienta a quienes buscan una lectura sobre arquitectura desde la historia y el arte. Sus 284 páginas, firmadas por Javier Fernández Contreras, Vera Sacchetti y Roberto Zancan, se apartan de la ficción y de los manuales de construcción.",
+      "texto": "Historia nocturna de la arquitectura se orienta a lectores interesados en la historia, la arquitectura y el diseño. Sus 284 páginas responden a una búsqueda de contenido histórico y artístico, no a quien busca una novela de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Historia nocturna de la arquitectura es en tapa blanda y reúne 284 páginas en castellano. El formato permite manejar el volumen durante la lectura y colocarlo en una estantería junto a otros libros de historia de la arquitectura.",
+      "texto": "Historia nocturna de la arquitectura cuenta con una edición en tapa blanda de 284 páginas, publicada por Ediciones Asimetricas,s.l. Permite conservar el volumen en papel y consultar sus páginas físicamente, sin depender de un dispositivo de lectura.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "categorias"
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Historia nocturna de la arquitectura, de Javier Fernández Contreras, Vera Sacchetti y Roberto Zancan, comparte el interés histórico y artístico con Civilización: Una historia del arte y la cultura que dieron forma a la civilización moderna: 126 (Ático Historia), de Kenneth Clark. La primera delimita su asunto a la arquitectura nocturna; la segunda plantea una historia más amplia del arte y la cultura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387592493"
       ]
     }
   ],

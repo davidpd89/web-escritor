@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788433040121",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensado para lectores que buscan estrategias prácticas relacionadas con el trastorno bipolar y la vida cotidiana. Vivir bien con trastorno bipolar. Estrategias prácticas para mejorar la vida diaria: 258 (Serendipity), de David J. Miklowitz, se sitúa en el ámbito de la psicología y el bienestar, no en el de la ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 336 páginas de Vivir bien con trastorno bipolar. Estrategias prácticas para mejorar la vida diaria: 258 (Serendipity) en un volumen físico. Permite consultar y retomar sus contenidos sobre estrategias cotidianas sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos) comparte el enfoque práctico de Vivir bien con trastorno bipolar. Estrategias prácticas para mejorar la vida diaria: 258 (Serendipity). Toño Ramos trata la convivencia familiar, mientras David J. Miklowitz aborda el trastorno bipolar y la vida diaria.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791399249682"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aee67cc5b755e1f6",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409937752",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El otro emperador: Lucio Vero, el hermano que Marco Aurelio no pudo salvar del olvido encaja con lectores interesados en la historia romana y las figuras del poder imperial. Su enfoque histórico y sus 327 páginas lo alejan de las lecturas breves sobre acontecimientos contemporáneos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El otro emperador: Lucio Vero, el hermano que Marco Aurelio no pudo salvar del olvido se publica en tapa blanda, con 327 páginas. Es una edición física que permite consultar pasajes anteriores y seguir la lectura histórica en papel, sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ave César (Narrativas Históricas) y El otro emperador: Lucio Vero, el hermano que Marco Aurelio no pudo salvar del olvido coinciden en su vinculación con la historia romana. El libro de Valentín Dueñas Jiménez identifica expresamente a Lucio Vero y Marco Aurelio, mientras que el de Rex Warner presenta una referencia más general a César.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788435064125"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aadaac2a9e2b828b",
+  "origen": "chatgpt-web"
+}

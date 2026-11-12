@@ -4,24 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Fuerzas de marea: 628 (Colección Valparaíso de Poesía) se dirige a lectores que buscan poesía contemporánea en castellano. Con 134 páginas y su pertenencia a una colección poética, se aparta de las novelas de argumento continuado y de los libros de narrativa extensa.",
+      "texto": "Fuerzas de marea: 628 (Colección Valparaíso de Poesía) se dirige a lectores de poesía en castellano y a quienes siguen las publicaciones de Valparaíso Ediciones. Con 134 páginas, su extensión permite alternar sesiones de lectura y relectura; por su género, no responde a quien busca una novela con una trama narrativa continuada.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Fuerzas de marea: 628 (Colección Valparaíso de Poesía) contiene 134 páginas, una extensión que permite llevar el volumen y consultar sus textos en papel. Valparaíso Ediciones publica esta edición en castellano, dentro de su colección de poesía.",
+      "texto": "Fuerzas de marea: 628 (Colección Valparaíso de Poesía) está disponible en tapa blanda, con 134 páginas impresas. Este formato permite marcar pasajes, consultar poemas concretos y conservar el volumen en una biblioteca física. Es una edición de Valparaíso Ediciones en castellano.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "editorial",
-        "idioma",
-        "categorias"
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fuerzas de marea: 628 (Colección Valparaíso de Poesía), de Dancizo Toro-Rivadeneira, comparte género con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera. Se distinguen por la autoría y la colección indicada en sus títulos. También puede compararse con Animales que flotan lejos de casa: 43 (Leteo), de Nicolás Peña, otra obra poética identificada con una colección diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9791388299421"
       ]
     }
   ],

@@ -4,23 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Exquisita supplicia: Libido moriendi (POESIA) se dirige a lectores de poesía en castellano que buscan una obra de extensión breve. Sus 104 páginas y su clasificación poética lo distinguen de una novela con personajes y una trama narrativa desarrollada.",
+      "texto": "Exquisita supplicia: Libido moriendi (POESIA) se dirige a lectores que buscan poesía en lugar de narrativa en prosa. Con 104 páginas, tiene una extensión relativamente breve y permite una lectura fragmentada; no responde a quien prefiere novelas extensas con una trama desarrollada a lo largo de numerosos capítulos.",
       "evidencias": [
         "titulo",
         "categorias",
-        "idioma",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Exquisita supplicia: Libido moriendi (POESIA) está disponible en tapa blanda, con 104 páginas. Esta edición de Vaso Roto Ediciones permite leer el poemario en papel, transportarlo y volver a poemas concretos mediante el paso de páginas.",
+      "texto": "Exquisita supplicia: Libido moriendi (POESIA) se publica en tapa blanda, con 104 páginas editadas por Vaso Roto Ediciones. Su extensión permite llevar el poemario en papel y regresar a textos concretos durante distintas sesiones de lectura; también facilita conservarlo como volumen físico en una colección de poesía.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "editorial",
         "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Exquisita supplicia: Libido moriendi (POESIA) puede situarse junto a Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, por su pertenencia al ámbito poético. El título de César Antonio Molina remite a la muerte, mientras que el de Pedro Salinas señala el amor como asunto central; la diferencia temática permite distinguir ambas lecturas sin confundir sus autores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
       ]
     }
   ],

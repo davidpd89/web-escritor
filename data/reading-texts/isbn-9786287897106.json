@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786287897106",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth se dirige a lectores de novela histórica que prefieren la ficción ambientada en el pasado. Sus 392 páginas ofrecen una extensión intermedia; por su género, no responde a quien busca un manual de historia o una obra de divulgación.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth se presenta en tapa blanda, con 392 páginas publicadas por Debolsillo. Es una edición física que permite consultar y releer pasajes en papel, sin depender de una pantalla; su encuadernación resulta apropiada para guardarla junto a otras novelas históricas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth, de Valerio Massimo Manfredi, puede compararse con Conspiración en Londres, de Felipe Pigna, dentro de la narrativa histórica. También se relaciona con Cosamala, de Alana S. Portero, por su vínculo con acontecimientos del pasado. La diferencia está en que Cosamala aborda un crimen de la guerra civil mediante elementos góticos y brujería, mientras que la obra de Valerio Massimo Manfredi se presenta como novela histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329688",
+        "isbn-9788432251436"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c838f3c6314dddad",
+  "origen": "chatgpt-web"
+}

@@ -4,24 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ni oriente ni occidente (Andalucía) encaja con lectores interesados en publicaciones sobre arte y diseño. La obra de Antonio Zoido Naranjo se sitúa en ese ámbito y cuenta con 448 páginas, por lo que requiere una lectura de cierta extensión. No responde a la búsqueda de un cuaderno de dibujo o un manual de ejercicios artísticos.",
+      "texto": "Ni oriente ni occidente (Andalucía), de Antonio Zoido Naranjo, encaja con lectores interesados en el arte y el diseño vinculados a Andalucía. Su clasificación editorial lo sitúa en ese ámbito cultural, con una extensión de 448 páginas. No responde a la búsqueda de una novela de aventuras ni de una narración romántica.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "afines_catalogo"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Ni oriente ni occidente (Andalucía) cuenta con una edición en tapa blanda de 448 páginas. Su extensión permite dedicarle sesiones de lectura prolongadas o repartirlas a lo largo de varios días. Almuzara publica el volumen en castellano, en formato físico.",
+      "texto": "Ni oriente ni occidente (Andalucía) se publica en tapa blanda y reúne 448 páginas en castellano. Es un volumen físico de extensión considerable, por lo que resulta más apropiado para una lectura prolongada que para una consulta de bolsillo muy breve. La edición corresponde a Almuzara y está firmada por Antonio Zoido Naranjo.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "autores",
         "numero_paginas",
-        "editorial",
-        "idioma"
+        "formatos_disponibles",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "720 retrats, de Xavier Mollà i Revert, y Ni oriente ni occidente (Andalucía), de Antonio Zoido Naranjo, coinciden en el ámbito del arte. El primero se identifica por sus retratos, mientras que el segundo lleva Andalucía en el título y se presenta dentro del arte y el diseño. Frente a una obra centrada en retratos, la de Antonio Zoido Naranjo plantea una referencia cultural y geográfica diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
       ]
     }
   ],

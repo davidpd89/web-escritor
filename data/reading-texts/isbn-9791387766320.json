@@ -4,24 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Bestiario de lo frágil (Un pájaro de niebla), de Vanesa Pérez-Sauquillo, está dirigido a lectores de poesía. Con 80 páginas, propone una extensión reducida frente a las novelas largas y se aleja de las expectativas de quienes buscan una trama narrativa convencional.",
+      "texto": "Bestiario de lo frágil (Un pájaro de niebla) se dirige a lectores de poesía que prefieren una obra breve en papel. Sus 80 páginas encajan con una lectura pausada; no responde a quien busque una novela extensa, una trama de intriga o un ensayo divulgativo.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Bestiario de lo frágil (Un pájaro de niebla) se presenta en tapa blanda y tiene 80 páginas. Esta edición en castellano de Ya Lo Dijo Casimiro Parker facilita llevar el poemario en papel y regresar a sus textos sin depender de un dispositivo electrónico.",
+      "texto": "Bestiario de lo frágil (Un pájaro de niebla) tiene una edición en tapa blanda de 80 páginas, publicada por Ya Lo Dijo Casimiro Parker. El volumen permite leer poesía en papel, regresar a páginas concretas y transportarlo sin cargar con un libro extenso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial",
         "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bestiario de lo frágil (Un pájaro de niebla) comparte el terreno poético con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. La diferencia visible está en sus títulos: el de Vanesa Pérez-Sauquillo alude a la fragilidad y a un bestiario, mientras el de Pedro Salinas identifica una antología amorosa. Son obras de autoría distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
       ]
     }
   ],

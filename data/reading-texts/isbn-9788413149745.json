@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788413149745",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todo vuelve (Todo arde 2) (Best Seller | Ficción) se dirige a lectores de misterio y thriller interesados también en el poder y la política. Sus 608 páginas corresponden a una novela extensa, menos ajustada a quienes buscan relatos breves o lecturas ajenas a estos conflictos. El título la identifica como la entrega n.º 2 de Todo arde.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Todo vuelve (Todo arde 2) (Best Seller | Ficción) se presenta en libro de bolsillo, con tapa blanda y 608 páginas. La edición de Penguin Bolsillo permite transportar una novela extensa en un formato físico pensado para llevar en el bolso o la mochila, aunque el número de páginas sigue condicionando su grosor.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Todo vuelve (Todo arde 2) (Best Seller | Ficción) y El persa (Novela (Best Seller)) comparten su vinculación con la ficción de suspense. La obra de Juan Gómez-Jurado se clasifica como misterio y thriller, con presencia del poder y la política, mientras que El persa está firmado por David McCloskey. También puede compararse con El vuelo de los gansos, de Ángel Boixadós, cuyo planteamiento aborda el enfrentamiento al poder desde una cuestión de principios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387928612",
+        "isbn-9788425375040"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9d3e81422f8d04f7",
+  "origen": "chatgpt-web"
+}

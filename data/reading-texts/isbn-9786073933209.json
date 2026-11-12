@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073933209",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de romance y novela histórica que buscan una historia sentimental situada en un marco relacionado con el siglo XX. Su orientación narrativa se aleja de quienes prefieren ensayos históricos o libros de consulta sin una trama de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los Amores de Sofía (Novela) / The Loves of Sofía (a Novel) se presenta en tapa blanda, con 216 páginas en castellano. Es una edición física que permite leer la novela completa y retomarla sin dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Corazón de una bridgerton (Titania época), de Julia Quinn, comparte con Los Amores de Sofía (Novela) / The Loves of Sofía (a Novel) el vínculo entre romance y ambientación de época, aunque pertenece a una propuesta editorial distinta. Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián, desplaza el interés hacia la Reconquista, mientras que la novela de Guadalupe Loaeza combina romance y un marco histórico vinculado al siglo XX.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401039539",
+        "isbn-9788410391772"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f322cd768cbb1fe3",
+  "origen": "chatgpt-web"
+}

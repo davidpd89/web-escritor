@@ -4,23 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "En la noche mediante (Poesía) está dirigido a lectores de poesía en castellano que prefieren un volumen de extensión contenida. Sus 92 páginas permiten distribuir la lectura en sesiones breves, aunque no responde a quien busca una novela de argumento continuo o una obra narrativa extensa.",
+      "texto": "En la noche mediante (Poesía), de Juan Antonio Bernier, se dirige a quienes buscan poesía contemporánea en castellano y prefieren leer textos poéticos antes que una narración novelística. Su extensión de 92 páginas permite abordar el volumen en sesiones breves o regresar a sus páginas en distintas lecturas.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "numero_paginas",
-        "idioma"
+        "idioma",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "En la noche mediante (Poesía) se publica en tapa blanda, con 92 páginas en castellano. Su extensión facilita llevar el libro en el bolso o la mochila y regresar a sus páginas en distintas sesiones, sin necesitar un lector electrónico.",
+      "texto": "En la noche mediante (Poesía) se publica en tapa blanda, con 92 páginas y edición de Editorial Pre-Textos. El formato físico permite volver a poemas concretos, utilizar marcadores y realizar anotaciones en papel, una forma de consulta compatible con la lectura fragmentada de un poemario.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "edicion"
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "En la noche mediante (Poesía) puede compararse con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, por su vinculación con la poesía. La diferencia comprobable está en la autoría y el enfoque anunciado: Juan Antonio Bernier firma un poemario cuyo título remite a la noche, mientras que la obra de Pedro Salinas se presenta como una antología amorosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
       ]
     }
   ],

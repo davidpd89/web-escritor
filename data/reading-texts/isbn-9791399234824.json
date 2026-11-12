@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La visita: Una novela de Jack Reacher encaja con lectores de misterio y thriller interesados en una novela de Lee Child vinculada a Jack Reacher. Sus 512 páginas la sitúan entre las lecturas de cierta extensión y la alejan de quienes prefieren romance juvenil o ensayos de no ficción.",
+      "texto": "La visita: Una novela de Jack Reacher se dirige a lectores de misterio, thriller y narrativa contemporánea. La novela de Lee Child tiene 512 páginas y pertenece a una línea de ficción identificada con Jack Reacher; resulta menos adecuada para quien prefiere ensayos o relatos breves alejados del suspense.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,31 +14,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La visita: Una novela de Jack Reacher está disponible en tapa blanda, con 512 páginas en la edición de Blatt & Ríos. El formato permite leer y conservar la novela en papel, aunque su extensión supone un volumen considerable para llevarlo a diario.",
+      "texto": "La visita: Una novela de Jack Reacher está disponible en tapa blanda, Kindle y audiolibro. La edición impresa de Blatt & Ríos reúne 512 páginas y permite leerla sin pantalla; Kindle evita transportar ese volumen y el audiolibro ofrece la posibilidad de escucharla. La elección depende de si se prefiere lectura física, digital o narración sonora.",
       "evidencias": [
         "titulo",
         "editorial",
-        "edicion",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La visita: Una novela de Jack Reacher comparte el ámbito del misterio con Aguas turbulentas, de Rankin Ian, cuya descripción sitúa el conflicto en Edimburgo y relaciona sucesos del pasado con el presente. También se aproxima a Corazón de sílex, de Emilia Landaluce y Rosa Belmonte, que parte de una joven incapaz de recordar la noche anterior. La visita: Una novela de Jack Reacher se distingue por identificar expresamente a Jack Reacher en su título.",
+      "texto": "La visita: Una novela de Jack Reacher puede compararse con Aguas turbulentas, de Rankin Ian, porque ambas se sitúan en el terreno del misterio y la intriga. La novela de Lee Child se identifica con Jack Reacher, mientras que Aguas turbulentas sitúa su conflicto en Edimburgo y relaciona sucesos del pasado con el presente. La diferencia más clara está en el personaje destacado frente al escenario y su dimensión temporal.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370310318",
-        "isbn-9788467083330"
+        "isbn-9791370310318"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "66c3c7f9f9d7d85c",
+  "fuente_hash": "b99ce4eb5d742298",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410908369",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "LIDERAZGO SIN CANAS: El manifiesto del nuevo jefe se dirige a lectores interesados en el liderazgo, la gestión empresarial y el desarrollo personal. Por su enfoque en la figura del jefe, se aleja de quienes buscan ficción o contenidos centrados exclusivamente en nutrición y bienestar.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de LIDERAZGO SIN CANAS: El manifiesto del nuevo jefe es en tapa blanda y reúne 180 páginas en castellano. Su extensión permite organizar la lectura en sesiones breves y volver a los apartados de interés sobre liderazgo sin manejar un volumen especialmente extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El factor tú: Claves para comunicar con autenticidad y conseguir lo que te propongas (No ficción), de Rafa Rodrigo, comparte con LIDERAZGO SIN CANAS: El manifiesto del nuevo jefe el interés por las habilidades personales, aunque el primero se centra en la comunicación y el segundo en el liderazgo. EL RECORRIDO DEL SÍ: El sistema para que tu paciente entienda, acepte, y tu equipo ejecute sin sorpresas ni repeticiones, de Luken de Arbeloa, aborda la coordinación de equipos desde un contexto sanitario, frente al enfoque general sobre la figura del jefe de Rogers Sierraalta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388139239",
+        "isbn-9788409921782"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "19ec72eefeac9186",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuentos para fabricar sueños: Cuentos para ser leídos por las amamas y los aitites a sus nietos está orientado a familias que comparten relatos entre abuelos y nietos. Su planteamiento gira alrededor de la lectura acompañada, por lo que se distancia de los libros de desarrollo personal dirigidos exclusivamente a adultos.",
+      "texto": "Cuentos para fabricar sueños: Cuentos para ser leídos por las amamas y los aitites a sus nietos está orientado a abuelos y abuelas que comparten cuentos con sus nietos. Su planteamiento familiar y de lectura acompañada se diferencia de los libros destinados a estudiar técnicas de crianza o desarrollo personal.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,11 +12,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cuentos para fabricar sueños: Cuentos para ser leídos por las amamas y los aitites a sus nietos tiene una edición en tapa dura de 104 páginas. La cubierta rígida resulta práctica para conservar el ejemplar entre sesiones de lectura familiar y entregarlo como regalo a los abuelos.",
+      "texto": "La edición de Cuentos para fabricar sueños: Cuentos para ser leídos por las amamas y los aitites a sus nietos es de tapa dura y tiene 104 páginas. La encuadernación rígida facilita sostener el libro durante la lectura compartida y conservarlo para volver a utilizarlo en familia.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "CONECTANDO CON MI BEBÉ: Relatos y actividades para vivir el embarazo con presencia, conexión y conciencia. Regalo para embarazadas. comparte con Cuentos para fabricar sueños: Cuentos para ser leídos por las amamas y los aitites a sus nietos la atención a los vínculos familiares, pero se centra en el embarazo y combina relatos con actividades. Convertirse en padre: 02 (Psicologia) aborda la paternidad desde otra perspectiva, mientras que el libro de Angel Susaeta Begoña propone cuentos para leer entre generaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409936465",
+        "isbn-9791370550288"
       ]
     }
   ],

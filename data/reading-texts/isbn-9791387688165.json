@@ -4,27 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ojos de agua: 47 (Colección Escolar de / Literatura) se orienta a lectores juveniles interesados en el misterio y el thriller. Sus 272 páginas ofrecen una extensión menor que la de muchas novelas largas del género; encaja menos con quienes buscan fantasía, romance o una lectura centrada en la aventura sin intriga.",
+      "texto": "Ojos de agua: 47 (Colección Escolar de / Literatura) está dirigido a lectores de narrativa juvenil interesados en el misterio y el thriller. Su clasificación escolar y juvenil lo distingue de las obras orientadas exclusivamente a la narrativa adulta o a la fantasía.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Ojos de agua: 47 (Colección Escolar de / Literatura) se presenta en tapa blanda, con 272 páginas en castellano. Su extensión permite organizar la lectura en varias sesiones y la encuadernación flexible facilita llevar el ejemplar entre casa y el lugar de estudio.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
         "categorias"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "Ojos de agua: 47 (Colección Escolar de / Literatura) se encuentra en tapa blanda y audiolibro. La edición de Ediciones Siruela tiene 272 páginas para la lectura en papel, mientras que el audiolibro permite seguir la obra mediante escucha.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "El último barco: 3 (Nuevos Tiempos / Policiaca) comparte autor y temática de misterio con Ojos de agua: 47 (Colección Escolar de / Literatura), pero incorpora también aventuras y se presenta en una colección policiaca. American Caper nº 01: 1 (Thriller) coincide en el género de intriga, aunque tiene autoría colectiva frente a la firma individual de Domingo Villar.",
+      "texto": "Ojos de agua: 47 (Colección Escolar de / Literatura) y El último barco: 3 (Nuevos Tiempos / Policiaca) son obras de Domingo Villar relacionadas con el misterio. La primera figura entre la narrativa juvenil y lleva una identificación escolar; la segunda se presenta como policiaca y también se clasifica entre las aventuras.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788417624279",
-        "isbn-9788491738107"
+        "isbn-9788417624279"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a159393e4832937d",
+  "fuente_hash": "dd85af5338ab8efa",
   "origen": "chatgpt-web"
 }

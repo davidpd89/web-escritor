@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788402431684",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando no sé lo que quiero: 150 enseñanzas para encontrar tu camino (Bruguera Tendencias) se dirige a lectores interesados en desarrollo personal, psicología y reflexión sobre las decisiones vitales. Su planteamiento de 150 enseñanzas encaja menos con quienes buscan una novela o un manual centrado exclusivamente en investigación académica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Cuando no sé lo que quiero: 150 enseñanzas para encontrar tu camino (Bruguera Tendencias) es de tapa blanda y contiene 288 páginas. Este volumen de Bruguera permite leer las enseñanzas en papel y volver a apartados concretos durante distintas sesiones de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando no sé lo que quiero: 150 enseñanzas para encontrar tu camino (Bruguera Tendencias) comparte el ámbito del desarrollo personal con El cerebro optimista, de Mikel Alonso. Seung-hwan Jeon estructura su libro alrededor de 150 enseñanzas para orientar decisiones personales, mientras que Mikel Alonso aborda el crecimiento personal desde la neurociencia. Ambos tratan cuestiones psicológicas desde perspectivas diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387662639"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "560dc5251747e235",
+  "origen": "chatgpt-web"
+}

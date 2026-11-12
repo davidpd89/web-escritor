@@ -4,27 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La cena de las ánimas se dirige a lectores interesados en la combinación de fantasía, misterio y conflictos familiares. Sus 320 páginas corresponden a una novela de narrativa contemporánea con elementos de aventura; encaja menos con quienes buscan una historia exclusivamente realista y ajena a lo fantástico.",
+      "texto": "La cena de las ánimas se dirige a lectores que buscan una combinación de fantasía, misterio y narrativa contemporánea. También se relaciona con las aventuras y los temas familiares; quienes prefieren relatos estrictamente realistas y ajenos a elementos fantásticos encontrarán un enfoque distinto.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Harpercollins edita La cena de las ánimas en tapa blanda, con 320 páginas en castellano. Su extensión permite organizar la lectura en varias sesiones y la cubierta flexible facilita transportarla, frente a la mayor rigidez habitual de una edición de tapa dura.",
+      "texto": "La cena de las ánimas está disponible en tapa blanda, con 320 páginas publicadas por Harpercollins, para quienes prefieren leer y conservar una edición física. Kindle permite acceder al libro en formato electrónico, llevarlo en el móvil y adaptar el tamaño de letra según el dispositivo.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La cena de las ánimas comparte la fantasía con Alas de escarcha y oro: El canto del cisne, de Marta Morillo, aunque este último presenta a una protagonista que oculta sus dones. También se aproxima a Clara Nox 4. La última tormenta, de Isabel Álvarez, por los elementos fantásticos y de aventura; este otro título plantea una batalla que afecta a dos mundos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938",
+        "isbn-9788408331230"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "233be636edcd1b84",
+  "fuente_hash": "81063fb947177737",
   "origen": "chatgpt-web"
 }

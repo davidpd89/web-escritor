@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408326618",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en los ovnis y en las preguntas sobre lo que los militares conocen de ellos. Por su asunto y sus 992 páginas, se aleja de quienes buscan una lectura breve sobre bienestar o relaciones familiares.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, dentro de la colección de bolsillo de Booket. Sus 992 páginas permiten consultar el volumen en papel y volver a pasajes concretos, aunque su extensión puede resultar menos cómoda para llevarlo a diario.",
+      "evidencias": [
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida comparte con Están aquí su presencia entre las lecturas de desarrollo personal. La obra de Kelly Ann Street trata las heridas emocionales y el equilibrio personal, mientras que la de J. J. Benítez se centra en los ovnis y las cuestiones militares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410451988"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "def28be3c15ad457",
+  "origen": "chatgpt-web"
+}

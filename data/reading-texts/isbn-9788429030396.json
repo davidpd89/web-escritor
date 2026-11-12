@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Derecho penal 4.0: el Derecho penal en la cuarta revolución industrial: 124 (Propiedad Intelectual) se dirige a lectores interesados en el estudio jurídico de los cambios asociados a la cuarta revolución industrial. Su orientación especializada se aleja de las introducciones generales a la tecnología y de los ensayos divulgativos sin enfoque jurídico.",
+      "texto": "Dirigido a lectores interesados en el derecho penal y su relación con la cuarta revolución industrial. Su temática jurídica especializada lo distancia de los libros de divulgación tecnológica general o de los manuales introductorios sobre informática.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,12 +12,24 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Derecho penal 4.0: el Derecho penal en la cuarta revolución industrial: 124 (Propiedad Intelectual) se presenta en tapa blanda y contiene 228 páginas. Su encuadernación flexible permite transportarlo para el estudio y consultar distintos apartados durante el trabajo académico o profesional.",
+      "texto": "La tapa blanda es la edición disponible, con 228 páginas en castellano para estudiar y consultar cuestiones jurídicas. El ejemplar físico permite marcar pasajes y conservar referencias durante la lectura académica o profesional.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Blockchain: un desafío legal (Monografía) también relaciona tecnología y derecho, pero se concentra en las implicaciones jurídicas del blockchain. Derecho penal 4.0: el Derecho penal en la cuarta revolución industrial: 124 (Propiedad Intelectual) sitúa esa relación en el ámbito penal y en el contexto más amplio de la transformación industrial.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370610265"
       ]
     }
   ],

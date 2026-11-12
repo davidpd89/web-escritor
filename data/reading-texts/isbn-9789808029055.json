@@ -4,22 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Geodesia: 50 años de ciencia y vivencia, de Melvin J. Hoyer R., se orienta a lectores interesados en la geodesia y en su dimensión científica y experiencial. Por su materia, se distancia de las obras centradas en la ficción y de los libros de divulgación dedicados a otras disciplinas.",
+      "texto": "Geodesia: 50 años de ciencia y vivencia se dirige a lectores interesados en la divulgación científica y, en particular, en la geodesia. Su enfoque combina una disciplina científica con una perspectiva de experiencia acumulada durante 50 años; encaja menos con quien busca una novela de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda contiene 263 páginas en castellano y está publicada por Athena Ediciones. El soporte impreso permite consultar el contenido sobre geodesia, realizar anotaciones y mantener el volumen como referencia física de lectura.",
+      "texto": "Geodesia: 50 años de ciencia y vivencia se publica en tapa blanda y tiene 263 páginas. Es una edición física que permite consultar y volver a localizar pasajes sobre geodesia sin depender de un dispositivo electrónico.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "titulo"
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Geodesia: 50 años de ciencia y vivencia y 50 cosas que hay que saber sobre IA, de Keith Mansfield, comparten su orientación hacia el conocimiento científico. Melvin J. Hoyer R. se centra en la geodesia y una trayectoria de 50 años, mientras que Keith Mansfield aborda la inteligencia artificial mediante una selección de cuestiones sobre esa tecnología.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
       ]
     }
   ],

@@ -4,21 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Vida privada de la muerte (La Cruz del Sur) se dirige a lectores de poesía interesados en una obra cuyo título sitúa la muerte en el centro de su planteamiento. No responde a la búsqueda de una novela de intriga o de una narración extensa en prosa.",
+      "texto": "Vida privada de la muerte (La Cruz del Sur) se dirige a lectores interesados en poesía en castellano. Sus 116 páginas corresponden a una edición de extensión reducida, aunque su género lo diferencia de las novelas de misterio o de la narrativa contemporánea basada en una trama.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Vida privada de la muerte (La Cruz del Sur) cuenta con una edición en tapa blanda de 116 páginas, publicada en castellano. Su extensión permite manejar el volumen con facilidad y volver a sus páginas durante distintas sesiones de lectura.",
+      "texto": "Vida privada de la muerte (La Cruz del Sur) se publica en tapa blanda, con 116 páginas y edición de Editorial Pre-Textos. El formato físico permite volver a los textos y consultar distintas páginas directamente, una forma de uso compatible con la lectura fragmentada de poesía.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, y Advenir, de Jose Eceolaza, figuran entre las lecturas relacionadas con Vida privada de la muerte (La Cruz del Sur). La comparación permite explorar distintas autorías, mientras que el libro de José María Parreño se identifica específicamente como poesía y cuenta con 116 páginas en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788410212749"
       ]
     }
   ],

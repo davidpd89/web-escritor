@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388391392",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tres de Tres se dirige a lectores de literatura juvenil y poesía en castellano. Por su clasificación editorial, se aleja de quienes buscan exclusivamente narrativa adulta o ensayos de carácter informativo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tres de Tres está disponible en tapa blanda, con 168 páginas en castellano. Esta edición de Editorial Cuadranta permite leer el volumen en papel y consultar sus páginas sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tres de Tres puede compararse con s-t técnica mixta: (colección de poemas) por su relación con la poesía. El segundo título se presenta expresamente como una colección de poemas, mientras que Tres de Tres también figura entre la narrativa juvenil.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788498277500"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "16b8cfc74269e749",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388019975",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cantos rodados está dirigido a lectores interesados en el cómic y la novela gráfica. Sus 248 páginas lo sitúan entre las obras que requieren varias sesiones de lectura, mientras que quienes busquen específicamente una novela histórica o un manual práctico encontrarán un tipo de publicación diferente.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Cantos rodados, de Andres Rabago, está publicada por Galaxia Gutenberg en tapa dura. Reúne 248 páginas en castellano y se identifica mediante el ISBN 9791388019975, que permite distinguirla de otras ediciones. Su fecha de publicación editorial es 2026-11-04.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "isbn13",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cantos rodados se presenta en tapa dura, una encuadernación rígida que protege sus 248 páginas durante la consulta y el almacenamiento. Es una opción física para conservar en una estantería o regalar, aunque ocupa más espacio que una edición equivalente en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "737adee87f7783a5",
+  "origen": "chatgpt-web"
+}

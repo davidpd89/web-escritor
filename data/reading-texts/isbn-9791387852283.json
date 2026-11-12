@@ -4,26 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está orientado a personas interesadas en abordar la dislexia mediante estrategias de confianza y reconocimiento de fortalezas aplicables al trabajo y la vida cotidiana. Su enfoque práctico y de desarrollo personal se diferencia de los ensayos centrados exclusivamente en teoría o de los manuales de alimentación y salud física.",
+      "texto": "Desbloquea tu dislexia: Guía práctica de confianza, estrategias y fortalezas para el trabajo y la vida se orienta a personas interesadas en afrontar la dislexia desde el desarrollo personal. Natalie Brooks plantea un enfoque práctico relacionado con el trabajo y la vida cotidiana, distinto de una narración autobiográfica o una novela.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Desbloquea tu dislexia: Guía práctica de confianza, estrategias y fortalezas para el trabajo y la vida se publica en tapa blanda, con 304 páginas en castellano. La edición de Hestia permite consultar sobre papel sus contenidos relacionados con la dislexia, el trabajo y la vida cotidiana.",
+      "texto": "Desbloquea tu dislexia: Guía práctica de confianza, estrategias y fortalezas para el trabajo y la vida se ofrece en tapa blanda y Kindle. La edición de Hestia tiene 304 páginas y permite consultar estrategias en papel; Kindle facilita acceder al contenido desde el móvil o un lector electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "edicion"
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Desbloquea tu dislexia: Guía práctica de confianza, estrategias y fortalezas para el trabajo y la vida comparte con Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta el interés por herramientas para desenvolverse en situaciones cotidianas. Natalie Brooks centra su libro en la dislexia, la confianza y el trabajo, mientras que Anca Martínez aborda de forma más general el aprendizaje de la vida adulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409938490"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7ccb09b2f6ca08d6",
+  "fuente_hash": "6b0d23221cb9c547",
   "origen": "chatgpt-web"
 }

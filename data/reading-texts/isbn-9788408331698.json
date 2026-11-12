@@ -4,24 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Inmunidad en forma: Conoce y entrena tus defensas (Vivir Mejor), de Alfredo Corell, se dirige a lectores interesados en la salud, el bienestar y el funcionamiento de las defensas del organismo. Con 400 páginas, desarrolla un tema específico dentro del cuidado personal; queda fuera de las preferencias de quienes buscan memorias o narrativa de ficción.",
+      "texto": "Inmunidad en forma: Conoce y entrena tus defensas (Vivir Mejor) se dirige a lectores interesados en la salud, el bienestar y el funcionamiento de las defensas del organismo. Alfredo Corell centra el libro en la inmunidad, por lo que su temática se aleja de la autoayuda enfocada exclusivamente en las relaciones o las emociones.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Inmunidad en forma: Conoce y entrena tus defensas (Vivir Mejor) está disponible en tapa blanda y Kindle. La edición de bolsillo de Booket tiene 400 páginas, por lo que el formato físico permite consultar el contenido en papel, mientras que Kindle evita cargar con ese volumen y facilita la lectura desde el móvil. Ambas opciones mantienen el mismo enfoque sobre las defensas y el bienestar.",
+      "texto": "Inmunidad en forma: Conoce y entrena tus defensas (Vivir Mejor) puede leerse en tapa blanda o Kindle. La edición física de Booket reúne 400 páginas en formato de bolsillo, mientras que Kindle permite llevar el texto en un dispositivo compatible sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "edicion",
         "editorial",
-        "numero_paginas",
-        "formatos_disponibles",
-        "categorias"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Inmunidad en forma: Conoce y entrena tus defensas (Vivir Mejor) y Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta comparten una orientación práctica hacia el bienestar personal. Alfredo Corell trata específicamente las defensas del organismo; Anca Martínez aborda cuestiones más generales de la vida adulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409938490"
       ]
     }
   ],

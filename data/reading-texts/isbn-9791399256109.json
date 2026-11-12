@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399256109",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El cazador es la presa (El hueco al final del mundo) se orienta a lectores de ciencia ficción, fantasía y aventuras que buscan una novela extensa. Con 542 páginas, encaja menos con quienes prefieren lecturas breves o historias centradas en el realismo cotidiano.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El cazador es la presa (El hueco al final del mundo) está disponible en tapa dura, con una extensión de 542 páginas. Esta presentación permite conservar la novela como volumen de biblioteca y resulta apropiada para regalar a lectores de ciencia ficción y aventuras.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El cazador es la presa (El hueco al final del mundo) comparte el terreno de la ciencia ficción con Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados), de Andy Weir. La obra de Rodolfo Martínez también se vincula con la fantasía y las aventuras, mientras que el título de Andy Weir destaca en su presentación por una edición limitada con cantos tintados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388147470"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2c00e4faedcf7ce2",
+  "origen": "chatgpt-web"
+}

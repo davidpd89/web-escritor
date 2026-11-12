@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788410212749",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Advenir, de Jose Eceolaza, se dirige a lectores de poesía en castellano que buscan un libro breve de 104 páginas. Por su género, se aleja de las lecturas centradas en una trama narrativa extensa y continuada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Advenir está disponible en tapa blanda, con 104 páginas publicadas por La Consentida Editorial. Su extensión permite llevar el volumen en el bolso y consultar o releer pasajes en papel sin transportar un libro voluminoso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Advenir comparte el género poético con Antología, de Antonio Cano, y Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. Frente a la recopilación de la obra completa de Antonio Cano y la orientación amorosa indicada en el título de Pedro Salinas, Advenir es un volumen de 104 páginas firmado por Jose Eceolaza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288",
+        "isbn-9791370140908"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a205b3f9d0a51033",
+  "origen": "chatgpt-web"
+}

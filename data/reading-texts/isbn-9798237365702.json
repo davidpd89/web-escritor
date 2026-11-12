@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9798237365702",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tablero Sangriento: 6 (Edith Bonelli - Detective Privada) encaja con lectores que buscan misterio y thriller vinculados a la novela histórica. El título identifica esta entrega como la n.º 6 de Edith Bonelli - Detective Privada, por lo que se aleja de quien busca una obra ajena a las series detectivescas o una lectura de no ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tablero Sangriento: 6 (Edith Bonelli - Detective Privada) cuenta con una edición en tapa blanda de 302 páginas. Publicada por Plumas Uruguayas en castellano, permite seguir esta entrega en papel y conservarla junto a otros volúmenes de la serie identificada en el título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tablero Sangriento: 6 (Edith Bonelli - Detective Privada) puede compararse con El asesino de la almarada (Novela Histórica) por su relación con el misterio y la narrativa histórica. Marcel Pujol presenta una entrega identificada con una detective privada, mientras que Gastón Morata anuncia en su título un asesino dentro de una novela histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370205362"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "afedf1d2dff2fd85",
+  "origen": "chatgpt-web"
+}

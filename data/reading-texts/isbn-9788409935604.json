@@ -4,28 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "ANTES DE QUE OCURRA: Vender, formar y proteger el futuro, de Rafael De la Torre Pérez, se dirige a lectores interesados en economía y empresa, especialmente en cuestiones de venta y formación. Sus 151 páginas se apartan de la narrativa de ficción y de los tratados empresariales de gran extensión.",
+      "texto": "Dirigido a lectores interesados en economía y empresa, especialmente en cuestiones de venta, formación y protección del futuro. ANTES DE QUE OCURRA: Vender, formar y proteger el futuro, de Rafael De la Torre Pérez, se aparta de la narrativa de ficción y se sitúa en el ámbito empresarial.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "ANTES DE QUE OCURRA: Vender, formar y proteger el futuro cuenta con una edición en tapa blanda de 151 páginas. El volumen puede llevarse para leer fuera de casa y consultarse en papel durante actividades relacionadas con la formación o la empresa; está publicado en castellano por Rafael de la Torre Pérez.",
+      "texto": "La tapa blanda permite consultar y marcar las 151 páginas de ANTES DE QUE OCURRA: Vender, formar y proteger el futuro en papel. Kindle ofrece el mismo título en formato digital para llevarlo en el móvil o en un lector electrónico, sin cargar con el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "ANTES DE QUE OCURRA: Vender, formar y proteger el futuro comparte el ámbito empresarial con ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido, de Rory Sutherland. El primero pone el foco en vender, formar y proteger el futuro; el segundo, en el papel de las ideas que desafían el sentido común.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399087222"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0fa2b32476e53c42",
+  "fuente_hash": "0270b8117a53981e",
   "origen": "chatgpt-web"
 }

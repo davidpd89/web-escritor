@@ -4,24 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Muerte bajo el muérdago: Un misterio para Jane Wunderly (MAEVA noir) se dirige a quienes buscan narrativa de misterio con una protagonista femenina. Su enfoque detectivesco se aleja de las lecturas centradas en la aventura fantástica o el ensayo histórico.",
+      "texto": "Muerte bajo el muérdago: Un misterio para Jane Wunderly (MAEVA noir), de Erica Ruth Neubauer, encaja con lectores de misterio e intriga protagonizada por una figura femenina. Sus 176 páginas lo sitúan entre las novelas de extensión breve; no se orienta a quien busque una historia romántica sin componente de investigación o suspense.",
       "evidencias": [
         "titulo",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne las 176 páginas de Muerte bajo el muérdago: Un misterio para Jane Wunderly (MAEVA noir) en un volumen físico. Su extensión permite repartir la lectura en sesiones cortas y el formato facilita transportarlo sin la rigidez de una cubierta dura.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "autores",
+        "categorias",
         "numero_paginas"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Muerte bajo el muérdago: Un misterio para Jane Wunderly (MAEVA noir) permite leer sus 176 páginas en un volumen flexible y transportable. Kindle ofrece la alternativa digital para continuar la lectura desde un dispositivo compatible, sin depender del ejemplar de papel.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Muerte bajo el muérdago: Un misterio para Jane Wunderly (MAEVA noir) comparte el terreno del misterio con Donde callan los niños (Imágica Intriga), de Eva Zamora Zamora. También puede compararse con Las mujeres de New Jersey (THRILLER Y MISTERIO), de Astrid Dahl, por su vinculación con el thriller y el misterio. La diferencia reconocible está en la identidad de sus protagonistas y en la autoría: Erica Ruth Neubauer firma una historia identificada expresamente con Jane Wunderly.",
+      "texto": "Muerte bajo el muérdago: Un misterio para Jane Wunderly (MAEVA noir) y El último pase (Los casos de Inés Robles) comparten la referencia a una figura femenina vinculada a un misterio o a una serie de casos. La primera obra es de Erica Ruth Neubauer y la segunda de Carlos Polo Araujo; sus títulos presentan protagonistas distintas y marcos de identificación diferentes.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,13 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399210729",
-        "isbn-9791387595715"
+        "isbn-9788409936441"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ba323e969eea92d8",
+  "fuente_hash": "16c70a279925bd26",
   "origen": "chatgpt-web"
 }

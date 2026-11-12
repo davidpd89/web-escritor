@@ -4,21 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El arte de la negociación se dirige a lectores interesados en la psicología, el desarrollo personal y la comunicación aplicada a situaciones de conflicto. Su planteamiento gira alrededor de la negociación y las relaciones entre personas, por lo que no corresponde a quien busca una novela o una lectura de ficción.",
+      "texto": "El arte de la negociación está dirigido a quienes buscan abordar desacuerdos mediante el diálogo, tanto en las relaciones personales como en el trabajo. Giorgio Nardone y Stefano Bartoli se centran en la cooperación y la gestión de conflictos, por lo que no responde a la búsqueda de una novela de ficción.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece sus 200 páginas en un volumen físico de extensión contenida. Permite consultar sus planteamientos sobre negociación y comunicación sin depender de una pantalla; es el formato disponible para esta edición.",
+      "texto": "El arte de la negociación se publica en tapa blanda y reúne 200 páginas en castellano. Esta extensión permite llevar el ejemplar físico para leerlo por partes y volver a los apartados relacionados con el diálogo y la resolución de desacuerdos.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "formato_edicion"
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de la negociación y Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, comparten el ámbito de la psicología y el desarrollo personal. Giorgio Nardone y Stefano Bartoli tratan la negociación y la cooperación ante los conflictos, mientras que el libro de Victoria Cadarso se centra en la infancia y la recuperación emocional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
       ]
     }
   ],

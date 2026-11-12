@@ -4,41 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las niñas del bosque (THRILLER) encaja con lectores que buscan misterio y elementos de aventura dentro de una novela de suspense. La obra de Minka Kent se aleja de las historias centradas en el romance o el humor, pues su clasificación editorial corresponde al thriller.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Las niñas del bosque (THRILLER) se presenta en tapa blanda y tiene 288 páginas. La edición en castellano de Newton Compton Editores ofrece una lectura en papel que puede transportarse sin la rigidez de una cubierta dura.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Las niñas del bosque (THRILLER) comparte el componente de misterio con Abre el misterio 1 - El robo de las croquetas, aunque la obra de Carlos G. Gurpegui parte de la desaparición de unas croquetas y la de Minka Kent se presenta como thriller. También coincide en el interés por los enigmas con Agente Stitch 5. Los roedores de Roswell, de Disney, que introduce una investigación intergaláctica y personajes vinculados a Stitch.",
+      "texto": "Las niñas del bosque (THRILLER), de Minka Kent, se dirige a lectores de misterio, thriller y aventuras. Con 288 páginas en castellano, se ajusta a quienes buscan narrativa de esos géneros, pero no a quienes prefieren ensayos prácticos o poesía.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las niñas del bosque (THRILLER) está disponible en tapa blanda y Kindle. La edición física de 288 páginas permite leer y conservar la novela en papel; Kindle ofrece la posibilidad de llevarla en un dispositivo compatible y continuar la lectura sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las niñas del bosque (THRILLER) comparte el misterio y la aventura con Amanda Black 15 - El laberinto del minotauro (Juan Gómez-Jurado y Bárbara Montes), de Juan Gómez-Jurado y Bárbara Montes. La obra de Minka Kent se presenta como thriller de 288 páginas, mientras que el título de Amanda Black incorpora un laberinto y el número 15. La autoría y el planteamiento anunciado distinguen ambas lecturas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427256644",
-        "isbn-9791387901943"
+        "isbn-9791387994426"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4f7b9e414d6217c1",
+  "fuente_hash": "a7e54f1833de0932",
   "origen": "chatgpt-web"
 }

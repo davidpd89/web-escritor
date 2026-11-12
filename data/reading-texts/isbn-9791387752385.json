@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Don Quijote de la Mancha (Clásicos ilustrados) se dirige a lectores interesados en los clásicos de Miguel de Cervantes y en ediciones ilustradas de obras extensas. Sus 1232 páginas y su clasificación entre los clásicos y el humor lo alejan de quienes buscan una novela breve o una lectura juvenil contemporánea.",
+      "texto": "Don Quijote de la Mancha (Clásicos ilustrados) se orienta a lectores de clásicos literarios, humor y narrativa vinculada a la historia. La edición de Miguel de Cervantes alcanza las 1232 páginas, por lo que requiere una dedicación prolongada; encaja menos con quien busca una novela breve o una lectura de pocas sesiones.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,24 +14,22 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Don Quijote de la Mancha (Clásicos ilustrados) se ofrece en tapa dura, con 1232 páginas en la edición de Editorial Alma. Esta encuadernación resulta apropiada para conservar un volumen extenso, consultarlo repetidamente o regalar una edición física de un clásico ilustrado.",
+      "texto": "Don Quijote de la Mancha (Clásicos ilustrados) puede elegirse en tapa dura o Kindle. La edición física de Editorial Alma tiene 1232 páginas y permite conservar un volumen de gran extensión; Kindle facilita llevar la lectura completa en un dispositivo sin cargar con ese peso. La tapa dura también responde a quien prefiere regalar un libro físico.",
       "evidencias": [
         "titulo",
         "editorial",
-        "edicion",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Don Quijote de la Mancha (Clásicos ilustrados) puede compararse directamente con El ingenioso hidalgo don Quijote de la Mancha, también de Miguel de Cervantes. La diferencia identificable está en la presentación: la edición de Editorial Alma se anuncia como clásico ilustrado, en tapa dura y con 1232 páginas. Ambas opciones permiten elegir una obra del mismo autor, pero la primera concreta sus características materiales.",
+      "texto": "Don Quijote de la Mancha (Clásicos ilustrados) tiene su comparación más directa en El ingenioso hidalgo don Quijote de la Mancha, también de Miguel de Cervantes. Ambos remiten a la misma obra y autor, pero el primero identifica expresamente su edición como parte de Clásicos ilustrados y ofrece 1232 páginas en tapa dura. La diferencia comprobable está en la presentación editorial, no en atribuirles argumentos distintos.",
       "evidencias": [
         "titulo",
         "autores",
-        "editorial",
-        "edicion",
         "numero_paginas",
+        "formatos_disponibles",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -41,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1ffd9824f90c7aef",
+  "fuente_hash": "fcc1da71f68a570b",
   "origen": "chatgpt-web"
 }

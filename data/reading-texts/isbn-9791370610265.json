@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores que quieren examinar blockchain desde el derecho y comprender los desafíos legales asociados a esta tecnología. No está orientado a quienes buscan aprender a programar cadenas de bloques o seguir una guía práctica de inversión, pues su materia es jurídica.",
+      "texto": "Blockchain: un desafío legal (Monografía) se orienta a lectores que buscan estudiar blockchain desde el Derecho y sus problemas jurídicos. Quien prefiera una explicación exclusivamente técnica de esta tecnología encontrará aquí un enfoque distinto, centrado en su dimensión legal.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,13 +12,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Aranzadi reúne 326 páginas en castellano sobre los desafíos legales de blockchain. El soporte impreso facilita subrayar conceptos jurídicos, añadir notas y volver a los apartados consultados durante el estudio, sin depender de una pantalla.",
+      "texto": "Blockchain: un desafío legal (Monografía) está disponible en tapa blanda, con 326 páginas en castellano. Esta edición física permite subrayar, anotar y volver a consultar apartados durante el estudio de las cuestiones legales relacionadas con blockchain.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "titulo"
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Derecho penal 4.0: el Derecho penal en la cuarta revolución industrial: 124 (Propiedad Intelectual) comparte el interés por las relaciones entre tecnología y Derecho, pero se ocupa específicamente del ámbito penal. Blockchain: un desafío legal (Monografía), de Ana Isabel Quiroz Ruiz, concentra esa perspectiva jurídica en blockchain, mientras que Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I aborda los contratos de consumo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370297305",
+        "isbn-9788429030396"
       ]
     }
   ],

@@ -4,26 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Star Wars: Las crónicas Jedi nº 01: 1 (Star Wars: Cómics Tomo Marvel) encaja con lectores juveniles interesados en la ciencia ficción y los cómics del universo Star Wars. Sus 400 páginas ofrecen una lectura gráfica extensa; resulta menos adecuado para quien busca narrativa realista o una novela escrita exclusivamente en prosa.",
+      "texto": "Star Wars: Las crónicas Jedi nº 01: 1 (Star Wars: Cómics Tomo Marvel) se dirige a lectores de cómic juvenil y ciencia ficción interesados en el universo Star Wars. Su presentación como cómic lo distingue de las novelas exclusivamente textuales y de los libros de divulgación sobre ciencia.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Star Wars: Las crónicas Jedi nº 01: 1 (Star Wars: Cómics Tomo Marvel) cuenta con una edición en tapa dura de 400 páginas en castellano. El formato rígido facilita conservar el tomo y regalarlo, mientras que el título lo identifica como el n.º 01, una referencia útil para ordenar la colección.",
+      "texto": "Star Wars: Las crónicas Jedi nº 01: 1 (Star Wars: Cómics Tomo Marvel) está disponible en tapa dura y Kindle, con 400 páginas en la edición indicada. La tapa dura permite conservar el cómic en formato físico y consultar sus páginas impresas; Kindle ofrece una alternativa digital para leerlo en dispositivos compatibles.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma"
       ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Star Wars Boba Fett: Blanco, negro y rojo (Star Wars: Cómics Tomo Marvel) y Star Wars: Las crónicas Jedi nº 01: 1 (Star Wars: Cómics Tomo Marvel) pertenecen al universo Star Wars y comparten autoría colectiva. El primero identifica a Boba Fett como figura central, mientras que el segundo se centra, según su título, en las crónicas Jedi y se identifica como el n.º 01.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388100932",
+        "isbn-9791388103506"
+      ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3897e2e53b98e717",
+  "fuente_hash": "ae0a4112d5364e93",
   "origen": "chatgpt-web"
 }

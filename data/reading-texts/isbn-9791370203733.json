@@ -4,20 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en las biografías, las memorias y su relación con el ámbito artístico. Por su clasificación y planteamiento biográfico, responde a una búsqueda distinta de la de un manual de técnicas artísticas o una novela de ficción.",
+      "texto": "Siempre Así, a su manera (Memorias y biografías) se sitúa entre las biografías y los libros relacionados con el arte. La obra de Guillermo María González Pérez, de 256 páginas, encaja con el interés por las trayectorias culturales y personales, pero no con la búsqueda de una novela de ficción.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Siempre Así, a su manera (Memorias y biografías) está disponible en tapa blanda y Kindle. La edición impresa de Almuzara reúne 256 páginas para leer y conservar en papel, mientras que Kindle permite llevar el texto en un lector electrónico o dispositivo compatible.",
+      "texto": "Siempre Así, a su manera (Memorias y biografías) puede leerse en tapa blanda o Kindle. Sus 256 páginas en la edición de Almuzara permiten una lectura en papel de extensión delimitada; la versión Kindle facilita consultarlo en dispositivos electrónicos sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion"
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Siempre Así, a su manera (Memorias y biografías) se relaciona con El rey de la baraja: La imperecedera vida de Roberto Iniesta: 7 (Marea gráfica) por su vinculación con las biografías y el ámbito artístico. El libro de Guillermo María González Pérez se presenta como memorias y biografías, mientras que el de Nacho Nava Laiz identifica expresamente a Roberto Iniesta como protagonista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387938499"
       ]
     }
   ],

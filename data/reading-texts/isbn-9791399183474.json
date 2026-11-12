@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399183474",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Disuria (LAS AFUERAS), de Daniel Toca, se dirige a lectores interesados en narrativa contemporánea y en obras vinculadas al cómic y la novela gráfica. Sus 112 páginas ofrecen una extensión breve; por su clasificación, no responde a la búsqueda de una novela histórica o de un manual práctico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Disuria (LAS AFUERAS) está disponible en tapa blanda, con 112 páginas en castellano. Esta edición física de Las afueras permite conservar el volumen en papel y transportarlo sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "After God 8 (Shônen), de Sumi Eno, sirve como referencia por su relación con el ámbito del cómic, aunque Disuria (LAS AFUERAS) también se clasifica como narrativa contemporánea. Frente al título de Sumi Eno, identificado como shônen, la obra de Daniel Toca presenta una clasificación editorial más amplia y una extensión de 112 páginas.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9791387962647"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "872e796c13577808",
+  "origen": "chatgpt-web"
+}

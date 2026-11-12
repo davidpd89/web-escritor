@@ -4,20 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Autismo en adultos: 15 (Nuevo Aprendizaje) se orienta a quienes buscan una lectura sobre el autismo en la edad adulta desde el ámbito de la divulgación. Su temática específica se distancia de los libros de ficción y de los manuales dedicados a cuestiones ajenas a esta condición.",
+      "texto": "Autismo en adultos: 15 (Nuevo Aprendizaje) se orienta a lectores interesados en el autismo durante la edad adulta y en la divulgación científica. Por su temática y sus 376 páginas, se diferencia de una novela de entretenimiento o de una guía breve de consulta general.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Autismo en adultos: 15 (Nuevo Aprendizaje) está editado en tapa blanda, con 376 páginas en castellano. Esta presentación permite transportar el volumen y consultar sus páginas en papel, tanto durante una lectura continuada como al regresar a determinados apartados.",
+      "texto": "Autismo en adultos: 15 (Nuevo Aprendizaje) está disponible en tapa blanda, con 376 páginas editadas por A. Machado Libros. El volumen impreso permite consultar apartados y regresar a páginas concretas durante una lectura de estudio o de interés personal, sin utilizar una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Baropodometría clínica: Bases para una biomecánica integrada del control postural, de Fernando Ares, comparte con Autismo en adultos: 15 (Nuevo Aprendizaje) el interés por cuestiones relacionadas con el cuerpo y la salud. El primero se centra, según su título, en la biomecánica y el control postural, mientras que el libro de Daniel Valdez aborda el autismo en personas adultas desde un ámbito de divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388377167"
       ]
     }
   ],

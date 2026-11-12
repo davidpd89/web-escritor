@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399306026",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La empatía de mí mismo, de Jesús Rivas Melchor, se orienta a lectores de poesía interesados en el amor, las relaciones personales y la superación del duelo. Por su clasificación poética, se diferencia de las novelas románticas con una trama narrativa y de los manuales prácticos dedicados al bienestar emocional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La empatía de mí mismo se publica en tapa blanda, con 240 páginas en castellano, bajo el sello Ediciones Filo Abierto. Esta presentación en papel permite detenerse en los textos poéticos, señalar versos y regresar a páginas concretas durante distintas sesiones de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La empatía de mí mismo comparte el interés por el amor con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. Ambas obras se relacionan con la poesía amorosa, aunque la de Jesús Rivas Melchor también se sitúa en el ámbito de la superación y el duelo, mientras la de Pedro Salinas se presenta expresamente como una antología amorosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "14fb5e16243f9a78",
+  "origen": "chatgpt-web"
+}

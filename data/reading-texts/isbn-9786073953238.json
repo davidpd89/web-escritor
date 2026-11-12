@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073953238",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Hora Antes del Alba. Premio Planeta 2026 (Autores Españoles E Iberoamericanos) encaja con lectores interesados en la novela histórica, la narrativa contemporánea y los asuntos familiares. La obra de Isabel Allende se aleja de las lecturas centradas en cuestiones técnicas o manuales de consulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Hora Antes del Alba. Premio Planeta 2026 (Autores Españoles E Iberoamericanos) está disponible en tapa dura, con 352 páginas en castellano. Esta encuadernación permite conservar el volumen en una biblioteca personal y resulta práctica para regalar una edición física.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La casa de los espíritus comparte con La Hora Antes del Alba. Premio Planeta 2026 (Autores Españoles E Iberoamericanos) la autoría de Isabel Allende y el interés por la narrativa vinculada a la familia. La primera sigue la historia de una familia, mientras que la segunda se presenta como novela histórica y narrativa contemporánea con temática familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401042751",
+        "isbn-9788408328834"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2eb77aa30b427bba",
+  "origen": "chatgpt-web"
+}

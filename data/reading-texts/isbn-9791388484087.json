@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388484087",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fatale Game Vol.1, de Battan, se dirige a lectores de romance en formato de cómic y novela gráfica. Sus 160 páginas encajan con quien prefiere narraciones visuales; resulta menos afín a quienes buscan una novela romántica escrita únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fatale Game Vol.1 se publica en tapa blanda, con 160 páginas en castellano. La edición física permite seguir la narración gráfica directamente sobre papel y conservar el volumen junto a otros cómics, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fatale Game Vol.1 puede compararse con Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, por su orientación hacia el romance y la lectura gráfica. Ambos títulos incorporan una numeración inicial, aunque Fatale Game Vol.1 utiliza la denominación de volumen y Amarte hasta perder el aliento 1 (Shôjo) identifica expresamente el ámbito shôjo. Battan y Keiko Iwashita firman obras diferentes dentro de este espacio de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962494"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6f70f001a7d6da02",
+  "origen": "chatgpt-web"
+}

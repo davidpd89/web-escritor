@@ -4,22 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Kama Sutra mágico, de Giulia Marzocca, se dirige a lectores interesados en el bienestar y las relaciones personales dentro del ámbito del desarrollo personal. Su clasificación en familia y crianza lo aleja de quienes buscan una novela de ficción o una obra de aventuras.",
+      "texto": "Kama Sutra mágico, de Giulia Marzocca, se dirige a lectores interesados en el bienestar personal y las relaciones, dentro del ámbito de la familia y el desarrollo personal. Sus 96 páginas lo sitúan entre las lecturas breves, por lo que encaja menos con quien busca un tratado extenso o una novela de ficción.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Kama Sutra mágico está disponible en tapa dura, con 96 páginas en castellano. Esta edición de LU Ediciones permite consultar el volumen en papel y conservarlo en una encuadernación rígida, tanto para uso personal como para regalar.",
+      "texto": "Kama Sutra mágico está editado en tapa dura y tiene 96 páginas en castellano. Es un volumen físico relativamente breve, cómodo para consultar en casa y conservar en una estantería; la cubierta rígida también favorece su presentación como regalo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Kama Sutra mágico y Anatomía de una relación tóxica: Como reconocerla, salir de ella y recuperar tu vida, de David C, se sitúan en el ámbito de las relaciones personales. El segundo título plantea expresamente el reconocimiento y la salida de una relación tóxica, mientras que el libro de Giulia Marzocca se presenta bajo un enfoque de bienestar y desarrollo personal más amplio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409923595"
       ]
     }
   ],

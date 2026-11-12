@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387501877",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Brujas y dragones 2: La bruja mala del oeste se dirige al público infantil y juvenil interesado en la fantasía y las aventuras. El título lo identifica como el n.º 2 y anuncia brujas y dragones, por lo que se aparta de las historias realistas y de las lecturas centradas exclusivamente en situaciones cotidianas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Brujas y dragones 2: La bruja mala del oeste cuenta con una edición en tapa blanda de 288 páginas. El ejemplar físico de Triqueta Verde, SLU permite leerlo sin pantalla, llevarlo en la mochila y conservarlo junto a otros libros de aventuras infantiles.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Brujas y dragones 2: La bruja mala del oeste comparte autoría con Zodiakids 3. El Gran Torneo de Zooikos: Ledicia Costas figura en ambos títulos. El primero, firmado también por Luis Miguel Pérez, anuncia brujas y dragones; el segundo, creado junto a Guille Rancel, presenta un torneo. Ambos se identifican mediante numeración, aunque pertenecen a series con nombres distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331162"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "62f57a80ef15077d",
+  "origen": "chatgpt-web"
+}

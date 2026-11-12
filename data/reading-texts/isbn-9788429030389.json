@@ -4,22 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a lectores interesados en el Derecho deportivo y en la posición jurídica de la persona deportista. El principio de primacía de la persona deportista: Un nuevo paradigma de interpretación del Derecho deportivo, de José Manuel Chía Salas, se centra en la interpretación jurídica, no en la práctica ni en el entrenamiento deportivo.",
+      "texto": "El principio de primacía de la persona deportista: Un nuevo paradigma de interpretación del Derecho deportivo se dirige a quienes estudian o trabajan con cuestiones jurídicas relacionadas con el deporte. Su enfoque sobre la interpretación del Derecho deportivo queda fuera de la lectura recreativa de historias deportivas o de los manuales de entrenamiento.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne 176 páginas en castellano, publicadas por Editorial Reus S.a. Es una opción física para consultar el texto, marcar pasajes y conservar referencias durante el estudio del Derecho deportivo.",
+      "texto": "El principio de primacía de la persona deportista: Un nuevo paradigma de interpretación del Derecho deportivo se publica en tapa blanda, con 176 páginas en castellano. Su extensión permite trabajar con el volumen físico y volver a consultar los apartados relacionados con la interpretación jurídica del deporte.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "titulo"
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Blockchain: un desafío legal (Monografía) coincide con El principio de primacía de la persona deportista: Un nuevo paradigma de interpretación del Derecho deportivo en el tratamiento jurídico de una materia específica, pero aborda la tecnología blockchain en lugar del deporte. Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I también pertenece al ámbito del Derecho, aunque se ocupa de las relaciones contractuales de consumo y no de la posición jurídica de la persona deportista.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370610265",
+        "isbn-9791370297305"
       ]
     }
   ],

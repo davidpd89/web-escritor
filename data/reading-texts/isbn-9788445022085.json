@@ -4,26 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "UNO: Una distopía sobre la individualidad (Ciencia Ficción) se dirige a lectores de ciencia ficción interesados en los conflictos entre el individuo y su entorno social. Su planteamiento distópico encaja menos con quienes prefieren fantasía de ambientación mágica o relatos infantiles de humor.",
+      "texto": "UNO: Una distopía sobre la individualidad (Ciencia Ficción) se dirige a lectores interesados en sociedades distópicas y conflictos relacionados con la identidad individual. La obra de David Karp se sitúa en la ciencia ficción, por lo que no responde a la búsqueda de una novela realista centrada exclusivamente en experiencias cotidianas.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "UNO: Una distopía sobre la individualidad (Ciencia Ficción) está disponible en tapa blanda, con 312 páginas en castellano. La edición de Minotauro permite leer la obra en papel y conservarla como volumen independiente, sin necesidad de un lector electrónico.",
+      "texto": "La tapa blanda de UNO: Una distopía sobre la individualidad (Ciencia Ficción) ofrece sus 312 páginas en una edición física de Minotauro. Kindle permite leer esta obra de David Karp en formato digital, una opción para alternar dispositivos o evitar transportar el volumen impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
+        "autores",
         "editorial",
-        "idioma"
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "UNO: Una distopía sobre la individualidad (Ciencia Ficción) comparte el interés por las sociedades alternativas con Tecnomusas: Utopías y distopías de mujeres conectadas: 1, aunque el título de David Karp sitúa la individualidad en el centro. Frente a Al despertar, rompe el cascarón (Runas), de Becky Chambers, la comparación se orienta hacia la ciencia ficción y sus distintas formas de abordar la experiencia individual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370093488",
+        "isbn-9791399126235"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "255a9cdebf83dd29",
+  "fuente_hash": "61f976eced74b108",
   "origen": "chatgpt-web"
 }

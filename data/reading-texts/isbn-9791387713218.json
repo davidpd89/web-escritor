@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387713218",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "No subir montañas: 10 (Bastardilla) se sitúa entre las lecturas de ensayo, memorias y tiempo libre, para lectores interesados en esos ámbitos. Sus 160 páginas plantean una extensión relativamente breve; por su clasificación editorial, queda fuera de una búsqueda centrada en ficción fantástica o narrativa de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "No subir montañas: 10 (Bastardilla) está editado en tapa blanda por La Caja Books, con 160 páginas en castellano. Esta presentación permite leerlo en papel y transportarlo sin el volumen de una obra de gran extensión; también puede guardarse en una estantería junto a otros títulos de la colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "No subir montañas: 10 (Bastardilla) y La voz del desierto: El Dakar me enseñó a competir. El desierto me enseñó a vivir (No ficción) pueden compararse desde el interés por las experiencias personales y el tiempo libre. El libro de Paula Pontes se presenta como ensayo y memorias, mientras que el de Cristina Gutiérrez anuncia en su título una experiencia vinculada al Dakar y la competición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466685528"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2898008cfb95ffd1",
+  "origen": "chatgpt-web"
+}

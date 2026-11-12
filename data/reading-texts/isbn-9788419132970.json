@@ -4,24 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Negro casi blanco (VANDALIA), de José Mateos, se dirige a lectores de poesía en castellano que buscan una obra de extensión breve. Sus 96 páginas lo distinguen de las recopilaciones extensas; no responde a quien busca una novela con una trama narrativa.",
+      "texto": "Negro casi blanco (VANDALIA), de José Mateos, se dirige a lectores de poesía en castellano que prefieren libros de extensión contenida. Sus 96 páginas lo diferencian de una novela larga y no encaja con quien busque una narración extensa de misterio o aventuras.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "idioma",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Negro casi blanco (VANDALIA) se publica en tapa blanda, con 96 páginas en castellano. Esta edición de Fundación José Manuel Lara permite tener el volumen completo en papel, en un formato de menor extensión que una antología de varios cientos de páginas.",
+      "texto": "Negro casi blanco (VANDALIA) se publica en tapa blanda, con 96 páginas en la edición de Fundación José Manuel Lara. Su extensión permite transportarlo con facilidad y volver a poemas concretos en papel, sin necesidad de un lector electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "editorial",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Negro casi blanco (VANDALIA) comparte su ámbito poético con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. El título de Pedro Salinas señala expresamente el amor como eje de su antología, mientras que Negro casi blanco (VANDALIA), de José Mateos, se presenta como un volumen de poesía de 96 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
       ]
     }
   ],

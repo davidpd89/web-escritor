@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388364082",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El peso del aire (Hispánica), de Raúl Tola, se dirige a lectores de narrativa contemporánea que buscan misterio y asuntos relacionados con el poder y la política. Su extensión de 448 páginas y su combinación de géneros lo alejan de las lecturas breves centradas exclusivamente en la acción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El peso del aire (Hispánica) se edita en tapa blanda, con 448 páginas en castellano bajo el sello Alfaguara. Es un volumen físico de extensión considerable, pensado para una lectura prolongada y que puede guardarse o prestarse sin utilizar dispositivos digitales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El peso del aire (Hispánica) comparte con El vuelo de los gansos el interés por los conflictos relacionados con el poder. La obra de Raúl Tola combina narrativa contemporánea, misterio y política, mientras que El vuelo de los gansos, de Ángel Boixadós, plantea el enfrentamiento al poder como una cuestión de principios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425375040"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1c2c29a6a6d4f5ae",
+  "origen": "chatgpt-web"
+}

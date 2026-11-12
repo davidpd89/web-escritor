@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Itálica (Arte y patrimonio) se orienta a lectores interesados en el patrimonio artístico y en publicaciones vinculadas con los viajes. Rosa García Perea aborda este ámbito en una obra de 112 páginas, distinta de una novela de aventuras o de una guía centrada en experiencias personales.",
+      "texto": "Itálica (Arte y patrimonio) se dirige a lectores interesados en el patrimonio, el arte y los viajes. Rosa García Perea trata ese ámbito en una publicación de 112 páginas, distinta de las novelas centradas en personajes ficticios o de los manuales de desarrollo personal.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,12 +14,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Itálica (Arte y patrimonio) se publica en tapa blanda, con una extensión de 112 páginas. Esta edición en castellano permite llevar el volumen en una bolsa durante una visita o consultarlo en casa, sin recurrir a un dispositivo electrónico.",
+      "texto": "Itálica (Arte y patrimonio) está disponible en tapa blanda, con 112 páginas en la edición de Almuzara. Su extensión permite transportarlo en papel durante desplazamientos y conservarlo como referencia física sobre arte y patrimonio, sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Itálica (Arte y patrimonio) comparte con 33 islas: Un periplo mediterráneo el interés por los lugares y su dimensión cultural. Rosa García Perea aborda el arte y el patrimonio en una obra de 112 páginas, mientras que Lucio Bellomo centra su libro en un recorrido por islas del Mediterráneo, de Marettimo a Venecia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387873127"
       ]
     }
   ],

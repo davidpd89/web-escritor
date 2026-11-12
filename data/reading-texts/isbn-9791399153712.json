@@ -4,20 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La antigua Grecia en cincuenta monumentos (Ilustrados) se dirige a lectores interesados en la historia antigua a través de sus construcciones y su patrimonio artístico. Su planteamiento histórico y monumental se distancia de la novela de ficción y de los manuales centrados exclusivamente en técnicas artísticas.",
+      "texto": "La antigua Grecia en cincuenta monumentos (Ilustrados) se dirige a lectores interesados en la historia griega y en el estudio de su patrimonio artístico y monumental. Sus 256 páginas ofrecen un enfoque centrado en los monumentos, por lo que encaja menos con quienes buscan una novela histórica o una introducción general a distintas civilizaciones.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La antigua Grecia en cincuenta monumentos (Ilustrados) se presenta en tapa dura, con 256 páginas en castellano. Esta encuadernación aporta rigidez al volumen y resulta práctica para conservarlo en una biblioteca o consultarlo repetidamente sobre una mesa.",
+      "texto": "La antigua Grecia en cincuenta monumentos (Ilustrados) está disponible en tapa dura, con 256 páginas en castellano. Esta edición física permite consultar los monumentos y volver a sus apartados sin depender de un dispositivo electrónico; también puede utilizarse como libro de consulta en una biblioteca personal.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Clásicos Sin Filtros: El Impacto del Mundo Antiguo / Talking Classics: The Shock of the Old comparte el interés por el mundo antiguo, mientras que La antigua Grecia en cincuenta monumentos (Ilustrados) concentra su atención en los monumentos griegos. Civilización: Una historia del arte y la cultura que dieron forma a la civilización moderna: 126 (Ático Historia) aborda un marco artístico y cultural más amplio, frente al enfoque histórico y monumental de la obra de David Stuttard.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387592493",
+        "isbn-9786076393055"
       ]
     }
   ],

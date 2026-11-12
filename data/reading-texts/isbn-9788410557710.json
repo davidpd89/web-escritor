@@ -4,41 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La vida según Joselito: 14 (Policán), de Dav Pilkey, se dirige al público infantil y juvenil que disfruta del cómic y el humor. Sus 224 páginas pertenecen a una propuesta gráfica, por lo que encaja menos con lectores que buscan narrativa adulta sin elementos de cómic.",
+      "texto": "La vida según Joselito: 14 (Policán) se orienta al público infantil y juvenil que lee cómics de humor. Es una obra de Dav Pilkey vinculada a Policán, con elementos de naturaleza entre sus temas; no responde a la búsqueda de una novela adulta de narrativa convencional.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La vida según Joselito: 14 (Policán) está editado en tapa dura y tiene 224 páginas. La encuadernación rígida protege el volumen durante las lecturas repetidas y facilita conservarlo junto a otros libros de cómic infantil y juvenil.",
+      "texto": "La vida según Joselito: 14 (Policán) está disponible en tapa dura y Kindle. La edición de Ediciones SM reúne 224 páginas en un volumen físico para conservar y releer, mientras que Kindle permite llevar el cómic en un dispositivo compatible sin transportar el libro.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "edicion",
+        "editorial",
         "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La vida según Joselito: 14 (Policán) comparte el humor infantil con Dónde están los calzoncillos de Papá Noel: Un cuento de Navidad interactivo y lleno de humor. ¡Encuentra los calzoncillos de Papá Noel! Para niños y niñas a partir de 3 años., de Becky Davies. El libro de Dav Pilkey pertenece al cómic y tiene 224 páginas, mientras que el de Becky Davies propone una búsqueda interactiva ambientada en Navidad para lectores desde los 3 años.",
+      "texto": "La vida según Joselito: 14 (Policán) y El diario de Gurty. Vacaciones en la Provenza (Imagina) pertenecen al ámbito de la lectura infantil. La obra de Dav Pilkey combina cómic y humor, mientras que la de Bertrand Santini presenta una historia ambientada en unas vacaciones. La primera se identifica con Policán y la segunda con El diario de Gurty.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387948221"
+        "isbn-9791388425059"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a1cdba04940accb2",
+  "fuente_hash": "49600cae41fad4a2",
   "origen": "chatgpt-web"
 }

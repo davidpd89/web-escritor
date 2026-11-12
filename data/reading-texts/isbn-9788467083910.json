@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788467083910",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El baile de las que sobran (Novela histórica) encaja con lectores interesados en ficción histórica, relatos ambientados en el siglo XX y elementos de misterio. No responde a la búsqueda de un ensayo exclusivamente documental, pues su clasificación principal incluye la novela histórica y el thriller.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El baile de las que sobran (Novela histórica) tiene una edición de bolsillo en tapa blanda de 512 páginas. El formato de Booket permite transportar una novela extensa con una cubierta flexible, tanto para leer durante desplazamientos como para guardarla en una estantería.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El baile de las que sobran (Novela histórica) comparte el terreno de la narrativa histórica con Bajo las cenizas de Pompeya (ESPASA NARRATIVA). La obra de Fermina Cañaveras se relaciona con el siglo XX y el misterio, mientras que el título de María Reig remite a Pompeya. Son dos referencias históricas distintas dentro de la ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "56fb0764a550c165",
+  "origen": "chatgpt-web"
+}

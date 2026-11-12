@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410332201",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La balada del norte. Tomo 2 (Sillón Orejero) encaja con lectores interesados en la historia contada mediante viñetas. Alfonso Zapico firma este volumen de 256 páginas, cuyo título lo identifica como el tomo 2; quien busque una narración histórica exclusivamente en prosa encontrará aquí otro lenguaje.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La balada del norte. Tomo 2 (Sillón Orejero) tiene una edición en tapa dura de 256 páginas, publicada por Astiberri Ediciones. La cubierta rígida aporta protección al volumen durante su conservación y facilita reunirlo físicamente con otros tomos de la colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La balada del norte. Tomo 2 (Sillón Orejero) tiene una relación directa de autoría con La balada del norte 03 (nueva edición) (Sillón Orejero): ambos títulos son de Alfonso Zapico. El primero se identifica como tomo 2 y el segundo lleva 03 en el título, además de indicar que es una nueva edición. Son volúmenes distintos de una misma línea de lectura histórica y gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419670373"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "480ee697f186dba8",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791387995454",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cthulhu 34 se dirige a lectores de cómic y novela gráfica que buscan una publicación colectiva de Varios autores. Sus 136 páginas encajan con quien prefiere una lectura gráfica de extensión contenida, pero no con quien busca una novela escrita en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cthulhu 34 está disponible en tapa blanda, concretamente en edición bunko de Diabolo Ediciones. Sus 136 páginas permiten manejarlo como un volumen físico de extensión breve y guardarlo junto a otras publicaciones de cómic y novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cthulhu 34 comparte autoría colectiva y formato de cómic con Creepy nº 11/29 y Eerie nº 21/27. Creepy nº 11/29 reúne relatos relacionados con el terror, mientras que Eerie nº 21/27 anuncia una temática apocalíptica; Cthulhu 34 se presenta como un volumen de 136 páginas de Varios autores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411406130",
+        "isbn-9788411406529"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "84ee984d2129a363",
+  "origen": "chatgpt-web"
+}

@@ -4,28 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Aunque nunca lo sepas: 2 (Becados de la LUHS), de Nazaret Rodríguez, se dirige a quienes buscan novelas románticas en castellano. Con 368 páginas, se ajusta menos a lectores interesados exclusivamente en otros géneros o en narraciones de extensión breve.",
+      "texto": "Aunque nunca lo sepas: 2 (Becados de la LUHS), de Nazaret Rodríguez, encaja con lectores que buscan romance en castellano. El título lo identifica como el n.º 2 de Becados de la LUHS y sus 368 páginas lo alejan de la extensión habitual de un relato breve; no está orientado a quien prefiera una lectura centrada en el ensayo o la divulgación.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "idioma",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Aunque nunca lo sepas: 2 (Becados de la LUHS) cuenta con una edición en tapa blanda de 368 páginas. El formato permite llevar la novela en papel con una cubierta flexible, tanto para leerla fuera de casa como para conservarla en una estantería.",
+      "texto": "La tapa blanda de Aunque nunca lo sepas: 2 (Becados de la LUHS) reúne 368 páginas en un volumen físico que puede guardarse junto a otros libros de la colección. Kindle permite leerlo en formato digital desde un lector electrónico o una aplicación compatible, sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "formato_edicion"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aunque nunca lo sepas: 2 (Becados de la LUHS) y A medio salto (Romántica) comparten su orientación hacia el romance. La diferencia está en la autoría, Nazaret Rodríguez frente a Valera Gomalva, y en que el título del primero lo identifica como el n.º 2 de Becados de la LUHS, mientras que el segundo se presenta sin esa numeración.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388365089"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0c76326dd27d6ca1",
+  "fuente_hash": "ac5f9aa093dcdcb9",
   "origen": "chatgpt-web"
 }

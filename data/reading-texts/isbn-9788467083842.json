@@ -4,25 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Haría cualquier cosa por ti: El gran libro del recién nacido (Familia) se dirige a lectores interesados en la crianza y el bienestar durante la etapa del recién nacido. Por su enfoque familiar y práctico, encaja menos con quienes buscan ficción infantil o una lectura sobre etapas posteriores de la vida.",
+      "texto": "Haría cualquier cosa por ti: El gran libro del recién nacido (Familia) está orientado a quienes buscan una lectura sobre el cuidado y la crianza durante la etapa del recién nacido. Su temática familiar y sanitaria lo distingue de los libros de desarrollo personal general y de las obras centradas en etapas posteriores de la infancia.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Haría cualquier cosa por ti: El gran libro del recién nacido (Familia) se publica en tapa blanda, dentro de una edición de bolsillo de Booket. Sus 240 páginas permiten llevarlo consigo y consultar distintos apartados en papel durante la etapa de crianza.",
+      "texto": "La edición de Booket es un libro de bolsillo de 240 páginas en tapa blanda, pensado para manejarse y transportarse con facilidad. Kindle ofrece una alternativa digital para consultar el contenido desde el móvil o un lector electrónico, sin necesidad de llevar el ejemplar en papel.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "edicion",
-        "numero_paginas"
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Convertirse en padre: 02 (Psicologia), de Patricia Catalá Mesón, Cecilia Peñacoba Puente y María P. Huertas-Vieco, comparte el ámbito de la paternidad, aunque su título sitúa el foco en el proceso de convertirse en padre. Haría cualquier cosa por ti: El gran libro del recién nacido (Familia), de Pedro Camacho, delimita su temática a la etapa del recién nacido y se presenta como una obra de familia y crianza.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370550288"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "858951d4bf2836cf",
+  "fuente_hash": "a04f55b02c1e1fae",
   "origen": "chatgpt-web"
 }

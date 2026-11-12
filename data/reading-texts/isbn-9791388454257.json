@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Freddie Mercury. Una vida en verso, de Mary Austin, se orienta a lectores interesados en Freddie Mercury y en publicaciones vinculadas al arte y el diseño. Su planteamiento anunciado en el título lo diferencia de los manuales de técnicas artísticas y de las obras de ficción juvenil.",
+      "texto": "Freddie Mercury. Una vida en verso, de Mary Austin, se dirige a quienes buscan una obra vinculada a una figura musical desde el ámbito del arte y el diseño. Su planteamiento anunciado en el título se aparta de los manuales técnicos de dibujo o de las historias generales del arte.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,12 +13,25 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Freddie Mercury. Una vida en verso se ofrece en tapa dura, con 320 páginas en castellano. La encuadernación rígida proporciona una cubierta resistente para conservar el volumen en una biblioteca personal o entregarlo como regalo relacionado con Freddie Mercury.",
+      "texto": "Freddie Mercury. Una vida en verso se presenta en tapa dura, con 320 páginas publicadas por Blume (naturart). Es una edición física que puede conservarse en una biblioteca personal o entregarse como regalo, con una encuadernación rígida.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Freddie Mercury. Una vida en verso, de Mary Austin, puede compararse con All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial, de Daniel Sedcontra, por su relación con la música. El primero se centra en una figura concreta y anuncia un tratamiento en verso; el segundo aborda la música industrial y su dimensión cultural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410045538"
       ]
     }
   ],

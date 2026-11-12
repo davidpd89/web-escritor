@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388176357",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "AKITA: Las lágrimas y el mensaje de María se dirige a lectores interesados en la religión y la espiritualidad, especialmente en asuntos vinculados a María. Las 312 páginas de la obra de Teiji Yasuda plantean una lectura extensa, alejada de los manuales breves de consulta o de la ficción de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "AKITA: Las lágrimas y el mensaje de María está editado en tapa blanda, con 312 páginas en castellano. Esta presentación permite leerlo en papel, marcar pasajes y volver a ellos durante una lectura prolongada sobre cuestiones religiosas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "AKITA: Las lágrimas y el mensaje de María y Al andar: Vivencias del Camino de Santiago comparten el interés por cuestiones religiosas y espirituales. El libro de Teiji Yasuda se centra en María, mientras que el de Carlos Díaz Ballesta aborda vivencias vinculadas al Camino de Santiago. Frente a ambos, Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación presenta otra tradición espiritual, con atención a sus fundamentos y su práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496",
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7dc0a196f9e561ec",
+  "origen": "chatgpt-web"
+}

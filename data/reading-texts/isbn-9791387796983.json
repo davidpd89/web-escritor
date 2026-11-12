@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387796983",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lo Que Vale Tu Empresa (y Lo Que Pagaran Por Ella): Guía definitiva de valoración para el middle market, de Antonio Almendros Ruiz, se orienta a lectores interesados en la valoración de empresas y la economía empresarial. Su asunto es específico y técnico, por lo que se aleja de las lecturas sobre finanzas personales o ficción de negocios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Lo Que Vale Tu Empresa (y Lo Que Pagaran Por Ella): Guía definitiva de valoración para el middle market consta de 542 páginas en tapa blanda. El volumen físico permite consultar apartados y regresar a ellos durante el estudio de la valoración empresarial, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, también aborda cuestiones vinculadas al ámbito empresarial. Mientras ese título pone el foco en el liderazgo, Lo Que Vale Tu Empresa (y Lo Que Pagaran Por Ella): Guía definitiva de valoración para el middle market trata la valoración económica de empresas, una cuestión distinta de la dirección de personas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9a49c66e71029f4e",
+  "origen": "chatgpt-web"
+}

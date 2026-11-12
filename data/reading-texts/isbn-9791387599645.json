@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Juegos de estrategia: 116 (Los Versos de Cordelia) se dirige a lectores de poesía en castellano interesados en la obra de Julia Barella. Sus 192 páginas ofrecen una extensión delimitada para leer poesía; no responde a quien busca una novela de aventuras o una narración extensa.",
+      "texto": "Juegos de estrategia: 116 (Los Versos de Cordelia), de Julia Barella, corresponde a lectores que buscan poesía en castellano. Su edición de 192 páginas pertenece a una colección de versos, por lo que se diferencia de las lecturas centradas en una trama novelesca o en explicaciones técnicas sobre estrategia.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,12 +15,25 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Juegos de estrategia: 116 (Los Versos de Cordelia) se presenta en tapa blanda, con 192 páginas. Esta encuadernación permite llevar el volumen en una bolsa y consultar sus páginas en papel, una opción práctica para alternar la lectura con la revisión de poemas concretos.",
+      "texto": "Juegos de estrategia: 116 (Los Versos de Cordelia) puede leerse en una edición física de cubierta flexible. El libro reúne 192 páginas de poesía y permite señalar poemas, consultar páginas anteriores y guardar el ejemplar en una biblioteca personal.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Juegos de estrategia: 116 (Los Versos de Cordelia) puede ponerse junto a Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, dentro de la lectura de poesía. La obra de Pedro Salinas identifica expresamente el amor como eje de su selección, mientras que el título de Julia Barella remite a los juegos de estrategia y pertenece a Los Versos de Cordelia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
       ]
     }
   ],

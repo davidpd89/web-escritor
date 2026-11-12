@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387811686",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El día en que Pippi Längstrump dejó de quererte: XXV PREMIO INTERNACIONAL DE POESÍA VICENTE NÚÑEZ (Lorca), de Pedro Flores, está dirigido a lectores de poesía en castellano. Con 64 páginas, ofrece una lectura de extensión reducida; no corresponde a quien busca una novela de desarrollo argumental prolongado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El día en que Pippi Längstrump dejó de quererte: XXV PREMIO INTERNACIONAL DE POESÍA VICENTE NÚÑEZ (Lorca) está disponible en tapa blanda. Sus 64 páginas, editadas por Editorial Berenice, forman un volumen físico breve que facilita volver a los textos y consultarlos directamente en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El día en que Pippi Längstrump dejó de quererte: XXV PREMIO INTERNACIONAL DE POESÍA VICENTE NÚÑEZ (Lorca) comparte su condición poética con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. El título de Pedro Flores alude a una ruptura afectiva, mientras que el de Pedro Salinas identifica expresamente una antología amorosa; ambos permiten explorar el tratamiento literario de los vínculos sentimentales desde distintas autorías.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d65e277f372deb27",
+  "origen": "chatgpt-web"
+}

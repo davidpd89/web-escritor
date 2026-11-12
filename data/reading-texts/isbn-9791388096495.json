@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388096495",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La influencia de las recomendaciones del GRECO en la prevención y represión de la corrupción política en España: análisis crítico de su impacto normativo y político-criminal. se dirige a lectores interesados en las instituciones, la regulación y la lucha contra la corrupción política. Su orientación al análisis normativo se aleja de quienes buscan una narración de ficción o una introducción general a la actualidad política.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La obra de Patrícia Carraro Rossetto se presenta en tapa blanda, en una edición de Atelier de 266 páginas en castellano. El formato permite consultar el análisis sobre corrupción política y sus implicaciones normativas en un único volumen impreso, con encuadernación flexible.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A la sombra del Estado, de Luis de la Corte Ibáñez, comparte con la obra de Patrícia Carraro Rossetto el interés por las relaciones entre poder y actividad institucional, pero aborda el espionaje y las operaciones encubiertas en lugar de las recomendaciones del GRECO. Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, se centra en una corriente de pensamiento, frente al análisis de medidas contra la corrupción política en España.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057",
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5e175c9dd7926dc1",
+  "origen": "chatgpt-web"
+}

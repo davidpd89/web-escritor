@@ -4,28 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dragon Quest: The Adventure of Dai nº 11/25 (Manga Shonen), de Koji Inada, se dirige a lectores de manga juvenil interesados en la fantasía y la aventura gráfica. Sus 256 páginas corresponden a una entrega que el título identifica como la n.º 11 de 25, por lo que no está planteada como una primera entrega independiente.",
+      "texto": "Dragon Quest: The Adventure of Dai nº 11/25 (Manga Shonen) se dirige a lectores infantiles y juveniles interesados en el manga de fantasía. El título lo identifica como el n.º 11 de 25 y sus 256 páginas corresponden a una entrega de la colección; no responde a quien busca una historia independiente ajena a una serie.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Dragon Quest: The Adventure of Dai nº 11/25 (Manga Shonen) está disponible en tapa blanda y contiene 256 páginas. El formato físico permite seguir las viñetas en papel y colocar esta entrega junto a los demás tomos de la colección. Planeta Cómic la publica en castellano.",
+      "texto": "Dragon Quest: The Adventure of Dai nº 11/25 (Manga Shonen) está disponible en tapa blanda y Kindle. La edición física de Planeta Cómic reúne 256 páginas y permite conservar este volumen junto a otros de la colección; Kindle facilita leerlo en una pantalla sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "idioma"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Dragon Quest: The Adventure of Dai nº 12/25 es la comparación más directa: comparte autor, Koji Inada, y el título identifica una entrega posterior de la misma serie. Frente a ella, Dragon Quest: The Adventure of Dai nº 11/25 (Manga Shonen) corresponde al número anterior. AVATAR. La leyenda de Aang 5 - Norte y sur también presenta una aventura fantástica, pero amplía el universo de otra serie y se centra en las Tribus Agua.",
+      "texto": "Dragon Quest: The Adventure of Dai nº 11/25 (Manga Shonen) se relaciona directamente con Dragon Quest: The Adventure of Dai nº 12/25, también de Koji Inada. Ambos pertenecen a la misma colección de fantasía, pero sus títulos los identifican como entregas consecutivas; el segundo presenta un conflicto relacionado con el asalto a la Tierra de Muerte.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,13 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387920852",
-        "isbn-9788448874803"
+        "isbn-9791387920852"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bb1315fb9752eec7",
+  "fuente_hash": "de81461f1cb5d675",
   "origen": "chatgpt-web"
 }

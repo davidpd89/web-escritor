@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410252691",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Flaminquita (Premio Mercè Llimona i Raymat): 2 se dirige al público infantil interesado en historias relacionadas con la naturaleza, la amistad y los vínculos afectivos. Sus 40 páginas sitúan la obra en una extensión breve, distinta de la de una novela juvenil larga. El título la identifica como el n.º 2.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Flaminquita (Premio Mercè Llimona i Raymat): 2 está disponible en tapa dura y tiene 40 páginas en castellano. La encuadernación rígida permite manipular el libro durante lecturas compartidas y conservarlo para posteriores relecturas. Es una edición física de Carambuco Ediciones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Flaminquita (Premio Mercè Llimona i Raymat): 2 y El mono que vino a cenar (La ovejita que vino a cenar) (Cuentos infantiles) se sitúan en el ámbito de la lectura infantil y presentan referencias al mundo animal. La obra de Nieves Poudereux se relaciona además con la amistad y los afectos; la de Steve Smallman plantea desde su título la llegada de un mono a cenar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c996d34fb93a5301",
+  "origen": "chatgpt-web"
+}

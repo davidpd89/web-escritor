@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La guerra de las tres reinas (Novela histórica), de Hendrik Van Nievelt Pattillo, se dirige a lectores que buscan ficción ambientada en un contexto histórico. Sus 480 páginas ofrecen una novela de extensión considerable; no corresponde al formato de ensayo histórico ni al de una obra de consulta sobre acontecimientos del pasado.",
+      "texto": "La guerra de las tres reinas (Novela histórica), de Hendrik Van Nievelt Pattillo, se dirige a lectores que buscan ficción situada en un contexto histórico. Su título sitúa el conflicto entre tres figuras reales como elemento central de la propuesta. Con 480 páginas, responde a una lectura de mayor extensión que una novela breve; no está orientada a quien busca un ensayo histórico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,12 +14,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible de La guerra de las tres reinas (Novela histórica), de Hendrik Van Nievelt Pattillo, es en tapa blanda y contiene 480 páginas. Su extensión permite conservar la lectura en un volumen físico y avanzar por una novela larga sin recurrir a un dispositivo electrónico.",
+      "texto": "La guerra de las tres reinas (Novela histórica) está disponible en tapa blanda, con 480 páginas en castellano. La encuadernación flexible facilita llevar una novela extensa en el equipaje y leerla en distintos lugares. Grijalbo publica esta edición física de la obra de Hendrik Van Nievelt Pattillo.",
       "evidencias": [
         "titulo",
         "autores",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián, y La guerra de las tres reinas (Novela histórica), de Hendrik Van Nievelt Pattillo, comparten el terreno de la ficción histórica. Astur identifica expresamente la Reconquista y su pertenencia a una saga; La guerra de las tres reinas sitúa en el título un enfrentamiento entre tres reinas. La elección depende del contexto histórico que interese explorar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401039539"
       ]
     }
   ],

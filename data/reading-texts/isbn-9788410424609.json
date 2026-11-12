@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410424609",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Planeta dólar: Cómo el dinero sucio es el motor del capitalismo global (PRINCIPAL DE LOS LIBROS), de Oliver Bullough, se dirige a quienes leen ensayos sobre economía y capitalismo. Su planteamiento gira alrededor del dinero sucio y su relación con el sistema económico global, por lo que se aparta de las guías de finanzas personales y de la narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Planeta dólar: Cómo el dinero sucio es el motor del capitalismo global (PRINCIPAL DE LOS LIBROS) se presenta en tapa blanda y tiene 408 páginas. El volumen de Principal de los Libros permite seguir el ensayo en papel y volver a sus apartados durante una lectura prolongada sobre economía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Planeta dólar: Cómo el dinero sucio es el motor del capitalismo global (PRINCIPAL DE LOS LIBROS) comparte el interés por el capitalismo con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta. Oliver Bullough centra su título en el dinero sucio, mientras que la obra de Miguel Anxo Bastos Boubeta anuncia una introducción al pensamiento anarcocapitalista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a92331ab829848f9",
+  "origen": "chatgpt-web"
+}

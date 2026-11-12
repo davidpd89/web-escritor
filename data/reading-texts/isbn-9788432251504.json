@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788432251504",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El verano de Cervantes: Una escritura desatada (Biblioteca A. Muñoz Molina) se orienta a lectores interesados en la escritura, la historia y el ensayo literario. Su asunto central es Cervantes y la creación escrita, por lo que se distingue de una novela contemporánea centrada en una trama de ficción independiente.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El verano de Cervantes: Una escritura desatada (Biblioteca A. Muñoz Molina) cuenta con una edición de bolsillo en tapa blanda de 448 páginas. Publicada por Booket en castellano, reúne el texto de Antonio Muñoz Molina en un formato físico pensado para transportar, leer y consultar sin recurrir a una pantalla.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El verano de Cervantes: Una escritura desatada (Biblioteca A. Muñoz Molina) y Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo) comparten el interés por la creación artística desde la no ficción. Antonio Muñoz Molina aborda la escritura y la figura de Cervantes, mientras que Carlos del Amor relaciona el arte con el amor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084122"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ea7a1b86081e63fe",
+  "origen": "chatgpt-web"
+}

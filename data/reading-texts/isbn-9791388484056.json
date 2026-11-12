@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388484056",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Void Rivals Vol 5 - Universo Transformers está dirigido a lectores de cómic y novela gráfica interesados en el Universo Transformers. El título lo identifica como el volumen 5, por lo que quienes busquen una obra presentada como entrega inicial deberán tener en cuenta esa numeración.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible de Void Rivals Vol 5 - Universo Transformers es en tapa blanda, con 144 páginas en castellano. Publicada por Moztros Producciones SL, permite conservar el volumen físico dentro de una colección de cómics y consultarlo sin depender de dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El poder del fuego nº 06/06: 6 (Fantasía) comparte con Void Rivals Vol 5 - Universo Transformers la autoría de Robert Kirkman y su pertenencia al cómic. La primera obra se identifica como fantasía, mientras que la segunda está vinculada al Universo Transformers. Ambas presentan una numeración en sus títulos, aunque corresponden a colecciones diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388103469"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aa9cc97bddd9bf30",
+  "origen": "chatgpt-web"
+}

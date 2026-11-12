@@ -4,23 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Qué hago, ¿me mato?, de Marc Biarnés, está dirigido a adultos que disfrutan del humor crítico sobre la convivencia y las contradicciones sociales. Su mirada sarcástica sobre la gente y la actualidad puede no encajar con quienes buscan un discurso sereno o un manual convencional de bienestar.",
+      "texto": "Qué hago, ¿me mato?, de Marc Biarnés, está dirigido a adultos que disfrutan del humor crítico sobre la convivencia y las contradicciones de la sociedad. Sus 288 páginas emplean la exageración y las referencias al aislamiento para tratar el hartazgo cotidiano; no encaja con quien busca un manual de bienestar de tono sereno.",
       "evidencias": [
         "titulo",
         "autores",
         "edad_recomendada",
         "categorias",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Qué hago, ¿me mato? puede leerse en tapa blanda o Kindle. La edición física tiene 288 páginas y solapas, mientras que Kindle permite llevar el texto en un lector electrónico o consultarlo desde el móvil sin transportar el libro.",
+      "texto": "Qué hago, ¿me mato? puede leerse en tapa blanda o Kindle. La edición impresa de Roca Editorial tiene 288 páginas y solapas, mientras que Kindle permite llevar la lectura en el móvil o en un dispositivo electrónico sin cargar con el volumen físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "edicion"
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Qué hago, ¿me mato? y Calma para tensos (Bienestar, estilo de vida, salud) parten de cuestiones vinculadas al malestar cotidiano, aunque Marc Biarnés recurre al humor crítico y Marion Deuchars se sitúa en el ámbito del bienestar. También puede compararse con Escape room para resolver mientras haces caca (Voces de hoy), de Crispin Fenwick: ambos se vinculan al ocio, pero uno plantea una crítica social y el otro propone resolver un juego.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388220258",
+        "isbn-9791388279492"
       ]
     }
   ],

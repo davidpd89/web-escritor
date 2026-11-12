@@ -4,19 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual se orienta a lectores interesados en relacionar pensamiento filosófico, astrología y prácticas espirituales. Su planteamiento temático se distancia de los libros dedicados exclusivamente a la nutrición o a consejos cotidianos de bienestar.",
+      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual se dirige a lectores interesados en la reflexión filosófica y las prácticas espirituales. Soledad Davies reúne estos asuntos en una obra de 240 páginas. Quien busque una novela de fantasía con una trama de ficción encontrará aquí un enfoque ensayístico.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual puede leerse en tapa blanda o Kindle. La edición física reúne 240 páginas y permite consultar el contenido en papel; Kindle facilita llevar el texto en un dispositivo compatible y acceder a él sin transportar el volumen.",
+      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual está disponible en tapa blanda y Kindle. La edición en papel de Editorial Kairós SA tiene 240 páginas y permite consultar pasajes sin pantalla; Kindle facilita llevar la lectura en un dispositivo compatible y acceder a ella sin transportar el volumen físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual y La cosmovisión de los chamanes / The Worldview of the Shamans comparten el interés por las tradiciones espirituales. Soledad Davies relaciona astrología, filosofía y magia, mientras que Jacobo Grinberg-Zylberbaum centra su obra en la cosmovisión chamánica. Ambas abordan estos asuntos desde autorías diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073874274"
       ]
     }
   ],

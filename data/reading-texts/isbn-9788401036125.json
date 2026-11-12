@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788401036125",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Señor de los Demonios se jubila (Un apocalipsis campechano 1) (Éxitos) se dirige a quienes buscan fantasía y aventuras con elementos de ciencia ficción. Su planteamiento gira alrededor de una figura demoníaca y la jubilación anunciada en el título, por lo que se distancia de las novelas realistas y de los relatos sin componentes fantásticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato de El Señor de los Demonios se jubila (Un apocalipsis campechano 1) (Éxitos). Sus 248 páginas se presentan en una edición física de Plaza & Janés, adecuada para guardar en una estantería, prestar o regalar como ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Señor de los Demonios se jubila (Un apocalipsis campechano 1) (Éxitos) y Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) comparten elementos de ficción especulativa. La obra de M. H. Foster combina fantasía y aventuras alrededor de la jubilación de un señor demoníaco, mientras que la de Andy Weir se vincula a la ciencia ficción y presenta una edición con cantos tintados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388147470"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "090a3b282b909ab0",
+  "origen": "chatgpt-web"
+}

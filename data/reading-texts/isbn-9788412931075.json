@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788412931075",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Antología final: 282 (LITORAL), de Varios autores, se dirige a quienes buscan poesía y relatos reunidos en una misma publicación. Sus 352 páginas permiten una lectura por partes; quien prefiera seguir una única novela encontrará una propuesta editorial diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Antología final: 282 (LITORAL) está editada en tapa blanda y reúne 352 páginas en castellano. El formato físico permite alternar entre poesía y relatos, marcar páginas y retomar la lectura en distintos momentos. La edición corresponde a Revista Litoral.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antología final: 282 (LITORAL) puede compararse con Mecanópolis: Cuentos filosóficos para todas las edades, también firmado por Varios autores. Ambos reúnen aportaciones bajo una autoría colectiva, pero el segundo anuncia cuentos filosóficos para distintas edades, mientras que Antología final: 282 (LITORAL) combina poesía y relatos. La diferencia principal está en el alcance de los géneros y en el enfoque declarado de cada publicación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399188592"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "12020f31af2a4378",
+  "origen": "chatgpt-web"
+}

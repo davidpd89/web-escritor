@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Eres perfecta tal y como eres: Un cuento para potenciar la autoestima, la felicidad y la positividad de las niñas (Montena) se dirige a lectoras interesadas en la autoestima y el desarrollo personal. Su enfoque en el bienestar emocional y la positividad lo diferencia de las obras centradas en aventuras o conflictos fantásticos.",
+      "texto": "Eres perfecta tal y como eres: Un cuento para potenciar la autoestima, la felicidad y la positividad de las niñas (Montena) se dirige a lectoras infantiles interesadas en historias sobre autoestima y emociones positivas. Su enfoque en el desarrollo personal mediante un cuento lo diferencia de las novelas centradas principalmente en la aventura o la acción.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,11 +12,23 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Eres perfecta tal y como eres: Un cuento para potenciar la autoestima, la felicidad y la positividad de las niñas (Montena) se ofrece en tapa blanda y Kindle. La edición impresa tiene 160 páginas y permite consultar el cuento en papel; Kindle facilita llevar la lectura en el móvil o en un lector electrónico.",
+      "texto": "La edición en tapa blanda de Eres perfecta tal y como eres: Un cuento para potenciar la autoestima, la felicidad y la positividad de las niñas (Montena) tiene 160 páginas y permite compartir la lectura en papel. Kindle ofrece una opción digital para llevar el cuento en el móvil o en un lector electrónico compatible.",
       "evidencias": [
         "titulo",
         "numero_paginas",
         "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Modo drama activado (El mundo según Cloe 1) (Ficción Kids) y Eres perfecta tal y como eres: Un cuento para potenciar la autoestima, la felicidad y la positividad de las niñas (Montena) se sitúan en el ámbito de las lecturas infantiles. El primero se presenta como ficción protagonizada por Cloe; el segundo plantea expresamente el trabajo de la autoestima, la felicidad y la positividad de las niñas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427258716"
       ]
     }
   ],

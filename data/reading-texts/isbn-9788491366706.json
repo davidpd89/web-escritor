@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Auschwitz. Culpa y responsabilidad (Fora de col.Lecciò), de Josep Hereu Bohigas, se dirige a lectores interesados en historia, filosofía y religión y espiritualidad. Sus 578 páginas y su orientación hacia estas materias lo alejan de quien busque narrativa de ficción o una lectura breve de entretenimiento.",
+      "texto": "Auschwitz. Culpa y responsabilidad (Fora de col.Lecciò), de Josep Hereu Bohigas, se dirige a lectores interesados en la historia, la filosofía y las cuestiones de responsabilidad moral. Sus 578 páginas corresponden a una obra extensa, alejada de las lecturas breves de entretenimiento y de los manuales prácticos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,13 +14,25 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda concentra las 578 páginas de Auschwitz. Culpa y responsabilidad (Fora de col.Lecciò), de Josep Hereu Bohigas, en un único volumen físico. Es la opción del catálogo para quien prefiera leer en papel y conservar el libro en su biblioteca.",
+      "texto": "Auschwitz. Culpa y responsabilidad (Fora de col.Lecciò) se edita en tapa blanda por Editorial Claret, con 578 páginas. El volumen físico permite consultar distintos pasajes y regresar a ellos durante una lectura prolongada, aunque su extensión supone más peso y espacio que un libro breve.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Auschwitz. Culpa y responsabilidad (Fora de col.Lecciò) y Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, comparten el interés por cuestiones filosóficas. La obra de Josep Hereu Bohigas relaciona Auschwitz con la culpa y la responsabilidad; la de Soledad Davies vincula la filosofía con la astrología, la magia y la práctica espiritual.",
       "evidencias": [
         "titulo",
         "autores",
-        "numero_paginas",
-        "formatos_disponibles",
-        "formato_edicion"
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
       ]
     }
   ],

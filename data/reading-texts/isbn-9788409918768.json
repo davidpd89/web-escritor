@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788409918768",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Beyond the Channels: Los cimientos se dirige a lectores interesados en economía y empresa. Es una obra de José Javier Nicolás Tejedor de 275 páginas, por lo que su orientación temática se aleja de la ficción y de las lecturas centradas en personajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Beyond the Channels: Los cimientos está disponible en tapa blanda, con 275 páginas en castellano. Esta edición física permite consultar y señalar pasajes sobre papel, además de conservar el volumen en una biblioteca de economía y empresa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Beyond the Channels: Los canales es la comparación más directa con Beyond the Channels: Los cimientos: ambos títulos pertenecen a la obra de José Javier Nicolás Tejedor, aunque distinguen los canales de los cimientos. ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido, de Rory Sutherland, ofrece otra referencia vinculada al pensamiento empresarial, pero centrada en las ideas y su aparente falta de lógica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409933570",
+        "isbn-9791399087222"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "42f0e02fccdf1620",
+  "origen": "chatgpt-web"
+}

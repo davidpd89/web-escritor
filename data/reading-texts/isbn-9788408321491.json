@@ -4,30 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Descifrando Washington (Ciudades contadas), de Sara Canals Serra, se dirige a lectores de ensayo y libros de viajes interesados en una ciudad concreta. Sus 192 páginas en castellano ofrecen una extensión delimitada; no corresponde a una novela de ficción ni a una recopilación de destinos de distintos países.",
+      "texto": "Descifrando Washington (Ciudades contadas) se dirige a lectores interesados en los libros de viajes y el ensayo sobre ciudades. Por su enfoque temático, se aleja de la narrativa de ficción y de las guías centradas exclusivamente en itinerarios prácticos.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas",
-        "idioma"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Descifrando Washington (Ciudades contadas) tiene una edición en tapa blanda de 192 páginas. El volumen de Geoplaneta permite llevar la lectura en papel durante desplazamientos o conservarla como libro de consulta sobre la ciudad. Su contenido se presenta en castellano.",
+      "texto": "La tapa blanda de Descifrando Washington (Ciudades contadas) reúne 192 páginas en una edición física de Geoplaneta, adecuada para consultar durante un viaje. Kindle permite llevar el mismo título en un lector electrónico o en el móvil, sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
         "editorial",
-        "idioma",
-        "categorias"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Descifrando Washington (Ciudades contadas) comparte el interés por los lugares con 33 islas: Un periplo mediterráneo. De Marettimo a Venecia., aunque el primero se centra en una ciudad y el segundo plantea un recorrido mediterráneo. También se aproxima a A lomos de mi borrico: 537 (El Acantilado) por su relación con los viajes, pero este último corresponde a la obra de Andrzej Stasiuk.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387873127",
+        "isbn-9791387964771"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1e4aee8ba286b2ff",
+  "fuente_hash": "6d6c9764f16a3e8e",
   "origen": "chatgpt-web"
 }

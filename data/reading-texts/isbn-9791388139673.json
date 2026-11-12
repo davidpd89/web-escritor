@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ni crimen ni castigo: Ideas esenciales de Dostoievski que te cambiarán la vida (No ficción), de Oliver Samsa, se dirige a lectores interesados en la filosofía y el desarrollo personal a través de las ideas de Dostoievski. No está planteado como una novela de ficción, por lo que encaja menos con quienes buscan una narración literaria.",
+      "texto": "Se dirige a lectores interesados en relacionar las ideas filosóficas de Dostoievski con cuestiones de desarrollo personal. Ni crimen ni castigo: Ideas esenciales de Dostoievski que te cambiarán la vida (No ficción), de Oliver Samsa, pertenece al ámbito de la filosofía y la autoayuda. No está planteado como una novela de ficción ni como una edición de las obras literarias del autor estudiado.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,12 +13,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Ni crimen ni castigo: Ideas esenciales de Dostoievski que te cambiarán la vida (No ficción) tiene una edición en tapa blanda de 224 páginas, publicada por Roca Editorial. El formato físico permite subrayar reflexiones y recuperar pasajes sobre las ideas de Dostoievski durante posteriores lecturas.",
+      "texto": "Ni crimen ni castigo: Ideas esenciales de Dostoievski que te cambiarán la vida (No ficción) tiene una edición en tapa blanda de 224 páginas. Este formato permite transportar el volumen con menos rigidez que una encuadernación de tapa dura y consultar sus ideas durante la lectura. Roca Editorial lo publica en castellano.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando solo queda aire: Aprender a morir es aprender a vivir (Crecimiento personal), de Paul Kalanithi, comparte con Ni crimen ni castigo: Ideas esenciales de Dostoievski que te cambiarán la vida (No ficción), de Oliver Samsa, la reflexión sobre la vida desde el desarrollo personal. La diferencia está en el punto de partida: el primero relaciona vivir y morir, mientras que el segundo toma las ideas de Dostoievski como eje filosófico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425375286"
       ]
     }
   ],

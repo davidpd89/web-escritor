@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788408331254",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Íntimo, de Isabel Díaz Ayuso, se dirige a lectores de biografías y memorias interesados en figuras vinculadas al poder y la política. Por su enfoque temático y sus 520 páginas, queda alejado de quienes buscan ficción narrativa o una introducción breve a asuntos políticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Íntimo cuenta con una edición en tapa dura de 520 páginas, publicada en castellano por Editorial Planeta. Es un volumen extenso para leer y consultar en formato físico, con una encuadernación rígida apropiada para guardarlo en una biblioteca o entregarlo como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Íntimo, de Isabel Díaz Ayuso, puede compararse con Antes de irme (Espasa Actualidad), de Miguel Ángel Revilla, por su vinculación con figuras públicas y el ámbito político. Otra referencia es Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes, de Andrew Paxman, que anuncia expresamente una estructura biográfica por episodios. Íntimo se presenta, en cambio, dentro de las memorias y la política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073873154",
+        "isbn-9788467085044"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3b82ce469e47d53a",
+  "origen": "chatgpt-web"
+}

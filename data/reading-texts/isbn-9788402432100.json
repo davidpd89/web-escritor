@@ -4,21 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Nuestra historia de amor: El libro para conoceros mejor y seguir escribiendo vuestra historia (Bruguera Tendencias) se dirige a quienes quieren dedicar un libro a su relación de pareja. Su enfoque en el amor y el conocimiento mutuo lo aleja de las lecturas centradas en la crianza o la psicología general.",
+      "texto": "Está dirigido a quienes quieren dedicar tiempo a conocerse mejor en pareja y conservar su historia compartida. Nuestra historia de amor: El libro para conoceros mejor y seguir escribiendo vuestra historia (Bruguera Tendencias), de Madame G. Rouge, aborda el amor y las relaciones desde el desarrollo personal. No responde a la búsqueda de una novela romántica de ficción.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "autores"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es en tapa dura, publicada por Bruguera y con 192 páginas. Esta encuadernación permite conservar el libro como recuerdo de pareja y consultarlo en distintas ocasiones; su extensión también facilita repartir la lectura en varias sesiones.",
+      "texto": "La edición de Nuestra historia de amor: El libro para conoceros mejor y seguir escribiendo vuestra historia (Bruguera Tendencias) se presenta en tapa dura, con 192 páginas en castellano. Su encuadernación rígida permite conservarlo como recuerdo de pareja y entregarlo como regalo físico. Es la opción recogida en el catálogo para este título de Madame G. Rouge.",
       "evidencias": [
+        "titulo",
+        "autores",
         "formatos_disponibles",
-        "editorial",
         "numero_paginas",
-        "titulo"
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Conectados para el amor / Wired for Love, de Stan Tatkin, comparte el interés por las relaciones de pareja, pero se presenta desde una perspectiva vinculada al amor y la conexión. Nuestra historia de amor: El libro para conoceros mejor y seguir escribiendo vuestra historia (Bruguera Tendencias), de Madame G. Rouge, centra su propuesta en conocerse mejor y construir una historia compartida. Ambos tratan la pareja desde enfoques distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876056"
       ]
     }
   ],

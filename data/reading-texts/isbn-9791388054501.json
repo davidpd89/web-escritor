@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388054501",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El talismán de la alegría: Poesía (2015-2020) (La Cruz del Sur) corresponde a lectores de poesía que buscan textos vinculados al periodo 2015-2020. La obra de Pablo Anadón reúne 194 páginas, por lo que responde a una búsqueda de lectura poética y no a quien pretende encontrar una novela con una trama continuada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El talismán de la alegría: Poesía (2015-2020) (La Cruz del Sur) tiene una edición en tapa blanda de Editorial Pre-Textos, con 194 páginas. El volumen físico permite consultar los poemas, regresar a páginas anteriores y marcar pasajes durante la lectura, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El talismán de la alegría: Poesía (2015-2020) (La Cruz del Sur) comparte el ámbito poético con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. El título de Pablo Anadón delimita su poesía al periodo 2015-2020, mientras que el de Pedro Salinas identifica una antología amorosa, diferencia que orienta la búsqueda por periodo o tema.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7a1d0c3a681873fa",
+  "origen": "chatgpt-web"
+}

@@ -4,23 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Murena nº 13 (BD - Autores Europeos) se dirige a lectores de aventuras juveniles interesados en publicaciones de cómic europeo. Jean Dufaux firma este volumen de 64 páginas, cuyo título lo identifica como el n.º 13; se aleja de las novelas extensas y de las lecturas centradas en el romance.",
+      "texto": "Murena nº 13 (BD - Autores Europeos), de Jean Dufaux, encaja con lectores interesados en las aventuras y la narrativa juvenil en formato cómic. Su orientación hacia la aventura lo distancia de quienes buscan ensayos o libros prácticos, mientras que el título lo identifica como el n.º 13.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Murena nº 13 (BD - Autores Europeos) se publica en tapa dura, con 64 páginas en castellano y edición de Planeta Cómic. La encuadernación rígida permite conservar el volumen en una colección física, mientras que su extensión resulta manejable para una lectura en papel.",
+      "texto": "Murena nº 13 (BD - Autores Europeos) se publica en tapa dura, con 64 páginas en castellano. La encuadernación rígida favorece su conservación en una colección física y permite consultar las páginas repetidamente sin utilizar una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El poder del fuego nº 06/06: 6 (Fantasía), de Robert Kirkman y Chris Samnee, comparte con Murena nº 13 (BD - Autores Europeos) la identificación numérica de sus entregas, aunque el primero señala expresamente la fantasía y el segundo se clasifica como aventura juvenil. El caballero de la capa negra, de Carlos J. Sánchez, ofrece otra referencia vinculada por su título a la figura del caballero, frente a la identificación de Murena como obra de autores europeos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399254419",
+        "isbn-9791388103469"
       ]
     }
   ],

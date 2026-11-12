@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410451988",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida, de Kelly Ann Street, se dirige a lectores interesados en el desarrollo personal y el bienestar emocional. Su planteamiento gira alrededor de las heridas personales y la búsqueda de equilibrio. No está enfocado a quien busque una novela de ficción o una historia de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida se publica en tapa blanda, con 244 páginas en castellano. Su extensión permite organizar la lectura en sesiones y volver a los apartados que interesen. La edición física pertenece a Amat Editorial.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida se aproxima a Alma de vencedor: Los 10 principios innegociables para hacerte más fuerte cuando la vida más aprieta, de Fausto Alfaro Cádiz, por su interés en afrontar dificultades personales. Kelly Ann Street plantea la sanación y el equilibrio, mientras que Fausto Alfaro Cádiz organiza su propuesta alrededor de 10 principios de fortaleza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409938193"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8afdc7a559e80d3e",
+  "origen": "chatgpt-web"
+}

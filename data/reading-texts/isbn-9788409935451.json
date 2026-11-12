@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788409935451",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los misterios de Victoria: La casa abandonada, de Ester G. Cuadra, se dirige al público infantil y juvenil interesado en historias de misterio. Su clasificación también incluye naturaleza y sus 209 páginas plantean una lectura más extensa que un cuento breve; no responde a la búsqueda de un libro exclusivamente informativo sobre el entorno natural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los misterios de Victoria: La casa abandonada se publica en tapa blanda, con 209 páginas en castellano. La edición física de Ester García Cuadra permite leer la historia en papel y llevarla en una mochila, una opción práctica para una lectura juvenil de esta extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Onin 2 - Onin y el misterio del bosque, de Ibon Martín, comparte con Los misterios de Victoria: La casa abandonada el misterio y una referencia a espacios naturales. La obra de Ibon Martín incorpora aventuras y un componente mágico en su presentación, mientras que el título de Ester G. Cuadra sitúa el misterio alrededor de una casa abandonada.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387994556"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "909e2f3e4aa9120e",
+  "origen": "chatgpt-web"
+}

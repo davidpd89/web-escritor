@@ -4,21 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La presencia de la filosofía (Serie ENDEBATE) está dirigida a lectores interesados en el pensamiento filosófico y el ensayo. Con 136 páginas, plantea una lectura de extensión contenida, distinta de una novela de ficción o de un manual de ejercicios prácticos.",
+      "texto": "La presencia de la filosofía (Serie ENDEBATE) está dirigida a lectores interesados en ensayos y cuestiones filosóficas. Su orientación hacia la reflexión teórica la diferencia de la narrativa de ficción y de los libros de consejos prácticos sobre bienestar.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La presencia de la filosofía (Serie ENDEBATE) cuenta con una edición en tapa blanda de 136 páginas, publicada por Debate. Su extensión permite llevar el ensayo en papel sin el volumen físico de una obra de varios cientos de páginas.",
+      "texto": "La presencia de la filosofía (Serie ENDEBATE) tiene una edición en tapa blanda de 136 páginas en castellano. Su extensión relativamente breve facilita llevarla y distribuir la lectura en varias sesiones, con posibilidad de volver a los pasajes anteriores. La publica Debate.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
+        "editorial",
         "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La presencia de la filosofía (Serie ENDEBATE) comparte interés filosófico con Arendt y la antropología de la condición plural en doble movimiento, de Javier Pons-Gallach. El título de Javier Pons-Gallach delimita su estudio a la condición plural, mientras que el de Wolfram Eilenberger plantea la presencia de la filosofía en términos más generales. Ambos se distinguen de Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, por el enfoque espiritual anunciado en este último.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399308358",
+        "isbn-9788411214315"
       ]
     }
   ],

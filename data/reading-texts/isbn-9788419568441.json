@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788419568441",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El año de la nada: 12 (Poesía), de Marc J. Mellado, está dirigido a lectores que buscan poesía contemporánea en castellano. Con 136 páginas, ofrece una extensión contenida; no responde a quien prefiere una novela extensa o una narración organizada alrededor de una trama.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El año de la nada: 12 (Poesía) está editado en tapa blanda por Erato Ediciones, con 136 páginas en castellano. El formato impreso permite consultar y releer sus páginas directamente, además de conservar el volumen en una biblioteca de poesía.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El año de la nada: 12 (Poesía) puede compararse con 223 esquinas: 16 (La garza roja) y Animales que flotan lejos de casa: 43 (Leteo) dentro de una selección de poesía. Las diferencias identificables están en la autoría: Marc J. Mellado, Antonio Fernández Lera y Nicolás Peña, respectivamente, y en las colecciones que señalan sus títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9791388299421"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "450ab18702abe321",
+  "origen": "chatgpt-web"
+}

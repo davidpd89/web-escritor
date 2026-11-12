@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388324222",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mítica: Una nueva historia del mundo de Homero a través de las mujeres: 125 (Ático Historia), de Emily Hauser, se dirige a lectores interesados en la historia y el papel de las mujeres. Su enfoque histórico, con referencias a Homero, se aparta de la ficción de aventuras y de las novelas románticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Mítica: Una nueva historia del mundo de Homero a través de las mujeres: 125 (Ático Historia) es de tapa dura y contiene 552 páginas. Publicada por Atico de los Libros en castellano, su encuadernación rígida permite mantener un volumen extenso como libro de consulta o de lectura continuada.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mítica, de Emily Hauser, y Mujeres que la liaron, de Tatiana Gómez Montero, comparten el interés por recuperar el protagonismo femenino en la historia. La primera parte del mundo de Homero, mientras que la segunda abarca 3000 años de historia feminista, desde Hipatia de Alejandría hasta Simone de Beauvoir.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788403527041"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2a41517df9dd9280",
+  "origen": "chatgpt-web"
+}

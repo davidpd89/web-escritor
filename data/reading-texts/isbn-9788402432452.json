@@ -4,20 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Coco Wyo - Días bonitos: Momentos cozy & comfy para colorear (Bruguera Tendencias) está dirigido a quienes prefieren colorear escenas de ambiente acogedor antes que seguir una historia. Sus 96 páginas se orientan a la actividad artística, por lo que no responde a la búsqueda de una novela o un manual de dibujo técnico.",
+      "texto": "Coco Wyo - Días bonitos: Momentos cozy & comfy para colorear (Bruguera Tendencias), de Coco Wyo, está dirigido a quienes buscan una actividad de coloreado con una estética acogedora y cotidiana. No corresponde a quien quiere una novela con argumento y personajes, porque su propuesta se centra en colorear.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Coco Wyo - Días bonitos: Momentos cozy & comfy para colorear (Bruguera Tendencias) se publica en tapa blanda, con 96 páginas destinadas a colorear. El formato físico permite trabajar directamente sobre las páginas y transportar el cuaderno para utilizarlo en distintos lugares.",
+      "texto": "Coco Wyo - Días bonitos: Momentos cozy & comfy para colorear (Bruguera Tendencias) está disponible en tapa blanda y tiene 96 páginas. El formato en papel permite trabajar directamente sobre las páginas para colorear y guardar el volumen una vez utilizado; la edición pertenece a Bruguera.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Coco Wyo - Cosas de chicas (edición oficial en español) comparte autoría y la propuesta de colorear escenas acogedoras. Coco Wyo - Días bonitos: Momentos cozy & comfy para colorear (Bruguera Tendencias) se centra en momentos cotidianos, mientras que Dulce Navidad / Cozy Christmas: Coloring Book for Adults and Kids (Coco Wyo) introduce una temática navideña y señala expresamente un público infantil y adulto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402432391",
+        "isbn-9798890989888"
       ]
     }
   ],

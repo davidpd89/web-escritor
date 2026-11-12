@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387884307",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Piel de cocodrilo (INFANTIL), de José Carlos Román, está dirigido al público infantil. Su extensión de 36 páginas permite plantear sesiones de lectura breves, mientras que quienes busquen una narración extensa encontrarán aquí un libro de menor recorrido.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Piel de cocodrilo (INFANTIL) se publica en tapa dura y consta de 36 páginas. La cubierta rígida resulta práctica para conservar el libro entre lecturas compartidas y guardarlo en una biblioteca infantil; su extensión permite leerlo en una sesión breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Quiero ser papá Noel y Piel de cocodrilo (INFANTIL) comparten autor, José Carlos Román, y se pueden comparar desde esa continuidad de autoría. Sus títulos apuntan a asuntos distintos: el primero remite a la figura de papá Noel y el segundo a la piel de un cocodrilo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387501846"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "79f5d564ce9fc19b",
+  "origen": "chatgpt-web"
+}

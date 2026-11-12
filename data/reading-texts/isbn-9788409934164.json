@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788409934164",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Brujas de Aerthea: El secreto de Violet encaja con lectores de fantasía juvenil interesados en secretos y elementos de terror. Sus 710 páginas plantean una lectura extensa, menos adecuada para quien busca una novela breve o prefiere historias sin componentes inquietantes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Brujas de Aerthea: El secreto de Violet está disponible en tapa blanda, con 710 páginas en castellano. Es una edición física que permite avanzar por una lectura extensa sin depender de una pantalla, aunque su volumen resulta menos cómodo para transportarlo a diario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Brujas de Aerthea: El secreto de Violet y El secreto de la Ciudadela comparten el interés por los secretos, aunque el primero incorpora fantasía juvenil y terror. Frente a El hechizo más oscuro (Faeris Editorial), de Wanda Hellmund, la obra de Ángel Hache se distingue por su orientación juvenil y sus 710 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399023886",
+        "isbn-9791388108419"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c06649d65402cee8",
+  "origen": "chatgpt-web"
+}

@@ -4,23 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un cadáver por Navidad: 3 (Crimen y misterio) encaja con lectores de novela histórica que también buscan una trama de misterio criminal. La presencia de un cadáver en el título y su clasificación como thriller lo alejan de quienes prefieren historias navideñas sin delitos ni investigaciones.",
+      "texto": "Un cadáver por Navidad: 3 (Crimen y misterio) se dirige a lectores que buscan una combinación de novela histórica e intriga criminal. Edward Marston firma una obra de 384 páginas cuyo título sitúa el crimen en un contexto navideño; encaja menos con quienes prefieren historias sin investigaciones ni elementos de misterio.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "autores"
+        "autores",
+        "numero_paginas",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Un cadáver por Navidad: 3 (Crimen y misterio) cuenta con una edición en tapa blanda de 384 páginas, publicada en castellano por Editorial Alma. Es una opción física para leer por capítulos y conservar en una estantería, con una extensión superior a la de una novela breve.",
+      "texto": "Un cadáver por Navidad: 3 (Crimen y misterio) se presenta en tapa blanda, con 384 páginas en castellano. Es una edición física para quienes prefieren seguir una novela de misterio en papel, conservar el ejemplar o prestarlo después de leerlo.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial",
-        "edicion"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un cadáver por Navidad: 3 (Crimen y misterio) comparte la combinación de historia y crimen con El asesino de la almarada (Novela Histórica). Edward Marston sitúa el misterio bajo una referencia navideña, mientras que el título de Gastón Morata destaca un asesinato y su pertenencia a la novela histórica. Ambos se relacionan con el crimen, pero sus títulos anuncian puntos de partida diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370205362"
       ]
     }
   ],

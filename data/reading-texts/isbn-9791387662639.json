@@ -4,28 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El cerebro optimista, de Mikel Alonso, se dirige a lectores interesados en comprender el optimismo desde la neurociencia y la psicología. Sus 264 páginas abordan el crecimiento personal y el bienestar; por su enfoque, se aleja de los manuales centrados exclusivamente en alimentación o ejercicio físico.",
+      "texto": "El libro de Mikel Alonso se dirige a lectores interesados en la relación entre neurociencia, optimismo y desarrollo personal. Su enfoque combina psicología y bienestar, por lo que encaja menos con quienes buscan ficción o una obra centrada exclusivamente en nutrición y ejercicio físico.",
       "evidencias": [
-        "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "titulo",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne 264 páginas y permite subrayar conceptos o marcar apartados durante la lectura. Es un formato físico para consultar las cuestiones de psicología y crecimiento personal que aborda Mikel Alonso, tanto de forma continuada como por sesiones.",
+      "texto": "La obra de Mikel Alonso está disponible en tapa blanda, Kindle y audiolibro. La edición impresa de Urano tiene 264 páginas y permite consultar pasajes en papel; Kindle facilita la lectura en el móvil y el audiolibro permite escuchar el contenido mientras se realizan otras actividades.",
       "evidencias": [
+        "autores",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Mikel Alonso comparte su orientación hacia el desarrollo personal con Cuando no sé lo que quiero: 150 enseñanzas para encontrar tu camino (Bruguera Tendencias), de Seung-hwan Jeon. Mientras Mikel Alonso aborda el optimismo desde la neurociencia, el libro de Seung-hwan Jeon plantea la búsqueda de orientación personal mediante 150 enseñanzas.",
+      "evidencias": [
         "autores",
-        "titulo"
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431684"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "21b4aaf4f200a0f3",
+  "fuente_hash": "819b06f0d95c3a39",
   "origen": "chatgpt-web"
 }

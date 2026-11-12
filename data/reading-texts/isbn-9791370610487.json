@@ -4,20 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El abordaje y registro de buques en el proceso penal (Monografía) se dirige a lectores interesados en las actuaciones sobre embarcaciones dentro del procedimiento penal. Su enfoque jurídico concreto no corresponde a una lectura sobre navegación recreativa, historia marítima o aventuras en el mar.",
+      "texto": "El abordaje y registro de buques en el proceso penal (Monografía) se dirige a quienes estudian cuestiones jurídicas relacionadas con las actuaciones sobre embarcaciones dentro del proceso penal. El tema tratado por Javier Blanco Vargas es específico y se aparta de las obras de derecho general o de la narrativa marítima.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de El abordaje y registro de buques en el proceso penal (Monografía) tiene 184 páginas. Frente a monografías jurídicas más extensas, ofrece un volumen físico de menor tamaño para estudiar y consultar esta cuestión procesal.",
+      "texto": "El abordaje y registro de buques en el proceso penal (Monografía) cuenta con una edición en tapa blanda de 184 páginas. Su extensión y encuadernación flexible facilitan el transporte para estudiar o consultar en papel una cuestión concreta del derecho procesal penal.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Casos prácticos sobre el despido (Supuestos prácticos) y El abordaje y registro de buques en el proceso penal (Monografía) comparten el ámbito jurídico, pero tratan cuestiones diferentes. El libro del Departamento de Documentación Iberley aborda supuestos de despido, mientras que Javier Blanco Vargas se ocupa del abordaje y registro de buques dentro del proceso penal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370651749"
       ]
     }
   ],

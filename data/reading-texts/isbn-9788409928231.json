@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409928231",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a profesionales de clínicas dentales interesados en aplicar ChatGPT a su actividad sin descuidar la protección de los datos de sus pacientes. Su enfoque combina inteligencia artificial y gestión profesional, por lo que se aleja de los manuales generales de informática y de las lecturas sobre tratamientos odontológicos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 200 páginas en castellano, publicadas por Ediciones G10. Es un formato físico que permite consultar apartados durante el trabajo, señalar páginas y conservar anotaciones sobre el uso de inteligencia artificial en una clínica dental.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gestión de proyectos de inteligencia artificial, de Adrián González Sánchez y Malini Jain Runtasewee, comparte el interés por aplicar esta tecnología en entornos profesionales. La diferencia está en el alcance: María Peñarrocha Diago centra su libro en las clínicas dentales y la protección de datos de pacientes, mientras que el título afín aborda la gestión de proyectos de inteligencia artificial.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788426742827"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1bd71dec05dbe029",
+  "origen": "chatgpt-web"
+}

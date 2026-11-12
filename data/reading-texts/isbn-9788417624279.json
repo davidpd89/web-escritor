@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El último barco: 3 (Nuevos Tiempos / Policiaca) se dirige a lectores de misterio, thriller y aventuras que buscan una novela extensa. Sus 712 páginas requieren más tiempo de lectura que una obra breve; encaja menos con quienes prefieren relatos cortos o narraciones ajenas a la intriga.",
+      "texto": "El último barco: 3 (Nuevos Tiempos / Policiaca) se orienta a lectores de misterio, thriller y aventuras que buscan una novela extensa. Sus 712 páginas y su identificación como policiaca lo alejan de quienes prefieren relatos breves o narraciones centradas en el romance.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,31 +13,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El último barco: 3 (Nuevos Tiempos / Policiaca) está editado en tapa blanda y tiene 712 páginas en castellano. Por su extensión, conviene considerar el tamaño del volumen para transportarlo; la encuadernación flexible permite mantener reunida una narración larga en un único libro.",
+      "texto": "El último barco: 3 (Nuevos Tiempos / Policiaca) puede leerse en tapa blanda, Kindle o escucharse como audiolibro. La edición impresa de 712 páginas permite conservarlo en papel; Kindle facilita transportarlo y el audiolibro ofrece una alternativa para escuchar la narración.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ojos de agua: 47 (Colección Escolar de / Literatura) comparte con El último barco: 3 (Nuevos Tiempos / Policiaca) la autoría de Domingo Villar y el interés por el misterio. El primero se presenta como narrativa juvenil en una colección escolar, mientras que el segundo combina misterio, thriller y aventuras en una edición de 712 páginas.",
+      "texto": "El último barco: 3 (Nuevos Tiempos / Policiaca) y La playa de los ahogados: 2 (Nuevos Tiempos / Policiaca) comparten autor, Domingo Villar, y la identificación policiaca. Sus títulos señalan números distintos, mientras que El último barco también está clasificado entre las aventuras.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387688165"
+        "isbn-9788417624262"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6b42bdc749f5b630",
+  "fuente_hash": "586961ca7237223e",
   "origen": "chatgpt-web"
 }

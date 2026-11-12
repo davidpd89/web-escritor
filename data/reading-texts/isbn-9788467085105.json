@@ -4,19 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Crimen en el Gran Hotel Alpine. Un nuevo caso de Miss Marple (Biblioteca Agatha Christie) se dirige a lectores de misterio interesados en casos criminales y personajes detectivescos. Su planteamiento se distancia de quienes buscan narrativa contemporánea sin enigmas ni investigaciones.",
+      "texto": "Crimen en el Gran Hotel Alpine. Un nuevo caso de Miss Marple (Biblioteca Agatha Christie), de Lucy Foley, encaja con lectores de misterio y narrativa contemporánea. Por su orientación hacia el crimen, se distancia de las lecturas que buscan exclusivamente historias cotidianas sin investigación ni intriga.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Crimen en el Gran Hotel Alpine. Un nuevo caso de Miss Marple (Biblioteca Agatha Christie) contiene 416 páginas y permite leer la novela en papel. Kindle ofrece una alternativa digital para llevar esa extensión en un dispositivo compatible, sin transportar el volumen físico.",
+      "texto": "Crimen en el Gran Hotel Alpine. Un nuevo caso de Miss Marple (Biblioteca Agatha Christie) ofrece tapa blanda y Kindle para sus 416 páginas. La primera permite leerlo y conservarlo en papel; Kindle facilita llevar la novela en un lector electrónico o en el móvil sin cargar con el volumen físico.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Crimen en el Gran Hotel Alpine. Un nuevo caso de Miss Marple (Biblioteca Agatha Christie) puede compararse con Asesinato antes de Navidad, de Katherine Black, por su relación con el crimen y el misterio. Lucy Foley sitúa su propuesta en un hotel y la vincula a Miss Marple, mientras que Katherine Black presenta a May Morrigan ante una Navidad que esperaba tranquila.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310264"
       ]
     }
   ],

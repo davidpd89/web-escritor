@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Estuche La ciudad de las luces muertas (Áncora & Delfín), de David Uclés, se sitúa entre la narrativa contemporánea y la historia. Por esa orientación, encaja con lectores interesados en ambos ámbitos y se distancia de los libros prácticos o de divulgación científica.",
+      "texto": "Estuche La ciudad de las luces muertas (Áncora & Delfín), de David Uclés, se sitúa entre la narrativa contemporánea y la historia. Se dirige a lectores interesados en esos ámbitos, mientras que su planteamiento editorial se aleja de los manuales históricos y de los libros de consulta académica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,14 +13,24 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Estuche La ciudad de las luces muertas (Áncora & Delfín) se presenta en tapa dura, con 88 páginas y edición en castellano de Ediciones Destino. Su extensión permite una lectura breve en papel, mientras que la encuadernación rígida favorece su conservación y presentación como regalo.",
+      "texto": "Estuche La ciudad de las luces muertas (Áncora & Delfín) se presenta en tapa dura y cuenta con 88 páginas. Su extensión permite una lectura breve en papel, y la encuadernación rígida resulta adecuada para conservar el volumen en una biblioteca o entregarlo como regalo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial",
-        "edicion"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Corazón de oro: Edición limitada a precio especial (Colección Especial) y Estuche La ciudad de las luces muertas (Áncora & Delfín) comparten su vinculación con la narrativa. La primera es una edición especial de una obra de Luz Gabás, mientras que la segunda se presenta como un estuche de David Uclés relacionado con la narrativa contemporánea y la historia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328353"
       ]
     }
   ],

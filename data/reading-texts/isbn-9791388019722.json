@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Schönberg o la muerte de la música: Cuarteto de la guerra IV (Narrativa) se dirige a lectores interesados en la novela histórica, el ensayo y la narrativa contemporánea. Su combinación de géneros se aleja de quienes buscan una lectura exclusivamente fantástica o de aventuras.",
+      "texto": "Schönberg o la muerte de la música: Cuarteto de la guerra IV (Narrativa) reúne intereses de lectores de novela histórica, ensayo y narrativa contemporánea. Su combinación de géneros se distancia de las lecturas centradas exclusivamente en el romance o de los manuales prácticos; el título lo identifica como la cuarta entrega de Cuarteto de la guerra.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,12 +12,25 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Schönberg o la muerte de la música: Cuarteto de la guerra IV (Narrativa) está disponible en tapa dura, con 248 páginas en castellano. Es una presentación física que permite conservar el volumen en una biblioteca personal y consultarlo de nuevo sin depender de un dispositivo.",
+      "texto": "Schönberg o la muerte de la música: Cuarteto de la guerra IV (Narrativa) se ofrece en tapa dura, con 248 páginas publicadas por Galaxia Gutenberg. Esta encuadernación proporciona una cubierta rígida para conservar el volumen en una biblioteca o entregarlo como regalo, sin recurrir a dispositivos de lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El baile de las que sobran (Novela histórica), de Fermina Cañaveras, comparte con Schönberg o la muerte de la música: Cuarteto de la guerra IV (Narrativa) su vinculación con la novela histórica. En cambio, el libro de Xavier Güell incorpora también una clasificación de ensayo y narrativa contemporánea, una diferencia de enfoque respecto al género expresado en el título afín.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083910"
       ]
     }
   ],

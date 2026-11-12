@@ -4,18 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Diccionario de la lengua española. Vigesimocuarta edición está dirigido a quienes buscan una obra de consulta académica sobre el español. Su contenido lexicográfico y su extensión de 3672 páginas responden a un uso de referencia, no a una lectura narrativa continuada.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "encaje_documentado",
-      "texto": "Diccionario de la lengua española. Vigesimocuarta edición es una obra lexicográfica de la Real Academia Española, organizada como referencia para la consulta del idioma. Esta edición reúne 3672 páginas en dos volúmenes. Su tradición editorial se remonta a 1780, cuando apareció una versión del primer diccionario académico sin citas de autores.",
+      "texto": "Diccionario de la lengua española. Vigesimocuarta edición está dirigido a quienes necesitan consultar vocabulario y cuestiones relacionadas con la lengua española. Por su carácter lexicográfico y sus 3672 páginas, responde a un uso de referencia más que a una lectura narrativa continuada.",
       "evidencias": [
         "titulo",
         "autores",
@@ -26,10 +15,9 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Diccionario de la lengua española. Vigesimocuarta edición se presenta en tapa dura con sobrecubierta y estuche. Editorial Espasa distribuye sus 3672 páginas en dos volúmenes, una configuración pensada para mantener la obra física reunida y consultarla en una mesa o estantería. El estuche forma parte de esta edición.",
+      "texto": "La edición disponible es en tapa dura con sobrecubierta y estuche, distribuida en dos volúmenes que suman 3672 páginas. Esta presentación permite mantener juntos ambos tomos y consultarlos físicamente, aunque su extensión la hace menos práctica para transportar a diario que para conservar en un lugar fijo.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
         "numero_paginas",
         "formatos_disponibles",
@@ -38,21 +26,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Diccionario de la lengua española. Vigesimocuarta edición y Récords para entender el planeta son obras de consulta o divulgación, pero responden a intereses diferentes. La Real Academia Española ofrece una referencia lexicográfica del español en dos volúmenes, mientras Un Mundo Inmenso organiza su recorrido alrededor de récords del planeta. Una se centra en el idioma; la otra, en conocimientos geográficos.",
+      "texto": "Diccionario de conceptos y términos para entender y moverse en política: 16 (Biblos) comparte su función de consulta, pero delimita el contenido al vocabulario político, mientras que Diccionario de la lengua española. Vigesimocuarta edición aborda el idioma de forma general. Récords para entender el planeta también ofrece información de referencia, centrada esta vez en curiosidades geográficas.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9791388175671",
         "isbn-9788411005494"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e28da18a6ac60eab",
+  "fuente_hash": "28f2f89e58deaebe",
   "origen": "chatgpt-web"
 }

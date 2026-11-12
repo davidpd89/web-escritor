@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788410399150",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Escuela de mitos y magia. El beso de la ondina: 1 (Inlov Romantasy) encaja con lectores interesados en la fantasía romántica, la magia y las aventuras. Su combinación de romance y elementos fantásticos se aleja de las lecturas realistas o centradas exclusivamente en la ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible de Escuela de mitos y magia. El beso de la ondina: 1 (Inlov Romantasy) es en tapa blanda, con 416 páginas en castellano. Este formato permite leer una novela extensa en papel sin el peso habitual de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El rey de los lobos / The Wolf King: 1, de Lauren Palphreyman, comparte con Escuela de mitos y magia. El beso de la ondina: 1 (Inlov Romantasy) su identificación como primera entrega y su presencia entre las lecturas de fantasía romántica del catálogo. La diferencia más visible está en sus referentes: lobos y realeza en un título, escuela y criaturas míticas en el otro.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073874762"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e2f5168dec2480a9",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409909056",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El libro negro del boxeo: los 10 problemas de la dulce ciencia se dirige a lectores interesados en los problemas del boxeo y en el deporte como actividad de tiempo libre. Por su enfoque temático, encaja menos con quienes buscan una novela deportiva o una guía de ejercicios físicos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, con 88 páginas en castellano. Su extensión permite leerla en sesiones breves y transportarla sin el volumen de un manual deportivo extenso.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El libro negro del boxeo: los 10 problemas de la dulce ciencia y 80 crímenes imposibles de resolver (FUERA DE ESCENA) comparten el interés por examinar problemas, aunque el primero trata el boxeo y el segundo plantea crímenes por resolver. Frente a 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos), centrado en colorear, el libro de Hugo Daniel Fernández López aborda cuestiones deportivas mediante texto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788408328384",
+        "isbn-9791388015816"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d307637b6ad19d3f",
+  "origen": "chatgpt-web"
+}

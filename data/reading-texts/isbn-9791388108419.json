@@ -4,25 +4,43 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El hechizo más oscuro (Faeris Editorial) se dirige a lectores de fantasía juvenil interesados en el romance y los elementos de terror. Con 552 páginas, responde a quienes buscan una novela extensa que combine esos géneros, más que una historia realista o un ensayo.",
+      "texto": "El hechizo más oscuro (Faeris Editorial) se dirige a lectores de fantasía juvenil que buscan elementos románticos y una ambientación relacionada con la magia. La obra de Wanda Hellmund combina fantasía y romance, por lo que no responde a quien prefiere narrativa realista sin componentes fantásticos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El hechizo más oscuro (Faeris Editorial) está disponible en tapa dura y Kindle, dos opciones para abordar sus 552 páginas. La tapa dura ofrece un volumen físico para conservar o regalar, mientras que Kindle permite transportar la novela completa en un lector electrónico o móvil.",
+      "texto": "El hechizo más oscuro (Faeris Editorial) está disponible en tapa dura, Kindle y audiolibro. Sus 552 páginas hacen de la edición física de Faeris un volumen extenso para conservar, mientras que Kindle evita cargar con ese peso y el audiolibro permite seguir la historia mediante escucha.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El hechizo más oscuro (Faeris Editorial) puede compararse con Asistente del villano (edición especial limitada) (Faeris Editorial) por su vinculación editorial con Faeris. La obra de Wanda Hellmund se presenta como fantasía juvenil con romance, mientras que la de Hannah Nicole Maehrer se identifica por su edición especial limitada. Saciar a la bestia - libro 1 (Faeris Editorial) comparte también el sello editorial, aunque su título identifica expresamente una primera entrega.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388108112",
+        "isbn-9791388108365"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "29a6370feea9b8db",
+  "fuente_hash": "5b951661f600a265",
   "origen": "chatgpt-web"
 }

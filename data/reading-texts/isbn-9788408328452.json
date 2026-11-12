@@ -4,20 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Legacy. Donde todo se ilumina: La faceta más romántica de la autora de la serie Empíreo: 3 (Planeta Internacional) está dirigido a lectores de romance contemporáneo. Quienes busquen una obra clasificada principalmente como fantasía encontrarán aquí una orientación diferente, centrada en el género romántico.",
+      "texto": "Legacy. Donde todo se ilumina: La faceta más romántica de la autora de la serie Empíreo: 3 (Planeta Internacional) se orienta a lectores de romance y narrativa contemporánea. Sus 200 páginas ofrecen una extensión más breve que la de muchas novelas largas, pero su clasificación romántica lo aleja de quienes buscan principalmente misterio o ensayo.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Legacy. Donde todo se ilumina: La faceta más romántica de la autora de la serie Empíreo: 3 (Planeta Internacional) se presenta en tapa blanda. Con 200 páginas en castellano, ofrece una extensión más contenida que la de otras novelas largas y permite leerla en un volumen físico relativamente breve.",
+      "texto": "La edición de Legacy. Donde todo se ilumina: La faceta más romántica de la autora de la serie Empíreo: 3 (Planeta Internacional) está disponible en tapa blanda. Sus 200 páginas forman un volumen físico de extensión contenida, publicado por Editorial Planeta en castellano, que puede guardarse y prestarse sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "editorial",
         "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El día de la Trilla (Empíreo) comparte con Legacy la autoría de Rebecca Yarros, aunque pertenece a la serie Empíreo. Legacy se presenta como una obra de romance y narrativa contemporánea, mientras que El día de la Trilla se identifica por su pertenencia a esa serie. Ambos títulos permiten comparar dos líneas de la producción de Rebecca Yarros desde sus respectivas identificaciones editoriales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408326847"
       ]
     }
   ],

@@ -4,23 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La naturaleza del poder: 34 (Tascabili), de Luciano Canfora, se orienta a lectores interesados en política, historia y filosofía. Sus 136 páginas corresponden a una obra breve de estas materias, alejada de quienes buscan una novela de ficción o una lectura centrada en acontecimientos personales.",
+      "texto": "La naturaleza del poder: 34 (Tascabili) está dirigido a lectores interesados en la filosofía, la historia y las cuestiones políticas. Sus 136 páginas corresponden a un ensayo breve, diferente de una novela de entretenimiento o de un manual práctico sobre instituciones.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La naturaleza del poder: 34 (Tascabili) se publica en tapa blanda, con 136 páginas en castellano. Su extensión permite transportarlo y consultar distintos pasajes sin cargar con un volumen extenso; la edición pertenece a Altamarea Ediciones.",
+      "texto": "La naturaleza del poder: 34 (Tascabili) se presenta en tapa blanda, con 136 páginas y edición de Altamarea Ediciones. Es un formato físico de extensión contenida que permite conservar el ensayo, subrayarlo y volver a sus pasajes durante la consulta.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La naturaleza del poder: 34 (Tascabili) puede compararse con La biblioteca desaparecida: 150 (Biblioteca de Ensayo / Serie mayor), también de Luciano Canfora, por su autoría y su relación con el pensamiento histórico. El primero aborda el poder desde la filosofía y la política, mientras que el segundo orienta su título hacia una biblioteca desaparecida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410415607"
       ]
     }
   ],

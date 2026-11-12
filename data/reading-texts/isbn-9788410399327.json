@@ -4,19 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está orientado a lectores de fantasía juvenil que buscan romance y aventuras dentro de una misma obra. Por su combinación de romantasy y elementos de ciencia ficción, encaja menos con quienes prefieren relatos realistas sin componentes fantásticos.",
+      "texto": "Una tempestad para matar un beso: La balada del fuego solar 2 (Inlov Romantasy) encaja con lectores de fantasía juvenil que buscan romance y aventuras dentro de una misma obra. Sus 512 páginas y su orientación hacia la romantasy la alejan de quienes prefieren relatos breves o narrativa realista sin elementos fantásticos.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Una tempestad para matar un beso: La balada del fuego solar 2 (Inlov Romantasy) está disponible en tapa dura y tiene 512 páginas. La encuadernación rígida resulta apropiada para conservar un volumen extenso en la estantería o entregarlo como regalo físico.",
+      "texto": "Una tempestad para matar un beso: La balada del fuego solar 2 (Inlov Romantasy) está disponible en tapa dura, con 512 páginas en castellano publicadas por Inlov. Esta edición física permite conservar el volumen en una biblioteca o regalarlo a lectores de fantasía juvenil. Su extensión requiere más espacio para transportarlo que un libro breve.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "edicion",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Asistente del villano (edición especial limitada) (Faeris Editorial) comparte con Una tempestad para matar un beso: La balada del fuego solar 2 (Inlov Romantasy) su vinculación con la fantasía romántica. La obra de Julia Dippel se identifica en el título como el n.º 2 de La balada del fuego solar, mientras que la de Hannah Nicole Maehrer destaca por su condición de edición especial limitada. El hechizo más oscuro (Faeris Editorial) constituye otra referencia del catálogo para comparar propuestas de fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388108112",
+        "isbn-9791388108419"
       ]
     }
   ],

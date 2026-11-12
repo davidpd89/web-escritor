@@ -4,22 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Todas las veces que se te acelera el corazón (Romántica) se dirige a lectores de romance juvenil que buscan una novela centrada en las relaciones afectivas. Su clasificación editorial la aleja de las lecturas orientadas principalmente al ensayo, la divulgación o la narrativa histórica.",
+      "texto": "Todas las veces que se te acelera el corazón (Romántica), de Carmen Arteaga, se dirige a lectores de romance y narrativa juvenil. Con 424 páginas, ofrece una lectura de cierta extensión y se aparta de las preferencias por la novela policiaca, el ensayo o las historias románticas especialmente breves.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "sinopsis_editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Todas las veces que se te acelera el corazón (Romántica) cuenta con una edición en tapa blanda de 424 páginas, adecuada para quien prefiere conservar y leer un ejemplar físico. También está disponible en Kindle, que permite llevar esta novela juvenil en formato digital y continuar la lectura desde un dispositivo compatible.",
+      "texto": "Todas las veces que se te acelera el corazón (Romántica) está disponible en tapa blanda y Kindle. La edición física de Fandom Books tiene 424 páginas y permite conservar el ejemplar en papel; Kindle ofrece una alternativa para leer esa misma obra en dispositivos electrónicos y llevarla sin añadir peso al equipaje.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
         "edicion",
-        "categorias"
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Todas las veces que se te acelera el corazón (Romántica) puede compararse con La última historia de Abby Bloom (Romántica), también de Carmen Arteaga. Ambas comparten autoría y orientación romántica, pero son títulos distintos; la primera se presenta además dentro de la narrativa juvenil y cuenta con 424 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388365041"
       ]
     }
   ],

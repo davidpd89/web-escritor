@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791388415234",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La canción del fiordo está orientada a lectores interesados en el romance dentro del cómic y la novela gráfica. Sus 80 páginas ofrecen una extensión breve frente a obras narrativas de varios cientos de páginas; no responde a la búsqueda de una novela extensa centrada en el misterio o la acción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La canción del fiordo se publica en tapa dura, con 80 páginas y edición de Serendipia Editorial. Es un volumen físico que permite conservar y consultar sus páginas directamente, además de entregarlo como regalo sin recurrir a un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "lecturas_afines: habla de las fuentes en vez de informar: la fuente",
+    "faltan módulos: lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "21da74ac5771cc6c",
+  "origen": "chatgpt-web"
+}

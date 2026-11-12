@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410906303",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "ROSAURA, AMOR PÚRPURA: Cuando la noche está más oscura, es cuando empieza a clarear se dirige a quienes leen romance contemporáneo centrado en el amor, la pareja y la familia. Sus 510 páginas plantean una lectura extensa; encaja menos con quien busca fantasía o aventuras como eje principal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible de ROSAURA, AMOR PÚRPURA: Cuando la noche está más oscura, es cuando empieza a clarear es en tapa dura. Sus 510 páginas forman un volumen físico extenso, adecuado para conservar en una biblioteca personal o entregar como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "ROSAURA, AMOR PÚRPURA: Cuando la noche está más oscura, es cuando empieza a clarear puede compararse con El clan Monet 1 - Tesoro (Ficción crossover), de Weronika Anna Marczak, por su vinculación con la narrativa de ficción. La obra de Reynalldo Rey aborda el romance, la pareja y la familia en 510 páginas, mientras que el título de Weronika Anna Marczak se presenta como ficción crossover y se identifica como una primera entrega.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427226074"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ada613b530b6593e",
+  "origen": "chatgpt-web"
+}

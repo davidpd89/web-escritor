@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788466381161",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche La casa de los espíritus | Mi nombre es Emilia del Valle (Best Seller | Ficción) reúne dos obras de Isabel Allende para lectores interesados en la narrativa familiar y la ficción contemporánea. Sus 832 páginas en conjunto responden a quien busca dos títulos de la misma autora, no a quien pretende adquirir una única novela por separado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El estuche de Isabel Allende se presenta en tapa blanda, en edición de libro de bolsillo de Penguin Bolsillo. Reúne La casa de los espíritus y Mi nombre es Emilia del Valle, con 832 páginas en total, para conservar ambas obras en formato físico o regalarlas juntas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Este estuche reúne La casa de los espíritus y Mi nombre es Emilia del Valle, ambos de Isabel Allende, en una edición de bolsillo. Frente a La casa de los espíritus como título individual, permite adquirir las dos obras juntas; Mi nombre es Emilia del Valle (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) se distingue por su presentación especial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401042751",
+        "isbn-9788466393706"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2a5360cd97df43ae",
+  "origen": "chatgpt-web"
+}

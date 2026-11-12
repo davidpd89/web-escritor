@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a quienes cuidan de un ser querido y buscan atender también su propio bienestar. Margarita Rojas aborda el cuidado familiar desde el desarrollo personal, por lo que su enfoque difiere del de un manual centrado exclusivamente en cuestiones médicas.",
+      "texto": "Cuidar al que cuida: Claves para el bienestar del que cuida a un ser querido (Best Seller | No Ficción), de Margarita Rojas, se dirige a quienes buscan orientación sobre el bienestar personal durante el cuidado familiar. Su enfoque de desarrollo personal y familia queda fuera de las lecturas centradas en la ficción o el entretenimiento narrativo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,13 +13,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Cuidar al que cuida: Claves para el bienestar del que cuida a un ser querido (Best Seller | No Ficción) se presenta en tapa blanda y formato de bolsillo. Sus 216 páginas permiten llevar el volumen en el bolso y volver a consultar sus contenidos sobre bienestar y cuidado familiar.",
+      "texto": "La edición de Penguin Bolsillo se presenta en tapa blanda y reúne 216 páginas en castellano. Su tamaño de libro de bolsillo facilita llevarlo consigo y volver a consultar los apartados relacionados con el cuidado y el bienestar personal.",
+      "evidencias": [
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Conectados para el amor / Wired for Love, de Stan Tatkin, comparte con el libro de Margarita Rojas el interés por los vínculos personales, aunque su título se centra en el amor y el de Margarita Rojas en el bienestar de quien cuida. Anatomía de una relación tóxica: Como reconocerla, salir de ella y recuperar tu vida, de David C, aborda las relaciones desde el reconocimiento de dinámicas perjudiciales, frente al cuidado familiar.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
-        "numero_paginas",
-        "categorias"
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409923595",
+        "isbn-9786073876056"
       ]
     }
   ],

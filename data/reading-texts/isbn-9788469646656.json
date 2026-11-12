@@ -1,0 +1,37 @@
+{
+  "id": "isbn-9788469646656",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Enciende las luces de Navidad está dirigido a lectores a partir de 3 años que disfrutan de los libros para tocar y jugar. Sus 12 páginas y su planteamiento manipulativo se alejan de las lecturas infantiles centradas exclusivamente en el texto.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Enciende las luces de Navidad se plantea como un libro manipulativo para explorar con las manos. Su propuesta de juego se vincula a las luces navideñas y al formato pop-up, con 12 páginas que permiten alternar la observación y la interacción física.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne las 12 páginas de Enciende las luces de Navidad en un volumen físico pensado para manipular. Este formato permite utilizar el libro como objeto de juego y conservarlo para futuras lecturas navideñas, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a4c246e9d096ed0b",
+  "origen": "chatgpt-web"
+}

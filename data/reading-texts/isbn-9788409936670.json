@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788409936670",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El libro de Halloween: Origen, mitología y evolución de la fiesta de difuntos se orienta a quienes quieren conocer la historia y las tradiciones relacionadas con Halloween. Sra Ruth Edna Kelley aborda una celebración desde sus orígenes y su mitología, por lo que el enfoque se distingue del de un manual de actividades para organizar fiestas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El libro de Halloween: Origen, mitología y evolución de la fiesta de difuntos está editado en tapa dura y tiene 185 páginas. La cubierta rígida protege el ejemplar durante las consultas posteriores y permite conservarlo como libro de referencia sobre la historia de esta celebración.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El libro de Halloween: Origen, mitología y evolución de la fiesta de difuntos se relaciona con Astrología, profecía y adivinación. Una historia ilustrada (Magia y misterio) (Enciclopedia visual) por su interés en tradiciones y creencias. Sra Ruth Edna Kelley centra su obra en Halloween, mientras que el título de DK abarca astrología, profecía y adivinación desde una perspectiva histórica ilustrada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241837603"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a90f8e4f57197026",
+  "origen": "chatgpt-web"
+}

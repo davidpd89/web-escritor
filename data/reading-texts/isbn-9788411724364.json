@@ -4,20 +4,32 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las runas de las brujas: Historia, creación y uso (MAGIA Y OCULTISMO), de Josephine Winter y Jason Tremain, se dirige a quienes buscan información sobre las runas desde una perspectiva histórica y práctica. Su tema específico lo diferencia de los libros de desarrollo personal centrados en la salud cotidiana o en las relaciones familiares.",
+      "texto": "Las runas de las brujas: Historia, creación y uso (MAGIA Y OCULTISMO) se dirige a quienes buscan una aproximación a las runas desde su historia y su utilización práctica. Su temática esotérica lo diferencia de los manuales generales de bienestar y de las novelas de fantasía, por lo que encaja menos con lectores que buscan ficción narrativa.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las runas de las brujas: Historia, creación y uso (MAGIA Y OCULTISMO) cuenta con 248 páginas en tapa blanda. La encuadernación permite tener un ejemplar físico para consultar las partes dedicadas a la historia, la creación y el uso de las runas, además de facilitar su transporte frente a una edición rígida de extensión equivalente.",
+      "texto": "Las runas de las brujas: Historia, creación y uso (MAGIA Y OCULTISMO) está disponible en tapa blanda y contiene 248 páginas. El volumen en papel permite consultar los apartados dedicados a la historia, la creación y el uso de las runas durante una lectura de estudio o una actividad práctica.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las runas de las brujas: Historia, creación y uso (MAGIA Y OCULTISMO) puede compararse con Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida por su proximidad al ámbito del desarrollo personal. Josephine Winter y Jason Tremain abordan las runas desde su historia y práctica, mientras que Kelly Ann Street se centra en las heridas personales y el equilibrio emocional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410451988"
       ]
     }
   ],

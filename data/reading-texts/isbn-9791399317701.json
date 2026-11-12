@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399317701",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuentos de la memoria. Alcalá de Guadaíra: 1, de Diego Magdaleno Hernández, se orienta a lectores interesados en la memoria y en obras vinculadas a un lugar concreto. Con 64 páginas, plantea una lectura breve; quien busque una obra extensa encontrará aquí una propuesta de menor recorrido material.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuentos de la memoria. Alcalá de Guadaíra: 1 se publica en tapa dura, con 64 páginas en castellano. La combinación de encuadernación rígida y extensión breve facilita conservarlo como volumen independiente y volver a consultar sus páginas. La edición pertenece a Andariega Editorial.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuentos de la memoria. Alcalá de Guadaíra: 1 comparte el interés por el recuerdo con El tiempo que pasa, de Manuel Medina. Este último aborda la España de la posguerra desde una mirada retrospectiva ligada a la infancia, mientras que el título de Diego Magdaleno Hernández sitúa su referencia geográfica en Alcalá de Guadaíra. Ambos permiten acercarse a la memoria desde referencias distintas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401040580"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "92d8c76509d04469",
+  "origen": "chatgpt-web"
+}

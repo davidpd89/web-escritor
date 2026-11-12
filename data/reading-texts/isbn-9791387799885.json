@@ -4,20 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Historia de la ópera: Nacimiento, esplendor y muerte (Altoparlante), de Darío Fernández, está dirigido a lectores interesados en el ensayo y las manifestaciones artísticas. Quien busque ficción, una novela o un manual práctico encontrará una propuesta de naturaleza distinta.",
+      "texto": "Historia de la ópera: Nacimiento, esplendor y muerte (Altoparlante) se dirige a lectores interesados en la historia de la ópera y su evolución como manifestación artística. Darío Fernández trata el asunto en un ensayo de 208 páginas; no es una obra teatral ni una recopilación de libretos operísticos.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece sus 208 páginas en un volumen de extensión contenida, apropiado para la lectura en papel y la consulta. Es el formato disponible para quien prefiera conservar el ensayo físicamente en lugar de leerlo en una pantalla.",
+      "texto": "Historia de la ópera: Nacimiento, esplendor y muerte (Altoparlante) tiene una edición en tapa blanda de 208 páginas, publicada por El Desvelo. El papel permite consultar distintas partes de este recorrido histórico, subrayar referencias y conservar el volumen junto a otros ensayos sobre arte.",
       "evidencias": [
-        "numero_paginas",
+        "titulo",
         "formatos_disponibles",
-        "formato_edicion"
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "De la estética como política: Para una rehabilitación del sentido en el cine (Signo e imagen) comparte con Historia de la ópera: Nacimiento, esplendor y muerte (Altoparlante) el estudio de una expresión artística. Noël Burch se centra en el cine y su dimensión estética y política, mientras Darío Fernández aborda la trayectoria histórica de la ópera. Clásicos Sin Filtros: El Impacto del Mundo Antiguo / Talking Classics: The Shock of the Old también adopta una perspectiva histórica, aunque su objeto es el mundo antiguo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786076393055",
+        "isbn-9788437650586"
       ]
     }
   ],

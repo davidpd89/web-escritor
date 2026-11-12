@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Juntos y extraños: 21 (Dabisse Romero), de Francisco Pozo, se dirige a lectores de poesía en castellano. Sus 72 páginas plantean una lectura breve dentro de este género, distinta de la narrativa juvenil o de una novela extensa.",
+      "texto": "Juntos y extraños: 21 (Dabisse Romero) se dirige a lectores de poesía que prefieren obras breves en castellano. Con 72 páginas, responde a una búsqueda distinta de la de quienes desean una novela extensa o una narración organizada alrededor de una trama convencional.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas",
         "idioma"
@@ -15,12 +14,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Juntos y extraños: 21 (Dabisse Romero) está disponible en tapa blanda, con 72 páginas. Esta edición física de Editorial Anáfora permite leer y conservar el volumen en papel, con una extensión reducida frente a libros de varios centenares de páginas.",
+      "texto": "Juntos y extraños: 21 (Dabisse Romero) está disponible en tapa blanda y contiene 72 páginas. Su extensión facilita llevar el ejemplar y volver sobre distintos textos durante la lectura, una posibilidad especialmente práctica en un libro de poesía.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Juntos y extraños: 21 (Dabisse Romero) y 223 esquinas: 16 (La garza roja) pertenecen al ámbito de la poesía y presentan títulos con numeración. Francisco Pozo firma el primero, de 72 páginas, mientras que Antonio Fernández Lera es el autor del segundo, identificado con otra colección en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833"
       ]
     }
   ],

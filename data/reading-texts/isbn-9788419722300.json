@@ -4,28 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cómo matar a una chismosa, de M.C. Beaton, encaja con lectores que buscan misterio y thriller en castellano. Sus 208 páginas ofrecen una extensión relativamente breve dentro de la narrativa; por su clasificación editorial, no se dirige específicamente a quienes prefieren romance o ensayo.",
+      "texto": "Cómo matar a una chismosa, de M.C. Beaton, está dirigido a quienes buscan lecturas de misterio y thriller en castellano. Sus 208 páginas lo sitúan en una extensión relativamente breve; no corresponde a una obra de divulgación ni a un manual de consulta.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "idioma"
+        "idioma",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cómo matar a una chismosa cuenta con una edición en tapa blanda de 208 páginas, publicada por Catedral. La encuadernación flexible facilita llevarlo en el bolso o la mochila, mientras que su extensión permite distribuir la lectura en sesiones cortas sin manejar un volumen especialmente grueso.",
+      "texto": "Cómo matar a una chismosa está disponible en tapa blanda y Kindle. La edición impresa de Catedral tiene 208 páginas y permite leer sin pantalla; Kindle facilita llevar la obra en un lector electrónico o consultarla desde el móvil sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "editorial"
       ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo matar a una chismosa y Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir), de Ann Cleeves, pertenecen al ámbito del misterio. La segunda está vinculada a la serie Shetland, mientras que Cómo matar a una chismosa, de M.C. Beaton, se presenta en una edición de 208 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410424524"
+      ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0cde59636a209684",
+  "fuente_hash": "8a294d6f7d71016e",
   "origen": "chatgpt-web"
 }

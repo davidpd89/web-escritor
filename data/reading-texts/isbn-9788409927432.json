@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409927432",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El altar de los irrecuperables: Trilogía del Altar · Libro I encaja con lectores interesados en biografías y memorias. Sus 224 páginas ofrecen una extensión intermedia; por su clasificación editorial, resulta menos afín a quienes buscan específicamente fantasía o ciencia ficción. El título lo identifica como el Libro I de una trilogía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer las 224 páginas de El altar de los irrecuperables: Trilogía del Altar · Libro I en un volumen físico. La edición de @sdblazquez está publicada en castellano y resulta manejable para llevarla en una mochila o consultar distintos pasajes durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al andar: Vivencias del Camino de Santiago y El altar de los irrecuperables: Trilogía del Altar · Libro I pueden compararse desde el interés por las vivencias personales. El primero identifica expresamente el Camino de Santiago como asunto, mientras que el segundo se presenta bajo el marco de biografías y memorias y se identifica en su título como Libro I.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "92083b1ee7b0722e",
+  "origen": "chatgpt-web"
+}

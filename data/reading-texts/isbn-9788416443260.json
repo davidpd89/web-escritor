@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788416443260",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores de libros de viajes e historia interesados en la Patagonia y en los huemules que aparecen en el título. Con 462 páginas, plantea una lectura extensa, distinta de una guía turística breve o de una novela fantástica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Libros del Jata contiene 462 páginas en castellano. Por su extensión, resulta un volumen para leer en varias sesiones y consultar físicamente; la encuadernación flexible permite llevarlo sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anatomía de un naufragio: Shackleton, el Endurance y la fuerza del hielo, de Jukka Tuhkuri, comparte el interés por territorios asociados al hielo, aunque se centra en un naufragio y no en un recorrido por la Patagonia. Mapa sentimental de Madrid, de Miguel Aizpuru, también vincula lectura y territorio, pero traslada la atención a un entorno urbano.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387873141",
+        "isbn-9791399107739"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f4941834aa33b116",
+  "origen": "chatgpt-web"
+}

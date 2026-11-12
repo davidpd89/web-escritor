@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788412353198",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Interfé: La búsqueda de identidad espiritual en tiempos posmodernos se dirige a lectores interesados en la identidad religiosa y espiritual en el contexto contemporáneo. Su temática se aparta de quienes buscan una narración de aventuras o un tratamiento exclusivamente histórico de una tradición religiosa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Interfé: La búsqueda de identidad espiritual en tiempos posmodernos dispone de una edición en tapa blanda de 224 páginas. El formato físico facilita retomar apartados sobre identidad espiritual y conservar el volumen para consultas posteriores, sin necesidad de pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Interfé: La búsqueda de identidad espiritual en tiempos posmodernos puede ponerse junto a Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación por su interés en la espiritualidad. Elías González Gómez plantea la búsqueda de identidad en tiempos posmodernos, mientras que Tsondru Yeshe se centra en los fundamentos y la práctica del Dharma.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6db81b38e1fc4456",
+  "origen": "chatgpt-web"
+}

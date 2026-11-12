@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791399295207",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los coloraos se orienta a lectores de historia interesados en su representación mediante el cómic y la novela gráfica. Sus 64 páginas también permiten acercarse a este ámbito mediante una obra breve, mientras que quien busque un estudio histórico extenso encontrará aquí una propuesta de menor longitud.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los coloraos se publica en tapa dura, con 64 páginas en castellano, bajo el sello de Cascaborra Ediciones. La encuadernación rígida resulta práctica para conservar el ejemplar y consultar de nuevo sus páginas, especialmente por su vinculación con el cómic y la novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los jacobinos negros: La novela gráfica (GENERAL), de CLR James, Sakina Karimjee y Nick Watts, comparte con Los coloraos el tratamiento de la historia mediante la narración gráfica. Los niños de la Resistencia. Memorias vivas 1: Josette y Jean-Jacques, de Vincent Dugomier, también aborda la memoria histórica, mientras Los coloraos se presenta como una obra de J.l. Escudero y Andres Barrera de 64 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410344433",
+        "isbn-9791388439148"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a84a041866dc4555",
+  "origen": "chatgpt-web"
+}

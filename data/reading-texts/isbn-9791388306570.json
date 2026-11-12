@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388306570",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los árboles se han ido (ed. especial con ilustración) (ILUSTRADOS) se dirige a lectores de poesía que también buscan una edición con componente visual. Por su carácter poético y su presentación ilustrada, la obra de Federico García Lorca responde a intereses distintos de los de quien busca una novela extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Los árboles se han ido (ed. especial con ilustración) (ILUSTRADOS) se presenta en tapa dura y reúne 88 páginas. Su extensión permite manejar un volumen relativamente breve, mientras que la encuadernación rígida favorece su conservación y su uso como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Poeta en Nueva York (edición especial con cantos tintados) (Literatura ilustrada) comparte con Los árboles se han ido (ed. especial con ilustración) (ILUSTRADOS) la autoría de Federico García Lorca y una presentación editorial especial. La diferencia visible está en el acabado: el primero destaca los cantos tintados y el segundo se identifica expresamente como edición con ilustración.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388220272"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bb7e79008fd4b094",
+  "origen": "chatgpt-web"
+}

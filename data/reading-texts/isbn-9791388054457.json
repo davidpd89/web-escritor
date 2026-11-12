@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388054457",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "無 (MU) (Narrativa) se dirige a lectores de narrativa contemporánea interesados también en cuestiones de espiritualidad y arte. Su clasificación temática lo distancia de quienes buscan principalmente relatos de acción, intriga criminal o aventuras fantásticas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "無 (MU) (Narrativa) cuenta con una edición en tapa blanda de 152 páginas, publicada en castellano. Su extensión relativamente breve facilita llevar el volumen y distribuir la lectura en pocas sesiones, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "無 (MU) (Narrativa) puede ponerse junto a Estuche El Alquimista (Edición especial con cantos tintados) (Biblioteca Paulo Coelho) por su proximidad a las lecturas de interés espiritual. Jorge Bonells figura en narrativa contemporánea, arte y espiritualidad, mientras la obra de Paulo Coelho se presenta como un estuche de edición especial, con una propuesta editorial diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328063"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0512fadb4d88a4da",
+  "origen": "chatgpt-web"
+}

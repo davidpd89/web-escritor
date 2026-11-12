@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788410908475",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estoy seguro, pero no siempre se dirige a lectores de poesía con interés por cuestiones de desarrollo personal. La obra de José María Martín Martínez tiene 88 páginas y se aparta de los manuales extensos de carácter técnico o de las narraciones centradas en una trama.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estoy seguro, pero no siempre se ofrece en tapa blanda, con 88 páginas en castellano. Su extensión facilita llevar el ejemplar en el bolso, leerlo en sesiones cortas y regresar a los textos en papel sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Advenir, de Jose Eceolaza, y Animales que flotan lejos de casa: 43 (Leteo), de Nicolás Peña, aparecen entre las lecturas afines a Estoy seguro, pero no siempre. Frente a los motivos de llegada y desplazamiento sugeridos por esos títulos, el de José María Martín Martínez plantea desde su nombre una tensión entre seguridad y duda, dentro de una obra clasificada como poesía y desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410212749",
+        "isbn-9791388299421"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a78616f4f12ef37f",
+  "origen": "chatgpt-web"
+}

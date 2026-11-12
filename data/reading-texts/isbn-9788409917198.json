@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788409917198",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El monstruo en el castillo: Un romance gótico está orientado a lectores que buscan una combinación de romance, fantasía y ambientación gótica. Quien prefiera una historia ajena a las relaciones románticas encontrará aquí un enfoque distinto, anunciado desde el propio título.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El monstruo en el castillo: Un romance gótico es en tapa blanda y tiene 228 páginas. Su extensión permite llevar el volumen físico en desplazamientos y leerlo por sesiones, sin necesidad de utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El monstruo en el castillo: Un romance gótico comparte terreno con Alas de escarcha y oro: El canto del cisne por la presencia de elementos fantásticos. La obra de Lau Alma anuncia expresamente un romance gótico, mientras que la de Marta Morillo presenta, en su descripción, a una protagonista que oculta sus dones y debilidades.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "77fc5b61a79e715e",
+  "origen": "chatgpt-web"
+}

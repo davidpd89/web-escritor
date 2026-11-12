@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9789874441768",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una familia no es un clan se orienta a lectores interesados en la familia desde una perspectiva de divulgación, no a quienes buscan una historia de ficción familiar. Luciano Luterau firma este libro de 148 páginas, situado entre los asuntos familiares y la divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una familia no es un clan cuenta con una edición en tapa blanda de 148 páginas, que facilita llevarlo para leer en distintos momentos del día. El volumen de Letras del SUR está escrito en castellano y ofrece una opción física para consultar o releer sus contenidos sobre familia y divulgación.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una familia no es un clan puede compararse con El cerebro del padre: Cómo la paternidad moldea la cabeza y la vida de los hombres (Psicología), de Darby Saxbe, por su relación con el ámbito familiar. El libro de Luciano Luterau plantea la distinción entre familia y clan desde su título; el de Darby Saxbe delimita su asunto a la paternidad y sus efectos. Ambos ofrecen puntos de partida diferentes para leer sobre las relaciones familiares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387904258"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c0f67941d89786de",
+  "origen": "chatgpt-web"
+}

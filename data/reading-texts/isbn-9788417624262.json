@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La playa de los ahogados: 2 (Nuevos Tiempos / Policiaca) encaja con lectores de novela policiaca, misterio y thriller. Sus 464 páginas ofrecen una lectura extensa dentro del género, por lo que responde menos a quienes buscan relatos breves o historias alejadas de la investigación criminal.",
+      "texto": "La playa de los ahogados: 2 (Nuevos Tiempos / Policiaca) encaja con lectores de novela policíaca que buscan una lectura centrada en el misterio. Sus 464 páginas plantean una extensión considerable para quien prefiera relatos breves, y su clasificación la aleja de las novelas centradas principalmente en el romance o la fantasía.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,20 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La playa de los ahogados: 2 (Nuevos Tiempos / Policiaca) está disponible en tapa blanda, con 464 páginas en castellano. Esta edición de Ediciones Siruela permite leer una novela policiaca extensa en papel y conservarla junto a otros títulos de Domingo Villar.",
+      "texto": "La edición en tapa blanda de La playa de los ahogados: 2 (Nuevos Tiempos / Policiaca) reúne 464 páginas en un volumen físico que puede conservarse junto a otros libros de Domingo Villar. Kindle permite leer esta misma obra en formato digital, con la ventaja de ajustar el tamaño de letra y continuar la lectura desde dispositivos compatibles.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial",
         "autores",
-        "categorias"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El último barco: 3 (Nuevos Tiempos / Policiaca) comparte autor y colección con La playa de los ahogados: 2 (Nuevos Tiempos / Policiaca); los títulos los identifican como los números 3 y 2, respectivamente. Ojos de agua: 47 (Colección Escolar de / Literatura) también es de Domingo Villar, pero pertenece a una colección editorial distinta y su título lo identifica con el número 47 de esa colección.",
+      "texto": "La playa de los ahogados: 2 (Nuevos Tiempos / Policiaca) puede compararse con El último barco: 3 (Nuevos Tiempos / Policiaca), también de Domingo Villar: ambos comparten autor y colección, aunque sus títulos señalan posiciones distintas. Ojos de agua: 47 (Colección Escolar de / Literatura) comparte la autoría, pero pertenece a otra colección editorial. Las tres obras permiten seguir distintas publicaciones de Domingo Villar.",
       "evidencias": [
         "titulo",
         "autores",
@@ -40,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1051cbb59ea73f07",
+  "fuente_hash": "4464237add0a8bde",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410920293",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gina, la jirafa que quería ser libre: 1 (Biblioteca de la Naturaleza) se dirige al público infantil interesado en los animales y las historias relacionadas con la naturaleza. Sus 44 páginas sitúan la obra de Sergi Castillo Lapeira en una extensión breve, distinta de las novelas juveniles largas o de los manuales científicos especializados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Gina, la jirafa que quería ser libre: 1 (Biblioteca de la Naturaleza) está disponible en tapa blanda y contiene 44 páginas en castellano. Su extensión facilita manejar el libro durante una lectura infantil compartida, y la encuadernación flexible permite llevarlo en una mochila sin ocupar demasiado espacio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gina, la jirafa que quería ser libre: 1 (Biblioteca de la Naturaleza) y Animales, de Susaeta Ediciones, comparten el protagonismo de los animales en lecturas infantiles. Sergi Castillo Lapeira centra su título en una jirafa y su deseo de libertad, mientras que Animales reúne seis cuentos ilustrados con distintos protagonistas animales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370341589"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6ab02bb42b7e04e3",
+  "origen": "chatgpt-web"
+}

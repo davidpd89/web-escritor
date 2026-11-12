@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788477029885",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ropanegra: 34 (Frontera), de Brian Moore, encaja con lectores que buscan aventuras dentro de la novela histórica. Resulta menos afín a quienes prefieren relatos contemporáneos sin ambientación histórica o lecturas centradas exclusivamente en el misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ropanegra: 34 (Frontera) está disponible en tapa dura, con 272 páginas en castellano. Esta edición de Valdemar ofrece un volumen físico de encuadernación rígida, adecuado para conservar en una biblioteca o regalar a lectores de aventuras históricas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ropanegra: 34 (Frontera) comparte el terreno de la novela histórica con Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián. La diferencia visible está en el enfoque anunciado: Astur remite a la Reconquista, mientras que Ropanegra se presenta como una obra de aventuras históricas de Brian Moore.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401039539"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2be24df23ea8e913",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387634780",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en arte, diseño y recuperación de espacios deteriorados, LOS PAISAJES DEL DESECHO: Reactivación de los lugares del deterioro (POLIÊDRICA) aborda una cuestión vinculada al entorno construido. Por su temática, se aleja de quienes buscan ficción narrativa o manuales de dibujo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de LOS PAISAJES DEL DESECHO: Reactivación de los lugares del deterioro (POLIÊDRICA) está disponible en tapa blanda y reúne 188 páginas. Este formato permite transportar el volumen y consultarlo durante el estudio de cuestiones relacionadas con el diseño y los espacios deteriorados.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "LOS PAISAJES DEL DESECHO: Reactivación de los lugares del deterioro (POLIÊDRICA) y 720 retrats comparten su relación con el ámbito artístico. Israel Alba Ramis centra su título en la reactivación de lugares deteriorados, mientras que la obra de Xavier Mollà i Revert se presenta desde el retrato.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "935a75d0187cad4c",
+  "origen": "chatgpt-web"
+}

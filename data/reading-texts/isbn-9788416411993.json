@@ -4,21 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Charlotte Perriand. La libertad de repensar el mundo se dirige a lectores interesados en la historia, el arte y el diseño desde una perspectiva ensayística. Su planteamiento temático se distancia de la ficción narrativa y de los libros de actividades prácticas.",
+      "texto": "Charlotte Perriand. La libertad de repensar el mundo se dirige a lectores interesados en arte, diseño, historia y ensayo. Sus 148 páginas ofrecen una extensión contenida para acercarse a estas materias; no responde a quien busca una novela de ficción o una lectura centrada en la intriga.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Charlotte Perriand. La libertad de repensar el mundo cuenta con una edición en tapa dura de 148 páginas, publicada por Fund. Joan Miro. La encuadernación rígida facilita su conservación en una biblioteca dedicada al arte y permite consultarlo repetidamente como volumen físico.",
+      "texto": "Charlotte Perriand. La libertad de repensar el mundo está disponible en tapa dura, con 148 páginas en castellano. Esta encuadernación permite conservar el volumen en una biblioteca de arte y diseño y consultarlo de nuevo sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
+        "idioma",
         "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Charlotte Perriand. La libertad de repensar el mundo puede compararse con Redes transnacionales en la cultura arquitectónica: Italia-España 1976-2006 (ARQUITECTURA), por su relación con el diseño y la cultura arquitectónica. El primero se centra en la figura que le da título; el segundo delimita su asunto mediante las relaciones entre países y un periodo histórico concreto. Ambos figuran con autoría colectiva.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387634674"
       ]
     }
   ],

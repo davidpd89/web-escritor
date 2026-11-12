@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399187786",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Materia viva (Rosita y Amparo por... LiterNatura), de Jorge Comensal, se dirige a lectores interesados en el ensayo y la reflexión filosófica, con el derecho como otro ámbito de referencia. Por su clasificación temática, se aleja de quienes buscan una novela de ficción o un manual centrado exclusivamente en cuestiones prácticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Materia viva (Rosita y Amparo por... LiterNatura) está disponible en tapa blanda, con 240 páginas en castellano. Esta edición de Rosita y Amparo Editores permite consultar y releer pasajes en papel, además de incorporar anotaciones durante una lectura dedicada al ensayo y la filosofía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Materia viva (Rosita y Amparo por... LiterNatura) puede compararse con La vida de los animales: 21 (esenciales), de JM Coetzee, por su relación con la reflexión sobre la vida. La diferencia está en el enfoque anunciado: el primero figura entre los ensayos de filosofía y derecho, mientras que el segundo sitúa a los animales en el centro de su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399281019"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8a19cbdfcd56d60e",
+  "origen": "chatgpt-web"
+}

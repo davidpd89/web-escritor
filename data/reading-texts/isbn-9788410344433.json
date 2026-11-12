@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410344433",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los jacobinos negros: La novela gráfica (GENERAL) se dirige a quienes buscan historia y biografías narradas mediante el lenguaje del cómic. La obra de CLR James, Sakina Karimjee y Nick Watts se aleja de la novela histórica escrita únicamente en prosa y se presenta como una novela gráfica de 276 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Los jacobinos negros: La novela gráfica (GENERAL) es en tapa blanda y reúne 276 páginas en castellano. Este formato permite consultar sus páginas y volver a pasajes concretos en papel, con una encuadernación flexible frente a la rigidez de una tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los jacobinos negros: La novela gráfica (GENERAL) comparte con Los niños de la Resistencia. Memorias vivas 1: Josette y Jean-Jacques el interés por la historia a través de obras gráficas. La diferencia está en la autoría y el enfoque anunciado: CLR James, Sakina Karimjee y Nick Watts firman una novela gráfica histórica, mientras que Vincent Dugomier presenta una obra identificada como memorias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388439148"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "010d265fec5fea2f",
+  "origen": "chatgpt-web"
+}

@@ -4,28 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Silencio, se come: Crónicas gourmet: 464 (Libros del Tiempo) se dirige a quienes buscan lecturas sobre gastronomía y experiencias relacionadas con la comida. Su planteamiento como crónicas gourmet se diferencia del de un recetario organizado para preparar platos paso a paso.",
+      "texto": "Silencio, se come: Crónicas gourmet: 464 (Libros del Tiempo) encaja con lectores interesados en la gastronomía desde la perspectiva de las crónicas. Isabel Coixet firma un volumen de 160 páginas vinculado a la cocina y al tiempo libre; su planteamiento se diferencia del de un manual centrado en técnicas culinarias o recetas.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "autores"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Silencio, se come: Crónicas gourmet: 464 (Libros del Tiempo) está publicado en tapa dura, con 160 páginas en castellano. Esta encuadernación protege mejor el volumen durante su conservación y resulta práctica para regalar una lectura gastronómica de extensión contenida.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "autores",
         "numero_paginas",
-        "idioma",
-        "edicion",
         "categorias"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 160 páginas de Silencio, se come: Crónicas gourmet: 464 (Libros del Tiempo) en una edición física que puede conservarse o regalarse. Kindle permite leer las crónicas de Isabel Coixet en formato digital, sin llevar el ejemplar de papel y con acceso desde dispositivos compatibles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA), de David Villalón y Mario Villalón, comparte con Silencio, se come: Crónicas gourmet: 464 (Libros del Tiempo) el interés por la gastronomía. El primero identifica la huerta, los vinos, la cocina y los cócteles como asuntos centrales, mientras que Isabel Coixet presenta su obra como una colección de crónicas gourmet.",
+      "texto": "Silencio, se come: Crónicas gourmet: 464 (Libros del Tiempo) comparte el interés gastronómico con Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA). Isabel Coixet aborda ese ámbito mediante crónicas, mientras que el título de David Villalón y Mario Villalón anuncia una atención específica a la huerta, los vinos, la cocina y los cócteles. La elección depende de si se buscan textos gastronómicos o un enfoque centrado en esos productos y preparaciones.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c0705a4e01b56054",
+  "fuente_hash": "392fee3961558325",
   "origen": "chatgpt-web"
 }

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Recuperar el norte: Vive con propósito incluso en los momentos más difíciles (Psicología), de Inés Bárcenas, se dirige a lectores interesados en el desarrollo personal y la psicología. Su planteamiento gira en torno al propósito ante las dificultades, por lo que se aleja de las expectativas de quien busca una novela de ficción o una obra de aventuras.",
+      "texto": "Se dirige a lectores interesados en el desarrollo personal y la psicología, especialmente en encontrar un propósito durante las dificultades. Recuperar el norte: Vive con propósito incluso en los momentos más difíciles (Psicología), de Inés Bárcenas, se sitúa en la no ficción y no responde a quien busca una historia novelada.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,14 +13,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Recuperar el norte: Vive con propósito incluso en los momentos más difíciles (Psicología) se ofrece en tapa blanda, con 336 páginas en castellano publicadas por Grijalbo. El soporte en papel permite marcar puntos de lectura y regresar a apartados sobre psicología y desarrollo personal, tanto durante una lectura seguida como en consultas posteriores.",
+      "texto": "La edición de Recuperar el norte: Vive con propósito incluso en los momentos más difíciles (Psicología) se presenta en tapa blanda. Sus 336 páginas permiten consultar distintos pasajes en papel, subrayarlos y volver a ellos durante la lectura; Grijalbo publica esta edición en castellano.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial",
-        "categorias"
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alma de vencedor: Los 10 principios innegociables para hacerte más fuerte cuando la vida más aprieta comparte el interés por afrontar circunstancias difíciles, pero plantea el asunto desde principios de fortaleza personal. Recuperar el norte: Vive con propósito incluso en los momentos más difíciles (Psicología) pone el foco en el propósito vital, mientras que Abraza a tu niño interior: Nunca es tarde para sanar tu infancia se centra en la infancia y su reparación emocional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206",
+        "isbn-9788409938193"
       ]
     }
   ],

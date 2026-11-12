@@ -4,22 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La luna en el cuenco roto: 6 (Artemisa de poesía) se dirige a lectores de poesía en castellano. Sus 88 páginas permiten abordar un volumen breve; quien busque una novela extensa o una narración en prosa encontrará aquí otro género literario.",
+      "texto": "La luna en el cuenco roto: 6 (Artemisa de poesía) está dirigida a lectores de poesía que prefieren un volumen breve en castellano. Sus 88 páginas la distinguen de las novelas extensas y de las lecturas centradas en una trama narrativa.",
       "evidencias": [
         "titulo",
         "categorias",
-        "idioma",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La luna en el cuenco roto: 6 (Artemisa de poesía) está disponible en tapa blanda, con 88 páginas. Esta edición impresa permite llevar el poemario en el bolso, consultar sus páginas sin dispositivos y conservarlo en una biblioteca personal.",
+      "texto": "La luna en el cuenco roto: 6 (Artemisa de poesía) se ofrece en tapa blanda, con 88 páginas. Su extensión facilita llevar el ejemplar en papel, consultar pasajes concretos y regresar a ellos durante distintas sesiones de lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "categorias"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La luna en el cuenco roto: 6 (Artemisa de poesía) puede compararse con 223 esquinas: 16 (La garza roja), otra obra vinculada a una colección poética. Gregorio Dávila de Tena firma la primera y Antonio Fernández Lera la segunda; sus títulos las sitúan en colecciones diferentes, Artemisa de poesía y La garza roja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833"
       ]
     }
   ],

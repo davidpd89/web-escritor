@@ -4,19 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Forcano.: A pie de calle. (Libros de autor) se sitúa entre el arte, el diseño y la narrativa juvenil. Puede interesar a quienes buscan una obra vinculada a la creación artística y la mirada sobre la calle, más que a lectores centrados exclusivamente en fantasía o aventuras.",
+      "texto": "Forcano.: A pie de calle. (Libros de autor) encaja con lectores interesados en el arte, el diseño y las publicaciones de autor. La edición de Eugeni Forcano tiene 248 páginas y se presenta en tapa dura; por su orientación artística, se distancia de quienes buscan exclusivamente una novela de aventuras.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Forcano.: A pie de calle. (Libros de autor) se presenta en tapa dura y reúne 248 páginas. La encuadernación rígida ofrece mayor protección para conservarlo y consultarlo repetidamente, además de resultar apropiada para un ejemplar destinado a regalo.",
+      "texto": "Forcano.: A pie de calle. (Libros de autor) se publica en tapa dura, con 248 páginas. Es una presentación física apropiada para conservar el volumen en una biblioteca o entregarlo como regalo, especialmente por su vinculación con el arte y el diseño. La edición corresponde a La Fábrica.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "categorias",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Forcano.: A pie de calle. (Libros de autor) comparte con Chema Madoz.: Manual de un distraído. (Libros de Autor.) su pertenencia a una colección de publicaciones de autor vinculadas al ámbito artístico. La primera obra está firmada por Eugeni Forcano; la segunda reúne a Chema Madoz, Irene Vallejo, Nazareth Castellanos y Borja Casani, una diferencia relevante en la autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387960391"
       ]
     }
   ],

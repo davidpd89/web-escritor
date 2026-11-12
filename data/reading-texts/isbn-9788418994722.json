@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788418994722",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El tren de la peste: 59 (Narrativa), de Rein Raud, encaja con lectores interesados en la narrativa contemporánea vinculada a la historia y al siglo XX. Su clasificación temática se aparta de quienes buscan específicamente romance o fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El tren de la peste: 59 (Narrativa) cuenta con una edición en tapa blanda de 336 páginas. Armaenia Editorial lo publica en castellano, en un volumen físico que puede transportarse y leerse sin dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El tren de la peste: 59 (Narrativa) puede compararse con Anna Karénina (edición especial en tapa dura) (Ediciones Conmemorativas) por su vinculación con la narrativa. La obra de Rein Raud figura entre la narrativa contemporánea y la historia, mientras que la de Lev Tolstoi se presenta en una edición conmemorativa de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491058397"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "31db6332540673dd",
+  "origen": "chatgpt-web"
+}

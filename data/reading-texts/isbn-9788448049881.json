@@ -4,20 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El poder del no: Aprender a poner límites para ser más libres (Divulgación) se dirige a lectores interesados en los límites personales y la psicología aplicada a la vida cotidiana. Su planteamiento pertenece al desarrollo personal, por lo que no responde a la búsqueda de ficción narrativa.",
+      "texto": "El poder del no: Aprender a poner límites para ser más libres (Divulgación), de Anna Holmes, se dirige a lectores interesados en psicología y desarrollo personal, especialmente en establecer límites. Su enfoque práctico se aleja de quienes buscan una novela de ficción o una historia construida alrededor de personajes y acontecimientos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de El poder del no: Aprender a poner límites para ser más libres (Divulgación) tiene 200 páginas. Es un volumen físico de Libros Cúpula que permite subrayar y consultar pasajes sobre límites personales durante la lectura.",
+      "texto": "El poder del no: Aprender a poner límites para ser más libres (Divulgación) está disponible en tapa blanda y tiene 200 páginas. La edición en papel permite señalar fragmentos y volver a las ideas relacionadas con los límites personales durante la lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "editorial"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El poder del no: Aprender a poner límites para ser más libres (Divulgación) y Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, comparten el interés por el desarrollo personal. Anna Holmes aborda el establecimiento de límites, mientras que Victoria Cadarso se centra en las experiencias de la infancia. También puede compararse con Alma de vencedor: Los 10 principios innegociables para hacerte más fuerte cuando la vida más aprieta, de Fausto Alfaro Cádiz, que pone el foco en la fortaleza ante las dificultades.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206",
+        "isbn-9788409938193"
       ]
     }
   ],

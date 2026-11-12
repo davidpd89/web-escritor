@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399280920",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El detective Carapatata. El misterio del lago: Misterio en el lago: 1 se dirige a lectores que buscan una historia de detectives centrada en un misterio relacionado con un lago. Sus 70 páginas ofrecen una extensión breve dentro del género de misterio y thriller, en lugar de una narración larga o un ensayo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El detective Carapatata. El misterio del lago: Misterio en el lago: 1 se presenta en tapa dura, con 70 páginas en castellano. La cubierta rígida permite conservar el libro como volumen físico y facilita regalar una historia de misterio de extensión reducida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abre el misterio 1 - El robo de las croquetas y El detective Carapatata. El misterio del lago: Misterio en el lago: 1 comparten el planteamiento de un enigma, aunque uno gira alrededor de unas croquetas desaparecidas y el otro sitúa el misterio en un lago. Agente Stitch 5. Los roedores de Roswell también incorpora una investigación, pero la desarrolla en un contexto intergaláctico, distinto del escenario anunciado por Alicia Escribano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644",
+        "isbn-9791387901943"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3841a976206b7dab",
+  "origen": "chatgpt-web"
+}

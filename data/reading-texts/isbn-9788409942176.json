@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409942176",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ante la libertad se dirige a lectores interesados en filosofía y en cuestiones relacionadas con el poder y la política. Sus 117 páginas también lo sitúan entre las obras breves de divulgación, frente a quienes buscan una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ante la libertad está disponible en tapa dura, con 117 páginas en castellano. Es una edición física de extensión breve que permite conservar el volumen en una biblioteca o entregarlo como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ante la libertad comparte el interés por las cuestiones políticas con Colonialismo digital: Por una crítica hacker-fanoniana, aunque este último centra su planteamiento en el ámbito digital. Frente a Ecología o economía: Hay que elegir: 136 (Ensayo), que plantea una disyuntiva económica y ecológica, el libro de Kenyi Martin Alcántara se sitúa en el terreno de la libertad, la filosofía y el poder.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410476585",
+        "isbn-9791399306408"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bd78b20e88595041",
+  "origen": "chatgpt-web"
+}

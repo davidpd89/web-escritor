@@ -4,22 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Casa en venta: II Premio Internacional de Poesía \"Gonzalo de Berceo\": 258 (Calle del Aire) se dirige a lectores de poesía que buscan un volumen breve en castellano. Sus 64 páginas lo distinguen de una novela extensa; no está planteado como lectura narrativa de misterio o aventuras.",
+      "texto": "Casa en venta: II Premio Internacional de Poesía \"Gonzalo de Berceo\": 258 (Calle del Aire), de Gabriel Insausti, pertenece al ámbito de la poesía. Sus 64 páginas en castellano se dirigen a lectores de este género, mientras que quienes buscan una novela extensa o una trama de thriller encontrarán un tipo de lectura diferente.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "idioma",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Casa en venta: II Premio Internacional de Poesía \"Gonzalo de Berceo\": 258 (Calle del Aire) se publica en tapa blanda, con 64 páginas. Esta extensión permite llevar el poemario en un bolso y volver a sus textos en distintas sesiones; la edición física también permite marcar páginas para posteriores lecturas.",
+      "texto": "Casa en venta: II Premio Internacional de Poesía \"Gonzalo de Berceo\": 258 (Calle del Aire) se publica en tapa blanda. Con 64 páginas, es un volumen breve que puede transportarse fácilmente y permite volver a los textos en papel, tanto para una lectura seguida como para consultas posteriores.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "formato_edicion",
         "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Casa en venta: II Premio Internacional de Poesía \"Gonzalo de Berceo\": 258 (Calle del Aire) puede compararse con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, porque ambas obras pertenecen al ámbito poético. La primera está firmada por Gabriel Insausti y reúne 64 páginas; la segunda tiene otra autoría y se identifica en su título con La garza roja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833"
       ]
     }
   ],

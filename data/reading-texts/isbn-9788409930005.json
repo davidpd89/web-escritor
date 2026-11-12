@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409930005",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuentoterapia social: El cuento como herramienta en la intervención social y la relación de ayuda se orienta a lectores interesados en utilizar los cuentos en contextos de acompañamiento y atención social. Su temática de psicología y relaciones de ayuda se distancia de la narrativa destinada únicamente al entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La obra de Marian López Muñoz se ofrece en tapa blanda, con 296 páginas en castellano. El formato físico facilita consultar el contenido durante actividades relacionadas con los cuentos y la intervención social, además de conservarlo como material de referencia.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuentoterapia social: El cuento como herramienta en la intervención social y la relación de ayuda comparte con Juegos y terapia para adolescentes: 150 actividades para mejorar la autoestima, la comunicación y aprender a afrontar los desafíos el uso de recursos en contextos de ayuda. Marian López Muñoz se centra en el cuento y la intervención social; Kevin Gruzewski, en actividades terapéuticas dirigidas a adolescentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387974435"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e10adfe27c752e83",
+  "origen": "chatgpt-web"
+}

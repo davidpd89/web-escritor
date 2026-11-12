@@ -4,26 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El poder de las reliquias: Los objetos sagrados que cambiaron la historia, de Margarita Torres, se dirige a lectores interesados en los objetos religiosos y su dimensión histórica. Su enfoque temático se distancia de quienes buscan una narración de ficción o una guía práctica de ejercicios espirituales.",
+      "texto": "El poder de las reliquias: Los objetos sagrados que cambiaron la historia se dirige a lectores interesados en la religión, la espiritualidad y la dimensión histórica de los objetos sagrados. Sus 472 páginas se centran en ese ámbito temático, por lo que encaja menos con quienes buscan ficción fantástica o una introducción breve a la meditación.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El poder de las reliquias: Los objetos sagrados que cambiaron la historia se edita en tapa blanda, con 472 páginas en castellano. El volumen físico permite consultar distintos pasajes durante una lectura prolongada y conservarlo como libro de referencia sobre objetos sagrados e historia.",
+      "texto": "La tapa blanda reúne las 472 páginas de El poder de las reliquias: Los objetos sagrados que cambiaron la historia en una edición física de La Esfera de los Libros. Kindle permite consultar esta obra de Margarita Torres desde un lector electrónico o un móvil, evitando transportar un volumen de esa extensión. La elección depende de si se prefiere conservar el libro en papel o leerlo digitalmente.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "autores",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "AKITA: Las lágrimas y el mensaje de María comparte con El poder de las reliquias: Los objetos sagrados que cambiaron la historia el interés por asuntos religiosos. La obra de Teiji Yasuda se centra, según su título, en un mensaje mariano, mientras que Margarita Torres aborda los objetos sagrados desde su relación con la historia. Al andar: Vivencias del Camino de Santiago ofrece otra perspectiva vinculada a la tradición religiosa, esta vez mediante vivencias de un recorrido.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388176357",
+        "isbn-9791388099496"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b4b857fc4e33bfc3",
+  "fuente_hash": "bbbe4c32121b44ea",
   "origen": "chatgpt-web"
 }

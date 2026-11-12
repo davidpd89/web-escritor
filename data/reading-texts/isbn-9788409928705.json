@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409928705",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rosalvia: El hilo que cambió de camino se dirige a lectores de fantasía infantil y juvenil interesados en la amistad y el desarrollo personal. Por sus temas, encaja menos con quienes buscan una lectura centrada exclusivamente en la ciencia ficción o alejada de las relaciones personales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Rosalvia: El hilo que cambió de camino está disponible en tapa blanda, con 110 páginas en castellano. Es una edición física de extensión breve, manejable para llevar en una mochila y consultar o releer sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rosalvia: El hilo que cambió de camino comparte la fantasía y la amistad con Las aventuras navideñas de los Mimosaurios: Tres cuentos llenos de magia, amistad y espíritu navideño. La diferencia está en el enfoque: el libro de Ignacio Estévez Simonet incorpora el desarrollo personal y la ciencia ficción, mientras que el de Laura Naiara Aldana Ramaker reúne cuentos de temática navideña.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409926671"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "610d9dded5e8028b",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788419243812",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estar (Rhēma) encaja con lectores que buscan poesía y relatos en una obra de extensión breve. Sus 122 páginas y su clasificación literaria lo diferencian de una novela larga o de un ensayo especializado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estar (Rhēma) se ofrece en tapa blanda, en una edición de Tres Hermanas de 122 páginas en castellano. Su extensión facilita llevar el volumen en papel y regresar a textos concretos durante la lectura de poesía y relatos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antología final: 282 (LITORAL) y Estar (Rhēma) comparten su relación con la poesía y la autoría múltiple. La primera figura como una antología de Varios autores, mientras que Estar (Rhēma) reúne las firmas de Emily Roberts, Marina Casado, Juan Ángel Asensio y Francisco José Martínez Morán y también se clasifica entre los relatos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412931075"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "672d60b1a928f5ef",
+  "origen": "chatgpt-web"
+}

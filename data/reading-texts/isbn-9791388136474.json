@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Besties 3: Batalla de bromas (Novela gráfica) se orienta al público infantil y juvenil que prefiere historias contadas mediante viñetas. Su propuesta de cómic encaja menos con lectores que buscan narrativa exclusivamente en prosa o libros de divulgación. El título lo identifica como el n.º 3.",
+      "texto": "Besties 3: Batalla de bromas (Novela gráfica) está dirigido a lectores infantiles y juveniles que prefieren historias contadas mediante el lenguaje del cómic. Kayla Miller, Jeffrey Canino y Sarah K. Turner firman una obra de 224 páginas centrada, según su título, en una batalla de bromas; se aleja de la narrativa presentada únicamente en prosa.",
       "evidencias": [
         "titulo",
+        "autores",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Besties 3: Batalla de bromas (Novela gráfica) se publica en tapa blanda, con 224 páginas en castellano. La edición de Maeva Ediciones permite leer sus páginas ilustradas en un volumen físico manejable, tanto en casa como durante los desplazamientos.",
+      "texto": "La tapa blanda permite leer las 224 páginas de Besties 3: Batalla de bromas (Novela gráfica) en un volumen físico, adecuado para consultar sus viñetas directamente en papel. Kindle ofrece una alternativa digital para llevar la novela gráfica en un dispositivo compatible; el tamaño de pantalla puede influir en la comodidad al seguir las imágenes.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "categorias"
+        "categorias",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Stuck (Serie Click 7): Demasiado drama para Olivia (Novela gráfica) comparte con Besties 3: Batalla de bromas (Novela gráfica) el formato narrativo y la participación de Kayla Miller. La primera aparece atribuida únicamente a Kayla Miller, mientras que Besties 3: Batalla de bromas (Novela gráfica) también cuenta con Jeffrey Canino y Sarah K. Turner. Sus títulos apuntan, respectivamente, al drama y a las bromas.",
+      "texto": "Besties 3: Batalla de bromas (Novela gráfica) tiene una relación directa de autoría y formato con Stuck (Serie Click 7): Demasiado drama para Olivia (Novela gráfica). Kayla Miller participa en ambas obras, pero la primera anuncia una batalla de bromas y la segunda pone el foco en el drama de Olivia. Son dos novelas gráficas infantiles y juveniles con conflictos distintos expresados desde sus títulos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -38,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3d5af50c797dd981",
+  "fuente_hash": "8e01712d4db6df40",
   "origen": "chatgpt-web"
 }

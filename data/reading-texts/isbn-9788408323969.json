@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408323969",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El secreto de los unicornios: Especial Unicornios 2 (Tea Stilton) está orientado al público infantil y juvenil que busca fantasía, criaturas imaginarias y secretos. El libro de Tea Stilton se distancia de las historias realistas y puede encajar menos con lectores que prefieren relatos sin elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El secreto de los unicornios: Especial Unicornios 2 (Tea Stilton) se publica en tapa dura y tiene 288 páginas. La encuadernación rígida facilita conservarlo después de la lectura y regalarlo como libro físico, mientras que su extensión permite repartir la historia en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El lago de los monstruos (INFANTIL) comparte con El secreto de los unicornios: Especial Unicornios 2 (Tea Stilton) el interés por criaturas alejadas de lo cotidiano. Leo Timmers sitúa a los monstruos en el título de su obra, mientras que Tea Stilton recurre a los unicornios y a un secreto dentro de una propuesta de fantasía infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387884260"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "963020655809c5ca",
+  "origen": "chatgpt-web"
+}

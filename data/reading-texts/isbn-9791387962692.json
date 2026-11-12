@@ -4,21 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "World Trigger 6 (Shônen) se orienta a lectores de manga interesados en aventuras, ciencia ficción y fantasía. El título lo identifica como el n.º 6, por lo que encaja menos con quienes buscan una obra independiente o una narración centrada principalmente en el romance.",
+      "texto": "World Trigger 6 (Shônen), de Daisuke Ashihara, se dirige a lectores de manga interesados en la aventura, la fantasía y la ciencia ficción. Su clasificación como cómic y novela gráfica lo diferencia de las novelas convencionales en prosa; el título lo identifica como el n.º 6.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "World Trigger 6 (Shônen) está disponible en tapa blanda, con 384 páginas en castellano. Esta edición reúne el contenido en un volumen físico de cubierta flexible, apropiado para leer las viñetas en papel y conservarlo dentro de la colección.",
+      "texto": "World Trigger 6 (Shônen) se ofrece en tapa blanda, con 384 páginas en castellano. Esta edición física de Distrito Manga permite leer las secuencias gráficas en papel y conservar el volumen junto a otros títulos de la colección.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
+        "editorial",
         "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "World Trigger 5 (Shônen) comparte autor, Daisuke Ashihara, y pertenece a la misma serie identificada en los títulos; uno lleva el número 5 y el otro el 6. Tougen Anki: La leyenda de la sangre maldita 6 (Shônen): La leyenda de la sangre maldita coincide en la identificación shônen y en el número del título, pero es una obra de Yura Urushibara, no de Daisuke Ashihara.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962340",
+        "isbn-9791387962418"
       ]
     }
   ],

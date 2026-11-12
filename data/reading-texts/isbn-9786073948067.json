@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073948067",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores de novela negra y misterio que buscan una obra de Carmen Mola con elementos de narrativa contemporánea y familia. Por su orientación hacia el thriller, se aleja de las lecturas centradas exclusivamente en las relaciones familiares cotidianas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Los Huérfanos (Novela Negra) / The Orphans (Noir) se presenta en tapa blanda y reúne 448 páginas en castellano. Este formato permite transportar la novela y continuar la lectura en distintos lugares sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ovejas descarriadas (Salamandra Narrativa), de Madeline Cash, ofrece otra referencia dentro de la narrativa contemporánea, aunque con distinta autoría. Cuando el viento hable: Edición limitada a precio especial (Colección Especial), de Ángela Banzas, permite comparar otra propuesta narrativa; Los Huérfanos (Novela Negra) / The Orphans (Noir) se distingue por su identificación expresa con la novela negra y el misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387928216",
+        "isbn-9788408328414"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "691756ecb0d406e2",
+  "origen": "chatgpt-web"
+}

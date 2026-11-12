@@ -4,21 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Hija del Norte (Los pequeños salvajes) se dirige a lectores infantiles y juveniles interesados en la fantasía y la ciencia ficción. Sus 448 páginas requieren una lectura más prolongada que la de un cuento breve, por lo que se aleja de quienes buscan libros infantiles de pocas páginas.",
+      "texto": "Hija del Norte (Los pequeños salvajes) se orienta a lectores de fantasía infantil y juvenil que buscan una obra de cierta extensión. Sus 448 páginas la alejan de los cuentos breves para primeros lectores y de quienes prefieren una historia realista ajena a los elementos fantásticos.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Hija del Norte (Los pequeños salvajes) está disponible en tapa blanda y tiene 448 páginas. La edición de Errata naturae ofrece la obra completa en un volumen de papel flexible, que puede transportarse para leer por etapas y conservarse después en una biblioteca.",
+      "texto": "Hija del Norte (Los pequeños salvajes) se presenta en tapa blanda, con 448 páginas en castellano y edición de Errata naturae. Este formato permite leer la obra en papel y transportarla sin la rigidez de una cubierta de cartón, aunque su extensión requiere reservar espacio en la mochila.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "idioma",
+        "edicion",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Brujas y dragones 2: La bruja mala del oeste comparte con Hija del Norte (Los pequeños salvajes) el ámbito de la fantasía para lectores infantiles, aunque el primero identifica una entrega numerada y el segundo no indica una posición concreta. Acurrúcate a mi lado (Cuentos para peques) se orienta hacia los cuentos para los más pequeños, frente a las 448 páginas de la obra de Edith Pattou.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781836066385",
+        "isbn-9791387501877"
       ]
     }
   ],

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409927081",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Alegoria, de Aitor San Jose, se dirige a lectores de misterio y narrativa contemporánea que buscan una lectura extensa. Sus 868 páginas requieren una dedicación mayor que una novela breve, por lo que encaja menos con quien prefiere historias de pocas páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Alegoria está editada en tapa blanda y tiene 868 páginas, una extensión considerable para un único volumen físico. La cubierta flexible facilita abrirlo durante la lectura, aunque el número de páginas condiciona su transporte y manejo cotidiano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aguas turbulentas y Alegoria comparten el terreno del misterio, aunque la primera sitúa su conflicto entre el pasado y el presente de Edimburgo. Alegoria, de Aitor San Jose, se distingue por sus 868 páginas y su vinculación con la narrativa contemporánea; la comparación permite elegir entre una intriga con escenario identificado y una obra de mayor extensión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dd4acab38e214238",
+  "origen": "chatgpt-web"
+}

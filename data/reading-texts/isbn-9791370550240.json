@@ -4,23 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La culpa materna: 01 (Psicologia) se dirige a lectores interesados en la psicología, la maternidad y las relaciones familiares. Su temática de desarrollo personal y crianza encaja menos con quienes buscan ficción familiar o relatos infantiles para compartir con sus hijos.",
+      "texto": "La culpa materna: 01 (Psicologia) se dirige a personas interesadas en la maternidad, la crianza y los aspectos emocionales de la vida familiar. Por su enfoque en la culpa materna y su clasificación dentro del desarrollo personal, encaja menos con quienes buscan ficción o una guía centrada exclusivamente en nutrición.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "autores"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La culpa materna: 01 (Psicologia) se publica en tapa blanda, con 244 páginas en castellano. Esta edición de Editorial Sintesis SA permite consultar en papel los contenidos relacionados con la maternidad y la psicología, además de señalar páginas para volver a ellas.",
+      "texto": "La culpa materna: 01 (Psicologia) se ofrece en tapa blanda, con 244 páginas en castellano. Esta edición de Editorial Sintesis SA permite consultar el contenido en papel, volver a los apartados de interés y mantener el volumen a mano para futuras lecturas.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial",
-        "categorias"
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La culpa materna: 01 (Psicologia) puede compararse con Convertirse en padre: 02 (Psicologia) por su atención a la experiencia familiar y la crianza. El primero se centra, desde su título, en la culpa materna; el segundo aborda la transición a la paternidad. Cecilia Peñacoba Puente y Patricia Catalá Mesón figuran en la autoría de ambos libros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370550288"
       ]
     }
   ],

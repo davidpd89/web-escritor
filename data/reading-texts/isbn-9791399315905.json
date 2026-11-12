@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399315905",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gestión pública para todos: Conceptos para el día a día se dirige a quienes buscan una lectura sobre gestión pública, economía y política. Sus 97 páginas plantean una extensión breve; no responde a quien prefiera una novela de ficción o un estudio jurídico especializado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Gestión pública para todos: Conceptos para el día a día está disponible en tapa blanda, con 97 páginas en castellano. Es una edición física de extensión breve, manejable para consultar conceptos durante la lectura y conservarla como referencia en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gestión pública para todos: Conceptos para el día a día comparte el interés por la política con ERGOCRACIA: La evolución natural de la democracia, de JC Pascual. El primero se centra en conceptos de gestión pública cotidiana; el segundo plantea, desde su título, la evolución de la democracia. Ambos abordan asuntos públicos desde enfoques distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409934171"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "52524fe9c627c3eb",
+  "origen": "chatgpt-web"
+}

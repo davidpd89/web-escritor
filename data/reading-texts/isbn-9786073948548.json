@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073948548",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores interesados en el ensayo, las biografías y las memorias, especialmente quienes buscan una obra de Benito Taibo. Su clasificación temática lo separa de las novelas de aventuras y de los relatos de ficción detectivesca, pese a las referencias literarias presentes en el título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es la presentación de Sherlock En Busca de Moby Dick. Edición Tapa Dura / Sherlock in Search of Moby-Dick, con 296 páginas en castellano. La encuadernación rígida favorece su conservación en una biblioteca y resulta práctica para una lectura que se retoma o consulta en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes, de Andrew Paxman, comparte el ámbito biográfico, pero anuncia una estructura dividida en episodios. Cartas a Lucilio: Edición íntegra (Clásicos), de Séneca, ofrece otra referencia para lectores de textos reflexivos, frente al encuadre de ensayo y memorias de la obra de Benito Taibo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073873154",
+        "isbn-9791388182495"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "af9878e9dceadaba",
+  "origen": "chatgpt-web"
+}

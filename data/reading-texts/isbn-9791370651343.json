@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370651343",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Planes de pensiones: todo lo que debes saber sobre su fiscalidad. Paso a paso: Desde las primeras aportaciones hasta el cobro de las prestaciones: reglas generales y supuestos especiales se dirige a lectores interesados en las normas tributarias de los planes de pensiones. Su enfoque jurídico abarca aportaciones, prestaciones y supuestos especiales, por lo que no responde a quien busca una introducción general a la inversión sin contenido fiscal.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Planes de pensiones: todo lo que debes saber sobre su fiscalidad. Paso a paso: Desde las primeras aportaciones hasta el cobro de las prestaciones: reglas generales y supuestos especiales está disponible en tapa blanda, con 104 páginas en castellano. Esta edición de Colex permite consultar en papel las distintas etapas fiscales recogidas en el título, desde las aportaciones hasta las prestaciones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La prescripción de la deuda tributaria. Paso a paso: Reglas de cómputo, causas de interrupción y situaciones problemáticas es otra obra del Departamento de Documentación Iberley dedicada a cuestiones fiscales. Mientras ese título aborda los plazos y las interrupciones de la prescripción tributaria, el libro sobre planes de pensiones trata las aportaciones, el cobro de prestaciones y sus reglas fiscales. Ambos comparten autoría y orientación jurídica, pero resuelven consultas tributarias diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370651282"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a87921192afb68f1",
+  "origen": "chatgpt-web"
+}

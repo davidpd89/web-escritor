@@ -4,22 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cáncer Después del diagnóstico: El libro que todo paciente oncológico necesita leer, de Carolina Pan, está dirigido a personas interesadas en el proceso posterior a un diagnóstico de cáncer. Su orientación hacia el bienestar, la psicología y el desarrollo personal lo diferencia de los manuales de ficción o de los libros centrados en el entretenimiento.",
+      "texto": "Cáncer Después del diagnóstico: El libro que todo paciente oncológico necesita leer se dirige a personas interesadas en abordar el diagnóstico oncológico desde una lectura relacionada con la psicología y el bienestar. Sus 278 páginas corresponden a una obra de orientación práctica y ensayística, no a una novela ni a un manual especializado en procedimientos médicos.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cáncer Después del diagnóstico: El libro que todo paciente oncológico necesita leer está disponible en tapa blanda, con 278 páginas en castellano. Esta edición de La Esfera de los Libros permite consultar y releer apartados en papel, sin depender de un dispositivo electrónico.",
+      "texto": "Cáncer Después del diagnóstico: El libro que todo paciente oncológico necesita leer se ofrece en tapa blanda, con 278 páginas en castellano. El formato permite transportarlo y consultar distintos pasajes durante la lectura, sin necesitar un dispositivo; su extensión facilita dividirlo en sesiones según el tiempo disponible.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuentoterapia social: El cuento como herramienta en la intervención social y la relación de ayuda comparte el interés por el acompañamiento, aunque aborda el uso del cuento en la intervención social en lugar del diagnóstico oncológico. Cuando no sé lo que quiero: 150 enseñanzas para encontrar tu camino (Bruguera Tendencias) se sitúa en el desarrollo personal, mientras que el libro de Carolina Pan centra su asunto en el cáncer y la experiencia posterior al diagnóstico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409930005",
+        "isbn-9788402431684"
       ]
     }
   ],

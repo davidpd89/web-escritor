@@ -4,19 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El arte de comer, nutrir y sanar con la Medicina China (Salud y Bienestar) se dirige a lectores interesados en la nutrición, el bienestar y la medicina china. Por su enfoque en la alimentación y la salud, se aleja de los libros centrados exclusivamente en las relaciones personales o la ficción.",
+      "texto": "El arte de comer, nutrir y sanar con la Medicina China (Salud y Bienestar) se dirige a lectores interesados en la alimentación, la nutrición y la salud desde la perspectiva de la medicina china. Su orientación temática es distinta de la de un recetario de cocina general o una novela familiar.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite consultar las 320 páginas de El arte de comer, nutrir y sanar con la Medicina China (Salud y Bienestar) en papel y conservar el volumen para futuras consultas. La edición Kindle reúne el contenido en formato digital y facilita llevarlo en el móvil o en un lector electrónico.",
+      "texto": "El arte de comer, nutrir y sanar con la Medicina China (Salud y Bienestar) se publica en tapa blanda y Kindle. La edición de Oberon consta de 320 páginas, que pueden consultarse en papel para volver a determinados temas de alimentación y bienestar; Kindle facilita transportar el contenido y leerlo en el móvil.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
         "numero_paginas",
-        "formatos_disponibles"
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de comer, nutrir y sanar con la Medicina China (Salud y Bienestar) y La amenaza invisible: disruptores endocrinos y salud infantil: Prevención, ciencia y sentido común (Parenting) abordan cuestiones relacionadas con la salud. El libro de Prof. Liu Zheng se centra en alimentación, nutrición y medicina china, mientras que el de Diego López de Lara trata los disruptores endocrinos y la prevención en la infancia. El primero plantea el bienestar desde la alimentación; el segundo delimita su atención a la salud infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387775551"
       ]
     }
   ],

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410908536",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores interesados en la obtención de información mediante fuentes humanas, la psicología y las relaciones de poder. Su enfoque sobre reclutamiento de fuentes y procesos HUMINT lo distancia de los manuales centrados exclusivamente en el bienestar personal o la convivencia familiar.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "HUMINT para principiantes está disponible en tapa blanda, en una edición de Editorial Letra Minúscula. Sus 386 páginas en castellano permiten leer el contenido en papel, consultar apartados concretos y conservar el volumen como material de lectura sobre reclutamiento y comunicación interpersonal.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte el interés por la psicología aplicada a las relaciones humanas con Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos). La diferencia es el ámbito: Lucky B. M. aborda la obtención de información mediante fuentes humanas, mientras Toño Ramos se centra en la convivencia doméstica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399249682"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dc888087dcb3985b",
+  "origen": "chatgpt-web"
+}

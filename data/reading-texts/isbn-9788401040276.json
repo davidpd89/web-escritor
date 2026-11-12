@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Nunca fui uno de ellos (Éxitos) se dirige a lectores de misterio y thriller interesados también en el poder y la política. Su clasificación temática lo aleja de quienes buscan una historia centrada en el romance o una lectura de divulgación política.",
+      "texto": "Nunca fui uno de ellos (Éxitos) se dirige a lectores de misterio y thriller con interés por el poder y la política. Sus 400 páginas plantean una lectura de extensión media, alejada de los libros de desarrollo personal o de consulta práctica.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Nunca fui uno de ellos (Éxitos) está disponible en tapa blanda, con 400 páginas en castellano. Esta edición de Plaza & Janés permite leer una novela de extensión considerable en un volumen físico flexible, tanto en casa como durante los desplazamientos.",
+      "texto": "La tapa blanda permite leer las 400 páginas de Nunca fui uno de ellos (Éxitos) en papel, con una edición de Plaza & Janés. Kindle ofrece el mismo título en formato digital para llevarlo en un lector electrónico o consultarlo desde el móvil.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Nunca fui uno de ellos (Éxitos) puede compararse con El vuelo de los gansos por su relación temática con el poder y la política. El libro de Ángel Boixadós plantea el enfrentamiento al poder desde los principios, mientras que la obra de Javier Zamora se sitúa en el misterio y el thriller. Son dos aproximaciones distintas a los conflictos vinculados al poder.",
+      "texto": "Nunca fui uno de ellos (Éxitos) comparte el interés por el poder con El candidato perfecto: No todos los monstruos viven en la oscuridad. Algunos buscan tu voto., de Félix Jiménez Velando. Este último sitúa el conflicto en torno al voto, mientras que el libro de Javier Zamora se presenta dentro del misterio y thriller y aborda también la política.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425375040"
+        "isbn-9788410647565"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8a4898c331402bbc",
+  "fuente_hash": "e5f5b68cd9b58391",
   "origen": "chatgpt-web"
 }

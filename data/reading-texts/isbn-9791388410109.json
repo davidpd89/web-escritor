@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388410109",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Emociones: Cuentos infantiles para comprender lo que sentimos: 2 (APRENDE) está dirigido a lectores infantiles que empiezan a identificar y comprender sus emociones. Sus cuentos relacionan los sentimientos con el desarrollo personal; no está planteado como un tratado teórico para adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Emociones: Cuentos infantiles para comprender lo que sentimos: 2 (APRENDE) tiene una edición en tapa blanda de 120 páginas. El papel permite compartir los cuentos durante la lectura acompañada y volver a determinados pasajes para hablar sobre los sentimientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amigos de verdad y Emociones: Cuentos infantiles para comprender lo que sentimos: 2 (APRENDE) comparten el interés por el desarrollo emocional de los lectores jóvenes. El primero se centra en la amistad como parte de la formación personal, mientras que el libro de Pau Ju y Ric Caralca aborda los sentimientos mediante cuentos infantiles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994532"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "152f5d4294871b8f",
+  "origen": "chatgpt-web"
+}

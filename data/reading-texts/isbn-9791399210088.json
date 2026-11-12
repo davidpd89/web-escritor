@@ -4,21 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación se dirige a lectores interesados en la espiritualidad y en el estudio del Dharma. Por su planteamiento de fundamentos y práctica, se distancia de quienes buscan una novela de ficción o una lectura centrada exclusivamente en experiencias autobiográficas.",
+      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación se dirige a lectores interesados en la espiritualidad y sus fundamentos prácticos. Tsondru Yeshe desarrolla esta materia en 482 páginas, con un planteamiento diferente del entretenimiento narrativo o de los libros sobre cuestiones políticas.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "autores"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación cuenta con una edición en tapa dura de 482 páginas. El formato resulta adecuado para mantener el volumen en una biblioteca personal y volver a consultar sus contenidos sobre fundamentos y práctica espiritual.",
+      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación se publica en tapa dura, con 482 páginas en la edición de Editorial Nous. La encuadernación rígida permite conservar el volumen para consultas y relecturas, aunque su extensión supone transportar un libro físico considerable.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación se relaciona con Al andar: Vivencias del Camino de Santiago por su orientación hacia cuestiones espirituales. Tsondru Yeshe aborda fundamentos y práctica del Dharma, mientras que Carlos Díaz Ballesta presenta vivencias vinculadas al Camino de Santiago, con una perspectiva más personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
       ]
     }
   ],

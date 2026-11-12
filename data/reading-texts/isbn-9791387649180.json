@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387649180",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Islam, autoritarismo y subdesarrollo (Jarana) se dirige a lectores interesados en las relaciones entre religión, poder político y desarrollo económico. Su enfoque temático y sus 336 páginas lo sitúan lejos de una lectura devocional o de una guía jurídica destinada a resolver trámites particulares.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Islam, autoritarismo y subdesarrollo (Jarana) cuenta con una edición en tapa dura de 336 páginas, publicada en castellano por Jarana Editores. La encuadernación rígida resulta apropiada para conservar el ejemplar y consultarlo repetidamente, aunque ocupa más espacio que una edición flexible de extensión semejante.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Todo lo que necesitas saber sobre herencias y donaciones: Guía práctica para ahorrar impuestos y evitar problemas (Deusto), de Alejandro Ebrat Picart, comparte con Islam, autoritarismo y subdesarrollo (Jarana) el interés por cuestiones jurídicas y económicas. El primero aborda impuestos y sucesiones desde una perspectiva práctica; el libro de Ahmet T. Kuru relaciona religión, autoritarismo y desarrollo económico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423440962"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "63242640e8b61a63",
+  "origen": "chatgpt-web"
+}

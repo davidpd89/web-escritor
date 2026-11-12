@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9789878231310",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El campo de la dictadura: Latifundio, peronismo y derechos humanos (HISTORIA URGENTE) se dirige a lectores interesados en las relaciones entre propiedad agraria, política y derechos humanos. Su enfoque de ensayo histórico y político se distancia de la ficción y de las memorias centradas exclusivamente en experiencias personales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El campo de la dictadura: Latifundio, peronismo y derechos humanos (HISTORIA URGENTE) cuenta con una edición en tapa blanda de 348 páginas. El volumen físico permite consultar distintos pasajes sobre latifundio, peronismo y derechos humanos, además de conservarlo como lectura de referencia sobre esos asuntos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El campo de la dictadura: Latifundio, peronismo y derechos humanos (HISTORIA URGENTE) puede compararse con Campo de concentración: 82 (Biblioteca del Exilio) por su relación temática con la represión y los derechos humanos. Pedro Peretti centra su obra en el latifundio y el peronismo, mientras que el título de Eduardo de Ontañón sitúa el campo de concentración en el centro de su planteamiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410148659"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a7a07eb65d64a50f",
+  "origen": "chatgpt-web"
+}

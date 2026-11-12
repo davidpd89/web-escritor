@@ -1,0 +1,27 @@
+{
+  "id": "isbn-9788409939343",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Suelta y confía: Una propuesta para mentes racionales que buscan inspiración se dirige a lectores interesados en el desarrollo personal desde una perspectiva racional. Sus temas se relacionan con el bienestar y la reflexión personal, no con una historia de ficción centrada en personajes y acontecimientos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Suelta y confía: Una propuesta para mentes racionales que buscan inspiración está disponible en tapa blanda y tiene 206 páginas. Esta edición física permite subrayar pasajes y recuperar reflexiones concretas durante la lectura, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "be17e61fa1474daa",
+  "origen": "chatgpt-web"
+}

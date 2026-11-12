@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786316810151",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Marea de sangre (#Thriller), de Noelia Belén Liotti, se dirige a lectores de misterio, thriller y narrativa contemporánea. Su orientación hacia el suspense lo diferencia de las lecturas que buscan exclusivamente historias románticas o relatos infantiles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Marea de sangre (#Thriller) está disponible en tapa blanda, con 320 páginas en castellano. La edición de Stefano Books permite leer la obra en papel y llevarla fuera de casa sin necesitar un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Marea de sangre (#Thriller) puede compararse con Aguas turbulentas por su relación con el misterio y los conflictos oscuros. La novela de Noelia Belén Liotti se identifica expresamente como thriller, mientras que la de Rankin Ian sitúa en Edimburgo un conflicto entre acontecimientos del pasado y del presente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2cf1799b2fe82aaf",
+  "origen": "chatgpt-web"
+}

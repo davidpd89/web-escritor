@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410907706",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "CONVERSACIONES CON EL MONJE SABIO: El secreto de la salud, de Farah Riovach Hammu, se orienta a lectores interesados en desarrollo personal, salud y bienestar. Por sus temas y sus 92 páginas, se aparta de las obras centradas en conflictos narrativos de ficción o en contenidos jurídicos especializados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de CONVERSACIONES CON EL MONJE SABIO: El secreto de la salud contiene 92 páginas en castellano. Su extensión permite manejar un volumen físico breve para consultar contenidos relacionados con la salud y el desarrollo personal, sin depender de un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Secretos del ayurveda: Que cambiarán tu vida (Biblioteca de la salud), de Isabel Bautista, comparte con CONVERSACIONES CON EL MONJE SABIO: El secreto de la salud el interés por la salud. El primero identifica expresamente el ayurveda como materia, mientras que la obra de Farah Riovach Hammu relaciona salud y desarrollo personal desde un título construido alrededor de conversaciones.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788411214834"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b6852f470f14a728",
+  "origen": "chatgpt-web"
+}

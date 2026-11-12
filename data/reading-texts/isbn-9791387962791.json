@@ -4,22 +4,31 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El incidente Darwin 1 (Seinen): Universo Manga encaja con lectores de manga interesados en la fantasía y la ciencia ficción. Sus 192 páginas y su edición en castellano se dirigen a quienes prefieren la narración gráfica; no es una novela convencional de texto.",
+      "texto": "El incidente Darwin 1 (Seinen): Universo Manga se dirige a lectores de manga interesados en la ciencia ficción y la fantasía. Su identificación como seinen lo diferencia de las obras orientadas expresamente al público infantil, mientras que su presentación como cómic lo separa de la narrativa escrita únicamente en prosa.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas",
-        "idioma"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es el formato disponible para El incidente Darwin 1 (Seinen): Universo Manga. Sus 192 páginas ofrecen un volumen físico manejable para leer en papel y conservar junto a otros tomos de la colección.",
+      "texto": "El incidente Darwin 1 (Seinen): Universo Manga está disponible en tapa blanda, con 192 páginas. Esta edición permite leer y conservar físicamente las páginas del manga, sin depender de una pantalla.",
       "evidencias": [
         "titulo",
         "numero_paginas",
         "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El incidente Darwin 9 (Seinen) y El incidente Darwin 1 (Seinen): Universo Manga comparten autor, Shun Umezawa, y pertenecen a la misma serie identificada en sus títulos. El segundo lleva el número 1 y el primero el 9; esa diferencia permite distinguir ambos volúmenes sin atribuirles acontecimientos argumentales concretos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962616"
       ]
     }
   ],

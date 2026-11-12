@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788419722263",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El enigma de Navidad, de Nicola Upson, se dirige a lectores de misterio que buscan una historia vinculada a la Navidad. Sus 208 páginas y su clasificación como misterio y thriller lo separan de los libros navideños centrados exclusivamente en celebraciones o tradiciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El enigma de Navidad está disponible en tapa blanda, con 208 páginas impresas. Esta edición de Catedral permite llevar la novela de misterio en papel, marcar el punto de lectura y conservar el ejemplar para volver a leerlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El enigma de Navidad y 25 días hasta Navidad, de Per Jacobsen, combinan el misterio con el contexto navideño. La obra de Per Jacobsen se presenta como un thriller de adviento, mientras que El enigma de Navidad, de Nicola Upson, se publica como un volumen de misterio y thriller de 208 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c3542ee8915dcf2a",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791399249682",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos) se dirige a personas interesadas en organizar la convivencia y los cuidados familiares mediante herramientas de psicología conductual. Su planteamiento práctico se aparta de los relatos familiares de ficción y se centra en hogares con necesidades de cuidado en distintas etapas vitales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos) se publica en tapa blanda y tiene 302 páginas. El formato físico permite señalar apartados y regresar a las herramientas de psicología conductual durante la organización de la convivencia doméstica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos) comparte con El niño feliz (fuera de colección) el interés por el entorno familiar y la infancia. Toño Ramos amplía el ámbito a la adolescencia y la vejez mediante herramientas conductuales, mientras que Dorothy Corkille Briggs centra su título en el bienestar infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425452901"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ffadae5cd63bfdc6",
+  "origen": "chatgpt-web"
+}

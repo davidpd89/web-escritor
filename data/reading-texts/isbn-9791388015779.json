@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388015779",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pacto de sangre (ROMÁNTICA), de N.E. Davenport, encaja con lectores de fantasía y aventuras que buscan una obra de 448 páginas. Por su clasificación también puede interesar a quienes leen ciencia ficción, pero no responde a una búsqueda centrada en narrativa realista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pacto de sangre (ROMÁNTICA) está disponible en tapa dura, con 448 páginas en castellano. Esta edición de Newton Compton Editores ofrece una encuadernación rígida para conservar el volumen en la estantería y utilizarlo en sucesivas lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pacto de sangre (ROMÁNTICA) puede compararse con Aftermyth 1. Penelope y la prueba de los dioses por su relación con la fantasía. La obra de N.E. Davenport también incorpora aventuras y ciencia ficción, mientras que el título de Tracy Wolff sitúa su referencia fantástica en los dioses.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324102"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5f704a3e28b7e76e",
+  "origen": "chatgpt-web"
+}

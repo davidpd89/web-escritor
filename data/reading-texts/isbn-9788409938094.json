@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La virtud olvidada: Pensamiento crítico y humanidad en tiempos de miedo y odio se dirige a lectores interesados en filosofía, psicología y desarrollo personal. Su enfoque declarado sobre el pensamiento crítico y la humanidad, desarrollado en 360 páginas, lo aleja de quienes buscan ficción narrativa o una guía centrada exclusivamente en alimentación y ejercicio.",
+      "texto": "La virtud olvidada: Pensamiento crítico y humanidad en tiempos de miedo y odio está dirigida a lectores interesados en filosofía, psicología y desarrollo personal. Sus 360 páginas permiten abordar estas materias en una extensión considerable; no responde a quien busca una novela de ficción o un manual dedicado exclusivamente a la alimentación.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,18 +13,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La virtud olvidada: Pensamiento crítico y humanidad en tiempos de miedo y odio se publica en tapa blanda, con 360 páginas. La edición de Gimeno Imprenta Alfafar, S.l. permite leer el contenido en papel, señalar pasajes y volver a consultar los apartados durante la lectura.",
+      "texto": "La virtud olvidada: Pensamiento crítico y humanidad en tiempos de miedo y odio se ofrece en tapa blanda y Kindle. La edición física de 360 páginas permite conservar y consultar el volumen en papel; Kindle facilita leerlo en el móvil o en un lector electrónico y retomar sus contenidos sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
-        "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La virtud olvidada comparte el interés por la reflexión personal con Alma de vencedor: Los 10 principios innegociables para hacerte más fuerte cuando la vida más aprieta, de Fausto Alfaro Cádiz. El libro de Gimeno aborda el pensamiento crítico y la humanidad ante el miedo y el odio, mientras que el de Alfaro Cádiz se centra en principios para afrontar las dificultades personales. La diferencia está en el enfoque filosófico y social frente al fortalecimiento individual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409938193"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6c999e8af8d249c0",
+  "fuente_hash": "325258e6d98f065b",
   "origen": "chatgpt-web"
 }

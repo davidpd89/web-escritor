@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Atrapada en las vacaciones (VeRa) se orienta a lectores de romance y narrativa contemporánea. La obra de Christina Lauren responde a una búsqueda de relaciones sentimentales en un marco contemporáneo, no a la de una novela centrada en el terror o la fantasía épica.",
+      "texto": "Atrapada en las vacaciones (VeRa), de Christina Lauren, encaja con lectores de romance y narrativa contemporánea. Quien busque fantasía o ciencia ficción encontrará aquí una propuesta de otro género.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,18 +13,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Atrapada en las vacaciones (VeRa) cuenta con una edición en tapa blanda de 360 páginas, publicada en castellano por Vera. El formato permite llevar la novela en una bolsa y conservarla después en una estantería sin el volumen de una encuadernación rígida.",
+      "texto": "Atrapada en las vacaciones (VeRa) está disponible en tapa blanda y Kindle. La edición física reúne 360 páginas y permite conservar el libro en papel; Kindle ofrece la lectura digital sin transportar ese volumen.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Atrapada en las vacaciones (VeRa) comparte el género romántico con A mil por hora, de Hannah Grace, pero esta última sitúa su relación en el entorno de un piloto de F1. También puede compararse con Amor en pole position (Dirty Air 3), de Lauren Asher, cuyo romance se desarrolla en el mundo de la Fórmula 1, mientras que el título de Christina Lauren remite a unas vacaciones.",
+      "texto": "Atrapada en las vacaciones (VeRa), de Christina Lauren, comparte el romance contemporáneo con A la deriva contigo, de Beth O'Leary, aunque cambia la autoría. También puede compararse con A mil por hora, de Hannah Grace, que desarrolla una relación romántica entre un piloto de Fórmula 1 y una mujer vinculada a su pasado. Atrapada en las vacaciones (VeRa) se clasifica como romance y narrativa contemporánea.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +30,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466683449",
-        "isbn-9788427055674"
+        "isbn-9788466390200",
+        "isbn-9788466683449"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e794044aae4c0a02",
+  "fuente_hash": "ed6f9450307ea11c",
   "origen": "chatgpt-web"
 }

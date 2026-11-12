@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370204938",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los templarios de la Tabla Redonda (Enigma) se dirige a lectores interesados en la historia medieval. Es una obra de Manuel Fernández Muñoz centrada en un ámbito histórico, por lo que no responde a la búsqueda de una novela de ficción contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los templarios de la Tabla Redonda (Enigma) está disponible en tapa blanda, con 224 páginas en castellano. Esta edición de Almuzara permite consultar el contenido en papel y transportarlo sin el peso habitual de un volumen de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los templarios de la Tabla Redonda (Enigma) y 53 días: Cómo Hitler derribó una democracia (HISTORIA) comparten el interés por la historia, aunque el primero se sitúa en el ámbito medieval y el segundo aborda el ascenso de Hitler. También puede compararse con 76, de Felipe Pigna, por su orientación histórica y su distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517",
+        "isbn-9788408329695"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2ae375e47a2e7d9b",
+  "origen": "chatgpt-web"
+}

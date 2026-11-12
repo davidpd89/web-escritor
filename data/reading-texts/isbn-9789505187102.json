@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9789505187102",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Silencio en psicoanálisis, el 2a ED (Psicologia y psicoanalisis) se orienta a lectores interesados en psicología, psicoanálisis y ensayo. Juan David Nasio aborda este campo en un volumen de 256 páginas, menos relacionado con la búsqueda de ficción narrativa o de manuales sobre asuntos ajenos a la psicología.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Silencio en psicoanálisis, el 2a ED (Psicologia y psicoanalisis) contiene 256 páginas en castellano. El soporte físico permite señalar pasajes y volver a ellos durante el estudio, una forma de uso pertinente para un ensayo de psicología publicado por Amorrortu.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio. comparte con Silencio en psicoanálisis, el 2a ED (Psicologia y psicoanalisis) el interés por los procesos psicológicos, pero plantea un método de coaching. Crónica de una esquizofrenia se distingue por centrar su título en una experiencia vinculada a un trastorno concreto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409924059",
+        "isbn-9788409906048"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3b57d2fced4fcb90",
+  "origen": "chatgpt-web"
+}

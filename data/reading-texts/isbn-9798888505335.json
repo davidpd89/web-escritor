@@ -4,19 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia se dirige a lectores interesados en espiritualidad, consciencia y desarrollo personal. Su planteamiento se aleja de los manuales centrados exclusivamente en nutrición o ejercicio físico, aunque comparte el ámbito general del bienestar.",
+      "texto": "Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia, de Barbara Hand Clow, aborda la consciencia desde el ámbito de la espiritualidad y el desarrollo personal. Se orienta a lectores interesados en esos temas, no a quienes buscan una novela de ficción o una guía centrada exclusivamente en cuestiones materiales.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece las 320 páginas de la edición física de Inner Traditions Bear And Company, adecuada para consultar y señalar apartados. Kindle permite llevar la lectura en un dispositivo compatible y acceder al texto sin transportar el volumen impreso.",
+      "texto": "La obra de Barbara Hand Clow puede leerse en tapa blanda o Kindle. La edición impresa tiene 320 páginas y permite consultar el texto en papel; Kindle ofrece una alternativa digital para leerlo en dispositivos compatibles, sin llevar consigo el ejemplar físico.",
       "evidencias": [
+        "autores",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia se relaciona con Consciencia Inmortal: Conversaciones con Sri Ramana Maharshihi, de Paul Brunton y Munagala Venkataramiah, por su interés en la consciencia. La obra de Barbara Hand Clow plantea el despertar de sus nueve dimensiones, mientras que el otro título presenta conversaciones. Son aproximaciones distintas dentro de la lectura espiritual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399252705"
       ]
     }
   ],

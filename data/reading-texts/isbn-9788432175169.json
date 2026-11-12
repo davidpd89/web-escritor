@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788432175169",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La obra de Adrien Candiard se dirige a lectores interesados en revisar su relación con la Biblia después de haberse distanciado de la fe. Su contenido pertenece al ámbito de la religión y la espiritualidad, por lo que se aparta de las guías turísticas y los relatos centrados en destinos geográficos.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Ediciones Rialp S.a. se presenta en tapa blanda, con 92 páginas en castellano. Su extensión permite organizar la lectura en sesiones breves y transportar el ejemplar para consultar los pasajes dedicados a la Biblia y la reflexión religiosa.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Adrien Candiard y Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, comparten una vinculación temática con la experiencia religiosa. Candiard aborda la Biblia desde la perspectiva de quien ha dejado de creer, mientras que Díaz Ballesta centra su libro en las vivencias del Camino de Santiago. El primero se ocupa de la relación con un texto religioso y el segundo de una experiencia vinculada a un itinerario concreto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7604bbc7f591ee79",
+  "origen": "chatgpt-web"
+}
