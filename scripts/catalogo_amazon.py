@@ -117,7 +117,8 @@ AMAZON_SUBJECTS = {
     'Ensayo': ['sociedad y ciencias sociales', 'sociedad y cultura', 'ensayos', 'ensayos y correspondencia', 'historia, teoria literaria y critica', 'historia y critica',
                'periodismo', 'sociologia', 'estudios de genero', 'estudios de medios',
                'lengua, linguistica y redaccion', 'linguistica', 'gramatica', 'retorica y oratoria',
-               'enciclopedias y obras de consulta'],
+               ],
+    'Guías y referencia': ['enciclopedias y obras de consulta', 'diccionarios', 'diccionarios y referencia'],
     'Clásicos': ['ficcion clasica', 'clasicos'],
     'Misterio': ['novela negra', 'misterio', 'thrillers policiacos', 'thriller y suspense', 'thrillers psicologicos', 'suspense',
                  'misterio, thriller y suspense', 'misterios y detectives', 'detectives amateurs', 'investigadores privados'],
@@ -1114,7 +1115,7 @@ def to_record(entry, day, proper=None):
     record = {
         'isbn13': isbn, 'asin': asin, 'titulo': title, 'autores': authors, 'editorial': publisher,
         'encuadernacion': binding_text[:1].upper() + binding_text[1:], 'formato_edicion': fmt,
-        'materias': materias[:3], 'palabras_clave': nodes[:12],
+        'materias': sorted(materias, key=lambda m: m not in ('Cómic y novela gráfica', 'Guías y referencia'))[:3], 'palabras_clave': nodes[:12],
         'fecha_publicacion_edicion': published[:10], 'precision_fecha': 'dia',
         'numero_paginas': pages if isinstance(pages, int) and 0 < pages < 10000 else None,
         'portada_fuente_url': f'https://www.amazon.es/dp/{asin}', 'cover_use_basis': COVER_BASIS,

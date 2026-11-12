@@ -163,6 +163,7 @@ def derived_categories(assigned: set[str], title: str) -> list[str]:
 
 def apply_derived(catalogue: dict) -> dict[str, list[str]]:
     """Añade en el catálogo la clasificación propia que falte (idempotente; respeta categorias_excluidas)."""
+    repair_classification(catalogue)
     known = {c['id']: c for c in catalogue['categorias']}
     for order, (ident, name, kind, desc, *_rest) in enumerate(DERIVED):
         if ident not in known:
@@ -181,3 +182,49 @@ def apply_derived(catalogue: dict) -> dict[str, list[str]]:
             catalogue['libro_categorias'] += [{'libro_id': book['id'], 'categoria_id': c} for c in new]
             added[book['id']] = new
     return added
+
+
+REFERENCE_ID = 'guias-y-referencia'
+FICTION_GENRES = {'narrativa','narrativa-juvenil','novela-historica','romance','romantasy','fantasia','fantasia-juvenil','fantasia-oscura','ciencia-ficcion','misterio-y-thriller','terror','aventuras','relatos'}
+
+
+def reference_work(title, assigned):
+    """Forma de consulta explícita; un título de novela que diga diccionario no basta."""
+    text = normalize_text(title)
+    return not (set(assigned) & FICTION_GENRES) and bool(re.search(
+        r'\bguia visual\b|^(?:(?:el|la|un|una) )?(?:enciclopedia|diccionario|atlas)\b', text))
+
+
+def category_priority(category):
+    """El tipo de obra no desaparece detrás de sus temas al resumir dos etiquetas."""
+    kind = {'genero':0,'temporada':1,'tematica':2,'epoca':3,'contenido':4,'edad':5}
+    return (0 if category['id'] in {'comic-y-novela-grafica', REFERENCE_ID} else 1,
+            kind[category['tipo']], category['orden'], category['id'])
+
+
+def repair_classification(catalogue, today=None):
+    """Corrige la antigua inferencia consulta→ensayo para todas las altas automáticas afectadas."""
+    by_book = {}
+    for rel in catalogue['libro_categorias']:
+        by_book.setdefault(rel['libro_id'], set()).add(rel['categoria_id'])
+    repaired = []
+    for book in catalogue['libros']:
+        assigned = by_book.get(book['id'], set())
+        legacy = 'tema-diccionarios-y-referencia' in assigned and not (assigned & FICTION_GENRES)
+        inferred = 'ensayo' in assigned and reference_work(book.get('titulo',''), assigned)
+        if not book['id'].startswith('isbn-') or not (legacy or inferred):
+            continue
+        catalogue['libro_categorias'] = [r for r in catalogue['libro_categorias']
+            if not (r['libro_id']==book['id'] and r['categoria_id'] in {'ensayo', 'tema-diccionarios-y-referencia'})]
+        if REFERENCE_ID not in assigned:
+            catalogue['libro_categorias'].append({'libro_id':book['id'],'categoria_id':REFERENCE_ID})
+        if not any(c['id']==REFERENCE_ID for c in catalogue['categorias']):
+            catalogue['categorias'].append({'id':REFERENCE_ID,'slug':REFERENCE_ID,'nombre':'Guías y referencia',
+                'tipo':'genero','descripcion':'Guías, diccionarios y obras de consulta.','orden':217,'activa':True})
+        if book.get('descripcion_breve'):
+            book['descripcion_breve'] = re.sub(r'La editorial la incluye en [^.]+\.',
+                'Clasificación: guías y referencia.',book['descripcion_breve'])
+        if today:
+            book['fecha_actualizacion'] = today
+        repaired.append(book['id'])
+    return repaired

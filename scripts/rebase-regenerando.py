@@ -41,6 +41,13 @@ def git(*args, check=True) -> subprocess.CompletedProcess:
     return subprocess.run(['git', *args], cwd=ROOT, text=True, capture_output=True, check=check, encoding='utf-8')
 
 
+def git_paths(args, paths):
+    """Rutas por stdin: admite borrados y evita el límite de argv de Windows."""
+    return subprocess.run(['git', *args, '--pathspec-from-file=-', '--pathspec-file-nul'],
+                          cwd=ROOT, input=('\0'.join(paths) + '\0').encode('utf-8'),
+                          capture_output=True, check=True)
+
+
 def en_conflicto() -> list[str]:
     return [l for l in git('diff', '--name-only', '--diff-filter=U').stdout.splitlines() if l]
 
@@ -62,8 +69,13 @@ def rebasar(onto: str) -> None:
             git('rebase', '--abort', check=False)
             sys.exit('Conflictos que no son generados (los resuelve una persona): ' + ', '.join(reales or ['?']))
         # En un rebase, «ours» es la base (main): lo generado se reconstruye al final desde las fuentes resultantes.
-        git('checkout', '--ours', '--', *conflictos)
-        git('add', '--', *conflictos)
+        presentes = set(git('ls-tree', '-r', '--name-only', '-z', 'HEAD').stdout.split('\0'))
+        conservar = [p for p in conflictos if p in presentes]
+        borrados = [p for p in conflictos if p not in presentes]
+        if conservar:
+            git_paths(['restore', '--source=HEAD', '--staged', '--worktree'], conservar)
+        if borrados:
+            git_paths(['rm', '-f', '--ignore-unmatch'], borrados)
         print(f'  {len(conflictos)} generado(s) en conflicto: versión de main, se regeneran al final')
         r = subprocess.run(['git', '-c', 'core.editor=true', 'rebase', '--continue'], cwd=ROOT, text=True,
                            capture_output=True, encoding='utf-8')
@@ -94,7 +106,7 @@ def main() -> int:
     if sueltos:
         print('Sin versionar (no son generados): ' + ', '.join(sueltos[:8]))
     if cambios:
-        git('add', '-A', '--', *cambios)
+        git_paths(['add', '-A'], cambios)
         git('commit', '-q', '-m', f'Regenerar artefactos sobre {git("rev-parse", "--short", a.onto).stdout.strip()}')
         print(f'Commit de regeneración con {len(cambios)} fichero(s)')
     else:

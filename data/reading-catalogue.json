@@ -818,6 +818,15 @@
       "orden": 240,
       "slug": "tema-migracion-y-exilio",
       "tipo": "tematica"
+    },
+    {
+      "id": "guias-y-referencia",
+      "slug": "guias-y-referencia",
+      "nombre": "Guías y referencia",
+      "tipo": "genero",
+      "descripcion": "Guías, diccionarios y obras de consulta.",
+      "orden": 217,
+      "activa": true
     }
   ],
   "libro_categorias": [
@@ -2958,10 +2967,6 @@
       "libro_id": "isbn-9788408326847"
     },
     {
-      "categoria_id": "tema-diccionarios-y-referencia",
-      "libro_id": "isbn-9788411005494"
-    },
-    {
       "categoria_id": "tema-viajes",
       "libro_id": "isbn-9788411005494"
     },
@@ -4288,10 +4293,6 @@
     {
       "categoria_id": "biografias-y-memorias",
       "libro_id": "isbn-9791388220173"
-    },
-    {
-      "categoria_id": "tema-diccionarios-y-referencia",
-      "libro_id": "isbn-9788467083965"
     },
     {
       "categoria_id": "filosofia",
@@ -20218,10 +20219,6 @@
       "libro_id": "isbn-9788441444997"
     },
     {
-      "categoria_id": "ensayo",
-      "libro_id": "isbn-9780241838044"
-    },
-    {
       "categoria_id": "tema-ocio-y-tiempo-libre",
       "libro_id": "isbn-9780241838044"
     },
@@ -34146,10 +34143,6 @@
       "libro_id": "isbn-9788410907706"
     },
     {
-      "categoria_id": "ensayo",
-      "libro_id": "isbn-9791388175671"
-    },
-    {
       "categoria_id": "tema-poder-y-politica",
       "libro_id": "isbn-9791388175671"
     },
@@ -36104,6 +36097,22 @@
     {
       "categoria_id": "dia-del-padre",
       "libro_id": "isbn-9788409924523"
+    },
+    {
+      "libro_id": "isbn-9788411005494",
+      "categoria_id": "guias-y-referencia"
+    },
+    {
+      "libro_id": "isbn-9788467083965",
+      "categoria_id": "guias-y-referencia"
+    },
+    {
+      "libro_id": "isbn-9780241838044",
+      "categoria_id": "guias-y-referencia"
+    },
+    {
+      "libro_id": "isbn-9791388175671",
+      "categoria_id": "guias-y-referencia"
     }
   ],
   "libros": [
@@ -51789,13 +51798,13 @@
         "Un Mundo Inmenso"
       ],
       "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
-      "descripcion_breve": "Récords para entender el planeta, de Un Mundo Inmenso. Edición de Ediciones Península en castellano, en tapa dura sin s/cub. (cartoné). Consta de 240 páginas. La editorial la incluye en diccionarios y referencia. Publicación editorial: 2026-10-28.",
+      "descripcion_breve": "Récords para entender el planeta, de Un Mundo Inmenso. Edición de Ediciones Península en castellano, en tapa dura sin s/cub. (cartoné). Consta de 240 páginas. Clasificación: guías y referencia. Publicación editorial: 2026-10-28.",
       "descripcion_original_confirmada": true,
       "edicion": "Tapa dura sin s/cub. (cartoné) · Ediciones Península",
       "editorial": "Ediciones Península",
       "editorial_catalogo_slug": "ediciones-peninsula",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-02",
+      "fecha_actualizacion": "2026-11-12",
       "fecha_publicacion": "2026-10-28",
       "fecha_verificacion": "2026-11-02",
       "formato_edicion": "tapa-dura",
@@ -62173,13 +62182,13 @@
         "Real Academia Española"
       ],
       "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
-      "descripcion_breve": "Diccionario de la lengua española. Vigesimocuarta edición, de Real Academia Española. Edición de Editorial Espasa en castellano, en tapa dura con s/cub. + estuche. Consta de 3672 páginas. La editorial la incluye en diccionarios y referencia. Publicación editorial: 2026-10-21.",
+      "descripcion_breve": "Diccionario de la lengua española. Vigesimocuarta edición, de Real Academia Española. Edición de Editorial Espasa en castellano, en tapa dura con s/cub. + estuche. Consta de 3672 páginas. Clasificación: guías y referencia. Publicación editorial: 2026-10-21.",
       "descripcion_original_confirmada": true,
       "edicion": "Tapa dura con s/cub. + estuche · Editorial Espasa",
       "editorial": "Editorial Espasa",
       "editorial_slug": "editorial-espasa",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-03",
+      "fecha_actualizacion": "2026-11-12",
       "fecha_publicacion": "2026-10-21",
       "fecha_verificacion": "2026-11-03",
       "formato_edicion": "tapa-dura",
@@ -158459,13 +158468,13 @@
         "Jordan Green"
       ],
       "autorizacion_o_base_uso": "Cubierta de la edición tomada de su ficha de Amazon.es para su identificación bibliográfica",
-      "descripcion_breve": "Warhammer Age of Sigmar. La guía visual definitiva, de Phil Kelly, Jordan Green. Edición de DK en castellano, en tapa dura. Consta de 288 páginas. La editorial la incluye en ensayo, tiempo libre. Publicación editorial: 2026-11-12.",
+      "descripcion_breve": "Warhammer Age of Sigmar. La guía visual definitiva, de Phil Kelly, Jordan Green. Edición de DK en castellano, en tapa dura. Consta de 288 páginas. Clasificación: guías y referencia. Publicación editorial: 2026-11-12.",
       "descripcion_original_confirmada": true,
       "edicion": "Tapa dura · DK",
       "editorial": "DK",
       "editorial_catalogo_slug": "dk",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-08",
+      "fecha_actualizacion": "2026-11-12",
       "fecha_publicacion": "2026-11-12",
       "fecha_verificacion": "2026-11-08",
       "formato_edicion": "tapa-dura",
@@ -224338,7 +224347,7 @@
         "Eduardo Montagut"
       ],
       "autorizacion_o_base_uso": "Cubierta de la edición tomada de su ficha de Amazon.es para su identificación bibliográfica",
-      "descripcion_breve": "Diccionario de conceptos y términos para entender y moverse en política: 16 (Biblos), de Eduardo Montagut. Edición de Editatum en castellano, en tapa blanda. Consta de 228 páginas. La editorial la incluye en ensayo, poder y política. Publicación editorial: 2026-10-30.",
+      "descripcion_breve": "Diccionario de conceptos y términos para entender y moverse en política: 16 (Biblos), de Eduardo Montagut. Edición de Editatum en castellano, en tapa blanda. Consta de 228 páginas. Clasificación: guías y referencia. Publicación editorial: 2026-10-30.",
       "descripcion_original_confirmada": true,
       "edicion": "Tapa blanda · Editatum",
       "editorial": "Editatum",

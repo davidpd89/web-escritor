@@ -227,6 +227,8 @@ def apply(root=ROOT, today=None, flagged=None):
     path, held_path = root / CATALOGUE, root / QUARANTINE
     data = json.loads(path.read_text(encoding='utf-8'))
     original = json.loads(json.dumps(data))
+    from reading_taxonomy import repair_classification
+    repair_classification(data, today=today)
     held = json.loads(held_path.read_text(encoding='utf-8'))['libros'] if held_path.exists() else []
     for repair in REPAIRS:
         repair(data['libros'] + [h['libro'] for h in held], root, today)

@@ -309,7 +309,8 @@ def tags(cats, compact=False, limit=None):
         cats = [c for c in cats if c['tipo'] != 'edad']
     if compact or limit:
         # Las más informativas primero; la tarjeta resume y la ficha tiene un hueco fijo.
-        cats = sorted(cats, key=lambda c: (priority[c['tipo']], c['orden'], c['id']))[:CARD_TAGS if compact else limit]
+        from reading_taxonomy import category_priority
+        cats = sorted(cats, key=category_priority)[:CARD_TAGS if compact else limit]
     return group(cats)
 
 
