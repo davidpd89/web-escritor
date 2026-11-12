@@ -677,13 +677,12 @@ def catalogue_in_ci(opened, now=None):
     return None
 
 
-def publish(out=OUT):
+def _publish_once(out, publisher):
     """Copia los textos a un árbol limpio de origin/main y publica con el flujo protegido del barrido."""
     texts = sorted(out.glob('*.json'))
     if not texts:
         print('Sin textos que publicar')
         return False
-    publisher = load_module('publish_reading_refresh', 'scripts/publish-reading-refresh.py')
     batch = catalogue_in_ci(json.loads(publisher.publication.gh(
         'pr', 'list', '--state', 'open', '--base', 'main', '--limit', '100', '--json', 'headRefName,createdAt')))
     if batch:
@@ -712,7 +711,6 @@ def publish(out=OUT):
     if not paths:
         print('Los textos ya están en main')
         return False
-    publisher = load_module('publish_reading_refresh', 'scripts/publish-reading-refresh.py')
     outside = [p for p in paths if not publisher.allowed_path(p)]
     if outside:
         raise ValueError('Cambios fuera de los artefactos permitidos: ' + str(outside))
@@ -735,6 +733,18 @@ def publish(out=OUT):
     git('switch', '-q', '--detach', cwd=tree)
     publisher.run(branch)
     return True
+
+
+def publish(out=OUT):
+    """Revalida los textos guardados sobre main si otra publicación lo adelanta; nunca vuelve a pedirlos a la IA."""
+    publisher = load_module('publish_reading_refresh', 'scripts/publish-reading-refresh.py')
+    for attempt in range(1, 4):
+        try:
+            return _publish_once(out, publisher)
+        except publisher.publication.StaleMerge:
+            if attempt == 3:
+                raise
+            print(f'main avanzó durante la publicación de textos: reconstruyo desde main (intento {attempt + 1}/3)', flush=True)
 
 
 def publish_due(args, now, last):
