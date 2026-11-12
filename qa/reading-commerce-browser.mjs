@@ -1,13 +1,15 @@
 import { chromium } from 'playwright';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
+import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { auditTargetSizes } from './target-size-audit.mjs';
 
 const base = process.env.RECOMMENDATIONS_BASE_URL || 'http://127.0.0.1:4173';
-await fs.mkdir('.ci/reading-commerce', { recursive: true });
-execFileSync(process.env.PYTHON || 'python', ['tests/test-reading-catalogue.py', '--browser-fixture', '.ci/reading-commerce/fixture.json']);
-const fixture = JSON.parse(await fs.readFile('.ci/reading-commerce/fixture.json', 'utf8'));
+const fixturePath = process.env.READING_COMMERCE_FIXTURE_PATH || '.ci/reading-commerce/fixture.json';
+await fs.mkdir(path.dirname(fixturePath), { recursive: true });
+execFileSync(process.env.PYTHON || 'python', ['tests/test-reading-catalogue.py', '--browser-fixture', fixturePath]);
+const fixture = JSON.parse(await fs.readFile(fixturePath, 'utf8'));
 const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? {executablePath:process.env.QA_CHROMIUM_EXECUTABLE_PATH} : {}) });
 const now = new Date('2026-10-20T16:00:00Z');
 const dated = { actualizado_en: '2026-10-20T15:00:00Z', caduca_en: '2026-10-21T15:00:00Z' };

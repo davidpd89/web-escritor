@@ -26,7 +26,7 @@ from reading_editorial_sources import CachedHTTP, SourceError, penguin_edition, 
 from reading_intake_core import affiliate_destination, clean_author, clean_title, split_authors, normalize_text, publisher_slug, tidy_prose
 from reading_intake_fetch import read_json, write_if_changed
 from reading_intake_publishers import resolve_publishers
-from reading_taxonomy import apply_derived, extra_categories
+from reading_taxonomy import apply_derived, extra_categories, reference_work, REFERENCE_ID
 from reading_catalogue_publishers import catalogue_publisher, PublisherError
 from reading_generic_source import generic_edition, generic_links, reviewed_hosts
 from reading_planeta_source import COVER_HOSTS as PLANETA_COVER_HOSTS, planeta_edition, planeta_links
@@ -47,6 +47,8 @@ GENRES = {
     'poesia': ('poesia','Poesía'),
     'libros de poesia': ('poesia','Poesía'),
     'ensayo': ('ensayo','Ensayo'),
+    'diccionarios y referencia': (REFERENCE_ID, 'Guías y referencia'),
+    'guias y referencia': (REFERENCE_ID, 'Guías y referencia'),
     'filosofia': ('filosofia','Filosofía'),
     'historia': ('historia','Historia'),
     'psicologia': ('psicologia','Psicología'),
@@ -181,6 +183,16 @@ def classify(record, catalogue):
             catalogue['categorias'].append(c)
             cats[ident] = c
         found.append(ident)
+    if reference_work(record.get('titulo',''), found):
+        record['materias'] = [m for m in record['materias'] if normalize_text(m) != 'ensayo']
+        if 'Guías y referencia' not in record['materias']:
+            record['materias'].append('Guías y referencia')
+        found = [c for c in found if c != 'ensayo']
+        if REFERENCE_ID not in cats:
+            catalogue['categorias'].append({'id':REFERENCE_ID,'slug':REFERENCE_ID,'nombre':'Guías y referencia',
+                'tipo':'genero','descripcion':'Guías, diccionarios y obras de consulta.','orden':217,'activa':True})
+            cats[REFERENCE_ID] = catalogue['categorias'][-1]
+        found.append(REFERENCE_ID)
     if not found:
         raise SourceError('Materia editorial no clasificada; queda pendiente')
     if 'juvenil' in cats and any(normalize_text(s) == 'juvenil' for s in record['materias']):

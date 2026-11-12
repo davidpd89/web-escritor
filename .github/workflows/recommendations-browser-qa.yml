@@ -11,6 +11,7 @@ on:
       - 'scripts/templates/reading-catalogue.html.tmpl'
       - 'tests/test-reading-catalogue.py'
       - 'qa/reading-catalogue-browser.mjs'
+      - 'qa/reading-catalogue-script-failure-smoke.mjs'
       - 'qa/reading-commerce-browser.mjs'
       - 'qa/catalogue-ratings-trust.mjs'
       - 'qa/reading-type-selector-browser.mjs'
@@ -20,6 +21,7 @@ on:
       - 'qa/catalogue-device-matrix.mjs'
       - 'qa/catalogue-facet-count-parity.mjs'
       - 'qa/catalogue-filter-matrix.mjs'
+      - 'qa/catalogue-filter-interaction-matrix.mjs'
       - 'qa/reading-upcoming-browser.mjs'
       - 'qa/build-reading-scale-fixture.py'
       - 'assets/reading-market.json'
@@ -103,6 +105,7 @@ jobs:
           python tests/test-catalogue-performance-budget-coverage.py
           python tests/test-ahrefs-schema-regressions.py
           node qa/reading-catalogue-browser.mjs
+          QA_ORIGIN=http://127.0.0.1:4173 node qa/reading-catalogue-script-failure-smoke.mjs
           node qa/reading-commerce-browser.mjs
           QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-ratings-trust.mjs
           node qa/reading-intake-browser.mjs
@@ -113,6 +116,7 @@ jobs:
           QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-device-matrix.mjs
           QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-facet-count-parity.mjs
           QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-filter-matrix.mjs
+          QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-filter-interaction-matrix.mjs
           node qa/reading-upcoming-browser.mjs
       - name: Use lockfile-pinned Lighthouse CI
         if: always()

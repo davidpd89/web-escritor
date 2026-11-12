@@ -137,13 +137,13 @@ class CarryTests(unittest.TestCase):
             self.assertEqual(read('recomendaciones/index.html'), '<p>6</p>\n')
             self.assertTrue((repo.work / 'data/reading-texts/a.json').exists())
 
-    def test_conflicting_source_data_returns_none_and_leaves_main_clean(self):
+    def test_conflicting_source_data_keeps_new_books_without_rewinding_main(self):
         with tempfile.TemporaryDirectory() as tmp:
             repo = Repo(tmp)
             repo.bot_batch(self.BRANCH)
             repo.main_moves({CATALOGUE: books('a', 'b', 'c', 'd', 'e', 'f', 'manual')})
-            self.assertIsNone(refresh.carry(self.BRANCH, root=repo.work))
-            self.assertEqual(repo.git('status', '--porcelain'), '')
+            self.assertEqual(refresh.carry(self.BRANCH, root=repo.work), ['nuevo1', 'nuevo2'])
+            self.assertIn('manual', (repo.work / CATALOGUE).read_text(encoding='utf-8'))
             self.assertEqual(repo.git('rev-parse', 'HEAD'), repo.git('rev-parse', 'origin/main'))
             self.assertIn(self.BRANCH, repo.git('ls-remote', '--heads', 'origin'))  # la rama sigue como referencia
 

@@ -71,6 +71,11 @@ try {
     const page = await context.newPage();
     let served = 0;
     await page.route('**/assets/reading-market.json', route => route.fulfill({ status: 404, body: '' }));
+    const hubHtml = await fs.readFile('recomendaciones/index.html', 'utf8');
+    const checkedDates = [...hubHtml.matchAll(/data-offer-checked="(\d{4}-\d{2}-\d{2})"/g)].map(match => match[1]).sort();
+    assert.ok(checkedDates.length > 0, 'no static offer check dates available');
+    const marketClock = new Date(checkedDates.at(-1) + 'T12:00:00Z');
+    await page.clock.install({ time: marketClock });
     await page.route('**/recomendaciones/', async route => {
       const response = await route.fetch();
       if (served++) return route.fulfill({ response });
@@ -82,7 +87,7 @@ try {
     assert.equal(await page.locator('[data-catalogue-book]').count(), realCount);
     assert.doesNotMatch(await page.locator('[data-catalogue-count]').innerText(), /No se pudo/);
     // Discount filter over the whole catalogue: 5/10/25/50 % must match the red badges Amazon confirmed (static data only).
-    const madrid = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Madrid' }).format(new Date());
+    const madrid = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Madrid' }).format(marketClock);
     // Las fichas hidratadas se rellenan al mostrarse: el descuento confirmado se lee de data-format-discounts («formato:%:fecha»).
     const best = await page.locator('[data-catalogue-book]').evaluateAll((cards, today) => cards.map(card => Math.max(0, ...(card.dataset.formatDiscounts || '').split(' ').filter(Boolean).map(x => x.split(':')).filter(([, , d]) => (Date.parse(today) - Date.parse(d)) / 864e5 <= 3).map(([, pct]) => Number(pct)))), madrid);
     const badges = await page.locator('[data-catalogue-book] [data-offer-checked]').count();

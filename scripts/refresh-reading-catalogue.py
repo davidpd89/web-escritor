@@ -86,17 +86,24 @@ def follow_main(root=ROOT):
 def carry(branch, root=ROOT):
     """Datos fuente de una PR verde pero obsoleta, sobre el main actual y sin volver a consultar las fuentes.
 
-    Devuelve los id de libro nuevos frente a main, o None si sus datos fuente chocan con main (entonces se
-    regenera desde las fuentes). Libros válidos, pendientes, precios y cuarentena viajan juntos en SOURCE_PATHS.
+    Devuelve las altas recuperadas frente a main, o None si ya están publicadas. Si los JSON chocan,
+    conserva las altas con su procedencia sin rebobinar main. Los datos fuente viajan sin HTML viejo.
     """
     git('fetch', '--quiet', 'origin', 'main', f'+refs/heads/{branch}:refs/remotes/origin/{branch}', root=root)
     head, latest = (git('rev-parse', ref, root=root).decode().strip() for ref in ('origin/' + branch, 'origin/main'))
     base = git('merge-base', latest, head, root=root).decode().strip()
     patch = git('diff', '--binary', base, head, '--', *SOURCE_PATHS, root=root)
     before = catalogue_ids(git('show', latest + ':data/reading-catalogue.json', root=root))
-    if not patch or not replay(patch, latest, root):
+    if not patch:
         return None
-    return sorted(catalogue_ids((root / 'data/reading-catalogue.json').read_bytes()) - before)
+    if not replay(patch, latest, root):
+        from reading_source_recovery import recover
+        return recover(root, head, base, latest)
+    added = sorted(catalogue_ids((root / 'data/reading-catalogue.json').read_bytes()) - before)
+    # Un punto de guardado ya publicado no provoca otra publicación vacía ni rebobina la siguiente noche.
+    if not added and not git('diff', 'HEAD', '--', *SOURCE_PATHS, root=root).strip():
+        return None
+    return added
 
 
 def bot_identity(root=ROOT):
@@ -506,9 +513,9 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
                     'Se ejecutan las pruebas reales del commit y las reglas de main antes de fusionar. Después se despliega y se comprueba producción.\n', encoding='utf-8')
     publisher.publication.gh('pr', 'create', '--base', 'main', '--head', branch,
                              '--title', 'Actualizar catálogo de lectura ' + day, '--body-file', str(body))
-    # Desde aquí los datos viven en la rama de la PR (resume_pending/carry los recuperan si su CI falla).
-    drop_checkpoint(checkpoint)
+    # La PR puede cerrarse por CI rojo: conservar la copia hasta comprobar publicación y Pages.
     publisher.run(branch)
+    drop_checkpoint(checkpoint)
 
 
 def main(publish):
