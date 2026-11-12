@@ -1445,7 +1445,7 @@ def first_sentence(text, limit=160):
 
 AUTHOR_SORTS = (('nombre', 'Nombre · A–Z'), ('proximo', 'Próximo libro · el más cercano primero'), ('reciente', 'Último libro · el más reciente primero'), ('libros', 'Número de libros · de más a menos'))
 AUTHOR_STATES = (('', 'Todos los autores'), ('proximos', 'Con próximos lanzamientos'), ('novedad', 'Con novedad en los últimos 30 días'))
-AUTHORS_ASSET_VERSION = '2'
+AUTHORS_ASSET_VERSION = '4'
 
 
 def render_authors_index(authors, books, template, data=None):
@@ -1464,25 +1464,41 @@ def render_authors_index(authors, books, template, data=None):
         for kind in kinds:
             groups[kind] = groups.get(kind, 0) + 1
         dates = ' '.join(sorted({b['fecha_publicacion'] for b in bs if b.get('fecha_publicacion')}))
-        attrs = ' data-groups="' + ' '.join(kinds) + '" data-books="' + str(len(bs)) + '"' + (' data-dates="' + dates + '"' if dates else '')
-        items.append('<li' + attrs + '><a href="' + author_url(a) + '">' + image(newest[0], True, '120px', 'catalogue-index__image', '') + '<span>' + esc(a['nombre']) + '</span></a>'
-                     + ('<p class="eyebrow catalogue-when">' + esc(when) + '</p>' if when else '')
-                     + '<p>' + str(len(bs)) + (' libro' if len(bs) == 1 else ' libros') + ' · ' + esc(', '.join(b['titulo'] for b in newest[:2])) + ('…' if len(bs) > 2 else '') + '</p>'
-                     + ('<p class="catalogue-index__bio">' + esc(first_sentence(a['biografia_breve'])) + '</p>' if a.get('biografia_breve') else '') + '</li>')
+        titles = ', '.join(b['titulo'] for b in bs)
+        search_text = ' '.join((a['nombre'], titles, a.get('biografia_breve', '')))
+        amazon_search = 'https://www.amazon.es/s?' + urlencode({'k': a['nombre'], 'i': 'stripbooks', 'tag': 'davidporto-21'})
+        attrs = ' data-groups="' + esc(' '.join(kinds)) + '" data-books="' + str(len(bs)) + '" data-search="' + esc(search_text) + '"' + (' data-dates="' + dates + '"' if dates else '')
+        items.append('<li class="catalogue-card catalogue-author-card"' + attrs + '><a class="catalogue-card__cover catalogue-author-card__profile" href="' + author_url(a) + '" aria-label="Ver ficha de ' + esc(a['nombre']) + '">' + image(newest[0], True, '120px', 'catalogue-index__image', '') + '</a><div>'
+                     + '<p class="eyebrow catalogue-when">' + esc(when) + '</p><h3><a href="' + author_url(a) + '">' + esc(a['nombre']) + '</a></h3>'
+                     + '<p class="catalogue-author-card__books">' + str(len(bs)) + (' libro' if len(bs) == 1 else ' libros') + ' · ' + esc(', '.join(b['titulo'] for b in newest[:2])) + ('…' if len(bs) > 2 else '') + '</p>'
+                     + ('<p class="catalogue-card__description">' + esc(first_sentence(a['biografia_breve'])) + '</p>' if a.get('biografia_breve') else '')
+                     + '<a class="catalogue-buy-link catalogue-card__buy" href="' + esc(amazon_search) + '" target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label="Buscar libros de ' + esc(a['nombre']) + ' en Amazon (otra pestaña)">Buscar sus libros en Amazon <span aria-hidden="true">↗</span></a></div></li>')
     summary = 'Autores de los libros recomendados: ' + str(len(rows)) + ' fichas con sus libros, ediciones y editoriales.'
-    kinds = [('', 'Todos los tipos')] + [(gid, label + ' (' + str(groups[gid]) + ')') for gid, label in group_options(groups)]
+    kinds = group_options(groups)
     upcoming = any(b.get('fecha_publicacion', '') > anchor for b in books)
-    # Sin JS el formulario queda desactivado y la lista completa sigue a la vista (enlaces rastreables).
-    filters = ('<form class="catalogue-filters catalogue-authors-filters" data-index-filters data-noun="autores" role="search" aria-label="Filtrar autores"><fieldset disabled><legend>Encuentra autores</legend><div class="catalogue-filter-grid">'
-               '<label class="catalogue-search">Buscar por autor o título<input type="search" name="q" data-index-filter="q" maxlength="120" autocomplete="off" placeholder="Nombre del autor o de un libro"></label>'
-               + (_index_select('tipo', 'Tipo de libro', kinds) if groups else '') + _index_select('estado', 'Mostrar', AUTHOR_STATES) + _index_select('orden', 'Ordenar por', AUTHOR_SORTS)
-               + '</div><div class="catalogue-filter-actions"><button type="submit">Buscar autores</button>' + ('<button type="button" class="catalogue-upcoming-link" data-index-shortcut>Autores con próximos lanzamientos →</button>' if upcoming else '') + '<button type="reset">Restablecer</button></div></fieldset></form>')
-    main = ('<main id="contenido" tabindex="-1" class="v1-main reading-catalogue catalogue-author-page catalogue-authors-index" data-family="recomendaciones"><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">Autores</li></ol></nav>'
+    quiz_types = ''.join('<option value="' + esc(gid) + '">' + esc(label) + '</option>' for gid, label in kinds)
+    quiz_states = ''.join('<option value="' + esc(value) + '">' + esc(label) + '</option>' for value, label in AUTHOR_STATES)
+    quiz = ('<details class="catalogue-quiz catalogue-authors-quiz"><summary>¿Qué tipo de autor te gustaría descubrir? Haz el test</summary><div class="catalogue-quiz__panel">'
+            '<p>Cuéntanos qué tipo de libros te interesan y te mostraremos autores relacionados.</p><div class="catalogue-authors-quiz__fields">'
+            '<label>Tipo de libro<select data-author-quiz-type disabled><option value="">Cualquier tipo</option>' + quiz_types + '</select></label>'
+            '<label>Novedades<select data-author-quiz-state disabled>' + quiz_states + '</select></label>'
+            '</div><button type="button" data-author-quiz-submit disabled>Ver autores para mí</button></div></details>')
+    # Sin JS los controles quedan desactivados y la lista completa sigue a la vista (enlaces rastreables).
+    filters = ('<form id="authors-filter-form" class="catalogue-filters catalogue-authors-filters" data-index-filters data-noun="autores" role="search" aria-label="Filtrar autores"><fieldset disabled><legend>Filtra por tipo de libro</legend>'
+               '<div class="catalogue-authors-facets">' + ''.join('<label><input type="checkbox" data-index-filter="tipo" value="' + esc(gid) + '"><span>' + esc(label) + '</span><small>' + str(groups[gid]) + '</small></label>' for gid, label in kinds) + '</div>'
+               '<label class="catalogue-authors-state">Mostrar<select name="estado" data-index-filter="estado">' + ''.join('<option value="' + esc(value) + '">' + esc(label) + '</option>' for value, label in AUTHOR_STATES) + '</select></label>'
+               '<div class="catalogue-filter-actions">' + ('<button type="button" class="catalogue-upcoming-link" data-index-shortcut>Autores con próximos lanzamientos →</button>' if upcoming else '') + '<button type="reset">Restablecer filtros</button></div></fieldset></form>')
+    main = ('<main id="contenido" tabindex="-1" class="v1-main reading-catalogue catalogue-author-page catalogue-authors-index" data-family="recomendaciones" data-index-layout="authors" data-index-date="' + esc(anchor) + '" data-index-page-size="24"><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">Autores</li></ol></nav>'
             '<header class="catalogue-author-hero"><p class="eyebrow">Libros recomendados</p><h1>Autores</h1><p>' + esc(summary) + '</p></header>'
-            + filters +
-            '<section aria-labelledby="authors-list"><div class="catalogue-results-head"><h2 id="authors-list">Todos los autores</h2><p role="status" aria-live="polite" data-index-count>' + str(len(rows)) + ' autores</p></div>'
+            + quiz + '<form id="authors-filter-form" class="catalogue-authors-form" data-index-filters data-noun="autores" role="search" aria-label="Buscar y filtrar autores"><div class="catalogue-layout">'
+            '<aside class="catalogue-sidebar"><button type="button" class="catalogue-authors-filter-toggle" data-author-filter-toggle disabled aria-expanded="false" aria-controls="authors-filter-panel">Filtros</button><div id="authors-filter-panel" class="catalogue-authors-filter-panel">'
+            + filters.replace('<form id="authors-filter-form" class="catalogue-filters catalogue-authors-filters" data-index-filters data-noun="autores" role="search" aria-label="Filtrar autores">', '<div class="catalogue-filters catalogue-authors-filters">').replace('</form>', '</div>') +
+            '</div></aside><section class="catalogue-main" aria-labelledby="authors-list"><div class="catalogue-results-head"><h2 id="authors-list" tabindex="-1">Todos los autores</h2><div class="catalogue-results-controls">'
+            '<label>Buscar por autor o título<input type="search" name="q" data-index-filter="q" form="authors-filter-form" maxlength="120" autocomplete="off" placeholder="Nombre del autor o de un libro" disabled></label>'
+            '<label>Ordenar por<select name="orden" data-index-filter="orden" form="authors-filter-form" disabled>' + ''.join('<option value="' + esc(value) + '">' + esc(label) + '</option>' for value, label in AUTHOR_SORTS) + '</select></label></div>'
+            '<p role="status" aria-live="polite" data-index-count>' + str(len(rows)) + ' autores</p></div>'
             '<p class="catalogue-authors-empty" data-index-empty hidden>Ningún autor coincide con esos filtros. <button type="button" data-index-reset>Quitar filtros</button></p>'
-            '<ul class="catalogue-author-books" data-index-list>' + ''.join(items) + '</ul></section>'
+            '<ul class="catalogue-grid catalogue-author-grid" data-index-list>' + ''.join(items) + '</ul><nav class="catalogue-authors-pagination" data-index-pagination aria-label="Paginación de autores"></nav></section></div></form>'
             '<div class="catalogue-end"><a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div></main>')
     schema = {'@context': 'https://schema.org', '@graph': [{'@type': 'CollectionPage', '@id': canonical, 'url': canonical, 'name': 'Autores de los libros recomendados', 'dateModified': collection_modified({}, books), 'hasPart': [{'@id': SITE + author_url(a) + '#person'} for a, _ in rows]},
                                                   _breadcrumb_schema([('Inicio', '/'), ('Libros recomendados', '/recomendaciones/'), ('Autores', '/recomendaciones/autores/')])]}

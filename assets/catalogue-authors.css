@@ -1,12 +1,44 @@
-/* Índices de autores y de editoriales: mismo panel de filtros que el catálogo de libros. */
-html.v1 .catalogue-authors-filters .catalogue-filter-grid{grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));}
-html.v1 .catalogue-authors-filters .catalogue-filter-actions{margin-top:1rem;}
-html.v1 .catalogue-authors-index .catalogue-results-head{grid-template-columns:minmax(0,1fr);}
-html.v1 .catalogue-authors-index .catalogue-author-books li[hidden]{display:none;}
-html.v1 .catalogue-authors-index .catalogue-author-books li{content-visibility:auto;contain-intrinsic-size:auto 340px;}
-html.v1 .catalogue-authors-index .catalogue-author-books .catalogue-when{margin:0;font-size:.72rem;}
-html.v1 .catalogue-authors-empty{margin:1.5rem 0;padding:1rem;border:1px dashed var(--catalogue-rule);}
-html.v1 .catalogue-authors-empty button{margin-left:.5rem;}
-@media(max-width:700px){html.v1 .catalogue-authors-filters .catalogue-filter-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
-@media(max-width:450px){html.v1 .catalogue-authors-filters .catalogue-filter-grid{grid-template-columns:minmax(0,1fr);}}
-@media print{html.v1 .catalogue-authors-filters{display:none!important;}}
+/* Índice de autores: misma composición de filtros y tarjetas que el catálogo de libros. */
+html.v1 .catalogue-authors-index .catalogue-layout{grid-template-columns:minmax(15rem,18.5rem) minmax(0,1fr);gap:0 2rem;}
+html.v1 .catalogue-authors-index .catalogue-sidebar{position:sticky;top:1rem;max-height:calc(100vh - 2rem);overflow:auto;min-width:0;}
+html.v1 .catalogue-authors-index .catalogue-filters{margin:1rem 0;padding:1rem;}
+html.v1 .catalogue-authors-facets{display:grid;gap:.45rem;}
+html.v1 .catalogue-authors-facets label{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:.6rem;min-height:44px;padding:.4rem;border-bottom:1px solid var(--catalogue-rule);color:var(--catalogue-deep);font:600 .85rem/1.4 var(--font-ui);cursor:pointer;}
+html.v1 .catalogue-authors-facets input{width:1.1rem;min-height:1.1rem;accent-color:var(--catalogue-blue);}
+html.v1 .catalogue-authors-facets small{color:#67635e;font-size:.75rem;}
+html.v1 .catalogue-authors-state{display:grid;gap:.45rem;margin-top:1.25rem;color:var(--catalogue-deep);font:600 .78rem/1.5 var(--font-ui);}
+html.v1 .catalogue-authors-form .catalogue-filter-actions{flex-direction:column;margin-top:1rem;}
+html.v1 .catalogue-authors-form .catalogue-filter-actions button{width:100%;}
+html.v1 .catalogue-authors-index[data-index-layout="authors"] .catalogue-results-head{grid-template-columns:minmax(0,1fr) minmax(16rem,1.2fr);align-items:end;}
+html.v1 .catalogue-authors-index .catalogue-results-controls{display:grid;grid-template-columns:minmax(0,1fr) minmax(10rem,.7fr);gap:.75rem;min-width:0;}
+html.v1 .catalogue-authors-index .catalogue-results-controls label{display:grid;gap:.4rem;min-width:0;color:var(--catalogue-deep);font:600 .78rem/1.5 var(--font-ui);}
+html.v1 .catalogue-authors-index .catalogue-author-grid{grid-template-columns:repeat(auto-fill,minmax(min(200px,100%),1fr));}
+html.v1 .catalogue-authors-index .catalogue-author-card{min-width:0;}
+html.v1 .catalogue-authors-index .catalogue-author-card[hidden]{display:none!important;}
+html.v1 .catalogue-authors-index .catalogue-author-card .catalogue-when{min-height:2rem;margin:0;font-size:.72rem;}
+html.v1 .catalogue-authors-index .catalogue-author-card h3{margin:.15rem 0 .4rem;}
+html.v1 .catalogue-authors-index .catalogue-author-card h3 a{color:inherit;text-decoration:none;}
+html.v1 .catalogue-authors-index .catalogue-author-card__profile{min-height:0;}
+html.v1 .catalogue-authors-index .catalogue-author-card__books{margin:.2rem 0 .5rem;font-size:.84rem;line-height:1.5;}
+html.v1 .catalogue-authors-index .catalogue-author-card .catalogue-card__description{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:4;}
+html.v1 .catalogue-authors-index .catalogue-author-card>div{display:flex;flex-direction:column;min-width:0;}
+html.v1 .catalogue-authors-index .catalogue-author-card .catalogue-card__buy{margin-top:auto;}
+html.v1 .catalogue-authors-index .catalogue-authors-empty{margin:1.5rem 0;padding:1rem;border:1px dashed var(--catalogue-rule);}
+html.v1 .catalogue-authors-index .catalogue-authors-empty button{margin-left:.5rem;}
+html.v1 .catalogue-authors-pagination{display:flex;justify-content:center;align-items:center;gap:1rem;margin:1.5rem 0 2.5rem;}
+html.v1 .catalogue-authors-pagination span{color:var(--catalogue-deep);font-size:.9rem;}
+html.v1 .catalogue-authors-pagination:empty{display:none;}
+html.v1 .catalogue-authors-quiz__fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-bottom:1rem;}
+html.v1 .catalogue-authors-quiz__fields label{display:grid;gap:.45rem;color:var(--catalogue-deep);font:600 .82rem/1.5 var(--font-ui);}
+html.v1 .catalogue-authors-filter-toggle{display:none;}
+@media(max-width:900px){
+  html.v1 .catalogue-authors-index .catalogue-layout{grid-template-columns:minmax(0,1fr);gap:0;}
+  html.v1 .catalogue-authors-index .catalogue-sidebar{position:static;max-height:none;overflow:visible;}
+  html.v1 .catalogue-authors-filter-toggle{display:inline-flex;margin-top:1rem;}
+  html.v1 .catalogue-authors-index[data-index-layout="authors"] .catalogue-results-head{grid-template-columns:minmax(0,1fr);}
+}
+@media(max-width:600px){
+  html.v1 .catalogue-authors-index .catalogue-results-controls{grid-template-columns:minmax(0,1fr);}
+  html.v1 .catalogue-authors-quiz__fields{grid-template-columns:minmax(0,1fr);}
+}
+@media print{html.v1 .catalogue-authors-form,html.v1 .catalogue-authors-quiz{display:none!important;}}

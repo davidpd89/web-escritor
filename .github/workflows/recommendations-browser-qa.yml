@@ -6,6 +6,7 @@ on:
       - 'recomendaciones/**'
       - 'assets/v1-recommendations.css'
       - 'assets/reading-catalogue.*'
+      - 'assets/catalogue-authors.*'
       - 'data/reading-catalogue.json'
       - 'scripts/build-reading-catalogue.py'
       - 'scripts/templates/reading-catalogue.html.tmpl'
@@ -14,6 +15,7 @@ on:
       - 'qa/reading-commerce-browser.mjs'
       - 'qa/catalogue-ratings-trust.mjs'
       - 'qa/reading-type-selector-browser.mjs'
+      - 'qa/authors-index-browser.mjs'
       - 'qa/reading-catalogue-v2-browser.mjs'
       - 'qa/catalogue-mobile-discovery.mjs'
       - 'qa/catalogue-pagination-shareable-url.mjs'
@@ -114,6 +116,7 @@ jobs:
           QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-facet-count-parity.mjs
           QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-filter-matrix.mjs
           node qa/reading-upcoming-browser.mjs
+          node qa/authors-index-browser.mjs
       - name: Use lockfile-pinned Lighthouse CI
         if: always()
         run: echo "$PWD/node_modules/.bin" >> "$GITHUB_PATH"
