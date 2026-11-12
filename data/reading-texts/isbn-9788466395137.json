@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788466395137",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Crónica de una muerte anunciada (Best Seller | Ediciones Conmemorativas) se dirige a lectores de narrativa contemporánea que buscan una obra de extensión breve. Sus 144 páginas permiten optar por una lectura más corta que la de una novela extensa; encaja menos con quienes prefieren libros de varios cientos de páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Crónica de una muerte anunciada (Best Seller | Ediciones Conmemorativas) reúne sus 144 páginas en una edición física de Penguin Bolsillo, apropiada para conservar o regalar. Kindle permite leer el mismo título en un dispositivo electrónico, sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Crónica de una muerte anunciada (Best Seller | Ediciones Conmemorativas) comparte autor con Entre cachacos: 1954-1955 / Among the Cachacos: 1954-1955: 2 (OBRA PERIODÍSTICA), de Gabriel García Márquez. La primera figura como narrativa contemporánea y tiene 144 páginas; la segunda pertenece a una colección identificada como obra periodística. La diferencia principal está en el tipo de publicación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789588894164"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fac13fc5afb65e25",
+  "origen": "chatgpt-web"
+}

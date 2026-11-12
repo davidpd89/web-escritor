@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791399153828",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pelayo. El rey rebelde (HISTORIA ANTIGUA), de José Soto Chica y Francisco Aguado Blázquez, se dirige a lectores interesados en historia y Edad Media. Su enfoque temático encaja menos con quienes buscan ficción contemporánea o una lectura centrada en asuntos actuales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pelayo. El rey rebelde (HISTORIA ANTIGUA) y 76 comparten su orientación hacia la historia, aunque el primero se sitúa en el ámbito de la Edad Media y el segundo aparece firmado por Felipe Pigna. También puede compararse con Agustín penón y Federico García Lorca por su interés histórico, pero este último se centra en una investigación sobre la vida y la muerte de Federico García Lorca, mientras que el primero aborda la figura de Pelayo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329695",
+        "isbn-9788418567933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "800ca6a59cc4160e",
+  "origen": "chatgpt-web"
+}

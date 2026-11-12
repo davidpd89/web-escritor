@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788422024637",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El maestro de Revilla de Camargo encaja con lectores interesados en las biografías y los asuntos religiosos. Por su clasificación temática, se aleja de quienes buscan ficción o manuales prácticos; sus 168 páginas permiten abordar la lectura en una extensión relativamente breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El maestro de Revilla de Camargo se ofrece en tapa blanda, con 168 páginas en castellano. Esta edición de BAC permite leer en papel, consultar pasajes y conservar el volumen sin ocupar tanto espacio como una obra de mayor extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El maestro de Revilla de Camargo puede compararse con Al andar: Vivencias del Camino de Santiago por su vinculación con asuntos espirituales. También comparte el enfoque biográfico con El diario íntimo del papa Francisco (Biografías y Memorias), aunque este último se centra en una figura religiosa identificada en su título, mientras que el primero sitúa su atención en un maestro.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496",
+        "isbn-9791388522017"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4b693818cd71bdc1",
+  "origen": "chatgpt-web"
+}

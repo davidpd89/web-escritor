@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9788411214834",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Secretos del ayurveda: Que cambiarán tu vida (Biblioteca de la salud) se orienta a lectores interesados en el bienestar, la nutrición y el desarrollo personal desde el ayurveda. Por sus temas, responde menos a quienes buscan exclusivamente recetas de cocina o un manual centrado en el rendimiento deportivo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Secretos del ayurveda: Que cambiarán tu vida (Biblioteca de la salud) cuenta con una edición en tapa blanda de 396 páginas. Su extensión permite dedicar distintas sesiones a los temas de salud, cocina y bienestar, mientras que la encuadernación flexible facilita manejarlo durante la consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "847068bd94ba30e7",
+  "origen": "chatgpt-web"
+}

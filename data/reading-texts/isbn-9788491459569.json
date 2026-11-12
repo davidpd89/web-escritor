@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788491459569",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El cuentacuentos: Caperucita roja: Cuentos para leer y escuchar (ÁLBUMES ILUSTRADOS) está orientado al público infantil y a quienes buscan cuentos tradicionales en formato ilustrado. Sus 24 páginas favorecen las sesiones de lectura breves; no responde a la búsqueda de una novela juvenil extensa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de tapa dura de Picarona reúne las 24 páginas de este cuento infantil en un volumen físico. Es una opción para conservarlo en una biblioteca infantil, compartir la lectura sobre papel o entregarlo como regalo; la encuadernación rígida protege las cubiertas durante su manipulación.",
+      "evidencias": [
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El cuentacuentos: Blancanieves: Cuentos para leer y escuchar (ÁLBUMES ILUSTRADOS) comparte con este libro la autoría de Francesca Rossi y la propuesta de cuentos para leer y escuchar. La diferencia está en el relato tradicional anunciado por cada título: uno presenta a Blancanieves y el otro a Caperucita roja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491459552"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a7c6ffec4d65ea69",
+  "origen": "chatgpt-web"
+}

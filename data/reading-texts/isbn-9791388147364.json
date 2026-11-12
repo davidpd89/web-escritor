@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388147364",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Islas de la Ascuaoscura: Una novela del Cosmere (Best Seller | Ficción), de Brandon Sanderson, está dirigida a lectores de fantasía y aventuras interesados en el Cosmere. Su pertenencia a ese universo narrativo la aleja de las novelas realistas o de quienes buscan historias sin componentes fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Islas de la Ascuaoscura: Una novela del Cosmere (Best Seller | Ficción) tiene 560 páginas, disponibles en una edición de bolsillo en tapa blanda para leer en papel. La tapa dura ofrece una cubierta rígida para conservar o regalar el volumen; Kindle evita transportar su extensión física y el audiolibro permite seguir la narración mediante escucha.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los fuegos de Diciembre, de Brandon Sanderson, comparte autor y pertenencia al Cosmere, pero se presenta expresamente como una novela independiente. Islas de la Ascuaoscura: Una novela del Cosmere (Best Seller | Ficción) se identifica también con ese universo y se encuadra en fantasía y aventuras, sin que su título establezca un lugar concreto dentro de una serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410466715"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a0bd99b2cedf69de",
+  "origen": "chatgpt-web"
+}

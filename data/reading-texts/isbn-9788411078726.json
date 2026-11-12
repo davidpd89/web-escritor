@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788411078726",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Primer amor: High & Dry (MAXI) se dirige a lectores de narrativa contemporánea interesados en el amor y las relaciones de pareja. Con 176 páginas, ofrece una extensión relativamente breve; no pertenece a los géneros de fantasía, terror o aventura, sino a la ficción de temática sentimental.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Primer amor: High & Dry (MAXI) está disponible en tapa blanda y Kindle. La edición de bolsillo de Maxi-tusquets reúne 176 páginas en un volumen físico pensado para transportar; Kindle permite leerlo desde el móvil o un dispositivo electrónico sin llevar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Primer amor: High & Dry (MAXI) comparte la temática amorosa con Amor con aroma a jengibre (ROMÁNTICA), aunque la obra de Banana Yoshimoto se presenta como narrativa contemporánea. También puede compararse con Amor en pole position (Dirty Air 3), de Lauren Asher, que sitúa su historia sentimental en el mundo de la Fórmula 1. La diferencia documentada está en ese contexto deportivo frente al enfoque contemporáneo y de pareja de Primer amor: High & Dry (MAXI).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388259401",
+        "isbn-9788427055674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e0d3705db92c1d60",
+  "origen": "chatgpt-web"
+}

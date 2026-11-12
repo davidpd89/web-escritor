@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La bestia del rey 13 (Shôjo) se dirige a lectores de cómic juvenil que buscan fantasía romántica con conflictos políticos. La relación entre Rangetsu y Tenyô convive con reformas sociales y amenazas militares, por lo que encaja menos con quien prefiera romances alejados de las disputas de poder.",
+      "texto": "La bestia del rey 13 (Shôjo) se dirige a lectores juveniles de manga que siguen historias de fantasía romántica, tensiones sociales y enfrentamientos políticos. Rei Tôma continúa una trama con personajes y relaciones ya establecidos; no plantea una historia independiente para quien busque empezar una serie desde su origen.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La bestia del rey 13 (Shôjo) combina romance fantástico y tensiones entre humanos y semihumanos. El compromiso matrimonial de Rangetsu y Tenyô coincide con cambios impulsados desde el poder y con la oposición de otros países, de modo que el conflicto sentimental comparte espacio con el político.",
+      "texto": "Este manga combina el compromiso sentimental de Rangetsu y Tenyô con un conflicto político entre humanos y semihumanos. Las reformas destinadas a reducir la discriminación provocan resistencia exterior y aumentan el riesgo de guerra, de modo que la relación romántica avanza dentro de una crisis de alcance colectivo.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -22,18 +23,19 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La bestia del rey 13 (Shôjo) está disponible en tapa blanda con sobrecubierta, una presentación física de 168 páginas. Este formato permite conservar el volumen en una colección de cómics y consultar sus páginas impresas sin depender de una pantalla.",
+      "texto": "La bestia del rey 13 (Shôjo) está disponible en tapa blanda con sobrecubierta, en una edición de Distrito Manga de 168 páginas. El formato físico permite seguir las viñetas y conservar este volumen junto a los demás de la colección, manteniendo la presentación impresa de sus ilustraciones.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "edicion",
+        "editorial",
         "numero_paginas",
+        "formatos_disponibles",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La bestia del rey 13 (Shôjo) puede compararse con Donde duermen las sombras por la presencia de romance y elementos fantásticos. Mientras la obra de Rei Tôma sitúa la relación amorosa entre reformas políticas y conflictos militares, la de Andrea Ornos plantea un amor que atraviesa dimensiones y se enfrenta a las sombras.",
+      "texto": "La bestia del rey 13 (Shôjo) se relaciona directamente con La bestia del rey 14 (Shôjo), también de Rei Tôma; los títulos identifican entregas distintas de la misma serie. Frente a Alas de escarcha y oro: El canto del cisne, comparte el ámbito de la fantasía romántica, pero presenta su conflicto entre humanos y semihumanos mediante manga juvenil.",
       "evidencias": [
         "titulo",
         "autores",
@@ -42,7 +44,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055605"
+        "isbn-9791387962708",
+        "isbn-9791387949938"
       ]
     }
   ],

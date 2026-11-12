@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788409942466",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El peso del cargo: Y todo lo que no te deja ver se dirige a lectores interesados en el ejercicio de responsabilidades profesionales y el liderazgo, dentro del ámbito de economía y empresa. Por su enfoque temático, se aleja de quienes buscan una novela de ficción o una guía centrada en nutrición y bienestar.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 238 páginas de El peso del cargo: Y todo lo que no te deja ver en un ejemplar físico que permite consultar y marcar pasajes. La edición Kindle ofrece la misma obra como opción digital para leer en un dispositivo compatible, sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El peso del cargo: Y todo lo que no te deja ver puede compararse con Antes de liderar: Una mirada interior a un oficio por su relación con las responsabilidades del liderazgo. Xavier Garcia Pujadas firma el primero y Miguel Reinoso el segundo; mientras uno pone el foco en el peso del cargo, el otro plantea una mirada previa al ejercicio de liderar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d96b154be42a0bc0",
+  "origen": "chatgpt-web"
+}

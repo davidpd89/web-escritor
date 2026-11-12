@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788411078504",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Morir en la arena (MAXI), de Leonardo Padura, se dirige a lectores de narrativa contemporánea en castellano. Por su clasificación editorial, encaja menos con quienes buscan específicamente romance, fantasía o ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Morir en la arena (MAXI) se presenta en tapa blanda, en una edición de bolsillo de Maxi-tusquets. Sus 384 páginas permiten llevar la lectura en un volumen de formato reducido, pensado para transportarlo y guardarlo sin ocupar tanto espacio como una edición de mayor tamaño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ac9f8958a9a0b35f",
+  "origen": "chatgpt-web"
+}

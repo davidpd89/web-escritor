@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788425377068",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Foxx (Los Soldados de Bedlam 3): El zorro y la diosa (Novela de intriga) encaja con lectores que buscan romance combinado con misterio y tensión narrativa. El título lo identifica como el n.º 3 de Los Soldados de Bedlam, por lo que quienes prefieren historias presentadas como independientes pueden optar por otra lectura.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Foxx (Los Soldados de Bedlam 3): El zorro y la diosa (Novela de intriga) se ofrece en tapa blanda, con 416 páginas en castellano. La edición física permite mantener el volumen junto a otros libros de Los Soldados de Bedlam y continuar la lectura sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Apartamento 3B (Ficción), de Carolina Moura, y Foxx (Los Soldados de Bedlam 3): El zorro y la diosa (Novela de intriga), de Paisley Hope, comparten su identificación como obras de ficción. La segunda combina romance y misterio y su título la identifica como el n.º 3 de Los Soldados de Bedlam, mientras que la primera se presenta bajo una denominación general de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425375415"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c8383483346523cb",
+  "origen": "chatgpt-web"
+}

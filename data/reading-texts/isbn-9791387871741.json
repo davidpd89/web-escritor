@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387871741",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Más intenso que el placer (Vuelo y gloria 3) (Best Seller | Ficción), de Rebecca Yarros, encaja con lectores interesados en el romance, las relaciones de pareja y la narrativa juvenil contemporánea. Su orientación romántica y juvenil lo sitúa lejos de quienes buscan principalmente fantasía épica, ensayo o narrativa sin componente amoroso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 528 páginas en una edición de bolsillo, mientras que Kindle permite llevar la lectura en formato digital. El audiolibro añade la posibilidad de escuchar Más intenso que el placer (Vuelo y gloria 3) (Best Seller | Ficción), de Rebecca Yarros, en lugar de leerlo visualmente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Legacy. Donde todo se ilumina: La faceta más romántica de la autora de la serie Empíreo: 3 (Planeta Internacional), de Rebecca Yarros, comparte con Más intenso que el placer (Vuelo y gloria 3) (Best Seller | Ficción), de Rebecca Yarros, la autoría y su vinculación con el romance. La diferencia está en la identificación editorial: Más intenso que el placer pertenece a Vuelo y gloria, mientras que Legacy se presenta como la faceta más romántica de la autora de Empíreo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328452"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "af396ec866619a70",
+  "origen": "chatgpt-web"
+}

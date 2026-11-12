@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788410943919",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Madrid Capital del mundo: De cómo la villa castellana se convirtió en una ciudad de palacios (HISTORIA) se dirige a quienes se interesan por la historia urbana, la arquitectura y la transformación de Madrid. Su enfoque histórico y artístico se aleja de las novelas centradas en personajes y conflictos ficticios.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 336 páginas y está publicada por La Esfera de los Libros. Para una lectura centrada en la evolución histórica y arquitectónica de Madrid, el volumen físico permite volver a pasajes anteriores y consultar distintos apartados durante la lectura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "titulo"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "63b8b27c34e0eea7",
+  "origen": "chatgpt-web"
+}

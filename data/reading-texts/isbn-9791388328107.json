@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388328107",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hicieron historia: 10 personajes épicos de España (Ciudadela Libros) se dirige a lectores infantiles interesados en conocer figuras de la historia española. Su planteamiento histórico, centrado en diez personajes según el título, lo diferencia de los libros infantiles de ficción fantástica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hicieron historia: 10 personajes épicos de España (Ciudadela Libros) tiene 80 páginas y se presenta en tapa dura. Esta edición en castellano de Ciudadela Libros permite consultar el volumen físicamente y conservarlo como libro de referencia sobre personajes históricos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hicieron historia: 10 personajes épicos de España (Ciudadela Libros) puede compararse con El mundo desde arriba (Lonely Planet Junior) por su orientación hacia lectores infantiles y el conocimiento del mundo. El libro de Álvaro Gil Ruiz se centra en diez figuras españolas, mientras que el de Ben Hubbard aborda el mundo desde una perspectiva geográfica sugerida por su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408311454"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1552e4caa4aa7da2",
+  "origen": "chatgpt-web"
+}

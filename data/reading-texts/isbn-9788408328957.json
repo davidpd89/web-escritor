@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788408328957",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Animalize 21 1 + El Rulas 1 (Jóvenes influencers) está dirigido a lectores interesados en aventuras, humor y misterio dentro de la narrativa juvenil. Al reunir dos títulos, responde a una búsqueda distinta de la de quienes prefieren adquirir una sola historia o leer ficción ajena a estos géneros.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estuche Animalize 21 1 + El Rulas 1 (Jóvenes influencers) se comercializa en tapa dura y suma 288 páginas. Su presentación en estuche permite regalar los dos títulos juntos y conservarlos como conjunto, en lugar de adquirir un único volumen independiente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche Animalize 21 1 + El Rulas 1 (Jóvenes influencers) y Estuche GoDeiK 1 + GoDeiK 2 (Jóvenes influencers) comparten la presentación de dos títulos de una colección juvenil. Se diferencian en la autoría y los protagonistas identificados en sus títulos: Animalize21 firma el primero y GoDeiK el segundo. Frente a ambos estuches, Animalize 21 3. Animalize 21 y el misterioso show de teatro (Jóvenes influencers) presenta una sola aventura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328131",
+        "isbn-9788408328476"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "449172dce717c513",
+  "origen": "chatgpt-web"
+}

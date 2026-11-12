@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788426434579",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Teresa, de Rosa Chacel, se dirige a lectores interesados en los clásicos y la narrativa contemporánea. Su clasificación editorial la sitúa en el terreno de la literatura narrativa, por lo que no responde a quien busca un ensayo, un manual práctico o un cómic.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne 352 páginas en un volumen físico publicado por Lumen. Es el formato disponible para quien prefiere leer en papel, conservar el ejemplar o incorporarlo a una colección de narrativa y clásicos.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "06eb79f10a20ad21",
+  "origen": "chatgpt-web"
+}

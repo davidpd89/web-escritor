@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788491058328",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de clásicos y terror que buscan una novela de Gastón Leroux en edición conmemorativa. Sus 400 páginas permiten una lectura de extensión media dentro de esos géneros. Resulta menos afín a quienes prefieren relatos breves o narraciones alejadas de los elementos de terror.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "El fantasma de la ópera (edición especial en tapa dura) (Ediciones Conmemorativas) se distingue por su presentación especial dentro de la colección Ediciones Conmemorativas. Penguin Clásicos publica esta versión en castellano, con 400 páginas y encuadernación de tapa dura. Su fecha de publicación editorial es el 19 de noviembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible de esta edición conmemorativa de 400 páginas. La encuadernación rígida favorece su conservación y puede interesar a quienes reúnen clásicos en formato físico o buscan un ejemplar para regalar. Su extensión exige más tiempo de lectura que un cuento breve, aunque permite manejar la obra en un solo volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cosamala, de Alana S. Portero, comparte con El fantasma de la ópera (edición especial en tapa dura) (Ediciones Conmemorativas) una orientación hacia lo gótico y lo inquietante, pero parte de un crimen real de la guerra civil y de una historia de brujas. Cuento de Navidad: 46 (Pequeños Placeres), de Charles Dickens, ofrece otra referencia de autor clásico, aunque su título apunta a un relato navideño. La obra de Gastón Leroux se sitúa específicamente entre los clásicos y el terror.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788432251436",
+        "isbn-9791399221107"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cda916408239b61b",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419982827",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Steelborn: Hija del acero está dirigido a lectores de fantasía, romantasy, romance y aventuras. Su combinación de géneros no encaja con quien busca una obra centrada exclusivamente en la narrativa realista o en contenidos ajenos a la ficción fantástica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne sus 544 páginas en un volumen físico, adecuado para quien prefiere conservar el libro en papel. Kindle permite llevar Steelborn: Hija del acero en un dispositivo electrónico y leerlo sin depender del ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Steelborn: Hija del acero comparte con Ciudad de dioses y monstruos (DARK ROMANCE) la presencia del romance dentro de una propuesta de ficción. Taylor J. LaRue firma una obra identificada como fantasía, romantasy y aventuras, mientras que Kayla Edwards presenta su título bajo la denominación dark romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788415955559"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a640024e263b4ed0",
+  "origen": "chatgpt-web"
+}

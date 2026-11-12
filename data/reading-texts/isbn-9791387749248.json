@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387749248",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Enlazados (Umbriel narrativa), de H.M. Long, se dirige a quienes leen fantasía y aventuras con interés por los elementos históricos. Sus 336 páginas ofrecen una extensión intermedia; no corresponde a una lectura centrada exclusivamente en hechos históricos documentados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Enlazados (Umbriel narrativa) cuenta con una edición en tapa blanda de 336 páginas publicada por Umbriel. Es una opción física para leer por sesiones o llevar en una bolsa, con una extensión menor que la de una novela de gran volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Enlazados (Umbriel narrativa) puede compararse con Aftermyth 1. Penelope y la prueba de los dioses por su vinculación con la fantasía. H.M. Long combina fantasía, aventura y elementos históricos en Enlazados (Umbriel narrativa), mientras que el título de Tracy Wolff sitúa su conflicto anunciado en una prueba relacionada con dioses.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324102"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b9fbdab203150f62",
+  "origen": "chatgpt-web"
+}

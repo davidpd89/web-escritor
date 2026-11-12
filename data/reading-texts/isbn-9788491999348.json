@@ -1,0 +1,27 @@
+{
+  "id": "isbn-9788491999348",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores interesados en la divulgación científica y en las grandes cuestiones sobre la realidad. Su planteamiento se aleja de las novelas de ficción y de los manuales dedicados exclusivamente a aplicaciones prácticas de una tecnología.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las diez claves de la realidad (Drakontos) está disponible en tapa dura y tapa blanda, con una extensión de 320 páginas. La primera ofrece una encuadernación rígida para conservar el volumen; la segunda permite elegir una presentación flexible para la lectura y la consulta.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "051c283650d25ac0",
+  "origen": "chatgpt-web"
+}

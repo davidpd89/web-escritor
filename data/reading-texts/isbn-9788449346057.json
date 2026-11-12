@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mira el lado bueno de las cosas se dirige a lectores interesados en la psicología, el desarrollo personal y las explicaciones científicas del optimismo. Su enfoque divulgativo sobre la manera de interpretar las dificultades no responde a quien busque una novela de ficción o una historia de suspense.",
+      "texto": "Mira el lado bueno de las cosas se dirige a lectores interesados en la psicología del optimismo y en cómo influye en la manera de interpretar la realidad. Su enfoque sobre el pensamiento y las reacciones ante las noticias negativas se aleja de los manuales centrados exclusivamente en relaciones de pareja o crianza.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mira el lado bueno de las cosas está disponible en tapa blanda y Kindle, con 320 páginas. La edición física de Ediciones Paidós es rústica con solapas y permite conservar el volumen para consultas posteriores; Kindle facilita leerlo en el móvil o en un lector electrónico.",
+      "texto": "Mira el lado bueno de las cosas tiene 320 páginas y puede leerse en tapa blanda o Kindle. La edición física de Ediciones Paidós es rústica con solapas y permite consultar el texto en papel; Kindle ofrece la misma obra en formato digital para leerla en un dispositivo compatible.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "editorial",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mira el lado bueno de las cosas y Maleducados emocionales abordan el bienestar psicológico, pero Sumit Paul-Choudhury estudia el optimismo desde la ciencia y Dr. José Carbonell se ocupa de las relaciones con personas que afectan al equilibrio emocional. Mentes diferentes, de Chloé Hayden, combina testimonio y activismo sobre neurodivergencia, frente al enfoque divulgativo del optimismo de Mira el lado bueno de las cosas.",
+      "texto": "Mira el lado bueno de las cosas y Abraza a tu niño interior: Nunca es tarde para sanar tu infancia abordan cuestiones relacionadas con la psicología y el desarrollo personal. Sumit Paul-Choudhury examina el optimismo y su dimensión científica, mientras que la obra de Victoria Cadarso se centra en las experiencias de la infancia y su sanación.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,8 +33,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408331339",
-        "isbn-9788411193894"
+        "isbn-9788410944206"
       ]
     }
   ],

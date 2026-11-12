@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410651111",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La naturaleza ilustrada. Más de 200 obras de arte botánico contemporáneo, de Ana de Izaguirre, se dirige a personas interesadas en la representación artística de las plantas y en la ilustración botánica actual. Por su temática, se diferencia de las guías prácticas de jardinería y de los relatos de ficción protagonizados por animales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La naturaleza ilustrada. Más de 200 obras de arte botánico contemporáneo se ofrece en tapa blanda, con 248 páginas en castellano. El soporte impreso permite observar las obras botánicas directamente sobre papel y recorrer el contenido visual pasando las páginas, sin utilizar un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Animales, de Susaeta Ediciones, también incorpora ilustraciones vinculadas al mundo natural, pero reúne seis cuentos protagonizados por animales. La naturaleza ilustrada. Más de 200 obras de arte botánico contemporáneo, de Ana de Izaguirre, se centra en obras artísticas sobre plantas, por lo que su contenido visual responde a una finalidad distinta de la narración de cuentos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370341589"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e5a9298431733ebf",
+  "origen": "chatgpt-web"
+}

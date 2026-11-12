@@ -4,43 +4,31 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cómo construir la soberanía digital europea se dirige a lectores interesados en la relación entre tecnología, democracia y autonomía política. Su planteamiento institucional y social se aleja de los manuales técnicos destinados a aprender programación o administrar sistemas informáticos.",
+      "texto": "Cómo construir la soberanía digital europea se dirige a lectores interesados en política tecnológica, autonomía europea y modelos democráticos de gestión digital. Es un ensayo de 144 páginas, menos afín a quienes buscan ficción o una lectura centrada exclusivamente en aspectos técnicos de la informática.",
       "evidencias": [
         "titulo",
         "categorias",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Francesca Bria analiza la dependencia tecnológica de Europa y sus consecuencias para servicios públicos como la educación, la sanidad y la administración. Cómo construir la soberanía digital europea plantea alternativas basadas en el control democrático de las infraestructuras, el código abierto y el interés colectivo.",
+      "texto": "Francesca Bria examina la capacidad de Europa para controlar sus infraestructuras digitales y las consecuencias políticas de depender de proveedores externos. El ensayo contrapone esa dependencia a una alternativa basada en principios democráticos, tecnologías abiertas e interés colectivo, con especial atención a servicios públicos como la educación y la sanidad.",
       "evidencias": [
-        "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cómo construir la soberanía digital europea ofrece dos formatos: tapa blanda y Kindle. La edición impresa reúne 144 páginas para leer y consultar en papel; Kindle permite llevar el ensayo en un lector electrónico o en la aplicación del móvil sin transportar el volumen físico.",
+      "texto": "Cómo construir la soberanía digital europea está disponible en tapa blanda y Kindle, dos opciones para leer sus 144 páginas. La edición en papel permite conservar y consultar físicamente el ensayo; Kindle facilita llevarlo en un lector electrónico o en el móvil sin transportar el volumen.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Cómo construir la soberanía digital europea y Antes de perder el juicio examinan cuestiones que afectan al debate público y a la vida democrática. Francesca Bria se concentra en las infraestructuras tecnológicas y la autonomía europea, mientras que Mauricio García Villegas aborda los problemas de la verdad, la propaganda y la polarización informativa.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791388387302"
+        "edicion"
       ]
     }
   ],

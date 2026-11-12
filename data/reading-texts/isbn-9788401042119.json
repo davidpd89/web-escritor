@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Canción de amor definitiva está dirigida a lectores adultos interesados en memorias personales sobre música, familia, pareja y enfermedad. Jorge Martí Aguas relata la convivencia entre su actividad artística y su trabajo asistencial; no responde al planteamiento de una novela romántica de ficción.",
+      "texto": "Canción de amor definitiva está dirigido a lectores adultos interesados en las memorias personales, la música y las relaciones familiares. Jorge Martí Aguas relata la convivencia entre su carrera musical, el trabajo asistencial y su vida doméstica; no se presenta como una ficción romántica centrada exclusivamente en una pareja.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,37 +15,33 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Canción de amor definitiva aborda el conflicto entre la vida pública de un músico y sus responsabilidades familiares y profesionales. Jorge Martí Aguas relata su actividad en La habitación roja, su trabajo como enfermero en Noruega y el peso de la enfermedad, las expectativas personales y el amor en sus decisiones.",
+      "texto": "El libro examina las tensiones entre la identidad pública y las responsabilidades privadas de Jorge Martí Aguas. La experiencia sobre los escenarios se contrapone al trabajo con pacientes con demencia y alzhéimer en Noruega, mientras la relación con su familia articula sus reflexiones sobre el amor y las expectativas personales.",
       "evidencias": [
-        "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Canción de amor definitiva ofrece 440 páginas con solapas, mientras que la tapa dura proporciona una encuadernación más rígida para conservar el volumen o regalarlo. Kindle permite leer las memorias de Jorge Martí Aguas en el móvil o en un lector electrónico, sin transportar el libro físico.",
+      "texto": "Canción de amor definitiva tiene 440 páginas y puede leerse en tapa dura, tapa blanda o Kindle. La tapa dura ofrece una encuadernación rígida para conservar o regalar el volumen; la tapa blanda facilita transportarlo y la edición Kindle permite llevar estas memorias en un lector electrónico o en el móvil.",
       "evidencias": [
         "titulo",
-        "autores",
         "numero_paginas",
-        "edicion",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Canción de amor definitiva y Recuerdos. Breve historia de un amor comparten el tratamiento autobiográfico de las relaciones afectivas. Jorge Martí Aguas entrelaza música, trabajo asistencial y familia, mientras que Juan Ramírez de Lucas aporta su testimonio sobre su relación con Federico García Lorca en los meses anteriores a 1936.",
+      "texto": "Canción de amor definitiva puede compararse con Cómo me gustaría contarte, de Ángel Gómez Merino, por su atención a las decisiones personales y a las expectativas ajenas. Jorge Martí Aguas sitúa esas tensiones en su experiencia como músico, trabajador sanitario y padre, mientras que Cómo me gustaría contarte parte de una vida marcada por cumplir lo que otros esperaban.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788432251467"
+        "isbn-9788403526723"
       ]
     }
   ],

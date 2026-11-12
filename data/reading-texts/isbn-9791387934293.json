@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387934293",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA) está dirigido a quienes se interesan por la gastronomía desde varias perspectivas: productos de la huerta, vinos, cocina y coctelería. Su planteamiento temático se distancia de los libros dedicados únicamente a recetas de una cocina regional o a una sola bebida.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA) cuenta con una edición en tapa dura de 100 páginas. La encuadernación rígida de Cinco Tintas resulta práctica para conservarlo y consultarlo sobre una mesa, además de ofrecer una presentación apropiada para regalar un libro de gastronomía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Champagne: El vino más famoso del mundo (GASTRONOMIA), de Aurélie Soubiran, comparte con Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA) el interés por el vino, pero concentra su tema en una bebida concreta. Atlas Mundial Del Vino (NATURART), de Hugh Johnson, propone una perspectiva geográfica del vino, frente a la combinación de huerta, cocina y cócteles que anuncia Angelita.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418075933",
+        "isbn-9791387934170"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a703e0f6264fcd7c",
+  "origen": "chatgpt-web"
+}

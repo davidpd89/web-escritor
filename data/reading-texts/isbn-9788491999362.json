@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788491999362",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la historia del antiguo Oriente y en su dimensión social y económica. Sus 800 páginas y su enfoque histórico lo sitúan lejos de la narrativa de ficción y de los libros de lectura breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 800 páginas en un único volumen, con una extensión que conviene tener en cuenta para transportarlo y consultarlo. El formato físico corresponde a El antiguo Oriente: Historia, sociedad y economía (Serie Mayor), de Mario Liverani.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo",
+        "autores",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, comparte el enfoque histórico con El antiguo Oriente: Historia, sociedad y economía (Serie Mayor), de Mario Liverani. La diferencia está en el asunto tratado: el primero aborda la relación entre Hitler y la democracia, mientras que el segundo se centra en la historia, la sociedad y la economía del antiguo Oriente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a28ad51a42054f9f",
+  "origen": "chatgpt-web"
+}

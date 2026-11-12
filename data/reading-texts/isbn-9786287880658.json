@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786287880658",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de narrativa contemporánea que prefieren los cuentos y las recopilaciones de relatos. Su planteamiento de historias nuevas y seleccionadas se aparta de la novela concebida como una única narración extensa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Alfaguara publica esta recopilación de 432 páginas en tapa blanda y en castellano. El formato permite alternar la lectura de los cuentos con pausas entre textos, aunque la extensión total exige más espacio que un libro breve de relatos.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puede compararse con Caperucita se come al lobo / Little Red Riding Hood Eats the Wolf, de Pilar Quintana, por su pertenencia a la narrativa contemporánea y los relatos. Tim Keppel presenta una recopilación de cuentos nuevos y seleccionados, mientras que el título de Pilar Quintana identifica otra obra del mismo ámbito narrativo, firmada por una autora diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287880610"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6416c37ba94b41cd",
+  "origen": "chatgpt-web"
+}

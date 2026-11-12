@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9789566402756",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A siete años de ti (Chi) (Titania fresh) se dirige a quienes buscan narrativa romántica en castellano. La obra de Ashley Poston tiene 320 páginas y se centra en el género romántico, por lo que se aleja de las preferencias de lectores que buscan ensayo o narrativa ajena al romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "A siete años de ti (Chi) (Titania fresh) se presenta en tapa blanda, con una extensión de 320 páginas. La edición en castellano de Titania permite leer la novela en papel y llevarla durante los desplazamientos, aunque requiere reservar espacio para un volumen de esa extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4b01ed1e964c77f8",
+  "origen": "chatgpt-web"
+}

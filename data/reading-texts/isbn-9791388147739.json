@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791388147739",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes leen biografías y memorias y prefieren relatos vinculados a experiencias personales antes que ficción fantástica o aventuras inventadas. Su clasificación lo sitúa en la no ficción autobiográfica, por lo que no responde a quien busque una novela de fantasía o una trama de suspense.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición limitada de Su olor después de la lluvia (edición limitada) (Campaña | Ahora por menos) pertenece a Penguin Bolsillo y se presenta como libro de bolsillo en castellano. Contiene 304 páginas y lleva el ISBN 9791388147739. Su fecha de publicación editorial es 2027-02-04, y la denominación de edición limitada forma parte del título comercial que identifica esta presentación.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "isbn13",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de bolsillo permite leer sus 304 páginas en un ejemplar físico que puede transportarse y guardarse en una estantería. Kindle ofrece la alternativa digital para consultar el texto desde un lector electrónico o un móvil compatible. La elección depende de si se prefiere conservar el volumen impreso o prescindir de él durante la lectura.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al andar: Vivencias del Camino de Santiago comparte con Su olor después de la lluvia (edición limitada) (Campaña | Ahora por menos) el interés por las vivencias personales, aunque el primero identifica expresamente el Camino de Santiago como marco. Admirados Soñadores ofrece otra comparación dentro de las lecturas de carácter personal, pero figura firmado por Juan Salazar Larraz, mientras que este libro es de Cédric Sapin-Defour.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412972573",
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "468d58dc4c8a61fe",
+  "origen": "chatgpt-web"
+}

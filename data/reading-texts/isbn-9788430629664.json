@@ -4,28 +4,30 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los pilares de la historia está dirigido a adultos interesados en la historia, la filosofía política y las formas de interpretar el pasado. Sus 688 páginas de ensayo se alejan de una narración cronológica de acontecimientos concretos, por lo que encaja menos con quien busca una introducción breve a un periodo histórico.",
+      "texto": "Los pilares de la historia está dirigido a adultos interesados en la historia, la filosofía del tiempo y las relaciones entre memoria y política. Javier Fernández Sebastián plantea un ensayo sobre las formas de interpretar el pasado, por lo que se aparta de las narraciones cronológicas de acontecimientos y de las biografías históricas.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
-        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Javier Fernández Sebastián estudia cómo las imágenes del progreso, las revoluciones y los ciclos históricos condicionan nuestra interpretación del tiempo. Relaciona esas representaciones con las disputas sobre la memoria, el Antropoceno y la incertidumbre contemporánea. El enfoque examina los instrumentos conceptuales con los que se construyen los relatos históricos.",
+      "texto": "Los pilares de la historia estudia cómo las imágenes y metáforas condicionan la interpretación del pasado y las expectativas de futuro. Javier Fernández Sebastián analiza representaciones del progreso, las revoluciones, la decadencia y las redes, relacionándolas con los conflictos de memoria y la percepción contemporánea del tiempo histórico.",
       "evidencias": [
+        "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas reúne las 688 páginas del ensayo en una edición física que permite consultar y señalar pasajes. Kindle facilita transportar una obra de esta extensión sin cargar con el volumen impreso y continuar la lectura en dispositivos compatibles, incluido el móvil.",
+      "texto": "Los pilares de la historia está disponible en tapa blanda y Kindle. La edición impresa de Taurus reúne 688 páginas con solapas y permite consultar físicamente un ensayo extenso; Kindle facilita transportar toda la obra en un lector electrónico o acceder a ella desde el móvil sin cargar con el volumen.",
       "evidencias": [
+        "titulo",
+        "editorial",
         "edicion",
         "numero_paginas",
         "formatos_disponibles",
@@ -34,7 +36,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los pilares de la historia y Franquistas contra franquistas, de Joan Maria Thomàs, comparten el interés por comprender procesos históricos y políticos. El primero analiza las formas de representar el tiempo histórico; el segundo se centra en las tensiones dentro del bando vencedor de la Guerra Civil. Manifiesto contra la intolerancia, de Rafael Narbona, desplaza la atención hacia las manifestaciones del fascismo.",
+      "texto": "Los pilares de la historia comparte con El papel de la violencia en la historia: Texto esencial de Engels sobre violencia, Bismarck y lucha de clases en la Alemania del siglo XIX (No ficción) el interés por interpretar procesos históricos. Javier Fernández Sebastián estudia las metáforas que organizan nuestra visión del tiempo, mientras que Friedrich Engels aborda la violencia y los conflictos de clase en un contexto histórico concreto.",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,8 +45,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388387395",
-        "isbn-9791388139055"
+        "isbn-9791388115479"
       ]
     }
   ],

@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788423371068",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche La ciudad de las luces muertas (Áncora & Delfín), de David Uclés, se sitúa entre la narrativa contemporánea y la historia. Por esa orientación, encaja con lectores interesados en ambos ámbitos y se distancia de los libros prácticos o de divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estuche La ciudad de las luces muertas (Áncora & Delfín) se presenta en tapa dura, con 88 páginas y edición en castellano de Ediciones Destino. Su extensión permite una lectura breve en papel, mientras que la encuadernación rígida favorece su conservación y presentación como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b22ef7853f026f69",
+  "origen": "chatgpt-web"
+}

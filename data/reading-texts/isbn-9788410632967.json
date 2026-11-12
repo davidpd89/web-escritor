@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788410632967",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Libros proféticos: La Biblia Hebrea en perspectiva latinoamericana. Introducción al Antiguo Testamento (vol. II) se orienta a lectores interesados en el estudio religioso de los textos proféticos desde una perspectiva latinoamericana. Su enfoque introductorio y temático se aleja de quienes buscan ficción o una guía de espiritualidad basada principalmente en ejercicios personales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Libros proféticos: La Biblia Hebrea en perspectiva latinoamericana. Introducción al Antiguo Testamento (vol. II) reúne 368 páginas publicadas por Editorial Verbo Divino. El soporte impreso permite subrayar pasajes, añadir anotaciones y consultar secciones durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esta introducción a los libros proféticos de la Biblia Hebrea comparte temática religiosa con Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación. Alejandro Botta Farfalla y Ahida Calderón Pilarski abordan el Antiguo Testamento desde una perspectiva latinoamericana, mientras que Tsondru Yeshe trata los fundamentos y la práctica del Dharma. La diferencia principal está entre el estudio de textos bíblicos y la exposición de una vía de liberación espiritual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a778543e73a1e6c4",
+  "origen": "chatgpt-web"
+}

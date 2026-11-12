@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788419737595",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El futuro gran artista visita el balneario de las almas (IMPRONUNCIABLES), de Peiyang Xu Xu, pertenece al ámbito del cómic y la novela gráfica. Sus 192 páginas se orientan a lectores de narración gráfica, mientras que quienes buscan una novela escrita únicamente en prosa encontrarán aquí un formato narrativo diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de El futuro gran artista visita el balneario de las almas (IMPRONUNCIABLES) contiene 192 páginas en castellano y está publicada por Fulgencio Pimentel. La cubierta rígida proporciona soporte a un volumen de cómic y novela gráfica, especialmente para su consulta en papel y su conservación en una estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fd994047307b252b",
+  "origen": "chatgpt-web"
+}

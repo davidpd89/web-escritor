@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788413055534",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Franco en guerra: Crónica cotidiana de un dictador (Historia Incógnita) se dirige a lectores interesados en la historia del siglo XX y en el estudio de figuras políticas desde una perspectiva histórica. Con 632 páginas, plantea una lectura extensa y documental, distinta de la novela histórica de ficción o de una introducción breve al periodo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Franco en guerra: Crónica cotidiana de un dictador (Historia Incógnita) se publica en tapa blanda, con 632 páginas en castellano. Por su extensión, la edición física resulta adecuada para una lectura por etapas, con posibilidad de marcar páginas y regresar a distintos pasajes durante la consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Franco en guerra: Crónica cotidiana de un dictador (Historia Incógnita) puede compararse con 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback. Ambos títulos se ocupan de dirigentes autoritarios, aunque el de Eladio Romero y José María Prats anuncia una crónica cotidiana de Franco y el de Ryback se centra en el derrumbe de una democracia. Frente a 76, de Felipe Pigna, comparte su ubicación entre las lecturas históricas afines, con un asunto explícito diferente en el título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517",
+        "isbn-9788408329695"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4035fa5e954f308e",
+  "origen": "chatgpt-web"
+}

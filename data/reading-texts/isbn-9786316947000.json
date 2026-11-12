@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9786316947000",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Guerra estival (Umbriel narrativa), de Naomi Novik, está dirigida a lectores que buscan fantasía. Sus 128 páginas la sitúan entre las lecturas de extensión reducida, frente a quienes prefieren novelas de fantasía más largas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda concentra las 128 páginas de Guerra estival (Umbriel narrativa) en un ejemplar físico publicado por Umbriel. Su extensión permite llevar la edición en papel con mayor facilidad que un volumen de varios cientos de páginas.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo",
+        "edicion",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0f3b0f301b60d3c1",
+  "origen": "chatgpt-web"
+}

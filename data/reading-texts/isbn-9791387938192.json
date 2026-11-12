@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791387938192",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El grano de arroz: Una historia de amor y espera: 9 (Marea gráfica) se orienta a lectores interesados en las relaciones afectivas, la familia y las experiencias personales. Por sus temas de amor y espera, encaja menos con quienes buscan aventuras de acción o explicaciones técnicas sobre materias ajenas a las relaciones humanas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El grano de arroz: Una historia de amor y espera: 9 (Marea gráfica) tiene una edición en tapa dura de 292 páginas, publicada en castellano por Altamarea Ediciones. La cubierta rígida resulta práctica para conservar el libro o regalarlo, mientras que su extensión permite distribuir la lectura en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "50f99c8453db5c82",
+  "origen": "chatgpt-web"
+}

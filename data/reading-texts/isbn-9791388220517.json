@@ -4,35 +4,24 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Todo lo que aprendí en terapia se dirige a lectores interesados en la salud mental, la psicología y el desarrollo personal mediante reflexiones ilustradas. Su enfoque en situaciones cotidianas y recursos visuales lo aleja de los manuales clínicos especializados o de los tratados exclusivamente teóricos.",
+      "texto": "Todo lo que aprendí en terapia encaja con lectores interesados en la salud mental, el crecimiento personal y las reflexiones ilustradas. Pablo R. Coca utiliza escenas cotidianas y recursos visuales, por lo que se aparta de los tratados exclusivamente teóricos y de las novelas de ficción.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Todo lo que aprendí en terapia está disponible en tapa dura, con 168 páginas y encuadernación en cartoné. Este formato permite consultar las reflexiones y observar las ilustraciones en papel, además de conservar el volumen para posteriores lecturas.",
+      "texto": "Todo lo que aprendí en terapia se presenta en tapa dura de cartoné, con 168 páginas publicadas por Lunwerg Editores. El soporte físico permite consultar sus reflexiones ilustradas y observar las metáforas visuales en papel; la encuadernación rígida también resulta apropiada para conservarlo o regalarlo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
         "edicion",
+        "numero_paginas",
+        "editorial",
         "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Todo lo que aprendí en terapia y Mentes diferentes comparten el interés por comprender experiencias personales relacionadas con la salud mental y la identidad. Pablo R. Coca utiliza reflexiones ilustradas sobre el crecimiento personal, mientras Chloé Hayden combina testimonio, divulgación y activismo para abordar la neurodivergencia.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788411193894"
       ]
     }
   ],

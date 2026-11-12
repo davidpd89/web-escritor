@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9786073880541",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡No te enamores! / Don't Fall in Love! se dirige a lectores interesados en el desarrollo personal y las cuestiones relacionadas con la familia. Su clasificación temática lo sitúa fuera de la narrativa romántica de ficción, por lo que no responde a quien busque una novela de amor.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 288 páginas de ¡No te enamores! / Don't Fall in Love! en un volumen físico que permite consultar y señalar pasajes. La edición Kindle ofrece una alternativa digital para leer en dispositivos compatibles sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¡No te enamores! / Don't Fall in Love! puede compararse con Conectados para el amor / Wired for Love, de Stan Tatkin, por su vinculación con el desarrollo personal y las relaciones afectivas. El primero plantea el enamoramiento desde su propio título, mientras que el segundo sitúa el amor y la conexión en el centro de su propuesta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a48d75e7ff17b98e",
+  "origen": "chatgpt-web"
+}

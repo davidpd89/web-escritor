@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Agente Stitch 5. Los roedores de Roswell se orienta a lectores de 6 a 8 años interesados en misterios, aventuras y personajes extraterrestres. La amenaza sobre la Tierra y la investigación de un ovni sitúan el conflicto en la ciencia ficción infantil; quien prefiera historias cotidianas encontrará una propuesta distinta.",
+      "texto": "Agente Stitch 5. Los roedores de Roswell se dirige a lectores de 6 a 8 años que buscan aventuras infantiles con misterios y elementos extraterrestres. Su planteamiento incluye amenazas contra la Tierra y un personaje peligroso, por lo que encaja menos con quienes prefieren relatos cotidianos sin situaciones de riesgo.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "Agente Stitch 5. Los roedores de Roswell se lee como una aventura narrativa de misterio, siguiendo las pistas de Stitch y sus compañeros. La aparición de un ovni y la desaparición de Yelkaelp plantean las incógnitas de la historia, mientras que el trabajo en equipo y los artilugios forman parte de la investigación.",
+      "texto": "Agente Stitch 5. Los roedores de Roswell se utiliza como una lectura de aventuras y misterio, siguiendo las investigaciones de Stitch y sus amigos. El lector acompaña al equipo ante la aparición de un objeto extraterrestre relacionado con una amenaza anterior; el argumento permite comentar pistas, sospechas y posibles explicaciones durante la lectura.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -23,38 +23,39 @@
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "La franja recomendada para Agente Stitch 5. Los roedores de Roswell es de 6 a 8 años. Tiene 224 páginas en castellano y su edición impresa es rústica sin solapas, con una extensión que permite desarrollar una aventura de misterio más allá de los cuentos infantiles breves.",
+      "texto": "Agente Stitch 5. Los roedores de Roswell está dirigido a niños de 6 a 8 años y contiene 224 páginas. La edición de Libros Disney es una rústica sin solapas en castellano, con una extensión que permite repartir la historia en varias sesiones de lectura.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
         "numero_paginas",
-        "idioma",
+        "editorial",
         "edicion",
-        "categorias"
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Agente Stitch 5. Los roedores de Roswell puede elegirse en tapa blanda o Kindle. La edición física de 224 páginas, en rústica sin solapas, permite conservar el libro en papel; Kindle ofrece la misma obra en formato digital para leerla desde un dispositivo compatible sin transportar el volumen.",
+      "texto": "Agente Stitch 5. Los roedores de Roswell está disponible en tapa blanda y Kindle. La edición física reúne 224 páginas en rústica sin solapas para leer y conservar en papel; Kindle permite llevar el relato en un dispositivo compatible y continuar la lectura sin transportar el libro.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "edicion",
         "numero_paginas",
-        "edicion"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Agente Stitch 5. Los roedores de Roswell y Stitch. Calendario de Adviento son obras de Disney que incluyen a Stitch y sus amigos. La primera desarrolla un misterio extraterrestre de 224 páginas; la segunda reúne 24 historias relacionadas con la cuenta atrás hasta Navidad, por lo que cambia tanto la estructura como el contexto de lectura.",
+      "texto": "Agente Stitch 5. Los roedores de Roswell y Clásicos Disney. Cuento de Navidad: Una historia de Mickey y sus amigos comparten la autoría de Disney y personajes de su universo. El primero desarrolla un misterio extraterrestre para lectores de 6 a 8 años, mientras que el segundo se presenta como un cuento navideño protagonizado por Mickey y sus amigos.",
       "evidencias": [
         "titulo",
         "autores",
-        "numero_paginas",
+        "edad_recomendada",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387526863"
+        "isbn-9788419487827"
       ]
     }
   ],

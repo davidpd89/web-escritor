@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788477685432",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Zeniza (Creativa), de Ecequiel Barricart, se dirige a lectores interesados en la poesía y en temas relacionados con el desarrollo personal y el bienestar. Sus 112 páginas ofrecen una extensión breve; no responde a quien busca una novela extensa ni un tratado especializado de nutrición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Zeniza (Creativa) se publica en tapa blanda y consta de 112 páginas. La edición de Ediciones Eunate permite llevar el libro en papel y volver a consultar sus páginas sin depender de una pantalla. Es un volumen en castellano de extensión reducida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aedb67f67ca78cd8",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791387962791",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El incidente Darwin 1 (Seinen): Universo Manga encaja con lectores de manga interesados en la fantasía y la ciencia ficción. Sus 192 páginas y su edición en castellano se dirigen a quienes prefieren la narración gráfica; no es una novela convencional de texto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para El incidente Darwin 1 (Seinen): Universo Manga. Sus 192 páginas ofrecen un volumen físico manejable para leer en papel y conservar junto a otros tomos de la colección.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e6b7150de063c1f1",
+  "origen": "chatgpt-web"
+}

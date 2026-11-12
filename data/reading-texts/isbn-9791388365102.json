@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388365102",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una hermosa tragedia (Romántica) encaja con lectores de narrativa juvenil que buscan romance combinado con fantasía y aventuras. Quienes prefieran historias realistas sin elementos fantásticos encontrarán aquí una orientación distinta a sus gustos habituales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Fandom Books permite leer sus 384 páginas en un volumen físico que puede prestarse o colocarse en la estantería. La edición Kindle ofrece el mismo título en formato digital, con la posibilidad de llevar la lectura en un móvil o lector electrónico sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una hermosa tragedia (Romántica) y Una tempestad para matar un beso: La balada del fuego solar 2 (Inlov Romantasy) comparten el terreno de la fantasía romántica. La diferencia identificable está en la presentación: el título de Julia Dippel señala una segunda entrega, mientras que el de De Elizabeth se presenta como una obra de romance, fantasía y aventuras juveniles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410399327"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4a0727da178242f4",
+  "origen": "chatgpt-web"
+}

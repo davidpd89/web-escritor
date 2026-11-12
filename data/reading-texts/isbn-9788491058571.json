@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788491058571",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El doble, de Fiodor M Dostoievski, se dirige a quienes buscan obras clásicas en castellano. Su clasificación como clásico lo diferencia de las novedades de narrativa contemporánea y encaja menos con lectores que solo buscan ficción actual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El doble tiene 320 páginas en la edición de tapa blanda de Penguin Clásicos, una opción para leer en papel y conservar el volumen. La versión Kindle permite acceder al texto desde un lector electrónico o un móvil, sin necesidad de transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El doble y Humillados y ofendidos comparten autor, Fiodor M Dostoievski, por lo que permiten explorar dos títulos diferentes de su obra. El doble cuenta con una edición de 320 páginas publicada por Penguin Clásicos y clasificada entre los clásicos, mientras que Humillados y ofendidos constituye otra lectura del mismo escritor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "editorial",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491058564"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c4baa971a2e2b4ee",
+  "origen": "chatgpt-web"
+}

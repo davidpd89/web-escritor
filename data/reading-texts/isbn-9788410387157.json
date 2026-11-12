@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788410387157",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La mata (Poesía), de Eliana Hernández, se dirige a lectores que buscan poesía en castellano y prefieren libros breves. Sus 96 páginas se alejan de la extensión habitual de una novela larga, por lo que no responde a quien busca una narración extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La mata (Poesía) puede leerse en tapa blanda o escucharse en audiolibro. La edición impresa de Cuatro Lunas reúne 96 páginas y permite volver a los textos en papel; el audiolibro ofrece una alternativa para escuchar la obra durante desplazamientos o sin tener el libro delante.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "932cb0f86f87a5c4",
+  "origen": "chatgpt-web"
+}

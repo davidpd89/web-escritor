@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788425921445",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La monarquía y Barcelona: Las visitas reales de Fernando VII a Alfonso XIII (Política y Sociedad en la Historia de España) se dirige a lectores interesados en historia política, monarquía y relaciones institucionales. Sus 408 páginas desarrollan un asunto histórico delimitado, distinto de una biografía contemporánea o una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 408 páginas de La monarquía y Barcelona: Las visitas reales de Fernando VII a Alfonso XIII (Política y Sociedad en la Historia de España). Esta edición del Centro de Estudios Politicos y Constitucionales permite consultar en papel el recorrido histórico que anuncia el título y volver a sus diferentes apartados.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La monarquía y Barcelona: Las visitas reales de Fernando VII a Alfonso XIII (Política y Sociedad en la Historia de España) y A la sombra del Estado comparten el interés por las estructuras y manifestaciones del poder. María Ángeles Pérez Samper estudia las visitas reales a Barcelona, mientras que Luis de la Corte Ibáñez aborda el espionaje, las operaciones encubiertas y otras formas de actuación clandestina.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "28140aa2b42aeb6d",
+  "origen": "chatgpt-web"
+}

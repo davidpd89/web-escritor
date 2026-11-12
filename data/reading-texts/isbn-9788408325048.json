@@ -4,10 +4,8 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "K-Pop Witch Academy 1. El sueño de una aprendiz está dirigido a lectores de 6 a 8 años que buscan fantasía y aventuras relacionadas con la música y el baile. Fiona Scoble combina los ensayos de un grupo de aprendices con poderes mágicos y dificultades para trabajar juntas. No corresponde a una historia realista sobre la industria musical.",
+      "texto": "Encaja con lectores de 6 a 8 años interesados en la fantasía, el baile y las aventuras escolares con magia. Quienes prefieran historias realistas o ajenas a la música encontrarán aquí una propuesta distinta, centrada en los ensayos y la convivencia entre compañeras.",
       "evidencias": [
-        "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,38 +13,35 @@
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "K-Pop Witch Academy 1. El sueño de una aprendiz está recomendado para edades de 6 a 8 años y tiene 176 páginas. Planeta Junior lo publica en tapa dura de cartoné, sin sobrecubierta. El título lo identifica como el n.º 1 y su contenido combina una academia musical con elementos de fantasía.",
+      "texto": "Está recomendado para niños de 6 a 8 años y tiene 176 páginas. La edición física es de tapa dura, en castellano, y el libro combina aventuras fantásticas con una historia de aprendizaje vinculada al baile y la magia.",
       "evidencias": [
-        "titulo",
         "edad_recomendada",
         "numero_paginas",
-        "editorial",
         "edicion",
+        "idioma",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa dura de K-Pop Witch Academy 1. El sueño de una aprendiz reúne 176 páginas en una encuadernación de cartoné, adecuada para conservar el ejemplar físico o regalarlo. Kindle permite leer la historia en formato digital desde un dispositivo compatible. La elección depende de si se prefiere un libro en papel o una lectura transportable sin volumen físico.",
+      "texto": "La tapa dura reúne las 176 páginas en un volumen físico resistente para conservar o regalar. Kindle permite llevar la misma lectura en un dispositivo compatible, sin necesidad de transportar el libro impreso.",
       "evidencias": [
-        "titulo",
-        "numero_paginas",
-        "edicion",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "K-Pop Witch Academy 1. El sueño de una aprendiz comparte con Pipoka y la Fábrica del Desastre la presencia de magia y aventuras, aunque Fiona Scoble sitúa la acción en los ensayos musicales y Jose Such en un recorrido por paisajes y criaturas legendarias. También se aproxima a Campamento Mestizo 1 - La zona rebelde por su entorno de aprendizaje, pero cambia el campamento por una academia vinculada al K-pop.",
+      "texto": "Comparte con Estuche Magic Animals. Misiones especiales 1 y 2, de Susanna Isern, Carles Dalmau y Nil López, el interés por la magia dentro de la literatura infantil. K-Pop Witch Academy 1. El sueño de una aprendiz se distingue por unir esa fantasía con el entrenamiento musical y los conflictos entre compañeras, mientras el otro título se presenta como un estuche de misiones especiales.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "autores",
         "sinopsis_editorial",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788419868466",
-        "isbn-9791388277085"
+        "isbn-9788408327332"
       ]
     }
   ],

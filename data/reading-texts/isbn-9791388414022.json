@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388414022",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El viaje de Anubis (ENIGMAS Y CONSPIRACIONES), de Javier Expósito Lorenzo, se sitúa en el ámbito de la religión, la espiritualidad y los viajes, con referencias al poder y la política. Su enfoque temático se aparta de las novelas centradas en relaciones románticas o conflictos familiares cotidianos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El viaje de Anubis (ENIGMAS Y CONSPIRACIONES) se publica en tapa blanda, con 360 páginas en castellano. La edición física de Luciérnaga CAS permite consultar y retomar sus contenidos en papel, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El viaje de Anubis (ENIGMAS Y CONSPIRACIONES) comparte el interés por la espiritualidad con Cultos y sombras, de Acheron Delacroix, centrado en las tradiciones ocultas del mundo. También se relaciona con Cuando llega la felicidad, de Adrien Candiard, que aborda la Biblia desde la perspectiva de quienes han dejado de creer. La obra de Javier Expósito Lorenzo incorpora además el poder, la política y los viajes entre sus temas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788432175169",
+        "isbn-9791387667948"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e578cc78346ea9ff",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388381409",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Casa en venta: II Premio Internacional de Poesía \"Gonzalo de Berceo\": 258 (Calle del Aire) se dirige a lectores de poesía que buscan un volumen breve en castellano. Sus 64 páginas lo distinguen de una novela extensa; no está planteado como lectura narrativa de misterio o aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Casa en venta: II Premio Internacional de Poesía \"Gonzalo de Berceo\": 258 (Calle del Aire) se publica en tapa blanda, con 64 páginas. Esta extensión permite llevar el poemario en un bolso y volver a sus textos en distintas sesiones; la edición física también permite marcar páginas para posteriores lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cf8521cd1c53bc40",
+  "origen": "chatgpt-web"
+}

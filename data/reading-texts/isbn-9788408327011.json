@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Te espero en el fin del mundo. Edición especial con cantos decorados se dirige a lectores de romance interesados en relaciones que evolucionan desde la amistad y afrontan la distancia y los proyectos personales. No responde a quien busca una novela centrada principalmente en aventuras o conflictos ajenos a las relaciones sentimentales.",
+      "texto": "Te espero en el fin del mundo. Edición especial con cantos decorados se dirige a lectores de romance centrado en amistades que evolucionan y relaciones condicionadas por proyectos de vida diferentes. No responde a una búsqueda de aventuras o fantasía, ya que su conflicto principal es sentimental.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,41 +13,37 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela romántica de Andrea Longarela que plantea el conflicto entre mantener un vínculo afectivo y perseguir aspiraciones personales diferentes. Violet y Levi se conocen desde la infancia, pero sus deseos respecto al hogar y al futuro no coinciden. La distancia y las decisiones sobre sus vidas sostienen el conflicto sentimental.",
+      "texto": "La historia parte de una amistad infantil que cambia cuando sus protagonistas crecen y aparecen sentimientos románticos. El contraste entre el deseo de construir un hogar y la necesidad de marcharse introduce un conflicto entre el vínculo afectivo y las aspiraciones personales.",
       "evidencias": [
-        "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de Te espero en el fin del mundo. Edición especial con cantos decorados se distingue por sus cantos decorados y su encuadernación en tapa dura de cartoné sin sobrecubierta. Booket la publica en castellano con 560 páginas, fecha editorial del 14 de octubre de 2026 e ISBN 9788408327011. Es una presentación física diferenciada de la tapa blanda disponible.",
+      "texto": "Te espero en el fin del mundo. Edición especial con cantos decorados se presenta en tapa dura de cartoné, sin sobrecubierta, y con los cantos decorados anunciados en el título. Booket publica esta edición en castellano, con 560 páginas y fecha del 2026-10-14.",
       "evidencias": [
         "titulo",
         "edicion",
         "editorial",
         "idioma",
         "numero_paginas",
-        "fecha_publicacion",
-        "isbn13",
-        "formatos_disponibles"
+        "fecha_publicacion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura de Te espero en el fin del mundo. Edición especial con cantos decorados incorpora el acabado decorativo indicado en el título y permite conservar sus 560 páginas en cartoné. La tapa blanda ofrece una alternativa física, mientras que Kindle facilita llevar la novela en un dispositivo digital. El audiolibro permite seguir la historia mediante escucha, sin necesidad de leer en pantalla o papel.",
+      "texto": "La tapa dura reúne las 560 páginas en un ejemplar de cartoné con cantos decorados, una presentación física diferenciada para conservar o regalar. El audiolibro permite seguir la historia mediante escucha, sin manejar un volumen de esa extensión.",
       "evidencias": [
         "titulo",
-        "edicion",
         "numero_paginas",
+        "edicion",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Te espero en el fin del mundo. Edición especial con cantos decorados y Niño de hojalata son obras de Andrea Longarela con planteamientos diferentes. La primera pertenece al romance y aborda una relación marcada por la amistad, la distancia y los proyectos personales. Niño de hojalata presenta a Héctor, cuyo origen se sitúa en un vertedero y se describe mediante elementos imaginativos, frente al conflicto sentimental de Violet y Levi.",
+      "texto": "Te espero en el fin del mundo. Edición especial con cantos decorados y Niño de hojalata son obras de Andrea Longarela, pero parten de conflictos distintos. La primera desarrolla una relación romántica marcada por la distancia y las aspiraciones personales; Niño de hojalata presenta el origen extraordinario de Héctor mediante elementos de carácter fantástico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -62,6 +58,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "dbccd5206fd916eb",
+  "fuente_hash": "418ac6ef15001c04",
   "origen": "chatgpt-web"
 }

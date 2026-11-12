@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788412809374",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sendas y veredas: Proyectos fotográficos (1992-2021) se dirige a lectores interesados en la fotografía como práctica artística. Su título identifica proyectos fotográficos de un periodo delimitado, por lo que se diferencia de los libros centrados en aprender técnicas de dibujo o leer ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sendas y veredas: Proyectos fotográficos (1992-2021) se publica en tapa blanda, con 60 páginas en castellano. Es un volumen físico de extensión breve que puede consultarse por páginas y guardarse junto a otras publicaciones sobre fotografía y arte.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sendas y veredas: Proyectos fotográficos (1992-2021) y 720 retrats comparten su relación con la imagen y el ámbito artístico. Iñaki Arzoz identifica su obra como una recopilación de proyectos fotográficos fechados, mientras que el título de Xavier Mollà i Revert se refiere a retratos. La diferencia visible está en el enfoque anunciado por cada título y en su autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3c6fc728a33b2ead",
+  "origen": "chatgpt-web"
+}

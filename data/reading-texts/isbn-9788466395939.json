@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788466395939",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Chef sapiens: De los orígenes a la actualidad en 100 recetas saludables (Best Seller | No Ficción) se dirige a lectores interesados en cocinar y relacionar alimentación, salud e historia. Su planteamiento práctico, basado en recetas, encaja menos con quienes buscan una novela o un ensayo dedicado exclusivamente a la teoría nutricional.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "El libro reúne 100 recetas saludables bajo un recorrido que va desde los orígenes de la cocina hasta la actualidad. Marcos Vázquez y Elizabeth Ochoa combinan así una perspectiva histórica de la alimentación con propuestas culinarias que pueden consultarse para preparar platos; el volumen tiene 264 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de bolsillo permite tener las 264 páginas de Chef sapiens: De los orígenes a la actualidad en 100 recetas saludables (Best Seller | No Ficción) a mano para consultar las recetas en papel. Kindle ofrece una alternativa digital para acceder al contenido desde un móvil o lector electrónico, sin ocupar espacio físico en la cocina.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Chef sapiens: De los orígenes a la actualidad en 100 recetas saludables (Best Seller | No Ficción) comparte autor con Saludable Mente: Hábitos para optimizar tu cerebro y mejorar tu salud a cualquier edad (Best Seller | No Ficción), de Marcos Vázquez. El primero se centra en recetas y alimentación; el segundo, según su título, aborda hábitos relacionados con el cerebro y la salud.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466374330"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ff6f5b275b2a659f",
+  "origen": "chatgpt-web"
+}

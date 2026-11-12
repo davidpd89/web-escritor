@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791388404214",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Love Song (edición en tapa dura con cantos pintados): La siguiente generación de Kiss Me, de la serie Off Campus (WonderLove) se dirige a lectores de romance interesados en historias vinculadas a una serie. Su planteamiento encaja menos con quienes buscan fantasía o novela histórica, ya que su clasificación editorial es romance.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Wonderbooks se distingue por la tapa dura y los cantos pintados anunciados en el título. Reúne 480 páginas en castellano y tiene fecha de publicación del 30 de noviembre de 2026. La presentación física es su rasgo diferenciador frente a otras opciones de lectura.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 480 páginas en una edición con cantos pintados, adecuada para conservar o regalar. La tapa blanda permite elegir una encuadernación flexible, mientras que Kindle facilita llevar el texto en un dispositivo de lectura o en el móvil. Las tres opciones corresponden al mismo título de Elle Kennedy.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A mil por hora comparte con Love Song (edición en tapa dura con cantos pintados): La siguiente generación de Kiss Me, de la serie Off Campus (WonderLove) su orientación romántica. La obra de Hannah Grace plantea una relación entre un piloto de F1 y una mujer marcada por su pasado, mientras que el título de Elle Kennedy remite a la siguiente generación de Kiss Me. Son propuestas de autoras distintas y con puntos de partida diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ffe8fc3ea2e8dfd8",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Amanecer Rojo I Deluxe Edition encaja con lectores de ciencia ficción interesados en sociedades jerarquizadas, luchas por la libertad y conflictos de identidad. Su argumento incluye una competición mortal y violencia ligada a la supervivencia, por lo que se aleja de las historias futuristas centradas en la exploración pacífica.",
+      "texto": "Amanecer Rojo I Deluxe Edition está dirigido a lectores de ciencia ficción interesados en sociedades jerarquizadas, rebelión y competición por el poder. La violencia de una contienda por la supervivencia y los conflictos entre castas lo distancian de quienes buscan ciencia ficción centrada en la exploración científica sin enfrentamientos sociales.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,39 +13,40 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela de ciencia ficción ambientada en Marte, donde una estructura social dividida por colores determina el poder y las oportunidades. Darrow debe ocultar su origen para participar en una competición reservada a los dorados, mientras afronta el conflicto entre sobrevivir y conservar sus principios.",
+      "texto": "Amanecer Rojo I Deluxe Edition desarrolla una distopía ambientada en Marte, donde los colores determinan la posición de cada persona dentro de un sistema de castas. Darrow, perteneciente a los rojos, debe hacerse pasar por integrante de la élite dorada para participar en una competición y perseguir un objetivo de liberación sin perder su identidad.",
       "evidencias": [
+        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Amanecer Rojo I Deluxe Edition se presenta en tapa dura, con 544 páginas en castellano editadas por RBA Libros. La encuadernación rígida resulta apropiada para conservar este volumen extenso en una biblioteca o entregarlo como regalo físico.",
+      "texto": "Amanecer Rojo I Deluxe Edition está disponible en tapa dura y tapa blanda. La edición Deluxe de RBA Libros reúne 544 páginas en cubierta rígida, adecuada para conservar el volumen y regalarlo; la tapa blanda ofrece una alternativa física con cubierta flexible para la lectura habitual.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial"
+        "edicion",
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Amanecer Rojo I Deluxe Edition y Aunque se acabe el mundo comparten escenarios de ciencia ficción donde la humanidad afronta una transformación radical de su realidad. Pierce Brown sitúa el conflicto en una sociedad de castas marciana, mientras que la obra de Clara Duarte parte de una cúpula aparecida sobre la Tierra que altera a parte de la población.",
+      "texto": "Carl el Mazmorrero (Character Limited Edition) (Nova), de Matt Dinniman, permite comparar dos propuestas narrativas con ediciones identificadas de forma especial. El título de Pierce Brown sitúa su conflicto en una sociedad de castas de Marte, mientras que el de Matt Dinniman se identifica por su protagonista y la referencia a una mazmorra, sin compartir el escenario descrito para Darrow.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788427255968"
+        "isbn-9788419260734"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b35adf07231f38c4",
+  "fuente_hash": "b8ba3dbba17c4cd1",
   "origen": "chatgpt-web"
 }

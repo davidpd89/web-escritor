@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Coraline encaja con lectores desde los 9 años interesados en la fantasía oscura, los mundos paralelos y los misterios con elementos de terror. Su amenaza de encierro y la presencia de unos padres alternativos inquietantes pueden alejar a quienes prefieren aventuras sin situaciones amenazantes.",
+      "texto": "Coraline está dirigida a lectores a partir de 9 años que disfrutan de la fantasía oscura, los misterios y los mundos paralelos. Su conflicto combina la exploración de un hogar alternativo con una amenaza de encierro, por lo que puede resultar menos adecuada para quienes prefieren aventuras sin elementos inquietantes.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Coraline está recomendada a partir de 9 años y combina fantasía juvenil con terror y misterio. La protagonista encuentra una puerta que conduce a otra versión de su hogar, donde sus otros padres pretenden impedir que regrese. La amenaza de encierro y la transformación del entorno familiar en un lugar peligroso pueden inquietar a los lectores más sensibles.",
+      "texto": "Coraline tiene una edad recomendada a partir de 9 años y contiene elementos de terror y misterio juvenil. La aparición de unos padres alternativos que impiden regresar a la protagonista introduce una situación de amenaza y pérdida de libertad que puede inquietar a lectores sensibles.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -24,18 +24,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Coraline está disponible en tapa dura, tapa blanda, Kindle y audiolibro. La edición de Salamandra en tapa blanda con solapas tiene 160 páginas y permite una lectura impresa de extensión breve; la tapa dura ofrece una encuadernación más rígida, Kindle evita llevar el libro físico y el audiolibro permite escucharlo.",
+      "texto": "Coraline está disponible en tapa dura, tapa blanda, Kindle y audiolibro. Sus 160 páginas permiten elegir una edición física para conservar o prestar, Kindle para leer en el móvil y audiolibro para seguir la historia mediante la escucha; la tapa blanda facilita llevarla fuera de casa.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Coraline y Pesadilla antes de Navidad. La sombra sobre la reina de Halloween comparten escenarios inquietantes y amenazas vinculadas a espacios ajenos al mundo cotidiano. En Coraline, de Neil Gaiman, el peligro aparece tras una puerta doméstica y afecta a la libertad de la protagonista; en el libro de Megan Shepherd, Disney, la amenaza se sitúa en un reino oscuro al que llega Sally.",
+      "texto": "Los cazamisterios - Pack con: El caso del tren de la bruja | El caso de la casa con ruedas: Secretos, risas y detectives... ¿te unes al club? (Jóvenes lectores), de Patricia García-Rojo, comparte con Coraline el misterio dirigido a lectores jóvenes, pero incorpora detectives y humor. La novela de Neil Gaiman se distingue por su fantasía oscura y el peligro de quedar atrapada en un mundo paralelo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -44,7 +43,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387901868"
+        "isbn-9791387949617"
       ]
     }
   ],

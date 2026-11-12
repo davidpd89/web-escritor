@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Turismo de terror se dirige a lectores adultos interesados en los viajes desde una perspectiva social, económica y política. Andy Robinson examina las consecuencias del turismo sobre las comunidades locales mediante crónicas y humor negro; no es una novela de terror sobrenatural ni una guía de destinos y actividades turísticas.",
+      "texto": "Turismo de terror está dirigido a adultos interesados en los viajes, la desigualdad social y las consecuencias económicas del turismo. Andy Robinson examina destinos turísticos mediante crónicas periodísticas y humor negro; no responde a la búsqueda de una novela de terror sobrenatural ni de una guía de vacaciones convencional.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,7 +15,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Turismo de terror propone una lectura de periodismo narrativo y crítica social a través de diez crónicas de viaje por América. Andy Robinson observa el poder de las grandes empresas turísticas, la explotación laboral y el desplazamiento de poblaciones locales, con un tono de humor negro que lo sitúa en la llamada literatura de antiviajes.",
+      "texto": "La lectura combina periodismo de viajes y crítica de la industria turística a través de diez crónicas por América. Andy Robinson examina la concentración empresarial, la explotación laboral y el desplazamiento de comunidades locales, con una perspectiva política y económica que cuestiona la imagen comercial de los destinos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -25,33 +25,33 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Turismo de terror se ofrece en tapa blanda y Kindle. La edición de Grijalbo tiene 280 páginas y solapas, una presentación física para conservar las diez crónicas y consultar sus destinos; Kindle permite leerlas durante los desplazamientos desde un lector electrónico o un móvil, sin añadir un libro al equipaje.",
+      "texto": "La tapa blanda con solapas ofrece las 280 páginas de Turismo de terror en un volumen físico para consultar sus crónicas. Kindle facilita la lectura durante los desplazamientos desde el móvil o un lector electrónico, mientras que el audiolibro permite seguir el recorrido periodístico mediante escucha.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "edicion",
-        "editorial",
         "numero_paginas",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Turismo de terror y El tiempo que pasa utilizan la mirada sobre lugares y sociedades para abordar realidades colectivas. Andy Robinson investiga las consecuencias del turismo contemporáneo en América, mientras Manuel Medina recupera recuerdos de la España de posguerra. Frente a ambos, Sapiens. Una historia gráfica 4 - La era de las revoluciones estudia transformaciones históricas mediante un formato gráfico.",
+      "texto": "Turismo de terror se aproxima a Cuando todos se van por su atención a lugares y experiencias de viaje, aunque Andy Robinson analiza especialmente la industria turística y sus efectos sociales. Con Repensar la pobreza comparte el interés por las desigualdades económicas, pero las aborda desde crónicas de destinos turísticos en lugar de partir de las condiciones de vida con ingresos mínimos.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401040580",
-        "isbn-9791387904661"
+        "isbn-9788408326731",
+        "isbn-9788430629077"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2176219496cdfb6e",
+  "fuente_hash": "2f9f339a0cef731b",
   "origen": "chatgpt-web"
 }

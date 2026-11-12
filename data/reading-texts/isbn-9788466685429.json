@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9788466685429",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nos quisieron histéricas, nos volvimos históricas (No ficción) se sitúa entre la historia, el ensayo y las biografías y memorias, por lo que responde a intereses de lectura documental. Quien busque una novela romántica o una historia de fantasía encontrará aquí un planteamiento de no ficción firmado por Lidia San José.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Nos quisieron histéricas, nos volvimos históricas (No ficción) reúne 304 páginas en un volumen físico que permite marcar pasajes y conservarlo en una biblioteca. Kindle ofrece esas páginas en formato digital para leer en el móvil o en un lector electrónico sin llevar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a42e6e1fde84a4f1",
+  "origen": "chatgpt-web"
+}

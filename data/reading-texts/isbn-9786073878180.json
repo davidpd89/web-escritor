@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073878180",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La merma / The Decline, de María Moreno, se sitúa en la narrativa contemporánea y aborda la experiencia corporal de recuperarse de un accidente cerebrovascular. Sus 160 páginas se apartan de las expectativas de quien busca una aventura fantástica o una historia de misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La merma / The Decline está disponible en tapa blanda y Kindle. La edición impresa reúne 160 páginas para leer y consultar en papel; Kindle permite llevar el texto en un lector electrónico o en la aplicación del móvil, sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La merma / The Decline se relaciona directamente con La merma, también de María Moreno, cuyo contenido aborda la recuperación tras un accidente cerebrovascular. La diferencia identificable está en la denominación: el primer título incorpora The Decline, mientras que el segundo aparece únicamente como La merma.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788439746621"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "518a5ad4429af3be",
+  "origen": "chatgpt-web"
+}

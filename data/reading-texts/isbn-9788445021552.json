@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788445021552",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Warhammer the horus heresy: Siege OF terra 07 ecos de la ete está dirigido a lectores de ciencia ficción interesados en el universo Warhammer y sus conflictos. El título lo identifica con el número 07 de Siege OF terra, por lo que se aleja de una novela contemporánea independiente y sin referencias a una serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Warhammer the horus heresy: Siege OF terra 07 ecos de la ete se presenta en tapa blanda, con 480 páginas en castellano publicadas por Minotauro. Este formato permite conservar el volumen en una colección física y consultar sus páginas sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Warhammer the horus heresy: Siege OF terra 07 ecos de la ete y Aftermyth 1. Penelope y la prueba de los dioses comparten su vinculación con la ficción fantástica. El libro de Aaron Dembski-Bowden se sitúa en la ciencia ficción de Warhammer, mientras que el título de Tracy Wolff remite a pruebas relacionadas con dioses. Ambos títulos incorporan numeración, aunque pertenecen a universos narrativos diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324102"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8c17c1c93c3d1fcb",
+  "origen": "chatgpt-web"
+}

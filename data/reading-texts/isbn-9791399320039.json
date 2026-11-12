@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399320039",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rosa, el unicornio Arconio y el gato Rosalino: Un cuento para dormir de Rosa y Rosalino: 12 (Rosa y el gato Rosalino) está pensado para lectores infantiles y momentos de lectura antes de dormir. Es un cuento de 28 páginas protagonizado por los personajes del título, no una novela extensa ni una obra de ficción para adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Rosa, el unicornio Arconio y el gato Rosalino: Un cuento para dormir de Rosa y Rosalino: 12 (Rosa y el gato Rosalino) es de tapa blanda y consta de 28 páginas. Esta extensión permite leerlo en sesiones cortas antes de acostarse, mientras que el ejemplar físico puede guardarse junto a otros cuentos infantiles para releerlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rosa, el unicornio Arconio y el gato Rosalino: Un cuento para dormir de Rosa y Rosalino: 12 (Rosa y el gato Rosalino) se relaciona directamente con Rosa, la dragona Ramona y el gato Rosalino: Un cuento para dormir de Rosa y Rosalino: 11. Ambos pertenecen al ámbito infantil, están escritos por David Valcárcel Crespo y comparten a Rosa y Rosalino; el título identifica al primero como el n.º 12, con un unicornio, y al segundo como el n.º 11, con una dragona.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399320022"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "71108992133a9c1e",
+  "origen": "chatgpt-web"
+}

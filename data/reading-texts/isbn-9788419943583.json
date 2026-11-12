@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419943583",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Otra forma de obrar: Textos sobre poesía y poéticas: 52 (Paralajes) se dirige a lectores interesados tanto en la poesía como en la reflexión ensayística sobre la creación poética. Quienes busquen exclusivamente relatos de ficción o una novela encontrarán aquí un enfoque centrado en la escritura y el pensamiento literario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 224 páginas de Otra forma de obrar: Textos sobre poesía y poéticas: 52 (Paralajes), de Tania Favela Bustillo. Es la edición en papel publicada por Libros de la Resistencia para quienes prefieren leer ensayos y textos sobre poesía en un volumen físico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El genio griego: Ilíada o el poema de la fuerza y otros textos (Contemporánea | Narrativa), de Simone Weil, comparte con Otra forma de obrar: Textos sobre poesía y poéticas: 52 (Paralajes), de Tania Favela Bustillo, el interés por la reflexión en torno a la literatura y la poesía. El primero toma como referencia la tradición griega y la Ilíada; el segundo sitúa en primer plano la poesía y las poéticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788466394604"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fccb3e04e09bf101",
+  "origen": "chatgpt-web"
+}

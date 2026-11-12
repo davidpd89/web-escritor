@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788410908550",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ecos del silencio: 150 reflexiones para una mente que no para se dirige a quienes buscan lecturas de desarrollo personal y bienestar centradas en la reflexión. Por su planteamiento, queda fuera de las preferencias de quien busca una novela de aventuras o una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar y releer en papel las 190 páginas de Ecos del silencio: 150 reflexiones para una mente que no para. Kindle ofrece una alternativa digital para llevar la lectura en el móvil o en un lector electrónico, sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ecos del silencio: 150 reflexiones para una mente que no para comparte con 100 formas de cambiar tu vida un interés por el desarrollo personal, aunque este último plantea la mejora de la salud, las relaciones y otros ámbitos desde la ciencia. Frente a ese enfoque, Mavi Mariscal organiza su propuesta alrededor de reflexiones para una mente activa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3f21a01566cf5ea2",
+  "origen": "chatgpt-web"
+}

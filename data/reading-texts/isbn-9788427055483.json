@@ -4,56 +4,52 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Juntos en cualquier mundo. Tú y yo más allá del tiempo se dirige a lectores desde los 14 años que buscan ciencia ficción juvenil con relaciones amorosas y universos paralelos. Su combinación de dos novelas y conflictos sentimentales se aleja de una lectura centrada exclusivamente en la exploración científica.",
+      "texto": "Juntos en cualquier mundo. Tú y yo más allá del tiempo encaja con lectores de ciencia ficción juvenil interesados en historias de amor ambientadas en universos paralelos. Su combinación de relaciones personales y desplazamientos entre realidades se aleja de las novelas románticas de ambientación estrictamente realista.",
       "evidencias": [
         "titulo",
-        "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Juntos en cualquier mundo. Tú y yo más allá del tiempo está recomendado a partir de 14 años y pertenece a la ciencia ficción juvenil. La historia aborda el divorcio de los padres de Koyomi, sus dificultades para relacionarse y sus vínculos amorosos, mientras los viajes entre universos paralelos forman parte de la vida cotidiana.",
+      "texto": "La edad recomendada para Juntos en cualquier mundo. Tú y yo más allá del tiempo es a partir de 14 años. Su contenido gira alrededor del amor, las relaciones personales y las consecuencias de vivir en universos paralelos. También aparece el divorcio de los padres de uno de los personajes, un asunto familiar que puede tener especial relevancia para algunos lectores.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Propone dos novelas de amor vinculadas por un escenario de ciencia ficción donde los desplazamientos entre universos paralelos forman parte de la vida cotidiana. Koyomi es el personaje central y sus relaciones personales articulan el conflicto, de modo que el elemento especulativo convive con una historia de sentimientos y decisiones.",
+      "texto": "Propone una lectura juvenil de ciencia ficción construida alrededor de dos historias amorosas conectadas con el multiverso. La posibilidad de pasar entre universos paralelos introduce distintas circunstancias personales y afectivas. El interés narrativo se sitúa en las relaciones y en cómo cambian según la realidad que habitan los personajes.",
       "evidencias": [
-        "sinopsis_editorial",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura presenta las 480 páginas de Juntos en cualquier mundo. Tú y yo más allá del tiempo en una edición zigzag que reúne dos novelas. Kindle permite llevar la lectura en un dispositivo electrónico o móvil, mientras que la edición física conserva la presentación especial de Ediciones Martínez Roca.",
+      "texto": "La tapa dura presenta sus 480 páginas en una edición zigzag que reúne dos novelas y permite conservarlas juntas en un volumen físico. Kindle ofrece una alternativa digital para leer en un dispositivo compatible o en el móvil, sin transportar el libro impreso. La elección depende de si se prefiere el objeto editorial o la lectura en pantalla.",
       "evidencias": [
-        "titulo",
         "numero_paginas",
-        "formatos_disponibles",
         "edicion",
-        "editorial",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Juntos en cualquier mundo. Tú y yo más allá del tiempo y Aunque se acabe el mundo, de Clara Duarte, comparten elementos de ciencia ficción que modifican la realidad cotidiana. La obra de Yomoji Otono aborda el amor mediante universos paralelos, mientras que Aunque se acabe el mundo plantea una transformación de parte de la humanidad tras la aparición de una cúpula sobre la Tierra.",
+      "texto": "Puede compararse con Aftermyth 1. Penelope y la prueba de los dioses por su orientación hacia la ficción juvenil, aunque Juntos en cualquier mundo. Tú y yo más allá del tiempo utiliza universos paralelos y relaciones amorosas como ejes. También comparte con Amanecer Rojo I Deluxe Edition su vinculación con la ciencia ficción, pero aquí el conflicto se articula alrededor de los vínculos afectivos, frente a la estrategia que identifica al otro título.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427255968"
+        "isbn-9788408324102",
+        "isbn-9791370313463"
       ]
     }
   ],

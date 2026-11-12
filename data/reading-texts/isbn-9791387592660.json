@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791387592660",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Muerte en la parroquia: 124 (Ático de los Libros), de Richard Coles, se dirige a lectores de misterio y thriller que buscan una novela en castellano. Sus 336 páginas permiten abordar una lectura de extensión intermedia; por género, se aleja de quienes prefieren narrativa contemporánea sin componente de misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Muerte en la parroquia: 124 (Ático de los Libros) está disponible en tapa blanda, con 336 páginas en castellano. La edición de Atico de los Libros permite leerlo en papel y conservarlo en una estantería sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ac4981dee1a48e86",
+  "origen": "chatgpt-web"
+}

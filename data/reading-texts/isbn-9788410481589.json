@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410481589",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El corazón de La Tempestad (MORE ROMANCE), de Melania Bernal, se dirige a lectores interesados en el romance dentro de la novela histórica. Por su clasificación temática, encaja menos con quienes buscan fantasía o narrativa centrada exclusivamente en acontecimientos históricos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El corazón de La Tempestad (MORE ROMANCE) se publica en tapa blanda, con 352 páginas en castellano. Este formato permite llevar la novela en el bolso o la mochila y conservarla en una estantería sin el volumen habitual de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo arruinar a un vizconde (Academia Miriñaque 1) (CLEAN ROMANCE), de Mimi Matthews, comparte con El corazón de La Tempestad (MORE ROMANCE) el interés por el romance. La carta perdida (Clean Romance), también de Mimi Matthews, ofrece otra referencia romántica; frente a ambas, la obra de Melania Bernal se identifica expresamente como novela histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410481329",
+        "isbn-9788410481442"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "226bd67faaeb37cc",
+  "origen": "chatgpt-web"
+}

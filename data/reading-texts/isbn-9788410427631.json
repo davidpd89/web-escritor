@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410427631",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "En noches solitarias, escribe: La aventura de entenderte a ti mismo (GRANDES ÉXITOS DE ASIA) encaja con lectores interesados en el desarrollo personal y las relaciones familiares, también dentro del público infantil y juvenil. Quienes busquen una novela de aventuras o fantasía encontrarán aquí una propuesta de carácter formativo, centrada en el conocimiento de uno mismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 272 páginas en una edición física de Neko Books, adecuada para leer fuera de casa o conservar en la estantería. Kindle permite llevar En noches solitarias, escribe: La aventura de entenderte a ti mismo (GRANDES ÉXITOS DE ASIA) en el móvil o en un lector electrónico, sin depender del volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Me llamo Goa - Edición especial estuche (incluye Me llamo Goa, ¡Qué fuerte, Goa! y un poster exclusivo) (Libros para adolescentes), de Míriam Tirado, comparte el interés por el público adolescente, aunque su planteamiento se presenta desde la narrativa juvenil. En noches solitarias, escribe: La aventura de entenderte a ti mismo (GRANDES ÉXITOS DE ASIA), de Fumitake Koga, se orienta al desarrollo personal y al conocimiento de uno mismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994334"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c7821e0fe33411cb",
+  "origen": "chatgpt-web"
+}

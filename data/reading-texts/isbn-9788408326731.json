@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuando todos se van está orientado a lectores interesados en exploraciones reales, espacios abandonados y lugares asociados al peligro o al misterio. Su contenido de viajes y actualidad, con elementos inquietantes, se diferencia del terror de ficción basado en personajes y sucesos inventados.",
+      "texto": "Cuando todos se van se dirige a quienes leen sobre exploraciones reales, lugares abandonados y episodios inquietantes vinculados a espacios históricos. Su combinación de viajes, actualidad y terror encaja menos con quien busca una novela de ficción sobrenatural.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,39 +13,36 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Kibara relata experiencias de exploración en instalaciones y territorios abandonados, con referencias a búnkeres, bases militares y zonas afectadas por la radiación. Cuando todos se van combina el relato de viajes reales con escenarios vinculados al miedo, la historia reciente y los espacios deshabitados.",
+      "texto": "Cuando todos se van presenta la exploración de espacios abandonados desde la experiencia de Kibara. El recorrido incluye instalaciones militares, territorios afectados por la radiactividad y edificios deshabitados, con el componente inquietante de acceder a lugares marcados por su pasado.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cuando todos se van puede adquirirse en tapa blanda o Kindle. La edición de Geoplaneta consta de 264 páginas en rústica con solapas para lectura y consulta en papel; Kindle permite llevar el relato de las exploraciones en formato digital y leerlo desde el móvil.",
+      "texto": "Cuando todos se van está disponible en tapa blanda y Kindle. La edición física, en rústica con solapas, reúne 264 páginas y permite consultar los distintos lugares del recorrido en papel; Kindle facilita llevar la lectura en el móvil sin transportar el volumen.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
-        "editorial",
         "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Turismo de terror y Cuando todos se van comparten el interés por los aspectos inquietantes de los viajes reales. Andy Robinson reúne crónicas sobre el lado oscuro del turismo en América, mientras Kibara explora lugares abandonados; Carrie (edición serie), de Stephen King, también incorpora el terror, pero mediante una historia de ficción sobre una joven acosada.",
+      "texto": "Cuando todos se van comparte con Turismo de terror, de Andy Robinson, el interés por los aspectos inquietantes de los viajes y los lugares reales. Kibara se centra en la exploración de espacios abandonados, mientras Andy Robinson aborda las consecuencias oscuras del turismo mediante crónicas de viaje por América.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425372759",
-        "isbn-9788466396806"
+        "isbn-9788425372759"
       ]
     }
   ],

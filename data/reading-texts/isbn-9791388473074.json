@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388473074",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dolor de mercado (Hispánica) encaja con lectores que buscan narrativa contemporánea y obras de Bob Pop. Sus 168 páginas corresponden a una novela de extensión contenida; no es la elección para quien quiera consultar un ensayo o prefiera una lectura centrada en otros géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 168 páginas en un volumen físico publicado por Alfaguara. Es una opción para quien prefiere leer en papel, llevar el libro consigo o conservarlo en su biblioteca; su extensión resulta manejable para una lectura sin un volumen demasiado voluminoso.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formato_edicion",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b2dca0b213968c61",
+  "origen": "chatgpt-web"
+}

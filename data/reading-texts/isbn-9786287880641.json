@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9786287880641",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las noches todas / All the Nights se dirige a lectores que buscan narrativa contemporánea en formato de novela. Sus 224 páginas corresponden a una edición de extensión intermedia; puede interesar a quien quiere incorporar narrativa de Tomás González a sus lecturas, pero no a quien busca específicamente ensayo o cómic.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Las noches todas / All the Nights contiene 224 páginas. Es el formato impreso para quien prefiere leer en papel y conservar un ejemplar físico de la obra de Tomás González.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "66ae5b7f926af443",
+  "origen": "chatgpt-web"
+}

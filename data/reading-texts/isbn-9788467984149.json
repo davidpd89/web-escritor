@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788467984149",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "No/one está dirigido a lectores de ciencia ficción que prefieren historias contadas mediante cómic y novela gráfica. Sus 320 páginas corresponden a una edición ilustrada de tapa dura, por lo que no encaja con quien busque una novela de ciencia ficción presentada únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "No/one se ofrece en tapa dura, con 320 páginas publicadas por Norma Editorial. La encuadernación rígida permite conservar el volumen y consultar sus páginas de cómic sin depender de una pantalla; es una opción física para una obra de extensión considerable dentro de la novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "No/one y El incidente Darwin 1 (Seinen): Universo Manga comparten su pertenencia al ámbito de la narrativa gráfica. La diferencia está en su presentación: No/one figura como cómic de ciencia ficción firmado por varios autores, mientras que El incidente Darwin 1 (Seinen): Universo Manga se identifica como manga de Shun Umezawa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962791"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c12adfee6732ef72",
+  "origen": "chatgpt-web"
+}

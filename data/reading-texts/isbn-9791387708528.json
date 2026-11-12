@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791387708528",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Kama Sutra mágico, de Giulia Marzocca, se dirige a lectores interesados en el bienestar y las relaciones personales dentro del ámbito del desarrollo personal. Su clasificación en familia y crianza lo aleja de quienes buscan una novela de ficción o una obra de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Kama Sutra mágico está disponible en tapa dura, con 96 páginas en castellano. Esta edición de LU Ediciones permite consultar el volumen en papel y conservarlo en una encuadernación rígida, tanto para uso personal como para regalar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ce1052e49819e809",
+  "origen": "chatgpt-web"
+}

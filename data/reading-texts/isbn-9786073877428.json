@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073877428",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El doble / The Double se dirige a lectores interesados en la relación entre psicología, espiritualidad y desarrollo personal. Jacobo Grinberg-Zylberbaum firma una obra de 152 páginas que se aleja de las lecturas centradas exclusivamente en historia o ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El doble / The Double está disponible en tapa blanda y audiolibro, dos formas distintas de acceder a la obra de Jacobo Grinberg-Zylberbaum. La edición impresa reúne 152 páginas para leer y consultar físicamente; el audiolibro permite seguir el contenido mediante la escucha, sin utilizar un ejemplar en papel.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El doble / The Double se relaciona con La voz del ver / The Voice of Seeing, también de Jacobo Grinberg-Zylberbaum, por su vinculación con la psicología y la espiritualidad. Son títulos distintos del mismo autor: el primero se identifica por la idea del doble y el segundo por la relación entre voz y visión que anuncia su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073877459"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2a7dcbde3797c4d9",
+  "origen": "chatgpt-web"
+}

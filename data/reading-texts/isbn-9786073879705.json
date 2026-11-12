@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786073879705",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Filosofía para florecer / Philosophy for Flourishing se dirige a lectores que buscan relacionar las ideas filosóficas con el desarrollo personal. Su clasificación como filosofía y autoayuda la diferencia de una novela o de un libro centrado exclusivamente en cuestiones técnicas y científicas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Filosofía para florecer / Philosophy for Flourishing está disponible en tapa blanda, con 216 páginas en castellano. La edición de Penguin Random House Grupo Editorial reúne en papel una obra de filosofía y desarrollo personal, adecuada para consultar pasajes y retomar la lectura por secciones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Filosofía para florecer / Philosophy for Flourishing se aproxima a Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, por su interés en la filosofía aplicada a cuestiones personales. La obra de Dany Ayala se sitúa en el desarrollo personal, mientras que la de Soledad Davies incorpora expresamente la astrología, la magia y la práctica espiritual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "38092c4fbdcb4d72",
+  "origen": "chatgpt-web"
+}

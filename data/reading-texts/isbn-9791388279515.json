@@ -4,44 +4,43 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pequeños detectives: retos para resolver mientras hacen caca está dirigido a quienes disfrutan resolviendo acertijos, buscando pistas y descifrando mensajes en ratos breves de ocio. Su propuesta consiste en participar activamente en desafíos; no encaja con quien busque una novela detectivesca de lectura seguida.",
+      "texto": "Pequeños detectives: retos para resolver mientras hacen caca está pensado para quienes disfrutan resolviendo acertijos, buscando pistas y descifrando mensajes en ratos cortos. Su propuesta de entretenimiento activo encaja menos con lectores que prefieren una narración continua sin pruebas ni actividades.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Pequeños detectives: retos para resolver mientras hacen caca propone resolver misterios mediante actividades de ingenio. Ottilie Bracken reúne 100 retos distribuidos en 10 niveles, con situaciones que incluyen objetos robados, animales desaparecidos y mensajes cifrados, dentro de un libro de ocio y entretenimiento.",
+      "texto": "La lectura se organiza alrededor de 100 retos distribuidos en 10 niveles, con misterios como un robo en un museo, la búsqueda de un gato y un mensaje cifrado. En lugar de seguir únicamente una historia, el lector participa resolviendo pruebas de dificultad escalonada.",
       "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "titulo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Pequeños detectives: retos para resolver mientras hacen caca se publica en tapa blanda, en una edición de 160 páginas con solapas. El formato físico permite abrir el libro por sus actividades y consultarlas durante las pausas a las que alude el título, sin depender de una pantalla.",
+      "texto": "La edición en tapa blanda de Temas de Hoy presenta 160 páginas en rústica con solapas, un formato manejable para consultar retos durante pausas breves. El soporte físico permite avanzar entre niveles, revisar pistas y regresar a ejercicios anteriores sin depender de una pantalla.",
       "evidencias": [
-        "titulo",
-        "numero_paginas",
+        "formatos_disponibles",
         "edicion",
-        "formatos_disponibles"
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Pequeños detectives: retos para resolver mientras hacen caca y El crimen de la Navidad. El cuaderno de pasatiempos de Crímenes ilustrados comparten el uso de misterios como punto de partida para actividades. Ottilie Bracken organiza 100 retos en 10 niveles, mientras que Modesto García sitúa su propuesta en un crimen navideño dentro de un centro comercial.",
+      "texto": "100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos), de Varios autores, comparte el entretenimiento mediante actividades, aunque se centra en colorear. 800 stickers sweet and cosy (Prácticos), de Amélie's Workshop, propone una actividad basada en pegatinas; Pequeños detectives: retos para resolver mientras hacen caca plantea 100 retos de misterio distribuidos en 10 niveles.",
       "evidencias": [
         "titulo",
-        "autores",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401040740"
+        "isbn-9788408328384",
+        "isbn-9788448049737"
       ]
     }
   ],

@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788413617732",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido al público infantil interesado en los relatos bíblicos, la historia y la religión. Por su contenido sobre el Antiguo y el Nuevo Testamento, se aleja de las lecturas centradas exclusivamente en aventuras de ficción o misterios.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El libro combina historias del Antiguo y del Nuevo Testamento con juegos y actividades complementarias. Permite alternar la lectura de los relatos con las propuestas de participación incluidas en el volumen, en lugar de limitarse a una lectura seguida.",
+      "evidencias": [
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 128 páginas en un volumen físico que puede consultarse durante las actividades y conservarse en una biblioteca infantil. Kindle permite acceder al mismo título desde un dispositivo de lectura, sin necesidad de transportar el ejemplar impreso.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antigua Roma (Civilizaciones antiguas para niños) también acerca contenidos del pasado al público infantil, pero se ocupa de una civilización histórica, mientras que este libro aborda relatos religiosos. Mi biblioteca Julio Verne (Julio Verne para niños): Estuche con: Vuelta al mundo en 80 días y Veinte mil leguas de viaje submarino (Peques) comparte la orientación infantil, aunque reúne aventuras literarias en lugar de historias bíblicas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256972",
+        "isbn-9780241839362"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "abdbebaa05eeca44",
+  "origen": "chatgpt-web"
+}

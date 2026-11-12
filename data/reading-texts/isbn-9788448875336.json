@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788448875336",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a quienes quieren colorear y utilizar pegatinas con personajes de la Patrulla Canina. Paw Patrol | Patrulla Canina. Actividades - Pinta y pega. Libro de colorear con pegatinas: Colorea tus propias pegatinas de la Paturlla Canina (Nickelodeon), de Nickelodeon, propone una actividad sobre papel, no una narración para leer de principio a fin.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 32 páginas para realizar las actividades de coloreado y pegatinas de Paw Patrol | Patrulla Canina. Actividades - Pinta y pega. Libro de colorear con pegatinas: Colorea tus propias pegatinas de la Paturlla Canina (Nickelodeon). El papel permite pintar y manipular las pegatinas directamente, sin trasladar la actividad a una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "800 stickers sweet and cosy (Prácticos) comparte el interés por las pegatinas, mientras que el libro de Nickelodeon incorpora también actividades de coloreado con personajes de la Patrulla Canina. Ambos se relacionan con el ocio manual, pero el segundo se centra en una franquicia infantil concreta y reúne 32 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049737"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e56e4fba2d9fb685",
+  "origen": "chatgpt-web"
+}

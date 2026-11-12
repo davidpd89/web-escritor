@@ -1,0 +1,37 @@
+{
+  "id": "isbn-9791387639884",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "ESTO ES UNA GUÍA DE USO: Aproximaciones críticas para el uso del lenguaje inclusivo (Serie General Universitaria) se dirige a quienes buscan reflexionar sobre el lenguaje inclusivo desde una perspectiva crítica. Su carácter de ensayo universitario lo diferencia de un manual de gramática general o de una obra narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El ensayo aborda el uso del lenguaje inclusivo mediante aproximaciones críticas, según delimita su título. Laura Arroyo Martínez y Antonio A. Caballero Gálvez sitúan la cuestión en un marco universitario, orientado al análisis del lenguaje y de sus formas de utilización.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "ESTO ES UNA GUÍA DE USO: Aproximaciones críticas para el uso del lenguaje inclusivo (Serie General Universitaria) se publica en tapa dura, con 260 páginas. La encuadernación rígida facilita conservar el volumen para consultas posteriores y mantenerlo en una biblioteca de estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c0e17f2391afef00",
+  "origen": "chatgpt-web"
+}

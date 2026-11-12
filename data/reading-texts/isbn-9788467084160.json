@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788467084160",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en la Generación del 27, la poesía y la historia literaria del siglo XX. Su enfoque biográfico e histórico encaja menos con quienes buscan una novela de fantasía o una lectura centrada exclusivamente en poemas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Aborda la Generación del 27 desde una perspectiva vinculada a la historia, la literatura y las biografías. Benjamín Prado sitúa ese movimiento literario en el centro de una obra que combina el interés por la poesía con la mirada histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Plata en los ojos: Una historia de la Generación del 27 (Espasa Lengua y Literatura) se presenta en tapa dura y tiene 200 páginas. Es una opción física para conservar en una biblioteca de literatura e historia o regalar a alguien interesado en la poesía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esas muchachas que escriben poemas comparte el interés por las personas vinculadas a la creación poética, aunque centra su planteamiento en las mujeres que escriben. Rainer Maria Rilke o La vida abierta: Una biografía (Tiempo Recobrado) ofrece otra aproximación biográfica a la literatura, mientras que Plata en los ojos: Una historia de la Generación del 27 (Espasa Lengua y Literatura) dirige la atención a una generación literaria.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788426434272",
+        "isbn-9788413643687"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8d59a678f5707d0a",
+  "origen": "chatgpt-web"
+}

@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Arriesgado juego de seducción está dirigido a lectores a partir de 16 años que buscan romance con un contexto deportivo. La relación entre un quarterback profesional y una mujer que defiende su independencia plantea conflictos de confianza y vulnerabilidad; no es una lectura centrada exclusivamente en la competición deportiva.",
+      "texto": "Arriesgado juego de seducción encaja con lectores desde los 16 años interesados en el romance juvenil y las relaciones marcadas por conflictos personales. Loles López plantea una historia entre un deportista en crisis y una mujer que defiende su independencia; encaja menos con quienes buscan una novela centrada exclusivamente en la competición deportiva.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,7 +15,7 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Arriesgado juego de seducción está recomendado a partir de 16 años y pertenece al romance juvenil. Su argumento aborda la dificultad de mostrarse vulnerable, la resistencia a depender de otra persona y los límites que condicionan una relación sentimental. El conflicto combina tensiones afectivas con una etapa complicada en la carrera de un deportista profesional.",
+      "texto": "La edad recomendada para Arriesgado juego de seducción es a partir de 16 años. El contenido gira alrededor de la atracción romántica, las dificultades para expresar sentimientos y la crisis profesional de un jugador de fútbol americano. La resistencia a depender emocionalmente de otra persona forma parte del conflicto afectivo.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -24,28 +25,39 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Arriesgado juego de seducción es una novela romántica de Loles López ambientada en el entorno del fútbol americano profesional. Duncan Morris atraviesa una crisis en su carrera pese a sus éxitos deportivos, mientras que la otra protagonista intenta mantener su autonomía. La relación entre ambos se desarrolla alrededor de reglas personales y decisiones afectivas.",
+      "texto": "La novela desarrolla un romance contemporáneo vinculado al deporte profesional y a las barreras emocionales de sus protagonistas. Duncan Morris atraviesa una etapa difícil de su carrera como quarterback, mientras que la relación sentimental exige revisar sus límites personales. El conflicto romántico tiene más peso que la descripción de partidos o resultados deportivos.",
       "evidencias": [
-        "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Arriesgado juego de seducción puede leerse en tapa blanda o Kindle. La edición de Booket tiene 400 páginas en rústica sin solapas, para quienes prefieren un ejemplar físico que puedan conservar o regalar. Kindle ofrece la misma elección de título en formato digital, con la comodidad de llevar la lectura en el móvil o en un dispositivo compatible.",
+      "texto": "La tapa blanda de Arriesgado juego de seducción contiene 400 páginas y utiliza una encuadernación rústica sin solapas, adecuada para transportar el libro físico. Kindle permite llevar la novela en un dispositivo y continuarla en el móvil, mientras que el audiolibro ofrece una alternativa de escucha. La elección depende del soporte de lectura preferido.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "numero_paginas",
         "edicion",
-        "editorial",
-        "numero_paginas"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A mil por hora, de Hannah Grace, comparte con Arriesgado juego de seducción el romance vinculado al deporte profesional. La primera sitúa su relación en el entorno de un piloto de F1, mientras que Loles López utiliza la crisis de un quarterback como punto de partida. Ambas relacionan el ámbito deportivo con dificultades sentimentales, aunque sus disciplinas y conflictos son distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683449"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ed8aefc3fc5743c6",
+  "fuente_hash": "39ea876d9e866ab4",
   "origen": "chatgpt-web"
 }

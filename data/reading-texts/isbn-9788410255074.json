@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788410255074",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la historia política y en el papel de Estados Unidos en las relaciones de poder. Su enfoque crítico, anunciado desde el subtítulo, encaja menos con quienes buscan una exposición histórica centrada en el arte o la cultura.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Aborda la actuación de Estados Unidos desde una perspectiva histórica y política abiertamente crítica. El subtítulo plantea una relación de confrontación prolongada, por lo que el eje del libro es el ejercicio del poder y sus consecuencias, no una cronología general de acontecimientos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para este volumen de 204 páginas. Su extensión permite manejarlo como lectura de historia política y transportarlo sin el volumen propio de una edición de tapa dura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El fuego de Bandung (Hispánica) comparte con Las balas de Washington el interés por la historia y la política, aunque el segundo identifica expresamente a Estados Unidos como objeto de crítica. Frente a 53 días: Cómo Hitler derribó una democracia (HISTORIA), centrado por su título en el derrumbe de una democracia, Las balas de Washington plantea una cuestión de alcance internacional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517",
+        "isbn-9791387846602"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0890c659ce95553b",
+  "origen": "chatgpt-web"
+}

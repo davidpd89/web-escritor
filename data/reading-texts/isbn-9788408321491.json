@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788408321491",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Descifrando Washington (Ciudades contadas), de Sara Canals Serra, se dirige a lectores de ensayo y libros de viajes interesados en una ciudad concreta. Sus 192 páginas en castellano ofrecen una extensión delimitada; no corresponde a una novela de ficción ni a una recopilación de destinos de distintos países.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Descifrando Washington (Ciudades contadas) tiene una edición en tapa blanda de 192 páginas. El volumen de Geoplaneta permite llevar la lectura en papel durante desplazamientos o conservarla como libro de consulta sobre la ciudad. Su contenido se presenta en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1e4aee8ba286b2ff",
+  "origen": "chatgpt-web"
+}

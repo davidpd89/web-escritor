@@ -1,0 +1,34 @@
+{
+  "id": "isbn-9791387526382",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Princesas. Obras maestras (Disney. Princesas), de Disney, está dirigido a lectores infantiles interesados en las aventuras de las princesas Disney. Sus 304 páginas lo sitúan entre los libros infantiles de mayor extensión de esta selección; no está orientado a quien busca narrativa adulta o contenidos alejados del universo Disney.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es la opción disponible para Princesas. Obras maestras (Disney. Princesas), de Disney. Sus 304 páginas quedan reunidas en un volumen de cubierta rígida, más adecuado para conservar en una estantería o entregar como regalo que para llevar en un bolsillo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "5e0bb440e38377b7",
+  "origen": "chatgpt-web"
+}

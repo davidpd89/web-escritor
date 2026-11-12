@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788412975444",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Qué es ser pobre y qué es ser rico (Lóguez Medioambiental) se dirige al público infantil y juvenil interesado en preguntas sobre la pobreza y la riqueza. Su planteamiento temático y sus 64 páginas lo distinguen de una novela de aventuras o de un ensayo extenso para adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Qué es ser pobre y qué es ser rico (Lóguez Medioambiental) se presenta en tapa dura, con 64 páginas en castellano. La encuadernación rígida resulta práctica para conservar el ejemplar y volver a consultar sus páginas durante lecturas compartidas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3d4eae948429ac4a",
+  "origen": "chatgpt-web"
+}

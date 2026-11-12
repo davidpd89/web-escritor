@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388540059",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "LA CHISPA DE LEX: El viaje de los sueños se orienta a lectores interesados en libros vinculados a los viajes. Con 250 páginas en castellano, propone una extensión intermedia y resulta menos afín a quien busca específicamente poesía, cómic o manuales técnicos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "LA CHISPA DE LEX: El viaje de los sueños está editado en tapa blanda y reúne 250 páginas. La encuadernación flexible facilita llevar el volumen durante desplazamientos y leerlo en papel sin el peso habitual de una cubierta rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "LA CHISPA DE LEX: El viaje de los sueños comparte autor con El último baile, también de Manel Rodriguez Moreno. Para quien busque una comparación centrada en viajes, 33 islas: Un periplo mediterráneo. De Marettimo a Venecia. ofrece un recorrido geográfico explícito, mientras que LA CHISPA DE LEX se presenta con un título centrado en los sueños.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388540073",
+        "isbn-9791387873127"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6cea23dd45d2264a",
+  "origen": "chatgpt-web"
+}

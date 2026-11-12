@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788408328353",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Corazón de oro: Edición limitada a precio especial (Colección Especial), de Luz Gabás, se dirige a lectores de narrativa contemporánea con interés por las aventuras, la historia y las relaciones familiares. Su combinación de estos ámbitos no responde a quien busca un manual práctico, un ensayo psicológico o una lectura breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Corazón de oro: Edición limitada a precio especial (Colección Especial) se identifica como una edición limitada dentro de Colección Especial. Booket la publica en tapa dura, con 560 páginas en castellano y fecha de publicación del 2026-11-11; el carácter limitado y la presentación especial figuran en el propio título.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 560 páginas de Corazón de oro: Edición limitada a precio especial (Colección Especial) en un volumen físico que puede conservarse o regalarse. El audiolibro permite seguir la narración mediante escucha, sin necesidad de sostener un libro de esta extensión durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando el viento hable: Edición limitada a precio especial (Colección Especial), de Ángela Banzas, comparte con Corazón de oro: Edición limitada a precio especial (Colección Especial) su pertenencia a Colección Especial y la identificación como edición limitada. La diferencia está en la autoría: Ángela Banzas firma el primero y Luz Gabás el segundo, que combina narrativa contemporánea, aventuras, historia y familia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328414"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4696c5ec9c1ef8c2",
+  "origen": "chatgpt-web"
+}

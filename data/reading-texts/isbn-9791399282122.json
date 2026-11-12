@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791399282122",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Locas furiosas y desmemoriadas: 63 (Narrativa pez de plata) se dirige a lectores de narrativa contemporánea en castellano que buscan una obra de extensión moderada. Sus 216 páginas permiten distinguirla de las novelas más extensas; por su clasificación editorial, no es una elección orientada a quien busca ensayo o manuales prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible de Locas furiosas y desmemoriadas: 63 (Narrativa pez de plata), con 216 páginas en castellano. La edición de Pez de Plata permite leer en papel y guardar el ejemplar en una estantería, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2a36df193a9dd408",
+  "origen": "chatgpt-web"
+}

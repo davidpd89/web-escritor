@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788408324782",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores que disfrutan resolviendo misterios mediante enigmas, códigos y acertijos. Sus 216 páginas y su planteamiento de aventuras encajan con quienes buscan participar en la resolución de un caso, más que con quienes prefieren una lectura centrada exclusivamente en el desarrollo de personajes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne 216 páginas y más de 100 enigmas, códigos y acertijos por resolver. El formato físico permite volver a las páginas anteriores para consultar pistas y revisar soluciones durante la lectura. Es una opción para conservar el volumen y utilizarlo en distintas sesiones.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abre el misterio 1 - El robo de las croquetas comparte el interés por resolver un misterio, aunque parte de la desaparición de unas croquetas. Villaenigma. Resuelve el misterio 2. La llamada del cuervo: Más de 100 enigmas, códigos y acertijos por resolver se distingue por anunciar expresamente más de 100 pruebas de distintos tipos, con una participación directa del lector.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "62929d2c365edf9e",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387962319",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dead Mount Death Play 9 (Seinen) encaja con lectores de manga que buscan aventuras con elementos de terror y narrativa contemporánea. No responde a las preferencias de quienes evitan el terror o buscan una novela convencional sin lenguaje de cómic.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dead Mount Death Play 9 (Seinen) tiene una edición en tapa blanda de 232 páginas, publicada en castellano por Distrito Manga. El formato permite conservar el volumen en una colección física y leer sus páginas sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dead Mount Death Play 9 (Seinen) puede compararse con After God 8 (Shônen), de Sumi Eno, por su pertenencia al manga y su identificación con públicos editoriales distintos. También se relaciona con Winter Blood 4 (Uprising Comics), de Antonio Rojo y Jason Michalski, como alternativa de lectura gráfica, aunque corresponde a otra obra y otros autores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388003479",
+        "isbn-9791387962647"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "67739f9ca93ef471",
+  "origen": "chatgpt-web"
+}

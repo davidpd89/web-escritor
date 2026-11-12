@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791043309632",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de fantasía, aventuras y cómic que buscan una entrega de una serie shônen. El título lo identifica como el n.º 12, por lo que resulta menos adecuado para quien desea empezar por un volumen identificado como primero o prefiere narrativa sin formato de cómic.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Wistoria. Wand and Sword, 12 (Shônen - Wistoria) está disponible en tapa dura y reúne 192 páginas en castellano. Su encuadernación rígida facilita conservar esta entrega junto a otros volúmenes físicos y utilizarla como ejemplar de regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "World Trigger 5 (Shônen) y World Trigger 6 (Shônen), ambos de Daisuke Ashihara, comparten con Wistoria. Wand and Sword, 12 (Shônen - Wistoria) la identificación shônen y la presentación en entregas numeradas. La diferencia visible está en la serie y la autoría: los dos títulos de World Trigger pertenecen a Daisuke Ashihara, mientras que Wistoria figura a nombre de Omori Fujino y se clasifica también como fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962340",
+        "isbn-9791387962692"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3e53ded6b682037c",
+  "origen": "chatgpt-web"
+}

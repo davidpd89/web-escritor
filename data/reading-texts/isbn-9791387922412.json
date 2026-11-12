@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387922412",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La noche me envuelve con su oscuridad (Ilustrados) se dirige a lectores de poesía interesados en la obra de Emily Brontë. Su planteamiento poético se distancia de las novelas con una trama continua, por lo que encaja menos con quienes buscan una narración extensa protagonizada por personajes y acontecimientos sucesivos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La noche me envuelve con su oscuridad (Ilustrados) puede leerse en tapa dura o Kindle. La edición física reúne 160 páginas en una encuadernación rígida, adecuada para conservar el volumen o regalarlo; Kindle permite consultar los textos desde un lector electrónico o un dispositivo compatible sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La noche me envuelve con su oscuridad (Ilustrados) y Antologia amorosa la voz a ti debida y razon de amor pertenecen al ámbito de la poesía. El primero reúne la escritura de Emily Brontë bajo una referencia a la oscuridad, mientras que el título de Pedro Salinas señala expresamente una selección amorosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "52b6ea5e3516f271",
+  "origen": "chatgpt-web"
+}

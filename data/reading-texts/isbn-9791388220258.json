@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388220258",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Calma para tensos (Bienestar, estilo de vida, salud), de Marion Deuchars, se orienta a lectores interesados en bienestar, desarrollo personal y ocio. Su planteamiento temático se aparta de los manuales especializados en nutrición deportiva y de las novelas de ficción, aunque comparte espacio con las lecturas de humor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Calma para tensos (Bienestar, estilo de vida, salud) se presenta en tapa dura y tiene 84 páginas. La encuadernación rígida permite conservarlo como volumen de consulta física, mientras que su extensión es menor que la de un manual largo de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Calma para tensos (Bienestar, estilo de vida, salud) y Cambiar para Vivir, Colección Autoayuda comparten su orientación hacia el desarrollo personal. Marion Deuchars sitúa la calma y la tensión en el centro de su título, mientras que Raúl M. Mir Coll plantea el cambio personal. El primero también aparece vinculado al humor y al tiempo libre.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788415122562"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3b357498eb57b465",
+  "origen": "chatgpt-web"
+}

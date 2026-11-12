@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788408328421",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vera, una historia de amor: Edición limitada a precio especial (Colección Especial) se dirige a lectores de narrativa contemporánea interesados en las relaciones de pareja y los vínculos familiares. Por su temática, encaja menos con quienes buscan una lectura centrada en aventuras, conflictos históricos o explicaciones prácticas sobre las relaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Vera, una historia de amor: Edición limitada a precio especial (Colección Especial) pertenece a la Colección Especial de Booket y se presenta como una edición limitada a precio especial. Está encuadernada en tapa dura, contiene 368 páginas en castellano y tiene como fecha de publicación el 11 de noviembre de 2026. Su ISBN es 9788408328421.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible de Vera, una historia de amor: Edición limitada a precio especial (Colección Especial). Sus 368 páginas forman un volumen físico que puede conservarse en una estantería o entregarse como regalo. La encuadernación rígida resulta práctica para proteger el ejemplar durante su almacenamiento y sus sucesivas lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Vera, una historia de amor: Edición limitada a precio especial (Colección Especial) y Conectados para el amor / Wired for Love comparten el interés por las relaciones de pareja. La obra de Juan del Val pertenece a la narrativa contemporánea, mientras que el libro de Stan Tatkin se presenta como una obra sobre el amor y la conexión en pareja. La diferencia para el lector está entre acercarse al tema mediante narrativa o mediante una obra centrada en las relaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4588cd8943fd36d3",
+  "origen": "chatgpt-web"
+}

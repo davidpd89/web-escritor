@@ -4,44 +4,45 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Churchill está dirigido a lectores de biografías históricas interesados en el liderazgo político y las transformaciones de una época. Su recorrido por las decisiones, éxitos y fracasos de un estadista se aleja de las memorias íntimas y de los estudios centrados exclusivamente en una campaña militar.",
+      "texto": "Churchill se orienta a lectores interesados en biografías históricas y en la trayectoria política y militar de Winston Churchill. Paul Johnson y Diego Pereda Sancho figuran como autores de esta edición, que recorre distintas etapas de su vida pública. No es una novela histórica ni un estudio limitado a una única campaña militar.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Paul Johnson examina las distintas etapas de la vida de Winston Churchill, desde su servicio militar hasta sus advertencias sobre la Guerra Fría. El análisis atiende a su capacidad para adaptarse a situaciones cambiantes y utiliza episodios biográficos, citas y anécdotas para explicar su actuación pública.",
+      "texto": "Churchill aborda la evolución de Winston Churchill desde su experiencia militar juvenil hasta su actividad como estadista. Presta atención a su liderazgo, sus cambios de posición, sus éxitos y sus fracasos, además de su relación con los acontecimientos de su época. El enfoque es biográfico e histórico, con anécdotas y citas utilizadas para caracterizar al protagonista.",
       "evidencias": [
-        "autores",
-        "sinopsis_editorial"
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Churchill se ofrece en tapa blanda, con 224 páginas en castellano editadas por Ciudadela Libros. Es una edición física que permite consultar distintas etapas de la biografía, marcar pasajes y recuperar las citas y anécdotas utilizadas para caracterizar al protagonista.",
+      "texto": "Churchill se presenta en tapa blanda y tiene 224 páginas, una extensión que permite abordar su trayectoria en un volumen relativamente breve. Esta edición de Ciudadela Libros se lee en papel y puede transportarse sin el peso añadido de una cubierta rígida. Es el formato recogido para este título.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "sinopsis_editorial"
+        "edicion",
+        "formatos_disponibles",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cesar La conquista de la eternidad, de Alberto Angela, comparte con Churchill el interés por reconstruir la trayectoria de una figura histórica vinculada al poder y la actividad militar. El primero sigue las peripecias de un general romano; Churchill, de Paul Johnson, Diego Pereda Sancho, analiza la evolución de un dirigente británico hasta la Guerra Fría.",
+      "texto": "Churchill puede compararse con Admirados Soñadores, de Juan Salazar Larraz, desde el interés por las figuras humanas que sugieren ambos títulos. La obra de Paul Johnson y Diego Pereda Sancho se concentra en la trayectoria histórica y política de Winston Churchill, con episodios militares y decisiones de gobierno. Admirados Soñadores presenta otra autoría y un título de alcance más plural.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410944329"
+        "isbn-9788412972573"
       ]
     }
   ],

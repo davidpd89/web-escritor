@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073874687",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Untitledja4687 se dirige a lectores interesados en desarrollo personal y cuestiones de familia y crianza. Por su clasificación temática, queda fuera de una búsqueda centrada en novelas de aventuras o fantasía; su orientación es práctica y familiar.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Untitledja4687 está disponible en tapa blanda, con 288 páginas en castellano. Esta edición de Penguin Random House Grupo Editorial permite consultar el contenido en papel y transportarlo sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Untitledja4687 comparte autoría colectiva con Momentos Hygge: Un libro de actividades para pausar, respirar y disfrutar de lo simple (Salud y bienestar). Mientras este último se presenta como un libro de actividades centrado en el bienestar cotidiano, Untitledja4687 se sitúa en el desarrollo personal y la familia, con una orientación temática distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049904"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eab67fb7f3336f69",
+  "origen": "chatgpt-web"
+}

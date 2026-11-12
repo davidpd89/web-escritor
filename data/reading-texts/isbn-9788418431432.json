@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788418431432",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensad en Flebas (OZ EDITORIAL) encaja con lectores que buscan ciencia ficción y tienen interés por la fantasía. Sus 528 páginas plantean una lectura extensa, menos ajustada a quienes prefieren libros breves o asuntos tratados exclusivamente desde el ensayo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Pensad en Flebas (OZ EDITORIAL) es de tapa blanda y reúne 528 páginas en castellano. El formato permite conservar la obra en papel y avanzar mediante sesiones de lectura, aunque su extensión puede resultar menos cómoda para llevarla a diario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c5a8413d1b15aa67",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788467973273",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El husky y su gato blanco shizun 05: 5 se dirige a lectores interesados en obras clasificadas como cómic y novela gráfica que aceptan una extensión considerable. El título lo identifica como el n.º 5 y sus 515 páginas lo alejan de las lecturas breves; resulta menos adecuado para quien busca una obra corta o un ensayo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 515 páginas de El husky y su gato blanco shizun 05: 5 en una edición física de Norma Editorial. Es el formato disponible para leer en castellano, conservar el volumen en papel y colocarlo junto a otros ejemplares de la colección identificada en el título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4409d121ac2e1351",
+  "origen": "chatgpt-web"
+}

@@ -4,8 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Es una lectura de fantasía para mayores de 9 años que siguen aventuras de semidioses y conflictos provocados por la mitología griega. El peligro, las consecuencias de los errores y la presencia de una divinidad enfadada la separan de las historias cotidianas sin amenazas sobrenaturales.",
+      "texto": "La diosa de tres cabezas (Percy Jackson y los dioses del Olimpo 7) se dirige a lectores desde los 9 años interesados en la fantasía juvenil y la mitología griega. Rick Riordan plantea una aventura con dioses, criaturas y problemas entre amigos; encaja menos con quienes prefieren historias realistas sin elementos sobrenaturales.",
       "evidencias": [
+        "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -13,50 +15,51 @@
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "Funciona como una aventura de lectura continuada, centrada en las consecuencias de una misión que se complica. Percy y sus amigos deben afrontar los problemas relacionados con Hécate, sus mascotas y la curiosidad de Grover, mientras intentan conseguir una nueva recomendación divina.",
+      "texto": "Se lee como una novela de aventuras, siguiendo las dificultades de Percy Jackson y sus amigos para conseguir una carta de recomendación. El conflicto avanza mediante los problemas provocados por Hécate, sus mascotas y Grover, con una situación que termina afectando a Nueva York. Es una lectura narrativa, no un libro de actividades.",
       "evidencias": [
-        "sinopsis_editorial",
-        "categorias"
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "La edad indicada comienza a los 9 años y la edición contiene 304 páginas. Salamandra presenta el libro en castellano, con tapa blanda y solapas, dentro de la fantasía infantil y juvenil, para una lectura que puede repartirse en distintas sesiones.",
+      "texto": "La edad recomendada comienza a partir de 9 años y la edición de Salamandra contiene 304 páginas. Se publica en castellano, en tapa blanda con solapas, dentro de la fantasía infantil y juvenil. El título lo identifica como el n.º 7 de Percy Jackson y los dioses del Olimpo.",
       "evidencias": [
-        "edad_recomendada",
-        "numero_paginas",
+        "titulo",
         "editorial",
         "edicion",
+        "numero_paginas",
+        "edad_recomendada",
         "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "En tapa blanda, las 304 páginas forman un volumen con solapas que puede guardarse junto a los demás títulos de la colección. La versión Kindle permite leerlo en un dispositivo electrónico o en el móvil y evita tener que transportar el ejemplar físico.",
+      "texto": "La tapa blanda permite leer sus 304 páginas en papel, con solapas y una encuadernación flexible. Kindle ofrece la lectura digital en el móvil o en un lector electrónico, mientras que el audiolibro permite seguir la aventura mediante la escucha. La elección depende de si se prefiere pasar páginas, llevar el texto en un dispositivo o escucharlo.",
       "evidencias": [
-        "formatos_disponibles",
-        "edicion",
         "numero_paginas",
-        "titulo"
+        "edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Percy Jackson y el cáliz de los dioses (Percy Jackson y los dioses del Olimpo 6), de Rick Riordan, comparte protagonista y búsqueda de recomendaciones divinas, pero se ocupa de la primera misión y de un cáliz con poderes. Campamento Mestizo 1 - La zona rebelde, de Rick Riordan y Annabelle Oh, mantiene la conexión con el universo mitológico, aunque parte de la vida en el campamento.",
+      "texto": "Percy Jackson y el cáliz de los dioses (Percy Jackson y los dioses del Olimpo 6) comparte autor, protagonista y el problema de conseguir recomendaciones divinas para acceder a la universidad. La diosa de tres cabezas (Percy Jackson y los dioses del Olimpo 7) centra el conflicto en Hécate y sus mascotas, mientras que el título anterior plantea el requisito de las cartas de tres dioses griegos.",
       "evidencias": [
+        "titulo",
+        "autores",
         "afines_catalogo",
-        "sinopsis_editorial",
-        "autores"
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788419868466",
         "isbn-9791387906085"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c642bfb6423c0f48",
+  "fuente_hash": "36ba6ceaf6a91df4",
   "origen": "chatgpt-web"
 }

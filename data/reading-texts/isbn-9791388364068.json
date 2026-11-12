@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388364068",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Textos recobrados 1956-1986 (Hispánica) responde al interés por los escritos de Jorge Luis Borges correspondientes al periodo indicado en el título. Sus ámbitos son los relatos, la historia y las biografías y memorias, por lo que se aleja de la estructura habitual de una novela con una trama única.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las 368 páginas de Textos recobrados 1956-1986 (Hispánica) pueden leerse en tapa blanda, con acceso físico a los textos para consultas posteriores. En Kindle, el contenido se transporta digitalmente y puede consultarse desde un móvil o lector electrónico compatible.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Textos recobrados. 1931-1955 (Hispánica) comparte autor y orientación histórica con Textos recobrados 1956-1986 (Hispánica), aunque los periodos señalados en sus títulos son consecutivos y distintos. Cuentos completos (edición especial en tapa dura) reúne los cuentos de Jorge Luis Borges, mientras que Textos recobrados 1956-1986 (Hispánica) se identifica por un intervalo cronológico y abarca distintas clasificaciones literarias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388364044",
+        "isbn-9791388364020",
+        "isbn-9788466392297"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "87beb9c7043914db",
+  "origen": "chatgpt-web"
+}

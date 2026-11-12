@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466392761",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La montaña muerta (Nora Kelly 4) (Best Seller | Ficción), de Douglas Preston y Lincoln Child, se dirige a lectores de misterio y thriller que buscan una novela vinculada a una serie. El título la identifica como el n.º 4 de Nora Kelly; su orientación hacia la intriga la aleja de las historias centradas principalmente en el romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La montaña muerta (Nora Kelly 4) (Best Seller | Ficción) puede leerse en tapa blanda o Kindle. La edición de bolsillo contiene 384 páginas y permite conservar la novela junto a otros volúmenes de la serie, mientras que Kindle facilita llevarla en un lector electrónico o en el móvil sin cargar con el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La montaña muerta (Nora Kelly 4) (Best Seller | Ficción) comparte autoría y referencia de serie con Tierra baldía (Nora Kelly 5) (Éxitos), de Douglas Preston y Lincoln Child. Los títulos identifican respectivamente los números 4 y 5 de Nora Kelly, una diferencia relevante para situar ambos libros dentro de la misma colección. También comparten autores con El gabinete del Dr. Leng (Inspector Pendergast 21) (Best Seller | Ficción), cuyo título remite a otra serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466389006",
+        "isbn-9788401038006"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e70cac4c6ff6ec63",
+  "origen": "chatgpt-web"
+}

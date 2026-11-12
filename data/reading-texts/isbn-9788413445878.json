@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788413445878",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la relación entre el equilibrio hormonal y el bienestar físico y emocional. Cuando las hormonas se desmadran, de Miriam Al Adib Mendiri, pertenece al ámbito de la salud y el desarrollo personal, por lo que no responde a la búsqueda de una novela ni de un libro centrado exclusivamente en alimentación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuando las hormonas se desmadran está disponible en tapa blanda y Kindle. La edición de bolsillo de Booket reúne 272 páginas para leer y consultar en papel; Kindle permite acceder al contenido desde el móvil o un lector electrónico, sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando las hormonas se desmadran puede compararse con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito por su atención a la salud y el bienestar. Miriam Al Adib Mendiri delimita el tema al equilibrio hormonal y sus efectos físicos y emocionales; Liz Moody plantea un campo más amplio que incluye relaciones y éxito.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "26688391af166a4d",
+  "origen": "chatgpt-web"
+}

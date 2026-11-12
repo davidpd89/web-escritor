@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388322402",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Piensa como los ricos: 64 píldoras para dominar la psicología del dinero (GROU) se dirige a lectores interesados en desarrollo personal, economía y comportamiento ante el dinero. Sus 64 píldoras plantean un enfoque dividido por temas; encaja menos con quien busca una novela o un manual centrado exclusivamente en operaciones financieras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Piensa como los ricos: 64 píldoras para dominar la psicología del dinero (GROU) cuenta con una edición en tapa blanda de 344 páginas. El papel permite consultar las 64 píldoras por separado y regresar a determinados apartados, una forma de uso distinta de la lectura continuada de principio a fin.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Piensa como los ricos: 64 píldoras para dominar la psicología del dinero (GROU) comparte el ámbito económico con Cómo generar ingresos con las opciones: Así transformé la bola de nieve en avalancha (EMPRESA), de Renato Antinori. La diferencia está en el enfoque anunciado: Kim Kyungil aborda la psicología del dinero, mientras que Renato Antinori se centra en generar ingresos mediante opciones financieras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724357"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "41511c1caf3283c3",
+  "origen": "chatgpt-web"
+}

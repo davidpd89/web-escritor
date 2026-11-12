@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788408327769",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores de romance que buscan una novela extensa de Jade Presley. Sus 512 páginas encajan con quien prefiere dedicar varias sesiones a una misma historia, pero no con quien busca una lectura breve o ajena al género romántico.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Crossbooks se presenta en tapa dura y con cantos tintados, un acabado señalado expresamente en el título. Tiene 512 páginas en castellano y su publicación está fechada el 25 de noviembre de 2026. El título la identifica como La lista 2.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura permite conservar las 512 páginas en un volumen físico con cantos tintados, una característica relevante para quien colecciona libros o busca un regalo. Kindle ofrece la misma obra en formato digital para leer desde un dispositivo compatible sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A mil por hora comparte el terreno del romance, pero plantea una relación vinculada a un piloto de F1, mientras que La lista de los Reyes se identifica por su pertenencia a La lista. También puede compararse con 24 historias para enamorarte en navidad: Relatos navideños, que reúne relatos frente a la novela de 512 páginas de Jade Presley.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409929177",
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "66e3dcab3d661cc0",
+  "origen": "chatgpt-web"
+}

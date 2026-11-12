@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388099458",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La isla de la libélulas (Narrativa Algorfa), de César Drago, se dirige a lectores de misterio y thriller que también buscan narrativa contemporánea. Sus 430 páginas plantean una lectura extensa, menos ajustada a quienes prefieren relatos breves o géneros alejados del suspense.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La isla de la libélulas (Narrativa Algorfa) está disponible en tapa blanda, con 430 páginas en castellano. Esta edición de Ediciones Algorfa permite leer el volumen completo en papel y transportarlo sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La isla de la libélulas (Narrativa Algorfa) comparte el terreno del misterio con Aguas turbulentas, de Rankin Ian, y Asesinato antes de Navidad, de Katherine Black. Aguas turbulentas sitúa su conflicto entre el pasado y el presente de Edimburgo, mientras que Asesinato antes de Navidad parte de unas vacaciones navideñas que se complican. La obra de César Drago se presenta además como narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318",
+        "isbn-9791370310264"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "47039e12ceacad6d",
+  "origen": "chatgpt-web"
+}

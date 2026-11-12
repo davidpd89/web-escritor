@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073879460",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Santita del agua clara / Saint of the Clear Water, de Laura Baeza, se dirige a lectores de narrativa contemporánea interesados en asuntos familiares y de crianza. Su enfoque se aleja de los manuales prácticos sobre educación infantil y se sitúa en el terreno literario, con una edición de 240 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Santita del agua clara / Saint of the Clear Water reúne 240 páginas en un volumen físico que puede prestarse o regalarse. La edición Kindle permite leer el mismo título en un dispositivo electrónico o en el móvil, sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Época de cerezos / Cherry Blossom Season comparte con Santita del agua clara / Saint of the Clear Water la autoría de Laura Baeza. Al faro: Nueva traducción al español: 82 (Clásicos en español), de Virginia Woolf, ofrece otra referencia literaria para comparar autorías. Santita del agua clara / Saint of the Clear Water se sitúa en la narrativa contemporánea vinculada a asuntos familiares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073877527",
+        "isbn-9781836472568"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9d87cebd92921683",
+  "origen": "chatgpt-web"
+}

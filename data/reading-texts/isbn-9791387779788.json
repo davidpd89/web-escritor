@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387779788",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Murena nº 13 (BD - Autores Europeos) se dirige a lectores de aventuras juveniles interesados en publicaciones de cómic europeo. Jean Dufaux firma este volumen de 64 páginas, cuyo título lo identifica como el n.º 13; se aleja de las novelas extensas y de las lecturas centradas en el romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Murena nº 13 (BD - Autores Europeos) se publica en tapa dura, con 64 páginas en castellano y edición de Planeta Cómic. La encuadernación rígida permite conservar el volumen en una colección física, mientras que su extensión resulta manejable para una lectura en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "57289f666a2e34ab",
+  "origen": "chatgpt-web"
+}

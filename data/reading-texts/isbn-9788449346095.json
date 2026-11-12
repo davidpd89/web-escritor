@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788449346095",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El libro de Sara Rubayo está dirigido a lectores interesados en la historia del arte español. Sus 384 páginas abordan el arte y su historia, por lo que se aleja de las obras de ficción narrativa.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece un volumen físico de 384 páginas, manejable para consultar y leer fuera de casa. Kindle permite llevar la obra en formato digital y acceder a su contenido desde un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formato_edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El libro de Sara Rubayo comparte con Civilización: Una historia del arte y la cultura que dieron forma a la civilización moderna: 126 (Ático Historia), de Kenneth Clark, el interés por la historia del arte. Su enfoque se centra en el arte español, mientras que la obra de Kenneth Clark amplía la perspectiva a la cultura y la civilización moderna.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387592493"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8119e239a73d6156",
+  "origen": "chatgpt-web"
+}

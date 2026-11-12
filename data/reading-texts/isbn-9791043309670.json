@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791043309670",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Alya a veces me susurra en ruso 9 (Shônen - Alya) está orientado a lectores juveniles que buscan narrativa contemporánea en formato de cómic y novela gráfica. Quienes prefieran novelas extensas de texto o lecturas alejadas del manga encontrarán una propuesta de formato diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es la única opción disponible para Alya a veces me susurra en ruso 9 (Shônen - Alya). Sus 192 páginas quedan reunidas en un volumen físico, una opción para quien prefiere leer manga en papel y conservar los tomos en una estantería.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Blue Lock nº 33 (Manga Shonen), de Yusuke Nomura y Muneyuki Kaneshiro, comparte con Alya a veces me susurra en ruso 9 (Shônen - Alya) la identificación del público shonen y el formato manga. One Piece nº 114 (Manga Shonen), de Eiichiro Oda, presenta esa misma referencia editorial, aunque cambia la autoría y el título de la obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388101991",
+        "isbn-9791388102271"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2e65e2faa97a34cc",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791388103551",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Super Mario nº 35 (Manga Kodomo), de Yukio Sawada, está dirigido a lectores interesados en el manga kodomo y el cómic. Su orientación se diferencia de la narrativa en prosa y de los mangas dirigidos a otros públicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es la elección para quien quiere leer Super Mario nº 35 (Manga Kodomo) en papel, pasar sus páginas y conservarlo junto a otros tomos de la colección. Sus 184 páginas ofrecen un volumen físico manejable, publicado por Planeta Cómic, sin necesidad de recurrir a una pantalla. Es el formato disponible para esta edición en castellano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6f91d9c169d2b61d",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Super-Cannes se dirige a lectores de ciencia ficción interesados en las relaciones entre grandes empresas, poder y violencia. Su escenario corporativo en Edén-Olimpia y el experimento que allí se desarrolla encajan menos con quienes buscan exploración espacial, aventuras con dinosaurios o una historia romántica.",
+      "texto": "Super-Cannes se dirige a lectores de ciencia ficción interesados en el poder empresarial, la seguridad corporativa y la violencia dentro de organizaciones multinacionales. Su escenario en Edén-Olimpia, un complejo situado en Cannes, lo aleja de quienes buscan aventuras espaciales o historias centradas en exploraciones de otros planetas.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La novela plantea una ciencia ficción centrada en un complejo empresarial de Cannes que reúne grandes compañías internacionales. Edén-Olimpia dispone de infraestructura avanzada de trabajo, vigilancia y comunicación, pero también alberga un experimento relacionado con el poder y la brutalidad. El conflicto nace del contraste entre la organización corporativa y la violencia.",
+      "texto": "La novela utiliza un complejo empresarial de Cannes para explorar el poder y la brutalidad bajo una apariencia de prosperidad. Edén-Olimpia concentra grandes compañías y servicios avanzados de seguridad y comunicaciones, un entorno donde se desarrolla un experimento de consecuencias inquietantes.",
       "evidencias": [
         "categorias",
         "sinopsis_editorial"
@@ -21,32 +21,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Super-Cannes se ofrece en tapa blanda, en una edición rústica con solapas de 480 páginas. Es un volumen físico relativamente extenso que permite mantener la lectura de la novela en un solo libro y conservarlo para volver a su representación del poder empresarial.",
+      "texto": "La edición en tapa blanda, con solapas, contiene 480 páginas y ofrece un ejemplar físico para leer y conservar. Kindle permite acceder a la novela en formato electrónico, una opción para continuar la lectura en distintos lugares sin transportar el volumen de papel.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "edicion",
         "numero_paginas",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Super-Cannes y Aunque se acabe el mundo comparten la ciencia ficción y la alteración de un entorno aparentemente reconocible, aunque la primera sitúa el conflicto en un complejo empresarial y la segunda parte de una transformación de la humanidad. El mundo perdido también introduce una amenaza en un escenario concreto, pero la vincula a dinosaurios en una isla de Costa Rica, no al poder corporativo.",
+      "texto": "Al despertar, rompe el cascarón (Runas), de Becky Chambers, figura entre las lecturas afines a Super-Cannes, aunque ambas obras tienen distinta autoría. La novela de Ballard sitúa su conflicto en un complejo empresarial de Cannes, donde el poder corporativo y la violencia forman parte de un experimento. Esta ambientación permite diferenciarla por su atención a las relaciones de poder dentro de una organización multinacional.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427255968",
-        "isbn-9788466392143"
+        "isbn-9791370093488"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8e9b036f3384493c",
+  "fuente_hash": "6f610216e7eca584",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073878746",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La conquista perfecta / The Perfect Conquest se dirige a lectores de romance juvenil y narrativa contemporánea interesados en historias relacionadas con los vínculos afectivos y familiares. Sus 336 páginas encajan menos con quien busca fantasía épica, terror o una obra de no ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 336 páginas de La conquista perfecta / The Perfect Conquest en un ejemplar físico flexible. Kindle facilita leer la novela en el móvil o en un lector compatible, mientras que el audiolibro permite seguirla mediante escucha durante desplazamientos u otras actividades.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La conquista perfecta / The Perfect Conquest comparte autoría y título principal con La conquista perfecta (Montena), también de América Rodas. Frente a esa coincidencia, El clan Monet 1 - Tesoro (Ficción crossover), de Weronika Anna Marczak, ofrece otra referencia de ficción juvenil vinculada a una colección identificada en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388417849",
+        "isbn-9788427226074"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "444580ebbe691382",
+  "origen": "chatgpt-web"
+}

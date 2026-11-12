@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419399045",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Desterrando: La arquitectura del genocidio (Historia) se dirige a lectores interesados en las relaciones entre historia, poder político y arquitectura. Sus 504 páginas plantean una lectura de no ficción centrada en estas cuestiones, alejada de quienes buscan una novela de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Desterrando: La arquitectura del genocidio (Historia) se presenta en tapa blanda, con 504 páginas en castellano. Este formato permite consultar y señalar pasajes durante una lectura de estudio, además de conservar el volumen como referencia física.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El papel de la violencia en la historia: Texto esencial de Engels sobre violencia, Bismarck y lucha de clases en la Alemania del siglo XIX (No ficción) comparte con Desterrando: La arquitectura del genocidio (Historia) el interés por el poder y los procesos históricos. El primero aborda la violencia y la lucha de clases; el libro de Eyal Weizman incorpora la arquitectura al estudio del genocidio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388115479"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "61672ffea513e0a9",
+  "origen": "chatgpt-web"
+}

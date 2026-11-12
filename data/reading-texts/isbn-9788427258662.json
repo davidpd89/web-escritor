@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788427258662",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Revolución 1 - Conform (Ficción crossover) se dirige a lectores que buscan narrativa relacionada con la fantasía, la ciencia ficción y el terror. Sus 416 páginas requieren una dedicación mayor que la de un relato breve; por sus géneros, se aleja de las lecturas realistas sin elementos especulativos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Revolución 1 - Conform (Ficción crossover) cuenta con una edición en tapa blanda de 416 páginas, publicada en castellano. Permite leer una obra extensa en papel sin recurrir a una pantalla y conservarla en formato físico. El título la identifica como el n.º 1.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Revolución 1 - Conform (Ficción crossover) puede compararse con Aftermyth 1. Penelope y la prueba de los dioses por su orientación hacia la ficción fantástica. La obra de Ariel Sullivan incorpora además terror y ciencia ficción en su clasificación, mientras que el título de Tracy Wolff anuncia una prueba relacionada con dioses.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324102"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "34364341684d4ce9",
+  "origen": "chatgpt-web"
+}

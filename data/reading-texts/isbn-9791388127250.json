@@ -4,47 +4,44 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Filosofía de la corrida de toros se dirige a lectores interesados en la tauromaquia como problema filosófico, estético y moral. Sus 240 páginas desarrollan argumentos sobre el riesgo, la belleza y la relación entre el ser humano y el toro, por lo que encaja menos con quien busca una historia general del espectáculo taurino.",
+      "texto": "Filosofía de la corrida de toros se dirige a lectores interesados en la reflexión filosófica sobre la tauromaquia, sus dilemas morales y su dimensión estética. Por su enfoque argumentativo, encaja menos con quienes buscan una historia de ficción o una exposición exclusivamente práctica del toreo.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Francis Wolff estudia la corrida como práctica cultural atravesada por cuestiones éticas y estéticas. Examina la función del rito, la exposición a la muerte y las técnicas del toreo mediante razonamientos filosóficos que incorporan referencias a Kant, Hegel, Spinoza y Nietzsche.",
+      "texto": "Francis Wolff examina la corrida de toros desde la ética, la estética y la filosofía clásica. Analiza la relación entre libertad animal, riesgo de muerte y creación artística, y estudia el toreo como práctica cultural vinculada a la vida colectiva. Su razonamiento incorpora referencias a Kant, Hegel, Spinoza y Nietzsche.",
       "evidencias": [
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Filosofía de la corrida de toros se presenta en tapa blanda, con 240 páginas en castellano editadas por Athenaica Ediciones. El formato en papel permite consultar de nuevo los distintos argumentos filosóficos y mantener reunido el desarrollo completo del ensayo.",
+      "texto": "Filosofía de la corrida de toros está disponible en tapa blanda, con 240 páginas en castellano. Esta edición permite consultar y releer los argumentos filosóficos en papel, además de señalar pasajes y añadir anotaciones durante el estudio.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial",
-        "sinopsis_editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Filosofía de la corrida de toros y Hanami coinciden en prestar atención a la belleza, pero Francis Wolff la examina mediante el conflicto taurino y Patricia Benito la aborda desde una expresión personal de supervivencia. Esenciales ofrece otra vía de lectura filosófica: una panorámica de escritos de Simone Weil, frente al estudio concentrado de una sola práctica cultural.",
+      "texto": "Arendt y la antropología de la condición plural en doble movimiento comparte con Filosofía de la corrida de toros el interés por el pensamiento filosófico. El primero apunta hacia la condición plural, mientras que Francis Wolff centra su análisis en una práctica cultural concreta, sus conflictos éticos y su dimensión artística.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788430629138",
-        "isbn-9788401041723"
+        "isbn-9791399308358"
       ]
     }
   ],

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El Prado invisible se dirige a lectores interesados en la historia del arte desde sus episodios menos conocidos y las circunstancias que rodean a las obras. Su atención a anécdotas, personajes y espacios del museo lo distingue de una guía dedicada exclusivamente a analizar técnicas pictóricas.",
+      "texto": "El Prado invisible se dirige a lectores interesados en la historia del arte contada a través de sucesos, personajes y espacios vinculados a un museo. Su enfoque divulgativo encaja menos con quien busca un manual técnico de pintura o un catálogo centrado exclusivamente en el análisis visual de las obras.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,27 +13,26 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Fernando Plaza Ponce examina la historia del Museo del Prado a través de acontecimientos que suelen quedar fuera de la contemplación de sus cuadros. El recorrido aborda accidentes, desplazamientos de obras, espacios del edificio y episodios relacionados con figuras como Velázquez, Goya y Montserrat Caballé, desde una perspectiva histórica y divulgativa.",
+      "texto": "El Prado invisible aborda la historia del Museo del Prado a partir de acontecimientos que rodean sus colecciones y sus instalaciones. Fernando Plaza Ponce recupera accidentes, desplazamientos de obras, personajes y episodios poco conocidos, desplazando la atención desde el contenido de los cuadros hacia la vida del museo.",
       "evidencias": [
+        "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El Prado invisible está disponible en tapa blanda y Kindle; la edición impresa tiene 256 páginas en castellano. La tapa blanda permite conservarlo y consultarlo en papel, mientras que Kindle facilita llevar estas historias del Museo del Prado en un dispositivo de lectura.",
+      "texto": "El Prado invisible puede leerse en tapa blanda o Kindle. La edición impresa reúne 256 páginas para consultar los episodios históricos en papel; Kindle permite llevar el texto en el móvil y retomar la lectura sin transportar el libro físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El Prado invisible y Cerebro, espacio y tiempo comparten un enfoque divulgativo que invita a reconsiderar aspectos de la experiencia cotidiana, aunque Fernando Plaza Ponce se centra en la historia de un museo y Liset Ménendez de la Prida en la orientación espacial del cerebro. Frente a 50 cosas que hay que saber sobre IA, su materia es histórica y artística, no tecnológica.",
+      "texto": "El Prado invisible y El infinito en un junco (edición limitada · cantos tintados): La invención de los libros en el mundo antiguo (Campaña | Edición con cantos tintados) comparten el interés por la historia del patrimonio cultural. Fernando Plaza Ponce aborda los acontecimientos y personajes vinculados al Museo del Prado, mientras Irene Vallejo se centra en la historia de los libros y su invención en el mundo antiguo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -42,8 +41,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387941208",
-        "isbn-9788434441309"
+        "isbn-9788466393041"
       ]
     }
   ],

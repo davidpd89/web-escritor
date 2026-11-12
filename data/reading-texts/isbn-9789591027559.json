@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9789591027559",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cambios de estación, de Carmen Serrano Coello, encaja con lectores de poesía en castellano que buscan un libro de extensión contenida. Sus 104 páginas y su clasificación poética lo distinguen de las novelas extensas y de los libros de divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cambios de estación se presenta en tapa blanda y tiene 104 páginas. Es una edición física que permite alternar sesiones breves de lectura y consultar pasajes anteriores directamente en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2d702f8c08b973dd",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788435065702",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Para lectores interesados en la historia de Britania, la rebelión frente a Roma y la figura de Carataco. Su temática histórica se aparta de las lecturas centradas en problemas contemporáneos o divulgación científica; el título lo identifica como el n.º II de Carataco, rebelde a Roma.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura ofrece una edición física de 512 páginas, adecuada para conservar en una biblioteca y consultar durante la lectura. Kindle permite llevar Caudillo de Britania: Carataco, rebelde a Roma II (Narrativas Históricas) en un dispositivo sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, comparte el interés por los conflictos políticos del pasado, aunque sitúa su asunto en la caída de una democracia. Caudillo de Britania: Carataco, rebelde a Roma II (Narrativas Históricas), de Simon Scarrow, se centra en Carataco y su oposición a Roma, con un marco histórico distinto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ab1a4a947faf181f",
+  "origen": "chatgpt-web"
+}

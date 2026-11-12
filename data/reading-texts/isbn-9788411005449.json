@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788411005449",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La belleza del universo: Las grandes cuestiones de la física como nunca te las habían contado (DIVULGACIÓN) se dirige a lectores interesados en comprender cuestiones fundamentales de la física mediante la divulgación científica. Su enfoque temático se aleja de la narrativa de ficción y de los manuales centrados en ejercicios prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de La belleza del universo: Las grandes cuestiones de la física como nunca te las habían contado (DIVULGACIÓN) reúne 248 páginas en un volumen físico que permite consultar y releer pasajes concretos. La versión Kindle ofrece el mismo título en formato digital para llevarlo en un lector electrónico o consultarlo desde el móvil.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La belleza del universo: Las grandes cuestiones de la física como nunca te las habían contado (DIVULGACIÓN), de Stefan Klein, comparte el enfoque divulgativo con 50 cosas que hay que saber sobre IA, de Keith Mansfield. La primera obra trata las grandes cuestiones de la física, mientras que la segunda se centra en la inteligencia artificial. Ambas abordan conocimientos científicos, pero sus objetos de estudio son diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cff8f724fd9b2b6d",
+  "origen": "chatgpt-web"
+}

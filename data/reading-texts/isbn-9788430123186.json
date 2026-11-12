@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788430123186",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Palabra de Dios cada día - 2027: 194 (Nueva Alianza) se orienta a lectores interesados en la espiritualidad religiosa y en una lectura vinculada al calendario. El título de Vincenzo Paglia plantea una relación cotidiana con la palabra de Dios, por lo que se aparta de quienes buscan ficción o una introducción a disciplinas espirituales distintas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Palabra de Dios cada día - 2027: 194 (Nueva Alianza) se publica en tapa blanda, con 352 páginas en castellano. El formato físico permite mantener el libro a mano para una consulta cotidiana y utilizar un marcapáginas para seguir la lectura a lo largo del año indicado en el título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Palabra de Dios cada día - 2027: 194 (Nueva Alianza), de Vincenzo Paglia, comparte el interés espiritual con Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe. El primero se articula alrededor de la palabra de Dios y una referencia anual; el segundo aborda los fundamentos y la práctica del Dharma. Son aproximaciones religiosas diferentes, tanto por su tradición como por su enfoque.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7cedc338c32ee6da",
+  "origen": "chatgpt-web"
+}

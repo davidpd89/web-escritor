@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Treinta y cuatro se dirige a lectores adultos interesados en memorias personales sobre la relación con el cuerpo, la identidad y los vínculos familiares. El relato aborda el miedo, la culpa y la recuperación desde varias perspectivas, por lo que puede resultar emocionalmente exigente para quienes prefieren testimonios alejados del sufrimiento psicológico.",
+      "texto": "Treinta y cuatro está dirigido a lectores adultos interesados en las memorias personales, la identidad y las relaciones familiares. Trata el conflicto con el propio cuerpo, la vergüenza y el proceso de recuperación, por lo que se aleja de las biografías centradas en una trayectoria profesional o pública.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,36 +14,22 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Treinta y cuatro examina la construcción de la identidad a través de la percepción corporal, la autoexigencia y las relaciones afectivas. Carolina Lapausa incorpora las miradas de una madre, un padre, una amiga y una terapeuta para mostrar distintas formas de acompañamiento y conflicto. La narración relaciona el deterioro personal con un proceso de reconstrucción que afecta también al entorno cercano.",
+      "texto": "Treinta y cuatro aborda la relación con el cuerpo, la autoexigencia y las consecuencias emocionales de intentar responder a expectativas ajenas. Carolina Lapausa construye el relato mediante distintas perspectivas familiares y personales, entre ellas las de una madre, un padre, una amiga y una terapeuta, para explorar cómo se forma y transforma la identidad.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Treinta y cuatro puede leerse en tapa blanda o Kindle y tiene 176 páginas. La edición de Aguilar incluye solapas y permite conservar el testimonio en papel; Kindle facilita llevar el texto en el móvil o un lector electrónico y retomarlo en distintos momentos.",
+      "texto": "Treinta y cuatro puede leerse en tapa blanda o Kindle. La edición física de Aguilar tiene 176 páginas y solapas, una opción para conservar o prestar el libro; Kindle permite llevar el mismo título en un dispositivo compatible y continuar la lectura sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "edicion"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Treinta y cuatro y Ansiedad. ¿Cómo se sale de aquí? comparten el interés por el malestar psicológico, pero Carolina Lapausa construye un relato personal con distintas voces, mientras que Gemma Correll presenta la ansiedad mediante la imagen de un parque de atracciones. Frente a Canción de amor definitiva, de Jorge Martí Aguas, que introduce cambios de ánimo, país y profesión, Treinta y cuatro se concentra en el cuerpo, la identidad y los vínculos familiares.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788402431967",
-        "isbn-9788401042119"
+        "edicion",
+        "editorial",
+        "numero_paginas"
       ]
     }
   ],

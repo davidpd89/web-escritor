@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788491058762",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Odisea: Ediciones icónicas (Penguin Clásicos | Vintage), de Homero, se dirige a quienes buscan clásicos literarios relacionados con la historia. Su edición de 432 páginas responde menos a quienes prefieren una lectura breve de narrativa contemporánea reciente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 432 páginas de Odisea: Ediciones icónicas (Penguin Clásicos | Vintage) en un libro de bolsillo publicado por Penguin Clásicos. Kindle permite leer la obra en formato digital y ajustar la presentación del texto en dispositivos compatibles; la edición física conserva el formato de la colección.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ilíada: Ediciones icónicas (Penguin Clásicos | Vintage) comparte con Odisea: Ediciones icónicas (Penguin Clásicos | Vintage) autor y colección, pero corresponde a otra obra de Homero. Lata vintage Odisea (contiene: Odisea | Iliada): Ediciones icónicas (Penguin Clásicos | Vintage) reúne ambos títulos en un mismo conjunto, frente a la edición individual de Odisea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491058779",
+        "isbn-9788491058786"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7e4f7023fa8e35c1",
+  "origen": "chatgpt-web"
+}

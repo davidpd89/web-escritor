@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788467084733",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La vida pasa por tu hígado: Cómo protegerlo del alcohol, la obesidad y otros enemigos silenciosos (Espasa Bienestar y Salud) se dirige a lectores interesados en la salud hepática, la nutrición y el bienestar. Su enfoque práctico sobre el cuidado del hígado se aleja de los libros centrados en la ficción o el entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Editorial Espasa se presenta en tapa blanda, con encuadernación flexible para consultar sus contenidos en distintos lugares. Este formato permite colocar marcadores entre sus 240 páginas y volver a los apartados sobre salud y bienestar durante futuras consultas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La vida pasa por tu hígado: Cómo protegerlo del alcohol, la obesidad y otros enemigos silenciosos (Espasa Bienestar y Salud) comparte su interés por la salud con 100 formas de cambiar tu vida, de Liz Moody. Mientras la obra de Ramón Dr. Ramón Bataller se centra en la protección del hígado frente al alcohol y la obesidad, la de Liz Moody aborda también la felicidad, las relaciones y el éxito personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6364547e4cb8d2a5",
+  "origen": "chatgpt-web"
+}

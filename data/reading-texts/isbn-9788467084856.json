@@ -4,49 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La semana de colores y Andamos huyendo Lola se orienta a lectores de relatos interesados en la literatura hispanoamericana y en las narraciones que alteran la percepción del tiempo. La escritura de Elena Garro trabaja con la imaginación y las estructuras temporales no lineales, por lo que se aleja de quienes buscan exclusivamente una novela de desarrollo cronológico continuo.",
+      "texto": "Encaja con quienes leen relatos y buscan una narrativa donde el tiempo no sigue necesariamente un orden lineal. La escritura de Elena Garro recurre a la imaginación y a estructuras temporales poco convencionales, por lo que se aleja de las historias de desarrollo estrictamente cronológico.",
       "evidencias": [
-        "titulo",
-        "autores",
         "categorias",
+        "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La semana de colores y Andamos huyendo Lola reúne dos obras de Elena Garro dentro del ámbito del relato literario. Su propuesta narrativa se caracteriza por una concepción no lineal del tiempo y por el uso de la imaginación para construir las historias. La edición permite acercarse a ambas obras en un mismo volumen.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La semana de colores y Andamos huyendo Lola se publica en tapa dura de tipo cartoné, sin sobrecubierta, bajo el sello Editorial Espasa. Sus 480 páginas reúnen las dos obras en un único volumen físico. La encuadernación rígida resulta práctica para conservar la colección y volver a relatos concretos.",
-      "evidencias": [
-        "titulo",
-        "editorial",
-        "edicion",
-        "numero_paginas",
-        "formatos_disponibles",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "La semana de colores y Andamos huyendo Lola puede compararse con Sherlock por su vinculación al relato breve, aunque Elena Garro reúne dos obras propias y Sherlock presenta textos de distintos autores, entre ellos G. T. Karber, Joe Hill y Kate Mosse. A sangre y fuego, de Manuel Chaves Nogales, ofrece otro contraste: su planteamiento testimonial se distancia de la imaginación y el tiempo no lineal de Elena Garro.",
+      "texto": "La semana de colores y Andamos huyendo Lola reúne dos obras de Elena Garro dentro del relato literario. Su propuesta combina imaginación y una concepción no lineal del tiempo, con una forma de narrar que altera la sucesión cronológica habitual. El volumen tiene 480 páginas.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
         "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788408331810",
-        "isbn-9791388279379"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La semana de colores y Andamos huyendo Lola se presenta en tapa dura de tipo cartoné, sin sobrecubierta. Sus 480 páginas quedan reunidas en un volumen encuadernado para conservarlo en la biblioteca o regalarlo. La edición en castellano corre a cargo de Editorial Espasa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "editorial"
       ]
     }
   ],

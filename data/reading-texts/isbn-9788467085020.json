@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788467085020",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Felipe II: Cuando España soñaba en grande (Espasa Historia de España) se dirige a lectores interesados en la historia española y las biografías de figuras históricas. Sus 516 páginas encajan con una lectura extensa, menos adecuada para quien busca ficción breve o aventuras contemporáneas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Felipe II: Cuando España soñaba en grande (Espasa Historia de España) se ofrece en tapa blanda, con 516 páginas en castellano. Es una edición física de Editorial Espasa que permite avanzar por una lectura extensa y volver a pasajes anteriores sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Felipe II: Cuando España soñaba en grande (Espasa Historia de España) puede compararse con Corona Nostra: De Felipe VI a Felipe V por su atención a la historia de la monarquía española. Marcelo Gullo Omodeo centra su libro en Felipe II, mientras el título de Nieves Concostrina abarca otras figuras de la monarquía. Ambos se relacionan por el interés histórico, aunque difieren en el periodo y el enfoque anunciado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944176"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a0414161672aa599",
+  "origen": "chatgpt-web"
+}

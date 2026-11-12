@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788410192355",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en la historia romana y en las antiguas vías de comunicación del Pirineo occidental. Su atención a una calzada concreta encaja menos con quienes buscan una panorámica general de la historia romana, sin centrarse en infraestructuras y territorios específicos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje del libro es la calzada romana del Pirineo occidental, tratada como materia de estudio histórico. El título la identifica con Pirenaeus y sitúa la obra en la colección Nafarroa Arkeologia Auzolana, con una orientación temática vinculada al territorio y su pasado.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de Sociedad de Ciencias Aranzadi consta de 236 páginas en castellano. La encuadernación rígida resulta práctica para conservar el volumen y consultarlo repetidamente, especialmente cuando se utiliza como referencia histórica.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA) comparte con Pirenaeus el estudio de acontecimientos y procesos del pasado, aunque se centra en una crisis política y no en una infraestructura romana. La diferencia principal está en la escala y el objeto: historia política frente a historia territorial de una calzada.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e88baafc219fe5d0",
+  "origen": "chatgpt-web"
+}

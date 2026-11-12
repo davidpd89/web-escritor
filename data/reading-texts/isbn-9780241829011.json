@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9780241829011",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a quienes buscan estudiar los mitos grecorromanos desde su representación artística, con interés por la historia y las creencias religiosas. Su enfoque de enciclopedia visual se distancia de una novela protagonizada por personajes mitológicos o de una narración de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mitologías: Los mitos grecorromanos a través del arte (Enciclopedia visual) se publica en tapa dura y tiene 360 páginas en castellano. La encuadernación permite conservarlo como volumen de consulta sobre mitología y arte, además de ofrecer una presentación física para regalar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tejedoras de destinos: Una mirada al poder femenino que gobernó la historia de dioses y hombres (No ficción) comparte el interés por las divinidades, pero dirige la atención hacia el poder femenino. Dominio (edición especial limitada en tapa dura con los cantos pintados): Cómo el cristianismo dio forma a Occidente (ATICO HISTORIA) aborda la influencia histórica del cristianismo, mientras que Camille Jouneaux se centra en los mitos grecorromanos a través del arte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387592981",
+        "isbn-9791387905545"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "824a72c23d6580bd",
+  "origen": "chatgpt-web"
+}

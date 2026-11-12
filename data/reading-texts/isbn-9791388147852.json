@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388147852",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todos los hombres del rey (Best Seller | Ficción), de Laura Gallego, pertenece a la fantasía y se dirige a lectores interesados en ese género narrativo. Quien busque un libro práctico de psicología o desarrollo personal encontrará aquí una obra de ficción de 544 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Todos los hombres del rey (Best Seller | Ficción) tiene una edición de bolsillo en tapa blanda de 544 páginas publicada por Penguin Bolsillo. Kindle permite leerlo en formato digital sin transportar el volumen impreso, mientras que el audiolibro ofrece una alternativa de escucha para una obra de esta extensión.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Todos los hombres del rey (Best Seller | Ficción) puede compararse con Estuche Guardianes de la Ciudadela (contiene: El bestiario de Axlin | El secreto de Xein | La misión de Rox) (Best Seller | Ficción), también de Laura Gallego. La diferencia editorial es que el primero se presenta como un libro de 544 páginas y el segundo como un estuche que reúne tres títulos identificados por sus nombres.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387871758"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0feb44b59573c36d",
+  "origen": "chatgpt-web"
+}

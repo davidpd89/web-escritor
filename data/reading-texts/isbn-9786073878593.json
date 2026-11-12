@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073878593",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lo sagrado y lo sobrenatural / The Sacred and the Supernatural se dirige a lectores interesados en la historia de las creencias, la religión y la espiritualidad desde una perspectiva ensayística. Sus 304 páginas responden a una lectura de no ficción, distinta de una novela de temática sobrenatural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 304 páginas de Lo sagrado y lo sobrenatural / The Sacred and the Supernatural en un volumen físico que permite consultar y señalar pasajes. Kindle facilita llevar el ensayo en un dispositivo de lectura o móvil, mientras que el audiolibro permite escucharlo sin tener el texto delante.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La magia y superstición en el judaísmo medieval: Ángeles, demonios y amuletos en la tradición judía medieval (CÁBALA Y JUDAÍSMO) comparte con Lo sagrado y lo sobrenatural / The Sacred and the Supernatural el interés por las creencias religiosas, pero delimita su estudio al judaísmo medieval. Santas vivas: Del éxtasis al olvido (Historia) ofrece otra aproximación histórica, centrada en la santidad y el éxtasis.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411723916",
+        "isbn-9788430629725"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "20bf3c6436090aa7",
+  "origen": "chatgpt-web"
+}

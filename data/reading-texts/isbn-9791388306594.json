@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388306594",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Manifiesto comunista. Ed. Especial (Ilustrados) encaja con lectores interesados en el pensamiento político y la filosofía, incluidos quienes se acercan a estos asuntos desde las publicaciones ilustradas. Karl Marx y Friedrich Engels firman esta obra de 136 páginas, menos orientada a quienes buscan una historia de ficción juvenil convencional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Manifiesto comunista. Ed. Especial (Ilustrados) tiene una edición en tapa blanda de 136 páginas, publicada por Nórdica Libros. El soporte físico permite conservar y consultar el texto de Karl Marx y Friedrich Engels; la denominación de la edición la identifica como especial e ilustrada, con publicación prevista para el 16 de noviembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "autores",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Manifiesto comunista. Ed. Especial (Ilustrados) puede compararse con El papel de la violencia en la historia: Texto esencial de Engels sobre violencia, Bismarck y lucha de clases en la Alemania del siglo XIX (No ficción). Ambas obras incluyen la autoría de Friedrich Engels y cuestiones políticas; la primera está firmada también por Karl Marx, mientras que la segunda se concentra en la violencia y la lucha de clases en un contexto histórico concreto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388115479"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "14f681f7cc494400",
+  "origen": "chatgpt-web"
+}

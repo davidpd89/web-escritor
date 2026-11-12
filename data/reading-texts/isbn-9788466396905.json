@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466396905",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El jardín de las brujas (Best Seller | Ficción), de Clara Tahoces, se orienta a lectores de narrativa contemporánea con interés por la historia y el siglo XX. Por su clasificación temática, encaja menos con quienes buscan principalmente romance o fantasía juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de bolsillo en tapa blanda de Penguin Bolsillo reúne las 384 páginas de El jardín de las brujas (Best Seller | Ficción) en un volumen transportable. La tapa dura ofrece una encuadernación más rígida para conservarlo o regalarlo; Kindle facilita la lectura digital y el audiolibro permite escucharlo durante otras actividades.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche Lo esencial de grafología y Sueños (PRÁCTICA) comparte con El jardín de las brujas (Best Seller | Ficción) la autoría de Clara Tahoces, pero presenta materias prácticas en lugar de narrativa histórica. Anna Karénina (edición especial en tapa dura) (Ediciones Conmemorativas), de Lev Tolstoi, ofrece otra lectura narrativa, diferenciada por su condición de clásico y su edición especial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388414114",
+        "isbn-9788491058397"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cfe3c11c5879043b",
+  "origen": "chatgpt-web"
+}

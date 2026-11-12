@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788437650586",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "De la estética como política: Para una rehabilitación del sentido en el cine (Signo e imagen) se orienta a quienes estudian las relaciones entre cine, estética, filosofía y política. Es un ensayo de Noël Burch, por lo que no responde a la búsqueda de una novela de ficción ni de una lectura centrada en una trama narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de De la estética como política: Para una rehabilitación del sentido en el cine (Signo e imagen) reúne 312 páginas en un volumen físico que puede consultarse y anotarse durante el estudio. La opción Kindle permite llevar el ensayo de Noël Burch en un lector electrónico o una aplicación compatible, sin cargar con el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) coincide con De la estética como política: Para una rehabilitación del sentido en el cine (Signo e imagen) en el interés por la política, aunque Miguel Anxo Bastos Boubeta aborda el pensamiento económico y Noël Burch se centra en el cine. Ecología o economía: Hay que elegir: 136 (Ensayo), de Anselm Jappe, desplaza el foco hacia la relación entre ecología y economía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457",
+        "isbn-9788410476585"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b14707539cc225a3",
+  "origen": "chatgpt-web"
+}

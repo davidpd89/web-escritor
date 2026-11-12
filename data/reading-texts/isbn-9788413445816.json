@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788413445816",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Relevante: Haz que te elijan (Alienta) se dirige a lectores interesados en el desarrollo personal y en cuestiones relacionadas con la economía y la empresa. Quien busque principalmente narrativa de ficción, romance o entretenimiento literario encontrará una propuesta de carácter práctico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 176 páginas de Relevante: Haz que te elijan (Alienta) en una edición física de Alienta Editorial. Es el formato disponible en esta ficha y permite consultar el contenido en papel, conservarlo o llevarlo para leerlo fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Domina el arte de los negocios, de Brian Tracy, comparte con Relevante: Haz que te elijan (Alienta) el interés por el ámbito empresarial. La diferencia está en el enfoque: Domina el arte de los negocios se presenta como una guía sobre habilidades empresariales y liderazgo, mientras Ana Jiménez firma una obra vinculada también al desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466390514"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d0b2a4d3c40ce208",
+  "origen": "chatgpt-web"
+}

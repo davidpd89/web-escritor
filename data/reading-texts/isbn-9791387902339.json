@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387902339",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ice Age. El cómic está dirigido a lectores que buscan aventuras en formato de cómic, con la naturaleza como parte de su temática. Sus 32 páginas lo sitúan en una extensión breve, lejos de las novelas gráficas largas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne sus 32 páginas en una edición física de Libros Disney, con cubierta rígida para conservarla y compartirla. Es la opción disponible para quien prefiere pasar las páginas en papel frente a leer en pantalla.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ice Age. El cómic comparte con Princesas. Unicorn Wish 1, de Disney, el enfoque de aventuras y la autoría de Disney. La diferencia está en sus temas: el primero se centra en la naturaleza y el formato de cómic, mientras que el segundo incorpora magia y amistad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387901967"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "91d7e38fd4c346a8",
+  "origen": "chatgpt-web"
+}

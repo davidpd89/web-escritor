@@ -4,35 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tu microbiota adolescente en acción está orientado a adolescentes interesados en comprender las relaciones entre alimentación, intestino, sueño y emociones. Su enfoque divulgativo sobre salud juvenil se distingue de una novela de ficción y de un manual centrado exclusivamente en la alimentación de adultos.",
+      "texto": "Tu microbiota adolescente en acción está pensado para adolescentes interesados en comprender la relación entre el intestino, la alimentación y su bienestar emocional. La Dra. Silvia Gómez Senent aborda también cuestiones relacionadas con el estrés y el sueño, por lo que se aleja de los libros de nutrición centrados exclusivamente en recetas o planes alimentarios.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Tu microbiota adolescente en acción se ofrece en tapa blanda y Kindle. La edición en rústica con solapas de Editorial Espasa contiene 192 páginas y permite consultar el contenido en papel; Kindle ofrece una alternativa digital para leerlo desde el móvil o un lector electrónico.",
+      "texto": "Tu microbiota adolescente en acción se ofrece en tapa blanda y Kindle. La edición impresa tiene 192 páginas y solapas, un formato manejable para consultar en casa o llevar en la mochila; Kindle permite leer sus contenidos sobre microbiota y bienestar desde el móvil o un lector electrónico.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "editorial",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Tu microbiota adolescente en acción y La fibra es la solución relacionan alimentación y bienestar físico, aunque el primero aborda también las emociones y el sueño durante la adolescencia y el segundo se centra en el consumo de fibra. Ansiedad. ¿Cómo se sale de aquí? comparte el interés por el malestar emocional, pero sitúa la ansiedad en el centro de su propuesta.",
+      "texto": "Tu microbiota adolescente en acción comparte con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito el interés por la salud y el bienestar. La Dra. Silvia Gómez Senent se centra en la microbiota durante la adolescencia, mientras que Liz Moody plantea un enfoque más amplio sobre distintos aspectos de la vida cotidiana.",
       "evidencias": [
         "titulo",
+        "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788402431967",
-        "isbn-9788425374869"
+        "isbn-9798890981776"
       ]
     }
   ],

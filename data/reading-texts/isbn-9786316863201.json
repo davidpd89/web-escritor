@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9786316863201",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Por un beso (Bridgerton 7) Edición Especial (Titania época) se dirige a lectores de novela histórica interesados en los títulos de Julia Quinn y en la colección Titania época. Su clasificación histórica lo distancia de quienes buscan específicamente misterio contemporáneo o ensayo documental.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición especial de Titania se publica en tapa dura, en castellano y con 352 páginas. El título identifica el libro como Bridgerton 7 y lo vincula a la colección Titania época, rasgos que permiten distinguir esta presentación de otras ediciones.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para Por un beso (Bridgerton 7) Edición Especial (Titania época), con 352 páginas en castellano. Su encuadernación rígida favorece conservar el volumen en una colección física y entregarlo como regalo, frente a la lectura en pantalla o mediante escucha.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Por un beso (Bridgerton 7) Edición Especial (Titania época) puede compararse con Corazón de una bridgerton (Titania época) y Primero llegó el escándalo (Titania época). Los tres títulos pertenecen a Julia Quinn y comparten la identificación Titania época, por lo que permiten seguir distintas obras de la misma autora. Por un beso se distingue por presentarse expresamente como edición especial y llevar la referencia Bridgerton 7.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410391772",
+        "isbn-9788410391758"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "86f60bd86ce5af35",
+  "origen": "chatgpt-web"
+}

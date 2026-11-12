@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387962562",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pink & Habanero 3 (Shôjo) se dirige a quienes leen manga romántico con elementos de humor y relaciones de pareja. La obra de Mika Satonaka pertenece al cómic y la narrativa contemporánea, por lo que se aleja de los ensayos y de las novelas históricas. El título lo identifica como el n.º 3.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pink & Habanero 3 (Shôjo) está editado en tapa blanda, con 172 páginas en castellano. Este formato permite guardar el volumen junto a otros tomos de manga y transportarlo como libro físico. La edición corresponde a Distrito Manga.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pink & Habanero 3 (Shôjo) comparte el romance y la identificación shôjo con Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita. Son obras de autoría diferente: Mika Satonaka firma la primera y Keiko Iwashita la segunda. Sus títulos identifican entregas distintas dentro de sus respectivas obras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962494"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "793c0b94a9365869",
+  "origen": "chatgpt-web"
+}

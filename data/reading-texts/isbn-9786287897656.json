@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786287897656",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Melodrama (Spanish Edition), de Jorge Franco, se dirige a lectores de narrativa contemporánea en castellano. Su clasificación literaria lo diferencia de los libros de divulgación y de los manuales prácticos, por lo que no responde a una búsqueda de instrucciones o conocimientos técnicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Melodrama (Spanish Edition) puede leerse en tapa blanda, Kindle o audiolibro. La edición física de Debolsillo permite conservar y prestar el ejemplar; Kindle facilita la lectura en el móvil y el audiolibro permite seguir la obra mediante escucha, sin necesidad de mirar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Maldito Amor / Damned Love y Melodrama (Spanish Edition) comparten autor: Jorge Franco. Melodrama (Spanish Edition) pertenece a la narrativa contemporánea y se ofrece en tapa blanda, Kindle y audiolibro. Maldito Amor / Damned Love constituye otra referencia del mismo escritor, aunque ambos títulos identifican obras distintas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897670"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "53641248df4baeae",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388277986",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Murdle JUNIOR - Pack con 2 libros: Casos curiosos para mentes curiosas y Preparados, listos... ¡A investigar!: 80 misterios para niñas y niños a partir de 9 años está orientado a lectores infantiles desde los 9 años interesados en investigar misterios. Sus 80 casos plantean una actividad distinta de la lectura de una novela convencional y no están dirigidos específicamente a quienes buscan una historia continua.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El pack de Murdle JUNIOR ofrece tapa blanda y Kindle para sus 80 misterios, con 480 páginas en la edición física. La tapa blanda permite trabajar con los dos libros impresos, mientras que Kindle facilita llevar la lectura en un dispositivo digital sin transportar ambos volúmenes.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El pack Murdle JUNIOR reúne 80 misterios en dos libros, mientras que Murdle JUNIOR 3 - Caso casi imposible: 40 misterios para niños y niñas a partir de 9 años (No ficción ilustrados) contiene 40 misterios. Ambos son de G.T. Karber y están dirigidos a lectores desde los 9 años. La diferencia está en la cantidad de casos y en que el primero agrupa dos libros frente a un título individual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387741594"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "612e6f91f2293fd1",
+  "origen": "chatgpt-web"
+}

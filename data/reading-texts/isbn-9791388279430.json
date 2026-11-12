@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388279430",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores interesados en la historia social del cotilleo y en los ensayos sobre comportamientos humanos. Historia del salseo: Un viaje cotilla por el fenómeno universal del chisme (Voces de hoy) aborda el chisme como fenómeno universal, no como argumento de una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 216 páginas de Historia del salseo: Un viaje cotilla por el fenómeno universal del chisme (Voces de hoy) en papel. La edición Kindle permite llevar el mismo título en un lector electrónico o en el móvil, sin transportar el volumen físico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La vida entremedias: Un diario balcánico (Báltica No Ficción) y la obra de Javi Hoyos comparten su pertenencia a la no ficción. Marc Casals presenta un diario vinculado a una región geográfica, mientras que Historia del salseo: Un viaje cotilla por el fenómeno universal del chisme (Voces de hoy) examina el cotilleo como fenómeno social desde el ensayo y la historia.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791399128451"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "93086448981e6631",
+  "origen": "chatgpt-web"
+}

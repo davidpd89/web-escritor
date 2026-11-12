@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788408328346",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para lectores de novela histórica y aventuras que buscan una obra extensa de Paloma Sánchez-Garnica. Sus 640 páginas se ajustan a una lectura prolongada, mientras que quienes prefieren novelas cortas o historias alejadas del contexto histórico encontrarán un planteamiento distinto al que buscan.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Booket se distingue por sus cantos decorados y su presentación de bolsillo, ambas características recogidas en el título. La ficha editorial la identifica como tapa dura, con 640 páginas en castellano y fecha de publicación del 18 de noviembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "formato_edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es la tapa dura de Booket, con 640 páginas y cantos decorados. Su acabado físico puede interesar para conservarla en una colección o regalarla, aunque la extensión supone un volumen considerable para transportarlo durante la lectura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "titulo",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche Trilogía Berlín: Incluye Últimos días en Berlín + Victoria + La sospecha de Sofía (Novela) reúne esta obra con otros títulos de Paloma Sánchez-Garnica, mientras que la edición individual contiene únicamente Últimos días en Berlín. Bajo las cenizas de Pompeya (ESPASA NARRATIVA) comparte el marco de la novela histórica, pero remite a un escenario distinto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408327509",
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1c16ebaa53c57a62",
+  "origen": "chatgpt-web"
+}

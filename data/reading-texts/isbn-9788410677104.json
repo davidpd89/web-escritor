@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410677104",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en las matemáticas, especialmente en el origen y la evolución de su lenguaje. Su orientación divulgativa lo sitúa entre los libros de conocimiento científico, no entre los manuales de ficción ni las obras dedicadas a otras disciplinas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 128 páginas en un volumen físico de extensión breve. Es el formato disponible de esta edición de Los Libros de la Catarata, una alternativa para quien prefiere leer en papel y conservar el contenido como material de consulta.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lenguaje matemático: origen y evolución: 38 (Miradas Matemáticas) comparte con 50 cosas que hay que saber sobre IA, de Keith Mansfield, su orientación hacia la divulgación de conocimientos científicos. La diferencia está en la materia: José N. Alonso Álvarez y Miguel A. Mirás Calvo se centran en el lenguaje matemático, mientras que el título de Keith Mansfield aborda la inteligencia artificial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bfa69a63dcf78a8c",
+  "origen": "chatgpt-web"
+}

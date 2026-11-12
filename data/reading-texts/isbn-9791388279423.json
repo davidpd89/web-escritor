@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388279423",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores que disfrutan resolviendo misterios y buscan entretenimiento con componentes de humor y participación. Por su propuesta de resolver un caso, resulta menos afín a quienes prefieren una novela policial convencional sin actividades para el lector.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Sopicidios está disponible en tapa blanda, con 208 páginas publicadas por Temas de Hoy. El formato impreso permite consultar los casos y regresar a sus detalles mientras se intenta resolver el último, que el título relaciona con un sorteo cuyo destino es Roma.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Dónde está el asesino?: Rastrea pistas, descarta ciudades y caza al culpable comparte con Sopicidios la participación del lector en la resolución de misterios. El primero plantea una investigación basada en pistas y ciudades, mientras que Sopicidios incorpora humor y presenta la resolución del último caso como parte de una propuesta vinculada a un sorteo con destino a Roma.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425376924"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "908f4beac275f3c3",
+  "origen": "chatgpt-web"
+}

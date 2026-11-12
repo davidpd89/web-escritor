@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788418255861",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores que buscan fundamentos teóricos y normativos sobre la calidad en la edificación. Marco teórico y principios normativos de la Calidad en la Edificación, de Alejandra Vidales Barriguete, se sitúa en un contexto técnico y formativo, distinto del de las lecturas sobre arquitectura centradas únicamente en su vertiente estética.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El contenido se centra en los fundamentos conceptuales y los principios normativos relacionados con la calidad de la edificación. Alejandra Vidales Barriguete plantea este asunto desde un marco teórico que conecta el ámbito constructivo con cuestiones técnicas y de gestión, en una publicación de 77 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición física tiene 77 páginas en castellano y se presenta con encuadernación en espiral, aunque el formato figura como tapa blanda. Esta presentación permite mantener las páginas abiertas durante la consulta de los principios normativos y facilita su utilización como material de estudio o referencia técnica.",
+      "evidencias": [
+        "edicion",
+        "formato_edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gestión de proyectos de inteligencia artificial y Marco teórico y principios normativos de la Calidad en la Edificación comparten el interés por cuestiones técnicas y de gestión. La obra de Adrián González Sánchez y Malini Jain Runtasewee se ocupa de proyectos de inteligencia artificial, mientras que Alejandra Vidales Barriguete aborda los fundamentos normativos de la calidad constructiva.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788426742827"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2c3b0a356eb44c65",
+  "origen": "chatgpt-web"
+}

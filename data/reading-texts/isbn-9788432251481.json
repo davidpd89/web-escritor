@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Manolito Gafotas (edición especial) está dirigido a lectores de 9 a 12 años que disfrutan del humor infantil y las historias sobre la familia, el barrio y las amistades. Su enfoque cotidiano y la voz de un niño que cuenta lo que sucede a su alrededor encajan menos con quienes buscan aventuras fantásticas o tramas de acción.",
+      "texto": "Manolito Gafotas (edición especial) está dirigido a lectores de 9 a 12 años que disfrutan del humor infantil, los personajes familiares y las historias de barrio. Su enfoque en las observaciones cotidianas de un niño encaja menos con quienes buscan aventuras fantásticas o relatos protagonizados por criaturas sobrenaturales.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,32 +14,33 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Manolito Gafotas (edición especial) recupera el primer libro del personaje creado por Elvira Lindo en una edición de tapa dura con sobrecubierta. Seix Barral publica este volumen de 192 páginas en castellano, identificado mediante el ISBN 9788432251481, frente a las alternativas de lectura en otros formatos.",
+      "texto": "Manolito Gafotas (edición especial) presenta el primer libro del personaje de Elvira Lindo en una edición especial de Seix Barral. Se distingue por su encuadernación en tapa dura con sobrecubierta, sus 192 páginas y su publicación el 28 de octubre de 2026, características concretas para identificar este ejemplar.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "edicion",
         "editorial",
+        "edicion",
         "numero_paginas",
-        "idioma",
-        "isbn13",
-        "formatos_disponibles"
+        "fecha_publicacion",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "La franja recomendada de Manolito Gafotas (edición especial) es de 9 a 12 años. Esta edición tiene 192 páginas y se presenta en tapa dura con sobrecubierta, una combinación que permite leer la historia en papel y conservar el volumen protegido por una cubierta exterior.",
+      "texto": "Manolito Gafotas (edición especial) está recomendado para niños de 9 a 12 años y pertenece a la narrativa infantil de humor. La edición de Seix Barral contiene 192 páginas en castellano y utiliza tapa dura con sobrecubierta, una presentación física que también permite conservar el ejemplar después de leerlo.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
+        "categorias",
+        "editorial",
         "numero_paginas",
+        "idioma",
         "edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura con sobrecubierta de Manolito Gafotas (edición especial) ofrece una presentación física para conservar o regalar sus 192 páginas; la tapa blanda es otra opción para leerlo en papel. Kindle facilita llevarlo en el móvil o lector electrónico, mientras que el audiolibro permite seguir las peripecias del personaje mediante escucha.",
+      "texto": "La tapa dura con sobrecubierta ofrece las 192 páginas de Manolito Gafotas (edición especial) en un volumen físico resistente al uso y adecuado para conservar o regalar. El audiolibro permite escuchar las peripecias del personaje sin depender de la lectura impresa, por ejemplo durante desplazamientos.",
       "evidencias": [
         "titulo",
         "edicion",
@@ -50,21 +51,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Enzo Brown: loco por el basket 5 - La cancha es de todos comparte con Manolito Gafotas (edición especial) el protagonismo infantil y las experiencias de personajes jóvenes, aunque sitúa sus acontecimientos alrededor del baloncesto. Superdónuts 3 - El destino de los dónuts se distancia más del entorno familiar y vecinal de Manolito al introducir viajes al futuro y situaciones amenazantes.",
+      "texto": "Manolito Gafotas (edición especial) y Cacahuete, el elfo pedorrete (Libros ilustrados) comparten el humor dirigido al público infantil. La obra de Elvira Lindo se apoya en la mirada de un niño sobre su familia y su barrio, mientras que el título de Rafael Ordóñez presenta un personaje fantástico y se identifica como libro ilustrado.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387994563",
-        "isbn-9788448873479"
+        "isbn-9788410318526"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a4795dd64cf6c5c8",
+  "fuente_hash": "9fa9a7d2ec92c31e",
   "origen": "chatgpt-web"
 }

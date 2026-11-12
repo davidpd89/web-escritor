@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La infiel se dirige a lectores adultos interesados en las relaciones de pareja atravesadas por secretos, amenazas y conflictos culturales. Su combinación de romance y suspense se aleja de las historias sentimentales centradas únicamente en la convivencia cotidiana.",
+      "texto": "La infiel, de Reyes Monforte, se dirige al público adulto interesado en historias que combinan relaciones sentimentales, secretos y situaciones de peligro. Encaja menos con lectores que buscan una historia romántica sin amenazas, traiciones ni conflictos familiares.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,35 +15,35 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La infiel combina novela histórica, intriga y conflicto sentimental en una historia situada inicialmente en Madrid. La relación entre Sara y Najib introduce diferencias culturales que terminan vinculadas a situaciones de peligro, traición y venganza.",
+      "texto": "La infiel combina una relación amorosa con elementos de misterio, amenazas y venganza. Reyes Monforte sitúa el conflicto en torno a una profesora de idiomas de Madrid cuya relación con un hombre de otra tradición cultural altera su estabilidad familiar; el relato incorpora además el peso de las pérdidas anteriores.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de La infiel reúne sus 528 páginas en una edición de bolsillo de Penguin Bolsillo, pensada para manejar un volumen extenso en papel. Kindle permite llevar esa misma lectura en un dispositivo electrónico y ajustar la presentación del texto.",
+      "texto": "La edición de tapa blanda de La infiel ofrece sus 528 páginas en formato de bolsillo, pensado para transportar una novela extensa. Kindle permite continuar esa misma lectura en un dispositivo electrónico y ajustar la presentación del texto según las preferencias de lectura.",
       "evidencias": [
         "titulo",
         "numero_paginas",
         "edicion",
-        "editorial",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La infiel comparte con La historia de Romana y Uliana (Amadoca 1) el interés por personajes enfrentados a circunstancias difíciles, aunque la primera desarrolla una relación marcada por secretos y amenazas y la segunda parte de un soldado amnésico en un hospital de Kiev. Frente a Persiguiendo las estrellas (Las mujeres Hard 1), ambientada en la Escocia del siglo XIX, sitúa su conflicto sentimental en un entorno contemporáneo.",
+      "texto": "La infiel puede compararse con Un burka por amor (edición limitada): La emotiva historia de una española atrapada en Afganistán (Campaña | Ahora por menos), también de Reyes Monforte, por el cruce entre relaciones personales y diferencias culturales. La primera desarrolla una relación marcada por secretos y amenazas, mientras que la segunda presenta la experiencia de una española atrapada en Afganistán.",
       "evidencias": [
         "titulo",
+        "autores",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387640491",
-        "isbn-9791387652609"
+        "isbn-9788466394161"
       ]
     }
   ],

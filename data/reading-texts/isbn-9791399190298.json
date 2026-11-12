@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399190298",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "EL NIÑO PERDIDO DE LYCHFORD: Las brujas de Lychford 2 (FANTASIA BREVE) se dirige a lectores de fantasía y aventuras interesados en historias de extensión contenida. Sus 190 páginas permiten abordar una obra más corta que una novela de gran volumen. El título la identifica como la entrega 2, por lo que no es la primera de la serie indicada.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "EL NIÑO PERDIDO DE LYCHFORD: Las brujas de Lychford 2 (FANTASIA BREVE) está disponible en tapa blanda y tiene 190 páginas. Su extensión y encuadernación flexible facilitan llevar el ejemplar en una bolsa y leerlo fuera de casa. Duermevela Ediciones lo publica en castellano como volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "EL NIÑO PERDIDO DE LYCHFORD: Las brujas de Lychford 2 (FANTASIA BREVE) comparte elementos de fantasía con Pipoka y la Fábrica del Desastre y Onin 1 - Onin y la isla del tesoro. La obra de Jose Such incorpora criaturas legendarias y una marioneta mágica, mientras que la de Ibon Martín plantea misterios y aventuras con magia. La de Paul Cornell se distingue por su referencia a las brujas de Lychford y su identificación como segunda entrega.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994549",
+        "isbn-9791388277085"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "16c2beb6bb4ff298",
+  "origen": "chatgpt-web"
+}

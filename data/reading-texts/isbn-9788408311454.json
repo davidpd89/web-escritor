@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408311454",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El mundo desde arriba (Lonely Planet Junior), de Ben Hubbard, está dirigido a lectores infantiles interesados en la historia y en explorar el mundo desde una perspectiva diferente. Sus 144 páginas lo sitúan en la lectura informativa, lejos de quienes prefieren una historia de ficción centrada en personajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El mundo desde arriba (Lonely Planet Junior) tiene una edición en tapa blanda de 144 páginas, publicada en castellano por Geoplaneta. La cubierta flexible facilita llevarlo en una mochila y consultar sus páginas en papel, tanto en casa como durante desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El mundo desde arriba (Lonely Planet Junior) comparte su orientación histórica e infantil con Hicieron historia: 10 personajes épicos de España (Ciudadela Libros), de Álvaro Gil Ruiz. Mientras el libro de Ben Hubbard propone una mirada amplia al mundo, el de Álvaro Gil Ruiz delimita su asunto a personajes históricos de España.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388328107"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ee5a89a219e24b8f",
+  "origen": "chatgpt-web"
+}

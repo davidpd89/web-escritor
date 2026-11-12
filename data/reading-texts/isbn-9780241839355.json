@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9780241839355",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mitos y leyendas (Mundo 3D): Héroes, dioses y monstruos como nunca antes los habías visto (Enciclopedia visual juvenil) está dirigido al público juvenil interesado en mitología, historia y representaciones de dioses y criaturas legendarias. Su planteamiento enciclopédico y visual encaja menos con quien busca una novela de ficción con una trama continuada.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra aborda héroes, dioses y monstruos desde una perspectiva de mitos y leyendas, con un enfoque de enciclopedia visual juvenil. La colección Mundo 3D sitúa la presentación gráfica en el centro del libro, mientras que sus materias relacionan estos relatos con la historia y las tradiciones religiosas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 208 páginas de esta enciclopedia visual en un volumen físico pensado para consultar sus contenidos y conservarlo en una biblioteca. Kindle permite acceder al libro digitalmente y llevarlo en un dispositivo compatible, aunque la experiencia de visualización dependerá del tamaño de la pantalla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antigua Grecia (Civilizaciones antiguas) (Enciclopedia visual) comparte con Mitos y leyendas (Mundo 3D): Héroes, dioses y monstruos como nunca antes los habías visto (Enciclopedia visual juvenil) la autoría de DK y el enfoque enciclopédico visual. La primera delimita su materia a una civilización antigua, mientras que la segunda se centra en héroes, dioses y monstruos de los relatos míticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9780241837610"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7b8b755842b76356",
+  "origen": "chatgpt-web"
+}

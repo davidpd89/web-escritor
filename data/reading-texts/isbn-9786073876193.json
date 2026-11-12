@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786073876193",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esos huesos bajo la Ceiba / Those Bones Under the Ceiba está dirigido a lectores de narrativa contemporánea interesados en historias relacionadas con la familia. Sus 168 páginas ofrecen una extensión breve frente a novelas más largas; no pertenece al género fantástico ni al romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esos huesos bajo la Ceiba / Those Bones Under the Ceiba se publica en tapa blanda y tiene 168 páginas. Su extensión permite manejarlo cómodamente en papel y llevarlo durante los desplazamientos; es una edición física para quienes prefieren leer sin pantallas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esos huesos bajo la Ceiba / Those Bones Under the Ceiba comparte el ámbito de la narrativa contemporánea con Cuando el viento hable: Edición limitada a precio especial (Colección Especial), de Ángela Banzas. También puede ponerse en relación con Dime, niña bonita (Narrativa), de Laura Galve; ambos títulos amplían la comparación hacia otras propuestas de narrativa en español, aunque sus autorías y títulos son diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328414",
+        "isbn-9791387605964"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6477e9e16f435cea",
+  "origen": "chatgpt-web"
+}

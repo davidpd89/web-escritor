@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791387906177",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las termas (Colección Salamandra Juvenil) se dirige a lectores interesados en el romance, las relaciones de pareja y los vínculos familiares dentro de la narrativa juvenil. Sus 352 páginas ofrecen una extensión de novela, por lo que se aleja de las lecturas breves y de quienes buscan temas ajenos a las relaciones personales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las termas (Colección Salamandra Juvenil) está disponible en tapa blanda, con 352 páginas en castellano. Esta edición permite leer una novela de extensión media en papel y conservarla en una estantería sin el volumen rígido de una tapa dura. Es la presentación física recogida para esta obra de E. Lockhart.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "autores",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las termas (Colección Salamandra Juvenil), de E. Lockhart, puede compararse con El clan Monet 1 - Tesoro (Ficción crossover), de Weronika Anna Marczak, por su vinculación con la narrativa dirigida a lectores jóvenes. La primera se clasifica en romance y familia, mientras que la segunda se presenta como ficción crossover. Las termas (Colección Salamandra Juvenil) tiene 352 páginas y se publica en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427226074"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "25896788034c6dfa",
+  "origen": "chatgpt-web"
+}

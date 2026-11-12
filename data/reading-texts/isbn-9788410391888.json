@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788410391888",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Clásico moderno (Titania fresh) se encuadra en el romance y está dirigido a lectores que buscan novelas de este género. Su clasificación editorial permite situarlo entre las lecturas románticas, no entre los ensayos o las obras de narrativa histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 432 páginas de Clásico moderno (Titania fresh) en una edición física de Titania. Es la opción disponible para quien prefiere leer en papel y conservar el libro en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "df8adadb84a9b622",
+  "origen": "chatgpt-web"
+}

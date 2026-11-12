@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410318984",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Es un cuento dirigido a quienes buscan abordar la frustración mediante una historia, especialmente en contextos de lectura infantil acompañada. No responde al planteamiento de un tratado de psicología para adultos ni al de una guía extensa de ejercicios.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura contiene 48 páginas en castellano y permite manejar el cuento como un libro físico de lectura compartida. Su extensión facilita retomarlo en distintas sesiones y la encuadernación rígida resulta práctica para conservarlo entre lecturas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Duelo animal: Entre el dolor de la ausencia y el amor que permanece (Crecimiento personal), de David Gómez, también aborda la gestión de emociones difíciles. La diferencia está en el conflicto tratado: el libro de David Gómez se centra en el duelo por la pérdida de un animal, mientras el cuento de Aiora Larrañaga Zugarramurdi aborda la frustración y cómo gestionarla.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789507885365"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9c60c3b9836d0e55",
+  "origen": "chatgpt-web"
+}

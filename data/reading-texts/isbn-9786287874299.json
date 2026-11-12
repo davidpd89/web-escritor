@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9786287874299",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estados Unidos: 250 años de la república imperial, 1776 - 2026 / United States: 250 Years of the Imperial Republic, 17762026 se dirige a lectores interesados en la historia política y la evolución del poder estadounidense. Su marco histórico y su extensión de 320 páginas lo alejan de quienes buscan ficción o una introducción breve a la actualidad.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro examina la trayectoria de Estados Unidos desde la perspectiva de su historia política y de la noción de república imperial. El periodo indicado en el título abarca de 1776 a 2026, mientras que su clasificación incluye historia, poder y política y siglo XX.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estados Unidos: 250 años de la república imperial, 1776 - 2026 / United States: 250 Years of the Imperial Republic, 17762026 está disponible en tapa blanda y tiene 320 páginas. El formato permite leer en papel un recorrido histórico amplio y volver a sus distintos periodos sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Este estudio histórico de Carlos Alberto Patiño puede compararse con 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, por su interés en la historia y el poder político. El primero abarca la trayectoria estadounidense de 1776 a 2026, mientras que el segundo se centra, según su título, en el derrumbe de una democracia durante 53 días.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "952874b3c602c5a4",
+  "origen": "chatgpt-web"
+}

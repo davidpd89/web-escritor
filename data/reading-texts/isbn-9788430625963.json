@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788430625963",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Siete hermanas: María Antonieta y el legado de los Habsburgo (Historia), de Veronica Buckley, está dirigido a lectores de historia y biografías interesados en figuras históricas y legados familiares. Su planteamiento de no ficción encaja menos con quienes buscan una novela de aventuras o una trama de misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Taurus se presenta en tapa blanda y tiene 608 páginas en castellano. Su extensión supone un volumen considerable para transportar, pero permite mantener la obra completa en papel para una lectura prolongada y consultas posteriores.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Siete hermanas: María Antonieta y el legado de los Habsburgo (Historia) y Cesar La conquista de la eternidad, de Alberto Angela, comparten el interés por personajes del pasado. Veronica Buckley centra su obra en María Antonieta y el legado de los Habsburgo, mientras que Alberto Angela aborda la trayectoria de un general romano. Ambos se sitúan en el terreno histórico, aunque tratan protagonistas y contextos distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944329"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0c2d3c8fd1437c47",
+  "origen": "chatgpt-web"
+}

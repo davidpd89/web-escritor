@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788423371310",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan comprender la relación entre el uso de pantallas y el desarrollo cognitivo durante la infancia y la adolescencia. Cerebro y pantallas, de María Couso, aborda esta cuestión desde la divulgación y el desarrollo personal, no desde la ficción ni el entretenimiento infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 304 páginas de Cerebro y pantallas en una edición de bolsillo de Booket, adecuada para consultar y subrayar en papel. Kindle permite llevar el texto en un dispositivo de lectura o en el móvil, mientras que el audiolibro ofrece la opción de escucharlo sin utilizar el formato impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cerebro y pantallas y Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos) comparten el interés por la infancia y la adolescencia. María Couso se centra en las pantallas y el desarrollo cognitivo; Toño Ramos aborda herramientas de psicología conductual para la convivencia doméstica, también durante la vejez.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399249682"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bcd3bf04aacab462",
+  "origen": "chatgpt-web"
+}

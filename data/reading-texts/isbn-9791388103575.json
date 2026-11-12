@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388103575",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Kagurabachi nº 08: 8 (Manga Shonen) está dirigido a lectores interesados en el manga y el cómic, especialmente en publicaciones identificadas como shonen. Quienes busquen novelas convencionales o libros de desarrollo personal encontrarán aquí un formato de lectura diferente, con 192 páginas de contenido gráfico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible de Kagurabachi nº 08: 8 (Manga Shonen). Sus 192 páginas ofrecen un volumen físico de extensión más breve que una novela convencional, pensado para la lectura en papel y para conservarlo junto a otros ejemplares de manga.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c3ea591d9d99360b",
+  "origen": "chatgpt-web"
+}

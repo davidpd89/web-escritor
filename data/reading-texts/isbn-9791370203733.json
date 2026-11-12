@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9791370203733",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en las biografías, las memorias y su relación con el ámbito artístico. Por su clasificación y planteamiento biográfico, responde a una búsqueda distinta de la de un manual de técnicas artísticas o una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Siempre Así, a su manera (Memorias y biografías) está disponible en tapa blanda y Kindle. La edición impresa de Almuzara reúne 256 páginas para leer y conservar en papel, mientras que Kindle permite llevar el texto en un lector electrónico o dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "79e909eb6a2a3b7b",
+  "origen": "chatgpt-web"
+}

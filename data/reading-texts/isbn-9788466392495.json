@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788466392495",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nadie lo vio venir (Best Seller | Ficción) se orienta a lectores que buscan misterio y thriller. Con 360 páginas, tiene una extensión más contenida que las novelas de gran volumen. Encaja menos con quienes prefieren fantasía o historias centradas principalmente en el romance.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nadie lo vio venir (Best Seller | Ficción) puede leerse en tapa blanda o Kindle y también escucharse como audiolibro. La edición física de Penguin Bolsillo contiene 360 páginas y utiliza formato de bolsillo. Kindle permite leer sin transportar el ejemplar, mientras que el audiolibro ofrece una alternativa para quienes prefieren escuchar la narración.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Se saldrán con la suya? (SUMA) y Nadie lo vio venir (Best Seller | Ficción) comparten autora, Shari Lapena. Nadie lo vio venir pertenece al misterio y thriller y tiene 360 páginas. La diferencia editorial es que la primera obra lleva SUMA en el título, mientras que la segunda está publicada por Penguin Bolsillo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias",
+        "numero_paginas",
+        "editorial"
+      ],
+      "enlaces": [
+        "isbn-9791388163197"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "32d614f7ffe3c88f",
+  "origen": "chatgpt-web"
+}

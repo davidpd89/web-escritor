@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387662639",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El cerebro optimista, de Mikel Alonso, se dirige a lectores interesados en comprender el optimismo desde la neurociencia y la psicología. Sus 264 páginas abordan el crecimiento personal y el bienestar; por su enfoque, se aleja de los manuales centrados exclusivamente en alimentación o ejercicio físico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 264 páginas y permite subrayar conceptos o marcar apartados durante la lectura. Es un formato físico para consultar las cuestiones de psicología y crecimiento personal que aborda Mikel Alonso, tanto de forma continuada como por sesiones.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias",
+        "autores",
+        "titulo"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "21b4aaf4f200a0f3",
+  "origen": "chatgpt-web"
+}

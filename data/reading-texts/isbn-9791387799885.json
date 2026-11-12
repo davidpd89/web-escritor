@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9791387799885",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historia de la ópera: Nacimiento, esplendor y muerte (Altoparlante), de Darío Fernández, está dirigido a lectores interesados en el ensayo y las manifestaciones artísticas. Quien busque ficción, una novela o un manual práctico encontrará una propuesta de naturaleza distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece sus 208 páginas en un volumen de extensión contenida, apropiado para la lectura en papel y la consulta. Es el formato disponible para quien prefiera conservar el ensayo físicamente en lugar de leerlo en una pantalla.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6dfa1a5d59438533",
+  "origen": "chatgpt-web"
+}

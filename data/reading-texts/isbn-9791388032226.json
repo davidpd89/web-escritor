@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388032226",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esferas II. Globos: Macrosferología: 164 (Biblioteca de Ensayo / Serie mayor), de Peter Sloterdijk, se dirige a lectores de filosofía y ensayo que buscan una lectura extensa. Con 928 páginas, exige una dedicación distinta de la que requieren las introducciones breves o los libros de consulta rápida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible de Esferas II. Globos: Macrosferología: 164 (Biblioteca de Ensayo / Serie mayor) es en tapa blanda y reúne 928 páginas en castellano. Su extensión hace relevante el tamaño físico del volumen para decidir si leerlo en una mesa o transportarlo habitualmente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ab8948dc50d5cd20",
+  "origen": "chatgpt-web"
+}

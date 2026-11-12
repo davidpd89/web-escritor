@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388163197",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Se saldrán con la suya? (SUMA) encaja con lectores que buscan una novela de misterio y thriller en lugar de una historia centrada en el romance o la fantasía. Shari Lapena firma esta obra de 360 páginas, cuya clasificación sitúa el misterio como principal referencia para elegirla.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Se saldrán con la suya? (SUMA) puede leerse en tapa blanda o Kindle. La edición impresa reúne 360 páginas y permite leer sin pantalla, mientras que Kindle facilita llevar el texto completo en un lector electrónico o en el móvil. Ambas opciones corresponden a la novela de Shari Lapena.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Se saldrán con la suya? (SUMA) puede compararse con Nadie lo vio venir por compartir autora, Shari Lapena. El primero pertenece al misterio y al thriller y tiene 360 páginas, mientras que el segundo aparece identificado como una obra de ficción. La comparación se basa en la autoría común y en la distinta clasificación de ambos títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466392495"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8798a445c8bbcf08",
+  "origen": "chatgpt-web"
+}

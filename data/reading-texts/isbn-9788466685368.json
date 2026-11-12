@@ -4,18 +4,18 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La madre está dirigida a lectores adultos de novela histórica interesados en el siglo I, el cristianismo y los conflictos familiares bajo el poder romano. José María Zavala combina persecución, maternidad y pérdida; no se orienta a quien busque una historia contemporánea desligada de la religión.",
+      "texto": "La madre está dirigida a lectores adultos de novela histórica interesados en el cristianismo primitivo, la maternidad y los conflictos familiares. Sus 536 páginas sitúan la acción en el siglo I e incluyen persecución, pérdida y referencias a la crucifixión, elementos que pueden alejar a quienes prefieren historias contemporáneas o ajenas a la temática religiosa.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La madre es una novela histórica ambientada en el siglo I que combina una amenaza procedente de Roma con el relato personal de María de Nazaret. José María Zavala articula el conflicto mediante Lucio Fedro y Flavia, mientras la maternidad, la fe y el duelo ocupan el centro de la narración.",
+      "texto": "La madre propone una novela histórica ambientada en el siglo I, con una trama de amenazas políticas y otra centrada en la experiencia de María de Nazaret. José María Zavala combina el enfrentamiento de una familia con el poder romano y una aproximación a la maternidad, la fe y el duelo desde la perspectiva de la madre de Jesús.",
       "evidencias": [
         "titulo",
         "autores",
@@ -25,10 +25,9 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La madre está disponible en tapa dura y Kindle. La edición de Ediciones B tiene 536 páginas y sobrecubierta, una presentación física apropiada para conservar o regalar; Kindle permite leer la misma obra en dispositivos electrónicos sin cargar con un volumen de esa extensión.",
+      "texto": "La tapa dura con sobrecubierta presenta las 536 páginas de La madre en la edición de Ediciones B, mientras que la tapa blanda ofrece una alternativa física de encuadernación flexible. Kindle permite leerla en un dispositivo electrónico o móvil, y el audiolibro facilita seguir la novela mediante escucha.",
       "evidencias": [
         "titulo",
-        "editorial",
         "numero_paginas",
         "edicion",
         "formatos_disponibles"
@@ -36,22 +35,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La madre y El hombre de Damasco comparten el marco histórico del Imperio Romano, aunque José María Zavala centra su novela en María de Nazaret, la familia y la fe. Cuando seamos inmortales, de Tony Gratacós, también utiliza un contexto histórico, pero desplaza el conflicto hacia Rubens, Velázquez y el destino político de Europa.",
+      "texto": "La madre y El Padre Pío español comparten autor, José María Zavala, y una temática vinculada a figuras religiosas. La madre desarrolla una ficción histórica sobre María de Nazaret y los conflictos de una familia bajo el poder romano, mientras que El Padre Pío español se ocupa de la vida de Fray Sebastián de Jesús.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788423371181",
-        "isbn-9791387714567"
+        "isbn-9788466396424"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4ae549fdda0093eb",
+  "fuente_hash": "c7dcd35d1bd53eb1",
   "origen": "chatgpt-web"
 }

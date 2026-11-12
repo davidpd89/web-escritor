@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786073876773",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Good Rebels (Spanish Edition) está orientado a lectores interesados en narrativa juvenil, familia, nutrición y bienestar. Sus 240 páginas se sitúan entre la narrativa contemporánea y los contenidos relacionados con el ocio y el tiempo libre; no corresponde a una novela de fantasía o romantasy.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Good Rebels (Spanish Edition) está disponible en tapa blanda y cuenta con 240 páginas. La edición física permite leerlo en papel y conservarlo en la biblioteca personal; es la alternativa para quien prefiere un libro impreso frente a otros soportes.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Good Rebels (Spanish Edition) puede ponerse en relación con Chef sapiens: De los orígenes a la actualidad en 100 recetas saludables, de Marcos Vázquez, Elizabeth Ochoa, por su conexión con la nutrición. El código del rendimiento: La ciencia detrás de lo que el deportista consume, de Eztizen Pérez Díaz, aborda también la alimentación, pero desde su relación específica con el deporte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395939",
+        "isbn-9788409934010"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "deeba74b698e95b6",
+  "origen": "chatgpt-web"
+}

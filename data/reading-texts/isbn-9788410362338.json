@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788410362338",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Spidey y su superequipo. ¡Equipo Spidey! Libro con solapas se dirige al público infantil que reconoce a los personajes de Marvel y disfruta manipulando elementos de un libro. Su propuesta de 24 páginas con solapas encaja menos con lectores que prefieren relatos extensos sin componentes interactivos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El libro propone una lectura acompañada de la apertura de solapas, que permiten interactuar físicamente con sus páginas. Su extensión de 24 páginas facilita recorrerlo en sesiones breves y volver a explorar sus elementos móviles, con el superequipo de Spidey como referencia temática.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es de tapa dura y contiene 24 páginas con solapas. Este formato permite sujetar el libro mientras se levantan las piezas de papel y resulta apropiado para una lectura infantil compartida en la que se manipulan las páginas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Spidey y su superequipo. Mi libro para llevar comparte personajes y autoría de Marvel con el libro de solapas. La diferencia está en su propuesta: el primero se presenta como un libro para llevar, mientras que el segundo incorpora solapas para interactuar con las páginas durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410362604"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "966b6f18304d0bec",
+  "origen": "chatgpt-web"
+}

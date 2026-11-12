@@ -4,8 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores a partir de 7 años interesados en historias realistas sobre el colegio, los cumpleaños y la amistad. Rita afronta los nervios de celebrar su fiesta con sus compañeros y los celos dentro de su entorno cercano. No responde a quienes buscan aventuras fantásticas o conflictos alejados de la vida cotidiana.",
+      "texto": "Encaja con lectores a partir de 7 años que prefieren historias cotidianas sobre amistad, colegio y relaciones familiares. Rita Bumbum 4 - ¡Rita Bumbum cumple años! trata los nervios ante una celebración y los celos entre amigos; quienes busquen mundos fantásticos encontrarán aquí una historia realista.",
       "evidencias": [
+        "titulo",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -13,38 +14,37 @@
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Rita Bumbum 4 - ¡Rita Bumbum cumple años! está dirigido a lectores a partir de 7 años y tiene 128 páginas. La edición de Ediciones B es en tapa blanda y está escrita en castellano. Incluye ilustraciones a todo color y texto sencillo, dentro de una historia sobre la convivencia escolar y familiar.",
+      "texto": "Rita Bumbum 4 - ¡Rita Bumbum cumple años! está indicado a partir de 7 años y tiene 128 páginas. Incluye ilustraciones a todo color y un texto sencillo orientado a las primeras lecturas, con situaciones reconocibles del colegio y la familia. La edición de Ediciones B se presenta en tapa blanda.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
         "numero_paginas",
-        "editorial",
-        "edicion",
-        "idioma",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer sus 128 páginas en papel y consultar las ilustraciones a todo color durante la lectura. La edición Kindle ofrece una alternativa digital para llevar el libro en el móvil o en un lector electrónico compatible. La elección depende de si se prefiere manejar un ejemplar físico o leer en pantalla.",
+      "texto": "La tapa blanda permite leer las 128 páginas de Rita Bumbum 4 - ¡Rita Bumbum cumple años! en un ejemplar físico con ilustraciones a todo color. Kindle ofrece la misma obra en formato digital para llevarla en un lector electrónico o dispositivo compatible, sin necesidad de transportar el libro impreso.",
       "evidencias": [
-        "formatos_disponibles",
+        "titulo",
         "numero_paginas",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Me llamo Goa 12 - ¡Eres única, Goa!, también de Míriam Tirado, comparte el interés por las relaciones personales, pero aborda los retos de los trece años frente a las preocupaciones escolares de Rita. Amigos de verdad, de Iris Pérez-Bonaventura, coincide en la importancia de la amistad, aunque se centra en su papel en el desarrollo de niños y adolescentes. Rita Bumbum 4 - ¡Rita Bumbum cumple años! sitúa ese tema en una celebración de cumpleaños.",
+      "texto": "Me llamo Goa 12 - ¡Eres única, Goa!, también de Míriam Tirado, comparte con Rita Bumbum 4 - ¡Rita Bumbum cumple años! el interés por las relaciones personales y los cambios emocionales. La diferencia está en la etapa vital: Rita se dirige a lectores desde los 7 años y aborda una celebración escolar, mientras que Goa trata las dificultades de tener trece años.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "edad_recomendada",
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387994303",
-        "isbn-9791387994532"
+        "isbn-9791387994303"
       ]
     }
   ],

@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791388147272",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El marciano (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) se dirige a lectores de ciencia ficción y aventuras. Por su clasificación temática, encaja menos con quienes buscan una obra centrada exclusivamente en la narrativa contemporánea o histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de El marciano (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) se distingue por sus cantos tintados y su encuadernación en tapa dura. Penguin Bolsillo la publica el 19 de noviembre de 2026, con 408 páginas en castellano y el ISBN 9791388147272.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción recogida para El marciano (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) es la tapa dura, con cantos tintados. Sus 408 páginas forman un volumen físico pensado tanto para conservar en la estantería como para regalar; el acabado de los cantos es parte de esta edición.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El marciano (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) puede compararse con Proyecto Hail Mary (edición deluxe) (Nova): ambos pertenecen a la obra de Andy Weir. La diferencia documentada está en la presentación editorial, con cantos tintados y tapa dura en El marciano, frente a la denominación deluxe del otro título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "edicion",
+        "formatos_disponibles"
+      ],
+      "enlaces": [
+        "isbn-9788410466876"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e4141d21c3d4d70f",
+  "origen": "chatgpt-web"
+}

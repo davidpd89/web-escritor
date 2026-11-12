@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788499549385",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todo Cierre Fiscal y Contable. Ejercicio 2026 (TODOS) está dirigido a lectores que trabajan con contabilidad y fiscalidad y necesitan estudiar el cierre de un ejercicio concreto. Por su materia y sus 1656 páginas, encaja menos con quienes buscan una introducción breve a la economía o una lectura narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Todo Cierre Fiscal y Contable. Ejercicio 2026 (TODOS) se presenta en tapa dura y reúne 1656 páginas en castellano. Por su extensión, resulta más adecuado para la consulta sobre una mesa que para llevarlo diariamente; la encuadernación rígida facilita conservar un volumen destinado a referencias repetidas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Todo Cierre Fiscal y Contable. Ejercicio 2026 (TODOS) y Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparten el ámbito económico, pero el primero aborda el cierre fiscal y contable de un ejercicio y el segundo las ideas económicas y políticas del anarcocapitalismo. ANTES DE QUE OCURRA: Vender, formar y proteger el futuro trata cuestiones de venta y formación, frente a la especialización fiscal y contable del libro de Javier Argente Álvarez y Eva Argente Linares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457",
+        "isbn-9788409935604"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1f58097c343d2f51",
+  "origen": "chatgpt-web"
+}

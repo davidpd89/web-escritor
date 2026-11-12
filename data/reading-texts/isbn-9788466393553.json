@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788466393553",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Anatema (edición limitada) (El Bosque Voraz 1) (Campaña | Ahora por menos) se dirige a lectores de fantasía y aventuras que buscan una novela extensa. Sus 680 páginas requieren más tiempo que una lectura breve y su clasificación temática la aleja de la narrativa realista; el título la identifica como el n.º 1 de El Bosque Voraz.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Anatema (edición limitada) (El Bosque Voraz 1) (Campaña | Ahora por menos) es un libro de bolsillo publicado por Penguin Bolsillo en castellano. Tiene 680 páginas, encuadernación de tapa blanda e ISBN 9788466393553; el título incorpora la denominación «edición limitada».",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formato_edicion",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible de Anatema (edición limitada) (El Bosque Voraz 1) (Campaña | Ahora por menos) es la tapa blanda en formato de bolsillo. Reúne 680 páginas en un volumen físico, apropiado para quien prefiere leer en papel y guardar la obra en su biblioteca; su extensión conviene tenerla presente si se transporta a diario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Oscura (edición limitada) (El Bosque Voraz 2) (Campaña | Ahora por menos) y Vasmora (Edición limitada en español) (El Bosque Voraz 3) (Éxitos) comparten con Anatema (edición limitada) (El Bosque Voraz 1) (Campaña | Ahora por menos) la autoría de Keri Lake y la referencia a El Bosque Voraz. Los títulos los identifican respectivamente como los números 2, 3 y 1, una diferencia útil para distinguirlos dentro del conjunto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395434",
+        "isbn-9788401038204"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6cec6a983faba006",
+  "origen": "chatgpt-web"
+}

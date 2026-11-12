@@ -1,0 +1,37 @@
+{
+  "id": "isbn-9791399188721",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tres escritores venezolanos en España.: Rafael María Baralt, Rufino Blanco Fombon y Teresa De La Parra: 35 (Libros singulares) se dirige a lectores interesados en el ensayo y en las relaciones literarias entre escritores venezolanos y España. Su planteamiento centrado en figuras literarias se distancia de la ficción narrativa y de los manuales prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro toma como eje a Rafael María Baralt, Rufino Blanco Fombon y Teresa De La Parra, tres escritores venezolanos vinculados en el título con España. Francisco Javier Pérez y Juan Carlos Chirinos firman este ensayo, cuyo planteamiento permite abordar a los autores desde una perspectiva literaria y cultural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Para leer este ensayo en papel, la opción es la tapa blanda, con una extensión de 216 páginas. El volumen permite avanzar por sesiones, marcar pasajes de interés y volver a ellos al consultar cuestiones relacionadas con los escritores estudiados.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias",
+        "titulo"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0a2f2ef83ca80dd1",
+  "origen": "chatgpt-web"
+}

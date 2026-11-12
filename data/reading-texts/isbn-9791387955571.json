@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387955571",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Deporte de contacto (Otros deportes), de Fredi Mosteirín, se dirige a lectores interesados en el deporte y el tiempo libre. Por su clasificación temática, queda fuera de las búsquedas centradas en ficción fantástica o narrativa romántica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Deporte de contacto (Otros deportes) está disponible en tapa blanda, con 304 páginas en castellano. Esta edición de Libros de Ruta permite consultar el contenido en papel y conservarlo en una estantería dedicada a libros deportivos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Deporte de contacto (Otros deportes) comparte el ámbito deportivo con El árbitro / The Referee, de Augusto Cruz, y Fútbol y anarquismo (RELECTURAS), de Miguel Fernández Ubiría. Los títulos de estas obras apuntan, respectivamente, al arbitraje y a la relación entre fútbol y anarquismo, mientras que el de Fredi Mosteirín plantea una referencia más amplia al deporte de contacto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073877817",
+        "isbn-9788410677548"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7c630ef99c503fd4",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9789877188455",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hackea Tu Cerebro / Hack Your Brain: Neurociencia, Productividad, Aprendizaje se dirige a lectores interesados en comprender el cerebro y relacionar la psicología con el aprendizaje y la productividad. Su enfoque de desarrollo personal y divulgación científica se aleja de la narrativa de ficción y de los manuales centrados exclusivamente en técnicas de organización.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 320 páginas de Hackea Tu Cerebro / Hack Your Brain: Neurociencia, Productividad, Aprendizaje en un volumen físico que permite consultar y volver a localizar apartados durante la lectura. Kindle ofrece el mismo título en formato digital para llevarlo en un lector electrónico o consultarlo desde el móvil, sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hackea Tu Cerebro / Hack Your Brain: Neurociencia, Productividad, Aprendizaje y El perfecto cerebro imperfecto / The Perfect Imperfect Brain comparten el interés por el cerebro; el primero incorpora expresamente productividad y aprendizaje a su planteamiento. El efecto ritual: El poder transformador de nuestros hábitos cotidianos (Divulgación) se aproxima desde los hábitos diarios, mientras que el libro de Nicolás Fernández Miranda sitúa la neurociencia en el centro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449346163",
+        "isbn-9786073880107"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5dc1428088715072",
+  "origen": "chatgpt-web"
+}

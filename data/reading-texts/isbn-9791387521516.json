@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791387521516",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Filosofía de la mitología: 0 (LECTURAS DE FILOSOFÍA) se dirige a lectores interesados en el ensayo filosófico y el estudio de la mitología. Sus 488 páginas y su clasificación como filosofía lo sitúan lejos de la narrativa de ficción y de los libros de divulgación práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda presenta las 488 páginas de Filosofía de la mitología: 0 (LECTURAS DE FILOSOFÍA) en un volumen físico. Es la edición en castellano publicada por Abada Editores, S.l., para quienes prefieren leer el ensayo en papel y conservarlo en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6533ce062d8e506a",
+  "origen": "chatgpt-web"
+}

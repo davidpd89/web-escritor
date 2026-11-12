@@ -4,42 +4,46 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Metafísica está dirigida a lectores que buscan un estudio filosófico de la realidad, el conocimiento, la acción humana y el sentido de la existencia. Su tratamiento sistemático de distintas corrientes de pensamiento exige interés por los conceptos teóricos; no responde al planteamiento de una guía práctica de bienestar.",
+      "texto": "Metafísica se orienta a lectores interesados en el estudio sistemático de la filosofía, especialmente en cuestiones sobre el ser, la acción humana y el sentido de la existencia. Su tratamiento conceptual y su extensión la alejan de una introducción breve basada en consejos cotidianos o ejemplos de autoayuda.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Francisco José Martínez Martínez examina cinco problemas filosóficos: la materia, la racionalidad, la acción, el mal y el significado de la existencia. Su análisis relaciona las preguntas sobre el ser con las consecuencias sociales de la actividad humana y recurre a tradiciones positivistas, pragmatistas, marxianas y existenciales para contrastar sus respuestas.",
+      "texto": "Metafísica estudia qué constituye la realidad, cómo interviene el pensamiento racional en su comprensión y qué significado adquieren las acciones humanas. Francisco José Martínez Martínez examina también el problema del mal y la búsqueda de sentido, tanto personal como social. Su método relaciona distintas corrientes filosóficas de los siglos XIX y XX para construir una interpretación organizada de estas cuestiones.",
       "evidencias": [
+        "titulo",
         "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Metafísica está editado en tapa blanda y tiene 485 páginas. El volumen físico permite trabajar con un texto filosófico extenso, marcar conceptos y regresar a los apartados dedicados a las distintas corrientes de pensamiento durante el estudio.",
+      "texto": "Metafísica cuenta con una edición en tapa blanda de 485 páginas en castellano. El volumen permite trabajar sobre un texto filosófico extenso, señalar conceptos y consultar distintos apartados durante el estudio, sin depender de una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias",
-        "sinopsis_editorial"
+        "idioma",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Metafísica y Bobadas, de Javier Urra Portillo y Cristina González Reche, coinciden en plantear preguntas sobre la existencia humana. Bobadas parte de las preocupaciones y los estímulos cotidianos para revisar prioridades; Metafísica desarrolla una investigación conceptual sobre el ser, la acción y el sentido mediante distintas tradiciones filosóficas.",
+      "texto": "A vivir también se aprende: Los 5 pilares de la sabiduría para ubicarse en tiempos de cambio (Deusto) y Metafísica se relacionan por su interés en la reflexión filosófica sobre la existencia. Frédéric Lenoir plantea la sabiduría ante situaciones de cambio, mientras que Francisco José Martínez Martínez desarrolla un análisis sistemático del ser, la razón y la praxis.",
       "evidencias": [
         "titulo",
+        "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788426741622"
+        "isbn-9788423440887"
       ]
     }
   ],

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788411614610",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Naruto Jump Remix nº 16/24 (Manga Shonen) está dirigido a lectores juveniles interesados en el manga y las historias contadas mediante viñetas. Sus 504 páginas requieren más tiempo de lectura que un cómic breve y su planteamiento no responde a quien busca una novela escrita únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Naruto Jump Remix nº 16/24 (Manga Shonen) se publica en tapa blanda, con 504 páginas en castellano. Es una edición física de extensión considerable, apropiada para incorporarla a una colección de manga y leerla por sesiones sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Naruto Jump Remix nº 17/24 (Manga Shonen) es la comparación más directa con Naruto Jump Remix nº 16/24 (Manga Shonen): ambos pertenecen a la misma colección y están firmados por Masashi Kishimoto. Los títulos los identifican como los números 17 y 16, respectivamente. Frente a Animal Jack 2 la montaña mágica, de Kid Toussaint, mantienen una autoría y una serie distintas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411614627",
+        "isbn-9791387744410"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fc78a106b683bd3a",
+  "origen": "chatgpt-web"
+}

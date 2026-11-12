@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788445022085",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "UNO: Una distopía sobre la individualidad (Ciencia Ficción) se dirige a lectores de ciencia ficción interesados en los conflictos entre el individuo y su entorno social. Su planteamiento distópico encaja menos con quienes prefieren fantasía de ambientación mágica o relatos infantiles de humor.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "UNO: Una distopía sobre la individualidad (Ciencia Ficción) está disponible en tapa blanda, con 312 páginas en castellano. La edición de Minotauro permite leer la obra en papel y conservarla como volumen independiente, sin necesidad de un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "255a9cdebf83dd29",
+  "origen": "chatgpt-web"
+}

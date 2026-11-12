@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788466390910",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores interesados en la filosofía, el ensayo y la obra de Albert Camus que quieran reunir varios títulos en un estuche. Contiene El extranjero, Calígula y El mito de Sísifo; no está planteado como un único ensayo breve ni como una introducción general a distintos filósofos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El estuche reúne El extranjero, Calígula y El mito de Sísifo, tres obras de Albert Camus presentadas conjuntamente. Su enfoque combina textos asociados a la narrativa, el ensayo y la filosofía, por lo que permite leer diferentes formas de escritura de un mismo autor dentro de una colección.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es un estuche de libros de bolsillo en tapa blanda, publicado por Penguin Bolsillo. Sus 640 páginas corresponden al conjunto de las tres obras incluidas, una presentación que permite conservarlas reunidas o leer cada título por separado.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche Albert Camus (contiene: El extranjero | Calígula | El mito de Sísifo) (Contemporánea | Narrativa) y De la estética como política: Para una rehabilitación del sentido en el cine (Signo e imagen) comparten una orientación hacia la reflexión filosófica y cultural. Albert Camus reúne tres obras de distintos géneros, mientras Noël Burch concentra su estudio en la relación entre estética, política y cine.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788437650586"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8be0137be3962f0e",
+  "origen": "chatgpt-web"
+}

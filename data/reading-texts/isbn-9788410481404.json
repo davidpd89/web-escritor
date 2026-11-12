@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410481404",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El rejuvenecimiento de la señorita Semaphore (Clásicos), de Charlotte O'Conor Eccles, encaja con lectores interesados en los clásicos literarios y la narrativa vinculada a la historia. Su clasificación también abarca la narrativa contemporánea, por lo que se aleja de las lecturas centradas exclusivamente en la fantasía o la ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer sus 288 páginas en papel y conservar el volumen en una estantería sin la rigidez de una cubierta dura. Kindle ofrece la misma elección de lectura en soporte digital, con la comodidad de llevar el libro en el móvil o en un lector electrónico.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El rejuvenecimiento de la señorita Semaphore (Clásicos) comparte su pertenencia a la tradición literaria clásica con Anna Karénina (edición especial en tapa dura) (Ediciones Conmemorativas), de Lev Tolstoi. La diferencia más concreta está en la presentación: la obra de Charlotte O'Conor Eccles tiene 288 páginas y se ofrece en tapa blanda y Kindle, mientras que la edición citada de Anna Karénina se identifica por su tapa dura conmemorativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491058397"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "430af95e61c49f1a",
+  "origen": "chatgpt-web"
+}

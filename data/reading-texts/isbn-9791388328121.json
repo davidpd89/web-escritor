@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388328121",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la polarización política en España y en cómo se ha desarrollado durante 20 años. Por su enfoque sobre el poder y la política, encaja menos con quien busca ficción o una introducción general a la historia española.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, publicada por Ciudadela Libros, con 176 páginas en castellano. Su extensión permite consultar el análisis político por partes y volver a los pasajes de interés sin manejar un volumen especialmente largo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte con A la sombra del Estado el interés por el poder político, aunque aquel aborda el espionaje, las operaciones encubiertas y la desinformación, mientras este se centra en la polarización española. Frente a Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, cambia el estudio de una corriente de pensamiento por el análisis de un fenómeno político concreto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057",
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fd00b64e04fcc873",
+  "origen": "chatgpt-web"
+}

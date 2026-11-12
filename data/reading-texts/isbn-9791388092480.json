@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791388092480",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Quimbumbia: Aforismos en modo ráfaga (Ensayo y Pensamiento) se dirige a quienes leen ensayo y prefieren el pensamiento expresado mediante aforismos. Por su planteamiento, se aleja de las novelas con personajes y una trama narrativa continuada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Quimbumbia: Aforismos en modo ráfaga (Ensayo y Pensamiento) está disponible en tapa blanda y reúne 152 páginas. Este formato permite consultar y releer los aforismos en papel, además de transportar el volumen sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2d78a9b52526495b",
+  "origen": "chatgpt-web"
+}

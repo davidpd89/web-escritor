@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788427151802",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La vida en los tiempos bíblicos (Fuera de colección) se dirige al público infantil interesado en conocer la vida de la época bíblica. Sus 32 páginas y su presentación como libro de cartón lo diferencian de las novelas juveniles extensas y de los relatos centrados en aventuras de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "La vida en los tiempos bíblicos (Fuera de colección) puede utilizarse como lectura infantil para explorar y comentar aspectos de la época bíblica. Sus 32 páginas permiten dividir la consulta en sesiones cortas, y el soporte de cartón facilita pasar las páginas durante una lectura compartida.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Ediciones Mensajero se ofrece como libro de cartón, clasificado entre los formatos de tapa dura, y tiene 32 páginas. El soporte rígido facilita la manipulación física y la lectura compartida, especialmente cuando el libro pasa de unas manos a otras.",
+      "evidencias": [
+        "editorial",
+        "edicion",
+        "formato_edicion",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e81f0bd8a85f9f6f",
+  "origen": "chatgpt-web"
+}

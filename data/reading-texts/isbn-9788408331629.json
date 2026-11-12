@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788408331629",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El cocodrilo (Austral Esenciales) se dirige a lectores interesados en los clásicos literarios y en la narrativa de Fiódor M. Dostoievski. Con 112 páginas, ofrece una extensión menor que la habitual en las novelas largas y se aleja de los libros de divulgación o consulta práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de El cocodrilo (Austral Esenciales) reúne 112 páginas en castellano bajo el sello Austral Editorial. Su extensión facilita transportarlo para leer fuera de casa y conservarlo como ejemplar físico dentro de una colección de clásicos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El cocodrilo (Austral Esenciales) comparte autor con Los hermanos Karamázov (Penguin Clásicos | Vintage) y Memorias del subsuelo (edición de lujo ilustrada) (Pensamiento). La diferencia comprobable está en la presentación editorial: El cocodrilo (Austral Esenciales) ofrece 112 páginas en tapa blanda, mientras que Memorias del subsuelo (edición de lujo ilustrada) (Pensamiento) se identifica como una edición ilustrada de lujo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491058731",
+        "isbn-9788430628742",
+        "isbn-9788491056287"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "383afa9e2fdff499",
+  "origen": "chatgpt-web"
+}

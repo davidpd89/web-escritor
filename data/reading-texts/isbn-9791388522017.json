@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388522017",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El diario íntimo del papa Francisco (Biografías y Memorias) se dirige a lectores interesados en testimonios personales vinculados con la religión y la espiritualidad. Su orientación biográfica lo distingue de los libros de ficción religiosa o de las novelas históricas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El diario íntimo del papa Francisco (Biografías y Memorias) puede leerse en tapa dura o en Kindle. La edición física reúne 136 páginas y permite conservar el volumen en papel; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El diario íntimo del papa Francisco (Biografías y Memorias) comparte el interés por las experiencias personales y la espiritualidad con Al andar: Vivencias del Camino de Santiago. La obra de Víctor Manuel Fernández se centra en una figura religiosa, mientras que la de Carlos Díaz Ballesta aborda vivencias relacionadas con el Camino de Santiago. Ambas pertenecen al ámbito biográfico, pero sus títulos apuntan a enfoques distintos: la intimidad de una figura religiosa frente a la experiencia del peregrinaje.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cdef0b2e7d387aec",
+  "origen": "chatgpt-web"
+}

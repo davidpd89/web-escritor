@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788420456355",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Por la senda de Guermantes (Literaturas) se orienta a lectores de clásicos y narrativa contemporánea interesados en la literatura de Marcel Proust. Sus 744 páginas requieren tiempo y continuidad, por lo que se aleja de quien busque una lectura breve; también figura vinculada a temas de familia y crianza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Por la senda de Guermantes (Literaturas) puede leerse en tapa blanda o Kindle. La edición impresa reúne 744 páginas y permite conservar el volumen en papel; Kindle facilita llevar esa misma obra en un lector electrónico o en el móvil sin cargar con un libro de semejante extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Celestino antes del alba (Andanzas) y Por la senda de Guermantes (Literaturas) comparten su presencia entre las lecturas de narrativa, pero corresponden a autores distintos: Reinaldo Arenas y Marcel Proust. Por la senda de Guermantes (Literaturas) se vincula además con los clásicos y los temas familiares, mientras que Celestino antes del alba (Andanzas) se presenta como otra obra de autoría individual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411078535"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "483964fce56247ee",
+  "origen": "chatgpt-web"
+}

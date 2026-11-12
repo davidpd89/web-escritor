@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466390767",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Minnesota (Best Seller | Ficción), de Jo Nesbo, se dirige a lectores de misterio y thriller que buscan una obra narrativa de este género. Por su clasificación y sus 376 páginas, encaja menos con quien prefiere libros prácticos de consulta o lecturas especialmente breves.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Penguin Bolsillo reúne las 376 páginas de Minnesota (Best Seller | Ficción) en un formato transportable. Kindle permite continuar la lectura en el móvil y ajustar el tamaño de letra; el audiolibro ofrece la posibilidad de seguir la narración mediante escucha.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sin piedad (Harry Hole 14) comparte autor, Jo Nesbo, y una orientación hacia la narrativa criminal con Minnesota (Best Seller | Ficción). Sin piedad (Harry Hole 14) presenta a Oleg Fauke en la sección de Homicidios de Oslo, mientras que Minnesota (Best Seller | Ficción) figura como una obra de misterio y thriller sin esa identificación de serie en el título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387740382"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b62b29c67355fd89",
+  "origen": "chatgpt-web"
+}

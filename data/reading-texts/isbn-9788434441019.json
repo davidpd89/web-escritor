@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788434441019",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El libro genético de los muertos: Una ensoñación darwiniana (Ariel) está orientado a lectores interesados en la divulgación científica, especialmente en cuestiones relacionadas con la genética y el pensamiento darwiniano. Su planteamiento de no ficción se distancia de las novelas y de los manuales de aplicación práctica inmediata.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de El libro genético de los muertos: Una ensoñación darwiniana (Ariel) contiene 400 páginas y ofrece una encuadernación rígida para conservar y consultar el volumen. Kindle facilita la lectura digital y evita transportar un libro físico de esa extensión.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formato_edicion",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3f401a3e8c2a7431",
+  "origen": "chatgpt-web"
+}

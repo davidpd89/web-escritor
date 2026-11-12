@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "No eres tú, es el sistema se dirige a lectores juveniles interesados en comprender cómo la sociedad influye en sus decisiones cotidianas. Su enfoque de sociología crítica, apoyado en ejemplos culturales y tecnológicos, encaja menos con quien busca una novela de ficción centrada en personajes y acontecimientos inventados.",
+      "texto": "No eres tú, es el sistema se dirige a lectores juveniles interesados en comprender cómo influyen las estructuras sociales en sus decisiones cotidianas. Su enfoque divulgativo, que combina ensayo y narrativa, se aleja de las novelas centradas en una trama de ficción.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "No eres tú, es el sistema está clasificado como juvenil y aborda cuestiones sociales desde una perspectiva crítica. Examina la meritocracia individualista, el capitalismo de plataformas y la influencia de las estructuras colectivas en la vida cotidiana, con un tono divulgativo que combina ensayo y narrativa.",
+      "texto": "No eres tú, es el sistema está clasificado como lectura juvenil y aborda cuestiones de desigualdad, meritocracia y capitalismo desde la sociología crítica. Su contenido se centra en el análisis de la vida cotidiana y las relaciones sociales, con un tratamiento divulgativo de asuntos políticos y económicos.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -24,36 +24,35 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La obra combina ensayo y narrativa para explicar conceptos de sociología mediante situaciones reconocibles de la vida diaria. No eres tú, es el sistema relaciona el consumo, la tecnología y las decisiones individuales con estructuras sociales más amplias, desde una perspectiva de divulgación crítica.",
+      "texto": "Es una obra de divulgación sociológica que combina recursos del ensayo y la narrativa para examinar comportamientos individuales y fenómenos colectivos. Miriam Jiménez Lastra utiliza referencias culturales y situaciones reconocibles para relacionar las experiencias personales con el funcionamiento del sistema social.",
       "evidencias": [
-        "titulo",
+        "autores",
         "sinopsis_editorial",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "No eres tú, es el sistema se ofrece en tapa blanda y Kindle. La edición física de Alfaguara tiene 192 páginas y solapas, mientras que la versión Kindle permite consultar el texto en un dispositivo compatible y alternar la lectura con otras actividades sin transportar el ejemplar impreso.",
+      "texto": "La tapa blanda permite consultar y releer sus 192 páginas en papel, con solapas en la edición de Alfaguara. Kindle ofrece el mismo título en formato digital para leerlo en el móvil o en un lector electrónico, sin transportar el volumen físico.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
         "edicion",
-        "editorial"
+        "editorial",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¿Qué pensará tu hija de ti?, de Diana López Varela, comparte con No eres tú, es el sistema el interés por las decisiones personales, pero se centra en la maternidad y las dudas de su autora. Citas conmigo misma, de Isa Muguruza, también parte de experiencias cotidianas, aunque propone actividades de autocuidado en lugar de analizar las estructuras sociales desde la sociología.",
+      "texto": "Cuando el mundo mira hacia otro lado: 24 mujeres en la guerra de Ucrania comparte con No eres tú, es el sistema el interés por cuestiones sociales que afectan a las personas. El primero se centra en mujeres y un conflicto bélico concreto, mientras que Miriam Jiménez Lastra explica fenómenos cotidianos mediante la sociología crítica.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388279300",
-        "isbn-9788419434289"
+        "isbn-9791388406256"
       ]
     }
   ],

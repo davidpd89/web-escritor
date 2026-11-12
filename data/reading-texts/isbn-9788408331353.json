@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Del dolor al amor, de Sarab Rey, encaja con lectores interesados en testimonios personales sobre depresión, recuperación y fe. Su tratamiento de una crisis de salud mental y de un ingreso psiquiátrico puede resultar difícil para personas sensibles a estos asuntos; tampoco responde al planteamiento de un manual centrado en ejercicios de pareja.",
+      "texto": "Del dolor al amor, de Sarab Rey, se dirige a lectores interesados en el desarrollo personal, la recuperación emocional y el papel de la fe ante una crisis de salud mental. Su perspectiva testimonial, vinculada a una experiencia de depresión y hospitalización, se aparta de los manuales centrados exclusivamente en técnicas de pareja.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,35 +14,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Del dolor al amor se publica en tapa blanda, con 240 páginas y encuadernación rústica con solapas de Editorial Planeta. Esta edición reúne en un volumen físico el testimonio de Sarab Rey, que puede leerse de forma continuada o retomarse por partes, sin depender de un dispositivo electrónico.",
+      "texto": "Del dolor al amor está disponible en tapa blanda y Kindle. La edición de Editorial Planeta tiene 240 páginas y encuadernación rústica con solapas, adecuada para consultar pasajes en papel; Kindle permite leer el testimonio en el móvil o en un lector electrónico sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "autores",
         "editorial",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Del dolor al amor y Nadie duele para siempre tratan experiencias de sufrimiento emocional, pero Sarab Rey aborda la depresión y la recuperación mediante la ciencia y la fe, mientras Marcelo Júnior parte de una ruptura sentimental. Frente a Amor, de Patri Psicóloga y Yolanda Cuevas, basado en prácticas semanales para cuidar la pareja, Del dolor al amor adopta una perspectiva testimonial y personal.",
+      "texto": "Del dolor al amor y Amor en plena guerra comparten el interés por experiencias personales atravesadas por el sufrimiento y la recuperación de la esperanza. Sarab Rey aborda la depresión y el papel de la fe en su recuperación, mientras que el libro de Natalia Jiménez sitúa el amor y la resiliencia en un contexto bélico.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788425373602",
-        "isbn-9791387724139"
+        "isbn-9788408323099"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a4b57dd99b957dbc",
+  "fuente_hash": "28aa64dc217ec6d8",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388222061",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hermano, me haces daño: Comprende cómo la relación entre hermanos moldeó tu identidad y aprende a sanar tus heridas (GROU), de Carolina Andersson, aborda las relaciones entre hermanos desde la psicología y el desarrollo personal. Se dirige a lectores interesados en comprender las consecuencias emocionales de esos vínculos, no a quienes buscan una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Hermano, me haces daño: Comprende cómo la relación entre hermanos moldeó tu identidad y aprende a sanar tus heridas (GROU) permite consultar y releer en papel sus 256 páginas. Kindle facilita llevar el contenido en el móvil o en un lector electrónico, especialmente para volver a determinados pasajes sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, comparte con Hermano, me haces daño: Comprende cómo la relación entre hermanos moldeó tu identidad y aprende a sanar tus heridas (GROU), de Carolina Andersson, el interés por las heridas emocionales vinculadas a la infancia. La obra de Carolina Andersson se concentra en cómo las relaciones entre hermanos influyen en la identidad, mientras que la de Victoria Cadarso aborda la sanación de la infancia desde una perspectiva más general.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "059e60b3e9b28066",
+  "origen": "chatgpt-web"
+}

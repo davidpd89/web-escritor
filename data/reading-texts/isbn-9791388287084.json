@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388287084",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pesadilla bajo el muérdago (VR YA) está dirigido a lectores interesados en fantasía y aventuras dentro de la narrativa juvenil. Sara Raasch firma una novela de 496 páginas, por lo que ofrece una lectura de mayor extensión; encaja menos con quien busca historias breves o narrativa contemporánea sin elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer Pesadilla bajo el muérdago (VR YA) en una edición física de 496 páginas. Es una opción para quien prefiere tener la novela completa en papel y conservarla en su biblioteca, aunque su extensión requiere más espacio que el de una lectura breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pesadilla bajo el muérdago (VR YA), de Sara Raasch, comparte con El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa), de Heather Fawcett, la presencia de elementos fantásticos en una historia de ficción. Se diferencian en el planteamiento que sugieren sus títulos: el primero se presenta como una pesadilla vinculada al muérdago, mientras que el segundo sitúa su historia en un refugio de gatos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387749316"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "573c8de8b82b2590",
+  "origen": "chatgpt-web"
+}

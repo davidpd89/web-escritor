@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399320718",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta guía de José Luis Efraín Zeballos se dirige a quienes necesitan estudiar las funciones y responsabilidades del recurso preventivo en el ámbito laboral. Sus más de 20 supuestos resueltos y 140 preguntas tipo test responden a un enfoque práctico, distinto del de una obra centrada exclusivamente en la teoría jurídica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, con 207 páginas en castellano publicadas por Psicoprevención Ediciones. El soporte físico permite consultar los supuestos resueltos y trabajar las preguntas tipo test sobre papel, además de volver a los apartados de funciones y responsabilidades durante el estudio.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Prevención de Riesgos Laborales. Nivel Básico · 50 horas: Con 150 test, más de 70 ejemplos, supuestos tipo oposición y modelos CAE. Para trabajadores, recursos preventivos, coordinadores y opositores comparte autoría con esta guía de José Luis Efraín Zeballos y también incorpora ejercicios prácticos. La diferencia está en el alcance: aquel título aborda la prevención laboral básica, mientras este se concentra en las obligaciones y actuaciones del recurso preventivo.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9791399320701"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "46925a0dde3aa678",
+  "origen": "chatgpt-web"
+}

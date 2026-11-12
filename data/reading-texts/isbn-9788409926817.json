@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788409926817",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El eco de los pasos antiguos: Espiritualidad y transformación en el Camino se dirige a lectores interesados en relacionar los viajes con la espiritualidad y el desarrollo personal. Su orientación hacia la reflexión y el bienestar lo diferencia de una guía de viajes centrada exclusivamente en destinos, rutas y desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "El libro aborda la espiritualidad y la transformación personal tomando el Camino como eje temático. Sus 414 páginas en castellano permiten una lectura extensa sobre esa relación entre desplazamiento y experiencia interior, dentro del ámbito del desarrollo personal y los viajes.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El eco de los pasos antiguos: Espiritualidad y transformación en el Camino está disponible en tapa blanda, con 414 páginas en castellano. El soporte físico permite avanzar por una lectura extensa y regresar a pasajes sobre espiritualidad y transformación personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Por si tu avión se cae: El viaje del héroe: de los Andes a tus travesías vitales (Literatura no ficción Desnivel) comparte la relación entre experiencia de viaje y reflexión vital, aunque su título remite a los Andes y El eco de los pasos antiguos: Espiritualidad y transformación en el Camino se centra en el Camino. Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida coincide en el interés por la transformación personal, pero lo plantea desde las heridas emocionales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788498297478",
+        "isbn-9788410451988"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b28062958717a298",
+  "origen": "chatgpt-web"
+}

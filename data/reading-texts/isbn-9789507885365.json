@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9789507885365",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Duelo animal: Entre el dolor de la ausencia y el amor que permanece (Crecimiento personal), de David Gómez, trata la pérdida de un animal desde el duelo y el desarrollo personal. Se dirige a lectores interesados en afrontar esa ausencia, más que a quienes buscan una novela de ficción o una guía centrada exclusivamente en relaciones de pareja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Duelo animal: Entre el dolor de la ausencia y el amor que permanece (Crecimiento personal) ofrece 264 páginas en tapa blanda para leer y consultar en papel. Kindle facilita la consulta digital desde el móvil o un lector electrónico; el audiolibro permite escuchar el contenido sin mantener la atención en una pantalla o página.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Duelo animal: Entre el dolor de la ausencia y el amor que permanece (Crecimiento personal) comparte el tema de la pérdida con El duelo: cómo atenderte: Una guía para acompañarte después de la muerte de una persona amada. David Gómez centra su obra en la ausencia de un animal, mientras que Irma Vallès Hernàndez aborda el fallecimiento de una persona querida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921065"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "26a1fdb0b4ebcc4e",
+  "origen": "chatgpt-web"
+}

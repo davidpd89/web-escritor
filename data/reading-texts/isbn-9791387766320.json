@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791387766320",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bestiario de lo frágil (Un pájaro de niebla), de Vanesa Pérez-Sauquillo, está dirigido a lectores de poesía. Con 80 páginas, propone una extensión reducida frente a las novelas largas y se aleja de las expectativas de quienes buscan una trama narrativa convencional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bestiario de lo frágil (Un pájaro de niebla) se presenta en tapa blanda y tiene 80 páginas. Esta edición en castellano de Ya Lo Dijo Casimiro Parker facilita llevar el poemario en papel y regresar a sus textos sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ab84f78d058146aa",
+  "origen": "chatgpt-web"
+}

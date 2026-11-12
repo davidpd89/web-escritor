@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466393539",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El círculo de los días (Best Seller | Ficción) se dirige a lectores de novela histórica que también buscan aventuras. Sus 768 páginas plantean una lectura extensa, menos ajustada a quien prefiere narrativa contemporánea breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 768 páginas de El círculo de los días (Best Seller | Ficción) en una edición de bolsillo de Penguin Bolsillo. Kindle permite llevar esa misma lectura en un dispositivo electrónico sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El círculo de los días (Best Seller | Ficción) comparte la orientación histórica con Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig. La diferencia de autoría permite distinguir ambas lecturas: Ken Follett firma la primera y María Reig la segunda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a61a45a188e60ca6",
+  "origen": "chatgpt-web"
+}

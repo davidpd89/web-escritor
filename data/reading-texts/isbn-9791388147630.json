@@ -1,0 +1,60 @@
+{
+  "id": "isbn-9791388147630",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La biblioteca de Córdoba (edición limitada) (Campaña | Ahora por menos) se dirige a lectores de novela histórica que buscan una obra extensa en formato de bolsillo. Sus 560 páginas y su clasificación histórica la diferencian de las novelas contemporáneas breves y de los libros de divulgación presentados como ensayos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La biblioteca de Córdoba (edición limitada) (Campaña | Ahora por menos) es una edición limitada de Penguin Bolsillo, identificada en el título con la campaña Ahora por menos. Se publica en castellano como libro de bolsillo de 560 páginas, con fecha editorial 2027-02-04 e ISBN 9791388147630, datos que permiten distinguir esta presentación de otras ediciones.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "numero_paginas",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La biblioteca de Córdoba (edición limitada) (Campaña | Ahora por menos) está disponible en tapa blanda y Kindle. La edición de bolsillo de Penguin Bolsillo contiene 560 páginas y permite conservar un ejemplar físico de la edición limitada; Kindle facilita transportar y leer esta novela extensa en un dispositivo electrónico o móvil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián, comparte con La biblioteca de Córdoba (edición limitada) (Campaña | Ahora por menos) su vinculación con la narrativa histórica, aunque el primero se identifica como parte de una saga. Ave César (Narrativas Históricas), de Rex Warner, ofrece otra referencia del mismo ámbito literario; La biblioteca de Córdoba se distingue por su autoría de Andrea D. Morales y su edición limitada de bolsillo de 560 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "edicion",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788401039539",
+        "isbn-9788435064125"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5eaba2a34d369bdd",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9798901230695",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Harry Potter Y El Misterio del Príncipe (Edición Con Ilustraciones de Xavier Bonet) / Harry Potter and the Half-Blood Prince se dirige a lectores de fantasía que buscan aventuras, misterios y vínculos de amistad. No responde a quien prefiera una novela realista o una lectura breve, ya que esta edición tiene 576 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición se distingue por las ilustraciones de Xavier Bonet anunciadas en su título. Salamandra la publica en tapa blanda, con 576 páginas en castellano y fecha editorial del 26 de enero de 2027, datos que permiten reconocer esta presentación concreta.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 576 páginas de esta edición con ilustraciones de Xavier Bonet en un ejemplar físico, adecuado para consultar sus imágenes durante la lectura. Kindle permite optar por el formato digital y llevar la obra en un dispositivo electrónico, sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Harry Potter Y La Piedra Filosofal / Harry Potter and the Philosophers Stone comparte autoría y universo narrativo con esta edición de Harry Potter Y El Misterio del Príncipe. Ambas obras son de J K Rowling, pero la segunda presentación se identifica expresamente por las ilustraciones de Xavier Bonet, una diferencia relevante al escoger ejemplar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798901230749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "622af0d7f2a6b8dc",
+  "origen": "chatgpt-web"
+}

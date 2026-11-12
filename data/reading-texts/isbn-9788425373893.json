@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El tercer cerebro está en los pies está dirigido a adultos interesados en comprender la relación entre los pies, la postura, el equilibrio y el bienestar físico. Su enfoque combina divulgación científica y ejercicios prácticos, por lo que encaja menos con quienes buscan una novela o una lectura exclusivamente teórica sobre neurociencia.",
+      "texto": "El tercer cerebro está en los pies está dirigido a adultos interesados en la salud de los pies, el movimiento y la relación entre postura y bienestar. Aborda molestias al caminar y propone ejercicios desde la podología; no está planteado como una novela ni como un tratado exclusivamente teórico sobre neurociencia.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "El tercer cerebro está en los pies combina explicaciones sobre neurociencia y biomecánica con casos clínicos reales y ejercicios prácticos. Neus Moya, podóloga y creadora del Método Feetconnected, aborda la relación del dolor en los pies con la postura, el equilibrio y el movimiento. El contenido permite observar molestias cotidianas y trabajar la conciencia corporal mediante las prácticas propuestas.",
+      "texto": "El tercer cerebro está en los pies combina explicaciones sobre biomecánica y neurociencia con experiencias clínicas, casos reales y ejercicios prácticos. Neus Moya relaciona las molestias de los pies con la postura, el equilibrio y la manera de caminar. Sus contenidos permiten observar síntomas cotidianos y trabajar la movilidad mediante las actividades propuestas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,10 +23,11 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El tercer cerebro está en los pies se ofrece en tapa blanda con solapas y Kindle. Sus 352 páginas impresas permiten consultar explicaciones y volver a los ejercicios sin depender de una pantalla; la edición digital facilita llevar el contenido en un móvil o lector compatible. Para seguir las prácticas, la elección depende de cómo resulte más cómodo consultar el texto.",
+      "texto": "El tercer cerebro está en los pies se ofrece en tapa blanda y Kindle. La edición impresa de Grijalbo tiene 352 páginas y solapas, apropiadas para consultar ejercicios y explicaciones en papel; Kindle permite revisar esos contenidos desde el móvil o un lector electrónico. Ambas opciones sirven para alternar lectura y práctica.",
       "evidencias": [
         "titulo",
         "edicion",
+        "editorial",
         "numero_paginas",
         "formatos_disponibles",
         "sinopsis_editorial"
@@ -34,16 +35,15 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cómo no tener diabetes, de Adrián Díaz Alonso, y El tercer cerebro está en los pies, de Neus Moya, comparten el interés por la salud y el bienestar físico. El primero centra su planteamiento en la diabetes, mientras que el segundo explica el papel de los pies en el movimiento e incorpora ejercicios, biomecánica y casos clínicos. La diferencia principal es el problema corporal que aborda cada libro.",
+      "texto": "Atención y esfuerzo y El tercer cerebro está en los pies se acercan al funcionamiento humano desde perspectivas científicas. Daniel Kahneman estudia cómo se reparte la capacidad de atención, mientras que Neus Moya aborda la relación entre los pies, el cerebro y el movimiento corporal. El segundo incorpora ejercicios y casos clínicos vinculados a molestias físicas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo",
         "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788425373152"
+        "isbn-9791388387524"
       ]
     }
   ],

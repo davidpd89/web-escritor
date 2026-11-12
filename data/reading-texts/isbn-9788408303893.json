@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788408303893",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Osito Tito. Mi primer libro de memoria. Estaciones está orientado a primeras lecturas y actividades infantiles relacionadas con la memoria y las estaciones. Sus 8 páginas y su presentación en cartón lo diferencian de los cuentos extensos y de los libros destinados a una lectura continuada.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición física de Osito Tito. Mi primer libro de memoria. Estaciones es un libro de cartón de 8 páginas, presentado entre los formatos de tapa dura. Su estructura breve permite manipularlo y volver a las páginas durante las actividades de memoria, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El gran libro de los colores de Osito Tito comparte personaje y autor, Benji Davies, con Osito Tito. Mi primer libro de memoria. Estaciones. El primero se centra en los colores, mientras que el segundo identifica las estaciones y la memoria como sus temas principales, de modo que plantean actividades infantiles diferentes.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788408318163",
+        "isbn-9781536256468"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bc8f2ef999de6c1e",
+  "origen": "chatgpt-web"
+}

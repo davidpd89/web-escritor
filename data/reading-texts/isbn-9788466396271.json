@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466396271",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La destrucción o el amor (Best Seller | Ediciones Conmemorativas), de Vicente Aleixandre, se dirige a lectores interesados en el amor y las relaciones de pareja como materia literaria. Con 136 páginas, se aparta de quienes buscan específicamente una extensa novela de aventuras o fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La destrucción o el amor (Best Seller | Ediciones Conmemorativas) está disponible en tapa dura y tapa blanda. La edición de tapa dura de Penguin Bolsillo reúne 136 páginas y ofrece una encuadernación rígida para conservar o regalar; la tapa blanda permite elegir una presentación flexible del mismo título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La destrucción o el amor (Best Seller | Ediciones Conmemorativas) comparte el interés por el amor con Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo), de Carlos del Amor. La obra de Vicente Aleixandre se clasifica en amor y pareja, mientras que la de Carlos del Amor vincula expresamente ese sentimiento con el arte y se presenta como ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084122"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "029a929c51ba67f5",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791387969608",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las mil y una rumbas se dirige a lectores interesados en la música vinculada a Barcelona y en la rumba catalana como expresión cultural. Por su temática y su clasificación en arte y diseño, se aparta de los manuales de dibujo y de las novelas centradas en relaciones románticas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las mil y una rumbas se publica en tapa blanda, con 306 páginas en castellano. La edición de Editorial Comanegra reúne el contenido sobre Barcelona y la rumba catalana en un volumen físico de cubierta flexible que puede leerse y consultarse sin dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c4593c1a41e143c0",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387962340",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "World Trigger 5 (Shônen) encaja con lectores de manga interesados en aventuras, fantasía y ciencia ficción. Su propuesta de cómic se aleja de la novela convencional en prosa y de las historias centradas exclusivamente en conflictos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "World Trigger 5 (Shônen) se publica en tapa blanda, con 376 páginas en castellano. Esta edición permite leer el manga en papel y mantener el volumen junto a otros títulos de la colección, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "World Trigger 6 (Shônen) comparte autor, Daisuke Ashihara, y nombre de serie con World Trigger 5 (Shônen); los títulos los identifican como los números 6 y 5, respectivamente. Wistoria. Wand and Sword, 12 (Shônen - Wistoria) ofrece otra lectura identificada como shônen, pero pertenece a una obra distinta y figura con otra autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962692",
+        "isbn-9791043309632"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fdf3bd03fcb6ef87",
+  "origen": "chatgpt-web"
+}

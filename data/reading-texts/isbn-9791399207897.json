@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399207897",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Milagro migrante: Una historia real de fe, lucha, resiliencia y transformación se orienta a lectores interesados en experiencias reales de migración y superación personal. Su combinación de fe y transformación personal lo distancia de los manuales dedicados exclusivamente a hábitos de salud o bienestar físico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Milagro migrante: Una historia real de fe, lucha, resiliencia y transformación está disponible en tapa blanda, con 145 páginas impresas en castellano. Esta edición permite leer la historia de forma lineal, marcar pasajes relacionados con la resiliencia y conservar el ejemplar en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, aborda el cambio personal desde la ciencia y las prácticas de bienestar. Milagro migrante: Una historia real de fe, lucha, resiliencia y transformación, de Rocio Morales -Broy, se distingue por presentar una historia real vinculada a la migración y la fe.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ab083aab8e6a7ecd",
+  "origen": "chatgpt-web"
+}

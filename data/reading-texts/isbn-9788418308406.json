@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788418308406",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inversiones conscientes (EMPRESA ACTIVA), de Elizabeth Wakefield, está dirigido a lectores interesados en economía y empresa. Quien busque una obra de ficción o una lectura centrada en el entretenimiento narrativo encontrará un planteamiento diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 288 páginas en una edición física de Empresa Activa; Kindle permite acceder al contenido desde un dispositivo electrónico. El papel facilita consultar el volumen fuera de una pantalla, mientras que el formato digital permite llevarlo en el móvil o en un lector electrónico.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Finanzas conscientes (EMPRESA ACTIVA), de Elizabeth Wakefield, es la comparación más directa por compartir autora y la referencia a las finanzas conscientes. Inversiones conscientes (EMPRESA ACTIVA) concreta su temática en las inversiones, mientras que el otro título amplía el foco a las finanzas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788418308369"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a5ce6db8cfdff02c",
+  "origen": "chatgpt-web"
+}

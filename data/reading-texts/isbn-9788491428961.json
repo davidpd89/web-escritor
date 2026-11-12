@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788491428961",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¨que Pasa En Un Hormiguero? (Descubriendo el mundo en castellano), de Stepánka Sekaninová, se encuadra en la lectura infantil y juvenil. Su título sitúa el hormiguero como asunto central y sus 32 páginas ofrecen una extensión breve; no responde a quien busque una novela extensa para adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¨que Pasa En Un Hormiguero? (Descubriendo el mundo en castellano) está editado en tapa dura y tiene 32 páginas. La cubierta rígida protege el libro durante las consultas repetidas, mientras que su extensión permite organizar sesiones de lectura breves en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f2e0ccf9515417eb",
+  "origen": "chatgpt-web"
+}

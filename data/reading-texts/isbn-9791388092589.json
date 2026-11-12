@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388092589",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La vida sucia (Serie ENDEBATE): Elogio de la impureza está dirigido a lectores de ensayo interesados en reflexionar sobre la impureza como concepto. Su propuesta temática se aparta de los libros prácticos con instrucciones para modificar hábitos o gestionar tareas cotidianas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La vida sucia (Serie ENDEBATE): Elogio de la impureza se publica en tapa blanda, con 128 páginas en castellano. La edición de Debate permite leer el ensayo en un volumen relativamente breve y volver a sus argumentos sin manejar una obra de gran extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "afe512b7b01f4b55",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387962807",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Más allá del amor 1 (Shôjo): Universo Manga se dirige a lectores de manga que prefieren las relaciones sentimentales y los conflictos afectivos contemporáneos. La obra de Fujimomo se encuadra en el romance y la narrativa gráfica, por lo que no responde a una búsqueda de terror o ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Más allá del amor 1 (Shôjo): Universo Manga se publica en tapa blanda, con 208 páginas en castellano. La edición de Distrito Manga permite conservar el tomo en papel y consultarlo sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, comparte con Más allá del amor 1 (Shôjo): Universo Manga el enfoque romántico y la identificación como shôjo, aunque son obras de autoras distintas. La luna en una noche de lluvia 1 (Yuri): Universo Manga, de Kuzushiro, también aborda el romance en formato gráfico, pero se identifica como yuri.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962494",
+        "isbn-9791387962814"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a854e85ee7d48bfd",
+  "origen": "chatgpt-web"
+}

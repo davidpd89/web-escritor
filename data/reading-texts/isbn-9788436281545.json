@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788436281545",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Geografía humana. Teoría y práctica para el grado de antropología está dirigido a lectores que buscan contenidos de geografía humana vinculados con los estudios de antropología. Su planteamiento combina teoría y práctica, por lo que se diferencia de los libros de divulgación centrados únicamente en relatos de viajes o descripciones de lugares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 438 páginas de Geografía humana. Teoría y práctica para el grado de antropología, en un volumen físico destinado a la consulta y lectura en papel. Es el formato disponible de esta publicación de Uned.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "33 islas: Un periplo mediterráneo. De Marettimo a Venecia., de Lucio Bellomo, comparte con Geografía humana. Teoría y práctica para el grado de antropología el interés por los espacios geográficos, aunque lo aborda mediante un recorrido por islas mediterráneas. A Força Aerea Portuguesa en Africa, 1961-74, de Charles Barrett, ofrece otro enfoque temático, centrado en un ámbito histórico y militar concreto frente al planteamiento teórico y práctico de la geografía humana.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387873127",
+        "isbn-9798237728583"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a3d9db1ede3a0139",
+  "origen": "chatgpt-web"
+}

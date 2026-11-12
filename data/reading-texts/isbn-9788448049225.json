@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788448049225",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Machines (Música), de Jean-Michel Jarre, se presenta como un ensayo vinculado a la música. Se orienta a lectores interesados en textos de no ficción sobre ese ámbito, no a quienes buscan una novela o un manual de interpretación musical.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Machines (Música) se publica en tapa dura, con 368 páginas en castellano. Esta presentación de Libros Cúpula ofrece una encuadernación rígida para la lectura en papel y su conservación en una biblioteca de libros sobre música.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "04055fadb4efd41e",
+  "origen": "chatgpt-web"
+}

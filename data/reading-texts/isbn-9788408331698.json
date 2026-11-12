@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788408331698",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inmunidad en forma: Conoce y entrena tus defensas (Vivir Mejor), de Alfredo Corell, se dirige a lectores interesados en la salud, el bienestar y el funcionamiento de las defensas del organismo. Con 400 páginas, desarrolla un tema específico dentro del cuidado personal; queda fuera de las preferencias de quienes buscan memorias o narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Inmunidad en forma: Conoce y entrena tus defensas (Vivir Mejor) está disponible en tapa blanda y Kindle. La edición de bolsillo de Booket tiene 400 páginas, por lo que el formato físico permite consultar el contenido en papel, mientras que Kindle evita cargar con ese volumen y facilita la lectura desde el móvil. Ambas opciones mantienen el mismo enfoque sobre las defensas y el bienestar.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "453e4c23d8603fad",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387962395",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hiraeth, el final de la travesía (edición integral) (Seinen) se dirige a lectores de manga seinen interesados en la fantasía y el terror. Su combinación de géneros y su extensión de 576 páginas lo alejan de quienes buscan realismo sin componentes fantásticos o cómics de pocas páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hiraeth, el final de la travesía (edición integral) (Seinen) se presenta en tapa dura, con 576 páginas en castellano. La encuadernación rígida resulta práctica para conservar y regalar esta edición integral de Distrito Manga, aunque su extensión supone un volumen considerable para transportar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hiraeth, el final de la travesía (edición integral) (Seinen) y Caminando con la muerte 4 (Seinen), de ryoko, comparten la identificación seinen, aunque pertenecen a autores diferentes. Creepy nº 11/29, de Varios autores, ofrece otra referencia vinculada al terror, pero se presenta como una recopilación de distintas autorías frente a la edición integral firmada por Yuhki Kamatani.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410305830",
+        "isbn-9788411406130"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4707fb5dd958f4cb",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387846169",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El oro de los tigres está dirigido a lectores interesados en la poesía de Jorge Luis Borges. Su adscripción a este género lo diferencia de quienes buscan principalmente narrativa en forma de cuentos, novelas o relatos de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 96 páginas en un volumen físico de lectura y consulta; Kindle permite acceder a la obra desde el móvil o un lector electrónico. El audiolibro ofrece una tercera posibilidad para escuchar El oro de los tigres en lugar de leerlo.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El oro de los tigres comparte con Cuentos completos (edición especial en tapa dura) la autoría de Jorge Luis Borges. La diferencia principal está en el género: el primero pertenece a la poesía, mientras que el segundo reúne los cuentos del escritor argentino.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466392297"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "46bb1e98ffc61f3a",
+  "origen": "chatgpt-web"
+}

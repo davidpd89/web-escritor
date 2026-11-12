@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791399180527",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "No círculo / en el círculo, de Pura Salceda, se dirige a lectores de poesía en castellano. Con 132 páginas, ofrece una extensión contenida frente a libros de mayor volumen, pero no corresponde a quien busque una novela convencional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "No círculo / en el círculo se presenta en tapa blanda, con 132 páginas publicadas por In-verso Ediciones de Poesía. El volumen físico permite conservar la obra en papel y volver a sus textos sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7f6938390377e4a4",
+  "origen": "chatgpt-web"
+}

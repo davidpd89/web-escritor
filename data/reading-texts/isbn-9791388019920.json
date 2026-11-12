@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388019920",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ojos que no ven (Narrativa), de Martín Caparrós, encaja con lectores interesados en el misterio y la narrativa contemporánea. Sus 192 páginas ofrecen una extensión relativamente breve dentro de la ficción; no responde a quien busca específicamente poesía o un ensayo sobre hechos reales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ojos que no ven (Narrativa) está disponible en tapa blanda y Kindle. La edición de Galaxia Gutenberg tiene 192 páginas en papel, mientras que Kindle permite llevar la lectura en un dispositivo electrónico o en el móvil sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ojos que no ven (Narrativa) puede compararse con Aguas turbulentas, de Rankin Ian, por su relación con el misterio. Aguas turbulentas sitúa su conflicto entre el pasado y el presente de Edimburgo, mientras que Ojos que no ven (Narrativa), de Martín Caparrós, combina misterio y narrativa contemporánea. La revolución ya no es lo que era (Random House) comparte autor con este último, pero constituye otra obra de Martín Caparrós.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788439747512",
+        "isbn-9791370310318"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bbdd7dc47b50341b",
+  "origen": "chatgpt-web"
+}

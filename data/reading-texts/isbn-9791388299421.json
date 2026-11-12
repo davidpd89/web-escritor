@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388299421",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Animales que flotan lejos de casa: 43 (Leteo) se dirige a lectores que buscan poesía y muestran interés por la naturaleza y el mundo animal. Nicolás Peña firma un libro de 126 páginas dentro del género poético, por lo que encaja menos con quien busca cuentos infantiles, cómics de animales o relatos narrativos convencionales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer Animales que flotan lejos de casa: 43 (Leteo) en una edición física de 126 páginas. Su extensión facilita llevar el libro en la mochila o incorporarlo a una colección de poesía sin ocupar el espacio de un volumen extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Animales que flotan lejos de casa: 43 (Leteo), de Nicolás Peña, comparte con Animales, de Susaeta Ediciones, el protagonismo del mundo animal. La diferencia está en el género y el planteamiento: el primero pertenece a la poesía, mientras que Animales reúne seis cuentos ilustrados con animales como protagonistas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370341589"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4e7fe1745fc1bc95",
+  "origen": "chatgpt-web"
+}

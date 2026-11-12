@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387955557",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en las biografías deportivas y en la trayectoria personal de Jan Ullrich. Por su enfoque autobiográfico y su relación con el ciclismo, encaja menos con quienes buscan manuales de entrenamiento o ficción deportiva.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Jan Ullrich: Del cielo al infierno y vuelta a la vida (Ciclismo) se presenta en tapa blanda, con 270 páginas en castellano. Es una opción física que permite transportar el volumen y consultar distintos pasajes sin depender de dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al andar: Vivencias del Camino de Santiago comparte con este libro el interés por las experiencias personales vinculadas a una actividad física. La diferencia está en el enfoque: Carlos Díaz Ballesta aborda vivencias del Camino de Santiago, mientras Jan Ullrich y Dennis Sand se centran en una trayectoria relacionada con el ciclismo.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "816799945b2e4055",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788427256385",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Thistlemarsh. Los fae se están mudando (Ficción crossover) encaja con lectores que buscan fantasía y prefieren historias de este género en formato de novela extensa. Moorea Corrigan firma una obra de 496 páginas publicada por Molino; puede interesar menos a quien priorice la narrativa realista o los géneros alejados de la fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece una edición física de 496 páginas, con espacio para una lectura prolongada y consulta en papel. Es la única edición disponible para Thistlemarsh. Los fae se están mudando (Ficción crossover), publicada por Molino.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5011edc6d632509b",
+  "origen": "chatgpt-web"
+}

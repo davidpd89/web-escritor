@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388102271",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "One Piece nº 114 (Manga Shonen), de Eiichiro Oda, se dirige al público juvenil que lee manga y narrativa gráfica. El título lo identifica como el n.º 114, por lo que resulta más pertinente para quienes siguen esa numeración que para lectores que buscan una obra independiente o una novela exclusivamente textual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "One Piece nº 114 (Manga Shonen) está disponible en tapa blanda y Kindle, con 216 páginas en la edición indicada. El papel permite incorporarlo físicamente a una colección de manga; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "One Piece nº 114 (Manga Shonen) y One Piece Academia nº 07: 7 (Manga Shonen) comparten la autoría de Eiichiro Oda y su identificación como manga shonen. Se distinguen por la serie indicada en sus títulos y por su numeración: el primero señala el n.º 114 y el segundo el n.º 07.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388103827"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e44d7109c475787d",
+  "origen": "chatgpt-web"
+}

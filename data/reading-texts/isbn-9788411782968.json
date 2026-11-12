@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788411782968",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estrofas rotas: Poesía reunida (Poesía Ilustrado) está dirigido a lectores de poesía que buscan una recopilación de textos de Safo. Su naturaleza poética lo diferencia de una novela con desarrollo argumental continuo y resulta menos afín a quienes prefieren exclusivamente narrativa en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estrofas rotas: Poesía reunida (Poesía Ilustrado) se presenta en tapa dura, con 344 páginas en castellano. La encuadernación rígida protege el volumen durante las consultas repetidas y ofrece una presentación apropiada para conservar una recopilación poética o regalarla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "99d22693c32bad07",
+  "origen": "chatgpt-web"
+}

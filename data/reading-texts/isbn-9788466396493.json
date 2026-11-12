@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788466396493",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de narrativa contemporánea que buscan historias familiares con elementos de misterio. La historia de Star, de Lucinda Riley, pertenece al universo de Las Siete Hermanas; se aleja de las expectativas de quien busca exclusivamente acción o investigación criminal, porque su clasificación también destaca la familia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición limitada de Penguin Bolsillo se publica en castellano y en formato de bolsillo, con encuadernación de tapa blanda. Sus 592 páginas corresponden a la presentación identificada por el ISBN 9788466396493. El título incluye Las Siete Hermanas 3 y La historia de Star, referencias que permiten distinguir esta obra dentro de la serie de Lucinda Riley.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formato_edicion",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sus 592 páginas se ofrecen aquí en tapa blanda, dentro de la colección de bolsillo de Penguin Bolsillo. Esta presentación reúne una lectura extensa en un volumen físico que puede transportarse sin recurrir a un dispositivo electrónico. También permite conservar la obra en papel junto a otros títulos de la misma serie.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las siete hermanas (edición limitada) (Las Siete Hermanas 1): La historia de Maia (Campaña | Ahora por menos), de Lucinda Riley, comparte autoría, serie y enfoque familiar con este libro. La diferencia está en la protagonista identificada por cada título: Maia en aquel y Star en La hermana sombra (edición limitada) (Las Siete Hermanas 3): La historia de Star (Campaña | Ahora por menos).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396486"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4ad1c4f1154030b6",
+  "origen": "chatgpt-web"
+}

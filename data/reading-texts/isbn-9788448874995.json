@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788448874995",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Historia de España en 5 cuentos de cinco minutos: Cuentos para leer antes de ir a dormir (Pequeños curiosos) está dirigido a lectores infantiles interesados en conocer la historia mediante relatos breves. Su planteamiento también encaja con la lectura compartida antes de dormir, pero no con quien busca un manual histórico de consulta.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne sus 128 páginas en un volumen pensado para conservar y compartir durante la lectura. Es el formato disponible para esta edición de Beascoa, con un planteamiento de cuentos breves que facilita repartir la lectura en distintos momentos.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El león y Ellen: Ocho nuevas historias contadas por el león de Ellen (Libros para rumiar) comparte el formato de relatos infantiles, aunque se centra en historias contadas por sus personajes. La Historia de España en 5 cuentos de cinco minutos: Cuentos para leer antes de ir a dormir (Pequeños curiosos), en cambio, lleva la narración al terreno de la historia española.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788412872781"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "64ee4b897edeed40",
+  "origen": "chatgpt-web"
+}

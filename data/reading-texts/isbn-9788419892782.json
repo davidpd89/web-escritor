@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "CORONA AUTORITARIA, LA se dirige a lectores interesados en la historia política española y en las relaciones entre monarquía, nacionalismo y dictadura. Su análisis institucional y simbólico se aleja de la narración histórica centrada en batallas o biografías individuales.",
+      "texto": "La corona autoritaria se dirige a lectores interesados en la historia política española, la monarquía y las relaciones entre el poder institucional y el nacionalismo. Su análisis de la dictadura de Primo de Rivera, el papel de Alfonso XIII y los antecedentes de la Segunda República encaja menos con quienes buscan una biografía personal o una narración centrada en campañas militares.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,41 +13,41 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Guillermo María Muñoz estudia la función política de la monarquía durante la dictadura de Primo de Rivera mediante herramientas de historia cultural. Examina el papel de Alfonso XIII ante la religión, el ejército, el africanismo y los vínculos hispanoamericanos, y relaciona esas posiciones con el cambio de régimen de 1931.",
+      "texto": "La corona autoritaria examina la función política y simbólica de la monarquía durante la dictadura de Primo de Rivera. Guillermo María Muñoz estudia las relaciones de Alfonso XIII con el nacionalismo, la religión, el ejército y la política exterior, utilizando la historia cultural para explicar el papel de la Corona en aquel régimen y el contexto que precedió a la Segunda República en 1931.",
       "evidencias": [
+        "titulo",
         "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "CORONA AUTORITARIA, LA se presenta en tapa blanda, con 456 páginas en castellano publicadas por Marcial Pons Ediciones de Historia. El volumen físico permite consultar distintos apartados del análisis histórico y volver a ellos durante el estudio de la monarquía y la dictadura.",
+      "texto": "La corona autoritaria se ofrece en tapa blanda, con 456 páginas publicadas por Marcial Pons Ediciones de Historia. Es un formato físico para una lectura prolongada y para volver a consultar pasajes sobre la monarquía y la dictadura de Primo de Rivera, sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "CORONA AUTORITARIA, LA y Auge y caída del Tercer Reich (edición especial) estudian el poder político en contextos autoritarios, aunque el primero se concentra en la monarquía española y el segundo en el régimen nazi. Frente a AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA, centrado en una investigación biográfica, el libro de Guillermo María Muñoz prioriza el funcionamiento de una institución.",
+      "texto": "76, de Felipe Pigna, puede compararse con La corona autoritaria desde el interés por la historia, aunque sus títulos apuntan a objetos de estudio diferentes. Guillermo María Muñoz centra su obra en la monarquía española durante la dictadura de Primo de Rivera y en sus implicaciones políticas, mientras que 76 identifica su asunto mediante una referencia numérica.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788418567933",
-        "isbn-9788411005555"
+        "isbn-9788408329695"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f50a9be3e204ad08",
+  "fuente_hash": "59a280390a531d09",
   "origen": "chatgpt-web"
 }

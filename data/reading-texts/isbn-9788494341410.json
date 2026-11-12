@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788494341410",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los guardianes de lo efímero, de Francisco Giménez Gracia, se dirige a lectores interesados en el ensayo en castellano. Sus 140 páginas lo sitúan en una extensión relativamente breve; no corresponde a quien busca una novela de ficción con una trama narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los guardianes de lo efímero se presenta en tapa blanda, con 140 páginas en castellano. Esta edición de Pentaesencia Books permite llevar el ensayo en papel y consultar sus páginas directamente, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c3e14de343420784",
+  "origen": "chatgpt-web"
+}

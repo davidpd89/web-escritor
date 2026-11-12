@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9786073880473",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tu mejor versión / The Accomplished Woman está dirigido a lectores interesados en el desarrollo personal y su relación con el ámbito profesional y económico. La obra de Christina Tracy Stein reúne 256 páginas; no responde a la búsqueda de una novela de ficción ni de un manual centrado exclusivamente en inversiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tu mejor versión / The Accomplished Woman se publica en tapa blanda, con 256 páginas en castellano. El formato permite consultar y releer apartados en papel, una opción práctica para un libro de desarrollo personal; la cubierta flexible facilita transportarlo durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e199824967168a1e",
+  "origen": "chatgpt-web"
+}

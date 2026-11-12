@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399168648",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Branding con criterio: Una novela-ensayo que, como brújula de arena, nos interpela (TEMATICOS) está dirigido a lectores interesados en el branding y su relación con el pensamiento empresarial. Su combinación declarada de novela y ensayo lo diferencia tanto de una ficción ajena a la empresa como de un manual exclusivamente técnico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Branding con criterio: Una novela-ensayo que, como brújula de arena, nos interpela (TEMATICOS) está editado en tapa blanda y consta de 380 páginas. El volumen permite leer y consultar en papel su contenido sobre branding, con una extensión que requiere más tiempo que un ensayo breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Branding con criterio: Una novela-ensayo que, como brújula de arena, nos interpela (TEMATICOS) puede compararse con El alfabeto infinito: Las leyes del conocimiento (Ensayo y Pensamiento) por su orientación hacia la reflexión y el ensayo. Cristián Saracco combina branding y novela-ensayo, mientras que César Hidalgo centra su obra en las leyes del conocimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388092701"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "04d91631759dd4a4",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788412719482",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Perverso, de Ivan Mourin, se encuadra en el misterio y el thriller, por lo que corresponde a lectores que buscan ficción de esos géneros. Sus 264 páginas en castellano suponen una extensión menor que la de muchas novelas largas; no está orientado a una búsqueda centrada específicamente en el romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Perverso se ofrece en tapa blanda y Kindle, dos opciones para leer sus 264 páginas. El ejemplar físico de Fabula Nova puede guardarse, prestarse o regalarse; la edición Kindle permite leerlo en dispositivos compatibles y llevarlo en el móvil sin cargar con el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "33eada90cc61db1f",
+  "origen": "chatgpt-web"
+}

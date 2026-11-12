@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466685528",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La voz del desierto se dirige a lectores interesados en experiencias deportivas, memorias personales y desarrollo personal. Cristina Gutiérrez relaciona en el título su participación en el Dakar con el aprendizaje vital. No responde tanto a quien busca una guía exclusivamente técnica de competición o un recetario de nutrición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de La voz del desierto contiene 312 páginas y permite conservar el relato de Cristina Gutiérrez en papel. Kindle ofrece la misma obra como opción de lectura digital, accesible desde el móvil o un lector electrónico. La decisión depende de si se prefiere manejar un volumen impreso o llevarlo en pantalla.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Por si tu avión se cae: El viaje del héroe: de los Andes a tus travesías vitales comparte con La voz del desierto la relación entre una experiencia personal y los aprendizajes vitales. La diferencia está en el punto de partida: Cristina Gutiérrez vincula su relato al Dakar, mientras que Eduardo Strauch Urioste y Beatriz Ogando Díaz lo relacionan con los Andes. El código del rendimiento aborda el deporte desde la ciencia de lo que consume el deportista, no desde unas memorias personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788498297478",
+        "isbn-9788409934010"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2611f5ee23ae34f4",
+  "origen": "chatgpt-web"
+}

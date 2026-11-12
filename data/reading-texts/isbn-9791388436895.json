@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388436895",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El deseo de Dios, el pétalo invisible y otros cuentos divino (WOOOBOOKS) se dirige a lectores interesados en la psicología, el desarrollo personal y los relatos vinculados con lo divino. Sus 40 páginas plantean una lectura breve; quien busque un ensayo psicológico extenso encontrará una propuesta de dimensiones diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 40 páginas de El deseo de Dios, el pétalo invisible y otros cuentos divino (WOOOBOOKS) en un volumen breve. Es el formato disponible para leerlo en papel y conservarlo; su encuadernación permite incorporarlo también a una colección de libros físicos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, comparte el interés por el desarrollo personal y la psicología. Sin embargo, aborda ese ámbito desde la infancia y su dimensión emocional, mientras que El deseo de Dios, el pétalo invisible y otros cuentos divino (WOOOBOOKS), de José Antonio Illán Albert, se presenta como un conjunto de cuentos relacionado con lo divino.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eb977caddfb336b4",
+  "origen": "chatgpt-web"
+}

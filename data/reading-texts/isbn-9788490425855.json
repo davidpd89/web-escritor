@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788490425855",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Opiniones cruzadas para la optimización presente y futura del Campus Universitario de Tafira: 1 se dirige a lectores interesados en el diseño y la mejora de espacios universitarios. Por su asunto específico, encaja menos con quienes buscan una introducción general al arte o una obra narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro aborda la optimización del Campus Universitario de Tafira desde una perspectiva que contempla tanto su situación presente como sus posibilidades futuras. El planteamiento de opiniones cruzadas sitúa distintas perspectivas en torno a un mismo espacio universitario, dentro de un ámbito relacionado con el diseño y la divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Opiniones cruzadas para la optimización presente y futura del Campus Universitario de Tafira: 1 está publicado en tapa blanda y tiene 108 páginas en castellano. Esta edición en papel permite consultar sus contenidos, marcar apartados y utilizar el volumen como referencia durante el análisis del espacio universitario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Marco teórico y principios normativos de la Calidad en la Edificación comparte con Opiniones cruzadas para la optimización presente y futura del Campus Universitario de Tafira: 1 el interés por el entorno construido. Alejandra Vidales Barriguete se centra en los fundamentos y normas de la edificación, mientras que Vicente Ángel Mirallave Izquierdo y Flora Pescador Monagas abordan la mejora presente y futura de un campus universitario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418255861"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "705c6e58cab002b7",
+  "origen": "chatgpt-web"
+}

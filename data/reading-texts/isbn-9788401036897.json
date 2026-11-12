@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los escalones está dirigido a lectores adultos interesados en las memorias de figuras del cine y en los procesos personales de superación. Su recorrido por la infancia, las dificultades profesionales y la creación de Rocky lo distingue de una biografía histórica ajena al mundo cinematográfico.",
+      "texto": "Los escalones está dirigido a lectores adultos interesados en las memorias personales y las trayectorias profesionales del cine. Sylvester Stallone reconstruye sus dificultades y decisiones desde una perspectiva autobiográfica, por lo que encaja menos con quienes buscan una biografía escrita por un investigador externo.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,25 +15,27 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Sylvester Stallone reconstruye su trayectoria personal y profesional mediante recuerdos de infancia, obstáculos escolares y experiencias anteriores a su reconocimiento cinematográfico. La narración presta especial atención al esfuerzo, la creatividad y la perseverancia, con la creación de Rocky como episodio central.",
+      "texto": "Sylvester Stallone analiza la perseverancia, el esfuerzo y las decisiones que marcaron su trayectoria artística. Los escalones relaciona sus experiencias familiares y escolares con sus primeros años profesionales, la creación de Rocky y la construcción de una carrera cinematográfica.",
       "evidencias": [
+        "titulo",
         "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los escalones tiene 352 páginas y puede elegirse en tapa dura, tapa blanda, Kindle o audiolibro. La tapa dura con sobrecubierta ofrece una presentación para conservar o regalar; la blanda facilita el transporte, Kindle permite leerlo en el móvil y el audiolibro ofrece la alternativa de escucharlo.",
+      "texto": "La tapa dura de Los escalones presenta sus 352 páginas con sobrecubierta, una opción física para conservar o regalar las memorias de Sylvester Stallone. Kindle facilita la lectura en dispositivos electrónicos, mientras que el audiolibro permite seguir el relato mediante la escucha.",
       "evidencias": [
         "titulo",
+        "autores",
         "numero_paginas",
-        "formatos_disponibles",
-        "edicion"
+        "edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los escalones y Churchill comparten el interés por reconstruir la trayectoria de una personalidad conocida y las circunstancias que marcaron su vida. Sylvester Stallone relata su propia experiencia en el cine, mientras que Churchill, de Paul Johnson y Diego Pereda Sancho, presenta una figura histórica desde el análisis biográfico de un historiador.",
+      "texto": "Los escalones puede compararse con Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, por su vínculo con las experiencias personales. El libro de Sylvester Stallone reconstruye una trayectoria artística marcada por las dificultades; el de Carlos Díaz Ballesta sitúa las vivencias en el Camino de Santiago, con un marco distinto al cinematográfico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -40,12 +43,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388328046"
+        "isbn-9791388099496"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b4939865e08149b8",
+  "fuente_hash": "1a8be7375b32960c",
   "origen": "chatgpt-web"
 }

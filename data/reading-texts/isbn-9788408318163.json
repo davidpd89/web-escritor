@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408318163",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El gran libro de los colores de Osito Tito está dirigido al público infantil que empieza a explorar los colores mediante libros de cartón. Su contenido temático y sus 22 páginas lo alejan de las lecturas juveniles con tramas largas y conflictos narrativos.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "La propuesta consiste en explorar los colores a través de un libro infantil de cartón protagonizado por Osito Tito. Sus 22 páginas permiten detenerse en cada color, señalarlo y relacionarlo con objetos del entorno durante una lectura compartida.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es de tapa dura, presentada como libro de cartón por Timun Mas Infantil. Sus 22 páginas forman un volumen físico pensado para pasar las hojas y consultar los colores directamente, también durante las lecturas compartidas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Osito Tito: Diversión En La Granja, también de Benji Davies, comparte protagonista y autor con El gran libro de los colores de Osito Tito, pero sitúa su tema en la granja en lugar de los colores. Osito Tito. Mi primer libro de memoria. Estaciones mantiene la misma autoría y personaje, aunque propone trabajar la memoria y las estaciones frente al reconocimiento de colores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781536256468",
+        "isbn-9788408303893"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a6bd706f76b37226",
+  "origen": "chatgpt-web"
+}

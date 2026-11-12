@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788411078733",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores de fantasía que también buscan narrativa contemporánea, las dos vertientes con las que se clasifica la obra de John Connolly. Encaja menos con quienes prefieren exclusivamente literatura realista y evitan los elementos fantásticos.",
+      "evidencias": [
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de La tierra de las cosas perdidas: Ilustraciones de Riki Blanco (MAXI) pertenece al sello Maxi-tusquets y se presenta como libro de bolsillo. Reúne 416 páginas en castellano, con publicación editorial fechada el 2027-01-13; el propio título identifica las ilustraciones de Riki Blanco.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 416 páginas de esta edición en un volumen de bolsillo, apropiado para transportar y conservar en papel. Kindle permite leer la obra en un dispositivo electrónico y ajustar la visualización del texto sin cargar con el ejemplar físico.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa) permite establecer una comparación por su componente mágico, mientras que La tierra de las cosas perdidas: Ilustraciones de Riki Blanco (MAXI) se presenta además como narrativa contemporánea. El trono de las pesadillas (Umbriel narrativa) ofrece otra referencia fantástica, con una autoría distinta de la de John Connolly.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387749316",
+        "isbn-9791387749255"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3a6941c93ad3446f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408331773",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inevitablemente yo: A veces hay que romper con todo para volver a empezar (Biografías y Memorias), de Antonio Orozco, se dirige a lectores interesados en las memorias personales y el desarrollo personal. Sus 176 páginas plantean una lectura breve sobre la idea de romper con una etapa y empezar otra; se aleja de quienes buscan ficción o un manual centrado en la salud.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de bolsillo de Booket reúne 176 páginas en tapa blanda, una opción para llevar el libro fuera de casa. La tapa dura ofrece una encuadernación más rígida para conservarlo o regalarlo; Kindle permite leerlo en el móvil sin transportar el volumen físico. El audiolibro permite escucharlo durante desplazamientos o actividades cotidianas.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Inevitablemente yo: A veces hay que romper con todo para volver a empezar (Biografías y Memorias) comparte con Asuntos pendientes: Hay historias que terminan, pero no se acaban (Autoconocimiento) el interés por los cambios personales, aunque el primero pertenece también al ámbito de las memorias. El año que volví a ser salvajemente humana aborda el malestar personal desde las señales del cuerpo, mientras que el libro de Antonio Orozco sitúa la ruptura y el nuevo comienzo en su propio título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411193795",
+        "isbn-9788410358546"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "32d2c74cbb31feb5",
+  "origen": "chatgpt-web"
+}

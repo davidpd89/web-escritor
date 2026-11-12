@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788409923434",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La mirada verde, de Esteban Vilches, se sitúa en el ámbito del misterio y el thriller. Con 322 páginas, responde a quienes buscan una lectura de intriga de extensión media, mientras que su clasificación la aleja de las obras centradas en el ensayo o la divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La mirada verde cuenta con una edición en tapa blanda de 322 páginas, publicada por Esteban Vilches Lozano. Es una opción de lectura física en castellano para quienes prefieren avanzar por una novela de misterio en papel y conservarla después en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e369d36e219f2399",
+  "origen": "chatgpt-web"
+}

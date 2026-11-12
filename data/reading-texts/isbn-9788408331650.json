@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788408331650",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a quienes buscan misterio y thriller en una novela contemporánea con elementos familiares. Su combinación de géneros se aleja de una lectura centrada exclusivamente en las relaciones familiares, sin componente de intriga.",
+      "evidencias": [
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Booket se presenta como libro de bolsillo en tapa blanda, con 480 páginas en castellano. El título la identifica como una edición limitada a precio especial de la Colección Especial y como el primer volumen de la Trilogía de la ciudad blanca.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formato_edicion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 480 páginas en un volumen de bolsillo, pensado para transportarlo y leerlo en papel. Kindle permite llevar la novela en un dispositivo de lectura o móvil, mientras que el audiolibro ofrece la alternativa de escucharla sin utilizar el ejemplar físico.",
+      "evidencias": [
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El silencio de la ciudad blanca (Trilogía de la ciudad blanca, 1): Edición limitada a precio especial (Colección Especial) comparte con La cena de las ánimas la referencia a las ánimas o al misterio como punto de comparación entre lecturas. Frente a Las siete hermanas (edición limitada) (Las Siete Hermanas 1): La historia de Maia (Campaña | Ahora por menos), de Lucinda Riley, la novela de Eva García Sáenz de Urturi se sitúa expresamente en el misterio y el thriller, aunque ambas presentan elementos familiares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410647602",
+        "isbn-9788466396486"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "60189f7d31ea06fe",
+  "origen": "chatgpt-web"
+}

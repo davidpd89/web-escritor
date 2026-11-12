@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788479916992",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Asistentes de inteligencia artificial generativa en la universidad: diseño de experiencias educativas para activar el razonamiento se dirige a lectores interesados en la enseñanza universitaria y el uso educativo de la inteligencia artificial. Sus 180 páginas se sitúan entre el ensayo y la divulgación científica, por lo que su enfoque se aleja de la ficción y del entretenimiento narrativo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro examina cómo integrar asistentes de inteligencia artificial generativa en el diseño de experiencias de aprendizaje universitario. Su planteamiento vincula el uso de estas herramientas con la activación del razonamiento del alumnado, situando la planificación de las actividades educativas en el centro del análisis.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 180 páginas de Asistentes de inteligencia artificial generativa en la universidad: diseño de experiencias educativas para activar el razonamiento en un volumen físico. Este formato permite subrayar, añadir notas y consultar apartados durante el trabajo académico o la preparación de actividades docentes.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Asistentes de inteligencia artificial generativa en la universidad: diseño de experiencias educativas para activar el razonamiento y Colonialismo digital: Por una crítica hacker-fanoniana comparten el interés por las implicaciones de la tecnología digital. El primero aborda el diseño educativo universitario, mientras que la obra de Deivison Faustino y Walter Lippold plantea una crítica del colonialismo digital.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399306408"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2eb737b047b4f668",
+  "origen": "chatgpt-web"
+}

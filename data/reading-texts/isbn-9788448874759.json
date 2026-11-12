@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788448874759",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Clic y Clara en el espacio: Las aventuras más científicamente divertidas (Pequeños curiosos), de Carlos Pazos, se dirige a lectores infantiles interesados en aventuras espaciales y ciencia ficción. Sus 40 páginas lo distinguen de una novela extensa y de los libros centrados exclusivamente en situaciones cotidianas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Clic y Clara en el espacio: Las aventuras más científicamente divertidas (Pequeños curiosos) cuenta con una edición en tapa dura de 40 páginas. La cubierta rígida permite conservar este volumen breve de aventuras espaciales para lecturas repetidas y su presentación física resulta adecuada para regalar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Clic y Clara en el espacio: Las aventuras más científicamente divertidas (Pequeños curiosos) se relaciona directamente con Clic y Clara en la era de los dinosaurios: Las aventuras más científicamente divertidas (Pequeños curiosos). Ambos títulos son de Carlos Pazos y comparten protagonistas y planteamiento de aventuras científicas; el primero se sitúa en el espacio y el segundo remite a la era de los dinosaurios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874742"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "581dd4ab783cafe1",
+  "origen": "chatgpt-web"
+}

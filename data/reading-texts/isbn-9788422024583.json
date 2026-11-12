@@ -4,47 +4,52 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "IA Y TEOLOGÍA: UNA RELACIÓN A CONSTRUIR encaja con lectores interesados en las consecuencias humanas de la inteligencia artificial desde una perspectiva teológica cristiana. Su atención al pensamiento religioso y a la dignidad de la persona lo diferencia de los manuales centrados en aprender a utilizar herramientas digitales.",
+      "texto": "IA y teología: Una relación a construir encaja con lectores interesados en las preguntas filosóficas y religiosas que plantea la inteligencia artificial. Carlos Simón aborda la tecnología desde la teología cristiana y la dignidad humana, por lo que su enfoque se aleja de los manuales de programación o de uso práctico de herramientas digitales.",
       "evidencias": [
         "titulo",
+        "autores",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Carlos Simón estudia las implicaciones de la inteligencia artificial para la comprensión teológica del ser humano y de la tecnología. Su planteamiento incorpora el Magisterio de la Iglesia y Magnifica humanitas para examinar la responsabilidad humana, el valor de la persona y la relación con la Creación.",
+      "texto": "El libro examina cómo puede intervenir la teología en los debates sobre inteligencia artificial y transformación digital. Carlos Simón relaciona distintas ramas del conocimiento con el Magisterio de la Iglesia y Magnifica humanitas, y analiza la responsabilidad humana ante el desarrollo tecnológico desde una perspectiva cristiana.",
       "evidencias": [
+        "titulo",
         "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "IA Y TEOLOGÍA: UNA RELACIÓN A CONSTRUIR se ofrece en tapa blanda, con 320 páginas en castellano. Esta edición impresa permite trabajar con calma sus argumentos sobre inteligencia artificial y pensamiento teológico, además de volver a los apartados que relacionan tecnología y responsabilidad humana.",
+      "texto": "IA y teología: Una relación a construir se presenta en tapa blanda, con una extensión de 320 páginas. La edición de Biblioteca Autores Cristianos permite trabajar sobre el texto impreso, marcar argumentos y regresar a los apartados dedicados a la relación entre tecnología y pensamiento teológico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
+        "editorial",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "IA Y TEOLOGÍA: UNA RELACIÓN A CONSTRUIR puede compararse con Antes de perder el juicio por su interés en los problemas que afectan al juicio humano. Carlos Simón los examina desde la teología ante la inteligencia artificial, mientras que Mauricio García Villegas aborda la verdad y su deterioro entre la propaganda y las posiciones sectarias.",
+      "texto": "IA y teología: Una relación a construir comparte con A vivir también se aprende: Los 5 pilares de la sabiduría para ubicarse en tiempos de cambio (Deusto) el interés por orientar la reflexión humana ante las transformaciones contemporáneas, aunque Carlos Simón se concentra en la inteligencia artificial desde la teología. Amigos, aduladores, charlatanes pertenece también al ámbito de la reflexión filosófica, pero remite a Plutarco y al pensamiento clásico en lugar de abordar los desafíos tecnológicos actuales.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388387302"
+        "isbn-9788423440887",
+        "isbn-9788441445307"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "82dc9e46f4527f60",
+  "fuente_hash": "c5f6c60b9c638ce8",
   "origen": "chatgpt-web"
 }

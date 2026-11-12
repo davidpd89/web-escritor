@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387905781",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Regio (Novela) se orienta a lectores que buscan una novela contemporánea donde coincidan el misterio y el romance. Sus 352 páginas corresponden a una narración extensa, por lo que no encaja con quien prefiera un ensayo breve o una lectura centrada exclusivamente en historia o filosofía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Regio (Novela) ofrece sus 352 páginas en tapa blanda y Kindle. La edición física permite leer y conservar el volumen en papel; Kindle facilita llevar la novela en un lector electrónico o en el móvil sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Regio (Novela) comparte el romance con Apartamento 3B (Ficción), de Carolina Moura, aunque la obra de Miguel Carbajosa también se clasifica como misterio y narrativa contemporánea. Frente a Alas de escarcha y oro: El canto del cisne, de Marta Morillo, cuya presentación menciona dones ocultos, Regio (Novela) se sitúa en la narrativa contemporánea y cuenta con 352 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938",
+        "isbn-9788425375415"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a240a5d74e6c366a",
+  "origen": "chatgpt-web"
+}

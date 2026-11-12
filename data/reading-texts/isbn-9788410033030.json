@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788410033030",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra de Xavi Forcadell Drago combina la fantasía y el mundo del circo con temas vinculados a la familia y la crianza. Se dirige a lectores interesados en esas materias, mientras que su planteamiento se diferencia del de los manuales centrados exclusivamente en psicología o desarrollo personal.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Editorial Germinar se presenta en tapa dura, con 40 páginas en castellano. Su cubierta rígida permite conservar el volumen en una biblioteca física y consultar su contenido sin dispositivos electrónicos.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3522603a20e7eee3",
+  "origen": "chatgpt-web"
+}

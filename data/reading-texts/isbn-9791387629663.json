@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387629663",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Soplo (No ficción) se dirige a lectores interesados en el desarrollo personal y la psicología desde un enfoque de no ficción. Por su clasificación, no se presenta como una novela ni como un estudio centrado exclusivamente en historia o política.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Soplo (No ficción) es de tapa blanda y tiene 304 páginas en castellano. Su extensión permite repartir la lectura en varias sesiones y conservar el volumen para consultar apartados posteriormente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alma de vencedor: Los 10 principios innegociables para hacerte más fuerte cuando la vida más aprieta, de Fausto Alfaro Cádiz, comparte con Soplo (No ficción) el ámbito del desarrollo personal. El primero anuncia principios para afrontar situaciones difíciles, mientras el libro de Fernando Botella se presenta bajo un título más abierto y también se clasifica dentro de la psicología.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409938193"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b5436c79fafe0744",
+  "origen": "chatgpt-web"
+}

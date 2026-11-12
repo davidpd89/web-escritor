@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9798890989383",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dinosaurios / Dinosaurs: Libro Informativo Complementario de Magic Tree House #1 Dinosaurios Al Atardecer (Magic Tree House: Exploradores) se dirige al público infantil y juvenil interesado en los dinosaurios y la naturaleza. Su carácter informativo lo diferencia de una aventura de ficción, por lo que encaja menos con quien busca exclusivamente una historia narrada.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dinosaurios / Dinosaurs: Libro Informativo Complementario de Magic Tree House #1 Dinosaurios Al Atardecer (Magic Tree House: Exploradores) se ofrece en tapa blanda. Con 128 páginas en castellano, es un volumen físico de extensión contenida que puede transportarse para leer o consultar sus contenidos sobre dinosaurios.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dinosaurios / Dinosaurs: Libro Informativo Complementario de Magic Tree House #1 Dinosaurios Al Atardecer (Magic Tree House: Exploradores) se vincula directamente con Dinosaurios Al Atardecer (Novela Gráfica) / Dinosaurs Before Dark (Graphic Novel) (Magic Tree House Novela Gráfica), ambos de Mary Pope Osborne. El primero funciona como complemento informativo sobre dinosaurios, mientras que el segundo presenta una novela gráfica; cambia, por tanto, la finalidad de la lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890989642"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a13e80b8be36a187",
+  "origen": "chatgpt-web"
+}

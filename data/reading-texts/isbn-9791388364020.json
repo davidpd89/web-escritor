@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388364020",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Textos recobrados: 1919-1929 (Hispánica) está orientado a quienes buscan escritos de Jorge Luis Borges relacionados con las primeras décadas del siglo XX. Su clasificación abarca relatos, historia y biografías y memorias, de modo que no se plantea como una novela de argumento continuo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Textos recobrados: 1919-1929 (Hispánica) tiene 520 páginas en su edición de tapa blanda, una opción para leer y consultar los textos en papel. Kindle permite acceder al volumen digitalmente desde un dispositivo compatible y evita transportar esas páginas impresas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Textos recobrados 1956-1986 (Hispánica) comparte autor y colección con Textos recobrados: 1919-1929 (Hispánica), pero aborda otro periodo según las fechas de sus títulos. Ficciones (Hispánica) también pertenece a Jorge Luis Borges, aunque se presenta como una obra independiente y no como otro volumen identificado por un intervalo de años.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388364068",
+        "isbn-9791387846107"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1adaeaf00099f089",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788448875541",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bluey. Un cuento con solapas - Fiesta de pijamas (Cuentos infantiles) está dirigido al público infantil que disfruta de los cuentos breves y los libros con elementos manipulables. Sus 32 páginas y su propuesta de solapas se alejan de las lecturas juveniles extensas y de las novelas sin componentes interactivos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El libro propone leer un cuento sobre una fiesta de pijamas mientras se levantan las solapas indicadas en el título. La interacción física acompaña la lectura de sus 32 páginas, de modo que el niño puede alternar el seguimiento del relato con la exploración de esos elementos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Beascoa se presenta en tapa dura, con 32 páginas en castellano y solapas integradas en el cuento. Es un formato físico que permite manipular las solapas durante la lectura y conservar el libro para volver a utilizarlo en otras ocasiones.",
+      "evidencias": [
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bluey. Un cuento - La noche antes de Navidad (Cuentos infantiles) comparte autoría y público infantil con el libro de Fiesta de pijamas, pero sitúa su relato en una celebración navideña en lugar de una fiesta de pijamas. Frente a ese cuento, Bluey propone en Fiesta de pijamas una lectura con solapas que permite interactuar físicamente con sus 32 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874858"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4fb878c3145d005e",
+  "origen": "chatgpt-web"
+}

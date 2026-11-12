@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788499502724",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Dieta Carton: La alimentación natural que regenera y da vida (CON RECETAS): 39 (SALUD NATURAL) se dirige a lectores interesados en la alimentación natural, la cocina y el bienestar. Su enfoque práctico se aleja de quienes buscan una novela o una lectura de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "El libro de Dr. Paul Carton aborda la alimentación natural e incorpora recetas para llevar sus planteamientos a la cocina. Sus 362 páginas reúnen contenido relacionado con la nutrición y la salud, por lo que puede utilizarse tanto para leer sobre alimentación como para consultar preparaciones.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Dieta Carton: La alimentación natural que regenera y da vida (CON RECETAS): 39 (SALUD NATURAL) está disponible en tapa blanda, con 362 páginas en castellano. El formato impreso permite consultar las recetas y volver a ellas durante su preparación, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Chef sapiens: De los orígenes a la actualidad en 100 recetas saludables, de Marcos Vázquez y Elizabeth Ochoa, también aborda la alimentación mediante recetas, pero incorpora una perspectiva histórica de la cocina. Secretos del ayurveda: Que cambiarán tu vida, de Isabel Bautista, trata el bienestar desde el ayurveda, mientras que la obra de Dr. Paul Carton se centra en la alimentación natural y sus aplicaciones culinarias.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788466395939",
+        "isbn-9788411214834"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3a8170bc81e655d4",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387799267",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "XLV premio José hierro de poesia y relato breve 2026 se dirige a lectores de poesía y narrativa breve. La obra de Alessandro Francesco Ruta reúne una extensión de 80 páginas y se aleja del formato de novela larga, por lo que encaja menos con quien busca una narración extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "XLV premio José hierro de poesia y relato breve 2026 se publica en tapa blanda, con 80 páginas en castellano. Es un volumen de extensión reducida que puede llevarse en el bolso o la mochila y manejarse durante lecturas breves, sin el peso habitual de una novela extensa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "XLV premio José hierro de poesia y relato breve 2026 comparte el terreno poético con Elegía simpática de la gula y otros poemas: Antología del I Premio Góngora y Quevedo de Poesía Satírico-Burlesca: 3. La segunda obra se identifica expresamente como antología de poesía satírico-burlesca, mientras que el título de Alessandro Francesco Ruta reúne las referencias a poesía y relato breve y cuenta con 80 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399310207"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0834497a4b6822f3",
+  "origen": "chatgpt-web"
+}

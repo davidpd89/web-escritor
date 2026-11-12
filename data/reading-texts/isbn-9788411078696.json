@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788411078696",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El viaje del profesor Caritat o Las desventuras de la Razón: Una comedia filosófica (Andanzas) se orienta a lectores interesados en la narrativa contemporánea con humor y cuestiones políticas. Su planteamiento filosófico y su relación con el poder encajan menos con quienes buscan exclusivamente romance o aventuras sin reflexión política.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El viaje del profesor Caritat o Las desventuras de la Razón: Una comedia filosófica (Andanzas) cuenta con una edición en tapa blanda de 320 páginas. El volumen permite leer y retomar sus cuestiones filosóficas y políticas en papel, sin utilizar un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El viaje del profesor Caritat o Las desventuras de la Razón: Una comedia filosófica (Andanzas) puede compararse con La máquina del tiempo: Ediciones icónicas (Penguin Clásicos) por su relación con la ficción especulativa. Steven Lukes incorpora humor y cuestiones políticas a una comedia filosófica, mientras que el título de H.G. Wells sitúa el desplazamiento temporal en el centro de su propuesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491052395"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "03d15d478566a99f",
+  "origen": "chatgpt-web"
+}

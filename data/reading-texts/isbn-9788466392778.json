@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466392778",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Stranger Things: Cueste lo que cueste (Best Seller | Ficción), de Caitlin Schneiderhan, encaja con lectores que buscan fantasía, misterio y aventuras en una misma novela. Por su combinación de géneros, se aleja de quienes prefieren relatos estrictamente realistas o sin elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de bolsillo en tapa blanda de Stranger Things: Cueste lo que cueste (Best Seller | Ficción) tiene 344 páginas y permite conservar el libro en papel. La alternativa Kindle facilita llevar la lectura en el móvil o en un lector electrónico, sin cargar con el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Stranger Things: Cueste lo que cueste (Best Seller | Ficción) comparte fantasía y misterio con Coraline, de Neil Gaiman, donde una puerta conduce a una versión distinta del hogar de su protagonista. También puede compararse con Clara Nox 4. La última tormenta, de Isabel Álvarez, aunque esta última plantea una batalla decisiva entre dos mundos, mientras que la obra de Caitlin Schneiderhan combina aventuras y misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331230",
+        "lib-0001"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "530e06561d8cfad8",
+  "origen": "chatgpt-web"
+}

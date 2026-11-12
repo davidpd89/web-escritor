@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788419120694",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La catedral de los ahogados: 2 (Trilogía Gótica Lunar), de Nathan Ballingrud, se dirige a lectores de terror, ciencia ficción y fantasía. Sus 200 páginas ofrecen una extensión contenida; encaja menos con quien prefiera relatos humorísticos o fantasía infantil sin elementos inquietantes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La catedral de los ahogados: 2 (Trilogía Gótica Lunar) se publica en tapa blanda, con 200 páginas en castellano bajo el sello Lubre. El formato permite transportar una novela de terror y ciencia ficción sin el peso habitual de un volumen de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La catedral de los ahogados: 2 (Trilogía Gótica Lunar) comparte elementos fantásticos con Aftermyth 1. Penelope y la prueba de los dioses, aunque incorpora también terror y ciencia ficción. Frente a Asistente del villano (edición especial limitada) (Faeris Editorial), la obra de Nathan Ballingrud se distingue por su orientación hacia el terror y por una extensión de 200 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324102",
+        "isbn-9791388108112"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ee1d8d25a9c66f19",
+  "origen": "chatgpt-web"
+}

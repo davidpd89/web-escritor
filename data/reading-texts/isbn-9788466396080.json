@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Casa de cielo y aliento (Ciudad Medialuna 2) encaja con lectores de fantasía romántica que buscan relaciones sentimentales sometidas a conflictos políticos y amenazas colectivas. Su combinación de deseo, rebelión y peligro se aleja de las historias centradas exclusivamente en una relación de pareja.",
+      "texto": "Casa de cielo y aliento (Ciudad Medialuna 2) encaja con lectores de fantasía romántica interesados en relaciones sentimentales sometidas a conflictos políticos. La trama combina el vínculo entre Bryce Quinlan y Hunt Athalar con una rebelión, por lo que se aparta de quienes buscan romance sin enfrentamientos colectivos o una novela breve.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La novela combina fantasía y romance con un conflicto de lealtades ante una rebelión. Bryce Quinlan y Hunt Athalar intentan recuperar cierta normalidad después de proteger Ciudad Medialuna, pero la implicación de sus amigos en una causa política los obliga a elegir entre mantenerse al margen o intervenir. La relación sentimental avanza bajo esa presión.",
+      "texto": "La lectura combina fantasía, romance y decisiones sobre la responsabilidad ante el sufrimiento ajeno. Bryce Quinlan y Hunt Athalar intentan recuperar cierta tranquilidad, pero su contacto con un movimiento rebelde enfrenta sus deseos personales con la posibilidad de intervenir en un conflicto mayor.",
       "evidencias": [
         "categorias",
         "sinopsis_editorial"
@@ -21,31 +22,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Casa de cielo y aliento (Ciudad Medialuna 2) está disponible en tapa blanda y Kindle. La edición impresa de 848 páginas permite leer y conservar el volumen físico, aunque exige más espacio al transportarlo; Kindle reúne esa misma extensión en un dispositivo, una alternativa para desplazamientos y lectura en el móvil.",
+      "texto": "La tapa blanda de Penguin Bolsillo reúne las 848 páginas de Casa de cielo y aliento (Ciudad Medialuna 2), una extensión considerable para transportar. Kindle permite llevarla en formato digital sin ese volumen físico y el audiolibro ofrece la posibilidad de escuchar la historia durante otras actividades.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Una corte de armonía rota, de Sarah J. Maas, comparte autoría con Casa de cielo y aliento (Ciudad Medialuna 2), cuya trama combina una relación sentimental con una rebelión. Donde duermen las sombras, de Andrea Ornos, también une fantasía y romance, pero sitúa su conflicto amoroso entre dimensiones y sombras, frente a las tensiones políticas de Ciudad Medialuna.",
+      "texto": "Casa de cielo y aliento (Ciudad Medialuna 2) comparte saga y autoría con Casa de tierra y sangre (Ciudad Medialuna 1) (Best Seller | Ficción) y Casa de llama y sombra (Ciudad Medialuna 3) (Best Seller | Ficción). Los títulos identifican respectivamente las entregas 1, 2 y 3 de Ciudad Medialuna, todas de Sarah J. Maas; la diferencia principal para el lector es su posición dentro de la serie.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408325338",
-        "isbn-9788427055605"
+        "isbn-9788466396097",
+        "isbn-9788466396073"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c8b5b66b346158bc",
+  "fuente_hash": "9991bf8ac4042a90",
   "origen": "chatgpt-web"
 }

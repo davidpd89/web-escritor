@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388002120",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche saga Gaueko: El romantasy del que todo el mundo habla (#Fantasy), de Paula Gallego, está dirigido a lectores de fantasía, romance y romantasy que buscan reunir una saga en un mismo estuche. Sus 2112 páginas corresponden a una lectura extensa, por lo que no encaja con quien busca una novela breve o una propuesta alejada de estos géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne 2112 páginas en un estuche de gran extensión, pensado para conservar conjuntamente los libros de la saga. Es el formato disponible para quien prefiera una colección física completa frente a la lectura digital.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche saga Gaueko: El romantasy del que todo el mundo habla (#Fantasy), de Paula Gallego, comparte autora con El secreto de Destructor (Crónicas de Lilium 3) (Colección Salamandra Middle Grade), también de Paula Gallego. La diferencia está en el enfoque: el estuche Gaueko se identifica con el romantasy, mientras que el otro título pertenece a una colección Middle Grade; Alas de escarcha y oro: El canto del cisne, de Marta Morillo, ofrece otra referencia dentro de la fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419868992",
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "54da841352c87a0e",
+  "origen": "chatgpt-web"
+}

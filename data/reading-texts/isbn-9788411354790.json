@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788411354790",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Boletines derivados de una instalación-IMAI0010, de Beatriz Coronado García, se orienta a lectores interesados en documentación relacionada con instalaciones y materias técnicas. Su clasificación abarca ensayo, divulgación científica y arte y diseño. Con 72 páginas, responde a una búsqueda de lectura técnica breve, no a la de una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Boletines derivados de una instalación-IMAI0010 se publica en tapa blanda y tiene 72 páginas. Esta edición permite consultar el contenido en papel y transportar un volumen de extensión reducida, útil para tenerlo a mano durante el estudio de materias relacionadas con instalaciones. La cubierta flexible facilita guardarlo junto a otros materiales de consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Boletines derivados de una instalación-IMAI0010 se relaciona con Iniciación en mantenimiento eléctrico industrial-ELEE0012, también de Beatriz Coronado García, por su orientación hacia materias técnicas. El primero se centra, según su título, en boletines derivados de una instalación; el segundo anuncia una introducción al mantenimiento eléctrico industrial. Ambos permiten distinguir entre documentación de instalaciones y formación inicial en mantenimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411354783"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ea755838419be2b6",
+  "origen": "chatgpt-web"
+}

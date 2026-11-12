@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788428575713",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido al público infantil interesado en libros de temática religiosa y espiritual. Sus 20 páginas lo sitúan entre las lecturas breves, frente a obras de mayor extensión o centradas en aventuras y ficción juvenil.",
+      "evidencias": [
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne las 20 páginas de Mis amigos del cielo (Pequelibros) en un volumen físico de cubierta rígida. Este formato permite conservarlo en una biblioteca infantil y manipularlo durante lecturas compartidas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dentro del Evangelio (Paso a paso) comparte con Mis amigos del cielo (Pequelibros) el ámbito religioso, aunque su título remite específicamente al Evangelio. La Biblia para niños: Las mejores historias del Antiguo y del Nuevo Testamento | Libro infantil con juegos y actividades extra (Mi primera biblioteca) incorpora juegos y actividades, mientras que Mis amigos del cielo (Pequelibros) se presenta como un volumen infantil de 20 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413686332",
+        "isbn-9788413617732"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e2d1bf9d257b6a0c",
+  "origen": "chatgpt-web"
+}

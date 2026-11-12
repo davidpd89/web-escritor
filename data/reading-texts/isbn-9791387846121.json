@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387846121",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historia universal de la infamia (Hispánica) se dirige a lectores de narrativa contemporánea interesados en los relatos y el humor. Su extensión de 120 páginas permite abordar el volumen en lecturas relativamente breves; no responde, en cambio, a quien busca una novela extensa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda concentra sus 120 páginas en un volumen ligero y manejable, adecuado para llevarlo durante los desplazamientos o leerlo fuera de casa. Es el formato disponible de esta edición de Alfaguara, con una extensión reducida frente a otros volúmenes de relatos.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ficciones (Hispánica) comparte autor con Historia universal de la infamia (Hispánica): ambos libros pertenecen a la obra de Jorge Luis Borges. También aparece Cuentos completos (edición especial en tapa dura), que reúne sus cuentos en un volumen más amplio frente a las 120 páginas de esta edición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387846107",
+        "isbn-9788466392297"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7b15569997cc0a8f",
+  "origen": "chatgpt-web"
+}

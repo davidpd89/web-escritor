@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387905873",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los silencios cómplices (Novela), de María Boado Olabarrieta, encaja con lectores que buscan misterio y thriller. Sus 544 páginas corresponden a una novela extensa, por lo que no se dirige a quien prefiere lecturas breves o busca principalmente romance, fantasía o narrativa de otros géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer Los silencios cómplices (Novela), de María Boado Olabarrieta, en papel a lo largo de sus 544 páginas. Es el formato disponible para quien prefiere pasar las páginas de un ejemplar físico en lugar de leer en una pantalla.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c2d64ab12a81908f",
+  "origen": "chatgpt-web"
+}

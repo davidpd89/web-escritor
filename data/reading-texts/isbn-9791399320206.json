@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399320206",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las baterías del amor, de Fernando Poveda, está dirigido a lectores interesados en las relaciones de pareja, la familia y el desarrollo personal. Por sus temas, se aleja de quienes buscan ficción de aventuras o una historia centrada en conflictos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las baterías del amor se ofrece en tapa blanda y cuenta con 320 páginas en castellano. Esta edición permite leer y consultar en papel un volumen dedicado al amor, la pareja y el bienestar, con una encuadernación flexible para su transporte.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las baterías del amor comparte el interés por las relaciones de pareja con Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología). Fernando Poveda aborda un ámbito que incluye familia y desarrollo personal, mientras que el título de Ramón Nogueras Pérez señala específicamente el enamoramiento y el desenamoramiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387534370"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e541a9e760566aa4",
+  "origen": "chatgpt-web"
+}

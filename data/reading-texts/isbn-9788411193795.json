@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788411193795",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Asuntos pendientes: Hay historias que terminan, pero no se acaban (Autoconocimiento), de Frish Brandt, encaja con lectores que buscan desarrollo personal y reflexión sobre experiencias que siguen teniendo peso después de terminar. Su orientación hacia el autoconocimiento y el ensayo lo aleja de quienes prefieren una novela de ficción o un manual técnico especializado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Asuntos pendientes: Hay historias que terminan, pero no se acaban (Autoconocimiento) está disponible en tapa blanda, con 256 páginas en castellano. El formato físico permite consultar distintos pasajes y volver a ellos durante la lectura, sin depender de una pantalla. Es la opción de compra recogida para esta edición de Diana.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Asuntos pendientes: Hay historias que terminan, pero no se acaban (Autoconocimiento) puede compararse con Otto Kernberg. Una introducción contemporánea a su obra y legado: 307 (Biblioteca de Psicología), de Frank E. Yeomans, Diana Diamond y Eve Caligor. Ambos se sitúan cerca del interés por la vida interior, pero el libro de Frish Brandt se presenta como autoconocimiento y desarrollo personal, mientras que el otro aborda la obra y el legado de una figura de la psicología.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788433040138"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b101ef9a9da4616a",
+  "origen": "chatgpt-web"
+}

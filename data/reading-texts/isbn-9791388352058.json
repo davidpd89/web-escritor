@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791388352058",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orientado a lectores interesados en la historia de la arquitectura y la conservación del patrimonio artístico de edificios concretos. Su atención al colegio de Montesión de Palma lo distancia de los libros de historia del arte que recorren múltiples épocas y territorios.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Estudia el colegio de Montesión de Palma desde sus dimensiones arquitectónica y patrimonial. La combinación de historia y arte sitúa el edificio como objeto central de estudio, en lugar de plantear una panorámica general de estilos artísticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Documenta Balear S.l. tiene 452 páginas en castellano. Su extensión permite abordar la lectura por apartados y consultar el volumen como referencia sobre la arquitectura y el patrimonio artístico del colegio.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Civilización: Una historia del arte y la cultura que dieron forma a la civilización moderna: 126 (Ático Historia) comparte el interés por la historia artística, pero adopta una perspectiva amplia sobre arte y cultura. El colegio de Montesión de Palma: Arquitectura y patrimonio artístico (Plural) concentra su estudio en el patrimonio de una institución concreta.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387592493"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "16938f14335e89c2",
+  "origen": "chatgpt-web"
+}

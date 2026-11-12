@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuentos para soñar se dirige a primeros lectores que disfrutan de historias mágicas acompañadas de ilustraciones. La letra manuscrita está pensada para apoyar sus primeras experiencias de lectura; quienes busquen una novela continua encontrarán, en cambio, una colección de relatos.",
+      "texto": "Cuentos para soñar se dirige a primeros lectores que disfrutan de relatos mágicos acompañados de ilustraciones. La letra manuscrita facilita el acercamiento a la lectura; por su planteamiento, encaja menos con quien busca una novela larga de argumento continuo.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,36 +13,35 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Cuentos para soñar propone una lectura de fantasía infantil organizada en relatos independientes. Sus 240 páginas combinan aventuras de carácter mágico con imágenes y una presentación del texto que imita la escritura a mano, pensada para facilitar el contacto de los lectores principiantes con las palabras.",
+      "texto": "Cuentos para soñar propone una recopilación de relatos de ambientación mágica destinada a quienes comienzan a leer. Equipo Susaeta combina narraciones independientes con ilustraciones y escritura manuscrita; entre los cuentos incluidos están La campanilla de plata y El enano Barabay.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cuentos para soñar se publica en tapa dura, con 240 páginas en castellano. Esta encuadernación permite conservar juntos los relatos ilustrados y facilita su consulta repetida durante las primeras etapas de lectura.",
+      "texto": "Cuentos para soñar está disponible en tapa dura, con 240 páginas que combinan relatos e ilustraciones. La encuadernación rígida resulta práctica para conservar el volumen y compartir sus cuentos en lecturas repetidas.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuentos para soñar y La semana de colores y Andamos huyendo Lola comparten el uso de la imaginación en sus relatos. El primero reúne historias mágicas ilustradas para lectores principiantes, mientras que el segundo presenta dos obras de Elena Garro; A sangre y fuego, de Manuel Chaves Nogales, se orienta hacia el testimonio literario de un enfrentamiento.",
+      "texto": "Cuentos para soñar y Avni 1. Animal verdaderamente no identificado (Txikiberri) permiten explorar lecturas vinculadas a la imaginación y a personajes poco habituales. La diferencia documentada es que Equipo Susaeta reúne varios cuentos ilustrados con letra manuscrita, mientras que el título de Romain Pujol presenta a Avni como protagonista identificado desde el nombre.",
       "evidencias": [
         "titulo",
+        "autores",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408331810",
-        "isbn-9788467084856"
+        "isbn-9788417575847"
       ]
     }
   ],

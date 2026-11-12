@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466394604",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El genio griego: Ilíada o el poema de la fuerza y otros textos (Contemporánea | Narrativa), de Simone Weil, se dirige a lectores de filosofía, ensayo y reflexión literaria. Sus 168 páginas reúnen textos vinculados al pensamiento y la tradición clásica, por lo que encaja menos con quien busca una novela de ficción narrativa continua.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de bolsillo de Penguin Bolsillo permite transportar y consultar en papel las 168 páginas de El genio griego: Ilíada o el poema de la fuerza y otros textos (Contemporánea | Narrativa). Kindle facilita la lectura digital y la búsqueda de pasajes, una alternativa útil para quien quiera revisar los textos sin llevar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Ilíada o el poema de la fuerza: Seguido de No empecemos otra vez la guerra de Troya (ENSAYO), de Simone Weil, comparte con El genio griego: Ilíada o el poema de la fuerza y otros textos (Contemporánea | Narrativa) el texto dedicado a la Ilíada. La diferencia está en los acompañamientos anunciados: el primero incorpora No empecemos otra vez la guerra de Troya, mientras que el segundo se presenta como una recopilación de otros textos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399203035"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1b34054f909a3137",
+  "origen": "chatgpt-web"
+}

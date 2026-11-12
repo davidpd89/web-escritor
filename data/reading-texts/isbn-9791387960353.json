@@ -1,0 +1,27 @@
+{
+  "id": "isbn-9791387960353",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Forcano.: A pie de calle. (Libros de autor) se sitúa entre el arte, el diseño y la narrativa juvenil. Puede interesar a quienes buscan una obra vinculada a la creación artística y la mirada sobre la calle, más que a lectores centrados exclusivamente en fantasía o aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Forcano.: A pie de calle. (Libros de autor) se presenta en tapa dura y reúne 248 páginas. La encuadernación rígida ofrece mayor protección para conservarlo y consultarlo repetidamente, además de resultar apropiada para un ejemplar destinado a regalo.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "87be170f8c6605b4",
+  "origen": "chatgpt-web"
+}

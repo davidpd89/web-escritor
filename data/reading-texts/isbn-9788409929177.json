@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788409929177",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "24 historias para enamorarte en navidad: Relatos navideños se dirige a lectores que buscan romance ambientado en Navidad, con relatos en lugar de una única narración extensa. Por sus temas de amor, aventuras y humor, se aparta de las preferencias de quien busca terror o una historia centrada exclusivamente en el suspense.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 474 páginas de 24 historias para enamorarte en navidad: Relatos navideños y permite leer sus relatos en papel durante las fiestas. Kindle facilita llevar la colección en el móvil o en un lector electrónico y alternar las historias sin transportar el libro físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "24 historias para enamorarte en navidad: Relatos navideños y 7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica) comparten el humor, aunque pertenecen a propuestas diferentes. Patricia Bonet combina relatos navideños y romance, mientras que Francisco Ibáñez presenta una obra identificada con el humor de Mortadelo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431790"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "98f24435ad76b0a8",
+  "origen": "chatgpt-web"
+}

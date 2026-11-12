@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388306563",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo se hace un Museo (Ed. Navidad) (Infantil) se dirige al público infantil interesado en los museos y en conocer cómo se organizan. Sus 64 páginas y su temática lo distinguen de una novela juvenil extensa o de una obra de ficción centrada en aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cómo se hace un Museo (Ed. Navidad) (Infantil) se presenta en tapa dura, con 64 páginas en castellano. Esta edición de Nórdica Libros permite conservar el volumen en una biblioteca infantil y entregarlo como regalo físico, sin depender de un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9f13ecd5d5fc4b2d",
+  "origen": "chatgpt-web"
+}

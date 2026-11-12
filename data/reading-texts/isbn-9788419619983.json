@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419619983",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La montaña del Intocable: Itinerario de un alpinista de la Conciencia, de Daniel Meurois, se dirige a lectores interesados en el desarrollo personal, el bienestar y la reflexión sobre la conciencia. Su planteamiento se aleja de quienes buscan principalmente una novela de aventuras o una obra de ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 204 páginas de La montaña del Intocable: Itinerario de un alpinista de la Conciencia en un volumen físico manejable. Kindle permite acceder a la misma obra en formato digital, una alternativa para quienes prefieren leer en dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, comparte con La montaña del Intocable: Itinerario de un alpinista de la Conciencia, de Daniel Meurois, el interés por el desarrollo personal y el bienestar. Se diferencian en el planteamiento: el primero aborda la salud, las relaciones y la felicidad desde la ciencia, mientras que el segundo se presenta como un itinerario ligado a la conciencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2e1e00f5e68318a7",
+  "origen": "chatgpt-web"
+}

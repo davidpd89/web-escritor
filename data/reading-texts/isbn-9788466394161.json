@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788466394161",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores de romance y narrativa contemporánea interesados en las relaciones de pareja atravesadas por circunstancias difíciles. Un burka por amor (edición limitada): La emotiva historia de una española atrapada en Afganistán (Campaña | Ahora por menos) se aleja del romance centrado exclusivamente en el cortejo: su propio título sitúa el conflicto amoroso en una situación de encierro.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición limitada pertenece al sello Penguin Bolsillo y se presenta como libro de bolsillo en castellano. Su identificación editorial es el ISBN 9788466394161, con publicación prevista para el 2027-02-04; estos datos permiten distinguirla de otras presentaciones de la obra de Reyes Monforte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "idioma",
+        "isbn13",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es la tapa blanda, en edición de bolsillo de Penguin Bolsillo. Sus 384 páginas permiten llevar la lectura en un volumen físico compacto, aunque su extensión exige más tiempo que una novela breve. Es una elección orientada a quien prefiere leer en papel y transportar el libro.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La infiel comparte con esta obra la autoría de Reyes Monforte y el interés por experiencias personales difíciles. Mientras La infiel presenta a una profesora marcada por una pérdida familiar y un embarazo temprano, Un burka por amor (edición limitada): La emotiva historia de una española atrapada en Afganistán (Campaña | Ahora por menos) sitúa su conflicto en Afganistán y dentro del romance.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788466391566"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "de584be557b1121f",
+  "origen": "chatgpt-web"
+}

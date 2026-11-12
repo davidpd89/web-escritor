@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9788410944206",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, está dirigido a quienes buscan lecturas de psicología y desarrollo personal relacionadas con las experiencias infantiles. Su enfoque temático se aparta de los libros de crianza centrados únicamente en las necesidades presentes de los niños.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Abraza a tu niño interior: Nunca es tarde para sanar tu infancia reúne 320 páginas que pueden consultarse y marcarse durante la lectura. La versión Kindle permite acceder al contenido desde un lector electrónico o un móvil, sin necesidad de llevar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0b462002211907a0",
+  "origen": "chatgpt-web"
+}

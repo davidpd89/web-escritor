@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387938208",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La naturaleza del poder: 34 (Tascabili), de Luciano Canfora, se orienta a lectores interesados en política, historia y filosofía. Sus 136 páginas corresponden a una obra breve de estas materias, alejada de quienes buscan una novela de ficción o una lectura centrada en acontecimientos personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La naturaleza del poder: 34 (Tascabili) se publica en tapa blanda, con 136 páginas en castellano. Su extensión permite transportarlo y consultar distintos pasajes sin cargar con un volumen extenso; la edición pertenece a Altamarea Ediciones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4f2bf7450e4f5be4",
+  "origen": "chatgpt-web"
+}

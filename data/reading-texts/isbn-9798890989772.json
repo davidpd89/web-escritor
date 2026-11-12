@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9798890989772",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Más Gallina / Fight or Flight (Diario del Wimpy Kid) encaja con lectores interesados en el humor y las historias relacionadas con el entorno familiar. Su clasificación temática y sus 224 páginas lo distinguen de un ensayo especializado en crianza o de una novela histórica extensa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Más Gallina / Fight or Flight (Diario del Wimpy Kid) se publica en tapa dura, con 224 páginas en castellano. La edición de Molino ofrece una cubierta rígida que protege el volumen durante el uso frecuente y permite conservarlo en una colección de libros físicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Más Gallina / Fight or Flight (Diario del Wimpy Kid) comparte autor, Jeff Kinney, con Diario de Greg 21 - Montando un pollo y Diario de Rowley: Historias Supergeniales de Miedo 2 / Rowley Jeffersons Awesome Friendly Spooky Stories 2 (Diario de Rowley / Rowley Jefferson's Journal). El primero sitúa parte de su conflicto en el instituto y el segundo anuncia historias de miedo, mientras que El Más Gallina / Fight or Flight (Diario del Wimpy Kid) se clasifica dentro del humor y el ámbito familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890989802",
+        "isbn-9788427255951"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4bec1a5815e9363f",
+  "origen": "chatgpt-web"
+}

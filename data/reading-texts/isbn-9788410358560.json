@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788410358560",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensado para lectores interesados en la espiritualidad y en las experiencias de mujeres vinculadas a distintas tradiciones religiosas. Su planteamiento mediante conversaciones encaja menos con quienes buscan ficción narrativa o una exposición exclusivamente histórica de las religiones.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro aborda la experiencia espiritual femenina mediante conversaciones con doce maestras de distintas tradiciones. Erica Bassani sitúa el diálogo y las voces de sus protagonistas en el centro de una obra relacionada con las biografías, las mujeres y la espiritualidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Ediciones Koan está disponible en tapa blanda y contiene 224 páginas en castellano. Es un volumen físico manejable para leer por sesiones, transportar y volver a consultar las conversaciones que reúne.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando el mundo mira hacia otro lado: 24 mujeres en la guerra de Ucrania comparte con Mujeres enamoradas de lo divino: Conversaciones con doce maestras de distintas tradiciones espirituales la atención a experiencias femeninas. El primero se centra en mujeres afectadas por una guerra; el libro de Erica Bassani aborda las vivencias espirituales mediante conversaciones.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388406256"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "deb1d8c627bcba5f",
+  "origen": "chatgpt-web"
+}

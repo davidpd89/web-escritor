@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388204272",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una conspiración de monstruos encantadores (Los habitantes del aire) se presenta como una lectura vinculada al poder y la política, con la conspiración como elemento explícito del título. Sus 432 páginas pueden interesar a quienes buscan una obra extensa sobre estas cuestiones, pero se aleja de una lectura breve centrada exclusivamente en asuntos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una conspiración de monstruos encantadores (Los habitantes del aire) cuenta con una edición en tapa dura de 432 páginas, publicada por Editorial Hidra. La encuadernación rígida facilita conservar el ejemplar en una estantería y utilizarlo como regalo físico, aunque ocupa más espacio que un libro de bolsillo de menor extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A la sombra del Estado, de Luis de la Corte Ibáñez, aborda el espionaje, las operaciones encubiertas y el poder clandestino. Comparte con Una conspiración de monstruos encantadores (Los habitantes del aire) el interés por las relaciones de poder, aunque el primero identifica expresamente prácticas políticas concretas y el segundo destaca la conspiración desde su título.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "11f1e9be61e2043d",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788467085129",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La ratonera (Biblioteca Agatha Christie) está dirigida a lectores interesados en la narrativa contemporánea y en la obra de Agatha Christie. Su edición de bolsillo de 144 páginas también permite tener en cuenta su extensión; no es una elección orientada a quien busque una novela extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece La ratonera (Biblioteca Agatha Christie) en un libro de bolsillo de 144 páginas, pensado para llevar en formato físico. Kindle proporciona la alternativa digital, sin necesidad de transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "«El asesinato de Roger Ackroyd (Edición especial con cantos tintados)», de Agatha Christie, permite comparar dos títulos de la misma autora. Frente a la edición de bolsillo de La ratonera (Biblioteca Agatha Christie), el otro libro se presenta en una edición especial coleccionista con cantos tintados y la resolución del enigma en un sobre sellado. «El enigmático míster Quin» ofrece otra alternativa de la autora, esta vez con doce relatos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083934",
+        "isbn-9788408331520"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bf799dade6f5ec6b",
+  "origen": "chatgpt-web"
+}

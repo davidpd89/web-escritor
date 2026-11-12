@@ -4,17 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sintaxis de los lenguajes privados se dirige a lectores de poesía interesados en la relación entre pensamiento, lenguaje y expresión individual. Su carácter experimental y su atención a las palabras mismas lo distancian de los poemarios organizados alrededor de una historia o un asunto reconocible.",
+      "texto": "Se dirige a lectores de poesía interesados en la experimentación verbal y en la relación entre lenguaje y pensamiento. Su propuesta, formada por expresiones recogidas y seleccionadas por el autor, encaja menos con quien busca una narración con argumento continuo o un poemario organizado alrededor de una historia sentimental.",
       "evidencias": [
-        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Guillermo Lorenzo construye una obra poética a partir de expresiones que surgieron espontáneamente en distintos momentos y que después sometió a una selección. El libro examina la capacidad del lenguaje para producir significados al margen de la voluntad consciente y plantea interrogantes filosóficos sobre su existencia en la mente individual.",
+      "texto": "Sintaxis de los lenguajes privados propone una lectura poética centrada en la autonomía de las palabras y su aparición en la mente. Guillermo Lorenzo reúne fragmentos verbales seleccionados a lo largo del tiempo y los relaciona con cuestiones filosóficas y lingüísticas sobre el pensamiento y la comunicación.",
       "evidencias": [
+        "titulo",
         "autores",
         "categorias",
         "sinopsis_editorial"
@@ -22,27 +22,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Sintaxis de los lenguajes privados se publica en tapa blanda, con 74 páginas en castellano bajo el sello Eolas Ediciones. Su extensión facilita leer el conjunto en pocas sesiones y regresar a fragmentos concretos para examinar las relaciones entre las palabras.",
+      "texto": "Sintaxis de los lenguajes privados se presenta en tapa blanda, con 74 páginas publicadas por Eolas Ediciones. Su extensión permite recorrer la selección de textos en papel y regresar a fragmentos concretos para examinar sus asociaciones y construcciones verbales.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "edicion",
         "numero_paginas",
-        "idioma",
-        "editorial",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Sintaxis de los lenguajes privados y Ciudad utilizan la poesía para abordar cuestiones que exceden la descripción cotidiana. Guillermo Lorenzo investiga el funcionamiento autónomo del lenguaje, mientras que Luis Pérez Capitán relaciona la escritura poética con la inteligencia artificial, la política y la moral.",
+      "texto": "Sintaxis de los lenguajes privados y Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, pertenecen al ámbito de la poesía, pero parten de intereses distintos. Guillermo Lorenzo centra su libro en las posibilidades del lenguaje y su relación con la mente, mientras que el título de Pedro Salinas identifica el amor como eje de su selección.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410167841"
+        "isbn-9788466396288"
       ]
     }
   ],

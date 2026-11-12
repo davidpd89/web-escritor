@@ -4,53 +4,51 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Dónde está la caca? está dirigido a niños de 3 a 5 años que disfrutan buscando elementos escondidos en escenas ilustradas. Su propuesta de localizar seis cacas en distintos escenarios encaja menos con quienes prefieren cuentos centrados en una historia continua.",
+      "texto": "¿Dónde está la caca? está dirigido a niños de 3 a 5 años que disfrutan buscando objetos escondidos en ilustraciones. Sus escenas de animales, excursiones y lugares de ocio permiten jugar a localizar elementos; no responde a quien busca una narración extensa o una lectura centrada en el texto.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "¿Dónde está la caca? está recomendado para edades de 3 a 5 años y tiene 40 páginas. La edición de Planeta Junior es de tapa dura en cartoné, con escenas de búsqueda ambientadas en lugares como un acuario, una selva tropical y una pista de patinaje.",
+      "texto": "La edad recomendada para ¿Dónde está la caca? es de 3 a 5 años. Tiene 40 páginas, está escrito en castellano y se presenta en tapa dura de cartoné, una encuadernación rígida que facilita su manipulación durante las actividades de búsqueda visual.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
         "numero_paginas",
-        "editorial",
-        "edicion",
-        "sinopsis_editorial"
+        "idioma",
+        "edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¿Dónde está la caca? está disponible en tapa dura, con una extensión de 40 páginas. El cartoné permite manejar el ejemplar durante las búsquedas repetidas y ofrece una presentación física adecuada para regalar o compartir la actividad de localizar figuras en cada escena.",
+      "texto": "¿Dónde está la caca? se ofrece en tapa dura, con 40 páginas destinadas a localizar figuras dentro de distintas escenas. La encuadernación rígida permite apoyar el libro abierto y recorrer las ilustraciones con el dedo, tanto durante una lectura compartida como en las búsquedas individuales.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¿Dónde está la caca? comparte con Animales, de Susaeta Ediciones, su orientación infantil y el uso de ilustraciones, pero propone buscar figuras en lugar de leer cuentos protagonizados por animales. Aprende a contar animales, también de Susaeta Ediciones, se centra en aprender números mediante animales, mientras que ¿Dónde está la caca? plantea búsquedas visuales en diferentes escenarios.",
+      "texto": "¿Dónde está la caca? comparte con BUSCA Y ENCUENTRA: MONSTRUOS la actividad de localizar elementos ocultos en escenas ilustradas. El primero utiliza situaciones cotidianas y escenarios naturales, mientras que el segundo recurre a criaturas fantásticas. Frente a COLOREA KAWAII ANIMALES ADORABLES, cambia la actividad de colorear por la observación y la búsqueda.",
       "evidencias": [
         "titulo",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370341589",
-        "isbn-9791370341176"
+        "isbn-9791387708634",
+        "isbn-9788410333963"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6c95959292a79993",
+  "fuente_hash": "6a17809ec0579344",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387775582",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Repostería disfrutona: Postres irresistibles sin complicaciones (Gastronomía y Nutrición) está dirigido a quienes buscan preparar postres y dedicar tiempo a la cocina doméstica. El enfoque anunciado en el título prioriza la repostería sin complicaciones, por lo que se distancia de los libros centrados en platos salados o técnicas culinarias ajenas a los dulces.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Repostería disfrutona: Postres irresistibles sin complicaciones (Gastronomía y Nutrición) reúne 224 páginas y permite consultar el libro físicamente mientras se cocina. Kindle ofrece una alternativa digital para acceder al contenido desde un dispositivo, sin ocupar espacio en la estantería. Ambos formatos permiten elegir según el lugar habitual de consulta.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Repostería disfrutona: Postres irresistibles sin complicaciones (Gastronomía y Nutrición) comparte con Chef sapiens el interés por la preparación de alimentos, aunque Pamela Sánchez Sotomayor se centra en los postres y Marcos Vázquez y Elizabeth Ochoa abordan recetas saludables desde una perspectiva histórica. Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA) amplía el campo culinario hacia la huerta, las bebidas y los cócteles, frente al enfoque específico de repostería del primer libro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395939",
+        "isbn-9791387934293"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6590b5ee04b7964e",
+  "origen": "chatgpt-web"
+}

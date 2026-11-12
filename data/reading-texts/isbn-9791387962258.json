@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387962258",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi amor por Yamada está al Nv. 999 9 (Shôjo) encaja con lectores de manga que buscan romance, humor y relaciones de pareja en un contexto contemporáneo. Sus 176 páginas se centran en una propuesta gráfica y sentimental, alejada de quienes prefieren aventuras históricas o relatos sin componente romántico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mi amor por Yamada está al Nv. 999 9 (Shôjo) puede leerse en tapa blanda o Kindle. La edición física reúne 176 páginas en castellano y permite conservar el tomo en papel; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el ejemplar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi amor por Yamada está al Nv. 999 1 (Shôjo): Universo Manga comparte autora y serie con Mi amor por Yamada está al Nv. 999 9 (Shôjo), ambos de Mashiro. Sus títulos los identifican como los números 1 y 9, respectivamente; la diferencia para el lector es la entrega de la historia que tiene entre manos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962951"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b12722c1b7489ea7",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791387593391",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Old knight, new post: la nueva espada de la reina vol.01 se dirige a lectores de cómic y novela gráfica en castellano. El título lo identifica como el volumen 01, por lo que resulta menos adecuado para quien busca expresamente una obra presentada como volumen único.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Old knight, new post: la nueva espada de la reina vol.01 se publica en tapa blanda, en edición bunko de Ediciones Babylon. Sus 190 páginas forman un volumen físico de cubierta flexible, pensado para conservarlo en papel y transportarlo sin el peso añadido de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "067e67b52a4ed912",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399229158",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "SACU: Sistema de Asistencia Cognitiva Universal se dirige a lectores interesados en la ciencia ficción, la filosofía, la fantasía y la divulgación científica. Su planteamiento reúne varios ámbitos de reflexión en 184 páginas; quien busque exclusivamente un ensayo económico o un manual científico encontrará otros enfoques.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 184 páginas de SACU: Sistema de Asistencia Cognitiva Universal en un volumen manejable. Es el formato disponible para leerlo en papel y conservarlo; no se ofrecen otras ediciones digitales, tapa dura o audiolibro.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Colonialismo digital: Por una crítica hacker-fanoniana, de Deivison Faustino y Walter Lippold, comparte con SACU: Sistema de Asistencia Cognitiva Universal el acercamiento a cuestiones relacionadas con el ámbito digital. La diferencia está en el planteamiento: el primero se presenta como una crítica del colonialismo digital, mientras que el libro de Aníbal San Frutos incorpora también la fantasía, la ciencia ficción, la filosofía y la divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399306408"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6fbb82886d6b574c",
+  "origen": "chatgpt-web"
+}

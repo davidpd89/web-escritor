@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387924492",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La guerra de las librerías (Lo más visto) está orientada a lectores de romance interesados también en el humor y las relaciones familiares. Su combinación de amor, pareja y familia se distancia de las lecturas centradas exclusivamente en la acción o en contenidos prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La guerra de las librerías (Lo más visto) tiene una edición en tapa blanda de 464 páginas, publicada en castellano por Montena. El formato permite leerla en papel y transportarla sin una cubierta rígida; por su extensión, ocupa más espacio que una novela breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La guerra de las librerías (Lo más visto) se puede comparar con Mentiras y deseo (Bourbon Boys 1) (Lo más visto) por su orientación romántica y sus elementos de humor. La obra de Ali Brady añade la familia entre sus temas, mientras que la de Victoria Wilder se identifica en el título como el n.º 1 de Bourbon Boys.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387972509"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "273de372357b4c56",
+  "origen": "chatgpt-web"
+}

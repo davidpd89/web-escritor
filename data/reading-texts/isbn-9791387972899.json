@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un secreto navideño encaja con lectores de romance juvenil que buscan conflictos amorosos, secretos familiares y una ambientación navideña. No responde a quienes prefieren una historia centrada en la investigación criminal o la ciencia ficción, porque su conflicto gira alrededor de un hostal amenazado y las relaciones entre sus personajes.",
+      "texto": "Un secreto navideño se dirige a lectores de romance juvenil que buscan conflictos familiares, secretos y relaciones marcadas por la rivalidad. La amenaza de perder un hostal y la situación laboral de Oliver introducen problemas económicos y personales, por lo que no es una historia navideña centrada únicamente en celebraciones y encuentros sentimentales.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,41 +13,39 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela romántica juvenil que combina las dificultades personales de Oliver con una disputa por el futuro del hostal El Muérdago. La amenaza de demolición en quince días introduce un plazo concreto, mientras el enfrentamiento con Perseo Montecarlo y los secretos familiares sostienen el conflicto entre personajes.",
+      "texto": "La novela combina romance juvenil y secretos familiares en un establecimiento amenazado de demolición. Oliver regresa al hostal El Muérdago después de quedarse sin empleo y sin vivienda, pero dispone de quince días antes de que los Montecarlo ejecuten sus planes. Su enfrentamiento con Perseo Montecarlo añade una relación conflictiva a la incertidumbre sobre el futuro del negocio.",
       "evidencias": [
-        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas permite leer las 416 páginas de Un secreto navideño en papel y conservar la edición de Montena en la estantería. Kindle ofrece la misma obra en formato digital para llevarla en el móvil o en un lector electrónico, sin transportar el volumen físico.",
+      "texto": "La edición de Un secreto navideño en tapa blanda con solapas contiene 416 páginas y permite conservar la novela en papel. Kindle facilita su lectura en el móvil o en un dispositivo electrónico compatible sin cargar con el volumen. El audiolibro está disponible para quienes prefieren escuchar la narración durante desplazamientos o tareas cotidianas.",
       "evidencias": [
         "titulo",
         "edicion",
-        "editorial",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) comparte con Un secreto navideño el interés por las relaciones juveniles y los secretos, pero sitúa su conflicto en una universidad elitista, no en un hostal familiar. Amor en pole position (Dirty Air 3) también aborda el romance, aunque lo traslada al entorno de la Fórmula 1 y no a una disputa navideña por una propiedad.",
+      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) y Un secreto navideño comparten conflictos relacionados con los secretos y las tensiones entre personajes jóvenes. Alex Mírez sitúa su historia en una universidad elitista marcada por fiestas y rumores, mientras que Juan Arcones desarrolla la suya en un hostal navideño amenazado de demolición. El escenario y la naturaleza del conflicto permiten distinguir ambas lecturas.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788413145211",
-        "isbn-9788427055674"
+        "isbn-9788413145211"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "00f1f888e57b8a51",
+  "fuente_hash": "8286e672376a808e",
   "origen": "chatgpt-web"
 }

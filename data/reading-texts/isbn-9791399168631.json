@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399168631",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Negociar y triunfar: Metodología y 40 años de experiencia en negociaciones (TEMATICOS) se dirige a lectores interesados en la negociación dentro del ámbito empresarial. Josep Vicens Torradas presenta un libro de 230 páginas cuyo título combina metodología y experiencia profesional; encaja menos con quienes buscan ficción o un estudio centrado exclusivamente en teoría económica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Negociar y triunfar: Metodología y 40 años de experiencia en negociaciones (TEMATICOS) está disponible en tapa blanda, con 230 páginas en castellano. La edición de Libros de Cabecera permite señalar apartados y volver a consultar contenidos sobre negociación; su publicación editorial está prevista para el 16 de noviembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Negociar y triunfar: Metodología y 40 años de experiencia en negociaciones (TEMATICOS) y Antes de liderar: Una mirada interior a un oficio comparten el interés por actividades del entorno profesional. Josep Vicens Torradas aborda la negociación mediante metodología y experiencia acumulada, mientras que Miguel Reinoso centra su libro en la reflexión sobre el oficio de liderar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bd2ba19d107155c1",
+  "origen": "chatgpt-web"
+}

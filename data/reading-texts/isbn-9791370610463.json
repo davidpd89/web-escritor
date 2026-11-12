@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370610463",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en el derecho a la intimidad laboral y los retos jurídicos y bioéticos de la nanotecnología. Por su enfoque de monografía jurídica, encaja menos con quienes buscan una introducción general a la tecnología sin cuestiones legislativas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, con 300 páginas en castellano publicadas por Aranzadi. Es una opción física para consultar los aspectos jurídicos y bioéticos de la nanotecnología en el trabajo, con posibilidad de señalar y revisar pasajes sobre papel.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte con Blockchain: un desafío legal (Monografía) el estudio de cuestiones jurídicas relacionadas con nuevas tecnologías. Mientras Tania Prieto Arbeo aborda la nanotecnología y la intimidad laboral, la obra de Ana Isabel Quiroz Ruiz se centra en los desafíos legales del blockchain. Ambas presentan enfoques jurídicos sobre tecnologías distintas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370610265"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2e1dd632306e7af9",
+  "origen": "chatgpt-web"
+}

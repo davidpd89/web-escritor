@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466393515",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vuelo 19 (Best Seller | Ficción) encaja con lectores de novela histórica interesados en el siglo XX. Su orientación hacia la ficción histórica lo aleja de quienes buscan un ensayo documental o una exposición académica de acontecimientos históricos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 512 páginas de Vuelo 19 (Best Seller | Ficción) en una edición de bolsillo, adecuada para leer en papel sin recurrir a un volumen de tapa dura. Kindle permite llevar la lectura en formato digital y el audiolibro ofrece la alternativa de escucharla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando éramos pilotos: Historias de los españoles que sobrevivieron al Dakar en África (Best Seller | Ficción) comparte autor, José Antonio Ponseti, con Vuelo 19 (Best Seller | Ficción), pero su título dirige la atención hacia los pilotos españoles del Dakar. Ave César (Narrativas Históricas), de Rex Warner, ofrece otra referencia histórica, diferenciada por su autoría frente al enfoque en el siglo XX de Vuelo 19 (Best Seller | Ficción).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466393522",
+        "isbn-9788435064125"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c8bf67b243e5541a",
+  "origen": "chatgpt-web"
+}

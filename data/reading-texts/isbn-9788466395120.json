@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788466395120",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este estuche de Gabriel García Márquez se dirige a lectores de narrativa contemporánea interesados en reunir varias obras del mismo escritor. Sus 1384 páginas y la presencia de distintos títulos lo hacen menos apropiado para quien busca una sola novela corta o una lectura exclusivamente ensayística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La propuesta combina narrativa contemporánea, relatos y obras vinculadas al amor y las relaciones personales. El estuche reúne Cien años de soledad, El amor en los tiempos del cólera, Crónica de una muerte anunciada y el título identificado como El ... agosto nos vemos, todos bajo la autoría de Gabriel García Márquez.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Penguin Bolsillo reúne 1384 páginas distribuidas entre las obras incluidas en el estuche. Esta presentación permite conservar los títulos juntos y leerlos por separado, una opción más manejable que transportar toda la colección durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Entre cachacos: 1954-1955 / Among the Cachacos: 1954-1955: 2 (OBRA PERIODÍSTICA) comparte con este estuche la autoría de Gabriel García Márquez, pero pertenece a su obra periodística. Notas de prensa / Press Releases: 5 (OBRA PERIODÍSTICA) también recoge esa vertiente del escritor, frente a la selección de narrativa contemporánea y relatos reunida en el estuche.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9789588894164",
+        "isbn-9789588894256"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4c57536d3cb2f63a",
+  "origen": "chatgpt-web"
+}

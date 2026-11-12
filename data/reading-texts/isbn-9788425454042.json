@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9788425454042",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Imágenes del bien y del mal (fuera de colección) se dirige a lectores interesados en la filosofía y en la reflexión sobre cuestiones morales. Su extensión de 104 páginas permite abordar el tema en un volumen breve, menos orientado a quienes buscan una narración de ficción extensa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Imágenes del bien y del mal (fuera de colección) puede leerse en tapa blanda o en Kindle. Sus 104 páginas hacen manejable la edición física para consultar pasajes, mientras que Kindle permite llevar el texto en un dispositivo compatible y ajustar la presentación de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8b87a921de82b539",
+  "origen": "chatgpt-web"
+}

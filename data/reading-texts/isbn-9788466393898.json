@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466393898",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nunca digas nunca (Best Seller | Ficción) se dirige a quienes leen narrativa contemporánea centrada en la familia y las relaciones familiares. Por su enfoque narrativo, no responde a la búsqueda de una guía práctica de crianza, aunque comparta ese ámbito temático.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 256 páginas de Nunca digas nunca (Best Seller | Ficción) en una edición de bolsillo, pensada para transportar y guardar con facilidad. Kindle permite leer la obra en un dispositivo electrónico sin llevar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los Whittier (Best Seller | Ficción) comparte con Nunca digas nunca (Best Seller | Ficción) la autoría de Danielle Steel. Un baile en Versalles, también de Danielle Steel, sitúa su historia en una gala del verano de 1959, mientras que Nunca digas nunca (Best Seller | Ficción) se presenta como narrativa contemporánea vinculada a la familia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466389716",
+        "isbn-9788401037894"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4601fa3cf5b3e26b",
+  "origen": "chatgpt-web"
+}

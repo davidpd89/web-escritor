@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788413148335",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Roma soy yo (Serie Julio César 1): La verdadera historia de Julio César (Best Seller | Ficción) se dirige a lectores interesados en la figura de Julio César y en la ficción de ambientación romana. Por su enfoque narrativo y sus 752 páginas, se aleja de una biografía breve o de una introducción histórica de consulta rápida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de bolsillo en tapa blanda de Penguin Bolsillo reúne 752 páginas y facilita llevar el volumen en una bolsa. La tapa dura ofrece una encuadernación más rígida para conservarlo o regalarlo; Kindle permite leerlo en un dispositivo electrónico y el audiolibro, escucharlo sin manejar el volumen impreso.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Roma soy yo (Serie Julio César 1): La verdadera historia de Julio César (Best Seller | Ficción) comparte protagonista y autor con Maldita Roma (Serie Julio César 2): La conquista del poder de Julio César (Best Seller | Ficción). El título identifica al primero como el n.º 1 y al segundo como el n.º 2; uno se presenta como la historia de Julio César y el otro centra su título en la conquista del poder.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387871024"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "df2077b237d65826",
+  "origen": "chatgpt-web"
+}

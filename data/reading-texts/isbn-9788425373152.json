@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cómo no tener diabetes está dirigido a adultos interesados en prevenir la diabetes y comprender los hábitos que influyen en la salud metabólica. Aborda alimentación, actividad física, estrés y creencias sobre la enfermedad; no está planteado como una novela ni como un recetario centrado exclusivamente en preparar comidas.",
+      "texto": "Cómo no tener diabetes, de Adrián Díaz Alonso, se dirige a adultos que quieren comprender mejor los factores cotidianos relacionados con la salud metabólica. Trata cuestiones como la alimentación, la actividad física, el estrés y el control del peso; no está planteado como un libro de recetas ni como una obra de ficción.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,27 +15,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas ofrece las 256 páginas de Cómo no tener diabetes en un ejemplar físico para consultar sus explicaciones sobre prevención y hábitos cotidianos. Kindle permite llevar el contenido en el móvil o en un lector electrónico y volver a los apartados sobre alimentación, estrés y actividad física sin cargar con el libro.",
+      "texto": "La tapa blanda ofrece las 256 páginas de Cómo no tener diabetes, de Adrián Díaz Alonso, en una edición física con solapas. Kindle permite consultar el contenido en dispositivos electrónicos y llevarlo sin ocupar espacio en la estantería, mientras que la edición impresa reúne toda la lectura en papel.",
       "evidencias": [
         "titulo",
-        "edicion",
+        "autores",
         "numero_paginas",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La fibra es la solución y Cómo no tener diabetes comparten el interés por la alimentación y la prevención de problemas de salud. El primero se centra en el consumo diario de fibra, mientras que Adrián Díaz Alonso aborda también el estrés, el sedentarismo y las ideas equivocadas sobre la diabetes. El tercer cerebro está en los pies trata el bienestar desde las señales y molestias de los pies, frente al enfoque metabólico de Cómo no tener diabetes.",
+      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, comparte el interés por introducir cambios relacionados con el bienestar. La diferencia está en el enfoque: Cómo no tener diabetes, de Adrián Díaz Alonso, se centra en la prevención de la diabetes y la salud metabólica, mientras que el otro título aborda distintos aspectos de la vida.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788425373893",
-        "isbn-9788425374869"
+        "isbn-9798890981776"
       ]
     }
   ],

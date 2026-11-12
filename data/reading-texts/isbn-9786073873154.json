@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9786073873154",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes se dirige a lectores de biografías interesados en figuras vinculadas al poder y la política. Su planteamiento biográfico y su extensión de 504 páginas requieren interés por una trayectoria personal tratada en profundidad. Encaja menos con quien busca ficción o una introducción política breve y exclusivamente teórica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra aborda una trayectoria biográfica mediante 50 episodios, según anuncia su título. Andrew Paxman firma un libro relacionado con el poder, la política y el ensayo, además de la biografía. El enfoque se centra en una persona concreta, a diferencia de un tratado dedicado exclusivamente a explicar conceptos políticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes contiene 504 páginas y permite la consulta directa en papel. Kindle facilita llevar esa extensión en un dispositivo compatible y buscar o marcar fragmentos. El audiolibro ofrece la posibilidad de seguir el contenido mediante escucha en lugar de lectura visual.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparte con Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes el interés por la política. Sin embargo, Miguel Anxo Bastos Boubeta aborda una corriente de pensamiento económico y político, mientras que Andrew Paxman organiza su obra alrededor de una trayectoria biográfica. Uno se orienta hacia las ideas; el otro, hacia una figura personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "533f59a9d9831019",
+  "origen": "chatgpt-web"
+}

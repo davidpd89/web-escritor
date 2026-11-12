@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788427055858",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hoy no es mi día (Matchstories) está dirigido a lectores de romance que prefieren una novela de extensión intermedia. Sus 336 páginas ofrecen una lectura más larga que un relato breve; encaja menos con quien busca principalmente ensayo, divulgación o fantasía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hoy no es mi día (Matchstories) se publica en tapa blanda, con 336 páginas en castellano. Este formato permite leer la novela en papel, transportarla y conservarla después de terminarla, sin depender de una aplicación de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hoy no es mi día (Matchstories) comparte el género romántico con A medio salto (Romántica), de Valera Gomalva. La primera es una novela de Lucía Carballido publicada por Ediciones Martínez Roca, mientras que la segunda se presenta expresamente como romántica desde su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388365089"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "003d46f2d7c34c32",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "isbn-9788467085105",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Crimen en el Gran Hotel Alpine. Un nuevo caso de Miss Marple (Biblioteca Agatha Christie) se dirige a lectores de misterio interesados en casos criminales y personajes detectivescos. Su planteamiento se distancia de quienes buscan narrativa contemporánea sin enigmas ni investigaciones.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Crimen en el Gran Hotel Alpine. Un nuevo caso de Miss Marple (Biblioteca Agatha Christie) contiene 416 páginas y permite leer la novela en papel. Kindle ofrece una alternativa digital para llevar esa extensión en un dispositivo compatible, sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2bc5bd5121ae850c",
+  "origen": "chatgpt-web"
+}

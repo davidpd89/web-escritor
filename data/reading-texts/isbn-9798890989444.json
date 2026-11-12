@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9798890989444",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una Familia Moderna / A Modern Family, de Julia Navarro, pertenece a la narrativa contemporánea centrada en la familia. Su temática encaja con lectores interesados en relaciones familiares y se diferencia de las obras cuyo eje es la ciencia ficción, la aventura o el misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una Familia Moderna / A Modern Family puede leerse en tapa dura o Kindle y también escucharse como audiolibro. La tapa dura ofrece un ejemplar físico para conservar o regalar; Kindle permite leer en dispositivos digitales, mientras que el audiolibro sirve para seguir la obra mediante escucha.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una Familia Moderna / A Modern Family se relaciona directamente con Una familia moderna, también de Julia Navarro, que presenta a Martha y Thomas como integrantes de una familia moderna. Frente a Amargo, amargo (Literaturas), de Joanna Bator, la primera comparación permite identificar una coincidencia de autoría y de temática familiar, además de una diferencia en la denominación del título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401033797",
+        "isbn-9791387846558"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "418147db213d19df",
+  "origen": "chatgpt-web"
+}

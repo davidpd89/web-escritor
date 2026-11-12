@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cesar La conquista de la eternidad se dirige a lectores interesados en la historia de Roma, las campañas militares y las biografías de figuras políticas. Sus 648 páginas combinan la reconstrucción de acontecimientos históricos con el retrato personal de Julio César, por lo que encaja menos con quienes buscan una introducción breve o una obra centrada exclusivamente en las batallas.",
+      "texto": "Encaja con lectores de historia romana interesados en campañas militares, liderazgo político y biografías de personajes históricos. Su reconstrucción de la conquista de la Galia, apoyada en textos de Julio César, se distancia de una novela de ficción histórica centrada en personajes inventados.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Alberto Angela estudia la campaña de Julio César en la Galia y la combina con un retrato de sus capacidades militares, ambiciones y contradicciones personales. La reconstrucción parte de De Bello Gallico e incorpora escenas de la vida cotidiana y recreaciones realizadas mediante inteligencia artificial.",
+      "texto": "Alberto Angela reconstruye la campaña iniciada por Julio César en la Galia en 58 a. C., atendiendo a las operaciones militares, las intrigas políticas y la vida cotidiana. Utiliza De Bello Gallico como referencia y combina divulgación histórica con un retrato de las ambiciones y contradicciones del protagonista; la obra incorpora reconstrucciones realizadas con inteligencia artificial.",
       "evidencias": [
         "autores",
         "sinopsis_editorial"
@@ -22,25 +21,25 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura de Cesar La conquista de la eternidad ofrece un volumen físico de 648 páginas, adecuado para conservarlo y volver a consultar sus episodios históricos. Kindle permite leer esa misma extensión en formato digital y evita cargar con un libro de considerable tamaño.",
+      "texto": "La tapa dura reúne 648 páginas en un volumen físico pensado para conservar y consultar una obra extensa de historia romana. Kindle permite llevar ese mismo título en un dispositivo de lectura o en el móvil, sin transportar el volumen impreso.",
       "evidencias": [
-        "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "edicion"
+        "numero_paginas",
+        "titulo",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cesar La conquista de la eternidad y Vida de Lord Byron comparten el interés por reconstruir la trayectoria de una figura histórica, aunque tratan épocas y protagonistas diferentes. Auge y caída del Tercer Reich (edición especial) también estudia procesos históricos de poder, pero se centra en un régimen político y no en la campaña militar de un individuo.",
+      "texto": "Anatomía de un naufragio: Shackleton, el Endurance y la fuerza del hielo comparte el interés por una expedición histórica sometida a condiciones extremas, aunque se centra en el hielo y no en las campañas romanas. El Desastre del 98 y el fin del Imperio español: Visión inédita del Almirante Cervera (Biblioteca de Historia) también aborda historia militar, pero desde la perspectiva del final del Imperio español.",
       "evidencias": [
         "titulo",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388463013",
-        "isbn-9788411005555"
+        "isbn-9791387873141",
+        "isbn-9791388444142"
       ]
     }
   ],

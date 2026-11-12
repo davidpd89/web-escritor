@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788408323112",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡Miau! Sonidos de los animales. Mi primer libro de sonidos (Libros con sonido) está pensado para acercar a los lectores a la temática animal mediante un libro de formato breve. Sus 10 páginas lo diferencian de los cuentos ilustrados más extensos y de las obras de consulta sobre animales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura presenta 10 páginas en formato de libro de cartón, una combinación propia de los libros infantiles para manipular físicamente. Es la opción disponible para quien busca un ejemplar en papel, en lugar de una lectura digital.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Animales, de Susaeta Ediciones, también gira alrededor del mundo animal, pero lo hace mediante seis cuentos ilustrados. ¡Miau! Sonidos de los animales. Mi primer libro de sonidos (Libros con sonido), de Caroline Dall'Ava, se centra en los sonidos y presenta una edición de 10 páginas en formato de cartón.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370341589"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "16bd4bc6e5555249",
+  "origen": "chatgpt-web"
+}

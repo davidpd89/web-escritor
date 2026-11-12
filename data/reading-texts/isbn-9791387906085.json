@@ -4,8 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores a partir de 9 años interesados en la fantasía mitológica, las misiones y los personajes que deben resolver problemas bajo presión. Su trama se apoya en dioses griegos y objetos sobrenaturales, por lo que se distancia de las aventuras realistas y de las historias sin peligro.",
+      "texto": "Percy Jackson y el cáliz de los dioses (Percy Jackson y los dioses del Olimpo 6) se dirige a lectores desde los 9 años interesados en la fantasía mitológica y las aventuras con misiones. Su conflicto combina dioses griegos, un objeto capaz de conceder inmortalidad y una búsqueda contrarreloj, por lo que encaja menos con quien busca una historia cotidiana sin elementos fantásticos.",
       "evidencias": [
+        "titulo",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -13,39 +14,42 @@
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "Se lee como una aventura narrativa organizada alrededor de una misión: recuperar un objeto divino antes de que provoque consecuencias graves. El lector sigue las decisiones de Percy, Annabeth y Grover mientras intentan localizar el cáliz y evitar que alguien utilice su poder para obtener la inmortalidad.",
+      "texto": "Se lee como una novela de aventuras, siguiendo una misión relacionada con la recuperación de un cáliz de origen divino. El lector acompaña a Percy, Annabeth y Grover mientras intentan evitar que el objeto termine en manos peligrosas. El título lo identifica como el n.º 6 de Percy Jackson y los dioses del Olimpo, por lo que puede situarse dentro de esa serie.",
       "evidencias": [
-        "sinopsis_editorial",
-        "categorias"
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Está clasificado para lectores a partir de 9 años y tiene 256 páginas. Salamandra lo publica en castellano con tapa blanda y solapas, dentro de la fantasía infantil y juvenil, con una extensión que permite distribuir la lectura entre varias sesiones.",
+      "texto": "La edad recomendada es a partir de 9 años y la edición de Salamandra tiene 256 páginas. Se publica en tapa blanda con solapas y en castellano, con una extensión inferior a la de novelas juveniles de mayor volumen. El contenido gira alrededor de la mitología griega, las misiones y el peligro asociado a un objeto mágico.",
       "evidencias": [
         "edad_recomendada",
-        "numero_paginas",
         "editorial",
+        "numero_paginas",
         "edicion",
         "idioma",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne sus 256 páginas en un ejemplar físico con solapas, útil para leer y conservar en una colección. Kindle permite llevar la aventura en formato digital y continuarla desde un móvil o lector electrónico, sin transportar el libro impreso.",
+      "texto": "La tapa blanda con solapas reúne las 256 páginas en un ejemplar físico que puede transportarse para leer fuera de casa. Kindle permite continuar la aventura desde el móvil o un lector electrónico, mientras el audiolibro ofrece la opción de escucharla. La elección depende de si se prefiere leer en papel, en pantalla o mediante narración oral.",
       "evidencias": [
-        "formatos_disponibles",
+        "numero_paginas",
         "edicion",
-        "numero_paginas"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La diosa de tres cabezas (Percy Jackson y los dioses del Olimpo 7), también de Rick Riordan, continúa con las dificultades de Percy para conseguir recomendaciones divinas, pero aborda una segunda carta y nuevos problemas. Campamento Mestizo 1 - La zona rebelde, de Rick Riordan y Annabelle Oh, comparte el entorno mitológico del Campamento Mestizo, aunque sitúa allí su punto de partida.",
+      "texto": "La diosa de tres cabezas (Percy Jackson y los dioses del Olimpo 7), de Rick Riordan, comparte protagonista y autoría, pero su título la identifica como el n.º 7, frente al n.º 6 de Percy Jackson y el cáliz de los dioses (Percy Jackson y los dioses del Olimpo 6). Campamento Mestizo 1 - La zona rebelde, de Rick Riordan y Annabelle Oh, mantiene la relación con el Campamento Mestizo, aunque presenta una autoría compartida y una historia ambientada en ese lugar.",
       "evidencias": [
-        "afines_catalogo",
+        "titulo",
         "autores",
+        "afines_catalogo",
         "sinopsis_editorial"
       ],
       "enlaces": [
@@ -56,6 +60,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ea5e1cf02c599db9",
+  "fuente_hash": "d65807da453dcf90",
   "origen": "chatgpt-web"
 }

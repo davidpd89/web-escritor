@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9786073875226",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La captura del Che y Fidel / The Capture of Che and Fidel se orienta a lectores interesados en la historia y en las figuras que aparecen en su título. Su clasificación histórica lo diferencia de las novelas de ficción y de los libros centrados en consejos prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La captura del Che y Fidel / The Capture of Che and Fidel está disponible en tapa blanda, con 168 páginas en castellano. Es una edición física de extensión relativamente breve, que puede transportarse para leer fuera de casa y conservarse en una biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA, de Juan Carlos García de Polavieja, aborda una investigación sobre la vida y la muerte de Federico García Lorca. La captura del Che y Fidel / The Capture of Che and Fidel, de José Reveles, comparte el ámbito histórico, pero dirige la atención hacia las figuras identificadas en su propio título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418567933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "da0dbcdb4b23c656",
+  "origen": "chatgpt-web"
+}

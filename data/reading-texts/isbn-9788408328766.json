@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788408328766",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mis paraísos artificiales (Contemporánea), de Francisco Umbral, encaja con lectores que buscan narrativa contemporánea en castellano. Sus 240 páginas permiten abordar una obra de extensión intermedia; no corresponde a quienes buscan específicamente fantasía, manuales prácticos o ensayos de divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda presenta las 240 páginas de Mis paraísos artificiales (Contemporánea) en una edición de Austral Editorial. Este formato permite leer la obra en papel y guardarla en una biblioteca personal, con una encuadernación flexible frente a la rigidez de una tapa dura.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "753f329cf28711cf",
+  "origen": "chatgpt-web"
+}

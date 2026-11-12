@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399107739",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mapa sentimental de Madrid, de Miguel Aizpuru, se dirige a lectores interesados en la historia, los viajes y las memorias vinculadas a Madrid. Sus 122 páginas ofrecen una extensión contenida frente a los libros históricos de mayor recorrido; no responde a quien busca una novela de ficción o una guía práctica de viaje.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer Mapa sentimental de Madrid, de Miguel Aizpuru, en su edición física de 122 páginas. Es un volumen de cubierta flexible y extensión reducida, fácil de transportar y guardar junto a otros libros de historia, viajes y memorias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, comparte con Mapa sentimental de Madrid, de Miguel Aizpuru, el vínculo entre territorio y experiencia personal. La diferencia está en el lugar que identifica cada título: uno se centra en Madrid y el otro en el Camino de Santiago, dos aproximaciones distintas a la lectura de un territorio desde las vivencias y los viajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "58d4e2d805b43a52",
+  "origen": "chatgpt-web"
+}

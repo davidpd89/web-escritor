@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788467985948",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Droga: Una historia mundial se dirige a lectores interesados en el tratamiento de asuntos históricos mediante el cómic y la novela gráfica. Por su clasificación editorial, se aproxima también a las biografías y memorias; no responde a la búsqueda de una novela convencional escrita únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es la edición de Droga: Una historia mundial, con 132 páginas publicadas por Norma Editorial. El volumen encuadernado permite consultar sus páginas sobre una mesa y conservarlo en una estantería; su extensión también facilita distribuir la lectura en sesiones breves.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ansiedad. ¿Cómo se sale de aquí? y Droga: Una historia mundial comparten su aproximación a asuntos relacionados con la experiencia humana mediante recursos del cómic. La obra de Gemma Correll utiliza la imagen de un parque de atracciones para abordar la ansiedad, mientras que PECAU y OTERO tratan la droga desde una perspectiva histórica mundial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431967"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ee5aadabbf33ad54",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788466381901",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Victorian Psycho (Best Seller | Ficción), de Virginia Feito, reúne novela histórica, misterio y thriller dentro de la narrativa contemporánea. Sus 216 páginas plantean una lectura relativamente breve para quienes prefieren esos géneros; encaja menos con lectores interesados principalmente en comedia romántica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Victorian Psycho (Best Seller | Ficción) tiene 216 páginas en su edición de bolsillo de tapa blanda, una opción física de extensión contenida. Kindle permite llevar la novela en el móvil o en un lector electrónico, mientras que el audiolibro ofrece la alternativa de escucharla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El asesino de la almarada (Novela Histórica), de Gastón Morata, comparte con Victorian Psycho (Best Seller | Ficción) el terreno de la ficción histórica, aunque su título destaca expresamente un asesinato. El último secreto: Edición limitada a precio especial (Colección Especial), de Dan Brown, ofrece otra referencia dentro del catálogo para lectores de misterio, con una autoría distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331483",
+        "isbn-9791370205362"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "feb9ce1d2b5399b0",
+  "origen": "chatgpt-web"
+}

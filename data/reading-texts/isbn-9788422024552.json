@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "EUCARISTÍA EN EL DIÁLOGO ECUMÉNICO, LA se dirige a quienes estudian las relaciones entre confesiones cristianas y las cuestiones teológicas que dificultan su unidad. Su tratamiento de la celebración eucarística y del diálogo institucional se aleja de una lectura centrada en la espiritualidad individual.",
+      "texto": "La eucaristía en el diálogo ecuménico se dirige a quienes estudian las relaciones entre confesiones cristianas y el papel de los sacramentos en su acercamiento. Su enfoque teológico e histórico resulta menos afín a lectores que buscan una introducción general a la espiritualidad individual o una narración religiosa.",
       "evidencias": [
         "titulo",
         "sinopsis_editorial"
@@ -12,38 +12,39 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El libro examina la eucaristía como punto de encuentro y de desacuerdo entre distintas comunidades cristianas. Parte del impulso ecuménico del Concilio Vaticano II y revisa los avances en el entendimiento mutuo, junto con las dificultades que persisten para celebrar conjuntamente este sacramento.",
+      "texto": "El libro examina los avances y las dificultades del diálogo sobre la eucaristía entre la Iglesia católica y otras confesiones cristianas. Jose Rico Paves sitúa el análisis en el proceso abierto por el Concilio Vaticano II, con especial atención a la unidad bautismal y a los obstáculos para celebrar conjuntamente la eucaristía.",
       "evidencias": [
+        "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "EUCARISTÍA EN EL DIÁLOGO ECUMÉNICO, LA cuenta con una edición en tapa blanda de 392 páginas, publicada en castellano por Biblioteca Autores Cristianos. El volumen físico permite consultar y releer sus cuestiones teológicas durante un estudio prolongado sobre el ecumenismo.",
+      "texto": "La eucaristía en el diálogo ecuménico cuenta con una edición en tapa blanda de 392 páginas, publicada por Biblioteca Autores Cristianos. El volumen impreso permite consultar y contrastar los distintos aspectos del diálogo ecuménico, con una extensión que favorece una lectura distribuida en varias sesiones.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "EUCARISTÍA EN EL DIÁLOGO ECUMÉNICO, LA y CARLOS ACUTIS. LA SENCILLA RUTA A LA SANTIDAD comparten un marco de pensamiento cristiano. El primero estudia las relaciones doctrinales y sacramentales entre confesiones; el segundo se ocupa de la santidad personal a través de una figura concreta.",
+      "texto": "La eucaristía en el diálogo ecuménico puede compararse con Amigos, aduladores, charlatanes por su vinculación con la reflexión filosófica y religiosa en sentido amplio. Jose Rico Paves se centra en las relaciones entre iglesias cristianas, mientras que la obra de Plutarco remite a un autor de la tradición clásica, situado en otro contexto histórico.",
       "evidencias": [
         "titulo",
+        "autores",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788422024620"
+        "isbn-9788441445307"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "692b9a5a7e18c56c",
+  "fuente_hash": "8b4e269a4e4cf17f",
   "origen": "chatgpt-web"
 }

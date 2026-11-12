@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788467084511",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche José María Zavala: Últimas noticias de Jesús + Los Doce (Espasa Religión) está dirigido a lectores interesados en obras de temática cristiana y religiosa. Reúne dos títulos de José María Zavala, por lo que responde a una búsqueda distinta de la de quien prefiera una sola obra independiente o una lectura ajena a la espiritualidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El estuche de José María Zavala se presenta en tapa dura y reúne Últimas noticias de Jesús y Los Doce, con 632 páginas en total. Esta edición en castellano de Editorial Espasa permite conservar ambos títulos juntos y resulta práctica para regalar el conjunto en formato físico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Padre Pío español: La vida desconocida de Fray Sebastián de Jesús comparte autoría con Estuche José María Zavala: Últimas noticias de Jesús + Los Doce (Espasa Religión) y mantiene el interés por figuras religiosas, pero se centra en una vida concreta. La madre, también de José María Zavala, aborda la fe, la maternidad y el perdón mediante una historia, mientras que el estuche agrupa dos obras relacionadas con Jesús y los Doce.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396424",
+        "isbn-9788466685368"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "50bb0eb7a363fe72",
+  "origen": "chatgpt-web"
+}

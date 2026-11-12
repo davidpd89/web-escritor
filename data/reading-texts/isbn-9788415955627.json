@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788415955627",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hermoso veneno (DARK ROMANCE), de Rina Kent, se sitúa en el romance y se presenta expresamente como dark romance. Por esa orientación, se dirige a lectores interesados en la vertiente oscura del género romántico, más que a quienes buscan historias amorosas de tono ligero.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hermoso veneno (DARK ROMANCE) está disponible en tapa blanda, con 540 páginas en castellano. La edición de Sombras ofrece una lectura extensa en papel, adecuada para conservar el volumen y retomarlo en distintas sesiones sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Kiss the villain (Villanos 1) y Villanos 2 - Hunt the villain, ambos de Rina Kent, permiten comparar Hermoso veneno (DARK ROMANCE) con otras obras de la misma autora. Comparten la orientación hacia el romance oscuro; Villanos 2 - Hunt the villain presenta específicamente un conflicto entre mafias rivales y una relación MM, mientras que Hermoso veneno (DARK ROMANCE) se identifica por su adscripción al género.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387972486",
+        "isbn-9791388222207"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d04a760d88f3bafe",
+  "origen": "chatgpt-web"
+}

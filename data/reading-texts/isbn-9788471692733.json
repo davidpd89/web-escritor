@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788471692733",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Salamanca contada a los niños (Monumentos y ciudades contados a los niños) se dirige al público infantil interesado en conocer ciudades y monumentos. Sus 46 páginas ofrecen una extensión breve; por su temática, se aleja de las lecturas centradas en aventuras ficticias o intrigas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Salamanca contada a los niños (Monumentos y ciudades contados a los niños) está disponible en tapa blanda. La edición de Ediciones Miguel Sánchez reúne 46 páginas en castellano, una extensión manejable para llevar el libro durante una visita o consultarlo en casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Salamanca contada a los niños (Monumentos y ciudades contados a los niños) comparte con Antigua Roma (Civilizaciones antiguas para niños) el acercamiento a lugares y patrimonio para lectores infantiles. El primero se centra en una ciudad concreta, mientras que el segundo aborda la vida en una civilización antigua.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241839362"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "93e1fc5dc4950c63",
+  "origen": "chatgpt-web"
+}

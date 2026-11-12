@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788408331766",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rodeados de mentirosos, de Thomas Erikson, se dirige a quienes quieren abordar las mentiras y las medias verdades en sus relaciones personales. Su enfoque de desarrollo personal y familia encaja con ese interés, pero no con la búsqueda de una novela de intriga protagonizada por personajes ficticios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de bolsillo de Rodeados de mentirosos reúne 368 páginas en tapa blanda, útiles para consultar y marcar pasajes sobre las mentiras y las medias verdades. Kindle permite leerlo en el móvil o en un dispositivo electrónico; el audiolibro ofrece una alternativa de escucha para quienes prefieren prescindir del papel.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rodeados de mentirosos y Conectados para el amor / Wired for Love comparten el interés por las relaciones personales. Thomas Erikson aborda las mentiras y las medias verdades y sus consecuencias, mientras que Stan Tatkin orienta su libro hacia la conexión amorosa; el primero pone el foco en el engaño y el segundo en el vínculo afectivo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0ad5b7cfc62f4288",
+  "origen": "chatgpt-web"
+}

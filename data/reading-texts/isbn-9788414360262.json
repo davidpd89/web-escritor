@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788414360262",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "K-pop Academy. El resplandor de los guardianes: Libro 4 (LITERATURA INFANTIL - Narrativa infantil) se dirige a lectores de narrativa infantil interesados en la fantasía. Sus 192 páginas ofrecen una extensión intermedia; por su orientación fantástica, encaja menos con quienes buscan historias realistas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 192 páginas de K-pop Academy. El resplandor de los guardianes: Libro 4 (LITERATURA INFANTIL - Narrativa infantil) en un volumen físico, apropiado para conservarlo o regalarlo. Kindle permite leer el mismo título en un dispositivo compatible sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dream Magic. El dodo musical: Libro 4 (LITERATURA INFANTIL - Narrativa infantil) comparte con K-pop Academy. El resplandor de los guardianes: Libro 4 (LITERATURA INFANTIL - Narrativa infantil) su orientación hacia la narrativa infantil y la identificación como Libro 4. La diferencia está en la autoría: Alena Pons firma el primero y Mina Finch el segundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788414360149"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1dc0c0bb6d8f2fe5",
+  "origen": "chatgpt-web"
+}

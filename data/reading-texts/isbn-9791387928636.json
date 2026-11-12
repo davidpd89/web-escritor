@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387928636",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mujeres de París, mujeres de letras (Salamandra Narrativa), de Irène Némirovsky, reúne intereses relacionados con las mujeres, la narrativa contemporánea, las biografías y el ensayo. Su clasificación editorial encaja menos con quienes buscan exclusivamente literatura fantástica o manuales prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mujeres de París, mujeres de letras (Salamandra Narrativa) tiene 112 páginas en tapa blanda, editadas por Salamandra. Su extensión permite abordar el volumen en sesiones relativamente breves, y la encuadernación flexible facilita llevarlo en el bolso o consultar sus páginas durante un desplazamiento.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mujeres de París, mujeres de letras (Salamandra Narrativa) comparte con Esas muchachas que escriben poemas, de Alba Donati, el interés por las mujeres vinculadas a la escritura. Frente a ese enfoque poético, el libro de Irène Némirovsky aparece clasificado también como narrativa contemporánea, biografías y memorias y ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426434272"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "222164b9193f3ecb",
+  "origen": "chatgpt-web"
+}

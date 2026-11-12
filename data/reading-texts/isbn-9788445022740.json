@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788445022740",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "HDS nº 02/03 El hambre de los dioses (Cantos tintados): 2 (Fantasía) se orienta a lectores de fantasía y aventuras que buscan una novela extensa. Sus 648 páginas y su identificación como segunda entrega la alejan de las lecturas breves y de quienes prefieren comenzar por un volumen inicial.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Minotauro publica esta edición en castellano, con encuadernación en tapa dura y una extensión de 648 páginas. El título incluye la referencia Cantos tintados y la identifica como la entrega n.º 02/03; su fecha editorial es el 25 de noviembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "numero_paginas",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es la opción disponible para esta novela de John Gwynne, con 648 páginas reunidas en un volumen físico. Su encuadernación rígida resulta adecuada para conservar una obra extensa en la estantería, aunque implica manejar un libro de considerable tamaño durante la lectura.",
+      "evidencias": [
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alas de escarcha y oro: El canto del cisne comparte con la obra de John Gwynne el terreno de la fantasía, pero presenta a Eira, un personaje que oculta sus dones. Anatema (edición limitada) (El Bosque Voraz 1) permite comparar entregas numeradas: su título señala el inicio de una serie, mientras que HDS nº 02/03 El hambre de los dioses (Cantos tintados): 2 (Fantasía) se identifica como segunda entrega.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "17819cfc624f93f8",
+  "origen": "chatgpt-web"
+}

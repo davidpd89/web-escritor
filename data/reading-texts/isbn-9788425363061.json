@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788425363061",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Quemar grasa no es perder grasa: Guía práctica de 4 semanas para decir adiós a la ansiedad y a los antojos​ (Bienestar, salud y vida sana) está dirigido a lectores interesados en la nutrición, el bienestar y la relación entre alimentación y antojos. Su estructura de cuatro semanas responde a una búsqueda de pautas prácticas, no a la de una narración o un ensayo histórico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Quemar grasa no es perder grasa: Guía práctica de 4 semanas para decir adiós a la ansiedad y a los antojos​ (Bienestar, salud y vida sana) cuenta con una edición en tapa blanda de 224 páginas. El soporte físico permite volver a las indicaciones de cada semana y consultar distintos apartados durante el seguimiento de la guía.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "5 semanas para desinflamarte (edición limitada) comparte autoría con este libro de Blanca García-Orea Haro, pero plantea un programa de cinco semanas frente a las cuatro dedicadas aquí a la grasa corporal, la ansiedad y los antojos. Cuidarse no debería ser tan difícil: Una visión más humana de la alimentación y la salud ante la cultura de la optimización constante (Salud natural) también trata la alimentación y la salud, aunque desde una reflexión sobre la exigencia de optimizar los hábitos.",
+      "evidencias": [
+        "afines_catalogo",
+        "autores",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788466394390",
+        "isbn-9788411193900"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "92f4a003b053e41d",
+  "origen": "chatgpt-web"
+}

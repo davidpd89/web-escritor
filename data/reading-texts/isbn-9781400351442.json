@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9781400351442",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los milagros: Cuando lo eterno irrumpe en lo natural se dirige a lectores interesados en la religión y la espiritualidad, especialmente en la relación entre lo eterno y los fenómenos naturales. Por su enfoque temático, se aleja de las lecturas centradas en conflictos cotidianos, relaciones sentimentales o aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los milagros: Cuando lo eterno irrumpe en lo natural se publica en tapa blanda, con 320 páginas en castellano. Esta edición de Grupo Nelson permite consultar pasajes en papel y mantener el volumen en una estantería de lecturas sobre espiritualidad. La encuadernación flexible facilita su transporte frente a una cubierta rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los milagros: Cuando lo eterno irrumpe en lo natural y La abolición del hombre: El peligro del progreso sin principios comparten autor, C S Lewis, y el interés por cuestiones espirituales. El primero trata la relación entre los milagros y la naturaleza, mientras que el segundo plantea el problema de un progreso desligado de los principios. La diferencia está en el enfoque religioso del primero frente al componente filosófico del segundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781400351466"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9c088ebc55cce730",
+  "origen": "chatgpt-web"
+}

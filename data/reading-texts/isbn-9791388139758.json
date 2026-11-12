@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388139758",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores de desarrollo personal que quieren reflexionar sobre su propósito vital y sus capacidades. La propuesta de Tony Estruch se relaciona con la psicología y el crecimiento individual, más que con quienes buscan exclusivamente instrucciones técnicas de gestión empresarial o finanzas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Roca Editorial publica esta obra en tapa blanda, con 288 páginas en castellano. Su extensión permite repartir la lectura en varias sesiones y el formato físico facilita volver a los apartados relacionados con el propósito personal sin utilizar una pantalla.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Belleza con cabeza: Las claves para verte bien sin dejar de ser tú (Alienta) comparte el interés por el desarrollo personal, pero dirige la atención hacia la imagen y la identidad, mientras que El genio que has venido a ser: Todos tenemos un propósito en la vida ¿conoces ya el tuyo? (No ficción) se centra en el propósito vital. Construye un negocio atómico / Build an Atomic Business se orienta al ámbito empresarial, frente al enfoque de autoconocimiento de Tony Estruch.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413445687",
+        "isbn-9786073880336"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7e07940c136e2c64",
+  "origen": "chatgpt-web"
+}

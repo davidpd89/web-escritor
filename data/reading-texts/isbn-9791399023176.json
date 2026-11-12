@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399023176",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Obras completas III: Ensayo. Narrativa. Poesía: 285 (Biblioteca Castro) se dirige a lectores interesados en estudiar distintos géneros de la escritura de Antonio Buero Vallejo. Sus 1880 páginas reúnen ensayo, narrativa y poesía, por lo que no responde a quien busca una lectura breve centrada en un único género.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Obras completas III: Ensayo. Narrativa. Poesía: 285 (Biblioteca Castro) es de tapa dura, presentada como libro de tela. Sus 1880 páginas hacen de ella un volumen pensado para conservar en una biblioteca y consultar sobre una superficie estable, más que para transportarlo habitualmente.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Obras completas III: Ensayo. Narrativa. Poesía: 285 (Biblioteca Castro) comparte con El genio griego: Ilíada o el poema de la fuerza y otros textos (Contemporánea | Narrativa), de Simone Weil, el interés por el ensayo. La diferencia está en la amplitud: Antonio Buero Vallejo reúne también narrativa y poesía en 1880 páginas, mientras que el título de Simone Weil identifica una selección de textos alrededor de un asunto concreto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394604"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "560dc4cb9456ca62",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466382298",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hammerklavier y Ninguna parte (Best Seller | Ficción) encaja con lectores de narrativa contemporánea que buscan ficción literaria de Yasmina Reza. No responde al perfil de quien busca una guía práctica, un manual temático o una historia de fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es la edición disponible de Hammerklavier y Ninguna parte (Best Seller | Ficción), en formato de bolsillo y con 168 páginas. Es una edición física de extensión contenida, pensada para quien prefiere leer en papel y llevar el libro consigo.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Babilonia (Best Seller | Ficción), de Yasmina Reza, es la comparación más directa por compartir autora con Hammerklavier y Ninguna parte (Best Seller | Ficción). La diferencia está en los títulos y en que esta ficha sitúa la obra en narrativa contemporánea; ambas permiten explorar la bibliografía de la misma escritora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466382328"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c2b6743232c63952",
+  "origen": "chatgpt-web"
+}

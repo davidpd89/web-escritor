@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387962401",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "After School Dice Club 9 (Shônen) se orienta a lectores de manga shônen interesados en el humor y la narrativa contemporánea. Por su extensión y su carácter de cómic, se aleja de quienes prefieren lecturas breves o novelas narradas solo mediante prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "After School Dice Club 9 (Shônen) está disponible en tapa blanda y reúne 568 páginas en castellano. Su extensión lo convierte en un volumen considerable para leer en papel y reservarle espacio en una estantería, dentro de la edición de Distrito Manga.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "After School Dice Club 9 (Shônen) y Los pecados de la familia Ichinose 6 (Shônen) comparten la identificación shônen, aunque son obras de Hirô Nakamichi y Taizan 5, respectivamente. Frente a Mi amor por Yamada está al Nv. 999 9 (Shôjo), de Mashiro, cambia la clasificación editorial del público, de shônen a shôjo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410305106",
+        "isbn-9791387962258"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a4ac9ff8a8d941f6",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788466393935",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El hombre más rico de Babilonia (Best Seller | Ediciones Conmemorativas) está orientado a lectores interesados en economía y desarrollo personal. George S. Clason figura como autor de esta obra de 272 páginas, publicada en una edición conmemorativa. No corresponde a quien busque una novela romántica ni una obra dedicada específicamente a técnicas de inversión con opciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de El hombre más rico de Babilonia (Best Seller | Ediciones Conmemorativas) ofrece una presentación física resistente para sus 272 páginas y resulta apropiada para conservar o regalar. La tapa blanda facilita manejar el volumen, mientras que Kindle permite leerlo en el móvil sin transportar papel. El audiolibro incorpora la posibilidad de escuchar el contenido durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Domina el arte de los negocios, de Brian Tracy, comparte con El hombre más rico de Babilonia (Best Seller | Ediciones Conmemorativas) el interés por cuestiones económicas y profesionales, pero se presenta como una guía de habilidades para los negocios y el liderazgo. El libro de George S. Clason se sitúa entre la economía y el desarrollo personal. Por su parte, Cómo generar ingresos con las opciones: Así transformé la bola de nieve en avalancha (EMPRESA), de Renato Antinori, delimita su asunto a las opciones financieras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724357",
+        "isbn-9788466390514"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "262198dfeacda152",
+  "origen": "chatgpt-web"
+}

@@ -4,18 +4,18 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Maktub: 'Está escrito' se dirige a lectores de poesía interesados en la experimentación con el castellano y en la obra de Ramón Buenaventura. Su extensión de 784 páginas y su carácter de poesía reunida lo alejan de quien busque una novela breve o una antología de varios autores.",
+      "texto": "Maktub: 'Está escrito' se dirige a lectores de poesía interesados en la experimentación con el lenguaje y la obra reunida de un mismo autor. Su extensión de 784 páginas y su atención al juego verbal lo alejan de quienes buscan una novela de argumento continuo.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La propuesta de Maktub: 'Está escrito' es recorrer la poesía de Ramón Buenaventura a través de una recopilación de su obra. El juego con palabras de otras lenguas, su transformación en castellano y una escritura de marcado vitalismo forman parte de su planteamiento literario.",
+      "texto": "Es un volumen de poesía reunida de Ramón Buenaventura, con especial presencia de la invención verbal y la mezcla de palabras de distintas lenguas. La propuesta se articula alrededor de una escritura vitalista que transforma el castellano mediante asociaciones y usos inesperados.",
       "evidencias": [
         "titulo",
         "autores",
@@ -25,40 +25,42 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Ultramarinos Editorial publica Maktub: 'Está escrito' en tapa blanda, con 784 páginas en castellano y fecha de publicación del 21 de octubre de 2026. El volumen reúne la poesía de Ramón Buenaventura en una edición moderna concebida para presentar conjuntamente su obra poética.",
+      "texto": "Esta edición de Maktub: 'Está escrito' reúne la poesía de Ramón Buenaventura en un volumen de 784 páginas publicado por Ultramarinos Editorial. Apareció el 21 de octubre de 2026 en castellano, con encuadernación en tapa blanda y el ISBN 9788412945171.",
       "evidencias": [
         "titulo",
         "autores",
         "editorial",
-        "edicion",
-        "numero_paginas",
-        "idioma",
         "fecha_publicacion",
+        "numero_paginas",
+        "edicion",
+        "idioma",
+        "isbn13",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es el formato disponible de Maktub: 'Está escrito', una recopilación poética de 784 páginas. Permite consultar distintos poemas y volver a ellos en un volumen físico, aunque su extensión supone un libro considerable para llevar a diario.",
+      "texto": "Maktub: 'Está escrito' se presenta en tapa blanda, con 784 páginas de poesía reunida. Es un volumen extenso para consultar y releer poemas concretos, por lo que conviene considerar su tamaño al transportarlo y reservar espacio para su lectura en papel.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Maktub: 'Está escrito' comparte con Antología, de Antonio Cano, la recuperación de una obra poética reunida, aunque corresponde a otro autor y a una escritura centrada en la experimentación lingüística. Frente a Ciudad, de Luis Pérez Capitán, que sitúa la poesía ante cuestiones tecnológicas y políticas, Ramón Buenaventura trabaja especialmente con las posibilidades del idioma.",
+      "texto": "Maktub: 'Está escrito' puede compararse con Advenir, de Jose Eceolaza, por su pertenencia a la poesía y su autoría individual. La diferencia documentada está en el alcance: el volumen de Ramón Buenaventura reúne su poesía y destaca por la experimentación lingüística, mientras que Advenir figura como otra obra poética del catálogo.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370140908",
-        "isbn-9788410167841"
+        "isbn-9788410212749"
       ]
     }
   ],

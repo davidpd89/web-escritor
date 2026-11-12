@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9791388259371",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El volumen de Anna Stuart publicado por Newton Compton Editores se dirige a lectores de novela histórica que buscan varias historias reunidas en un mismo libro. Incluye La enfermera de Auschwitz, La mujer con el tatuaje y La huérfana de Auschwitz. Sus 1152 páginas suponen una lectura extensa, menos ajustada a quien prefiere novelas breves o géneros alejados de la ficción histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La recopilación de Anna Stuart se presenta en tapa blanda, con 1152 páginas en castellano. Esta edición de Newton Compton Editores reúne La enfermera de Auschwitz, La mujer con el tatuaje y La huérfana de Auschwitz en un único ejemplar físico. Permite consultar las tres historias sin cambiar de libro, aunque su extensión implica un volumen considerable para transportarlo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cf2370a2d4a36847",
+  "origen": "chatgpt-web"
+}

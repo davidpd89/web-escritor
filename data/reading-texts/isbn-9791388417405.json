@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388417405",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Querido Papá Noel: quiero un asesinato está pensado para quienes disfrutan resolviendo enigmas mediante eliminación de sospechosos. Su planteamiento navideño parte de un crimen y 40.000 sospechosos, por lo que encaja menos con lectores que buscan una novela de misterio convencional sin participación en la resolución.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Querido Papá Noel: quiero un asesinato se edita en tapa blanda, con 192 páginas en castellano. El formato físico permite consultar las pistas y volver a páginas anteriores durante la resolución de los enigmas por eliminación.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Querido Papá Noel: quiero un asesinato comparte autor, Tim Collins, y el interés por los enigmas con Detectograms: El topo que se infiltró. Mientras este último se presenta como una propuesta de intriga para jóvenes aficionados a descifrar códigos, el primero plantea identificar a un asesino entre 40.000 sospechosos mediante eliminación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408325024"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "86e0f0267fcaeda7",
+  "origen": "chatgpt-web"
+}

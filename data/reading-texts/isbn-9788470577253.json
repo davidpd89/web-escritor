@@ -4,15 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "CONTEMPLATIVOS BAILANDO CON DIOS se orienta a lectores que buscan relacionar la espiritualidad cristiana con el trabajo, la familia y las experiencias ordinarias. Su perspectiva religiosa lo distancia de los ensayos sobre atención o bienestar que prescinden de la fe y de la presencia de Dios.",
+      "texto": "Contemplativos bailando con Dios se dirige a lectores interesados en la reflexión filosófica y espiritual sobre la vida cotidiana. Su atención al silencio, la contemplación y la presencia de Dios lo aleja de los ensayos centrados exclusivamente en cuestiones materiales o políticas.",
       "evidencias": [
         "titulo",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Eduardo Camino aborda la contemplación religiosa dentro de las ocupaciones habituales, sin plantearla como una retirada de la vida social. El libro relaciona el silencio y la atención con la posibilidad de reconocer la dimensión espiritual del descanso, los vínculos personales y las dificultades cotidianas.",
+      "texto": "La obra examina cómo integrar la contemplación religiosa en actividades habituales como el trabajo, las relaciones personales y el descanso. Eduardo Camino aborda la atención, el silencio y la búsqueda de sentido desde una perspectiva que vincula la experiencia cotidiana con la presencia de Dios.",
       "evidencias": [
         "autores",
         "sinopsis_editorial"
@@ -20,31 +21,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "CONTEMPLATIVOS BAILANDO CON DIOS está disponible en tapa blanda y reúne 186 páginas en castellano. Su extensión permite llevar el volumen a distintos lugares y recuperar pasajes sobre la contemplación en momentos de descanso o reflexión personal.",
+      "texto": "La tapa blanda reúne las 186 páginas de Contemplativos bailando con Dios en un volumen físico manejable para leer y consultar. La edición Kindle permite llevar el texto en un lector electrónico o en el móvil, sin necesidad de transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "CONTEMPLATIVOS BAILANDO CON DIOS y Bobadas coinciden en cuestionar la atención que se presta a los estímulos y las preocupaciones habituales. Eduardo Camino propone una mirada religiosa sobre la vida cotidiana; Javier Urra Portillo y Cristina González Reche plantean preguntas sobre aquello que realmente importa en ella.",
+      "texto": "A vivir también se aprende: Los 5 pilares de la sabiduría para ubicarse en tiempos de cambio (Deusto), de Frédéric Lenoir, comparte con Contemplativos bailando con Dios el interés por orientar la experiencia personal. El primero plantea la sabiduría ante los cambios, mientras Eduardo Camino centra su reflexión en la contemplación y la relación con Dios dentro de las actividades ordinarias.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788426741622"
+        "isbn-9788423440887"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "36f5d2fd56feddec",
+  "fuente_hash": "7360d034e225b7b9",
   "origen": "chatgpt-web"
 }

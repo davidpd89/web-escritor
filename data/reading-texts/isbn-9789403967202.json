@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9789403967202",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Resignificar para vivir: El dolor como puerta hacia el propósito está orientado a lectores interesados en el desarrollo personal y en cómo interpretar las experiencias dolorosas. El planteamiento de Daiana Dos Santos se relaciona con el bienestar y la búsqueda de propósito, no con una narración de aventuras ni con una guía de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Resignificar para vivir: El dolor como puerta hacia el propósito se presenta en tapa dura, con 130 páginas en castellano. La encuadernación rígida favorece su conservación y permite tenerlo como ejemplar de consulta para regresar a las reflexiones sobre dolor y propósito.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Resignificar para vivir: El dolor como puerta hacia el propósito y 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito comparten el interés por el bienestar personal. Daiana Dos Santos plantea la relación entre dolor y propósito, mientras que Liz Moody aborda cambios relacionados con la salud, las relaciones y la felicidad desde una perspectiva científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "71293e16e8fc6ff5",
+  "origen": "chatgpt-web"
+}

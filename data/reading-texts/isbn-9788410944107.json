@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788410944107",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan una lectura sobre historia y arte desde una perspectiva divulgativa. Su enfoque en estas materias lo aleja de las novelas de ficción y de los manuales centrados exclusivamente en técnicas artísticas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de ¡Vaya cuadro de historia!: El arte tiene algo que contar está disponible en tapa blanda y reúne 160 páginas. Es un volumen físico de extensión contenida que permite consultar distintos pasajes y llevarlo en una mochila sin el peso habitual de obras de arte más extensas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte con Civilización: Una historia del arte y la cultura que dieron forma a la civilización moderna: 126 (Ático Historia) el interés por relacionar arte e historia. Mientras el libro de Kenneth Clark plantea una perspectiva sobre la cultura que configuró la civilización moderna, el de Mr. Gonar presenta el arte como punto de partida para contar historia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387592493"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "077d0ca9196d0ccd",
+  "origen": "chatgpt-web"
+}

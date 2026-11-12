@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399181883",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La ciudad de la Bestia: El Londres de Aleister Crowley: 1 (Caronte) se orienta a lectores interesados en la historia y en la figura de Aleister Crowley vinculada a Londres. Su enfoque histórico lo separa de las novelas de ficción y de los manuales prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La ciudad de la Bestia: El Londres de Aleister Crowley: 1 (Caronte) está disponible en tapa blanda, con 374 páginas en castellano. Es una edición física que permite consultar distintos pasajes y volver a ellos mediante marcadores de papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La ciudad de la Bestia: El Londres de Aleister Crowley: 1 (Caronte) puede compararse con Agustín penón y Federico García Lorca por su vinculación con personajes reales y la investigación histórica. El libro de Juan Carlos García de Polavieja aborda una investigación sobre la vida y muerte de Federico García Lorca, mientras que Phil Baker sitúa su obra alrededor de Aleister Crowley y Londres.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418567933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b601ae706a743a9a",
+  "origen": "chatgpt-web"
+}

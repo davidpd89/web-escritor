@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791387938499",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a quienes buscan una aproximación biográfica a Roberto Iniesta mediante el cómic y la novela gráfica. El trabajo de Nacho Nava Laiz se aleja de la biografía exclusivamente textual y de los manuales generales de historia musical.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje del libro es la vida de Roberto Iniesta, abordada desde una perspectiva biográfica y gráfica. Nacho Nava Laiz sitúa su trabajo en el terreno de las memorias y la novela gráfica, con una dimensión visual vinculada al arte y el diseño.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 172 páginas de esta biografía gráfica en un volumen encuadernado con cubierta rígida. Es una opción para conservar en papel, consultar sus páginas ilustradas y regalar una edición física de Altamarea Ediciones.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Guns N' Roses: La banda más peligrosa del planeta (Alianza Pop) también aborda figuras del ámbito musical, pero se centra en una banda, mientras que El rey de la baraja: La imperecedera vida de Roberto Iniesta: 7 (Marea gráfica) presenta una trayectoria individual en formato gráfico. Ambos permiten acercarse a protagonistas de la música desde enfoques diferentes.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370093174"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e78fbe9cf4e2ab3e",
+  "origen": "chatgpt-web"
+}

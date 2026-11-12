@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388279492",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Escape room para resolver mientras haces caca (Voces de hoy) está orientado a quienes buscan pasatiempos con un planteamiento humorístico. Su propuesta de entretenimiento y resolución de retos se aparta de la lectura narrativa convencional y de los libros de consulta.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Escape room para resolver mientras haces caca (Voces de hoy) se ofrece en tapa blanda, con 272 páginas en castellano. El formato físico permite tener el libro a mano para abordar sus retos de entretenimiento sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Escape room para resolver mientras haces caca (Voces de hoy) comparte el terreno de los pasatiempos con El crimen de la Navidad. El cuaderno de pasatiempos de Crímenes ilustrados, de Modesto García. El primero plantea retos de escape room con humor, mientras que el segundo utiliza un crimen navideño como punto de partida para sus actividades.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401040740"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "93f73b925619c807",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387973001",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Unicornia 18 - Una noche luminosa está dirigido a lectores de fantasía que siguen el Universo Unicornia de Ana Punset. Su cubierta con purpurina añade un componente visual al libro físico. Encaja menos con quien busca narrativa realista o una obra ajena a un universo de fantasía compartido.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Unicornia 18 - Una noche luminosa tiene 128 páginas y una cubierta con purpurina, un detalle material de esta edición. Kindle permite leer el libro en pantalla y transportarlo sin llevar el ejemplar impreso. Para quien quiera la cubierta descrita en el título, la elección es la tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Unicornia - El libro de recetas mágicas comparte con Unicornia 18 - Una noche luminosa la autoría de Ana Punset y el Universo Unicornia. La diferencia es el tipo de contenido: uno propone recetas para cocinar en familia y el otro se presenta como un libro de fantasía. Colegio de poderes secretos 8 - En busca de Trece también pertenece al ámbito fantástico, pero es una obra de César Mallorquí.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387973025",
+        "isbn-9791387741297"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aa60de2e19c9ec55",
+  "origen": "chatgpt-web"
+}

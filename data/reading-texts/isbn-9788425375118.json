@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La hija del veneno se orienta a lectores adultos de fantasía romántica oscura interesados en relaciones conflictivas, matrimonios impuestos y personajes moralmente ambiguos. Los asesinatos mediante envenenamiento, la violencia contra hombres abusivos y las amenazas vampíricas la alejan del romance ligero.",
+      "texto": "La hija del veneno se dirige a lectores adultos de fantasía romántica oscura interesados en matrimonios impuestos, relaciones de enemistad que evolucionan hacia el amor y protagonistas moralmente ambiguas. Incluye asesinatos, hombres abusivos y amenazas sobrenaturales. No encaja con quien busque un romance realista o una fantasía sin violencia.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La hija del veneno combina fantasía romántica oscura, matrimonio de inconveniencia y una relación que evoluciona desde la hostilidad. Harlow Carrenwell utiliza un beso mortal contra sus víctimas, pero Henry Havenwood sobrevive a ese poder. La convivencia forzada y el conocimiento de sus crímenes convierten la confianza en un conflicto central.",
+      "texto": "La hija del veneno combina fantasía oscura y romance alrededor de una mujer cuyo beso resulta mortal, salvo para el hombre con quien debe casarse. El matrimonio de inconveniencia y la evolución del rechazo hacia la atracción articulan el conflicto sentimental. La trama incorpora una doble identidad como justiciera, intrigas familiares y un entorno amenazado por vampiros.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -23,29 +23,28 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La hija del veneno está disponible en tapa dura, Kindle y audiolibro. La edición impresa de Grijalbo tiene 792 páginas y sobrecubierta, mientras que Kindle evita transportar un volumen extenso. El audiolibro permite seguir la historia mediante escucha, sin necesidad de mantener la atención sobre una página.",
+      "texto": "La hija del veneno cuenta con 792 páginas y una edición en tapa dura con sobrecubierta, adecuada para conservar el volumen o regalarlo. Kindle permite llevar esta extensa fantasía romántica en el móvil sin transportar el libro físico. El audiolibro ofrece la posibilidad de seguir la historia mediante escucha durante actividades cotidianas.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
         "edicion",
-        "editorial"
+        "formatos_disponibles",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La hija del veneno comparte con Alchemised (edición coleccionista limitada) la fantasía adulta, el romance y los conflictos atravesados por la violencia. Sheila Masterson sitúa la tensión en un matrimonio con una asesina de beso venenoso, mientras que SenLinYu explora el cautiverio y la pérdida de memoria tras una guerra. El ocaso del rey (Dioses y monstruos 5) también pertenece al ámbito del romantasy oscuro, pero su título lo identifica como el n.º 5 de una serie.",
+      "texto": "La maldad más dulce (La Música del Engaño 1), de Raven Kennedy, comparte con La hija del veneno la presencia de una fantasía marcada por amenazas extraordinarias, aunque su planteamiento presenta seres destructivos y la novela de Sheila Masterson centra el conflicto en un matrimonio peligroso. Te querré para siempre: Hay personas que están destinadas a encontrarse (Destino Juvenil), de Sophie Jomain, permite comparar el interés por las relaciones sentimentales, frente al componente de violencia sobrenatural y fantasía oscura de La hija del veneno.",
       "evidencias": [
         "titulo",
         "autores",
-        "edad_recomendada",
         "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9791387924386",
-        "isbn-9788427258280"
+        "isbn-9791387629977",
+        "isbn-9788408331100"
       ]
     }
   ],

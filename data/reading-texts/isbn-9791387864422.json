@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791387864422",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La última octava (EDICIÓN ESPECIAL LIMITADA) (SIREN ROMANCE) se dirige a lectores de romance que buscan una novela extensa, de 716 páginas. Por su género y longitud, se distancia de las lecturas centradas en otros temas y de quienes prefieren relatos breves.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La última octava (EDICIÓN ESPECIAL LIMITADA) (SIREN ROMANCE) se presenta como una edición especial limitada dentro de la línea SIREN ROMANCE. Siren Books publica esta versión en castellano, con encuadernación en tapa blanda y una extensión de 716 páginas.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Con 716 páginas, la tapa blanda permite conservar la novela en papel y colocarla junto a otros títulos de romance. La edición Kindle evita transportar un volumen de esa extensión y facilita continuar la lectura desde un dispositivo electrónico o el móvil.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A mil por hora comparte con La última octava (EDICIÓN ESPECIAL LIMITADA) (SIREN ROMANCE) su pertenencia al romance, aunque el libro de Hannah Grace sitúa su planteamiento en el entorno de la F1. La novela de Ashley Jade se distingue por sus 716 páginas y su identificación como edición especial limitada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "54acbea9b28a8377",
+  "origen": "chatgpt-web"
+}

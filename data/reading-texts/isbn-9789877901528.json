@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9789877901528",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Otra vida (ZONA DE FICCIONES), de Gustavo Dessal, se dirige a lectores de narrativa contemporánea en castellano. Sus 264 páginas permiten distinguirla de obras de mayor extensión, aunque no está orientada específicamente a quienes buscan fantasía, terror o ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Otra vida (ZONA DE FICCIONES) está disponible en tapa blanda, con 264 páginas en castellano. La edición de Interzona ofrece un volumen físico que puede transportarse y guardarse en una estantería, sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fb3f9f1cf7ddf0af",
+  "origen": "chatgpt-web"
+}

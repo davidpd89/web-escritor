@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388222023",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Protocolo autoinmune: Tu plan de 90 días para reducir la inflamación, prevenir las enfermedades autoinmunes y calmar los síntomas (GROU), de Natalia Durán, está dirigido a lectores interesados en nutrición y bienestar relacionados con la salud autoinmune. Su planteamiento de 90 días responde a la búsqueda de un plan organizado, no a la de una obra de ficción o un ensayo político.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Protocolo autoinmune: Tu plan de 90 días para reducir la inflamación, prevenir las enfermedades autoinmunes y calmar los síntomas (GROU) se edita en tapa blanda, con 248 páginas en castellano. El formato impreso permite marcar apartados y consultar el plan durante sus 90 días, además de conservar las anotaciones en el propio volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "5 semanas para desinflamarte (edición limitada), de Blanca García-Orea Haro, comparte con Protocolo autoinmune: Tu plan de 90 días para reducir la inflamación, prevenir las enfermedades autoinmunes y calmar los síntomas (GROU) el interés por la inflamación. La diferencia visible está en la duración anunciada: 5 semanas frente a 90 días. Natalia Durán incorpora además el enfoque autoinmune al título de su plan.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394390"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7a728a2da32d2cbd",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788419722300",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo matar a una chismosa, de M.C. Beaton, encaja con lectores que buscan misterio y thriller en castellano. Sus 208 páginas ofrecen una extensión relativamente breve dentro de la narrativa; por su clasificación editorial, no se dirige específicamente a quienes prefieren romance o ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cómo matar a una chismosa cuenta con una edición en tapa blanda de 208 páginas, publicada por Catedral. La encuadernación flexible facilita llevarlo en el bolso o la mochila, mientras que su extensión permite distribuir la lectura en sesiones cortas sin manejar un volumen especialmente grueso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0cde59636a209684",
+  "origen": "chatgpt-web"
+}

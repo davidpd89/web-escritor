@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073877527",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Época de cerezos / Cherry Blossom Season, de Laura Baeza, se dirige a lectores de misterio, relatos y narrativa contemporánea. Sus 192 páginas y su combinación de géneros lo distinguen de una novela extensa de ciencia ficción o de un libro práctico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer las 192 páginas de Época de cerezos / Cherry Blossom Season en papel y conservar el volumen en una estantería. El audiolibro ofrece una alternativa para escuchar la obra durante desplazamientos o actividades cotidianas, sin necesidad de sostener el libro.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Época de cerezos / Cherry Blossom Season puede compararse con Santita del agua clara / Saint of the Clear Water por compartir la autoría de Laura Baeza. Frente a Después de medianoche. Trece historias para no dormir: Prólogo de Stephen King (Espasa Narrativa), asociado a historias para no dormir, reúne misterio, relatos y narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073879460",
+        "isbn-9788467084429"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b95b5e90f53e5200",
+  "origen": "chatgpt-web"
+}

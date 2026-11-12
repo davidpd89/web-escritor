@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388484070",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Yon Vol. 1 se dirige a lectores que combinan el interés por la ciencia ficción con el misterio y la narrativa gráfica. Camille Broutin firma un volumen de 480 páginas, menos afín a quienes buscan una novela realista breve o una lectura centrada exclusivamente en el humor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Yon Vol. 1 está disponible en tapa blanda y reúne 480 páginas en castellano. La edición de Moztros Producciones SL ofrece la lectura en un volumen físico que puede conservarse o prestarse, aunque su extensión supone transportar más páginas que en una obra breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Yon Vol. 1 y El mundo perdido comparten su relación con la ciencia ficción y el misterio. Camille Broutin firma una obra de narrativa gráfica de 480 páginas, mientras Michael Crichton presenta una historia sobre dinosaurios y cadáveres encontrados en una isla de Costa Rica. La diferencia está en el formato gráfico del primero y el conflicto relacionado con dinosaurios del segundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466392143"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e5d78f1a68ab73ca",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388015571",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Calendario de Adviento. Escape room (FUERA DE ESCENA), de Iacopo Cellini, se dirige a quienes buscan entretenimiento relacionado con los juegos de escape y el calendario de Adviento. Sus 128 páginas lo sitúan entre las propuestas de ocio de extensión breve, frente a quienes prefieren novelas largas o lecturas centradas en una trama romántica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Calendario de Adviento. Escape room (FUERA DE ESCENA) está disponible en tapa blanda, con 128 páginas en castellano. Este formato permite manejar el volumen en papel durante las actividades de entretenimiento y guardarlo después sin ocupar tanto espacio como una obra de mayor extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Calendario de Adviento. Escape room (FUERA DE ESCENA) comparte con 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos) su orientación hacia el entretenimiento mediante actividades. La diferencia está en la propuesta: Iacopo Cellini presenta un calendario de Adviento vinculado a un escape room, mientras que el título de Varios autores se centra en colorear píxeles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788408328384"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2d4fea0c12222e63",
+  "origen": "chatgpt-web"
+}

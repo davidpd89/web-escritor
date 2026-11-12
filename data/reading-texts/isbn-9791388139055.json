@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Manifiesto contra la intolerancia está dirigido a lectores adultos interesados en la filosofía política, la democracia y el análisis del autoritarismo contemporáneo. Rafael Narbona adopta una posición crítica frente a la ultraderecha, por lo que no plantea una exposición neutral de las distintas corrientes políticas ni un recorrido histórico general.",
+      "texto": "Manifiesto contra la intolerancia se dirige a lectores adultos interesados en el pensamiento político, la filosofía y el análisis de los movimientos autoritarios contemporáneos. Su posición crítica frente al fascismo y la ultraderecha lo aleja de los ensayos que buscan presentar distintas ideologías sin adoptar una postura explícita.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,28 +14,27 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Rafael Narbona examina en Manifiesto contra la intolerancia diez características de los movimientos autoritarios actuales, desde la exclusión de minorías hasta el militarismo y el deterioro ambiental. Organiza el ensayo como un decálogo de crítica política y contrapone esas tendencias a una defensa de la democracia, los derechos humanos y el pensamiento crítico.",
+      "texto": "Rafael Narbona examina diez características de los movimientos autoritarios actuales, entre ellas el nacionalismo identitario, la xenofobia, la oposición al feminismo y el desprecio por la cultura. Organiza su argumentación como un decálogo y defiende la democracia desde el pensamiento crítico, los derechos humanos y el humanismo europeo.",
       "evidencias": [
-        "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Manifiesto contra la intolerancia puede leerse en tapa blanda o Kindle. La edición física de Roca Editorial tiene 288 páginas y solapas, una opción para consultar y señalar pasajes en papel; Kindle permite llevar el ensayo en un lector electrónico o dispositivo compatible sin transportar el volumen.",
+      "texto": "Manifiesto contra la intolerancia está disponible en tapa blanda y Kindle. La edición impresa de Roca Editorial cuenta con 288 páginas y solapas, adecuada para subrayar y consultar físicamente sus argumentos; Kindle permite llevar el ensayo en un lector electrónico o en el móvil sin transportar el volumen.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
         "editorial",
-        "numero_paginas"
+        "numero_paginas",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Manifiesto contra la intolerancia y Antes de perder el juicio coinciden en su preocupación por el deterioro del debate público: Rafael Narbona analiza los movimientos autoritarios y Mauricio García Villegas se ocupa de la propaganda y el sectarismo. Elogio del amor, también de Rafael Narbona, desplaza el foco hacia el cuidado de las personas vulnerables, frente al planteamiento político del manifiesto.",
+      "texto": "Manifiesto contra la intolerancia puede ponerse en relación con Elogio del amor, también de Rafael Narbona, por su atención a los valores que orientan la convivencia humana. El primero analiza los mecanismos del autoritarismo y defiende los derechos democráticos; Elogio del amor parte de la importancia del cuidado de quienes necesitan ayuda para reflexionar sobre las relaciones humanas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -44,8 +42,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410197534",
-        "isbn-9791388387302"
+        "isbn-9788410197534"
       ]
     }
   ],

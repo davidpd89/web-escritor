@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387962678",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Kiyoshi, el exorcista 4 (Shônen) se orienta a lectores de manga que siguen historias de fantasía y aventuras. El título lo identifica como el n.º 4, por lo que resulta más pertinente para quienes buscan esa entrega que para quienes desean empezar por un primer volumen o leer romance contemporáneo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Kiyoshi, el exorcista 4 (Shônen) contiene 192 páginas en castellano y pertenece al catálogo de Distrito Manga. Su encuadernación flexible facilita llevar el volumen fuera de casa y conservarlo en papel junto a otras entregas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Kiyoshi, el exorcista 4 (Shônen) tiene su comparación más directa en Kiyoshi, el exorcista 3 (Shônen), también de Shoichi Usui. Ambos comparten autoría y denominación, pero sus títulos identifican los números 4 y 3 respectivamente; frente a Astro Royale 1 (Shônen): Universo Manga, de Ken Wakui, la diferencia principal es la obra y el número de entrega indicado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962173",
+        "isbn-9791387962845"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a6abef2960980dc0",
+  "origen": "chatgpt-web"
+}

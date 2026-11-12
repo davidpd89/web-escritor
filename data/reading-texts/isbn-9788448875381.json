@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788448875381",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Agencia de animales mágicos: Medianoche y la leyenda de Santuario (Mi primer cómic) se orienta a lectores que buscan fantasía con animales, amistad y narración en formato cómic. Por su planteamiento gráfico y sus 72 páginas, encaja menos con quienes prefieren novelas extensas de fantasía escritas únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Agencia de animales mágicos: Medianoche y la leyenda de Santuario (Mi primer cómic) está disponible en tapa dura, con 72 páginas. Esta encuadernación permite conservar el cómic como volumen físico y facilita su consulta repetida, especialmente cuando se quiere regalar una historia de fantasía protagonizada por animales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El mono que vino a cenar (La ovejita que vino a cenar) (Cuentos infantiles) comparte autor, Steve Smallman, y la presencia de animales, pero pertenece a una propuesta de cuentos infantiles en lugar de un cómic fantástico. Mi mamá es... - Una unicornia solitaria también es de Steve Smallman y presenta un bosque encantado con dos amigos, mientras que Agencia de animales mágicos: Medianoche y la leyenda de Santuario (Mi primer cómic) se identifica expresamente como cómic.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874056",
+        "isbn-9788448874575"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e5e96a8f44be1a72",
+  "origen": "chatgpt-web"
+}

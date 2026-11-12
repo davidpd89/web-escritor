@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788412851564",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de cómic y novela gráfica interesados en el terror. El Pacto de Goya. Tomo 2, de Sergio Bleda y Bel Carrillo, pertenece a ese ámbito y no responde a quien busque narrativa romántica o un ensayo; el título identifica este volumen como tomo 2.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Dawn Entertainment tiene 72 páginas en castellano, una extensión breve dentro de la lectura en papel. Su formato permite guardar el tomo junto a otros cómics y consultar sus páginas sin pantalla, manteniendo una colección física de narrativa gráfica de terror.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Creepy nº 11/29 comparte con El Pacto de Goya. Tomo 2 el terreno del terror en formato de cómic, pero se presenta como una recopilación frente al tomo identificado de Sergio Bleda y Bel Carrillo. Creepy nº 25/29 también se sitúa en el terror y pertenece a una colección numerada distinta, mientras que El Pacto de Goya. Tomo 2 se identifica expresamente como tomo 2.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411406130",
+        "isbn-9788411406277"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fdc3a3e6045f86b3",
+  "origen": "chatgpt-web"
+}

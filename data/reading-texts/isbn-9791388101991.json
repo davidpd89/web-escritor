@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791388101991",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Blue Lock nº 33 (Manga Shonen) se dirige a lectores de manga juvenil y cómic japonés. Su clasificación como narrativa juvenil y contemporánea lo distingue de las obras de ensayo o divulgación, por lo que no responde a una búsqueda de lectura informativa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Blue Lock nº 33 (Manga Shonen) está disponible en tapa blanda, con 192 páginas en castellano. Esta edición de Planeta Cómic permite leerlo en papel y guardarlo junto a otros volúmenes de la colección, cuyo número 33 figura en el título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7c9303af282f2e1f",
+  "origen": "chatgpt-web"
+}

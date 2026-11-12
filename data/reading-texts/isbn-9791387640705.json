@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387640705",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El milagro de San Genaro encaja con lectores interesados en los clásicos, la narrativa contemporánea y los relatos vinculados a la historia. Su extensión de 336 páginas permite abordar una lectura de mayor recorrido; no está orientado a quienes buscan ficción fantástica o literatura infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 336 páginas en un volumen físico manejable para leer en casa o llevar consigo. Kindle permite acceder al mismo título desde el móvil o un lector electrónico, sin transportar el ejemplar de papel.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El milagro de San Genaro comparte espacio en el catálogo con Anna Karénina (edición especial en tapa dura) (Ediciones Conmemorativas), de Lev Tolstoi, y David Copperfield (edición especial en tapa dura) (Ediciones Conmemorativas), de Charles Dickens. Los tres títulos permiten acercarse a autores clásicos, aunque aquí la autoría corresponde a Sándor Márai y los otros dos libros presentan ediciones especiales en tapa dura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491058397",
+        "isbn-9788491058250"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4d707f97e4d954d7",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788425375286",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando solo queda aire: Aprender a morir es aprender a vivir (Crecimiento personal) se dirige a lectores interesados en las memorias personales, la reflexión filosófica y las cuestiones relacionadas con la muerte y el sentido de la vida. Por su enfoque biográfico y de desarrollo personal, resulta menos afín a quien busca una novela de ficción o una lectura alejada de asuntos existenciales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Cuando solo queda aire: Aprender a morir es aprender a vivir (Crecimiento personal) ofrece 216 páginas en una edición física de Grijalbo, adecuada para conservar y consultar pasajes. Kindle permite leerlo en el móvil o en un dispositivo electrónico, mientras que el audiolibro facilita seguir el texto mediante la escucha.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cartas a Lucilio: Edición íntegra (Clásicos), de Séneca, comparte con Cuando solo queda aire: Aprender a morir es aprender a vivir (Crecimiento personal) el interés por la reflexión filosófica, aunque presenta una estructura epistolar frente al enfoque biográfico de Paul Kalanithi. La gravedad y la gracia (Contemporánea | Narrativa), de Simone Weil, ofrece otra referencia filosófica, mientras que el libro de Paul Kalanithi relaciona las memorias personales con la muerte y el sentido de la vida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182495",
+        "isbn-9788466392112"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b0f0486e2536044a",
+  "origen": "chatgpt-web"
+}

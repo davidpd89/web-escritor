@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788426438249",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estado de distancia: Finalista del Premio Lumen de novela (Narrativa), de Belén López Peiró, está dirigido a lectores de narrativa contemporánea. Sus 192 páginas lo sitúan en una extensión breve frente a novelas más largas; no es un ensayo ni una obra de cómic.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible de Estado de distancia: Finalista del Premio Lumen de novela (Narrativa) es en tapa blanda y tiene 192 páginas. Su extensión permite disponer de la novela completa en un único volumen físico de Lumen.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ad56145c77d86ed5",
+  "origen": "chatgpt-web"
+}

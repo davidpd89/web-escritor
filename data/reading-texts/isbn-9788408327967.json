@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788408327967",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Zodiac Academy 2. Despiadados. Edición especial: Edición con cantos tintados (Ficción) se dirige a lectores de fantasía interesados en continuar una serie. El título lo identifica como el n.º 2, por lo que encaja menos con quienes buscan una primera entrega o una lectura breve: esta edición tiene 592 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición especial de Crossbooks combina tapa dura y cantos tintados, elementos que la distinguen de la edición rústica del mismo título. Contiene 592 páginas en castellano y su publicación está fechada el 25 de noviembre de 2026. El título la identifica como el n.º 2 de Zodiac Academy.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura incorpora los cantos tintados de esta edición especial y reúne sus 592 páginas en un volumen rígido, apropiado para conservar en una colección. Kindle ofrece la alternativa digital para leer sin transportar el ejemplar físico. Ambas opciones corresponden a la obra de Caroline Peckham y Susanne Valenti.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Zodiac Academy 1. El despertar comparte autoras y serie con la edición especial de Despiadados, pero los títulos identifican entregas distintas. Ambas obras están firmadas por Caroline Peckham y Susanne Valenti. La primera corresponde al inicio de la serie, mientras que Despiadados se identifica como la segunda entrega y presenta una edición en tapa dura con cantos tintados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324317"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4155e50586680ac8",
+  "origen": "chatgpt-web"
+}

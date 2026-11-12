@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387906283",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pocket Potters 9 - Fred y George Weasley (Harry Potter), de J.K. Rowling, está dirigido a lectores de fantasía interesados en estos personajes del universo Harry Potter. Sus 32 páginas lo sitúan entre las lecturas cortas, lejos de la extensión habitual de una novela de fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pocket Potters 9 - Fred y George Weasley (Harry Potter) se publica en tapa dura, con 32 páginas en castellano. El formato permite leerlo en poco tiempo y conservarlo como volumen físico dentro de una colección vinculada a Harry Potter.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pocket Potters 9 - Fred y George Weasley (Harry Potter) comparte autoría y universo con Animales fantásticos y dónde encontrarlos (Un libro de la biblioteca de Hogwarts) (Harry Potter), de J.K. Rowling, aunque su título se centra en Fred y George Weasley en lugar de las criaturas fantásticas. A diferencia de Harry Potter Envío especial - Correo por Lechuza (estuche con la SAGA COMPLETA) (Harry Potter [edición con la portada ilustrada por Jonny Duddle]), también de J.K. Rowling, es un volumen de 32 páginas y no un estuche con la saga completa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395687",
+        "isbn-9788466393614"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e574759bd4c36b2d",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791388115479",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores de historia política, pensamiento económico y conflictos de clase que quieran acercarse a un texto de Friedrich Engels. Su atención a la violencia y a la Alemania del siglo XIX lo aleja de quienes buscan una introducción general a la historia contemporánea sin enfoque político.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El texto relaciona el uso de la violencia con los procesos históricos y la lucha entre clases sociales. Friedrich Engels aborda estas cuestiones a través de la figura de Bismarck y del contexto alemán del siglo XIX, dentro de un ensayo que conecta historia, economía y política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esta edición en tapa blanda de Biblioteca Nueva reúne 96 páginas en castellano. Su extensión reducida facilita leer el texto en pocas sesiones, transportarlo y recuperar pasajes para estudiar las cuestiones históricas y políticas que aborda.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El papel de la violencia en la historia comparte autor con El Manifiesto comunista, firmado por Karl Marx y Friedrich Engels, pero se concentra en la violencia, Bismarck y las clases sociales en la Alemania del siglo XIX. Anarquía capitalista, de Miguel Anxo Bastos Boubeta, también aborda cuestiones económicas y políticas, aunque desde las raíces del pensamiento anarcocapitalista y no desde el contexto histórico alemán.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9734dcc0c803064e",
+  "origen": "chatgpt-web"
+}

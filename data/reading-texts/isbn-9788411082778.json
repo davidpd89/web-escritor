@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788411082778",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este dolor no es mío: Identifica y resuelve los traumas familiares heredados, Nueva edición ampliada y actualizada. (Psicoemoción) está dirigido a lectores interesados en psicología, desarrollo personal y relaciones familiares. No corresponde a quien busque ficción narrativa, romance o una novela de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 352 páginas de Este dolor no es mío: Identifica y resuelve los traumas familiares heredados, Nueva edición ampliada y actualizada. (Psicoemoción) en papel. Kindle permite consultar el contenido en dispositivos electrónicos, mientras que el audiolibro ofrece la posibilidad de escucharlo en lugar de leerlo.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos), de Toño Ramos, comparte con Este dolor no es mío: Identifica y resuelve los traumas familiares heredados, Nueva edición ampliada y actualizada. (Psicoemoción) el interés por las relaciones familiares. La diferencia está en el enfoque anunciado: uno aborda los traumas familiares heredados y el otro se centra en herramientas de psicología conductual para la convivencia doméstica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399249682"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bd200b077edff7c0",
+  "origen": "chatgpt-web"
+}

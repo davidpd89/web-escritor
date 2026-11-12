@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9788409943128",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Te cuento un secreto?: El momento ha llegado. se dirige a lectores interesados en los secretos y las relaciones familiares, dentro del ámbito infantil. Por su temática, se aleja de las aventuras fantásticas y de las historias centradas en la acción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Te cuento un secreto?: El momento ha llegado. está disponible en tapa blanda, con 50 páginas en castellano. Su extensión permite leerlo en sesiones breves y el formato físico facilita compartir la lectura y volver a páginas concretas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aee902e8de570030",
+  "origen": "chatgpt-web"
+}

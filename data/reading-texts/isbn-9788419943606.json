@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788419943606",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Decesura: 72 (ποίησις [poíesis]) se dirige a lectores de poesía contemporánea en castellano. Con 136 páginas, responde a un interés por la escritura poética más que por las novelas de argumento continuado o los ensayos históricos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Decesura: 72 (ποίησις [poíesis]) está disponible en tapa blanda y tiene 136 páginas. La edición de Libros de la Resistencia ofrece un volumen de extensión contenida para leer poesía en papel, transportarlo y volver a sus páginas durante distintas sesiones de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Decesura: 72 (ποίησις [poíesis]), de Julio Prieto, puede compararse con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, por su pertenencia al ámbito poético. También comparte género con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, cuyo título señala expresamente el amor como eje. En Decesura: 72 (ποίησις [poíesis]), el título no delimita esa misma temática amorosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cac5ca8cda5f0e5f",
+  "origen": "chatgpt-web"
+}

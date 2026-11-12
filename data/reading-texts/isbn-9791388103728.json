@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388103728",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inuyasha nº 26/30 (Manga Shonen) se dirige a lectores de manga que buscan continuar una colección numerada de Rumiko Takahashi. El título lo identifica como el n.º 26/30, de modo que no corresponde a quien busca comenzar la serie desde su primer volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Inuyasha nº 26/30 (Manga Shonen) está disponible en tapa blanda, con 352 páginas en castellano y edición de Planeta Cómic. El formato impreso permite seguir la lectura sobre papel y conservar este volumen junto a los demás números de la colección, con una encuadernación flexible que facilita su manejo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Inuyasha nº 26/30 (Manga Shonen) comparte autoría con MAO nº 11 y Lamu nº 08/17, obras de Rumiko Takahashi presentadas también en volúmenes numerados. MAO nº 11 plantea la investigación de un asesino misterioso, mientras que Lamu nº 08/17 destaca por las situaciones caóticas asociadas a Ataru; Inuyasha nº 26/30 (Manga Shonen) se identifica como manga shonen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388101700",
+        "isbn-9791388103612"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4fe4328fd6b603f9",
+  "origen": "chatgpt-web"
+}

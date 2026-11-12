@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786287878471",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Enfocado a quienes leen sobre historia y poder político desde la no ficción. Ídolos de paja / Idols of Straw, de Nicolás Pernett Cañas, se sitúa en ese ámbito temático y no responde a la búsqueda de una novela de aventuras o de una narración fantástica. Su extensión es de 336 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ídolos de paja / Idols of Straw está disponible en tapa blanda y contiene 336 páginas en castellano. Es un volumen físico que puede llevarse para leer durante los desplazamientos o conservarse para consultas posteriores. La encuadernación flexible permite manejarlo sin el peso adicional de unas cubiertas rígidas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Desterrando: La arquitectura del genocidio (Historia), de Eyal Weizman, comparte con Ídolos de paja / Idols of Straw el interés por la historia y sus relaciones con el poder. El primero anuncia un estudio sobre la arquitectura del genocidio, mientras que el libro de Nicolás Pernett Cañas se presenta bajo un título más abierto, sin delimitar ese mismo asunto.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788419399045"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9c3c94bd5e03fd8d",
+  "origen": "chatgpt-web"
+}

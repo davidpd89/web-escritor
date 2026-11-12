@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370610289",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en los criptoactivos desde su consideración como instrumentos financieros y su dimensión jurídica. Encaja menos con quienes buscan una guía práctica de inversión o una explicación tecnológica general, porque su planteamiento corresponde a una monografía de derecho.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los criptoactivos: instrumento financiero (Monografía) cuenta con una edición en tapa blanda de 200 páginas. Publicada por Aranzadi en castellano, permite consultar físicamente el tratamiento de los criptoactivos como instrumentos financieros y señalar los apartados que se quieran revisar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Blockchain: un desafío legal (Monografía) comparte el interés por las implicaciones jurídicas de tecnologías vinculadas al entorno digital. Joel Fernandez Diez centra su monografía en los criptoactivos como instrumentos financieros, mientras Ana Isabel Quiroz Ruiz aborda los desafíos legales del blockchain. La distinción principal está entre el instrumento financiero y la tecnología desde una perspectiva jurídica más general.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370610265"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "61e57fe3ff47cdd1",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9780241837627",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Humanos. La evolución de nuestra especie (Enciclopedia visual), de Alice Roberts, está dirigido a lectores interesados en la evolución humana, la psicología y la divulgación científica. Su planteamiento enciclopédico se aleja de la narrativa de ficción y de los libros centrados exclusivamente en consejos de bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne sus 320 páginas en un volumen físico, adecuado para consultar y conservar como obra de referencia. Kindle permite acceder a los contenidos desde dispositivos electrónicos y llevar el libro sin ocupar espacio en la estantería.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "289bdff01fed566b",
+  "origen": "chatgpt-web"
+}

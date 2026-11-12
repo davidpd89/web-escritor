@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9786073877732",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Crímenes Atroces: ¿Qué hay en la mente de los asesinos más crueles? / Atrocious Crimes: What Goes on in the Minds of the Cruelest Killers? se orienta a lectores de ensayo interesados en los asesinos y en las preguntas sobre su conducta. Su temática criminal se aleja de quienes buscan ficción de aventuras o una lectura ajena a la violencia.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Enrique Zúñiga plantea una aproximación a los crímenes atroces mediante una pregunta sobre la mente de quienes los cometen. La obra se sitúa entre el ensayo y las biografías y memorias, con el comportamiento de los asesinos como eje temático.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 304 páginas en castellano y permite leer o consultar el ensayo en papel. Kindle ofrece una alternativa digital para acceder al texto desde un lector electrónico o un móvil, sin necesidad de transportar el ejemplar físico.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Enrique Zúñiga puede compararse con Campo de concentración: 82 (Biblioteca del Exilio), de Eduardo de Ontañón, por su vinculación temática con la violencia. La primera plantea preguntas sobre la mente de los asesinos, mientras que la segunda remite a un campo de concentración. El contraste está en el objeto de estudio: la conducta criminal frente a una experiencia vinculada al internamiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410148659"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f23a738daf8d038a",
+  "origen": "chatgpt-web"
+}

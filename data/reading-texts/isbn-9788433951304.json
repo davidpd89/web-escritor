@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuerpo, humano se dirige a quienes buscan comprender el cuerpo desde perspectivas médicas, psicológicas y culturales. Su carácter ensayístico y su atención a la experiencia subjetiva lo distinguen de un manual de anatomía o de una guía práctica de ejercicio físico.",
+      "texto": "Cuerpo, humano se dirige a lectores de ensayo interesados en la relación entre el cuerpo, la identidad y la experiencia psicológica. Su tratamiento de la enfermedad, el género y la práctica clínica se aleja de una guía de ejercicios físicos o de un manual de anatomía exclusivamente técnico.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,35 +13,20 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Vittorio Lingiardi estudia las relaciones entre el organismo, la identidad y la vida emocional, con atención a la enfermedad, la adolescencia y el género. Cuerpo, humano combina conocimientos clínicos con referencias artísticas, literarias y mitológicas para examinar cómo se vive y se interpreta la experiencia corporal.",
+      "texto": "Vittorio Lingiardi examina cómo se relacionan los órganos y los procesos corporales con la memoria, las emociones y la identidad. El enfoque combina medicina, experiencia clínica, mitología, arte y literatura, e incorpora cuestiones como la adolescencia, los trastornos alimentarios y la influencia política sobre el cuerpo.",
       "evidencias": [
-        "titulo",
         "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cuerpo, humano está disponible en tapa blanda y Kindle. La edición impresa tiene 328 páginas y permite consultar el ensayo en papel; Kindle facilita llevar el texto en un dispositivo electrónico y retomar sus reflexiones sobre el cuerpo sin cargar con el libro físico.",
+      "texto": "Cuerpo, humano está disponible en tapa blanda y Kindle. La edición impresa de Editorial Anagrama tiene 328 páginas y permite consultar físicamente sus distintos asuntos; Kindle facilita llevar el ensayo en un lector electrónico o en el móvil sin transportar el volumen.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Cuerpo, humano y Atención y esfuerzo se aproximan al estudio de las personas desde cuestiones relacionadas con la psicología. Vittorio Lingiardi aborda el cuerpo, las emociones y la identidad mediante un enfoque clínico y cultural, mientras que Daniel Kahneman examina cómo se distribuyen los recursos limitados de la atención mental.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791388387524"
+        "edicion",
+        "numero_paginas"
       ]
     }
   ],

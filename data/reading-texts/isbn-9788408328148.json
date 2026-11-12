@@ -1,0 +1,60 @@
+{
+  "id": "isbn-9788408328148",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bodas de sangre. Edición ilustrada (Austral Ilustrados) se dirige a quienes buscan una obra de Federico García Lorca en una presentación que incorpora el componente visual. Su extensión de 144 páginas permite distinguirla de recopilaciones amplias; no responde a quien busque una edición centrada exclusivamente en el texto y sin ilustraciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Austral Editorial publica Bodas de sangre. Edición ilustrada (Austral Ilustrados) en tapa dura y con una extensión de 144 páginas. La identificación como edición ilustrada diferencia esta presentación de otras versiones de la obra de Federico García Lorca. Está prevista para el 25 de noviembre de 2026, en castellano, con ISBN 9788408328148.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "fecha_publicacion",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 144 páginas de esta edición ilustrada de Austral Editorial en un volumen físico que puede conservarse o regalarse. Kindle permite leer la obra desde un dispositivo electrónico, mientras que el audiolibro ofrece una experiencia de escucha. Quien busque específicamente la presentación ilustrada en papel puede optar por la tapa dura.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Trilogía rural (edición coleccionista): Bodas de sangre, Yerma y La casa de Bernarda Alba comparte autor y contiene Bodas de sangre, pero reúne tres obras de Federico García Lorca en lugar de centrarse en una sola. Romancero gitano (VINTAGE) permite comparar otro título del mismo autor vinculado a la poesía. Bodas de sangre. Edición ilustrada (Austral Ilustrados) se distingue por su presentación ilustrada en tapa dura y sus 144 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388435157",
+        "isbn-9788427257467"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b7236a06f0748a7b",
+  "origen": "chatgpt-web"
+}

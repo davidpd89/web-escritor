@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388102080",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Doraemon nº 07/15: 7 (Manga Kodomo) está dirigido a lectores de cómic infantil que prefieren las historias narradas mediante viñetas. Sus 568 páginas lo convierten en una lectura extensa dentro de ese formato, menos ajustada a quien busca un libro ilustrado muy breve o una novela convencional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Doraemon nº 07/15: 7 (Manga Kodomo) está disponible en tapa blanda, con 568 páginas reunidas en un único ejemplar físico. Este formato permite conservarlo junto a otros tomos de manga y leerlo sin dispositivos electrónicos, aunque su extensión supone transportar un volumen considerable.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Avni 1. Animal verdaderamente no identificado (Txikiberri) comparte con Doraemon nº 07/15: 7 (Manga Kodomo) su orientación hacia el cómic infantil, pero pertenece a otra obra y está firmado por Romain Pujol en lugar de Fujiko F. Fujio. Animal Jack 2 la montaña mágica también se sitúa en el ámbito del cómic juvenil, aunque lleva la firma de Kid Toussaint y presenta personajes diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387744410",
+        "isbn-9788417575847"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a00e3d71c6699314",
+  "origen": "chatgpt-web"
+}

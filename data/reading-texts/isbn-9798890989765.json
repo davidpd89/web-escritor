@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9798890989765",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Junie B. Jones Espía Un Poquitín (El Cómic) / Junie B. Jones and Some Sneaky Peeky Spying: The Graphic Novel encaja con lectores interesados en el humor narrado mediante viñetas. Su formato de cómic lo aleja de las novelas construidas exclusivamente con texto y de las lecturas de carácter documental.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 160 páginas de Junie B. Jones Espía Un Poquitín (El Cómic) / Junie B. Jones and Some Sneaky Peeky Spying: The Graphic Novel. Al tratarse de un cómic, el papel permite seguir la disposición de las viñetas y pasar de una página a otra sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Junie B. Jones Espía Un Poquitín (El Cómic) / Junie B. Jones and Some Sneaky Peeky Spying: The Graphic Novel comparte el formato de cómic con After School Dice Club 9 (Shônen), de Hirô Nakamichi. La obra de Barbara Park combina humor y espionaje, mientras que el título de Hirô Nakamichi remite a un club de juegos y se identifica como una entrega numerada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962401"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "608e93158c4d9f01",
+  "origen": "chatgpt-web"
+}

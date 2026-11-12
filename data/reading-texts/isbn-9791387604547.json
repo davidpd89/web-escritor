@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387604547",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Exquisita supplicia: Libido moriendi (POESIA) se dirige a lectores de poesía en castellano que buscan una obra de extensión breve. Sus 104 páginas y su clasificación poética lo distinguen de una novela con personajes y una trama narrativa desarrollada.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Exquisita supplicia: Libido moriendi (POESIA) está disponible en tapa blanda, con 104 páginas. Esta edición de Vaso Roto Ediciones permite leer el poemario en papel, transportarlo y volver a poemas concretos mediante el paso de páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "54c1229ada692f26",
+  "origen": "chatgpt-web"
+}

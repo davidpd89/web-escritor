@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788411074445",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El niño (Andanzas), de Fernando Aramburu, encaja con lectores que buscan narrativa contemporánea, novela histórica y relatos relacionados con la infancia. Quienes prefieren otros géneros narrativos pueden encontrar aquí un enfoque alejado de sus intereses.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 272 páginas en una edición física de Tusquets Editores. Kindle permite acceder al texto en formato digital, mientras que el audiolibro ofrece la alternativa de escuchar la obra en lugar de leerla.",
+      "evidencias": [
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El niño (MAXI), de Fernando Aramburu, comparte autor y título principal con El niño (Andanzas), por lo que permite comparar dos ediciones de la misma obra. Infancia. Adolescencia. Juventud: 404 (El Acantilado), de Lev Tolstói, también sitúa la infancia en primer plano desde una obra de otro autor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411077477",
+        "isbn-9791387964788"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6f0e4c02d1a49475",
+  "origen": "chatgpt-web"
+}

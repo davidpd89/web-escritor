@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788414362952",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Levísima (LITERATURA INFANTIL - Premio Ciudad de Málaga) se dirige al público infantil interesado en relatos de terror y elementos fantásticos. Sus 104 páginas permiten una lectura relativamente breve, aunque su orientación hacia el terror puede encajar menos con quienes buscan historias exclusivamente humorísticas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Levísima (LITERATURA INFANTIL - Premio Ciudad de Málaga) reúne 104 páginas en una encuadernación rígida, adecuada para conservar el libro o entregarlo como regalo. Kindle permite leer la obra de Miguel Rojo en formato digital, sin necesidad de llevar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Levísima (LITERATURA INFANTIL - Premio Ciudad de Málaga) puede compararse con El lago de los monstruos (INFANTIL) por su orientación hacia lectores infantiles y su relación con elementos inquietantes. La obra de Miguel Rojo figura dentro del terror y la fantasía, mientras que el título de Leo Timmers sitúa a los monstruos en el centro de su propuesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387884260"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b6a4eefde848937b",
+  "origen": "chatgpt-web"
+}

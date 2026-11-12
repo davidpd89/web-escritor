@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791387994334",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Me llamo Goa - Edición especial estuche (incluye Me llamo Goa, ¡Qué fuerte, Goa! y un poster exclusivo) (Libros para adolescentes) está orientado al público juvenil interesado en las historias de Goa. Su contenido y presentación en estuche lo distinguen de un libro independiente; no está planteado como una lectura de ensayo para adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición especial reúne Me llamo Goa y ¡Qué fuerte, Goa! en un estuche que incorpora un póster exclusivo. Ediciones B la publica en castellano y en tapa blanda, de modo que se trata de un conjunto de dos títulos con un elemento adicional, no de una entrega individual de la serie.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El estuche de Ediciones B se comercializa en tapa blanda e incluye dos libros de Míriam Tirado y un póster exclusivo. Su presentación conjunta permite regalar o conservar ambas lecturas y el material adicional en un mismo paquete físico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Me llamo Goa 12 - ¡Eres única, Goa!, también de Míriam Tirado, comparte protagonista y temática adolescente, pero se presenta como una entrega individual centrada en los retos de tener trece años. Me llamo Goa - Edición especial estuche (incluye Me llamo Goa, ¡Qué fuerte, Goa! y un poster exclusivo) (Libros para adolescentes) reúne dos títulos anteriores y añade un póster, por lo que su diferencia principal está en el contenido del conjunto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994303"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "66bc1423a21c0596",
+  "origen": "chatgpt-web"
+}

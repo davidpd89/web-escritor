@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791399126235",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de ciencia ficción interesados en las utopías, las distopías y la representación de las mujeres en entornos conectados. Su combinación de relatos y ensayo se aleja de lo que busca quien prefiere una única novela de fantasía con una trama continuada.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Explora las relaciones entre mujeres, tecnología y modelos de sociedad imaginados desde la utopía y la distopía. Tecnomusas: Utopías y distopías de mujeres conectadas: 1 reúne perspectivas de varios autores y se sitúa entre la ciencia ficción, los relatos y el ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tecnomusas: Utopías y distopías de mujeres conectadas: 1 se presenta en tapa blanda, con 180 páginas. Su extensión permite alternar la lectura de relatos con otros libros, y el volumen físico reúne las aportaciones de sus distintos autores en una misma edición.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "UNO: Una distopía sobre la individualidad (Ciencia Ficción) comparte el interés por las sociedades distópicas, pero sitúa la individualidad en el centro de su planteamiento. Arde Talía: Una pieza teatral sobre el infierno de la creación artística coincide con Tecnomusas: Utopías y distopías de mujeres conectadas: 1 en la participación de Ana Saiz, aunque la primera es una obra teatral sobre la creación y la segunda aborda mujeres conectadas mediante ciencia ficción, relatos y ensayo.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791399289510",
+        "isbn-9788445022085"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9001b5ea31023c2e",
+  "origen": "chatgpt-web"
+}

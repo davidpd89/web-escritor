@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387846107",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ficciones (Hispánica), de Jorge Luis Borges, se dirige a lectores interesados en la narrativa contemporánea y los relatos. Su formato de cuentos lo distingue de quienes buscan novelas extensas o libros prácticos centrados en conocimientos y actividades.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne los 208 páginas de Ficciones (Hispánica), de Jorge Luis Borges, en una edición física. Kindle ofrece una alternativa digital para leer el libro en dispositivos electrónicos, mientras que el audiolibro permite acceder a sus relatos mediante la escucha.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuentos completos (edición especial en tapa dura), de Jorge Luis Borges, permite comparar Ficciones (Hispánica), de Jorge Luis Borges, con el conjunto de la narrativa breve del mismo autor. Ambos títulos están vinculados a sus cuentos, pero el primero es una obra concreta de relatos y el segundo reúne todos los cuentos de Borges.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466392297"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9c4f9d6f0edcbffa",
+  "origen": "chatgpt-web"
+}

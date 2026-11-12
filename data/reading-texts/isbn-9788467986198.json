@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788467986198",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El depravado. Edición de lujo: 1 está dirigido a lectores que buscan terror en una edición física de 340 páginas. Su clasificación lo diferencia de las historias infantiles y de las lecturas centradas en el humor o el romance.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El depravado. Edición de lujo: 1 se publica en tapa dura, con 340 páginas en castellano. La encuadernación rígida ofrece mayor protección exterior para conservar el volumen, mientras que su denominación de edición de lujo procede del propio título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El depravado. Edición de lujo: 1 puede compararse con 25 días hasta Navidad, de Per Jacobsen, por su relación con las lecturas de tensión. La obra de James Tynion Iv y Joshua Hixon pertenece al terror, mientras que la de Per Jacobsen se presenta como un thriller de adviento. El título de la primera identifica el volumen como el número 1, y su edición en tapa dura reúne 340 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788427055063"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d12654b049e3f784",
+  "origen": "chatgpt-web"
+}

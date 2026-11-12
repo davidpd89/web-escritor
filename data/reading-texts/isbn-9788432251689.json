@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788432251689",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un homicidio perfecto (Serie Las sombras de Oxford 1) (Biblioteca Formentor) se dirige a lectores de misterio, thriller y narrativa contemporánea. Su planteamiento pertenece al terreno del crimen y la intriga, por lo que se distancia de las lecturas centradas exclusivamente en relaciones cotidianas o conflictos familiares sin componente de misterio.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un homicidio perfecto (Serie Las sombras de Oxford 1) (Biblioteca Formentor) está disponible en tapa blanda y Kindle. La edición física de Seix Barral tiene 416 páginas y permite conservar el libro en papel; Kindle ofrece la misma obra en formato digital para leer desde un dispositivo compatible, sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "82a710f8d40e407d",
+  "origen": "chatgpt-web"
+}

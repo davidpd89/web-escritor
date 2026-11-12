@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791387634674",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Redes transnacionales en la cultura arquitectónica: Italia-España 1976-2006 (ARQUITECTURA) se dirige a quienes estudian la historia de la arquitectura y las relaciones culturales entre países. Su delimitación geográfica y temporal lo distancia de las guías prácticas de construcción y de los panoramas generales de arte sin un periodo concreto.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro examina las conexiones entre Italia y España dentro de la cultura arquitectónica durante el periodo 1976-2006. El enfoque combina historia y arte para situar esas relaciones en un marco transnacional, con una autoría colectiva en la que figuran Ángeles Layuno, Sergio Pace y Antonio Pizza.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La obra está disponible en tapa blanda, con 368 páginas en castellano. Este formato permite consultar físicamente un estudio de extensión considerable, marcar pasajes y conservarlo como material de lectura sobre historia y cultura arquitectónica.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Charlotte Perriand. La libertad de repensar el mundo comparte el ámbito del arte y el diseño y la presencia de una autoría colectiva. Redes transnacionales en la cultura arquitectónica: Italia-España 1976-2006 (ARQUITECTURA) se diferencia por estudiar conexiones arquitectónicas entre dos países durante un periodo delimitado, en lugar de centrarse en una figura concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788416411993"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "63b238fb3981cd78",
+  "origen": "chatgpt-web"
+}

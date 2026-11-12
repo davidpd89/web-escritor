@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788410391796",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Losing Hope: Buscando la redención (Titania fresh) encaja con lectores que buscan narrativa romántica de Colleen Hoover. Sus 320 páginas ofrecen una novela en castellano, dentro del género romance; no está dirigida a quienes buscan fantasía, ensayo o divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 320 páginas en una edición física de Titania, mientras que Kindle permite leer Losing Hope: Buscando la redención (Titania fresh) en formato digital desde un dispositivo compatible. Ambos formatos están disponibles en castellano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Losing Hope: Buscando la redención (Titania fresh) comparte autora y género romántico con «Finding cinderella (Titania fresh)», de Colleen Hoover, aunque son títulos distintos dentro del catálogo. También puede compararse con «Losing Hope (Spanish edition): Buscando la redención», de Colleen Hoover, que presenta una denominación muy próxima y permite distinguir las dos fichas antes de elegir edición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410391826",
+        "isbn-9781668270493"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1d3c0e856dc1c935",
+  "origen": "chatgpt-web"
+}

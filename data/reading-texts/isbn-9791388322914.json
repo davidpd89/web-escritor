@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388322914",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Julia y Los Mortimort 8 - La profecía del Dragón azul (Montena), de Raquel Díaz Reguera, encaja con lectores interesados en la fantasía, el terror y el humor. Sus 144 páginas ofrecen una extensión relativamente breve; no responde a la búsqueda de una novela realista ajena a esos géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Julia y Los Mortimort 8 - La profecía del Dragón azul (Montena) está disponible en tapa dura, con 144 páginas en castellano. Esta edición de Montena permite conservar el volumen en formato físico y utilizarlo para lecturas repetidas o como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Julia y Los Mortimort 8 - La profecía del Dragón azul (Montena) puede compararse con El caos de Beca 3. Vale, este no era el plan, también de Raquel Díaz Reguera, por compartir autora. El primero combina fantasía, terror y humor, mientras que el segundo plantea desde su título una situación de caos y planes alterados. Otra referencia es Cacahuete, el elfo pedorrete (Libros ilustrados), de Rafael Ordóñez, que permite contrastar el componente fantástico y humorístico desde una autoría diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408326342",
+        "isbn-9788410318526"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5eed5a8e4b66634f",
+  "origen": "chatgpt-web"
+}

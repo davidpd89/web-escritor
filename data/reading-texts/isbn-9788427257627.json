@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados) se orienta a lectores de ciencia ficción juvenil interesados en sociedades divididas, decisiones personales y rebeliones clandestinas. Su conflicto político y familiar se aleja de las historias centradas exclusivamente en aventuras espaciales o exploración tecnológica.",
+      "texto": "La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados) se orienta a lectores de ciencia ficción juvenil interesados en sociedades divididas, decisiones personales y rebeliones. No responde a una búsqueda de fantasía tradicional: su conflicto nace de un sistema de facciones que condiciona el futuro de sus habitantes.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,15 +13,16 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La lectura plantea una sociedad organizada en cinco facciones donde la elección de pertenencia determina el futuro personal. Beatrice Prior debe afrontar las consecuencias de su decisión, el alejamiento de su familia y una rebelión clandestina, en una trama juvenil de ciencia ficción que combina identidad, lealtad y secretos.",
+      "texto": "La novela plantea una distopía juvenil donde elegir una facción determina la pertenencia social y los vínculos familiares. Veronica Roth construye el conflicto alrededor de una decisión arriesgada, una ceremonia alterada por la tragedia y una rebelión clandestina que cuestiona el orden establecido.",
       "evidencias": [
-        "sinopsis_editorial",
-        "categorias"
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición especial limitada de La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados) incorpora cantos tintados y se presenta en tapa dura con sobrecubierta. Publicada por Molino, reúne 608 páginas en castellano; el título la identifica como el n.º 1.",
+      "texto": "Esta edición especial limitada de La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados) incorpora cantos tintados y se presenta en tapa dura con sobrecubierta. Publicada por Molino, reúne 608 páginas en castellano; el título la identifica como el n.º 1 de La sexta facción.",
       "evidencias": [
         "titulo",
         "edicion",
@@ -32,31 +33,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura corresponde a la edición especial limitada con cantos tintados y sobrecubierta de 608 páginas, pensada para conservar el objeto físico. La tapa blanda ofrece una alternativa impresa, Kindle permite leer desde el móvil o un lector electrónico y el audiolibro permite escuchar la historia sin seguir el texto en papel.",
+      "texto": "La tapa dura con sobrecubierta reúne las 608 páginas en un volumen físico con cantos tintados, una característica visible al colocarlo en la estantería o regalarlo. Kindle permite leer esta novela extensa en un dispositivo electrónico sin cargar con el peso de la edición impresa.",
       "evidencias": [
         "titulo",
+        "edicion",
         "numero_paginas",
-        "formatos_disponibles",
-        "edicion"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados) y Aunque se acabe el mundo, de Clara Duarte, presentan sociedades sometidas a cambios que afectan a sus habitantes. Veronica Roth construye el conflicto alrededor de cinco facciones y una elección personal, mientras que Clara Duarte parte de una cúpula sobre la Tierra que transforma a parte de la humanidad.",
+      "texto": "La sexta facción 2 - El último testimonio (Veronica Roth) comparte autora y universo editorial con La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados). Los títulos los identifican como los números 2 y 1, respectivamente; el primero señala una entrega posterior y el segundo ofrece una edición especial con cantos tintados.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo",
-        "sinopsis_editorial",
-        "categorias"
+        "edicion"
       ],
       "enlaces": [
-        "isbn-9788427255968"
+        "isbn-9788427257634"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b20baa94724eae87",
+  "fuente_hash": "3dde1c1398379aab",
   "origen": "chatgpt-web"
 }

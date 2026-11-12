@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073882132",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La persona que eliges ser (Un café con Marisa) / The Person You Choose to Be (Coffee with Marisa) se dirige a lectores interesados en el desarrollo personal y su relación con el mundo empresarial. Es un ensayo de Marisa Lazo, por lo que responde menos a quien busca una novela de ficción o un manual de procedimientos técnicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de La persona que eliges ser (Un café con Marisa) / The Person You Choose to Be (Coffee with Marisa) es en tapa blanda y tiene 240 páginas. Este formato permite consultar y retomar apartados del ensayo en papel, además de transportarlo sin el peso añadido de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mente Shaolin: La búsqueda de la verdadera libertad (Vivir hoy) comparte con el libro de Marisa Lazo el interés por el desarrollo personal, aunque su título sitúa la libertad en el centro. El alfabeto infinito: Las leyes del conocimiento (Ensayo y Pensamiento) ofrece otra perspectiva ensayística, centrada en el conocimiento, frente al enfoque personal y empresarial de La persona que eliges ser (Un café con Marisa) / The Person You Choose to Be (Coffee with Marisa).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388279676",
+        "isbn-9791388092701"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "218e40eef3fe8f03",
+  "origen": "chatgpt-web"
+}

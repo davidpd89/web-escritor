@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788411078559",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Más allá, más acá (Marginales), de José Corredor-Matheos, está dirigido a lectores que buscan poesía y literatura en verso. Sus 144 páginas corresponden a una edición de poesía, por lo que no responde a quien busca una novela narrativa o un ensayo de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece Más allá, más acá (Marginales), de José Corredor-Matheos, en un volumen físico de 144 páginas. Es una edición manejable para quien prefiera leer poesía en papel y llevar consigo un libro de extensión contenida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Más allá, más acá (Marginales), de José Corredor-Matheos, puede compararse con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. Ambos títulos se sitúan en el terreno poético, pero el segundo anuncia expresamente un enfoque amoroso, mientras que el título de Corredor-Matheos plantea una perspectiva distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eed5e2acc0f9ecb0",
+  "origen": "chatgpt-web"
+}

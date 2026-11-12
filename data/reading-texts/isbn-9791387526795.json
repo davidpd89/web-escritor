@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791387526795",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mickey. Feliz Navidad: Libro con mecanismos (Disney. Mickey), de Disney, está dirigido al público infantil interesado en Mickey y la Navidad. Sus 8 páginas de cartón y sus mecanismos lo distinguen de las narraciones extensas; no responde a quien busca una novela juvenil con una trama desarrollada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Este libro se utiliza mediante la manipulación de sus mecanismos mientras se recorren las 8 páginas de cartón. Su formato permite combinar la observación de las páginas con la interacción física, en lugar de limitar la actividad a la lectura de texto.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mickey. Feliz Navidad: Libro con mecanismos (Disney. Mickey) está disponible en tapa dura, con una edición de cartón de 8 páginas. Es una presentación física para manejar los mecanismos durante la lectura y conservar el libro como objeto navideño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Princesas. Obras maestras (Disney. Princesas) comparte con el libro de Mickey la autoría de Disney y su orientación infantil. La diferencia está en los personajes y el uso: el primero se centra en las princesas, mientras que el segundo presenta a Mickey en un libro navideño de cartón con 8 páginas y mecanismos para manipular.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387526382"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "705c5acc60a5da22",
+  "origen": "chatgpt-web"
+}

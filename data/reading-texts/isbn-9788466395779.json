@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788466395779",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Penitencia (Best Seller | Ficción), de Pablo Rivero, se orienta a lectores de misterio, thriller y terror dentro de la narrativa contemporánea. Sus 344 páginas corresponden a una novela de extensión intermedia; por su clasificación temática, queda fuera de las preferencias de quienes buscan exclusivamente romance o humor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Penitencia (Best Seller | Ficción) se ofrece en tapa blanda y Kindle. La edición de bolsillo de Penguin Bolsillo tiene 344 páginas y permite conservar el libro físicamente; Kindle facilita leerlo en el móvil o en un dispositivo electrónico y ajustar la visualización del texto.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La estudiante de intercambio (SUMA) comparte autor, Pablo Rivero, con Penitencia (Best Seller | Ficción), por lo que permite explorar otra obra del mismo escritor. Carrie (edición serie), de Stephen King, ofrece una comparación desde el terror, aunque su conflicto identificado se centra en una estudiante acosada y su convivencia con una madre de fuertes creencias religiosas, frente a la clasificación más amplia de misterio y thriller de Penitencia (Best Seller | Ficción).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387512613",
+        "isbn-9788466396806"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bea956f4c14511f0",
+  "origen": "chatgpt-web"
+}

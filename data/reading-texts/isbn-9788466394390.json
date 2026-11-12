@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "5 semanas para desinflamarte (edición limitada) se dirige a quienes buscan incorporar hábitos alimentarios y recetas para abordar la inflamación. Su programa de cinco semanas combina cambios cotidianos y pautas de bienestar; no está planteado como un recetario exclusivamente gastronómico.",
+      "texto": "Está dirigido a lectores interesados en la alimentación, la inflamación y los cambios de hábitos mediante un programa de cinco semanas. Combina orientación nutricional con menús y recetas, por lo que encaja menos con quien busca exclusivamente un recetario sin pautas de bienestar.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "5 semanas para desinflamarte (edición limitada) se presenta en tapa blanda bajo el sello Penguin Bolsillo. Esta edición en castellano tiene 368 páginas y se identifica con el ISBN 9788466394390. Su fecha de publicación editorial es 2027-01-07, y el propio título la distingue como edición limitada.",
+      "texto": "Esta edición limitada de 5 semanas para desinflamarte (edición limitada) se publica en tapa blanda bajo el sello Penguin Bolsillo. Tiene 368 páginas, está escrita en castellano y lleva el ISBN 9788466394390. Su fecha de publicación es 2027-01-07, lo que permite identificar esta versión frente a otras ediciones del mismo título.",
       "evidencias": [
         "titulo",
         "editorial",
@@ -26,37 +26,40 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "El contenido se articula alrededor de un programa de cinco semanas para modificar hábitos relacionados con la alimentación y el bienestar. Incluye consejos prácticos, menús y recetas, además de orientaciones para reconocer posibles desencadenantes de la inflamación. Permite trasladar esas pautas a la planificación de comidas cotidianas.",
+      "texto": "El contenido articula un programa de cinco semanas con pautas para incorporar hábitos alimentarios y reconocer posibles desencadenantes de inflamación. Incluye consejos prácticos, menús y recetas que permiten trasladar esas pautas a las comidas cotidianas. Su planteamiento combina explicaciones sobre bienestar y propuestas de aplicación.",
       "evidencias": [
         "titulo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 368 páginas de 5 semanas para desinflamarte (edición limitada) en un volumen físico que permite consultar menús y recetas mientras se cocina. Kindle facilita llevar el contenido en el móvil y el audiolibro permite escucharlo sin mantener el libro abierto. La elección depende de si se prefiere consultar, leer en pantalla o escuchar.",
+      "texto": "La tapa blanda reúne las 368 páginas en un volumen físico que permite consultar menús y recetas mientras se cocina. Kindle ofrece el mismo título en formato digital para llevarlo en el móvil o consultar sus pautas sin transportar el libro. La elección depende de si se prefiere manejar páginas impresas o leer desde una pantalla.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La fibra es la solución, de Kristen Stavridis, también aborda la inflamación desde la alimentación, pero centra su propuesta en consumir 30 gramos diarios de fibra. La revolución de la glucosa: el Método, de Jessie Inchauspé, comparte el planteamiento práctico y las recetas, aunque organiza su guía en cuatro semanas. 5 semanas para desinflamarte (edición limitada) plantea cinco semanas de hábitos y menús.",
+      "texto": "Quemar grasa no es perder grasa: Guía práctica de 4 semanas para decir adiós a la ansiedad y a los antojos​ (Bienestar, salud y vida sana) comparte la autoría de Blanca García-Orea Haro, pero centra su propuesta en la ansiedad alimentaria y los antojos. La fibra es la solución, de Kristen Stavridis, también aborda la inflamación, aunque lo hace desde el consumo diario de fibra, frente al programa de hábitos y recetas de 5 semanas para desinflamarte (edición limitada).",
       "evidencias": [
         "titulo",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788425374869",
-        "isbn-9788411191937"
+        "isbn-9788425363061",
+        "isbn-9788425374869"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a69421adbe3f6acf",
+  "fuente_hash": "f7dc68eac4b67c67",
   "origen": "chatgpt-web"
 }

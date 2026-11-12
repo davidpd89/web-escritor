@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788467084207",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las 48 leyes del poder. Edición con cantos dorados (Espasa Crecimiento personal), de Robert Greene y Joost Elffers, se dirige a lectores interesados en el poder, la política y el desarrollo personal. Por su orientación hacia estas materias y las biografías y memorias, no es una lectura destinada a quien busca ficción fantástica o una novela de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Las 48 leyes del poder. Edición con cantos dorados (Espasa Crecimiento personal) se diferencia por el acabado dorado de los cantos. Editorial Espasa publica esta presentación en tapa dura, con 536 páginas en castellano y fecha de publicación del 2026-11-11; el título identifica expresamente el tratamiento decorativo de la edición.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura permite consultar las 536 páginas de Las 48 leyes del poder. Edición con cantos dorados (Espasa Crecimiento personal) en papel y conservar el acabado de cantos dorados. El audiolibro ofrece una alternativa de escucha para recorrer el contenido sin manejar el volumen físico, especialmente durante actividades que permiten prestar atención al audio.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos), de Toño Ramos, comparte con Las 48 leyes del poder. Edición con cantos dorados (Espasa Crecimiento personal) una orientación práctica hacia las relaciones humanas. El primero se centra expresamente en la convivencia familiar y la psicología conductual, mientras que el libro de Robert Greene y Joost Elffers aborda el poder y la política desde el desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399249682"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fd1f1b1467cae4d8",
+  "origen": "chatgpt-web"
+}

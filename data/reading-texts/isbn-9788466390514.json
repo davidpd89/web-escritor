@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Domina el arte de los negocios se dirige a adultos interesados en mejorar sus habilidades profesionales, gestionar dinero o explorar el emprendimiento. Brian Tracy aborda situaciones prácticas de comunicación, negociación y ventas; encaja menos con quienes buscan teoría económica académica o un análisis histórico de los mercados.",
+      "texto": "Domina el arte de los negocios está dirigido a lectores adultos interesados en desarrollar habilidades profesionales, comerciales y de gestión económica. Trata la negociación, las ventas y el emprendimiento con un enfoque práctico; no responde a la búsqueda de una novela ni de un estudio histórico sobre empresas.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,21 +14,20 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Domina el arte de los negocios reúne orientaciones sobre comunicación interpersonal, negociación, ventas, productividad, emprendimiento y gestión financiera. Brian Tracy también trata la creatividad y la inversión inmobiliaria, con un enfoque basado en definir objetivos por escrito y establecer acciones concretas para alcanzarlos. Su contenido permite identificar habilidades que aplicar en distintas situaciones laborales.",
+      "texto": "Domina el arte de los negocios reúne orientaciones sobre comunicación, negociación, ventas, productividad, emprendimiento y administración del dinero. Brian Tracy también aborda la creatividad aplicada al trabajo y las inversiones inmobiliarias. La guía plantea definir objetivos por escrito y establecer acciones concretas para avanzar hacia ellos.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Domina el arte de los negocios está disponible en tapa blanda y Kindle. La edición de Penguin Bolsillo tiene 280 páginas en formato bolsillo, pensado para transportar el libro físico y consultar sus consejos; Kindle permite llevar el contenido en el móvil o en un lector electrónico.",
+      "texto": "Domina el arte de los negocios puede adquirirse en tapa blanda o Kindle. La edición de bolsillo de Penguin Bolsillo tiene 280 páginas y permite consultar sus consejos en papel durante el trabajo o el estudio; Kindle facilita acceder a los apartados desde el móvil. Los dos formatos permiten revisar cuestiones concretas sin necesidad de una lectura continuada.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
+        "editorial",
         "numero_paginas",
         "formatos_disponibles",
         "sinopsis_editorial"
@@ -37,16 +35,16 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Domina el arte de los negocios comparte con El efecto creativo el interés por desarrollar capacidades personales, aunque Brian Tracy abarca negociación, ventas y gestión empresarial, mientras Iván Jiménez se centra en la creatividad. Frente a Cariño, ¿y este recibo?, de Angie Gil Ribera, ofrece una perspectiva más amplia del trabajo y los negocios, en lugar de concentrarse en decisiones financieras compartidas.",
+      "texto": "Piensa en grande: Una guía práctica para tener una vida extraordinaria (Desarrollo personal) y Domina el arte de los negocios son obras de Brian Tracy orientadas al desarrollo de capacidades personales. La primera plantea una mejora de la vida en términos generales, mientras que Domina el arte de los negocios se concentra en habilidades profesionales concretas. Incluye negociación, ventas, productividad, emprendimiento y gestión del dinero.",
       "evidencias": [
         "titulo",
         "autores",
+        "afines_catalogo",
         "sinopsis_editorial",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788466685139",
-        "isbn-9788402431332"
+        "isbn-9791387513627"
       ]
     }
   ],

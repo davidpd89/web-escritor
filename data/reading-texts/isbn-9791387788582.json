@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387788582",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las niñas del bosque (THRILLER) encaja con lectores que buscan misterio y elementos de aventura dentro de una novela de suspense. La obra de Minka Kent se aleja de las historias centradas en el romance o el humor, pues su clasificación editorial corresponde al thriller.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las niñas del bosque (THRILLER) se presenta en tapa blanda y tiene 288 páginas. La edición en castellano de Newton Compton Editores ofrece una lectura en papel que puede transportarse sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las niñas del bosque (THRILLER) comparte el componente de misterio con Abre el misterio 1 - El robo de las croquetas, aunque la obra de Carlos G. Gurpegui parte de la desaparición de unas croquetas y la de Minka Kent se presenta como thriller. También coincide en el interés por los enigmas con Agente Stitch 5. Los roedores de Roswell, de Disney, que introduce una investigación intergaláctica y personajes vinculados a Stitch.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644",
+        "isbn-9791387901943"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4f7b9e414d6217c1",
+  "origen": "chatgpt-web"
+}

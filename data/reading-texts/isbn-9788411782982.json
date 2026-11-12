@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788411782982",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las costumbres nacionales: 123 (Minus), de Edith Wharton, se dirige a lectores interesados en los clásicos literarios y la narrativa en castellano. Sus 560 páginas requieren una lectura más extensa que la de una novela breve, por lo que encaja menos con quienes buscan libros cortos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las costumbres nacionales: 123 (Minus) se presenta en tapa blanda, con 560 páginas en castellano. Esta edición de Alba Editorial permite leer el volumen completo en papel y resulta una alternativa para quienes prefieren una cubierta flexible frente a una rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4e60c80ad862b9be",
+  "origen": "chatgpt-web"
+}

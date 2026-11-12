@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073880398",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tzompantli nuestro de cada día / Our Daily Tzompantli se orienta a quienes leen relatos y narrativa contemporánea. Su clasificación como libro de relatos lo distingue de una novela concebida como una única narración extensa, por lo que encaja menos con lectores que buscan exclusivamente ese formato narrativo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tzompantli nuestro de cada día / Our Daily Tzompantli se publica en tapa blanda, con 152 páginas en castellano. Su extensión permite llevarlo en el bolso o la mochila y alternar la lectura con otros libros; la cubierta flexible facilita transportarlo sin el volumen habitual de una edición rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tzompantli nuestro de cada día / Our Daily Tzompantli puede compararse con Caperucita se come al lobo / Little Red Riding Hood Eats the Wolf, de Pilar Quintana, dentro de la narrativa literaria en castellano. También se aproxima por su orientación narrativa a En lengua privada / In Private Language, de Emiliano Monge, aunque se trata de obras de autores distintos y la primera está identificada expresamente como libro de relatos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287880610",
+        "isbn-9786073878289"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a5a457f38c3a50fe",
+  "origen": "chatgpt-web"
+}

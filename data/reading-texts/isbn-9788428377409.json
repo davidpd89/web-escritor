@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788428377409",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "MP1782. Nivel básico de Prevención de riesgos laborales - Agraria está orientado a quienes estudian prevención de riesgos laborales en el sector agrario. Su delimitación profesional lo distingue de los manuales sobre energía, agua, química u hostelería, así como de las lecturas de ciencia sin una aplicación sectorial concreta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "MP1782. Nivel básico de Prevención de riesgos laborales - Agraria se publica en tapa blanda y consta de 154 páginas. La edición en papel permite subrayar conceptos y consultar apartados durante el estudio de los contenidos básicos de prevención aplicados al ámbito agrario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "MP1782. Nivel básico de Prevención de riesgos laborales - Agraria comparte autor y nivel formativo con MP1782. Nivel básico de Prevención de riesgos laborales - Energía y Agua. Los dos están firmados por Javier Rodrigo Agulló y abordan la prevención laboral, aunque uno se dirige al ámbito agrario y el otro al sector de la energía y el agua.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788428377362",
+        "isbn-9788428377393"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b78632a870681a7d",
+  "origen": "chatgpt-web"
+}

@@ -4,35 +4,21 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cáncer con brújula está dirigido a pacientes oncológicos, familiares y cuidadores que buscan orientación psicológica durante la enfermedad. Trata la ansiedad, la comunicación personal, los cambios derivados del tratamiento y el miedo a la recaída; no responde a quien busque principalmente un manual de nutrición o una novela.",
+      "texto": "Cáncer con brújula está dirigido a pacientes oncológicos, familiares y cuidadores que buscan orientación psicológica durante la enfermedad. Aborda la comunicación, los cambios físicos y el miedo a la recaída; no está planteado como un manual de tratamientos médicos ni como una obra de ficción.",
       "evidencias": [
         "titulo",
-        "sinopsis_editorial",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Cáncer con brújula se publica en tapa blanda y tiene 256 páginas, una extensión que permite consultar distintos asuntos del acompañamiento psicológico. El formato físico facilita volver a los apartados sobre emociones, relaciones y tratamientos, tanto durante una lectura continuada como en consultas puntuales.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
-      "modulo": "lecturas_afines",
-      "texto": "Cáncer con brújula y Ansiedad. ¿Cómo se sale de aquí? comparten el interés por la ansiedad, pero el primero aborda el acompañamiento psicológico durante el cáncer y el segundo presenta ese malestar mediante la imagen de un parque de atracciones. Frente a Cómo no tener diabetes, centrado en otra enfermedad, el libro de Elisa Molina Buendía se ocupa de las emociones y las relaciones durante el proceso oncológico.",
+      "modulo": "que_formato_elegir",
+      "texto": "Cáncer con brújula se presenta en tapa blanda, con 256 páginas dedicadas al acompañamiento psicológico durante el proceso oncológico. El formato físico permite consultar apartados sobre emociones, relaciones y cuidados, además de volver a ellos en diferentes momentos del tratamiento.",
       "evidencias": [
         "titulo",
-        "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788402431967",
-        "isbn-9788425373152"
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
       ]
     }
   ],

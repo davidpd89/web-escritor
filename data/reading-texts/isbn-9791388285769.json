@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388285769",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esencia oculta: La belleza de la impermanencia se sitúa entre la narrativa juvenil y el arte y diseño, por lo que encaja con lectores interesados en ambos ámbitos. Sus 160 páginas y su edición en tapa dura lo distinguen de una novela juvenil extensa; no responde a la búsqueda de una obra clasificada exclusivamente como narrativa adulta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esencia oculta: La belleza de la impermanencia se publica en tapa dura y reúne 160 páginas. La encuadernación rígida ofrece protección para conservarlo en una estantería o entregarlo como regalo, mientras que su extensión permite manejarlo como un volumen independiente en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esencia oculta: La belleza de la impermanencia coincide en el ámbito del arte y diseño con Chema Madoz.: Manual de un distraído. (Libros de Autor.) y Federico. Mi corazón, tu casa (Álbumes ilustrados). Se diferencia por su clasificación también como narrativa juvenil y por reunir la autoría de Joana Galdón Ruz, José Luis Molés Molés y Ginés Puig Giménez.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9791387960391",
+        "isbn-9788414076118"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2c86d6ef26317385",
+  "origen": "chatgpt-web"
+}

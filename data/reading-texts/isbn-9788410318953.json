@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410318953",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Viaje al mundo de las emociones (de la A a la Z) (Cuentos que cuentan) se orienta a lectores interesados en las emociones y su tratamiento mediante cuentos. Su extensión de 48 páginas y su planteamiento temático lo distinguen de los ensayos extensos y de los manuales centrados en el bienestar físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Viaje al mundo de las emociones (de la A a la Z) (Cuentos que cuentan) se publica en tapa dura, con 48 páginas en castellano. La encuadernación rígida permite conservar el ejemplar para consultas y lecturas repetidas, además de presentarlo como libro físico para regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Viaje al mundo de las emociones (de la A a la Z) (Cuentos que cuentan) comparte el interés por el mundo interior con El viaje: Un año para transformar tu vida: 365 reflexiones para cultivar el autoconocimiento y la paz interior (Crecimiento personal). El libro de Ana Serna Vara aborda las emociones mediante cuentos y tiene 48 páginas; el de Yung Pueblo plantea 365 reflexiones sobre el autoconocimiento y la paz interior.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425376320"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dd1b6611f2bceb16",
+  "origen": "chatgpt-web"
+}

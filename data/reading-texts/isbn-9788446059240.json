@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788446059240",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los sepultureros de Gaza se orienta a lectores interesados en la política, la historia y las investigaciones sobre el ejercicio del poder. Norman G. Finkelstein sitúa la corrupción en las altas esferas como eje de la obra. Su planteamiento se aparta de la ficción y de las lecturas centradas en el entretenimiento narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La cuestión central es la corrupción en los niveles superiores del poder, vinculada a Gaza. Norman G. Finkelstein presenta el asunto bajo el enfoque de una investigación, dentro de un marco editorial que reúne ensayo, historia y política. El título lo identifica como el n.º 133 de Cuestiones de Antagonismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los sepultureros de Gaza se publica en tapa blanda, con 544 páginas en castellano. Esta edición de Ediciones Akal permite leer y consultar en papel una investigación extensa, con espacio para marcar pasajes o añadir notas durante la lectura. Su longitud aconseja contar con varias sesiones para recorrer el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pueblo / The People, de Andrés Manuel López Obrador, comparte con Los sepultureros de Gaza el ámbito de la política. La cara oculta de Sheinbaum / The Hidden Face of the President, de Elena Chávez, también sitúa el poder político en primer plano. La obra de Norman G. Finkelstein se diferencia por centrar su investigación en Gaza y la corrupción en las altas esferas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073951289",
+        "isbn-9786073880244"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4a6803b236c4a566",
+  "origen": "chatgpt-web"
+}

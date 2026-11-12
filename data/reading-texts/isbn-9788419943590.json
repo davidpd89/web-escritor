@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788419943590",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diez diálogos espirituales con grandes maestros (Fragmentos): y tres entrevistas con E. S. sobre la esencia del ajedrez: 1 (Biblioteca Eduardo Scala) se dirige a lectores interesados en la reflexión espiritual y el ajedrez. Su estructura anunciada de diálogos y entrevistas se aparta de los manuales de actividades y de las narraciones de ficción convencionales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Diez diálogos espirituales con grandes maestros (Fragmentos): y tres entrevistas con E. S. sobre la esencia del ajedrez: 1 (Biblioteca Eduardo Scala) se publica en tapa blanda y tiene 144 páginas. Su extensión permite consultar los diálogos y entrevistas en papel, con un volumen más reducido que otras obras de lectura prolongada.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Eduardo Scala González comparte con 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos) su vinculación con el ocio. El libro de Varios autores propone una actividad de coloreado relacionada con un videojuego, mientras que Eduardo Scala González reúne diálogos espirituales y entrevistas sobre la esencia del ajedrez.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328384"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c69342bebe19c180",
+  "origen": "chatgpt-web"
+}

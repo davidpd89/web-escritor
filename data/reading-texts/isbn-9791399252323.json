@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399252323",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cenicienta en Gaza: 5 (POESÍA NECESARIA) está dirigido a lectores que buscan poesía y obras vinculadas a realidades geográficas y culturales concretas. Su adscripción a la poesía lo sitúa fuera de la narrativa de ficción convencional y de quienes buscan una novela con desarrollo argumental.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Con 112 páginas, Cenicienta en Gaza: 5 (POESÍA NECESARIA), de Hind Joudah, tiene una extensión compacta para quienes prefieren leer poesía en papel. La edición de bolsillo en tapa blanda permite manejar el libro y guardarlo fácilmente entre otras lecturas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, permite comparar dos propuestas poéticas con distintos puntos de partida: una se identifica con Gaza desde su título y la otra sitúa el amor en el centro. Ambas se dirigen a lectores interesados en la poesía, aunque sus referencias temáticas son diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "89e39ee235380b3a",
+  "origen": "chatgpt-web"
+}

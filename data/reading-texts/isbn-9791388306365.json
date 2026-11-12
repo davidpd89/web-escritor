@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388306365",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dibujos (Ilsutrados) se sitúa entre la narrativa contemporánea y la juvenil, con una extensión de 88 páginas. Su título apunta al dibujo como elemento central, por lo que responde a un interés distinto del de quien busca expresamente una novela extensa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Nórdica Libros se presenta en tapa dura y contiene 88 páginas en castellano. Su extensión permite recorrer el volumen en pocas sesiones, mientras que la encuadernación rígida resulta práctica para conservarlo y consultarlo en una estantería.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dibujos (Ilsutrados) y Bajo la estela de un legado pertenecen al ámbito de las publicaciones narrativas del catálogo. La obra de Silvia Plath tiene 88 páginas y se presenta en tapa dura, mientras que la de Carmen Galvañ Bernabé se identifica por un título centrado en la idea de legado; son dos propuestas de autoría y planteamiento distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399178555"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e2cad2caa949dad4",
+  "origen": "chatgpt-web"
+}

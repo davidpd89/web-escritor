@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786287832732",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Supernova (Spanish Edition) se orienta a lectores interesados en el desarrollo personal, el ensayo y los asuntos económicos o empresariales. Sus 224 páginas corresponden a una obra de no ficción, por lo que se aleja de quien busque una novela con personajes y una trama narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Supernova (Spanish Edition) se presenta en tapa blanda, con 224 páginas en castellano publicadas por Grijalbo. El volumen permite consultar y releer pasajes en papel, una opción práctica para una obra situada entre el desarrollo personal y el ensayo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Supernova (Spanish Edition) se relaciona con La persona que eliges ser (Un café con Marisa) / The Person You Choose to Be (Coffee with Marisa), de Marisa Lazo, por su orientación hacia el desarrollo personal. También puede compararse con Branding con criterio: Una novela-ensayo que, como brújula de arena, nos interpela (TEMATICOS), de Cristián Saracco, por la vertiente empresarial y ensayística; Supernova (Spanish Edition) reúne ambos ámbitos en su clasificación.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073882132",
+        "isbn-9791399168648"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b4465c92b9353459",
+  "origen": "chatgpt-web"
+}

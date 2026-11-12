@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388016448",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El misterio del colgante, de Natalia Abril Castellano, se encuadra en el misterio y el thriller. Con 142 páginas, ofrece una extensión breve para lectores interesados en ese género; por su clasificación, se aleja de quienes buscan principalmente narrativa contemporánea sin elementos de misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El misterio del colgante se ofrece en tapa blanda, con 142 páginas en castellano. La edición de Mr. Momo permite leerlo en papel, prestarlo o conservarlo en una biblioteca personal; su extensión facilita transportar el ejemplar sin recurrir a un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0c28d36ea343297d",
+  "origen": "chatgpt-web"
+}

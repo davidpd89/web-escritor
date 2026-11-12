@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788430628803",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la historia del arte y en el análisis de la figura del genio como construcción cultural. El mito del genio: Historia de una ficción (Artes), de Eugenia Tenenbaum, es un ensayo de 576 páginas. Por su enfoque histórico y ensayístico, se distancia de los manuales de técnicas artísticas y de las novelas de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El mito del genio: Historia de una ficción (Artes) está disponible en tapa blanda, con 576 páginas en castellano. Su extensión corresponde a una lectura larga, para la que puede resultar práctico utilizar un marcapáginas y avanzar por sesiones. La edición de Taurus utiliza una cubierta flexible en lugar de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e5883ed1d7ff3df5",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788426742124",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Introduccion a la robotica inteligente con ros 2 y python (Electronica) está dirigido a quienes buscan contenidos sobre robótica y programación con ROS 2 y Python. Su orientación tecnológica lo diferencia de las lecturas de divulgación científica general y de los libros que tratan la inteligencia artificial sin centrarse en robótica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Introduccion a la robotica inteligente con ros 2 y python (Electronica) se publica en tapa blanda y tiene 256 páginas. Esta edición permite trabajar con el contenido en papel y volver a consultar apartados relacionados con robótica, ROS 2 y Python durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Introduccion a la robotica inteligente con ros 2 y python (Electronica) y 50 cosas que hay que saber sobre IA coinciden en su interés por la tecnología. El libro de Ignacio Diaz Cano delimita su materia a la robótica con ROS 2 y Python, mientras que el de Keith Mansfield aborda la inteligencia artificial desde un planteamiento más general.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "403c4704bd97aa7e",
+  "origen": "chatgpt-web"
+}

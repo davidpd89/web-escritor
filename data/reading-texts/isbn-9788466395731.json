@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788466395731",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La obra de Sue Stuart-Smith se dirige a lectores interesados en la psicología, el desarrollo personal y la relación entre las plantas y el bienestar. Su temática se centra en la experiencia humana vinculada al cuidado de las plantas, en lugar de desarrollar una historia de ficción con personajes y conflictos narrativos.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Penguin Bolsillo reúne 344 páginas en tapa blanda y está escrita en castellano. El formato de bolsillo permite transportar el volumen físico y consultar sus contenidos sobre psicología y plantas directamente en papel.",
+      "evidencias": [
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Sue Stuart-Smith comparte el ámbito de la psicología con Abraza a la niña que fuiste: Sana las heridas del pasado y reconecta con tu interior (Best Seller | No Ficción), de Marta Segrelles. La primera relaciona el bienestar con las plantas; la segunda aborda las heridas emocionales del pasado y la relación con uno mismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396417"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "82578c851c6270ed",
+  "origen": "chatgpt-web"
+}

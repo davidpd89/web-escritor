@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388032745",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La oscura historia de mi madre: 586 (Nuevos Tiempos), de Ana Rodríguez Fischer, pertenece a la narrativa contemporánea y se dirige a quienes buscan ficción de este género. Tiene 320 páginas, por lo que no responde a la búsqueda de una lectura de pocas decenas de páginas ni a la de un ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La oscura historia de mi madre: 586 (Nuevos Tiempos) se presenta en tapa blanda, con 320 páginas en castellano. Esta edición de Ediciones Siruela permite consultar y releer pasajes sobre papel, además de transportarla sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4ac9f0e607b2e866",
+  "origen": "chatgpt-web"
+}

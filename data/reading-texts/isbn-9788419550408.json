@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419550408",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Miti Mota: 11 (Aristas Gráfica), de Amanda Baeza, se dirige al público juvenil interesado en el cómic y la novela gráfica. Con 128 páginas, se distingue de las novelas juveniles escritas únicamente en prosa y de las lecturas de mayor extensión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Miti Mota: 11 (Aristas Gráfica) se publica en tapa blanda y reúne 128 páginas en castellano. Su extensión permite transportarlo en una mochila y leerlo en papel sin el volumen de una edición más larga; la cubierta flexible facilita guardarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Miti Mota: 11 (Aristas Gráfica) puede compararse con Blue Lock nº 33 (Manga Shonen), de Yusuke Nomura y Muneyuki Kaneshiro, por su pertenencia al ámbito del cómic. La diferencia está en la identificación editorial: la obra de Amanda Baeza figura como novela gráfica juvenil, mientras que el título afín se presenta como manga shonen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388101991"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dc3c9e8cbe64f80e",
+  "origen": "chatgpt-web"
+}

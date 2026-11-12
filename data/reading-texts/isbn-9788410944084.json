@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sobre estrategas y estrategias está dirigido a lectores interesados en geopolítica, conflictos militares y decisiones estratégicas durante las crisis internacionales. Su enfoque histórico y analítico se aleja de los manuales empresariales centrados en técnicas de ventas, gestión comercial o desarrollo profesional.",
+      "texto": "Sobre estrategas y estrategias se dirige a lectores interesados en geopolítica, conflictos militares y decisiones políticas durante las crisis. Aunque figura en el ámbito de economía y empresa, su contenido no es un manual de gestión empresarial ni una novela de intriga política.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,26 +13,29 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Lawrence Freedman reúne análisis sobre pensamiento estratégico, relaciones internacionales y conflictos armados. Sobre estrategas y estrategias examina la disuasión nuclear, las tácticas militares y la interpretación de las guerras modernas, junto con decisiones tomadas por dirigentes y figuras históricas.",
+      "texto": "Sobre estrategas y estrategias es una obra de análisis histórico y político que reúne reflexiones de Lawrence Freedman sobre relaciones internacionales y pensamiento estratégico. Examina la disuasión nuclear, las tácticas militares, la interpretación de las guerras contemporáneas y las decisiones ante situaciones críticas. Su estructura responde a una selección de análisis, no a una trama de ficción.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Sobre estrategas y estrategias se presenta en tapa blanda, con 408 páginas dedicadas al análisis histórico y político. Este formato permite consultar en papel los distintos ensayos y regresar a cuestiones concretas, como las armas nucleares o las decisiones adoptadas durante conflictos internacionales.",
+      "texto": "La edición de Sobre estrategas y estrategias es en tapa blanda y tiene 408 páginas. Este formato permite leer el volumen completo en papel o consultar por separado sus análisis sobre política internacional, guerra y estrategia. Lo publica La Esfera de los Libros en castellano.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "editorial",
+        "idioma",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Sobre estrategas y estrategias comparte con Cómo ganar una guerra comercial el análisis de conflictos internacionales y decisiones con consecuencias políticas y económicas. Lawrence Freedman examina estrategias militares, crisis y relaciones internacionales, mientras que Soumaya Keynes y Chad P. Bown se centran en las disputas comerciales y los cambios en las reglas del comercio global.",
+      "texto": "Sobre estrategas y estrategias puede compararse con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, por su interés en las ideas políticas. Lawrence Freedman se ocupa de conflictos internacionales y decisiones estratégicas, mientras que el otro título aborda los fundamentos de una corriente político-económica. Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, desplaza la atención hacia el liderazgo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -40,7 +43,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788423441051"
+        "isbn-9791388182457",
+        "isbn-9788409921980"
       ]
     }
   ],

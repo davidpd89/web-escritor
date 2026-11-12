@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788428575928",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las confesiones: Edición Lux (Clásicos cristianos LUX) se dirige a lectores interesados en los textos cristianos, la espiritualidad y las obras de carácter autobiográfico. Por su clasificación como biografía y memoria religiosa, se distancia de la ficción y de los manuales prácticos de bienestar.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las confesiones: Edición Lux (Clásicos cristianos LUX) cuenta con una edición en tapa dura de 488 páginas en castellano. La encuadernación rígida favorece su conservación como volumen de consulta y resulta apropiada para una lectura prolongada o para regalar una edición física de un clásico cristiano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las confesiones: Edición Lux (Clásicos cristianos LUX) y El diario íntimo del papa Francisco (Biografías y Memorias), de Víctor Manuel Fernández, comparten su vinculación con la tradición cristiana y los textos de carácter personal. El primero pertenece a los clásicos cristianos y está firmado por Agustín, santo, obispo de Hipona; el segundo se presenta como un diario íntimo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388522017"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d619c594988752e6",
+  "origen": "chatgpt-web"
+}

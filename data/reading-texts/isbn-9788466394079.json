@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466394079",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La guardiana de la rosa (Best Seller | Ficción) encaja con lectores que buscan aventuras dentro de la novela histórica. Sus 440 páginas plantean una lectura de extensión considerable, alejada de los libros breves. Por su clasificación editorial, resulta menos afín a quienes prefieren narrativa contemporánea sin componente histórico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de bolsillo en tapa blanda de La guardiana de la rosa (Best Seller | Ficción) contiene 440 páginas y permite llevar el libro en papel. Kindle ofrece la alternativa de lectura digital, mientras que el audiolibro permite seguir la obra mediante escucha. La elección depende de si se prefiere leer en papel, en pantalla o escuchar.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La guardiana de la rosa (Best Seller | Ficción), de Nieves Corte, puede compararse con Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián, por su vinculación con la ficción de ambientación histórica. La primera está clasificada como novela histórica y aventuras; el título de la segunda identifica una saga centrada en la Reconquista. También se diferencian por su autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401039539"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "38ed61aebde54fa1",
+  "origen": "chatgpt-web"
+}

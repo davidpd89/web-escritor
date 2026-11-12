@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788467084085",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La gran familia de la fe: Un oasis donde pertenecer, creer y crecer (Espasa Religión) se dirige a lectores interesados en la fe, la pertenencia comunitaria y el crecimiento espiritual. Por su orientación religiosa y ensayística, encaja menos con quienes buscan ficción o una aproximación ajena a las creencias.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra aborda la fe desde las ideas de pertenencia, creencia y crecimiento personal dentro de una comunidad. José María Sánchez de Lamadrid sitúa estas cuestiones en el terreno del ensayo religioso, con la familia y la espiritualidad como ejes temáticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 256 páginas de La gran familia de la fe: Un oasis donde pertenecer, creer y crecer (Espasa Religión) en un volumen físico que permite consultar y releer pasajes. Kindle facilita llevar el texto en un lector electrónico o móvil y acceder a él sin cargar con el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La gran familia de la fe: Un oasis donde pertenecer, creer y crecer (Espasa Religión) y Astrología, filosofía y magia: Un camino de práctica espiritual comparten el interés por la espiritualidad. La obra de José María Sánchez de Lamadrid se centra en la fe y la pertenencia comunitaria, mientras que la de Soledad Davies propone un acercamiento a la práctica espiritual mediante la astrología, la filosofía y la magia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0243d46873acfd16",
+  "origen": "chatgpt-web"
+}

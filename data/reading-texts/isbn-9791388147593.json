@@ -1,0 +1,58 @@
+{
+  "id": "isbn-9791388147593",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "No decepciones a tu padre (edición limitada) (Campaña | Ahora por menos) se orienta a lectores de misterio, thriller y novela histórica. Sus 552 páginas y su presentación como libro de bolsillo lo alejan de quienes prefieren relatos breves o lecturas ajenas a esos géneros.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de No decepciones a tu padre (edición limitada) (Campaña | Ahora por menos) pertenece a Penguin Bolsillo y se identifica como edición limitada. Está prevista para febrero de 2027, con 552 páginas en castellano, encuadernación de bolsillo e ISBN 9791388147593.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "No decepciones a tu padre (edición limitada) (Campaña | Ahora por menos) se ofrece en tapa blanda, concretamente en edición de bolsillo. Sus 552 páginas concentran una novela extensa en un formato pensado para llevar en papel, aunque conviene tener presente el grosor del volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "No decepciones a tu padre (edición limitada) (Campaña | Ahora por menos) se puede comparar con Delito: Edición limitada a precio especial (Colección Especial), también de Carme Chaparro. Comparten autoría y presentación como ediciones limitadas; el primero se identifica además con el misterio, el thriller y la novela histórica, y se publica en formato de bolsillo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467085235"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "de84863d64f744ad",
+  "origen": "chatgpt-web"
+}

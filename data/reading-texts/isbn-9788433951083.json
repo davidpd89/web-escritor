@@ -4,48 +4,44 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Donde Álvaro Pombo, de Mario Crespo López, se dirige a lectores interesados en biografías literarias, memoria y procesos de escritura. Recorre una trayectoria personal y profesional mediante episodios vitales y documentación, de modo que no responde a la estructura de una novela de ficción centrada en una trama inventada.",
+      "texto": "Donde Álvaro Pombo se dirige a lectores interesados en las biografías literarias, la memoria y la trayectoria de los escritores. Sus 520 páginas recorren la vida y la producción de un autor, por lo que no responde a quien busca una novela de ficción centrada en una trama inventada.",
       "evidencias": [
         "titulo",
-        "autores",
+        "numero_paginas",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Donde Álvaro Pombo es un recorrido biográfico por la vida y la obra de Álvaro Pombo, escrito por Mario Crespo López. Examina su formación, sus desplazamientos, sus primeras experiencias literarias y su trayectoria editorial, con documentación inédita y un tono que incorpora ironía. Sus 520 páginas permiten desarrollar tanto los acontecimientos personales como la relación del escritor con la literatura.",
+      "texto": "Donde Álvaro Pombo reconstruye una trayectoria literaria mediante episodios biográficos y documentación inédita. Mario Crespo López relaciona la formación, las experiencias personales y la evolución de la escritura de Álvaro Pombo, con atención a los lugares y las personas que marcaron su recorrido.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Donde Álvaro Pombo puede leerse en tapa blanda o Kindle. La edición impresa de Editorial Anagrama tiene 520 páginas y permite conservar el volumen como referencia biográfica; Kindle facilita consultar y transportar una obra de esa extensión sin cargar con el ejemplar físico. La diferencia práctica está en el soporte de lectura.",
+      "texto": "Donde Álvaro Pombo se publica en tapa blanda y Kindle, con una extensión de 520 páginas en su edición impresa. El papel permite consultar y conservar el volumen biográfico; Kindle facilita llevar una lectura larga en el móvil y retomar distintos pasajes.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El tiempo que pasa y Donde Álvaro Pombo comparten el interés por reconstruir una vida desde la memoria, aunque Manuel Medina aborda la infancia y la España de la posguerra, mientras Mario Crespo López sigue la trayectoria de un escritor. Los pilares de la historia plantea una reflexión sobre la capacidad explicativa de la historia, frente al enfoque biográfico y literario de Donde Álvaro Pombo. Son aproximaciones distintas al pasado: recuerdo personal, reflexión histórica y reconstrucción documental.",
+      "texto": "Donde Álvaro Pombo se aproxima a Vida y obra de Manuel Machado: Tengo el alma de nardo del árabe español: 24 (Biblioteca de la Memoria) por su atención a la vida y producción de un escritor. La diferencia principal está en el protagonista: Mario Crespo López estudia a Álvaro Pombo, mientras que el otro título se centra en Manuel Machado.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401040580",
-        "isbn-9788430629664"
+        "isbn-9791388381447"
       ]
     }
   ],

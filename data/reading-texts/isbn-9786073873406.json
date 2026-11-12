@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9786073873406",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Secreto nazi / Nazi Secret se dirige a lectores interesados en la historia del siglo XX y sus secretos. Por su temática histórica, se aleja de las lecturas centradas en mundos fantásticos o aventuras infantiles.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Secreto nazi / Nazi Secret está disponible en tapa blanda, con 464 páginas en castellano. Esta edición física permite consultar y retomar distintos pasajes de una lectura histórica sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "69a91a9e32453912",
+  "origen": "chatgpt-web"
+}

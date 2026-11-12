@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073876636",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El dios hambriento / The Hungry God encaja con lectores interesados en novela histórica y narrativa contemporánea. Sus 576 páginas ofrecen una extensión considerable dentro de la ficción literaria; no está planteado como fantasía, romance ni libro de divulgación práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El dios hambriento / The Hungry God está disponible en tapa blanda y tiene 576 páginas. El formato físico permite conservar una novela extensa en la biblioteca y retomar la lectura en papel, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El dios hambriento / The Hungry God puede compararse con Chamán (Trilogía de la familia Cole 2), de Noah Gordon, por su relación con la novela histórica. Conspiración en Londres, de Felipe Pigna, ofrece otra referencia de lectura vinculada a la historia, con una autoría y un título diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329688"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c3104e9d64287932",
+  "origen": "chatgpt-web"
+}

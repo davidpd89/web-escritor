@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788426433282",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El largo regreso de Josefina Carabias (Ensayo), de César Suárez, se dirige a quienes leen ensayos, biografías y obras relacionadas con figuras concretas. Su enfoque se distingue de una novela de fantasía o de un manual práctico, y sus 240 páginas permiten situar la extensión antes de elegirlo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El largo regreso de Josefina Carabias (Ensayo) tiene una edición en tapa blanda de 240 páginas, publicada por Lumen. El formato permite llevar el libro en una bolsa y consultar fragmentos durante la lectura, sin el volumen rígido de una encuadernación en tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mujeres de París, mujeres de letras (Salamandra Narrativa) comparte con El largo regreso de Josefina Carabias (Ensayo) el interés por figuras femeninas vinculadas al ámbito de las letras, aunque sus títulos sitúan el foco en referentes distintos. Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes permite otra comparación biográfica, centrada en una figura política y estructurada en episodios.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387928636",
+        "isbn-9786073873154"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "556eeaf4a68c3543",
+  "origen": "chatgpt-web"
+}

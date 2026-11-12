@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788412367720",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El regalo que salió corriendo, de Rocío Martín Díez, se orienta a lectores interesados en las memorias, el ensayo y la espiritualidad. Con 166 páginas, ofrece una extensión contenida para estos ámbitos y se aleja de las preferencias de quienes buscan principalmente ficción narrativa o novelas románticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El regalo que salió corriendo está editado en tapa blanda y tiene 166 páginas en castellano. Esta extensión facilita llevarlo en el bolso o la mochila y volver a determinados pasajes en papel; la edición corresponde a Ediciones Isthar Luna Sol.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El regalo que salió corriendo comparte con Al andar: Vivencias del Camino de Santiago el interés por las experiencias personales. La obra de Rocío Martín Díez se relaciona con las memorias, el ensayo y la espiritualidad, mientras que el libro de Carlos Díaz Ballesta se presenta como un conjunto de vivencias vinculadas al Camino de Santiago.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aadacaa1ee19dd14",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788428376259",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la tecnología y, en particular, en el internet de las cosas (IoT). Su planteamiento divulgativo permite situarlo entre los libros de conocimiento científico y tecnológico, no entre las obras de ficción ni los textos de carácter literario.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 308 páginas en un volumen físico de extensión considerable. Es el formato disponible de esta edición de Ediciones Paraninfo, apropiado para quien prefiere consultar un libro impreso y conservarlo como material de lectura o consulta.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El mundo conectado: explorando el internet de las cosas (IoT) comparte con 50 cosas que hay que saber sobre IA, de Keith Mansfield, el interés por tecnologías que transforman la relación con el entorno. La diferencia está en el asunto central: el primero aborda el internet de las cosas, mientras que el título de Keith Mansfield se concentra en la inteligencia artificial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7c1c9cee25522514",
+  "origen": "chatgpt-web"
+}

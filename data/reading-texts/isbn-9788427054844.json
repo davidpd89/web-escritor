@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788427054844",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra de Mikecrack se dirige a lectores interesados en la fantasía y en historias publicadas dentro de una serie identificada por el número 5 en su título. Sus 176 páginas en castellano ofrecen una lectura de extensión moderada, distinta de los ensayos y las novelas de narrativa realista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 176 páginas de esta obra de Mikecrack en una edición física publicada por Ediciones Martínez Roca. Su cubierta rígida permite conservar el ejemplar para posteriores lecturas y presentarlo como regalo, mientras que su extensión facilita organizar la lectura en varias sesiones.",
+      "evidencias": [
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1e0712c92d019708",
+  "origen": "chatgpt-web"
+}

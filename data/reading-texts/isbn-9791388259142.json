@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388259142",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La biblioteca de los crímenes (THRILLER), de Ande Pliego, se dirige a lectores de misterio y thriller, géneros centrados en enigmas y conflictos que requieren esclarecer hechos. No responde a la búsqueda de una novela romántica ni de una historia ajena al suspense.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La biblioteca de los crímenes (THRILLER) cuenta con una edición en tapa dura de 416 páginas. La cubierta rígida protege el volumen durante su conservación y permite incorporarlo a una colección física de novelas de misterio, aunque ocupa más espacio que una edición de bolsillo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b1e48d9541f1bb40",
+  "origen": "chatgpt-web"
+}

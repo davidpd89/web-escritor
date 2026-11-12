@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788418782947",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores interesados en la infancia como asunto literario y en su relación con la vida posterior. Por su enfoque de quejío y su clasificación como narrativa contemporánea y arte, se aleja de quienes buscan una lectura infantil de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de MANTENER FUERA DEL ALCANCE DE LOS NIÑOS: Quejío sobre la infancia y lo que sigue. Con prólogo de Móni (LIBROS ROBADOS), de María Velasco, incorpora un prólogo de Móni y pertenece a la colección LIBROS ROBADOS. Ediciones la UÑA Rota la publica en castellano, en tapa blanda y con 112 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "idioma",
+        "formato_edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 112 páginas de esta edición de María Velasco en un volumen físico relativamente breve. Su extensión facilita llevarlo en el bolso o la mochila y consultar de nuevo los pasajes sobre la infancia sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El niño (Andanzas), de Fernando Aramburu, y El niño que fuimos / The Child We Were, de Alma Delia Murillo, comparten con MANTENER FUERA DEL ALCANCE DE LOS NIÑOS: Quejío sobre la infancia y lo que sigue. Con prólogo de Móni (LIBROS ROBADOS) la infancia como referencia temática. La obra de María Velasco se distingue por presentarse como un quejío y anunciar un prólogo de Móni.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411074445",
+        "isbn-9786073869799"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1954d8c2df3eb108",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788448875022",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Érase una (y otra) vez: Todo lo que no sabías sobre los cuentos clásicos (Cuentos infantiles) se orienta a quienes sienten curiosidad por los cuentos tradicionales y los relatos clásicos. Sus 96 páginas plantean una lectura acotada sobre ese universo, distinta de una novela extensa o de una obra centrada en narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Érase una (y otra) vez: Todo lo que no sabías sobre los cuentos clásicos (Cuentos infantiles) cuenta con una edición en tapa dura de 96 páginas. Su encuadernación rígida permite conservar el libro para posteriores lecturas y entregarlo como regalo físico; Beascoa lo publica en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Érase una (y otra) vez: Todo lo que no sabías sobre los cuentos clásicos (Cuentos infantiles) puede ponerse junto a Avni 1. Animal verdaderamente no identificado (Txikiberri) por su relación con la lectura de relatos. El libro de Lucía Serrano se centra en los cuentos clásicos, mientras que el de Romain Pujol presenta un personaje identificado como Avni.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788417575847"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ba0c42b9e0edcec1",
+  "origen": "chatgpt-web"
+}

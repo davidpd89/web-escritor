@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408331803",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nocturnos, de Javier Pérez Campos, se sitúa en el ámbito del esoterismo y la espiritualidad, con la noche y la supervivencia hasta el amanecer como referencias de su título. Encaja con lectores interesados en esos asuntos, pero no con quienes buscan específicamente una guía de salud, crianza o desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nocturnos se presenta en tapa blanda, dentro de la colección de bolsillo de Booket. Sus 400 páginas forman un volumen físico que permite leer, señalar pasajes y conservar el ejemplar en papel; es la opción de lectura recogida entre sus formatos disponibles.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nocturnos y Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia se aproximan desde el interés por lo espiritual y lo esotérico. Javier Pérez Campos utiliza la noche y la supervivencia como ejes de su título, mientras que Barbara Hand Clow centra el suyo en la consciencia y sus dimensiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798888505335"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a3ea9481d8b57060",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788411078719",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un amor sin futuro (Andanzas) encaja con lectores de narrativa contemporánea interesados en las relaciones sentimentales y el amor de pareja. Quien busque principalmente ciencia ficción, fantasía o ensayo encontrará una propuesta distinta, centrada en la narrativa y el ámbito sentimental.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece una edición física de 128 páginas de Un amor sin futuro (Andanzas), manejable para leer fuera de casa y guardar en la biblioteca. Es el formato disponible en esta ficha, con una extensión relativamente breve frente a novelas de mayor tamaño.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amor en pole position (Dirty Air 3), de Lauren Asher, comparte con Un amor sin futuro (Andanzas) el amor como eje de la historia. La diferencia está en su ambientación: Amor en pole position se desarrolla en el mundo de la Fórmula 1 y pertenece al sports romance, mientras Betina González firma una obra incluida en narrativa contemporánea y amor y pareja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "466c311b5386d7fd",
+  "origen": "chatgpt-web"
+}

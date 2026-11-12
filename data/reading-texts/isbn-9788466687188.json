@@ -4,49 +4,52 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Fury Bound. Furia de lobo (Los Lobos de la Ruina 2) encaja con quienes buscan fantasía romántica, rivalidades políticas y relaciones marcadas por la desconfianza. Sus 648 páginas desarrollan una disputa por el poder junto a un romance de evolución lenta; no responde a la búsqueda de una historia breve ni de una relación amorosa sin conflictos.",
+      "texto": "Fury Bound. Furia de lobo (Los Lobos de la Ruina 2) encaja con lectores de fantasía romántica interesados en disputas de poder, lealtades difíciles y relaciones de desarrollo lento. Sable Sorensen combina conflictos políticos y vínculos afectivos; se aleja de las historias románticas independientes de una trama fantástica extensa.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La novela combina romantasy y fantasía política alrededor de una reina cuya autoridad cuestionan distintos sectores del reino. La relación con un alfa enfrentado a ella introduce un conflicto entre atracción, lealtad y supervivencia, mientras los vínculos familiares y las decisiones moralmente ambiguas condicionan la lucha por el poder. El título la identifica como el n.º 2 de Los Lobos de la Ruina.",
+      "texto": "La novela desarrolla una fantasía de intrigas dinásticas en la que Meryn Cooper debe ejercer el poder mientras afronta una guerra y la desconfianza de distintos grupos sociales. El vínculo con Stark Therion introduce un romance de evolución gradual, acompañado de alianzas tensas, familia elegida y decisiones de moralidad ambigua.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura permite conservar Fury Bound. Furia de lobo (Los Lobos de la Ruina 2) como volumen físico de 648 páginas, adecuado para consultar o releer pasajes. Kindle reúne esa misma extensión en un dispositivo electrónico y facilita continuar la lectura desde el móvil sin transportar el libro impreso.",
+      "texto": "La tapa dura de Fury Bound. Furia de lobo (Los Lobos de la Ruina 2) presenta sus 648 páginas en una edición física de Ediciones B, apropiada para conservar el volumen. Kindle evita cargar con un libro de esa extensión y permite leerlo en el móvil; el audiolibro ofrece una alternativa para seguir la historia mediante escucha.",
       "evidencias": [
         "titulo",
         "numero_paginas",
+        "edicion",
+        "editorial",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Casa de cielo y aliento (Ciudad Medialuna 2) comparte con Fury Bound. Furia de lobo (Los Lobos de la Ruina 2) su identificación como segunda entrega de una saga, aunque la obra de Sable Sorensen concreta su conflicto en una sucesión al trono y un vínculo romántico hostil. Donde duermen las sombras también combina fantasía y amor, pero sitúa su propuesta en un contexto contemporáneo con dimensiones y sombras.",
+      "texto": "Fury Bound. Furia de lobo (Los Lobos de la Ruina 2) puede compararse con Alas de escarcha y oro: El canto del cisne por su combinación de fantasía y conflictos personales. La novela de Sable Sorensen se centra en una reina, una guerra y un vínculo romántico conflictivo, mientras que la de Marta Morillo parte de una protagonista que oculta sus dones y vulnerabilidades.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396080",
-        "isbn-9788427055605"
+        "isbn-9791387949938"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4cd41e813c535cc7",
+  "fuente_hash": "4f892fb7979982ee",
   "origen": "chatgpt-web"
 }

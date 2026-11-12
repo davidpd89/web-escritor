@@ -4,37 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Trucos de magia para niños está pensado para lectores infantiles que quieren aprender a realizar trucos con objetos y cartas, además de resolver enigmas mágicos. Viola y Barbieri Autieri presentan instrucciones ilustradas, materiales cotidianos y niveles de dificultad; el contenido se centra en practicar números de magia, no en seguir una aventura fantástica de ficción.",
+      "texto": "Trucos de magia para niños está dirigido al público infantil interesado en aprender trucos con cartas, objetos y enigmas. Sus explicaciones ilustradas incluyen materiales y niveles de dificultad, por lo que se orienta a la práctica de actividades y no a quienes buscan una novela de fantasía.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Trucos de magia para niños se publica en tapa dura y tiene 104 páginas. El formato físico permite mantener abiertas las instrucciones ilustradas mientras se preparan los materiales y se ensayan los trucos. Los pasos y los grados de dificultad sirven para organizar la práctica de las distintas actividades.",
+      "texto": "Trucos de magia para niños está disponible en tapa dura, con 104 páginas ilustradas. Esta edición física permite consultar las instrucciones mientras se preparan los materiales y volver a los pasos de cada truco durante su ejecución.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "sinopsis_editorial",
-        "edicion"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Trucos de magia para niños y Onin 1 - Onin y la isla del tesoro comparten la presencia de la magia en contenidos infantiles, pero proponen experiencias distintas. El primero enseña trucos mediante instrucciones ilustradas y materiales accesibles; el segundo narra aventuras y misterios protagonizados por Onin y sus amigos. La magia de la música - Cenicienta también se sitúa en el terreno de los relatos, con una historia centrada en Cenicienta.",
+      "texto": "Trucos de magia para niños y La magia de la música - Cenicienta comparten la presencia de la magia en propuestas infantiles. El primero enseña trucos mediante instrucciones ilustradas, mientras que el segundo presenta la historia de Cenicienta y su convivencia con una duquesa y sus dos hijas.",
       "evidencias": [
         "titulo",
+        "categorias",
         "sinopsis_editorial",
-        "afines_catalogo",
-        "categorias"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9780241834923",
-        "isbn-9791387994549"
+        "isbn-9780241834923"
       ]
     }
   ],

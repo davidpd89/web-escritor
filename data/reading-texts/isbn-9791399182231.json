@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791399182231",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la historia del cine, sus directores y las transformaciones cinematográficas de los ochenta. Su planteamiento ensayístico y panorámico encaja menos con quien busca una biografía centrada en una única figura o una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Estudia el cine de los ochenta mediante sus directores, las generaciones de cineastas, los géneros y las distintas geografías cinematográficas. Fernando Gil Delgado Manrique de Lara plantea una aproximación histórica y ensayística que relaciona las trayectorias de los realizadores con el contexto de aquella década.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda presenta 332 páginas de ensayo sobre el cine de los ochenta y sus directores. El volumen físico permite avanzar por los distintos apartados y volver a consultar las cuestiones relacionadas con generaciones, géneros y geografías.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Desde que era un crío, de Locus, comparte con la obra de Fernando Gil Delgado Manrique de Lara el interés por las trayectorias personales y el ámbito biográfico. El cine de los ochenta y 80 directores: Generaciones, géneros y geografías de una década decisiva: 14 (FilaSiete) se diferencia por estudiar una década cinematográfica desde sus directores, géneros y contextos geográficos, en lugar de centrarse en una trayectoria individual.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791399084894"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "76cd82b53c925dc1",
+  "origen": "chatgpt-web"
+}

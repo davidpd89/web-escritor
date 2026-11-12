@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788467985665",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "200 de psa se orienta a lectores de cómic y novela gráfica que prefieren una obra de extensión relativamente breve. Sus 124 páginas, firmadas por Javier Marquina y Vicente Benavent, lo diferencian de una novela extensa en prosa, tanto por su clasificación editorial como por su presentación.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "200 de psa se presenta en tapa dura, con 124 páginas y edición de Norma Editorial. La encuadernación rígida facilita conservar el ejemplar como volumen físico, y su extensión permite valorar cuánto espacio ocupará frente a publicaciones gráficas más largas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "884eb7c8112919f7",
+  "origen": "chatgpt-web"
+}

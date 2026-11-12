@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788491058670",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El arte de la prudencia (Serie Great Ideas): Ediciones icónicas (Penguin Clásicos | Vintage), de Baltasar Gracián, encaja con lectores interesados en filosofía, ensayo y desarrollo personal. Sus 128 páginas ofrecen una extensión breve; por su orientación temática, no responde a quien busca una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de bolsillo en tapa blanda de El arte de la prudencia (Serie Great Ideas): Ediciones icónicas (Penguin Clásicos | Vintage) contiene 128 páginas y facilita su transporte. La tapa dura ofrece una encuadernación más resistente para conservarlo o regalarlo, mientras que el audiolibro permite escuchar el texto sin consultar las páginas impresas.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "074ac19f56202cac",
+  "origen": "chatgpt-web"
+}

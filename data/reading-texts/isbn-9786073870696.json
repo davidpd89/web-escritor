@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9786073870696",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Persecución y modorra. La Inquisición en la nueva España / Persecution and Drowsiness. The Inquisition in the New Spain se dirige a lectores interesados en la historia de la Inquisición y su relación con Nueva España. Por su asunto histórico, se distancia de quienes buscan una novela de ficción o un manual práctico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra de Úrsula Camba Ludlow aborda la Inquisición en Nueva España desde un marco histórico. La combinación de persecución y modorra en el título delimita los conceptos que articulan su planteamiento, centrado en una institución y un territorio concretos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 216 páginas del libro en un ejemplar físico de Penguin Random House Grupo Editorial, adecuado para consultar y señalar pasajes en papel. Kindle permite llevar el texto en un dispositivo electrónico y acceder a él sin transportar el volumen impreso.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Úrsula Camba Ludlow puede compararse con 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, por su atención a procesos históricos relacionados con el poder. La primera se centra en la Inquisición en Nueva España, mientras que la segunda aborda el derrumbe de una democracia. Cambian el contexto histórico, el territorio y las instituciones examinadas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8c2fc61211e52e5d",
+  "origen": "chatgpt-web"
+}

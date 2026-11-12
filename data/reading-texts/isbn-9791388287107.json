@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388287107",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este libro me hizo pensar en ti (VR), de Libby Page, encaja con lectores de romance y narrativa contemporánea. Sus 440 páginas plantean una lectura de cierta extensión dentro de estos géneros, por lo que se aleja de quienes buscan una novela breve o una historia centrada en la fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Este libro me hizo pensar en ti (VR) puede leerse en tapa blanda o en Kindle. La edición impresa reúne sus 440 páginas en un volumen físico que puede prestarse o regalarse; Kindle permite llevar la novela en un lector electrónico o en un móvil compatible sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A mil por hora, de Hannah Grace, y Este libro me hizo pensar en ti (VR), de Libby Page, comparten el romance como eje de lectura. La obra de Hannah Grace sitúa la relación en el entorno de la Fórmula 1, mientras que la de Libby Page pertenece al romance contemporáneo sin esa ambientación deportiva como rasgo identificador.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "256405c2e12bebdf",
+  "origen": "chatgpt-web"
+}

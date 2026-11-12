@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788467085099",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Noche eterna (Biblioteca Agatha Christie) está orientada a lectores de misterio y thriller que buscan una obra de Agatha Christie dentro de su colección bibliográfica. No responde a la búsqueda de narrativa contemporánea ajena al suspense o a los conflictos propios del género criminal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Noche eterna (Biblioteca Agatha Christie) cuenta con una edición en tapa blanda de 256 páginas, publicada en castellano por Editorial Espasa. Es un volumen físico que permite leer y conservar la novela en papel, así como incorporarla a una colección de libros de Agatha Christie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Noche eterna (Biblioteca Agatha Christie) comparte autora y ámbito de misterio con El enigmático míster Quin, de Agatha Christie. La diferencia identificable está en la presentación: el segundo reúne doce relatos protagonizados por un mismo personaje, mientras que Noche eterna pertenece a la colección Biblioteca Agatha Christie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331520"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6ccbd30312cf0b90",
+  "origen": "chatgpt-web"
+}

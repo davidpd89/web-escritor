@@ -4,18 +4,18 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Récords para entender el planeta encaja con lectores interesados en geografía, curiosidades territoriales y datos singulares sobre distintos lugares del mundo. Su enfoque divulgativo, basado en récords, se distancia de las guías destinadas a organizar itinerarios o preparar visitas concretas.",
+      "texto": "Récords para entender el planeta se dirige a lectores interesados en la geografía, las curiosidades territoriales y los datos extremos de distintos lugares del mundo. Su enfoque divulgativo y de consulta se distancia de una guía centrada en organizar desplazamientos, alojamientos o itinerarios turísticos.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Un Mundo Inmenso presenta una obra de divulgación geográfica que utiliza récords para explicar particularidades del planeta. Entre los asuntos tratados figuran el aislamiento de las ciudades, los husos horarios y las condiciones ambientales extremas, con ejemplos de diferentes territorios.",
+      "texto": "Récords para entender el planeta plantea una lectura divulgativa organizada alrededor de singularidades geográficas y récords mundiales. Un Mundo Inmenso aborda cuestiones como el aislamiento de las ciudades, las diferencias horarias entre países y las particularidades de determinados territorios, dentro del ámbito de los viajes y las obras de referencia.",
       "evidencias": [
+        "titulo",
         "autores",
         "categorias",
         "sinopsis_editorial"
@@ -23,27 +23,12 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Récords para entender el planeta se ofrece en tapa dura y Kindle. La edición de Ediciones Península tiene 240 páginas y encuadernación cartoné, adecuada para conservar y consultar el volumen físico; Kindle permite acceder al contenido desde un dispositivo digital sin transportar el libro.",
+      "texto": "La tapa dura reúne las 240 páginas de Récords para entender el planeta en un volumen físico adecuado para consultar en casa o regalar. Kindle permite acceder al contenido desde un dispositivo digital y consultar sus curiosidades geográficas sin llevar el libro impreso.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Allí donde fueres... comparte con Récords para entender el planeta la curiosidad por otros lugares, pero Patrick Kinsella se centra en las costumbres de viaje y Un Mundo Inmenso en los récords geográficos. Chile y la Isla de Pascua 9, de Mark Johanson, Isabel Albiston, Kevin Raub y Wendy Yanagihara, propone itinerarios y experiencias para visitar un destino concreto, frente a la perspectiva mundial del libro de récords.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788408324331",
-        "isbn-9788408317869"
+        "edicion"
       ]
     }
   ],

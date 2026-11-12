@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El libro de los gatos se dirige a lectores de poesía y textos reflexivos interesados en la relación entre las personas y los felinos. No sigue una trama novelesca continuada: Ursula K. Le Guin reúne poemas, meditaciones y dibujos que exploran el comportamiento y la presencia de estos animales.",
+      "texto": "El libro de los gatos se dirige a lectores de poesía interesados en los felinos y en la escritura de Ursula K. Le Guin. Reúne textos breves y dibujos sobre estos animales, por lo que se aleja de quienes buscan una novela con una trama continua.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,27 +14,28 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "El libro de los gatos reúne poesía, reflexiones breves e ilustraciones de Ursula K. Le Guin alrededor de un mismo motivo: los gatos. Incluye El arte de Bunditsu y más de treinta piezas que examinan la relación con estos animales desde la observación, el humor y la reflexión sobre su naturaleza.",
+      "texto": "El libro de los gatos combina poesía, reflexiones personales e ilustraciones dedicadas a los gatos. Ursula K. Le Guin aborda su comportamiento y la relación que mantienen con las personas, e incorpora El arte de Bunditsu junto con más de treinta piezas. Es una recopilación de distintas formas de escritura y expresión gráfica.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El libro de los gatos está disponible en tapa dura, con 108 páginas que combinan textos y dibujos. La edición de Nórdica Libros permite conservar juntos los poemas, las meditaciones y el material gráfico, y su encuadernación resulta adecuada para regalar o consultar repetidamente.",
+      "texto": "El libro de los gatos está disponible en tapa dura y Kindle. La edición física de Nórdica Libros tiene 108 páginas y permite consultar los poemas y dibujos en papel; Kindle facilita llevar la recopilación en un lector electrónico o en el móvil. La tapa dura también permite conservarla como volumen de consulta.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
         "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El libro de los gatos y Antología comparten la poesía como forma de expresión, aunque presentan contenidos y alcances diferentes. Ursula K. Le Guin reúne poemas, meditaciones y dibujos centrados en los felinos, mientras que Antología, de Antonio Cano, recopila la obra completa de un poeta turolense de los años treinta.",
+      "texto": "El libro de los gatos puede compararse con Advenir, de Jose Eceolaza, por su vinculación con la poesía. También comparte ese ámbito literario con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. La diferencia temática está en el protagonismo de los gatos y en la combinación de poemas, meditaciones y dibujos de Ursula K. Le Guin.",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,12 +44,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370140908"
+        "isbn-9788410212749",
+        "isbn-9788466396288"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4f461a3c13ee4b8b",
+  "fuente_hash": "cd9d3e450b8ebad4",
   "origen": "chatgpt-web"
 }

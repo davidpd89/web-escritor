@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La danza de la oscuridad (Ankoku butoh) se orienta a lectores de poesía interesados en la relación entre creación literaria y expresión corporal. Su origen en una experiencia personal ante una actuación de danza lo distancia de las novelas de argumento continuado y de los manuales técnicos de baile.",
+      "texto": "La danza de la oscuridad (Ankoku butoh) se dirige a lectores de poesía interesados en las relaciones entre escritura, danza y experiencia artística. Su punto de partida personal y escénico encaja menos con quienes buscan una novela de argumento continuo o un manual técnico de baile.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La danza de la oscuridad (Ankoku butoh) es una obra poética vinculada al impacto que una representación de butoh produjo en Juan Manuel Uría Iriarte. El punto de partida es una actuación presenciada en 2009, cuya huella personal da origen al libro, más que una sucesión de acontecimientos propia de una novela.",
+      "texto": "La danza de la oscuridad (Ankoku butoh) es una obra poética nacida de una experiencia como espectador de danza butoh. Juan Manuel Uría Iriarte sitúa su origen en una actuación de Marianela León Ruiz que presenció en 2009 y cuya impresión dio lugar al libro. La relación entre movimiento escénico y escritura define su punto de partida.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,17 +23,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La danza de la oscuridad (Ankoku butoh) se presenta en tapa blanda, con 88 páginas. Su extensión permite leer el volumen en sesiones breves y regresar a pasajes concretos en papel, una forma de consulta acorde con su carácter poético.",
+      "texto": "La danza de la oscuridad (Ankoku butoh) está editada en tapa blanda y reúne 88 páginas en castellano. Su extensión facilita leer el volumen en pocas sesiones o regresar a fragmentos concretos, una posibilidad especialmente práctica para una obra de poesía.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La danza de la oscuridad (Ankoku butoh) puede compararse con Ciudad, de Luis Pérez Capitán, por su pertenencia a la poesía. Mientras Ciudad sitúa la escritura frente a cuestiones tecnológicas, políticas y morales, la obra de Juan Manuel Uría Iriarte nace del efecto emocional de una representación de danza.",
+      "texto": "223 esquinas: 16 (La garza roja) y La danza de la oscuridad (Ankoku butoh) pueden compararse dentro de la lectura poética. La obra de Juan Manuel Uría Iriarte tiene un origen concreto en una actuación de danza butoh, mientras que el título de Antonio Fernández Lera remite a esquinas y espacios, sin plantear ese mismo vínculo escénico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -42,7 +43,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410167841"
+        "isbn-9788412988833"
       ]
     }
   ],

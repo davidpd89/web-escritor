@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9786073877763",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Imperturbable / Unflappable, de Maha Schekaibán, está dirigido a lectores interesados en el desarrollo personal. Sus 152 páginas sitúan la obra en una extensión contenida; no encaja con quien busca narrativa de ficción o una novela.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece una edición física de 152 páginas publicada por Penguin Random House Grupo Editorial. Es el formato disponible para quien prefiere consultar y leer el libro en papel.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "87dd124c5228eafe",
+  "origen": "chatgpt-web"
+}

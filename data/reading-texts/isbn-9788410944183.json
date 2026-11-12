@@ -4,45 +4,46 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Zunzunegui se dirige a lectores de historia interesados en Hernán Cortés, la conquista de México y la formación de vínculos entre España y América. Su planteamiento biográfico e interpretativo se aleja de los estudios centrados exclusivamente en cronologías militares o en acontecimientos políticos contemporáneos.",
+      "texto": "Zunzunegui se dirige a lectores de historia interesados en la conquista de México y la formación de vínculos entre España y América. Juan Miguel Zunzunegui desarrolla una interpretación histórica a partir de Hernán Cortés; no se centra en ofrecer una narración novelesca de aventuras.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Juan Miguel Zunzunegui examina la figura de Hernán Cortés y las consecuencias históricas de la conquista de México desde una perspectiva centrada en la formación de la hispanidad. El ensayo interpreta el encuentro entre sociedades americanas y castellanas y contrapone su lectura del pasado a los relatos que considera condicionados por la propaganda.",
+      "texto": "Zunzunegui aborda la actuación de Hernán Cortés y las consecuencias de la conquista para las sociedades americanas y españolas. Juan Miguel Zunzunegui cuestiona determinadas interpretaciones del pasado y presenta la hispanidad como resultado de encuentros y transformaciones históricas, desde una perspectiva favorable al legado de la conquista.",
       "evidencias": [
+        "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Zunzunegui está editado en tapa blanda por La Esfera de los Libros y tiene 576 páginas en castellano. Su extensión permite desarrollar una biografía histórica amplia en un solo volumen, mientras que la encuadernación flexible facilita manejarlo durante la lectura y la consulta.",
+      "texto": "Zunzunegui se publica en tapa blanda, con 576 páginas en castellano y edición de La Esfera de los Libros. Su extensión permite desarrollar la biografía histórica y el análisis de la conquista en un volumen físico que puede consultarse por pasajes.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "editorial",
         "numero_paginas",
         "idioma",
+        "editorial",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Zunzunegui y Cesar La conquista de la eternidad comparten el interés por figuras vinculadas a grandes conquistas, aunque el primero estudia a Hernán Cortés y el segundo sigue la trayectoria de un general romano. Frente a CORONA AUTORITARIA, LA, dedicado al papel político de la monarquía durante una dictadura, Zunzunegui adopta una perspectiva biográfica sobre la conquista de México.",
+      "texto": "Zunzunegui guarda relación con Otra historia de México / Another History of Mexico por su autoría compartida y su interés en la historia mexicana. La diferencia identificable es el alcance: Zunzunegui se concentra en Hernán Cortés y la conquista, mientras que el otro título presenta un asunto histórico formulado de manera más general.",
       "evidencias": [
         "titulo",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788410944329",
-        "isbn-9788419892782"
+        "isbn-9786073877831"
       ]
     }
   ],

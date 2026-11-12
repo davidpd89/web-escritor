@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9786287832756",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Imparable. 10 lecciones de una bichota para construir la vida que sueñas / Unstoppable, de Nathalia Guerrero Duque, se dirige a lectores interesados en el desarrollo personal. Su clasificación lo sitúa en una línea distinta de la narrativa de ficción y del ensayo, para quienes buscan lecturas vinculadas a este ámbito.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 184 páginas de Imparable. 10 lecciones de una bichota para construir la vida que sueñas / Unstoppable en un volumen físico. Es el formato para quien prefiere leer en papel y conservar el ejemplar; también permite consultar sus contenidos sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1634fd9fe74d6bde",
+  "origen": "chatgpt-web"
+}

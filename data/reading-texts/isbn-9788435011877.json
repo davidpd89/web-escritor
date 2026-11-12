@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788435011877",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Muerte a crédito (Edhasa Literaria) se orienta a lectores de narrativa contemporánea interesados en obras vinculadas al siglo XX y a la historia. Sus 576 páginas suponen una lectura extensa, distinta de un ensayo histórico breve o de una obra concebida como consulta temática.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Muerte a crédito (Edhasa Literaria) puede elegirse en tapa dura o Kindle. La edición física tiene 576 páginas y una encuadernación rígida para conservarla y releerla; Kindle permite llevar el texto en un dispositivo compatible sin transportar ese volumen de papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Muerte a crédito (Edhasa Literaria) puede compararse con David Copperfield (edición especial en tapa dura) (Ediciones Conmemorativas) por su pertenencia a la narrativa literaria. La primera obra, de Louis-Ferdinand Céline, se vincula al siglo XX, mientras que la segunda, de Charles Dickens, se presenta en una edición especial conmemorativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491058250"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "60ecc75e04043578",
+  "origen": "chatgpt-web"
+}

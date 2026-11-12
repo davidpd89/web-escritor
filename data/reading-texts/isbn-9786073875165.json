@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9786073875165",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los recuerdos del porvenir (Edición ilustrada) / Memories of the Future (Illustrated Edition) se dirige a lectores interesados en los clásicos, la narrativa contemporánea y la memoria como tema literario. Su presentación ilustrada en tapa dura se aleja de quien busque una edición de bolsillo ligera o una lectura de no ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "edicion",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La característica distintiva es su presentación como edición ilustrada de Los recuerdos del porvenir (Edición ilustrada) / Memories of the Future (Illustrated Edition). Penguin Random House Grupo Editorial la publicó en tapa dura y castellano el 20 de octubre de 2026; el ISBN 9786073875165 identifica esta versión concreta.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para esta edición ilustrada de 312 páginas. Su encuadernación rígida resulta apropiada para conservarla en una biblioteca o regalarla, mientras que las ilustraciones forman parte de la presentación anunciada en el propio título.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La semana de colores y Andamos huyendo Lola comparte autoría con Los recuerdos del porvenir (Edición ilustrada) / Memories of the Future (Illustrated Edition): ambas obras son de Elena Garro. La primera reúne dos obras vinculadas a la imaginación literaria de la autora; la segunda se presenta como una novela asociada a los clásicos, la narrativa contemporánea y la memoria, en edición ilustrada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084856"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e6d609f875aa3fcf",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788412986938",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Inicio de una nueva historia y la aparición del hombre nuevo, de Enrique Sánchez Motos, se sitúa en el ámbito de economía y empresa. Sus 114 páginas encajan con quien busca una lectura breve dentro de esa temática, pero no con quien pretende elegir una novela de fantasía o romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Inicio de una nueva historia y la aparición del hombre nuevo está disponible en tapa blanda, con 114 páginas en castellano. La edición de Editorial Cuadernos para la Paz ofrece un volumen físico de extensión contenida, adecuado para transportar y consultar en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Inicio de una nueva historia y la aparición del hombre nuevo puede situarse junto a Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, dentro del ámbito de economía y empresa. El título de Enrique Sánchez Motos plantea una nueva etapa histórica y la figura del hombre nuevo, mientras que el de Miguel Reinoso dirige la atención hacia el liderazgo como oficio. Ambos parten de enfoques distintos dentro de ese ámbito.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b3767cdd6751002e",
+  "origen": "chatgpt-web"
+}

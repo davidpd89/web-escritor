@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9798890989642",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dinosaurios Al Atardecer (Novela Gráfica) / Dinosaurs Before Dark (Graphic Novel) (Magic Tree House Novela Gráfica), de Mary Pope Osborne, encaja con lectores que buscan fantasía y aventuras en formato de novela gráfica. Quienes prefieren narración en prosa o libros informativos encontrarán aquí una propuesta de otro tipo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite conservar en papel las 176 páginas de Dinosaurios Al Atardecer (Novela Gráfica) / Dinosaurs Before Dark (Graphic Novel) (Magic Tree House Novela Gráfica). Es el formato disponible para esta edición de Mary Pope Osborne, una opción física para leer y guardar junto a otros títulos de la colección.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Caballero del Alba (Novela Gráfica) / The Knight at Dawn (Graphic Novel) (Magic Tree House Novela Gráfica), de Mary Pope Osborne, comparte con Dinosaurios Al Atardecer (Novela Gráfica) / Dinosaurs Before Dark (Graphic Novel) (Magic Tree House Novela Gráfica) la autora, el formato de novela gráfica y el planteamiento de fantasía y aventuras. Piratas Después del Mediodía (Novela Gráfica) / Pirates Past Noon Graphic Novel, de Mary Pope Osborne, ofrece otra lectura afín para quienes buscan aventuras de esta autora en formato gráfico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890989659",
+        "isbn-9798890989697"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e640314957d20482",
+  "origen": "chatgpt-web"
+}

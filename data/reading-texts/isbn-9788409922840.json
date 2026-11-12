@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788409922840",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensado para lectores interesados en los antecedentes tecnológicos de Internet, especialmente las Bulletin Board Systems y los módems. Su orientación histórica y divulgativa encaja menos con quien busca un manual práctico de programación o de configuración de redes actuales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Examina la etapa anterior a la expansión de la Web a través de las Bulletin Board Systems, los módems y los orígenes de Internet. Francisco Javier Paz Rodríguez aborda esa evolución desde una perspectiva histórica y de divulgación tecnológica, centrada en los sistemas que precedieron a la navegación web.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 298 páginas dedicadas a la historia de las comunicaciones digitales anteriores a la Web. Su encuadernación flexible permite leerla y transportarla como un volumen de divulgación, además de consultar distintos pasajes durante la lectura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA también se ocupa de cuestiones tecnológicas desde la divulgación, pero su asunto es la inteligencia artificial, frente a la historia de Internet que trata BBS Before the Web: Antes de la Web. Historia de las Bulletin Board Systems, los módems y el nacimiento de Internet. El contraste está entre comprender una tecnología y reconstruir los antecedentes de otra.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f371a62d9de97344",
+  "origen": "chatgpt-web"
+}

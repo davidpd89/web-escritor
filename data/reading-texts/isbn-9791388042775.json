@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un deseo para cada día se dirige a lectores de narrativa contemporánea interesados en las relaciones familiares, las rupturas sentimentales y las segundas oportunidades durante la Navidad. Su estructura de lectura diaria durante diciembre encaja con quienes prefieren avanzar por capítulos, pero menos con quienes buscan una trama de acción o suspense criminal.",
+      "texto": "Un deseo para cada día encaja con lectores de narrativa contemporánea interesados en las relaciones familiares, las rupturas y las segundas oportunidades. Su ambientación navideña y sus conflictos personales pueden no encajar con quien busca una historia alejada de las celebraciones familiares o centrada en la acción.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,26 +13,24 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La novela de Eleonor Sager aborda los cambios personales de varios hermanos durante una Navidad en Sankt Anna. Los problemas de pareja, el desempleo y el regreso al lugar de origen articulan conflictos diferentes dentro de una misma familia. La estructura propone leer un capítulo por cada día de diciembre.",
+      "texto": "Un deseo para cada día plantea una lectura coral centrada en los conflictos personales de varios hermanos durante la Navidad. Las relaciones sentimentales, las dificultades laborales, los recuerdos de adolescencia y los cambios familiares articulan sus distintas líneas narrativas.",
       "evidencias": [
-        "autores",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Un deseo para cada día puede leerse en tapa blanda o Kindle. La edición física de Duomo Ediciones tiene 448 páginas y permite seguir el calendario de capítulos con un ejemplar en papel; Kindle facilita mantener esa lectura diaria desde el móvil o un lector electrónico. Ambas opciones conservan la propuesta de lectura navideña.",
+      "texto": "La tapa blanda reúne sus 448 páginas en una edición física para leer de forma continuada. Por su extensión, permite avanzar en distintos momentos y conservar el volumen como ejemplar de papel; es el formato disponible para esta edición.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "sinopsis_editorial"
+        "formato_edicion"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3c5a354e77e3673d",
+  "fuente_hash": "afd35d1edd72e312",
   "origen": "chatgpt-web"
 }

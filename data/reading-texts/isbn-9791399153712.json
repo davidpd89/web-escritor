@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9791399153712",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La antigua Grecia en cincuenta monumentos (Ilustrados) se dirige a lectores interesados en la historia antigua a través de sus construcciones y su patrimonio artístico. Su planteamiento histórico y monumental se distancia de la novela de ficción y de los manuales centrados exclusivamente en técnicas artísticas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La antigua Grecia en cincuenta monumentos (Ilustrados) se presenta en tapa dura, con 256 páginas en castellano. Esta encuadernación aporta rigidez al volumen y resulta práctica para conservarlo en una biblioteca o consultarlo repetidamente sobre una mesa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "79bed14631da6f30",
+  "origen": "chatgpt-web"
+}

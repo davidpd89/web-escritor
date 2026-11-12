@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9791388108419",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El hechizo más oscuro (Faeris Editorial) se dirige a lectores de fantasía juvenil interesados en el romance y los elementos de terror. Con 552 páginas, responde a quienes buscan una novela extensa que combine esos géneros, más que una historia realista o un ensayo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El hechizo más oscuro (Faeris Editorial) está disponible en tapa dura y Kindle, dos opciones para abordar sus 552 páginas. La tapa dura ofrece un volumen físico para conservar o regalar, mientras que Kindle permite transportar la novela completa en un lector electrónico o móvil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "29a6370feea9b8db",
+  "origen": "chatgpt-web"
+}

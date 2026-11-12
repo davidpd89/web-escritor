@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9791388425059",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El diario de Gurty. Vacaciones en la Provenza (Imagina) se dirige al público infantil interesado en el humor, la amistad y la naturaleza. Su planteamiento se aleja de las lecturas centradas en el terror o los conflictos adultos; las vacaciones forman parte del tema anunciado en el título.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El diario de Gurty. Vacaciones en la Provenza (Imagina) se presenta en tapa dura, con 144 páginas en castellano. Esta encuadernación permite conservar el volumen en una biblioteca infantil y utilizarlo en lecturas repetidas, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "449fb85d014f6460",
+  "origen": "chatgpt-web"
+}

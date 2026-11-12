@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788448874742",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores infantiles interesados en los dinosaurios, la naturaleza y las aventuras con contenido científico. La combinación de amistad y ciencia ficción lo sitúa en la narrativa de aventuras, no en un libro de divulgación científica especializado.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne sus 40 páginas en una edición física manejable, adecuada para leer y conservar junto a otros libros infantiles. Kindle permite llevar la lectura en el móvil o una tableta sin ocupar espacio en la estantería.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte con Clic y Clara en el espacio: Las aventuras más científicamente divertidas (Pequeños curiosos), de Carlos Pazos, los protagonistas, la autoría y el planteamiento de aventuras científicas. La diferencia está en el escenario: uno se centra en los dinosaurios y el otro en el espacio, por lo que cambia el ámbito de exploración.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874759"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "139fff3b9f54efcc",
+  "origen": "chatgpt-web"
+}

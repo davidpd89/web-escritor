@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387962081",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Magos del cataclismo 1 (Shônen) está dirigido a quienes buscan fantasía y aventuras en formato manga. Su combinación de elementos fantásticos y narración gráfica lo diferencia de las novelas realistas y de los relatos escritos exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Magos del cataclismo 1 (Shônen) cuenta con una edición en tapa blanda de 200 páginas, publicada en castellano. El formato físico permite leer las viñetas directamente sobre papel y conservar el volumen en una colección de manga.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Astro Royale 1 (Shônen): Universo Manga y Magos del cataclismo 1 (Shônen) comparten la identificación shônen y el número 1 en sus títulos. La diferencia está en la autoría: Ken Wakui firma el primero y Yellow Tanabe el segundo, que se presenta dentro de la fantasía y las aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387962845"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b0f29d7b4be12455",
+  "origen": "chatgpt-web"
+}

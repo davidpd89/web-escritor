@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788467085150",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Madera de líder: Claves para desarrollar las capacidades de liderazgo en la empresa y en la vida (Empresa y Talento) se orienta a quienes quieren trabajar sus capacidades de liderazgo en ámbitos profesionales y personales. Su enfoque de desarrollo personal y empresa se diferencia de los libros dedicados exclusivamente a inversión, contabilidad o finanzas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de bolsillo de Booket ofrece 224 páginas en tapa blanda, con cubierta flexible para llevarla y consultar sus contenidos en papel. Kindle permite acceder al texto desde un dispositivo electrónico, mientras que el audiolibro ofrece la alternativa de escuchar el contenido durante desplazamientos o actividades cotidianas.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Madera de líder: Claves para desarrollar las capacidades de liderazgo en la empresa y en la vida (Empresa y Talento) y Domina el arte de los negocios coinciden en tratar habilidades aplicables al entorno empresarial. Mario Alonso Puig extiende el liderazgo a la vida personal, mientras que Brian Tracy plantea habilidades para desenvolverse en los negocios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466390514"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2f0b647a1066b58d",
+  "origen": "chatgpt-web"
+}

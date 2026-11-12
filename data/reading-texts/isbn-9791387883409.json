@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791387883409",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensado para familias que buscan compartir actividades relacionadas con la Navidad, combinando lectura, cocina y manualidades. Encaja menos con quienes prefieren un recetario exclusivamente culinario o una narración continua sin propuestas prácticas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Ya es Navidad: Historias, recetas y manualidades para vivir la Navidad juntos. (Álbumes locomotora) reúne tres tipos de contenido: historias para leer, recetas para preparar y manualidades para realizar en compañía. Sus 112 páginas permiten alternar momentos de lectura con actividades familiares durante las celebraciones navideñas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para las 112 páginas de esta edición de Album Locomotora. La encuadernación rígida resulta práctica para consultar recetas y manualidades varias veces, además de conservar el libro entre una celebración navideña y la siguiente.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tíos y Tías (AMOR DE FAMILIA) y Ya es Navidad: Historias, recetas y manualidades para vivir la Navidad juntos. (Álbumes locomotora) comparten el interés por las relaciones familiares. El libro de Margarita Del Mazo se identifica por los vínculos con tíos y tías, mientras que el de Birgitta Sif propone actividades navideñas que incluyen recetas y manualidades.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788410438491"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a994682c7379653f",
+  "origen": "chatgpt-web"
+}

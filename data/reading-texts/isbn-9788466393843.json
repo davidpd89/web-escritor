@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788466393843",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La huella vikinga: Una era que trascendió la historia y ha conquistado nuestra cultura (No ficción) está dirigida a lectores interesados en historia, ensayo y conexiones entre el pasado y la cultura. Su enfoque histórico y cultural se distancia de quienes buscan una novela de aventuras protagonizada por personajes vikingos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La huella vikinga: Una era que trascendió la historia y ha conquistado nuestra cultura (No ficción) aborda la permanencia de la época vikinga en la cultura posterior. Laia San José Beltrán trata este asunto desde el ensayo histórico, en un ámbito que también comprende la religión y la espiritualidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de bolsillo en tapa blanda permite transportar las 352 páginas de La huella vikinga: Una era que trascendió la historia y ha conquistado nuestra cultura (No ficción). Kindle facilita la lectura digital y la consulta del ensayo desde un móvil o lector electrónico, sin cargar con el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La huella vikinga: Una era que trascendió la historia y ha conquistado nuestra cultura (No ficción) comparte autora con Tejedoras de destinos: Una mirada al poder femenino que gobernó la historia de dioses y hombres (No ficción). La primera se centra en el legado vikingo, mientras que la segunda dirige su atención al poder femenino en la historia de dioses y hombres.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387905545"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b1e26a298233edb3",
+  "origen": "chatgpt-web"
+}

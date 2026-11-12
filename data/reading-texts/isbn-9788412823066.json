@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788412823066",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un amor en Suphan: 2 (AltramuzGL) se orienta a lectores de narrativa contemporánea interesados en las relaciones amorosas. Su título lo identifica como el n.º 2 y sus 272 páginas sitúan la lectura en una extensión intermedia. No corresponde a quien busque específicamente un ensayo histórico o divulgativo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un amor en Suphan: 2 (AltramuzGL) se publica en tapa blanda y reúne 272 páginas. La edición en papel de Altramuz Editorial permite leerlo sin pantalla y guardarlo junto a otros volúmenes de la colección identificada en el título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un amor en Suphan: 2 (AltramuzGL) y Amor en pole position (Dirty Air 3) comparten el interés por las relaciones románticas. El libro de Lambo se clasifica como narrativa contemporánea y amor y pareja, mientras que el de Lauren Asher sitúa su historia en la Fórmula 1. El segundo ofrece un entorno deportivo expresamente identificado; el primero se presenta mediante su referencia a Suphan.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6a4530c4c925493e",
+  "origen": "chatgpt-web"
+}

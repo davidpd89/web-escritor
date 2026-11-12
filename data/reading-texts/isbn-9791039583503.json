@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791039583503",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este cofre de cuentos con peluche, de Lallemand Orianne y Éléonore Thuillier, está dirigido al público infantil. Combina lectura y un objeto físico relacionado con el personaje del lobo, por lo que encaja con quienes buscan cuentos acompañados de un peluche, pero no con quienes prefieren una novela juvenil de lectura continuada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El cofre de cuentos con peluche se comercializa en tapa blanda y figura con una extensión de 1 página. Esta presentación reúne el componente de lectura y el peluche anunciado en el título, de modo que su uso como regalo infantil se diferencia del de un libro convencional sin accesorios.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2bc317180262ed3d",
+  "origen": "chatgpt-web"
+}

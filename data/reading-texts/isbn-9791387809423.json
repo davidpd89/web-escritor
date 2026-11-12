@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387809423",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "No dejes que se quede (Lo más visto), de Nicola Sanders, encaja con lectores que buscan misterio y thriller en una novela de 344 páginas. No está dirigido a quien prefiera fantasía, ensayo o lecturas centradas en la no ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 344 páginas de No dejes que se quede (Lo más visto) en una edición física de Montena. Es el formato indicado para quien prefiere leer novelas en papel y conservar el libro de Nicola Sanders en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8e0de0f01f1c3582",
+  "origen": "chatgpt-web"
+}

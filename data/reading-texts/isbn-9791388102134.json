@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388102134",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gokurakugai nº 06: 6 (Manga Shonen), de Yuto Sano, se dirige a lectores de manga shonen y cómic que siguen historias publicadas en varios volúmenes. Sus 208 páginas corresponden a una edición juvenil de narrativa gráfica; encaja menos con quien busca una novela en prosa o una lectura autoconclusiva.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para Gokurakugai nº 06: 6 (Manga Shonen), de Yuto Sano. Sus 208 páginas reúnen una edición física de Planeta Cómic, con encuadernación flexible y un volumen manejable para leer y guardar junto a los demás tomos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Blue Lock nº 33 (Manga Shonen), de Yusuke Nomura, Muneyuki Kaneshiro, y One Piece nº 114 (Manga Shonen), de Eiichiro Oda, comparten con Gokurakugai nº 06: 6 (Manga Shonen), de Yuto Sano, el formato de manga shonen. La diferencia está en las series y sus autores: cada tomo pertenece a una obra distinta, por lo que la comparación sirve para localizar otras lecturas dentro del mismo tipo de manga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388101991",
+        "isbn-9791388102271"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b16ee6af21b9a365",
+  "origen": "chatgpt-web"
+}

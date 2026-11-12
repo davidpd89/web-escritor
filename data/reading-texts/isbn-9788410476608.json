@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788410476608",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Habla como un hombre: 28 (Vidas), de Nacho Duato y Lupe Bohorques, se dirige a lectores interesados en biografías, memorias, ensayo y arte. Su clasificación temática lo distancia de las novelas de ficción y de los manuales técnicos centrados exclusivamente en la práctica artística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Habla como un hombre: 28 (Vidas) tiene una edición en tapa dura de 276 páginas, publicada por Pepitas de calabaza. La cubierta rígida ofrece mayor protección física para conservar el volumen, prestarlo o regalarlo, mientras que su extensión permite valorar el espacio que ocupará en la biblioteca.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2e1bccf6bd37845e",
+  "origen": "chatgpt-web"
+}

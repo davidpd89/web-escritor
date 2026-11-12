@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788423440962",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todo lo que necesitas saber sobre herencias y donaciones: Guía práctica para ahorrar impuestos y evitar problemas (Deusto) está dirigido a lectores que necesitan orientarse en cuestiones de sucesiones, donaciones y fiscalidad. No es una lectura de entretenimiento ni un manual general de inversión: su ámbito concreto es el derecho aplicado a la transmisión de bienes y sus implicaciones económicas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece sus 264 páginas en una edición física de Deusto, apropiada para consultar y conservar como guía práctica. Kindle permite acceder al contenido desde el móvil o un lector electrónico, una alternativa para quienes prefieren consultar cuestiones sobre herencias y donaciones sin llevar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo generar ingresos con las opciones: Así transformé la bola de nieve en avalancha (EMPRESA), de Renato Antinori, comparte el interés por las decisiones económicas, pero se centra en generar ingresos mediante opciones financieras. Todo lo que necesitas saber sobre herencias y donaciones: Guía práctica para ahorrar impuestos y evitar problemas (Deusto), de Alejandro Ebrat Picart, aborda otro ámbito: la transmisión patrimonial y sus implicaciones legales y fiscales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724357"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "60b4e3d06c0c0a4c",
+  "origen": "chatgpt-web"
+}

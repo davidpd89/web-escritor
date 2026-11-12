@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410856240",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en el Derecho constitucional español y en el principio de neutralidad del Estado. Maria Rosa Garcia Vilardel contrapone la realidad normativa y la apariencia jurisprudencial de esa neutralidad, un enfoque jurídico que no corresponde a una exposición general sobre política española ni a una obra de divulgación histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda publicada por Aranzadi contiene 250 páginas en castellano. Frente a otros estudios jurídicos de mayor extensión, este volumen ocupa menos espacio físico y permite consultar en papel el tratamiento normativo y jurisprudencial de la neutralidad del Estado en el sistema constitucional español.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Blockchain: un desafío legal (Monografía), de Ana Isabel Quiroz Ruiz, comparte el análisis de cuestiones jurídicas, aunque sitúa el problema en la tecnología blockchain. La obra de Maria Rosa Garcia Vilardel se ocupa de la neutralidad del Estado en el sistema constitucional español y de su dimensión normativa y jurisprudencial, no de los desafíos legales de una tecnología.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370610265"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b39ecaeed2967d33",
+  "origen": "chatgpt-web"
+}

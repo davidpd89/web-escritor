@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466396431",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este libro se dirige a lectores interesados en comprender el funcionamiento de las hormonas y su relación con la salud. Isabel Viña Bas aborda el bienestar desde la divulgación sobre salud hormonal, por lo que no encaja con quien busque una novela de ficción o una lectura narrativa de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es de tapa blanda, en formato de bolsillo y con 320 páginas. Publicada por Penguin Bolsillo, permite consultar distintos apartados sobre salud hormonal en un volumen físico de tamaño reducido, pensado para llevarlo y retomarlo durante la lectura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte el interés por la salud con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody. Isabel Viña Bas centra su libro en las hormonas, mientras que el de Liz Moody abarca también felicidad, relaciones y éxito.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "987a548b4e791054",
+  "origen": "chatgpt-web"
+}

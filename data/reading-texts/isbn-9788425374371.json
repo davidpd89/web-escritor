@@ -4,10 +4,8 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sana tus células se dirige a adultos interesados en la nutrición, el envejecimiento y los hábitos de bienestar. Dr. Will Cole aborda la salud celular mediante alimentación, ayuno, ejercicio y prácticas cotidianas, por lo que su enfoque no corresponde al de una novela ni al de un manual centrado exclusivamente en recetas.",
+      "texto": "Está pensado para adultos interesados en nutrición, bienestar y envejecimiento celular. Se dirige a lectores que quieren explorar la relación entre alimentación, hábitos cotidianos y salud; no es una obra de ficción ni un recetario convencional.",
       "evidencias": [
-        "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,26 +13,24 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Sana tus células está disponible en tapa blanda, Kindle y audiolibro. La edición impresa de 432 páginas, con solapas, permite consultar los protocolos y las evaluaciones mientras se trabaja con el libro; Kindle facilita llevar el contenido en el móvil y el audiolibro permite escucharlo durante otras actividades.",
+      "texto": "La tapa blanda con solapas reúne 432 páginas, una extensión que permite consultar sus contenidos en papel. Kindle facilita la lectura digital en distintos momentos y dispositivos, mientras que el audiolibro permite seguir el contenido mediante escucha.",
       "evidencias": [
-        "titulo",
-        "numero_paginas",
         "edicion",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Sana tus células y Cómo no tener diabetes, de Adrián Díaz Alonso, comparten el interés por la salud metabólica, aunque el primero amplía su enfoque al envejecimiento celular y los hábitos diarios, mientras que el segundo se centra en la diabetes. Cáncer con brújula, de Elisa Molina Buendía, también trata cuestiones de salud, pero parte de la experiencia de recibir un diagnóstico de cáncer.",
+      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, comparte con Sana tus células el interés por mejorar el bienestar y los hábitos personales. La diferencia está en el enfoque: Liz Moody aborda la salud, la felicidad y las relaciones desde una perspectiva amplia, mientras que Dr. Will Cole se centra en la nutrición, el funcionamiento celular y el envejecimiento.",
       "evidencias": [
         "titulo",
+        "autores",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788441445321",
-        "isbn-9788425373152"
+        "isbn-9798890981776"
       ]
     }
   ],

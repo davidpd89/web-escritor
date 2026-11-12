@@ -4,29 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Al micro y listo está dirigido a quienes quieren utilizar el microondas para preparar comidas y no limitarlo a calentar o descongelar alimentos. Dani García centra el libro en ese electrodoméstico, por lo que responde menos a quienes buscan técnicas de horno, barbacoa o cocina tradicional con distintos utensilios.",
+      "texto": "Al micro y listo está dirigido a lectores interesados en cocina y en preparar platos utilizando el microondas. Su planteamiento se diferencia de los libros dedicados a otros ámbitos gastronómicos, como el vino, los quesos o la coctelería.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Al micro y listo está disponible en tapa dura, en una edición de Editorial Espasa de 224 páginas. Su encuadernación en cartoné permite conservar el recetario como volumen de consulta en la cocina y resulta apropiada para entregarlo como regalo físico. El contenido se centra en preparaciones realizadas con microondas.",
+      "texto": "La tapa dura reúne las 224 páginas de Al micro y listo en una edición cartoné de Editorial Espasa. Es un formato físico adecuado para consultar recetas en la cocina y conservar el libro entre los demás títulos de gastronomía.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
         "numero_paginas",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Al micro y listo y 20 minutos ¡y listo! comparten el interés por simplificar la preparación de comidas cotidianas. Dani García organiza su propuesta alrededor del microondas, mientras que Jamie Oliver plantea la cocina desde el tiempo disponible. Frente a ambos, Barbacoa, también de Jamie Oliver, se concentra en otra técnica de cocción y sus procedimientos.",
+      "texto": "20 minutos ¡y listo!, de Jamie Oliver, comparte con Al micro y listo el enfoque de cocinar teniendo presente el tiempo y la practicidad. La diferencia está en el planteamiento: Dani García centra su propuesta en el microondas, mientras que el título de Jamie Oliver pone el foco en preparar platos en veinte minutos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,8 +34,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425374074",
-        "isbn-9788425374012"
+        "isbn-9788425374074"
       ]
     }
   ],

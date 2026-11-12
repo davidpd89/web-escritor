@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9780241837634",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vida salvaje (La guía visual definitiva): Una enciclopedia del mundo animal encaja con lectores interesados en la divulgación científica y el conocimiento de los animales. Sus 480 páginas responden a una propuesta de consulta amplia, más cercana a una enciclopedia que a una lectura narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 480 páginas de esta enciclopedia en un volumen físico de consulta. Es una opción para conservar y hojear en casa, especialmente cuando se quiere volver a consultar sus contenidos sobre el mundo animal sin depender de una pantalla.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "33 islas: Un periplo mediterráneo. De Marettimo a Venecia. comparte el enfoque divulgativo de acercarse a un ámbito concreto, aunque su recorrido se centra en islas mediterráneas y no en animales. Vida salvaje (La guía visual definitiva): Una enciclopedia del mundo animal ofrece una consulta temática sobre fauna, con 480 páginas dedicadas a ese universo.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "numero_paginas",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387873127"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f1b3337dbd6de51d",
+  "origen": "chatgpt-web"
+}

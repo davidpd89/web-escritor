@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788441445352",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para lectores interesados en la Guerra Civil Española y en comprender acontecimientos históricos mediante datos, mapas e imágenes. Su planteamiento visual y documental se distancia de una novela histórica centrada en personajes ficticios.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Miguel del Rey aborda la Guerra Civil Española desde una perspectiva histórica apoyada en infografías. Los datos, mapas e imágenes anunciados en el título constituyen los recursos explicativos de una obra situada en el ámbito del siglo XX.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda presenta las 192 páginas en un volumen físico que puede consultarse y transportarse sin la rigidez de una encuadernación de tapa dura. La lectura en papel permite examinar directamente los mapas y las imágenes que forman parte del planteamiento del libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "76, de Felipe Pigna, ofrece otra referencia para lectores interesados en obras históricas, aunque su título señala un asunto distinto al de la Guerra Civil Española. Agustín penón y Federico García Lorca se aproxima a la investigación sobre una figura literaria y su muerte, mientras que La Guerra Civil en infografías organiza su tema alrededor de datos, mapas e imágenes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329695",
+        "isbn-9788418567933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d00ee7a24005d7bd",
+  "origen": "chatgpt-web"
+}

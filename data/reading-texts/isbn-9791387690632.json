@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791387690632",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La cuidadora: 55 (Noches Negras), de Marcus Kliewer, se dirige a lectores que buscan misterio y thriller. Su clasificación editorial encaja menos con quienes prefieren una lectura centrada en el romance o un ensayo de carácter informativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La cuidadora: 55 (Noches Negras) está disponible en tapa blanda, en una edición de Nocturna Ediciones. Sus 300 páginas en castellano permiten distribuir la lectura en varias sesiones, mientras que la cubierta flexible facilita sujetar el ejemplar y transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0a44c3484fe61159",
+  "origen": "chatgpt-web"
+}

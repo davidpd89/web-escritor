@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La maldad más dulce (La Música del Engaño 1) se dirige a lectores adultos de romantasy que buscan criaturas sobrenaturales, magia peligrosa y atracción entre personajes enfrentados. La protagonista permanece cautiva y necesita escapar para proteger a su familia, de modo que no responde a las expectativas de un romance cotidiano sin amenazas fantásticas.",
+      "texto": "La maldad más dulce (La Música del Engaño 1) está dirigida a lectores adultos de fantasía romántica que buscan relaciones marcadas por la atracción, el peligro y el cautiverio. Encaja menos con quienes prefieren romances realistas o historias sin amenazas sobrenaturales ni relaciones de poder desiguales.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La maldad más dulce (La Música del Engaño 1) combina fantasía de amenazas sobrenaturales con una relación marcada por el cautiverio y la atracción mágica. La protagonista tiene ascendencia de dos especies enfrentadas y debe negociar su supervivencia frente al Flautista. El título lo identifica como el n.º 1 de La Música del Engaño, y la trama incorpora proximidad forzosa y tensión romántica.",
+      "texto": "La novela combina fantasía oscura y romance mediante una protagonista de ascendencia sobrenatural sometida a una relación de cautiverio. La proximidad forzosa, la tensión romántica y la necesidad de escapar sostienen el conflicto, mientras una amenaza mágica amplía las consecuencias de sus decisiones. El título la identifica como el n.º 1 de La Música del Engaño.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -23,28 +23,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La maldad más dulce (La Música del Engaño 1) dispone de una edición en tapa dura con sobrecubierta de Roca Editorial y una versión Kindle. Sus 544 páginas hacen del formato digital una alternativa para transportar la novela sin el peso del volumen físico. La tapa dura ofrece una presentación con sobrecubierta para quienes prefieren conservarla en papel.",
+      "texto": "La edición en tapa dura con sobrecubierta reúne las 544 páginas de La maldad más dulce (La Música del Engaño 1) en un volumen físico apropiado para conservar en una estantería o regalar. La versión Kindle permite leer la misma novela en un lector electrónico o en el móvil, sin transportar el libro impreso.",
       "evidencias": [
         "titulo",
         "edicion",
-        "editorial",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La maldad más dulce (La Música del Engaño 1) y El ocaso del rey (Dioses y monstruos 5) pertenecen al terreno de la fantasía romántica oscura, aunque sus títulos identifican posiciones distintas dentro de sus respectivas series. Casa de cielo y aliento (Ciudad Medialuna 2) también combina fantasía y romance; frente a esa segunda entrega, Raven Kennedy presenta una historia cuyo título señala el n.º 1.",
+      "texto": "La hija del veneno comparte con La maldad más dulce (La Música del Engaño 1) su proximidad a la fantasía y a los conflictos relacionados con el peligro y el poder. La novela de Raven Kennedy se distingue por una relación de cautiverio con atracción mágica y proximidad forzosa, elementos que determinan su componente romántico adulto.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788466396080",
-        "isbn-9788427258280"
+        "isbn-9788425375118"
       ]
     }
   ],

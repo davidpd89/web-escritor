@@ -4,36 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La bicicleta robada se orienta a lectores de narrativa contemporánea e histórica que buscan historias familiares conectadas con acontecimientos colectivos. La investigación sobre una desaparición se desarrolla mediante relatos entrecruzados, de modo que se aparta de una intriga construida únicamente alrededor de pistas y una resolución policial.",
+      "texto": "Encaja con lectores de narrativa contemporánea e histórica interesados en la memoria familiar y el pasado de Taiwán. Su estructura de relatos entrelazados y sus 448 páginas lo distancian de una aventura breve o de una investigación narrada de manera estrictamente lineal.",
       "evidencias": [
-        "titulo",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La bicicleta robada combina una búsqueda familiar con episodios históricos y recuerdos vinculados a Taiwán. El hilo conductor es una bicicleta cuya trayectoria conecta personajes y periodos distintos, desde la Segunda Guerra Mundial hasta historias de coleccionismo y oficios artesanales.",
+      "texto": "La bicicleta robada combina una investigación familiar con episodios de la historia de Taiwán. La desaparición del padre de un escritor y la búsqueda de una bicicleta conectan recuerdos personales con acontecimientos de la Segunda Guerra Mundial, coleccionismo y oficios tradicionales, mediante una narración fragmentaria.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La bicicleta robada se presenta en tapa blanda, con 448 páginas publicadas por Editorial Más Al Este. Es una edición física para seguir una narración extensa que alterna historias personales y acontecimientos históricos, con posibilidad de retroceder entre sus diferentes episodios.",
+      "texto": "La edición en tapa blanda reúne las 448 páginas de La bicicleta robada en un único volumen físico. Permite seguir las distintas historias y regresar a episodios anteriores durante una lectura prolongada, sin depender de un dispositivo electrónico.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "sinopsis_editorial"
+        "titulo",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La bicicleta robada puede compararse con Cosamala por su incorporación de hechos históricos a una narración que también utiliza elementos imaginados. Ming-Yi Wu articula historias familiares y memoria de Taiwán, mientras que Alana S. Portero parte de un crimen de la guerra civil para desarrollar una novela de componentes góticos.",
+      "texto": "La bicicleta robada puede compararse con Amargo, amargo (Literaturas), de Joanna Bator, por su vinculación con la narrativa literaria, aunque la obra de Ming-Yi Wu combina historia y memoria familiar en Taiwán. También comparte con Cosamala, de Alana S. Portero, el uso del pasado como materia narrativa, pero esta última incorpora brujas y un crimen de la guerra civil, mientras La bicicleta robada conecta una desaparición familiar con distintos episodios históricos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -42,12 +41,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9791387846558",
         "isbn-9788432251436"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "31cccc3fffb4d4a2",
+  "fuente_hash": "e7d2605c06d2411c",
   "origen": "chatgpt-web"
 }

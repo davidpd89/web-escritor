@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788408329657",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Teo se disfraza, de Violeta Denou, pertenece a la literatura infantil y trata sobre los disfraces, según indica su título. Sus 32 páginas corresponden a una lectura breve, distinta de las novelas juveniles extensas y de los libros dirigidos principalmente a adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Teo se disfraza está disponible en tapa dura y Kindle, con una extensión de 32 páginas. La tapa dura permite conservar el ejemplar físico y compartir su lectura en papel; Kindle facilita llevar el libro en un dispositivo compatible sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e68b2adfaef39fdf",
+  "origen": "chatgpt-web"
+}

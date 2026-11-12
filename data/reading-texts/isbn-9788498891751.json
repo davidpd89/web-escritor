@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788498891751",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los límites de la Fundación / Fundación y Tierra: 134 (Alamut Serie Fantástica) se dirige a lectores de ciencia ficción interesados en obras extensas de Isaac Asimov. Sus 768 páginas requieren más tiempo de lectura que una novela breve; no responde a la búsqueda de narrativa realista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 768 páginas de Los límites de la Fundación / Fundación y Tierra: 134 (Alamut Serie Fantástica) en un volumen físico. Es una encuadernación apropiada para conservarlo en una biblioteca y consultarlo repetidamente, aunque su extensión hace menos cómodo transportarlo a diario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los Propios Dioses / The Gods Themselves y El Fin de la Eternidad / The End of Eternity comparten con este volumen la autoría de Isaac Asimov y su vinculación con la ciencia ficción. La diferencia identificable está en las obras reunidas: Los límites de la Fundación / Fundación y Tierra: 134 (Alamut Serie Fantástica) presenta dos títulos bajo una misma edición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897472",
+        "isbn-9786287897571"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "42660fb575532f3c",
+  "origen": "chatgpt-web"
+}

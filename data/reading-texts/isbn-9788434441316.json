@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un espejo lejano se dirige a lectores de historia interesados en las crisis sociales, las guerras y las condiciones de vida de la Europa occidental del siglo XIV. Su recorrido por epidemias, hambre y conflictos religiosos se distancia de las lecturas centradas en un único gobernante o en acontecimientos contemporáneos.",
+      "texto": "Un espejo lejano se dirige a lectores interesados en la historia de Europa Occidental durante el siglo XIV y en las crisis que marcaron aquella sociedad. Su tratamiento de epidemias, guerras, hambre y conflictos religiosos encaja menos con quienes buscan ficción histórica o una lectura centrada en acontecimientos contemporáneos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,25 +13,41 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Barbara W. Tuchman reconstruye las condiciones históricas de la Europa occidental durante el siglo XIV a partir de varias crisis simultáneas. El estudio relaciona la peste negra, los enfrentamientos de la Guerra de los Cien Años, la escasez de alimentos y las tensiones religiosas para ofrecer una visión conjunta de aquella sociedad.",
+      "texto": "Barbara W. Tuchman examina la Europa Occidental del siglo XIV desde una perspectiva histórica que relaciona conflictos militares, epidemias, escasez alimentaria y tensiones religiosas. El enfoque permite observar cómo distintas crisis afectaron a una misma sociedad y periodo, en lugar de tratar cada fenómeno como un episodio aislado.",
       "evidencias": [
         "autores",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Un espejo lejano cuenta con tapa dura, tapa blanda y Kindle, tres opciones para una obra de 656 páginas. La tapa dura ofrece una encuadernación rígida para conservar el volumen, mientras la edición rústica con solapas facilita su manejo en papel. Kindle permite transportar la lectura digitalmente y consultar sus pasajes sin cargar con el libro físico.",
+      "texto": "La tapa blanda corresponde a una edición rústica con solapas de 656 páginas, pensada para quien prefiera consultar y recorrer una obra histórica extensa en papel. Kindle permite llevar el texto en formato digital y continuar la lectura en distintos momentos sin cargar con el volumen físico. Ambos formatos contienen la obra en castellano.",
       "evidencias": [
-        "titulo",
+        "edicion",
         "numero_paginas",
         "formatos_disponibles",
-        "edicion"
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un espejo lejano puede compararse con 76 por su pertenencia al ámbito histórico, aunque la obra de Barbara W. Tuchman se centra en la Europa Occidental medieval. Frente a Agustín penón y Federico García Lorca, que aborda una investigación relacionada con la vida y la muerte de Federico García Lorca, ofrece un panorama de crisis colectivas durante el siglo XIV, en lugar de concentrarse en una figura concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329695",
+        "isbn-9788418567933"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ffe7c65f30eeefb1",
+  "fuente_hash": "0291b68b9d177f04",
   "origen": "chatgpt-web"
 }

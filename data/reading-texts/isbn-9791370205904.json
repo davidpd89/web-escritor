@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791370205904",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Iglesias de León (Arte y patrimonio), de Carlos Taranilla, encaja con lectores interesados en el patrimonio religioso, la historia y el arte. Sus 200 páginas se orientan a ese ámbito cultural y resultan menos afines a quien busque una novela de aventuras o una historia de fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Iglesias de León (Arte y patrimonio) se presenta en tapa blanda, con 200 páginas en castellano editadas por Almuzara. El volumen físico permite consultar el contenido durante una visita cultural o conservarlo como lectura de referencia sobre patrimonio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c890a1b784cec971",
+  "origen": "chatgpt-web"
+}

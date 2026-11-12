@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788445142790",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un camino de Romero, de Sandra Carmona, se encuentra en el ámbito del arte y el diseño. Su extensión de 52 páginas responde a una lectura breve dentro de ese campo; encaja menos con quienes buscan una novela extensa o una obra clasificada como thriller.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un camino de Romero se ofrece en tapa dura, con 52 páginas. La encuadernación rígida aporta protección al ejemplar durante su conservación y consulta, mientras que la extensión permite manejarlo sin el volumen de un libro de arte de gran tamaño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un camino de Romero comparte el ámbito del arte con 720 retrats, de Xavier Mollà i Revert, cuyo título identifica los retratos como asunto. También puede compararse con Arde Talía: Una pieza teatral sobre el infierno de la creación artística, de Alba Quintas Garciandia, Ana Saiz, Talita Isla, Carmen Romero Lorenzo e Inés Galiano, centrada en la creación teatral, mientras que Un camino de Romero es una publicación de 52 páginas editada en tapa dura.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802",
+        "isbn-9791399289510"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "327f9c8923b5e12b",
+  "origen": "chatgpt-web"
+}

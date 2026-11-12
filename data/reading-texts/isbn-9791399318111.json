@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399318111",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "SIZIGIA: El renacer de la leyenda: 1 se orienta a lectores de fantasía, aventuras y ciencia ficción, con presencia también del ámbito de los relatos en su clasificación. Sus 300 páginas ofrecen una extensión intermedia; no responde a la búsqueda de un ensayo histórico o de narrativa estrictamente realista.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "SIZIGIA: El renacer de la leyenda: 1 está disponible en tapa dura y tapa blanda, con 300 páginas en castellano. La tapa dura resulta práctica para conservar el ejemplar y regalarlo; la tapa blanda ofrece una alternativa física más flexible para transportarlo y leerlo fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "SIZIGIA: El renacer de la leyenda: 1 comparte el ámbito de la fantasía con Los espíritus de Victoria Park, de Alba Beldad. El título de Tamara Allegue destaca el renacer de una leyenda y reúne fantasía, aventuras y ciencia ficción en su clasificación editorial. También se relaciona con Perros de batalla: 5 (Narrativa), de Pablo Rodríguez, aunque este último se presenta bajo una denominación narrativa diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399288513",
+        "isbn-9791399122985"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cbc4a1f82c1ec16f",
+  "origen": "chatgpt-web"
+}

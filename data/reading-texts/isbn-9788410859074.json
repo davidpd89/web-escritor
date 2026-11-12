@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788410859074",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a quienes buscan una monografía jurídica centrada en la protección de las patentes dentro del ámbito español. Por su especialización en derecho, se aleja de las lecturas narrativas y de los textos de divulgación general.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Aranzadi publica esta monografía de Marta Cantos Pardo el 28 de noviembre de 2026, en castellano y con encuadernación de tapa blanda. Sus 376 páginas reúnen el contenido en un volumen identificado por el ISBN 9788410859074.",
+      "evidencias": [
+        "editorial",
+        "autores",
+        "fecha_publicacion",
+        "idioma",
+        "formato_edicion",
+        "numero_paginas",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para esta monografía de 376 páginas. Permite consultar el contenido en papel y transportar el volumen entre distintos lugares de estudio o trabajo, aunque requiere espacio físico para guardarlo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Blockchain: un desafío legal (Monografía) y La tutela de las patentes en España (Monografía) comparten el tratamiento jurídico especializado, aunque sus títulos delimitan objetos de estudio distintos. El primero se ocupa del desafío legal asociado a blockchain; el segundo se concentra en las patentes españolas.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370610265"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2767101892a4abb2",
+  "origen": "chatgpt-web"
+}

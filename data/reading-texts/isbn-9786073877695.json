@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073877695",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Piensa en grande / Think Big: For an Extraordinary Life, de Brian Tracy, se dirige a lectores interesados en el desarrollo personal y su relación con el mundo empresarial. Por su orientación hacia la autoayuda y la economía, se aleja de quienes buscan una novela o un estudio histórico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Piensa en grande / Think Big: For an Extraordinary Life se presenta en tapa blanda, con 272 páginas en castellano. Este formato permite consultar y señalar pasajes en papel, además de transportar el volumen sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Domina el arte de los negocios comparte con Piensa en grande / Think Big: For an Extraordinary Life la autoría de Brian Tracy y el interés por el ámbito profesional. El primero se centra expresamente en habilidades empresariales y liderazgo, mientras que el segundo plantea un enfoque más amplio de desarrollo personal y economía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466390514",
+        "isbn-9791387513627"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "434547e6e8859131",
+  "origen": "chatgpt-web"
+}

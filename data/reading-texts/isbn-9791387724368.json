@@ -1,0 +1,27 @@
+{
+  "id": "isbn-9791387724368",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Eres perfecta tal y como eres: Un cuento para potenciar la autoestima, la felicidad y la positividad de las niñas (Montena) se dirige a lectoras interesadas en la autoestima y el desarrollo personal. Su enfoque en el bienestar emocional y la positividad lo diferencia de las obras centradas en aventuras o conflictos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Eres perfecta tal y como eres: Un cuento para potenciar la autoestima, la felicidad y la positividad de las niñas (Montena) se ofrece en tapa blanda y Kindle. La edición impresa tiene 160 páginas y permite consultar el cuento en papel; Kindle facilita llevar la lectura en el móvil o en un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1ea37266ba128d67",
+  "origen": "chatgpt-web"
+}

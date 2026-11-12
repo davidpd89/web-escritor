@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388056222",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El mundo de Juan Lobón: 377 (Libros del Asteroide), de Luis Berenguer, se encuadra en la narrativa contemporánea y se dirige a lectores de ficción de este género. Sus 384 páginas suponen una extensión mayor que la de una novela breve; no corresponde a quien busque un manual o un ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El mundo de Juan Lobón: 377 (Libros del Asteroide) cuenta con una edición de 384 páginas en tapa blanda. Publicada por Libros del Asteroide en castellano, ofrece un volumen físico que puede llevarse durante los desplazamientos y conservarse para posteriores lecturas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e34c6b6a531210db",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9786073950664",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores de fantasía y aventuras que buscan una edición especial de Rebecca Yarros dentro de Empíreo. Sus 896 páginas y su presentación limitada con cantos decorados encajan con quienes quieren dedicar tiempo a una lectura extensa o conservar una edición física diferenciada. Tiene menos afinidad con quienes prefieren relatos breves y libros ligeros de transportar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta versión de Alas de Hierro se distingue por sus cantos decorados y su tirada presentada como limitada. Rebecca Yarros firma este volumen de 896 páginas, encuadernado en tapa dura y publicado por Editorial Planeta Mexicana. Su fecha editorial es el 24 de noviembre de 2026 y el título lo identifica como el segundo de Empíreo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es la opción disponible para esta edición especial de 896 páginas. Los cantos decorados aportan un rasgo visual al ejemplar físico, especialmente relevante para quien busca conservarlo o regalarlo. Por su extensión y encuadernación, resulta más adecuado para leer en un lugar fijo que para llevarlo habitualmente en desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El día de la Trilla (Empíreo) comparte con Alas de Hierro la autoría de Rebecca Yarros y su vinculación con Empíreo. El día de la Trilla (Empíreo) Edición limitada con cantos tintados añade una coincidencia en la presentación física, aunque se trata de otro título. Alas de Hierro se distingue por sus 896 páginas, sus cantos decorados y su identificación como n.º 2 dentro de Empíreo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408326847",
+        "isbn-9788408326861"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d30557dc7e63f558",
+  "origen": "chatgpt-web"
+}

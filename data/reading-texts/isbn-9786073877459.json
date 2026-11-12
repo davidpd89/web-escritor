@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073877459",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La voz del ver / The Voice of Seeing está orientado a quienes leen sobre psicología, espiritualidad y desarrollo personal. La obra de Jacobo Grinberg-Zylberbaum tiene 216 páginas y pertenece a un ámbito temático diferente del de las novelas de aventuras o los manuales de historia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La voz del ver / The Voice of Seeing puede leerse en tapa blanda o escucharse como audiolibro. El volumen impreso de 216 páginas permite consultar el texto en papel, mientras que la versión sonora ofrece una alternativa para seguir la obra durante desplazamientos u otras actividades compatibles con la escucha.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La voz del ver / The Voice of Seeing comparte autor y ámbito psicológico y espiritual con El doble / The Double, de Jacobo Grinberg-Zylberbaum. La distinción entre ambas obras comienza por sus respectivos títulos: una remite a la voz y la visión, mientras que la otra introduce la noción del doble.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073877428"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bf555da8382e01d7",
+  "origen": "chatgpt-web"
+}

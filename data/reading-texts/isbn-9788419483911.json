@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788419483911",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a personas interesadas en preparar comida japonesa casera y en incorporar recetas de esa tradición a la cocina familiar. Su planteamiento práctico, con 60 recetas, se aparta de los libros centrados en teoría nutricional o de quienes buscan una obra de lectura narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "El libro reúne 60 recetas de cocina japonesa casera orientadas al ámbito familiar. Saori Ichihara presenta este contenido en un volumen de 152 páginas de la colección Comerse el mundo, pensado para consultar preparaciones y utilizarlas en la cocina cotidiana.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para consultar las 60 recetas de cocina japonesa familiar. Sus 152 páginas permiten mantener las preparaciones reunidas en un volumen físico que puede colocarse junto a otros recetarios y utilizarse como referencia al cocinar.",
+      "evidencias": [
+        "formatos_disponibles",
+        "titulo",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Chef sapiens comparte el uso de recetas, pero reúne 100 preparaciones saludables desde una perspectiva histórica, mientras que Cocina japonesa familiar se centra en 60 recetas de cocina casera. Reset alimentario aborda la nutrición cotidiana desde un enfoque general, frente a la orientación práctica y familiar del libro de Saori Ichihara.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395939",
+        "isbn-9788413445625"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fa5d3c40495928ca",
+  "origen": "chatgpt-web"
+}

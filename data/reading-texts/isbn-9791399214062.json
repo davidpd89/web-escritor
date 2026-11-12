@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399214062",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Enigmas. Detectives a domilicio 10.: DISPARATES Y DRAGONES se dirige al público infantil y juvenil que disfruta de los enigmas, las aventuras y los elementos fantásticos. Sus 64 páginas ofrecen una extensión contenida frente a novelas juveniles largas; por su planteamiento, queda lejos de las lecturas realistas para adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Enigmas. Detectives a domilicio 10.: DISPARATES Y DRAGONES tiene 64 páginas y se publica en tapa dura. Su extensión permite organizar la lectura en sesiones breves, mientras que la cubierta rígida aporta resistencia para el uso frecuente y facilita conservar el ejemplar en una colección infantil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Enigmas de Paul Martin y Baptiste Massa comparte la fantasía y las aventuras infantiles con Campamento Mestizo 1 - La zona rebelde, de Rick Riordan y Annabelle Oh. La diferencia está en el enfoque detectivesco del primero frente a la vida en un campamento del segundo. También se aproxima a la obra de Isabel Álvarez titulada Clara Nox 4, aunque esta plantea una batalla decisiva entre dos mundos en lugar de enigmas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419868466"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e612c69bd1e72611",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788498297478",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en las memorias personales, el desarrollo personal y los viajes como experiencia vital. Por si tu avión se cae: El viaje del héroe: de los Andes a tus travesías vitales (Literatura no ficción Desnivel) se aleja de los manuales de nutrición y de las guías turísticas centradas en destinos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Por si tu avión se cae: El viaje del héroe: de los Andes a tus travesías vitales (Literatura no ficción Desnivel) está disponible en tapa blanda. Sus 136 páginas permiten llevar el volumen en una mochila y consultar pasajes durante un viaje; es una edición física en castellano publicada por Ediciones Desnivel, S. L.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La voz del desierto: El Dakar me enseñó a competir. El desierto me enseñó a vivir (No ficción) comparte con este libro la relación entre experiencias personales y aprendizajes vitales. La obra de Cristina Gutiérrez parte del Dakar y del desierto, mientras que la de Eduardo Strauch Urioste y Beatriz Ogando Díaz toma los Andes como referencia para abordar las travesías vitales.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788466685528"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ebe22fde0133560c",
+  "origen": "chatgpt-web"
+}

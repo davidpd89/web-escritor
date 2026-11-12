@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9798890986344",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "En Construcción. Una Historia Real: Work in Progress se orienta a lectores interesados en las biografías, las memorias y los asuntos familiares. Con 288 páginas, se sitúa en la no ficción personal y no responde a la búsqueda de una novela de aventuras o un manual técnico especializado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "En Construcción. Una Historia Real: Work in Progress cuenta con una edición en tapa blanda de 288 páginas, publicada en castellano por Vintage Espanol. El formato permite llevar el volumen a distintos lugares y conservar una copia física para consultar o releer sus pasajes.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El grano de arroz: Una historia de amor y espera: 9 (Marea gráfica), de Catherine Plessis-Bélair y Daniel Plaisance, permite comparar el interés por las experiencias personales y los vínculos afectivos con En Construcción. Una Historia Real: Work in Progress, de Devon Rodriguez. El primero anuncia una historia de amor y espera; el segundo se presenta como una historia real vinculada a las memorias y la familia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387938192"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3919595ca7351d0d",
+  "origen": "chatgpt-web"
+}

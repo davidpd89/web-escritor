@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788426742803",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inteligencia artificial con Python: Sistemas de aprendizaje, machine learning y deep learning paso a paso se dirige a lectores interesados en estudiar inteligencia artificial mediante Python. El enfoque anunciado abarca sistemas de aprendizaje, machine learning y deep learning, por lo que se aleja de una introducción centrada únicamente en conceptos generales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es de tapa blanda y contiene 202 páginas en castellano. Este formato permite consultar sobre papel los apartados dedicados a Python, machine learning y deep learning, además de volver a las explicaciones durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA comparte con Inteligencia artificial con Python: Sistemas de aprendizaje, machine learning y deep learning paso a paso el interés por la inteligencia artificial. La diferencia está en el planteamiento: el libro de Keith Mansfield presenta conocimientos sobre IA, mientras que Juan Ignacio Sellés Rodenas organiza su obra alrededor de Python y los sistemas de aprendizaje.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a5fbef75ef2c6bdc",
+  "origen": "chatgpt-web"
+}

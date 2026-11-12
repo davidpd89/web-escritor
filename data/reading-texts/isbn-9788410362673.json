@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788410362673",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Marvel. ¿Dónde está Doctor Doom? (Varios) está dirigido al público infantil interesado en los personajes de Marvel. Por su orientación infantil y su título centrado en Doctor Doom, se distancia de las lecturas para adultos que buscan una narración extensa sobre el personaje.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Marvel. ¿Dónde está Doctor Doom? (Varios) está disponible en tapa dura, con 48 páginas en castellano. Su encuadernación rígida permite conservar el volumen para posteriores consultas y facilita su presentación como regalo físico relacionado con Marvel.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "795eb25e2ab3bbbd",
+  "origen": "chatgpt-web"
+}

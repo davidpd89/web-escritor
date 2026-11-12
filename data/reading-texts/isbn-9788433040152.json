@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788433040152",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en el desarrollo personal, el bienestar y la reflexión sobre la vida cotidiana. El poder de lo pequeño. En un mundo convulso, lo fundamental está en nuestra mano.: 131 (A los cuatro vientos) pertenece al ensayo y cuenta con 224 páginas; no responde a quien busca una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El poder de lo pequeño. En un mundo convulso, lo fundamental está en nuestra mano.: 131 (A los cuatro vientos) se presenta en tapa blanda. Sus 224 páginas en castellano forman un volumen físico que permite consultar y retomar distintos pasajes durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3cf0199bd89b8e90",
+  "origen": "chatgpt-web"
+}

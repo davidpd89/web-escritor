@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788427055964",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bones: ¿Cuál es tu razón para sobrevivir?: 1 (Matchstories Romántica Fantasy) se dirige a lectores de fantasía que también buscan elementos de terror y ciencia ficción. Sus 640 páginas plantean una lectura extensa; no responde a quien prefiere narrativa contemporánea sin componentes fantásticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Bones: ¿Cuál es tu razón para sobrevivir?: 1 (Matchstories Romántica Fantasy) reúne 640 páginas en una edición física de Ediciones Martínez Roca. Kindle permite llevar esa misma lectura en un dispositivo electrónico, sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e21ab6c96c0bfee9",
+  "origen": "chatgpt-web"
+}

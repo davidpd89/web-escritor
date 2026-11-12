@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410050594",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "LUNA 3 - La luna roja (Montena), de Marina Aguirre, se dirige a lectores de fantasía con interés por el terror y la amistad. Sus 176 páginas ofrecen una extensión breve, aunque la presencia del terror puede alejar a quienes buscan historias sin elementos inquietantes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "LUNA 3 - La luna roja (Montena) puede leerse en tapa blanda o Kindle. La edición física reúne 176 páginas y permite conservar el volumen en papel; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "LUNA 3 - La luna roja (Montena) comparte el ámbito de la fantasía con El jardín mágico de las Pequeflores - Susto en la nieve (Primeras lecturas), de Begoña Oro. La diferencia está en el enfoque: el título de Marina Aguirre incorpora terror y amistad, mientras el de Begoña Oro se presenta como una lectura inicial ambientada en un jardín mágico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448873851"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "668fb96f082b50e2",
+  "origen": "chatgpt-web"
+}

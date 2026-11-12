@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788418011658",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El arte de la victoria: el campeón más joven de la historia: Lecciones del Campeonato del Mundo de Ajedrez 2024 (Ajedrez para todos) se dirige a lectores interesados en el ajedrez competitivo y el aprendizaje a partir de un campeonato mundial. Su enfoque en las lecciones de una competición concreta lo distingue de los libros de ocio dedicados a actividades manuales o artísticas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 224 páginas en castellano sobre las lecciones del Campeonato del Mundo de Ajedrez 2024. El soporte impreso permite consultar pasajes, retroceder entre páginas y mantener el volumen junto a otros materiales de estudio del ajedrez.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de la victoria: el campeón más joven de la historia: Lecciones del Campeonato del Mundo de Ajedrez 2024 (Ajedrez para todos) comparte su orientación hacia una actividad de ocio con 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos), de Varios autores. El primero trata el aprendizaje del ajedrez competitivo; el segundo propone colorear mediante píxeles. Ambos se diferencian también por la autoría: Iván Salgado y Carlos Martínez Piqueras firman el primero.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328384"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1dcfd66c5ae77972",
+  "origen": "chatgpt-web"
+}

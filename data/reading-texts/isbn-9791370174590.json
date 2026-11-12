@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370174590",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de novela romántica que buscan una historia centrada en el deseo y las relaciones sentimentales. Atrapados por el deseo: 3255 (Bianca), de Sharon Kendrick, pertenece al ámbito del romance; quienes prefieran una lectura histórica, documental o de divulgación encontrarán aquí un planteamiento distinto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 160 páginas y permite llevar Atrapados por el deseo: 3255 (Bianca) en un volumen físico de extensión contenida. Publicada por Harlequin Ibérica, S.a. en castellano, puede conservarse junto a otros títulos de romance o prestarse sin necesidad de un lector electrónico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A mil por hora, de Hannah Grace, comparte con Atrapados por el deseo: 3255 (Bianca), de Sharon Kendrick, el protagonismo del romance y las relaciones sentimentales. El primero incorpora una relación vinculada al mundo de las carreras y una mujer que no consigue dejar atrás su pasado; el segundo presenta el deseo como eje de su planteamiento romántico.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0e4f694cf95edb5b",
+  "origen": "chatgpt-web"
+}

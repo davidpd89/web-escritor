@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786073874762",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El rey de los lobos / The Wolf King: 1 está dirigido a lectores de fantasía, romantasy y aventuras que buscan una historia con componente romántico. Sus 408 páginas corresponden a una novela de ficción que combina varios géneros; no es una opción para quien busca narrativa contemporánea o un libro práctico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El rey de los lobos / The Wolf King: 1 se publica en tapa blanda, con una extensión de 408 páginas. Esta edición permite leerlo en papel y conservarlo en la biblioteca personal; es el formato indicado para quien prefiere los libros físicos frente a la lectura digital.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El rey de los lobos / The Wolf King: 1 comparte autora con El Príncipe de la noche / The Night Prince (El Rey De Los Lobos), de Lauren Palphreyman, lo que permite comparar ambas propuestas de fantasía. Barbie dreamscape, de Alex Aster, plantea otra aproximación al género, centrada en futuros escritos y en la posibilidad de escapar de ese destino.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073880435",
+        "isbn-9791388277481"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "be7fc71697e71d5c",
+  "origen": "chatgpt-web"
+}

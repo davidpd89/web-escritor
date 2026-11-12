@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788491058786",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lata vintage Odisea (contiene: Odisea | Iliada): Ediciones icónicas (Penguin Clásicos | Vintage) está dirigida a lectores interesados en los clásicos y la literatura de tradición histórica. Homero firma esta edición de bolsillo que reúne dos obras, Odisea e Iliada, en un mismo volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lata vintage Odisea (contiene: Odisea | Iliada): Ediciones icónicas (Penguin Clásicos | Vintage) reúne las dos obras de Homero, mientras que Ilíada: Ediciones icónicas (Penguin Clásicos | Vintage) se centra en una de ellas. También comparte contenido con Odisea: Ediciones icónicas (Penguin Clásicos | Vintage), que presenta la otra obra por separado; la diferencia está en elegir un volumen conjunto o ediciones individuales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491058779",
+        "isbn-9788491058762"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5a97e5679b406623",
+  "origen": "chatgpt-web"
+}

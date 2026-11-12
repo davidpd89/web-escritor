@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788408329541",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a niños a partir de 5 años que están aprendiendo a leer con letra ligada y disfrutan de las aventuras con humor y elementos de terror. Su propuesta de elegir la propia historia se aleja de los libros de lectura lineal y de los textos pensados para lectores adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite manejar físicamente las 72 páginas y seguir la letra ligada sobre papel durante el aprendizaje lector. La versión Kindle ofrece el mismo título en formato digital para leerlo en un dispositivo compatible, sin necesidad de transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte autora y aprendizaje lector con Abril Abremundos 1 - El bosque susurrador (Montena), de Mar Benegas. La diferencia está en que este libro utiliza letra ligada, propone elegir la propia historia y se dirige a niños a partir de 5 años, mientras que el otro pertenece a la serie Abril Abremundos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387972936"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cac6f4a8329d927d",
+  "origen": "chatgpt-web"
+}

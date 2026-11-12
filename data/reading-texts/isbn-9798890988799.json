@@ -1,0 +1,34 @@
+{
+  "id": "isbn-9798890988799",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La trama francesa / The French Illusion, de John Grisham, está dirigida a lectores que buscan misterio y thriller. Su clasificación la sitúa en la ficción de intriga, frente a quienes prefieren ensayos, libros prácticos o narrativa contemporánea ajena al suspense.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La trama francesa / The French Illusion comparte autor con La tapadera (La tapadera 1), de John Grisham, y con El jurado / The Runaway Jury, también de John Grisham. La comparación con La tapadera (La tapadera 1) permite distinguir dos referencias: esta última presenta a un graduado de Harvard que recibe ofertas de bufetes, mientras que La trama francesa / The French Illusion está clasificada como misterio y thriller.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897373",
+        "isbn-9788401042706",
+        "isbn-9788401039850"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bbfb41395aaa9cd3",
+  "origen": "chatgpt-web"
+}

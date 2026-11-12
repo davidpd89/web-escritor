@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788467985306",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Arcane: El libro para colorear oficial está dirigido a quienes buscan una actividad de coloreado relacionada con Arcane, no una novela para seguir una historia mediante capítulos de prosa. La publicación de Chui Kanela consta de 96 páginas en castellano y pertenece al ámbito de las publicaciones gráficas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato de Arcane: El libro para colorear oficial, con 96 páginas destinadas a una publicación de coloreado. Su presentación física permite trabajar directamente sobre el papel y resulta más adecuada para ese uso que una lectura exclusivamente en pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "86d6d7d6fed404b3",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399188592",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mecanópolis: Cuentos filosóficos para todas las edades se dirige a quienes buscan relatos con contenido filosófico y un planteamiento abierto a distintas edades. Su estructura de cuentos se distancia de las novelas de argumento continuo y de los libros centrados en actividades prácticas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mecanópolis: Cuentos filosóficos para todas las edades se publica en tapa blanda, con 250 páginas en castellano. El volumen reúne cuentos en papel, un formato que permite alternar las lecturas y regresar a cada relato sin utilizar dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mecanópolis: Cuentos filosóficos para todas las edades y Atrápame si puedes (Libro interactivo) comparten la autoría atribuida a Varios autores, pero presentan propuestas distintas. El primero se identifica como una colección de cuentos filosóficos; el segundo anuncia expresamente una experiencia interactiva.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388220500"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "48d7940022e33f3c",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399242522",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un error del destino se dirige a lectores de romance juvenil que buscan una novela de Carmen Merino en castellano. Sus 352 páginas y su orientación hacia la narrativa juvenil la alejan de quienes prefieren ensayos, novelas históricas o lecturas centradas en el misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un error del destino puede leerse en tapa blanda o en Kindle. La edición física de Young Kiwi reúne 352 páginas y permite conservar el ejemplar en papel; Kindle ofrece la alternativa digital para llevar la lectura en el móvil o en un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un error del destino comparte el romance juvenil con Acelerando en rojo, aunque este último cuenta con una edición especial de cantos tintados. También puede compararse con El clan Monet 1 - Tesoro (Ficción crossover), de Weronika Anna Marczak, por su proximidad a la narrativa dirigida al público joven. La diferencia es que Un error del destino se presenta expresamente como romance juvenil de Carmen Merino.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427226074"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "380c76b42b2a0b96",
+  "origen": "chatgpt-web"
+}

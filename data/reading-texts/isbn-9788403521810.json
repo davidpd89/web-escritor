@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788403521810",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Agotada: Reduce tu carga mental para hacer menos y ser más (Divulgación) se dirige a quienes buscan abordar la carga mental desde el desarrollo personal. Leah Ruppanner plantea el asunto dentro de un libro de ensayo y autoayuda de 336 páginas. No corresponde a una lectura de ficción ni a una obra centrada en la productividad empresarial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 336 páginas de Agotada: Reduce tu carga mental para hacer menos y ser más (Divulgación) en papel, con posibilidad de consultar y marcar pasajes. Kindle permite llevar el texto en el móvil o en un lector electrónico. El audiolibro ofrece una alternativa de escucha para incorporar el contenido a momentos en los que no se puede leer una página.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Agotada / Drained: Reduce Your Mental Load to Do Less and Be More aborda la misma cuestión de la carga mental y lleva también la firma de Leah Ruppanner, aunque presenta un título bilingüe. Frente a Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, Agotada: Reduce tu carga mental para hacer menos y ser más (Divulgación) centra su propuesta en reducir la carga mental, no en trabajar sobre la infancia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073874502",
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "24ddef2b13e9e232",
+  "origen": "chatgpt-web"
+}

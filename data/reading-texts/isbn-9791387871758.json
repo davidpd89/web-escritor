@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387871758",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Guardianes de la Ciudadela (contiene: El bestiario de Axlin | El secreto de Xein | La misión de Rox) (Best Seller | Ficción), de Laura Gallego, se dirige a lectores de fantasía y aventuras con elementos de misterio y terror. Reúne tres títulos en un mismo estuche, por lo que no responde a quien busca una novela realista independiente de elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Todos los hombres del rey (Best Seller | Ficción), de Laura Gallego, comparte autoría con Estuche Guardianes de la Ciudadela. La diferencia comprobable está en la presentación: el estuche reúne El bestiario de Axlin, El secreto de Xein y La misión de Rox, mientras que Todos los hombres del rey aparece como un título individual en el catálogo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388147852"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "55073fdf06b02793",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9786073879958",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Zona Rebelde / The Wild Zone (Campamento Mestizo) se orienta a lectores de fantasía infantil y juvenil interesados en el universo del Campamento Mestizo. Es una obra de Rick Riordan de 288 páginas, por lo que se aleja de las lecturas realistas para adultos o de los libros de actividades sin componente fantástico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Zona Rebelde / The Wild Zone (Campamento Mestizo) tiene una edición en tapa blanda de 288 páginas, publicada por Salamandra. La cubierta flexible facilita llevar el libro en la mochila, mientras que el texto en castellano permite leerlo en papel sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Campamento Mestizo 1 - La zona rebelde es la referencia más cercana por su título y ambientación compartida, aunque figura firmado por Rick Riordan y Annabelle Oh, frente a la autoría de Rick Riordan en La Zona Rebelde / The Wild Zone (Campamento Mestizo). La diosa de tres cabezas (Percy Jackson y los dioses del Olimpo 7) también pertenece al ámbito fantástico del autor, pero se centra en Percy Jackson y sus dificultades como semidiós.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419868466",
+        "isbn-9791387906078"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bf86b8dae65ffd65",
+  "origen": "chatgpt-web"
+}

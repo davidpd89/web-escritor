@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387949747",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La novela de Tigest Girma se dirige a lectores que buscan fantasía con relaciones amorosas y una historia extensa. Sus 624 páginas encajan con quienes prefieren dedicar tiempo a una lectura larga, pero menos con quienes buscan relatos breves o sin componentes románticos. El título identifica Infernal Vow como el n.º 3 de Saga Immortal Dark.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Infernal Vow (Saga Immortal Dark 3): Un amor salvaje. Una historia ancestral. Un desenlace inmortal (Sin límites) contiene 624 páginas, una extensión considerable para transportar en papel. Kindle permite llevar la novela en formato digital sin cargar con el volumen físico y ajustar la visualización del texto al dispositivo.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alas de escarcha y oro: El canto del cisne comparte con Infernal Vow (Saga Immortal Dark 3): Un amor salvaje. Una historia ancestral. Un desenlace inmortal (Sin límites) el terreno de la fantasía. La obra de Marta Morillo presenta a Eira y sus dones ocultos, mientras que el título de Tigest Girma sitúa el amor y un desenlace inmortal en primer plano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c21482b18d4ada9e",
+  "origen": "chatgpt-web"
+}

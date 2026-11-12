@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791370204396",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El lado izquierdo de la vida (Novela) encaja con lectores que buscan narrativa contemporánea en castellano. Francisco Robles firma una obra de 208 páginas, menos ajustada a quienes prefieren ensayos o cómics frente a la ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El lado izquierdo de la vida (Novela) puede leerse en tapa blanda o Kindle. La edición impresa reúne 208 páginas para quienes prefieren pasar hojas y conservar el ejemplar; Kindle permite llevar la lectura en un dispositivo compatible sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9ca863bfac664940",
+  "origen": "chatgpt-web"
+}

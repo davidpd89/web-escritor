@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9786287878402",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Teorías conspirativas / Conspiracy Theories se dirige a lectores interesados en el ensayo histórico y las teorías conspirativas, especialmente dentro de temáticas relacionadas con el siglo XX. Por su clasificación como historia y ensayo, se aleja de quienes buscan una novela de ficción o un relato de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Teorías conspirativas / Conspiracy Theories está editado en tapa blanda y tiene 144 páginas. Su extensión permite abordar el contenido en un volumen físico relativamente breve, que puede transportarse y consultarse sin necesidad de dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Teorías conspirativas / Conspiracy Theories y Bestiario de España: Mitos y leyendas de nuestro país (No ficción ilustrados) se aproximan a relatos y creencias desde ámbitos distintos de la no ficción. Gabriel León trata las teorías conspirativas en un ensayo de orientación histórica, mientras que Javier Prado Coronel se centra en los mitos y leyendas de España.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949976"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bdbe5c5f824c0be4",
+  "origen": "chatgpt-web"
+}

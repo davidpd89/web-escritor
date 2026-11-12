@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408331131",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Boni vs. Mono 9. Boni Bonanza, de Jamie Smart, se dirige a lectores interesados en aventuras con humor y elementos de naturaleza. Su enfoque temático se aleja de la narrativa centrada en conflictos familiares o del misterio policial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Boni vs. Mono 9. Boni Bonanza se publica en tapa dura, con 224 páginas en castellano. Esta encuadernación permite conservar el volumen como parte de una colección física y facilita su uso en lecturas repetidas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Boni vs. Mono 9. Boni Bonanza comparte las aventuras infantiles con La caverniña (Cuentos infantiles), de Ana Duna. La obra de Jamie Smart combina aventuras, humor y naturaleza, mientras que La caverniña se presenta como un cuento infantil de otra autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448873738"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ae0826801679a421",
+  "origen": "chatgpt-web"
+}

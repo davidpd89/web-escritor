@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387740344",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rebels (Reservoir Gráfica) se dirige a quienes leen obras históricas y relatos biográficos relacionados con el siglo XX. Con 448 páginas, se sitúa en una extensión considerable y resulta menos afín a los lectores que prefieren novelas de fantasía o ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Rebels (Reservoir Gráfica) dispone de una edición en tapa blanda de 448 páginas, publicada en castellano por Reservoir Books. El formato de cubierta flexible permite manejar el volumen durante una lectura prolongada y guardarlo sin necesitar el espacio de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rebels (Reservoir Gráfica) tiene una correspondencia directa en el catálogo con Rebeldes (Reservoir Gráfica), también de Keum Suk Gendry-Kim. Coinciden en su orientación histórica y biográfica, mientras que sus títulos utilizan denominaciones diferentes; ambos aparecen asociados a la misma autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387740320"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a5de9b8227918af2",
+  "origen": "chatgpt-web"
+}

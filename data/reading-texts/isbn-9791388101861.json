@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Evangelion Anima (novela) nº 04 encaja con lectores de ciencia ficción interesados en conflictos de escala planetaria y elementos tecnológicos o fantásticos. La amenaza sobre la Tierra y los acontecimientos relacionados con la Luna lo alejan de las historias realistas y de los conflictos exclusivamente cotidianos.",
+      "texto": "Evangelion Anima (novela) nº 04 se dirige a lectores de ciencia ficción interesados en conflictos de alcance planetario y amenazas de origen extraordinario. Su planteamiento se aleja de la narrativa cotidiana y del realismo, por lo que encaja menos con quienes buscan historias centradas en situaciones habituales.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,34 +13,37 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Evangelion Anima (novela) nº 04 plantea una crisis que afecta a la estructura física de la Tierra y la Luna. La Lanza de Longinus interviene en el destino del planeta, mientras que el desplazamiento de materiales terrestres desencadena nuevas alteraciones. El título lo identifica como el n.º 04.",
+      "texto": "Es una novela de ciencia ficción cuyo conflicto afecta a la Tierra y la Luna, con la Lanza de Longinus como elemento decisivo. El título identifica esta entrega como el n.º 04 y sitúa la historia dentro de Evangelion Anima, con una amenaza que alcanza dimensiones planetarias.",
       "evidencias": [
         "titulo",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Evangelion Anima (novela) nº 04 se publica en tapa blanda, en una edición de 296 páginas con solapas de Planeta Cómic. El formato permite llevar la novela en papel y conservarla junto a otros volúmenes de la colección, con una encuadernación más flexible que la tapa dura.",
+      "texto": "La edición de Evangelion Anima (novela) nº 04 se presenta en tapa blanda, con encuadernación rústica con solapas. Sus 296 páginas en castellano permiten consultar la extensión antes de elegirla, mientras que las solapas forman parte de la presentación física de esta edición de Planeta Cómic.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
         "edicion",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Evangelion Anima (novela) nº 04 y Aunque se acabe el mundo presentan amenazas extraordinarias que afectan a la Tierra. En la obra de khara, el peligro procede de la Lanza de Longinus y de alteraciones planetarias; en la de Clara Duarte, una cúpula aparece sobre el planeta y transforma a parte de la humanidad.",
+      "texto": "El incidente Darwin 1 (Seinen): Universo Manga comparte con Evangelion Anima (novela) nº 04 su vinculación con la ciencia ficción, aunque este último plantea una crisis de alcance planetario. El barco de teseo 05: 5 ofrece otra referencia de lectura relacionada con el cómic, mientras que Evangelion Anima se presenta expresamente como novela.",
       "evidencias": [
         "titulo",
-        "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427255968"
+        "isbn-9788467979534",
+        "isbn-9791387962791"
       ]
     }
   ],

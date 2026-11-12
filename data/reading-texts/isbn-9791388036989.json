@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388036989",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mamá, ya no quiero ver a Taylor Swift, de Lucía Sánchez Muñoz, se dirige a lectores de narrativa contemporánea que buscan una obra breve. Sus 94 páginas la distinguen de las novelas de mayor extensión; no corresponde a quien prefiera un ensayo o un libro práctico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Mamá, ya no quiero ver a Taylor Swift contiene 94 páginas en castellano. Su extensión permite llevar el volumen en el bolso y leerlo por partes sin manejar un libro grueso; Cuatro Hojas publica esta presentación física.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5a1a8b1f632b390c",
+  "origen": "chatgpt-web"
+}

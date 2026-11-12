@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786287640641",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Yo también fui diagnosticada con TDAH / I Was Also Diagnosed with ADHD se dirige a lectores interesados en el TDAH desde el ámbito de la psicología y el desarrollo personal. Su enfoque temático se aparta de los manuales de ficción y de las lecturas que buscan una historia inventada en lugar de abordar una condición psicológica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Yo también fui diagnosticada con TDAH / I Was Also Diagnosed with ADHD cuenta con una edición en tapa blanda de 176 páginas, publicada por Vergara en castellano. El formato permite leer y consultar en papel un volumen relativamente breve sobre psicología y desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Yo también fui diagnosticada con TDAH / I Was Also Diagnosed with ADHD puede compararse con Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, por su interés en la comprensión personal desde una perspectiva psicológica. La obra de Carolina Molina O. centra su asunto en el diagnóstico de TDAH, mientras que la de Victoria Cadarso se ocupa de las experiencias de la infancia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "80c97a4ddeb15c60",
+  "origen": "chatgpt-web"
+}

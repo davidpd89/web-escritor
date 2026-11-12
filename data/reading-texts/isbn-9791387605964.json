@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387605964",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dime, niña bonita (Narrativa) se orienta a lectores de ficción contemporánea interesados en asuntos familiares y de crianza. Su clasificación como narrativa la distingue de los manuales prácticos para familias, por lo que encaja menos con quienes buscan instrucciones educativas o consejos organizados por etapas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dime, niña bonita (Narrativa) se presenta en tapa blanda y tiene 168 páginas en castellano. Esta edición de Galaxia Gutenberg ofrece una extensión relativamente breve para leer en papel y transportar sin el volumen de una novela de mayor paginación.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Celestino antes del alba (Andanzas), de Reinaldo Arenas, y Dime, niña bonita (Narrativa), de Laura Galve, figuran como obras narrativas de autores diferentes. La novela de Laura Galve se sitúa además en el ámbito contemporáneo y familiar, mientras que el título de Reinaldo Arenas remite a un personaje y a un momento del día. Son dos referencias para comparar enfoques narrativos, no obras de una misma serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411078535"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "644a3090c375983b",
+  "origen": "chatgpt-web"
+}

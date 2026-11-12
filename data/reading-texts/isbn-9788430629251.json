@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788430629251",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Temporada de mariposas: Lo que la naturaleza me enseñó sobre el sentido de la vida (Pensamiento) se dirige a lectores interesados en la relación entre naturaleza y reflexión filosófica. Lea Korsgaard aborda el sentido de la vida desde esa perspectiva. No corresponde a una novela de ficción ni a un manual de actividades artísticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en castellano de Temporada de mariposas: Lo que la naturaleza me enseñó sobre el sentido de la vida (Pensamiento) consta de 288 páginas en tapa blanda. Taurus publica este volumen físico, que puede transportarse y conservarse para volver a sus reflexiones sobre naturaleza y filosofía.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Temporada de mariposas: Lo que la naturaleza me enseñó sobre el sentido de la vida (Pensamiento) puede compararse con ¿Por qué miramos a los animales?, de John Berger. Ambas obras relacionan el pensamiento con el mundo natural, pero John Berger examina cómo los seres humanos han tratado a los animales, mientras Lea Korsgaard vincula la naturaleza con el sentido de la vida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425236716"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6bf8e649cd33e3d8",
+  "origen": "chatgpt-web"
+}

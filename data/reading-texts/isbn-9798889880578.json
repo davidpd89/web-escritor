@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9798889880578",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Giraffes Reach / Las Jirafas Se Alargan (Bilingual Buddies) se orienta al público infantil y presenta a las jirafas como tema reconocible desde el título. Su extensión de 14 páginas y su encuadernación de cartón se ajustan a sesiones de lectura cortas. No está planteado como una novela juvenil de desarrollo largo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Giraffes Reach / Las Jirafas Se Alargan (Bilingual Buddies) puede leerse en compañía de un adulto, pasando sus 14 páginas y conversando sobre las jirafas. La presencia de dos formulaciones lingüísticas en el título permite comparar cómo se nombra al animal en inglés y en español. El formato de cartón facilita sujetar y pasar las páginas durante la actividad.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Giraffes Reach / Las Jirafas Se Alargan (Bilingual Buddies) se presenta como libro de cartón, dentro de la opción de tapa dura. Sus 14 páginas forman un volumen breve que puede utilizarse en lecturas compartidas y guardarse junto a otros libros infantiles. Las hojas rígidas ofrecen un soporte más firme para la manipulación que las páginas de papel flexible.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e893206a65005292",
+  "origen": "chatgpt-web"
+}

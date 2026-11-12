@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388103650",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lector Omnisciente nº 07: 3 (Manhwa) se dirige a quienes leen manhwa y narrativa gráfica contemporánea. Su presentación como cómic lo diferencia de una novela convencional en prosa, por lo que no responde a la búsqueda de una lectura exclusivamente textual.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Lector Omnisciente nº 07: 3 (Manhwa) está disponible en tapa blanda, con 280 páginas en castellano. Es una opción física para conservar el volumen en una colección de cómics o leerlo en papel, con una cubierta flexible en lugar de rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lector Omnisciente nº 07: 3 (Manhwa) puede compararse con After God 8 (Shônen) por su pertenencia a la narrativa gráfica de origen asiático. El primero se presenta como manhwa de Sleepy-C, mientras que el segundo se identifica como shônen de Sumi Eno; son obras de distinta autoría y denominación editorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387962647"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d0da3824eeff7357",
+  "origen": "chatgpt-web"
+}

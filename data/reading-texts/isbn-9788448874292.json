@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788448874292",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido al público infantil que disfruta de los juegos con personajes y objetos manipulables. Su propuesta combina las aventuras de Bluey con figuras extraíbles y una situación de hospital; no responde a la búsqueda de una novela extensa ni de una lectura centrada exclusivamente en el texto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Se juega con las figuras extraíbles que acompañan al libro de cartón, utilizando el hospital como escenario. Las piezas permiten representar situaciones con los personajes mientras se recorren sus 12 páginas, de modo que la manipulación forma parte de la actividad y no se limita a pasar las hojas.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es de tapa dura, en cartón, con 12 páginas y figuras extraíbles. Este soporte permite alternar la lectura con el juego físico y mantener las piezas asociadas al escenario del hospital; es una elección distinta de la lectura exclusivamente digital o de la escucha.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bluey. Un cuento con solapas - Fiesta de pijamas (Cuentos infantiles) comparte la autoría de Bluey y el uso de elementos manipulables, pero propone levantar solapas en lugar de jugar con figuras extraíbles. Bluey. Actividades - Pinta y pega ofrece actividades de colorear y utilizar pegatinas, mientras que el libro del hospital permite representar situaciones con sus figuras de cartón.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "edicion"
+      ],
+      "enlaces": [
+        "isbn-9788448874858",
+        "isbn-9788448875541",
+        "isbn-9788448875329"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d60f19d247cd3c81",
+  "origen": "chatgpt-web"
+}

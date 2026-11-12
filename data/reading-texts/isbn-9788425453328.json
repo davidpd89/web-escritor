@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788425453328",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los intelectuales en la Edad Media (Caja Verde) encaja con lectores interesados en la historia medieval y en el papel de los intelectuales en ese periodo. Jacques Le Goff sitúa el tema en una época histórica concreta, por lo que interesa menos a quien busca una introducción general a la historia o una narración de ficción ambientada en el pasado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece una edición física de 208 páginas, adecuada para consultar y conservar junto a otros libros de historia. Es la opción disponible para quien prefiera leer sobre la Edad Media en papel y tener el volumen a mano durante la lectura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los intelectuales en la Edad Media (Caja Verde), de Jacques Le Goff, puede compararse con 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, por su interés en estudiar periodos históricos concretos. Se diferencian en la época que aborda cada título: la Edad Media frente a la caída de una democracia vinculada a Hitler.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e8444d7a8db9f9bc",
+  "origen": "chatgpt-web"
+}

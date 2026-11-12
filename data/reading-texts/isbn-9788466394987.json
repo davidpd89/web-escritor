@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788466394987",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La doctora Cole (Trilogía de la familia Cole 3) (Best Seller) encaja con lectores interesados en narrativa histórica y relaciones familiares. El título la identifica como la tercera entrega de una trilogía, por lo que quien prefiera empezar una serie por su primera parte puede optar por otro punto de entrada.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de tapa blanda reúne las 416 páginas de La doctora Cole (Trilogía de la familia Cole 3) (Best Seller) en formato de bolsillo, apropiado para guardar junto a otros volúmenes de la serie. Kindle facilita continuar la lectura en el móvil y ajustar la visualización del texto.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La doctora Cole (Trilogía de la familia Cole 3) (Best Seller) puede compararse con Chamán (Trilogía de la familia Cole 2) (Best Seller), también de Noah Gordon y perteneciente a la misma trilogía familiar. El título de La doctora Cole la sitúa como tercera entrega y el de Chamán como segunda; ambas comparten autoría, pero ocupan posiciones distintas en la serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394970"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7c4f2b1be6236df1",
+  "origen": "chatgpt-web"
+}

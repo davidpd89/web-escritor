@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387749330",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Placeres mortales -edición especial se dirige a lectores de fantasía y ciencia ficción que buscan una obra extensa en castellano. Sus 624 páginas pueden resultar menos adecuadas para quienes prefieren libros breves o lecturas ajenas a los géneros especulativos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esta edición especial de Placeres mortales se presenta en tapa dura y contiene 624 páginas. El formato rígido permite conservar un volumen extenso en la biblioteca y resulta práctico para quienes prefieren leer sobre papel apoyando el libro en una superficie.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al despertar, rompe el cascarón (Runas) ofrece una referencia dentro de la ficción especulativa asociada a Becky Chambers, mientras que Placeres mortales -edición especial figura entre fantasía y ciencia ficción. La obra de Belen Martinez se distingue aquí por su presentación en tapa dura y sus 624 páginas, además de identificarse expresamente como edición especial.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias",
+        "formatos_disponibles",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9791370093488"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0e36b9cb62088ecf",
+  "origen": "chatgpt-web"
+}

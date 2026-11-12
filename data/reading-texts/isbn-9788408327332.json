@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408327332",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Magic Animals. Misiones especiales 1 y 2 está dirigido al público infantil interesado en aventuras, fantasía y animales. Su combinación de misiones y elementos fantásticos encaja menos con quienes buscan relatos realistas o libros centrados exclusivamente en conocimientos sobre la naturaleza.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Estuche Magic Animals. Misiones especiales 1 y 2 reúne las misiones identificadas en el título para leerlas dentro de una misma colección. Puede utilizarse para seguir ambas aventuras por orden y retomar la lectura entre sesiones, con un total de 384 páginas en castellano.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El estuche se comercializa en tapa dura, con una edición descrita como libro de cartón por Destino Infantil & Juvenil. Sus 384 páginas lo convierten en un conjunto físico para leer y conservar, con las dos misiones identificadas en el título reunidas en una misma presentación.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Magic Animals. Misiones especiales 2. El templo escondido comparte con el estuche el universo de Magic Animals y parte de su autoría, pero se centra en una misión concreta. Brigada Felina 2 - El secreto de Zarpafilada, también de Susanna Isern, ofrece otra referencia de aventuras infantiles, mientras que el estuche reúne dos misiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448873639",
+        "isbn-9788408326427"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e90a6c5d3b28f4c4",
+  "origen": "chatgpt-web"
+}

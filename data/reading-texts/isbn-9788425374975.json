@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788425374975",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Alimentación evolutiva: Aliméntate para vivir y no solo para sobrevivir (Alimentación saludable) se dirige a lectores interesados en nutrición, bienestar y hábitos alimentarios. Su enfoque temático se aparta de la narrativa de ficción y de los libros centrados exclusivamente en entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Alimentación evolutiva: Aliméntate para vivir y no solo para sobrevivir (Alimentación saludable) se ofrece en tapa blanda, con 336 páginas en castellano. El soporte físico permite consultar distintos apartados y volver a ellos sin utilizar una pantalla, algo práctico en una lectura sobre alimentación.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alimentación evolutiva: Aliméntate para vivir y no solo para sobrevivir (Alimentación saludable) se relaciona con 5 semanas para desinflamarte (edición limitada) por su interés en la salud y la alimentación. El libro de Curro Clavero plantea la alimentación evolutiva como eje, mientras que el de Blanca García-Orea Haro delimita su propuesta a cinco semanas y a la desinflamación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394390"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "39607148d0b59480",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408327998",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Podría haber sido ella (Ficción), de Lisa Jewell, se dirige a lectores de misterio y thriller que también buscan narrativa contemporánea. Su clasificación lo aleja de las novelas centradas exclusivamente en el romance o de los libros de divulgación sin componente narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Podría haber sido ella (Ficción) cuenta con 416 páginas en su edición de tapa blanda, destinada a quienes prefieren leer en papel. La versión Kindle permite llevar la novela en un dispositivo electrónico y continuar la lectura sin transportar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aguas turbulentas comparte con Podría haber sido ella (Ficción) el terreno del misterio, pero sitúa su conflicto entre el pasado y el presente de Edimburgo. Corazón de sílex parte de una joven que no recuerda la noche anterior, mientras que la novela de Lisa Jewell se presenta dentro del thriller y la narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318",
+        "isbn-9788467083330"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5647dc05f63d84f9",
+  "origen": "chatgpt-web"
+}

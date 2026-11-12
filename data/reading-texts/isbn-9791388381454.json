@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791388381454",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de historia, ensayo y estudios sobre migración y exilio, especialmente interesados en el internamiento de españoles y brigadistas en Argelia. El periodo 1941-1943 y el campo de Djelfa delimitan su objeto de estudio. Encaja menos con quienes buscan una panorámica histórica general sin un lugar y unas fechas concretas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje del libro es el campo de internamiento de Djelfa, en Argelia, durante 1941-1943, con atención a españoles y brigadistas. Bernard Sicot aborda este asunto dentro del ámbito de la historia, el ensayo y el exilio. Su inclusión en Biblioteca del Exilio, Col. Anejos sitúa el volumen en una colección vinculada a esa temática.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para las 316 páginas de Un presidio africano. El campo de internamiento de Djelfa: (Argelia 1941-1943). Esta encuadernación facilita manejar el volumen durante una lectura continuada o al consultar pasajes sobre el periodo histórico tratado. Su extensión permite abordar un estudio centrado en un campo de internamiento concreto.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Campo de concentración, de Eduardo de Ontañón, comparte con Un presidio africano el interés por los espacios de internamiento y su vinculación con Biblioteca del Exilio. La obra de Bernard Sicot delimita su estudio al campo de Djelfa, en Argelia, durante 1941-1943, con atención a españoles y brigadistas. La diferencia para el lector está en esa localización histórica concreta y en la autoría de cada volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410148659"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e9f192574d58ec97",
+  "origen": "chatgpt-web"
+}

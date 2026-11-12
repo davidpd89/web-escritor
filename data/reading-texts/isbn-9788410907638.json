@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788410907638",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "HISTORIAS DE LA CANARICULTURA se dirige a lectores interesados en la cría del canario, la historia de su domesticación y los relatos breves. Miguel Ángel Jiménez combina ficción histórica y divulgación científica alrededor de un mismo animal. Su estructura de relatos se aleja de quien busca una novela extensa con una única trama.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra examina el origen, los cambios históricos y la situación actual de la domesticación del pájaro canario mediante 23 relatos cortos de ficción histórica. Miguel Ángel Jiménez utiliza la narración para tratar una actividad relacionada con los animales y su relación con las personas. La combinación de relatos y divulgación diferencia su enfoque de un tratado exclusivamente científico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "HISTORIAS DE LA CANARICULTURA se ofrece en tapa blanda, con 178 páginas en castellano. El formato en papel permite leer sus 23 relatos por separado y retomar el volumen sin necesidad de seguir una narración única. Su extensión facilita distribuir la lectura en sesiones breves.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "HISTORIAS DE LA CANARICULTURA comparte con Terrores cotidianos (edición bilingüe español/zoque) / Everyday Fears (Bilingual Edition), de Jaime Sakäsmä, el ámbito de los relatos. También puede compararse con A sangre y fuego, de Manuel Chaves Nogales, por la relación entre narración e historia. La obra de Miguel Ángel Jiménez se distingue por sus 23 ficciones dedicadas a la domesticación del canario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073879095",
+        "isbn-9788408331810"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a4d59abb6be6afcc",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788466395724",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Biblioteca de Hogwarts: contiene: Animales fantásticos | Los cuentos de Beedle el bardo | Quidditch a través de los tiempos (Harry Potter) encaja con lectores interesados en el universo fantástico de Harry Potter y en ampliar sus lecturas con relatos y contenidos relacionados con la naturaleza. Reúne tres títulos de J.K. Rowling; puede interesar menos a quien busque una novela independiente o narrativa alejada de la fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los cuentos de Beedle el bardo (Un libro de la biblioteca de Hogwarts) (Harry Potter), de J.K. Rowling y Animales fantásticos y dónde encontrarlos (Un libro de la biblioteca de Hogwarts) (Harry Potter), de J.K. Rowling son las dos referencias más directas: ambos títulos forman parte del contenido del estuche. La diferencia está en que esta edición reúne también Quidditch a través de los tiempos en un único conjunto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395694",
+        "isbn-9788466395687"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d84805cb2bc07efa",
+  "origen": "chatgpt-web"
+}

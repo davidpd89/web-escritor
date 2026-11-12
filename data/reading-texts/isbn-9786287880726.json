@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786287880726",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lo primero que se rompió fue el corazón / Pretend Youre Dead and I Carry You se dirige a lectores de narrativa contemporánea interesados en las relaciones familiares. Juliana Delgado Lopera firma una obra de 368 páginas vinculada a ese ámbito. Por su enfoque familiar y contemporáneo, encaja menos con quienes buscan fantasía épica o divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lo primero que se rompió fue el corazón / Pretend Youre Dead and I Carry You se publica en tapa blanda, con 368 páginas en castellano. Su cubierta flexible permite llevar el volumen en una bolsa y continuar la lectura fuera de casa. Alfaguara ofrece así una edición física de extensión media-larga para leer en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lo primero que se rompió fue el corazón / Pretend Youre Dead and I Carry You puede compararse con Amargo, amargo (Literaturas), de Joanna Bator, dentro de una selección de narrativa literaria. La obra de Juliana Delgado Lopera se sitúa expresamente en la narrativa contemporánea y aborda el ámbito familiar; Amargo, amargo (Literaturas) se presenta bajo el sello de una colección literaria. La autoría y la identificación temática permiten distinguir ambas lecturas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387846558"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b2bb147e6585e78c",
+  "origen": "chatgpt-web"
+}

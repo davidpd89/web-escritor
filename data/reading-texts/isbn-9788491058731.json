@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788491058731",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los hermanos Karamázov (Penguin Clásicos | Vintage), de Fiódor M. Dostoievski, se orienta a lectores de clásicos interesados en los conflictos familiares. Sus 1112 páginas suponen una lectura extensa, alejada de quienes prefieren novelas breves o libros prácticos sobre crianza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los hermanos Karamázov (Penguin Clásicos | Vintage) se publica en tapa blanda, en una edición de bolsillo de Penguin Clásicos. Sus 1112 páginas forman un volumen considerable incluso en este formato, por lo que resulta más cómodo reservarle sesiones de lectura que transportarlo continuamente. Es una edición física en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los hermanos Karamázov (Penguin Clásicos | Vintage) puede compararse con Los hermanos Karamázov (edición especial en tapa dura), también de Fiódor M. Dostoievski. Comparten obra y autor, pero la primera es una edición de bolsillo de 1112 páginas y la segunda se distingue por su tapa dura. El cocodrilo (Austral Esenciales), del mismo escritor, ofrece otra obra de su bibliografía en una colección diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331629",
+        "isbn-9788491056287"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9edaabcb53efe4ea",
+  "origen": "chatgpt-web"
+}

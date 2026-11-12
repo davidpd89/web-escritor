@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388019760",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la mística, las experiencias extrasensoriales y su relación con la filosofía y la espiritualidad. Donde no supe: Entre el éxtasis místico y las experiencias extrasensoriales (Ensayo), de Luce López-Baralt, se sitúa en el ensayo y no responde a la búsqueda de una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Galaxia Gutenberg reúne 424 páginas en castellano. Este formato permite consultar físicamente un ensayo extenso sobre mística y experiencias extrasensoriales, con posibilidad de marcar páginas y regresar a determinados pasajes.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Donde no supe: Entre el éxtasis místico y las experiencias extrasensoriales (Ensayo) comparte el interés espiritual con Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies. El primero aborda la mística y las experiencias extrasensoriales, mientras que el segundo orienta su título hacia la astrología, la magia y la práctica espiritual.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7950141932ba55b0",
+  "origen": "chatgpt-web"
+}

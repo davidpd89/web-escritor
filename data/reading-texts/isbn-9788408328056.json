@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408328056",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigida a lectores que preparan una visita a Córcega y buscan una guía de viajes para consultar durante la planificación o el recorrido. Córcega de cerca 1 (Guías De cerca Lonely Planet), de Claire Angot, Élodie Lecadieu y Clara Jaeger, responde a un interés práctico por el destino y no a la búsqueda de una novela ambientada en él.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Córcega de cerca 1 (Guías De cerca Lonely Planet) contiene 224 páginas en castellano. El formato físico permite consultar la guía durante un desplazamiento, señalar páginas de interés y llevar las referencias del destino sin necesidad de acceder a una pantalla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Córcega de cerca 1 (Guías De cerca Lonely Planet) puede compararse con Costa amalfitana (VIAJES), ya que ambas obras se centran en destinos de viaje. La primera, firmada por Claire Angot, Élodie Lecadieu y Clara Jaeger, trata sobre Córcega, mientras que Natasha Penot dedica la segunda a la costa amalfitana; la elección depende del lugar que se quiera conocer.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934156"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9fb97b4fa4aec9c0",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387972844",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un sueño por cumplir (Montena) se dirige a lectores interesados en el desarrollo personal, las relaciones y la amistad, con el arte y el diseño también entre sus ámbitos temáticos. No es una propuesta centrada exclusivamente en contenidos técnicos o empresariales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa dura y reúne 160 páginas. Este formato permite conservarlo en papel y utilizarlo como libro de consulta o lectura pausada; también resulta adecuado para quien prefiera una encuadernación rígida frente a una cubierta flexible.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Eres perfecta tal y como eres: Un cuento para potenciar la autoestima, la felicidad y la positividad de las niñas (Montena), de Soledad Gutiérrez Puerto, comparte el interés por el desarrollo personal. La diferencia está en el enfoque: ese título pone el acento en la autoestima de las niñas, mientras que Un sueño por cumplir (Montena), de Violeta Madel, también abarca el amor, la amistad y el arte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387724368"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8bd65edf9a914ee1",
+  "origen": "chatgpt-web"
+}

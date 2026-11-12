@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9786073877558",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Escrituras geológicas / Geological Writings, de Cristina Rivera Garza, está dirigido a lectores interesados en el ensayo y la escritura de no ficción. Su clasificación lo sitúa en un terreno distinto de la narrativa contemporánea, por lo que responde a una búsqueda de lectura ensayística y no de historias de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 216 páginas en una edición física publicada por Penguin Random House Grupo Editorial. Es la opción disponible para quienes prefieren leer en papel, consultar el libro físicamente o incorporarlo a su colección de ensayos.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2868276545ef47ff",
+  "origen": "chatgpt-web"
+}

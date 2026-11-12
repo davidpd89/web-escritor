@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788445023273",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La máscara de la muerte roja y otros relatos (Minotauro Ilustrados) se dirige a lectores de terror interesados en relatos y ediciones ilustradas. Sus 56 páginas ofrecen una extensión breve; no responde a quien busca una novela larga de aventuras o una historia romántica contemporánea.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La máscara de la muerte roja y otros relatos (Minotauro Ilustrados) se publica en tapa dura y también está disponible en Kindle. La edición física de Minotauro reúne 56 páginas y pertenece a la colección Minotauro Ilustrados, con una presentación rígida para conservar o regalar; Kindle permite leer el contenido en formato digital.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La máscara de la muerte roja y otros relatos (Minotauro Ilustrados) y Cuentos de misterio y terror (edición especial en tapa dura) (Ediciones Conmemorativas) comparten la autoría de Edgar Allan Poe y su relación con el terror. La primera edición incorpora también a Ismael Pinteño Visuara, pertenece a Minotauro Ilustrados y tiene 56 páginas; la segunda se identifica como una edición conmemorativa en tapa dura centrada en cuentos de misterio y terror.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491058458"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2fdc976f479b0187",
+  "origen": "chatgpt-web"
+}

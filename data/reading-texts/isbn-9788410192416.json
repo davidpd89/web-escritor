@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9788410192416",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Clave para identificar anfibios se dirige a lectores interesados en reconocer anfibios y dedicar parte de su tiempo libre a esta actividad. Su planteamiento de identificación de animales se diferencia de los libros de colorear, dibujo y otras actividades creativas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Clave para identificar anfibios cuenta con una edición de tapa blanda de 48 páginas. Su extensión breve facilita llevar el volumen en papel y consultar las claves de identificación durante una actividad relacionada con los anfibios.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "242b559c8118a356",
+  "origen": "chatgpt-web"
+}

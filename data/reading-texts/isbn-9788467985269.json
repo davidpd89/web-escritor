@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788467985269",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El sinsentido se dirige a quienes buscan una lectura de cómic o novela gráfica en castellano, firmada por Manu Larcenet. Sus 176 páginas responden a una extensión concreta y no al formato de una novela escrita únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 176 páginas de El sinsentido en una edición física de Norma Editorial. Esta encuadernación resulta práctica para conservar el volumen en una estantería o regalarlo, mientras que su extensión permite calcular el tiempo de lectura antes de elegirlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a5e795f89d37ada1",
+  "origen": "chatgpt-web"
+}

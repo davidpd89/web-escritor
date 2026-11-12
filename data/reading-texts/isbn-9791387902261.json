@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387902261",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este volumen de Disney está dirigido a lectores infantiles interesados en las aventuras de Mickey Mouse y los cuentos navideños. Sus 192 páginas reúnen historias breves, frente a las novelas infantiles de mayor extensión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne los cuentos en un volumen físico de 192 páginas, con una encuadernación apropiada para conservarlo o regalarlo. Kindle permite acceder a la misma obra en formato digital y leerla desde un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formato_edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte con Mickey. Feliz Navidad: Libro con mecanismos (Disney. Mickey), de Disney, el protagonismo de Mickey y la ambientación navideña. La diferencia está en la propuesta: este volumen reúne cuentos breves, mientras que el otro incorpora mecanismos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387526795"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b6813a7b2483cc10",
+  "origen": "chatgpt-web"
+}

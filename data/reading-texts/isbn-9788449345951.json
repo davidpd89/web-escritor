@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Contingencia, ironía y solidaridad se dirige a lectores de filosofía interesados en la relación entre verdad, historia y convivencia social. Su planteamiento cuestiona los fundamentos universales de las creencias y examina la solidaridad desde la filosofía política y cultural, por lo que no responde al formato de una guía práctica de conducta.",
+      "texto": "Contingencia, ironía y solidaridad se dirige a lectores interesados en la filosofía política y cultural, especialmente en la relación entre las creencias y la convivencia social. Su enfoque teórico sobre las verdades universales y la solidaridad se aparta de una lectura centrada en consejos prácticos de bienestar.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,39 +13,34 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Contingencia, ironía y solidaridad estudia cómo pensar una sociedad solidaria sin recurrir a verdades universales. Richard Rorty relaciona esa cuestión con la contingencia histórica y con aportaciones de Nietzsche, Freud y Wittgenstein. Su enfoque pertenece a la filosofía política y cultural, y desarrolla estos problemas a lo largo de 352 páginas.",
+      "texto": "Richard Rorty examina cómo puede sostenerse una sociedad solidaria sin recurrir a verdades universales como fundamento. Su planteamiento relaciona la empatía con la contingencia histórica de las sociedades y dialoga con las ideas de Nietzsche, Freud y Wittgenstein desde la filosofía política y cultural.",
       "evidencias": [
-        "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Contingencia, ironía y solidaridad está disponible en tapa blanda y Kindle. Ediciones Paidós publica la edición física en rústica con solapas y 352 páginas, que permiten consultar y releer pasajes en papel; Kindle facilita transportar el ensayo completo y acceder a él desde un dispositivo compatible.",
-      "evidencias": [
-        "titulo",
-        "editorial",
-        "edicion",
-        "numero_paginas",
-        "formatos_disponibles",
         "categorias"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 352 páginas de Contingencia, ironía y solidaridad en una edición de rústica con solapas, adecuada para consultar y marcar pasajes en papel. Kindle permite llevar el texto en un lector electrónico o dispositivo compatible y recuperar fragmentos sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Contingencia, ironía y solidaridad y Antes de perder el juicio comparten la preocupación por la verdad en la vida colectiva. Richard Rorty cuestiona la necesidad de fundamentos universales para construir una sociedad solidaria, mientras Mauricio García Villegas aborda la propaganda, las consignas sectarias y las cámaras de eco. El primero desarrolla una reflexión filosófica; el segundo parte de problemas del debate público.",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparte el interés por las ideas políticas, pero se centra en las bases económicas y políticas del anarcocapitalismo. Contingencia, ironía y solidaridad, de Richard Rorty, aborda en cambio los fundamentos filosóficos de la solidaridad y la ausencia de verdades universales.",
       "evidencias": [
         "titulo",
         "autores",
         "sinopsis_editorial",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388387302"
+        "isbn-9791388182457"
       ]
     }
   ],

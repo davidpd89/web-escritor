@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Querido nieto (Siempre en mi corazón) está dirigido a lectores a partir de 4 años y a familias que buscan una historia sobre el afecto entre abuelos y nietos. Combina versos e ilustraciones de animales para expresar vínculos familiares; no responde a la búsqueda de una aventura de acción o de una trama de misterio.",
+      "texto": "Querido nieto (Siempre en mi corazón) está pensado para niños a partir de 4 años y para familias que quieran compartir una lectura sobre el vínculo entre abuelos y nietos. Su texto rimado y sus ilustraciones de animales lo orientan hacia la lectura acompañada, no hacia quienes buscan una narración extensa o una aventura de acción.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,39 +14,38 @@
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Querido nieto (Siempre en mi corazón) se recomienda desde los 4 años y consta de 40 páginas. Gregory E. Lang presenta un texto rimado acompañado de dibujos de animales, en una edición de Molino en castellano y tapa dura. Su extensión permite compartir la lectura en familia y detenerse en las ilustraciones.",
+      "texto": "La recomendación de edad empieza a los 4 años y el libro cuenta con 40 páginas en tapa dura. Gregory E. Lang presenta una historia familiar mediante versos e ilustraciones de animales, una combinación que permite compartir el texto en voz alta y detenerse en las imágenes.",
       "evidencias": [
-        "titulo",
-        "autores",
         "edad_recomendada",
         "numero_paginas",
-        "sinopsis_editorial",
         "edicion",
-        "idioma"
+        "autores",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Querido nieto (Siempre en mi corazón) está disponible en tapa dura y Kindle. La tapa dura ofrece sus 40 páginas como objeto físico para regalar entre familiares y compartir durante la lectura. Kindle permite acceder al texto rimado y a la historia desde un dispositivo electrónico, sin necesidad de llevar el ejemplar impreso.",
+      "texto": "Querido nieto (Siempre en mi corazón) puede leerse en tapa dura o Kindle. La edición física de Molino reúne 40 páginas y resulta adecuada para conservar o regalar dentro de la familia; Kindle permite acceder al texto desde un dispositivo compatible, aunque la experiencia visual depende de su pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "editorial",
         "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cinco cuentos reúne cinco historias con distintos protagonistas, mientras que Querido nieto (Siempre en mi corazón) se centra en el cariño entre abuelos y nietos mediante versos e ilustraciones de animales. Ambos ofrecen lecturas infantiles, pero el libro de Gregory E. Lang desarrolla un vínculo familiar concreto, frente a la variedad de personajes y relatos de Posy Simmonds.",
+      "texto": "Querido nieto (Siempre en mi corazón) comparte autor y colección con Querida hija, papá está contigo (Siempre en mi corazón): Un libro sobre un vínculo infinito y único (Serres). Gregory E. Lang aborda en el primero la relación entre abuelos y nietos, mientras que el segundo se centra en el vínculo entre padre e hija. Frente a Animales, que reúne seis cuentos protagonizados por animales, aquí las ilustraciones acompañan una historia de afecto familiar.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
         "sinopsis_editorial",
-        "categorias"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788419981035"
+        "isbn-9788427257818",
+        "isbn-9791370341589"
       ]
     }
   ],

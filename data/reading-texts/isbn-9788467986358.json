@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788467986358",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El britbook se dirige a quienes buscan obras clasificadas como biografías y memorias. Es un volumen de 272 páginas en castellano firmado por Hervé Bourhis, por lo que se diferencia de una elección centrada en ciencia ficción o fantasía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El britbook cuenta con una edición en tapa dura de 272 páginas, publicada por Norma Editorial. El formato permite leerlo y conservarlo como volumen físico en castellano, además de entregarlo como regalo sin necesidad de un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El britbook puede ponerse junto a Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, como otra referencia de lectura vinculada a las vivencias personales. El segundo título identifica expresamente el Camino de Santiago como asunto, mientras que El britbook se presenta bajo la clasificación de biografías y memorias. También difieren en la autoría: Hervé Bourhis frente a Carlos Díaz Ballesta.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2285f8b4f4349bfe",
+  "origen": "chatgpt-web"
+}

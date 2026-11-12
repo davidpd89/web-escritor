@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788448875367",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pintacuentos - Los tres cerditos - El gato con botas: Cuentos clásicos para colorear (Altea), de Inés Masip, está pensado para lectores que disfrutan coloreando y conocen los cuentos clásicos. Sus 64 páginas y sus dos referencias a relatos tradicionales lo sitúan lejos de quienes buscan una novela o una lectura narrativa extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para Pintacuentos - Los tres cerditos - El gato con botas: Cuentos clásicos para colorear (Altea), de Inés Masip. Sus 64 páginas permiten trabajar directamente sobre el papel con lápices y otros materiales para colorear.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pintacuentos - Los tres cerditos - El gato con botas: Cuentos clásicos para colorear (Altea), de Inés Masip, tiene un paralelo directo en Pintacuentos - Caperucita Roja - Peter Pan: Cuentos clásicos para colorear (Altea), de Inés Masip. Ambos reúnen dos cuentos clásicos en 64 páginas para colorear; cambia la selección de historias, con Los tres cerditos y El gato con botas en uno, y Caperucita Roja y Peter Pan en el otro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448875350"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fdb1b699575c518f",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "25 días hasta Navidad está dirigido a lectores desde los 16 años que buscan terror y suspense con ambientación navideña. Su estructura de thriller de adviento y la presencia de un juego mortal lo alejan de las historias familiares navideñas de tono amable.",
+      "texto": "25 días hasta Navidad encaja con lectores a partir de 16 años interesados en el terror, el misterio y los thrillers de ambientación navideña. Su propuesta de un capítulo diario antes de Navidad se aleja de las historias festivas centradas en la celebración y el ambiente familiar.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,8 +14,9 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "La recomendación editorial es a partir de 16 años y la obra combina terror, misterio y thriller. El argumento incluye una amenaza mortal asociada a un juego de amigo invisible y tensiones familiares, por lo que conviene considerar estos elementos antes de escogerla para lectores sensibles al suspense.",
+      "texto": "La edad recomendada para 25 días hasta Navidad es a partir de 16 años. La historia incluye un juego mortal, una amenaza vinculada al amigo invisible y una familia aislada en una cabaña. Estos elementos de terror y suspense pueden resultar inquietantes para lectores sensibles a las situaciones de peligro.",
       "evidencias": [
+        "titulo",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -23,35 +24,38 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es un thriller de adviento organizado para leer un capítulo diario antes de Navidad. La historia comienza con unas vacaciones familiares en una cabaña y transforma la dinámica de los regalos en una situación de peligro, combinando suspense, convivencia y una cuenta atrás vinculada al calendario navideño.",
+      "texto": "25 días hasta Navidad plantea un thriller de adviento estructurado para leer un capítulo cada día antes de Navidad. Per Jacobsen combina una reunión familiar en una cabaña con un juego de consecuencias mortales. El misterio se desarrolla alrededor de una convivencia marcada por relaciones familiares deterioradas.",
       "evidencias": [
-        "sinopsis_editorial",
-        "categorias"
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece las 408 páginas de 25 días hasta Navidad en rústica con solapas, adecuada para mantener el libro físico durante la lectura diaria de adviento. Kindle permite seguir esa misma organización por capítulos desde un lector electrónico o móvil sin transportar el volumen impreso.",
+      "texto": "25 días hasta Navidad está disponible en tapa blanda y Kindle. La edición física de Ediciones Martínez Roca tiene 408 páginas y encuadernación rústica con solapas, adecuada para conservar los capítulos diarios en papel. Kindle permite seguir esa lectura escalonada desde el móvil o un lector electrónico sin transportar el volumen.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
         "edicion",
+        "editorial",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "25 días hasta Navidad y Cosamala, de Alana S. Portero, comparten elementos de terror, aunque parten de conflictos distintos. Per Jacobsen sitúa el peligro en un juego navideño durante unas vacaciones familiares, mientras que Cosamala desarrolla una historia gótica de brujas vinculada a un crimen de la guerra civil.",
+      "texto": "25 días hasta Navidad comparte el terror y el misterio con Cuentos de misterio y terror (edición especial en tapa dura) (Ediciones Conmemorativas), de Edgar Allan Poe. La diferencia está en la estructura: Per Jacobsen propone un thriller navideño de lectura diaria, mientras que el otro título reúne cuentos. Ambos se orientan hacia lo inquietante, pero ofrecen formas de lectura distintas.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788432251436"
+        "isbn-9788491058458"
       ]
     }
   ],

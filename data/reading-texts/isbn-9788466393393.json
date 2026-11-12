@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788466393393",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este estuche encaja con lectores adultos que buscan ficción de misterio y thriller psicológico, especialmente historias relacionadas con secretos. Reúne cinco títulos de Freida McFadden, por lo que no está pensado para quien prefiere adquirir una única novela o busca lecturas de otros géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El divorcio y La inquilina comparten autora con este estuche: Freida McFadden. La diferencia es que el estuche reúne cinco títulos, entre ellos La mujer de arriba, La profesora y Nunca mientas, mientras que El divorcio tiene como punto de partida una historia de amor que parecía perfecta y La inquilina se presenta como otra novela individual de la autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388163531",
+        "isbn-9791387512446"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2908c0bfb2b9b2c2",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dragon Quest: The Adventure of Dai nº 12/25 se dirige a lectores de manga fantástico interesados en enfrentamientos entre ejércitos, entrenamiento y conflictos entre reinos. La preparación de una ofensiva contra el Ejército Oscuro ocupa la trama, por lo que encaja menos con quien busca una historia cotidiana centrada en relaciones sentimentales.",
+      "texto": "Dragon Quest: The Adventure of Dai nº 12/25 se dirige a lectores de fantasía en cómic que buscan enfrentamientos entre ejércitos, entrenamiento de héroes y conflictos entre reinos. Encaja menos con quien prefiere historias independientes o narraciones alejadas de las batallas, pues el título lo identifica como el n.º 12 de una colección.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,28 +13,24 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Dragon Quest: The Adventure of Dai nº 12/25 presenta una fase de preparación militar dentro de una aventura fantástica. Los dirigentes de varios reinos organizan un ataque contra la Tierra de Muerte mientras los discípulos de Aván se entrenan para el enfrentamiento. El título lo identifica como el n.º 12 de 25.",
+      "texto": "La lectura combina fantasía bélica y aventura gráfica, con una ofensiva contra la base del Ejército Oscuro como conflicto central. Mientras los reinos preparan el ataque, los discípulos de Aván continúan su entrenamiento, de modo que la acción militar y la preparación de los protagonistas avanzan en paralelo.",
       "evidencias": [
-        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Dragon Quest: The Adventure of Dai nº 12/25 se publica en tapa blanda, con 328 páginas en castellano. La edición de Planeta Cómic utiliza rústica sin solapas y sobrecubierta; su encuadernación flexible facilita manejar un volumen de esta extensión y guardarlo junto a los demás tomos.",
+      "texto": "La edición en tapa blanda reúne 328 páginas y utiliza una encuadernación rústica sin solapas con sobrecubierta. Es una opción física para leer y conservar este volumen de la colección, con un formato que permite transportarlo sin la rigidez de una cubierta de cartón.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
+        "formatos_disponibles",
         "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Dragon Quest: The Adventure of Dai nº 12/25 y AVATAR. La leyenda de Aang 5 - Norte y sur comparten la fantasía de aventuras y los conflictos que afectan a comunidades enteras. La obra de Koji Inada prepara una ofensiva contra el Ejército Oscuro, mientras que la de Nickelodeon amplía la historia de las Tribus Agua. Ambas se diferencian de Cross Game 7 (Shônen), de Mitsuru Adachi, centrado en una competición deportiva.",
+      "texto": "After God 8 (Shônen) comparte con Dragon Quest: The Adventure of Dai nº 12/25 su pertenencia al cómic japonés, aunque corresponde a otra obra y está firmado por Sumi Eno. Agencia de animales mágicos: Medianoche y la leyenda de Santuario (Mi primer cómic), de Steve Smallman, también incorpora elementos fantásticos, pero su presentación como primer cómic contrasta con la continuidad de una colección ya avanzada.",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,8 +39,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788448874803",
-        "isbn-9788410305755"
+        "isbn-9791387962647",
+        "isbn-9788448875381"
       ]
     }
   ],

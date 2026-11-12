@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387846602",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El fuego de Bandung (Hispánica) encaja con lectores interesados en la narrativa contemporánea que incorpora historia y cuestiones de poder y política. Su clasificación también incluye humor y siglo XX, por lo que se aleja de las lecturas centradas exclusivamente en asuntos íntimos o cotidianos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Alfaguara tiene 402 páginas en castellano. Es un volumen de extensión considerable que permite avanzar por sesiones y retomar pasajes relacionados con sus componentes históricos y políticos.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El viaje del profesor Caritat o Las desventuras de la Razón: Una comedia filosófica (Andanzas), de Steven Lukes, comparte con El fuego de Bandung (Hispánica) la combinación de narrativa e ideas, con presencia del humor. La diferencia está en el enfoque anunciado: el primero se define como comedia filosófica, mientras el libro de Jordi Soler se sitúa entre la narrativa contemporánea, la historia y la política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411078696"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "301a3954cc2aa08d",
+  "origen": "chatgpt-web"
+}

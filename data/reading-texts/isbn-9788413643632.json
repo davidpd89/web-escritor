@@ -4,44 +4,49 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Lecciones sobre la guerra y la paz se dirige a lectores de filosofía interesados en los fundamentos jurídicos y morales de los conflictos armados. Su análisis histórico de la guerra y el pacifismo se aleja de los relatos militares centrados en batallas y operaciones.",
+      "texto": "Lecciones sobre la guerra y la paz está dirigido a lectores de filosofía interesados en el derecho, la violencia política y las posibilidades del pacifismo. Norberto Bobbio examina argumentos enfrentados sobre el uso de la fuerza, por lo que no responde a quien busca una crónica de batallas o una historia militar narrativa.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Norberto Bobbio examina las razones utilizadas para legitimar la guerra y las distintas concepciones de la paz. Desde la filosofía del derecho, contrapone la resistencia no violenta al uso de la fuerza frente a las agresiones, mediante un análisis histórico y conceptual desarrollado en sus clases de 1964.",
-      "evidencias": [
-        "autores",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Lecciones sobre la guerra y la paz está disponible en tapa blanda, con 240 páginas en castellano publicadas por Editorial Trotta. Esta edición permite consultar y subrayar los argumentos filosóficos en papel, además de volver a pasajes concretos durante el estudio.",
+      "texto": "Lecciones sobre la guerra y la paz analiza las justificaciones de la guerra y las distintas concepciones de la paz desde la filosofía del derecho. Las clases impartidas por Norberto Bobbio en 1964 combinan perspectiva histórica y análisis conceptual ante el peligro de un conflicto atómico. La tensión entre no violencia y resistencia mediante la fuerza atraviesa su argumentación.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial",
+        "autores",
+        "sinopsis_editorial",
         "categorias"
       ]
     },
     {
-      "modulo": "lecturas_afines",
-      "texto": "Antes de perder el juicio, de Mauricio García Villegas, también aborda cuestiones relacionadas con el pensamiento crítico, pero se centra en la verdad frente a la propaganda y la polarización. Lecciones sobre la guerra y la paz, de Norberto Bobbio, traslada la reflexión al derecho, la violencia y las posibilidades del pacifismo.",
+      "modulo": "que_formato_elegir",
+      "texto": "Lecciones sobre la guerra y la paz está disponible en tapa blanda, con 240 páginas publicadas por Editorial Trotta. Esta edición física permite subrayar las distintas justificaciones de la guerra y consultar los argumentos sobre el pacifismo, la no violencia y el uso de la fuerza expuestos por Norberto Bobbio.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
         "autores",
         "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lecciones sobre la guerra y la paz se puede comparar con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) por su atención a las ideas políticas, aunque Norberto Bobbio se concentra en la guerra, el pacifismo y el derecho. Ante la libertad ofrece otra lectura próxima por su interés filosófico en la libertad, frente al análisis de las condiciones y los límites de la paz.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388387302"
+        "isbn-9791388182457",
+        "isbn-9788409942176"
       ]
     }
   ],

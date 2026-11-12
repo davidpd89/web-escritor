@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788410086555",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la filosofía y en conocer la trayectoria intelectual y personal de Foucault. Su carácter de revista especial dedicada a un filósofo la diferencia de una novela de ficción o de una historia general de la filosofía.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El especial aborda el pensamiento, la vida y la obra de Foucault, combinando una perspectiva filosófica con elementos biográficos. Javier Correa Román firma esta publicación de 80 páginas, presentada dentro de REVISTA FILOSOFIA&CO.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite manejar las 80 páginas como una publicación impresa de extensión contenida. Este formato facilita llevar el especial en una bolsa o consultarlo en papel sin utilizar una pantalla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cartas a Lucilio: Edición íntegra (Clásicos) comparte el terreno filosófico, pero presenta las cartas de Séneca en lugar de un especial sobre el pensamiento y la biografía de Foucault. La gravedad y la gracia (Contemporánea | Narrativa), de Simone Weil, ofrece otra autoría vinculada a la reflexión filosófica, mientras que esta publicación concentra su atención en una figura concreta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182495",
+        "isbn-9788466392112"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "241bcfe9dffd0b44",
+  "origen": "chatgpt-web"
+}

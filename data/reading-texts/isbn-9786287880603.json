@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9786287880603",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los Sinsabores del Verdadero Policia / Woes of the True Policeman está dirigido a lectores interesados en la narrativa contemporánea y en la obra de Roberto Bolaño. Sus 304 páginas ofrecen una edición de mayor extensión que otros títulos breves; no responde a la búsqueda de ensayo o novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 304 páginas de Los Sinsabores del Verdadero Policia / Woes of the True Policeman. Es una edición impresa para quien prefiere leer en papel y conservar un ejemplar físico de la obra de Roberto Bolaño.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b83f7d8e7925db7a",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388277009",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fuera de pista (Corazones al límite 2) (Sin límites) reúne romance, aventuras y elementos asociados a la fantasía y la ciencia ficción. Puede interesar a quienes alternan estos géneros, pero encaja menos con lectores que buscan exclusivamente realismo cotidiano. El título lo identifica como el n.º 2 de Corazones al límite.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fuera de pista (Corazones al límite 2) (Sin límites) se ofrece en tapa blanda, con 440 páginas en castellano. Esta edición de Alfaguara reúne la lectura en un volumen físico de cubierta flexible, que puede transportarse y conservarse junto a otros libros de la misma colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Saciar a la bestia - libro 1 (Faeris Editorial) sirve de comparación por su identificación explícita como entrega de una serie, aunque Fuera de pista (Corazones al límite 2) (Sin límites) lleva el n.º 2 en el título. Ciudad de dioses y monstruos (DARK ROMANCE) apunta desde su título hacia el romance oscuro y los elementos fantásticos; el libro de Sara Hernández abarca además aventuras y ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388108365",
+        "isbn-9788415955559"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e157d419d5d1e3e8",
+  "origen": "chatgpt-web"
+}

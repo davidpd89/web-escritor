@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788401037658",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La visigoda (Saga de la Reconquista) (Éxitos) está dirigida a lectores adultos interesados en la novela histórica y las relaciones románticas. Quienes busquen principalmente fantasía, ciencia ficción o una narración juvenil encontrarán aquí una propuesta de género diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne sus 384 páginas en una edición física apropiada para conservar; la tapa blanda permite una alternativa física más flexible. Kindle facilita la lectura en dispositivos electrónicos y el audiolibro permite seguir la obra escuchándola, sin depender del libro impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Astur (Saga de la Reconquista) (Éxitos), también de Isabel San Sebastián, es la comparación más directa con La visigoda (Saga de la Reconquista) (Éxitos): comparten autora y la referencia a la Saga de la Reconquista en el título. Corazón de una bridgerton (Titania época), de Julia Quinn, ofrece otra comparación desde el romance, aunque su propio título sitúa la obra en un contexto distinto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401039539",
+        "isbn-9788410391772"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b9cc2cce7f08aabb",
+  "origen": "chatgpt-web"
+}

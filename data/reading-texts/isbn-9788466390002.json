@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466390002",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una casa propia, de Deborah Levy, se dirige a lectores interesados en el ensayo, las biografías y memorias y las cuestiones relacionadas con las mujeres. Su clasificación lo sitúa fuera de la narrativa de ficción y de los libros de autoayuda orientados a ejercicios prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El libro de bolsillo ofrece sus 224 páginas en un formato físico manejable para leer y transportar. Kindle permite acceder al texto desde el móvil o una tableta, mientras que el audiolibro ofrece una alternativa para escuchar el contenido sin depender de la lectura en pantalla o papel.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mujeres de París, mujeres de letras (Salamandra Narrativa), de Irène Némirovsky, comparte el interés por las mujeres como eje temático. Una casa propia, de Deborah Levy, se sitúa en el ensayo y las memorias, mientras que el título de Irène Némirovsky pone el foco en las mujeres vinculadas a la literatura. También puede compararse con Mujeres que la liaron: De Hipatia de Alejandría a Simone de Beauvoir: 3000 años de historia feminista (Divulgación), de Tatiana Gómez Montero, que aborda la historia feminista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387928636",
+        "isbn-9788403527041"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3846d3a8aa9a7600",
+  "origen": "chatgpt-web"
+}

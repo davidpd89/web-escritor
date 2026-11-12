@@ -4,17 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La gran traición se dirige a lectores interesados en el terrorismo de ETA, la memoria de sus víctimas y las decisiones políticas relacionadas con su legado. No responde a las expectativas de quien busque una historia de terror ficticia: Cayetano González Hermosilla desarrolla una interpretación periodística y política de hechos históricos.",
+      "texto": "La gran traición se dirige a lectores interesados en el terrorismo de ETA, la memoria de sus víctimas y el debate político sobre el País Vasco y Navarra. Su enfoque periodístico y su interpretación crítica de decisiones políticas encajan menos con quien busca una novela de terror o una exposición ajena a la controversia política.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La gran traición plantea un análisis político y moral sobre la memoria del terrorismo y el papel de los partidos en la política vasca y española. Cayetano González Hermosilla combina su experiencia periodística con una interpretación crítica de las negociaciones políticas y del tratamiento público de las víctimas.",
+      "texto": "La gran traición es un relato periodístico de análisis político y memoria sobre el terrorismo de ETA y sus consecuencias. Cayetano González Hermosilla examina el papel de distintas fuerzas y dirigentes políticos, cuestiona sus relaciones con el entorno de la antigua banda y dedica parte del libro al reconocimiento de las víctimas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,18 +23,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer y consultar las 328 páginas de La gran traición en papel, mientras que Kindle facilita llevar el texto en un dispositivo electrónico. La edición física de La Esfera de los Libros resulta apropiada para conservar el volumen y volver a pasajes concretos durante la lectura.",
+      "texto": "La gran traición se ofrece en tapa blanda y Kindle. Sus 328 páginas pueden consultarse en papel para seguir el análisis político y las referencias históricas, mientras que Kindle permite leer el mismo libro en dispositivos digitales sin llevar el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "edicion",
-        "editorial"
+        "numero_paginas",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La gran traición y Cosamala se acercan a episodios violentos del pasado español, pero emplean tratamientos diferentes. Cayetano González Hermosilla aborda el terrorismo y sus consecuencias políticas mediante el periodismo, mientras que la obra de Alana S. Portero transforma un crimen de la guerra civil en ficción gótica con brujas.",
+      "texto": "La gran traición y 25 días hasta Navidad tratan asuntos relacionados con la amenaza, aunque desde géneros y enfoques diferentes. Cayetano González Hermosilla analiza el terrorismo de ETA y sus consecuencias políticas mediante el periodismo, mientras Per Jacobsen plantea una historia de ficción presentada como thriller de adviento.",
       "evidencias": [
         "titulo",
         "autores",
@@ -42,7 +41,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788432251436"
+        "isbn-9788427055063"
       ]
     }
   ],

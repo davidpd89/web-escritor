@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9788427258242",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo decirte que te quiero: Porque el amor está en las pequeñas cosas (Serres) se dirige a lectores interesados en el amor, la pareja y los vínculos familiares. Su planteamiento editorial gira alrededor de las pequeñas expresiones de afecto, por lo que no se presenta como una novela romántica de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne 128 páginas en una edición física compacta. Es un formato manejable para conservar o regalar, especialmente si se busca un libro ilustrado o de consulta ocasional en papel, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "19117d2e7e1c83bb",
+  "origen": "chatgpt-web"
+}

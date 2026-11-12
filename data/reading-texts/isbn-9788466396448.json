@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466396448",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Quién coño soy?: La guía que necesitas para aprender a quererte (Best Seller | No Ficción) está orientado a lectores interesados en autoestima, autoconocimiento y psicología aplicada a la vida personal. Por su planteamiento de guía, encaja menos con quien busca ficción o un estudio especializado en psicología académica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Quién coño soy?: La guía que necesitas para aprender a quererte (Best Seller | No Ficción) está disponible en tapa blanda y Kindle. La edición de bolsillo de Penguin Bolsillo tiene 280 páginas y permite llevarlo en papel; Kindle facilita la lectura digital desde dispositivos compatibles, sin transportar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Quién coño soy?: La guía que necesitas para aprender a quererte (Best Seller | No Ficción) se relaciona con Abraza a la niña que fuiste: Sana las heridas del pasado y reconecta con tu interior (Best Seller | No Ficción), de Marta Segrelles. Ambas obras tratan la relación con uno mismo, pero Corina Randazzo pone el acento en aprender a quererse y Marta Segrelles en las heridas del pasado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396417"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f59c7e4fb365e96f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788410920071",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensado para lectores que estudian ingeniería química o necesitan trabajar con problemas de transporte, reacciones químicas y separación de sustancias. Su orientación hacia ejercicios resueltos con MATLAB lo aleja de una lectura introductoria de divulgación científica general.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Aborda los fenómenos de transporte, la cinética química, los reactores y las operaciones de separación desde la resolución de problemas. MATLAB constituye la herramienta de trabajo indicada en el título, por lo que el enfoque combina materias de ingeniería química con tratamiento computacional.",
+      "evidencias": [
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene 634 páginas, una extensión que permite reunir problemas de distintas áreas de la ingeniería química en un solo volumen. En papel, las expresiones y los procedimientos pueden consultarse mientras se trabaja con MATLAB en el ordenador.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA también trata conocimientos científicos y tecnológicos, pero se presenta como una introducción a la inteligencia artificial. El libro de Pablo Barroso Rodríguez se diferencia por abordar problemas resueltos de ingeniería química mediante MATLAB, con atención a reactores y operaciones de separación.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6991a1081ee46cf0",
+  "origen": "chatgpt-web"
+}

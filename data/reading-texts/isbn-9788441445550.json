@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788441445550",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Manual de supervivencia psicológica. Todo lo que nadie te enseñó sobre salud mental (Psicología y autoayuda) se dirige a lectores interesados en la salud mental y el desarrollo personal. Su enfoque temático se aleja de la ficción y de los manuales de supervivencia ante emergencias físicas, por lo que responde a una búsqueda distinta.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Editorial Edaf está disponible en tapa blanda y tiene 256 páginas en castellano. Este formato permite consultar físicamente los apartados del manual y volver a ellos durante la lectura, sin necesidad de utilizar un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Manual de supervivencia psicológica. Todo lo que nadie te enseñó sobre salud mental (Psicología y autoayuda) comparte con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, el interés por el bienestar personal. El primero se centra en salud mental; el segundo amplía el enfoque a relaciones, felicidad y éxito.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bd0c66060f2b85dc",
+  "origen": "chatgpt-web"
+}

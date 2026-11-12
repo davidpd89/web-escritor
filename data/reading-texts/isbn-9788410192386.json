@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410192386",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Isiltasunaren aldarria = El clamor del silencio: 1 (Kontakizunak) se dirige a lectores interesados en publicaciones de historia. Por su clasificación y sus 140 páginas, se aleja de quienes buscan una novela de aventuras o una obra de ficción extensa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Isiltasunaren aldarria = El clamor del silencio: 1 (Kontakizunak) se presenta en tapa blanda, con 140 páginas en castellano. Es una opción física de extensión contenida que permite consultar el texto en papel y guardarlo sin el volumen de una edición más larga.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA comparte con Isiltasunaren aldarria = El clamor del silencio: 1 (Kontakizunak) su vinculación con la historia. La obra de Juan Carlos García de Polavieja aborda una investigación sobre Federico García Lorca, mientras que la de Ione Zuloaga se presenta como una publicación histórica de 140 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418567933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c8f2b87fab8db4eb",
+  "origen": "chatgpt-web"
+}

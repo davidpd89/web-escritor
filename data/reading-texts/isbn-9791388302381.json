@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388302381",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El procés (Teatro Éride) se orienta a lectores interesados en textos teatrales y publicaciones vinculadas a las artes. Sus 104 páginas ofrecen una extensión contenida; por su identificación teatral, se aparta de las novelas narradas en prosa y de los manuales de dibujo.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El procés (Teatro Éride) está disponible en tapa blanda, con 104 páginas impresas. Este formato permite consultar el texto, volver a intervenciones concretas y realizar anotaciones sobre papel durante una lectura o preparación teatral.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El procés (Teatro Éride) comparte su vinculación teatral con Arde Talía: Una pieza teatral sobre el infierno de la creación artística. La obra de Gabriel Albendea se identifica por su pertenencia a Teatro Éride, mientras que el título de Arde Talía sitúa expresamente su asunto en la creación artística. También difieren en autoría: la segunda obra está firmada por cinco personas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399289510"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3de10b5199f5e1ef",
+  "origen": "chatgpt-web"
+}

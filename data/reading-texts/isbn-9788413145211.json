@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) se dirige al público juvenil interesado en el romance, las rivalidades y los secretos dentro de un entorno universitario privilegiado. Encaja menos con lectores que prefieren historias alejadas de las relaciones sentimentales, las intrigas personales y los conflictos de poder entre estudiantes.",
+      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) se dirige al público juvenil que busca romance, rivalidades y secretos en un entorno universitario privilegiado. Su conflicto gira alrededor de las relaciones entre estudiantes y la intención de revelar secretos, por lo que se aleja de las historias románticas sin enfrentamientos ni intrigas.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,9 +14,8 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "La clasificación editorial de Mentiras y secretos (Perfectos Mentirosos 1) es juvenil. Su argumento incorpora relaciones sentimentales, enfrentamientos personales y secretos que una estudiante pretende revelar, elementos que conviene considerar para lectores sensibles a los conflictos emocionales y las dinámicas de poder.",
+      "texto": "Está clasificada como novela romántica juvenil y desarrolla su historia en una universidad marcada por fiestas, relaciones sentimentales y diferencias de poder. La trama incorpora engaños, secretos personales y comportamientos manipuladores entre estudiantes, elementos que conviene considerar cuando se busca una lectura de contenido emocional ligero.",
       "evidencias": [
-        "titulo",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -24,31 +23,32 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) combina romance juvenil e intriga en una universidad marcada por las diferencias de poder entre estudiantes. La protagonista, Jude, pretende desenmascarar a los hermanos Cash, de modo que el conflicto se construye alrededor de sus intenciones, las relaciones personales y aquello que los personajes ocultan.",
+      "texto": "Es una novela de romance juvenil con una trama de secretos y enfrentamientos dentro de una universidad de élite. Jude pretende exponer lo que ocultan los hermanos Cash, cuya influencia sobre el campus convierte las relaciones personales en parte del conflicto. La edición tiene 336 páginas.",
       "evidencias": [
-        "titulo",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de bolsillo reúne las 336 páginas de Mentiras y secretos (Perfectos Mentirosos 1) en una edición pensada para transportar y leer en papel. Kindle permite continuar la novela desde el móvil o un lector electrónico, mientras que el audiolibro ofrece la alternativa de seguir la historia mediante escucha.",
+      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) puede leerse en tapa blanda o en Kindle. La edición física de Penguin Bolsillo reúne sus 336 páginas en un volumen de bolsillo, mientras que Kindle permite llevar la novela en un lector electrónico o en el móvil sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "edicion",
-        "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Peligros y verdades (Perfectos Mentirosos 2) es la comparación más directa: comparte autora, Alex Mírez, y el entorno universitario dominado por los hermanos Cash. Frente a Mentiras y secretos (Perfectos Mentirosos 1), cuyo argumento presenta el plan de Jude para revelar secretos, el otro título vuelve a situar a esos hermanos en el centro de la historia.",
+      "texto": "Peligros y verdades (Perfectos Mentirosos 2) comparte con Mentiras y secretos (Perfectos Mentirosos 1) la autoría de Alex Mírez, el entorno universitario y la presencia de los hermanos Cash. Los títulos identifican respectivamente las entregas 2 y 1; Mentiras y secretos plantea el propósito de Jude de revelar los secretos familiares, mientras que la descripción de Peligros y verdades vuelve a situar a los hermanos en el centro de Tangus.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
         "isbn-9788413145228"
@@ -57,6 +57,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "77adac5a7ca80233",
+  "fuente_hash": "377e1f4487f58655",
   "origen": "chatgpt-web"
 }

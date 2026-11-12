@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388277771",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La terrible señorita Trunchbull y otros relatos de maldades y villanos (Alfaguara Clásicos) se dirige a lectores de relatos de Roald Dahl interesados en personajes malvados, aventuras y humor. Sus 464 páginas reúnen una propuesta distinta de una novela única y continuada, por lo que encaja menos con quien prefiera seguir una sola historia extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La terrible señorita Trunchbull y otros relatos de maldades y villanos (Alfaguara Clásicos) está disponible en tapa dura y Kindle. La edición física reúne 464 páginas y sirve para conservar o regalar el volumen; Kindle permite leer los relatos en el móvil o en un dispositivo electrónico sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Juan y la habichuela mágica y La terrible señorita Trunchbull y otros relatos de maldades y villanos (Alfaguara Clásicos) comparten la autoría de Roald Dahl y su relación con las aventuras. Juan y la habichuela mágica parte de un intercambio de una vaca por una habichuela; La terrible señorita Trunchbull y otros relatos de maldades y villanos (Alfaguara Clásicos) reúne relatos centrados en maldades y villanos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388277030"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e731dec0f20d5dfe",
+  "origen": "chatgpt-web"
+}

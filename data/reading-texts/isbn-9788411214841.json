@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788411214841",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lojong: La práctica tibetana para transformar tu mente (Sabiduría perenne), de Jetsunma Tenzim Palmo, se dirige a lectores interesados en las prácticas espirituales tibetanas y el desarrollo personal. Su enfoque en la transformación mental lo distingue de los libros de nutrición centrados en alimentación y de las novelas de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Lojong: La práctica tibetana para transformar tu mente (Sabiduría perenne) contiene 240 páginas en castellano. Su formato físico permite consultar de nuevo apartados sobre la práctica tibetana y llevar el volumen a distintos lugares sin una cubierta rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "865da3181b1ba4c2",
+  "origen": "chatgpt-web"
+}

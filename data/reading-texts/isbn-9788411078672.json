@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788411078672",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inverness, California (Andanzas), de Francisco Serrano, se sitúa entre el misterio, la narrativa contemporánea y la historia del siglo XX. Se orienta a lectores interesados en la intriga con una dimensión histórica, frente a quienes buscan exclusivamente fantasía o divulgación práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Inverness, California (Andanzas) está disponible en tapa blanda, en una edición de Tusquets Editores de 352 páginas. Su encuadernación flexible permite transportarlo en una bolsa y leerlo por sesiones, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9196d5e70d3a811f",
+  "origen": "chatgpt-web"
+}

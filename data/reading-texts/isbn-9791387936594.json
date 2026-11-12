@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9791387936594",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores interesados en el entrenamiento de fuerza y en comprender el desarrollo muscular desde una perspectiva científica. La escalera del músculo: Ponte fuerte usando la ciencia (Fitness), de Jeff Nippard, se sitúa en el ámbito del deporte y el bienestar físico; no está dirigido a quien busca ficción deportiva o memorias de competición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne 368 páginas en un volumen físico que puede conservarse y consultarse durante la planificación del entrenamiento. Kindle permite leer el contenido en dispositivos digitales, incluido el móvil, sin transportar el ejemplar impreso. El papel favorece la consulta en un lugar fijo; el formato electrónico facilita llevar la lectura fuera de casa.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "95ba7724aefd19f8",
+  "origen": "chatgpt-web"
+}

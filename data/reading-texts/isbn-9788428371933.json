@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788428371933",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Prevención de riesgos laborales en construcción (Edificación y Obra Civil) se dirige a quienes buscan una lectura sobre seguridad laboral en edificación y obra civil. Su enfoque sectorial se aleja de las obras de divulgación científica general y de los libros centrados en otras actividades profesionales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Prevención de riesgos laborales en construcción (Edificación y Obra Civil) está disponible en tapa blanda y reúne 268 páginas. Este formato permite consultar el volumen en papel y transportarlo para estudiar cuestiones relacionadas con la prevención de riesgos en construcción.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Frente a 50 cosas que hay que saber sobre IA, centrado en inteligencia artificial, Prevención de riesgos laborales en construcción (Edificación y Obra Civil) aborda la seguridad laboral en un sector concreto. Ambos pertenecen al ámbito de la divulgación científica, pero sus materias son diferentes: tecnología digital en un caso y prevención en construcción en el otro.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3e93e6dab3fcab13",
+  "origen": "chatgpt-web"
+}

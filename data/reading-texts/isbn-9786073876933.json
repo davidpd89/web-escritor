@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9786073876933",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Demasiado al norte (Premio Mauricio Achar), de Emiliano Pérez Grovas, se dirige a lectores que buscan narrativa contemporánea en español. Su clasificación lo diferencia de quienes prefieren ensayos o libros de desarrollo personal, pues pertenece al ámbito de la ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda concentra las 184 páginas de Demasiado al norte (Premio Mauricio Achar) en una edición física de Penguin Random House Grupo Editorial. Su extensión permite tener una novela en papel sin recurrir a un volumen especialmente largo.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e77b8b6ce4313c88",
+  "origen": "chatgpt-web"
+}

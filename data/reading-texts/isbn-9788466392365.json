@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788466392365",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de Stephen King que buscan una novela extensa donde confluyen fantasía, terror, aventuras y ciencia ficción. Sus 992 páginas y su identificación como La Torre Oscura 7 la alejan de quien prefiera una historia breve o comenzar la serie por su primer título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición se distingue por los cantos tintados y su publicación en la colección de bolsillo de Penguin Bolsillo. Apareció el 22 de octubre de 2026, en castellano y con el ISBN 9788466392365, que permite identificarla frente a otras presentaciones de la obra.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es la tapa blanda de bolsillo, con 992 páginas. Permite leer La Torre Oscura (edición cantos tintados) (La Torre Oscura 7) (Campaña | Edición con cantos tintados) en papel, aunque su extensión supone un volumen considerable para transportarlo a diario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El pistolero (edición cantos tintados) (La Torre Oscura 1) comparte autor, serie y presentación con cantos tintados; el título lo identifica como el n.º 1, frente al n.º 7 de esta entrega. Carrie (edición serie) también es de Stephen King, pero sitúa su conflicto en el acoso escolar y la convivencia familiar, en lugar de combinar varios géneros de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396806",
+        "isbn-9788466392259"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7b8d357256a1a794",
+  "origen": "chatgpt-web"
+}

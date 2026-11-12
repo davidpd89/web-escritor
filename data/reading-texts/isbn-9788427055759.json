@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788427055759",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El último día del invierno (Matchstories), de Alejandra Abad, se dirige a lectores de romance interesados también en la superación y el duelo. Por su orientación temática, encaja menos con quienes buscan una historia centrada en la aventura o el misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de El último día del invierno (Matchstories) reúne 432 páginas y permite leerlo en papel sin recurrir a una edición de cubierta rígida. Kindle ofrece la alternativa digital para llevar la lectura en el móvil o en un lector electrónico, sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando fuimos todo comparte con El último día del invierno (Matchstories) el ámbito del romance, aunque su presentación se centra en las expectativas de Emma sobre Gael. Cómo me gustaría contarte plantea una trayectoria personal marcada por las expectativas ajenas, mientras que la obra de Alejandra Abad combina romance, superación y duelo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387598440",
+        "isbn-9788403526723"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8a97f5cb054e7d85",
+  "origen": "chatgpt-web"
+}

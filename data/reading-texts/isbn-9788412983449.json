@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788412983449",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vida y milagros: 2 (La enciclopedia inabarcable) se dirige a lectores de narrativa contemporánea que buscan una obra de extensión intermedia. Carlos Javier Van de Velde Quilón firma sus 226 páginas; por su clasificación editorial, se distancia de las lecturas infantiles y de fantasía. El título lo identifica como el n.º 2.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vida y milagros: 2 (La enciclopedia inabarcable) está editado en tapa blanda y contiene 226 páginas en castellano. Esta presentación de Adel Editores permite transportar el libro con mayor facilidad que una encuadernación rígida de dimensiones similares y mantener una copia física para su lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fd8b5b2d9200433f",
+  "origen": "chatgpt-web"
+}

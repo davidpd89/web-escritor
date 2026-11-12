@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788411193955",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo identificar a un perla: Por qué dudas de tu criterio y no de sus promesas (Autoconocimiento), de Tere Díaz Sendra, se dirige a quienes buscan reflexionar sobre el criterio personal y las promesas dentro de las relaciones. Su enfoque de autoconocimiento y ensayo lo distingue de una novela romántica o de una lectura centrada en aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cómo identificar a un perla: Por qué dudas de tu criterio y no de sus promesas (Autoconocimiento) está disponible en tapa blanda. Sus 272 páginas ofrecen una edición física en la que se pueden señalar fragmentos y recuperar reflexiones durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo identificar a un perla: Por qué dudas de tu criterio y no de sus promesas (Autoconocimiento) comparte con Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología) el interés por las relaciones personales. Tere Díaz Sendra pone el foco en el criterio y las promesas; Ramón Nogueras Pérez, en el enamoramiento y el desenamoramiento. Ambos abordan cuestiones relacionales desde preguntas diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387534370"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bded80030ddd1415",
+  "origen": "chatgpt-web"
+}

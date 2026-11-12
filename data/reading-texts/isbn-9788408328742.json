@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788408328742",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes sienten curiosidad por el queso y buscan una lectura de divulgación gastronómica. Por su enfoque de ensayo sobre un alimento concreto, encaja menos con quien busca un recetario general o una novela.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 184 páginas del ensayo de Toni Gerez en una edición física de Planeta Gastro, apropiada para consultar y conservar. Kindle permite llevar el mismo título en un lector electrónico o en el móvil, sin cargar con el ejemplar impreso.",
+      "evidencias": [
+        "numero_paginas",
+        "autores",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Chef sapiens: De los orígenes a la actualidad en 100 recetas saludables comparte el interés por la alimentación, pero aborda su evolución histórica mediante recetas saludables. ¿Por qué el queso es azul?: Todo lo que siempre quisiste saber sobre el queso (Ensayo) concentra la atención en un producto concreto y en las preguntas que suscita, en lugar de plantear un recorrido por distintas preparaciones culinarias.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395939"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d5d24081a528d651",
+  "origen": "chatgpt-web"
+}

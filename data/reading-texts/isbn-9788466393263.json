@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466393263",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Casa Capitular: Dune, de Frank Herbert, se dirige a lectores interesados en la narrativa de ciencia ficción y en las novelas pertenecientes a grandes sagas literarias. Sus 616 páginas y su identificación como el n.º 6 de Las crónicas de Dune lo alejan de quienes buscan una lectura breve o autoconclusiva.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El libro de bolsillo concentra sus 616 páginas en una edición física transportable, aunque extensa. Kindle permite leerlo en dispositivos electrónicos sin cargar el volumen, mientras que el audiolibro ofrece la posibilidad de seguir la lectura escuchando.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Herejes de Dune (edición de lujo) (Las crónicas de Dune 5) (Best Seller | Ficción), de Frank Herbert, comparte autor y serie con Casa Capitular: Dune, cuyo título lo identifica como el n.º 6. También puede compararse con Dios emperador de Dune (edición de lujo) (Las crónicas de Dune 4) (Best Seller | Ficción), del mismo autor; ambos títulos pertenecen a Las crónicas de Dune y permiten comparar distintas posiciones de la saga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466393928",
+        "isbn-9788466393959"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3265ec3f4f2c8bf0",
+  "origen": "chatgpt-web"
+}

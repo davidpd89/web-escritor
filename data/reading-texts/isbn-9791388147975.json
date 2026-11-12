@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388147975",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cambiar el juego (Game Changers 1): Game Changer (Best Seller | Ficción) está dirigido a lectores de romance y relatos sobre relaciones de pareja. El título lo identifica como el n.º 1 de Game Changers y la edición tiene 432 páginas. No responde tanto a quienes buscan una novela de misterio o fantasía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cambiar el juego (Game Changers 1): Game Changer (Best Seller | Ficción) se ofrece en tapa blanda, Kindle y audiolibro. El ejemplar de bolsillo publicado por Penguin Bolsillo tiene 432 páginas y permite conservar una copia física. Kindle facilita la lectura en pantalla, mientras que el audiolibro permite escuchar la obra sin mantener el libro abierto.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Más que rivales (Game Changers 2): Heated Rivalry (Best Seller | Ficción) comparte autora, Rachel Reid, y serie con Cambiar el juego (Game Changers 1): Game Changer (Best Seller | Ficción). Los títulos los distinguen por su posición en Game Changers: n.º 2 frente a n.º 1. La comparación permite elegir entre dos entregas de la misma autora en lugar de cambiar de serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388147982"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b53922437cac419a",
+  "origen": "chatgpt-web"
+}

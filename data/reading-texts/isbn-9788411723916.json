@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788411723916",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orientado a lectores interesados en la historia religiosa, las creencias sobrenaturales y el judaísmo de la Edad Media. Su carácter de ensayo histórico lo diferencia de las novelas de fantasía con ángeles o demonios y de los manuales generales sobre religiones contemporáneas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra estudia la presencia de ángeles, demonios y amuletos en la tradición judía medieval. Aborda estas cuestiones desde la historia y el ensayo religioso, con atención a las creencias mágicas y supersticiosas de un contexto cultural determinado.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Ediciones Obelisco S.l. consta de 424 páginas en castellano y se presenta en tapa blanda. El volumen físico permite retomar apartados dedicados a las distintas creencias y figuras sobrenaturales del judaísmo medieval durante una lectura de estudio.",
+      "evidencias": [
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lo sagrado y lo sobrenatural / The Sacred and the Supernatural, de Lourdes Gómez, comparte el interés por la relación entre las creencias religiosas y lo sobrenatural. La obra de Joshua Trachtenberg delimita ese campo al judaísmo medieval y a figuras como ángeles, demonios y amuletos, mientras que el título de Lourdes Gómez plantea una relación temática más amplia.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9786073878593"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "310895a001502e36",
+  "origen": "chatgpt-web"
+}

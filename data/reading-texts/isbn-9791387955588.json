@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387955588",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Odio correr. Y a ti también te puede pasar: Cómo empezar, no abandonar y entender una pasión irracional (Otros deportes) se dirige a lectores interesados en iniciarse en la carrera a pie, mantener el hábito y explorar el deporte desde el humor. Brendan Leonard aborda un tema vinculado al ocio, el bienestar y el desarrollo personal, por lo que encaja menos con quien busca entrenamiento técnico especializado o una guía centrada exclusivamente en nutrición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es la opción disponible para leer este libro en papel. Sus 160 páginas permiten manejarlo sin el volumen de un manual deportivo extenso; también resulta una opción sencilla para regalar a alguien interesado en empezar a correr o mantener la constancia.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Odio correr. Y a ti también te puede pasar: Cómo empezar, no abandonar y entender una pasión irracional (Otros deportes), de Brendan Leonard, comparte con El código del rendimiento: La ciencia detrás de lo que el deportista consume, de Eztizen Pérez Díaz, el interés por el deporte. La diferencia está en el enfoque que anticipan sus títulos: empezar y mantener el hábito de correr frente a la alimentación vinculada al rendimiento deportivo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409934010"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a5c5d24828081573",
+  "origen": "chatgpt-web"
+}

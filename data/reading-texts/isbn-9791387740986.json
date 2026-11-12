@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387740986",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La seducción (Reservoir Narrativa), de Sara Torres, se dirige a lectores de romance y narrativa contemporánea interesados también en el cómic y la novela gráfica. Su clasificación combina esos tres ámbitos, por lo que se aleja del perfil de quien busca exclusivamente fantasía, aventuras o narrativa histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 168 páginas de La seducción (Reservoir Narrativa), de Sara Torres, en una edición física de Reservoir Books. Kindle permite optar por la lectura digital; también figura la tapa blanda y el audiolibro entre los formatos disponibles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La seducción (Reservoir Narrativa), de Sara Torres, comparte el ámbito romántico con Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, y La luna en una noche de lluvia 1 (Yuri): Universo Manga, de Kuzushiro. La diferencia está en su clasificación como narrativa contemporánea y cómic y novela gráfica, frente a las identificaciones shôjo y yuri de esos títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962494",
+        "isbn-9791387962814"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "64383e083995c991",
+  "origen": "chatgpt-web"
+}

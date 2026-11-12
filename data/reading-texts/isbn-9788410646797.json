@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410646797",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dibuja con Itspoli (HARPERKIDS) se dirige a quienes buscan una lectura vinculada al dibujo y la creación visual. Su temática artística lo distingue de los libros centrados en historia del arte o narrativa, por lo que encaja menos con quien prefiere estudiar movimientos y autores históricos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dibuja con Itspoli (HARPERKIDS) se presenta en tapa blanda, con 160 páginas en castellano. Es una edición física que puede transportarse y consultarse sin dispositivos, tanto en casa como fuera de ella.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dibuja con Itspoli (HARPERKIDS) se puede comparar con Aprende a dibujar con KPop Demon Hunters: Edición OFICIAL en español (Montena), porque ambos títulos sitúan el dibujo en el centro de su propuesta. El libro de Itspoli presenta una orientación artística general, mientras que el segundo vincula el aprendizaje del dibujo a KPop Demon Hunters.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388322778"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8843513979b3d10a",
+  "origen": "chatgpt-web"
+}

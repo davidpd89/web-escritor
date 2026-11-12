@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387749255",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El trono de las pesadillas (Umbriel narrativa), de Kerri Maniscalco, se dirige a lectores de fantasía y ciencia ficción que buscan una novela extensa. Sus 608 páginas exigen más tiempo de lectura que una obra breve, por lo que encaja menos con quienes prefieren relatos cortos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El trono de las pesadillas (Umbriel narrativa) está disponible en tapa blanda, con 608 páginas en castellano. Esta edición de Umbriel permite conservar el volumen en papel, marcar el avance con un separador y consultar pasajes anteriores sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa), de Heather Fawcett, comparte con El trono de las pesadillas (Umbriel narrativa) el sello editorial, aunque son obras de distintas autoras. El Vivo (Impedimenta), de Anna Starobinets, ofrece otra referencia de ficción del catálogo, publicada bajo un sello diferente; la elección puede hacerse por autoría y editorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387749316",
+        "isbn-9791388412042"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "92e8ea3f9dbbe7b7",
+  "origen": "chatgpt-web"
+}

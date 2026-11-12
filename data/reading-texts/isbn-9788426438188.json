@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788426438188",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Colección Mafalda: 11 tomos en una lata (edición limitada) (Lumen Gráfica) se dirige a lectores interesados en el humor gráfico y en reunir varias entregas de Quino. Su presentación en 11 tomos la diferencia de un relato único y de una novela convencional, por lo que no responde a quien busca una narración continua en un solo volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "El rasgo distintivo de esta edición limitada es la reunión de 11 tomos en una lata, tal como indica su título. Lumen la publica el 26 de noviembre de 2026 en castellano, con un total de 1056 páginas en tapa blanda y el ISBN 9788426438188.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "fecha_publicacion",
+        "idioma",
+        "numero_paginas",
+        "edicion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La colección está disponible en tapa blanda, distribuida en 11 tomos que suman 1056 páginas. Esta organización permite manejar los tomos por separado durante la lectura, mientras que la lata forma parte de la presentación física de la edición limitada.",
+      "evidencias": [
+        "formatos_disponibles",
+        "titulo",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lo mejor de Guille (Los amigos de Mafalda) (Lumen Gráfica) comparte con Colección Mafalda: 11 tomos en una lata (edición limitada) (Lumen Gráfica) la autoría de Quino y la vinculación con Mafalda. La diferencia editorial está en el alcance anunciado: uno se centra en Guille, mientras que el otro reúne una colección de 11 tomos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426434869"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0c93ee705f1d6b89",
+  "origen": "chatgpt-web"
+}

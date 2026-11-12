@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409923762",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sin dueños ni señores: Parte 2: Incontrolable se orienta a lectores de aventuras, fantasía y ciencia ficción que buscan una narración extensa. Sus 401 páginas y la identificación como Parte 2 lo alejan de quienes prefieren lecturas breves o títulos presentados como entregas independientes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Sin dueños ni señores: Parte 2: Incontrolable permite leer sus 401 páginas en papel, con una encuadernación flexible. Kindle ofrece una alternativa digital para llevar la lectura en un dispositivo compatible, especialmente útil cuando se quiere evitar transportar un volumen de esta extensión.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aftermyth 1. Penelope y la prueba de los dioses y Sin dueños ni señores: Parte 2: Incontrolable comparten una identificación numérica que los sitúa dentro de una secuencia de entregas. El primero lleva el número 1 en su título y está firmado por Tracy Wolff; el segundo se presenta como Parte 2 y pertenece a Regina Eznael, con fantasía, aventuras y ciencia ficción entre sus géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324102"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "561907fb37ccb813",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388054471",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los ojos tras la máscara (La Cruz del Sur) está dirigido a lectores de poesía en castellano y a quienes siguen la obra de Alejandro Bekes. Su clasificación poética lo diferencia de las novelas narrativas y de los libros prácticos, por lo que encaja menos con quienes buscan una trama novelística extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los ojos tras la máscara (La Cruz del Sur) tiene una edición en tapa blanda de 120 páginas, publicada por Editorial Pre-Textos. Su extensión permite llevar el volumen en papel y regresar a poemas concretos sin manejar un libro de gran tamaño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "10f8f1ee65bcf7cb",
+  "origen": "chatgpt-web"
+}

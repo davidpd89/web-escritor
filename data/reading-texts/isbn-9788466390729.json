@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La asistenta encaja con lectores de suspense psicológico que buscan secretos domésticos, relaciones de poder y una amenaza que crece dentro de una casa. No responde a quien prefiera una historia familiar sin tensión ni situaciones de encierro, engaño y peligro.",
+      "texto": "La asistenta encaja con lectores de thriller psicológico interesados en las relaciones de poder, los secretos domésticos y la desconfianza entre personajes. Su historia de manipulación y encierro se aleja de una novela familiar cotidiana sin amenazas ni tensión psicológica.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,31 +13,29 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La asistenta es un thriller psicológico construido alrededor de una empleada doméstica y la familia para la que trabaja. Freida McFadden utiliza las diferencias de posición social, las conductas inquietantes de los habitantes de la casa y los secretos de la protagonista para sostener el conflicto.",
+      "texto": "La asistenta plantea un thriller psicológico en el que una empleada doméstica trabaja para una familia acomodada mientras oculta aspectos de su identidad. La convivencia con los Winchester introduce mentiras, humillaciones y una habitación cuya puerta se cierra desde fuera, de modo que el peligro surge dentro de la propia casa.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La asistenta está disponible en tapa blanda y Kindle, dos opciones para leer sus 344 páginas. La edición física de Penguin Bolsillo permite conservarla o prestarla; Kindle facilita llevar la novela en un lector electrónico o en el móvil sin transportar el volumen.",
+      "texto": "La tapa blanda de Penguin Bolsillo reúne 344 páginas en castellano para leer en papel y transportar el ejemplar. Kindle permite continuar la lectura desde el móvil o un lector electrónico, mientras que el audiolibro ofrece una alternativa para seguir la historia mediante escucha.",
       "evidencias": [
-        "titulo",
-        "editorial",
+        "edicion",
         "numero_paginas",
+        "idioma",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La asistenta y La compañera son thrillers de Freida McFadden, pero el primero sitúa el peligro en una relación laboral doméstica y el segundo relaciona el presente con acontecimientos del pasado. La inquilina, también de Freida McFadden, parte de la situación de Blake Porter, mientras que La asistenta sigue a una trabajadora dentro de una familia acomodada.",
+      "texto": "La asistenta y La compañera pertenecen a la narrativa de Freida McFadden y comparten el interés por los secretos y sus consecuencias. La primera sitúa la tensión en una casa donde trabaja una empleada doméstica; La compañera plantea la persistencia de acontecimientos del pasado. La inquilina también pertenece a la obra de Freida McFadden, pero parte de un personaje llamado Blake Porter y su situación de éxito.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
@@ -49,6 +47,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "26b37f75aeda2235",
+  "fuente_hash": "a3c9d69a1a3de3fe",
   "origen": "chatgpt-web"
 }

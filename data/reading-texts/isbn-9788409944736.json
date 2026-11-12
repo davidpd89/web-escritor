@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788409944736",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en el cristianismo, los valores religiosos y el liderazgo entendido a través del ejemplo de Jesús. Su planteamiento espiritual y su relación con los Evangelios lo alejan de los manuales de dirección empresarial centrados exclusivamente en técnicas de gestión.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "JESUCRISTO LÍDER!!!: El liderazgo de Jesús: Principios Cristianos, Cualidades y Valores para seguir su Ejemplo a través de los Evangelios de la Biblia relaciona el liderazgo con los principios y valores cristianos. Manolo Cámara toma como referencia la figura de Jesús y los Evangelios para abordar las cualidades asociadas a su ejemplo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Manolo Cámara se presenta en tapa blanda, con 225 páginas en castellano. El soporte impreso permite leer y volver sobre los principios cristianos y las cuestiones de liderazgo tratados en el libro, además de conservarlo como volumen de consulta.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El rostro del hombre: Las dimensiones reales de nuestro yo comparte el interés por las cuestiones humanas y espirituales, aunque se centra en la identidad personal. JESUCRISTO LÍDER!!!: El liderazgo de Jesús: Principios Cristianos, Cualidades y Valores para seguir su Ejemplo a través de los Evangelios de la Biblia aborda específicamente el liderazgo cristiano mediante los valores y cualidades atribuidos a Jesús.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788413393063"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2ccceaa6289afbea",
+  "origen": "chatgpt-web"
+}

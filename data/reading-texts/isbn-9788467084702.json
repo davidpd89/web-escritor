@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788467084702",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Atlas de las cosas que vibran (ESPASAesPOESÍA) se dirige a lectores que buscan libros vinculados a la poesía y a la Edad Media. Iván Vergara firma esta edición de 120 páginas, clasificada en la temática histórica de la Edad Media; no es una elección orientada a quienes buscan narrativa contemporánea o novelas extensas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer Atlas de las cosas que vibran (ESPASAesPOESÍA) en una edición física de 120 páginas. Es la opción para quien prefiere tener el libro en papel y manejar un volumen de extensión contenida.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dc7757bd2b8852cd",
+  "origen": "chatgpt-web"
+}

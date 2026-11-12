@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387752965",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dulce Hogar (Cozy Stickers), de Alain Boyer, se orienta a quienes buscan actividades de ocio relacionadas con pegatinas y motivos domésticos. Sus 10 páginas lo diferencian de los libros de lectura prolongada y de los manuales extensos sobre decoración del hogar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dulce Hogar (Cozy Stickers) se presenta en tapa blanda, con 10 páginas editadas por Editorial Alma. Su extensión reducida y su cubierta flexible facilitan guardarlo junto a otros materiales de ocio y utilizarlo como actividad física de sobremesa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "800 stickers sweet and cosy (Prácticos), de Amélie's Workshop, comparte con Dulce Hogar (Cozy Stickers) el interés por las pegatinas y la estética acogedora, aunque el primero anuncia una cantidad concreta de adhesivos. 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos), de Varios autores, también propone una actividad manual, pero basada en colorear y en el universo Roblox. Dulce Hogar (Cozy Stickers) se distingue por su temática doméstica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328384",
+        "isbn-9788448049737"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "623bee033a7dcf55",
+  "origen": "chatgpt-web"
+}

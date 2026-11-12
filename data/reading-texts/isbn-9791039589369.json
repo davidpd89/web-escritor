@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791039589369",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mis primeros animales con velcro (Papelería creativa), de Wendy KENDALL, se sitúa en el ámbito infantil y aborda el mundo animal. Su planteamiento temático se aparta de las novelas juveniles extensas y de las lecturas centradas en personajes humanos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mis primeros animales con velcro (Papelería creativa) se publica en tapa blanda, con una extensión catalogada de 1 página. El formato físico permite utilizar el material directamente, sin pantalla, y mantenerlo junto a otros recursos infantiles sobre animales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mis primeros animales con velcro (Papelería creativa) coincide con Aprende a contar animales en su temática animal y su orientación infantil. El título de Wendy KENDALL destaca el velcro, mientras que el de Susaeta Ediciones propone conocer animales mediante el aprendizaje de los números del 1 al 10.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370341589",
+        "isbn-9791370341176"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "68f1abc830d8896c",
+  "origen": "chatgpt-web"
+}

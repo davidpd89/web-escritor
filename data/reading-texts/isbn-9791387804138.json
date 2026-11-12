@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387804138",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra se dirige a lectores interesados en la historia de PlayStation y en una selección de 150 videojuegos de la consola. Su enfoque histórico y de ensayo encaja con quienes buscan conocer ese legado, pero no con quienes prefieren una novela de ficción o un manual práctico para aprender a jugar.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 232 páginas de esta obra sobre el legado de PlayStation en un volumen físico que puede conservarse y consultarse. Kindle ofrece la misma obra en formato electrónico para leerla en dispositivos compatibles, sin necesidad de transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esta obra sobre el legado de PlayStation puede compararse con Bestiario de España: Mitos y leyendas de nuestro país (No ficción ilustrados), de Javier Prado Coronel, por su interés en recopilar elementos de un ámbito cultural. La primera se ocupa de 150 videojuegos, mientras que la segunda aborda mitos y leyendas españoles. También comparte el terreno de la no ficción con Charlotte Perriand. La libertad de repensar el mundo, de Varios autores, aunque sus asuntos son diferentes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949976",
+        "isbn-9788416411993"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "65bd126927cd6bfe",
+  "origen": "chatgpt-web"
+}

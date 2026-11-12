@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410929821",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Magdalena, de Emilia Batista, se dirige a lectores interesados en el romance, la novela histórica y los relatos vinculados a la superación y el duelo. Su clasificación también incluye el cómic y la novela gráfica, mientras que sus 78 páginas la sitúan entre las publicaciones breves. Encaja menos con quien busca una obra extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Magdalena está disponible en tapa blanda, con una extensión de 78 páginas. La encuadernación flexible facilita llevar el libro en el bolso o la mochila, y su reducido número de páginas permite organizar la lectura en pocas sesiones. Es una edición física en castellano para conservar o regalar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Magdalena puede compararse con La carta perdida (Clean Romance), de Mimi Matthews, por su vinculación con el romance. También se aproxima a Cuando fuimos todo, de Noelia Dopazo, cuyo planteamiento gira alrededor de Emma y Gael. Magdalena añade a su clasificación la novela histórica, la superación y el duelo, frente al énfasis romántico de estas referencias.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410481442",
+        "isbn-9791387598440"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1fea05fe2a8540c3",
+  "origen": "chatgpt-web"
+}

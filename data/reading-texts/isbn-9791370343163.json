@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Bajo el mar está dirigido al público infantil interesado en colorear animales marinos y utilizar imanes para decorar. Su propuesta se centra en la actividad manual y la exposición de láminas, por lo que no responde a quien busca principalmente cuentos para leer.",
+      "texto": "Bajo el mar está dirigido al público infantil que disfruta coloreando animales marinos y utilizando imanes para decorar. Su propuesta combina una actividad manual con la exposición de las creaciones, por lo que se aleja de los cuentos centrados exclusivamente en la lectura.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,24 +13,26 @@
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "El juego consiste en colorear las láminas de animales marinos y colocarlas sobre una superficie metálica mediante el marco magnético. Incluye además 15 imanes que pueden colorearse y utilizarse para añadir detalles a las composiciones.",
+      "texto": "Bajo el mar permite colorear láminas de animales marinos y colocarlas sobre superficies metálicas mediante un marco magnético. Incluye también 15 imanes adicionales que se pueden pintar y utilizar para completar las composiciones. Las piezas permiten cambiar la decoración sin limitarla a las páginas del libro.",
       "evidencias": [
+        "titulo",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Bajo el mar tiene 24 páginas y se presenta en tapa blanda. Su edición física incorpora un marco magnético y 15 imanes adicionales, elementos destinados a colocar y decorar las láminas sobre superficies metálicas.",
+      "texto": "Bajo el mar está disponible en tapa dura y tapa blanda, con una edición de 24 páginas publicada por Susaeta Ediciones. La tapa dura ofrece una cubierta más rígida para manipular el libro durante las actividades; la tapa blanda facilita guardarlo y transportarlo junto con los materiales de colorear.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Bajo el mar comparte con Dinosaurios y La granja, ambos de Susaeta Ediciones, el uso de láminas y un marco magnético para exponerlas. La diferencia está en los motivos que se trabajan: animales marinos en el primero, dinosaurios en el segundo y escenas de granja en el tercero.",
+      "texto": "Dinosaurios y La granja, también de Susaeta Ediciones, comparten con Bajo el mar el uso de láminas y un marco magnético para exponerlas sobre metal. La diferencia está en los animales representados: criaturas prehistóricas, animales de granja o fauna marina. Los tres títulos plantean una actividad de decoración en lugar de una narración convencional.",
       "evidencias": [
         "titulo",
         "autores",
@@ -46,6 +48,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "751762706ac313a2",
+  "fuente_hash": "a666487472140eed",
   "origen": "chatgpt-web"
 }

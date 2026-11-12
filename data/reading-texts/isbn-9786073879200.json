@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9786073879200",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary, de El Aletz y Alejandro Carrillo, se sitúa en el ámbito del arte y el diseño. Por su planteamiento de diccionario, se orienta a lectores interesados en una obra de consulta temática más que a quienes buscan una novela con personajes y una trama continuada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary tiene una edición en tapa blanda de 320 páginas, publicada en castellano. El papel permite consultar distintas partes del volumen y volver a ellas sin depender de un dispositivo; la cubierta flexible facilita su transporte.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "054cc7b3a9fa17ce",
+  "origen": "chatgpt-web"
+}

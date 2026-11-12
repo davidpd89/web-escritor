@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788408316572",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Acelerando en rojo. Edición especial: Edición con cantos tintados (Ficción) se dirige a lectores de romance y narrativa juvenil interesados en las relaciones de pareja. Sus 592 páginas plantean una lectura extensa, menos ajustada a quienes buscan una novela breve o una historia centrada en géneros ajenos al romance.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Acelerando en rojo. Edición especial: Edición con cantos tintados (Ficción) se distingue por sus cantos tintados y su encuadernación en tapa dura. Crossbooks la publicó el 11 de noviembre de 2026, en castellano y con 592 páginas; el acabado de los cantos es su rasgo identificativo frente a una presentación convencional.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "fecha_publicacion",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura permite conservar las 592 páginas de Acelerando en rojo. Edición especial: Edición con cantos tintados (Ficción) en un volumen físico con cantos tintados. Kindle facilita llevar la novela en un dispositivo de lectura o móvil, mientras que el audiolibro permite escucharla sin manejar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Acelerando en rojo. Edición especial: Edición con cantos tintados (Ficción) comparte el interés por las relaciones románticas con EXITUS [SAGA CORSARIOS I]: Una atracción inevitable. La obra de Iryna Zubkova. ir_zu pertenece a la narrativa juvenil, mientras que el título de Naiara Ruz Redondo destaca una atracción inevitable y se identifica como parte de una saga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409926589"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "39b5ae981ef1f687",
+  "origen": "chatgpt-web"
+}

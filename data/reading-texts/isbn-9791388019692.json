@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388019692",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El circo de la poíesis: Acerca del arte inútil. Breviario n.º 4 (Ensayo) está dirigido a lectores interesados en la reflexión filosófica sobre el arte. Su planteamiento ensayístico se distancia de la narrativa de ficción y de los libros que abordan la creación artística mediante una historia novelada.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El circo de la poíesis: Acerca del arte inútil. Breviario n.º 4 (Ensayo) se publica en tapa blanda, con 120 páginas en castellano. Es una edición física de extensión breve que permite transportar el texto y volver a pasajes concretos durante su lectura o consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El circo de la poíesis: Acerca del arte inútil. Breviario n.º 4 (Ensayo) comparte con Astrología, filosofía y magia: Un camino de práctica espiritual el interés por la filosofía. Chantal Maillard sitúa su reflexión en el arte, mientras que Soledad Davies vincula el pensamiento filosófico con la astrología, la magia y la práctica espiritual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e244131b39191461",
+  "origen": "chatgpt-web"
+}

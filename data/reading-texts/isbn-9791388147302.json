@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los tres mundos (Serie Julio César 3), de Santiago Posteguillo, encaja con lectores de novela histórica interesados en campañas militares, rivalidades políticas y personajes de la historia romana. Sus 1040 páginas permiten seguir conflictos desarrollados en varios territorios. No responde a la búsqueda de una biografía breve ni de una exposición histórica exclusivamente documental.",
+      "texto": "Los tres mundos (Serie Julio César 3) se dirige a lectores de novela histórica interesados en las campañas militares, las disputas políticas y la trayectoria de Julio César. Sus 1040 páginas y la combinación de acontecimientos en Roma, la Galia y Egipto lo alejan de quienes buscan una lectura breve o centrada en un único escenario.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas",
         "sinopsis_editorial"
@@ -15,41 +14,38 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Los tres mundos (Serie Julio César 3) aborda la conquista de las Galias, las disputas de poder en Roma y la situación política de Egipto. Santiago Posteguillo articula estos acontecimientos mediante una novela histórica que sigue a Julio César y también incorpora el destierro de Tolomeo XII junto a Cleopatra. La narración conecta decisiones militares y conflictos políticos de distintos territorios.",
+      "texto": "Santiago Posteguillo aborda la conquista de las Galias desde una perspectiva que combina historia militar y conflictos de poder. La narración relaciona las campañas de Julio César con las tensiones políticas de Roma y el exilio de Tolomeo XII y Cleopatra en Egipto. Estos acontecimientos forman parte del ciclo dedicado al ascenso político de César.",
       "evidencias": [
-        "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los tres mundos (Serie Julio César 3) cuenta con tapa dura, tapa blanda, Kindle y audiolibro. La edición de Penguin Bolsillo es de tapa blanda y tiene 1040 páginas; la tapa dura ofrece una encuadernación rígida para conservar el volumen, mientras que Kindle evita transportar un libro de esa extensión. El audiolibro permite seguir la narración mediante escucha.",
+      "texto": "Los tres mundos (Serie Julio César 3) está disponible en tapa dura, tapa blanda, Kindle y audiolibro. Para sus 1040 páginas, la tapa blanda facilita el manejo frente a una edición rígida, mientras que la tapa dura ofrece una encuadernación más resistente para conservar el volumen. Kindle evita transportar un libro tan extenso y el audiolibro permite seguir la narración mediante escucha.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los tres mundos (Serie Julio César 3) comparte con Los asesinos del emperador. Edición especial con cantos decorados la autoría de Santiago Posteguillo y el interés por la historia romana. El primero sigue las campañas de Julio César y las tensiones entre Roma, la Galia y Egipto; el segundo inicia la Trilogía de Trajano y se presenta en una edición especial con cantos decorados.",
+      "texto": "Los tres mundos (Serie Julio César 3) comparte autor y protagonista con las entregas anteriores de la serie de Santiago Posteguillo. Roma soy yo aborda los orígenes de Julio César y Maldita Roma se centra en su ascenso político, mientras que Los tres mundos desarrolla la conquista de las Galias y los conflictos de poder en Roma y Egipto. Las tres obras permiten seguir distintas etapas de la trayectoria del mismo personaje histórico.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788408326779"
+        "isbn-9791387871024",
+        "isbn-9788413148335"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "892b96e2e1590ba0",
+  "fuente_hash": "173901b6d24c963b",
   "origen": "chatgpt-web"
 }

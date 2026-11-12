@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791399254617",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La escritora invisible se dirige a lectores de narrativa juvenil que también se interesan por el cómic y la novela gráfica. Quien busque una novela exclusivamente en prosa o una lectura clasificada para adultos encontrará una propuesta de otro ámbito.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 168 páginas en un volumen físico manejable, adecuado para leer fuera de casa o incorporar a una colección. Es el formato disponible de La escritora invisible, de Gord Hill.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La escritora invisible comparte con Blue Lock nº 33 (Manga Shonen), de Yusuke Nomura, Muneyuki Kaneshiro, su presencia en el ámbito de la narrativa gráfica juvenil. La diferencia está en la orientación editorial: el primero figura como narrativa juvenil y cómic, mientras que el segundo se identifica expresamente como manga shonen.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388101991"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "22e7be05cc3fd35f",
+  "origen": "chatgpt-web"
+}

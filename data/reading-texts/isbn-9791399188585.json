@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399188585",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diccionario de cocina está pensado para lectores interesados en la gastronomía y en las referencias relacionadas con el mundo culinario. Su enfoque temático lo diferencia de los libros centrados en recetas saludables o en el análisis especializado del vino, por lo que no responde necesariamente a quien busca un recetario para cocinar paso a paso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura aporta una cubierta más resistente para conservar y consultar Diccionario de cocina, mientras que la tapa blanda ofrece una alternativa física más flexible. Con 220 páginas, ambas opciones reúnen el mismo título de Alejandro Dumas en papel; la elección depende de si se prioriza la resistencia de la cubierta o la flexibilidad del ejemplar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA), de David Villalón y Mario Villalón, comparte el ámbito culinario, pero amplía su temática a los vinos, los cócteles y la huerta. Diccionario de cocina, de Alejandro Dumas, se centra en la cocina desde el formato de diccionario, frente al enfoque gastronómico de Angelita.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934293"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f86158f3cc1947d2",
+  "origen": "chatgpt-web"
+}

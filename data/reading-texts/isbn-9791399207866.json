@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791399207866",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El libro de Maria Elena G Esquer Raygadas se dirige a lectores interesados en el desarrollo personal y en identificar qué les impide alcanzar sus objetivos. Su propuesta de tres pasos y sus 150 páginas responden a una búsqueda de autoayuda práctica, no a quien prefiera una novela o un ensayo académico.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "El libro plantea un proceso de tres pasos para abordar los obstáculos que impiden conseguir lo que se desea. Sus 150 páginas, firmadas por Maria Elena G Esquer Raygadas, permiten utilizarlo como lectura de desarrollo personal y volver a sus planteamientos al revisar objetivos propios, sin que el título determine por sí solo el contenido de cada paso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es de tapa blanda y contiene 150 páginas en castellano. Este formato permite consultar el texto en papel y realizar anotaciones durante la lectura, una posibilidad útil para trabajar sobre los objetivos personales que plantea el título.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, también aborda el cambio personal, pero anuncia cien formas de actuar desde un enfoque científico. La obra de Maria Elena G Esquer Raygadas se concentra en tres pasos para identificar obstáculos y alcanzar objetivos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8ebafe0123808dd9",
+  "origen": "chatgpt-web"
+}

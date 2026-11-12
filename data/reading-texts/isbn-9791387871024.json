@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387871024",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Maldita Roma (Serie Julio César 2): La conquista del poder de Julio César (Best Seller | Ficción) encaja con lectores que buscan ficción sobre Julio César y su ascenso al poder. Sus 896 páginas exigen una lectura prolongada, por lo que se distancia de quienes prefieren relatos breves o manuales históricos de consulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de bolsillo de Penguin Bolsillo presenta 896 páginas en tapa blanda, una opción para leer en papel con cubierta flexible. También puede elegirse tapa dura para una encuadernación rígida, Kindle para llevar la lectura en formato digital o audiolibro para escucharla durante desplazamientos y otras actividades.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Maldita Roma (Serie Julio César 2): La conquista del poder de Julio César (Best Seller | Ficción) y Roma soy yo (Serie Julio César 1): La verdadera historia de Julio César (Best Seller | Ficción) comparten autor y personaje histórico. Sus títulos los identifican como los n.º 2 y 1, respectivamente; el primero destaca la conquista del poder y el segundo presenta la historia de Julio César.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413148335"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0c56831dfb3a7715",
+  "origen": "chatgpt-web"
+}

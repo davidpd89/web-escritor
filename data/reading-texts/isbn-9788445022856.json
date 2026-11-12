@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788445022856",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Abismo Lovecraft (Minotauro Ilustrados) encaja con lectores de terror, relatos y fantasía que buscan una edición ilustrada vinculada a H. P. Lovecraft. Su planteamiento se aparta de las novelas románticas y de las lecturas realistas, al situarse en el terreno de la ficción de terror y ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El estuche se presenta en tapa dura y reúne una edición de 192 páginas publicada por Minotauro. Su pertenencia a Minotauro Ilustrados y la encuadernación rígida lo convierten en una opción física para conservar, consultar las ilustraciones y regalar a lectores interesados en H. P. Lovecraft.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Necronomicón comparte con Estuche Abismo Lovecraft (Minotauro Ilustrados) la autoría de H. P. Lovecraft y el vínculo con el terror y la fantasía oscura. El estuche incorpora también a Tomás Hijo entre sus autores y pertenece a una colección ilustrada, una diferencia relevante para quien busca una edición de carácter visual.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387574536"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "39160f4866e79927",
+  "origen": "chatgpt-web"
+}

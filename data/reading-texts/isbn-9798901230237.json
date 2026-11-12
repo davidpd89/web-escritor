@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9798901230237",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a quienes leen biografías y memorias y también muestran interés por el arte y el diseño. Por su clasificación temática, se distancia de los manuales técnicos de creación artística y de las novelas de ficción.",
+      "evidencias": [
+        "categorias",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Santo sin redención / The Saint of Zero F*cks se presenta en tapa blanda, con 256 páginas en castellano. Esta edición de Vintage Espanol permite una lectura en papel relativamente compacta y facilita volver a fragmentos concretos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El rey de la baraja: La imperecedera vida de Roberto Iniesta: 7 (Marea gráfica), de Nacho Nava Laiz, ofrece otro acercamiento biográfico vinculado a una figura creativa. Santo sin redención / The Saint of Zero F*cks, de Diego Garijo, comparte ese terreno entre vida personal y arte, aunque su título no delimita la trayectoria de una figura musical concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387938499"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "85b7d4277e2b8331",
+  "origen": "chatgpt-web"
+}

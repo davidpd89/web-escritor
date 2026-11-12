@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788408321361",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi primer atlas del mundo (Lonely Planet Junior), de Kate Baker y Teresa Bellón, está orientado al público infantil interesado en conocer el mundo mediante un atlas. Sus 16 páginas ofrecen una extensión breve, distinta de la que busca quien prefiere libros juveniles largos o narraciones de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mi primer atlas del mundo (Lonely Planet Junior) se presenta en tapa dura, con 16 páginas en castellano. La encuadernación rígida proporciona una cubierta firme para manipularlo y consultarlo repetidamente, mientras que su corta extensión facilita recorrer el atlas en sesiones breves.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "626113baae87e163",
+  "origen": "chatgpt-web"
+}

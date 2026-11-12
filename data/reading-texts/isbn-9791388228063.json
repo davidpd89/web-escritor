@@ -1,0 +1,27 @@
+{
+  "id": "isbn-9791388228063",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El camino despierto: Cómo vivir siguiendo la guía divina. se dirige a lectores interesados en el desarrollo personal desde una perspectiva de orientación espiritual. Por su enfoque, queda fuera de las búsquedas centradas exclusivamente en nutrición, ejercicio físico o cuidados corporales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar y releer en papel las 288 páginas de El camino despierto: Cómo vivir siguiendo la guía divina. Kindle ofrece el mismo título como opción de lectura digital, sin necesidad de transportar el volumen físico. La elección depende de si se prefiere conservar un ejemplar impreso o leer desde un dispositivo.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "16962b3fa9b00604",
+  "origen": "chatgpt-web"
+}

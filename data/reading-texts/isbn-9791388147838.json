@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388147838",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Autobiografía de un yogui (Best Seller | No Ficción), de Paramahansa Yogananda, se dirige a lectores interesados en las memorias personales, la filosofía y la espiritualidad. Por su carácter autobiográfico y religioso, se distancia de los manuales prácticos de ejercicios físicos y de las novelas de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Autobiografía de un yogui (Best Seller | No Ficción) tiene una edición en tapa blanda de 576 páginas, publicada por Penguin Bolsillo. El formato de bolsillo reúne el texto en un único volumen físico en castellano, tanto para una lectura continuada como para volver a consultar determinados pasajes.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Autobiografía de un yogui (Best Seller | No Ficción) y Una vida con sentido: Lo que San Benito puede enseñarte hoy (No ficción crossover), de Marta González Cambronero (Sor Marta), comparten el interés por la espiritualidad. Paramahansa Yogananda escribe desde el ámbito autobiográfico, mientras que el título de Marta González Cambronero (Sor Marta) plantea las enseñanzas de San Benito para la vida actual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427259799"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "feb78f4ace9aeea5",
+  "origen": "chatgpt-web"
+}

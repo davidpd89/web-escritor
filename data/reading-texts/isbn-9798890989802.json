@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9798890989802",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diario de Rowley: Historias Supergeniales de Miedo 2 / Rowley Jeffersons Awesome Friendly Spooky Stories 2 (Diario de Rowley / Rowley Jefferson's Journal) se dirige a quienes buscan humor relacionado con historias de miedo. Por su enfoque humorístico, se aleja de las lecturas centradas exclusivamente en el terror serio.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Diario de Rowley: Historias Supergeniales de Miedo 2 / Rowley Jeffersons Awesome Friendly Spooky Stories 2 (Diario de Rowley / Rowley Jefferson's Journal) es de tapa blanda y tiene 224 páginas. Publicada por Molino en castellano, permite leer las historias en un volumen físico que puede transportarse y prestarse.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diario de Greg 21 - Montando un pollo y El Más Gallina / Fight or Flight (Diario del Wimpy Kid) comparten autor, Jeff Kinney, con este libro. Los títulos de Greg remiten a sus propias peripecias, incluido el entorno del instituto, mientras que Diario de Rowley: Historias Supergeniales de Miedo 2 / Rowley Jeffersons Awesome Friendly Spooky Stories 2 (Diario de Rowley / Rowley Jefferson's Journal) combina humor e historias de miedo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9798890989772",
+        "isbn-9788427255951"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "35c91eb6e12279f1",
+  "origen": "chatgpt-web"
+}

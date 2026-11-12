@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Uketamo. Abrazar la vida tal cual viene está dirigido a adultos interesados en la aceptación personal, la espiritualidad japonesa y la aplicación cotidiana de ideas filosóficas. Su enfoque combina vivencias, psicología práctica y tradiciones culturales, por lo que se distancia de los manuales centrados exclusivamente en técnicas psicológicas.",
+      "texto": "Está dirigido a lectores adultos interesados en el desarrollo personal, la espiritualidad y la reflexión sobre la aceptación de los cambios. Combina planteamientos filosóficos con experiencias personales; quienes busquen un manual centrado exclusivamente en ejercicios físicos o instrucciones técnicas encontrarán un enfoque distinto.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,26 +15,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas ofrece las 208 páginas de Uketamo. Abrazar la vida tal cual viene en una edición física de Bruguera. Kindle facilita consultar sus reflexiones desde el móvil o un lector electrónico, mientras que el audiolibro permite escuchar el contenido durante desplazamientos u otras actividades.",
+      "texto": "La tapa blanda con solapas reúne sus 208 páginas en un volumen físico para leer y conservar. Kindle permite llevarlo en un dispositivo electrónico, mientras que el audiolibro ofrece la posibilidad de escuchar el contenido sin depender de la lectura en pantalla o papel.",
       "evidencias": [
         "titulo",
         "numero_paginas",
         "edicion",
-        "editorial",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Uketamo. Abrazar la vida tal cual viene y Muchas vidas, muchos maestros (edición especial con cantos tintados) abordan cuestiones relacionadas con la experiencia personal y la espiritualidad. Ana Galeote Frontelo parte de la aceptación y de tradiciones japonesas, mientras que Brian Weiss relata una experiencia que modificó su manera de comprender la vida.",
+      "texto": "Uketamo. Abrazar la vida tal cual viene, de Ana Galeote Frontelo, puede compararse con Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, por su aproximación a la espiritualidad. La diferencia está en el enfoque: el primero aborda la aceptación de la vida desde la filosofía y la psicología práctica, mientras que el segundo sitúa su propuesta en la astrología, la filosofía y la magia.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388038495"
+        "isbn-9788411214315"
       ]
     }
   ],

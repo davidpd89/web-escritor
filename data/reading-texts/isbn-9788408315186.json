@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408315186",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El callejón Susto (Libros con elementos para jugar) se orienta a lectores infantiles que disfrutan de los libros físicos con componentes de juego. Su presentación en cartón y sus 26 páginas lo distinguen de las novelas extensas destinadas a lectores que buscan una narración continuada.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El callejón Susto (Libros con elementos para jugar) plantea una experiencia de lectura vinculada al juego con el propio libro. Su edición de cartón y sus 26 páginas permiten recorrerlo en sesiones breves, manipular el volumen y volver sobre sus páginas durante una lectura compartida.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El callejón Susto (Libros con elementos para jugar) se ofrece en formato físico de tapa dura, descrito por Timun Mas Infantil como libro de cartón. Sus 26 páginas concentran la experiencia en un objeto que puede sostenerse y manipularse directamente, una característica relevante para su uso como libro de juego.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El callejón Susto (Libros con elementos para jugar) comparte con ¿Da miedo o no da miedo? (Enciclomini) la autoría de Ingela P. Arrhenius y el interés por el miedo. El segundo explora cómo una misma situación puede asustar de manera diferente a cada persona, mientras que El callejón Susto se presenta como un libro de cartón con elementos para jugar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "edicion"
+      ],
+      "enlaces": [
+        "isbn-9780241847633"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b0180f7c1a371619",
+  "origen": "chatgpt-web"
+}

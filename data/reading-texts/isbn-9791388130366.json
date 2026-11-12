@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388130366",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mas alla del ebitda, de Mario Jimenez, se orienta a lectores interesados en economía y empresa, especialmente en cuestiones relacionadas con los indicadores empresariales. Su enfoque temático queda alejado de la narrativa de ficción y de las lecturas centradas exclusivamente en el ocio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mas alla del ebitda cuenta con una edición en tapa blanda de 204 páginas. Publicada por LID Editorial en castellano, permite mantener el volumen a mano para consultar sus contenidos sobre economía y empresa en formato físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c3d8d3eb782ac7d6",
+  "origen": "chatgpt-web"
+}

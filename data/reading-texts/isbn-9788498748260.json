@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788498748260",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para lectores interesados en pintar paisajes naturales con acuarela y trabajar sus distintos elementos. Paisajes naturales a la acuarela: Un recorrido por sus elementos y cómo pintarlos, de Johannes Vloothuis, pertenece al ámbito del arte y las actividades de tiempo libre. Su enfoque práctico lo diferencia de los ensayos sobre historia del arte y de los libros de narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Paisajes naturales a la acuarela: Un recorrido por sus elementos y cómo pintarlos es en tapa blanda, con 144 páginas en castellano. El formato en papel permite mantener el libro abierto cerca de los materiales de pintura y volver a consultar sus contenidos mientras se practica. Está publicado por Editorial el Drac.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo vivir una vida con arte: 366 inspiraciones de artistas para llevar la creatividad a tu día a día (Ático de los Libros), de Katy Hessel, comparte el interés por la práctica creativa, pero plantea inspiraciones artísticas generales frente al aprendizaje de paisajes a la acuarela de Johannes Vloothuis. Destinos vintage: 40 láminas misteriosas para colorear (GEOPLANETA COLOREA), de Sophie Guët, también propone una actividad visual, aunque centrada en colorear láminas y no en aprender a pintar elementos naturales con acuarela.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388324239",
+        "isbn-9788408324836"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "288722bfc3db86c8",
+  "origen": "chatgpt-web"
+}

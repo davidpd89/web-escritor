@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788466381529",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de novela histórica y aventuras que buscan una obra extensa, con 784 páginas y una orientación narrativa. No está pensado para quien prefiera un relato corto o un ensayo histórico, porque se presenta como ficción de aventuras dentro del género histórico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Prométeme que serás libre (edición limitada) (Campaña | Ahora por menos) aparece en Penguin Bolsillo como libro de bolsillo en tapa blanda. Esta edición en castellano contiene 784 páginas y tiene el ISBN 9788466381529. Su publicación editorial está fechada el 2027-02-04, dato que, junto con la denominación de edición limitada, permite distinguir esta referencia comercial.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "formato_edicion",
+        "numero_paginas",
+        "idioma",
+        "isbn13",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de bolsillo permite disponer de las 784 páginas en papel, con la posibilidad de conservar o prestar el ejemplar. Kindle resulta más práctico cuando se quiere llevar una novela de esta extensión sin cargar con el volumen físico. La decisión se centra en la lectura impresa frente a la digital, ya que ambas figuran entre los formatos disponibles.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Prométeme que serás libre (Novela histórica) comparte título principal y autor, Jorge Molist, con esta edición limitada, de modo que la comparación se centra en la presentación del libro. Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián, es otra referencia para lectores interesados en ficción histórica, pero su título identifica una saga vinculada a la Reconquista. La edición de Jorge Molist combina las clasificaciones de novela histórica y aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425371387",
+        "isbn-9788401039539"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c19d2b65b6a66f14",
+  "origen": "chatgpt-web"
+}

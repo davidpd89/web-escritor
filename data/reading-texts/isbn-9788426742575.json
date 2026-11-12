@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788426742575",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Interfaces gráficas con LVGL y ESP32: Desarrollo práctico para sistemas embebidos (INFORMATICA) se dirige a lectores interesados en el desarrollo de interfaces gráficas y los sistemas embebidos. Su temática técnica lo diferencia de los libros de divulgación científica general y de las lecturas centradas en viajes, naturaleza o conciencia.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene las 352 páginas de Interfaces gráficas con LVGL y ESP32: Desarrollo práctico para sistemas embebidos (INFORMATICA), en una edición física de Marcombo. Es la opción disponible para consultar el contenido en papel durante el estudio o el trabajo con sistemas embebidos, sin recurrir a una edición electrónica.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA, de Keith Mansfield, permite establecer una comparación por su relación con la tecnología y el conocimiento técnico. Interfaces gráficas con LVGL y ESP32: Desarrollo práctico para sistemas embebidos (INFORMATICA) se centra en interfaces gráficas y sistemas embebidos, mientras que el título de Keith Mansfield aborda la inteligencia artificial; son dos aproximaciones temáticas distintas dentro del ámbito tecnológico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c035bfb43fc64ead",
+  "origen": "chatgpt-web"
+}

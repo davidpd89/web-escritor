@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788409933914",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Por qué sigo creyendo se sitúa en el ámbito del desarrollo personal, el bienestar y las cuestiones familiares. Por su clasificación temática, se dirige a lectores interesados en estas materias y no a quienes buscan una novela de ficción o un tratado técnico especializado.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Por qué sigo creyendo está disponible en tapa blanda y tiene 114 páginas. Su extensión permite abordar el volumen en sesiones relativamente breves y facilita transportarlo para leer fuera de casa; la edición física también permite marcar pasajes durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Por qué sigo creyendo comparte el ámbito del desarrollo personal con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody. La obra de Llorenç Gómez presenta la creencia como eje de su título, mientras que la de Liz Moody anuncia propuestas de cambio personal relacionadas con la salud, la felicidad y las relaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b6d5d3dabcbe2e1b",
+  "origen": "chatgpt-web"
+}

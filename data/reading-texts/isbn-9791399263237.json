@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791399263237",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El nombre y la voz: Para una filosofía del himno (ENSAYO Y TEORIA_FILOSOFIA), de Nicoletta Di Vita, se dirige a lectores de ensayo filosófico interesados en el himno como objeto de reflexión. Su planteamiento temático se aparta de los manuales prácticos de música y de las novelas de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El nombre y la voz: Para una filosofía del himno (ENSAYO Y TEORIA_FILOSOFIA) ofrece tapa blanda y Kindle. La edición impresa reúne 324 páginas para leer y consultar en papel; Kindle permite llevar el ensayo en un lector electrónico o en el móvil sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1364e0400d35cef6",
+  "origen": "chatgpt-web"
+}

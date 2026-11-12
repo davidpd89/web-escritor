@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788428377355",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "MP 1782. Nivel básico de Prevención de riesgos laborales (Hostelería y Turismo), de Javier Rodrigo Agulló, está dirigido a lectores que buscan formación básica sobre prevención de riesgos laborales en esos sectores profesionales. Su enfoque técnico lo distingue de los ensayos y libros de divulgación científica de carácter general.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 154 páginas en un volumen físico que permite consultar el contenido en papel. Es el formato disponible de MP 1782. Nivel básico de Prevención de riesgos laborales (Hostelería y Turismo), de Javier Rodrigo Agulló, publicado por Ediciones Paraninfo.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "MP 1782. Nivel básico de Prevención de riesgos laborales (Hostelería y Turismo), de Javier Rodrigo Agulló, comparte autor y planteamiento formativo con MP 1782. Nivel básico de Prevención de riesgos laborales (Química), de Javier Rodrigo Agulló. Ambos se ocupan de la prevención de riesgos laborales, pero aplican ese aprendizaje a ámbitos profesionales diferentes: hostelería y turismo frente a química.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788428377348"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bf17fe1ef6f348df",
+  "origen": "chatgpt-web"
+}

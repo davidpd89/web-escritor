@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788466391207",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La venganza de Odessa (Best Seller | Ficción) se dirige a lectores interesados en el thriller, la novela histórica y los conflictos de poder y política. La venganza figura entre sus temas y la edición tiene 440 páginas. Encaja menos con quienes buscan una historia romántica o una lectura breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La venganza de Odessa (Best Seller | Ficción) ofrece cuatro opciones: tapa dura, tapa blanda, Kindle y audiolibro. La edición de bolsillo de Penguin Bolsillo tiene 440 páginas; la tapa dura ofrece una encuadernación más rígida para conservar o regalar. Kindle evita transportar el volumen físico y el audiolibro permite seguir la historia mediante escucha.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pack Forsyth (contiene: Odessa | La venganza de Odessa) (Best Seller | Ficción) reúne dos títulos, incluido La venganza de Odessa (Best Seller | Ficción). La obra individual está firmada por Frederick Forsyth y Tony Kent, mientras que el pack figura bajo la autoría de Frederick Forsyth. Para quien compara ambas opciones, la diferencia principal es adquirir únicamente la novela o el conjunto que también incluye Odessa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395601"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0da5516c1a2ea994",
+  "origen": "chatgpt-web"
+}

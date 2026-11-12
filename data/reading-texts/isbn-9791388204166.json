@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388204166",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La copa mancillada (Tapa dura) (La sombra del leviatan), de Robert Jackson Bennett, se dirige a lectores de fantasía y aventuras que buscan una novela extensa. Sus 480 páginas requieren más tiempo de lectura que un volumen breve y encajan menos con quien prefiera historias realistas o libros de consulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La copa mancillada (Tapa dura) (La sombra del leviatan) cuenta con una edición de tapa dura de 480 páginas, adecuada para conservar en una colección o regalar. También está disponible en tapa blanda, una alternativa física más flexible para transportar una novela de esta extensión.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La copa mancillada (Tapa dura) (La sombra del leviatan) comparte la fantasía con Aftermyth 1. Penelope y la prueba de los dioses, aunque esta última anuncia una prueba relacionada con dioses. También puede compararse con Alas de escarcha y oro: El canto del cisne, cuyo planteamiento menciona dones ocultos y debilidades, mientras que la obra de Robert Jackson Bennett se presenta como fantasía de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324102",
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0673e04000fc1aca",
+  "origen": "chatgpt-web"
+}

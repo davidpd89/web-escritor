@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387600358",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Introducción a la filosofía (Serie ENDEBATE) está orientado a lectores que quieren acercarse a la filosofía mediante un libro de extensión contenida. Por su temática introductoria, se diferencia de las obras centradas en una corriente filosófica concreta o en la biografía de un pensador.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Introducción a la filosofía (Serie ENDEBATE) tiene 128 páginas y se ofrece en tapa blanda y Kindle. La versión impresa permite subrayar conceptos y conservar anotaciones en papel; Kindle facilita consultar el texto desde distintos dispositivos y ajustar la visualización durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A vivir también se aprende: Los 5 pilares de la sabiduría para ubicarse en tiempos de cambio (Deusto) comparte el interés por la reflexión filosófica, aunque vincula la sabiduría con los cambios vitales. Amigos, aduladores, charlatanes, de Plutarco, aporta una autoría clásica, mientras que Introducción a la filosofía (Serie ENDEBATE), de Javier Gomá Lanzón, plantea un acercamiento general a la disciplina.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423440887",
+        "isbn-9788441445307"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9931d1a8c2ecf9c8",
+  "origen": "chatgpt-web"
+}

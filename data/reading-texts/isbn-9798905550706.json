@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9798905550706",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las Escrituras Perdidas de Nag Hammadi ― Edición Library of Alexandria: Evangelios gnósticos de Tomás y Felipe, el Libro Secreto de Juan y los escritos perdidos de la Iglesia primitiva está dirigido a lectores interesados en los textos religiosos antiguos y la espiritualidad. Su orientación hacia los escritos gnósticos lo diferencia de los libros de ficción juvenil y de las guías de prácticas espirituales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 222 páginas y reúne los textos en un volumen físico de cubierta flexible. Es el formato disponible para esta obra de Library Of Alexandria, una alternativa para quien prefiere consultar y conservar el contenido en papel.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las Escrituras Perdidas de Nag Hammadi ― Edición Library of Alexandria: Evangelios gnósticos de Tomás y Felipe, el Libro Secreto de Juan y los escritos perdidos de la Iglesia primitiva comparte con Guía completa de Mudras: El secreto para sentirse bien en 3 minutos está en tus manos (No ficción), de David Muñoz Moreno, Lourdes Muñoz Anaya, el interés por la espiritualidad. Se diferencia por centrarse en escritos religiosos antiguos, frente a los mudras de la guía. Artefactos mágicos: El catálogo secreto (MAGIA Y OCULTISMO), de Emanuela Brumana, Marco Guadalupi, amplía la comparación hacia la magia y el ocultismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724210",
+        "isbn-9791388139604"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8b20dd14f25a56ba",
+  "origen": "chatgpt-web"
+}

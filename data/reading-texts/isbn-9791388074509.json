@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791388074509",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El imperio de trigan Vol. 6 encaja con lectores de cómic y novela gráfica que buscan un volumen identificado expresamente con el número 6. La obra reúne 240 páginas y está firmada por Oliver Frey, Gerry Wood y Mike Butterworth. Su presentación como volumen numerado encaja menos con quien busca un título sin numeración dentro de una colección.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El imperio de trigan Vol. 6 tiene una edición en tapa dura de 240 páginas, publicada por Albion en castellano. El título lo identifica como el n.º 6, un detalle útil para ordenar los ejemplares de una colección en papel. La cubierta rígida proporciona una encuadernación apropiada para guardar el volumen en una estantería y consultarlo de nuevo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "df0bdc3ac56568a5",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788427257818",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Querida hija, papá está contigo (Siempre en mi corazón): Un libro sobre un vínculo infinito y único (Serres) se dirige a quienes buscan una lectura sobre la relación entre padres e hijas. Sus 40 páginas y su temática familiar lo alejan de los manuales extensos de crianza o de las novelas de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de tapa dura de Molino reúne las 40 páginas de Querida hija, papá está contigo (Siempre en mi corazón): Un libro sobre un vínculo infinito y único (Serres). Su encuadernación rígida permite conservarlo como recuerdo familiar o entregarlo como regalo, mientras que su extensión facilita leerlo en sesiones breves.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Querido nieto (Siempre en mi corazón) comparte con Querida hija, papá está contigo (Siempre en mi corazón): Un libro sobre un vínculo infinito y único (Serres) la autoría de Gregory E. Lang y el interés por los vínculos familiares. El primero se centra en abuelos y nietos, con texto rimado e ilustraciones de animales; el segundo aborda la relación entre padre e hija.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256620"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "afb4c111d17424bd",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,36 @@
+{
+  "id": "isbn-9788491058892",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lata Dostoievski: Ediciones icónicas (Penguin Clásicos | Vintage) se dirige a lectores interesados en los clásicos de Fiódor M. Dostoievski y en las ediciones de bolsillo en castellano. Por su clasificación editorial, encaja menos con quienes buscan cómic o novela gráfica que con quienes prefieren narrativa literaria.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El cocodrilo (Austral Esenciales) y Los hermanos Karamázov (Penguin Clásicos | Vintage) comparten con Lata Dostoievski: Ediciones icónicas (Penguin Clásicos | Vintage) la autoría de Fiódor M. Dostoievski. La diferencia identificable está en las denominaciones editoriales: la primera obra pertenece a Austral Esenciales, mientras que la segunda comparte el sello Penguin Clásicos | Vintage con el título comparado. Así, la comparación permite distinguir propuestas editoriales de un mismo autor sin atribuirles contenidos equivalentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "editorial"
+      ],
+      "enlaces": [
+        "isbn-9788408331629",
+        "isbn-9788491058731",
+        "isbn-9788491056287"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fffc93436fe86321",
+  "origen": "chatgpt-web"
+}

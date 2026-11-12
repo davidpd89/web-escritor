@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El alma de las especias está dirigido a adultos interesados en la cocina, las plantas y la historia de los ingredientes. Sus contenidos combinan usos culinarios, tradiciones y relatos históricos, por lo que se aparta de los recetarios centrados exclusivamente en preparar platos mediante instrucciones paso a paso.",
+      "texto": "El alma de las especias, de Jessica Ramos, está dirigido a adultos interesados en la cocina y en la historia de las plantas utilizadas como condimentos. Aborda cuarenta plantas y especias desde sus orígenes, relatos tradicionales y aplicaciones culinarias; no responde al planteamiento de un recetario centrado exclusivamente en preparar platos rápidos.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,26 +15,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El alma de las especias puede leerse en tapa blanda con solapas o en Kindle. La edición impresa reúne sus 448 páginas en un volumen físico para consultar y regalar; Kindle permite acceder al contenido desde el móvil o un lector electrónico, sin cargar con el ejemplar en papel.",
+      "texto": "La tapa blanda con solapas reúne las 448 páginas de El alma de las especias en un volumen físico que permite consultar sus apartados sobre plantas y condimentos. Kindle facilita llevar el contenido en el móvil o lector electrónico y acceder a él sin transportar el libro impreso.",
       "evidencias": [
         "titulo",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El alma de las especias y Artesanos del queso comparten el interés por los alimentos y su contexto cultural, aunque Jessica Ramos aborda plantas y condimentos e Ignacio Medina se centra en queserías españolas. Frente a 20 minutos ¡y listo!, de Jamie Oliver, orientado a cocinar con poco tiempo, El alma de las especias dedica espacio a los orígenes, las leyendas y los usos de los ingredientes.",
+      "texto": "El alma de las especias y 20 minutos ¡y listo! se relacionan con la cocina, pero tienen enfoques distintos. Jessica Ramos aborda el origen, la historia y los usos de cuarenta plantas y especias, mientras que el libro de Jamie Oliver pone el acento en cocinar cuando se dispone de poco tiempo.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425374074",
-        "isbn-9788419483881"
+        "isbn-9788425374074"
       ]
     }
   ],

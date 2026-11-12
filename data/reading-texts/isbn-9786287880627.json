@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786287880627",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sin remedio / No Remedy encaja con lectores de narrativa contemporánea que buscan una obra vinculada al poder y la política, con una extensión de 648 páginas. Su clasificación también incluye los clásicos, por lo que se distancia de las lecturas breves y de quienes buscan exclusivamente misterio o fantasía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sin remedio / No Remedy está disponible en tapa blanda, con 648 páginas en castellano publicadas por Alfaguara. Es una edición física de extensión considerable, apropiada para quien prefiere mantener un volumen impreso durante una lectura larga y conservarlo después en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sin remedio / No Remedy y El viaje del profesor Caritat o Las desventuras de la Razón: Una comedia filosófica (Andanzas) permiten explorar narrativa relacionada con cuestiones políticas e intelectuales; el segundo anuncia expresamente una comedia filosófica, mientras que el primero se clasifica como narrativa contemporánea y clásico. El fuego de Bandung (Hispánica) ofrece otra referencia narrativa del catálogo, firmada por Jordi Soler frente a la autoría de Antonio Caballero.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387846602",
+        "isbn-9788411078696"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2c8891ae1b4d7a3e",
+  "origen": "chatgpt-web"
+}

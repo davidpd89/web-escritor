@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791370203818",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensado para lectores interesados en las biografías políticas, el monarquismo y la historia del siglo XX. Sus 838 páginas y su orientación histórica encajan menos con quien busca una introducción breve a la política o una lectura de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Examina la trayectoria de José María de Areilza desde su vinculación con la monarquía y la actividad política del siglo XX. Pablo Hispán Iglesias de Ussel aborda esa figura mediante una biografía situada en el ámbito de la historia política y social.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de José María de Areilza. La política ante todo: Biografía de un monárquico del siglo XX (Historia de las dinámicas sociales, culturales y políticas) está disponible en tapa blanda. Sus 838 páginas hacen de ella un volumen extenso, más adecuado para consultar y leer en sesiones prolongadas que para llevar habitualmente en el bolsillo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes comparte el interés por reconstruir una trayectoria política individual, aunque organiza su propuesta en episodios. Antes de irme (Espasa Actualidad) también se relaciona con una figura de la política, mientras que José María de Areilza. La política ante todo: Biografía de un monárquico del siglo XX (Historia de las dinámicas sociales, culturales y políticas) se centra expresamente en un monárquico del siglo XX.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9786073873154",
+        "isbn-9788467085044"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "338baada92523253",
+  "origen": "chatgpt-web"
+}

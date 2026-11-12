@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "That Texas Blood nº 02 se dirige a lectores de cómic interesados en investigaciones criminales, sectas y desapariciones. La muerte de un niño durante un ritual y la intervención de un detective privado apuntan a una lectura de contenido violento, alejada de los misterios infantiles. El título lo identifica como el n.º 02.",
+      "texto": "That Texas Blood nº 02 está orientado a lectores de cómic y novela gráfica que buscan misterio criminal y situaciones inquietantes. La presencia de una secta asesina, la muerte de un niño y una desaparición lo alejan de las historias detectivescas de tono infantil o humorístico.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,37 +13,38 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "That Texas Blood nº 02 es un thriller en formato cómic que combina una investigación criminal con la actividad de una secta. La acción comienza en septiembre de 1981, tras un ritual fallido en un rancho que termina con un niño muerto y su hermana desaparecida. El detective privado Harlan Eversaul interviene para intentar detener a los responsables antes de que actúen de nuevo.",
+      "texto": "That Texas Blood nº 02 desarrolla un misterio criminal situado en septiembre de 1981, con una investigación relacionada con una secta y un ritual fallido. Chris Condon y Jacob Phillips articulan el conflicto alrededor de la intervención de un detective privado y la necesidad de impedir nuevos actos violentos; el título identifica el volumen como nº 02.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "That Texas Blood nº 02 está disponible en tapa dura, con encuadernación cartoné y sin sobrecubierta. Sus 184 páginas forman un volumen de cómic que puede conservarse en una estantería y consultarse repetidamente, con cubiertas rígidas que ofrecen mayor protección física que una encuadernación flexible.",
+      "texto": "That Texas Blood nº 02 se publica en tapa dura de tipo cartoné, sin sobrecubierta. Sus 184 páginas componen un volumen físico de extensión relativamente contenida, cuya encuadernación rígida permite guardar y consultar la novela gráfica sin depender de una edición digital.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "edicion",
         "numero_paginas",
+        "formatos_disponibles",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Tomogui: que comience la caza 1 (Seinen), de Nobuaki Kanazawa y RAZEN, comparte con That Texas Blood nº 02 la presencia de conflictos violentos, pero aborda una venganza escolar en lugar de una investigación sobre una secta. Resuelve el caso con Mortadelo y Filemón, de Francisco Ibáñez, también gira alrededor de resolver casos, aunque se centra en agentes secretos y plantea un tipo de misterio distinto del thriller criminal.",
+      "texto": "Estuche El nombre de la rosa (novela gráfica, vols. 1 y 2) (Lumen Gráfica), de Umberto Eco y Milo Manara, comparte con That Texas Blood nº 02 el formato narrativo gráfico. El primero se presenta como un estuche de volúmenes, mientras que la obra de Chris Condon y Jacob Phillips ofrece un misterio criminal ambientado en 1981 dentro de un tomo de 184 páginas.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
         "categorias",
         "sinopsis_editorial",
-        "afines_catalogo"
+        "numero_paginas"
       ],
       "enlaces": [
-        "isbn-9788402431578",
-        "isbn-9791387962272"
+        "isbn-9788426438072"
       ]
     }
   ],

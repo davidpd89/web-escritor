@@ -4,16 +4,15 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Aguas turbulentas está dirigido a lectores de novela policiaca que prefieren investigaciones con secretos familiares, presión institucional y pistas inquietantes. La desaparición de una estudiante y los elementos siniestros del caso lo alejan de los misterios de tono ligero o humorístico.",
+      "texto": "Se dirige a lectores de misterio policial que prefieren investigaciones con varias pistas, secretos familiares y presión sobre los agentes. La desaparición de una estudiante y los indicios inquietantes marcan un tono oscuro; no encaja con quien busca una intriga ligera sin amenazas ni elementos perturbadores.",
       "evidencias": [
-        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Se trata de un thriller policial ambientado en Edimburgo, construido alrededor de una desaparición y de la investigación del inspector John Rebus. El caso combina la influencia de una familia adinerada, objetos perturbadores y una actividad por Internet que conecta distintas líneas de investigación.",
+      "texto": "Combina investigación criminal y narrativa contemporánea en un caso situado en Edimburgo. John Rebus debe esclarecer la desaparición de una joven mientras su padre exige resultados a la policía. Una pequeña figura funeraria y la participación de la desaparecida en un juego por Internet introducen líneas de investigación conectadas con secretos del pasado.",
       "evidencias": [
         "categorias",
         "sinopsis_editorial"
@@ -21,31 +20,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Aguas turbulentas puede leerse en tapa blanda o en Kindle, con una extensión de 576 páginas en su edición impresa. El papel permite mantener una copia física de esta investigación extensa, mientras que Kindle facilita llevar la novela en un lector electrónico o dispositivo compatible.",
+      "texto": "La tapa blanda contiene 576 páginas y permite conservar la novela en papel para una lectura prolongada. Kindle evita transportar ese volumen y facilita retomarlo desde el móvil o un lector electrónico. El audiolibro permite seguir la investigación mediante la escucha, sin necesidad de sostener el libro.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "sinopsis_editorial"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aguas turbulentas y Corazón de sílex parten de sucesos inquietantes relacionados con mujeres jóvenes, aunque Rankin Ian desarrolla una investigación policial por desaparición y la otra obra plantea una pérdida de memoria. También se aproxima a El problema final (edición serie) por el misterio criminal, pero sitúa el peso del caso en las pesquisas del inspector John Rebus.",
+      "texto": "Corazón de sílex, de Emilia Landaluce y Rosa Belmonte, comparte con Aguas turbulentas una intriga relacionada con una joven y unos hechos que deben esclarecerse. La diferencia está en el conflicto inicial: Corazón de sílex presenta a una protagonista que no recuerda lo sucedido la noche anterior, mientras que Aguas turbulentas, de Rankin Ian, sigue una investigación policial sobre una desaparición en Edimburgo.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788467083330",
-        "isbn-9788466389136"
+        "isbn-9788467083330"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6c6ccea180db21c7",
+  "fuente_hash": "527a9759400a723e",
   "origen": "chatgpt-web"
 }

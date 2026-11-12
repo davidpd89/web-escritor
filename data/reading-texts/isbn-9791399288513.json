@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399288513",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los espíritus de Victoria Park, de Alba Beldad, reúne fantasía, aventuras, ciencia ficción y relatos. Sus 104 páginas lo sitúan entre las lecturas de extensión breve, frente a novelas largas; por sus géneros, encaja menos con quienes buscan únicamente realismo contemporáneo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los espíritus de Victoria Park cuenta con una edición en tapa blanda de 104 páginas, publicada por S Cuadernos de Safo. Su extensión permite llevar el libro en papel sin cargar con un volumen especialmente grueso y facilita volver a los relatos de forma independiente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los espíritus de Victoria Park comparte la fantasía con SIZIGIA: El renacer de la leyenda: 1, de Tamara Allegue, y Alas de Hierro, de Rebecca Yarros. La obra de Alba Beldad combina aventuras, ciencia ficción y relatos en 104 páginas, mientras que los títulos afines incorporan referencias a leyendas o series. La diferencia para el lector está en la extensión breve y la presencia del relato como género en Los espíritus de Victoria Park.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399318111"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ccadfdf945d01144",
+  "origen": "chatgpt-web"
+}

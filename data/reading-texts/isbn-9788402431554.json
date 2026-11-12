@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788402431554",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La vida según Ibáñez está dirigido a lectores interesados en el humor y el cómic, especialmente en la obra de Francisco Ibáñez. Sus 168 páginas y su presentación como cómic y novela gráfica lo sitúan fuera de la narrativa convencional y del ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 168 páginas de La vida según Ibáñez en un volumen físico que puede conservarse en la colección o regalarse. Kindle permite consultar el libro en pantalla desde un móvil o lector electrónico, sin necesitar espacio para guardarlo.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La vida según Ibáñez comparte autor con Mortadeluxe y 7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica): los tres títulos están vinculados a Francisco Ibáñez. La diferencia está en su identificación editorial y temática: aquí el título presenta una visión de conjunto sobre Ibáñez, mientras que los otros dos se identifican con el universo de Mortadelo y Filemón.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402432063",
+        "isbn-9788402431790"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b9245025dd7aab9a",
+  "origen": "chatgpt-web"
+}

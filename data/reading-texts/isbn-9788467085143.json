@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788467085143",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El tesoro del convento caído (Novela) encaja con lectores interesados en los clásicos y la narrativa contemporánea. Peridis firma una novela de 416 páginas, con una extensión considerable para quien busca una lectura larga; no está orientada a quienes prefieren libros breves.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El tesoro del convento caído (Novela) está disponible en tapa blanda, en una edición de bolsillo de 416 páginas. Este formato reúne una novela de extensión considerable en un volumen físico pensado para quien prefiere leer en papel y disponer de una edición manejable.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3f5b70462ba4dc28",
+  "origen": "chatgpt-web"
+}

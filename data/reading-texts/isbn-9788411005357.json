@@ -4,47 +4,44 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Métricas se dirige a lectores de filosofía interesados en cómo los sistemas de puntuación condicionan la vida cotidiana. C. Thi Nguyen examina prácticas como contar los «me gusta», registrar datos mediante relojes inteligentes y utilizar calificaciones. No está planteado como un manual para mejorar indicadores personales o profesionales.",
+      "texto": "Métricas se dirige a lectores interesados en la filosofía aplicada a la vida cotidiana y en cómo las puntuaciones influyen en las decisiones personales. Encaja menos con quienes buscan un manual técnico de análisis de datos o instrucciones para diseñar indicadores empresariales.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Métricas estudia la transformación de actividades cotidianas en experiencias medidas mediante puntuaciones y resultados cuantificables. C. Thi Nguyen utiliza ejemplos de redes sociales, dispositivos inteligentes y sistemas de calificación para examinar qué sucede cuando los números influyen en las prioridades personales. Su enfoque filosófico cuestiona la relación entre medir una actividad y determinar su importancia.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Métricas ofrece tres posibilidades: tapa blanda, Kindle y audiolibro. Sus 416 páginas pueden leerse en la edición rústica con solapas de Ediciones Península, mientras que Kindle permite transportar el texto digitalmente. El audiolibro cambia la lectura por la escucha y facilita seguir su reflexión filosófica sin utilizar un ejemplar físico.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "edicion",
-        "editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Métricas comparte con Bobadas la preocupación por aquello que las personas consideran importante en su vida cotidiana. C. Thi Nguyen examina los sistemas de puntuación, mientras que Javier Urra Portillo y Cristina González Reche plantean preguntas sobre las prioridades personales ante la abundancia de estímulos. Antes de perder el juicio aborda otro problema relacionado con el entorno informativo: la influencia de la propaganda y las cámaras de eco sobre la percepción de la verdad.",
+      "texto": "Estudia la influencia de los sistemas de puntuación y la ludificación sobre aquello que las personas consideran importante. C. Thi Nguyen utiliza ejemplos como los relojes inteligentes, las valoraciones en redes sociales y las calificaciones para desarrollar una reflexión filosófica sobre la medición de la vida cotidiana.",
       "evidencias": [
         "titulo",
         "autores",
         "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición física es una rústica con solapas de 416 páginas, adecuada para consultar pasajes y volver sobre los argumentos. Kindle permite leer el ensayo en el móvil o en un lector electrónico, mientras que el audiolibro ofrece la alternativa de seguir sus reflexiones mediante escucha.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Métricas puede compararse con A vivir también se aprende: Los 5 pilares de la sabiduría para ubicarse en tiempos de cambio (Deusto), de Frédéric Lenoir, por su interés en cómo orientar la vida cotidiana. C. Thi Nguyen examina la influencia de las puntuaciones y la ludificación, mientras que Frédéric Lenoir plantea la sabiduría como respuesta a los tiempos de cambio. Ambos invitan a reconsiderar criterios personales, aunque parten de problemas diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388387302",
-        "isbn-9788426741622"
+        "isbn-9788423440887"
       ]
     }
   ],

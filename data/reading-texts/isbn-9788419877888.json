@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788419877888",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de teatro contemporáneo y a quienes siguen las obras vinculadas a certámenes literarios. Su identificación con la modalidad teatral lo distancia de las novelas extensas y de los ensayos que desarrollan una argumentación académica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El cerco de San Marino: XXXI Certamen de Letras Hispánicas Rafael de Cózar (modalidad teatro): 19 (El teatro moderno) se presenta como una obra teatral vinculada a un certamen de letras hispánicas. Su título remite a una situación de cerco y la sitúa dentro de la colección El teatro moderno, sin establecer por ello un contexto histórico concreto.",
+      "evidencias": [
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Ediciones Espuela de Plata reúne 92 páginas en castellano. Su extensión permite abordar el texto teatral en pocas sesiones y facilita llevar el ejemplar para una lectura compartida o una consulta durante el trabajo escénico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "De la estética como política: Para una rehabilitación del sentido en el cine (Signo e imagen) y El cerco de San Marino: XXXI Certamen de Letras Hispánicas Rafael de Cózar (modalidad teatro): 19 (El teatro moderno) se relacionan con las artes escénicas o audiovisuales. La obra de Noël Burch plantea una reflexión sobre el cine, mientras que la de David Alberto Martínez Vallejo se identifica como texto teatral.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788437650586"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1e3928e171e5b988",
+  "origen": "chatgpt-web"
+}

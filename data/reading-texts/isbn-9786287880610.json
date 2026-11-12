@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786287880610",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Caperucita se come al lobo / Little Red Riding Hood Eats the Wolf se dirige a quienes buscan relatos de narrativa contemporánea en un volumen breve. Sus 96 páginas lo distinguen de las novelas extensas y de las lecturas orientadas específicamente al ensayo o la divulgación.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer las 96 páginas de Caperucita se come al lobo / Little Red Riding Hood Eats the Wolf en un volumen físico reducido. Kindle facilita llevar la lectura en el móvil o en un lector electrónico, mientras que el audiolibro permite escucharla durante desplazamientos o actividades que no requieren atención visual.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Caperucita se come al lobo / Little Red Riding Hood Eats the Wolf comparte con Ficciones (Hispánica) su vinculación con los relatos, aunque se trata de obras de Pilar Quintana y Jorge Luis Borges, respectivamente. Después de medianoche. Trece historias para no dormir: Prólogo de Stephen King (Espasa Narrativa) también propone historias breves, pero su título anuncia expresamente una orientación hacia el miedo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084429",
+        "isbn-9791387846107"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "970cd4bfccbfc288",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cómo ganar una guerra comercial se dirige a lectores interesados en economía internacional, política comercial y relaciones entre países. El análisis de aranceles y tensiones geopolíticas lo aleja de los manuales de finanzas domésticas y de las lecturas centradas en gestionar el presupuesto personal.",
+      "texto": "Cómo ganar una guerra comercial se dirige a lectores interesados en economía internacional, decisiones políticas y disputas comerciales. Su tratamiento de los aranceles y las tensiones geopolíticas encaja menos con quien busca una novela o una introducción general a las finanzas personales.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,35 +13,36 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una lectura de economía y política centrada en las transformaciones del comercio internacional. Soumaya Keynes y Chad P. Bown examinan el papel de los aranceles, los conflictos bélicos y las tensiones geopolíticas en un escenario donde las relaciones comerciales están cambiando. Su enfoque es explicativo y económico, no el de una novela bélica.",
+      "texto": "Es una obra de economía y política centrada en los cambios del comercio mundial y sus consecuencias. Soumaya Keynes y Chad P. Bown abordan los aranceles, los conflictos internacionales y las tensiones geopolíticas como elementos de un escenario comercial en transformación.",
       "evidencias": [
-        "categorias",
+        "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cómo ganar una guerra comercial está disponible en tapa blanda y Kindle. La edición física de Deusto tiene 424 páginas y solapas, una opción para consultar y conservar el ensayo en papel. Kindle permite llevar el texto en un dispositivo electrónico y retomar la lectura sin transportar el volumen impreso.",
+      "texto": "La tapa blanda ofrece una edición de 424 páginas en rústica con solapas, adecuada para consultar y señalar pasajes durante la lectura. Kindle permite llevar Cómo ganar una guerra comercial en un dispositivo electrónico sin transportar el volumen físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
         "numero_paginas",
-        "editorial"
+        "edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cómo ganar una guerra comercial y La batalla por la vivienda estudian problemas económicos relacionados con decisiones políticas, pero el primero se ocupa del comercio internacional y el segundo de las causas de la crisis habitacional. La economía del cuidado plantea otra perspectiva económica, vinculada a la sostenibilidad y al debate sobre el crecimiento, frente al análisis de aranceles y conflictos comerciales.",
+      "texto": "Cómo ganar una guerra comercial comparte con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) el interés por las relaciones entre economía y política. Mientras Soumaya Keynes y Chad P. Bown se centran en los conflictos comerciales internacionales, la obra de Miguel Anxo Bastos Boubeta aborda las raíces del pensamiento anarcocapitalista.",
       "evidencias": [
         "titulo",
+        "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788449346187",
-        "isbn-9788449345937"
+        "isbn-9791388182457"
       ]
     }
   ],

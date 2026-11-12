@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788410192300",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en la ornitología, la observación de aves y el estudio de la naturaleza en Vitoria-Gasteiz. Su orientación científica y territorial lo aleja de las guías generales de animales y de las lecturas de ficción sobre la naturaleza.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje del libro es el estudio de las aves nidificantes de Vitoria-Gasteiz desde una perspectiva científica. Su planteamiento de atlas delimita el ámbito geográfico y el grupo de aves tratado, en lugar de abordar la fauna de manera general.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 352 páginas en castellano y está publicada por Sociedad de Ciencias Aranzadi. El formato físico permite consultar el atlas por partes y volver a sus contenidos durante el estudio de las aves nidificantes.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Frente a 33 islas: Un periplo mediterráneo. De Marettimo a Venecia., centrado en un recorrido mediterráneo, este atlas delimita su atención a las aves nidificantes de Vitoria-Gasteiz. Ambos títulos tienen una referencia geográfica concreta, pero el de Juan Arizaga y sus coautores adopta un enfoque ornitológico y científico.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387873127"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "054ee8faeb277065",
+  "origen": "chatgpt-web"
+}

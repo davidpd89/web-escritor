@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los límites del infinito se dirige a lectores interesados en las matemáticas y en los problemas que conectan la geometría con situaciones cotidianas. Su planteamiento divulgativo encaja menos con quien busca una narración de ficción o un libro dedicado exclusivamente a ejercicios de cálculo.",
+      "texto": "Orientado a lectores de divulgación científica interesados en problemas matemáticos, geometría, optimización e infinito. Su atención a preguntas sobre formas, rutas y demostraciones encaja menos con quienes buscan una biografía científica o un manual de programación.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,37 +13,37 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Ian Stewart aborda cuestiones matemáticas relacionadas con las formas geométricas, la optimización de recorridos y el concepto de infinito. Los límites del infinito utiliza problemas como la estructura de los panales, la distribución de esferas y la coloración de mapas para explorar cómo se formulan y resuelven preguntas matemáticas.",
+      "texto": "Explica cuestiones matemáticas relacionadas con las estructuras hexagonales, la disposición eficiente de esferas, las rutas mínimas y la coloración de mapas. Ian Stewart utiliza estos problemas para abordar también el concepto de infinito desde la divulgación científica.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los límites del infinito cuenta con 368 páginas en una edición de tapa blanda con solapas, adecuada para detenerse en los ejemplos geométricos y regresar a ellos sobre papel. Kindle permite consultar el ensayo desde el móvil o un lector electrónico, con la ventaja de transportar toda su extensión sin añadir un libro físico.",
+      "texto": "Los límites del infinito está disponible en tapa blanda y Kindle, con 368 páginas en la edición física de rústica con solapas. El papel permite consultar problemas y volver sobre sus explicaciones; Kindle facilita llevar el texto en un lector electrónico o en el móvil sin transportar el volumen.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
         "edicion",
-        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los límites del infinito y 50 cosas que hay que saber sobre IA comparten una orientación divulgativa hacia cuestiones científicas y tecnológicas. Ian Stewart se ocupa de problemas matemáticos, mientras Keith Mansfield introduce conceptos de inteligencia artificial; Cerebro, espacio y tiempo, por su parte, traslada las preguntas sobre espacio y orientación al funcionamiento cerebral.",
+      "texto": "50 cosas que hay que saber sobre IA comparte con Los límites del infinito la orientación hacia cuestiones científicas y tecnológicas, pero trata la inteligencia artificial en lugar de problemas matemáticos. El libro de Ian Stewart se concentra en geometría, optimización e infinito, mientras que el de Keith Mansfield presenta conocimientos sobre inteligencia artificial.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788434441309",
-        "isbn-9791387941208"
+        "isbn-9788434441309"
       ]
     }
   ],

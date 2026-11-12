@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073878500",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La democracia ausente / The Absent Democracy está dirigida a lectores interesados en la historia y en cuestiones relacionadas con el poder y la política. Sus 264 páginas corresponden a una obra de no ficción que se aparta de la novela histórica y de los relatos centrados en personajes ficticios.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de La democracia ausente / The Absent Democracy contiene 264 páginas en castellano y permite consultar el texto en papel. Kindle facilita su lectura en dispositivos electrónicos y el audiolibro ofrece una opción de escucha, de modo que la elección depende de si se prefiere leer, consultar físicamente o escuchar el contenido.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La democracia ausente / The Absent Democracy y La jaula de la melancolía / The Cage of Melancholy comparten autor, Roger Bartra, aunque sus títulos señalan asuntos distintos: la democracia y la melancolía. 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, aborda desde su propio título la caída de una democracia, mientras que la obra de Bartra se clasifica dentro de la historia y la política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073878463",
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eca36eb7a43ff882",
+  "origen": "chatgpt-web"
+}

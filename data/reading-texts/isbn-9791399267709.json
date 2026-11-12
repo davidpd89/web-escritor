@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791399267709",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Jesulito Jesulín (Cómic) se orienta a lectores interesados en el cómic y la novela gráfica, con una vinculación editorial al arte y el diseño. Sus 240 páginas lo distinguen de las novelas exclusivamente textuales; encaja menos con quien busca una obra de narrativa tradicional sin componente gráfico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Jesulito Jesulín (Cómic) está disponible en tapa blanda, con 240 páginas en castellano. El formato permite consultar físicamente sus páginas y guardarlo junto a otros cómics, con una encuadernación flexible frente a la rigidez de una tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "595fb9cb14f5712b",
+  "origen": "chatgpt-web"
+}

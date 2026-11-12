@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9786073881517",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inteligencia espiritual / Spiritual Intelligence, de Axel Wahnish, está dirigido a lectores interesados en el desarrollo personal y en los contenidos de crecimiento individual. Su enfoque editorial se sitúa fuera de la narrativa de ficción, por lo que no responde a quien busca principalmente novelas o relatos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 352 páginas de Inteligencia espiritual / Spiritual Intelligence, de Axel Wahnish. Es la opción disponible para quien prefiere leer en papel, conservar el volumen o consultar sus páginas sin recurrir a dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f5e10dba5f9e98d6",
+  "origen": "chatgpt-web"
+}

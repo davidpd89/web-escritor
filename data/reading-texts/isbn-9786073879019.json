@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9786073879019",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Prometida / The Fiancée, de Nieves Herrero, encaja con lectores de narrativa contemporánea que buscan una historia vinculada al romance. Sus 616 páginas corresponden a una novela extensa, más cercana a la lectura prolongada que a un relato breve. Por su clasificación temática, se aleja de quienes prefieren exclusivamente fantasía, divulgación o ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Prometida / The Fiancée se ofrece en tapa dura, tapa blanda, Kindle y audiolibro. La edición de Ediciones B tiene 616 páginas en tapa blanda, mientras que la tapa dura proporciona una cubierta más rígida para conservarla o regalarla. Kindle permite llevar una novela de esta extensión en el móvil, y el audiolibro sustituye la lectura visual por la escucha.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Prometida / The Fiancée comparte el componente romántico con A mil por hora y Amor en pole position (Dirty Air 3), aunque sus planteamientos temáticos son distintos. La novela de Nieves Herrero se clasifica como romance y narrativa contemporánea, mientras que las obras de Hannah Grace y Lauren Asher sitúan sus historias amorosas en el mundo de la Fórmula 1. La comparación permite distinguir un romance contemporáneo de otros vinculados al deporte del motor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683449",
+        "isbn-9788427055674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e59eebc0d4a4e7fa",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788408329268",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Cosas de casa + La nevera medio llena (Grandes chefs), de Jordi Roca, se dirige a quienes buscan publicaciones de cocina y ocio doméstico. Sus 400 páginas en castellano lo alejan de las lecturas de ficción y de los manuales culinarios de extensión breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Estuche Cosas de casa + La nevera medio llena (Grandes chefs) se presenta en tapa blanda, con 400 páginas publicadas por Planeta Gastro. Es una opción física para consultar en casa y conservar junto a otros libros de cocina; el estuche reúne los dos títulos indicados en su nombre.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche Cosas de casa + La nevera medio llena (Grandes chefs), de Jordi Roca, comparte el ámbito culinario con Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA), de David Villalón y Mario Villalón. Este último incorpora vinos y cócteles a su temática, mientras que el estuche reúne Cosas de casa y La nevera medio llena. También puede compararse con Atlas Mundial Del Vino (NATURART), de Hugh Johnson, centrado por su título en el vino frente al enfoque de cocina del estuche.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934293",
+        "isbn-9788418075933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "49d86510b5a86ddf",
+  "origen": "chatgpt-web"
+}

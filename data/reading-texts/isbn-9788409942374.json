@@ -1,0 +1,27 @@
+{
+  "id": "isbn-9788409942374",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra de José Omar Sanchez se dirige a lectores interesados en el desarrollo personal, las experiencias biográficas y la influencia del pasado en la vida presente. Combina temas de bienestar, familia y narrativa juvenil, por lo que se aleja de quienes buscan exclusivamente aventuras o fantasía.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de tapa blanda permite leer sus 312 páginas en papel y señalar pasajes para consultarlos después. La versión Kindle ofrece el mismo título en formato digital, con la posibilidad de llevar la lectura en el móvil sin transportar el volumen físico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bc5671c33a6b8c64",
+  "origen": "chatgpt-web"
+}

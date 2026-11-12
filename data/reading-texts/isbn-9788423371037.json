@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788423371037",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un señor de Barcelona (Contemporánea), de Josep Pla, encaja con lectores interesados en las biografías, las memorias y la historia. Sus 336 páginas responden a una lectura de orientación histórica y biográfica, distinta de una novela de aventuras o de fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Un señor de Barcelona (Contemporánea) contiene 336 páginas en castellano. Esta edición de Austral Editorial permite consultar y releer el volumen en papel, con una extensión menor que la de obras históricas de varios centenares de páginas adicionales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un señor de Barcelona (Contemporánea) puede compararse con Un infarto de miocardio: Sergi Pàmies (Destino Clásicos), también de Josep Pla. Comparten autoría, pero sus títulos apuntan a asuntos diferentes: uno identifica Barcelona y una figura masculina; el otro menciona un infarto de miocardio y a Sergi Pàmies.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370955"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c83ae098103f79a2",
+  "origen": "chatgpt-web"
+}

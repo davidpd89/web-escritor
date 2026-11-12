@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788448874278",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Caja metálica con cinco cuentos (La ovejita que vino a cenar): Incluye las historias de la ovejita, los lobos, el cocodrilo, el tigre y la patita (Cuentos infantiles) reúne relatos infantiles sobre animales, con humor y amistad entre sus temas. Su planteamiento de cinco cuentos diferenciados encaja con la lectura por historias breves, no con quien busca una única novela extensa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La caja metálica de La ovejita que vino a cenar contiene cinco cuentos en tapa blanda, con 160 páginas en total. El conjunto permite guardar las historias de la ovejita, los lobos, el cocodrilo, el tigre y la patita en un mismo estuche. Su presentación en caja también permite entregarlas juntas como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El mono que vino a cenar (La ovejita que vino a cenar) (Cuentos infantiles), de Steve Smallman, pertenece al mismo universo de cuentos que esta caja, aunque se centra en otro animal en lugar de reunir cinco historias. La ovejita va al espacio (La ovejita que vino a cenar. Libro de cartón con mecanismos) (Pequeñas manitas), también de Steve Smallman, cambia el formato por uno de cartón con mecanismos y sitúa la aventura en el espacio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874056",
+        "isbn-9788448875435"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "99de4e290e8b7c0a",
+  "origen": "chatgpt-web"
+}

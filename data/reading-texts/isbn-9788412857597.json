@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788412857597",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A, B, C Y La Sra.smith En Tierra De Vikingos: 11 (MiniMini) se orienta a lectores infantiles y juveniles interesados en aventuras con humor y referencias a la naturaleza y la familia. Se aleja de los libros de aprendizaje puramente didáctico y de las narraciones destinadas específicamente al público adulto.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de A, B, C Y La Sra.smith En Tierra De Vikingos: 11 (MiniMini) cuenta con 160 páginas en castellano. El formato permite llevar el libro en una mochila y leerlo en papel, tanto en casa como durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A, B, C Y La Sra.smith En Tierra De Vikingos: 11 (MiniMini) comparte el terreno de la aventura infantil con Pipoka y la Fábrica del Desastre. Mientras el libro de Núria Parera Ciuró anuncia un escenario vikingo y combina aventura y humor, el de Jose Such presenta un cuentacuentos y una marioneta mágica que recorren la Península.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388277085"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "920bb5b81ac61f7a",
+  "origen": "chatgpt-web"
+}

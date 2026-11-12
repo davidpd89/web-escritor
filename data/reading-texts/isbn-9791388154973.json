@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388154973",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Por culpa de una flor. Edición de coleccionista. se orienta a lectores de cómic y novela gráfica interesados en una edición identificada expresamente para coleccionistas. María Medem firma este volumen de 336 páginas, cuya clasificación editorial lo diferencia de una novela convencional en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Por culpa de una flor. Edición de coleccionista. se ofrece en tapa dura, con 336 páginas en castellano. La edición de Blackie Books combina la encuadernación rígida con su identificación como edición de coleccionista, dos aspectos relevantes para conservarla o regalarla en formato físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "681b09d21845a19b",
+  "origen": "chatgpt-web"
+}

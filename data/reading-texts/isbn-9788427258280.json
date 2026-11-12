@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El ocaso del rey (Dioses y monstruos 5) se dirige a lectores de fantasía romántica oscura que buscan conflictos entre poderes sobrenaturales, alianzas difíciles y personajes de moral ambigua. No encaja tanto con quienes prefieren romances cotidianos o historias sin amenazas de alcance colectivo, ya que la supervivencia de varios dominios está en juego.",
+      "texto": "El ocaso del rey (Dioses y monstruos 5) se orienta a lectores de romantasy oscura que buscan personajes moralmente ambiguos, alianzas difíciles y contenido romántico explícito. El enfrentamiento entre poderes sobrenaturales y el tono sombrío encajan menos con quienes prefieren fantasía ligera o historias sin componentes sexuales.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,35 +13,36 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La novela desarrolla una fantasía romántica oscura centrada en la redistribución del poder, la cooperación forzada y el enfrentamiento con criaturas peligrosas. Dianna, Kaden y Isaiah necesitan regresar de una realidad ajena mientras una reliquia antigua adquiere importancia para la supervivencia de los dominios.",
+      "texto": "El ocaso del rey (Dioses y monstruos 5) combina fantasía romántica oscura y conflictos de poder entre seres sobrenaturales. Dianna, Kaden e Isaiah deben colaborar con figuras de su pasado para regresar a su realidad, mientras una reliquia adquiere importancia para la supervivencia de distintos dominios. El título lo identifica como el n.º 5.",
       "evidencias": [
+        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El ocaso del rey (Dioses y monstruos 5) se ofrece en tapa blanda, en una edición de Molino de 672 páginas. La cubierta flexible facilita manejar el volumen durante la lectura, aunque su extensión supone un libro físico considerable para transportar a diario.",
+      "texto": "El ocaso del rey (Dioses y monstruos 5) figura en tapa blanda, con una extensión de 672 páginas. Esta edición de Molino permite leerlo en papel y conservarlo como volumen físico; por su extensión, conviene contar con espacio para transportarlo y con sesiones de lectura repartidas a lo largo de varios días.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "numero_paginas",
         "edicion",
-        "editorial",
-        "numero_paginas"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Casa de cielo y aliento (Ciudad Medialuna 2), de Sarah J. Maas, comparte la fantasía romántica y los conflictos que afectan a comunidades enteras, pero se centra en una rebelión y sus consecuencias. Donde duermen las sombras, de Andrea Ornos, también incorpora realidades distintas y fuerzas oscuras, aunque destaca el amor entre dimensiones frente a las alianzas y disputas de poder de El ocaso del rey (Dioses y monstruos 5).",
+      "texto": "El ocaso del rey (Dioses y monstruos 5) puede compararse con Alas de escarcha y oro: El canto del cisne, de Marta Morillo, por su componente fantástico y la presencia de personajes vinculados a dones extraordinarios. En la obra de Amber V. Nicole predominan las alianzas entre poderes enfrentados y la amenaza sobre distintos dominios; en la de Marta Morillo, el punto de partida es Eira y sus dones ocultos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396080",
-        "isbn-9788427055605"
+        "isbn-9791387949938"
       ]
     }
   ],

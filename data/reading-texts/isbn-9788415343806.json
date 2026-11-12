@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788415343806",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los Vengadores. Libroaventuras: Incluye un cuento, figuritas y un tapete se dirige a quienes buscan combinar una historia de Marvel con elementos físicos para jugar. Su propuesta de lectura y juego se aleja de los cómics extensos y de quienes prefieren únicamente texto narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los Vengadores. Libroaventuras: Incluye un cuento, figuritas y un tapete se ofrece en una edición de cartón, identificada entre los formatos disponibles como tapa dura. Sus 12 páginas se acompañan de figuritas y un tapete, por lo que el conjunto permite alternar la lectura del cuento con el juego físico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los Vengadores. Libroaventuras: Incluye un cuento, figuritas y un tapete comparte la autoría de Marvel con Spidey y su superequipo. Mi libro para llevar. La diferencia está en la propuesta: el primero reúne un cuento, figuritas y un tapete para combinar lectura y juego, mientras que el segundo se presenta como un libro para llevar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410362604"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "706241dac921d2f0",
+  "origen": "chatgpt-web"
+}

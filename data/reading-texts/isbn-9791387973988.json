@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387973988",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La lista de los deseos (Premio Jaén de Narrativa Juvenil 2026) (Serie Infinita) se dirige a lectores juveniles interesados en el romance y las relaciones familiares. También puede encajar con quienes buscan narrativa contemporánea sobre el amor y la pareja; no está orientada a quienes prefieren la fantasía o la ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 224 páginas en un ejemplar físico, mientras que Kindle permite llevar La lista de los deseos (Premio Jaén de Narrativa Juvenil 2026) (Serie Infinita) en un dispositivo electrónico. La primera opción responde a quien prefiere conservar el libro en papel; la segunda, a quien prioriza la lectura digital.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Todas las navidades posibles: Esta historia de amor la eliges tú (Romántica), de Michelle Durán, comparte con La lista de los deseos (Premio Jaén de Narrativa Juvenil 2026) (Serie Infinita) la referencia al amor en sus títulos. La diferencia está en el planteamiento que anuncian: uno se presenta como una historia de amor vinculada a la elección del lector y el otro como narrativa juvenil contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419831897"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6bec45607d537639",
+  "origen": "chatgpt-web"
+}

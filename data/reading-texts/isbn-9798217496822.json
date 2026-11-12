@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9798217496822",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lego City Sin Límites ¡Carrera En Patito! (Game On! Duck Race) se dirige a lectores infantiles interesados en las aventuras ambientadas en LEGO City. Sus 80 páginas en castellano ofrecen una extensión breve frente a libros de aventuras más largos; no responde a quien busca un ensayo o una lectura histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Lego City Sin Límites ¡Carrera En Patito! (Game On! Duck Race) se presenta en tapa blanda, con 80 páginas en castellano. Es una opción física de extensión reducida, que puede transportarse y leerse por partes sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "LEGO® City - Sin límites. ¡Carrera de rosquillas! 1 comparte con el libro de la carrera de patitos la autoría de Tom Smiley y las aventuras infantiles de LEGO City. En el primero, Jason busca la última caja de rosquillas de Galaxy Donuts, mientras que el segundo se identifica por una carrera de patitos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241838006"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "50dceacf9be9dd09",
+  "origen": "chatgpt-web"
+}

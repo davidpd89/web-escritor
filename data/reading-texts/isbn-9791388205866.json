@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388205866",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pau Riba en 20 canciones (Sílex Música), de Ramon Moreno, se orienta a lectores interesados en la música y en aproximarse a una figura artística mediante canciones concretas. Su planteamiento musical lo diferencia de los manuales de dibujo y de las obras centradas en técnicas de creación visual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pau Riba en 20 canciones (Sílex Música) se publica en tapa blanda y reúne 192 páginas en castellano. Esta edición de Sílex Ediciones permite mantener el volumen en una biblioteca musical y consultar sus contenidos en papel. Su extensión facilita alternar la lectura con otras actividades sin necesidad de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pau Riba en 20 canciones (Sílex Música) y 720 retrats comparten el interés por las expresiones artísticas. Ramon Moreno centra su libro en 20 canciones de Pau Riba, mientras que Xavier Mollà i Revert presenta una obra identificada por sus retratos. La diferencia está en el objeto de atención: canciones en el primero y retratos en el segundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "774ac38f288e909d",
+  "origen": "chatgpt-web"
+}

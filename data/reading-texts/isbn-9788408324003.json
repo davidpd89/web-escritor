@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788408324003",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta edición de La Sombra del Viento se orienta a lectores de narrativa contemporánea interesados en una presentación ilustrada e interactiva. Sus 608 páginas requieren una lectura de cierta extensión y un formato físico que permita explorar los elementos añadidos. No responde a la búsqueda de una edición breve o exclusivamente textual.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La Sombra del Viento (edición interactiva) se distingue por incorporar elementos interactivos e ilustraciones de Pedro Oyarbide. La obra de Carlos Ruiz Zafón aparece dentro de la colección Autores Españoles e Iberoamericanos, identificada en el título con el número 1. Editorial Planeta publica esta presentación en castellano el 18 de noviembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición interactiva de La Sombra del Viento se presenta en tapa dura y reúne 608 páginas. El soporte físico permite recorrer sus ilustraciones y elementos interactivos directamente en el ejemplar, sin depender de una pantalla. Por su encuadernación rígida y extensión, está concebida para conservarse y consultarse en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b5d0055240e4d9b6",
+  "origen": "chatgpt-web"
+}

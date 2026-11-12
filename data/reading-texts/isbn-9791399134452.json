@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399134452",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "The Blood of Dawnwalker: El arte del juego está dirigido a quienes buscan publicaciones sobre arte y diseño vinculadas a un videojuego. Su planteamiento editorial se distingue del de una novela convencional y del de un manual general de dibujo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "The Blood of Dawnwalker: El arte del juego se publica en tapa dura, con 192 páginas en castellano. La encuadernación rígida de GTM Ediciones C.b. resulta práctica para conservar el volumen y consultarlo repetidamente como libro de arte.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "The Blood of Dawnwalker: El arte del juego comparte el ámbito de la creación visual con Aprende a dibujar con KPop Demon Hunters: Edición OFICIAL en español (Montena). El libro de Matthew Pellet se presenta como una publicación sobre el arte de un juego, mientras que el segundo título plantea expresamente el aprendizaje del dibujo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388322778"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "17db974065970d1b",
+  "origen": "chatgpt-web"
+}

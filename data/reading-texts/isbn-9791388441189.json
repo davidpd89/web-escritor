@@ -1,0 +1,34 @@
+{
+  "id": "isbn-9791388441189",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Astrosniks se orienta a lectores que buscan cómic o novela gráfica en castellano y quieren conocer obras de Carlos Fresno, Luis Fresno y Jaume Ribera. Sus 208 páginas corresponden a una edición física de tapa dura. Por su clasificación editorial, se aparta de las novelas presentadas exclusivamente como narrativa en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Astrosniks está editado en tapa dura por Fuera Borda y reúne 208 páginas en castellano. Su cubierta rígida permite colocarlo en una estantería junto a otros cómics y conservarlo como ejemplar físico. Para regalarlo, conviene tener en cuenta que se trata de una obra de cómic y novela gráfica, no de una novela en prosa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "87a4a59f7ef29201",
+  "origen": "chatgpt-web"
+}

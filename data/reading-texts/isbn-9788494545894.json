@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788494545894",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Crónicas de la amnistía: De la conciencia republicana de España encaja con lectores interesados en el poder y la política desde una perspectiva republicana. No está planteado como una obra de ficción, sino como un título de temática política, firmado por Pedro Manuel González López y publicado en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne sus 190 páginas en un único volumen físico. Es el formato disponible para Crónicas de la amnistía: De la conciencia republicana de España, publicado por Movimiento Ciudadano Hacia la República Constitucional.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A la sombra del Estado comparte el interés por el poder político, aunque se centra en el espionaje, las operaciones encubiertas y la desinformación. Crónicas de la amnistía: De la conciencia republicana de España aborda esa temática desde la conciencia republicana, mientras que el otro título se ocupa del poder clandestino.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "03d3d7025dba3efd",
+  "origen": "chatgpt-web"
+}

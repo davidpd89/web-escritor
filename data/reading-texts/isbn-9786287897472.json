@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786287897472",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los Propios Dioses / The Gods Themselves se orienta a lectores de ciencia ficción que también buscan elementos de misterio. La combinación de ambos géneros lo aleja de quienes prefieren una narración realista sin componentes de ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los Propios Dioses / The Gods Themselves se presenta en tapa blanda, con 344 páginas en castellano. La edición de Debolsillo reúne la lectura en un volumen físico que puede llevarse en una mochila y conservarse para futuras relecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Fin de la Eternidad / The End of Eternity y Los Propios Dioses / The Gods Themselves comparten autor, Isaac Asimov. También puede compararse con Los límites de la Fundación / Fundación y Tierra: 134 (Alamut Serie Fantástica), del mismo escritor, aunque este último título remite expresamente a Fundación y Tierra, mientras que Los Propios Dioses / The Gods Themselves se presenta bajo un título independiente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788498891751",
+        "isbn-9786287897571"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0cc4e3a270fd202e",
+  "origen": "chatgpt-web"
+}

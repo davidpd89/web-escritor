@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788445023259",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El árbol de la buena muerte y otros cuentos (Minotauro Esenciales) se orienta a lectores de relatos y textos vinculados al ensayo. Su extensión de 136 páginas permite abordar una recopilación breve, distinta de una novela larga de argumento continuo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El árbol de la buena muerte y otros cuentos (Minotauro Esenciales) está disponible en tapa blanda y Kindle. La edición física de Minotauro reúne 136 páginas para leer y conservar en papel; Kindle permite acceder al mismo título desde un dispositivo electrónico, incluido el móvil.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El árbol de la buena muerte y otros cuentos (Minotauro Esenciales) y El genio griego: Ilíada o el poema de la fuerza y otros textos (Contemporánea | Narrativa) comparten la presencia de varios textos en sus títulos. H.G. Oesterheld aparece asociado a cuentos y relatos, mientras que la obra de Simone Weil se identifica con la Ilíada y la reflexión sobre la fuerza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394604"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7e2872e090c7bf50",
+  "origen": "chatgpt-web"
+}

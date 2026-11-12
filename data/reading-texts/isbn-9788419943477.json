@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788419943477",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en el ensayo y en los textos epistolares vinculados a instituciones públicas. La carta abierta de Gustave Flaubert al ayuntamiento de Ruan ocupa 64 páginas, por lo que encaja menos con quienes buscan una biografía extensa o una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Aborda la contradicción entre el conservadurismo y la conservación a través de una carta abierta dirigida al ayuntamiento de Ruan. Gustave Flaubert plantea así una intervención escrita de carácter crítico, presentada en una edición de 64 páginas vinculada al ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La obra se ofrece en tapa blanda, en una edición castellana de 64 páginas publicada por Libros de la Resistencia. Su extensión permite leer la carta en pocas sesiones y conservarla como un volumen físico breve dentro de una colección de ensayos.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cartas a Lucilio: Edición íntegra (Clásicos) comparte el uso de la escritura epistolar, aunque reúne cartas de Séneca y no una intervención dirigida a un ayuntamiento. Campo de concentración: 82 (Biblioteca del Exilio) se vincula a la memoria histórica, mientras que Gustave Flaubert concentra su texto en una crítica al conservadurismo.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788410148659",
+        "isbn-9791388182495"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c27b59dfc244dc85",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9791388139420",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La biblia del football americano: Historia, equipos y secretos de la NFL (No ficción), de Carlos Báidez, se dirige a quienes buscan conocer la historia y los equipos del football americano. Su enfoque deportivo y documental se aleja de las novelas centradas en personajes ficticios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 288 páginas para leer y consultar en papel. La versión Kindle de La biblia del football americano: Historia, equipos y secretos de la NFL (No ficción) permite llevar el contenido en un lector electrónico o en el móvil sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cb83b1f0358bbc78",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410984783",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Alma Vampires: Icarus University 1 (Lit - New Adult), de Elena Armas, se dirige a lectores interesados en el romance y la narrativa New Adult. Su extensión de 560 páginas corresponde a una novela extensa; queda fuera de las preferencias de quienes buscan lecturas breves o géneros alejados del romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura ofrece un ejemplar físico de 560 páginas, con una encuadernación más rígida. La tapa blanda mantiene la misma extensión en un volumen flexible, mientras que Kindle permite leer la novela en formato digital desde un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A medio salto (Romántica), de Valera Gomalva, comparte con Alma Vampires: Icarus University 1 (Lit - New Adult) su orientación hacia el romance. La diferencia está en la identificación temática de sus títulos: Alma Vampires incorpora referencias a vampiros y a una universidad, mientras que A medio salto se presenta dentro de la narrativa romántica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388365089"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e0abbd2c376927bf",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387960490",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Bola Negra.: Fotografías del rodaje. (Libros de autor) está dirigido a quienes se interesan por la fotografía vinculada al cine y las publicaciones de arte. Su enfoque en imágenes de rodaje lo aleja de los manuales de dibujo y de las novelas centradas en una narración escrita.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Bola Negra.: Fotografías del rodaje. (Libros de autor) se publica en tapa dura y reúne 184 páginas. La encuadernación rígida resulta práctica para consultar repetidamente un volumen fotográfico, conservarlo en una biblioteca de arte o entregarlo como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Bola Negra.: Fotografías del rodaje. (Libros de autor) comparte con 720 retrats el interés por la fotografía como materia de un libro. Carla Oset centra su publicación en imágenes de rodaje, mientras que el título de Xavier Mollà i Revert señala el retrato como asunto principal. Ambos se distinguen de los manuales orientados a aprender técnicas de dibujo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8df4b453ac271f1b",
+  "origen": "chatgpt-web"
+}

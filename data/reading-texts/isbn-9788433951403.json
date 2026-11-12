@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pensamientos estériles encaja con lectores de poesía interesados en la expresión del deseo, la identidad corporal y las tensiones afectivas. Su tratamiento explícito de la sexualidad, las heridas y la violencia emocional lo aleja de quienes buscan versos de tono exclusivamente contemplativo o una lectura narrativa convencional.",
+      "texto": "Pensamientos estériles se dirige a lectores de poesía interesados en el deseo, la corporalidad y las tensiones de la juventud. Su tratamiento explícito de la sexualidad, las heridas y el miedo puede alejar a quienes prefieren una poesía de tono contemplativo o celebratorio.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Pensamientos estériles propone una lectura poética centrada en el cuerpo como espacio de deseo, memoria y conflicto. Luna Miguel relaciona las experiencias de juventud con la construcción de una voz literaria propia, mediante imágenes físicas que confrontan la intimidad con el miedo y la agresividad.",
+      "texto": "Pensamientos estériles es un poemario de Luna Miguel que explora la relación entre el cuerpo, el deseo y la construcción de una voz propia. Los poemas recurren a imágenes físicas y a experiencias de crecimiento para abordar el amor, la memoria y la violencia desde una expresión que busca incomodar.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,28 +23,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne las 88 páginas de Pensamientos estériles en un volumen breve, manejable para leer y releer poemas concretos. La versión Kindle permite conservar el poemario en formato digital y acceder a sus textos desde el móvil o un lector electrónico.",
+      "texto": "Pensamientos estériles se ofrece en tapa blanda y Kindle. La edición en papel, publicada por Editorial Anagrama, tiene 88 páginas y facilita la consulta directa de los poemas; Kindle permite llevar el poemario en formato digital y ajustar la presentación de lectura según el dispositivo.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "edicion",
         "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La tumba del marinero comparte con Pensamientos estériles la autoría de Luna Miguel y su pertenencia a la poesía, aunque ocupa otro lugar dentro de su trayectoria literaria. Catulo / Marcial también trabaja el erotismo, pero lo combina con sátira y crítica social vinculadas a la antigua Roma, frente a la exploración corporal y autobiográfica de Pensamientos estériles.",
+      "texto": "La tumba del marinero comparte autoría con Pensamientos estériles, pues ambos son libros de Luna Miguel. Mientras el primero figura como una obra central en la trayectoria de la autora, Pensamientos estériles se concentra en el cuerpo, la sexualidad y las inquietudes de la juventud mediante una poesía de imágenes físicas y tensiones emocionales.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788433951397",
-        "isbn-9788467084320"
+        "isbn-9788433951397"
       ]
     }
   ],

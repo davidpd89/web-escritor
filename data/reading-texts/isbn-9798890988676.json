@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9798890988676",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Laberinto del Quetzal / The Labyrinth of the Quetzal pertenece al género de aventuras y se dirige a lectores que buscan una obra de esa orientación. Sus 352 páginas plantean una lectura de extensión media, distinta de las propuestas centradas en el ensayo psicológico o en la divulgación temática.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Laberinto del Quetzal / The Labyrinth of the Quetzal está disponible en tapa blanda. La edición de Vintage Espanol tiene 352 páginas en castellano y permite leer la obra en papel, transportar el volumen y consultar páginas anteriores durante la lectura. Es la presentación física recogida para este título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abre el misterio 1 - El robo de las croquetas, de Carlos G. Gurpegui, puede compararse con El Laberinto del Quetzal / The Labyrinth of the Quetzal por su proximidad a las historias de aventuras. El primero parte de la desaparición de unas croquetas y plantea un misterio concreto; el segundo se presenta dentro del género de aventuras, con una extensión de 352 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dfa4431ed518ee7a",
+  "origen": "chatgpt-web"
+}

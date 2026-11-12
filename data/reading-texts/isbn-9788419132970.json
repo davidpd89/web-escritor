@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788419132970",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Negro casi blanco (VANDALIA), de José Mateos, se dirige a lectores de poesía en castellano que buscan una obra de extensión breve. Sus 96 páginas lo distinguen de las recopilaciones extensas; no responde a quien busca una novela con una trama narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Negro casi blanco (VANDALIA) se publica en tapa blanda, con 96 páginas en castellano. Esta edición de Fundación José Manuel Lara permite tener el volumen completo en papel, en un formato de menor extensión que una antología de varios cientos de páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d7a4b1c0a2f13d93",
+  "origen": "chatgpt-web"
+}

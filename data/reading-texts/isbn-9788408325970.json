@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408325970",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Isabel Matoses: La imagen recuperada (Ilustrados) se dirige a lectores interesados en publicaciones de arte y diseño centradas en una figura concreta. Su orientación artística lo diferencia de las novelas de ficción y de los libros dedicados a materias técnicas o científicas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Isabel Matoses: La imagen recuperada (Ilustrados) se presenta en tapa dura, con 160 páginas y edición de Lunwerg Editores. La encuadernación rígida permite conservar el volumen como libro de consulta o incorporarlo a una colección de publicaciones sobre arte y diseño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Isabel Matoses: La imagen recuperada (Ilustrados) puede compararse con Charlotte Perriand. La libertad de repensar el mundo por su atención a figuras concretas dentro del ámbito artístico. Ambos títulos están firmados por Varios autores, aunque cada uno se centra en una persona diferente: Isabel Matoses y Charlotte Perriand, respectivamente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788416411993"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ea3158b9395d493f",
+  "origen": "chatgpt-web"
+}

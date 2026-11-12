@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399159400",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rebrotar: Un camino a la renaturalización: 7 (Centella) está dirigido a lectores interesados en la divulgación científica y los procesos de renaturalización. El título sitúa el interés en la recuperación de la naturaleza, por lo que encaja menos con quien busca ficción, relatos de viajes o divulgación centrada en tecnologías ajenas al entorno natural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece una edición física de 116 páginas para leer y consultar en papel. Su extensión contenida permite incorporarlo a una colección de divulgación científica sin tener que manejar un volumen demasiado largo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rebrotar: Un camino a la renaturalización: 7 (Centella), de Pablo Izquierdo, puede ponerse en relación con 33 islas: Un periplo mediterráneo. De Marettimo a Venecia., de Lucio Bellomo, por su interés en el entorno natural y el territorio. Se diferencian en el enfoque que anuncian sus títulos: la renaturalización frente a un recorrido por distintas islas del Mediterráneo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387873127"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7f1d1e6d0f85e98b",
+  "origen": "chatgpt-web"
+}

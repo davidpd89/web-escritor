@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788408328391",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Reconciliación se orienta a lectores interesados en las memorias personales y la historia vinculada a la monarquía. La obra de Juan Carlos I tiene 560 páginas y se sitúa en la no ficción, por lo que no responde a la búsqueda de una novela histórica con personajes ficticios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta versión de Reconciliación se identifica como Edición limitada a precio especial (Colección Especial). Booket la publica en castellano, con encuadernación de tapa dura y 560 páginas, el 11 de noviembre de 2026; esos datos permiten distinguirla de otras presentaciones de la obra.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura ofrece una encuadernación rígida para las 560 páginas de Reconciliación, apropiada para conservar el volumen en una biblioteca o entregarlo como regalo. Es una edición física de Booket que requiere más espacio de transporte que un libro digital, especialmente por su extensión.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Corona Nostra: De Felipe VI a Felipe V, de Nieves Concostrina, comparte con Reconciliación el interés por la monarquía y la historia, pero aborda ese ámbito desde otra autoría. Frente a ese recorrido histórico, Juan Carlos I firma una obra situada en las biografías y memorias, con una perspectiva personal asociada a su propia figura.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788410944176"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3310053df20f692d",
+  "origen": "chatgpt-web"
+}

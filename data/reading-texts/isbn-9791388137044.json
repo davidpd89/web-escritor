@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388137044",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "No hay descanso para la mente ni el cuerpo (Reservoir Narrativa) está dirigido a lectores interesados en la narrativa contemporánea y en la obra de Harriet Armstrong. Sus 256 páginas corresponden a una novela, por lo que no encaja con quien busca un ensayo o un libro de carácter informativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 256 páginas y permite leer la obra en un volumen físico de Reservoir Books. Es el formato disponible para quien prefiere tener el libro en papel y conservarlo después de la lectura.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d4554a88debf7149",
+  "origen": "chatgpt-web"
+}

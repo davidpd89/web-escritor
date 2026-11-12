@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9788477747475",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Autismo en adultos: 15 (Nuevo Aprendizaje) se orienta a quienes buscan una lectura sobre el autismo en la edad adulta desde el ámbito de la divulgación. Su temática específica se distancia de los libros de ficción y de los manuales dedicados a cuestiones ajenas a esta condición.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Autismo en adultos: 15 (Nuevo Aprendizaje) está editado en tapa blanda, con 376 páginas en castellano. Esta presentación permite transportar el volumen y consultar sus páginas en papel, tanto durante una lectura continuada como al regresar a determinados apartados.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b1a31539851271c9",
+  "origen": "chatgpt-web"
+}
