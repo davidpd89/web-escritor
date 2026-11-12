@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399207521",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Conviértete en cíborg: 3 (Tú decides), de Leti Moregal, encaja con lectores interesados en propuestas de ocio relacionadas con la transformación en cíborg. Su planteamiento temático se aleja de quienes buscan una lectura centrada en acontecimientos históricos o problemas cotidianos sin elementos tecnológicos. El título lo identifica como el n.º 3 de Tú decides.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Conviértete en cíborg: 3 (Tú decides) está disponible en tapa blanda, con 274 páginas en castellano. Esta edición permite leerlo en papel, conservarlo en una colección física o regalar un ejemplar impreso. Su extensión permite valorar el espacio que ocupará antes de elegirlo para llevar de viaje.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Conviértete en cíborg: 3 (Tú decides) puede compararse con Equipo capibara porque ambos cuentan con Leti Moregal entre sus autores y se relacionan con el ocio. La diferencia más visible está en sus títulos: el primero plantea convertirse en cíborg y se identifica como el n.º 3 de Tú decides, mientras que Equipo capibara tiene también a Nuria Gallego como autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388107009"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "268374fa76b958cc",
+  "origen": "chatgpt-web"
+}

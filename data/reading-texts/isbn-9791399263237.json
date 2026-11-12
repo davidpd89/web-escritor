@@ -4,21 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El nombre y la voz: Para una filosofía del himno (ENSAYO Y TEORIA_FILOSOFIA), de Nicoletta Di Vita, se dirige a lectores de ensayo filosófico interesados en el himno como objeto de reflexión. Su planteamiento temático se aparta de los manuales prácticos de música y de las novelas de ficción.",
+      "texto": "El nombre y la voz: Para una filosofía del himno (ENSAYO Y TEORIA_FILOSOFIA) está dirigido a lectores interesados en la reflexión filosófica sobre el himno, el nombre y la voz. Sus 324 páginas pertenecen al ámbito del ensayo, por lo que no responde a quien busca una narración de ficción o un libro de partituras.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El nombre y la voz: Para una filosofía del himno (ENSAYO Y TEORIA_FILOSOFIA) ofrece tapa blanda y Kindle. La edición impresa reúne 324 páginas para leer y consultar en papel; Kindle permite llevar el ensayo en un lector electrónico o en el móvil sin transportar el volumen.",
+      "texto": "El nombre y la voz: Para una filosofía del himno (ENSAYO Y TEORIA_FILOSOFIA) puede leerse en tapa blanda o Kindle. La edición impresa reúne 324 páginas y facilita las anotaciones sobre papel; Kindle permite llevar el ensayo en un lector electrónico o en el móvil y consultar sus pasajes sin transportar el volumen físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El nombre y la voz: Para una filosofía del himno (ENSAYO Y TEORIA_FILOSOFIA) comparte el terreno filosófico con Arendt y la antropología de la condición plural en doble movimiento, de Javier Pons-Gallach. Nicoletta Di Vita sitúa el himno en el centro de su propuesta, mientras que el título de Javier Pons-Gallach señala la condición plural como eje de estudio; ambos se orientan a la lectura ensayística, pero plantean objetos de reflexión distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399308358"
       ]
     }
   ],

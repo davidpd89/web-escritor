@@ -4,21 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tribanas (Spanish Edition), de Olga González Domínguez, se sitúa entre las lecturas de desarrollo personal y las relacionadas con la familia y la crianza. Su clasificación temática responde a intereses distintos de los de quien busca una novela de aventuras o una obra de divulgación científica.",
+      "texto": "Tribanas (Spanish Edition) se sitúa en el ámbito del desarrollo personal y las relaciones familiares. La obra de Olga González Domínguez encaja con una búsqueda de lecturas sobre familia y crianza, pero no con quien busque específicamente una novela de aventuras o una obra de ficción fantástica.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Tribanas (Spanish Edition) cuenta con una edición en tapa blanda de 384 páginas, publicada por Penguin Random House Grupo Editorial. El formato en papel permite avanzar por una lectura de cierta extensión, colocar marcadores y retomar los pasajes anteriores sin utilizar una pantalla.",
+      "texto": "Tribanas (Spanish Edition) está disponible en tapa blanda, en una edición de Penguin Random House Grupo Editorial. Sus 384 páginas conforman un volumen físico que permite leer de manera continuada o regresar a pasajes relacionados con la familia y el desarrollo personal.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "edicion",
+        "editorial",
         "numero_paginas",
-        "editorial"
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tribanas (Spanish Edition) y Conectados para el amor / Wired for Love comparten el interés por las relaciones personales. Olga González Domínguez aborda el desarrollo personal y la familia, mientras Stan Tatkin centra su obra en las relaciones amorosas. La diferencia principal está en el ámbito familiar frente al vínculo de pareja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876056"
       ]
     }
   ],

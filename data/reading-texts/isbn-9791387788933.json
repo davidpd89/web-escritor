@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387788933",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La novela de Asha Thanki se dirige a lectores de narrativa contemporánea interesados en historias vinculadas a las mujeres. Sus 416 páginas corresponden a una obra de ficción extensa, distinta de los ensayos históricos, los manuales prácticos y los libros de divulgación.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Asha Thanki publicada por Newton Compton Editores está disponible en tapa dura y contiene 416 páginas en castellano. La encuadernación rígida protege el volumen durante su conservación y facilita su presentación como regalo, aunque ocupa más espacio que una edición de bolsillo.",
+      "evidencias": [
+        "autores",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Historias de mujeres casadas: Edición limitada a precio especial (Colección Especial), de Cristina Campos, comparte con la novela de Asha Thanki el interés por las mujeres como asunto narrativo. El título de Cristina Campos delimita su enfoque al matrimonio, mientras que el de Asha Thanki plantea un marco femenino más amplio. La comparación permite distinguir dos obras de autoras diferentes dentro de las lecturas relacionadas con experiencias femeninas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331612"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "76bf4a572b9fc5e9",
+  "origen": "chatgpt-web"
+}

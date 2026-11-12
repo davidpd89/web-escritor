@@ -4,20 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tíos y Tías (AMOR DE FAMILIA) está dirigido a lectores infantiles interesados en los vínculos familiares y el afecto. Su temática se aleja de las aventuras de acción y se aproxima a las relaciones entre familiares, con espacio también para el interés por la crianza.",
+      "texto": "Tíos y Tías (AMOR DE FAMILIA), de Margarita Del Mazo, se dirige a lectores infantiles interesados en las relaciones familiares y el afecto entre parientes. Sus 32 páginas lo sitúan entre las lecturas breves; no responde a la búsqueda de una novela juvenil extensa.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Tíos y Tías (AMOR DE FAMILIA) se publica en tapa dura y tiene 32 páginas. Su extensión permite abordar la lectura en sesiones breves, mientras que la encuadernación rígida resulta práctica para conservarlo y compartirlo en el entorno familiar.",
+      "texto": "Tíos y Tías (AMOR DE FAMILIA) está disponible en tapa dura, con 32 páginas en castellano. Esta edición de Cuento de Luz permite conservar el libro en una biblioteca infantil y compartir su lectura en papel, sin la extensión de una novela.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tíos y Tías (AMOR DE FAMILIA) comparte el interés por los vínculos familiares con Corazón Crece, El., de Marta Prada, aunque este último aborda los celos ante la llegada de un hermano mediante un cuento con solapas. También se aproxima a Ya es Navidad: Historias, recetas y manualidades para vivir la Navidad juntos., de Birgitta Sif, por su dimensión familiar, pero este reúne actividades y relatos navideños.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387883409"
       ]
     }
   ],

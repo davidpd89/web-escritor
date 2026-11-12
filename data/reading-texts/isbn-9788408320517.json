@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408320517",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mis melodías clásicas de Navidad. Con 7 melodías (Libros con sonido) está dirigido a quienes buscan un libro infantil relacionado con la música navideña. Sus 14 páginas y su presentación sonora lo distinguen de los libros de lectura extensa o de las obras musicales destinadas únicamente a adultos.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mis melodías clásicas de Navidad. Con 7 melodías (Libros con sonido) se presenta en tapa dura, en una edición de cartón de 14 páginas. Su formato físico permite reunir las páginas y las 7 melodías anunciadas en el título en un mismo libro, pensado para manipularlo durante la escucha.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi primer Carnaval de los animales. Con 7 melodías (Libros con sonido), también de Séverine Cordier, comparte autoría, colección y propuesta musical con Mis melodías clásicas de Navidad. Con 7 melodías (Libros con sonido). La diferencia está en el repertorio anunciado: uno gira alrededor del Carnaval de los animales y el otro se centra en la música clásica navideña.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408320524"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0e32411961b7e1a1",
+  "origen": "chatgpt-web"
+}

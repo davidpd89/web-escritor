@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370651305",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra se dirige a lectores que buscan información jurídica sobre la fiscalidad de depósitos, bonos, acciones y cesiones de capital a terceros. El enfoque anunciado para inversores particulares la distingue de una introducción general a la inversión que no trate sus consecuencias tributarias.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Colex se publica en tapa blanda y reúne 128 páginas en castellano. Su extensión permite manejar en papel una consulta centrada en la tributación de productos de renta fija, renta variable y cesiones de capital, con posibilidad de señalar los apartados que se necesiten revisar.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "ITPyAJD: de la norma a la liquidación comparte con este libro el enfoque jurídico y práctico del Departamento de Documentación Iberley, pero trata la tributación de transmisiones patrimoniales, operaciones societarias y actos jurídicos documentados. Casos prácticos sobre el despido (Supuestos prácticos), del mismo autor, se centra en el ámbito laboral, mientras que esta obra aborda la fiscalidad de depósitos, bonos, acciones y cesiones de capital a terceros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370651749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c54b2ef7ded777e9",
+  "origen": "chatgpt-web"
+}

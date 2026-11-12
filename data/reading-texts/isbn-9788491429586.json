@@ -4,21 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Abuelas Y Abuelos (Álbumes Ilustrados castellano), de Helene Delforge, se dirige al público infantil interesado en historias sobre los vínculos familiares. Su temática gira alrededor de los abuelos y las abuelas, por lo que se diferencia de los cuentos centrados en aventuras fantásticas o personajes ajenos al entorno familiar.",
+      "texto": "Abuelas Y Abuelos (Álbumes Ilustrados castellano) está dirigido al público infantil y a quienes buscan lecturas relacionadas con la familia y la crianza. Sus 64 páginas y su identificación como álbum ilustrado lo sitúan en un tipo de libro distinto de las novelas juveniles extensas o los manuales de educación familiar.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Abuelas Y Abuelos (Álbumes Ilustrados castellano) está editado en tapa dura y reúne 64 páginas. Como álbum ilustrado en castellano, su formato físico permite compartir la lectura y pasar las páginas en compañía, además de conservarlo como regalo familiar.",
+      "texto": "Abuelas Y Abuelos (Álbumes Ilustrados castellano) se presenta en tapa dura y reúne 64 páginas en castellano. El formato físico permite compartir la lectura y conservar el álbum entre los libros familiares, con una encuadernación rígida apropiada para manejarlo en sucesivas ocasiones.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abuelas Y Abuelos (Álbumes Ilustrados castellano) comparte el ámbito familiar y el formato de álbum ilustrado con Bienvenido, bebé: Un libro muy tierno para dar la bienvenida a un nuevo bebé y celebrar el amor que lo rodea: 15 (Álbumes ilustrados). El libro de Helene Delforge se centra en los abuelos, mientras que el de Jane Chapman aborda la llegada de un bebé. Ambos tratan vínculos familiares desde perspectivas generacionales diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387948160"
       ]
     }
   ],

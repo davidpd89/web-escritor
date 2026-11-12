@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387864408",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La sangre que anhelamos: parte dos (Hollow Boys 4) (DARK ROMANCE) pertenece al romance oscuro y se dirige a lectores interesados en esa vertiente del género. El título lo identifica como el n.º 4 de Hollow Boys y como una segunda parte, por lo que se diferencia de las historias románticas independientes y de quienes buscan un romance de tono ligero.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La sangre que anhelamos: parte dos (Hollow Boys 4) (DARK ROMANCE) cuenta con una edición en tapa blanda de 352 páginas. El formato permite conservar el volumen junto a otras entregas de Hollow Boys y transportarlo para leer en papel, sin necesidad de utilizar un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A mil por hora y La sangre que anhelamos: parte dos (Hollow Boys 4) (DARK ROMANCE) comparten su vinculación con el romance, pero plantean contextos diferentes. Hannah Grace presenta una relación entre un piloto de F1 y una mujer ligada a su pasado, mientras Monty Jay sitúa su libro dentro del dark romance. Además, el título de Monty Jay lo identifica como el n.º 4 de Hollow Boys, frente al planteamiento deportivo descrito para A mil por hora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9fb9ab837251eb89",
+  "origen": "chatgpt-web"
+}

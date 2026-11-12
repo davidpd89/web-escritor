@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419794789",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lolo aprende a hablar: 1, de Marta Galewska-Kustra, está dirigido al público infantil y aborda el aprendizaje del habla desde su propio título. Sus 40 páginas y su presentación en cartón encajan con una lectura breve, frente a quienes buscan novelas juveniles extensas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Lolo aprende a hablar: 1 puede utilizarse en una lectura compartida, mostrando cada página y pronunciando en voz alta las palabras que aparezcan. Su edición de cartón y sus 40 páginas permiten repartir la lectura en sesiones cortas y volver a las páginas anteriores para repetir el ejercicio.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lolo aprende a hablar: 1 está editado como libro de cartón, dentro de la opción de tapa dura. Sus 40 páginas en castellano ofrecen un volumen físico manejable para la lectura acompañada y para pasar las páginas durante las actividades de lenguaje.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "48c8689cd5f6c5b9",
+  "origen": "chatgpt-web"
+}

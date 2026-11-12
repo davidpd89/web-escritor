@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399321012",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Derrumbe y Regeneración se dirige a lectores interesados en la divulgación científica y en obras extensas de carácter informativo. Sus 500 páginas permiten plantear una lectura prolongada; por su clasificación temática, queda fuera de las preferencias de quienes buscan novelas o relatos de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Derrumbe y Regeneración se publica en tapa blanda, con una extensión de 500 páginas. La edición de Edicions Zaku permite leerlo en papel y consultar distintos pasajes a lo largo de una lectura extensa, aunque su volumen requiere más espacio que una obra breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Derrumbe y Regeneración y 50 cosas que hay que saber sobre IA se sitúan en el terreno de la divulgación y el conocimiento científico. Ferran Puig Vilar firma una obra de 500 páginas, mientras que Keith Mansfield aborda específicamente la inteligencia artificial, una diferencia temática relevante al elegir entre ambas lecturas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "233e6a879be980a6",
+  "origen": "chatgpt-web"
+}

@@ -4,20 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Secretos del ayurveda: Que cambiarán tu vida (Biblioteca de la salud) se orienta a lectores interesados en el bienestar, la nutrición y el desarrollo personal desde el ayurveda. Por sus temas, responde menos a quienes buscan exclusivamente recetas de cocina o un manual centrado en el rendimiento deportivo.",
+      "texto": "Secretos del ayurveda: Que cambiarán tu vida (Biblioteca de la salud) se orienta a lectores interesados en bienestar, nutrición y desarrollo personal desde el enfoque del ayurveda. Por su temática, se aleja de los libros centrados exclusivamente en recetas de cocina o en divulgación científica general.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Secretos del ayurveda: Que cambiarán tu vida (Biblioteca de la salud) cuenta con una edición en tapa blanda de 396 páginas. Su extensión permite dedicar distintas sesiones a los temas de salud, cocina y bienestar, mientras que la encuadernación flexible facilita manejarlo durante la consulta.",
+      "texto": "La edición en tapa blanda contiene 396 páginas dedicadas al ámbito del ayurveda y el bienestar. Su formato impreso permite consultar distintos apartados, volver a ellos durante la lectura y mantener el volumen en una biblioteca de salud y desarrollo personal.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
+        "formatos_disponibles",
         "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Reset alimentario: Nutrición del futuro para el día a día (Alienta) comparte con Secretos del ayurveda: Que cambiarán tu vida (Biblioteca de la salud) el interés por la alimentación y el bienestar. Pablo Ojeda sitúa la nutrición cotidiana en el centro de su libro, mientras que Isabel Bautista aborda estos asuntos desde el ayurveda. Ambos se distinguen por el enfoque anunciado en sus títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413445625"
       ]
     }
   ],

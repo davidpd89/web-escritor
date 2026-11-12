@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788467958935",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Solo leveling 06 novela: 6, de CHUGONG, se sitúa entre la fantasía, la ciencia ficción y el ámbito del cómic y la novela gráfica. Sus 290 páginas encajan con lectores interesados en esos géneros; no es una elección orientada a quien busca poesía o narrativa romántica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Solo leveling 06 novela: 6 se presenta en tapa blanda, con 290 páginas en castellano publicadas por Norma Editorial. Es una edición física que puede guardarse junto a otros volúmenes de la colección y consultarse sin dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Solo leveling 06 novela: 6 y Criaturas míticas 1. Un invierno interminable: 6 (La Sonrisa del Gato) se relacionan por su presencia en el ámbito de la fantasía. La primera es obra de CHUGONG y el título la identifica como el n.º 6; la segunda pertenece a Miila Westin y lleva el número 1 en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399054552"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cf9cd7afc32eeadf",
+  "origen": "chatgpt-web"
+}

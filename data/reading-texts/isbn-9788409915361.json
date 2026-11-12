@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788409915361",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dental Sales Intelligence: Estándar para observar, conversar, explicar, acompañar y aprender a partir de la primera visita dental. se dirige a lectores interesados en la comunicación y el acompañamiento durante la atención odontológica. Su enfoque en la primera visita dental lo aleja de las lecturas centradas exclusivamente en nutrición o bienestar general.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 308 páginas de Dental Sales Intelligence: Estándar para observar, conversar, explicar, acompañar y aprender a partir de la primera visita dental. en un volumen físico. Permite consultar sobre papel las distintas fases de la primera visita dental y volver a los apartados relacionados con la conversación y el acompañamiento.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dental Sales Intelligence: Estándar para observar, conversar, explicar, acompañar y aprender a partir de la primera visita dental. y Baropodometría clínica: Bases para una biomecánica integrada del control postural comparten su orientación hacia cuestiones relacionadas con la salud. El primero aborda la interacción durante la visita odontológica; el segundo se centra, desde su título, en la biomecánica y el control postural.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388377167"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "87bd2b80a37b3d48",
+  "origen": "chatgpt-web"
+}

@@ -4,22 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tiempo y caída: Abismos, desengaños y melancolías de los poetas del Barroco: 536 (El Acantilado) se dirige a lectores interesados en la poesía barroca, su contexto histórico y su interpretación ensayística. Por su extensión de 1024 páginas y su enfoque literario, encaja menos con quien busca una antología breve para leer poemas sueltos.",
+      "texto": "Pensado para lectores interesados en la poesía del Barroco, su contexto histórico y la interpretación ensayística de sus temas. Con 1024 páginas, Tiempo y caída: Abismos, desengaños y melancolías de los poetas del Barroco: 536 (El Acantilado) se aleja de una lectura breve o de una antología concebida únicamente para leer poemas.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas",
-        "afines_catalogo"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Editorial Acantilado es en tapa dura y contiene 1024 páginas en castellano. Por su volumen, se presta a una lectura pausada y a la consulta en una mesa, mientras que la encuadernación rígida facilita conservarlo como obra de referencia.",
+      "texto": "La edición disponible es en tapa dura y reúne 1024 páginas en castellano. Por su extensión, resulta más apropiada para una lectura pausada sobre una mesa o para consultas sucesivas que para llevarla habitualmente en desplazamientos; la encuadernación rígida aporta protección durante su manipulación.",
       "evidencias": [
-        "editorial",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El genio griego: Ilíada o el poema de la fuerza y otros textos (Contemporánea | Narrativa) comparte el interés por el análisis de textos literarios, pero se orienta hacia la tradición griega y no hacia los poetas del Barroco. Antología final: 282 (LITORAL) plantea desde su título una recopilación poética, mientras que Tiempo y caída: Abismos, desengaños y melancolías de los poetas del Barroco: 536 (El Acantilado), de Ramón Andrés, se presenta como un ensayo histórico sobre la poesía barroca.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394604",
+        "isbn-9788412931075"
       ]
     }
   ],

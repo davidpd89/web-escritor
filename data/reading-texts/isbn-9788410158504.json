@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410158504",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Flechazo: 42 (Bromelia) encaja con lectores interesados en el cómic y la novela gráfica, especialmente dentro de la narrativa juvenil y las biografías. Por esa combinación, se aleja de quienes buscan exclusivamente novelas tradicionales en prosa o ensayos técnicos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Flechazo: 42 (Bromelia) se publica en tapa blanda, con 240 páginas en castellano. Es una edición física que permite recorrer sus páginas y volver a ellas directamente, una característica útil para la lectura de cómic y novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Flechazo: 42 (Bromelia) y Alya a veces me susurra en ruso 9 (Shônen - Alya) comparten su relación con las lecturas juveniles y gráficas. Stepánka Jislová aparece vinculada a la biografía y la novela gráfica, mientras la obra de SunSunSun se identifica con la línea Shônen y una entrega numerada, lo que marca una diferencia de enfoque y continuidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791043309670"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cce32777fe977a90",
+  "origen": "chatgpt-web"
+}

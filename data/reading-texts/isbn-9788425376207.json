@@ -4,22 +4,30 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sissi investiga. Los diamantes de la emperatriz (Ficción), de Fritzi von Wahl, se dirige a lectores interesados en una historia protagonizada por una figura vinculada a la investigación. El título puede encajar con quienes buscan intriga, pero su clasificación no corresponde a una novela de fantasía, aventuras o desarrollo personal.",
+      "texto": "Sissi investiga. Los diamantes de la emperatriz (Ficción) se orienta a quienes buscan ficción con una investigación vinculada a una emperatriz y sus diamantes. El planteamiento anunciado por el título se aleja de los libros documentales sobre mujeres y de los manuales prácticos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece las 240 páginas de Sissi investiga. Los diamantes de la emperatriz (Ficción), de Fritzi von Wahl, en una edición física de Grijalbo. Kindle permite leer la misma obra en formato digital, sin necesidad de conservar un ejemplar impreso.",
+      "texto": "La tapa blanda de Sissi investiga. Los diamantes de la emperatriz (Ficción) contiene 240 páginas y permite leer la obra en papel. La edición Kindle ofrece una alternativa digital para continuar la lectura desde el móvil o un lector electrónico compatible.",
       "evidencias": [
         "titulo",
-        "autores",
-        "edicion",
         "numero_paginas",
         "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Asesinato en la Casa Rosa (edición limitada) (Los crímenes de Loeiro 1) (Campaña | Ahora por menos) y Sissi investiga. Los diamantes de la emperatriz (Ficción) presentan títulos relacionados con investigaciones. El primero anuncia un asesinato y unos crímenes, mientras que el segundo sitúa el interés en los diamantes de una emperatriz.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396363"
       ]
     }
   ],

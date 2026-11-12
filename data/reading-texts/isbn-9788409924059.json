@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409924059",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio. se dirige a lectores interesados en el coaching, la psicología aplicada y los procesos de cambio personal. Su planteamiento metodológico lo diferencia de los libros centrados exclusivamente en experiencias narrativas o testimonios personales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Anima Papilio se presenta en tapa blanda y contiene 334 páginas en castellano. Para un método de trabajo con partes internas y autoliderazgo, el papel facilita consultar apartados, tomar notas y regresar a los conceptos durante su aplicación.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El diablo envía correos a medianoche: Lo que los buenos líderes pueden aprender de los malos jefes (Divulgación), de Mita Mallick, aborda el liderazgo desde las relaciones laborales. Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio., de Beatriz García Saez, se centra en el trabajo interno y el acompañamiento. Ambas obras tratan aspectos del liderazgo, pero desde ámbitos distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788403521773"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bec623898660917d",
+  "origen": "chatgpt-web"
+}

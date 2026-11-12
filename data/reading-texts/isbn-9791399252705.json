@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399252705",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Consciencia Inmortal: Conversaciones con Sri Ramana Maharshihi se orienta a lectores interesados en espiritualidad, filosofía y conversaciones sobre la consciencia. Por su planteamiento temático, se distancia de los manuales de bienestar centrados exclusivamente en hábitos físicos o nutrición.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Consciencia Inmortal: Conversaciones con Sri Ramana Maharshihi se ofrece en tapa blanda, con 244 páginas en castellano. La edición de Chinmayam Ediciones permite consultar las conversaciones en papel y volver a determinados pasajes durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Consciencia Inmortal: Conversaciones con Sri Ramana Maharshihi y Astrología, filosofía y magia: Un camino de práctica espiritual comparten el interés por la espiritualidad y la filosofía. El libro de Paul Brunton y Munagala Venkataramiah se presenta mediante conversaciones con Sri Ramana Maharshihi, mientras que el de Soledad Davies plantea desde su título un camino de práctica espiritual asociado a la astrología y la magia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "39dd5845765fd0b1",
+  "origen": "chatgpt-web"
+}

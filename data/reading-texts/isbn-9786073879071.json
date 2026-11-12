@@ -4,22 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Frena tu cabeza / Slow Down Your Mind, de Marina Mammoliti, se orienta a lectores interesados en desarrollo personal, psicología y bienestar. Sus 256 páginas corresponden a una obra de estas materias, no a una novela de ficción ni a un tratado especializado de nutrición.",
+      "texto": "Frena tu cabeza / Slow Down Your Mind se dirige a lectores interesados en desarrollo personal, psicología y bienestar. Por su orientación hacia la autoayuda, encaja menos con quienes buscan ficción o un manual centrado exclusivamente en nutrición.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Frena tu cabeza / Slow Down Your Mind está disponible en tapa blanda, con 256 páginas publicadas por Penguin Random House Grupo Editorial. El formato impreso permite consultar y releer pasajes sin utilizar una pantalla, además de conservar el volumen en una biblioteca personal.",
+      "texto": "Frena tu cabeza / Slow Down Your Mind está disponible en tapa blanda, con 256 páginas en castellano. Esta edición permite consultar distintos pasajes en papel y transportarla sin la rigidez de una cubierta dura. Es la presentación publicada por Penguin Random House Grupo Editorial.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Frena tu cabeza / Slow Down Your Mind comparte el terreno del desarrollo personal con Cuando no sé lo que quiero: 150 enseñanzas para encontrar tu camino (Bruguera Tendencias), de Seung-hwan Jeon. Mientras este último anuncia enseñanzas para encontrar el propio camino, el libro de Marina Mammoliti se sitúa en la autoayuda y la psicología. Ambos se diferencian por su autoría y el enfoque expresado en sus títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431684"
       ]
     }
   ],

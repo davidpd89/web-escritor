@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410252622",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este Regalo Es Para Ti (Tesoros) | El mejor regalo para el hermano mayor: un cuento de parte del bebé que acaba de llegar. está pensado para familias que quieren abordar la llegada de un bebé desde la perspectiva del hermano mayor. Sus 40 páginas lo sitúan entre las lecturas infantiles breves, no entre los manuales extensos de crianza para adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Este Regalo Es Para Ti (Tesoros) | El mejor regalo para el hermano mayor: un cuento de parte del bebé que acaba de llegar. se edita en tapa dura y tiene 40 páginas. La cubierta rígida permite conservarlo como regalo familiar y facilita su uso durante lecturas compartidas con niños.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bienvenido, bebé, de Jane Chapman, y el cuento de Sandra Alonso comparten el tema de la llegada de un recién nacido a la familia. El primero se centra en dar la bienvenida al bebé, mientras que el segundo presenta un regalo dirigido al hermano mayor. Corazón Crece, El, de Marta Prada, aborda una situación próxima desde los celos que pueden surgir cuando llega una hermanita.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387948160"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "43f41d3eb33e40d0",
+  "origen": "chatgpt-web"
+}

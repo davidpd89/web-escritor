@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las leyes fundamentales de la estupidez humana, de Carlo M. Cipolla, se dirige a lectores interesados en examinar el comportamiento humano desde el ensayo y las ciencias sociales. Su planteamiento mordaz y su extensión de 96 páginas lo separan de las guías de ejercicios personales y de las novelas construidas alrededor de personajes.",
+      "texto": "Las leyes fundamentales de la estupidez humana se dirige a lectores interesados en las ciencias humanas y sociales y en el ensayo breve. Carlo M. Cipolla aborda su asunto desde una perspectiva crítica; quien prefiera una novela de ficción encontrará aquí otro tipo de lectura, concentrada en 96 páginas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,23 +15,23 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las leyes fundamentales de la estupidez humana se presenta en tapa dura con sobrecubierta, publicada por Editorial Crítica. Sus 96 páginas forman un volumen breve que puede guardarse como edición física y consultarse de nuevo sin manejar un libro extenso.",
+      "texto": "Las leyes fundamentales de la estupidez humana está disponible en tapa dura y tapa blanda, con una extensión de 96 páginas. La edición de Editorial Crítica en tapa dura incorpora sobrecubierta y resulta apropiada para conservarla en una biblioteca; la tapa blanda ofrece una alternativa de papel más flexible para transportarla.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
         "editorial",
-        "numero_paginas"
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Las leyes fundamentales de la estupidez humana y Ciencias del comportamiento (Edición especial), de Juan Manuel García Pincho (@cienciasdelcomportamiento), se ocupan de la conducta humana. Carlo M. Cipolla la aborda mediante un ensayo mordaz, mientras que Juan Manuel García Pincho (@cienciasdelcomportamiento) propone un método aplicado a la comunicación y la negociación.",
+      "texto": "Las leyes fundamentales de la estupidez humana y Ciencias del comportamiento (Edición especial) se relacionan por su interés en la conducta humana. Carlo M. Cipolla plantea un ensayo crítico, mientras que Juan Manuel García Pincho presenta un método de aplicación cotidiana vinculado al comportamiento y la comunicación. El primero tiene 96 páginas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -41,6 +41,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ade217478622706b",
+  "fuente_hash": "c65c094d2036f006",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387960414",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Elizabeth (libros de Autor) está orientado a quienes buscan publicaciones de arte y diseño en castellano. La obra de Alfredo Cortina pertenece a ese ámbito y no al de los manuales de desarrollo personal ni al de la narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Elizabeth (libros de Autor) se presenta en tapa dura y reúne 160 páginas. La encuadernación rígida de esta edición de La Fábrica resulta adecuada para conservar el volumen en una biblioteca dedicada al arte y al diseño o entregarlo como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Elizabeth (libros de Autor) puede compararse con 720 retrats por su relación con el ámbito artístico, aunque son obras de Alfredo Cortina y Xavier Mollà i Revert, respectivamente. Frente a Aprende a dibujar con KPop Demon Hunters: Edición OFICIAL en español (Montena), Elizabeth (libros de Autor) se presenta como una publicación de autor y no como una guía de dibujo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802",
+        "isbn-9791388322778"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6c8042585eadfc3b",
+  "origen": "chatgpt-web"
+}

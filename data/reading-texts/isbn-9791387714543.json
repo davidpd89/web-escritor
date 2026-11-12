@@ -4,22 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Caza en el KGB (Istoría) se dirige a lectores de novela histórica interesados en una obra cuyo título remite al KGB. No responde a la búsqueda de un ensayo documental: la clasificación editorial corresponde a ficción histórica.",
+      "texto": "Caza en el KGB (Istoría), de Jon Ander Franco, se dirige a lectores de novela histórica. Su orientación hacia el pasado y la referencia al KGB lo separan de quienes buscan una historia ambientada exclusivamente en un entorno contemporáneo cotidiano.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura de Caza en el KGB (Istoría) contiene 464 páginas y ofrece una encuadernación rígida para conservar el volumen en una biblioteca. La edición de Istoría está publicada en castellano y permite consultar el texto en papel sin depender de dispositivos electrónicos.",
+      "texto": "Caza en el KGB (Istoría) se publica en tapa dura, con 464 páginas en castellano. La encuadernación rígida protege el volumen durante su conservación y resulta adecuada para quien prefiere una edición física de una novela extensa.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
         "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Caza en el KGB (Istoría) comparte la orientación histórica con Ave César (Narrativas Históricas), de Rex Warner, y Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián. El libro de Jon Ander Franco remite al KGB, mientras que los otros títulos apuntan respectivamente a César y a la Reconquista. Son referencias históricas diferentes dentro de un mismo interés lector por el pasado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401039539",
+        "isbn-9788435064125"
       ]
     }
   ],

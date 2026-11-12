@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073947862",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores que buscan abordar las celebraciones navideñas y las relaciones familiares desde el desarrollo personal. Su enfoque sobre la convivencia y el bienestar se aparta de quienes prefieren una novela ambientada en las fiestas o un manual de cocina navideña.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de ¡Felices Fiestas! Evita El Drama En Familia Y Disfruta Las Fechas Decembrinas / Happy Holidays! How to Enjoy the Christmas & Hanukkah Season to the Fullest reúne 104 páginas. Su extensión permite consultar el contenido en papel durante las celebraciones familiares y volver a los apartados que interesen.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, también aborda el bienestar y las relaciones, pero desde un planteamiento de cambio personal más amplio. Anatomía de una relación tóxica: Como reconocerla, salir de ella y recuperar tu vida, de David C, se centra en relaciones perjudiciales, mientras que Wayne W Dyer sitúa su propuesta en la convivencia familiar durante las fiestas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776",
+        "isbn-9788409923595"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "50f20484b3313aa2",
+  "origen": "chatgpt-web"
+}

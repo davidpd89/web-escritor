@@ -4,28 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El misterio del colgante, de Natalia Abril Castellano, se encuadra en el misterio y el thriller. Con 142 páginas, ofrece una extensión breve para lectores interesados en ese género; por su clasificación, se aleja de quienes buscan principalmente narrativa contemporánea sin elementos de misterio.",
+      "texto": "El misterio del colgante se dirige a lectores que buscan una obra de misterio en castellano y de extensión relativamente breve. Sus 142 páginas la distinguen de las lecturas más extensas; quienes prefieran ensayos o libros prácticos encontrarán aquí una propuesta de otro género.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El misterio del colgante se ofrece en tapa blanda, con 142 páginas en castellano. La edición de Mr. Momo permite leerlo en papel, prestarlo o conservarlo en una biblioteca personal; su extensión facilita transportar el ejemplar sin recurrir a un dispositivo de lectura.",
+      "texto": "El misterio del colgante está disponible en tapa blanda y Kindle, dos opciones para leer sus 142 páginas. La tapa blanda permite conservar el ejemplar físico publicado por Mr. Momo, mientras que Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abre el misterio 1 - El robo de las croquetas comparte con El misterio del colgante el interés por un enigma, aunque parte de la desaparición de unas croquetas. Aguas turbulentas también pertenece al terreno del misterio, pero sitúa su conflicto entre el pasado y el presente de Edimburgo, mientras que el título de Natalia Abril Castellano señala un colgante como elemento central.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644",
+        "isbn-9791370310318"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0c28d36ea343297d",
+  "fuente_hash": "e0112adf5dcdca57",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388175671",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores que buscan comprender el vocabulario político y consultar conceptos relacionados con el poder y la política. Su planteamiento de diccionario encaja con una búsqueda de referencias concretas, no con quien espera una novela de ficción política.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Editatum se presenta en tapa blanda, con 228 páginas en castellano. Es un volumen físico que puede mantenerse a mano para consultar términos políticos durante el estudio o la lectura de otros textos.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mujer y socialismo en España comparte autor con este diccionario: ambos son de Eduardo Montagut, aunque uno delimita su asunto al socialismo y las mujeres en España y el otro reúne terminología política. Diccionario de la lengua española. Vigesimocuarta edición también funciona como obra de consulta, pero aborda la lengua en general y se presenta en dos volúmenes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399302523",
+        "isbn-9788467083965"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a454d49ea37f8ddb",
+  "origen": "chatgpt-web"
+}

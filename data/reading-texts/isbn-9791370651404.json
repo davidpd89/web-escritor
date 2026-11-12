@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370651404",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en el derecho tributario y en los motivos económicos que justifican una reestructuración bajo el régimen FEAC. Su enfoque sobre riesgos y consecuencias fiscales se aleja de las lecturas de divulgación jurídica general.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 196 páginas en castellano publicadas por Colex. El formato físico permite consultar los apartados sobre reestructuraciones y consecuencias fiscales, así como volver a ellos durante el estudio o el trabajo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La prescripción de la deuda tributaria. Paso a paso: Reglas de cómputo, causas de interrupción y situaciones problemáticas comparte el ámbito tributario y la orientación práctica, pero se centra en los plazos de prescripción. ITPyAJD: de la norma a la liquidación. Paso a paso: Claves para comprender, liquidar y aplicar el impuesto en transmisiones patrimoniales, operaciones societarias y actos jurídicos documentados aborda la aplicación de otro impuesto, frente al análisis de reestructuraciones del régimen FEAC.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370651688",
+        "isbn-9791370651282"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "936c492cdaa3852a",
+  "origen": "chatgpt-web"
+}

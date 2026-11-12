@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387962418",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orientado a lectores de manga shônen que buscan aventuras con elementos de fantasía y ciencia ficción. El título identifica esta entrega como el número 6, por lo que no corresponde al comienzo numerado de la serie y puede resultar menos adecuado para quien quiera iniciarla desde el principio.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Tougen Anki: La leyenda de la sangre maldita 6 (Shônen): La leyenda de la sangre maldita se publica en tapa blanda, con 376 páginas en castellano. Su cubierta flexible facilita llevar el volumen en una mochila y guardarlo junto a otras entregas de manga.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Wistoria. Wand and Sword, 12 (Shônen - Wistoria), de Omori Fujino, comparte la identificación shônen, aunque su título señala otra serie y el número 12. World Trigger 6 (Shônen), de Daisuke Ashihara, coincide en el número de entrega y en el público asociado al shônen; Tougen Anki: La leyenda de la sangre maldita 6 (Shônen): La leyenda de la sangre maldita se distingue por su vinculación explícita con la fantasía y la ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791043309632",
+        "isbn-9791387962692"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eeb776f0dc4e5377",
+  "origen": "chatgpt-web"
+}

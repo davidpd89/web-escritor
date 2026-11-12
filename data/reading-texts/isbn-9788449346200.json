@@ -4,21 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El yo y los mecanismos de defensa: Las estrategias inconscientes de nuestra mente (Esenciales de Psicología) está dirigido a quienes buscan una lectura sobre psicología y procesos mentales inconscientes. Su temática se distancia de los libros centrados exclusivamente en consejos sobre relaciones de pareja o relatos de ficción.",
+      "texto": "El yo y los mecanismos de defensa: Las estrategias inconscientes de nuestra mente (Esenciales de Psicología), de Anna Freud, se dirige a lectores interesados en la psicología y los procesos inconscientes. Sus 192 páginas se centran en esta materia y no responden a la búsqueda de una novela de ficción o una historia de aventuras.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de El yo y los mecanismos de defensa: Las estrategias inconscientes de nuestra mente (Esenciales de Psicología) es de tapa blanda y tiene 192 páginas. El volumen de Ediciones Paidós, publicado en castellano, permite subrayar conceptos y consultar apartados directamente sobre papel.",
+      "texto": "El yo y los mecanismos de defensa: Las estrategias inconscientes de nuestra mente (Esenciales de Psicología) está disponible en tapa blanda. La edición de Ediciones Paidós reúne 192 páginas en papel, una extensión que permite consultar distintos apartados y volver a ellos sin depender de una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
         "editorial",
-        "idioma"
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El yo y los mecanismos de defensa: Las estrategias inconscientes de nuestra mente (Esenciales de Psicología) puede compararse con Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso. Ambos se relacionan con la vida psicológica, pero Anna Freud aborda las estrategias inconscientes de la mente, mientras que Victoria Cadarso centra su título en la infancia y la recuperación emocional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
       ]
     }
   ],

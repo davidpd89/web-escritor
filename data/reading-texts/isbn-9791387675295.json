@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387675295",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sobre la música: Escritos de musicología (MUSICA) se dirige a quienes buscan textos sobre música desde una perspectiva de estudio y reflexión. La obra de Benito Jerónimo Feijoo, situada en el ámbito del arte, no responde a la búsqueda de una novela musical ni de un manual para aprender a tocar un instrumento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Sobre la música: Escritos de musicología (MUSICA) es de tapa blanda y tiene 104 páginas en castellano. Su extensión permite leer los escritos de Benito Jerónimo Feijoo en un volumen físico relativamente breve, cómodo para transportar o consultar durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sobre la música: Escritos de musicología (MUSICA) y All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial comparten la música como objeto de reflexión. Benito Jerónimo Feijoo presenta escritos de musicología, mientras que el libro de Daniel Sedcontra delimita su asunto a la música industrial y su dimensión cultural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410045538"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "13d15be0846877dc",
+  "origen": "chatgpt-web"
+}

@@ -4,19 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se orienta a lectores interesados en la divulgación científica y en las grandes cuestiones sobre la realidad. Su planteamiento se aleja de las novelas de ficción y de los manuales dedicados exclusivamente a aplicaciones prácticas de una tecnología.",
+      "texto": "Las diez claves de la realidad (Drakontos), de Frank Wilczek, se dirige a lectores interesados en la divulgación científica y en las explicaciones sobre la realidad. Su orientación científica lo diferencia de los ensayos de filosofía política y de los manuales dedicados a actividades prácticas.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "afines_catalogo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las diez claves de la realidad (Drakontos) está disponible en tapa dura y tapa blanda, con una extensión de 320 páginas. La primera ofrece una encuadernación rígida para conservar el volumen; la segunda permite elegir una presentación flexible para la lectura y la consulta.",
+      "texto": "Las diez claves de la realidad (Drakontos) está disponible en tapa dura y tapa blanda. La edición en tapa blanda de Editorial Crítica tiene 320 páginas y facilita transportar el libro; la tapa dura ofrece una encuadernación más rígida para conservarlo y consultarlo repetidamente. Ambas opciones permiten optar por lectura física en castellano.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
+        "formato_edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las diez claves de la realidad (Drakontos) puede compararse con 50 cosas que hay que saber sobre IA, de Keith Mansfield, por su orientación hacia el conocimiento científico y tecnológico. Frank Wilczek plantea una aproximación amplia a la realidad, mientras que Keith Mansfield concentra su título en la inteligencia artificial. La diferencia principal para el lector está entre una perspectiva científica general y un asunto tecnológico concreto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
       ]
     }
   ],

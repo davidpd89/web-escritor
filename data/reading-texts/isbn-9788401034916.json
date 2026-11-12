@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788401034916",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El gran libro de los juguetes (Obras diversas), de Petter OKKA, se dirige a quienes buscan una lectura sobre juguetes dentro del ámbito del ocio y el tiempo libre. Por su temática, se aleja de los libros centrados en la investigación criminal o la gastronomía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El gran libro de los juguetes (Obras diversas) está disponible en tapa blanda, con 216 páginas en castellano. Esta edición de Plaza & Janés permite consultar el contenido en papel y transportarlo sin el peso habitual de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El gran libro de los juguetes (Obras diversas) puede compararse con 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos), por su relación con el entretenimiento. La diferencia está en el enfoque: el libro de Varios autores se presenta expresamente como una actividad para colorear, mientras que el de Petter OKKA se centra en los juguetes. Ambos se distinguen de las propuestas dedicadas a resolver crímenes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328384"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5f9228ed225ea13f",
+  "origen": "chatgpt-web"
+}

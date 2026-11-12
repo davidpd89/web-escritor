@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388108303",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Endemoniada (Faeris Editorial) se orienta a lectores de fantasía con componentes románticos y elementos de terror. Su combinación de géneros se aleja de la narrativa realista centrada exclusivamente en relaciones cotidianas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Faeris se publica en tapa blanda y contiene 568 páginas en castellano. Es una novela extensa en formato físico, adecuada para quien prefiere mantener una lectura larga en papel y conservar el ejemplar en su biblioteca.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE), de Kayla Edwards, comparte con Endemoniada (Faeris Editorial) la combinación de romance y elementos oscuros. El hechizo más oscuro (Faeris Editorial), de Wanda Hellmund, ofrece otra referencia vinculada a la fantasía y a la misma línea editorial, aunque se trata de una obra de distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788415955559",
+        "isbn-9791388108419"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "847c69475ab10e4b",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788409930821",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Leira se sitúa en el terreno de la fantasía y la ciencia ficción, por lo que encaja con lectores que buscan ficción de estos géneros. Sus 143 páginas ofrecen una extensión relativamente breve frente a novelas de mayor volumen, pero no responde a una búsqueda de ensayo o narrativa realista.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Leira está disponible en tapa blanda, con 143 páginas en castellano y edición de Juan José Berenguer. Su extensión permite transportarlo y repartir la lectura en sesiones cortas; el formato en papel también facilita prestarlo o incorporarlo a una biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aftermyth 1. Penelope y la prueba de los dioses, de Tracy Wolff, permite establecer una comparación desde la ficción fantástica, aunque su título remite expresamente a los dioses y a una prueba. Al despertar, rompe el cascarón (Runas), de Becky Chambers, ofrece otra referencia de autoría distinta, mientras que Leira, de Juan José Berenguer, se presenta como una obra de 143 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324102",
+        "isbn-9791370093488"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5101d14465c9f23d",
+  "origen": "chatgpt-web"
+}

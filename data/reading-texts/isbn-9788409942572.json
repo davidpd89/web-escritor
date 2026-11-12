@@ -4,31 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta novela de Marta Monroy se dirige a lectores de romance New Adult interesados en las segundas oportunidades, el arte y la superación personal. Su enfoque sentimental encaja menos con quienes buscan una historia centrada exclusivamente en el misterio o el suspense.",
+      "texto": "CUANDO TODO FALLA. Solo nos queda la promesa del nosotros.: Una novela romántica New Adult de superación, pasión por el arte y segundas oportunidades (La promesa del nosotros). se dirige a lectores de romance juvenil y New Adult interesados en el duelo, las relaciones y las segundas oportunidades. Encaja menos con quienes buscan una historia ajena a los conflictos sentimentales.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite consultar y retomar sus 375 páginas en papel sin depender de una pantalla. Esta edición de Marta Monroy López reúne el texto en un único volumen físico, una opción para quienes prefieren guardar sus lecturas en la estantería o prestarlas.",
+      "texto": "La novela de Marta Monroy puede leerse en tapa blanda o Kindle. La edición física tiene 375 páginas y permite conservarla en papel; Kindle facilita llevar la lectura en el móvil o en un lector electrónico sin transportar el volumen.",
       "evidencias": [
+        "autores",
         "formatos_disponibles",
-        "numero_paginas",
-        "editorial",
-        "edicion"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuando fuimos todo comparte con esta obra el interés por las relaciones sentimentales y la posibilidad de reconsiderar un vínculo amoroso. La novela de Marta Monroy incorpora además la superación personal y la pasión por el arte como ejes temáticos, mientras que el planteamiento conocido de Cuando fuimos todo gira alrededor de Emma y Gael.",
+      "texto": "La novela de Marta Monroy puede compararse con Cuando fuimos todo, de Noelia Dopazo, por su atención a las relaciones sentimentales. El título de Marta Monroy destaca la superación, el arte y las segundas oportunidades, mientras que la referencia de Noelia Dopazo presenta una relación entre Emma y Gael marcada por la expectativa de permanencia.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791387598440"
@@ -37,6 +35,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6bad13de3c357994",
+  "fuente_hash": "51d91ee46ec4350c",
   "origen": "chatgpt-web"
 }

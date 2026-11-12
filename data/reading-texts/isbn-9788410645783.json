@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410645783",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las reglas del pensamiento: El pensamiento lo crea todo se dirige a lectores interesados en el desarrollo personal y en el papel del pensamiento en la vida cotidiana. El enfoque de Rhonda Byrne se aleja de la ficción y de los manuales centrados exclusivamente en nutrición o ejercicio físico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las reglas del pensamiento: El pensamiento lo crea todo está disponible en tapa dura, con 224 páginas en castellano. Esta encuadernación permite conservar el volumen en una biblioteca personal y utilizarlo como regalo físico, además de consultar distintos pasajes sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida comparte con Las reglas del pensamiento: El pensamiento lo crea todo el interés por el bienestar personal. El libro de Kelly Ann Street plantea la sanación de heridas y el equilibrio emocional desde su título, mientras que Rhonda Byrne sitúa el pensamiento en el centro de su propuesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410451988"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3b5d26574b994031",
+  "origen": "chatgpt-web"
+}

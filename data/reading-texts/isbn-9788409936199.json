@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409936199",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Padre Salou, de A. Rodríguez, se sitúa en el terreno del misterio y el thriller. Se dirige a lectores que buscan este tipo de narrativa y encaja menos con quienes prefieren historias centradas en la fantasía, el romance o el humor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Padre Salou se publica en tapa blanda, con 271 páginas en castellano. Esta edición física permite leer el misterio en papel y conservar el volumen en la biblioteca, sin necesidad de un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Padre Salou comparte el ámbito del thriller con 25 días hasta Navidad, de Per Jacobsen. La diferencia reconocible está en el planteamiento editorial: la obra de Per Jacobsen se presenta como un thriller de adviento, mientras que la de A. Rodríguez se identifica dentro del misterio y el thriller sin ese marco navideño.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "293be57ef9e94877",
+  "origen": "chatgpt-web"
+}

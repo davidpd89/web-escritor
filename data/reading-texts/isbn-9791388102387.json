@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388102387",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "The Remarried Empress nº 03: 3 (Manhwa), de Alphatart, se dirige a lectores de cómic juvenil con interés por el romance y la narrativa gráfica. Su formato manhwa lo diferencia de las novelas románticas escritas únicamente en prosa; el título lo identifica como el n.º 3.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "The Remarried Empress nº 03: 3 (Manhwa) está disponible en tapa blanda, con 288 páginas en castellano. Esta edición de Planeta Cómic permite seguir la narración gráfica en un volumen físico y conservarlo junto a otros números de la colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "The Remarried Empress nº 03: 3 (Manhwa) comparte el componente romántico con Asistente del villano (edición especial limitada) (Faeris Editorial), de Hannah Nicole Maehrer. El título de Alphatart se presenta como manhwa juvenil y está identificado como el n.º 3, mientras que la obra de Hannah Nicole Maehrer se distingue por su referencia al villano y por tratarse de una edición especial limitada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388108112"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "559ab76ae75bf322",
+  "origen": "chatgpt-web"
+}

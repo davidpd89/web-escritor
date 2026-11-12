@@ -4,23 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Erótica de la percepción: Elogio de la atención y la literatura (Ensayo) se dirige a lectores interesados en filosofía y en la relación entre atención y literatura. Es una obra de Juan Arnau de 368 páginas, menos ajustada a quien busca ficción narrativa en lugar de reflexión ensayística.",
+      "texto": "Erótica de la percepción: Elogio de la atención y la literatura (Ensayo), de Juan Arnau, encaja con lectores interesados en la filosofía y en reflexionar sobre la atención y la literatura. Por su planteamiento ensayístico, se aleja de quienes buscan una narración de ficción centrada en personajes y acontecimientos.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Erótica de la percepción: Elogio de la atención y la literatura (Ensayo) se presenta en tapa dura, con 368 páginas en castellano. Esta edición de Galaxia Gutenberg permite conservar el ensayo como volumen físico y consultarlo por escrito, sin depender de un dispositivo de lectura.",
+      "texto": "La edición disponible de Erótica de la percepción: Elogio de la atención y la literatura (Ensayo) es en tapa dura y reúne 368 páginas. La encuadernación rígida resulta práctica para conservar el volumen y volver a consultar sus reflexiones sobre la atención y la literatura. Está publicada en castellano por Galaxia Gutenberg.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
         "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Erótica de la percepción: Elogio de la atención y la literatura (Ensayo) comparte el terreno filosófico con Arendt y la antropología de la condición plural en doble movimiento, de Javier Pons-Gallach. Juan Arnau sitúa la atención y la literatura en el centro de su título, mientras que la obra de Javier Pons-Gallach aborda la condición plural desde una perspectiva antropológica. La comparación permite distinguir dos asuntos de reflexión filosófica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399308358"
       ]
     }
   ],

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399301069",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Misticismo de tu carta guía: El mapa de tu esencia escrito en los arcanos se dirige a lectores interesados en el desarrollo personal desde una perspectiva vinculada al misticismo y los arcanos. Sus 129 páginas ofrecen una lectura relativamente corta, distinta de un manual centrado exclusivamente en nutrición o hábitos físicos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Misticismo de tu carta guía: El mapa de tu esencia escrito en los arcanos se publica en tapa blanda, en una edición de Letralma Editorial. Con 129 páginas en castellano, es un volumen físico de extensión contenida que puede llevarse en el bolso o consultarse en distintas sesiones.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida comparte con Misticismo de tu carta guía: El mapa de tu esencia escrito en los arcanos el interés por la exploración personal. La obra de Paula Fuentes Basulto utiliza los arcanos como referencia, mientras que la de Kelly Ann Street pone el acento en las heridas personales y el equilibrio emocional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410451988"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "42225cd3a945e1d0",
+  "origen": "chatgpt-web"
+}

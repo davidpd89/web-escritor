@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388111075",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Regreso a Trieste (Feltrinelli) se orienta a lectores de narrativa contemporánea interesados en las relaciones familiares y sus conflictos. Por su clasificación temática, se aleja de las lecturas centradas en la fantasía o en las explicaciones prácticas sobre crianza, aunque la familia figure entre sus asuntos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer las 280 páginas de Regreso a Trieste (Feltrinelli) en un volumen físico de extensión intermedia. Esta edición de Feltrinelli Editores resulta adecuada para una lectura continuada en papel y para conservarla junto a otras novelas contemporáneas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Regreso a Trieste (Feltrinelli) puede compararse con Dime, niña bonita (Narrativa) por su orientación hacia la narrativa, aunque son obras de Federica Manzon y Laura Galve, respectivamente. También comparte ese terreno literario con El verano en que desaparecieron los ciervos (Grijalbo Narrativa), de Fran López Galán, mientras que Regreso a Trieste (Feltrinelli) incorpora expresamente la familia y la crianza entre sus temas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387605964",
+        "isbn-9788425376184"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "01f7a232a896f26d",
+  "origen": "chatgpt-web"
+}

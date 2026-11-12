@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409943579",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta libreta está dirigida a quienes quieren organizar información sobre sus mascotas para consultarla en una emergencia en España. Su enfoque es práctico y familiar, no el de una obra narrativa ni el de un tratado sobre salud animal.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 72 páginas en castellano y está publicada por Libretas Por Si Acaso. El formato físico permite conservar la libreta junto a otros documentos domésticos y tenerla a mano cuando sea necesario consultar información.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Por si acaso: Libreta de la casa comparte autoría y finalidad de consulta ante emergencias con la libreta dedicada a las mascotas, pero se centra en la vivienda. CONECTANDO CON MI BEBÉ aborda otro ámbito del cuidado familiar mediante relatos y actividades relacionados con el embarazo, mientras que esta libreta está destinada a organizar información sobre animales domésticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409938124",
+        "isbn-9788409936465"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f044a96cd98881f2",
+  "origen": "chatgpt-web"
+}

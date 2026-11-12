@@ -4,23 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Horóscopo chino 2027 (No ficción), de Ludovica Squirru Dari, se dirige a lectores interesados en el horóscopo chino y en contenidos vinculados al año 2027. Sus 448 páginas lo presentan como una lectura extensa dentro de la no ficción; no responde a la búsqueda de una novela ni de un manual centrado exclusivamente en nutrición.",
+      "texto": "Horóscopo chino 2027 (No ficción) está dirigido a lectores interesados en el horóscopo chino y en publicaciones relacionadas con el desarrollo personal. Su temática astrológica encaja menos con quienes buscan un manual de divulgación científica o una novela de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
-        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Horóscopo chino 2027 (No ficción) cuenta con una edición en tapa blanda de 448 páginas, publicada en castellano por Ediciones B. El soporte físico permite señalar apartados y volver a consultarlos durante el año indicado en el título. Por su extensión, resulta más voluminoso que una guía breve de consulta.",
+      "texto": "Horóscopo chino 2027 (No ficción) se ofrece en tapa blanda, con 448 páginas en castellano. La edición permite consultar en papel una obra centrada en el horóscopo chino de 2027, conservarla en la biblioteca personal o regalarla a alguien interesado en esa temática.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Horóscopo chino 2027 (No ficción) y Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida, de Kelly Ann Street, pueden compararse por su relación con el desarrollo personal. Ludovica Squirru Dari centra su libro en el horóscopo chino de 2027, mientras que Kelly Ann Street aborda las heridas personales y la búsqueda de equilibrio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410451988"
       ]
     }
   ],

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788410264816",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "No mires atrás (NOVELA GRAFICA) está dirigido a lectores que buscan fantasía narrada mediante el lenguaje del cómic. Sus 132 páginas y su clasificación como novela gráfica lo diferencian de una novela fantástica escrita únicamente en prosa, por lo que encaja menos con quienes prefieren ese formato narrativo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "No mires atrás (NOVELA GRAFICA) se presenta en tapa blanda, con 132 páginas en castellano. La edición física de Ediciones la Cúpula, S.l. reúne la obra de Anabel Colazo en un volumen de cubierta flexible que puede guardarse junto a otros cómics.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "No mires atrás (NOVELA GRAFICA) comparte la combinación de fantasía y narrativa gráfica con Agencia de animales mágicos: Medianoche y la leyenda de Santuario (Mi primer cómic), de Steve Smallman. La obra de Anabel Colazo se presenta como novela gráfica de 132 páginas, mientras que el título de Steve Smallman se identifica expresamente como un primer cómic.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448875381"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2e47da84455cf21e",
+  "origen": "chatgpt-web"
+}

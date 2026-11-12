@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387964795",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hielo: 405 (Narrativa del Acantilado) se dirige a lectores de narrativa contemporánea interesados en asuntos familiares y relaciones personales. Su clasificación también incluye el ensayo, por lo que se sitúa en un ámbito distinto al de los manuales dedicados exclusivamente a ofrecer técnicas de crianza. El título lo identifica como el n.º 405.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hielo: 405 (Narrativa del Acantilado) se edita en tapa blanda, con 416 páginas en castellano. Esta presentación permite leer la obra de Szczepan Twardoch en papel, llevarla durante los desplazamientos y señalar pasajes para consultarlos posteriormente. La edición corresponde a Editorial Acantilado.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "autores",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hielo: 405 (Narrativa del Acantilado) comparte con Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos) el ámbito de las relaciones familiares. Szczepan Twardoch figura en narrativa contemporánea y ensayo; Toño Ramos presenta herramientas de psicología conductual aplicadas a la convivencia doméstica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399249682"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fbc6188c70331589",
+  "origen": "chatgpt-web"
+}

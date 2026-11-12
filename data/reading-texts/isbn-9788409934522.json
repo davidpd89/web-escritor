@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409934522",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Poemas y canciones para el alma. se dirige a lectores interesados en poesía y textos vinculados a la canción, dentro de una obra que también se clasifica como ensayo. No responde a la búsqueda de una novela de ficción ni de una narración extensa: el volumen de Dolors Coll Figueras tiene 72 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición física de este poemario se ofrece en tapa blanda y tiene 72 páginas. Su extensión permite transportarlo con facilidad y consultar composiciones concretas durante trayectos o pausas breves. El volumen publicado por City See Study Centre S.l. está pensado para la lectura en papel.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Poemas y canciones para el alma. comparte con Fuego y raíz: Cancionero (Primera persona) la relación entre poesía y canción que anuncian sus títulos. La obra de Dolors Coll Figueras también se clasifica como ensayo, mientras que la de Gata Cattana se presenta como cancionero. Son dos autorías distintas para explorar esa relación desde sus respectivos libros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788403524996"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "26f46a63adad9939",
+  "origen": "chatgpt-web"
+}

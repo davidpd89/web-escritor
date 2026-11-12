@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788445010808",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Guerra de la Reina Araña nº 03/06 Condenación: 3 (D&D Reinos Olvidados) se sitúa entre la fantasía y las aventuras, dentro de una serie identificada en el título. Encaja con lectores interesados en esos géneros y en narraciones seriadas, frente a quienes buscan una obra presentada como independiente o ajena a la fantasía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Guerra de la Reina Araña nº 03/06 Condenación: 3 (D&D Reinos Olvidados) está disponible en tapa blanda, con 400 páginas y edición de Minotauro. Este formato permite transportar el volumen y mantenerlo junto a otras entregas de la serie en una colección física. El título lo identifica como el n.º 3.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alas de Hierro. Edición Especial Limitada Con Cantos Decorados / Iron Flame. Limited Special Edition with Sprayed Edges: 2 (Empíreo / Empyrean) comparte con La Guerra de la Reina Araña nº 03/06 Condenación: 3 (D&D Reinos Olvidados) su identificación como entrega numerada. La obra de Richard Baker se presenta como fantasía y aventuras en tapa blanda; la de Rebecca Yarros destaca por su edición especial con cantos decorados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073950664"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "454a074d96b6e517",
+  "origen": "chatgpt-web"
+}

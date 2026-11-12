@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409923595",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Anatomía de una relación tóxica: Como reconocerla, salir de ella y recuperar tu vida, de David C, aborda las relaciones perjudiciales desde el desarrollo personal y el ámbito familiar. Sus 362 páginas se dirigen a quienes buscan una lectura sobre reconocimiento y recuperación en las relaciones, no una novela de ficción romántica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Anatomía de una relación tóxica: Como reconocerla, salir de ella y recuperar tu vida consta de 362 páginas en tapa blanda. El soporte físico permite volver a distintos apartados durante la lectura y conservar el ejemplar para consultas posteriores, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anatomía de una relación tóxica: Como reconocerla, salir de ella y recuperar tu vida y Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología) tratan cuestiones relacionadas con la pareja. David C centra su título en reconocer y abandonar relaciones tóxicas, mientras Ramón Nogueras Pérez aborda el enamoramiento y el desenamoramiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387534370"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a208534adb3d7785",
+  "origen": "chatgpt-web"
+}

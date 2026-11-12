@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399129878",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los tristes del Paseo, de Antonio Canalejo Santaella, se orienta a lectores de poesía interesados también en referencias a la Edad Media. Con 59 páginas, responde a la búsqueda de un libro breve, pero no a la de una novela extensa centrada en una trama de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los tristes del Paseo cuenta con una edición en tapa blanda de 59 páginas, publicada por Editorial Tleo. El formato permite llevar el poemario en papel y consultar o releer sus páginas sin transportar un volumen extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los tristes del Paseo puede compararse con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, dentro de la lectura poética. La diferencia identificable está en la autoría y el enfoque anunciado: Antonio Canalejo Santaella presenta un título asociado a la tristeza, mientras que el de Pedro Salinas señala expresamente el amor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7c44247ab2a1d582",
+  "origen": "chatgpt-web"
+}

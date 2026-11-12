@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409937363",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sol ardiente (La elección de Rehsed) encaja con lectores que buscan aventuras dentro de la fantasía y la ciencia ficción. La combinación de estos géneros lo distancia de las novelas realistas centradas exclusivamente en conflictos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sol ardiente (La elección de Rehsed) se presenta en tapa blanda, con 316 páginas en castellano. El ejemplar físico permite distribuir la lectura de esta obra de fantasía y aventuras en distintas sesiones, sin necesidad de utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sol ardiente (La elección de Rehsed) comparte el terreno de la ficción especulativa con Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados), de Andy Weir. La obra de Dani G. combina fantasía, aventuras y ciencia ficción, mientras que Artemisa se vincula especialmente con la ciencia ficción y presenta una edición limitada con cantos tintados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388147470"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3229b4956c7f1dc6",
+  "origen": "chatgpt-web"
+}

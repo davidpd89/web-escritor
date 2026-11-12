@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Inverness, California (Andanzas), de Francisco Serrano, se sitúa entre el misterio, la narrativa contemporánea y la historia del siglo XX. Se orienta a lectores interesados en la intriga con una dimensión histórica, frente a quienes buscan exclusivamente fantasía o divulgación práctica.",
+      "texto": "Inverness, California (Andanzas), de Francisco Serrano, se dirige a lectores interesados en el misterio, la historia y la narrativa contemporánea vinculada al siglo XX. Su combinación temática queda lejos de los manuales prácticos y de las lecturas centradas exclusivamente en la fantasía.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,12 +13,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Inverness, California (Andanzas) está disponible en tapa blanda, en una edición de Tusquets Editores de 352 páginas. Su encuadernación flexible permite transportarlo en una bolsa y leerlo por sesiones, sin depender de un dispositivo electrónico.",
+      "texto": "Inverness, California (Andanzas) se presenta en tapa blanda, con 352 páginas en castellano publicadas por Tusquets Editores. Esta edición permite leer la obra en papel, conservarla en la biblioteca y consultar sus páginas sin dispositivos electrónicos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "editorial",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo tierra seca: Edición limitada a precio especial (Colección Especial), de César Pérez Gellida, constituye otra referencia para comparar con el misterio de Inverness, California (Andanzas), aunque su título remite a un escenario distinto. Criminales sin sombra (Salamandra Black), de Juan Carlos Galindo, apunta por su título hacia la criminalidad, mientras que Francisco Serrano combina misterio, narrativa contemporánea e historia del siglo XX.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423371259",
+        "isbn-9791387928285"
       ]
     }
   ],

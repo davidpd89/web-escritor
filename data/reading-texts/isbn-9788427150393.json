@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788427150393",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Oración ignaciana - Vol. 3 - Praxis: 95 (Manresa) se dirige a lectores interesados en la oración ignaciana y su dimensión práctica. Con 632 páginas y un enfoque de espiritualidad religiosa, se aleja de las lecturas breves de reflexión general o de las obras centradas en otras tradiciones espirituales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Oración ignaciana - Vol. 3 - Praxis: 95 (Manresa) está disponible en tapa blanda, con 632 páginas en castellano. Por su extensión, el ejemplar físico permite avanzar por sesiones y volver a pasajes anteriores; conviene tener en cuenta su volumen si se transporta habitualmente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación también aborda una tradición espiritual desde sus fundamentos y su práctica. La diferencia es el marco religioso: Oración ignaciana - Vol. 3 - Praxis: 95 (Manresa), de José García De Castro Valdés SJ, se centra en la oración ignaciana, mientras que el libro de Tsondru Yeshe trata el Dharma.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4776c7a509fca3bb",
+  "origen": "chatgpt-web"
+}

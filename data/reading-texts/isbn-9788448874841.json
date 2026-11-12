@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788448874841",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Paw Patrol | Patrulla Canina. Un cuento - Cuento de Navidad (Nickelodeon) está pensado para lectores infantiles interesados en las aventuras de Patrulla Canina y las historias navideñas. Sus 24 páginas lo sitúan entre los cuentos breves, lejos de las novelas juveniles extensas o de las lecturas dirigidas a un público adulto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Paw Patrol | Patrulla Canina. Un cuento - Cuento de Navidad (Nickelodeon) se ofrece en tapa dura, con 24 páginas en castellano. La encuadernación rígida de Beascoa permite conservar este cuento infantil como libro físico para lecturas compartidas y como regalo de temática navideña.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Paw Patrol | Patrulla Canina. Un cuento - Cuento de Navidad (Nickelodeon) y Abre el misterio 1 - El robo de las croquetas son lecturas infantiles con aventuras. El cuento de Nickelodeon tiene 24 páginas y temática navideña, mientras que el libro de Carlos G. Gurpegui plantea un misterio alrededor de unas croquetas desaparecidas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8a860d8df9b5f81a",
+  "origen": "chatgpt-web"
+}

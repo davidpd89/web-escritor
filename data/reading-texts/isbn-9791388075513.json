@@ -4,20 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La genética de los colores de la piel, el pelo y los ojos: Por qué somos rubios, morenos, pelirrojos o tenemos los ojos azules (Divulgación científica) se dirige a lectores interesados en las causas genéticas de los rasgos físicos humanos. Su enfoque científico encaja menos con quienes buscan consejos de estética o una explicación de los colores basada únicamente en su apariencia.",
+      "texto": "La genética de los colores de la piel, el pelo y los ojos: Por qué somos rubios, morenos, pelirrojos o tenemos los ojos azules (Divulgación científica) se dirige a lectores interesados en la genética humana y la explicación científica de los rasgos físicos. Su enfoque en la pigmentación lo diferencia de los libros dedicados a hábitos saludables o nutrición.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda contiene 304 páginas en castellano, una extensión que permite consultar distintos aspectos de la pigmentación humana en un único volumen. El soporte impreso facilita regresar a los apartados sobre piel, pelo y ojos durante la lectura.",
+      "texto": "La genética de los colores de la piel, el pelo y los ojos: Por qué somos rubios, morenos, pelirrojos o tenemos los ojos azules (Divulgación científica) se ofrece en tapa blanda, con 304 páginas. La edición de Pinolia permite consultar en papel las explicaciones sobre genética y pigmentación, así como volver a los apartados de interés durante la lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cerebro y estilo de vida: 1107 (Mayor), de José Luis Trejo, y La genética de los colores de la piel, el pelo y los ojos: Por qué somos rubios, morenos, pelirrojos o tenemos los ojos azules (Divulgación científica), de Lluís Montoliu, abordan cuestiones relacionadas con el organismo humano. El primero relaciona cerebro y estilo de vida desde su título; el segundo se centra específicamente en la genética de la pigmentación de piel, pelo y ojos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410673410"
       ]
     }
   ],

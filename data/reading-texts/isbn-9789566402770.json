@@ -4,20 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Buzón de las impuras, el coleccionista TD (Chi) (Narrativa general) se dirige a lectores de novela histórica que prefieren obras de extensión considerable. Sus 640 páginas lo alejan de las lecturas breves y de quienes buscan libros prácticos o divulgativos en lugar de ficción.",
+      "texto": "Dirigido a lectores de novela histórica que buscan una obra extensa en castellano. Buzón de las impuras, el coleccionista TD (Chi) (Narrativa general), de Francisca Solar, tiene 640 páginas y se aleja de las lecturas breves o de quienes prefieren otros géneros.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Buzón de las impuras, el coleccionista TD (Chi) (Narrativa general) se publica en tapa dura y reúne 640 páginas. La encuadernación rígida favorece su conservación y su uso como regalo, mientras que la extensión implica un volumen físico considerable para transportarlo.",
+      "texto": "La edición de Buzón de las impuras, el coleccionista TD (Chi) (Narrativa general) se presenta en tapa dura, con 640 páginas en castellano. La encuadernación rígida resulta práctica para conservar un volumen extenso en la biblioteca o regalarlo en formato físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Buzón de las impuras, el coleccionista TD (Chi) (Narrativa general) comparte su orientación histórica con Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián. La diferencia está en el enfoque anunciado: Astur se vincula expresamente con la Reconquista, mientras que la obra de Francisca Solar se presenta como novela histórica sin esa delimitación en el título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401039539"
       ]
     }
   ],

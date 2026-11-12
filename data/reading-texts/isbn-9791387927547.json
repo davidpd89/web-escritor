@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387927547",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sucesos críticos variados. Vol. 2 (Sillón Orejero), de Deniz Camp y Eric Zawadzki, encaja con lectores de cómic y novela gráfica interesados también en la narrativa contemporánea. Sus 152 páginas ofrecen una extensión relativamente breve; quien busque una novela extensa en prosa encontrará aquí otro tipo de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Sucesos críticos variados en tapa dura reúne 152 páginas en castellano. Su encuadernación rígida permite conservar el cómic en una estantería, consultarlo de nuevo y regalarlo como volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sucesos críticos variados comparte el ámbito del cómic con Los pecados de la familia Ichinose 6 (Shônen), de Taizan 5. Mientras este último se identifica como shônen, la obra de Deniz Camp y Eric Zawadzki también se clasifica como narrativa contemporánea. Cinco cuentos, de Posy Simmonds, ofrece otra comparación mediante cinco relatos reunidos en un volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410305106",
+        "isbn-9788419981035"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "41da74e507e9db18",
+  "origen": "chatgpt-web"
+}

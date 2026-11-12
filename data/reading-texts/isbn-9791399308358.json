@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399308358",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Arendt y la antropología de la condición plural en doble movimiento está dirigido a lectores de ensayo filosófico interesados en la condición plural y su dimensión antropológica. Su planteamiento conceptual y sus 142 páginas lo distinguen de una biografía narrativa o de un manual práctico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Arendt y la antropología de la condición plural en doble movimiento se publica en tapa blanda, con 142 páginas en castellano bajo el sello Ápeiron Ediciones. Es una edición en papel de extensión contenida para leer y consultar un ensayo de filosofía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cartas a Lucilio: Edición íntegra (Clásicos) y Arendt y la antropología de la condición plural en doble movimiento se relacionan por su orientación filosófica. El primero presenta una edición íntegra de textos de Séneca, mientras que el segundo es un ensayo de Javier Pons-Gallach centrado en la condición plural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182495"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "99e7d1d3ce5c160a",
+  "origen": "chatgpt-web"
+}

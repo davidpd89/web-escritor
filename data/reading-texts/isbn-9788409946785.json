@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788409946785",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Kronos encaja con lectores de ciencia ficción y fantasía que buscan un libro de extensión contenida. Sus 142 páginas permiten una lectura relativamente breve, mientras que su orientación hacia la ficción especulativa lo aleja de quienes prefieren ensayos o relatos estrictamente realistas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Kronos se publica en tapa blanda, con 142 páginas en castellano, una extensión manejable para llevar el libro durante los desplazamientos. La edición física de Rafael Godecasa permite leerlo sin pantalla y conservarlo en papel, tanto para una primera lectura como para posteriores consultas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Kronos y Al despertar, rompe el cascarón (Runas), de Becky Chambers, pueden compararse desde el interés por la ficción especulativa. Kronos figura entre la fantasía y la ciencia ficción, mientras que el título de Becky Chambers se identifica mediante la referencia a Runas. Son obras de distinta autoría, por lo que la elección puede partir del interés por cada propuesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370093488"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "838af14d2f0828ba",
+  "origen": "chatgpt-web"
+}

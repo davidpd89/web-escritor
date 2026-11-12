@@ -4,22 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mantequilla (Novela), de Asako Yuzuki, se dirige a lectores de narrativa contemporánea con interés por el misterio y el thriller. Su clasificación también incluye arte y diseño, de modo que reúne ámbitos temáticos distintos; quien busque exclusivamente un ensayo histórico encontrará aquí una novela.",
+      "texto": "Mantequilla (Novela), de Asako Yuzuki, se dirige a lectores de misterio y narrativa contemporánea que buscan una novela extensa. Sus 496 páginas en castellano encajan menos con quienes prefieren lecturas breves o relatos centrados exclusivamente en la acción.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mantequilla (Novela) está disponible en tapa blanda, concretamente en una edición de bolsillo de Booket. Sus 496 páginas reúnen una lectura extensa en un volumen de encuadernación flexible, que puede guardarse en una bolsa y llevarse durante los desplazamientos sin depender de un dispositivo electrónico.",
+      "texto": "Mantequilla (Novela) está disponible en tapa blanda, en una edición de bolsillo de Booket. Sus 496 páginas permiten leerla por etapas y el formato facilita llevarla en el bolso o la mochila sin recurrir a un dispositivo electrónico.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "edicion",
         "editorial",
-        "numero_paginas",
-        "formatos_disponibles"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mantequilla (Novela) puede compararse con Aguas turbulentas por su vinculación con el misterio y la narrativa de intriga. La obra de Rankin Ian sitúa su conflicto en Edimburgo y enfrenta acontecimientos del pasado con el presente; la de Asako Yuzuki se presenta también como narrativa contemporánea, con una extensión de 496 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9791370310318"
       ]
     }
   ],

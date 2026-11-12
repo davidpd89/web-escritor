@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Criptofanía (Eria) está dirigido a lectores de poesía que buscan una obra breve en castellano. Con 66 páginas, su extensión es reducida frente a una novela larga y su clasificación poética lo diferencia de la narrativa convencional.",
+      "texto": "Criptofanía (Eria) está dirigido a quienes buscan poesía contemporánea en castellano y prefieren libros de extensión breve. Sus 66 páginas responden a una lectura poética, no a una novela con una trama narrativa extensa ni a un ensayo de carácter divulgativo.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -14,13 +14,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Criptofanía (Eria) tiene una edición en tapa blanda de 66 páginas, publicada por Eolas Ediciones. Su extensión permite transportarlo en formato físico sin el volumen de un libro de varios centenares de páginas; la lectura se realiza en castellano.",
+      "texto": "Criptofanía (Eria) se publica en tapa blanda y reúne 66 páginas, una extensión que facilita llevar el volumen y volver a consultar sus textos. La edición de Eolas Ediciones está en castellano y permite leer en papel sin depender de una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "editorial",
         "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Advenir, de Jose Eceolaza, y Criptofanía (Eria), de Jorge Fernández Gonzalo, comparten su presencia entre las lecturas de poesía, aunque son obras de distinta autoría. Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, señala expresamente una orientación amorosa, mientras que Criptofanía (Eria) no delimita su temática de ese modo en el título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410212749",
+        "isbn-9788466396288"
       ]
     }
   ],

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Secuestrada por el deseo: 3257 (Bianca), de Millie Adams, se dirige al público que busca novelas románticas en castellano. Su extensión de 160 páginas encaja con quienes prefieren relatos de romance relativamente breves, pero no con lectores interesados principalmente en cómic o thriller.",
+      "texto": "Secuestrada por el deseo: 3257 (Bianca), de Millie Adams, se dirige a quienes leen narrativa romántica en castellano. Sus 160 páginas permiten abordar una obra breve dentro del género; no responde a quien busca fantasía, ciencia ficción o una lectura de gran extensión.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,18 +15,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Secuestrada por el deseo: 3257 (Bianca) se publica en tapa blanda, con 160 páginas. La edición de Harlequin Ibérica, S.a. ofrece una lectura romántica en papel, con una extensión que facilita transportarla y terminarla sin manejar un volumen especialmente largo.",
+      "texto": "La tapa blanda permite leer y conservar físicamente las 160 páginas de Secuestrada por el deseo: 3257 (Bianca). La edición Kindle ofrece el mismo título en formato digital para llevarlo en el móvil o en un lector electrónico, sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "categorias"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Secuestrada por el deseo: 3257 (Bianca) y A medio salto (Romántica) comparten su orientación hacia el romance, aunque son obras de Millie Adams y Valera Gomalva, respectivamente. A mil por hora, de Hannah Grace, también aborda una relación romántica, pero la sitúa entre un piloto de F1 y una mujer vinculada a su pasado, mientras que Secuestrada por el deseo: 3257 (Bianca) se presenta como una novela romántica de 160 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388365089",
+        "isbn-9788466683449"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0740e9dfc0fea5cf",
+  "fuente_hash": "f8e08aca76dfd86b",
   "origen": "chatgpt-web"
 }

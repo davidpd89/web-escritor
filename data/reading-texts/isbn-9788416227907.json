@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788416227907",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fantasmas de la dictadura: Una etnografía sobre apariciones, espectros y almas en pena (KAMCHATKA) se orienta a lectores de ensayo interesados en la política, las dictaduras y las representaciones de los muertos. Su enfoque etnográfico lo distingue de una novela de fantasmas o de una narración de terror concebida como ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Fantasmas de la dictadura: Una etnografía sobre apariciones, espectros y almas en pena (KAMCHATKA) es de tapa blanda y tiene 316 páginas. El volumen de La Oveja Roja permite una lectura en papel con posibilidad de marcar pasajes y consultar apartados durante el estudio de sus cuestiones políticas y etnográficas.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fantasmas de la dictadura: Una etnografía sobre apariciones, espectros y almas en pena (KAMCHATKA) y Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparten el interés por cuestiones políticas. Mariana Tello Weiss aborda las apariciones y los espectros vinculados a la dictadura desde la etnografía, mientras Miguel Anxo Bastos Boubeta se centra en las bases económicas y políticas del anarcocapitalismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "27b5801c95d11b8b",
+  "origen": "chatgpt-web"
+}

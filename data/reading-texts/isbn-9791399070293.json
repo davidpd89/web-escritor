@@ -4,22 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a quienes buscan comprender la relación entre identidad, trauma y acompañamiento en situaciones de vulnerabilidad. Soplar las heridas: Identidad y trauma: claves para acompañar en la vulnerabilidad, de Luis E. Estévez Cachafeiro, se sitúa en el terreno del desarrollo personal y el ensayo, no en el de la ficción ni en el de las guías de alimentación.",
+      "texto": "Soplar las heridas: Identidad y trauma: claves para acompañar en la vulnerabilidad se dirige a lectores interesados en el trauma, la identidad y el acompañamiento de personas vulnerables. Su enfoque se sitúa entre el desarrollo personal, el bienestar y el ensayo, por lo que no responde a la búsqueda de una novela de ficción o de un recetario de salud.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite consultar las 168 páginas de Soplar las heridas: Identidad y trauma: claves para acompañar en la vulnerabilidad en un volumen físico. Esta edición en castellano, publicada por Kabo&bero Ediciones, facilita marcar pasajes y recuperar cuestiones relacionadas con la identidad y el acompañamiento.",
+      "texto": "Soplar las heridas: Identidad y trauma: claves para acompañar en la vulnerabilidad se edita en tapa blanda y tiene 168 páginas en castellano. El volumen físico permite marcar y recuperar apartados relacionados con la identidad y el trauma durante sucesivas consultas, sin necesidad de utilizar una pantalla.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta y Soplar las heridas: Identidad y trauma: claves para acompañar en la vulnerabilidad coinciden en abordar cuestiones personales, pero el primero se centra en la vida adulta y el segundo en el trauma y el acompañamiento. Consciencia Inmortal: Conversaciones con Sri Ramana Maharshihi propone conversaciones de carácter espiritual, frente al tratamiento de la identidad y la vulnerabilidad de Luis E. Estévez Cachafeiro.",
+      "evidencias": [
         "titulo",
-        "idioma",
-        "editorial"
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409938490",
+        "isbn-9791399252705"
       ]
     }
   ],

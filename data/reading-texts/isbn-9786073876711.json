@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073876711",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para lectores interesados en las biografías, las memorias y el ensayo, con Elena Garro como figura central del título. No responde a la búsqueda de una novela de ficción ni de un libro de ejercicios de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Yo, Elena Garro / I, Elena Garro contiene 184 páginas en castellano. Su extensión permite abordar el volumen en papel y consultarlo posteriormente, sin necesidad de utilizar una aplicación de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Yo, Elena Garro / I, Elena Garro puede compararse con Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes por su aproximación biográfica a una persona identificada en el título. Carlos Landeros se ocupa de Elena Garro, mientras que Andrew Paxman aborda a Andrés Manuel mediante una estructura anunciada de 50 episodios. La diferencia principal está en la figura tratada y en la organización que adelantan sus títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073873154"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "18da7b058c89e7bd",
+  "origen": "chatgpt-web"
+}

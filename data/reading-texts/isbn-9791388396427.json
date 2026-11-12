@@ -4,31 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a quienes buscan una guía práctica sobre el cuidado de los pies y su relación con el movimiento. Por su enfoque de salud y bienestar, se aleja de las memorias personales y de los libros centrados en alimentación o ejercicio físico general.",
+      "texto": "Lo que nadie te contó sobre la salud de tus pies: Guía práctica para cuidar la base de tu movimiento (Salud y bienestar) se dirige a lectores interesados en el cuidado de los pies y su relación con el movimiento. Su orientación práctica y sus 272 páginas lo diferencian de una obra de ficción o de un tratado centrado en historia de la medicina.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Arcopress se presenta en tapa blanda y tiene 272 páginas en castellano. Este formato permite consultar en papel los contenidos sobre el cuidado de los pies y volver a los apartados de interés durante la lectura.",
+      "texto": "Lo que nadie te contó sobre la salud de tus pies: Guía práctica para cuidar la base de tu movimiento (Salud y bienestar) puede leerse en tapa blanda o Kindle. La edición física reúne 272 páginas para consultar en papel; Kindle permite llevar la guía en un lector electrónico o dispositivo compatible sin transportar el libro.",
       "evidencias": [
-        "edicion",
-        "numero_paginas",
-        "idioma",
         "titulo",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... aborda el bienestar desde distintos aspectos de la vida, mientras que el libro de Manuel Vidal Lamela se concentra en la salud de los pies. Ambos pertenecen al ámbito del cuidado personal, pero el segundo delimita su contenido a una parte concreta del cuerpo.",
+      "texto": "Lo que nadie te contó sobre la salud de tus pies: Guía práctica para cuidar la base de tu movimiento (Salud y bienestar) y 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito comparten el interés por el bienestar. Manuel Vidal Lamela se centra en los pies y el movimiento, mientras que Liz Moody aborda también felicidad, relaciones y éxito.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9798890981776"
@@ -37,6 +35,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9895a50ece5dc6ed",
+  "fuente_hash": "e88d86d412cc2af9",
   "origen": "chatgpt-web"
 }

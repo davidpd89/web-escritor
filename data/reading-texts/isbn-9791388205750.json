@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388205750",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pink Floyd: Un moderno Frankenstein (Sílex Música) se dirige a lectores interesados en la música y en el ensayo sobre manifestaciones artísticas. Sus 524 páginas lo alejan de quienes buscan una introducción breve o un libro de actividades prácticas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Sílex Ediciones está disponible en tapa blanda, con 524 páginas en castellano. Este formato permite conservar el ensayo en una biblioteca personal y consultar sus páginas en papel, aunque su extensión añade volumen al transportarlo.",
+      "evidencias": [
+        "editorial",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pink Floyd: Un moderno Frankenstein (Sílex Música) y De la estética como política: Para una rehabilitación del sentido en el cine (Signo e imagen) comparten el interés por el análisis de expresiones artísticas. Javier Franco Madrid centra su título en la música, mientras Noël Burch aborda las relaciones entre estética, política y cine.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788437650586"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "482d2a3d126b0fe5",
+  "origen": "chatgpt-web"
+}

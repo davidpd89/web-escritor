@@ -4,28 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Zeniza (Creativa), de Ecequiel Barricart, se dirige a lectores interesados en la poesía y en temas relacionados con el desarrollo personal y el bienestar. Sus 112 páginas ofrecen una extensión breve; no responde a quien busca una novela extensa ni un tratado especializado de nutrición.",
+      "texto": "Zeniza (Creativa) se dirige a lectores interesados en el desarrollo personal, el bienestar y la poesía. Su combinación de ámbitos también permite acercarse al libro desde cuestiones familiares, mientras que quienes buscan exclusivamente una novela de ficción encontrarán un planteamiento diferente.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Zeniza (Creativa) se publica en tapa blanda y consta de 112 páginas. La edición de Ediciones Eunate permite llevar el libro en papel y volver a consultar sus páginas sin depender de una pantalla. Es un volumen en castellano de extensión reducida.",
+      "texto": "Zeniza (Creativa) cuenta con 112 páginas en su edición de tapa blanda de Ediciones Eunate, un volumen relativamente breve para leer y conservar en papel. Kindle ofrece la alternativa de llevar el texto en formato digital y consultarlo desde un móvil o lector electrónico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
         "editorial",
-        "idioma"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Zeniza (Creativa) comparte el ámbito del desarrollo personal con Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida, de Kelly Ann Street, aunque también incorpora una vertiente poética. Frente a Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta, de Anca Martínez, su clasificación incluye además bienestar y familia, mientras que el otro título se centra en la vida adulta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410451988",
+        "isbn-9788409938490"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "aedb67f67ca78cd8",
+  "fuente_hash": "55268248b9d34e33",
   "origen": "chatgpt-web"
 }

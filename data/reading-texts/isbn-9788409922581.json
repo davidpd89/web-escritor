@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409922581",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La hora de la Hispanidad y la Iberofonía: Llegó el tiempo de volver a hacer historia se dirige a lectores interesados en la historia y en las cuestiones de poder y política. Sus 616 páginas y su enfoque ensayístico encajan con una lectura de análisis, no con quien busque una novela de ficción o una lectura breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de La hora de la Hispanidad y la Iberofonía: Llegó el tiempo de volver a hacer historia se presenta en tapa blanda y reúne 616 páginas en castellano. Es una opción física para leer y consultar un ensayo extenso, aunque su volumen exige más espacio de transporte que un libro corto.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los pilares de la historia comparte con La hora de la Hispanidad y la Iberofonía: Llegó el tiempo de volver a hacer historia el interés por la interpretación histórica, aunque el segundo sitúa la Hispanidad y la Iberofonía en el centro de su planteamiento. El papel de la violencia en la historia aborda también la relación entre historia y poder, pero desde la violencia, Bismarck y la lucha de clases en la Alemania del siglo XIX.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388115479",
+        "isbn-9788430629664"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "95aa2c6f52a9f5a1",
+  "origen": "chatgpt-web"
+}

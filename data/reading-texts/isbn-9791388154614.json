@@ -4,22 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La aldea más allá de la niebla está dirigida al público infantil y juvenil interesado en la fantasía. Es una obra de Sachiko Kashiwaba que se sitúa fuera de la narrativa histórica y del ensayo, de modo que no responde a quienes buscan una lectura documental.",
+      "texto": "La aldea más allá de la niebla se dirige al público infantil y juvenil interesado en la fantasía. La obra de Sachiko Kashiwaba tiene 160 páginas y combina su clasificación fantástica con la literatura para lectores jóvenes. Quien busque un ensayo o una lectura realista para adultos encontrará aquí un planteamiento diferente.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La aldea más allá de la niebla se publica en tapa dura, con 160 páginas en castellano. La encuadernación rígida de Blackie Books ofrece una presentación en papel apropiada para conservar el volumen o entregarlo como regalo.",
+      "texto": "La aldea más allá de la niebla cuenta con una edición en tapa dura de 160 páginas, publicada por Blackie Books. La encuadernación rígida facilita conservar el ejemplar en una biblioteca infantil y utilizarlo para lecturas compartidas. Su extensión permite distribuir la lectura en varias sesiones.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "edicion",
+        "editorial",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La aldea más allá de la niebla y Brujas y dragones 2: La bruja mala del oeste se relacionan con la fantasía dirigida a lectores jóvenes. La primera está escrita por Sachiko Kashiwaba y tiene 160 páginas; la segunda figura firmada por Ledicia Costas y Luis Miguel Pérez, y su título la identifica como el n.º 2.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387501877"
       ]
     }
   ],

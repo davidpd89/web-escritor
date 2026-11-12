@@ -4,22 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "TORRE DE ESPINAS: Fiero y Espina, libro 2 (LA OTRA FANTASIA), de Juliet Marillier, se dirige a lectores de fantasía interesados en series identificadas por entregas. El título lo identifica como el n.º 2 de Fiero y Espina, por lo que resulta menos adecuado para quien busque expresamente una obra presentada como independiente.",
+      "texto": "TORRE DE ESPINAS: Fiero y Espina, libro 2 (LA OTRA FANTASIA) encaja con lectores de fantasía que buscan una novela extensa vinculada a una serie. El título la identifica como libro 2 y sus 520 páginas requieren una dedicación mayor que una lectura breve; no es la elección más directa para quien desea empezar por un primer volumen.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "TORRE DE ESPINAS: Fiero y Espina, libro 2 (LA OTRA FANTASIA) está disponible en tapa blanda, con 520 páginas en castellano. La edición de Duermevela Ediciones reúne esta entrega en un volumen físico que puede conservarse junto a otros libros de la serie.",
+      "texto": "TORRE DE ESPINAS: Fiero y Espina, libro 2 (LA OTRA FANTASIA) se ofrece en tapa blanda, con 520 páginas publicadas por Duermevela Ediciones. Es un volumen físico extenso para leer por sesiones y conservar junto a otros libros de fantasía; la edición en papel permite avanzar sin utilizar dispositivos electrónicos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "TORRE DE ESPINAS: Fiero y Espina, libro 2 (LA OTRA FANTASIA) comparte el ámbito fantástico con Aftermyth 1. Penelope y la prueba de los dioses, de Tracy Wolff. El título de Juliet Marillier lo identifica como libro 2 de Fiero y Espina, mientras que Aftermyth 1. Penelope y la prueba de los dioses se presenta como una primera entrega; esta diferencia importa al elegir por dónde comenzar una serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324102"
       ]
     }
   ],

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Bajo la condición de forajido, de Francisco Castaño, se dirige a lectores interesados en poesía en castellano. Sus 76 páginas permiten abordar el volumen en sesiones breves; no responde a la búsqueda de una novela extensa con desarrollo narrativo continuado.",
+      "texto": "Bajo la condición de forajido, de Francisco Castaño, está dirigido a lectores de poesía en castellano que buscan una obra breve. Con 76 páginas, se diferencia de las novelas de largo recorrido y de los ensayos que desarrollan sus argumentos mediante capítulos extensos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,11 +15,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Bajo la condición de forajido se presenta en tapa blanda y reúne 76 páginas. Su extensión facilita llevar el ejemplar físico y alternar la lectura de sus páginas con otros libros, sin necesitar un dispositivo electrónico.",
+      "texto": "Bajo la condición de forajido cuenta con una edición en tapa blanda de 76 páginas publicada por Hiperion, Ediciones. Su extensión permite llevar el volumen en papel y volver a sus textos sin manejar un libro de gran tamaño.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo la condición de forajido, de Francisco Castaño, puede compararse con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, dentro de las lecturas poéticas del catálogo. También se relaciona con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, aunque esta última identifica expresamente el amor como eje temático y Bajo la condición de forajido no lo presenta en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788466396288"
       ]
     }
   ],

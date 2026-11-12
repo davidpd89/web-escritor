@@ -4,23 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Jesulito Jesulín (Cómic) se orienta a lectores interesados en el cómic y la novela gráfica, con una vinculación editorial al arte y el diseño. Sus 240 páginas lo distinguen de las novelas exclusivamente textuales; encaja menos con quien busca una obra de narrativa tradicional sin componente gráfico.",
+      "texto": "Jesulito Jesulín (Cómic) se dirige a lectores interesados en el cómic y la novela gráfica, con vínculos con la narrativa contemporánea y el arte. Por su clasificación editorial, encaja menos con quienes buscan un ensayo especializado o una novela presentada únicamente en prosa.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "numero_paginas"
+        "edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Jesulito Jesulín (Cómic) está disponible en tapa blanda, con 240 páginas en castellano. El formato permite consultar físicamente sus páginas y guardarlo junto a otros cómics, con una encuadernación flexible frente a la rigidez de una tapa dura.",
+      "texto": "Jesulito Jesulín (Cómic) está disponible en tapa blanda, con 240 páginas en castellano. Esta edición permite leerlo en papel y conservarlo en una estantería sin recurrir a un dispositivo electrónico; también puede regalarse a quien prefiera los cómics impresos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
         "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Jesulito Jesulín (Cómic) puede compararse con El rey de la baraja: La imperecedera vida de Roberto Iniesta: 7 (Marea gráfica), de Nacho Nava Laiz, por su relación con el cómic. El primero, de Guillermo Saavedra, figura también en narrativa contemporánea y arte; el segundo presenta desde su título una vida concreta, la de Roberto Iniesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387938499"
       ]
     }
   ],

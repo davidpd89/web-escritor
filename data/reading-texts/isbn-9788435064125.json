@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788435064125",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ave César (Narrativas Históricas) se dirige a quienes leen novela histórica y buscan una obra extensa en castellano. Sus 752 páginas encajan con una lectura prolongada, mientras que quienes prefieran libros breves o centrados en asuntos contemporáneos encontrarán una propuesta distinta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Ave César (Narrativas Históricas) está disponible en tapa blanda, con 752 páginas. Este formato permite consultar y retomar una obra extensa en papel, aunque su volumen resulta menos cómodo para llevarlo a diario que un libro corto.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ave César (Narrativas Históricas) y Troya, la guerra que acabó con los dioses: EDICIÓN CANTOS TINTADOS (Historias de hoy) comparten una orientación hacia asuntos del pasado. La diferencia visible está en el enfoque anunciado: el primero se presenta como novela histórica y el segundo remite a una guerra vinculada a los dioses. Estuche Anthropos: Pandora + Troya (Historias de hoy) ofrece otra referencia relacionada con ese segundo ámbito.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388279539",
+        "isbn-9791388279218"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0ee527b5ff3826c3",
+  "origen": "chatgpt-web"
+}

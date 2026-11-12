@@ -4,21 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Madrid siglo 21: Arquitectura Urbanismo Paisaje está dirigido a lectores interesados en el arte, el diseño y la reflexión sobre el entorno construido. Su temática se aleja de la narrativa convencional y se centra en la arquitectura, el urbanismo y el paisaje, con la participación de nueve autores.",
+      "texto": "Madrid siglo 21: Arquitectura Urbanismo Paisaje se dirige a lectores interesados en la arquitectura, el urbanismo y el paisaje de Madrid. Sus 128 páginas y su autoría colectiva lo sitúan en el terreno del arte y el diseño, lejos de las preferencias de quienes buscan una novela de ficción.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Madrid siglo 21: Arquitectura Urbanismo Paisaje tiene 128 páginas y está disponible en tapa dura y tapa blanda. La primera ofrece una encuadernación rígida para conservar el volumen; la segunda permite elegir una edición de cubierta flexible. Ambas opciones corresponden a este mismo título.",
+      "texto": "Madrid siglo 21: Arquitectura Urbanismo Paisaje está disponible en tapa dura y tapa blanda; la edición descrita en tapa blanda tiene 128 páginas. La tapa dura ofrece una cubierta rígida para conservarlo y regalarlo, mientras que la tapa blanda resulta más flexible para transportarlo y consultarlo.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Madrid siglo 21: Arquitectura Urbanismo Paisaje y 720 retrats comparten su vinculación con el arte y el diseño. La obra de Raul Rispa, Iñaki Abalos y otros autores se centra en arquitectura, urbanismo y paisaje, mientras que Xavier Mollà i Revert presenta un título dedicado al retrato.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
       ]
     }
   ],

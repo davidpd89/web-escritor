@@ -4,30 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE) se dirige a lectores que buscan fantasía combinada con romance, aventuras y elementos oscuros. Su extensión de 720 páginas y su relación con el terror la alejan de las novelas románticas breves y de las historias exclusivamente realistas.",
+      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE) reúne fantasía, romance y aventuras, con elementos de terror y ciencia ficción. Su combinación de géneros se aparta de la narrativa realista y de las historias románticas sin componentes fantásticos.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE) cuenta con una edición en tapa blanda publicada por Sombras. Sus 720 páginas en castellano forman un volumen extenso para leer en papel; por su tamaño, conviene tener en cuenta el peso y el espacio al transportarlo.",
+      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE) está disponible en tapa blanda y Kindle. Sus 720 páginas hacen que la edición digital resulte práctica para transportar el libro completo, mientras que la tapa blanda permite conservarlo y consultarlo en papel.",
       "evidencias": [
         "titulo",
-        "editorial",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Una corte de alas y ruina: Edición limitada a precio especial (Colección Especial) y Ciudad de dioses y monstruos (DARK ROMANCE) se relacionan por su orientación hacia la fantasía y el romance. La obra de Kayla Edwards incorpora también terror y ciencia ficción entre sus géneros, mientras que el título de Sarah J. Maas identifica una edición limitada de colección.",
+      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE) comparte el terreno de la fantasía con Una corte de alas y ruina: Edición limitada a precio especial (Colección Especial). La primera combina además romance, terror y aventuras, mientras que la segunda se presenta como una edición limitada de una obra de Sarah J. Maas.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
@@ -38,6 +34,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "cf6e5685519ec28a",
+  "fuente_hash": "88593096a1d71759",
   "origen": "chatgpt-web"
 }

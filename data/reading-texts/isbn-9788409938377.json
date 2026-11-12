@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409938377",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bajo la proteccion de las estrellas, de Marian I. Pop, encaja con lectores que buscan misterio combinado con aventuras. Su clasificación se aleja de la narrativa centrada exclusivamente en el romance o de los libros de divulgación histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bajo la proteccion de las estrellas tiene 210 páginas y se publica en tapa blanda por FFH. Su extensión permite abordar la lectura en un volumen físico relativamente breve frente a novelas de mayor paginación, tanto para llevarlo fuera de casa como para conservarlo.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abre el misterio 1 - El robo de las croquetas, de Carlos G. Gurpegui, y Bajo la proteccion de las estrellas comparten el interés por los misterios. El primero plantea una desaparición concreta, la de unas croquetas; el segundo combina misterio y aventuras sin delimitar su conflicto a ese tipo de investigación.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cffadd102b4315d2",
+  "origen": "chatgpt-web"
+}

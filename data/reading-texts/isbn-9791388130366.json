@@ -4,23 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mas alla del ebitda, de Mario Jimenez, se orienta a lectores interesados en economía y empresa, especialmente en cuestiones relacionadas con los indicadores empresariales. Su enfoque temático queda alejado de la narrativa de ficción y de las lecturas centradas exclusivamente en el ocio.",
+      "texto": "Mas alla del ebitda, de Mario Jimenez, se dirige a lectores interesados en economía y empresa. Sus 204 páginas en castellano permiten abordar esta materia en una extensión moderada; no responde a quien busca ficción o una lectura centrada en psicología personal.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mas alla del ebitda cuenta con una edición en tapa blanda de 204 páginas. Publicada por LID Editorial en castellano, permite mantener el volumen a mano para consultar sus contenidos sobre economía y empresa en formato físico.",
+      "texto": "Mas alla del ebitda se presenta en tapa blanda, con 204 páginas publicadas por LID Editorial. Es una edición física que permite consultar y marcar pasajes en papel, además de transportarla sin el peso habitual de una encuadernación rígida.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "editorial",
-        "idioma",
-        "categorias"
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mas alla del ebitda comparte el ámbito empresarial con ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido, de Rory Sutherland, aunque este último título pone el foco en las ideas. También puede compararse con Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, centrado por su título en el liderazgo, frente al enfoque económico de la obra de Mario Jimenez.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399087222",
+        "isbn-9788409921980"
       ]
     }
   ],

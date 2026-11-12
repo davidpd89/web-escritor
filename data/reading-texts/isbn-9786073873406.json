@@ -4,21 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Secreto nazi / Nazi Secret se dirige a lectores interesados en la historia del siglo XX y sus secretos. Por su temática histórica, se aleja de las lecturas centradas en mundos fantásticos o aventuras infantiles.",
+      "texto": "Secreto nazi / Nazi Secret, de Leopoldo Mendívil López, se dirige a lectores interesados en la historia del siglo XX y sus secretos. Su enfoque histórico se aleja de las aventuras de fantasía y de los relatos centrados en mundos mágicos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Secreto nazi / Nazi Secret está disponible en tapa blanda, con 464 páginas en castellano. Esta edición física permite consultar y retomar distintos pasajes de una lectura histórica sin depender de un dispositivo electrónico.",
+      "texto": "Secreto nazi / Nazi Secret está disponible en tapa blanda, con 464 páginas en castellano. Esta edición permite consultar y retomar distintos pasajes en papel, sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "categorias"
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Secreto nazi / Nazi Secret y Artefactos mágicos: El catálogo secreto (MAGIA Y OCULTISMO) comparten el interés por los secretos, pero abordan ámbitos distintos. Leopoldo Mendívil López se sitúa en la historia del siglo XX, mientras que el libro de Emanuela Brumana y Marco Guadalupi se centra, desde su propio título, en los artefactos mágicos y el ocultismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724210"
       ]
     }
   ],

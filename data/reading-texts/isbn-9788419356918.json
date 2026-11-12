@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419356918",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rotando en cirugia toracica manual se orienta a quienes buscan una lectura sobre cirugía torácica, especialmente desde el interés por una disciplina médica concreta. Sus 200 páginas lo distinguen de una introducción general a la ciencia; tampoco corresponde a una obra de ficción o divulgación sobre asuntos científicos variados.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Rotando en cirugia toracica manual se publica en tapa blanda y reúne 200 páginas en castellano. El formato impreso permite consultar el volumen durante el estudio y regresar a distintas partes del texto, sin depender de una pantalla. La edición corresponde a Marban.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA, de Keith Mansfield, y Rotando en cirugia toracica manual, de RAMOS, se relacionan con el conocimiento científico y técnico. El primero se ocupa de la inteligencia artificial, mientras que el segundo se centra en cirugía torácica. La elección depende de si interesa una tecnología o una especialidad médica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f0e3c7931a0f0cfb",
+  "origen": "chatgpt-web"
+}

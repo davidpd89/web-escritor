@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788409937295",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "DANIGMAS VS CÁNCER: El libro canalla contra el cáncer se dirige a quienes buscan una lectura sobre el cáncer vinculada a las memorias y al desarrollo personal. La obra de Sr Daniel Gonzálvez Mas se sitúa en el ámbito de la experiencia personal y la salud, no en el de un tratado médico especializado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "DANIGMAS VS CÁNCER: El libro canalla contra el cáncer se ofrece en tapa blanda, con 152 páginas en castellano. Su extensión permite repartir la lectura en sesiones cortas, mientras que la encuadernación flexible facilita transportarlo y manejarlo sin el peso añadido de unas cubiertas rígidas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f80602987f9426e9",
+  "origen": "chatgpt-web"
+}

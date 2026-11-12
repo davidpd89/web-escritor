@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los clásicos que hay que leer al menos una vez en la vida (Cofanetto) se dirige a lectores interesados en los clásicos literarios y la narrativa. Por su orientación hacia la literatura, encaja menos con quienes buscan libros de actividades, manuales prácticos o contenidos especializados de no ficción.",
+      "texto": "Los clásicos que hay que leer al menos una vez en la vida (Cofanetto) se dirige a lectores interesados en la literatura clásica y en una selección de textos vinculados a esa tradición. Su enfoque literario se aparta de los manuales prácticos, los cuadernos de actividades y las lecturas centradas en juegos.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,12 +12,24 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Newton Compton Editores se ofrece en tapa blanda y consta de 128 páginas en castellano. Su extensión facilita llevar el volumen en una bolsa y leerlo en sesiones breves, sin necesidad de recurrir a una pantalla.",
+      "texto": "Los clásicos que hay que leer al menos una vez en la vida (Cofanetto) cuenta con una edición en tapa blanda de 128 páginas. Su extensión permite llevar el volumen en una bolsa y consultarlo en papel, mientras que la cubierta flexible ocupa menos espacio que una encuadernación rígida.",
       "evidencias": [
-        "editorial",
+        "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los clásicos que hay que leer al menos una vez en la vida (Cofanetto) puede compararse con Antología final: 282 (LITORAL) por reunir ambos títulos una propuesta literaria firmada por Varios autores. El primero se presenta bajo la referencia a los clásicos, mientras que el segundo se identifica expresamente como una antología.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412931075"
       ]
     }
   ],

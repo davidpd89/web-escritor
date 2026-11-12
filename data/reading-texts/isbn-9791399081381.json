@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399081381",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las pequeñas vampiras, de Maria Guasch, se orienta a lectores de misterio y narrativa contemporánea. Encaja menos con quienes buscan aventuras históricas o libros de divulgación, ya que su clasificación editorial sitúa la obra en la ficción contemporánea con elementos de misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las pequeñas vampiras se edita en tapa dura y reúne 256 páginas en castellano. La publicación de Lava ofrece una encuadernación rígida para lectura en papel, conservación en estantería o regalo, con una extensión intermedia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las pequeñas vampiras puede compararse con Corazón de sílex, de Emilia Landaluce y Rosa Belmonte, por su relación con el misterio. Mientras Corazón de sílex parte de una joven que no recuerda la noche anterior, Las pequeñas vampiras se sitúa en la narrativa contemporánea y el misterio, bajo la autoría de Maria Guasch.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083330"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2fdccf2afa3fc6ce",
+  "origen": "chatgpt-web"
+}

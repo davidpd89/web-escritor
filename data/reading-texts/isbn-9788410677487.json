@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410677487",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tarteso: 183 (¿QUÉ SABEMOS DE?) se dirige a lectores interesados en la divulgación científica sobre Tarteso. Con 144 páginas, responde a una búsqueda de lectura informativa y relativamente breve, no a quien busca una novela de ficción o una narración de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tarteso: 183 (¿QUÉ SABEMOS DE?) se presenta en tapa blanda y reúne 144 páginas en castellano. Esta extensión facilita llevar el volumen para leerlo fuera de casa o consultarlo por partes, sin el tamaño de una obra de divulgación mucho más extensa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tarteso: 183 (¿QUÉ SABEMOS DE?) y 50 cosas que hay que saber sobre IA comparten una orientación divulgativa, pero tratan asuntos diferentes: Tarteso e inteligencia artificial. La obra de Sebastián Celestino Pérez y Esther Rodríguez González concentra su contenido en 144 páginas, mientras que la de Keith Mansfield aborda otro campo de conocimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4d81f81638a578e1",
+  "origen": "chatgpt-web"
+}

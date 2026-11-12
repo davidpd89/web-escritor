@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388176401",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los caídos del Valle se orienta a lectores interesados en libros de historia y obras extensas de no ficción. Sus 650 páginas lo alejan de las introducciones breves y de las novelas históricas de ficción; está firmado por Pablo Linares Clemente y Pepa Jiménez Vivas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los caídos del Valle se publica en tapa blanda, con 650 páginas en castellano. La edición de Bibliotheca Homo Legens reúne esa extensión en un volumen físico de cubierta flexible, apropiado para consultar y marcar pasajes durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los caídos del Valle puede compararse con 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, por su orientación histórica. Mientras este último identifica en su título un proceso político relacionado con Hitler, la obra de Pablo Linares Clemente y Pepa Jiménez Vivas se presenta bajo una referencia al Valle y tiene 650 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a6446ff2105f55c2",
+  "origen": "chatgpt-web"
+}

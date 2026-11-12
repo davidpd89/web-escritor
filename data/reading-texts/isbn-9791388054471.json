@@ -4,23 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los ojos tras la máscara (La Cruz del Sur) está dirigido a lectores de poesía en castellano y a quienes siguen la obra de Alejandro Bekes. Su clasificación poética lo diferencia de las novelas narrativas y de los libros prácticos, por lo que encaja menos con quienes buscan una trama novelística extensa.",
+      "texto": "Los ojos tras la máscara (La Cruz del Sur) está dirigido a lectores de poesía que prefieren este género frente a la narrativa convencional. Sus 120 páginas lo sitúan entre los volúmenes de extensión contenida; encaja menos con quienes buscan una novela de aventuras o una trama desarrollada en prosa.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los ojos tras la máscara (La Cruz del Sur) tiene una edición en tapa blanda de 120 páginas, publicada por Editorial Pre-Textos. Su extensión permite llevar el volumen en papel y regresar a poemas concretos sin manejar un libro de gran tamaño.",
+      "texto": "Los ojos tras la máscara (La Cruz del Sur) se publica en tapa blanda y reúne 120 páginas. La edición de Editorial Pre-Textos permite leer los poemas en papel, regresar a textos concretos y conservar el libro como volumen físico de extensión breve.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "editorial",
         "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los ojos tras la máscara (La Cruz del Sur) puede compararse con 223 esquinas: 16 (La garza roja) dentro de la lectura poética. La primera obra está firmada por Alejandro Bekes y la segunda por Antonio Fernández Lera. Sus títulos remiten a imágenes diferentes: una máscara frente a una referencia espacial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833"
       ]
     }
   ],

@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788409906826",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Igor Yebra - ¿Por qué somos tan estúpidos y no estamos ya bailando? se orienta a lectores de biografías, memorias y reflexiones sobre el desarrollo personal. Quien busque una novela de aventuras o una historia de fantasía encontrará aquí un enfoque distinto, vinculado a experiencias personales y bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Igor Yebra - ¿Por qué somos tan estúpidos y no estamos ya bailando? es de tapa dura y tiene 288 páginas. Publicada por Bao Bilbao en castellano, ofrece una encuadernación rígida para conservar el volumen en una biblioteca personal o entregarlo como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ec30c265a37ad2f4",
+  "origen": "chatgpt-web"
+}

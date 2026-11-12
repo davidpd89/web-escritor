@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Estrofas rotas: Poesía reunida (Poesía Ilustrado) está dirigido a lectores de poesía que buscan una recopilación de textos de Safo. Su naturaleza poética lo diferencia de una novela con desarrollo argumental continuo y resulta menos afín a quienes prefieren exclusivamente narrativa en prosa.",
+      "texto": "Estrofas rotas: Poesía reunida (Poesía Ilustrado) está dirigido a lectores de poesía interesados en la obra reunida de Safo. Su carácter poético lo diferencia de una novela con argumento continuo, por lo que encaja menos con quienes prefieren una narración en prosa.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,17 +13,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Estrofas rotas: Poesía reunida (Poesía Ilustrado) se presenta en tapa dura, con 344 páginas en castellano. La encuadernación rígida protege el volumen durante las consultas repetidas y ofrece una presentación apropiada para conservar una recopilación poética o regalarla.",
+      "texto": "La edición en tapa dura reúne 344 páginas y ofrece un volumen físico para conservar, regalar o releer los poemas de Safo. Kindle permite acceder al libro en formato digital y consultar sus textos desde un dispositivo compatible, sin necesidad de llevar la edición impresa.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "autores",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antologia amorosa la voz a ti debida y razon de amor y Estrofas rotas: Poesía reunida (Poesía Ilustrado) coinciden en su pertenencia a la poesía. El primero reúne textos amorosos de Pedro Salinas, mientras que el segundo presenta poesía reunida de Safo. La diferencia principal para el lector está en la autoría y en el alcance anunciado por cada título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "99d22693c32bad07",
+  "fuente_hash": "4ae113620d0543df",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073942423",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tamara (Novela Histórica / A Historical Novel) se dirige a quienes leen ficción histórica y narrativa contemporánea. Su planteamiento novelístico se distancia de los libros de divulgación histórica que presentan los hechos mediante un discurso ensayístico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Tamara (Novela Histórica / A Historical Novel) tiene 344 páginas y está publicada en castellano. El volumen físico permite seguir la narración y regresar a capítulos anteriores sin recurrir a un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth, de Valerio Massimo Manfredi, comparte con Tamara (Novela Histórica / A Historical Novel) el terreno de la ficción histórica, pero su título remite a una entrega numerada y a otro protagonista. Cosamala, de Alana S. Portero, aborda un crimen de la guerra civil mediante elementos góticos y brujería, frente a la combinación de novela histórica y narrativa contemporánea de Pedro Ángel Palou.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897106",
+        "isbn-9788432251436"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "718268613da76ff6",
+  "origen": "chatgpt-web"
+}

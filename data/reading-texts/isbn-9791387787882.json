@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387787882",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Babilonia (Histórica) está dirigida a lectores de novela histórica que prefieren la ficción ambientada en el pasado frente a los estudios académicos. Robert Fabbri firma una narración de 432 páginas, una extensión que requiere más tiempo de lectura que una novela breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Babilonia (Histórica) se publica en tapa blanda, con 432 páginas en castellano. La encuadernación flexible permite manejar un volumen de esta extensión sin la rigidez de una cubierta dura; es una opción en papel para leer por sesiones y conservar después en la estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Babilonia (Histórica) puede compararse con Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth y Ave César (Narrativas Históricas) por su relación con la narrativa histórica. Cambian los autores y las referencias de los títulos: Robert Fabbri firma Babilonia (Histórica), Valerio Massimo Manfredi la obra de Aléxandros y Rex Warner la de César.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897106",
+        "isbn-9788435064125"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f78f004c48ecc680",
+  "origen": "chatgpt-web"
+}

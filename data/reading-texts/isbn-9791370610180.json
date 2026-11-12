@@ -4,21 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Fundamentos para un nuevo derecho victimal en el sistema de justicia penal (Estudios) se orienta a lectores interesados en el papel de las víctimas dentro de la justicia penal. Por su planteamiento jurídico y sus 316 páginas, se distancia de los relatos de crímenes y de los manuales generales de divulgación.",
+      "texto": "Fundamentos para un nuevo derecho victimal en el sistema de justicia penal (Estudios) está dirigido a lectores interesados en el tratamiento jurídico de las víctimas dentro de la justicia penal. El planteamiento de Manuel Jose Garcia Rodriguez corresponde al estudio del derecho, no a una narración de casos criminales.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Fundamentos para un nuevo derecho victimal en el sistema de justicia penal (Estudios) contiene 316 páginas en castellano. Es una edición física que permite subrayar, señalar pasajes y volver a los fundamentos jurídicos durante el estudio.",
+      "texto": "Fundamentos para un nuevo derecho victimal en el sistema de justicia penal (Estudios) tiene 316 páginas y se edita en tapa blanda. El formato permite consultar y estudiar el contenido en papel, con una cubierta flexible para transportar una obra jurídica de esta extensión.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) comparte con Fundamentos para un nuevo derecho victimal en el sistema de justicia penal (Estudios) el interés por los conflictos y su tratamiento. Mari Luz Sánchez García-Arista aborda la mediación en el ámbito educativo, mientras que Manuel Jose Garcia Rodriguez centra su estudio en el derecho victimal y la justicia penal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788429030372"
       ]
     }
   ],

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a lectores interesados en la salud de la mujer y en el estudio de casos clínicos desde una perspectiva científica. Casos clínicos internacionales en salud de la mujer se centra en material clínico, por lo que no corresponde a quien busca una novela o un manual general de bienestar cotidiano.",
+      "texto": "Casos clínicos internacionales en salud de la mujer se dirige a lectores interesados en la salud femenina desde una perspectiva clínica y científica. Su enfoque en casos clínicos lo diferencia de los libros de bienestar general y de las guías de hábitos cotidianos.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,12 +12,23 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 160 páginas de Casos clínicos internacionales en salud de la mujer en castellano. El volumen físico permite consultar los casos y volver a sus páginas durante el estudio sin necesidad de utilizar una pantalla.",
+      "texto": "Casos clínicos internacionales en salud de la mujer está disponible en tapa blanda, con 160 páginas en castellano. Esta edición permite consultar los casos clínicos en papel, localizar pasajes y volver a ellos durante el estudio o la lectura.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "titulo",
         "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Calidad de vida y hábitos saludables de mujeres en la peri y posmenopausia en dos zonas básicas de salud de Tenerife. comparte con Casos clínicos internacionales en salud de la mujer el interés por la salud femenina. El primero delimita su asunto a los hábitos y la calidad de vida durante la peri y posmenopausia en Tenerife, mientras que el segundo reúne casos clínicos internacionales sobre salud de la mujer.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388485879"
       ]
     }
   ],

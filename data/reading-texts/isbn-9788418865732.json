@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788418865732",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mitra y loriga: El obispo de Barcelona Berenguer de Palou II (c. 1197-1241): 4 (Tempus) se dirige a lectores interesados en la historia de Barcelona y en las figuras eclesiásticas del periodo comprendido entre 1197 y 1241. Su enfoque en un obispo concreto lo aleja de quienes buscan acontecimientos contemporáneos o novelas de ficción histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mitra y loriga: El obispo de Barcelona Berenguer de Palou II (c. 1197-1241): 4 (Tempus) se presenta en tapa blanda y consta de 336 páginas. Esta edición física permite consultar los pasajes dedicados al obispo de Barcelona y conservar el libro para posteriores lecturas sobre historia medieval.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mitra y loriga: El obispo de Barcelona Berenguer de Palou II (c. 1197-1241): 4 (Tempus) y 53 días: Cómo Hitler derribó una democracia (HISTORIA) abordan figuras y acontecimientos históricos. Martín Alvira Cabrer estudia a un obispo medieval de Barcelona, mientras que Timothy W. Ryback trata el derrumbe de una democracia bajo Hitler, con otro periodo y otro marco político.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fa8cf39df76db59f",
+  "origen": "chatgpt-web"
+}

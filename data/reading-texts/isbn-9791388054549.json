@@ -1,0 +1,34 @@
+{
+  "id": "isbn-9791388054549",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El buen suceso (La Cruz del Sur) se dirige a lectores de poesía en castellano interesados en la obra de Andrés Trapiello. Sus 144 páginas corresponden a una publicación poética, por lo que se aparta de las novelas centradas en una trama narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El buen suceso (La Cruz del Sur) está disponible en tapa blanda, con 144 páginas y edición de Editorial Pre-Textos. Es un volumen físico de extensión relativamente breve que puede transportarse y consultarse sin necesidad de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "lecturas_afines: habla de las fuentes en vez de informar: la fuente",
+    "faltan módulos: lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "f1bda7f4f8653847",
+  "origen": "chatgpt-web"
+}

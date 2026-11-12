@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409906048",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Crónica de una esquizofrenia, de Isaac Soler Villanueva, se sitúa entre la psicología, el ensayo, el desarrollo personal y los géneros de ficción especulativa. Puede interesar a quienes buscan una aproximación literaria a cuestiones psicológicas. Por su combinación de enfoques, se aleja de las lecturas dedicadas únicamente a técnicas de bienestar o a la fantasía de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Crónica de una esquizofrenia se presenta en tapa blanda y tiene 141 páginas. Su extensión es menor que la de muchos volúmenes de consulta, por lo que resulta manejable para transportarlo y leerlo en papel. La edición física permite regresar a pasajes concretos sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Crónica de una esquizofrenia y Abraza a tu niño interior: Nunca es tarde para sanar tu infancia comparten el interés por cuestiones psicológicas y personales. La obra de Isaac Soler Villanueva incorpora también ciencia ficción, fantasía y ensayo, mientras que el título de Victoria Cadarso dirige la atención hacia la infancia y los procesos de sanación personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a4e146455166f1f6",
+  "origen": "chatgpt-web"
+}

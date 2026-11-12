@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788409940455",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en mejorar su salud a partir de los 40 años, con una perspectiva que va más allá de la alimentación y el ejercicio. Por su enfoque de desarrollo personal y bienestar, encaja menos con quien busca una novela o una guía dedicada exclusivamente a la nutrición.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 162 páginas en un volumen físico que puede consultarse por apartados y guardarse en una estantería de salud y bienestar. Es una opción para quien prefiere leer en papel y volver a determinados contenidos durante su lectura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte con 100 formas de cambiar tu vida el interés por la salud y los cambios personales, aunque la obra de Dra. Dora Navarro Torné delimita su enfoque a la mejora de la salud a partir de los 40 años. El libro de Liz Moody también aborda la felicidad, las relaciones y el éxito, por lo que plantea un abanico de asuntos más amplio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6513f99ad0168141",
+  "origen": "chatgpt-web"
+}

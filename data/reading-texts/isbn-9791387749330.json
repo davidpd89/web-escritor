@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Placeres mortales -edición especial se dirige a lectores de fantasía y ciencia ficción que buscan una obra extensa en castellano. Sus 624 páginas pueden resultar menos adecuadas para quienes prefieren libros breves o lecturas ajenas a los géneros especulativos.",
+      "texto": "Placeres mortales -edición especial se dirige a lectores de fantasía que buscan una obra extensa en castellano. Sus 624 páginas y su orientación fantástica la separan de las lecturas breves y de quienes prefieren historias centradas exclusivamente en situaciones realistas.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -14,9 +14,10 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Esta edición especial de Placeres mortales se presenta en tapa dura y contiene 624 páginas. El formato rígido permite conservar un volumen extenso en la biblioteca y resulta práctico para quienes prefieren leer sobre papel apoyando el libro en una superficie.",
+      "texto": "Placeres mortales -edición especial está disponible en tapa dura y Kindle, dos opciones para sus 624 páginas. La edición física de Umbriel permite conservar el volumen encuadernado como parte de una colección, mientras que Kindle facilita leer una obra de esta extensión en el móvil o en un lector electrónico.",
       "evidencias": [
         "titulo",
+        "editorial",
         "formatos_disponibles",
         "numero_paginas",
         "edicion"
@@ -24,22 +25,22 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Al despertar, rompe el cascarón (Runas) ofrece una referencia dentro de la ficción especulativa asociada a Becky Chambers, mientras que Placeres mortales -edición especial figura entre fantasía y ciencia ficción. La obra de Belen Martinez se distingue aquí por su presentación en tapa dura y sus 624 páginas, además de identificarse expresamente como edición especial.",
+      "texto": "Aftermyth 1. Penelope y la prueba de los dioses comparte con Placeres mortales -edición especial el ámbito de la fantasía, aunque su título sitúa el conflicto en torno a una prueba vinculada a los dioses. Al despertar, rompe el cascarón (Runas) introduce otra propuesta de Becky Chambers, frente a la novela de fantasía de Belen Martinez publicada en edición especial.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
         "categorias",
-        "formatos_disponibles",
-        "numero_paginas"
+        "afines_catalogo",
+        "edicion"
       ],
       "enlaces": [
+        "isbn-9788408324102",
         "isbn-9791370093488"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0e36b9cb62088ecf",
+  "fuente_hash": "5630a4c7f062d642",
   "origen": "chatgpt-web"
 }

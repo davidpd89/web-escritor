@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788477029892",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡Arde, bruja, arde! & ¡Arrástrate, sombra, arrástrate!: 138 (Gótica), de Abraham Merritt, se dirige a lectores de terror interesados en una edición que reúne dos obras bajo un mismo título. Sus 496 páginas responden a una lectura de cierta extensión y se alejan de quienes buscan cuentos infantiles o narrativa romántica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¡Arde, bruja, arde! & ¡Arrástrate, sombra, arrástrate!: 138 (Gótica) está disponible en tapa dura, con 496 páginas en castellano. La edición de Valdemar reúne ambos títulos en un volumen físico extenso, adecuado para conservar las dos obras juntas y consultarlas sin cambiar de libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¡Arde, bruja, arde! & ¡Arrástrate, sombra, arrástrate!: 138 (Gótica), de Abraham Merritt, puede compararse con 25 días hasta Navidad, de Per Jacobsen, por su relación con la narrativa de suspense y terror, aunque este último se presenta como thriller de adviento. También se aproxima a After God 8 (Shônen), de Sumi Eno, por su ubicación entre lecturas de ficción, pero se diferencia por su orientación explícita hacia el terror y su edición en tapa dura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063",
+        "isbn-9791387962647"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6c0e87f59a774672",
+  "origen": "chatgpt-web"
+}

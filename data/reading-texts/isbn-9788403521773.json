@@ -4,20 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El diablo envía correos a medianoche: Lo que los buenos líderes pueden aprender de los malos jefes (Divulgación) se orienta a lectores interesados en liderazgo, comportamiento laboral y psicología aplicada a la empresa. Su enfoque sobre las relaciones entre jefes y líderes lo diferencia de los manuales dedicados exclusivamente a finanzas o inversión.",
+      "texto": "El diablo envía correos a medianoche: Lo que los buenos líderes pueden aprender de los malos jefes (Divulgación), de Mita Mallick, se dirige a lectores interesados en el liderazgo y las relaciones laborales. Su enfoque combina empresa, psicología y desarrollo personal, por lo que no corresponde a quien busca una novela sobre conflictos de oficina.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El diablo envía correos a medianoche: Lo que los buenos líderes pueden aprender de los malos jefes (Divulgación) tiene una edición en tapa blanda de 240 páginas. El formato físico permite marcar pasajes y volver a las ideas sobre liderazgo y gestión de equipos durante su consulta.",
+      "texto": "El diablo envía correos a medianoche: Lo que los buenos líderes pueden aprender de los malos jefes (Divulgación) se publica en tapa blanda, con 240 páginas. Esta edición de Aguilar permite consultar en papel las cuestiones relacionadas con el liderazgo y los malos jefes, además de marcar pasajes para revisarlos posteriormente.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio. comparte el interés por el liderazgo, aunque lo aborda desde el trabajo personal y los procesos de cambio. El diablo envía correos a medianoche: Lo que los buenos líderes pueden aprender de los malos jefes (Divulgación) concentra esa cuestión en el entorno laboral y en lo que puede aprenderse de las malas prácticas de dirección.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409924059"
       ]
     }
   ],

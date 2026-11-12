@@ -4,22 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El pacto bajo la acacia (Novela histórica) se orienta a lectores interesados en la ficción ambientada en contextos históricos. La obra de Irene Cordón i Sol-Sagalés pertenece al ámbito de la novela histórica, por lo que no responde a la búsqueda de un manual académico de historia ni de una narración contemporánea ajena al pasado.",
+      "texto": "El pacto bajo la acacia (Novela histórica) se orienta a lectores interesados en la ficción ambientada en contextos históricos. Su clasificación combina historia y novela histórica, por lo que encaja menos con quienes buscan una exposición exclusivamente documental o una narración de fantasía.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El pacto bajo la acacia (Novela histórica) está editado en tapa blanda y consta de 432 páginas. Desperta Ferro Ediciones ofrece así una novela histórica en papel, con una extensión que permite distribuir la lectura en varias sesiones y conservar el volumen en una biblioteca personal.",
+      "texto": "El pacto bajo la acacia (Novela histórica) se publica en tapa blanda, con 432 páginas en castellano. Esta edición de Desperta Ferro Ediciones permite leer una novela histórica extensa en papel y conservarla como volumen físico, sin necesidad de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "editorial",
         "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El pacto bajo la acacia (Novela histórica) comparte orientación histórica con Bajo las cenizas de Pompeya (ESPASA NARRATIVA). La primera es una obra de Irene Cordón i Sol-Sagalés, mientras que la segunda pertenece a María Reig y señala Pompeya en su título. Ambas permiten explorar ficción histórica desde autorías y referencias distintas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084870"
       ]
     }
   ],

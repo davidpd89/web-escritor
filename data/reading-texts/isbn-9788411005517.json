@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788411005517",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, se dirige a lectores interesados en historia política y en los procesos de destrucción de sistemas democráticos. Su asunto central es el ascenso de Hitler y el derrumbe de una democracia, por lo que se aleja de la ficción histórica y de los estudios políticos sin perspectiva histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA) se presenta en tapa blanda, con 272 páginas en castellano. La edición de Ediciones Península permite consultar el texto histórico en papel y regresar a determinados pasajes durante su lectura o estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA) puede compararse con El papel de la violencia en la historia: Texto esencial de Engels sobre violencia, Bismarck y lucha de clases en la Alemania del siglo XIX (No ficción), de Friedrich Engels, por su atención al poder político y la historia. Timothy W. Ryback aborda la caída de una democracia bajo Hitler; Friedrich Engels trata la violencia, Bismarck y la lucha de clases en otro periodo histórico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388115479"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "58791038b6a5aded",
+  "origen": "chatgpt-web"
+}

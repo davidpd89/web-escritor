@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370651244",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vivienda e hipoteca las claves de la compra paso a paso está orientado a quienes buscan una lectura sobre derecho aplicado a la adquisición de vivienda y su financiación hipotecaria. Su enfoque temático se aleja de las novelas y de los libros centrados en decoración o arquitectura residencial.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vivienda e hipoteca las claves de la compra paso a paso se presenta en tapa blanda, con 170 páginas en castellano. Este formato físico permite consultar apartados durante el proceso de compra de una vivienda y conservar el volumen como referencia sobre cuestiones jurídicas e hipotecarias.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Vivienda e hipoteca las claves de la compra paso a paso y All Black Cuaderno (LIBRETAS ARTÖSTICAS) comparten la autoría colectiva atribuida a Varios autores, pero tienen funciones diferentes. El primero trata cuestiones jurídicas relacionadas con la compra de vivienda y la hipoteca; el segundo se presenta como un cuaderno. La comparación distingue una lectura de derecho de un producto de papelería.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789879871119"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3f29c3f4e5ef4126",
+  "origen": "chatgpt-web"
+}

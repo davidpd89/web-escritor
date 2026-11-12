@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dime, niña bonita (Narrativa) se orienta a lectores de ficción contemporánea interesados en asuntos familiares y de crianza. Su clasificación como narrativa la distingue de los manuales prácticos para familias, por lo que encaja menos con quienes buscan instrucciones educativas o consejos organizados por etapas.",
+      "texto": "Dime, niña bonita (Narrativa), de Laura Galve, se dirige a lectores de narrativa contemporánea interesados en la familia y la crianza. Sus 168 páginas ofrecen una extensión relativamente breve; no responde a quien busque un ensayo técnico sobre educación o una novela de fantasía.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Dime, niña bonita (Narrativa) se presenta en tapa blanda y tiene 168 páginas en castellano. Esta edición de Galaxia Gutenberg ofrece una extensión relativamente breve para leer en papel y transportar sin el volumen de una novela de mayor paginación.",
+      "texto": "La tapa blanda permite leer las 168 páginas de Dime, niña bonita (Narrativa) en papel, con una encuadernación flexible y fácil de transportar. Kindle ofrece la misma elección de título en formato digital, para leer desde un dispositivo compatible sin llevar el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Celestino antes del alba (Andanzas), de Reinaldo Arenas, y Dime, niña bonita (Narrativa), de Laura Galve, figuran como obras narrativas de autores diferentes. La novela de Laura Galve se sitúa además en el ámbito contemporáneo y familiar, mientras que el título de Reinaldo Arenas remite a un personaje y a un momento del día. Son dos referencias para comparar enfoques narrativos, no obras de una misma serie.",
+      "texto": "Dime, niña bonita (Narrativa) puede compararse con Al faro: Nueva traducción al español: 82 (Clásicos en español), dentro de una selección de narrativa. La diferencia comprobable está en la autoría: Laura Galve firma el primero y Virginia Woolf el segundo; el primero se clasifica además entre las lecturas sobre familia y crianza.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411078535"
+        "isbn-9781836472568"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "644a3090c375983b",
+  "fuente_hash": "28035904c66d6059",
   "origen": "chatgpt-web"
 }

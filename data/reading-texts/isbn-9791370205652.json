@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sacando pecho; una manera de entender la política (Memorias y biografías), de Juan Carlos Rodríguez Ibarra, está orientado a lectores interesados en las memorias personales y las cuestiones de poder político. No responde a la búsqueda de ficción ni a la de un manual práctico de administración pública: su planteamiento se vincula a una perspectiva biográfica sobre la política.",
+      "texto": "Sacando pecho; una manera de entender la política (Memorias y biografías) se dirige a lectores interesados en las memorias personales y el ejercicio del poder político. Juan Carlos Rodríguez Ibarra aborda ese ámbito en una obra de 288 páginas, alejada de los manuales prácticos y de la narrativa de ficción.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Sacando pecho; una manera de entender la política (Memorias y biografías) cuenta con una edición en tapa blanda de 288 páginas, publicada por Almuzara. Es un volumen físico en castellano que permite señalar pasajes y consultar posteriormente sus reflexiones políticas sin necesidad de utilizar una pantalla.",
+      "texto": "Sacando pecho; una manera de entender la política (Memorias y biografías) está disponible en tapa blanda y Kindle. La edición física de Almuzara reúne 288 páginas para leer en papel o conservar en la biblioteca; Kindle permite llevar el mismo título en un lector electrónico o en el móvil.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
         "editorial",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Sacando pecho; una manera de entender la política (Memorias y biografías) puede compararse con Antes de irme (Espasa Actualidad) por su relación con figuras públicas y la escritura de carácter personal. Juan Carlos Rodríguez Ibarra sitúa expresamente la política en el centro de su libro, mientras que el título de Miguel Ángel Revilla apunta a una perspectiva de despedida o balance personal.",
+      "texto": "Sacando pecho; una manera de entender la política (Memorias y biografías) comparte el terreno de las memorias políticas con Antes de irme (Espasa Actualidad). Juan Carlos Rodríguez Ibarra y Miguel Ángel Revilla aportan autorías distintas a ese ámbito, mientras que Crónica de un desafío al Estado se centra en los acontecimientos del Procés y la tensión política en Cataluña.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467085044"
+        "isbn-9788467085044",
+        "isbn-9788423441303"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1566dad2c055bdff",
+  "fuente_hash": "cd9ed1b729ccd32a",
   "origen": "chatgpt-web"
 }

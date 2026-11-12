@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Lojong: La práctica tibetana para transformar tu mente (Sabiduría perenne), de Jetsunma Tenzim Palmo, se dirige a lectores interesados en las prácticas espirituales tibetanas y el desarrollo personal. Su enfoque en la transformación mental lo distingue de los libros de nutrición centrados en alimentación y de las novelas de ficción.",
+      "texto": "Lojong: La práctica tibetana para transformar tu mente (Sabiduría perenne), de Jetsunma Tenzim Palmo, se dirige a lectores interesados en las prácticas espirituales tibetanas y el desarrollo personal. Su temática se distancia de los manuales centrados exclusivamente en nutrición, ejercicio físico o técnicas de productividad.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,12 +13,25 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Lojong: La práctica tibetana para transformar tu mente (Sabiduría perenne) contiene 240 páginas en castellano. Su formato físico permite consultar de nuevo apartados sobre la práctica tibetana y llevar el volumen a distintos lugares sin una cubierta rígida.",
+      "texto": "Lojong: La práctica tibetana para transformar tu mente (Sabiduría perenne) se ofrece en tapa blanda, con 240 páginas publicadas por Editorial Kairós SA. La edición en papel permite señalar pasajes y volver a ellos durante la lectura o el estudio de la práctica tibetana que anuncia el título.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual comparte con Lojong: La práctica tibetana para transformar tu mente (Sabiduría perenne) el interés por la espiritualidad y su aplicación práctica. Jetsunma Tenzim Palmo centra su libro en una práctica tibetana de transformación mental, mientras que el título de Soledad Davies reúne astrología, filosofía y magia como vías de exploración espiritual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
       ]
     }
   ],

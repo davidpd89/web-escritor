@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370205638",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Juancaballo: XXVI Premio de Novela Rural Diputación de Córdoba, de Luisa González, encaja con lectores de narrativa contemporánea interesados en la novela rural. Sus 128 páginas ofrecen una extensión breve frente a novelas más largas; no se orienta a quien busca un manual práctico de salud o bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Juancaballo: XXVI Premio de Novela Rural Diputación de Córdoba está editado en tapa blanda por Almuzara. Sus 128 páginas permiten llevarlo en papel sin cargar con un volumen extenso y conservarlo como libro físico para futuras lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Juancaballo: XXVI Premio de Novela Rural Diputación de Córdoba puede compararse con Al faro: Nueva traducción al español: 82 (Clásicos en español), de Virginia Woolf, por su pertenencia al ámbito narrativo. La obra de Luisa González se presenta como novela rural contemporánea, mientras que la de Virginia Woolf figura como un clásico en una nueva traducción al español.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781836472568"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ecefe185aa7e626b",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409917730",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A tu otro lado en la oscuridad (Bilogía Oscuridad) encaja con lectores que buscan una novela romántica breve. Sus 123 páginas y su clasificación como romance la distinguen de las obras extensas de fantasía o ciencia ficción, por lo que no responde a quienes prioricen esos géneros.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "A tu otro lado en la oscuridad (Bilogía Oscuridad) tiene una edición en tapa blanda de 123 páginas. Su extensión permite llevarla en el bolso o la mochila sin cargar con un volumen especialmente largo, y el formato físico facilita conservarla junto a otros libros de romance.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A tu otro lado en la oscuridad (Bilogía Oscuridad) comparte el ámbito romántico con A medio salto (Romántica) y A mil por hora. La obra de Nix Noir alude a la oscuridad desde el título, mientras que A mil por hora plantea una relación vinculada a un piloto de F1; A medio salto (Romántica) es una obra de Valera Gomalva.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388365089",
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bd2eb3b33816d0cf",
+  "origen": "chatgpt-web"
+}

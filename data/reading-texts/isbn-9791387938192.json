@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El grano de arroz: Una historia de amor y espera: 9 (Marea gráfica) se orienta a lectores interesados en las relaciones afectivas, la familia y las experiencias personales. Por sus temas de amor y espera, encaja menos con quienes buscan aventuras de acción o explicaciones técnicas sobre materias ajenas a las relaciones humanas.",
+      "texto": "El grano de arroz: Una historia de amor y espera: 9 (Marea gráfica) se dirige a lectores interesados en las relaciones de pareja, la familia y las experiencias personales. Su orientación hacia las biografías y memorias lo aleja de quienes buscan una novela de aventuras o una guía de crianza con instrucciones prácticas.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,13 +12,25 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El grano de arroz: Una historia de amor y espera: 9 (Marea gráfica) tiene una edición en tapa dura de 292 páginas, publicada en castellano por Altamarea Ediciones. La cubierta rígida resulta práctica para conservar el libro o regalarlo, mientras que su extensión permite distribuir la lectura en varias sesiones.",
+      "texto": "La edición de El grano de arroz: Una historia de amor y espera: 9 (Marea gráfica) se presenta en tapa dura, con 292 páginas en castellano. Este formato permite conservar el volumen en una biblioteca doméstica y entregarlo como regalo físico, aunque resulta menos ligero de transportar que una edición de bolsillo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El grano de arroz: Una historia de amor y espera: 9 (Marea gráfica) comparte el interés por los vínculos afectivos con Conectados para el amor / Wired for Love, de Stan Tatkin. Mientras el primero se sitúa en el ámbito de las memorias, el segundo centra su propuesta en el amor de pareja. También puede compararse con Bienvenido, bebé: Un libro muy tierno para dar la bienvenida a un nuevo bebé y celebrar el amor que lo rodea: 15 (Álbumes ilustrados), de Jane Chapman, cuyo título apunta específicamente a la llegada de un bebé.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387948160",
+        "isbn-9786073876056"
       ]
     }
   ],

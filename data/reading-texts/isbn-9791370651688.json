@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370651688",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores que necesitan comprender y aplicar el impuesto sobre transmisiones patrimoniales, operaciones societarias y actos jurídicos documentados. Por su enfoque jurídico y tributario, no responde a quien busca una introducción general a la economía ni una lectura narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Colex se presenta en tapa blanda y reúne 210 páginas en castellano. El formato físico permite consultar los apartados sobre liquidación del impuesto, marcar páginas y volver a las cuestiones jurídicas durante el estudio o el trabajo.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La prescripción de la deuda tributaria. Paso a paso: Reglas de cómputo, causas de interrupción y situaciones problemáticas comparte autoría con esta obra del Departamento de Documentación Iberley. Mientras aquella aborda los plazos de prescripción y sus interrupciones, ITPyAJD se centra en la liquidación del impuesto sobre transmisiones patrimoniales, operaciones societarias y actos jurídicos documentados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370651282"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7bdb37c13247d165",
+  "origen": "chatgpt-web"
+}

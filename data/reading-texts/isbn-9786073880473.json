@@ -4,23 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tu mejor versión / The Accomplished Woman está dirigido a lectores interesados en el desarrollo personal y su relación con el ámbito profesional y económico. La obra de Christina Tracy Stein reúne 256 páginas; no responde a la búsqueda de una novela de ficción ni de un manual centrado exclusivamente en inversiones.",
+      "texto": "Tu mejor versión / The Accomplished Woman, de Christina Tracy Stein, se orienta a quienes leen sobre desarrollo personal y cuestiones vinculadas al ámbito económico y empresarial. Por su clasificación temática, queda fuera de las búsquedas centradas exclusivamente en ficción o narrativa de entretenimiento.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Tu mejor versión / The Accomplished Woman se publica en tapa blanda, con 256 páginas en castellano. El formato permite consultar y releer apartados en papel, una opción práctica para un libro de desarrollo personal; la cubierta flexible facilita transportarlo durante los desplazamientos.",
+      "texto": "Tu mejor versión / The Accomplished Woman cuenta con una edición en tapa blanda de 256 páginas. El volumen físico permite hacer anotaciones y consultar páginas concretas durante la lectura; está publicado en castellano por Penguin Random House Grupo Editorial.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "categorias"
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio. aborda el cambio personal mediante el trabajo interior y el autoliderazgo. Tu mejor versión / The Accomplished Woman se sitúa entre el desarrollo personal y la economía, mientras que Construye un negocio atómico / Build an Atomic Business desplaza el interés hacia la construcción de un negocio.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409924059",
+        "isbn-9786073880336"
       ]
     }
   ],

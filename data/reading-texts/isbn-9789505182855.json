@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9789505182855",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en el psicoanálisis, la psicología y el estudio del lenguaje desde una perspectiva ensayística. Lenguaje en el psicoanalisis, el 2a ED (Psicologia y psicoanalisis), de André Green, se sitúa en un ámbito distinto al de los manuales de desarrollo personal centrados en ejercicios cotidianos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 240 páginas en castellano y está publicada por Amorrortu. Este formato permite consultar pasajes, marcar conceptos y volver a secciones concretas durante el estudio del psicoanálisis.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Trabajo de lo negativo, el 2a ED (Psicologia y psicoanalisis) comparte autoría con este libro: ambos son de André Green y pertenecen al ámbito psicoanalítico. El primero identifica el trabajo de lo negativo como asunto central, mientras que Lenguaje en el psicoanalisis, el 2a ED (Psicologia y psicoanalisis) sitúa el lenguaje en primer plano. Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, aborda en cambio la infancia y su dimensión personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789505187096",
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c41a549d833e052b",
+  "origen": "chatgpt-web"
+}

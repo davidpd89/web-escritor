@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409934560",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Premier Love (FRIENDS CONNECTION), de Holly Lampert, encaja con lectores de romance juvenil interesados en las relaciones amorosas y el humor. Sus 252 páginas ofrecen una extensión intermedia; por su orientación romántica, se aleja de quienes buscan una lectura centrada en el misterio o la divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Premier Love (FRIENDS CONNECTION) se publica en tapa blanda, con 252 páginas en castellano. Este formato permite leer la novela en papel y transportarla sin la rigidez de una cubierta dura; su extensión también facilita repartir la lectura entre varios desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Premier Love (FRIENDS CONNECTION) y Vecinos en prácticas (Romántica) comparten su orientación hacia las relaciones amorosas. La obra de Holly Lampert incorpora además una clasificación juvenil y humorística, mientras que el título de Cristina Prieto Solano se presenta expresamente como romántica. Son dos autorías distintas dentro de la narrativa sentimental.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419831774"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3ef091eb0fc941cf",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788410354975",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Crochet esencial: 12 patrones para disfrutar tejiendo (Craft) se dirige a quienes buscan practicar crochet mediante patrones de tejido. Su enfoque en una actividad manual de ocio lo aleja de las novelas y de los libros centrados en resolver acertijos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Crochet esencial: 12 patrones para disfrutar tejiendo (Craft) está disponible en tapa blanda y tiene 168 páginas. El formato físico permite consultar los patrones mientras se trabaja con el tejido y volver a las páginas necesarias durante cada proyecto.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Crochet esencial: 12 patrones para disfrutar tejiendo (Craft) comparte con 800 stickers sweet and cosy (Prácticos) su orientación hacia las actividades manuales de ocio. El libro de Josune González se centra en patrones de crochet, mientras que el de Amélie's Workshop gira en torno a las pegatinas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788448049737"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fdb4f622a6b9e132",
+  "origen": "chatgpt-web"
+}

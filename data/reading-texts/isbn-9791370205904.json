@@ -4,24 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Iglesias de León (Arte y patrimonio), de Carlos Taranilla, encaja con lectores interesados en el patrimonio religioso, la historia y el arte. Sus 200 páginas se orientan a ese ámbito cultural y resultan menos afines a quien busque una novela de aventuras o una historia de fantasía.",
+      "texto": "Iglesias de León (Arte y patrimonio) se dirige a lectores interesados en la historia, el arte y el patrimonio religioso de León. El libro de Carlos Taranilla se centra en un ámbito geográfico y arquitectónico concreto, por lo que se aparta de las biografías personales y de los estudios generales sobre otras manifestaciones artísticas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Iglesias de León (Arte y patrimonio) se presenta en tapa blanda, con 200 páginas en castellano editadas por Almuzara. El volumen físico permite consultar el contenido durante una visita cultural o conservarlo como lectura de referencia sobre patrimonio.",
+      "texto": "Iglesias de León (Arte y patrimonio) está editado en tapa blanda y reúne 200 páginas en castellano. Esta presentación permite llevar el libro durante una visita cultural y consultar sus apartados sin utilizar dispositivos electrónicos, además de conservarlo como volumen de referencia sobre el patrimonio de León.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial",
         "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El cine de los ochenta y 80 directores: Generaciones, géneros y geografías de una década decisiva: 14 (FilaSiete) comparte con Iglesias de León (Arte y patrimonio) el interés por estudiar expresiones artísticas en su contexto. Fernando Gil Delgado Manrique de Lara se ocupa del cine y sus directores, mientras que Carlos Taranilla centra su libro en las iglesias y el patrimonio de León.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399182231"
       ]
     }
   ],

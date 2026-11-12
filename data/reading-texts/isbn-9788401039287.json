@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788401039287",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas), de Carlos Briones, se dirige a quienes buscan conexiones entre divulgación científica y creación artística. Su clasificación también incluye historia, por lo que encaja menos con lectores interesados exclusivamente en ficción o en manuales de aplicación técnica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas) se presenta en tapa blanda, con 280 páginas en castellano. El volumen físico permite consultar de nuevo apartados durante la lectura y conservarlo en una biblioteca dedicada a ciencia y arte.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas) se relaciona con Manual de ilustración científica - Nueva edición con láminas (Ilustrados) por el encuentro entre ciencia y expresión visual. El libro de Carlos Briones plantea un diálogo amplio entre ciencia y arte, mientras que el manual de Varios autores se centra, desde su propio título, en la ilustración científica. La diferencia principal está entre una aproximación divulgativa y una obra presentada como manual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328117"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "67b94ba02faadfb9",
+  "origen": "chatgpt-web"
+}

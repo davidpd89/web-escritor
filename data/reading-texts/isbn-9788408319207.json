@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788408319207",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diario de viajes (Viaje y aventura) está orientado a personas interesadas en los viajes, las aventuras y las actividades relacionadas con el tiempo libre. Por su planteamiento de diario, se diferencia de quienes buscan una novela con personajes y una historia de ficción desarrollada.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Diario de viajes (Viaje y aventura) se publica en tapa blanda, con 192 páginas en castellano. La encuadernación flexible facilita llevarlo en una mochila o equipaje durante los desplazamientos, frente a un volumen de cubierta rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Maravillas secretas del mundo 2 (Ilustrados), de Varios autores, comparte con Diario de viajes (Viaje y aventura) la temática viajera y la autoría colectiva. El primero se presenta como una obra ilustrada sobre lugares del mundo; el segundo adopta la denominación de diario y se vincula también con las actividades de ocio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408321255"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4162e47d0ed6c405",
+  "origen": "chatgpt-web"
+}

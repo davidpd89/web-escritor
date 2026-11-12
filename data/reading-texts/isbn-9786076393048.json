@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786076393048",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en el debate sobre justicia social, poder y política desde una perspectiva crítica con el idealismo de determinadas propuestas sociales. El planteamiento de Thomas Sowell contrapone esas propuestas con los hechos, por lo que no responde a quien busque una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda tiene 208 páginas en castellano y está publicada por Editorial Planeta. Su extensión permite abordar el ensayo en sesiones de lectura relativamente breves y conservar el ejemplar físico para consultar sus argumentos.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, comparte el interés por las ideas políticas, pero se centra en el anarcocapitalismo. Falacias de la Justicia Social: El Idealismo de la Agenda Social Frente a la Realidad de Los Hechos / Social Justice Fallacies, de Thomas Sowell, sitúa el debate en la justicia social y el contraste entre ideales y hechos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "48a5c71c5fcb0275",
+  "origen": "chatgpt-web"
+}

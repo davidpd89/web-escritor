@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9798998430305",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "MADAME IVONNE: Poesía popular, de Alberto Julián Pérez, se dirige a lectores interesados en la poesía popular y su relación con la expresión escrita. Por su orientación poética, se diferencia de los libros centrados en una narración extensa o en instrucciones prácticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "MADAME IVONNE: Poesía popular se publica en tapa blanda, con 184 páginas en castellano. Esta extensión permite tener el contenido reunido en un volumen manejable y volver a sus textos durante distintas sesiones de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fuego y raíz: Cancionero (Primera persona) y MADAME IVONNE: Poesía popular comparten su vinculación con la expresión poética. La primera obra se presenta como cancionero de Gata Cattana, mientras la segunda, de Alberto Julián Pérez, se identifica expresamente con la poesía popular y reúne 184 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788403524996"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "884a996095bdaf48",
+  "origen": "chatgpt-web"
+}

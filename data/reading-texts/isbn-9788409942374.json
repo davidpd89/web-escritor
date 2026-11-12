@@ -4,19 +4,20 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta obra de José Omar Sanchez se dirige a lectores interesados en el desarrollo personal, las experiencias biográficas y la influencia del pasado en la vida presente. Combina temas de bienestar, familia y narrativa juvenil, por lo que se aleja de quienes buscan exclusivamente aventuras o fantasía.",
+      "texto": "El libro de José Omar Sanchez se dirige a lectores interesados en el desarrollo personal, las experiencias biográficas y la influencia del pasado en el presente. Su combinación de temática juvenil, bienestar y relaciones familiares encaja menos con quienes buscan fantasía o una narración centrada en la acción.",
       "evidencias": [
         "autores",
-        "titulo",
-        "categorias"
+        "categorias",
+        "titulo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de tapa blanda permite leer sus 312 páginas en papel y señalar pasajes para consultarlos después. La versión Kindle ofrece el mismo título en formato digital, con la posibilidad de llevar la lectura en el móvil sin transportar el volumen físico.",
+      "texto": "La edición en tapa blanda reúne 312 páginas y permite leer el libro en papel, marcar pasajes y volver a ellos. La versión Kindle ofrece el mismo título en formato digital para llevarlo en el móvil o en un lector electrónico, sin cargar con el ejemplar físico.",
       "evidencias": [
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "titulo"
       ]
     }
   ],

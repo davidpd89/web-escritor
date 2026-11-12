@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387914264",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Feminismo gótico: La creación cultural de la monstrua se dirige a lectores interesados en el feminismo y en las representaciones culturales de las mujeres. Núria Gómez Gabriel e Ingrid Guardiola firman un ensayo de 186 páginas cuyo planteamiento se aleja de la narrativa de ficción y de las guías prácticas de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Feminismo gótico: La creación cultural de la monstrua se publica en tapa blanda, con 186 páginas en castellano. Esta edición de H&o Editorial permite consultar y releer el ensayo en papel, además de transportar el volumen sin la rigidez de una encuadernación de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Feminismo gótico: La creación cultural de la monstrua y El síndrome de la impostora (edición especial): ¿Por qué las mujeres siguen sin creer en ellas mismas? comparten el interés por las cuestiones feministas, aunque el primero aborda la construcción cultural de la figura monstruosa y el segundo plantea la autopercepción de las mujeres. Frente a Los hombres que amaban a las mujeres: catálogo de la exposicion: 24 (Biblioteca Añil Feminista), de Oliva Blanco Corujo, el libro de Núria Gómez Gabriel e Ingrid Guardiola se presenta como ensayo y no como catálogo de exposición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005616",
+        "isbn-9791399172089"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "43b1283a4ede5bab",
+  "origen": "chatgpt-web"
+}

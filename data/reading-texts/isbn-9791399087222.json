@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399087222",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido se dirige a lectores interesados en economía, empresa y planteamientos que cuestionan la lógica convencional. Rory Sutherland sitúa las ideas aparentemente irracionales en el centro del libro, por lo que su temática se distancia de la narrativa de ficción y del análisis histórico medieval.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido está disponible en tapa blanda y tiene 368 páginas. La edición física permite marcar y consultar pasajes sobre ideas y economía empresarial, además de mantener el libro en una biblioteca de consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antes de liderar: Una mirada interior a un oficio comparte con ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido su proximidad a cuestiones del ámbito empresarial. Miguel Reinoso centra su título en el liderazgo, mientras Rory Sutherland aborda el valor de las ideas aparentemente irracionales. La diferencia está entre reflexionar sobre el ejercicio de dirigir y examinar planteamientos que desafían la lógica habitual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "32adb7b4209ecdd7",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788409910151",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Reliquia Escarlata, de Rocío JM, se dirige a lectores de fantasía y aventuras que buscan una obra extensa con elementos de ciencia ficción. Sus 532 páginas se alejan de la lectura breve y de los libros centrados exclusivamente en situaciones cotidianas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Reliquia Escarlata se publica en tapa blanda y reúne 532 páginas en castellano. Esta encuadernación permite leer la obra en papel y conservarla como un único volumen, aunque su extensión exige transportar un libro de considerable tamaño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Reliquia Escarlata puede compararse con Aftermyth 1. Penelope y la prueba de los dioses por su relación con la fantasía, aunque sus autorías son distintas. Frente al título de Tracy Wolff, que incorpora el número 1, la obra de Rocío JM se presenta con un título sin numeración; además, combina fantasía, aventuras y ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324102"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "182c80bea6cd0735",
+  "origen": "chatgpt-web"
+}

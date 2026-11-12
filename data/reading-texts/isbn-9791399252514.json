@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399252514",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Si la nieve pudiera comerse el mundo (MUÑECA INFINITA), de Lidón Ramos Fabra y Martín Sancia Kawamichi, se dirige a lectores de terror y narrativa contemporánea. Sus 168 páginas delimitan una obra relativamente breve, alejada por su clasificación de las lecturas infantiles y de los libros prácticos de bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Si la nieve pudiera comerse el mundo (MUÑECA INFINITA) cuenta con una edición en tapa blanda de 168 páginas, publicada por Muñeca Infinita. El volumen en castellano permite una lectura en papel y resulta manejable para transportar o conservar junto a otras obras de terror contemporáneo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cosamala, de Alana S. Portero, permite comparar dos obras relacionadas con el terror y la narrativa de ficción. Cosamala se presenta como una historia gótica de brujas vinculada a un crimen de la guerra civil, mientras que Si la nieve pudiera comerse el mundo (MUÑECA INFINITA), de Lidón Ramos Fabra y Martín Sancia Kawamichi, combina en su clasificación terror y narrativa contemporánea.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788432251436"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1138b1eeaab9815b",
+  "origen": "chatgpt-web"
+}

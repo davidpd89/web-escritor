@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388356315",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Galería del desencuentro: 629 (Colección Valparaíso de Poesía) se dirige a lectores de poesía en castellano. La obra de Carlota Viejo pertenece a una colección poética, por lo que no responde a la búsqueda de una novela de trama extensa o de un ensayo histórico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Galería del desencuentro: 629 (Colección Valparaíso de Poesía) tiene una edición en tapa blanda de 180 páginas. El formato impreso permite volver a poemas concretos y marcar pasajes durante la lectura, con una extensión manejable para llevar el libro fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Galería del desencuentro: 629 (Colección Valparaíso de Poesía) comparte el ámbito poético con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera. También se relaciona con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, aunque esta última identifica expresamente el amor como eje de su selección.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fc6ee2ce94592ed0",
+  "origen": "chatgpt-web"
+}

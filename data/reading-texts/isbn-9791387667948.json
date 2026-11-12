@@ -4,21 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El libro de Acheron Delacroix se dirige a lectores interesados en las tradiciones ocultas de distintas partes del mundo, la religión y la espiritualidad. Su temática se aleja de la ficción narrativa y de las guías de viaje centradas en destinos turísticos, pues aborda cuestiones relacionadas con las creencias y las prácticas espirituales.",
+      "texto": "Cultos y sombras se dirige a lectores interesados en las tradiciones ocultas, las creencias religiosas y la espiritualidad. La obra de Acheron Delacroix tiene 208 páginas y aborda estas materias desde una perspectiva temática, por lo que se aleja de quienes buscan novelas de aventuras o relatos de fantasía protagonizados por personajes ficticios.",
       "evidencias": [
-        "autores",
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Acheron Delacroix reúne 208 páginas dedicadas a las tradiciones ocultas del mundo y permite consultar el contenido en papel. La versión Kindle ofrece una alternativa digital para leer en el móvil y acceder al mismo libro sin transportar el ejemplar físico.",
+      "texto": "Cultos y sombras está disponible en tapa blanda y Kindle, dos opciones para leer sus 208 páginas. La edición física de Luciérnaga CAS permite consultar pasajes en papel y conservar el volumen en una biblioteca; Kindle facilita la lectura en el móvil o en un dispositivo electrónico, sin transportar el ejemplar impreso.",
       "evidencias": [
-        "autores",
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cultos y sombras comparte con Artefactos mágicos: El catálogo secreto (MAGIA Y OCULTISMO) su interés por las materias relacionadas con el ocultismo. Acheron Delacroix centra su obra en las tradiciones ocultas del mundo, mientras que Emanuela Brumana y Marco Guadalupi abordan los artefactos mágicos desde una propuesta de catálogo. La diferencia principal está en el objeto de estudio: prácticas y tradiciones frente a objetos vinculados con la magia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724210"
       ]
     }
   ],

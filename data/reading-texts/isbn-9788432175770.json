@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788432175770",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El resplandor de la pausa: Una invitación a la contemplación (Religión. Fuera de Colección) se dirige a lectores interesados en la contemplación, el bienestar personal y la reflexión religiosa. Su enfoque se aleja de los manuales centrados en alimentación o ejercicio físico, aunque comparte con ellos el interés por el cuidado personal.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El resplandor de la pausa: Una invitación a la contemplación (Religión. Fuera de Colección) se presenta en tapa blanda y tiene 192 páginas. Este formato permite llevar el volumen en el bolso o la mochila y volver a determinados pasajes durante distintas sesiones de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El resplandor de la pausa: Una invitación a la contemplación (Religión. Fuera de Colección) comparte con Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida el interés por la vida interior. El primero se centra en la contemplación y tiene una orientación religiosa, mientras que el libro de Kelly Ann Street aborda las heridas personales y el equilibrio emocional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410451988"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a8f1c2945c225da1",
+  "origen": "chatgpt-web"
+}

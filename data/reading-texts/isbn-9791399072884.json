@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399072884",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El ejército negro 7: Arturo, de Santiago García-Clairac, se dirige al público infantil y juvenil interesado en la fantasía y la ciencia ficción. Sus 608 páginas requieren disposición para una lectura extensa; por su longitud, se aleja de los cuentos breves destinados a las primeras etapas lectoras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El ejército negro 7: Arturo se ofrece en tapa blanda, con 608 páginas en castellano. La edición de Serendipias de Tinta reúne una lectura extensa en un único volumen físico; su cubierta flexible facilita manejarlo, aunque el número de páginas supone un tamaño considerable para transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El ejército negro 7: Arturo, de Santiago García-Clairac, comparte el ámbito de la fantasía juvenil con Brujas y dragones 2: La bruja mala del oeste, de Ledicia Costas y Luis Miguel Pérez. Ambos títulos llevan numeración, pero identifican entregas distintas: el primero como n.º 7 y el segundo como n.º 2. El de Santiago García-Clairac tiene 608 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387501877"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "537887c08eda8dfb",
+  "origen": "chatgpt-web"
+}

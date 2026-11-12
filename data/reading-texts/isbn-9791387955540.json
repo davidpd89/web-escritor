@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387955540",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Memorias olímpicas: Historia de los Juegos Olímpicos narrada por el hombre que los inventó (Clásicos) se dirige a lectores interesados en la historia del deporte y los testimonios personales sobre el olimpismo. Su enfoque histórico y autobiográfico se diferencia de los manuales de entrenamiento y de las guías para practicar disciplinas deportivas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Memorias olímpicas: Historia de los Juegos Olímpicos narrada por el hombre que los inventó (Clásicos) se ofrece en tapa blanda, con 280 páginas en castellano. La edición de Libros de Ruta permite conservar el volumen en una biblioteca deportiva y consultar en papel los pasajes relacionados con la historia olímpica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Memorias olímpicas: Historia de los Juegos Olímpicos narrada por el hombre que los inventó (Clásicos) comparte con Has Nacido Para Esto / What You're Made For: Powerful Life Lessons from My Career in Sports la perspectiva personal sobre el deporte. Pierre de Coubertin aborda la historia olímpica, mientras que George Raveling y Ryan Holiday presentan lecciones vinculadas a una trayectoria deportiva. El primero tiene un enfoque histórico y el segundo se orienta a experiencias y aprendizajes profesionales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073882088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9229e00802f81a07",
+  "origen": "chatgpt-web"
+}

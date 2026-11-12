@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9781806074280",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi primera Biblia está orientado al público infantil interesado en los relatos religiosos y en una primera aproximación a la tradición bíblica. Su clasificación como obra infantil y de religión y espiritualidad lo diferencia de los libros dedicados exclusivamente a la fantasía o a las aventuras de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de Mi primera Biblia reúne 144 páginas en un volumen de cubierta rígida, apropiado para conservarlo y consultarlo repetidamente. El formato físico también permite compartir la lectura entre un adulto y un niño sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi primera Biblia comparte con Grandes historias de la mitología griega: Los orígenes de dioses y héroes (Clásicos adaptados e ilustrados para jóvenes lectores) el acercamiento de lectores jóvenes a relatos de tradición cultural. La obra de Gillian Doherty se centra en la Biblia y la religión, mientras que la de Frances Bianchi aborda la mitología griega y sus dioses y héroes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399280333"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d71918e87fb62196",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El poder de las ideas: Palabras de FE y sabiduria se dirige a lectores interesados en el ensayo filosófico y en cuestiones de religión y espiritualidad. Por su orientación temática, se aleja de la narrativa de ficción y de los manuales centrados en ejercicios prácticos.",
+      "texto": "El poder de las ideas: Palabras de FE y sabiduria se dirige a lectores interesados en el ensayo filosófico y la reflexión religiosa y espiritual. Por su orientación temática, se aleja de quienes buscan una novela de ficción o un manual de ejercicios prácticos.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,12 +12,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de El poder de las ideas: Palabras de FE y sabiduria se presenta en tapa blanda y reúne 408 páginas en castellano. Este formato permite transportar el volumen con una cubierta flexible y consultar distintos pasajes durante la lectura.",
+      "texto": "El poder de las ideas: Palabras de FE y sabiduria está disponible en tapa blanda, con 408 páginas en castellano. Esta edición permite consultar y releer pasajes en papel, con una encuadernación flexible para transportar el volumen.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Consciencia Inmortal: Conversaciones con Sri Ramana Maharshihi comparte con El poder de las ideas: Palabras de FE y sabiduria el interés por la espiritualidad, aunque el primero se presenta como conversaciones y el segundo como ensayo filosófico y religioso. Astrología, filosofía y magia: Un camino de práctica espiritual añade un enfoque expresamente práctico y astrológico frente a la reflexión sobre ideas y sabiduría del libro de Jonathan Sacks.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315",
+        "isbn-9791399252705"
       ]
     }
   ],

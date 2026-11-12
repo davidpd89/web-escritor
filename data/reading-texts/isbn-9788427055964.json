@@ -4,21 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Bones: ¿Cuál es tu razón para sobrevivir?: 1 (Matchstories Romántica Fantasy) se dirige a lectores de fantasía que también buscan elementos de terror y ciencia ficción. Sus 640 páginas plantean una lectura extensa; no responde a quien prefiere narrativa contemporánea sin componentes fantásticos.",
+      "texto": "Bones: ¿Cuál es tu razón para sobrevivir?: 1 (Matchstories Romántica Fantasy), de K. L. Speer, se orienta a lectores de fantasía con interés por el terror y la ciencia ficción. Sus 640 páginas suponen una lectura extensa y encajan menos con quienes prefieren novelas realistas o libros breves.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Bones: ¿Cuál es tu razón para sobrevivir?: 1 (Matchstories Romántica Fantasy) reúne 640 páginas en una edición física de Ediciones Martínez Roca. Kindle permite llevar esa misma lectura en un dispositivo electrónico, sin transportar el volumen impreso.",
+      "texto": "Bones: ¿Cuál es tu razón para sobrevivir?: 1 (Matchstories Romántica Fantasy) se ofrece en tapa blanda y Kindle. La edición física reúne 640 páginas para leer y conservar en papel; Kindle permite transportar esa misma extensión en un dispositivo electrónico o consultarla desde el móvil.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "formatos_disponibles"
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bones: ¿Cuál es tu razón para sobrevivir?: 1 (Matchstories Romántica Fantasy) comparte su orientación fantástica con Asistente del villano (edición especial limitada) (Faeris Editorial), de Hannah Nicole Maehrer. La obra de K. L. Speer incorpora también el terror y la ciencia ficción entre sus géneros, mientras que la de Hannah Nicole Maehrer se identifica por su edición especial limitada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388108112"
       ]
     }
   ],

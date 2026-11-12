@@ -4,40 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuando lo poco probable se convierte en realidad se sitúa entre el ensayo, la filosofía y la espiritualidad, por lo que encaja con lectores interesados en esos ámbitos. Sus 212 páginas no responden a la búsqueda de una novela de ficción ni de un manual técnico especializado.",
+      "texto": "Cuando lo poco probable se convierte en realidad se sitúa entre el ensayo, la filosofía y la espiritualidad, por lo que encaja con lectores interesados en estos ámbitos. Sus 212 páginas en castellano no corresponden a una novela de ficción ni a un manual técnico especializado en otra disciplina.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda consta de 212 páginas en castellano y pertenece al catálogo de Aula Magna Proyecto Clave Mcgraw Hill. El formato impreso permite leer el ensayo por partes y recuperar pasajes para una segunda lectura.",
+      "texto": "La obra de Enric Vicedo-Rius puede leerse en tapa blanda o Kindle, con una extensión de 212 páginas en su edición impresa. La primera opción permite conservar y consultar el volumen físico de Aula Magna Proyecto Clave Mcgraw Hill; la segunda evita transportar el ejemplar y facilita la lectura digital.",
       "evidencias": [
+        "autores",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "categorias"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Donde no supe: Entre el éxtasis místico y las experiencias extrasensoriales (Ensayo) comparte con Cuando lo poco probable se convierte en realidad el terreno del ensayo y la espiritualidad. Luce López-Baralt aborda en su título el misticismo y las experiencias extrasensoriales, mientras que Enric Vicedo-Rius plantea la relación entre lo improbable y su realización desde un marco filosófico y espiritual.",
+      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual comparte con Cuando lo poco probable se convierte en realidad el interés por la filosofía y la espiritualidad, aunque su título delimita un recorrido por la astrología y la magia. Donde no supe: Entre el éxtasis místico y las experiencias extrasensoriales también aborda cuestiones espirituales, con una atención expresa a las experiencias místicas y extrasensoriales.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788411214315",
         "isbn-9791388019760"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d23a513adada35ed",
+  "fuente_hash": "10bd1f9c4de681c0",
   "origen": "chatgpt-web"
 }

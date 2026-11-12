@@ -4,22 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "A la caza de Papá Noel: 3, de Emma S. Varela y Robert García, se sitúa en la lectura infantil de fantasía, con una temática vinculada a Papá Noel. Sus 36 páginas permiten plantear una lectura breve; por su orientación infantil, encaja menos con quien busca narrativa adulta o una novela extensa.",
+      "texto": "A la caza de Papá Noel: 3 se dirige al público infantil interesado en la fantasía y los temas navideños. Emma S. Varela y Robert García firman un libro de 36 páginas que también aparece vinculado al terror; puede encajar menos con quienes prefieren lecturas infantiles exclusivamente realistas o alejadas de ese género.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "A la caza de Papá Noel: 3 se publica en tapa dura, con 36 páginas en castellano. La encuadernación rígida resulta práctica para manipularlo durante lecturas compartidas y conservarlo en una biblioteca infantil. Su extensión también permite leerlo en sesiones cortas sin recurrir a una pantalla.",
+      "texto": "A la caza de Papá Noel: 3 está disponible en tapa dura, con 36 páginas en castellano. Esta edición física permite compartir la lectura y conservar el libro entre las lecturas navideñas; también puede entregarse como regalo sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A la caza de Papá Noel: 3 puede compararse con ¡Ya es Nochebuena! (Un cuento con puzles) por su temática navideña y su orientación infantil. El primero incorpora la fantasía y figura también entre las obras de terror, mientras que el segundo se presenta como un cuento con puzles. La diferencia para el lector está entre una propuesta de ficción fantástica y otra que anuncia una actividad de puzles.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781806072828"
       ]
     }
   ],

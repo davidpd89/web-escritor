@@ -4,38 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las heridas de Occidente: El poder sanador del chamanismo en el mundo contemporáneo (Sabiduría perenne) se dirige a lectores interesados en el chamanismo, la espiritualidad y el desarrollo personal. Por su enfoque de ensayo, se aleja de las novelas de ficción y de los manuales centrados exclusivamente en hábitos cotidianos.",
+      "texto": "Las heridas de Occidente: El poder sanador del chamanismo en el mundo contemporáneo (Sabiduría perenne) se dirige a lectores interesados en la espiritualidad y las interpretaciones del bienestar desde el chamanismo. Sus 256 páginas abordan ese ámbito desde el ensayo, por lo que no responde a quien busque una novela o un manual de tratamientos médicos basados en pruebas clínicas.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Las heridas de Occidente: El poder sanador del chamanismo en el mundo contemporáneo (Sabiduría perenne) tiene 256 páginas. Este formato permite llevar el ensayo en papel, marcar pasajes y volver a determinados apartados durante la lectura.",
+      "texto": "La tapa blanda reúne las 256 páginas de Las heridas de Occidente: El poder sanador del chamanismo en el mundo contemporáneo (Sabiduría perenne) en un volumen físico que permite marcar y consultar pasajes. La edición Kindle ofrece el mismo título en formato digital para leerlo en un dispositivo compatible o llevarlo en el móvil sin transportar el libro impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "categorias"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual comparte con Las heridas de Occidente: El poder sanador del chamanismo en el mundo contemporáneo (Sabiduría perenne) el interés por la espiritualidad, pero se centra en la astrología y la magia en lugar del chamanismo. El origen. La raíz invisible de lo que dirige tu vida aborda las constelaciones familiares y la historia personal, mientras que Ana María Llamazares examina el poder sanador del chamanismo en la sociedad contemporánea.",
+      "texto": "La cosmovisión de los chamanes / The Worldview of the Shamans comparte el interés por el chamanismo, pero pone el acento en su visión del mundo, mientras que Las heridas de Occidente: El poder sanador del chamanismo en el mundo contemporáneo (Sabiduría perenne) relaciona esa tradición con el bienestar contemporáneo. Astrología, filosofía y magia: Un camino de práctica espiritual aborda otras vías de espiritualidad y amplía el contraste hacia la astrología y la magia.",
       "evidencias": [
         "titulo",
-        "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788411214315",
-        "isbn-9791388038372"
+        "isbn-9786073874274"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c06494708031fa20",
+  "fuente_hash": "b6e492722f3a5c2d",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788468599632",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Base de la Naruropatía 2ª Edición está orientado a lectores interesados en la naturopatía, el bienestar y los temas relacionados con la salud. Sus 261 páginas se concentran en ese ámbito, por lo que no responde a quien busca una novela familiar o un libro centrado exclusivamente en las relaciones personales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Base de la Naruropatía 2ª Edición se ofrece en tapa blanda, con 261 páginas en castellano. Esta presentación permite conservar el volumen para consultas posteriores y utilizarlo sin conexión ni dispositivo electrónico. La edición impresa pertenece a Bubok Publishing.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, también aborda cuestiones de salud y bienestar. Base de la Naruropatía 2ª Edición, de Marcos Vélez, delimita su asunto a la naturopatía; el otro título abarca además felicidad, relaciones y éxito.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e87a4e310c91636a",
+  "origen": "chatgpt-web"
+}

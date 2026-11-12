@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788411191951",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pack El acto de crear (Autoconocimiento) está dirigido a quienes buscan lecturas sobre creatividad, arte y desarrollo personal. Por su orientación hacia el autoconocimiento y el ensayo, se distancia de las novelas de ficción y de los libros centrados únicamente en técnicas artísticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pack El acto de crear (Autoconocimiento) se publica en tapa dura y suma 432 páginas. La edición en castellano de Diana ofrece una encuadernación rígida para consultar el contenido en papel, conservarlo entre otras obras de arte y ensayo o regalarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pack El acto de crear (Autoconocimiento) se relaciona con Gabinete de maravillas para colorear (Somos B) por su vinculación con la creatividad y el arte. Rick Rubin aborda el autoconocimiento desde el ensayo y el desarrollo personal, mientras que el título de Carlota Santos propone una actividad centrada en colorear.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466685542"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "99a8dcf734914a57",
+  "origen": "chatgpt-web"
+}

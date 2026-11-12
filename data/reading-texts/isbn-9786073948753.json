@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073948753",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de novela negra que siguen los misterios de Camilla Läckberg y los títulos de Crímenes de Fjällbacka. El título lo identifica como el n.º 12, por lo que quien busque una historia ajena a esa colección puede preferir otra lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite manejar con flexibilidad las 560 páginas de esta entrega de Crímenes de Fjällbacka. Su cubierta facilita sujetar el ejemplar durante sesiones largas, mientras que la extensión invita a distribuir la lectura en varios días.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La sombra de la sirena (Los crímenes de Fjällbacka) (Biblioteca Camilla Läckberg) comparte autora y colección con El Llanto de Los Muertos (Novela Negra) / The Weeper (Noir): 12 (Crímenes de Fjällbacka). Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir), de Ann Cleeves, ofrece otra referencia de narrativa criminal, aunque vinculada a Shetland y a una autora distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329015",
+        "isbn-9788410424524"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "078e52b0666f33dc",
+  "origen": "chatgpt-web"
+}

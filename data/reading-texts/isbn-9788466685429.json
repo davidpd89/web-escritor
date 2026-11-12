@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Nos quisieron histéricas, nos volvimos históricas (No ficción) se sitúa entre la historia, el ensayo y las biografías y memorias, por lo que responde a intereses de lectura documental. Quien busque una novela romántica o una historia de fantasía encontrará aquí un planteamiento de no ficción firmado por Lidia San José.",
+      "texto": "Nos quisieron histéricas, nos volvimos históricas (No ficción), de Lidia San José, se dirige a quienes leen historia, ensayo y biografías. Su enfoque editorial encaja menos con quien busca una novela de ficción o una obra centrada exclusivamente en la divulgación científica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,11 +13,24 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Nos quisieron histéricas, nos volvimos históricas (No ficción) reúne 304 páginas en un volumen físico que permite marcar pasajes y conservarlo en una biblioteca. Kindle ofrece esas páginas en formato digital para leer en el móvil o en un lector electrónico sin llevar el ejemplar impreso.",
+      "texto": "La tapa blanda permite leer y consultar en papel las 304 páginas de Nos quisieron histéricas, nos volvimos históricas (No ficción). La edición Kindle reúne el libro en formato digital, que puede llevarse en un lector electrónico o en el móvil sin transportar el volumen físico.",
       "evidencias": [
         "titulo",
         "numero_paginas",
         "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nos quisieron histéricas, nos volvimos históricas (No ficción) comparte el terreno de la escritura histórica con Lectora amiga: Primeras crónicas (1926-1927): 29 (Biblioteca Elena Fortún). La obra de Lidia San José se presenta como ensayo, historia y biografías, mientras que el título de Elena Fortún identifica expresamente unas primeras crónicas. Ambas se distinguen también por su autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388381416"
       ]
     }
   ],

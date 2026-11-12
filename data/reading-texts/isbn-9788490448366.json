@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788490448366",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Manual de Anatomía Humana. Libro de Trabajo: 35 (MANUALES DOCENTES) está orientado a lectores que estudian anatomía humana y buscan un material de trabajo académico. La obra de Diana Patricia Pozuelo Carrascosa pertenece al ámbito científico y docente, no al de las lecturas narrativas ni al de los consejos generales de bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Manual de Anatomía Humana. Libro de Trabajo: 35 (MANUALES DOCENTES) se publica en tapa blanda, con 136 páginas en castellano. Este formato permite llevar el volumen a clase o utilizarlo sobre una mesa de estudio, con una extensión manejable para consultar contenidos de anatomía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Manual de Anatomía Humana. Libro de Trabajo: 35 (MANUALES DOCENTES) y Baropodometría clínica: Bases para una biomecánica integrada del control postural comparten el interés por el estudio del cuerpo humano. Diana Patricia Pozuelo Carrascosa aborda la anatomía mediante un libro de trabajo, mientras que Fernando Ares se concentra en la biomecánica y el control postural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388377167"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e188489880e17e8c",
+  "origen": "chatgpt-web"
+}

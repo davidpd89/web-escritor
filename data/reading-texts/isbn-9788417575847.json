@@ -4,22 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Avni 1. Animal verdaderamente no identificado (Txikiberri) se orienta a lectores infantiles interesados en los animales, el cómic y las historias breves. Sus 64 páginas y su clasificación como novela gráfica lo distinguen de las novelas juveniles extensas o de los libros dedicados exclusivamente a explicar la naturaleza.",
+      "texto": "Avni 1. Animal verdaderamente no identificado (Txikiberri) está dirigido a lectores infantiles y juveniles interesados en el cómic, los animales y los relatos breves. Sus 64 páginas encajan con quien busca una lectura visual de extensión reducida, pero menos con quien prefiere novelas largas de texto continuo.",
       "evidencias": [
         "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Avni 1. Animal verdaderamente no identificado (Txikiberri) se presenta en tapa blanda, con 64 páginas. Este formato permite leer las páginas ilustradas del cómic en papel y manejar un volumen relativamente breve dentro de una colección infantil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
         "numero_paginas",
         "categorias"
       ]
     },
     {
-      "modulo": "que_formato_elegir",
-      "texto": "Avni 1. Animal verdaderamente no identificado (Txikiberri) se presenta en tapa blanda, con 64 páginas editadas por Astiberri. El formato permite leer y consultar sus páginas ilustradas en papel, y su extensión facilita transportarlo para sesiones de lectura cortas.",
+      "modulo": "lecturas_afines",
+      "texto": "Avni 1. Animal verdaderamente no identificado (Txikiberri) puede compararse con Animal Jack 2 la montaña mágica, de Kid Toussaint, por la presencia de animales en sus títulos y su vinculación con la ficción infantil. La obra de Romain Pujol se presenta como un cómic de 64 páginas, mientras que Animal Jack 2 la montaña mágica se identifica por su título como una segunda entrega.",
       "evidencias": [
         "titulo",
-        "editorial",
+        "autores",
+        "categorias",
         "numero_paginas",
-        "formatos_disponibles",
-        "categorias"
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387744410"
       ]
     }
   ],

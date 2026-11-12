@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Desde que era un crío, de Locus, se sitúa entre las biografías y memorias y los libros relacionados con el arte y el diseño. Se dirige a lectores interesados en las experiencias personales vinculadas al ámbito artístico, y encaja menos con quienes buscan una novela de ficción o un manual técnico.",
+      "texto": "Desde que era un crío se dirige a lectores interesados en las biografías, las memorias y las publicaciones vinculadas al arte. Por su clasificación como obra biográfica, resulta menos afín a quienes buscan una novela fantástica o un manual técnico de creación artística.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,13 +13,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Desde que era un crío se publica en tapa blanda, con 156 páginas en castellano. Esta edición de Ediciones Fatcap ofrece un volumen de extensión relativamente breve, manejable para leer en papel y transportar.",
+      "texto": "Desde que era un crío está disponible en tapa blanda, con 156 páginas en castellano. Su extensión permite manejar un volumen relativamente breve en papel, conservarlo como lectura personal o regalarlo a quien tenga interés en las memorias y el arte.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Desde que era un crío y El rey de la baraja: La imperecedera vida de Roberto Iniesta: 7 (Marea gráfica), de Nacho Nava Laiz, se relacionan con la escritura sobre vidas personales. La obra de Locus está clasificada entre biografías, memorias y arte, mientras que el título de Nacho Nava Laiz identifica expresamente a Roberto Iniesta como protagonista biográfico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387938499"
       ]
     }
   ],

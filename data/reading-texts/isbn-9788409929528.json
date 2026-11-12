@@ -4,24 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "EL SENDERO DEL MONJE SABIO: Historias zen para encontrar la paz en un mundo que no se detiene se dirige a lectores interesados en espiritualidad, bienestar y desarrollo personal. Su planteamiento mediante historias zen lo diferencia de los manuales centrados en nutrición o ejercicio físico.",
+      "texto": "EL SENDERO DEL MONJE SABIO: Historias zen para encontrar la paz en un mundo que no se detiene, de J.a. M.v., se orienta a lectores interesados en espiritualidad, bienestar y desarrollo personal mediante historias zen. Su enfoque contemplativo se distancia de los manuales centrados exclusivamente en técnicas prácticas de organización o productividad.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de EL SENDERO DEL MONJE SABIO: Historias zen para encontrar la paz en un mundo que no se detiene es de tapa blanda y tiene 326 páginas. El volumen físico permite leer las historias zen por separado y recuperar pasajes durante posteriores consultas.",
+      "texto": "Las 326 páginas de EL SENDERO DEL MONJE SABIO: Historias zen para encontrar la paz en un mundo que no se detiene pueden leerse en tapa dura, tapa blanda o Kindle. La tapa dura ofrece una encuadernación rígida para conservar el volumen; la blanda facilita manejarlo en papel y Kindle permite consultar las historias desde el móvil.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "EL SENDERO DEL MONJE SABIO: Historias zen para encontrar la paz en un mundo que no se detiene comparte el interés espiritual con Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies. El libro de J.a. M.v. plantea la búsqueda de paz mediante historias zen, mientras que el de Soledad Davies reúne astrología, filosofía y magia como vías de práctica espiritual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ad7b436a37118156",
+  "fuente_hash": "cd12171aca07bdad",
   "origen": "chatgpt-web"
 }

@@ -4,22 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pack biografias en viñetas se dirige a quienes buscan biografías mediante el lenguaje del cómic y la novela gráfica. Sus 256 páginas se sitúan entre la narración biográfica y la lectura visual, por lo que no responde a quien busque una biografía escrita exclusivamente en prosa.",
+      "texto": "Pack biografias en viñetas se dirige a quienes buscan biografías presentadas mediante el lenguaje del cómic. Su combinación de memoria y narración gráfica se aparta de la novela de ficción y de las biografías exclusivamente en prosa.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Pack biografias en viñetas se publica en tapa dura, con 256 páginas en castellano. El formato físico permite consultar las viñetas directamente sobre papel y conservar el conjunto encuadernado; también resulta una opción de regalo para lectores de biografías gráficas.",
+      "texto": "La edición de Cascaborra Ediciones tiene 256 páginas en tapa dura y está escrita en castellano. La encuadernación rígida favorece su conservación y permite regalar un volumen de biografías en formato de cómic.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "editorial",
         "numero_paginas",
+        "formatos_disponibles",
         "idioma",
         "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Creepy nº 11/29 coincide con Pack biografias en viñetas en la autoría colectiva de Varios autores, pero ofrece una recopilación de terror en lugar de biografías. La llamada del oeste. 5 historias de lucky luke también presenta historias gráficas con varios autores, aunque se centra en relatos del oeste y no en vidas de personas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411406130",
+        "isbn-9788467981421"
       ]
     }
   ],

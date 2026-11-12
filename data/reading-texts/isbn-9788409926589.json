@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788409926589",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "EXITUS [SAGA CORSARIOS I]: Una atracción inevitable, de Naiara Ruz Redondo, se dirige a lectores de romance juvenil con interés por el misterio y las relaciones de pareja. Sus 362 páginas se alejan de las lecturas breves y de quienes buscan una historia sin componente romántico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "EXITUS [SAGA CORSARIOS I]: Una atracción inevitable está disponible en tapa blanda, con 362 páginas en castellano. Esta edición de Naiara Ruz Redondo permite seguir la historia en papel y conservarla físicamente, con una extensión intermedia entre un libro breve y una novela de gran volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "EXITUS [SAGA CORSARIOS I]: Una atracción inevitable comparte el componente romántico con CUANDO TODO FALLA. Solo nos queda la promesa del nosotros.: Una novela romántica New Adult de superación, pasión por el arte y segundas oportunidades (La promesa del nosotros). La obra de Naiara Ruz Redondo combina romance juvenil y misterio, mientras que la de Marta Monroy anuncia una historia New Adult sobre arte, superación y segundas oportunidades.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409942572"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4c863f51acc50f54",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388408014",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigida a quienes buscan una comedia romántica con humor, ¿De verdad vas a salir con él?: Una comedia romántica, divertida y entrañable de la autora superventas del New York Times (Chic Editorial) pertenece a la narrativa romántica de Sophie Cousens. Su enfoque se aleja de las lecturas centradas en el terror o la aventura fantástica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Chic se presenta en tapa blanda y reúne 384 páginas en castellano. Es una opción física para leer por capítulos, llevar en el bolso o conservar en la estantería, con una extensión que permite repartir la lectura entre varias sesiones.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "En mi Era Pistacho: Juliette's version, de Emily Collins, y 24 historias para enamorarte en navidad: Relatos navideños, de Patricia Bonet, son dos alternativas para explorar junto a la comedia romántica de Sophie Cousens. La obra de Patricia Bonet reúne relatos de temática amorosa vinculados a la Navidad, mientras que el libro de Sophie Cousens combina romance y humor en una edición de 384 páginas.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788409929177",
+        "isbn-9788410648777"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4daac703fb669948",
+  "origen": "chatgpt-web"
+}

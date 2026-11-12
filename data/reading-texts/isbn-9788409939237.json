@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788409939237",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a mujeres interesadas en el cuidado familiar y en cómo atender a los demás sin descuidarse a sí mismas. Su orientación hacia el desarrollo personal y las relaciones familiares lo distingue de una novela o de un manual especializado en una enfermedad concreta.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "MANUAL PARA ALMAS ROTAS: Cómo cuidar de los tuyos sin desaparecer: siete restituciones para la mujer que lo sostiene todo se publica en tapa blanda, con 158 páginas en castellano. Su extensión permite abordar el contenido en sesiones de lectura breves y conservar el ejemplar para posteriores consultas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos) también aborda el cuidado familiar, pero desde herramientas de psicología conductual. MANUAL PARA ALMAS ROTAS: Cómo cuidar de los tuyos sin desaparecer: siete restituciones para la mujer que lo sostiene todo pone el foco en la mujer que sostiene esas responsabilidades y en su propio bienestar.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399249682"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9ae6bb39c21c241e",
+  "origen": "chatgpt-web"
+}

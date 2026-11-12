@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788410677432",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bereberes/Amaziges: Estado, identidad y activismo en el norte de África: 1108 (Mayor) se dirige a lectores de historia interesados en la identidad colectiva y las relaciones entre Estado y activismo. Su enfoque temático se aleja de las obras de ficción y de quienes buscan una historia general sin delimitación geográfica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bereberes/Amaziges: Estado, identidad y activismo en el norte de África: 1108 (Mayor) cuenta con una edición en tapa blanda de 256 páginas. Este formato permite consultar el volumen en papel y transportarlo sin la rigidez de una encuadernación de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bereberes/Amaziges: Estado, identidad y activismo en el norte de África: 1108 (Mayor) y 53 días: Cómo Hitler derribó una democracia (HISTORIA) comparten el interés histórico por las relaciones políticas. El libro de Ángela Suárez Collado se centra en la identidad y el activismo en el norte de África, mientras que el de Timothy W. Ryback aborda la caída de una democracia bajo Hitler.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b3acd136b4718bd2",
+  "origen": "chatgpt-web"
+}

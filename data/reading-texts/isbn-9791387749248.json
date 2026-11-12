@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Enlazados (Umbriel narrativa), de H.M. Long, se dirige a quienes leen fantasía y aventuras con interés por los elementos históricos. Sus 336 páginas ofrecen una extensión intermedia; no corresponde a una lectura centrada exclusivamente en hechos históricos documentados.",
+      "texto": "Enlazados (Umbriel narrativa) se dirige a quienes buscan ficción que combine fantasía, aventuras y elementos de novela histórica. Por esa mezcla de géneros, se distancia tanto del realismo cotidiano como de las obras exclusivamente documentales o ensayísticas.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Enlazados (Umbriel narrativa) cuenta con una edición en tapa blanda de 336 páginas publicada por Umbriel. Es una opción física para leer por sesiones o llevar en una bolsa, con una extensión menor que la de una novela de gran volumen.",
+      "texto": "Enlazados (Umbriel narrativa) está disponible en tapa blanda y Kindle. La edición física reúne 336 páginas en castellano y permite conservar la novela en papel; Kindle ofrece la misma opción de lectura digital para llevarla en el móvil o en un lector electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Enlazados (Umbriel narrativa) puede compararse con Aftermyth 1. Penelope y la prueba de los dioses por su vinculación con la fantasía. H.M. Long combina fantasía, aventura y elementos históricos en Enlazados (Umbriel narrativa), mientras que el título de Tracy Wolff sitúa su conflicto anunciado en una prueba relacionada con dioses.",
+      "texto": "Enlazados (Umbriel narrativa) puede compararse con Aftermyth 1. Penelope y la prueba de los dioses por su relación con la ficción fantástica. H.M. Long combina fantasía, aventuras y elementos históricos, mientras que el título de Tracy Wolff sitúa su propuesta alrededor de los dioses y una prueba.",
       "evidencias": [
         "titulo",
         "autores",
@@ -38,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b9fbdab203150f62",
+  "fuente_hash": "fcb49f7c0b817c8e",
   "origen": "chatgpt-web"
 }

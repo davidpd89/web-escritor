@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786076393055",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la historia del mundo antiguo y en su relación con el arte y las ideas. El enfoque ensayístico de Mary Beard se aleja de quienes buscan una novela de ficción o una guía práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 256 páginas de Clásicos Sin Filtros: El Impacto del Mundo Antiguo / Talking Classics: The Shock of the Old en un volumen físico. Permite consultar y releer pasajes sobre historia y arte sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Emperador de Roma: Edición limitada a precio especial (Colección Especial) comparte con Clásicos Sin Filtros: El Impacto del Mundo Antiguo / Talking Classics: The Shock of the Old la autoría de Mary Beard y el interés por la historia, aunque el primero centra su título en Roma. El mito del genio: Historia de una ficción (Artes), de Eugenia Tenenbaum, aborda una cuestión relacionada con el arte, mientras que el libro de Mary Beard se ocupa del mundo antiguo desde el ensayo histórico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328360",
+        "isbn-9788430628803"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c56dcf380b1ea7b3",
+  "origen": "chatgpt-web"
+}

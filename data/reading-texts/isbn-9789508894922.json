@@ -4,24 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¡Qué emoción! ¿Qué emoción? (EN POCAS PALABRAS), de Georges Didi-Huberman, se dirige a lectores interesados en el ensayo y la filosofía, especialmente en cuestiones relacionadas con las emociones. Sus 88 páginas ofrecen un volumen breve; no es una obra de narrativa ni de ficción.",
+      "texto": "¡Qué emoción! ¿Qué emoción? (EN POCAS PALABRAS) está dirigido a lectores interesados en reflexionar sobre las emociones desde la filosofía y el ensayo. Sus 88 páginas ofrecen una extensión breve frente a los tratados más largos; no responde a la búsqueda de una novela de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne las 88 páginas de ¡Qué emoción! ¿Qué emoción? (EN POCAS PALABRAS), de Georges Didi-Huberman. Es un ejemplar físico de La Marca Editora, con una extensión reducida que facilita llevarlo y consultarlo en papel.",
+      "texto": "¡Qué emoción! ¿Qué emoción? (EN POCAS PALABRAS) tiene 88 páginas y se presenta en tapa blanda. La cubierta flexible facilita llevarlo en una bolsa para leer fuera de casa, mientras que su extensión permite abordar el ensayo en varias sesiones cortas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Arendt y la antropología de la condición plural en doble movimiento comparte con ¡Qué emoción! ¿Qué emoción? (EN POCAS PALABRAS) el terreno de la reflexión filosófica. El libro de Javier Pons-Gallach se ocupa de la condición plural, mientras que el de Georges Didi-Huberman toma las emociones como asunto central.",
       "evidencias": [
         "titulo",
         "autores",
-        "editorial",
-        "edicion",
-        "numero_paginas",
-        "formatos_disponibles"
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399308358"
       ]
     }
   ],

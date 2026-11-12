@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791387906375",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Harry Potter y la piedra filosofal: (Edición serie), de J.K. Rowling, encaja con lectores que buscan fantasía y aventuras dentro de una obra considerada un clásico. Quienes prefieran relatos realistas, sin elementos fantásticos, encontrarán aquí una propuesta distinta de sus intereses habituales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Harry Potter y la piedra filosofal: (Edición serie) se presenta en tapa blanda, con 288 páginas en castellano. Es una opción física menos rígida que la tapa dura, que permite transportar el libro y leerlo sin dispositivos electrónicos; esta edición pertenece a Salamandra.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Harry Potter y la piedra filosofal: (Edición serie) comparte autora y universo editorial con Duelo con varitas (Harry Potter): Guía oficial de hechizos para aprendices de magia, pero este último se presenta como guía de hechizos y no como novela de aventuras. Frente a Harry Potter Envío especial - Correo por Lechuza (estuche con la SAGA COMPLETA) (Harry Potter [edición con la portada ilustrada por Jonny Duddle]), la edición de Salamandra ofrece un único volumen de 288 páginas, no un estuche con la saga completa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "editorial",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788419868800",
+        "isbn-9788466393614"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "065015107009ed96",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9780241837603",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Astrología, profecía y adivinación. Una historia ilustrada (Magia y misterio) (Enciclopedia visual), de DK, se orienta a quienes desean explorar estos asuntos desde una perspectiva histórica y visual. Su planteamiento enciclopédico se distancia de una novela de misterio centrada en personajes y conflictos ficticios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Astrología, profecía y adivinación. Una historia ilustrada (Magia y misterio) (Enciclopedia visual) es de tapa dura y contiene 320 páginas en castellano. El soporte físico permite consultar sus contenidos visuales directamente sobre el papel y conservar el volumen como obra de referencia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Astrología, profecía y adivinación. Una historia ilustrada (Magia y misterio) (Enciclopedia visual) comparte con Mitos y leyendas (Mundo 3D): Héroes, dioses y monstruos como nunca antes los habías visto (Enciclopedia visual juvenil) la autoría de DK y el formato enciclopédico visual. La primera aborda astrología, profecía y adivinación desde la historia; la segunda se centra en héroes, dioses y monstruos y se identifica como juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241839355"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "154792c2d7e3b7d5",
+  "origen": "chatgpt-web"
+}

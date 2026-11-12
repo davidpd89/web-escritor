@@ -4,21 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Hecho una mierda, pero en casa (Cuadernos creativos) se dirige a quienes buscan un cuaderno relacionado con el desarrollo personal y el bienestar. Su enfoque temático también abarca la familia, por lo que se distancia de los manuales dedicados exclusivamente a cuestiones técnicas o profesionales.",
+      "texto": "Hecho una mierda, pero en casa (Cuadernos creativos) se dirige a lectores interesados en desarrollo personal, bienestar y asuntos familiares. Su enfoque se aleja de la narrativa de ficción y de los manuales centrados exclusivamente en economía o gestión empresarial.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Hecho una mierda, pero en casa (Cuadernos creativos) se presenta en tapa blanda y tiene 160 páginas. Su extensión permite manejarlo como cuaderno físico, guardarlo en una mochila o tenerlo a mano en casa. La edición está publicada por Planeta Gifts en castellano.",
+      "texto": "Hecho una mierda, pero en casa (Cuadernos creativos) se presenta en tapa blanda, con 160 páginas en castellano. Esta edición de Planeta Gifts permite llevar el cuaderno en el bolso o la mochila y consultarlo en papel sin cargar con un volumen extenso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "idioma"
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hecho una mierda, pero en casa (Cuadernos creativos) comparte el ámbito del desarrollo personal con El factor tú: Claves para comunicar con autenticidad y conseguir lo que te propongas (No ficción). El libro de Ferran Cases se sitúa en el terreno del bienestar y la familia, mientras que el de Rafa Rodrigo centra su propuesta en la comunicación personal y la autenticidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388139239"
       ]
     }
   ],

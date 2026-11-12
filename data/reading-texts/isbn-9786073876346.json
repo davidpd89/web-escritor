@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9786073876346",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La vida que pensamos. Cuentos de fútbol / The Life We Imagined. Stories About Soccer está dirigida a lectores de relatos contemporáneos interesados en el fútbol como asunto literario. Eduardo Sacheri reúne cuentos en un volumen de 352 páginas; su planteamiento no corresponde a una novela de argumento único ni a un manual deportivo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La vida que pensamos. Cuentos de fútbol / The Life We Imagined. Stories About Soccer cuenta con una edición en tapa blanda de 352 páginas, publicada por Penguin Random House Grupo Editorial. El formato permite leer los relatos por separado en papel y retomar el volumen entre sesiones, sin necesidad de seguir una narración continua.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Caperucita se come al lobo / Little Red Riding Hood Eats the Wolf y Ficciones (Hispánica) permiten comparar La vida que pensamos. Cuentos de fútbol / The Life We Imagined. Stories About Soccer con otras propuestas de narrativa breve. Las tres obras se relacionan con la ficción literaria, pero Eduardo Sacheri delimita sus cuentos mediante el fútbol, mientras los otros títulos no presentan ese eje deportivo en su identificación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287880610",
+        "isbn-9791387846107"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0c5dabeb79390e4a",
+  "origen": "chatgpt-web"
+}

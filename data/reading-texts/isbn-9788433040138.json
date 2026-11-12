@@ -4,22 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en la obra y el legado de Otto Kernberg desde una perspectiva psicológica y biográfica. Sus 192 páginas presentan una introducción a esa figura, por lo que se aparta de los manuales centrados en ejercicios de desarrollo personal.",
+      "texto": "Dirigido a lectores interesados en la psicología, el ensayo y el estudio de la obra de Otto Kernberg. Sus 192 páginas, firmadas por Frank E. Yeomans, Diana Diamond y Eve Caligor, se centran en una figura de esta disciplina, por lo que no responde a la búsqueda de una novela de ficción.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Desclée de Brouwer reúne 192 páginas en castellano. Su extensión es menor que la de un manual de consulta amplio y el soporte impreso permite revisar pasajes sobre la obra y el legado de Otto Kernberg.",
+      "texto": "La edición en tapa blanda reúne 192 páginas en castellano y está publicada por Desclée de Brouwer. Es una opción física para consultar y releer los contenidos sobre Otto Kernberg, con la flexibilidad de encuadernación propia de la tapa blanda.",
       "evidencias": [
         "formatos_disponibles",
-        "editorial",
         "numero_paginas",
         "idioma",
+        "editorial",
         "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio. comparte el ámbito psicológico, pero plantea un método de trabajo, mientras que este libro estudia la obra y el legado de Otto Kernberg. Abraza a tu niño interior: Nunca es tarde para sanar tu infancia se orienta hacia la infancia y el desarrollo personal, frente al enfoque de estudio de una figura de la psicología.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206",
+        "isbn-9788409924059"
       ]
     }
   ],

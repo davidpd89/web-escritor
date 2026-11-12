@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409947249",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "PAU Inglés Comunidad Valenciana: Exámenes de Inglés de Selectividad resueltos y explicados está orientado a estudiantes que preparan la prueba de inglés de acceso a la universidad en la Comunidad Valenciana. Su contenido se centra en exámenes resueltos y explicados, por lo que no responde a la búsqueda de una novela juvenil ni de un curso general de conversación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "PAU Inglés Comunidad Valenciana: Exámenes de Inglés de Selectividad resueltos y explicados se ofrece en tapa blanda y tiene 120 páginas. La edición en papel permite trabajar los ejercicios, revisar las soluciones y consultar las explicaciones durante las sesiones de preparación.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "PAU Inglés Madrid: Exámenes de Inglés de Selectividad resueltos y explicados comparte autor y planteamiento con PAU Inglés Comunidad Valenciana: Exámenes de Inglés de Selectividad resueltos y explicados. Ambos títulos de Luis Porras Wadley se centran en pruebas de inglés resueltas y explicadas, pero cada uno identifica una comunidad autónoma distinta para orientar la preparación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409947232"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "18ff7dc040e2d537",
+  "origen": "chatgpt-web"
+}

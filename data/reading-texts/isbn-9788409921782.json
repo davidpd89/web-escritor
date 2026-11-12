@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788409921782",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "EL RECORRIDO DEL SÍ: El sistema para que tu paciente entienda, acepte, y tu equipo ejecute sin sorpresas ni repeticiones se orienta a profesionales que trabajan con pacientes y coordinan equipos. Su planteamiento relaciona comunicación, aceptación y ejecución de procesos, por lo que no está enfocado en quien busque una novela o un manual exclusivamente financiero.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "EL RECORRIDO DEL SÍ: El sistema para que tu paciente entienda, acepte, y tu equipo ejecute sin sorpresas ni repeticiones cuenta con 296 páginas en tapa blanda. El formato en papel permite consultar apartados durante el trabajo, señalar páginas y recuperar explicaciones relacionadas con la coordinación entre pacientes y equipos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "EL RECORRIDO DEL SÍ: El sistema para que tu paciente entienda, acepte, y tu equipo ejecute sin sorpresas ni repeticiones puede compararse con El factor tú: Claves para comunicar con autenticidad y conseguir lo que te propongas (No ficción). Luken de Arbeloa aborda la comprensión del paciente y la ejecución del equipo, mientras que Rafa Rodrigo sitúa la comunicación personal y la autenticidad en el centro de su propuesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388139239"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "139fe00482a183e5",
+  "origen": "chatgpt-web"
+}

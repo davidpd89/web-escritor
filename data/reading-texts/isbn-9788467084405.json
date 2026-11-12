@@ -4,22 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Chicas del barrio, las (Novela), de Tania Juste, está dirigido a lectores que buscan narrativa histórica. Quienes prefieran romance contemporáneo, fantasía o historias centradas en otros géneros encontrarán aquí una propuesta identificada específicamente como novela histórica.",
+      "texto": "Chicas del barrio, las (Novela), de Tania Juste, se sitúa en la novela histórica y está dirigida a lectores interesados en la ficción vinculada al pasado. Sus 480 páginas corresponden a una lectura extensa, distinta de los relatos breves o de los libros de divulgación histórica centrados exclusivamente en hechos documentales.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 480 páginas de Chicas del barrio, las (Novela) en una edición física de Booket. Kindle permite leer el mismo título en formato digital, una alternativa para quienes prefieren consultar sus lecturas desde un dispositivo electrónico.",
+      "texto": "Chicas del barrio, las (Novela) está disponible en tapa blanda y Kindle, con una edición impresa de 480 páginas. La tapa blanda permite conservar y consultar el volumen físico; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar un libro de esa extensión.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "edicion",
-        "editorial",
-        "formatos_disponibles"
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Chicas del barrio, las (Novela) y Astur (Saga de la Reconquista) (Éxitos) comparten su vinculación con la novela histórica. La obra de Tania Juste se identifica como novela, mientras que el título de Isabel San Sebastián remite expresamente a la Reconquista y a una saga; esa diferencia permite distinguir sus marcos temáticos antes de elegir lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401039539"
       ]
     }
   ],

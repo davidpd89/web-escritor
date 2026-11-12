@@ -4,19 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Retos para jugones: Un libro-juego absurdamente divertido para dos personas que se tienen cariño (o eso dicen) (Ocio, entretenimiento y viajes) está pensado para quienes buscan actividades compartidas entre dos personas. Su planteamiento de libro-juego encaja menos con lectores que prefieren una novela convencional o una guía de viajes centrada en destinos.",
+      "texto": "Retos para jugones: Un libro-juego absurdamente divertido para dos personas que se tienen cariño (o eso dicen) (Ocio, entretenimiento y viajes), de Victor Escandell, está planteado para compartir una actividad entre dos personas. Sus 128 páginas se orientan al entretenimiento y no a quien busque una novela convencional para leer en solitario.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es la opción disponible para Retos para jugones: Un libro-juego absurdamente divertido para dos personas que se tienen cariño (o eso dicen) (Ocio, entretenimiento y viajes). Sus 128 páginas ofrecen una edición física manejable para utilizar los retos en compañía y llevar el libro a encuentros o desplazamientos.",
+      "texto": "La tapa blanda es el formato disponible para Retos para jugones: Un libro-juego absurdamente divertido para dos personas que se tienen cariño (o eso dicen) (Ocio, entretenimiento y viajes). La edición de Grijalbo reúne 128 páginas en castellano y permite utilizar el libro físicamente durante los retos compartidos.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Retos para jugones: Un libro-juego absurdamente divertido para dos personas que se tienen cariño (o eso dicen) (Ocio, entretenimiento y viajes) comparte su orientación al ocio con El asesinato del muñeco de nieve (Ocio, entretenimiento y viajes), de Joseángel Murcia, aunque el primero propone retos para dos personas. Frente a Destinos vintage: 40 láminas misteriosas para colorear (GEOPLANETA COLOREA), de Sophie Guët, sustituye la actividad de colorear por el juego compartido.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324836",
+        "isbn-9788425376900"
       ]
     }
   ],

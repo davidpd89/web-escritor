@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410045538",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial se dirige a quienes buscan estudiar la relación entre música, expresión artística y provocación cultural. Por su enfoque temático, el libro de Daniel Sedcontra se aparta de los manuales de interpretación musical y de las obras centradas en aprender técnicas de dibujo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial cuenta con una edición en tapa blanda de 528 páginas. Su extensión permite dedicarle varias sesiones de lectura, mientras que la encuadernación flexible facilita manejar el volumen y consultar pasajes concretos sobre la música industrial.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Arte Matrio, de Sara Rubayo, y All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial, de Daniel Sedcontra, abordan manifestaciones culturales desde perspectivas diferentes. El primero se centra en la historia del arte español y su representación, mientras que el segundo examina la música industrial desde el ruido, la subversión y la provocación cultural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449346095"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "da54cc3ec075f27b",
+  "origen": "chatgpt-web"
+}

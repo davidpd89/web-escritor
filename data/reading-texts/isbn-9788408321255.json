@@ -4,22 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en viajes, lugares del mundo y libros ilustrados. Maravillas secretas del mundo 2 (Ilustrados) responde a una búsqueda de contenido geográfico y visual, no a la de una novela centrada en personajes y conflictos ficticios.",
+      "texto": "Maravillas secretas del mundo 2 (Ilustrados) está dirigido a lectores interesados en los viajes y en libros ilustrados sobre lugares del mundo. La obra de Varios autores se aleja de quienes buscan una novela centrada en personajes y conflictos de ficción, ya que su temática corresponde a los viajes.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa dura contiene 304 páginas en castellano y está publicada por Geoplaneta. Su encuadernación rígida permite mantener este libro ilustrado de viajes como volumen de consulta y facilita conservarlo para revisitar sus páginas.",
+      "texto": "Maravillas secretas del mundo 2 (Ilustrados) se presenta en tapa dura, con 304 páginas y edición de Geoplaneta. Es una opción física para consultar y conservar un libro de viajes ilustrado, además de utilizarlo como regalo; la encuadernación rígida protege el volumen durante su manipulación.",
       "evidencias": [
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial",
         "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
         "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Maravillas secretas del mundo 2 (Ilustrados) comparte la temática viajera con Diario de viajes (Viaje y aventura), también firmado por Varios autores. El primero se presenta como un volumen ilustrado sobre maravillas del mundo, mientras que el segundo se identifica por el formato de diario y su relación con la aventura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408319207"
       ]
     }
   ],

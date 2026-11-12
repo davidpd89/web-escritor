@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788410647565",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El candidato perfecto: No todos los monstruos viven en la oscuridad. Algunos buscan tu voto. se dirige a lectores de misterio y thriller interesados en las relaciones entre poder y política. Su planteamiento electoral lo distancia de las novelas centradas exclusivamente en conflictos domésticos o aventuras fantásticas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Harpercollins contiene las 432 páginas de esta novela de misterio político en un único volumen. Es una edición para quien prefiere seguir una historia extensa en papel, con posibilidad de marcar el punto de lectura y retomarla en distintas sesiones.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El candidato perfecto: No todos los monstruos viven en la oscuridad. Algunos buscan tu voto. se aproxima a El vuelo de los gansos por su interés en el poder, aunque el primero vincula ese asunto al voto y el segundo plantea el enfrentamiento al poder como una cuestión de principios. La obra de Félix Jiménez Velando incorpora además el misterio y el thriller a su clasificación temática, frente al énfasis en los principios que presenta el texto de El vuelo de los gansos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425375040"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "832c614edc51c756",
+  "origen": "chatgpt-web"
+}

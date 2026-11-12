@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410290525",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en el arte, el diseño y la historia, especialmente en publicaciones centradas en una creadora concreta. Magali Lara: Robar lo que me pertenece (ARTE) se diferencia de los estudios históricos generales por identificar a Magali Lara como figura central.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de RM se presenta en tapa dura y reúne 144 páginas en castellano. Su encuadernación rígida permite conservar el volumen en una biblioteca de arte y consultarlo de nuevo, mientras que su extensión facilita organizar la lectura en varias sesiones.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Arte Matrio, de Sara Rubayo, comparte el interés por el arte y su dimensión histórica, pero se centra en la historia del arte español. Mujeres que la liaron, de Tatiana Gómez Montero, también aborda el papel de las mujeres en la historia, aunque desde una perspectiva feminista más amplia, mientras que Magali Lara: Robar lo que me pertenece (ARTE) se centra en una creadora concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788403527041",
+        "isbn-9788449346095"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ba44ba2827901d90",
+  "origen": "chatgpt-web"
+}

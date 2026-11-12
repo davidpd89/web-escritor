@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788402431530",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi diario de lecturas: Un rincón para rememorar tus historias favoritas (Bruguera Tendencias) se orienta a quienes quieren dedicar un espacio a recordar sus libros y relacionar la lectura con intereses creativos. Por su planteamiento de diario, no responde a quien busca una novela con una trama que seguir de principio a fin.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mi diario de lecturas: Un rincón para rememorar tus historias favoritas (Bruguera Tendencias) se presenta en tapa dura, con 152 páginas en castellano. Su encuadernación rígida resulta práctica para conservarlo como registro personal de lecturas o entregarlo como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi diario de lecturas: Un rincón para rememorar tus historias favoritas (Bruguera Tendencias) puede compararse con All Black Cuaderno (LIBRETAS ARTÖSTICAS) por su relación con los cuadernos y el diseño. Ambos figuran bajo la autoría de Varios autores, pero el primero identifica expresamente su finalidad: recordar las lecturas realizadas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789879871119"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f2629e567353949c",
+  "origen": "chatgpt-web"
+}

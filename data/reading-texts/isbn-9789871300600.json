@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9789871300600",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La barca de lo onírico (Filosofia politica) se dirige a lectores interesados en la filosofía y el pensamiento político. Jorge Alemán y Ricardo Espinoza Lolas firman un ensayo de 86 páginas, por lo que encaja menos con quien busca una novela de ficción o una biografía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 86 páginas de La barca de lo onírico (Filosofia politica) en un volumen de extensión reducida. Publicada por Libros de la Araucaria S.a, permite consultar y releer el ensayo en papel sin manejar un libro voluminoso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparte con La barca de lo onírico (Filosofia politica) el interés por el pensamiento político, aunque el primero delimita su asunto al anarcocapitalismo. De la estética como política: Para una rehabilitación del sentido en el cine (Signo e imagen) conecta filosofía y política desde el ámbito cinematográfico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457",
+        "isbn-9788437650586"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "34b252934624cdd8",
+  "origen": "chatgpt-web"
+}

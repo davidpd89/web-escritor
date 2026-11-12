@@ -4,22 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a lectores interesados en la psicología, el desarrollo personal y las cuestiones familiares. Síndrome del gemelo perdido: Me falta algo para ser feliz... (EL LIBRO ORIGINAL), de Alfred R. Austermann y Bettina Austermann, aborda estas materias en 320 páginas; no responde a quien busca una novela de ficción.",
+      "texto": "Síndrome del gemelo perdido: Me falta algo para ser feliz... (EL LIBRO ORIGINAL), de Alfred R. Austermann y Bettina Austermann, se sitúa entre la psicología, la familia y el desarrollo personal. Se dirige a lectores interesados en explorar esas cuestiones y no a quienes buscan ficción o un manual dedicado exclusivamente a la crianza.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Síndrome del gemelo perdido: Me falta algo para ser feliz... (EL LIBRO ORIGINAL) se presenta en tapa blanda y tiene 320 páginas. Es una opción física para consultar y retomar sus contenidos sobre psicología y desarrollo personal, con una encuadernación flexible que facilita llevar el volumen en una bolsa.",
+      "texto": "Síndrome del gemelo perdido: Me falta algo para ser feliz... (EL LIBRO ORIGINAL) está disponible en tapa blanda. Sus 320 páginas forman un volumen físico que permite leer, consultar y retomar apartados en papel, sin depender de una pantalla ni de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Síndrome del gemelo perdido: Me falta algo para ser feliz... (EL LIBRO ORIGINAL) comparte el ámbito psicológico con Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología), de Ramón Nogueras Pérez. Alfred R. Austermann y Bettina Austermann centran su título en el gemelo perdido y la felicidad; Ramón Nogueras Pérez aborda las relaciones amorosas y su ruptura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387534370"
       ]
     }
   ],

@@ -4,28 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cocido madrileño: 213 (Narrativa), de José Francisco Alonso, encaja con lectores interesados en el misterio y el thriller. Con 340 páginas, ofrece una extensión intermedia dentro de la narrativa de suspense; no responde a quien busque principalmente romance o una lectura de pocas páginas.",
+      "texto": "Cocido madrileño: 213 (Narrativa), de José Francisco Alonso, se dirige a lectores de misterio y thriller. Sus 340 páginas en castellano encajan con quienes buscan una novela del género, pero no con quienes prefieren poesía o libros prácticos.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Cocido madrileño: 213 (Narrativa) es de tapa blanda y contiene 340 páginas en castellano. El volumen publicado por Editorial Alreves, S.l permite leerlo en papel y conservarlo en la estantería, sin necesidad de pantalla ni batería.",
+      "texto": "Cocido madrileño: 213 (Narrativa) está disponible en tapa blanda y Kindle. La edición física reúne 340 páginas y permite conservar el ejemplar en papel; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el volumen.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cocido madrileño: 213 (Narrativa) comparte el terreno del misterio con Aguas turbulentas, de Rankin Ian. Mientras este último sitúa su conflicto entre el pasado y el presente de Edimburgo, el libro de José Francisco Alonso se presenta como una obra de misterio de 340 páginas. Ambos se diferencian por su autoría y por los elementos narrativos descritos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6db0a08219e31d51",
+  "fuente_hash": "af13dc32b292380d",
   "origen": "chatgpt-web"
 }

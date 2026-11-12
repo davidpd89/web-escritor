@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410632752",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Pentateuco: Introducción a los cinco primeros libros de la Biblia (Estudios Bíblicos) está dirigido a lectores interesados en el estudio de textos bíblicos. La obra de Joseph Blenkinsopp aborda los primeros libros de la Biblia, por lo que no está planteada como narrativa de ficción ni como una guía general de bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Pentateuco: Introducción a los cinco primeros libros de la Biblia (Estudios Bíblicos) cuenta con una edición en tapa blanda de 348 páginas. El soporte impreso permite consultar capítulos, tomar notas y regresar a pasajes durante el estudio, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Pentateuco: Introducción a los cinco primeros libros de la Biblia (Estudios Bíblicos) y Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación tratan tradiciones religiosas distintas. Joseph Blenkinsopp se centra en los textos bíblicos, mientras que Tsondru Yeshe aborda los fundamentos y la práctica del Dharma; ambos permiten estudiar contenidos religiosos desde perspectivas diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "68efe24630db2b9d",
+  "origen": "chatgpt-web"
+}

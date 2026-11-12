@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399109085",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mundos imaginales: Según Corbin, Hillman y Jung: 4 (ANIMA) se dirige a lectores interesados en la psicología y el ensayo, especialmente en las ideas asociadas a Corbin, Hillman y Jung. Por su planteamiento temático, se distancia de los manuales centrados exclusivamente en ejercicios cotidianos de bienestar.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Anima está disponible en tapa blanda, con 218 páginas en castellano. Su extensión permite organizar la lectura en sesiones dedicadas a cada apartado y volver a los conceptos de psicología tratados en el libro sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio., de Beatriz García Saez, comparte el interés por la vida psicológica interior. Mientras ese título anuncia un método de trabajo y acompañamiento, Mundos imaginales: Según Corbin, Hillman y Jung: 4 (ANIMA) plantea un acercamiento ensayístico a los autores que nombra.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788409924059"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "46a36cd823e26d21",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9791387902292",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hechizo: Bienvenidos a Hexe. Supercolor está dirigido al público infantil interesado en actividades de ocio relacionadas con Disney. Sus 32 páginas y su presentación grapada corresponden a un cuaderno breve, diferente de una novela juvenil extensa o de un ensayo para adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hechizo: Bienvenidos a Hexe. Supercolor se presenta en una edición física grapada de 32 páginas, incluida entre los formatos de tapa blanda. La encuadernación y la extensión facilitan manejar el cuaderno sobre una mesa y guardarlo con otros materiales de ocio infantil; lo publica Libros Disney en castellano.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hechizo: Bienvenidos a Hexe. Supercolor comparte con Ice Age: En ebullición. Supercolor la autoría de Disney, la orientación infantil y la pertenencia a la línea Supercolor, aunque cada título presenta un universo diferente. Ambos se relacionan con el ocio infantil, pero Hechizo se ambienta en Hexe y cuenta con 32 páginas en una edición grapada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387902360"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c390b2832fb2521d",
+  "origen": "chatgpt-web"
+}

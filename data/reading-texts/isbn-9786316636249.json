@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786316636249",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Por qué escuchamos a Iggy Pop se dirige a lectores interesados en la música, las figuras culturales y los enfoques biográficos. Por su temática, encaja menos con quienes buscan ficción o una guía práctica para aprender a tocar un instrumento.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Por qué escuchamos a Iggy Pop está disponible en tapa blanda y tiene 96 páginas. Esta edición en castellano permite llevar el libro en una mochila y leerlo por partes sin cargar con un volumen extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Por qué escuchamos a Iggy Pop puede compararse con El rey de la baraja: La imperecedera vida de Roberto Iniesta: 7 (Marea gráfica), ya que ambos se centran en figuras musicales distintas. También comparte el interés por las trayectorias personales con Desde que era un crío, de Locus, aunque el libro de Vera Land plantea desde su título una pregunta sobre la escucha musical.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791399084894",
+        "isbn-9791387938499"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "287745f60259aefa",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788498891737",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La invasión de los ladrones de cuerpos: 132 (Alamut Serie Fantástica) se dirige a lectores de terror que buscan una novela de Jack Finney. Con 256 páginas, ofrece una extensión intermedia dentro de la narrativa de género y se aleja de las lecturas infantiles o de carácter divulgativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La invasión de los ladrones de cuerpos: 132 (Alamut Serie Fantástica) se publica en tapa dura por Alamut. Sus 256 páginas forman un volumen encuadernado con cubierta rígida, una opción para conservarlo en la biblioteca personal o entregarlo como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La invasión de los ladrones de cuerpos: 132 (Alamut Serie Fantástica) puede compararse con 25 días hasta Navidad por su relación con la narrativa de tensión. La obra de Jack Finney se clasifica como terror y tiene 256 páginas, mientras que la de Per Jacobsen se presenta como un thriller de adviento, con una referencia temporal navideña.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "087002df09f6748d",
+  "origen": "chatgpt-web"
+}

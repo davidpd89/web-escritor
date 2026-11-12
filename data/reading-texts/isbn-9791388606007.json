@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388606007",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mujeres filósofas. Vol. 1: Antigüedad y Edad Media: Las primeras pensadoras de la historia de la filosofía se dirige a lectores interesados en la historia del pensamiento femenino, la filosofía y la Edad Media. Su enfoque histórico y ensayístico no corresponde a quien busque ficción narrativa o una introducción centrada únicamente en pensadores contemporáneos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mujeres filósofas. Vol. 1: Antigüedad y Edad Media: Las primeras pensadoras de la historia de la filosofía está disponible en tapa blanda, con 210 páginas. La edición física permite consultar y releer pasajes sobre historia y filosofía, además de incorporar el volumen a una biblioteca de ensayo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mujeres filósofas comparte con Mujeres que la liaron el interés por el papel de las mujeres en la historia. La obra de Philip E. Human se centra en las primeras pensadoras de la Antigüedad y la Edad Media, mientras que el libro de Tatiana Gómez Montero recorre 3000 años de historia feminista, desde Hipatia de Alejandría hasta Simone de Beauvoir. La diferencia principal está en el alcance: historia de la filosofía frente a divulgación histórica feminista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788403527041"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "63813015a2337967",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Misterio en la noche de Reyes (Novela de intriga), de Minna Gin, se dirige a lectores interesados en el misterio y el thriller. Sus 304 páginas ofrecen una extensión intermedia; por género, queda fuera de las preferencias de quienes buscan principalmente romance o narrativa sin componentes de intriga.",
+      "texto": "Misterio en la noche de Reyes (Novela de intriga), de Minna Gin, encaja con lectores de misterio y thriller que buscan una novela de extensión media. Sus 304 páginas la diferencian de los relatos breves y de las sagas especialmente extensas; no responde a quien busca principalmente romance o ensayo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,18 +14,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Misterio en la noche de Reyes (Novela de intriga) se publica en tapa blanda, con 304 páginas en castellano. La edición de Grijalbo permite seguir la lectura en papel, utilizar un marcapáginas y conservar el volumen en una biblioteca doméstica.",
+      "texto": "Misterio en la noche de Reyes (Novela de intriga) puede leerse en tapa blanda o Kindle. La edición impresa de Grijalbo reúne 304 páginas y permite conservar el ejemplar físico; Kindle facilita llevar la novela en un lector electrónico o en el móvil sin cargar con el libro.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "edicion",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Misterio en la noche de Reyes (Novela de intriga) y 25 días hasta Navidad, de Per Jacobsen, comparten el terreno del thriller y una referencia a las celebraciones navideñas. La obra de Per Jacobsen se presenta como thriller de adviento, mientras que la de Minna Gin se identifica como novela de intriga vinculada a la noche de Reyes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4c7858aca7568521",
+  "fuente_hash": "1f2419ba4f10cd12",
   "origen": "chatgpt-web"
 }

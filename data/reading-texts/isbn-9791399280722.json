@@ -4,22 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sobre la charlatanería de los eruditos (Grandes Clásicos) se dirige a lectores de ensayo y filosofía interesados en reflexionar sobre la erudición y los conocimientos académicos. Por su clasificación temática, encaja menos con quien busca una novela de ficción, una biografía o una lectura centrada en acontecimientos narrativos.",
+      "texto": "Sobre la charlatanería de los eruditos (Grandes Clásicos), de Johann Burckhardt Mencke, se dirige a lectores interesados en el ensayo filosófico y la reflexión sobre el conocimiento erudito. Su orientación ensayística lo diferencia de la narrativa de ficción y de los manuales de aplicación práctica.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Sobre la charlatanería de los eruditos (Grandes Clásicos) se publica en tapa blanda, con 208 páginas en castellano. Esta edición permite leer el ensayo en papel, subrayar pasajes y conservar el volumen como parte de una biblioteca de filosofía, sin depender de un dispositivo digital.",
+      "texto": "Sobre la charlatanería de los eruditos (Grandes Clásicos) se publica en tapa blanda, con 208 páginas en castellano. Esta presentación permite leer el ensayo en papel, subrayar argumentos y consultar fragmentos durante una segunda lectura.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "idioma",
-        "edicion",
-        "categorias"
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Arendt y la antropología de la condición plural en doble movimiento y Sobre la charlatanería de los eruditos (Grandes Clásicos) comparten su orientación hacia la reflexión filosófica. El primero aborda la condición plural desde una perspectiva antropológica, mientras que Johann Burckhardt Mencke centra su obra en la charlatanería de los eruditos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399308358"
       ]
     }
   ],

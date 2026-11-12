@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388322419",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Valientes FC: Un Equipo de Locos (Montena), de Reysa y Rudagoni, se orienta al público infantil y juvenil interesado en el deporte, la amistad y el humor. Quienes busquen una lectura centrada exclusivamente en técnicas deportivas encontrarán aquí una combinación temática más amplia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Valientes FC: Un Equipo de Locos (Montena) tiene 160 páginas y se presenta en tapa blanda, en castellano. La encuadernación permite llevar el ejemplar en una mochila y utilizarlo para leer fuera de casa, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Valientes FC: Un Equipo de Locos (Montena) comparte el interés por el deporte con La ciencia del fútbol para niños: El libro de los porqués del fútbol: 145 curiosidades, preguntas y retos para niños y niñas futboleros de 8 a 12 años (La ciencia del deporte para niños). El segundo se centra en preguntas y curiosidades futbolísticas; el de Reysa y Rudagoni incorpora también amistad y humor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409925155"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8526479db8855a0e",
+  "origen": "chatgpt-web"
+}

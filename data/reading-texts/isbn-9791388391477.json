@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388391477",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vuela, extraña alma se orienta a lectores de literatura juvenil que también buscan poesía. Su clasificación combina narrativa juvenil y expresión poética, por lo que se distancia de quienes prefieren exclusivamente novela adulta o textos de carácter informativo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vuela, extraña alma se publica en tapa blanda, con una extensión de 118 páginas. Es un volumen físico relativamente breve que permite alternar sesiones cortas de lectura y volver a los pasajes de interés sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Vuela, extraña alma comparte el terreno poético con s-t técnica mixta: (colección de poemas), de Aldo Sanz. La obra de Emilio Arnaiz López también figura entre la literatura juvenil y la narrativa juvenil, mientras que el título de Aldo Sanz identifica expresamente su contenido como una colección de poemas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788498277500"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "83458e23a04690d3",
+  "origen": "chatgpt-web"
+}

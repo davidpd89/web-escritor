@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788430123155",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en el acompañamiento espiritual y la reflexión religiosa. El acompañamiento espiritual: La gracia puede más: 269 (Nueva Alianza), de André Louf, se aleja de las lecturas centradas en la ficción o en cuestiones ajenas a la espiritualidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El acompañamiento espiritual: La gracia puede más: 269 (Nueva Alianza) está disponible en tapa blanda, con 224 páginas en castellano. Esta edición de Ediciones Sígueme permite consultar y retomar pasajes en papel, además de transportarla sin el peso habitual de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El acompañamiento espiritual: La gracia puede más: 269 (Nueva Alianza) comparte el interés religioso con AKITA: Las lágrimas y el mensaje de María, de Teiji Yasuda, aunque el primero aborda el acompañamiento espiritual y el segundo se centra en María. También puede compararse con Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe, que trata otra tradición espiritual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388176357",
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "534f2398a9bebbc5",
+  "origen": "chatgpt-web"
+}

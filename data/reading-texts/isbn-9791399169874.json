@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9791399169874",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estados alterados (CON-PULSIÓN), de Horacio Quiroga, se dirige a lectores de misterio y thriller que buscan una obra de extensión contenida. Sus 136 páginas lo diferencian de las novelas de intriga de mayor volumen, mientras que su clasificación temática lo separa de la narrativa romántica o del ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estados alterados (CON-PULSIÓN) está disponible en tapa blanda, con 136 páginas en castellano. La edición de Yonki Books SL ofrece un volumen físico de extensión breve, manejable para llevarlo fuera de casa y conservarlo en una biblioteca de narrativa de misterio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estados alterados (CON-PULSIÓN), de Horacio Quiroga, comparte el ámbito del misterio con Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir), de Ann Cleeves, aunque pertenecen a autores y propuestas editoriales diferentes. También puede compararse con 25 días hasta Navidad, de Per Jacobsen, que se presenta como thriller de adviento, mientras que Estados alterados (CON-PULSIÓN) se identifica por su pertenencia al misterio y su extensión de 136 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063",
+        "isbn-9788410424524"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "688aca0f5f1b8010",
+  "origen": "chatgpt-web"
+}

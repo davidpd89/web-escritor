@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409939275",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cabello de ángel: si la vida te da calabazas..., de Esperanza Redondo Morales, pertenece al ámbito de las biografías y memorias. Se dirige a lectores que prefieren obras relacionadas con experiencias vitales frente a novelas de fantasía o relatos de aventuras. Sus 94 páginas permiten identificarlo como una publicación breve dentro de la no ficción personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cabello de ángel: si la vida te da calabazas... se publica en tapa blanda y reúne 94 páginas. Su extensión facilita llevar el ejemplar en un bolso o una mochila y leerlo en desplazamientos. También permite conservarlo como libro físico sin ocupar tanto espacio como una obra de memorias de mayor longitud.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cabello de ángel: si la vida te da calabazas... y Al andar: Vivencias del Camino de Santiago se relacionan con las experiencias personales y las memorias. La obra de Esperanza Redondo Morales presenta un título de alcance vital general, mientras que Carlos Díaz Ballesta identifica expresamente el Camino de Santiago como eje de sus vivencias. Ambas ofrecen una alternativa a la ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0f5bb72c2f320add",
+  "origen": "chatgpt-web"
+}

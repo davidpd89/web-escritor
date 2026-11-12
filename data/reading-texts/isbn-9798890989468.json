@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Horóscopo Chino 2027 / Chinese Horoscope 2027 se orienta a lectores interesados en el horóscopo chino y en temas relacionados con el bienestar y el desarrollo personal. Por su temática, queda fuera de las preferencias de quien busca ficción narrativa o un manual centrado exclusivamente en nutrición.",
+      "texto": "Horóscopo Chino 2027 / Chinese Horoscope 2027 se dirige a quienes buscan una lectura sobre el horóscopo chino vinculada al desarrollo personal y el bienestar. Por su temática, se aleja de las novelas de ficción y de los manuales centrados en la alimentación.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,12 +12,25 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Horóscopo Chino 2027 / Chinese Horoscope 2027 reúne 448 páginas en castellano. El papel permite consultar distintas partes del volumen y volver a ellas durante el año indicado en el título, aunque su extensión supone un libro considerable para transportar.",
+      "texto": "Horóscopo Chino 2027 / Chinese Horoscope 2027 está disponible en tapa blanda, con 448 páginas en castellano. Esta edición física permite consultar distintos pasajes y volver a ellos sin depender de una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Horóscopo Chino 2027 / Chinese Horoscope 2027 comparte el ámbito del desarrollo personal con Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta. La diferencia está en el enfoque: Squirru Ludovica aborda el horóscopo chino, mientras que Anca Martínez se centra en cuestiones de la vida adulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409938490"
       ]
     }
   ],

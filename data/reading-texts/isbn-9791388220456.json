@@ -4,20 +4,32 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Este libro interactivo de Cat2heory se dirige a quienes disfrutan resolviendo misterios mediante retos y buscando culpables entre numerosos sospechosos. Su estructura de calendario de adviento con 24 pruebas encaja menos con lectores que prefieren una novela de suspense convencional sin actividades.",
+      "texto": "Este libro interactivo de Cat2heory se dirige a lectores que disfrutan resolviendo misterios mediante desafíos. Sus 24 retos, organizados como calendario de adviento, proponen investigar entre numerosos sospechosos hasta identificar a un culpable. Encaja menos con quienes prefieren novelas de suspense de lectura continua y sin actividades.",
       "evidencias": [
-        "autores",
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne 190 páginas y permite utilizar el libro como soporte físico para sus 24 retos. Este formato facilita consultar páginas anteriores durante la resolución del misterio y conservar el calendario una vez completado.",
+      "texto": "La edición en tapa blanda reúne los 24 retos del libro interactivo en 190 páginas. Es una opción física para avanzar por el calendario de adviento, consultar los desafíos anteriores y conservar las respuestas y anotaciones junto al libro.",
       "evidencias": [
-        "formatos_disponibles",
+        "titulo",
         "numero_paginas",
-        "titulo"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Atrápame si puedes (Libro interactivo) comparte con el libro de Cat2heory su propuesta de lectura participativa. La diferencia está en que el segundo organiza la investigación mediante 24 retos, con 36.404 sospechosos y un único culpable. Ambos se alejan de la narrativa convencional al presentar la interacción como parte de la experiencia lectora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388220500"
       ]
     }
   ],

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9789585863729",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "De Europa y América: 1955-1960 / From Europe and America: 1955-1960: 3 (OBRA PERIODÍSTICA) está dirigido a lectores interesados en la escritura periodística de Gabriel García Márquez y en el ensayo. Sus 836 páginas requieren una dedicación considerable, por lo que se distancia de las lecturas breves y de quienes buscan exclusivamente narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "De Europa y América: 1955-1960 / From Europe and America: 1955-1960: 3 (OBRA PERIODÍSTICA) se publica en tapa blanda, con 836 páginas en castellano. Por su extensión, este volumen de Literatura Random House resulta más manejable para la lectura en un lugar fijo que para llevarlo diariamente en un bolso pequeño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Entre cachacos: 1954-1955 / Among the Cachacos: 1954-1955: 2 (OBRA PERIODÍSTICA), de Gabriel García Márquez, comparte autor y colección, pero su título sitúa los textos en un periodo anterior. Por la libre / On the Loose: 4 (OBRA PERIODÍSTICA), también de Gabriel García Márquez, pertenece a la misma serie y lleva el número 4, frente al 3 que figura en De Europa y América: 1955-1960 / From Europe and America: 1955-1960: 3 (OBRA PERIODÍSTICA).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789588894164",
+        "isbn-9789588894270"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c3a9e480d42f20ed",
+  "origen": "chatgpt-web"
+}

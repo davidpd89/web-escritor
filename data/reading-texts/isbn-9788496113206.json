@@ -4,22 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La imagen de España a través de sus invenciones encaja con lectores interesados en el arte, el diseño y la relación entre cultura e identidad española. Sus 450 páginas permiten abordar el tema en una edición extensa; no está planteado como una guía práctica de dibujo ni como una novela.",
+      "texto": "La imagen de España a través de sus invenciones se dirige a lectores interesados en las invenciones españolas y su relación con la imagen del país. Por su temática y su clasificación en arte y diseño, se aparta de quienes buscan una novela de ficción con una trama protagonizada por personajes.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas",
-        "autores"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 450 páginas de La imagen de España a través de sus invenciones en un único volumen. Es el formato disponible para consultar el contenido en papel y conservarlo como libro de referencia; no hay una edición digital o audiolibro entre las opciones ofrecidas.",
+      "texto": "La imagen de España a través de sus invenciones cuenta con una edición en tapa blanda de 450 páginas. Es un volumen extenso para consultar por partes o leer de forma continuada; la cubierta flexible facilita manejarlo sin la rigidez de una encuadernación de tapa dura.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "720 retrats y La imagen de España a través de sus invenciones se relacionan con la representación visual, aunque abordan asuntos diferentes. El libro de Xavier Mollà i Revert se centra, según su título, en retratos; el de O.A. Oficina Española de Patentes y Marcas trata la imagen de España mediante sus invenciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
       ]
     }
   ],

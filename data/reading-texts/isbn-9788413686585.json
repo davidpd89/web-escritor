@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788413686585",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en el belén desde una perspectiva cristiana y en su relación con la Biblia. Descifrando el Belén: Una Biblia en miniatura (Mundo Cristiano), de Gonzalo Barbed Martín, pertenece al ensayo religioso, por lo que se aparta de la narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Descifrando el Belén: Una Biblia en miniatura (Mundo Cristiano) se presenta en tapa blanda y reúne 224 páginas en castellano. Este formato permite consultar el contenido en papel y transportar el volumen sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual comparte con Descifrando el Belén: Una Biblia en miniatura (Mundo Cristiano) el interés por cuestiones espirituales. La diferencia está en el enfoque anunciado: Soledad Davies aborda astrología, filosofía y magia, mientras Gonzalo Barbed Martín se centra en el belén y su dimensión bíblica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2728de16f2fbb6a1",
+  "origen": "chatgpt-web"
+}

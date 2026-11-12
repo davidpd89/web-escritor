@@ -4,22 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Seijaku: El arte japonés de cultivar la calma en un mundo caótico (Inspiración), de Miki Fujito, se dirige a lectores interesados en la calma, el desarrollo personal y la filosofía japonesa. Por su enfoque, encaja menos con quienes buscan una novela de ficción o un manual centrado en cuestiones económicas.",
+      "texto": "Seijaku: El arte japonés de cultivar la calma en un mundo caótico (Inspiración), de Miki Fujito, se dirige a lectores interesados en la calma desde el desarrollo personal y la filosofía. Sus 168 páginas permiten una lectura relativamente breve; no está orientado a quien busque una novela de acción o una historia de misterio.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Seijaku: El arte japonés de cultivar la calma en un mundo caótico (Inspiración) está disponible en tapa blanda, con 168 páginas en castellano. Su extensión permite llevarla en el bolso y consultar distintos pasajes en papel; Aguilar publica esta edición física.",
+      "texto": "Seijaku: El arte japonés de cultivar la calma en un mundo caótico (Inspiración) se ofrece en tapa blanda, en una edición de Aguilar de 168 páginas en castellano. La cubierta flexible facilita llevarlo y consultarlo en papel, mientras que su extensión permite identificarlo como un volumen breve frente a obras más largas.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "edicion",
+        "editorial",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Seijaku: El arte japonés de cultivar la calma en un mundo caótico (Inspiración), de Miki Fujito, comparte el interés por la vida interior con Consciencia Inmortal: Conversaciones con Sri Ramana Maharshihi, de Paul Brunton y Munagala Venkataramiah, aunque este último adopta el formato de conversaciones. También se relaciona con Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, pero aborda la calma desde una perspectiva japonesa en lugar de centrarse en la astrología y la magia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315",
+        "isbn-9791399252705"
       ]
     }
   ],

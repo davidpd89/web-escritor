@@ -4,26 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El cardadismo ilustrado: Filosofía para sobrevivir a las caídas sin despeinarte, de Mario Vaquerizo, se dirige a lectores interesados en el humor, las memorias y el arte y diseño. Su combinación temática se aparta de quienes buscan exclusivamente un manual académico de filosofía o una novela de ficción.",
+      "texto": "El cardadismo ilustrado: Filosofía para sobrevivir a las caídas sin despeinarte encaja con lectores interesados en el humor, las memorias y la relación entre personalidad y estilo. Sus 208 páginas se alejan de una obra académica extensa sobre filosofía, por lo que responde menos a quien busca un tratado especializado.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El cardadismo ilustrado: Filosofía para sobrevivir a las caídas sin despeinarte ofrece tapa blanda y Kindle. La edición física reúne 208 páginas y permite conservar o regalar el ejemplar; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro de papel.",
+      "texto": "La tapa blanda reúne las 208 páginas de El cardadismo ilustrado: Filosofía para sobrevivir a las caídas sin despeinarte en una edición física de Harpercollins. Kindle permite leerlo en el móvil o en un dispositivo electrónico, mientras que el audiolibro ofrece la posibilidad de escucharlo durante desplazamientos o actividades cotidianas.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
+        "formatos_disponibles",
         "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Risa de mi vida comparte con El cardadismo ilustrado: Filosofía para sobrevivir a las caídas sin despeinarte el vínculo con el humor y las experiencias personales. La obra de Jorge Bolaños parte de la adopción de una perra, mientras que Mario Vaquerizo plantea una filosofía personal ante las dificultades. Mexikid: Sueña / Mexikid: Dreams: A Graphic Memoir ofrece otra aproximación a las vivencias personales, presentada como memoria gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466684606",
+        "isbn-9798890988690"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bcc3f888850226a7",
+  "fuente_hash": "ece759eb540f9655",
   "origen": "chatgpt-web"
 }

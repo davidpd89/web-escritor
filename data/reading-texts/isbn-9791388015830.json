@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388015830",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La catedral de los muertos (HISTÓRICA), de Carlos Luna, se dirige a lectores que buscan una novela histórica con elementos de misterio y thriller. Su combinación de géneros se aleja tanto del ensayo histórico como de la narrativa contemporánea sin intriga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La catedral de los muertos (HISTÓRICA) se publica en tapa dura, con 416 páginas y el sello de Newton Compton Editores. La encuadernación rígida permite conservar el volumen en papel y utilizarlo como regalo para lectores de novela histórica.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La catedral de los muertos (HISTÓRICA), de Carlos Luna, puede compararse con El asesino de la almarada (Novela Histórica), de Gastón Morata, por la combinación de ambientación histórica e intriga sugerida por sus títulos. La primera remite a una catedral y a la muerte; la segunda sitúa la figura de un asesino en el centro de su planteamiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370205362"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5501a3be84ff440e",
+  "origen": "chatgpt-web"
+}

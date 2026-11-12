@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788409937288",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historias para escuchar en el metro, de Ascensión Badiola, se dirige a quienes buscan relatos en castellano y prefieren este tipo de narrativa frente a una novela identificada como tal. Con 341 páginas, también responde a lectores que desean un volumen de relatos de extensión considerable, no un cuento infantil breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Historias para escuchar en el metro se publica en tapa blanda, con 341 páginas en castellano y edición de Autor-editor. El ejemplar físico permite leer durante los trayectos y conservar marcadas las páginas para continuar después, sin utilizar un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antología final: 282 (LITORAL), de Varios autores, ofrece un punto de comparación por su carácter antológico y su autoría colectiva. Historias para escuchar en el metro, de Ascensión Badiola, se identifica en cambio como un libro de relatos firmado por una sola autora. A sangre y fuego, de Manuel Chaves Nogales, se distingue por el enfrentamiento que constituye su materia testimonial y literaria.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331810",
+        "isbn-9788412931075"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "10bb68309ab29f78",
+  "origen": "chatgpt-web"
+}

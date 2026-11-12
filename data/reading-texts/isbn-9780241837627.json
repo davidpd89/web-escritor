@@ -4,21 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Humanos. La evolución de nuestra especie (Enciclopedia visual), de Alice Roberts, está dirigido a lectores interesados en la evolución humana, la psicología y la divulgación científica. Su planteamiento enciclopédico se aleja de la narrativa de ficción y de los libros centrados exclusivamente en consejos de bienestar.",
+      "texto": "Humanos. La evolución de nuestra especie (Enciclopedia visual) se dirige a lectores interesados en la evolución humana y la divulgación científica mediante una enciclopedia visual. Su enfoque enciclopédico encaja menos con quienes buscan una novela o una obra centrada exclusivamente en consejos prácticos de bienestar.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne sus 320 páginas en un volumen físico, adecuado para consultar y conservar como obra de referencia. Kindle permite acceder a los contenidos desde dispositivos electrónicos y llevar el libro sin ocupar espacio en la estantería.",
+      "texto": "Humanos. La evolución de nuestra especie (Enciclopedia visual) ofrece tapa dura y Kindle. La edición impresa reúne 320 páginas y permite consultar físicamente una enciclopedia visual; Kindle facilita llevar el libro en un dispositivo compatible y acceder a él sin transportar el volumen.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Humanos. La evolución de nuestra especie (Enciclopedia visual) y Cerebro y estilo de vida: 1107 (Mayor), de José Luis Trejo, se relacionan con el estudio del ser humano desde perspectivas distintas. Alice Roberts aborda la evolución de nuestra especie mediante una enciclopedia visual, mientras que el título de José Luis Trejo sitúa el foco en el cerebro y el estilo de vida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410673410"
       ]
     }
   ],

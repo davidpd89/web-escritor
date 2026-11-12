@@ -4,21 +4,32 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El lago de los monstruos (INFANTIL), de Leo Timmers, pertenece a la literatura infantil y combina elementos de terror, fantasía y humor. Su temática de monstruos puede resultar menos adecuada para lectores que evitan las criaturas inquietantes o prefieren historias realistas.",
+      "texto": "El lago de los monstruos (INFANTIL) está dirigido al público infantil interesado en historias de monstruos y elementos fantásticos. Su combinación de terror y humor lo diferencia de los libros infantiles centrados exclusivamente en situaciones cotidianas; la temática monstruosa puede resultar menos adecuada para quienes evitan los sustos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El lago de los monstruos (INFANTIL) cuenta con una edición en tapa dura de 44 páginas, publicada en castellano. Su encuadernación rígida resulta práctica para conservar el volumen y manipularlo durante lecturas compartidas, especialmente frente al desgaste de las cubiertas flexibles.",
+      "texto": "El lago de los monstruos (INFANTIL) se presenta en tapa dura, con 44 páginas. Esta encuadernación proporciona una cubierta rígida para las consultas repetidas y permite conservar el volumen en una biblioteca infantil o entregarlo como regalo físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El lago de los monstruos (INFANTIL) comparte con El secreto de los unicornios: Especial Unicornios 2 (Tea Stilton) su orientación infantil y sus elementos fantásticos. Leo Timmers trabaja con una temática de monstruos que incorpora terror y humor, mientras que Tea Stilton sitúa el interés en los unicornios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408323969"
       ]
     }
   ],

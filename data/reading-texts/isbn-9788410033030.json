@@ -4,21 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta obra de Xavi Forcadell Drago combina la fantasía y el mundo del circo con temas vinculados a la familia y la crianza. Se dirige a lectores interesados en esas materias, mientras que su planteamiento se diferencia del de los manuales centrados exclusivamente en psicología o desarrollo personal.",
+      "texto": "Esta obra de Xavi Forcadell Drago se orienta a lectores interesados en la fantasía, el circo y las lecturas relacionadas con el entorno familiar. Sus 40 páginas ofrecen una extensión breve, distinta de la que busca quien prefiere novelas largas o estudios extensos de psicología.",
       "evidencias": [
         "autores",
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Editorial Germinar se presenta en tapa dura, con 40 páginas en castellano. Su cubierta rígida permite conservar el volumen en una biblioteca física y consultar su contenido sin dispositivos electrónicos.",
+      "texto": "La edición de Xavi Forcadell Drago está disponible en tapa dura y contiene 40 páginas. Su encuadernación rígida protege las cubiertas durante las lecturas compartidas y permite conservar el ejemplar en una biblioteca familiar.",
       "evidencias": [
-        "editorial",
+        "autores",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Xavi Forcadell Drago y Cuentoterapia social: El cuento como herramienta en la intervención social y la relación de ayuda comparten su relación con la infancia y el ámbito familiar. La primera combina fantasía y circo en 40 páginas, mientras que Marian López Muñoz aborda el cuento como herramienta de intervención social.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409930005"
       ]
     }
   ],

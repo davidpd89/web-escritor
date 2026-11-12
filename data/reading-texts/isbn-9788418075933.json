@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Atlas Mundial Del Vino (NATURART) está dirigido a quienes buscan una obra sobre vino dentro de sus lecturas de gastronomía y tiempo libre. Por su planteamiento de atlas, no responde a la misma búsqueda que un recetario de cocina doméstica o un libro dedicado exclusivamente a preparar platos.",
+      "texto": "Pensado para lectores interesados en el vino desde una perspectiva geográfica y gastronómica. Por su planteamiento de atlas mundial, se distancia de los recetarios de cocina y de los libros dedicados exclusivamente a una bebida o región.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,31 +12,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Atlas Mundial Del Vino (NATURART) está editado en tapa dura y reúne 416 páginas en castellano. La encuadernación rígida resulta práctica para mantenerlo como volumen de consulta en casa, especialmente por su extensión. Es una edición física de Blume (naturart).",
+      "texto": "La tapa dura presenta sus 416 páginas en un volumen físico apropiado para mantener en una biblioteca y consultar repetidamente. Kindle ofrece una alternativa digital para acceder al libro sin transportar el ejemplar impreso.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Atlas Mundial Del Vino (NATURART), de Hugh Johnson, comparte el interés por el vino con Champagne: El vino más famoso del mundo (GASTRONOMIA), de Aurélie Soubiran. El primero anuncia un alcance mundial, mientras que el segundo concentra su asunto en el champagne. Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA), de David Villalón y Mario Villalón, amplía la comparación hacia la cocina y los cócteles.",
+      "texto": "Champagne: El vino más famoso del mundo (GASTRONOMIA) comparte el interés por el vino, pero delimita su asunto al champagne. Atlas Mundial Del Vino (NATURART) adopta un alcance geográfico mundial, frente a ese enfoque centrado en una bebida concreta.",
       "evidencias": [
         "titulo",
-        "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387934293",
         "isbn-9791387934170"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f6b9a5b6328c4973",
+  "fuente_hash": "106a825ce02975c0",
   "origen": "chatgpt-web"
 }

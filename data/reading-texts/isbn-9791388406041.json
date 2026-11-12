@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388406041",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El libro de Miguel Cane se dirige a lectores interesados en las biografías de figuras del cine y en sus relaciones sentimentales. Su enfoque sobre personas reales y romances cinematográficos lo diferencia de las novelas románticas de ficción, por lo que no responde a la búsqueda de una historia amorosa inventada.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Plataforma Editorial se presenta en tapa blanda, con 184 páginas en castellano. Su extensión permite organizar la lectura en varias sesiones y consultar los contenidos biográficos en papel, sin necesidad de utilizar un dispositivo electrónico.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Miguel Cane y El cine de los ochenta y 80 directores: Generaciones, géneros y geografías de una década decisiva: 14 (FilaSiete) comparten el cine como materia de interés. Miguel Cane aborda las relaciones sentimentales de figuras cinematográficas, mientras Fernando Gil Delgado Manrique de Lara se centra en directores, generaciones y géneros de una década concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399182231"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2e71a9809b262a1c",
+  "origen": "chatgpt-web"
+}

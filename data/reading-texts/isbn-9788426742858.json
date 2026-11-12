@@ -4,28 +4,31 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está orientado a lectores interesados en el arte visual y en la obra de Ross Tran, presentada bajo el título Symphony. El arte de RossDraws (ARTBOOKS). Su enfoque artístico lo diferencia de una lectura centrada exclusivamente en teoría científica o en narrativa de ficción.",
+      "texto": "Symphony. El arte de RossDraws (ARTBOOKS) se orienta a lectores interesados en el arte, el diseño y los libros dedicados al trabajo de un artista. Su carácter de artbook y sus 360 páginas lo diferencian de una novela centrada en una trama o de un manual exclusivamente técnico.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas",
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda comprende 360 páginas dedicadas al arte de RossDraws. El soporte físico permite recorrer la obra en papel y regresar a sus páginas durante la consulta, una característica pertinente para un libro identificado como artbook.",
+      "texto": "Symphony. El arte de RossDraws (ARTBOOKS) está disponible en tapa dura y tapa blanda, ambas opciones físicas para un libro de arte de 360 páginas. La tapa dura aporta una cubierta rígida para conservarlo o regalarlo, mientras que la tapa blanda ofrece una encuadernación más flexible para manejarlo y transportarlo.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "formatos_disponibles",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Manual de ilustración científica - Nueva edición con láminas (Ilustrados) comparte el ámbito de la ilustración, aunque su título señala una orientación científica y didáctica. Symphony. El arte de RossDraws (ARTBOOKS), de Ross Tran, se centra en la producción artística identificada con RossDraws, en lugar de presentarse como un manual general.",
+      "texto": "Symphony. El arte de RossDraws (ARTBOOKS) y Manual de ilustración científica - Nueva edición con láminas (Ilustrados) comparten su relación con la creación visual. El libro de Ross Tran se presenta como un artbook dedicado a su arte, mientras que el título de Varios autores se identifica como un manual de ilustración científica con láminas.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -35,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "848abf77831d6626",
+  "fuente_hash": "e2b135158f9eadd1",
   "origen": "chatgpt-web"
 }

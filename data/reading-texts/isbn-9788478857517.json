@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Guía farmacológica Podología 2026 se orienta a lectores interesados en la farmacología aplicada al ámbito de la podología. Por su materia científica y especializada, se aleja de las lecturas generales sobre naturaleza, viajes o divulgación tecnológica.",
+      "texto": "Guía farmacológica Podología 2026 se orienta a lectores interesados en la farmacología aplicada a la podología y en las publicaciones de contenido científico. Por su materia especializada, se diferencia de los libros de divulgación general que abordan cuestiones científicas sin centrarse en una disciplina sanitaria concreta.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,12 +12,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite manejar las 512 páginas de Guía farmacológica Podología 2026 como volumen físico de consulta. La edición de Grupo Aula Médica, S.l. reúne una extensión considerable, por lo que conviene tener en cuenta su tamaño al transportarla o utilizarla sobre una mesa de trabajo.",
+      "texto": "Guía farmacológica Podología 2026 cuenta con una edición en tapa blanda de 512 páginas, publicada en castellano por Grupo Aula Médica, S.l. El soporte impreso permite consultar físicamente una obra extensa y localizar de nuevo los apartados durante su uso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Guía farmacológica Podología 2026 y 50 cosas que hay que saber sobre IA, de Keith Mansfield, se relacionan por su orientación hacia materias científicas y técnicas. Santiago Gómez Ortiz y Santiago Gómez Facundo se centran en la farmacología vinculada a la podología, mientras que Keith Mansfield aborda la inteligencia artificial desde una perspectiva de divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
       ]
     }
   ],

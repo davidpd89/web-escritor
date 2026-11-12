@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "LUNÁTICO: Primera Parte se dirige a lectores interesados en la fantasía con romance y elementos de ciencia ficción. Nhoa Galán combina estos géneros en una obra de 370 páginas, por lo que se aleja de las lecturas breves y de la narrativa estrictamente realista.",
+      "texto": "LUNÁTICO: Primera Parte se dirige a lectores que combinan su interés por la fantasía con el romance y la ciencia ficción. Sus 370 páginas corresponden a una obra cuyo título la identifica como Primera Parte; encaja menos con quien busca un ensayo o una lectura centrada exclusivamente en hechos reales.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "LUNÁTICO: Primera Parte está disponible en tapa blanda y Kindle. La edición impresa reúne sus 370 páginas en un volumen físico, mientras que Kindle permite llevar la misma extensión en un lector electrónico o en el móvil sin transportar el libro.",
+      "texto": "LUNÁTICO: Primera Parte puede leerse en tapa dura, tapa blanda o Kindle. La tapa dura ofrece una encuadernación rígida para conservar sus 370 páginas; la blanda facilita llevar el volumen y Kindle permite leerlo en un dispositivo compatible sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -23,12 +22,11 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "LUNÁTICO: Primera Parte comparte autoría con Historia de un lambfe (Lunático) e Historia de una elfa (LUNÁTICO), ambos de Nhoa Galán. Los tres títulos presentan una vinculación nominal con Lunático, pero LUNÁTICO: Primera Parte se distingue por identificar expresamente una primera parte y combinar fantasía, romance y ciencia ficción.",
+      "texto": "Historia de un lambfe (Lunático) e Historia de una elfa (LUNÁTICO) comparten con LUNÁTICO: Primera Parte la autoría de Nhoa Galán y la referencia a Lunático en sus títulos. La diferencia identificable está en el enfoque anunciado: los dos primeros nombran respectivamente a un lambfe y una elfa, mientras que LUNÁTICO: Primera Parte destaca su división en partes.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788409934409",
@@ -38,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a1ae907fd4123027",
+  "fuente_hash": "4d1148ffc094c80a",
   "origen": "chatgpt-web"
 }

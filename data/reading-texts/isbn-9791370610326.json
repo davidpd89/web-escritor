@@ -4,20 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las Ultrafalsificaciones: retos probatorios (Monografía) encaja con lectores interesados en los problemas jurídicos de la prueba ante las ultrafalsificaciones. Su orientación hacia el derecho probatorio la distingue de los libros que tratan la tecnología únicamente desde su funcionamiento técnico o sus aplicaciones cotidianas.",
+      "texto": "Las Ultrafalsificaciones: retos probatorios (Monografía) está orientado a lectores interesados en el derecho y en los problemas relacionados con la prueba de ultrafalsificaciones. El enfoque jurídico de Ana Montesinos Garcia lo distingue de las lecturas divulgativas generales sobre tecnología o de las obras narrativas.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las Ultrafalsificaciones: retos probatorios (Monografía) se presenta en tapa blanda, con 280 páginas publicadas por Aranzadi. La extensión permite trabajar con un volumen físico relativamente contenido, tanto para la lectura seguida como para localizar y revisar cuestiones jurídicas concretas.",
+      "texto": "Las Ultrafalsificaciones: retos probatorios (Monografía) se publica en tapa blanda y tiene 280 páginas en castellano. Esta presentación permite transportar el volumen y consultar sus contenidos jurídicos en papel, con una encuadernación flexible para el manejo habitual.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Blockchain: un desafío legal (Monografía) comparte con Las Ultrafalsificaciones: retos probatorios (Monografía) el tratamiento jurídico de cuestiones relacionadas con la tecnología. La obra de Ana Isabel Quiroz Ruiz se centra en el desafío legal de blockchain, mientras que Ana Montesinos Garcia aborda los retos probatorios de las ultrafalsificaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370610265"
       ]
     }
   ],

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9786316810168",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lo que queda de nosotros (HISTÓRICA), de Amanda Peters, se dirige a lectores interesados en la novela histórica. Sus 288 páginas permiten abordar una obra de extensión moderada dentro del género. Quien busque una lectura centrada en el romance o el misterio encontrará aquí una clasificación temática distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Lo que queda de nosotros (HISTÓRICA) es en tapa blanda y reúne 288 páginas en castellano. Este formato permite transportar el ejemplar y leerlo sin depender de un dispositivo electrónico. Stefano Books publica esta presentación física de la novela.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lo que queda de nosotros (HISTÓRICA) puede compararse con Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián, por su vinculación con la narrativa histórica. También comparte ese marco literario con Ave César (Narrativas Históricas), de Rex Warner. La diferencia más clara entre estas obras está en su autoría y en los referentes históricos que anuncian los títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401039539",
+        "isbn-9788435064125"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fdf78e30add9a0e0",
+  "origen": "chatgpt-web"
+}

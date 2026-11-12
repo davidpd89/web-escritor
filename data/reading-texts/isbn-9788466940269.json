@@ -1,0 +1,37 @@
+{
+  "id": "isbn-9788466940269",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra se dirige a lectores interesados en la adquisición del español como segunda lengua, especialmente en el vocabulario y la construcción de oraciones. Por su enfoque lingüístico, se diferencia de los materiales destinados únicamente a practicar conversaciones cotidianas o aprender expresiones básicas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro aborda dos componentes de la adquisición del español como segunda lengua: el léxico y la sintaxis. José Amenós Pons los sitúa bajo el enfoque de las perspectivas actuales y dentro de la colección Lingüística y comunicación, cuyo número indicado en el título es el 7.",
+      "evidencias": [
+        "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Ediciones Complutense está disponible en tapa blanda y contiene 230 páginas en castellano. El soporte físico permite consultar por separado los aspectos léxicos y sintácticos, señalar páginas y conservar referencias para posteriores lecturas sobre adquisición de segundas lenguas.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7997184f1c61bab0",
+  "origen": "chatgpt-web"
+}

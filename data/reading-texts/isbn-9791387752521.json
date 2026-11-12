@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387752521",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Crucigramas para pensar y disfrutar (XL) (Cuadrados XL) encaja con quienes dedican parte de su tiempo libre a resolver crucigramas. Sus 144 páginas ofrecen una actividad basada en palabras y resolución de pistas, distinta de la lectura continuada de una novela. No responde al mismo interés que un libro de dibujo o una obra narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato de Crucigramas para pensar y disfrutar (XL) (Cuadrados XL), con 144 páginas destinadas a una actividad de pasatiempo. El soporte en papel permite trabajar directamente sobre los crucigramas y volver a los ejercicios pendientes. Su extensión facilita repartir la actividad entre distintas sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Crucigramas para pensar y disfrutar (XL) (Cuadrados XL) y 80 crímenes imposibles de resolver (FUERA DE ESCENA) comparten el planteamiento de resolver problemas, aunque uno se centra en crucigramas y el otro en crímenes. Agatha Christie. ¿Quién lo hizo? Resuelve los casos más famosos de la Reina del Crimen (FICCIÓN) también propone resolver casos, frente al trabajo con palabras del libro de Miquel Sesé.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388015816",
+        "isbn-9791259578907"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5f36ea8785b686d1",
+  "origen": "chatgpt-web"
+}

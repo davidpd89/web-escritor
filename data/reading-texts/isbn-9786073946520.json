@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073946520",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores que buscan una novela de Haruki Murakami relacionada con la fantasía, el romance y las aventuras. Su combinación de géneros se aleja de una lectura centrada exclusivamente en el realismo cotidiano o en una investigación criminal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura protege las 568 páginas de esta novela de Haruki Murakami mediante una cubierta rígida. Es una opción física para quienes prefieren conservar el libro en su biblioteca o regalar una edición resistente, especialmente por su considerable extensión.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE), de Kayla Edwards, comparte con la novela de Haruki Murakami la combinación de elementos fantásticos y románticos, aunque su título destaca expresamente el romance oscuro. Blanco de niebla y locura (TBR), de Lisette Marshall, pertenece también al ámbito de la fantasía y el romance, mientras que La Ciudad Y Sus Muros Inciertos (Novela). Edición Tapa Dura / The City and Its Uncertain Walls (a Novel) incorpora además las aventuras y la ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410116221",
+        "isbn-9788415955559"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a9cd93696e048de2",
+  "origen": "chatgpt-web"
+}

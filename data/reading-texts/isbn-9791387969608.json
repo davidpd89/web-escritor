@@ -4,21 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las mil y una rumbas se dirige a lectores interesados en la música vinculada a Barcelona y en la rumba catalana como expresión cultural. Por su temática y su clasificación en arte y diseño, se aparta de los manuales de dibujo y de las novelas centradas en relaciones románticas.",
+      "texto": "La obra de Jordi Barrachina se dirige a lectores interesados en la rumba catalana, su relación con Barcelona y las manifestaciones culturales vinculadas a la música. Por su temática, se aleja de las novelas de fantasía, los relatos de aventuras y los manuales de aprendizaje musical.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las mil y una rumbas se publica en tapa blanda, con 306 páginas en castellano. La edición de Editorial Comanegra reúne el contenido sobre Barcelona y la rumba catalana en un volumen físico de cubierta flexible que puede leerse y consultarse sin dispositivos electrónicos.",
+      "texto": "La edición de Editorial Comanegra está disponible en tapa blanda y contiene 306 páginas en castellano. La encuadernación flexible permite transportar el volumen y consultar sus contenidos sobre papel, sin necesidad de utilizar un dispositivo electrónico.",
       "evidencias": [
-        "titulo",
+        "editorial",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Jordi Barrachina comparte su temática musical con All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial, de Daniel Sedcontra. La primera se centra en la rumba catalana y su vinculación con Barcelona, mientras que la segunda aborda la música industrial, la subversión y el terrorismo cultural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410045538"
       ]
     }
   ],

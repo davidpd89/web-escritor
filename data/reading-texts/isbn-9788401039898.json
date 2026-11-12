@@ -4,25 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Martín Vigil, el amigo amable: Una memoria inconfesable (Obras diversas) se dirige a lectores interesados en las memorias personales y el ensayo biográfico. Por su enfoque, queda fuera de las búsquedas centradas en aventuras fantásticas o ciencia ficción.",
+      "texto": "Martín Vigil, el amigo amable: Una memoria inconfesable (Obras diversas), de Miguel Fernández, se dirige a lectores interesados en las memorias, las biografías y el ensayo. Sus 328 páginas ofrecen una extensión intermedia y su orientación de no ficción lo aleja de quienes buscan una novela de aventuras o fantasía.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Martín Vigil, el amigo amable: Una memoria inconfesable (Obras diversas) está disponible en tapa blanda. Sus 328 páginas en castellano permiten consultar y releer pasajes en papel, con una encuadernación flexible que facilita llevar el volumen en una bolsa.",
+      "texto": "Martín Vigil, el amigo amable: Una memoria inconfesable (Obras diversas) se ofrece en tapa blanda y Kindle. La edición impresa de Plaza & Janés consta de 328 páginas y permite consultar el volumen en papel; Kindle facilita la lectura en dispositivos electrónicos y evita transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "edicion",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Martín Vigil, el amigo amable: Una memoria inconfesable (Obras diversas) y Vida y obra de Manuel Machado: Tengo el alma de nardo del árabe español: 24 (Biblioteca de la Memoria), de Víctor Olmos, comparten el interés por figuras personales y su trayectoria. El libro de Miguel Fernández se presenta como una memoria, mientras que el de Víctor Olmos anuncia expresamente una aproximación a la vida y la obra de Manuel Machado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388381447"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bc3ce6218223fe6f",
+  "fuente_hash": "f32549274aa64e55",
   "origen": "chatgpt-web"
 }

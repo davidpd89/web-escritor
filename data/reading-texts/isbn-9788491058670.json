@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El arte de la prudencia (Serie Great Ideas): Ediciones icónicas (Penguin Clásicos | Vintage), de Baltasar Gracián, encaja con lectores interesados en filosofía, ensayo y desarrollo personal. Sus 128 páginas ofrecen una extensión breve; por su orientación temática, no responde a quien busca una novela de ficción.",
+      "texto": "El arte de la prudencia (Serie Great Ideas): Ediciones icónicas (Penguin Clásicos | Vintage), de Baltasar Gracián, se orienta a lectores interesados en filosofía, ensayo y desarrollo personal. Con 128 páginas, encaja con quien busca una lectura breve de reflexión; no responde a la búsqueda de una novela de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,12 +14,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de bolsillo en tapa blanda de El arte de la prudencia (Serie Great Ideas): Ediciones icónicas (Penguin Clásicos | Vintage) contiene 128 páginas y facilita su transporte. La tapa dura ofrece una encuadernación más resistente para conservarlo o regalarlo, mientras que el audiolibro permite escuchar el texto sin consultar las páginas impresas.",
+      "texto": "La tapa blanda es la edición de bolsillo de Penguin Clásicos, con 128 páginas, adecuada para llevar el texto en papel sin un volumen grande. La tapa dura aporta una cubierta rígida para guardarlo o regalarlo; el audiolibro permite escuchar su contenido sin necesidad de leerlo en papel.",
       "evidencias": [
-        "titulo",
         "edicion",
+        "editorial",
         "numero_paginas",
         "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de la prudencia (Serie Great Ideas): Ediciones icónicas (Penguin Clásicos | Vintage), de Baltasar Gracián, puede compararse con El arte de la guerra: El influyente tratado sobre estrategia militar (Filosofía), de Sun Tzu, por su orientación filosófica, aunque este último se centra en la estrategia militar. Frente a Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, su enfoque se vincula a la prudencia y no a la práctica espiritual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315",
+        "isbn-9788419467911"
       ]
     }
   ],

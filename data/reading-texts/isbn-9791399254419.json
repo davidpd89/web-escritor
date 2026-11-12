@@ -4,27 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El caballero de la capa negra se dirige a lectores de narrativa juvenil que buscan aventuras con elementos de fantasía y terror. La combinación de estos géneros en la obra de Carlos J. Sánchez puede alejar a quienes prefieren historias realistas sin componentes fantásticos o inquietantes.",
+      "texto": "El caballero de la capa negra se dirige a lectores de fantasía juvenil que buscan aventuras con elementos de terror y ciencia ficción. Por su combinación de géneros, encaja menos con quienes prefieren relatos realistas o narraciones centradas exclusivamente en el romance.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El caballero de la capa negra cuenta con una edición en tapa blanda de 310 páginas, publicada por Obscura Editorial. Su extensión permite abordar una novela juvenil de aventuras y fantasía en un volumen físico que puede transportarse y retomarse entre sesiones de lectura.",
+      "texto": "El caballero de la capa negra está disponible en tapa blanda y Kindle. La edición física de Obscura Editorial reúne 310 páginas y permite conservar el ejemplar en papel; Kindle ofrece la misma obra en formato digital para leerla desde dispositivos compatibles.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "categorias"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El hechizo más oscuro (Faeris Editorial) comparte con El caballero de la capa negra una orientación hacia lo fantástico, aunque el título de Wanda Hellmund pone el acento en un hechizo y el de Carlos J. Sánchez en una figura de caballero. El velo de los sueños (TBR) ofrece otra referencia de lectura con un imaginario distinto, vinculado desde su título al mundo de los sueños.",
+      "texto": "El caballero de la capa negra puede compararse con Brujas de Aerthea: El secreto de Violet por su vinculación con la fantasía. La obra de Carlos J. Sánchez incorpora también aventuras, terror y ciencia ficción, mientras que el título de Ángel Hache sitúa la brujería y un secreto en el centro de su propuesta nominal.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388108419",
-        "isbn-9788410116269"
+        "isbn-9788409934164"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "944708b0d4ddad34",
+  "fuente_hash": "8c8132cb40e3d161",
   "origen": "chatgpt-web"
 }

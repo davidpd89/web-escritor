@@ -4,21 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Criminales sin sombra (Salamandra Black) se dirige a lectores interesados en el misterio, el thriller y la historia. Por su clasificación temática, encaja menos con quienes buscan romance o una lectura centrada en el desarrollo personal.",
+      "texto": "Criminales sin sombra (Salamandra Black), de Juan Carlos Galindo, se sitúa entre el misterio y la historia, por lo que encaja con lectores interesados en ambos campos. Sus 336 páginas ofrecen una extensión intermedia; no es la elección más ajustada para quien busque una guía práctica o un libro de desarrollo personal.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Criminales sin sombra (Salamandra Black) está disponible en tapa blanda, con 336 páginas en castellano. Esta edición de Salamandra permite leerlo en papel y transportarlo sin la rigidez de una cubierta dura.",
+      "texto": "Criminales sin sombra (Salamandra Black) está disponible en tapa blanda, con una edición de Salamandra de 336 páginas en castellano. Es una opción de lectura en papel con cubierta flexible, frente a la encuadernación rígida de una tapa dura; su extensión permite valorar el tamaño del volumen antes de elegirlo.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "edicion",
+        "editorial",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Criminales sin sombra (Salamandra Black), de Juan Carlos Galindo, se aproxima por el misterio a El cuerpo equivocado (Novela de intriga), de Jorge Ortega, aunque este último se presenta expresamente como novela. También comparte el interés histórico con El baile de las que sobran (Novela histórica), de Fermina Cañaveras; la diferencia está en el peso del misterio frente al enfoque de novela histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083910",
+        "isbn-9788425377105"
       ]
     }
   ],

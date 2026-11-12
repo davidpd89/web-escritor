@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary, de El Aletz y Alejandro Carrillo, se sitúa en el ámbito del arte y el diseño. Por su planteamiento de diccionario, se orienta a lectores interesados en una obra de consulta temática más que a quienes buscan una novela con personajes y una trama continuada.",
+      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary se dirige a lectores interesados en publicaciones vinculadas al arte y el diseño. Su planteamiento de diccionario lo distingue de una novela convencional, por lo que encaja menos con quienes buscan una narración de ficción continuada.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,12 +13,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary tiene una edición en tapa blanda de 320 páginas, publicada en castellano. El papel permite consultar distintas partes del volumen y volver a ellas sin depender de un dispositivo; la cubierta flexible facilita su transporte.",
+      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary se presenta en tapa blanda, con 320 páginas en castellano. Su extensión permite reservarle un espacio en la biblioteca y consultarlo físicamente. Es una edición de Penguin Random House Grupo Editorial.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary comparte el ámbito artístico con All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial, de Daniel Sedcontra. El segundo título delimita su asunto a la música industrial, mientras que el de El Aletz y Alejandro Carrillo se presenta como diccionario vinculado al perreo. Son aproximaciones diferentes a expresiones culturales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410045538"
       ]
     }
   ],

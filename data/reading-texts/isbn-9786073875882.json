@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073875882",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la psicología y el desarrollo personal, especialmente en la relación con el trabajo que plantea su título. No responde a la búsqueda de una novela de ficción ni de un manual de cocina o actividad física.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 256 páginas de No todo es urgente / Mind Over Grind: How to Break Free When Work Hijacks Your Life en un volumen físico. Permite consultar y releer sus contenidos sin depender de una pantalla, con una extensión delimitada para organizar la lectura.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El libro de Guy Winch Ph.D. y Cuando no sé lo que quiero: 150 enseñanzas para encontrar tu camino (Bruguera Tendencias), de Seung-hwan Jeon, comparten el interés por el desarrollo personal. El primero aborda la relación con el trabajo y el segundo, la búsqueda de orientación personal. El cerebro optimista, de Mikel Alonso, se centra en la neurociencia y el optimismo, frente al enfoque laboral del libro de Guy Winch Ph.D.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431684",
+        "isbn-9791387662639"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e71795a5f6fab5b4",
+  "origen": "chatgpt-web"
+}

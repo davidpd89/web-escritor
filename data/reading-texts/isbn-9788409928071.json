@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409928071",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Richard Quine. El mundo de un príncipe de la comedia se orienta a lectores interesados en el humor y en una obra centrada en una figura concreta de la comedia. Sus 342 páginas ofrecen una extensión intermedia; por su temática, queda lejos de quienes buscan fantasía o relatos de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Richard Quine. El mundo de un príncipe de la comedia está editado en tapa blanda por Kane Ediciones, con 342 páginas en castellano. El formato permite leerlo por sesiones y conservarlo en papel, con una extensión más manejable que la de un volumen de gran tamaño.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica) comparte con Richard Quine. El mundo de un príncipe de la comedia su relación con el humor. La obra de Francisco Ibáñez pertenece a una colección humorística, mientras que la de Ricardo Gomez Tovar se centra en Richard Quine y el mundo de la comedia. Ambas permiten acercarse al humor desde autores y planteamientos diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431790"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5cc09fed40a68bbc",
+  "origen": "chatgpt-web"
+}

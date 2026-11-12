@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388299452",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El rumor de los ríos de octubre: 32 (Aura), de Antonia Álvarez Álvarez, pertenece a la poesía y se dirige a lectores que buscan ese género literario. Encaja menos con quienes prefieren una novela de argumento continuo o una obra de divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El rumor de los ríos de octubre: 32 (Aura) está publicado en tapa blanda y tiene 149 páginas. Esta extensión facilita conservar el poemario en un volumen físico manejable y volver a sus páginas durante lecturas sucesivas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, y El rumor de los ríos de octubre: 32 (Aura) pueden compararse como títulos del ámbito poético. Se distinguen por su autoría y por las colecciones que identifican sus títulos: La garza roja en el primero y Aura en el segundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3c1c2a4c6c17197d",
+  "origen": "chatgpt-web"
+}

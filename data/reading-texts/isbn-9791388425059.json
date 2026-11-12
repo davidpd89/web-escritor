@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El diario de Gurty. Vacaciones en la Provenza (Imagina) se dirige al público infantil interesado en el humor, la amistad y la naturaleza. Su planteamiento se aleja de las lecturas centradas en el terror o los conflictos adultos; las vacaciones forman parte del tema anunciado en el título.",
+      "texto": "El diario de Gurty. Vacaciones en la Provenza (Imagina) se orienta al público infantil interesado en el humor, la amistad y las historias relacionadas con la naturaleza. Por su temática, se aleja de las lecturas que buscan conflictos adultos o relatos de terror.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,12 +12,25 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de El diario de Gurty. Vacaciones en la Provenza (Imagina) se presenta en tapa dura, con 144 páginas en castellano. Esta encuadernación permite conservar el volumen en una biblioteca infantil y utilizarlo en lecturas repetidas, sin depender de una pantalla.",
+      "texto": "El diario de Gurty. Vacaciones en la Provenza (Imagina) está disponible en tapa dura, con 144 páginas en castellano. La encuadernación rígida permite guardarlo y prestarlo conservando la cubierta, mientras que su extensión admite repartir la lectura entre varios días.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El mono que vino a cenar (La ovejita que vino a cenar) (Cuentos infantiles) y El diario de Gurty. Vacaciones en la Provenza (Imagina) comparten el público infantil y la presencia de animales en sus títulos. El primero plantea una visita a cenar, mientras que el libro de Bertrand Santini sitúa su propuesta en unas vacaciones en la Provenza, con humor y amistad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874056"
       ]
     }
   ],

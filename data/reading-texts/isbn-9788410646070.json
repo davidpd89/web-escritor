@@ -4,22 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores infantiles interesados en Minecraft, sus biomas y la exploración dentro de los videojuegos. Está planteado como una enciclopedia de consulta y no como una novela de aventuras con una trama protagonizada por personajes.",
+      "texto": "Minecraft Oficial: Enciclopedia de los exploradores (La guía definitiva de los biomas de Minecraft) se dirige al público infantil y juvenil interesado en explorar los biomas de Minecraft. Su enfoque de consulta sobre el juego lo diferencia de una novela de aventuras con una historia protagonizada por personajes.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne sus 176 páginas en un volumen físico adecuado para consultar sus contenidos durante las partidas o fuera de ellas. Minecraft Oficial: Enciclopedia de los exploradores (La guía definitiva de los biomas de Minecraft), de Mojang AB, se presenta en este formato.",
+      "texto": "La edición de Minecraft Oficial: Enciclopedia de los exploradores (La guía definitiva de los biomas de Minecraft) está disponible en tapa dura, con 176 páginas en castellano. La encuadernación rígida permite conservar el volumen como libro de consulta y utilizarlo repetidamente para revisar sus contenidos sobre los biomas.",
       "evidencias": [
-        "numero_paginas",
+        "titulo",
         "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Minecraft Oficial: Enciclopedia de los exploradores (La guía definitiva de los biomas de Minecraft) comparte con Hechizo: Bienvenidos a Hexe. Supercolor su orientación hacia el público infantil y las actividades de ocio. La obra de Mojang AB se centra en los biomas de Minecraft, mientras que el libro de Disney pertenece a una propuesta de coloreado.",
+      "evidencias": [
         "titulo",
         "autores",
-        "edicion"
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387902292"
       ]
     }
   ],

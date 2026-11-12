@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073947213",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en el tarot como herramienta de orientación personal, con un planteamiento próximo al público juvenil. La combinación de desarrollo personal y aventura se distancia de una lectura centrada exclusivamente en la ficción histórica o el romance.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene las 244 páginas de La Aventura del Tarot: La Guía de Un Amigo Para No Perderte En El Camino / The Tarot Adventure: Find Your Path. El soporte físico permite volver a distintos apartados durante la lectura y conservar el volumen para futuras consultas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Aventura del Tarot: La Guía de Un Amigo Para No Perderte En El Camino / The Tarot Adventure: Find Your Path, de Patricio Ramírez, comparte con Aftermyth 1. Penelope y la prueba de los dioses, de Tracy Wolff, su vinculación con la aventura, pero se distingue por incorporar el tarot y el desarrollo personal. El caballero de la capa negra, de Carlos J. Sánchez, plantea otra referencia de lectura juvenil, frente al enfoque de orientación personal asociado al tarot.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324102",
+        "isbn-9791399254419"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "585218a4af9164d0",
+  "origen": "chatgpt-web"
+}

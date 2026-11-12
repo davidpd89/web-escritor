@@ -4,29 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuentos de invierno (Narrativa), de Ingvild H. Rishøi, se dirige a lectores interesados en obras narrativas vinculadas a la familia y la crianza. Sus 200 páginas en castellano permiten abordar esa temática en una extensión contenida; no responde a quien busca un manual extenso de desarrollo personal.",
+      "texto": "Cuentos de invierno (Narrativa) se dirige a lectores interesados en relatos relacionados con la familia y la crianza. La obra de Ingvild H. Rishøi tiene 200 páginas, una extensión contenida para quien prefiere libros breves; por su orientación familiar, se aleja de las lecturas centradas exclusivamente en la aventura fantástica.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cuentos de invierno (Narrativa) se publica en tapa blanda, con 200 páginas en castellano. Esta edición de Galaxia Gutenberg reúne el contenido en un volumen físico que puede transportarse y consultarse sin dispositivos electrónicos.",
+      "texto": "Cuentos de invierno (Narrativa) puede leerse en tapa blanda o Kindle. La edición impresa de Galaxia Gutenberg reúne 200 páginas y permite conservar el ejemplar en papel; Kindle facilita llevar la obra en un dispositivo de lectura o en el móvil, sin ocupar espacio físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuentos de invierno (Narrativa) puede compararse con Abuelas Y Abuelos (Álbumes Ilustrados castellano) por su relación temática con la familia. La obra de Helene Delforge se presenta como álbum ilustrado, mientras que la de Ingvild H. Rishøi pertenece a la narrativa y tiene 200 páginas. La diferencia principal está en el tipo de libro y su planteamiento editorial.",
+      "texto": "Cuentos de invierno (Narrativa) y Abuelas Y Abuelos (Álbumes Ilustrados castellano) comparten su relación temática con la familia. La obra de Ingvild H. Rishøi se presenta como narrativa de 200 páginas, mientras que la de Helene Delforge pertenece al ámbito de los álbumes ilustrados; cambia, por tanto, el tipo de publicación.",
       "evidencias": [
         "titulo",
         "autores",
@@ -41,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "aed59369949b94ee",
+  "fuente_hash": "e37d561c569fe42c",
   "origen": "chatgpt-web"
 }

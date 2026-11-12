@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788419483898",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Arroz (Comerse el mundo), de Tove Nilsson, está dirigido a quienes buscan libros de cocina centrados en un alimento concreto. Sus 256 páginas permiten dedicar espacio al arroz como asunto gastronómico; no responde al mismo interés que una obra sobre vinos o técnicas de sumillería.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Arroz (Comerse el mundo) está disponible en tapa dura y reúne 256 páginas en castellano. La cubierta rígida permite conservarlo como libro de consulta de cocina y utilizarlo sobre una mesa; también ofrece una presentación física adecuada para regalar a alguien interesado en la gastronomía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Arroz (Comerse el mundo) y Chef sapiens comparten su orientación hacia la cocina. Tove Nilsson centra su libro en el arroz, mientras que la obra de Marcos Vázquez y Elizabeth Ochoa aborda la evolución de la cocina mediante 100 recetas saludables. La diferencia está en el alcance: un ingrediente concreto frente a un recorrido gastronómico desde los orígenes hasta la actualidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395939"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1922835e0bdb9ac2",
+  "origen": "chatgpt-web"
+}

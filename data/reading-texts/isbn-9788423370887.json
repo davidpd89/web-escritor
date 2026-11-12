@@ -4,24 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con quienes buscan narrativa contemporánea que combine fantasía, memoria y duelo. La librería de la memoria: El fenómeno coreano sobre el poder mágico de los libros (Áncora & Delfín) también se sitúa en la ciencia ficción, por lo que se aleja de una lectura estrictamente realista.",
+      "texto": "La librería de la memoria: El fenómeno coreano sobre el poder mágico de los libros (Áncora & Delfín) se dirige a lectores de fantasía y narrativa contemporánea interesados en la memoria y el duelo. Sus 232 páginas ofrecen una extensión relativamente breve; por sus temas, se aleja de quienes buscan exclusivamente relatos de acción.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne las 232 páginas de La librería de la memoria: El fenómeno coreano sobre el poder mágico de los libros (Áncora & Delfín). Es una opción física para leer y transportar el volumen sin la rigidez de una cubierta dura.",
+      "texto": "La tapa blanda permite leer las 232 páginas de La librería de la memoria: El fenómeno coreano sobre el poder mágico de los libros (Áncora & Delfín) en una edición física manejable. Kindle facilita llevar el texto en el móvil o ajustar su visualización, mientras que el audiolibro permite escucharlo durante los desplazamientos.",
       "evidencias": [
         "titulo",
         "numero_paginas",
         "formatos_disponibles"
       ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La librería de la memoria: El fenómeno coreano sobre el poder mágico de los libros (Áncora & Delfín) comparte con La máquina del tiempo: Ediciones icónicas (Penguin Clásicos) su relación con la ficción especulativa. La obra de Song Yu-jeong combina fantasía, memoria y duelo, mientras que la de H.G. Wells sitúa el tiempo en el centro de su propuesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491052395"
+      ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "60e28ab122723bfb",
+  "fuente_hash": "9fe9513de51d1041",
   "origen": "chatgpt-web"
 }

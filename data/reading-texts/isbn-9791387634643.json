@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791387634643",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Espacio escénico: (Terminología, fundamentos y proceso creativo) (Pragmatika) se dirige a lectores interesados en los fundamentos y el proceso creativo del espacio escénico. Por su enfoque en arte y diseño, se aleja de quienes buscan una obra de ficción teatral o una narración centrada en personajes.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Espacio escénico: (Terminología, fundamentos y proceso creativo) (Pragmatika) está disponible en tapa blanda y tiene 180 páginas. Este formato permite consultar la terminología y los fundamentos del espacio escénico en un volumen físico, tanto durante el estudio como al trabajar sobre un proyecto creativo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Espacio escénico: (Terminología, fundamentos y proceso creativo) (Pragmatika) y Arde Talía: Una pieza teatral sobre el infierno de la creación artística comparten el interés por la creación escénica. El libro de Jara Martínez Valderas aborda terminología y fundamentos del espacio, mientras que el de Alba Quintas Garciandia, Ana Saiz, Talita Isla, Carmen Romero Lorenzo e Inés Galiano se presenta como una pieza teatral sobre la creación artística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399289510"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6b6c5ba67d26fdc0",
+  "origen": "chatgpt-web"
+}

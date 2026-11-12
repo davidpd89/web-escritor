@@ -4,26 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tu mente es mágica: Cómo desarrollar un cerebro manifestador (Crecimiento personal), de James Doty, se dirige a lectores interesados en el desarrollo personal y el funcionamiento de la mente. Su enfoque declarado sobre el cerebro manifestador se aleja de la narrativa de ficción y de los manuales centrados exclusivamente en alimentación.",
+      "texto": "Tu mente es mágica: Cómo desarrollar un cerebro manifestador (Crecimiento personal) se orienta a lectores interesados en la mente, la manifestación y el crecimiento personal. Su planteamiento pertenece al ámbito de la autoayuda y el bienestar, no al de la ficción ni al de los relatos de aventuras.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Tu mente es mágica: Cómo desarrollar un cerebro manifestador (Crecimiento personal) se publica en tapa blanda y reúne 264 páginas. El formato permite consultar pasajes en papel y retomar la lectura por sesiones, sin depender de un dispositivo electrónico.",
+      "texto": "Tu mente es mágica: Cómo desarrollar un cerebro manifestador (Crecimiento personal) ofrece tapa blanda, Kindle y audiolibro. La edición impresa tiene 264 páginas y permite consultar pasajes en papel; Kindle facilita la lectura en el móvil y el audiolibro permite escuchar el contenido mientras se realizan otras actividades.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "edicion"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tu mente es mágica: Cómo desarrollar un cerebro manifestador (Crecimiento personal) comparte el interés por el desarrollo personal con Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida. James Doty centra su propuesta en la mente y la manifestación, mientras que Kelly Ann Street aborda las heridas personales y el equilibrio emocional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410451988"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "722d9be7ce11ed7e",
+  "fuente_hash": "a208bc2290d67d40",
   "origen": "chatgpt-web"
 }

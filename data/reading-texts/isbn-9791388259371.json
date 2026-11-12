@@ -4,25 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El volumen de Anna Stuart publicado por Newton Compton Editores se dirige a lectores de novela histórica que buscan varias historias reunidas en un mismo libro. Incluye La enfermera de Auschwitz, La mujer con el tatuaje y La huérfana de Auschwitz. Sus 1152 páginas suponen una lectura extensa, menos ajustada a quien prefiere novelas breves o géneros alejados de la ficción histórica.",
+      "texto": "Esta recopilación de Anna Stuart se dirige a lectores de novela histórica interesados en relatos vinculados a Auschwitz y en reunir varias historias de una misma autora. Sus 1152 páginas y sus tres obras diferenciadas encajan menos con quienes buscan una novela breve o una lectura centrada en una sola historia.",
       "evidencias": [
         "titulo",
         "autores",
-        "editorial",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La recopilación de Anna Stuart se presenta en tapa blanda, con 1152 páginas en castellano. Esta edición de Newton Compton Editores reúne La enfermera de Auschwitz, La mujer con el tatuaje y La huérfana de Auschwitz en un único ejemplar físico. Permite consultar las tres historias sin cambiar de libro, aunque su extensión implica un volumen considerable para transportarlo.",
+      "texto": "La edición en tapa blanda reúne las tres historias de Anna Stuart en un volumen de 1152 páginas publicado por Newton Compton Editores. Permite conservarlas juntas en papel, aunque su extensión supone un libro considerable para llevar durante los desplazamientos cotidianos.",
       "evidencias": [
         "titulo",
         "autores",
-        "formatos_disponibles",
         "numero_paginas",
+        "edicion",
         "editorial",
-        "idioma"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Astur (Saga de la Reconquista) (Éxitos) comparte con las tres historias de Anna Stuart su pertenencia a la novela histórica, pero sitúa su referencia histórica en la Reconquista frente a los relatos vinculados a Auschwitz. Ave César (Narrativas Históricas) también remite a otro contexto histórico y a una obra de Rex Warner, en lugar de reunir tres historias de una misma autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401039539",
+        "isbn-9788435064125"
       ]
     }
   ],

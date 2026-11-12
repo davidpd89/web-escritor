@@ -4,21 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Trabajo gris. Por qué el trabajo ha perdido sentido y cómo devolverle el color (Nuestro Tiempo) aborda una cuestión relacionada con el mundo laboral y su significado. Por su enfoque sobre el trabajo y su clasificación en economía y empresa, se aparta de las lecturas centradas en aventuras o conflictos de fantasía.",
+      "texto": "Trabajo gris. Por qué el trabajo ha perdido sentido y cómo devolverle el color (Nuestro Tiempo) se dirige a lectores interesados en el sentido del trabajo y su relación con la vida cotidiana. Por su planteamiento económico y sus 105 páginas, encaja menos con quien busque una narración de aventuras o una guía técnica de empleo.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Trabajo gris. Por qué el trabajo ha perdido sentido y cómo devolverle el color (Nuestro Tiempo) contiene 105 páginas en castellano. Es un volumen físico de Ediciones Universidad de Navarra, S.a., adecuado para consultar y marcar pasajes sobre el sentido del trabajo.",
+      "texto": "Trabajo gris. Por qué el trabajo ha perdido sentido y cómo devolverle el color (Nuestro Tiempo) se presenta en tapa blanda, con 105 páginas en castellano. Su extensión permite leerlo en papel sin manejar un volumen grande y volver a los apartados relacionados con el sentido del trabajo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Trabajo gris. Por qué el trabajo ha perdido sentido y cómo devolverle el color (Nuestro Tiempo) puede compararse con American Caper nº 01: 1 (Thriller), de Dan Houser, Lazlow, David Lapham y Brent Anderson, por su presencia entre lecturas dirigidas a públicos juveniles. La diferencia está en el enfoque: Ana Marta González González aborda el sentido del trabajo, mientras American Caper nº 01: 1 (Thriller) se identifica como thriller.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491738107"
       ]
     }
   ],

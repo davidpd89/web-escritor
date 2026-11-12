@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370205911",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Corredera de Córdoba: De coso taurino, patíbulo y mercado a gran bar (Arte y patrimonio), de Francisco Solano Márquez, se dirige a lectores interesados en historia urbana y patrimonio. Su asunto es la transformación de un espacio de Córdoba a través de distintos usos sociales, por lo que se aleja de la ficción histórica protagonizada por personajes inventados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Corredera de Córdoba: De coso taurino, patíbulo y mercado a gran bar (Arte y patrimonio) se publica en tapa blanda, con 224 páginas. La edición de Almuzara permite consultar en papel las distintas etapas históricas que anuncia el título y conservar el volumen como lectura sobre patrimonio local.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Corredera de Córdoba: De coso taurino, patíbulo y mercado a gran bar (Arte y patrimonio) comparte el interés histórico con El príncipe espía: Cosimo III en la España de la Regencia (Ariel), de Lorenzo De Medici. Francisco Solano Márquez centra su libro en los usos de un espacio urbano, mientras que el título de Lorenzo De Medici sitúa el foco en una figura histórica y su contexto político.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441149"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b44504a89850e959",
+  "origen": "chatgpt-web"
+}

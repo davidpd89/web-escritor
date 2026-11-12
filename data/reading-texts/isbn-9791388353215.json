@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388353215",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Partidas, de Beatriz Bowles Vilela, se sitúa entre la poesía y la historia, por lo que encaja con lectores interesados en esos dos ámbitos. Sus 96 páginas ofrecen una extensión reducida frente a obras de estudio más largas; no responde a una búsqueda centrada exclusivamente en narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Partidas se publica en tapa blanda, con 96 páginas en castellano. Esta edición de RIL Editores permite conservar el volumen en papel y transportarlo sin el peso habitual de libros mucho más extensos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Partidas comparte el ámbito poético con 223 esquinas: 16 (La garza roja) y Políticas poéticas, canon y texto en la poesía española contemporánea. Frente al enfoque investigador sobre poesía contemporánea de este último, Partidas figura también en historia y tiene 96 páginas, sin presentarse en su título como un estudio del canon.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387745202",
+        "isbn-9788412988833"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "19ee5b939124b321",
+  "origen": "chatgpt-web"
+}

@@ -4,21 +4,31 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Artefactos mágicos: El catálogo secreto (MAGIA Y OCULTISMO), de Emanuela Brumana y Marco Guadalupi, se dirige a lectores interesados en objetos mágicos, ocultismo y contenidos relacionados con la fantasía. Su planteamiento de catálogo lo diferencia de una novela centrada en personajes y de los manuales de bienestar dedicados a prácticas corporales.",
+      "texto": "Artefactos mágicos: El catálogo secreto (MAGIA Y OCULTISMO) se dirige a lectores interesados en la magia, el ocultismo y su relación con la espiritualidad. Su enfoque temático se aleja de quienes buscan una novela de fantasía centrada en personajes y aventuras.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Artefactos mágicos: El catálogo secreto (MAGIA Y OCULTISMO) está disponible en tapa dura, con 64 páginas en castellano. La encuadernación rígida ofrece mayor protección al volumen durante las consultas repetidas y constituye una opción física para regalar, especialmente por su extensión breve y su planteamiento de catálogo.",
+      "texto": "La edición de Artefactos mágicos: El catálogo secreto (MAGIA Y OCULTISMO) es en tapa dura y tiene 64 páginas. Este formato permite conservar el volumen en una estantería y consultarlo físicamente; su extensión facilita recorrerlo en sesiones breves.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual comparte con Artefactos mágicos: El catálogo secreto (MAGIA Y OCULTISMO) el interés por la magia y la espiritualidad. El primero plantea un camino de práctica espiritual, mientras que el segundo se presenta como un catálogo de artefactos mágicos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
       ]
     }
   ],

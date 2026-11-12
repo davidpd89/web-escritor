@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cómo crecer entre pantallas está dirigido a familias interesadas en la crianza y en cómo acompañar el uso de pantallas durante el crecimiento de sus hijos. Alberto Soler Sarrió y Concepción Roger Sánchez abordan el asunto desde una perspectiva psicológica, por lo que no es una obra orientada a aprender informática o manejar dispositivos.",
+      "texto": "Cómo crecer entre pantallas se dirige a familias interesadas en la crianza y en el uso de pantallas durante el crecimiento de sus hijos. Alberto Soler Sarrió y Concepción Roger Sánchez abordan la cuestión desde la psicología; no es una lectura centrada en entretenimiento digital ni en tecnología de consumo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,13 +14,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cómo crecer entre pantallas está disponible en tapa blanda, con encuadernación rústica con solapas y 272 páginas. Esta edición permite consultar en papel sus contenidos sobre crianza y pantallas, además de conservar el volumen como libro de referencia familiar.",
+      "texto": "Cómo crecer entre pantallas está disponible en tapa blanda, en una edición rústica con solapas de Ediciones Paidós. Sus 272 páginas permiten consultar distintos pasajes sobre crianza y pantallas en un volumen físico, sin depender de un dispositivo de lectura.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "numero_paginas",
         "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "categorias",
         "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo crecer entre pantallas comparte el interés por las relaciones familiares con CONECTANDO CON MI BEBÉ: Relatos y actividades para vivir el embarazo con presencia, conexión y conciencia. Regalo para embarazadas. Mientras Paula S. Acuña se centra en el embarazo mediante relatos y actividades, Alberto Soler Sarrió y Concepción Roger Sánchez tratan la crianza ante el uso de pantallas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409936465"
       ]
     }
   ],

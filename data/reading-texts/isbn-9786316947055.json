@@ -4,41 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Divinos y miserables (Umbriel narrativa) se dirige a quienes leen fantasía con romance y aventuras. Adalyn Grace desarrolla esta combinación de géneros en 576 páginas, una extensión menos adecuada para quien busca una lectura corta o una historia exclusivamente realista.",
+      "texto": "Divinos y miserables (Umbriel narrativa), de Adalyn Grace, se dirige a quienes buscan fantasía con romance y aventuras. También reúne elementos de ciencia ficción; encaja menos con lectores que prefieren historias realistas sin componentes fantásticos.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Divinos y miserables (Umbriel narrativa) se presenta en tapa blanda, con 576 páginas en castellano. Es un volumen físico de extensión considerable, pensado para leer en papel y conservar en una estantería, con el contenido reunido en un único ejemplar.",
+      "texto": "La tapa blanda de Divinos y miserables (Umbriel narrativa) reúne 576 páginas en un volumen físico que puede conservarse o regalarse. La edición Kindle permite llevar esa lectura en un dispositivo digital, sin transportar el libro impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Divinos y miserables (Umbriel narrativa) comparte autora con Holly: El esperado spin-off de Belladonna (Umbriel narrativa), de Adalyn Grace. También puede compararse con Ciudad de dioses y monstruos (DARK ROMANCE), de Kayla Edwards, por su proximidad a la fantasía romántica; Divinos y miserables (Umbriel narrativa) incorpora además las aventuras entre sus géneros.",
+      "texto": "Holly: El esperado spin-off de Belladonna (Umbriel narrativa) comparte con Divinos y miserables (Umbriel narrativa) la autoría de Adalyn Grace. La diferencia visible está en el enfoque de los títulos: Holly se presenta como una obra derivada de Belladonna, mientras que Divinos y miserables se identifica por su combinación de fantasía, romance y aventuras.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387749392",
-        "isbn-9788415955559"
+        "isbn-9791387749392"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "857d24d02b810a77",
+  "fuente_hash": "e42d05f99ec82a27",
   "origen": "chatgpt-web"
 }

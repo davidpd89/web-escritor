@@ -4,22 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La llamada del oeste. 5 historias de lucky luke se dirige a lectores de cómic que buscan varias historias reunidas en un mismo volumen. Sus 96 páginas y su edición en tapa dura se apartan del formato de novela extensa, por lo que encaja menos con quienes prefieren narrativa exclusivamente en prosa.",
+      "texto": "La llamada del oeste. 5 historias de lucky luke se dirige a lectores de cómic y novela gráfica interesados en una recopilación de historias de un mismo personaje. Sus 96 páginas reúnen cinco historias, por lo que su estructura se aparta de la de una novela convencional de narración continua.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas",
-        "formatos_disponibles"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La llamada del oeste. 5 historias de lucky luke se publica en tapa dura, con 96 páginas en castellano. La cubierta rígida protege el volumen durante su conservación y permite mantener reunidas las historias que anuncia el título, en una edición física manejable por su extensión.",
+      "texto": "La llamada del oeste. 5 historias de lucky luke está disponible en tapa dura, con 96 páginas en castellano. La encuadernación rígida resulta práctica para conservar las cinco historias juntas, consultar sus páginas repetidamente o regalar un volumen físico de cómic.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Creepy nº 11/29 comparte con La llamada del oeste. 5 historias de lucky luke el formato de recopilación de historias gráficas, pero se orienta hacia el terror en lugar de reunir aventuras de lucky luke. Creepy nº 25/29 también presenta una temática de terror y comparte la autoría colectiva indicada como Varios autores, mientras que La llamada del oeste. 5 historias de lucky luke incluye además a SAGAR y Jorge García.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411406130",
+        "isbn-9788411406277"
       ]
     }
   ],

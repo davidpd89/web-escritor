@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788472099982",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hollywood ¿Nunca aprenderás? (A contraluz) se sitúa en el ámbito del arte y el diseño, con una referencia explícita a Hollywood en su título. Sus 476 páginas apuntan a una lectura extensa para quienes buscan publicaciones relacionadas con ese entorno cultural. Se aleja de las necesidades de quien busca un cuaderno de ejercicios artísticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hollywood ¿Nunca aprenderás? (A contraluz) se publica en tapa blanda y contiene 476 páginas. La encuadernación flexible permite manejar el volumen durante la lectura, aunque su extensión hace que resulte menos ligero que una publicación breve. Es una edición física en castellano de Unión Editorial.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hollywood ¿Nunca aprenderás? (A contraluz) y All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial se relacionan con manifestaciones culturales, aunque sus títulos señalan ámbitos distintos: Hollywood y la música industrial. Arde Talía: Una pieza teatral sobre el infierno de la creación artística se aproxima desde el teatro y la creación, mientras que el libro de Diego Luis Sanromán Peña remite al entorno cinematográfico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410045538",
+        "isbn-9791399289510"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "54f768b0c9295f74",
+  "origen": "chatgpt-web"
+}

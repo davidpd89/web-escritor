@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791370633196",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pedalazos de un contador de cuentos: 01 (Viajes y aventuras), de Nelson Caro, se orienta a lectores interesados en los viajes y las aventuras vinculadas al desplazamiento. Sus 348 páginas en castellano responden a una lectura de cierta extensión, frente a quienes buscan un cuaderno breve de actividades para organizar sus propias escapadas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Letrame S.l. contiene las 348 páginas de Pedalazos de un contador de cuentos: 01 (Viajes y aventuras). Puede llevarse en una mochila durante los desplazamientos y permite retomar la lectura sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diario de viajes (Viaje y aventura), de Varios autores, comparte con Pedalazos de un contador de cuentos: 01 (Viajes y aventuras) el interés por los desplazamientos, aunque el primero se presenta como diario y el segundo alude a cuentos. Mi biblioteca Julio Verne (Julio Verne para niños): Estuche con: Vuelta al mundo en 80 días y Veinte mil leguas de viaje submarino (Peques), de Julio Verne, reúne dos aventuras dirigidas al público infantil, mientras que la obra de Nelson Caro consta de 348 páginas dedicadas a viajes y aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408319207",
+        "isbn-9788427256972"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ffa9a7a85e86dc7c",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Astrología para el alma (Kepler), de Hans Thörn Durefelt y Martina Thörn Durefelt, se dirige a lectores interesados en desarrollo personal, bienestar y contenidos relacionados con la astrología. Quien busque ficción narrativa o una obra centrada en economía y empresa encontrará una propuesta de temática diferente.",
+      "texto": "Astrología para el alma (Kepler), de Hans Thörn Durefelt y Martina Thörn Durefelt, se orienta a lectores interesados en la astrología desde una perspectiva vinculada al desarrollo personal. Su temática se aleja de la narrativa de ficción y de los libros centrados exclusivamente en acontecimientos históricos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,12 +13,25 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne sus 216 páginas en una edición física de Kepler, mientras que Kindle permite leer el contenido en formato electrónico. El papel ofrece un ejemplar para consultar y conservar; la edición digital facilita llevar la lectura en un móvil o lector electrónico.",
+      "texto": "Astrología para el alma (Kepler) puede leerse en tapa blanda o Kindle. La edición física de Kepler reúne 216 páginas para leer y consultar en papel; la versión Kindle permite acceder al contenido desde un dispositivo compatible y evita transportar el volumen.",
       "evidencias": [
-        "numero_paginas",
+        "titulo",
         "formatos_disponibles",
-        "edicion",
+        "numero_paginas",
         "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Astrología para el alma (Kepler) y Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida, de Kelly Ann Street, coinciden en su orientación hacia el desarrollo personal. El primero aborda la astrología, mientras que el segundo plantea el trabajo con las heridas personales y la búsqueda de equilibrio emocional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410451988"
       ]
     }
   ],

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788467083880",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta edición de Orgullo y prejuicio. (Edición con cartel de serie): Con prológo de Dolly Alderton (Novela), de Jane Austen, se dirige a lectores de clásicos literarios. Su clasificación incluye historia y narrativa contemporánea, por lo que se aparta de las búsquedas centradas en manuales prácticos o divulgación técnica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Booket se presenta en tapa blanda y tamaño de libro de bolsillo, con 368 páginas. Es una opción impresa que ocupa menos espacio que los volúmenes de mayor tamaño y permite llevar la novela en el bolso o la mochila sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Orgullo y prejuicio. Edición ilustrada comparte obra y autoría con Orgullo y prejuicio. (Edición con cartel de serie): Con prológo de Dolly Alderton (Novela), de Jane Austen. La primera se distingue por su presentación ilustrada; la segunda, por incorporar un prólogo de Dolly Alderton y un cartel de serie en su edición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388220203",
+        "isbn-9788467070835"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "181304f2bff3ddf8",
+  "origen": "chatgpt-web"
+}

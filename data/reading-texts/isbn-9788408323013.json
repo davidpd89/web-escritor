@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408323013",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡Feliz Navidad, Geronimo!: 107 (Geronimo Stilton) se dirige a lectores infantiles que disfrutan del humor, la amistad y las historias ambientadas en Navidad. Su orientación infantil lo diferencia de las novelas navideñas para adultos y de los relatos que buscan un tono más serio.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¡Feliz Navidad, Geronimo!: 107 (Geronimo Stilton) cuenta con una edición en tapa blanda de 128 páginas, publicada en castellano. Su extensión permite repartir la lectura en varias sesiones, y la cubierta flexible facilita transportarlo en una mochila.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¡Es Navidad, Stilton!, de Geronimo Stilton, comparte con ¡Feliz Navidad, Geronimo!: 107 (Geronimo Stilton) la autoría y el ambiente navideño. Sorpresa en la nieve: 108 (Geronimo Stilton) pertenece a la misma serie, pero su título remite a la nieve; además, el título identifica ¡Feliz Navidad, Geronimo! como el n.º 107 y Sorpresa en la nieve como el n.º 108.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329992",
+        "isbn-9788408163107"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2ab78f3bac364045",
+  "origen": "chatgpt-web"
+}

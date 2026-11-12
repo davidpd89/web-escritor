@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Eres lo que piensas: (no lo que piensas que eres) (Crecimiento personal), de Miguel de Lucas, se dirige a lectores interesados en la relación entre pensamiento, identidad y crecimiento personal desde el ámbito de la psicología. Su orientación ensayística lo diferencia de una novela de ficción o de una guía centrada en problemas médicos específicos.",
+      "texto": "Eres lo que piensas: (no lo que piensas que eres) (Crecimiento personal) se dirige a lectores interesados en el desarrollo personal y la relación entre pensamiento e identidad. Es un ensayo de Miguel de Lucas situado en el ámbito de la psicología, no una novela de ficción ni un manual sobre una disciplina ajena al comportamiento humano.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,12 +13,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Eres lo que piensas: (no lo que piensas que eres) (Crecimiento personal) tiene 250 páginas y se publica en tapa blanda. Esta edición permite subrayar ideas y volver a pasajes concretos durante la lectura, una forma de uso relacionada con su enfoque de ensayo psicológico y crecimiento personal.",
+      "texto": "La edición de Eres lo que piensas: (no lo que piensas que eres) (Crecimiento personal) se presenta en tapa blanda, con 250 páginas en castellano. Este formato permite consultar y subrayar pasajes en papel sin recurrir a un dispositivo electrónico; su extensión también permite organizar la lectura en varias sesiones.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "categorias"
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia comparte con Eres lo que piensas: (no lo que piensas que eres) (Crecimiento personal) el interés por el desarrollo personal, aunque el primero centra su título en la infancia y el segundo en el pensamiento y la identidad. Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio. plantea un método de trabajo, frente al enfoque ensayístico de Miguel de Lucas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206",
+        "isbn-9788409924059"
       ]
     }
   ],

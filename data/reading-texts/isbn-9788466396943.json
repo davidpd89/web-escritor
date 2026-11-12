@@ -4,23 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sonetos del amor oscuro y Diván del Tamarit (Best Seller | Ediciones Conmemorativas) está dirigido a lectores de poesía interesados en el amor y las relaciones afectivas. Federico García Lorca reúne dos conjuntos poéticos en una edición de 88 páginas, distinta de una novela romántica construida mediante una narración continua.",
+      "texto": "Sonetos del amor oscuro y Diván del Tamarit (Best Seller | Ediciones Conmemorativas) se dirige a lectores de poesía interesados en el amor y las relaciones afectivas. Por su naturaleza poética, no responde a la búsqueda de una novela con trama continuada ni de un manual sobre relaciones de pareja.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura de Sonetos del amor oscuro y Diván del Tamarit (Best Seller | Ediciones Conmemorativas) contiene 88 páginas en castellano. Su extensión permite llevar el volumen físico para leer poemas por separado, mientras que la encuadernación rígida facilita conservar esta edición de Penguin Bolsillo.",
+      "texto": "Sonetos del amor oscuro y Diván del Tamarit (Best Seller | Ediciones Conmemorativas) se publica en tapa dura, con 88 páginas en castellano. La cubierta rígida favorece su conservación y presentación como regalo, mientras que su extensión permite leerlo en sesiones breves. Esta edición pertenece a Penguin Bolsillo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sonetos del amor oscuro y Diván del Tamarit (Best Seller | Ediciones Conmemorativas) puede compararse con Romancero gitano (VINTAGE), también de Federico García Lorca. Los dos pertenecen a su producción poética, aunque el primero reúne obras identificadas como sonetos y diván, mientras el segundo se presenta como romancero. También comparten autoría con Poeta en Nueva York (edición especial con cantos tintados) (Literatura ilustrada), que incorpora a Ricardo Cavolo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388220272",
+        "isbn-9791388435157"
       ]
     }
   ],

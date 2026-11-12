@@ -4,23 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El incidente Darwin 9 (Seinen) se dirige a lectores de manga interesados en la ciencia ficción y la fantasía dentro del cómic y la novela gráfica. Su identificación como seinen y su formato de 160 páginas lo diferencian de una novela convencional en prosa; el título lo identifica como el n.º 9.",
+      "texto": "El incidente Darwin 9 (Seinen), de Shun Umezawa, se dirige a lectores de ciencia ficción que prefieren seguir sus historias mediante el cómic. Su combinación de fantasía y ciencia ficción lo aleja de quienes buscan narrativa realista sin elementos especulativos.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El incidente Darwin 9 (Seinen) está disponible en tapa blanda, con 160 páginas publicadas por Distrito Manga en castellano. La edición física permite seguir la lectura del cómic sobre papel y conservar el volumen junto a otros números de la serie.",
+      "texto": "La edición de El incidente Darwin 9 (Seinen) está disponible en tapa blanda, con 160 páginas en castellano. Este formato permite conservar el volumen en una colección física de cómics y consultarlo sin depender de dispositivos electrónicos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
         "idioma",
         "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El incidente Darwin 1 (Seinen): Universo Manga comparte autoría con El incidente Darwin 9 (Seinen), pues ambos son de Shun Umezawa. En cambio, 7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica), de Francisco Ibáñez, ofrece otra línea de cómic, identificada por su título con el humor, frente a la ciencia ficción del volumen de Shun Umezawa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962791",
+        "isbn-9788402431790"
       ]
     }
   ],

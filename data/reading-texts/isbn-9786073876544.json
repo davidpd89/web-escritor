@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073876544",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan un recetario de cocina relacionado con la independencia cotidiana, tal como indica el título de Abue Angie. Su orientación culinaria lo diferencia de los ensayos sobre nutrición, los libros de historia gastronómica y las obras de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda presenta las 120 páginas del recetario en papel, una opción para tenerlo a mano mientras se cocina. Su extensión permite localizar y volver a consultar contenidos en un volumen físico sin utilizar el móvil.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Recetario para mis nietecitos independientes / Cookbook for My Independent Grandkids y Arroz (Comerse el mundo), de Tove Nilsson, comparten el interés por la cocina. El libro de Abue Angie se presenta como un recetario para nietos independientes, mientras que Arroz (Comerse el mundo) centra su propuesta en un alimento concreto. Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA), de David Villalón y Mario Villalón, amplía el ámbito hacia las bebidas y la huerta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934293",
+        "isbn-9788419483898"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3ec671bca6bae38f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409913183",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "KUNDALINI ES RESONANCIA: El sorprendente encaje entre la Física y el Yoga se orienta a lectores interesados en las relaciones propuestas entre el yoga, la física y el bienestar. Su combinación temática lo diferencia de los manuales dedicados exclusivamente al ejercicio físico o de los textos centrados únicamente en una disciplina científica. La autoría corresponde a Chakor Gracia Segura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de KUNDALINI ES RESONANCIA: El sorprendente encaje entre la Física y el Yoga contiene 482 páginas en castellano. Es una edición física extensa, adecuada para consultar por separado las cuestiones relacionadas con la física y el yoga. Por su volumen, resulta más cómoda para mantenerla en un lugar habitual de lectura que para transportarla a diario.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "KUNDALINI ES RESONANCIA: El sorprendente encaje entre la Física y el Yoga puede compararse con La teoría sintérgica (Edición Tapa Dura ) / The Synergistic Theory por su interés en planteamientos teóricos. Chakor Gracia Segura vincula expresamente física y yoga en su título, mientras que la obra de Jacobo Grinberg-Zylberbaum se presenta alrededor de una teoría sintérgica y señala una edición en tapa dura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876148"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8ee1c7aad183ae65",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410164567",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El manual del horóscopo chino (KITSUNE BOOKS) se dirige a lectores interesados en el horóscopo chino y en obras relacionadas con el desarrollo personal. Con 552 páginas, requiere más tiempo de lectura que una introducción breve y encaja menos con quien busca una novela o un manual centrado exclusivamente en nutrición.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El manual del horóscopo chino (KITSUNE BOOKS) está disponible en tapa blanda, con 552 páginas en castellano. Por su extensión, resulta más cómodo mantenerlo en casa para leerlo o consultarlo por partes que transportarlo continuamente, aunque la encuadernación flexible facilita su manejo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El manual del horóscopo chino (KITSUNE BOOKS) y 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito se relacionan con el desarrollo personal, pero parten de enfoques distintos. Theodora Lau y Laura Lau se centran en el horóscopo chino, mientras que Liz Moody presenta propuestas vinculadas con la salud, la felicidad y las relaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a2f40d2f208046a6",
+  "origen": "chatgpt-web"
+}

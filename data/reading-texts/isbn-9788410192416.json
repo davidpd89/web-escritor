@@ -4,20 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Clave para identificar anfibios se dirige a lectores interesados en reconocer anfibios y dedicar parte de su tiempo libre a esta actividad. Su planteamiento de identificación de animales se diferencia de los libros de colorear, dibujo y otras actividades creativas.",
+      "texto": "Clave para identificar anfibios está orientado a lectores interesados en reconocer anfibios y dedicar parte de su tiempo libre a esta actividad. Por su finalidad de identificación, no responde a quienes buscan una novela de aventuras o una obra de ficción protagonizada por animales.",
       "evidencias": [
         "titulo",
         "categorias",
-        "afines_catalogo"
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Clave para identificar anfibios cuenta con una edición de tapa blanda de 48 páginas. Su extensión breve facilita llevar el volumen en papel y consultar las claves de identificación durante una actividad relacionada con los anfibios.",
+      "texto": "La edición de Sociedad de Ciencias Aranzadi consta de 48 páginas en castellano y se presenta en tapa blanda. Su extensión reducida permite transportarla para consultar las claves de identificación de anfibios, además de utilizarla como referencia en casa.",
+      "evidencias": [
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "80 crímenes imposibles de resolver (FUERA DE ESCENA), de Gareth Moore y Laura Jayne Ayres, comparte con Clave para identificar anfibios una orientación hacia la resolución de cuestiones concretas, aunque trata enigmas criminales en lugar de identificar animales. Agatha Christie. ¿Quién lo hizo? Resuelve los casos más famosos de la Reina del Crimen (FICCIÓN), de Sarah Dvojack, también propone resolver casos, frente al enfoque naturalista de Ion Garin Barrio, Iñaki Romero Iraola e Iñaki Sanz Azkue.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388015816",
+        "isbn-9791259578907"
       ]
     }
   ],
