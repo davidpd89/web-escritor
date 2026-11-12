@@ -29,6 +29,26 @@ class RecoveryTests(unittest.TestCase):
    repo.git('push','-q','origin',commit+':refs/heads/main')
    self.assertIsNone(refresh.carry(branch,root=repo.work))
    self.assertEqual(repo.git('status','--porcelain'),'')
+ def test_new_pending_candidates_survive_even_if_all_books_are_already_published(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   repo=Repo(tmp);branch='automation/reading-catalogue-2026-11-12-pending-only'
+   repo.bot_batch(branch)
+   repo.main_moves({CATALOGUE:books('a','b','c','d','e','f','nuevo1','nuevo2','main-book')})
+   self.assertEqual(refresh.carry(branch,root=repo.work),[])
+   state=json.loads((repo.work/'data/reading-intake-state.json').read_text())
+   self.assertEqual(state['pending'],['9788400000000'])
+   self.assertEqual(repo.git('diff','--name-only','HEAD'),'data/reading-intake-state.json')
+ def test_published_state_does_not_reactivate_a_book_main_quarantined(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   repo=Repo(tmp);branch='automation/reading-catalogue-2026-11-12-held'
+   repo.git('switch','-q','-c',branch,'origin/main')
+   data=json.loads(books('a','b','c','d','e','f'))
+   book={'id':'isbn-9780241838044','isbn13':'9780241838044','titulo':'Visual'};data['libros'].append(book)
+   repo.write({CATALOGUE:json.dumps(data),'data/reading-intake-state.json':json.dumps({'items':{'isbn13:9780241838044':{'estado_ingesta':'publicado','libro_id':book['id']}}})})
+   repo.commit('source');repo.git('push','-q','origin',branch);repo.git('switch','-q','--detach','origin/main')
+   repo.main_moves({CATALOGUE:books('a','b','c','d','e','f','main-book'),'data/reading-quarantine.json':json.dumps({'libros':[{'libro':book}]})})
+   self.assertIsNone(refresh.carry(branch,root=repo.work))
+   self.assertEqual(repo.git('status','--porcelain'),'')
  def test_original_provenance_is_carried_and_other_records_are_not_replaced(self):
   with tempfile.TemporaryDirectory() as tmp:
    repo=Repo(tmp);branch='automation/reading-catalogue-2026-11-12-evidence'

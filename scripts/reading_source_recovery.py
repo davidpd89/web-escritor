@@ -30,8 +30,6 @@ def recover(root, source, base, latest):
     known = {b['id'] for b in current['libros']} | {b['id'] for b in original['libros']}
     known |= {h['libro']['id'] for h in held.get('libros', [])}
     additions = [b for b in previous['libros'] if b['id'] not in known]
-    if not additions:
-        return None
     ids = {b['id'] for b in additions}
     changed = {}
     current['libros'].extend(additions)
@@ -43,7 +41,8 @@ def recover(root, source, base, latest):
         if not required <= {c['id'] for c in current['categorias']}:
             raise ValueError('La recuperación carece de categorías fuente')
         current.setdefault('libro_categorias', []).extend(relations)
-    changed[path] = current
+    if additions:
+        changed[path] = current
     # El importador exige procedencia publicada para cada alta ISBN; se traslada el registro original.
     state_path = 'data/reading-intake-state.json'
     state = document(root, latest, state_path, {'schema_version': 1, 'items': {}})
@@ -55,11 +54,13 @@ def recover(root, source, base, latest):
         evidence = old_state.get('items', {}).get(key, {})
         if evidence.get('estado_ingesta') != 'publicado' or evidence.get('libro_id') != book['id']:
             raise ValueError('La recuperación no tiene procedencia publicada: ' + book['id'])
-        state['items'][key] = evidence
+        state.setdefault('items', {})[key] = evidence
     base_state = document(root, base, state_path, {'items': {}})
     # También conservamos candidatos nuevos pendientes; no resucitamos los retirados por main.
     pending_added = False
     for key, item in old_state.get('items', {}).items():
+        if item.get('estado_ingesta') == 'publicado':
+            continue  # altas ya trasladadas arriba; no reactivar libros retirados/cuarentenados
         if key not in state.get('items', {}) and key not in base_state.get('items', {}):
             state.setdefault('items', {})[key] = item
             pending_added = True
@@ -98,7 +99,7 @@ def recover(root, source, base, latest):
             if isinstance(value, str) and value.startswith('/assets/reading-audio/'):
                 explicit.add(value.lstrip('/'))
     entries = []
-    for row in git(root, 'ls-tree', '-r', '-z', source, '--', 'assets/reading-covers', 'assets/reading-audio').split(b'\0'):
+    for row in (git(root, 'ls-tree', '-r', '-z', source, '--', 'assets/reading-covers', 'assets/reading-audio').split(b'\0') if additions else []):
         if not row:
             continue
         meta, raw_path = row.split(b'\t', 1)
@@ -130,4 +131,4 @@ def recover(root, source, base, latest):
     for target, sha in entries:
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(blobs[sha])
-    return sorted(ids)
+    return sorted(ids) if changed else None
