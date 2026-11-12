@@ -1,23 +1,23 @@
 {
- "generado": "2026-11-11T10:27:23+00:00",
- "publicados": 2839,
+ "generado": "2026-11-12T02:15:03+00:00",
+ "publicados": 3037,
  "secciones": {
   "portadas_tipograficas": {
-   "total": 280,
-   "proximos": 213,
+   "total": 274,
+   "proximos": 198,
    "por_mes": {
     "2027-08": 1,
-    "2027-05": 4,
-    "2027-04": 8,
+    "2027-05": 3,
+    "2027-04": 7,
     "2027-03": 4,
-    "2027-02": 93,
-    "2027-01": 51,
-    "2026-12": 11,
-    "2026-11": 91,
+    "2027-02": 83,
+    "2027-01": 42,
+    "2026-12": 9,
+    "2026-11": 109,
     "2026-10": 9,
     "2026-09": 1,
     "2026-08": 3,
-    "2026-06": 1
+    "2025-08": 1
    },
    "muestra": [
     {
@@ -43,14 +43,6 @@
      "editorial": "Norma Editorial",
      "fecha_publicacion": "2026-09-21",
      "fuente": "https://www.todostuslibros.com/libros/la-mazmorra-integral-1-nuevo-pvp_978-84-679-8496-5"
-    },
-    {
-     "id": "isbn-9786287880740",
-     "titulo": "Historia oficial del amor (Ed. Conmemorativa) / Official History of Love (Commemorative Edition)",
-     "isbn13": "9786287880740",
-     "editorial": "Alfaguara",
-     "fecha_publicacion": "2027-05-04",
-     "fuente": "https://www.amazon.es/dp/6287880740"
     },
     {
      "id": "isbn-9789585573895",
@@ -99,14 +91,6 @@
      "editorial": "Alfaguara",
      "fecha_publicacion": "2027-04-06",
      "fuente": "https://www.amazon.es/dp/6287880627"
-    },
-    {
-     "id": "isbn-9786287880610",
-     "titulo": "Caperucita se come al lobo / Little Red Riding Hood Eats the Wolf",
-     "isbn13": "9786287880610",
-     "editorial": "Alfaguara",
-     "fecha_publicacion": "2027-04-06",
-     "fuente": "https://www.amazon.es/dp/6287880619"
     },
     {
      "id": "isbn-9786287880603",
@@ -219,17 +203,33 @@
      "editorial": "Reservoir Books",
      "fecha_publicacion": "2027-02-25",
      "fuente": "https://www.amazon.es/dp/B0HNWD6Q9K"
+    },
+    {
+     "id": "isbn-9788425377105",
+     "titulo": "El cuerpo equivocado (Novela de intriga)",
+     "isbn13": "9788425377105",
+     "editorial": "Grijalbo",
+     "fecha_publicacion": "2027-02-25",
+     "fuente": "https://www.amazon.es/dp/8425377102"
+    },
+    {
+     "id": "isbn-9788425363061",
+     "titulo": "Quemar grasa no es perder grasa: Guía práctica de 4 semanas para decir adiós a la ansiedad y a los antojos​ (Bienestar, salud y vida sana)",
+     "isbn13": "9788425363061",
+     "editorial": "Grijalbo",
+     "fecha_publicacion": "2027-02-25",
+     "fuente": "https://www.amazon.es/dp/8425363063"
     }
    ]
   },
   "formatos_sin_precio": {
-   "total": 31,
-   "libros": 20,
+   "total": 351,
+   "libros": 257,
    "por_formato": {
-    "tapa-blanda": 14,
-    "ebook": 8,
-    "audiolibro": 6,
-    "tapa-dura": 3
+    "ebook": 136,
+    "tapa-blanda": 82,
+    "audiolibro": 71,
+    "tapa-dura": 62
    },
    "muestra": [
     {
@@ -269,6 +269,24 @@
      "url": "https://www.amazon.es/dp/8432021164?tag=davidporto-21"
     },
     {
+     "id": "isbn-9788466380096",
+     "titulo": "Quizá sí quiero (edición limitada · Verano) (Quererte 2)",
+     "isbn13": "9788466380096",
+     "editorial": "Penguin Bolsillo",
+     "fecha_publicacion": "2026-06-04",
+     "formato": "ebook",
+     "url": "https://www.amazon.es/dp/B0D1VQLQ1S?tag=davidporto-21"
+    },
+    {
+     "id": "isbn-9788466380096",
+     "titulo": "Quizá sí quiero (edición limitada · Verano) (Quererte 2)",
+     "isbn13": "9788466380096",
+     "editorial": "Penguin Bolsillo",
+     "fecha_publicacion": "2026-06-04",
+     "formato": "audiolibro",
+     "url": "https://www.amazon.es/dp/B0H9NZN1YX?tag=davidporto-21"
+    },
+    {
      "id": "isbn-9788427257627",
      "titulo": "La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados)",
      "isbn13": "9788427257627",
@@ -296,6 +314,15 @@
      "url": "https://www.amazon.es/dp/B0H79N1FH7?tag=davidporto-21"
     },
     {
+     "id": "isbn-9791388306181",
+     "titulo": "El secreto mejor guardado del gran Museo del Prado",
+     "isbn13": "9791388306181",
+     "editorial": "Nórdica Libros",
+     "fecha_publicacion": "2026-10-05",
+     "formato": "ebook",
+     "url": "https://www.amazon.es/dp/B0HLS8N3P1?tag=davidporto-21"
+    },
+    {
      "id": "isbn-9791388042775",
      "titulo": "Un deseo para cada día",
      "isbn13": "9791388042775",
@@ -312,6 +339,15 @@
      "fecha_publicacion": "2026-10-29",
      "formato": "audiolibro",
      "url": "https://www.amazon.es/dp/B09NPBQBXN?tag=davidporto-21"
+    },
+    {
+     "id": "isbn-9791388306266",
+     "titulo": "Retratos literarios",
+     "isbn13": "9791388306266",
+     "editorial": "Nórdica Libros",
+     "fecha_publicacion": "2026-09-28",
+     "formato": "ebook",
+     "url": "https://www.amazon.es/dp/B0HLSHGMDV?tag=davidporto-21"
     },
     {
      "id": "isbn-9791388279263",
@@ -420,47 +456,11 @@
      "fecha_publicacion": "2027-01-28",
      "formato": "ebook",
      "url": "https://www.amazon.es/dp/B0DT4PSPY5?tag=davidporto-21"
-    },
-    {
-     "id": "isbn-9791388222856",
-     "titulo": "Perdiendo el control (edición especial) (Windy City 3)",
-     "isbn13": "9791388222856",
-     "editorial": "Montena",
-     "fecha_publicacion": "2027-01-28",
-     "formato": "audiolibro",
-     "url": "https://www.amazon.es/dp/B0FPTFMDFV?tag=davidporto-21"
-    },
-    {
-     "id": "isbn-9791388417757",
-     "titulo": "Rozando el cielo (edición especial) (Windy City 1)",
-     "isbn13": "9791388417757",
-     "editorial": "Montena",
-     "fecha_publicacion": "2027-01-28",
-     "formato": "tapa-blanda",
-     "url": "https://www.amazon.es/dp/8419848263?tag=davidporto-21"
-    },
-    {
-     "id": "isbn-9791388417757",
-     "titulo": "Rozando el cielo (edición especial) (Windy City 1)",
-     "isbn13": "9791388417757",
-     "editorial": "Montena",
-     "fecha_publicacion": "2027-01-28",
-     "formato": "ebook",
-     "url": "https://www.amazon.es/dp/B0CJ4KC1Y4?tag=davidporto-21"
-    },
-    {
-     "id": "isbn-9791388417757",
-     "titulo": "Rozando el cielo (edición especial) (Windy City 1)",
-     "isbn13": "9791388417757",
-     "editorial": "Montena",
-     "fecha_publicacion": "2027-01-28",
-     "formato": "audiolibro",
-     "url": "https://www.amazon.es/dp/B0FFNH3V12?tag=davidporto-21"
     }
    ]
   },
   "sin_formatos_de_compra": {
-   "total": 59,
+   "total": 36,
    "muestra": [
     {
      "id": "isbn-9788408326861",
@@ -484,32 +484,11 @@
      "fecha_publicacion": "2026-09-21"
     },
     {
-     "id": "isbn-9788434441309",
-     "titulo": "50 cosas que hay que saber sobre IA",
-     "isbn13": "9788434441309",
-     "editorial": "Editorial Ariel",
-     "fecha_publicacion": "2027-01-20"
-    },
-    {
-     "id": "isbn-9788433952066",
-     "titulo": "Atlas de Xochimilco",
-     "isbn13": "9788433952066",
-     "editorial": "Editorial Anagrama",
-     "fecha_publicacion": "2027-01-20"
-    },
-    {
      "id": "isbn-9788408322924",
      "titulo": "Escuadrón K 1. Sin límites. Edición manga",
      "isbn13": "9788408322924",
      "editorial": "Destino Infantil & Juvenil",
      "fecha_publicacion": "2027-03-03"
-    },
-    {
-     "id": "isbn-9788411617765",
-     "titulo": "El arte de Haikyû!!",
-     "isbn13": "9788411617765",
-     "editorial": "Planeta Cómic",
-     "fecha_publicacion": "2027-05-05"
     },
     {
      "id": "isbn-9791399190519",
@@ -603,13 +582,6 @@
      "fecha_publicacion": "2026-11-03"
     },
     {
-     "id": "isbn-9788427151802",
-     "titulo": "La vida en los tiempos bíblicos (Fuera de colección)",
-     "isbn13": "9788427151802",
-     "editorial": "Ediciones Mensajero",
-     "fecha_publicacion": "2026-11-01"
-    },
-    {
      "id": "isbn-9798890989871",
      "titulo": "No soy Robot / I Am Not a Robot",
      "isbn13": "9798890989871",
@@ -617,42 +589,70 @@
      "fecha_publicacion": "2026-10-20"
     },
     {
-     "id": "isbn-9788409923434",
-     "titulo": "La mirada verde",
-     "isbn13": "9788409923434",
-     "editorial": "Esteban Vilches Lozano",
-     "fecha_publicacion": "2026-11-07"
+     "id": "isbn-9788419608581",
+     "titulo": "Ubi sunt? Pisha (Edición 25 aniversario): El libro del bizco Durán",
+     "isbn13": "9788419608581",
+     "editorial": "Q-book Cultura Integral, S.l.",
+     "fecha_publicacion": "2026-11-02"
     },
     {
-     "id": "isbn-9788410192416",
-     "titulo": "Clave para identificar anfibios",
-     "isbn13": "9788410192416",
-     "editorial": "Sociedad de Ciencias Aranzadi",
-     "fecha_publicacion": "2026-11-10"
+     "id": "isbn-9798890989819",
+     "titulo": "Sanguinaria / Daggermouth (Corazón)",
+     "isbn13": "9798890989819",
+     "editorial": "Plaza & Janés",
+     "fecha_publicacion": "2026-10-20"
     },
     {
-     "id": "isbn-9791387708528",
-     "titulo": "Kama Sutra mágico",
-     "isbn13": "9791387708528",
-     "editorial": "LU Ediciones",
-     "fecha_publicacion": "2026-11-05"
+     "id": "isbn-9798890984005",
+     "titulo": "La única manera de bailar / The Only Way to Dance",
+     "isbn13": "9798890984005",
+     "editorial": "Vintage Espanol",
+     "fecha_publicacion": "2026-08-18"
+    },
+    {
+     "id": "isbn-9791388396397",
+     "titulo": "El código de Dios: La ley del universo para que las cosas sucedan (Enigma)",
+     "isbn13": "9791388396397",
+     "editorial": "Arcopress",
+     "fecha_publicacion": "2026-11-17"
+    },
+    {
+     "id": "isbn-9791388330124",
+     "titulo": "Aunque el cielo se desmorone (Tríada 3)",
+     "isbn13": "9791388330124",
+     "editorial": "Ediciones Kiwi",
+     "fecha_publicacion": "2026-11-11"
+    },
+    {
+     "id": "isbn-9791399129878",
+     "titulo": "Los tristes del Paseo",
+     "isbn13": "9791399129878",
+     "editorial": "Editorial Tleo",
+     "fecha_publicacion": "2026-11-11"
+    },
+    {
+     "id": "isbn-9788448271831",
+     "titulo": "Jaime I, un viaje documental y visual",
+     "isbn13": "9788448271831",
+     "editorial": "Generalitat Valenciana",
+     "fecha_publicacion": "2026-11-16"
     }
    ]
   },
   "sin_texto": {
-   "total": 1996,
-   "proximos": 1436,
+   "total": 2194,
+   "proximos": 1418,
    "por_mes": {
     "2027-09": 1,
     "2027-08": 1,
     "2027-05": 10,
     "2027-04": 14,
     "2027-03": 51,
-    "2027-02": 249,
-    "2027-01": 351,
+    "2027-02": 250,
+    "2027-01": 352,
     "2026-12": 106,
-    "2026-11": 1041,
-    "2026-10": 120,
+    "2026-11": 1236,
+    "2026-10": 121,
     "2026-09": 24,
     "2026-08": 4
    },
@@ -840,10 +840,10 @@
   }
  },
  "cambio": {
-  "portadas_tipograficas": 21,
-  "formatos_sin_precio": 0,
-  "sin_formatos_de_compra": 7,
-  "sin_texto": 199,
+  "portadas_tipograficas": -6,
+  "formatos_sin_precio": 320,
+  "sin_formatos_de_compra": -23,
+  "sin_texto": 198,
   "portada_sin_fichero": 0
  },
  "amazon": {
@@ -854,11 +854,39 @@
   "oportunidades": [],
   "sin_portada_en_amazon": [
    {
+    "id": "isbn-9791399308709",
+    "titulo": "Diversos: Antología de relatos - Primer Premio de Relatos ­Fundación Las Fuentes: 1",
+    "isbn13": "9791399308709",
+    "editorial": "Editorial Graviola",
+    "fecha_publicacion": "2026-11-12"
+   },
+   {
+    "id": "isbn-9791399320206",
+    "titulo": "Las baterías del amor",
+    "isbn13": "9791399320206",
+    "editorial": "Nueva Eva",
+    "fecha_publicacion": "2026-11-12"
+   },
+   {
     "id": "isbn-9788419461438",
     "titulo": "Casos clínicos internacionales en salud de la mujer",
     "isbn13": "9788419461438",
     "editorial": "International Marketing & Communication, S.a. (im&c)",
     "fecha_publicacion": "2026-11-11"
+   },
+   {
+    "id": "isbn-9788419930279",
+    "titulo": "Madres: 20 (Clásicos modernos)",
+    "isbn13": "9788419930279",
+    "editorial": "Caleidoscopio de Libros, S.l.",
+    "fecha_publicacion": "2026-11-13"
+   },
+   {
+    "id": "isbn-9788449602122",
+    "titulo": "Madrid siglo 21: Arquitectura Urbanismo Paisaje",
+    "isbn13": "9788449602122",
+    "editorial": "Tanais.architecta",
+    "fecha_publicacion": "2026-11-13"
    },
    {
     "id": "isbn-9789877713367",
@@ -872,6 +900,34 @@
     "titulo": "Un hilo interminable: Principios psíquicos del Trauma Transgeneracional",
     "isbn13": "9791399279115",
     "editorial": "Talaiar Edicions",
+    "fecha_publicacion": "2026-11-11"
+   },
+   {
+    "id": "isbn-9791399155754",
+    "titulo": "El Mago de Oz: 1 (Desafiando a Oz)",
+    "isbn13": "9791399155754",
+    "editorial": "Kabo&bero Ediciones",
+    "fecha_publicacion": "2026-11-13"
+   },
+   {
+    "id": "isbn-9791399129878",
+    "titulo": "Los tristes del Paseo",
+    "isbn13": "9791399129878",
+    "editorial": "Editorial Tleo",
+    "fecha_publicacion": "2026-11-11"
+   },
+   {
+    "id": "isbn-9786316714107",
+    "titulo": "La elegancia animal",
+    "isbn13": "9786316714107",
+    "editorial": "Cactus",
+    "fecha_publicacion": "2026-11-11"
+   },
+   {
+    "id": "isbn-9789874441768",
+    "titulo": "Una familia no es un clan",
+    "isbn13": "9789874441768",
+    "editorial": "Letras del SUR",
     "fecha_publicacion": "2026-11-11"
    },
    {
@@ -896,13 +952,6 @@
     "fecha_publicacion": "2026-11-10"
    },
    {
-    "id": "isbn-9791399308709",
-    "titulo": "Diversos: Antología de relatos - Primer Premio de Relatos ­Fundación Las Fuentes: 1",
-    "isbn13": "9791399308709",
-    "editorial": "Editorial Graviola",
-    "fecha_publicacion": "2026-11-12"
-   },
-   {
     "id": "isbn-9788410279636",
     "titulo": "La luna en el cuenco roto: 6 (Artemisa de poesía)",
     "isbn13": "9788410279636",
@@ -924,11 +973,11 @@
     "fecha_publicacion": "2026-11-10"
    },
    {
-    "id": "isbn-9791399320206",
-    "titulo": "Las baterías del amor",
-    "isbn13": "9791399320206",
-    "editorial": "Nueva Eva",
-    "fecha_publicacion": "2026-11-12"
+    "id": "isbn-9791399178555",
+    "titulo": "Bajo la estela de un legado",
+    "isbn13": "9791399178555",
+    "editorial": "Fílide Ediciones",
+    "fecha_publicacion": "2026-11-14"
    },
    {
     "id": "isbn-9791388581106",
@@ -943,55 +992,6 @@
     "isbn13": "9788410172968",
     "editorial": "Editum. Ediciones de la Universidad de Murcia",
     "fecha_publicacion": "2026-11-10"
-   },
-   {
-    "id": "isbn-9788428575713",
-    "titulo": "Mis amigos del cielo (Pequelibros)",
-    "isbn13": "9788428575713",
-    "editorial": "Editorial San Pablo",
-    "fecha_publicacion": "2026-11-10"
-   },
-   {
-    "id": "isbn-9788410279643",
-    "titulo": "El reloj del minotauro: 6 (Artemisa de primer poemario)",
-    "isbn13": "9788410279643",
-    "editorial": "Calixto Torres Perales",
-    "fecha_publicacion": "2026-11-10"
-   },
-   {
-    "id": "isbn-9788412986938",
-    "titulo": "El Inicio de una nueva historia y la aparición del hombre nuevo",
-    "isbn13": "9788412986938",
-    "editorial": "Editorial Cuadernos para la Paz",
-    "fecha_publicacion": "2026-11-09"
-   },
-   {
-    "id": "isbn-9788412792584",
-    "titulo": "Lo personal es político: 16 (NARRATIVA)",
-    "isbn13": "9788412792584",
-    "editorial": "Sabina Editorial S.l.",
-    "fecha_publicacion": "2026-11-09"
-   },
-   {
-    "id": "isbn-9788419943576",
-    "titulo": "Río en blanco: 70 (ποίησις [poíesis])",
-    "isbn13": "9788419943576",
-    "editorial": "Libros de la Resistencia",
-    "fecha_publicacion": "2026-11-09"
-   },
-   {
-    "id": "isbn-9788419930279",
-    "titulo": "Madres: 20 (Clásicos modernos)",
-    "isbn13": "9788419930279",
-    "editorial": "Caleidoscopio de Libros, S.l.",
-    "fecha_publicacion": "2026-11-13"
-   },
-   {
-    "id": "isbn-9788449602122",
-    "titulo": "Madrid siglo 21: Arquitectura Urbanismo Paisaje",
-    "isbn13": "9788449602122",
-    "editorial": "Tanais.architecta",
-    "fecha_publicacion": "2026-11-13"
    }
   ]
  }

@@ -533,197 +533,155 @@
   "cola": [
     {
       "consulta": "Lumen",
-      "nivel": 2,
-      "nodo": "12942346031",
+      "nivel": 3,
+      "nodo": "202413820031",
       "ruta": [
-        "Juvenil",
-        "Ciencia ficción y fantasía"
+        "Literatura y ficción",
+        "Ficción por género",
+        "Viajes en el tiempo"
+      ],
+      "sello": "Lumen"
+    },
+    {
+      "consulta": "Lumen",
+      "nivel": 3,
+      "nodo": "211757834031",
+      "ruta": [
+        "Literatura y ficción",
+        "Ficción por género",
+        "Viajes y vacaciones"
+      ],
+      "sello": "Lumen"
+    },
+    {
+      "consulta": "Lumen",
+      "nivel": 3,
+      "nodo": "14177638031",
+      "ruta": [
+        "Literatura y ficción",
+        "Ficción por género",
+        "Vida familiar"
+      ],
+      "sello": "Lumen"
+    },
+    {
+      "consulta": "Lumen",
+      "nivel": 3,
+      "nodo": "14177639031",
+      "ruta": [
+        "Literatura y ficción",
+        "Ficción por género",
+        "Vida urbana"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
       "nivel": 2,
-      "nodo": "12942139031",
+      "nodo": "30465606031",
       "ruta": [
-        "Juvenil",
-        "Ciencias sociales"
+        "Literatura y ficción",
+        "Ficción sobre discapacidad"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
       "nivel": 2,
-      "nodo": "12942103031",
+      "nodo": "902690031",
       "ruta": [
-        "Juvenil",
-        "Ciencia y tecnología"
+        "Literatura y ficción",
+        "Historia, teoría literaria y crítica"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
       "nivel": 2,
-      "nodo": "12942194031",
+      "nodo": "14177706031",
       "ruta": [
-        "Juvenil",
-        "Cómics y novelas gráficas"
+        "Literatura y ficción",
+        "Historias cortas y antologías"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
       "nivel": 2,
-      "nodo": "12942405031",
+      "nodo": "14177707031",
       "ruta": [
-        "Juvenil",
-        "Deportes y aire libre"
+        "Literatura y ficción",
+        "Humor y sátira"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
       "nivel": 2,
-      "nodo": "12942055031",
+      "nodo": "14177711031",
       "ruta": [
-        "Juvenil",
-        "Educación y consulta"
+        "Literatura y ficción",
+        "Literaria"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
       "nivel": 2,
-      "nodo": "12942066031",
+      "nodo": "14177712031",
       "ruta": [
-        "Juvenil",
-        "Historia"
+        "Literatura y ficción",
+        "Literatura antigua y medieval"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
       "nivel": 2,
-      "nodo": "12942168031",
+      "nodo": "14177717031",
       "ruta": [
-        "Juvenil",
-        "Hobbies y juegos"
+        "Literatura y ficción",
+        "Literatura española"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
       "nivel": 2,
-      "nodo": "12942297031",
+      "nodo": "14177718031",
       "ruta": [
-        "Juvenil",
-        "Misterio y suspense"
+        "Literatura y ficción",
+        "Literatura mundial"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
       "nivel": 2,
-      "nodo": "12942149031",
+      "nodo": "902684031",
       "ruta": [
-        "Juvenil",
-        "Novelas históricas"
+        "Literatura y ficción",
+        "Mitos, leyendas y sagas"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
       "nivel": 2,
-      "nodo": "12942337031",
+      "nodo": "902691031",
       "ruta": [
-        "Juvenil",
-        "Novelas románticas"
+        "Literatura y ficción",
+        "Poesía"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
       "nivel": 2,
-      "nodo": "12942184031",
+      "nodo": "902692031",
       "ruta": [
-        "Juvenil",
-        "Novelas y ficción literaria"
-      ],
-      "sello": "Lumen"
-    },
-    {
-      "consulta": "Lumen",
-      "nivel": 2,
-      "nodo": "12942111031",
-      "ruta": [
-        "Juvenil",
-        "Ordenadoes"
-      ],
-      "sello": "Lumen"
-    },
-    {
-      "consulta": "Lumen",
-      "nivel": 2,
-      "nodo": "12942320031",
-      "ruta": [
-        "Juvenil",
-        "Religión y espiritualidad"
-      ],
-      "sello": "Lumen"
-    },
-    {
-      "consulta": "Lumen",
-      "nivel": 2,
-      "nodo": "12942305031",
-      "ruta": [
-        "Juvenil",
-        "Salud personal"
-      ],
-      "sello": "Lumen"
-    },
-    {
-      "consulta": "Lumen",
-      "nivel": 2,
-      "nodo": "12942378031",
-      "ruta": [
-        "Juvenil",
-        "Temas sociales y familiares"
-      ],
-      "sello": "Lumen"
-    },
-    {
-      "consulta": "Lumen",
-      "nivel": 1,
-      "nodo": "902665031",
-      "ruta": [
-        "Lengua, lingüística y redacción"
-      ],
-      "sello": "Lumen"
-    },
-    {
-      "consulta": "Lumen",
-      "nivel": 1,
-      "nodo": "27198630031",
-      "ruta": [
-        "Libros LGBTQ+"
-      ],
-      "sello": "Lumen"
-    },
-    {
-      "consulta": "Lumen",
-      "nivel": 1,
-      "nodo": "902729031",
-      "ruta": [
-        "Libros y guías de viaje"
-      ],
-      "sello": "Lumen"
-    },
-    {
-      "consulta": "Lumen",
-      "nivel": 1,
-      "nodo": "902674031",
-      "ruta": [
-        "Literatura y ficción"
+        "Literatura y ficción",
+        "Teatro"
       ],
       "sello": "Lumen"
     },
@@ -1218,8 +1176,8 @@
   "errores": [],
   "grupos": {
     "lumen": {
-      "libros_es": 108,
-      "pendientes": 26
+      "libros_es": 264,
+      "pendientes": 21
     }
   },
   "hijos": {
@@ -1295,6 +1253,50 @@
       [
         "12942378031",
         "Temas sociales y familiares"
+      ]
+    ],
+    "12942337031": [
+      [
+        "12942345031",
+        "Ciencia ficción y distopías"
+      ],
+      [
+        "12942344031",
+        "Comedias románticas"
+      ],
+      [
+        "12942340031",
+        "Fantasía"
+      ],
+      [
+        "12942341031",
+        "Históricas"
+      ],
+      [
+        "12942342031",
+        "LGBTQ+"
+      ],
+      [
+        "12942339031",
+        "Novelas de amor contemporáneas"
+      ],
+      [
+        "12942338031",
+        "Novelas de amor para todos"
+      ],
+      [
+        "12942343031",
+        "Paranormal"
+      ]
+    ],
+    "12942346031": [
+      [
+        "12942373031",
+        "Ciencia ficción"
+      ],
+      [
+        "12942347031",
+        "Fantasía y terror"
       ]
     ],
     "1349107031": [
@@ -2243,6 +2245,40 @@
         "Teatro"
       ]
     ],
+    "902675031": [
+      [
+        "14177565031",
+        "Aventuras náuticas"
+      ],
+      [
+        "14177566031",
+        "Ciencia ficción"
+      ],
+      [
+        "14177567031",
+        "Clásicos"
+      ],
+      [
+        "14177568031",
+        "Fantasía"
+      ],
+      [
+        "14177569031",
+        "Historias cortas"
+      ],
+      [
+        "14177570031",
+        "Militar y bélica"
+      ],
+      [
+        "14177571031",
+        "Misterio, thriller y suspense"
+      ],
+      [
+        "14177575031",
+        "Romance"
+      ]
+    ],
     "902676031": [
       [
         "202413825031",
@@ -2357,6 +2393,56 @@
       [
         "13440916031",
         "Recetas"
+      ]
+    ],
+    "902682031": [
+      [
+        "14177729031",
+        "Afroamericana"
+      ],
+      [
+        "14177590031",
+        "Antologías"
+      ],
+      [
+        "14177586031",
+        "Biográfica"
+      ],
+      [
+        "14177849031",
+        "Cristiana"
+      ],
+      [
+        "14177587031",
+        "Fantasía"
+      ],
+      [
+        "14177588031",
+        "Herencia cultural"
+      ],
+      [
+        "14177589031",
+        "Historia alternativa"
+      ],
+      [
+        "14177593031",
+        "Judía"
+      ],
+      [
+        "14177594031",
+        "Militar"
+      ],
+      [
+        "14177595031",
+        "Misterio"
+      ],
+      [
+        "211757848031",
+        "Siglo XIX"
+      ],
+      [
+        "14177596031",
+        "Thrillers"
       ]
     ],
     "902702031": [
@@ -2494,7 +2580,7 @@
       ]
     ]
   },
-  "libros_es": 7793,
+  "libros_es": 8002,
   "origen": {
     "Editorial EDK bookverse": "EDK bookverse",
     "Editorial Kiwi": "Kiwi",
@@ -2502,13 +2588,13 @@
     "Editorial Matchstories": "Matchstories",
     "Editorial Plomo Ediciones": "Plomo Ediciones"
   },
-  "particiones": 660,
-  "peticiones": 1461,
-  "reintentos": 5405,
-  "reintentos_dia": "2026-11-11",
-  "segundos": 133,
+  "particiones": 743,
+  "peticiones": 1581,
+  "reintentos": 5363,
+  "reintentos_dia": "2026-11-12",
+  "segundos": 137,
   "sellos_leidos": 97,
-  "sellos_llenos": 56,
+  "sellos_llenos": 78,
   "sellos_nuevos": 60,
   "sellos_saltados": 5,
   "variantes_probadas": [
