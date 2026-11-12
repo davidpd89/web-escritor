@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-12T03:11:52+00:00",
- "publicados": 3236,
+ "generado": "2026-11-12T07:23:04+00:00",
+ "publicados": 3237,
  "secciones": {
   "portadas_tipograficas": {
-   "total": 305,
-   "proximos": 205,
+   "total": 287,
+   "proximos": 201,
    "por_mes": {
     "2027-08": 1,
     "2027-05": 3,
@@ -12,9 +12,9 @@
     "2027-03": 4,
     "2027-02": 83,
     "2027-01": 42,
-    "2026-12": 14,
-    "2026-11": 114,
-    "2026-10": 30,
+    "2026-12": 10,
+    "2026-11": 117,
+    "2026-10": 13,
     "2026-09": 1,
     "2026-08": 3,
     "2025-08": 1
@@ -460,7 +460,7 @@
    ]
   },
   "sin_formatos_de_compra": {
-   "total": 47,
+   "total": 43,
    "muestra": [
     {
      "id": "isbn-9788408326861",
@@ -640,8 +640,8 @@
    ]
   },
   "sin_texto": {
-   "total": 2393,
-   "proximos": 1445,
+   "total": 2394,
+   "proximos": 1468,
    "por_mes": {
     "2027-09": 1,
     "2027-08": 1,
@@ -650,9 +650,9 @@
     "2027-03": 51,
     "2027-02": 250,
     "2027-01": 352,
-    "2026-12": 126,
-    "2026-11": 1281,
-    "2026-10": 255,
+    "2026-12": 124,
+    "2026-11": 1310,
+    "2026-10": 229,
     "2026-09": 24,
     "2026-08": 4
    },
@@ -840,10 +840,10 @@
   }
  },
  "cambio": {
-  "portadas_tipograficas": 31,
+  "portadas_tipograficas": -18,
   "formatos_sin_precio": 0,
-  "sin_formatos_de_compra": 11,
-  "sin_texto": 199,
+  "sin_formatos_de_compra": -4,
+  "sin_texto": 1,
   "portada_sin_fichero": 0
  },
  "amazon": {
@@ -931,13 +931,6 @@
     "fecha_publicacion": "2026-11-11"
    },
    {
-    "id": "isbn-9791399274523",
-    "titulo": "Bestias extrañas",
-    "isbn13": "9791399274523",
-    "editorial": "Shiro Libros",
-    "fecha_publicacion": "2026-11-11"
-   },
-   {
     "id": "isbn-9788410192416",
     "titulo": "Clave para identificar anfibios",
     "isbn13": "9788410192416",
@@ -991,6 +984,13 @@
     "titulo": "Pero no se lo digas: 148 (VdB Teatro contemporáneo)",
     "isbn13": "9791388581106",
     "editorial": "Uvedebe",
+    "fecha_publicacion": "2026-11-10"
+   },
+   {
+    "id": "isbn-9788410172968",
+    "titulo": "Paisaje, conocimiento e identidad. Visiones emergentes entrelazadas: 25 (Vestigios de un mismo mundo)",
+    "isbn13": "9788410172968",
+    "editorial": "Editum. Ediciones de la Universidad de Murcia",
     "fecha_publicacion": "2026-11-10"
    }
   ]

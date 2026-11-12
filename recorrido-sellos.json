@@ -530,120 +530,258 @@
     "familia lumara",
     "editora lumen",
     "igrejas do minho aj lumen",
-    "luma editions"
+    "luma editions",
+    "ma teresa alvarez amaro",
+    "editora amaro brasileiro",
+    "the borough press atlantic books ltd",
+    "caja alta",
+    "arco",
+    "ivrea",
+    "ediciones sm",
+    "animallibres s l",
+    "ra ma s a editorial y publicaciones",
+    "rodio",
+    "nueve colas",
+    "conectando mentes",
+    "erandique debates",
+    "fragua",
+    "debols llo"
   ],
   "cola": [
     {
-      "consulta": "Amarante",
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "902498031",
+      "ruta": [
+        "Biografías, diarios y hechos reales"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "902503031",
+      "ruta": [
+        "Ciencias, tecnología y medicina"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "902613031",
+      "ruta": [
+        "Cocina, bebida y hospitalidad"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "902517031",
+      "ruta": [
+        "Consulta"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "902516031",
+      "ruta": [
+        "Cómics, manga y novelas gráficas"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "902520031",
+      "ruta": [
+        "Deportes y aire libre"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "902590031",
+      "ruta": [
+        "Derecho"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "902595031",
+      "ruta": [
+        "Economía y empresa"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "902681031",
+      "ruta": [
+        "Erótica"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "1349107031",
+      "ruta": [
+        "Fantasía y ciencia ficción"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "902600031",
+      "ruta": [
+        "Historia"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "902610031",
+      "ruta": [
+        "Hogar, manualidades y estilos de vida"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "902620031",
+      "ruta": [
+        "Humor"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "902621031",
+      "ruta": [
+        "Infantil"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "902652031",
+      "ruta": [
+        "Informática, internet y medios digitales"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "12942013031",
+      "ruta": [
+        "Juvenil"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "902665031",
+      "ruta": [
+        "Lengua, lingüística y redacción"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "27198630031",
+      "ruta": [
+        "Libros LGBTQ+"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "902729031",
+      "ruta": [
+        "Libros y guías de viaje"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "902674031",
+      "ruta": [
+        "Literatura y ficción"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "902685031",
+      "ruta": [
+        "Policíaca, negra y suspense"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 1,
+      "nodo": "902693031",
+      "ruta": [
+        "Política"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
       "nivel": 1,
       "nodo": "902702031",
       "ruta": [
         "Religión"
       ],
-      "sello": "Amarante"
+      "sello": "Diana"
     },
     {
-      "consulta": "Amarante",
+      "consulta": "Diana",
       "nivel": 1,
       "nodo": "902686031",
       "ruta": [
         "Romántica"
       ],
-      "sello": "Amarante"
+      "sello": "Diana"
     },
     {
-      "consulta": "Amarante",
+      "consulta": "Diana",
       "nivel": 1,
       "nodo": "902716031",
       "ruta": [
         "Salud, familia y desarrollo personal"
       ],
-      "sello": "Amarante"
+      "sello": "Diana"
     },
     {
-      "consulta": "Amarante",
+      "consulta": "Diana",
       "nivel": 1,
       "nodo": "902721031",
       "ruta": [
         "Sociedad y ciencias sociales"
       ],
-      "sello": "Amarante"
+      "sello": "Diana"
     },
-    "Aristas Martínez",
-    "Vestigio",
-    "Almadía",
-    "Pie de Mosca",
-    "MilMadres",
-    "Letra r",
-    "Wave Books Editorial",
-    "Armaenia Editorial",
-    "PLATANAL",
-    "Amor de Madre",
-    "La Navaja Suiza Editores",
-    "Dilatando Mentes Editorial",
-    "Sugaar Editorial",
-    "La biblioteca de Carfax",
-    "Atlantic Books",
-    "Faeris",
-    "El Transbordador",
-    "Levanta Fuego",
-    "Hoja de Lata",
-    "LiterUp Ediciones",
-    "Lengua de Trapo",
-    "Las afueras",
-    "Pàmies",
-    "Ápeiron Ediciones",
-    "Uzanza Editorial",
-    "Editorial La Calle",
-    "Alamut",
-    "Vanadis",
-    "Runaris",
-    "Akelarre Ediciones",
-    "Dorna",
-    "La Máquina que Hace PING!",
-    "Grupo Planeta México",
-    "FOEM",
-    "CEAPE",
-    "Acantilado",
-    "La Caja Books",
-    "Libros de Seda",
-    "Tres Hermanas",
-    "Automática Editorial",
-    "Pre-Textos",
-    "Dos Bigotes",
-    "Dieciséis",
-    "Aguilar",
-    "Alienta Editorial",
-    "Almadia Aljosan S.r.l.u.",
-    "Alvarellos Editora",
-    "Aranzadi",
-    "Arco Libros",
-    "la Muralla",
-    "Asociacion HAY Soluciones para Todo",
-    "Athenaica Ediciones",
-    "Austral Editorial",
-    "Beascoa",
-    "Bellaterra Edicions",
-    "Benvil",
-    "Biblioteca Autores Cristianos",
-    "Booket",
-    "Bruguera",
-    "C.e. Adams, Ediciones Valbuena",
-    "Capitán Swing Libros",
-    "Centre de Pastoral Litúrgica",
-    "Ciss",
-    "Ciudadela Libros",
-    "Col&col Ediciones",
-    "Colex",
-    "Conecta",
-    "Crossbooks",
-    "Debate",
-    "Debolsillo",
-    "Desclée de Brouwer",
-    "Destino Infantil & Juvenil",
-    "Deusto",
-    "Diabolo Ediciones",
-    "Diana",
     "Distrito Manga",
     "Antígona",
     "Cinca",
@@ -991,14 +1129,37 @@
     "Familia Lumara",
     "Editora Lúmen",
     "Igrejas do Minho / AJ Lumen",
-    "Luma Editions"
+    "Luma Editions",
+    "Mª Teresa Álvarez Amaro",
+    "Editora Amaro Brasileiro",
+    "Editorial Pie de Mosca",
+    "The Borough Press/Atlantic Books ltd",
+    "Editorial Akelarre Ediciones",
+    "Grupo Planeta Mexico",
+    "Editorial FOEM",
+    "Editorial CEAPE",
+    "CAJA ALTA",
+    "ARCO",
+    "Editorial Asociacion HAY Soluciones para Todo",
+    "Editorial Benvil",
+    "Ivrea",
+    "EDICIONES SM",
+    "Animallibres, S.L.",
+    "RA-MA S.A. Editorial y Publicaciones",
+    "Rodio",
+    "Editorial C.e. Adams, Ediciones Valbuena",
+    "Nueve Colas",
+    "CONECTANDO MENTES",
+    "Erandique Debates",
+    "Fragua",
+    "DEBOLS!LLO"
   ],
   "dia": "2026-11-08",
   "errores": [],
   "grupos": {
-    "amarante": {
-      "libros_es": 59,
-      "pendientes": 4
+    "diana": {
+      "libros_es": 10,
+      "pendientes": 26
     }
   },
   "hijos": {
@@ -2473,28 +2634,44 @@
       ]
     ]
   },
-  "libros_es": 8467,
+  "libros_es": 12041,
   "origen": {
+    "Editorial Akelarre Ediciones": "Akelarre Ediciones",
+    "Editorial Asociacion HAY Soluciones para Todo": "Asociacion HAY Soluciones para Todo",
+    "Editorial Benvil": "Benvil",
+    "Editorial C.e. Adams, Ediciones Valbuena": "C.e. Adams, Ediciones Valbuena",
+    "Editorial CEAPE": "CEAPE",
     "Editorial EDK bookverse": "EDK bookverse",
+    "Editorial FOEM": "FOEM",
     "Editorial Kiwi": "Kiwi",
     "Editorial La Magnifica": "Editorial La Magnífica",
     "Editorial Matchstories": "Matchstories",
-    "Editorial Plomo Ediciones": "Plomo Ediciones"
+    "Editorial Pie de Mosca": "Pie de Mosca",
+    "Editorial Plomo Ediciones": "Plomo Ediciones",
+    "Grupo Planeta Mexico": "Grupo Planeta México"
   },
-  "particiones": 787,
-  "peticiones": 1701,
+  "particiones": 941,
+  "peticiones": 2132,
   "reintentos": 5363,
   "reintentos_dia": "2026-11-12",
-  "segundos": 135,
-  "sellos_leidos": 108,
-  "sellos_llenos": 85,
-  "sellos_nuevos": 62,
-  "sellos_saltados": 5,
+  "segundos": 481,
+  "sellos_leidos": 179,
+  "sellos_llenos": 91,
+  "sellos_nuevos": 77,
+  "sellos_saltados": 9,
   "variantes_probadas": [
     "matchstories|editorial matchstories",
     "kiwi|editorial kiwi",
     "edk bookverse|editorial edk bookverse",
     "plomo ediciones|editorial plomo ediciones",
-    "editorial la magnifica|editorial la magnifica"
+    "editorial la magnifica|editorial la magnifica",
+    "pie de mosca|editorial pie de mosca",
+    "akelarre ediciones|editorial akelarre ediciones",
+    "grupo planeta mexico|grupo planeta mexico",
+    "foem|editorial foem",
+    "ceape|editorial ceape",
+    "asociacion hay soluciones para todo|editorial asociacion hay soluciones para todo",
+    "benvil|editorial benvil",
+    "c e adams ediciones valbuena|editorial c e adams ediciones valbuena"
   ]
 }

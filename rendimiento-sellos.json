@@ -1,8 +1,8 @@
 {
   "acantilado": {
-    "libros_es": 17,
+    "libros_es": 21,
     "nombre": "Acantilado",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "adel editores": {
     "libros_es": 4,
@@ -26,14 +26,14 @@
     "ultima": "2026-11-06"
   },
   "aguilar": {
-    "libros_es": 47,
+    "libros_es": 50,
     "nombre": "Aguilar",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "alamut": {
-    "libros_es": 10,
+    "libros_es": 20,
     "nombre": "Alamut",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "albion": {
     "libros_es": 7,
@@ -66,17 +66,17 @@
   "alienta editorial": {
     "libros_es": 17,
     "nombre": "Alienta Editorial",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "almadia": {
     "libros_es": 5,
     "nombre": "Almadía",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "almadia aljosan s r l u": {
-    "libros_es": 10,
+    "libros_es": 20,
     "nombre": "Almadia Aljosan S.r.l.u.",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "almuzara": {
     "libros_es": 62,
@@ -104,9 +104,9 @@
     "ultima": "2026-11-06"
   },
   "alvarellos editora": {
-    "libros_es": 10,
+    "libros_es": 20,
     "nombre": "Alvarellos Editora",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "amara": {
     "libros_es": 4,
@@ -116,12 +116,16 @@
   "amarante": {
     "libros_es": 0,
     "nombre": "Amarante",
+    "particion": {
+      "libros_es": 75,
+      "ultima": "2026-11-12"
+    },
     "ultima": "2026-11-12"
   },
   "amor de madre": {
     "libros_es": 10,
     "nombre": "Amor de Madre",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "anagrama": {
     "libros_es": 59,
@@ -144,14 +148,19 @@
     "ultima": "2026-11-12"
   },
   "apeiron ediciones": {
-    "libros_es": 20,
+    "libros_es": 30,
     "nombre": "Ápeiron Ediciones",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "aranzadi": {
-    "libros_es": 60,
+    "libros_es": 70,
     "nombre": "Aranzadi",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
+  },
+  "arco libros": {
+    "libros_es": 1,
+    "nombre": "Arco Libros",
+    "ultima": "2026-11-12"
   },
   "arco libros la muralla": {
     "libros_es": 10,
@@ -169,14 +178,14 @@
     "ultima": "2026-11-06"
   },
   "aristas martinez": {
-    "libros_es": 10,
+    "libros_es": 20,
     "nombre": "Aristas Martínez",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "armaenia editorial": {
-    "libros_es": 10,
+    "libros_es": 20,
     "nombre": "Armaenia Editorial",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "arzola aguilar sixto apolonio": {
     "libros_es": 6,
@@ -191,12 +200,16 @@
   "athenaica ediciones": {
     "libros_es": 19,
     "nombre": "Athenaica Ediciones",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "atlantic books": {
-    "libros_es": 1,
+    "libros_es": 0,
     "nombre": "Atlantic Books",
-    "ultima": "2026-11-06"
+    "particion": {
+      "libros_es": 1,
+      "ultima": "2026-11-12"
+    },
+    "ultima": "2026-11-12"
   },
   "austral": {
     "libros_es": 9,
@@ -206,7 +219,7 @@
   "austral editorial": {
     "libros_es": 10,
     "nombre": "Austral Editorial",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "automatica editorial": {
     "libros_es": 0,
@@ -251,14 +264,14 @@
     "ultima": "2026-11-06"
   },
   "beascoa": {
-    "libros_es": 89,
+    "libros_es": 90,
     "nombre": "Beascoa",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "bellaterra edicions": {
-    "libros_es": 7,
+    "libros_es": 13,
     "nombre": "Bellaterra Edicions",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "berenice": {
     "libros_es": 19,
@@ -268,7 +281,7 @@
   "biblioteca autores cristianos": {
     "libros_es": 10,
     "nombre": "Biblioteca Autores Cristianos",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "blackie books": {
     "libros_es": 75,
@@ -281,9 +294,13 @@
     "ultima": "2026-11-06"
   },
   "booket": {
-    "libros_es": 97,
+    "libros_es": 96,
     "nombre": "Booket",
-    "ultima": "2026-11-06"
+    "particion": {
+      "libros_es": 654,
+      "ultima": "2026-11-12"
+    },
+    "ultima": "2026-11-12"
   },
   "bookman poesia": {
     "libros_es": 4,
@@ -296,9 +313,9 @@
     "ultima": "2026-11-06"
   },
   "bruguera": {
-    "libros_es": 34,
+    "libros_es": 43,
     "nombre": "Bruguera",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "caballo de troya": {
     "libros_es": 13,
@@ -318,7 +335,7 @@
   "capitan swing libros": {
     "libros_es": 2,
     "nombre": "Capitán Swing Libros",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "cassette narrativo": {
     "libros_es": 0,
@@ -327,9 +344,9 @@
     "ultima": "2026-11-06"
   },
   "centre de pastoral liturgica": {
-    "libros_es": 10,
+    "libros_es": 17,
     "nombre": "Centre de Pastoral Litúrgica",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "cerbero": {
     "libros_es": 7,
@@ -362,9 +379,9 @@
     "ultima": "2026-11-06"
   },
   "ciss": {
-    "libros_es": 5,
+    "libros_es": 9,
     "nombre": "Ciss",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "ciudad nueva": {
     "libros_es": 4,
@@ -372,9 +389,9 @@
     "ultima": "2026-11-06"
   },
   "ciudadela libros": {
-    "libros_es": 10,
+    "libros_es": 20,
     "nombre": "Ciudadela Libros",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "clasicos liberados": {
     "libros_es": 10,
@@ -388,14 +405,14 @@
     "ultima": "2026-11-06"
   },
   "col col ediciones": {
-    "libros_es": 10,
+    "libros_es": 18,
     "nombre": "Col&col Ediciones",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "colex": {
     "libros_es": 60,
     "nombre": "Colex",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "comanegra": {
     "libros_es": 14,
@@ -413,9 +430,9 @@
     "ultima": "2026-11-08"
   },
   "conecta": {
-    "libros_es": 13,
+    "libros_es": 18,
     "nombre": "Conecta",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "contraluz": {
     "libros_es": 17,
@@ -459,9 +476,9 @@
     "ultima": "2026-11-09"
   },
   "crossbooks": {
-    "libros_es": 27,
+    "libros_es": 31,
     "nombre": "Crossbooks",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "cuadranta": {
     "libros_es": 30,
@@ -474,14 +491,18 @@
     "ultima": "2026-11-06"
   },
   "debate": {
-    "libros_es": 54,
+    "libros_es": 59,
     "nombre": "Debate",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "debolsillo": {
-    "libros_es": 98,
+    "libros_es": 96,
     "nombre": "Debolsillo",
-    "ultima": "2026-11-06"
+    "particion": {
+      "libros_es": 1161,
+      "ultima": "2026-11-12"
+    },
+    "ultima": "2026-11-12"
   },
   "del la universidad santiago del granado": {
     "libros_es": 2,
@@ -500,9 +521,13 @@
     "ultima": "2026-11-06"
   },
   "desclee de brouwer": {
-    "libros_es": 9,
+    "libros_es": 0,
     "nombre": "Desclée de Brouwer",
-    "ultima": "2026-11-06"
+    "particion": {
+      "libros_es": 134,
+      "ultima": "2026-11-12"
+    },
+    "ultima": "2026-11-12"
   },
   "desfiladero ediciones": {
     "libros_es": 10,
@@ -519,24 +544,24 @@
     "ultima": "2026-11-10"
   },
   "destino infantil juvenil": {
-    "libros_es": 62,
+    "libros_es": 58,
     "nombre": "Destino Infantil & Juvenil",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "deusto": {
-    "libros_es": 20,
+    "libros_es": 21,
     "nombre": "Deusto",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "diabolo ediciones": {
-    "libros_es": 10,
+    "libros_es": 30,
     "nombre": "Diabolo Ediciones",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "diana": {
-    "libros_es": 13,
+    "libros_es": 7,
     "nombre": "Diana",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "diane sawyer": {
     "libros_es": 0,
@@ -545,14 +570,14 @@
     "ultima": "2026-11-06"
   },
   "dieciseis": {
-    "libros_es": 10,
+    "libros_es": 20,
     "nombre": "Dieciséis",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "dilatando mentes editorial": {
     "libros_es": 10,
     "nombre": "Dilatando Mentes Editorial",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "distrito manga": {
     "libros_es": 67,
@@ -581,9 +606,9 @@
     "ultima": "2026-11-06"
   },
   "dos bigotes": {
-    "libros_es": 7,
+    "libros_es": 14,
     "nombre": "Dos Bigotes",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "dr ariel robles": {
     "libros_es": 2,
@@ -688,9 +713,9 @@
     "ultima": "2026-11-06"
   },
   "editorial la calle": {
-    "libros_es": 8,
+    "libros_es": 17,
     "nombre": "Editorial La Calle",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "editorial la huerta grande s l": {
     "libros_es": 10,
@@ -740,9 +765,9 @@
     "ultima": "2026-11-06"
   },
   "el transbordador": {
-    "libros_es": 4,
+    "libros_es": 9,
     "nombre": "El Transbordador",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "el viejo topo": {
     "libros_es": 10,
@@ -807,9 +832,9 @@
     "ultima": "2026-11-06"
   },
   "faeris": {
-    "libros_es": 19,
+    "libros_es": 21,
     "nombre": "Faeris",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "fallen trees publishing llc": {
     "libros_es": 0,
@@ -1036,9 +1061,9 @@
     "ultima": "2026-11-06"
   },
   "hoja de lata": {
-    "libros_es": 9,
+    "libros_es": 10,
     "nombre": "Hoja de Lata",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "icaria": {
     "libros_es": 7,
@@ -1149,14 +1174,14 @@
     "ultima": "2026-11-06"
   },
   "la biblioteca de carfax": {
-    "libros_es": 10,
+    "libros_es": 20,
     "nombre": "La biblioteca de Carfax",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "la caja books": {
-    "libros_es": 3,
+    "libros_es": 6,
     "nombre": "La Caja Books",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "la consentida": {
     "libros_es": 7,
@@ -1189,10 +1214,15 @@
     "saltar_hasta": "2026-11-27",
     "ultima": "2026-11-06"
   },
-  "la navaja suiza editores": {
+  "la muralla": {
     "libros_es": 10,
+    "nombre": "la Muralla",
+    "ultima": "2026-11-12"
+  },
+  "la navaja suiza editores": {
+    "libros_es": 20,
     "nombre": "La Navaja Suiza Editores",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "labnar": {
     "libros_es": 1,
@@ -1200,9 +1230,9 @@
     "ultima": "2026-11-08"
   },
   "las afueras": {
-    "libros_es": 8,
+    "libros_es": 12,
     "nombre": "Las afueras",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "lectio ediciones": {
     "libros_es": 10,
@@ -1215,9 +1245,9 @@
     "ultima": "2026-11-06"
   },
   "lengua de trapo": {
-    "libros_es": 10,
+    "libros_es": 18,
     "nombre": "Lengua de Trapo",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "letra clara": {
     "libros_es": 1,
@@ -1232,7 +1262,7 @@
   "letra r": {
     "libros_es": 10,
     "nombre": "Letra r",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "letras cubanas": {
     "libros_es": 8,
@@ -1247,7 +1277,7 @@
   "levanta fuego": {
     "libros_es": 10,
     "nombre": "Levanta Fuego",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "libreria argentina ela": {
     "libros_es": 10,
@@ -1270,9 +1300,9 @@
     "ultima": "2026-11-06"
   },
   "libros de seda": {
-    "libros_es": 10,
+    "libros_es": 17,
     "nombre": "Libros de Seda",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "libros del asteroide": {
     "libros_es": 17,
@@ -1312,7 +1342,7 @@
   "literup ediciones": {
     "libros_es": 10,
     "nombre": "LiterUp Ediciones",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "loguez ediciones": {
     "libros_es": 10,
@@ -1459,6 +1489,11 @@
     "libros_es": 30,
     "nombre": "Milky Way Ediciones",
     "ultima": "2026-11-06"
+  },
+  "milmadres": {
+    "libros_es": 9,
+    "nombre": "MilMadres",
+    "ultima": "2026-11-12"
   },
   "minotauro": {
     "libros_es": 0,
@@ -1641,9 +1676,9 @@
     "ultima": "2026-11-06"
   },
   "pamies": {
-    "libros_es": 4,
+    "libros_es": 6,
     "nombre": "Pàmies",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "paraninfo": {
     "libros_es": 20,
@@ -1764,7 +1799,7 @@
   "platanal": {
     "libros_es": 5,
     "nombre": "PLATANAL",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "platero coolbooks": {
     "libros_es": 30,
@@ -1793,9 +1828,9 @@
     "ultima": "2026-11-06"
   },
   "pre textos": {
-    "libros_es": 20,
+    "libros_es": 30,
     "nombre": "Pre-Textos",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "pregunta ediciones": {
     "libros_es": 10,
@@ -1955,7 +1990,7 @@
   "runaris": {
     "libros_es": 5,
     "nombre": "Runaris",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "runas": {
     "libros_es": 0,
@@ -2053,9 +2088,9 @@
     "ultima": "2026-11-06"
   },
   "sugaar editorial": {
-    "libros_es": 10,
+    "libros_es": 20,
     "nombre": "Sugaar Editorial",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "suma": {
     "libros_es": 24,
@@ -2172,9 +2207,9 @@
     "ultima": "2026-11-06"
   },
   "tres hermanas": {
-    "libros_es": 10,
+    "libros_es": 20,
     "nombre": "Tres Hermanas",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "tres tigres tristes": {
     "libros_es": 10,
@@ -2243,9 +2278,9 @@
     "ultima": "2026-11-06"
   },
   "uzanza editorial": {
-    "libros_es": 8,
+    "libros_es": 14,
     "nombre": "Uzanza Editorial",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "valhalla ediciones": {
     "libros_es": 10,
@@ -2255,7 +2290,7 @@
   "vanadis": {
     "libros_es": 3,
     "nombre": "Vanadis",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "venera colectivo laika": {
     "libros_es": 4,
@@ -2280,7 +2315,7 @@
   "vestigio": {
     "libros_es": 2,
     "nombre": "Vestigio",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-12"
   },
   "victor hugo bahamondes vergara": {
     "libros_es": 1,
