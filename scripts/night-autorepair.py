@@ -559,7 +559,12 @@ def pasada(dry=False, solo=None):
                 continue
             if flujo != INGESTA and ingesta_en_marcha():
                 log(f"{flujo}: la carga del catálogo está en marcha; reparo en la siguiente pasada"); continue
-            res = reparar(flujo, run, dry, (previo or {}).get('historial'))
+            try:
+                res = reparar(flujo, run, dry, (previo or {}).get('historial'))
+            except Exception as exc:
+                # También cuenta si falla commit/push/PR: de otro modo se repite cada hora sin límite ni aviso.
+                log(f"{flujo}: error durante la reparación: {exc}")
+                res = {'fallido': True, 'error': str(exc)[:500]} if not dry else None
             if res is not None:
                 registrar_intento(estado.setdefault(flujo, {}), res, run, ahora)
         except Exception as exc:   # un flujo roto no puede parar la vigilancia de los demás
@@ -570,11 +575,13 @@ def pasada(dry=False, solo=None):
 
 def registrar_intento(e: dict, res: dict, run: dict, ahora: dt.datetime):
     e.setdefault('intentos', []).append(ahora.isoformat())
-    for k in ('sin_arreglo', 'fallido', 'pr', 'agente', 'titulo'):
+    for k in ('sin_arreglo', 'fallido', 'pr', 'agente', 'titulo', 'error'):
         e.pop(k, None)
     e.update(res, run=run['databaseId'], pr_cerrada=not res.get('pr'))
     if res.get('pr'):
         resultado = 'PR abierta con auto-merge'
+    elif res.get('error'):
+        resultado = 'error durante la reparación: ' + str(res['error'])
     elif res.get('sin_arreglo'):
         resultado = 'sin arreglo en código: ' + str(res['sin_arreglo'])[:200]
     else:
@@ -611,6 +618,11 @@ def pr_atascada(pr: dict, ahora: dt.datetime) -> str:
 def relanzar(flujo, run):
     """Workflow: dispatch nuevo sobre main. Local: el mismo comando con el código de main (el bucle solo actualiza su
     copia al arrancar, una vez al día: sin esto, un arreglo ya mergeado no se probaba hasta el día siguiente)."""
+    if flujo == 'reading-telegram-publish.yml':
+        # El dispatch manual exige test_asin. Reintentar el fallo conserva el evento diario
+        # y su historial de entregas; el checkout del workflow obtiene el código actual de main.
+        sh(['gh', 'run', 'rerun', str(run['databaseId']), '--failed', '--repo', GH_REPO], check=True)
+        return
     if not es_local(flujo):
         sh(['gh', 'workflow', 'run', flujo, '--ref', 'main', '--repo', GH_REPO], check=True)
         return

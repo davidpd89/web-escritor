@@ -76,7 +76,7 @@ ACCENTED_FORM = {
     "historico": "histórico", "historica": "histórica", "articulo": "artículo",
     "articulos": "artículos", "categoria": "categoría", "corazon": "corazón",
     "metodologia": "metodología", "recepcion": "recepción", "clasico": "clásico",
-    "clasica": "clásica", "practico": "práctico", "practica": "práctica",
+    "clasica": "clásica", "practico": "práctico",  # «practica» también es el verbo practicar.
     "tecnico": "técnico", "tecnica": "técnica", "publicacion": "publicación",
     "traduccion": "traducción", "narracion": "narración", "ficcion": "ficción",
     "cronologia": "cronología", "biografia": "biografía", "quiza": "quizá",
@@ -168,6 +168,10 @@ def technical_occurrence(text: str, m: re.Match) -> bool:
         return True
     if m.group()[0].isupper() and re.match(r"\s+[A-ZÁÉÍÓÚÑ]", text[m.end():m.end() + 3]):
         return True  # nombre propio: «Frances Burney»
+    # Una tarjeta puede cortar el apellido: «…, de Frances…» sigue siendo un nombre.
+    if (m.group()[0].isupper() and re.fullmatch(r'…\s*', text[m.end():])
+            and re.search(r'\b(?:de|por)\s+$', text[:m.start()], re.I)):
+        return True
     if re.search(r"\w['’]s\s+$", text[:m.start()]):
         return True  # inglés tras un posesivo: «Juliette's version» (lote 42444782344, título de HarperCollins)
     return False
