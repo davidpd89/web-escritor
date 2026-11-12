@@ -72,7 +72,7 @@ class RealGitConflictsTest(unittest.TestCase):
             for i in range(400):self.write('pagefind/fragment/'+str(i)+'-'+'x'*75+'.pf_fragment','generated')
         with patch.object(rr,'rebasar'),patch.object(rr,'regenerar',side_effect=generated),patch.object(rr.sys,'argv',['rebase-regenerando','--sin-fetch','--onto','main']):
             self.assertEqual(rr.main(),0)
-        self.assertEqual(len(self.git('ls-files','--','pagefind/fragment').splitlines()),401)
+        self.assertEqual(len(self.git('ls-tree','-r','--name-only','HEAD','--','pagefind/fragment').splitlines()),401)
 
 
 if __name__ == '__main__':
