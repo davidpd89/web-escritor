@@ -160,7 +160,9 @@ def failed_checks(repo, sha):
 def run(branch, timeout=5400):
     if not re.fullmatch(r'automation/reading-catalogue-[a-zA-Z0-9-]+', branch):
         raise ValueError('Only generated reading-catalogue branches are accepted')
-    pr = json.loads(publication.gh('pr', 'view', branch, '--json', 'number,headRefOid,mergeStateStatus'))
+    pr = json.loads(publication.gh('pr', 'view', branch, '--json', 'number,headRefOid,mergeStateStatus,mergeable'))
+    if pr.get('mergeable') == 'CONFLICTING' or pr.get('mergeStateStatus') == 'DIRTY':
+        raise publication.StaleMerge(f'main adelantó la propuesta #{pr["number"]}; reconstruir antes de iniciar CI')
     if pr.get('mergeStateStatus') == 'BEHIND':
         repo = publication.gh('repo', 'view', '--json', 'nameWithOwner', '--jq', '.nameWithOwner')
         publication.gh('api', '--method', 'PUT', f'repos/{repo}/pulls/{pr["number"]}/update-branch',
