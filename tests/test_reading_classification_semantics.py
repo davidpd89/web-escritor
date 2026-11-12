@@ -25,6 +25,10 @@ class ClassificationTests(unittest.TestCase):
   record={'titulo':'Otro universo. Guía visual','materias':['Ensayo'],'palabras_clave':[]}
   result=classify(record,{'categorias':[]})
   self.assertIn('guias-y-referencia',result);self.assertNotIn('ensayo',result)
+ def test_reference_guides_feed_nonfiction_text_generation(self):
+  spec=importlib.util.spec_from_file_location('reference_texts',ROOT/'scripts/reading-texts.py')
+  texts=importlib.util.module_from_spec(spec);spec.loader.exec_module(texts)
+  self.assertEqual(texts.family({'guias-y-referencia'},'Una obra de consulta. '*20),'no_ficcion')
  def test_comic_is_visible_even_when_it_is_the_third_category(self):
   cats=[{'id':ident,'nombre':name,'tipo':'genero','activa':True,'orden':i} for i,(ident,name) in enumerate([('terror','Terror'),('aventuras','Aventuras'),('comic-y-novela-grafica','Cómic y novela gráfica')])]
   html=build.tags(cats,compact=True)

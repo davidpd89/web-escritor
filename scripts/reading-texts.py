@@ -63,7 +63,7 @@ AI_TELLS = re.compile(r'\ben definitiva\b|\bsin duda\b|sum[eé]rg|\bun viaje (a|
 FAMILIES = (  # Precedencia: lo infantil y lo práctico se reconocen antes que la no ficción y la narrativa.
     ('infantil', {'infantil', 'edad-de-0-a-3-anos', 'edad-a-partir-de-4-anos', 'edad-a-partir-de-7-anos'}),
     ('practico', {'cocina', 'desarrollo-personal', 'familia-y-crianza', 'nutricion-y-bienestar'}),
-    ('no_ficcion', {'ensayo', 'historia', 'biografias-y-memorias', 'divulgacion-cientifica', 'filosofia'}),
+    ('no_ficcion', {'ensayo', 'historia', 'biografias-y-memorias', 'divulgacion-cientifica', 'filosofia', 'guias-y-referencia'}),
 )
 EDITION = re.compile(r'traduc|prólogo|epílogo|introducción de|edición (especial|ilustrada|conmemorativa|limitada|revisada|anotada|definitiva|aniversario)|'
                      r'ilustrad[oa] por|ilustraciones de|cantos|notas de|apéndice|texto íntegro|edición bilingüe', re.I)
