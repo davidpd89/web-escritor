@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788491459552",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El cuentacuentos: Blancanieves: Cuentos para leer y escuchar (ÁLBUMES ILUSTRADOS), de Francesca Rossi, está dirigido al público infantil y a quienes comparten cuentos mediante la lectura y la escucha. Su formato de álbum ilustrado se diferencia de las novelas juveniles extensas y de los libros de lectura exclusivamente textual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de tapa dura tiene 24 páginas en castellano y está publicada por Picarona. Su extensión permite abordar el cuento en sesiones breves, mientras que la encuadernación rígida resulta práctica para manipularlo y conservarlo durante lecturas compartidas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El cuentacuentos: Caperucita roja: Cuentos para leer y escuchar (ÁLBUMES ILUSTRADOS), de Francesca Rossi, comparte autora, colección y propuesta de lectura y escucha con el volumen dedicado a Blancanieves. La diferencia principal es el cuento que identifica cada título, por lo que ambos permiten abordar relatos distintos dentro de una misma línea editorial infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491459569"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "64ce25835841cce0",
+  "origen": "chatgpt-web"
+}

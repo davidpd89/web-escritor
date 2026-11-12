@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788495112392",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la historia de los asentamientos humanos durante el IIIer Milenio a.C. entre el Júcar y el Segura. Por su enfoque histórico y territorial, se aleja de las novelas de ficción y de las lecturas centradas en acontecimientos contemporáneos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los patrones de asentamiento en el IIIer Milenio a.C. entre el Júcar y sel Segura se presenta en tapa blanda, con 88 páginas en castellano. Esta edición física permite consultar el contenido histórico y volver a sus apartados sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Frente a 76, de Felipe Pigna, Los patrones de asentamiento en el IIIer Milenio a.C. entre el Júcar y sel Segura se centra en un periodo antiguo y en un territorio delimitado. Ambos se relacionan con la historia, pero el libro de Pedro José Saura Gil aborda específicamente los patrones de asentamiento entre el Júcar y el Segura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329695"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "50b39a825a3d68ff",
+  "origen": "chatgpt-web"
+}

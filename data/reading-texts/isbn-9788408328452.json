@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9788408328452",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Legacy. Donde todo se ilumina: La faceta más romántica de la autora de la serie Empíreo: 3 (Planeta Internacional) está dirigido a lectores de romance contemporáneo. Quienes busquen una obra clasificada principalmente como fantasía encontrarán aquí una orientación diferente, centrada en el género romántico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Legacy. Donde todo se ilumina: La faceta más romántica de la autora de la serie Empíreo: 3 (Planeta Internacional) se presenta en tapa blanda. Con 200 páginas en castellano, ofrece una extensión más contenida que la de otras novelas largas y permite leerla en un volumen físico relativamente breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5a94a10a6b2ee5dc",
+  "origen": "chatgpt-web"
+}

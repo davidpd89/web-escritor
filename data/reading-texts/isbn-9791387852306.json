@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9791387852306",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sabes lo que te importa: ¿Por qué sigues eligiendo otra cosa?, de Emily Falk, se dirige a lectores interesados en el desarrollo personal, el bienestar y las decisiones relacionadas con la familia. No está orientado a quien busca ficción, una historia de personajes o una lectura de entretenimiento narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 320 páginas en un volumen que permite leer y consultar el contenido en papel. Es la opción disponible para quien prefiera pasar las páginas físicamente y conservar el libro en su biblioteca.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "51156f71e276fdba",
+  "origen": "chatgpt-web"
+}

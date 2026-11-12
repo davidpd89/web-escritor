@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788434441071",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Somos lo que nos contamos: Cómo los relatos construyen el mundo en que vivimos (Ariel), de Óscar Vilarroya, se dirige a lectores de ensayo interesados en la relación entre los relatos y nuestra manera de entender el mundo. Sus 216 páginas responden a una lectura de reflexión, no a la búsqueda de una novela de ficción con una trama narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer y consultar las 216 páginas de Somos lo que nos contamos: Cómo los relatos construyen el mundo en que vivimos (Ariel) en un ejemplar físico publicado por Editorial Ariel. Kindle ofrece la alternativa digital para llevar el ensayo en un lector electrónico o dispositivo compatible, sin transportar el libro de papel.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bde522be226ff6b8",
+  "origen": "chatgpt-web"
+}

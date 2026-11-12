@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408324065",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Brasil 8 (Guías de País Lonely Planet) está dirigido a lectores que buscan una guía de viajes centrada en Brasil, tanto para preparar una estancia como para consultar información sobre el destino. Sus 656 páginas lo alejan de quienes prefieren una lectura narrativa breve o un libro de viajes centrado en las experiencias personales de un único autor.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Brasil 8 (Guías de País Lonely Planet) se ofrece en tapa blanda y cuenta con 656 páginas en castellano. El formato impreso permite consultar la guía sin conexión ni batería durante el viaje, aunque su extensión hace que ocupe más espacio en el equipaje que un volumen de menor tamaño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Brasil 8 (Guías de País Lonely Planet) comparte con Polonia 6 (Guías de País Lonely Planet) su pertenencia a una colección de guías de países y la participación de Marc Di Duca entre sus autores. La diferencia principal está en el destino: la primera se centra en Brasil y cuenta con 656 páginas, mientras que la segunda está dedicada a Polonia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408323914"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "df6530172907b5d6",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387811730",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Alhambra Negra (Poe), de César Girón, se sitúa en el ámbito de las biografías y memorias, por lo que encaja con lectores interesados en ese tipo de obras. Sus 144 páginas ofrecen una extensión relativamente breve; resulta menos afín a quien busque fantasía o aventuras de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Alhambra Negra (Poe) está disponible en tapa blanda, con 144 páginas en castellano publicadas por Editorial Berenice. Es una edición física manejable para transportar y leer por sesiones, sin necesidad de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alhambra Negra (Poe) puede compararse con Admirados Soñadores por su vinculación al ámbito biográfico, aunque sus títulos plantean enfoques distintos. Al andar: Vivencias del Camino de Santiago anuncia expresamente experiencias de viaje, mientras que Alhambra Negra (Poe) identifica su asunto mediante una referencia en el título.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412972573",
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fec9a970efc9dfd6",
+  "origen": "chatgpt-web"
+}

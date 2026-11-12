@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El problema final (edición serie) encaja con lectores de misterio que disfrutan resolviendo enigmas mediante pistas y deducciones. La muerte de una huésped en una isla incomunicada y la presencia de varios sospechosos lo alejan de una novela centrada principalmente en persecuciones o acción policial.",
+      "texto": "El problema final (edición serie) encaja con lectores de misterio que prefieren resolver un crimen mediante pistas, deducciones y sospechosos delimitados. La acción transcurre en una isla aislada durante 1960 y gira alrededor de una muerte aparentemente inexplicable; no es una novela centrada en la investigación policial contemporánea.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,36 +13,37 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Arturo Pérez-Reverte plantea un misterio de espacio cerrado en el que un antiguo intérprete de Sherlock Holmes debe aplicar a un crimen real las técnicas deductivas que utilizaba en el cine. La acción transcurre en junio de 1960, durante un temporal que aísla a nueve personas en una isla. La lectura invita a contrastar indicios y sospechas antes de conocer la solución.",
+      "texto": "La novela utiliza el misterio de habitación cerrada y el aislamiento de los personajes como bases de su investigación criminal. Arturo Pérez-Reverte presenta a Hopalong Basil, un actor que interpretó a Sherlock Holmes y debe aplicar sus conocimientos de ficción detectivesca a una muerte real. El escenario de Utakos y la imposibilidad de abandonar la isla restringen el círculo de sospechosos.",
       "evidencias": [
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El problema final (edición serie) se presenta en tapa blanda de Penguin Bolsillo, con 328 páginas en castellano. Es una opción física para seguir las pistas, retroceder a escenas anteriores y revisar los detalles del enigma durante la lectura.",
+      "texto": "El problema final (edición serie) cuenta con una edición en tapa blanda de 328 páginas publicada por Penguin Bolsillo. El volumen permite seguir las pistas y volver a capítulos anteriores durante la resolución del enigma, además de transportarse como libro físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "editorial",
         "numero_paginas",
-        "idioma",
+        "editorial",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El problema final (edición serie) y El asesinato de Roger Ackroyd (Edición especial con cantos tintados) comparten el interés por la investigación detectivesca y la resolución de un enigma. Arturo Pérez-Reverte sitúa su misterio en una isla aislada y lo vincula al cine, mientras que la edición de Agatha Christie incorpora una solución presentada en un sobre sellado.",
+      "texto": "El problema final (edición serie) se relaciona con Asesinato antes de Navidad por la investigación de una muerte y el contraste entre una situación cotidiana y el crimen, aunque el primero transcurre en una isla aislada y el segundo parte de una Navidad que se complica. Aguas turbulentas también aborda un misterio, pero sitúa el conflicto entre el pasado y el presente de Edimburgo, frente al enigma deductivo ambientado en 1960 de Arturo Pérez-Reverte.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467083934"
+        "isbn-9791370310318",
+        "isbn-9791370310264"
       ]
     }
   ],

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387595678",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una más: Un thriller satírico para lectores de \"Amarilla\" (CONTEMPORÁNEA) se dirige a quienes buscan intriga contemporánea con un componente satírico. Por esa combinación, se aparta tanto del misterio tratado exclusivamente en clave seria como de la narrativa cotidiana sin suspense.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una más: Un thriller satírico para lectores de \"Amarilla\" (CONTEMPORÁNEA) cuenta con una edición en tapa blanda de 448 páginas. El formato impreso permite avanzar por una novela extensa y retomar la lectura sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una más: Un thriller satírico para lectores de \"Amarilla\" (CONTEMPORÁNEA) coincide con Aguas turbulentas, de Rankin Ian, en el terreno de la intriga, aunque esta última sitúa su conflicto entre el pasado y el presente de Edimburgo. También puede contrastarse con Corazón de sílex, de Emilia Landaluce y Rosa Belmonte, cuyo punto de partida es una pérdida de memoria, frente al enfoque satírico anunciado por Josh Silver.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318",
+        "isbn-9788467083330"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4a94fa318fe71762",
+  "origen": "chatgpt-web"
+}

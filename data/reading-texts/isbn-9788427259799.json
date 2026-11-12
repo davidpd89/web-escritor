@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788427259799",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una vida con sentido: Lo que San Benito puede enseñarte hoy (No ficción crossover) se dirige a lectores interesados en espiritualidad, filosofía y enseñanzas religiosas aplicadas al presente. Su enfoque parte de San Benito y de la búsqueda de sentido vital. Encaja menos con quien busca una novela de ficción o un tratamiento ajeno a las referencias religiosas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro aborda la búsqueda de una vida con sentido a partir de lo que San Benito puede enseñar en la actualidad. Marta González Cambronero (Sor Marta) firma una obra situada entre la religión, la espiritualidad y la filosofía. La referencia a San Benito define el punto de partida de una reflexión orientada al presente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una vida con sentido: Lo que San Benito puede enseñarte hoy (No ficción crossover) está disponible en tapa blanda. Sus 192 páginas forman un volumen físico que puede transportarse y consultarse sin dispositivo electrónico. Esta encuadernación permite señalar pasajes y volver a ellos durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual comparte con Una vida con sentido: Lo que San Benito puede enseñarte hoy (No ficción crossover) el interés por la práctica espiritual. La obra de Soledad Davies se orienta, desde su título, hacia la astrología y la magia, mientras que Marta González Cambronero (Sor Marta) toma como referencia a San Benito. La diferencia principal está en la tradición desde la que cada libro plantea su aproximación espiritual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cc88a2242a2ee3c7",
+  "origen": "chatgpt-web"
+}

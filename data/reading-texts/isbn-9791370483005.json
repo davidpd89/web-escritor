@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370483005",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Jane Eyre | Charlotte Brontë | Colección Grandes Autores de la Literatura Gredos se dirige a lectores de clásicos literarios con componentes románticos. Sus 952 páginas plantean una lectura extensa, menos ajustada a quien busca una novela breve o un romance contemporáneo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Jane Eyre | Charlotte Brontë | Colección Grandes Autores de la Literatura Gredos se presenta en tapa dura y reúne 952 páginas en castellano. Este volumen de RBA Coleccionables permite conservar la obra en un único ejemplar físico, aunque su extensión supone más peso para transportarlo que el de una edición breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Jane Eyre (edición especial con sobrecubierta troquelada) (La biblioteca de los libros prohibidos) (Ficción crossover) comparte con esta edición la obra de Charlotte Brontë. La diferencia identificable está en la presentación: aquella destaca una sobrecubierta troquelada, mientras que Jane Eyre | Charlotte Brontë | Colección Grandes Autores de la Literatura Gredos pertenece a la colección de Gredos y se publica en tapa dura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427259782"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f5239bdc90108148",
+  "origen": "chatgpt-web"
+}

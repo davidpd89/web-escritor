@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788408329312",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensado para lectores desde los 5 años que practican con letras mayúsculas y buscan aventuras infantiles con humor y componentes de terror. La posibilidad de elegir la propia historia lo distingue de una narración de recorrido fijo; tampoco está orientado a quienes buscan lectura adulta.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 56 páginas y permite practicar la lectura en mayúsculas directamente sobre papel. Kindle traslada el libro al soporte digital y facilita llevarlo en un dispositivo compatible, mientras que la edición impresa permite pasar las páginas físicamente.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte autora y aprendizaje lector con Abril Abremundos 1 - El bosque susurrador (Montena), de Mar Benegas. La diferencia está en que este libro de Los Detectives Zoopencos utiliza letra mayúscula, se dirige a niños a partir de 5 años y permite elegir la propia historia, mientras que el otro pertenece a la serie Abril Abremundos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387972936"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "15fab4e7bcfec49e",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387846923",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Curso de Literatura inglesa y norteamericana: Universidad de Mar del Plata, 1966 está dirigido a lectores interesados en la literatura y en el estudio de las tradiciones literarias inglesa y norteamericana. Su planteamiento de curso académico lo diferencia de quienes buscan principalmente una colección de relatos o una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 368 páginas en un volumen físico para una lectura continuada y consulta; Kindle permite acceder al texto desde un dispositivo electrónico. El audiolibro añade la posibilidad de escucharlo, por lo que la elección depende de si se prefiere leer en papel, en pantalla o escuchar.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Curso de Literatura inglesa y norteamericana: Universidad de Mar del Plata, 1966 comparte autor con Textos recobrados 1956-1986, ambos de Jorge Luis Borges. El primero identifica un curso dedicado a las tradiciones literarias inglesa y norteamericana, mientras que el segundo delimita su contenido mediante un periodo concreto de textos del escritor argentino.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388364068"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5bca5792916dc568",
+  "origen": "chatgpt-web"
+}

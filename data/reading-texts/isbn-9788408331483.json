@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408331483",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El último secreto: Edición limitada a precio especial (Colección Especial) se orienta a lectores de misterio y thriller interesados también en la novela histórica y los secretos. Por su extensión de 832 páginas, se aleja de la lectura breve y de quienes buscan una obra centrada en la fantasía o el romance.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta presentación de El último secreto se identifica como edición limitada a precio especial dentro de Colección Especial. Booket la publica en tapa dura, con 832 páginas en castellano y fecha editorial del 27 de enero de 2027; el título y la encuadernación permiten distinguirla de otras ediciones.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura permite conservar las 832 páginas de El último secreto en un único volumen físico, aunque su extensión supone más peso al transportarlo. El audiolibro evita llevar ese volumen y permite seguir la narración mediante escucha, una opción distinta para desplazamientos o actividades cotidianas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El último secreto y El divorcio comparten el interés por los secretos y los conflictos que generan tensión narrativa. Dan Brown combina misterio y novela histórica, mientras que la obra de Freida McFadden parte de una relación amorosa aparentemente perfecta; la diferencia está en el tipo de conflicto que sirve de punto de partida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388163531"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aa95f726296e7bdd",
+  "origen": "chatgpt-web"
+}

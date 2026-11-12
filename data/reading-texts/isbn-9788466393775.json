@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466393775",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Código fuente: Mis inicios (Best Seller | Ficción), de Bill Gates, pertenece al ámbito de las biografías y memorias. Se orienta a lectores interesados en relatos personales y trayectorias vitales, no a quienes buscan una novela fantástica o una historia romántica de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Código fuente: Mis inicios (Best Seller | Ficción) tiene 368 páginas y ofrece tapa dura para conservar el ejemplar, además de tapa blanda, cuya edición de Penguin Bolsillo facilita transportarlo. Kindle permite leerlo en el móvil o en un lector electrónico; el audiolibro ofrece la alternativa de escucharlo sin seguir el texto impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Código fuente: Mis inicios (Best Seller | Ficción) y Al andar: Vivencias del Camino de Santiago comparten el interés por las experiencias personales. Bill Gates presenta sus inicios desde el ámbito de las memorias, mientras que Carlos Díaz Ballesta delimita su obra a las vivencias relacionadas con el Camino de Santiago.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "98c05fb7348d84df",
+  "origen": "chatgpt-web"
+}

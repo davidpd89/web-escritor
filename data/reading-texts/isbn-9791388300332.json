@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791388300332",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en el ensayo jurídico y en la posible autonomía del Derecho masónico. Por su enfoque especializado, encaja menos con quienes buscan narrativa de ficción o una introducción general a la masonería.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Examina si el Derecho masónico puede considerarse una rama jurídica autónoma. Joan Francesc Pont Clemente plantea esta cuestión desde el terreno del Derecho y el ensayo, con una extensión de 324 páginas que permite desarrollar el problema más allá de una definición breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, con 324 páginas en castellano publicadas por Editorial Masonica.es. Este formato permite consultar y transportar el volumen físico sin recurrir a un dispositivo de lectura, aunque exige reservar espacio para un libro de esa extensión.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puede compararse con Justicia, ¿quién responde?: El mundo cambia, la justicia no (Ensayo), de Álvaro Lobato Lavín, por su interés en cuestiones relacionadas con el Derecho. El libro de Joan Francesc Pont Clemente examina si el Derecho masónico posee autonomía jurídica, mientras que el de Álvaro Lobato Lavín plantea la relación entre justicia y cambio social. Ambos se dirigen a lectores interesados en problemas jurídicos, aunque abordan cuestiones diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370206017"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f91879060e2442ed",
+  "origen": "chatgpt-web"
+}

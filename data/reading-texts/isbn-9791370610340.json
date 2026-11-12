@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791370610340",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en las implicaciones jurídicas de la inteligencia artificial en la justicia y el tratamiento del delito dentro del marco europeo. Por su enfoque de derecho y gobernanza algorítmica, se aleja de las lecturas sobre programación o aplicaciones cotidianas de la tecnología.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 290 páginas en castellano, publicadas por Aranzadi. El formato físico permite consultar apartados, incorporar notas y mantener el volumen a mano para estudiar cuestiones jurídicas relacionadas con la inteligencia artificial y la justicia.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a6241849bdeb8010",
+  "origen": "chatgpt-web"
+}

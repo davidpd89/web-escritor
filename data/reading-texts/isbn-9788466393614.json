@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788466393614",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Harry Potter Envío especial - Correo por Lechuza (estuche con la SAGA COMPLETA) (Harry Potter [edición con la portada ilustrada por Jonny Duddle]) se dirige a lectores de fantasía que quieren reunir la saga completa de J.K. Rowling. Su presentación en estuche responde a una compra de colección, no a la búsqueda de una única novela independiente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Harry Potter se distingue por el estuche Envío especial - Correo por Lechuza, que reúne la saga completa con portadas ilustradas por Jonny Duddle. Penguin Bolsillo la presenta en castellano, en formato de bolsillo y tapa blanda, con publicación fechada el 26 de noviembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "formato_edicion",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Frente a Harry Potter y el misterio del príncipe (Harry Potter edición con ilustraciones de Xavier Bonet 6), centrado en el sexto curso del protagonista, este estuche reúne la saga completa y utiliza portadas de Jonny Duddle. Estuche Biblioteca de Hogwarts: contiene: Animales fantásticos | Los cuentos de Beedle el bardo | Quidditch a través de los tiempos (Harry Potter) también agrupa libros de J.K. Rowling, pero sus títulos corresponden a obras complementarias del universo de Harry Potter.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395724",
+        "isbn-9788419275851",
+        "isbn-9788466395694"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "508b9ed4570b3c43",
+  "origen": "chatgpt-web"
+}

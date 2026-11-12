@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387928612",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El persa (Novela (Best Seller)), de David McCloskey, se dirige a lectores que buscan narrativa contemporánea con elementos de misterio, thriller y poder político. Sus 448 páginas corresponden a una novela extensa; su clasificación temática no apunta a quienes buscan principalmente fantasía o relatos infantiles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible de El persa (Novela (Best Seller)), de David McCloskey, es en tapa blanda y tiene 448 páginas. El formato físico permite leer el volumen en papel y conservarlo en la biblioteca; su extensión también lo convierte en una lectura de varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Moscú X (Best Seller | Ficción), de David McCloskey, es una lectura afín por compartir autor con El persa (Novela (Best Seller)). También puede ponerse en relación con Estación Damasco (Best Seller | Ficción), del mismo escritor; los tres títulos permiten comparar distintas novelas de David McCloskey, mientras que El persa se identifica específicamente con el misterio, el thriller y el poder político.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396707",
+        "isbn-9788466395632"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "598d8ed6bf4cec68",
+  "origen": "chatgpt-web"
+}

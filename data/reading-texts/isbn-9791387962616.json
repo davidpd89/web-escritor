@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387962616",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El incidente Darwin 9 (Seinen) se dirige a lectores de manga interesados en la ciencia ficción y la fantasía dentro del cómic y la novela gráfica. Su identificación como seinen y su formato de 160 páginas lo diferencian de una novela convencional en prosa; el título lo identifica como el n.º 9.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El incidente Darwin 9 (Seinen) está disponible en tapa blanda, con 160 páginas publicadas por Distrito Manga en castellano. La edición física permite seguir la lectura del cómic sobre papel y conservar el volumen junto a otros números de la serie.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "33e5766de6a6ea3e",
+  "origen": "chatgpt-web"
+}

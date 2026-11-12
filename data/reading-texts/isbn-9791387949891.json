@@ -3,8 +3,19 @@
   "familia": "narrativa",
   "bloques": [
     {
+      "modulo": "para_quien",
+      "texto": "Una vez y para siempre se dirige a lectores de romance juvenil interesados en la memoria, las segundas oportunidades y las relaciones que cambian con el tiempo. Amanda Gayle plantea el desconcierto de una joven que debe reconstruir su vínculo matrimonial tras perder recuerdos; encaja menos con quienes buscan una historia romántica sin conflictos de identidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Una vez y para siempre está clasificada como lectura juvenil y aborda el amor, la pareja y la pérdida de memoria. La protagonista sufre un accidente que la lleva al hospital y ha olvidado seis años de su vida, incluido su matrimonio. El desconcierto ante una relación íntima que ya no recuerda constituye el principal conflicto emocional.",
+      "texto": "Una vez y para siempre está clasificada como lectura juvenil, con una trama centrada en la pérdida de memoria y las relaciones afectivas. La protagonista despierta hospitalizada después de sufrir una alteración de sus recuerdos y debe afrontar una realidad sentimental que no reconoce. La hospitalización, la desorientación y el conflicto de pareja forman parte de su contenido.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,28 +25,27 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Una vez y para siempre plantea un romance juvenil construido alrededor de una relación que uno de sus integrantes ha olvidado. La antigua enemistad escolar entre los protagonistas contrasta con su situación matrimonial presente. El conflicto combina memoria, convivencia y la posibilidad de recuperar sentimientos sin recuperar primero los recuerdos.",
+      "texto": "Una vez y para siempre combina romance juvenil y pérdida de memoria para explorar una relación matrimonial que su protagonista ya no recuerda. Molly despierta en el hospital sin recuerdos de los últimos seis años y se encuentra casada con Aster Bishop, a quien conoció como enemigo durante el instituto. El conflicto enfrenta sus recuerdos anteriores con una vida compartida que ahora le resulta ajena.",
       "evidencias": [
         "titulo",
         "categorias",
-        "edad_recomendada",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Una vez y para siempre está disponible en tapa blanda, concretamente en una edición con solapas de Alfaguara. Sus 376 páginas se presentan en un volumen físico que puede guardarse en una estantería, prestarse o regalarse. Es la opción recogida para quien quiera leer esta novela en papel.",
+      "texto": "Una vez y para siempre está disponible en tapa blanda y audiolibro. La edición física de Alfaguara tiene 376 páginas y solapas, mientras que el audiolibro permite seguir la historia mediante la escucha sin manejar el volumen. La elección depende de si se prefiere leer el texto impreso o escuchar la narración.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
         "editorial",
-        "numero_paginas"
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Una vez y para siempre puede compararse con Cuando fuimos todo, de Noelia Dopazo, porque ambas historias sitúan una relación sentimental en el centro del conflicto. En la novela de Amanda Gayle interviene la pérdida de recuerdos matrimoniales; en la de Noelia Dopazo, la convicción de Emma sobre su futuro con Gael. Las dos parten de vínculos amorosos, pero plantean situaciones distintas.",
+      "texto": "Recuerdos. Breve historia de un amor, de Juan Ramírez de Lucas, comparte con Una vez y para siempre el interés por el amor y la memoria. La obra de Juan Ramírez de Lucas presenta un testimonio sobre su relación con Federico García Lorca, mientras que Amanda Gayle desarrolla una ficción romántica juvenil sobre una mujer que ha olvidado su matrimonio. Una aborda recuerdos conservados; la otra, recuerdos perdidos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -44,26 +54,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387598440"
-      ]
-    },
-    {
-      "modulo": "para_quien",
-      "texto": "Una vez y para siempre, de Amanda Gayle, se dirige al público juvenil que busca romance relacionado con la pérdida de memoria y la reconstrucción de una pareja. Su protagonista debe afrontar un matrimonio que no recuerda y una antigua enemistad con su marido. No responde a quien prefiera una historia romántica sin conflictos sobre la identidad y el pasado compartido.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "edad_recomendada",
-        "sinopsis_editorial"
+        "isbn-9788432251467"
       ]
     }
   ],
-  "descartados": [
-    "para_quien: afirmaciones sin respaldo: premi",
-    "faltan módulos: para_quien"
-  ],
+  "descartados": [],
   "version": 3,
-  "fuente_hash": "f6bb007ab32864a8",
+  "fuente_hash": "a4836a2fd978fa2a",
   "origen": "chatgpt-web"
 }

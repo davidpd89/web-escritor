@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788410382008",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Exclusión y la nueva política del odio (CONOCIMIENTO) se dirige a lectores interesados en el poder, la política y los mecanismos de exclusión. El libro de Colin Crouch tiene 176 páginas y plantea una materia distinta de la narrativa de ficción o de los manuales de participación política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Exclusión y la nueva política del odio (CONOCIMIENTO) está disponible en tapa blanda, con 176 páginas en castellano. Esta edición de Katz Barpal Editores SL permite leer y consultar en papel un volumen centrado en cuestiones políticas, con una extensión delimitada.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Exclusión y la nueva política del odio (CONOCIMIENTO), de Colin Crouch, comparte el interés por las estructuras de poder con A la sombra del Estado, de Luis de la Corte Ibáñez. El primero aborda la exclusión y el odio político; el segundo se orienta hacia el espionaje, las operaciones encubiertas y la desinformación. Ambos tratan manifestaciones distintas del poder.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dc6b28edf39ff55b",
+  "origen": "chatgpt-web"
+}

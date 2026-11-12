@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788430123162",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan estudiar el judaísmo desde una perspectiva histórica y religiosa, especialmente durante el periodo del Segundo Templo. El judaísmo del Segundo Templo: Historia y religión en tiempos de Jesús: 184 (Biblioteca de Estudios Bíblicos), de Lester L. Grabbe, no plantea una narración de ficción, sino una lectura centrada en historia y religión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro aborda la historia y las prácticas religiosas del judaísmo durante el Segundo Templo, tomando como referencia la época de Jesús. Lester L. Grabbe sitúa esta materia en el cruce entre los estudios históricos y religiosos, dentro de la colección Biblioteca de Estudios Bíblicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda presenta las 192 páginas de El judaísmo del Segundo Templo: Historia y religión en tiempos de Jesús: 184 (Biblioteca de Estudios Bíblicos) en papel. Esta edición de Ediciones Sígueme permite volver a fechas, conceptos y pasajes durante el estudio, con la posibilidad de colocar marcadores físicos entre sus páginas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dios: Una Historia Humana / God: A Human History, de Reza Aslan, comparte el interés por la religión, aunque su título propone una perspectiva humana sobre Dios. El judaísmo del Segundo Templo: Historia y religión en tiempos de Jesús: 184 (Biblioteca de Estudios Bíblicos), de Lester L. Grabbe, delimita el estudio a un periodo histórico y una tradición religiosa concretos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073877565"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d598f2b7efda2be6",
+  "origen": "chatgpt-web"
+}

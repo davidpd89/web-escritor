@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788419868800",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido al público infantil interesado en la magia y los hechizos del universo Harry Potter. Sus 40 páginas se centran en una guía para aprendices de magia, por lo que se aleja de las novelas extensas de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Salamandra se presenta en tapa dura y reúne 40 páginas en castellano. Este formato permite conservar la guía en una estantería y consultarla físicamente, además de servir como regalo relacionado con Harry Potter.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Animales fantásticos y dónde encontrarlos (Un libro de la biblioteca de Hogwarts) (Harry Potter) comparte con esta guía la autoría de J.K. Rowling y su vinculación con Harry Potter. Mientras aquel título se ocupa de animales fantásticos, Duelo con varitas (Harry Potter): Guía oficial de hechizos para aprendices de magia se centra en los hechizos y consta de 40 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395687"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e7508dd717578bc7",
+  "origen": "chatgpt-web"
+}

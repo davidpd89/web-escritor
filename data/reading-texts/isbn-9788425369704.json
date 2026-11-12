@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788425369704",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Recuperar el norte: Vive con propósito incluso en los momentos más difíciles (Psicología), de Inés Bárcenas, se dirige a lectores interesados en el desarrollo personal y la psicología. Su planteamiento gira en torno al propósito ante las dificultades, por lo que se aleja de las expectativas de quien busca una novela de ficción o una obra de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Recuperar el norte: Vive con propósito incluso en los momentos más difíciles (Psicología) se ofrece en tapa blanda, con 336 páginas en castellano publicadas por Grijalbo. El soporte en papel permite marcar puntos de lectura y regresar a apartados sobre psicología y desarrollo personal, tanto durante una lectura seguida como en consultas posteriores.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f08d3650fa998ad3",
+  "origen": "chatgpt-web"
+}

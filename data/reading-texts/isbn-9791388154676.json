@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388154676",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuaderno de invierno. Vol. 7 (El auténtico e inimitable): Cuaderno de actividades para adultos está destinado a personas adultas que buscan actividades de ocio en papel. No se plantea como una novela para seguir una trama, sino como un cuaderno para dedicar tiempo a distintas actividades.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Cuaderno de invierno. Vol. 7 (El auténtico e inimitable): Cuaderno de actividades para adultos contiene 72 páginas. Su extensión y encuadernación permiten llevar el cuaderno de un lugar a otro y utilizarlo durante ratos de ocio.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuaderno de invierno. Vol. 7 (El auténtico e inimitable): Cuaderno de actividades para adultos y 800 stickers sweet and cosy (Prácticos) comparten su orientación hacia el ocio mediante materiales físicos. El primero propone un cuaderno de actividades para adultos, mientras que la obra de Amélie's Workshop se centra en pegatinas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049737"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ab90d265926c0d38",
+  "origen": "chatgpt-web"
+}

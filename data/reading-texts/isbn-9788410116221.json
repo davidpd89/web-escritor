@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410116221",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Blanco de niebla y locura (TBR) se dirige a lectores que buscan fantasía con romance y aventuras dentro de una narración extensa. Sus 736 páginas lo alejan de quienes prefieren novelas cortas o historias realistas sin elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Blanco de niebla y locura (TBR) reúne sus 736 páginas en una edición física rígida, adecuada para conservar en la estantería o regalar. Kindle evita transportar un volumen tan extenso y permite continuar la lectura desde un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE) y Blanco de niebla y locura (TBR) pueden compararse desde su vinculación con el romance y los elementos fantásticos. La primera obra, de Kayla Edwards, destaca el romance oscuro en su título editorial; la segunda, de Lisette Marshall, combina fantasía, romance y aventuras entre sus géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788415955559"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f96d8efd670bd5a4",
+  "origen": "chatgpt-web"
+}

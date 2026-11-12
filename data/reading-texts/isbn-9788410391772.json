@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410391772",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Corazón de una bridgerton (Titania época) se orienta a lectores de romance ambientado en un contexto histórico. Su combinación de amor y novela de época lo diferencia de las historias sentimentales contemporáneas y de las narraciones históricas centradas exclusivamente en acontecimientos políticos o militares.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Corazón de una bridgerton (Titania época) se presenta en tapa blanda, con 352 páginas en castellano. La edición permite seguir la historia sin dispositivos electrónicos y conservar el volumen junto a otros títulos de romance histórico de la misma autora.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Primero llegó el escándalo (Titania época) es una referencia cercana por su autora, Julia Quinn, y su vinculación con la misma línea editorial. Por un beso (Bridgerton 7) Edición Especial (Titania época) comparte además la referencia a Bridgerton, aunque su título lo identifica como el n.º 7 y señala una edición especial. Corazón de una bridgerton (Titania época) no lleva esa numeración en el título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410391758",
+        "isbn-9786316863201"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e76fdbf5cd464481",
+  "origen": "chatgpt-web"
+}

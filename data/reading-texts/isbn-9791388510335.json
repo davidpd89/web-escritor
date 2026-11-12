@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9791388510335",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Protección de los derechos de la familia por los comités de Naciones Unidas se orienta a lectores interesados en la familia desde una perspectiva de derechos y organismos internacionales. Su planteamiento temático se aleja de los relatos familiares de ficción y de los libros de consejos sobre relaciones personales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Protección de los derechos de la familia por los comités de Naciones Unidas se publica en tapa blanda, en una edición shinsho de 222 páginas. El formato físico permite consultar pasajes y volver a ellos durante una lectura centrada en el estudio de los derechos familiares.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a362c6a0876f964e",
+  "origen": "chatgpt-web"
+}

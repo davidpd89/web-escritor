@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9791388147623",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tierra (edición limitada cantos tintados) (Campaña | Edición con cantos tintados) encaja con lectores interesados en el misterio y la narrativa contemporánea. Su clasificación la aleja de quienes prefieren libros de fantasía o ciencia ficción, mientras que sus 544 páginas plantean una lectura de cierta extensión.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Los cantos tintados y la tapa dura identifican esta edición limitada de Tierra (edición limitada cantos tintados) (Campaña | Edición con cantos tintados). Penguin Bolsillo publica el volumen de Eloy Moreno el 19 de noviembre de 2026, con 544 páginas en castellano y el ISBN 9791388147623.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tierra (edición limitada cantos tintados) (Campaña | Edición con cantos tintados) figura en tapa dura, con una extensión de 544 páginas. Es una presentación física para lectura en papel, conservación o regalo, y los cantos tintados aportan una diferencia visible respecto a una encuadernación convencional.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tierra (edición limitada cantos tintados) (Campaña | Edición con cantos tintados) comparte autor con Invisible (edición Luna) y Redes (edición Luna) (Invisible 2), también de Eloy Moreno. Tierra se clasifica como misterio y narrativa contemporánea; las referencias de los otros títulos apuntan, respectivamente, al deseo de invisibilidad y a la relación entre felicidad y aprobación en redes sociales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419514318",
+        "isbn-9788419514882"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aee61e309b7062f8",
+  "origen": "chatgpt-web"
+}

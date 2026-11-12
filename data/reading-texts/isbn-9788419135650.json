@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788419135650",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A la caza de Papá Noel: 3, de Emma S. Varela y Robert García, se sitúa en la lectura infantil de fantasía, con una temática vinculada a Papá Noel. Sus 36 páginas permiten plantear una lectura breve; por su orientación infantil, encaja menos con quien busca narrativa adulta o una novela extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "A la caza de Papá Noel: 3 se publica en tapa dura, con 36 páginas en castellano. La encuadernación rígida resulta práctica para manipularlo durante lecturas compartidas y conservarlo en una biblioteca infantil. Su extensión también permite leerlo en sesiones cortas sin recurrir a una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ca9881a7bb22e428",
+  "origen": "chatgpt-web"
+}

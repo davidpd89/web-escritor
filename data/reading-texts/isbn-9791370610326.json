@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9791370610326",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las Ultrafalsificaciones: retos probatorios (Monografía) encaja con lectores interesados en los problemas jurídicos de la prueba ante las ultrafalsificaciones. Su orientación hacia el derecho probatorio la distingue de los libros que tratan la tecnología únicamente desde su funcionamiento técnico o sus aplicaciones cotidianas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las Ultrafalsificaciones: retos probatorios (Monografía) se presenta en tapa blanda, con 280 páginas publicadas por Aranzadi. La extensión permite trabajar con un volumen físico relativamente contenido, tanto para la lectura seguida como para localizar y revisar cuestiones jurídicas concretas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e88879e71515f601",
+  "origen": "chatgpt-web"
+}

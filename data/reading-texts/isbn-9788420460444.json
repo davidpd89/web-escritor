@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los desafíos de la sociedad abierta: La libertad y sus enemigos (Obra periodística Vargas Llosa IV), de Mario Vargas Llosa, se dirige a adultos interesados en el pensamiento político, el liberalismo y el debate sobre las libertades individuales. No responde a la búsqueda de una novela con personajes y una trama continua: reúne artículos de reflexión y argumentación.",
+      "texto": "Los desafíos de la sociedad abierta: La libertad y sus enemigos (Obra periodística Vargas Llosa IV) está dirigido a adultos interesados en el pensamiento político, el liberalismo y los debates sobre las libertades individuales. Su estructura de artículos periodísticos lo distingue de una novela de ficción con personajes y una trama continuada.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,47 +14,48 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una recopilación de periodismo político y reflexión sobre la democracia liberal, el individualismo y las ideologías colectivistas. Los textos examinan las tensiones entre libertad personal, nacionalismo, religión y poder estatal desde la posición liberal de Mario Vargas Llosa. La lectura avanza mediante argumentos y artículos, no mediante una trama de ficción.",
+      "texto": "Este volumen de Mario Vargas Llosa reúne periodismo de opinión y reflexión política sobre la democracia liberal y las amenazas del colectivismo. Los textos examinan cuestiones como el nacionalismo, el fanatismo religioso, la intolerancia y la autonomía individual. La lectura se articula mediante argumentos y artículos, no mediante una narración novelesca.",
       "evidencias": [
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de Alfaguara reúne 768 páginas en castellano, encuadernadas en tapa blanda con solapas, y tiene fecha de publicación del 29 de octubre de 2026. El título la identifica como el volumen IV de Obra periodística Vargas Llosa. Incluye un prólogo de Carlos Granés y textos periodísticos sobre la defensa de la sociedad abierta.",
+      "texto": "Los desafíos de la sociedad abierta: La libertad y sus enemigos (Obra periodística Vargas Llosa IV) forma parte de la recopilación periodística de Mario Vargas Llosa y contiene 768 páginas. Esta edición de Alfaguara, publicada el 29 de octubre de 2026, se presenta en castellano con tapa blanda y solapas. Incluye un prólogo de Carlos Granés.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
-        "fecha_publicacion",
+        "autores",
         "numero_paginas",
+        "editorial",
+        "fecha_publicacion",
+        "edicion",
         "idioma",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los desafíos de la sociedad abierta: La libertad y sus enemigos (Obra periodística Vargas Llosa IV) está disponible en tapa blanda y Kindle. Sus 768 páginas en papel permiten consultar y marcar artículos en un volumen físico; Kindle facilita transportar la recopilación completa y alternar entre textos desde un dispositivo digital.",
+      "texto": "Los desafíos de la sociedad abierta: La libertad y sus enemigos (Obra periodística Vargas Llosa IV) se ofrece en tapa blanda y Kindle. La edición física reúne sus 768 páginas en un volumen con solapas, mientras que Kindle permite consultar los artículos desde un lector electrónico o dispositivo compatible sin transportar el libro impreso.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cosamala, de Alana S. Portero, y Cuando seamos inmortales, de Tony Gratacós, también abordan conflictos vinculados a la historia y la sociedad. Sin embargo, ambas presentan historias narrativas, una alrededor de un crimen de la guerra civil y otra sobre rivalidades artísticas y políticas, mientras Mario Vargas Llosa desarrolla argumentos sobre libertad e ideología mediante artículos periodísticos.",
+      "texto": "Los desafíos de la sociedad abierta: La libertad y sus enemigos (Obra periodística Vargas Llosa IV) comparte autor con La ciudad y los perros (Reservoir Gráfica), de Mario Vargas Llosa. La diferencia está en el enfoque: el primero reúne artículos de pensamiento político y defensa de las libertades, mientras que el segundo pertenece a una presentación gráfica de una obra literaria.",
       "evidencias": [
+        "titulo",
         "autores",
         "afines_catalogo",
         "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788432251436",
-        "isbn-9788423371181"
+        "isbn-9788418052095"
       ]
     }
   ],

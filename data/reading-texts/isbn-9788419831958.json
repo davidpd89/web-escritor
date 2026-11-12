@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788419831958",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todas las veces que se te acelera el corazón (Romántica) se dirige a lectores de romance juvenil que buscan una novela centrada en las relaciones afectivas. Su clasificación editorial la aleja de las lecturas orientadas principalmente al ensayo, la divulgación o la narrativa histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Todas las veces que se te acelera el corazón (Romántica) cuenta con una edición en tapa blanda de 424 páginas, adecuada para quien prefiere conservar y leer un ejemplar físico. También está disponible en Kindle, que permite llevar esta novela juvenil en formato digital y continuar la lectura desde un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fa27a6d1ac1c9cdc",
+  "origen": "chatgpt-web"
+}

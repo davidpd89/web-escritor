@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399187359",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Quien aguarda en el puente del olvido 1 encaja con lectores de fantasía que también buscan romance y aventuras. Su combinación de géneros se aleja de una lectura centrada exclusivamente en relaciones sentimentales o en narrativa realista.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Quien aguarda en el puente del olvido 1 está disponible en tapa blanda, con 504 páginas en castellano. Esta edición física permite conservar una lectura extensa en un solo volumen y utilizar un marcapáginas para retomar la historia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Quien aguarda en el puente del olvido 1 comparte fantasía y romance con Ciudad de dioses y monstruos (DARK ROMANCE), de Kayla Edwards. Frente al énfasis en el romance oscuro que anuncia ese título, la obra de Yi Yi Yi Yi también se sitúa en aventuras y ciencia ficción, por lo que ofrece una combinación de géneros más amplia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788415955559"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2ddc2f89a7aa49eb",
+  "origen": "chatgpt-web"
+}

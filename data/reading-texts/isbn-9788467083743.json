@@ -4,43 +4,32 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Felipe II. Vida íntima de un rey de España se dirige a lectores interesados en la historia de la monarquía española y en las contradicciones personales del ejercicio del poder. Su perspectiva biográfica y política se aparta de la novela histórica de ficción y de los estudios centrados exclusivamente en acontecimientos militares.",
+      "texto": "Felipe II. Vida íntima de un rey de España está dirigido a lectores de historia interesados en la figura personal y política de un monarca. El libro de Henry Kamen aborda el ejercicio del poder, los conflictos bélicos y las críticas al soberano, por lo que se aparta de la novela histórica de ficción.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Henry Kamen estudia la figura de Felipe II a través de su dimensión personal y de las responsabilidades de gobierno. El contraste entre su defensa declarada de la paz y su participación en conflictos bélicos permite examinar las tensiones de una monarquía con territorios repartidos por distintas partes del mundo.",
+      "texto": "Henry Kamen examina la figura de Felipe II desde su dimensión personal y su posición como gobernante de territorios repartidos por el mundo. El enfoque histórico incorpora la contradicción entre su defensa declarada de la paz y su participación en guerras, además de las críticas que recibió durante su reinado.",
       "evidencias": [
-        "autores",
         "titulo",
+        "autores",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda con solapas ofrece las 448 páginas de Felipe II. Vida íntima de un rey de España en un volumen físico para consultar durante la lectura histórica. Kindle permite acceder al mismo título en formato digital, sin necesidad de transportar el libro en papel.",
+      "texto": "Felipe II. Vida íntima de un rey de España se publica en tapa blanda con solapas y cuenta con 448 páginas, una opción física para leer y consultar pasajes. La edición Kindle permite acceder al mismo título desde un lector electrónico o un dispositivo compatible, sin cargar con el volumen impreso.",
       "evidencias": [
         "titulo",
-        "edicion",
         "numero_paginas",
-        "formatos_disponibles"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Felipe II. Vida íntima de un rey de España y CORONA AUTORITARIA, LA examinan la monarquía española, pero el primero se centra en un soberano y el segundo en las relaciones entre Corona y nacionalismo durante la dictadura de Primo de Rivera. Cesar La conquista de la eternidad también aborda una figura histórica de poder, aunque desde la trayectoria de un general romano.",
-      "evidencias": [
-        "titulo",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788410944329",
-        "isbn-9788419892782"
+        "formatos_disponibles",
+        "edicion"
       ]
     }
   ],

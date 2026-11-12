@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410318526",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cacahuete, el elfo pedorrete está dirigido a lectores infantiles interesados en la fantasía y el humor. Su combinación temática también incorpora poesía, mientras que sus 48 páginas lo diferencian de las novelas extensas y de los ensayos para adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 48 páginas de Cacahuete, el elfo pedorrete en un libro físico compacto, adecuado para conservar y regalar. Kindle permite acceder al contenido desde una pantalla, aunque la elección del formato físico mantiene la edición en papel.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cacahuete, el elfo pedorrete comparte el público infantil con El lago de los monstruos (INFANTIL), de Leo Timmers. Ambos títulos presentan referentes fantásticos en sus propios nombres, aunque el primero se identifica con un elfo y combina humor y poesía, mientras que el segundo introduce monstruos. Estuche Magic Animals. Misiones especiales 1 y 2, de Susanna Isern, Carles Dalmau, Nil López, aporta otra referencia del catálogo infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387884260",
+        "isbn-9788408327332"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fe82982e395dac1b",
+  "origen": "chatgpt-web"
+}

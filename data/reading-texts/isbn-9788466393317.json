@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466393317",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El puente donde habitan las mariposas: Biosofía de la respiración (Best Seller | No Ficción), de Nazareth Castellanos, encaja con lectores interesados en la respiración desde perspectivas vinculadas al bienestar, la psicología y la filosofía. Su enfoque temático lo diferencia de los libros dedicados principalmente a la nutrición o a los programas de entrenamiento físico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de bolsillo en tapa blanda de El puente donde habitan las mariposas: Biosofía de la respiración (Best Seller | No Ficción) tiene 280 páginas y facilita llevar el libro en papel. La tapa dura ofrece una encuadernación más rígida para conservarlo o regalarlo; Kindle permite leerlo en el móvil y el audiolibro, escucharlo sin consultar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Neurociencia del cuerpo (Best Seller | Ficción), de Nazareth Castellanos, coincide en autoría y en su relación con la psicología, la filosofía y el bienestar. El puente donde habitan las mariposas: Biosofía de la respiración (Best Seller | No Ficción) acota su asunto a la respiración, mientras que el otro título aborda el cuerpo de manera más amplia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394703"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2a2ba93f803b07c3",
+  "origen": "chatgpt-web"
+}

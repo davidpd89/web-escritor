@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Guerra de dragones (Lengua de dragones 2) se dirige a lectores desde los 12 años que buscan fantasía juvenil con dragones, rebeliones y conflictos políticos. El peso de la guerra y la persecución lo aleja de quienes prefieren aventuras cotidianas sin enfrentamientos violentos.",
+      "texto": "Guerra de dragones (Lengua de dragones 2) encaja con lectores desde los 12 años interesados en fantasía juvenil, rebeliones y relaciones sentimentales. Su conflicto gira alrededor de una guerra y de una protagonista perseguida, por lo que se distancia de las aventuras fantásticas sin enfrentamientos políticos ni amenazas colectivas.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "La edad recomendada para Guerra de dragones (Lengua de dragones 2) comienza a los 12 años. Su conflicto incluye una rebelión, una protagonista perseguida como criminal y una guerra en la que intervienen dragones, bombas y distintas facciones enfrentadas.",
+      "texto": "La edad recomendada para Guerra de dragones (Lengua de dragones 2) es a partir de 12 años. La trama incluye persecución, rebelión, amenazas de guerra y referencias a bombas, elementos que conviene considerar para lectores sensibles a la violencia y a las situaciones de peligro.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -23,26 +23,26 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La novela plantea una fantasía juvenil donde el conocimiento de una lengua puede modificar el desarrollo de una guerra. Vivian Featherswallow debe afrontar las consecuencias de haber descifrado el idioma de los dragones y buscar una solución que depende tanto de la investigación como de sus decisiones dentro de la rebelión.",
+      "texto": "Guerra de dragones (Lengua de dragones 2) combina fantasía juvenil con un conflicto donde el conocimiento lingüístico tiene consecuencias políticas. Vivian Featherswallow intenta impedir una guerra mediante la búsqueda de una especie de dragón considerada extinguida; el título lo identifica como el n.º 2 de Lengua de dragones.",
       "evidencias": [
+        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Guerra de dragones (Lengua de dragones 2) puede leerse en tapa blanda o Kindle. La edición física de Salamandra tiene 304 páginas y solapas, mientras que Kindle permite llevar la novela en un lector electrónico o en el móvil sin transportar el volumen impreso.",
+      "texto": "La edición en tapa blanda con solapas de Guerra de dragones (Lengua de dragones 2) contiene 304 páginas y permite una lectura física sin recurrir a un volumen de tapa dura. Kindle facilita llevar el libro en un dispositivo electrónico, mientras que el audiolibro permite seguir la aventura mediante escucha.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "edicion",
-        "editorial",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Guerra de dragones (Lengua de dragones 2) y Alas de escarcha y oro: El canto del cisne comparten elementos de fantasía y protagonistas vinculadas a capacidades poco comunes. En la novela de S.F. Williamson, descifrar una lengua desencadena consecuencias bélicas; la de Marta Morillo presenta a Eira, que ha vivido ocultando sus dones y debilidades.",
+      "texto": "Guerra de dragones (Lengua de dragones 2) comparte con Los Gatos Guerreros | El augurio de las estrellas 6 - La última esperanza una orientación fantástica hacia conflictos de gran alcance. En la obra de S.F. Williamson, la diferencia está en el protagonismo de la traducción y la rebelión; frente a Alas de escarcha y oro: El canto del cisne, el punto de partida se centra en una guerra que podría evitarse mediante el lenguaje.",
       "evidencias": [
         "titulo",
         "autores",
@@ -51,12 +51,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788419275424",
         "isbn-9791387949938"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9b589999409f9012",
+  "fuente_hash": "43a79eefccb6e7ec",
   "origen": "chatgpt-web"
 }

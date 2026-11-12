@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788410929944",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El caballero inventor de la corte: Jerónimo de Ayanz. Aprovechando que el Pisuerga pasa por Valladolid se dirige a lectores interesados en personajes históricos y narrativa de ambientación histórica. Manuel Sánchez Valiente sitúa a un inventor vinculado a la corte en el centro de su propuesta. No está orientado a quien busca un manual técnico de inventos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La figura de Jerónimo de Ayanz permite abordar el vínculo entre la invención y el entorno cortesano desde una perspectiva narrativa. La referencia a Valladolid introduce un marco geográfico concreto, mientras que la clasificación de la obra reúne historia y narrativa contemporánea. El interés se sitúa en el personaje y su contexto, más que en la exposición técnica de sus inventos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La obra de Manuel Sánchez Valiente está disponible en tapa blanda, con 430 páginas en castellano. La edición de Bod - Books On Demand permite seguir la lectura en papel y regresar a pasajes relacionados con el personaje histórico. Su extensión corresponde a un volumen para leer en varias sesiones.",
+      "evidencias": [
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El caballero inventor de la corte: Jerónimo de Ayanz. Aprovechando que el Pisuerga pasa por Valladolid comparte el terreno narrativo con Corazón de oro: Edición limitada a precio especial (Colección Especial), de Luz Gabás, y El fuego de Bandung (Hispánica), de Jordi Soler. Frente a esos títulos, el de Manuel Sánchez Valiente identifica expresamente a Jerónimo de Ayanz y su relación con la corte como centro de atención.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328353",
+        "isbn-9791387846602"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a3b36c258afd5f07",
+  "origen": "chatgpt-web"
+}

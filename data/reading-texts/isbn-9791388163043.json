@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388163043",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hacia otro lugar (SUMA) encaja con lectores de narrativa contemporánea que buscan asuntos familiares vinculados a la novela histórica. La obra de Mónica Rocha combina esas líneas temáticas en una extensión de 448 páginas. Se aparta de la lectura de ensayo y del cómic humorístico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hacia otro lugar (SUMA) se publica en tapa blanda y cuenta con 448 páginas en castellano. La edición de Suma de Letras ofrece una novela extensa en un volumen físico de cubierta flexible, que puede guardarse en la biblioteca o llevarse durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hacia otro lugar (SUMA), de Mónica Rocha, puede compararse con Amargo, amargo (Literaturas), de Joanna Bator, por su presencia en una selección de lecturas afines. La primera se sitúa entre la narrativa contemporánea y la novela histórica, con la familia entre sus temas. Se trata de obras de autoras diferentes, con títulos y enfoques editoriales propios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387846558"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f44f06b7aee15800",
+  "origen": "chatgpt-web"
+}

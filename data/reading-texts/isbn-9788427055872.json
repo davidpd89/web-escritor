@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788427055872",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Reina de sueños y pesadillas (Matchstories Romantasy), de Siria Dobrev, se orienta a lectores que buscan fantasía combinada con romance. Su clasificación como romantasy la diferencia de las novelas realistas y de las historias fantásticas sin componente romántico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Reina de sueños y pesadillas (Matchstories Romantasy) se ofrece en tapa blanda, con 368 páginas en castellano. La edición de Ediciones Martínez Roca reúne el texto en un único volumen físico que puede conservarse y consultarse sin dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Reina de sueños y pesadillas (Matchstories Romantasy) puede ponerse en relación con Alas de escarcha y oro: El canto del cisne, de Marta Morillo, por su vinculación con la fantasía. También se compara con Asistente del villano (edición especial limitada) (Faeris Editorial), de Hannah Nicole Maehrer; la obra de Siria Dobrev aparece identificada expresamente como romantasy y combina fantasía y romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938",
+        "isbn-9791388108112"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "19b9fe2082f9403d",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388387944",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las leyes del Serengeti: Cómo funciona la vida y por qué es importante saberlo (Ciencia y Tecnología) está dirigido a lectores interesados en comprender el funcionamiento de la vida desde la divulgación científica. Sean B. Carroll desarrolla esta temática en una obra de 344 páginas. No corresponde a una novela ni a una guía de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 344 páginas de Las leyes del Serengeti: Cómo funciona la vida y por qué es importante saberlo (Ciencia y Tecnología) en un volumen físico que puede consultarse por apartados. Kindle permite transportar el texto sin cargar con el libro y leerlo en dispositivos compatibles. Ambas opciones mantienen el enfoque de divulgación científica de la obra.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA, de Keith Mansfield, comparte con Las leyes del Serengeti: Cómo funciona la vida y por qué es importante saberlo (Ciencia y Tecnología) el propósito divulgativo. La diferencia está en el tema: el primero aborda la inteligencia artificial, mientras que Sean B. Carroll se centra en el funcionamiento de la vida. Ambos tratan cuestiones científicas, pero desde campos de estudio distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3d3b0cff0ef020e0",
+  "origen": "chatgpt-web"
+}

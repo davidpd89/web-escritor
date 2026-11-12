@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788467085082",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El misterio de las siete esferas (Biblioteca Agatha Christie) encaja con lectores interesados en el misterio y la narrativa detectivesca de Agatha Christie. Su clasificación como misterio y thriller lo distancia de quienes buscan principalmente fantasía o libros de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El misterio de las siete esferas (Biblioteca Agatha Christie) está disponible en tapa blanda y audiolibro. La edición impresa de Editorial Espasa tiene 288 páginas y permite consultar o releer pasajes; el audiolibro ofrece una alternativa para seguir la historia mediante la escucha.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El misterio de las siete esferas (Biblioteca Agatha Christie) y El asesinato de Roger Ackroyd (Edición especial con cantos tintados) pertenecen al misterio de Agatha Christie. El segundo se distingue por su edición coleccionista con cantos tintados y un sobre sellado que contiene la resolución del enigma. El enigmático míster Quin, también de Agatha Christie, reúne doce relatos en lugar de presentarse como una novela.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083934",
+        "isbn-9788408331520"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "13f0101af4816380",
+  "origen": "chatgpt-web"
+}

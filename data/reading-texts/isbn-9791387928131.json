@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387928131",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un caballero en Moscú (Salamandra Narrativa), de Amor Towles, se dirige a lectores de novela histórica y narrativa contemporánea interesados en el poder y la política. Sus 512 páginas plantean una lectura extensa, alejada de las novelas breves y de los libros centrados exclusivamente en la acción fantástica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de Un caballero en Moscú (Salamandra Narrativa) contiene 512 páginas y permite conservar el volumen para futuras lecturas. Kindle ofrece una alternativa digital para llevar esa misma obra en un lector electrónico o dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un caballero en Moscú (Salamandra Narrativa) puede compararse con Conspiración en Londres por su vinculación con la narrativa de ambientación histórica y política. La obra de Amor Towles reúne novela histórica, narrativa contemporánea y poder político; la de Felipe Pigna se presenta mediante una conspiración situada en Londres. La autoría y el enfoque anunciado son diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329688"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fc07b4939ba47815",
+  "origen": "chatgpt-web"
+}

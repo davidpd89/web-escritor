@@ -1,0 +1,27 @@
+{
+  "id": "isbn-9788409943760",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuentos para fabricar sueños: Cuentos para ser leídos por las amamas y los aitites a sus nietos está orientado a familias que comparten relatos entre abuelos y nietos. Su planteamiento gira alrededor de la lectura acompañada, por lo que se distancia de los libros de desarrollo personal dirigidos exclusivamente a adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuentos para fabricar sueños: Cuentos para ser leídos por las amamas y los aitites a sus nietos tiene una edición en tapa dura de 104 páginas. La cubierta rígida resulta práctica para conservar el ejemplar entre sesiones de lectura familiar y entregarlo como regalo a los abuelos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "056587891bd83ec3",
+  "origen": "chatgpt-web"
+}

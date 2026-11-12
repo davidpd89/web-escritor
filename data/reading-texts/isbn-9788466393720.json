@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788466393720",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este pack está dirigido a lectores de ficción que buscan novelas de misterio y thriller firmadas por John Grisham. Reúne tres títulos en una misma edición, por lo que no encaja con quien busca una sola novela o prefiere lecturas ajenas a estos géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La tapadera (La tapadera 1) permite comparar este pack con otra ficha de John Grisham, ya que ese título también forma parte de la selección reunida aquí. La diferencia está en la composición: el pack incluye La tapadera, El cliente y El informe pelícano, mientras que la otra ficha se centra en La tapadera.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401042706"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a03a7d45ee6d5bfb",
+  "origen": "chatgpt-web"
+}

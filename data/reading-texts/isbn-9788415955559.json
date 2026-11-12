@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788415955559",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE) se dirige a lectores que buscan fantasía combinada con romance, aventuras y elementos oscuros. Su extensión de 720 páginas y su relación con el terror la alejan de las novelas románticas breves y de las historias exclusivamente realistas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE) cuenta con una edición en tapa blanda publicada por Sombras. Sus 720 páginas en castellano forman un volumen extenso para leer en papel; por su tamaño, conviene tener en cuenta el peso y el espacio al transportarlo.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una corte de alas y ruina: Edición limitada a precio especial (Colección Especial) y Ciudad de dioses y monstruos (DARK ROMANCE) se relacionan por su orientación hacia la fantasía y el romance. La obra de Kayla Edwards incorpora también terror y ciencia ficción entre sus géneros, mientras que el título de Sarah J. Maas identifica una edición limitada de colección.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328582"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cf6e5685519ec28a",
+  "origen": "chatgpt-web"
+}

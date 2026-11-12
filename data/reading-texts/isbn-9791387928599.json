@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387928599",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El hombre que fue casi nadie (Salamandra Black), de Victoria González Torralba, se sitúa entre la novela histórica y el misterio, con el siglo XX como referencia temática. Sus 272 páginas encajan con quienes buscan una extensión moderada y una combinación de historia e intriga, pero no con quienes prefieren relatos de fantasía o romance como eje principal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de El hombre que fue casi nadie (Salamandra Black) reúne 272 páginas y está publicada por Salamandra. Permite leer y consultar el texto en papel, mientras que Kindle ofrece una versión digital para llevarla en el móvil o en un lector electrónico sin ocupar espacio físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esperanza en París: 1 (El legado del tiempo), de Miguel Tarín, y El hombre que fue casi nadie (Salamandra Black), de Victoria González Torralba, se relacionan por su orientación histórica. La segunda obra incorpora además el misterio y el thriller entre sus temas, mientras que Esperanza en París: 1 (El legado del tiempo) se identifica por su pertenencia a El legado del tiempo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399311907"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "304016c698320342",
+  "origen": "chatgpt-web"
+}

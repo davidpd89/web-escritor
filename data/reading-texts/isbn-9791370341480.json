@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El café encaja con lectores interesados en el origen de esta bebida, su cultivo y las distintas maneras de prepararla. Su tratamiento histórico y gastronómico se distancia de una novela o de un manual dedicado exclusivamente a instrucciones de elaboración, pues también examina su dimensión cultural.",
+      "texto": "El café se dirige a lectores interesados en el origen, el cultivo y las distintas maneras de preparar esta bebida. Su perspectiva histórica y gastronómica encaja con la curiosidad por el producto y su elaboración, más que con la búsqueda de una novela o una historia de ficción.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,26 +13,28 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Yomikoko aborda el café desde su evolución histórica hasta las prácticas relacionadas con su producción y consumo. El libro conecta el cultivo y los métodos de preparación con la transformación de una bebida cotidiana en un producto asociado a la gastronomía especializada. El interés se reparte entre su trayectoria cultural y las formas de disfrutarlo.",
+      "texto": "El café aborda la evolución histórica de esta bebida y los procesos que intervienen desde su cultivo hasta su preparación. Yomikoko relaciona esos aspectos con la apreciación gastronómica del producto y su presencia en las costumbres cotidianas.",
       "evidencias": [
+        "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El café se publica en tapa dura y cuenta con 256 páginas, una extensión que permite alternar la lectura seguida con consultas sobre su historia y preparación. La encuadernación rígida resulta adecuada para conservarlo como libro de temática gastronómica o regalarlo a alguien interesado en esta bebida.",
+      "texto": "El café está publicado en tapa dura y tiene 256 páginas en castellano. La edición física de Susaeta Ediciones reúne en un volumen de cubierta rígida los contenidos dedicados a la historia, el cultivo y la preparación del café, con un formato apropiado para conservar o regalar.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
+        "editorial",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El café y Cesar La conquista de la eternidad recurren a la historia, pero Yomikoko estudia una bebida y sus prácticas culturales, mientras Alberto Angela se ocupa de la trayectoria de un general romano. Cerebro, espacio y tiempo también ofrece conocimientos de no ficción, aunque desplaza la atención hacia el funcionamiento cerebral y la orientación espacial.",
+      "texto": "El café puede compararse con Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo) por su aproximación a una actividad vinculada con la apreciación estética, aunque Yomikoko se centra en una bebida y Carlos del Amor en la relación entre arte y afectos. AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA comparte el interés histórico, pero aborda una investigación biográfica en lugar de la evolución de un producto gastronómico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -41,8 +43,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387941208",
-        "isbn-9788410944329"
+        "isbn-9788418567933",
+        "isbn-9788467084122"
       ]
     }
   ],

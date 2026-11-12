@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399128451",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La vida entremedias: Un diario balcánico (Báltica No Ficción) se dirige a lectores interesados en los diarios de viaje, las memorias y el ensayo. Su enfoque de no ficción encaja menos con quienes buscan una novela de aventuras o una historia de viajes imaginaria.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La vida entremedias: Un diario balcánico (Báltica No Ficción) está disponible en tapa blanda, con 264 páginas en castellano. Esta edición de Báltica Editorial permite llevar el diario en papel durante los desplazamientos y conservarlo para consultar sus pasajes.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La vida entremedias: Un diario balcánico (Báltica No Ficción) comparte con Al andar: Vivencias del Camino de Santiago el interés por contar experiencias vinculadas a los viajes. Marc Casals sitúa su diario en el ámbito balcánico, mientras que Carlos Díaz Ballesta aborda vivencias del Camino de Santiago. Ambos se distinguen de Anatomía de un naufragio: Shackleton, el Endurance y la fuerza del hielo, centrado en una expedición y su relación con el hielo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496",
+        "isbn-9791387873141"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ee54402f709f2804",
+  "origen": "chatgpt-web"
+}

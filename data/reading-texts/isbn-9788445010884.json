@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788445010884",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Guerra de la Reina Araña nº 04/06 Extinción: 4 (D&D Reinos Olvidados) se dirige a lectores de fantasía y aventuras interesados en historias vinculadas a Reinos Olvidados. El título lo identifica como el n.º 4, por lo que no es una entrega inicial para quienes prefieren comenzar una serie desde su primer volumen.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Guerra de la Reina Araña nº 04/06 Extinción: 4 (D&D Reinos Olvidados) dispone de tapa blanda y Kindle. La edición impresa de Minotauro tiene 352 páginas y permite conservar el volumen junto a otros de la serie; Kindle facilita continuar la lectura desde un móvil o lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Guerra de la Reina Araña nº 04/06 Extinción: 4 (D&D Reinos Olvidados) y Alas de Hierro. Edición Especial Limitada Con Cantos Decorados / Iron Flame. Limited Special Edition with Sprayed Edges: 2 (Empíreo / Empyrean) pertenecen al ámbito de la fantasía y presentan entregas numeradas. El título de la primera identifica el volumen como el n.º 4 y lo vincula a Reinos Olvidados, mientras que el de la segunda señala el n.º 2 de Empíreo y una edición especial con cantos decorados.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073950664"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f5f853208db67f64",
+  "origen": "chatgpt-web"
+}

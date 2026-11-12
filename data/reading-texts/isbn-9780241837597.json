@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La luna: Una historia ilustrada (La guía visual definitiva) está dirigida a adultos interesados en astronomía, naturaleza e historia cultural. Sus fotografías, mapas y explicaciones científicas responden a una lectura divulgativa, menos orientada a quien busque una narración de ficción espacial.",
+      "texto": "La luna: Una historia ilustrada (La guía visual definitiva) se dirige a adultos interesados en la astronomía, la historia de la exploración espacial y las representaciones culturales de la Luna. Su enfoque visual y divulgativo encaja menos con quienes buscan una novela de ficción o un tratado exclusivamente matemático.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La luna: Una historia ilustrada (La guía visual definitiva) propone una aproximación visual y divulgativa al satélite terrestre. Combina formación geológica, efectos sobre la naturaleza, exploración espacial y representaciones culturales, además de incorporar una guía de observación y mapas de la superficie lunar.",
+      "texto": "Es una obra de divulgación ilustrada sobre la Luna, no una narración de ficción. Combina explicaciones científicas, historia y referencias culturales con fotografías, documentos, mapas y una guía de observación lunar. También aborda las misiones espaciales y los proyectos de exploración futuros.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -23,26 +23,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La luna: Una historia ilustrada (La guía visual definitiva) se presenta en tapa dura y reúne 256 páginas de contenido visual y divulgativo. La encuadernación rígida permite consultarlo sobre una mesa y volver a sus fotografías, mapas e ilustraciones, tanto para estudiar como para compartirlo en casa.",
+      "texto": "Se presenta en tapa dura, con 256 páginas en castellano y abundante contenido visual. Esta edición permite consultar mapas, fotografías e ilustraciones sobre papel y conservar el volumen como libro de referencia para la observación lunar.",
       "evidencias": [
-        "titulo",
-        "edicion",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La luna: Una historia ilustrada (La guía visual definitiva) comparte con La Biblia: Una enciclopedia ilustrada el enfoque visual de DK y el uso de mapas y materiales documentales. La primera se concentra en astronomía y exploración lunar, mientras que la segunda utiliza recursos gráficos y arqueológicos para explicar acontecimientos vinculados a un texto religioso.",
+      "texto": "La luna: Una historia ilustrada (La guía visual definitiva) puede compararse con Astrología, profecía y adivinación. Una historia ilustrada (Magia y misterio) (Enciclopedia visual), también de DK, por su presentación visual de asuntos relacionados con el cielo y su interpretación. La primera aborda la Luna desde la ciencia, la historia y la cultura; la segunda se centra, según su título, en prácticas de astrología y adivinación. Comparten autoría editorial y orientación ilustrada, pero difieren en el objeto de estudio.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9780241837702"
+        "isbn-9780241837603"
       ]
     }
   ],

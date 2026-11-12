@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387973339",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "CRUSH 1 - Un secreto llamado tú (Montena), de África Vázquez, está dirigido a lectores interesados en historias juveniles donde la amistad y los secretos ocupan un lugar central. Su temática se aleja de la fantasía épica y de las novelas centradas en conflictos históricos, con un planteamiento vinculado a las relaciones personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda tiene 176 páginas y es la única modalidad disponible. Su extensión permite disponer de un volumen físico manejable para leer en papel; quienes busquen una edición digital o un audiolibro tendrán que optar por otro título.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "CRUSH 1 - Un secreto llamado tú (Montena), de África Vázquez, comparte autoría con La balada de la hechicera: Trilogía El clan sin nombre 1 (Fantasía), también de África Vázquez. La diferencia está en el planteamiento: CRUSH sitúa la atención en la amistad y los secretos, mientras que el otro título se identifica por su ambientación fantástica. También puede compararse con Secreto de bruja 5 - El diario de los sueños (Jóvenes lectores), de Patricia García-Rojo, por la presencia de un secreto en ambos títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388365003",
+        "isbn-9791388277894"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "08fa0e9b9e8967aa",
+  "origen": "chatgpt-web"
+}

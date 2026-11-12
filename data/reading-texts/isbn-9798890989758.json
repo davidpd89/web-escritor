@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9798890989758",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Brianna se supera / Becoming Brianna: 4 (Emmie & Amigos) encaja con lectores que buscan humor, amistad e historias en formato de cómic. Sus 352 páginas lo alejan de las lecturas ilustradas muy breves y de quienes prefieren narraciones sin componentes gráficos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 352 páginas en un volumen flexible de Alfaguara Infantil, adecuado para llevarlo y leerlo fuera de casa. Es la opción disponible para quien prefiere una edición física frente a la lectura en pantalla.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El diario de una princesa desastrosa (Diarios), de Maidy, coincide con Brianna se supera / Becoming Brianna: 4 (Emmie & Amigos) en su orientación hacia el público infantil y en el protagonismo de personajes. La diferencia está en el formato: Brianna se supera / Becoming Brianna: 4 (Emmie & Amigos) se encuadra en el cómic y la novela gráfica, mientras que el título de Maidy se presenta como un diario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331148"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9d7334a6a4586b2d",
+  "origen": "chatgpt-web"
+}

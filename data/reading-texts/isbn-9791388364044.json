@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388364044",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Textos recobrados. 1931-1955 (Hispánica) se dirige a lectores interesados en los escritos de Jorge Luis Borges y en la literatura vinculada al siglo XX. Combina las clasificaciones de relatos, historia y biografías y memorias; no responde a la búsqueda de una novela contemporánea centrada en una única trama.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Textos recobrados. 1931-1955 (Hispánica) contiene 368 páginas y permite consultar los textos en papel. La alternativa Kindle facilita llevar el volumen en un lector electrónico o en el móvil, especialmente para alternar su lectura con otras obras de Jorge Luis Borges.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Textos recobrados: 1919-1929 (Hispánica) y Textos recobrados. 1931-1955 (Hispánica) pertenecen a la misma línea de obras de Jorge Luis Borges, pero sus títulos delimitan periodos diferentes. Textos recobrados 1956-1986 (Hispánica) desplaza el marco temporal hacia años posteriores, por lo que permite comparar distintas etapas de su escritura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388364068",
+        "isbn-9791388364020"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5d0c342f0e7a7374",
+  "origen": "chatgpt-web"
+}

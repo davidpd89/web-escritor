@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388100932",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensado para lectores de cómic y ciencia ficción interesados en Star Wars y en el personaje de Boba Fett. Su formato de cómic juvenil se diferencia de la novela convencional en prosa y de los libros de divulgación sobre el universo cinematográfico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 128 páginas de Star Wars Boba Fett: Blanco, negro y rojo (Star Wars: Cómics Tomo Marvel) en un tomo físico de cubierta rígida. Kindle ofrece la alternativa digital para leerlo en un dispositivo compatible, sin necesidad de guardar el volumen en papel.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Star Wars: Las crónicas Jedi nº 01: 1 (Star Wars: Cómics Tomo Marvel) comparte con Star Wars Boba Fett: Blanco, negro y rojo (Star Wars: Cómics Tomo Marvel) la franquicia, la línea de cómics y la autoría colectiva de Varios autores. El primero identifica a los Jedi en su título, mientras que el segundo se centra en Boba Fett. Star Wars: Legado nº 05: 5 (Star Wars: Cómics Leyendas) pertenece a otra línea de cómics de la misma franquicia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388102349",
+        "isbn-9791388103506"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dac65c8ad4d93ef0",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9788411724364",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las runas de las brujas: Historia, creación y uso (MAGIA Y OCULTISMO), de Josephine Winter y Jason Tremain, se dirige a quienes buscan información sobre las runas desde una perspectiva histórica y práctica. Su tema específico lo diferencia de los libros de desarrollo personal centrados en la salud cotidiana o en las relaciones familiares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las runas de las brujas: Historia, creación y uso (MAGIA Y OCULTISMO) cuenta con 248 páginas en tapa blanda. La encuadernación permite tener un ejemplar físico para consultar las partes dedicadas a la historia, la creación y el uso de las runas, además de facilitar su transporte frente a una edición rígida de extensión equivalente.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6cb71a6fc751b119",
+  "origen": "chatgpt-web"
+}

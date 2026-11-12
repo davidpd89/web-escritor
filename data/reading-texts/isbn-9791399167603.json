@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791399167603",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Emma: 16 (Club Victoria) se dirige a lectores de narrativa clásica y a quienes buscan obras de Jane Austen en castellano. Sus 544 páginas suponen una lectura extensa, distinta de la novela breve contemporánea; el título la identifica con el número 16 de Club Victoria.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Emma: 16 (Club Victoria) cuenta con una edición en tapa dura de 544 páginas, publicada por Ediciones Invisibles. La cubierta rígida aporta protección a un volumen extenso y resulta apropiada para conservarlo en una biblioteca personal o entregarlo como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Emma: 16 (Club Victoria) comparte autoría con Orgullo y prejuicio. Edición ilustrada, de Jane Austen, y ambas pertenecen a su narrativa clásica. La diferencia editorial es concreta: Emma se presenta en tapa dura dentro de Club Victoria, mientras que la otra obra se identifica expresamente como edición ilustrada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388220203",
+        "isbn-9788467070835"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7828d37eaec48e9a",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788467985368",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fantasy se dirige a quienes buscan fantasía presentada en formato de cómic o novela gráfica. La combinación de ambos géneros lo diferencia de una novela fantástica escrita únicamente en prosa y de los libros de ensayo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fantasy está publicado en tapa dura por Astronave Nodriza y reúne 280 páginas en castellano. La encuadernación rígida aporta protección al volumen durante su conservación y facilita colocarlo en una colección de novelas gráficas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fantasy y Agencia de animales mágicos: Medianoche y la leyenda de Santuario (Mi primer cómic) comparten la presencia de elementos fantásticos y el formato de cómic. La obra de Yoann Kavage se presenta como fantasía y novela gráfica, mientras que la de Steve Smallman se identifica como un primer cómic sobre animales mágicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448875381"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c22969a4ddba642e",
+  "origen": "chatgpt-web"
+}

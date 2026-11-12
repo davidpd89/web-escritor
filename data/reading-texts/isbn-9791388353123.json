@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388353123",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El rugido de la máquina está dirigido a lectores de poesía en castellano y a quienes buscan obras de Zheng Xiaoqiong. Su clasificación literaria lo diferencia de una novela narrativa o de un manual técnico, aunque el título haga referencia a una máquina.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El rugido de la máquina se presenta en tapa blanda, con 180 páginas y edición en castellano de RIL Editores. El formato impreso permite marcar poemas o pasajes concretos y regresar a ellos sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7e6c8f66944041b2",
+  "origen": "chatgpt-web"
+}

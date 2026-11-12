@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Nepal (Sabores del mundo) se dirige a lectores adultos interesados en la cocina nepalí, las recetas familiares y la relación entre gastronomía y cultura. Su enfoque culinario y sus preparaciones sencillas lo alejan de los libros centrados exclusivamente en nutrición, dietas o bienestar.",
+      "texto": "Nepal (Sabores del mundo) está dirigido a lectores adultos interesados en la cocina nepalí y en preparar recetas vinculadas a sus tradiciones familiares. Su enfoque gastronómico y cultural se distancia de los manuales centrados exclusivamente en dietas, objetivos nutricionales o planificación de comidas.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,36 +14,41 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Reúne una selección de recetas tradicionales y familiares de Nepal, acompañadas de una aproximación a la cultura gastronómica del país. Tiana Salles recurre a sus orígenes para presentar preparaciones sencillas y acercar al lector a los ingredientes, las especias y las costumbres culinarias nepalíes. Sus 192 páginas permiten utilizarlo como recetario y como introducción cultural.",
+      "texto": "Nepal (Sabores del mundo) reúne una selección de recetas tradicionales y familiares de la gastronomía nepalí, presentadas por Tiana Salles. Sus 192 páginas relacionan la preparación de platos con los orígenes de la autora y la cultura culinaria del país. Puede utilizarse para cocinar y para conocer las prácticas gastronómicas que acompañan esas elaboraciones.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Nepal (Sabores del mundo) está disponible en tapa dura, una encuadernación apropiada para consultar recetas repetidamente y mantener el volumen en una biblioteca de cocina. Sus 192 páginas también lo convierten en una opción de regalo físico para quienes coleccionan recetarios de distintas tradiciones gastronómicas.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "Nepal (Sabores del mundo) se presenta en tapa dura, con 192 páginas en castellano publicadas por DK. La cubierta rígida permite mantener el recetario como volumen de consulta en la cocina o en una biblioteca gastronómica. También puede regalarse como libro físico dedicado a la cocina de Nepal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Nepal (Sabores del mundo) y La revolución de la glucosa: el Método comparten su orientación práctica hacia la preparación de comidas. La obra de Tiana Salles aborda recetas tradicionales nepalíes y su contexto cultural, mientras que la de Jessie Inchauspé organiza 100 recetas dentro de un método de 4 semanas. La primera parte de una tradición culinaria; la segunda, de una pauta alimentaria.",
+      "texto": "Recetas veganas para airfryer: Begin Vegan Begun (Cocina) comparte con Nepal (Sabores del mundo) su orientación hacia la preparación de alimentos, pero se centra en la cocina vegana con freidora de aire frente a las recetas tradicionales nepalíes. La fibra es la solución también aborda la alimentación, aunque desde sus efectos sobre la salud y el consumo de fibra, mientras que Tiana Salles presenta la gastronomía de Nepal desde una perspectiva culinaria y cultural.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411191937"
+        "isbn-9788448049614",
+        "isbn-9788425374869"
       ]
     }
   ],

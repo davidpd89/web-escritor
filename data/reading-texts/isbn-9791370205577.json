@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791370205577",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Itálica (Arte y patrimonio) se orienta a lectores interesados en el patrimonio artístico y en publicaciones vinculadas con los viajes. Rosa García Perea aborda este ámbito en una obra de 112 páginas, distinta de una novela de aventuras o de una guía centrada en experiencias personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Itálica (Arte y patrimonio) se publica en tapa blanda, con una extensión de 112 páginas. Esta edición en castellano permite llevar el volumen en una bolsa durante una visita o consultarlo en casa, sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5ab9c03ca3544ae0",
+  "origen": "chatgpt-web"
+}

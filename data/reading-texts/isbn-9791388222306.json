@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791388222306",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta propuesta de Netflix se dirige a quienes buscan actividades y pegatinas relacionadas con la fantasía y las aventuras, en lugar de una novela convencional. Su carácter ilustrado y participativo la aleja de las lecturas centradas exclusivamente en una historia escrita.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición de Montena reúne actividades y pegatinas en un volumen ilustrado de 48 páginas, publicado en castellano. Se presenta en tapa dura y tiene como fecha de publicación el 26 de noviembre de 2026, con ISBN 9791388222306.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para este libro de actividades y pegatinas de 48 páginas. Su encuadernación rígida permite manejarlo sobre una mesa y conservarlo junto a otros libros ilustrados, mientras que las actividades requieren interactuar con el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprende a dibujar con KPop Demon Hunters: Edición OFICIAL en español (Montena) comparte con este volumen la autoría de Netflix y el carácter de actividad ilustrada, aunque centra su propuesta en el dibujo. KPop Demon Hunters - Libro de muñecas recortables: Edición OFICIAL en español (Montena) plantea otra actividad manual, basada en recortables en vez de pegatinas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388322778",
+        "isbn-9791388322952"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8fe8f0669c359348",
+  "origen": "chatgpt-web"
+}

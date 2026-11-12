@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388139628",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La sombra del samurái: Del bushidō a Shōgun: historia de los guerreros que se convirtieron en leyenda (No ficción) se dirige a lectores interesados en la historia de los samuráis y su transformación en figuras legendarias. Su planteamiento histórico no corresponde a una novela de aventuras protagonizada por guerreros ficticios.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Roca Editorial publica esta obra en tapa blanda, con una extensión de 352 páginas. La encuadernación permite transportar el libro y retomar en papel la lectura sobre los guerreros y su historia, sin necesidad de una pantalla.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Agustín penón y Federico García Lorca también se aproxima al pasado mediante la investigación de personas reales, pero se ocupa de una vida y una muerte concretas, frente a la historia de los samuráis. 76, de Felipe Pigna, constituye otra referencia del catálogo para lectores que buscan obras vinculadas a la historia, aunque su título no anuncia el mismo asunto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329695",
+        "isbn-9788418567933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3418ef696db344fe",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788419656346",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Astrología para el alma (Kepler), de Hans Thörn Durefelt y Martina Thörn Durefelt, se dirige a lectores interesados en desarrollo personal, bienestar y contenidos relacionados con la astrología. Quien busque ficción narrativa o una obra centrada en economía y empresa encontrará una propuesta de temática diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 216 páginas en una edición física de Kepler, mientras que Kindle permite leer el contenido en formato electrónico. El papel ofrece un ejemplar para consultar y conservar; la edición digital facilita llevar la lectura en un móvil o lector electrónico.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0e875a947a887bf6",
+  "origen": "chatgpt-web"
+}

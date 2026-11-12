@@ -4,17 +4,18 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El ojo de la novia frenopática (Carl el Mazmorrero 6) se dirige a lectores adultos de fantasía, ciencia ficción y aventuras que buscan desafíos de supervivencia con reglas cambiantes. Su conflicto combina monstruos, competición y amenazas psicológicas, por lo que se aleja de la fantasía centrada en viajes tranquilos o relaciones cotidianas.",
+      "texto": "Está dirigido a lectores adultos de fantasía, ciencia ficción y aventuras que buscan pruebas de supervivencia, monstruos y reglas de juego cambiantes. Su extensión de 832 páginas y la continuidad de las peripecias de Carl y la Princesa Dónut encajan menos con quien prefiere relatos breves e independientes.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
         "categorias",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "El ojo de la novia frenopática (Carl el Mazmorrero 6) mezcla fantasía y ciencia ficción mediante una competición de supervivencia ambientada en una mazmorra. Los participantes deben capturar monstruos para convertirlos en cartas y formar un equipo capaz de afrontar amenazas mayores. El título lo identifica como el n.º 6 de Carl el Mazmorrero.",
+      "texto": "El ojo de la novia frenopática (Carl el Mazmorrero 6) desarrolla una aventura de supervivencia con elementos de fantasía y ciencia ficción dentro de una competición televisada. La nueva prueba obliga a capturar criaturas para formar cartas de combate, mientras los participantes afrontan enemigos capaces de alterar su cordura.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -23,27 +24,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas de El ojo de la novia frenopática (Carl el Mazmorrero 6) contiene 832 páginas, una extensión considerable para transportar o sostener durante sesiones largas. Kindle permite leer esa misma obra desde el móvil o un dispositivo electrónico sin cargar con el volumen físico publicado por Nova.",
+      "texto": "La tapa blanda con solapas ofrece las 832 páginas de El ojo de la novia frenopática (Carl el Mazmorrero 6) en la edición física de Nova, apropiada para conservar junto a otros volúmenes. Kindle permite leer esta entrega extensa en un dispositivo electrónico o en el móvil sin cargar con el libro impreso.",
       "evidencias": [
         "titulo",
         "numero_paginas",
         "edicion",
-        "editorial",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El ojo de la novia frenopática (Carl el Mazmorrero 6) puede compararse con La desgracia inevitable (Carl el Mazmorrero 7) por compartir autor, Matt Dinniman, y pertenecer a la misma serie; los títulos los identifican como entregas diferentes. El mundo perdido también presenta amenazas relacionadas con criaturas peligrosas, pero Michael Crichton sitúa el conflicto en una isla con dinosaurios, no en una competición galáctica.",
+      "texto": "Carl el Mazmorrero (Character Limited Edition) (Nova) comparte autor y universo narrativo con El ojo de la novia frenopática (Carl el Mazmorrero 6), que continúa las pruebas de supervivencia de Carl. La desgracia inevitable (Carl el Mazmorrero 7), también de Matt Dinniman, aparece identificada en su título con una entrega posterior, mientras que el libro comparado lleva el número 6.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788410466784",
-        "isbn-9788466392143"
+        "isbn-9788419260734",
+        "isbn-9788410466784"
       ]
     }
   ],

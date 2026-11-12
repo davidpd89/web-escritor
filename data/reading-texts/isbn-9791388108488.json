@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388108488",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La corona de Jasad: El trono calcinado libro 2 (Faeris Editorial) se dirige a lectores de fantasía con componentes románticos. El título lo identifica como el libro n.º 2, por lo que conviene tener en cuenta su posición al elegir la lectura. No responde a la búsqueda de una obra centrada exclusivamente en el romance realista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer las 672 páginas de La corona de Jasad: El trono calcinado libro 2 (Faeris Editorial) en un volumen físico. Kindle reúne esa extensión en un dispositivo electrónico y facilita continuar la lectura desde el móvil. La elección depende de si se prefiere manejar un libro de papel o prescindir de su peso durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alas de escarcha y oro: El canto del cisne comparte con La corona de Jasad: El trono calcinado libro 2 (Faeris Editorial) el terreno de la fantasía, aunque presenta expresamente a una protagonista que oculta sus dones y debilidades. La obra de Sara Hashem se identifica por su combinación de fantasía y romance y por la numeración de su título. Son dos puntos de partida distintos para elegir una lectura fantástica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1a6185f42de61c3a",
+  "origen": "chatgpt-web"
+}

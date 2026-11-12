@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791399079487",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los huecos habitados: La poesía desnuda: 3 (Esencias) se dirige a lectores de poesía en castellano que buscan una obra breve de José Luis González Sánchez. Sus 84 páginas la distinguen de las lecturas narrativas extensas, por lo que encaja menos con quien prefiere novelas de largo recorrido.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los huecos habitados: La poesía desnuda: 3 (Esencias) está disponible en tapa blanda, con 84 páginas en castellano. Esta edición de Colibrí Ediciones permite llevar el volumen en el bolso y consultar sus páginas en papel sin el peso de un libro extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los huecos habitados: La poesía desnuda: 3 (Esencias) puede compararse con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, por su vinculación con la poesía. Frente a Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, cuyo título señala una selección amorosa, el libro de José Luis González Sánchez se presenta como una entrega de Esencias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "faeddaaa781f90f7",
+  "origen": "chatgpt-web"
+}

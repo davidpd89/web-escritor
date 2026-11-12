@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los irredentos encaja con lectores de relatos contemporáneos interesados en la pérdida, el desarraigo y las relaciones familiares. Sus tres escenarios y su prosa concentrada se alejan de una narración de aventuras continuadas, por lo que puede encajar menos con quien prefiera una única trama de acción.",
+      "texto": "Los irredentos encaja con lectores de narrativa contemporánea que buscan relatos sobre la pérdida, el desarraigo y las relaciones familiares. Sus tres escenarios y su tratamiento de los límites personales se alejan de las historias centradas en una aventura continua o en una trama de acción.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Los irredentos propone una lectura de narrativa contemporánea organizada en tres partes, cada una vinculada a un escenario diferente. Cristina Garcia Molina explora la distancia entre los deseos personales y las circunstancias que los limitan, mediante una escritura contenida y situaciones marcadas por la ausencia y la búsqueda de pertenencia.",
+      "texto": "Los irredentos reúne tres partes vinculadas por el desarraigo y el deseo de recuperar un lugar de pertenencia. Una escuela periférica, una familia marcada por la ausencia de los padres y un museo situado en una ciudad fronteriza articulan sus escenarios. Cristina Garcia Molina utiliza una prosa contenida para explorar conflictos sociales, familiares e íntimos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,18 +23,19 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los irredentos se publica en tapa blanda y tiene 136 páginas, una extensión que permite abordar sus tres partes en sesiones de lectura relativamente breves. La edición de editorial minúscula es física y flexible, adecuada para llevar el libro consigo y volver a determinados pasajes.",
+      "texto": "Los irredentos se ofrece en tapa blanda, con 136 páginas y edición de editorial minúscula. Su extensión permite recorrer las tres partes del libro en pocas sesiones y volver a pasajes concretos sin manejar un volumen extenso. La encuadernación flexible facilita transportarlo durante los desplazamientos.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
         "editorial",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los irredentos puede compararse con La semana de colores y Andamos huyendo Lola por su relación con el relato y por el peso de la imaginación en la construcción literaria. Elena Garro aparece vinculada a una imaginación sin límites, mientras Cristina Garcia Molina trabaja con escenarios de extrañeza, pérdidas familiares y personajes que buscan un lugar propio.",
+      "texto": "Los irredentos puede ponerse junto a En lengua privada / In Private Language por su presencia entre las propuestas de narrativa del catálogo. La diferencia comprobable está en la autoría y la presentación: Cristina Garcia Molina firma una obra estructurada en tres partes, mientras que En lengua privada / In Private Language figura bajo la autoría de Emiliano Monge. El título de este último incorpora dos lenguas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,7 +44,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467084856"
+        "isbn-9786073878289"
       ]
     }
   ],

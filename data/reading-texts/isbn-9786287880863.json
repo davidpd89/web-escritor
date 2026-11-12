@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9786287880863",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Plegarias nocturnas (Nueva edición) / Nighttime Prayers (New Edition) se dirige a lectores de narrativa contemporánea interesados en la familia y sus relaciones. Por su clasificación temática, queda fuera de una búsqueda centrada exclusivamente en fantasía o aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer sus 312 páginas en papel con una encuadernación flexible; la tapa dura ofrece una cubierta más rígida para conservarlo o regalarlo. Kindle facilita llevar el texto en el móvil, mientras que el audiolibro permite escucharlo sin sostener el volumen.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al faro: Nueva traducción al español: 82 (Clásicos en español) comparte con Plegarias nocturnas (Nueva edición) / Nighttime Prayers (New Edition) su ubicación en la narrativa literaria, aunque el primero se presenta como un clásico traducido. Celestino antes del alba (Andanzas) ofrece otra referencia de narrativa de autor distinto, mientras que el libro de Santiago Gamboa está clasificado también por sus temas familiares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781836472568",
+        "isbn-9788411078535"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d6555e0ce1b16148",
+  "origen": "chatgpt-web"
+}

@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "LOS ÁNGELES MALOS encaja con lectores de poesía interesados en la memoria infantil y en las imágenes de la naturaleza como forma de reflexión personal. Su tratamiento de una infancia alejada de la idealización y sus referencias a la muerte pueden distanciar a quienes buscan versos de tono ligero.",
+      "texto": "Los ángeles malos se orienta a lectores de poesía que buscan reflexiones sobre la infancia, la memoria y la dimensión espiritual de la experiencia humana. Dionisio López presenta una visión de la niñez que incorpora elementos inquietantes y evita idealizarla, por lo que se distancia de una lectura infantil de tono ligero.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "LOS ÁNGELES MALOS es un poemario que explora los recuerdos de infancia mediante imágenes del mundo natural y distintas percepciones del tiempo. Dionisio López combina esa indagación personal con preguntas sobre la pureza, la muerte y la dimensión espiritual de la niñez, sin construir una narración convencional.",
+      "texto": "Los ángeles malos es una obra poética que revisita la infancia mediante imágenes del mundo natural y distintas percepciones del tiempo. Dionisio López contrapone la vulnerabilidad de los primeros años con una dimensión sagrada, y construye una reflexión sobre la memoria personal sin convertir la niñez en un territorio exclusivamente feliz.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,32 +24,33 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "LOS ÁNGELES MALOS está disponible en tapa blanda, con una extensión de 70 páginas. Esta edición permite leer el poemario en papel, detenerse en sus imágenes y regresar a determinados versos sin depender de una pantalla.",
+      "texto": "Los ángeles malos se ofrece en tapa blanda, en una edición de RIL Editores de 70 páginas. Su extensión permite leer el poemario en pocas sesiones y volver sobre las imágenes relacionadas con la infancia, la naturaleza y la memoria desde el propio ejemplar impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "categorias"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Antología y LOS ÁNGELES MALOS pertenecen al ámbito de la poesía, pero proponen acercamientos distintos. El volumen de Antonio Cano reúne una obra poética completa, mientras que Dionisio López desarrolla en 70 páginas una exploración de la infancia, la memoria y sus resonancias espirituales.",
+      "texto": "Los ángeles malos y Antologia amorosa la voz a ti debida y razon de amor comparten la expresión poética de experiencias personales, aunque Dionisio López explora la infancia y sus aspectos inquietantes, mientras Pedro Salinas se vincula aquí con la poesía amorosa. Animales que flotan lejos de casa: 43 (Leteo), de Nicolás Peña, ofrece otra referencia poética del catálogo, pero Los ángeles malos centra su propuesta en la memoria infantil y la relación simbólica con la naturaleza.",
       "evidencias": [
         "titulo",
         "autores",
-        "numero_paginas",
         "categorias",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370140908"
+        "isbn-9791388299421",
+        "isbn-9788466396288"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "81225e9d0bc7ed1a",
+  "fuente_hash": "c1dbe02c484e1754",
   "origen": "chatgpt-web"
 }

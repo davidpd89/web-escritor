@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388150395",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las aventuras de Lucía el misterio de albohera: 0 (El gato León) se relaciona con las lecturas de misterio y aventuras. Su extensión de 40 páginas permite distinguirla de los ensayos largos sobre psicología y desarrollo personal, aunque también figura vinculada a esos ámbitos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las aventuras de Lucía el misterio de albohera: 0 (El gato León) tiene una edición en tapa dura de 40 páginas, publicada por Editorial Rimpompante. Su encuadernación rígida permite guardarlo como libro físico de consulta o regalo, con una extensión menor que la de un ensayo convencional.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia y Las aventuras de Lucía el misterio de albohera: 0 (El gato León) coinciden en su relación con la psicología y el desarrollo personal. El primero aborda la infancia desde la sanación emocional, mientras que el segundo incorpora misterio y aventuras a su planteamiento temático.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "938a58ec0d6316c7",
+  "origen": "chatgpt-web"
+}

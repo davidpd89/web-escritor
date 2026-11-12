@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788427258570",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los 3 deseos de River Valley (River Valley II) (Ficción juvenil), de Zoe P. de Félix, está orientado a lectores de romance e historias sobre relaciones de pareja. Encaja menos con quienes buscan fantasía o ciencia ficción como eje de la lectura; el título lo identifica como el n.º II de River Valley.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los 3 deseos de River Valley (River Valley II) (Ficción juvenil) está disponible en tapa blanda. La edición de Molino tiene 520 páginas, por lo que supone un volumen físico extenso para leer en casa o transportar; el formato permite conservarlo junto a otros libros de la serie.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los 3 deseos de River Valley (River Valley II) (Ficción juvenil) comparte el enfoque romántico con Amor en pole position (Dirty Air 3). La novela de Lauren Asher desarrolla su historia amorosa en el mundo de la Fórmula 1, mientras que la de Zoe P. de Félix se identifica por su pertenencia a River Valley y su orientación juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "90e45151f536a697",
+  "origen": "chatgpt-web"
+}

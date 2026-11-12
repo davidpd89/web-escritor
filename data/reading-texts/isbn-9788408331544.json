@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788408331544",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El duelo: Cuando el dolor se hace carne (Ciencias Humanas y Sociales) se dirige a lectores interesados en comprender el duelo desde la psicología y el desarrollo personal. Sus temas lo sitúan en la reflexión sobre la pérdida y la superación personal, no en la narrativa de ficción ni en los manuales de empresa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para El duelo: Cuando el dolor se hace carne (Ciencias Humanas y Sociales), de Gabriel Rolón. Sus 400 páginas se reúnen en una edición de bolsillo de Booket, en castellano, para quien prefiera leer en papel.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "«Duelo», de Michael Cholbi, comparte el tema central de la pérdida, pero aborda la cuestión desde un ensayo filosófico sobre las emociones. El duelo: Cuando el dolor se hace carne (Ciencias Humanas y Sociales), de Gabriel Rolón, se sitúa en cambio en el ámbito de la psicología y el desarrollo personal. «La cara B del amor: Más allá de las dificultades (Contextos)», del mismo autor, permite ampliar la lectura hacia las relaciones sentimentales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449346224",
+        "isbn-9788449344626"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "661aed39226958cb",
+  "origen": "chatgpt-web"
+}

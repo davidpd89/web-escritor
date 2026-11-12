@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788448271831",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Jaime I, un viaje documental y visual está dirigido a lectores interesados en la historia, los viajes y la Edad Media. Su planteamiento histórico lo diferencia de quienes buscan principalmente ficción contemporánea o narrativa de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 52 páginas en una edición física breve, apropiada para consultar y conservar junto a otros libros de historia. Es el formato disponible de Jaime I, un viaje documental y visual, de Francesc Torres Faus y Francisca Ortega Dicha.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Jaime I, un viaje documental y visual comparte con Anatomía de un naufragio: Shackleton, el Endurance y la fuerza del hielo, de Jukka Tuhkuri, el interés por abordar un tema histórico mediante una perspectiva documental. Se diferencian en el asunto central: uno se ocupa de Jaime I y la Edad Media, mientras que el otro identifica a Shackleton y el Endurance.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387873141"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "81e1db2802fef028",
+  "origen": "chatgpt-web"
+}

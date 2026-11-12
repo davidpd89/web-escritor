@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786073881340",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un sepulcro para ellos de horror / A Tomb of Horror for Them se orienta a lectores de ensayo interesados en el poder y la política. La obra de Saskia Niño De Rivera, de 280 páginas, se encuadra en la no ficción y no responde a quien busca una narración novelesca o un manual de actividades prácticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un sepulcro para ellos de horror / A Tomb of Horror for Them tiene una edición en tapa blanda de 280 páginas, publicada en castellano. El soporte impreso permite señalar pasajes y recuperar argumentos durante la lectura de un ensayo político, aunque requiere transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, comparte con Un sepulcro para ellos de horror / A Tomb of Horror for Them el interés por la política. La primera obra delimita su objeto al pensamiento anarcocapitalista; la de Saskia Niño De Rivera se presenta dentro del ensayo sobre poder y política, sin esa delimitación temática.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aba182029dea6e2d",
+  "origen": "chatgpt-web"
+}

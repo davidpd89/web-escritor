@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788408328384",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos) se dirige a quienes buscan actividades de colorear relacionadas con videojuegos. Por su orientación al ocio y al tiempo libre, no responde a la búsqueda de una novela ni de un manual técnico sobre videojuegos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos) está disponible en tapa blanda. Sus 64 páginas permiten utilizarlo como libro físico de actividades y trabajar directamente sobre las páginas al colorear.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100% Roblox y Atrápame si puedes (Libro interactivo) comparten su orientación hacia las actividades de ocio. El primero propone colorear píxeles relacionados con videojuegos, mientras que el segundo se presenta como un libro interactivo. Ambos están firmados por Varios autores, pero plantean formas distintas de participación del lector.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388220500"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "22f3b75488be33a0",
+  "origen": "chatgpt-web"
+}

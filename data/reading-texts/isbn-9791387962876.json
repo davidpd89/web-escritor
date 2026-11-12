@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387962876",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Märchen Crown 1 (Shônen) se dirige a lectores de manga que buscan fantasía y aventuras narradas mediante viñetas. Por su combinación de géneros, encaja menos con quienes prefieren novelas de prosa o historias centradas en el romance.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Märchen Crown 1 (Shônen) reúne 236 páginas en castellano, publicadas por Distrito Manga. Es una opción física para leer y conservar el manga, con una encuadernación flexible que facilita transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Märchen Crown 1 (Shônen) comparte con Astro Royale 1 (Shônen): Universo Manga el formato de manga shônen y su identificación como primer volumen. La diferencia está en la autoría: Aka Akasaka y Aoi Kujira firman el primero, mientras que Ken Wakui firma el segundo; Märchen Crown 1 (Shônen) figura además entre las obras de fantasía y aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962845"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "08499d78b484b1de",
+  "origen": "chatgpt-web"
+}

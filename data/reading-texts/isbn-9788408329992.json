@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408329992",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sorpresa en la nieve: 108 (Geronimo Stilton) se dirige a lectores interesados en historias de humor y amistad. Sus 128 páginas corresponden a un volumen breve, mientras que su temática se diferencia de los libros centrados en economía, ensayo o desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sorpresa en la nieve: 108 (Geronimo Stilton) está disponible en tapa blanda y Kindle. La edición de Destino Infantil & Juvenil tiene 128 páginas en papel, que pueden llevarse en una mochila; Kindle permite leer el título desde el móvil o un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sorpresa en la nieve: 108 (Geronimo Stilton) comparte autor con ¡Es Navidad, Stilton!, otra historia de Geronimo Stilton. El primero remite a una sorpresa relacionada con la nieve, mientras que el segundo presenta una celebración navideña familiar; ambos títulos sitúan sus historias en contextos diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408163107"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7f4245d4967b5c10",
+  "origen": "chatgpt-web"
+}

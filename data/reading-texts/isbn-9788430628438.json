@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788430628438",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La gran transformación global: El declive de la globalización y el nuevo orden mundial (Economía) está dirigido a lectores interesados en la economía internacional y las relaciones de poder. Su enfoque sobre la globalización y el orden mundial se distancia de los manuales centrados en las finanzas personales o la gestión cotidiana de empresas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La gran transformación global: El declive de la globalización y el nuevo orden mundial (Economía) está disponible en tapa blanda y Kindle. La edición impresa de Taurus tiene 304 páginas y permite consultar el ensayo en papel; Kindle facilita transportarlo y acceder al texto desde un lector electrónico o móvil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La gran transformación global: El declive de la globalización y el nuevo orden mundial (Economía) y Cómo ganar una guerra comercial examinan cambios en las relaciones económicas internacionales. Branko Milanovic aborda el declive de la globalización y el orden mundial, mientras que Soumaya Keynes y Chad P. Bown se centran en las guerras comerciales y las transformaciones de las reglas del comercio global.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423441051"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "15db1c543adf3001",
+  "origen": "chatgpt-web"
+}

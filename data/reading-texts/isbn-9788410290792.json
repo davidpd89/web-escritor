@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410290792",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Kati Horna: Lo insolito es lo cotidiano, de Kati Horna, Fundación Jenkins, Instituto Nacional de Bellas Artes, está dirigido a lectores interesados en el arte y el diseño. Su título sitúa la propuesta alrededor de Kati Horna, por lo que se distingue de los manuales prácticos para aprender técnicas de dibujo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 280 páginas de Kati Horna: Lo insolito es lo cotidiano, de Kati Horna, Fundación Jenkins, Instituto Nacional de Bellas Artes, en una edición física encuadernada. Es el formato disponible para quien prefiera conservar el libro en papel y tenerlo como parte de su biblioteca de arte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Kati Horna: Lo insolito es lo cotidiano, de Kati Horna, Fundación Jenkins, Instituto Nacional de Bellas Artes, comparte el interés artístico con 720 retrats, de Xavier Mollà i Revert. Este último anuncia un enfoque centrado en los retratos, mientras que el título de Kati Horna plantea una perspectiva vinculada a lo cotidiano y lo insólito.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ef8129459574f32a",
+  "origen": "chatgpt-web"
+}

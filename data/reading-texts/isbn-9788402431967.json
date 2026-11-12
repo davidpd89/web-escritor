@@ -4,8 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a lectores adultos interesados en la salud mental, los testimonios autobiográficos y la narración gráfica. Gemma Correll aborda la ansiedad mediante ilustraciones y humor, con experiencias que incluyen ataques de pánico y hospitalización. Su planteamiento encaja menos con quienes buscan un manual de ejercicios terapéuticos o una explicación exclusivamente clínica.",
+      "texto": "Ansiedad. ¿Cómo se sale de aquí? está orientado a lectores adultos interesados en las experiencias personales de salud mental contadas mediante ilustraciones y humor. Gemma Correll relata su convivencia con la ansiedad y los ataques de pánico; quien busque exclusivamente un manual clínico encontrará aquí un enfoque autobiográfico y gráfico.",
       "evidencias": [
+        "titulo",
         "autores",
         "edad_recomendada",
         "categorias",
@@ -14,27 +15,13 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda con solapas de Bruguera tiene 448 páginas y permite consultar las ilustraciones directamente sobre papel. Kindle ofrece una alternativa digital para leer el libro en pantalla, aunque el tamaño del dispositivo condiciona la visualización de las páginas dibujadas. La elección resulta especialmente relevante por su componente gráfico.",
+      "texto": "La tapa blanda con solapas ofrece las 448 páginas de Ansiedad. ¿Cómo se sale de aquí? en una edición física que permite recorrer sus ilustraciones sobre papel. Kindle facilita llevar el libro en un dispositivo electrónico, aunque la lectura de las imágenes dependerá del tamaño de su pantalla.",
       "evidencias": [
+        "titulo",
         "edicion",
-        "editorial",
         "numero_paginas",
         "formatos_disponibles",
         "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Todo lo que aprendí en terapia comparte con el libro de Gemma Correll el interés por la salud mental y el bienestar emocional. La obra de Pablo R. Coca se orienta al aprendizaje personal relacionado con la terapia, mientras que Ansiedad aborda las vivencias de su autora mediante ilustraciones y humor. La diferencia está en el enfoque formativo del primero frente al relato autobiográfico y gráfico del segundo.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791388220517"
       ]
     }
   ],

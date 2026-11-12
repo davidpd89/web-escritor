@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388003615",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Infierno Azul. Edición Integral encaja con lectores interesados en la historia del siglo XX y las biografías y memorias. Sus 480 páginas y su clasificación histórica lo sitúan en la no ficción; no es una novela de aventuras ni una obra de ficción romántica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 480 páginas de Infierno Azul. Edición Integral en un volumen encuadernado en cartoné. Es el formato disponible para esta edición de Cartem Cómics, que firma Paco Asenjo.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "autores"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a7265b30451b6d07",
+  "origen": "chatgpt-web"
+}

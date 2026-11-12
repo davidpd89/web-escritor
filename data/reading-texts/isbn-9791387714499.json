@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387714499",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los héroes del Capitolio (Novela histórica) está dirigido a lectores que buscan aventuras ambientadas en un contexto histórico. Con 656 páginas, plantea una lectura extensa y se aleja de las preferencias por novelas cortas, relatos contemporáneos o historias sin componente histórico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los héroes del Capitolio (Novela histórica) está disponible en tapa dura, tapa blanda y Kindle. Para sus 656 páginas, la tapa dura ofrece una encuadernación rígida para conservar o regalar; la tapa blanda permite leerlo en papel con una cubierta flexible, mientras que Kindle evita transportar un volumen físico de esa extensión.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig, comparte con Los héroes del Capitolio (Novela histórica), de Massimiliano Colombo, el interés por la ficción histórica, aunque sus títulos señalan escenarios distintos. Al otro lado de la niebla (Novela), de Juan Luis Arsuaga, pertenece también a la novela histórica y de aventuras, pero Los héroes del Capitolio (Novela histórica) ofrece una extensión de 656 páginas para quienes buscan una lectura más prolongada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788423370849",
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "792f3cc4c9627df6",
+  "origen": "chatgpt-web"
+}

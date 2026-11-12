@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9789585573871",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "María Ed. Especial / Maria, de Jorge Isaacs, encaja con lectores interesados en la narrativa contemporánea y en la lectura de obras de ficción. Quienes busquen ensayo o libros centrados en el desarrollo personal encontrarán aquí una propuesta de otro género.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura presenta María Ed. Especial / Maria en una edición física de 368 páginas. Es la alternativa para quien prefiere el libro en papel, busca una encuadernación rígida o quiere conservar esta edición especial en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formato_edicion",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4ca5df7581fc7245",
+  "origen": "chatgpt-web"
+}

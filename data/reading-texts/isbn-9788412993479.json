@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788412993479",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Después de los días (Proyectos de artista) se dirige a quienes buscan publicaciones de arte y diseño vinculadas a proyectos de autor. Sus 216 páginas lo distinguen de un cuaderno de uso cotidiano o de un manual introductorio de dibujo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Exit Publicaciones reúne las 216 páginas de Después de los días (Proyectos de artista) en un volumen físico. Esta encuadernación facilita su conservación y consulta repetida, especialmente para quien reúne publicaciones de arte y diseño.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Después de los días (Proyectos de artista) puede compararse con 720 retrats por su vinculación con la producción artística de autor. El volumen de Pablo Genovés pertenece a una línea de proyectos de artista, mientras que el título de Xavier Mollà i Revert señala específicamente el retrato como asunto de su publicación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5fa3a716a00b6575",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388002083",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una corona de ruinas (#Fantasy) se dirige a lectores que buscan ficción de fantasía y ciencia ficción. Sus 192 páginas lo sitúan entre las novelas de extensión más contenida, frente a quienes prefieren ensayos o lecturas centradas en temas alejados de estos géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 192 páginas de Una corona de ruinas (#Fantasy) en un volumen físico, mientras que Kindle permite llevar la lectura en un dispositivo digital. Los dos formatos están disponibles para esta edición en castellano de Puck.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una corona de ruinas (#Fantasy) comparte autora con «Una corona de huesos dorados - Edición Especial Limitada (#RomanceParanormal)», de Jennifer Armentrout. Ambos títulos permiten comparar propuestas de la misma autora, aunque el primero se identifica con la fantasía y la ciencia ficción, mientras que el segundo se presenta dentro del romance paranormal. La diferencia de enfoque permite distinguir ambas lecturas sin confundir sus títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388002106"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "574602e7b326b47c",
+  "origen": "chatgpt-web"
+}

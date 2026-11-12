@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388279591",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores de misterio y thriller contemporáneo interesados en historias aparentemente independientes que terminan relacionadas. La estructura anunciada en el título, con tres historias y dos ciudades, lo diferencia de las novelas centradas en una única trama lineal sin conexiones por resolver.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Las sombras que nos acompañan reúne 416 páginas en un volumen físico publicado por Temas de Hoy. El papel permite retroceder entre las tres historias anunciadas en el título para revisar sus conexiones durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las sombras que nos acompañan y Aguas turbulentas comparten el misterio narrativo y la relación entre diferentes acontecimientos. Cesc Cornet plantea tres historias situadas en dos ciudades, mientras que Rankin Ian vincula un pasado siniestro con el presente de Edimburgo. Corazón de sílex también parte de una incógnita, pero su conflicto inicial se concentra en una joven que ha perdido el recuerdo de la noche anterior.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318",
+        "isbn-9788467083330"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bb6b5e2b6f8155d2",
+  "origen": "chatgpt-web"
+}

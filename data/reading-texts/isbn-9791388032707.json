@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388032707",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Me han asesinado: 465 (Libros del Tiempo / Biblioteca de Clásicos Policiacos) se dirige a lectores de misterio y narrativa policiaca clásica. La obra de G. M. Wilson tiene 248 páginas y encaja menos con quien busca fantasía o una historia ajena al género criminal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Me han asesinado: 465 (Libros del Tiempo / Biblioteca de Clásicos Policiacos) se presenta en tapa dura, con 248 páginas en castellano. La edición de Ediciones Siruela ofrece un volumen físico para leer y conservar dentro de una biblioteca de clásicos policiacos, sin necesidad de un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "977e2101150ab303",
+  "origen": "chatgpt-web"
+}

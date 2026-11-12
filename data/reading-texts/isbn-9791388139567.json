@@ -4,48 +4,47 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Deja de regalar tu dinero se dirige a lectores interesados en resolver trámites legales y evitar costes relacionados con contratos, impuestos o vivienda. David Jiménez explica situaciones económicas cotidianas mediante consejos prácticos. Su enfoque no es el análisis de mercados o empresas, sino la gestión de decisiones personales con consecuencias jurídicas y financieras.",
+      "texto": "Deja de regalar tu dinero está dirigido a lectores que necesitan orientarse ante contratos, hipotecas, alquileres, impuestos y otros trámites con consecuencias económicas. Su enfoque jurídico y práctico encaja menos con quien busca ficción o un tratado centrado en teorías económicas, sin consejos aplicados a situaciones personales.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Deja de regalar tu dinero es una guía práctica de economía personal y prevención de errores legales. David Jiménez organiza 100 consejos sobre contratos, hipotecas, alquileres, herencias, divorcios, despidos y obligaciones tributarias. El contenido se centra en identificar riesgos y tomar decisiones sobre el patrimonio y los trámites habituales, en lugar de desarrollar una teoría económica.",
+      "texto": "Deja de regalar tu dinero es una guía práctica de David Jiménez organizada alrededor de 100 consejos sobre decisiones legales con repercusión económica. Trata contratos, vivienda, divorcios, herencias, despidos y obligaciones fiscales. Su planteamiento consiste en identificar errores habituales y explicar medidas de prevención, dentro del ámbito de economía y empresa.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Deja de regalar tu dinero está disponible en tapa blanda y tiene 288 páginas. La edición de Roca Editorial permite consultar en papel sus 100 consejos sobre asuntos legales y económicos, volver a los apartados relacionados con cada trámite y conservar el volumen como material de consulta. Es una presentación física sin necesidad de pantalla.",
+      "texto": "Deja de regalar tu dinero se ofrece en tapa blanda, con 288 páginas en castellano publicadas por Roca Editorial. El volumen físico permite consultar por separado sus 100 consejos prácticos y regresar a cuestiones concretas, como contratos, hipotecas, alquileres o herencias, sin necesidad de seguir una lectura continua.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "editorial",
-        "edicion",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Deja de regalar tu dinero y Cariño, ¿y este recibo?, de Angie Gil Ribera, tratan decisiones sobre dinero personal, pero David Jiménez se centra en riesgos legales y trámites, mientras el segundo plantea cuestiones de organización económica en pareja. Cómo ganar una guerra comercial, de Soumaya Keynes y Chad P. Bown, cambia de escala: analiza conflictos del comercio internacional en vez de contratos y obligaciones de particulares.",
+      "texto": "Deja de regalar tu dinero puede compararse con ANTES DE QUE OCURRA: Vender, formar y proteger el futuro, de Rafael De la Torre Pérez, por su atención a la prevención, aunque David Jiménez se centra en trámites legales y patrimonio personal. Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, aborda en cambio el pensamiento económico y político.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788402431332",
-        "isbn-9788423441051"
+        "isbn-9791388182457",
+        "isbn-9788409935604"
       ]
     }
   ],

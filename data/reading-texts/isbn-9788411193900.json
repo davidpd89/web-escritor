@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788411193900",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuidarse no debería ser tan difícil: Una visión más humana de la alimentación y la salud ante la cultura de la optimización constante (Salud natural), de Sarah Ann Macklin, se dirige a quienes buscan reflexionar sobre la alimentación y el bienestar sin convertirlos en una exigencia permanente. Por su enfoque, se aleja de los recetarios centrados en preparar platos y de los manuales exclusivamente culinarios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Diana se presenta en tapa blanda y reúne 264 páginas en castellano. Es un formato físico que permite consultar distintos pasajes sobre alimentación y salud, marcar páginas y volver a ellos sin depender de una pantalla.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Secretos del ayurveda: Que cambiarán tu vida (Biblioteca de la salud), de Isabel Bautista, comparte con Cuidarse no debería ser tan difícil: Una visión más humana de la alimentación y la salud ante la cultura de la optimización constante (Salud natural), de Sarah Ann Macklin, el interés por la salud y el bienestar. El primero se centra en el ayurveda, mientras que el segundo aborda la alimentación y cuestiona la exigencia de optimizar constantemente los hábitos de cuidado personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214834"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7c008b9f0ccbbeaf",
+  "origen": "chatgpt-web"
+}

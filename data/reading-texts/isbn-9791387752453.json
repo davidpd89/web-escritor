@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9791387752453",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Krabat (Alma Juvenil) se orienta a lectores de fantasía y clásicos que también acepten elementos de terror. Su combinación de géneros se aparta de una lectura exclusivamente realista o de una historia centrada únicamente en el romance.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Krabat (Alma Juvenil) cuenta con una edición en tapa dura de 272 páginas, publicada por Editorial Alma. La encuadernación rígida resulta práctica para conservar el volumen en una biblioteca y protegerlo durante las relecturas; también permite regalarlo como libro físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "edede7b449915c02",
+  "origen": "chatgpt-web"
+}

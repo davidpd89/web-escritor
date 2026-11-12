@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788408321477",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Volver a Roma (Ciudades contadas) se dirige a lectores de ensayo y literatura de viajes interesados en una ciudad concreta. Su enfoque geográfico lo diferencia de los libros de viajes que recorren varios destinos y de las novelas de ficción ambientadas en lugares imaginarios.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Volver a Roma (Ciudades contadas) está disponible en tapa blanda y Kindle, con una edición impresa de 248 páginas. El papel permite conservar el volumen y consultarlo durante una estancia; Kindle facilita llevar la lectura en el móvil o en un lector electrónico sin añadir peso al equipaje.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Volver a Roma (Ciudades contadas) puede compararse con 33 islas: Un periplo mediterráneo. De Marettimo a Venecia. porque ambos títulos se relacionan con los viajes y los lugares del Mediterráneo. Marina García Diéguez concentra su obra en Roma, mientras que Lucio Bellomo propone un recorrido por distintas islas y destinos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387873127"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6cccfd31baaae688",
+  "origen": "chatgpt-web"
+}

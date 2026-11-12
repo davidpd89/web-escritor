@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788417417963",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mala baba (Caballo de Troya) encaja con lectores que buscan narrativa contemporánea y prefieren la ficción a los ensayos. Sus 232 páginas permiten identificar la extensión de esta edición antes de elegirla.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 232 páginas de Mala baba (Caballo de Troya) en un volumen físico de Caballo de Troya. Es una edición para quien prefiere leer en papel, guardar el ejemplar en su biblioteca o llevarlo consigo durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e3b265bf89a98ffc",
+  "origen": "chatgpt-web"
+}

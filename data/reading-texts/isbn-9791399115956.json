@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399115956",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Galápagos: El fin del mundo (Clásicos de la naturaleza) se dirige a lectores interesados en la naturaleza y en obras de temática naturalista. Sus 516 páginas lo sitúan entre los volúmenes extensos, por lo que no responde al formato breve de un cuento infantil ni al de un cómic de lectura rápida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda concentra las 516 páginas de Galápagos: El fin del mundo (Clásicos de la naturaleza) en un único volumen impreso. Es la opción disponible para quien prefiera leer en papel y conservar el libro físicamente; su extensión permite tener presente que se trata de una lectura de considerable volumen.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Animales, de Susaeta Ediciones, también se ocupa del mundo animal, aunque lo hace mediante seis cuentos ilustrados protagonizados por animales. Galápagos: El fin del mundo (Clásicos de la naturaleza), de William Beebe, se encuadra en la temática de naturaleza y presenta un volumen de 516 páginas, frente al formato de cuentos ilustrados del otro título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370341589"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "35e5b80ba4cb6815",
+  "origen": "chatgpt-web"
+}

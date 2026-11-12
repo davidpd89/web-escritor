@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788435065658",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El sitio de Calais: 3 (Narrativas Históricas), de Bernard Cornwell, se dirige a lectores de novela histórica interesados en relatos ambientados en el pasado. Su planteamiento histórico encaja menos con quienes prefieren narrativa contemporánea, romance juvenil o libros de divulgación sin ficción. El título lo identifica como el n.º 3.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El sitio de Calais: 3 (Narrativas Históricas) cuenta con una edición en tapa blanda de 456 páginas en castellano. Su encuadernación flexible permite transportar el volumen y leerlo en papel, mientras que la extensión ofrece una referencia concreta sobre el tamaño de esta novela histórica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3a96e0a8b9b7a84a",
+  "origen": "chatgpt-web"
+}

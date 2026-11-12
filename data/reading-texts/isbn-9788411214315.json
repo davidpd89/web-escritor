@@ -1,0 +1,27 @@
+{
+  "id": "isbn-9788411214315",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual se orienta a lectores interesados en relacionar pensamiento filosófico, astrología y prácticas espirituales. Su planteamiento temático se distancia de los libros dedicados exclusivamente a la nutrición o a consejos cotidianos de bienestar.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual puede leerse en tapa blanda o Kindle. La edición física reúne 240 páginas y permite consultar el contenido en papel; Kindle facilita llevar el texto en un dispositivo compatible y acceder a él sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "32e760ddab359cd9",
+  "origen": "chatgpt-web"
+}

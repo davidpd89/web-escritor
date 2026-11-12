@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387624392",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Idea sobre las novelas: 65 (Historia y pensamiento) se dirige a lectores interesados en el ensayo y en la reflexión sobre la novela. Es una obra de Marqués de Sade de 96 páginas, por lo que se aparta de la lectura de ficción narrativa que puede buscar quien prefiera una novela.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Idea sobre las novelas: 65 (Historia y pensamiento) está disponible en tapa blanda, con 96 páginas en castellano. Esta edición de Punto de Vista Editores permite consultar el texto en papel y transportarlo sin el peso habitual de un volumen extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3b6a9b87aa0d5ae2",
+  "origen": "chatgpt-web"
+}

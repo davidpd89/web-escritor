@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788448874971",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Malvhadas 2. Muerte por sapo (Mi primer cómic), de Huw Aaron, está dirigido a lectores interesados en cómics de fantasía, aventuras y humor. Su clasificación lo sitúa en la narrativa gráfica de carácter fantástico, por lo que no corresponde al lector que busca novela realista o narrativa contemporánea sin elementos de fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 272 páginas de Malvhadas 2. Muerte por sapo (Mi primer cómic), de Huw Aaron, en una edición física de Beascoa. Kindle ofrece la alternativa digital para leer el cómic en dispositivos compatibles sin manejar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Malvhadas 2. Muerte por sapo (Mi primer cómic), de Huw Aaron, comparte el formato de cómic con Mi primer Mortadelo y Filemón - ¡Detectives del montón! (Bruguera Clásica), de Francisco Ibáñez. También puede compararse con 7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica), del mismo autor, aunque Malvhadas incorpora fantasía y aventuras en su clasificación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431790",
+        "isbn-9788402432148"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "788522b1ddb7a116",
+  "origen": "chatgpt-web"
+}

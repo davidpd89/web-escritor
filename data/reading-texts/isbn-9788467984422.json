@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788467984422",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El arte de cuphead IN the delicious last course: 1 encaja con lectores interesados en publicaciones gráficas y libros vinculados al arte, más que con quienes buscan una novela convencional en prosa. La obra de Eli Cymet y Tyler Moldenhauer tiene 264 páginas y está publicada en castellano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de El arte de cuphead IN the delicious last course: 1 contiene 264 páginas y está publicada por Norma Editorial. El volumen físico permite consultar sus páginas directamente y conservarlo como libro de estantería; la encuadernación rígida también es una característica relevante al elegirlo como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0c7a5772d1f70f30",
+  "origen": "chatgpt-web"
+}

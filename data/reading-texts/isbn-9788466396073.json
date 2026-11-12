@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788466396073",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Casa de tierra y sangre (Ciudad Medialuna 1) (Best Seller | Ficción) se dirige a lectores de fantasía que buscan una novela extensa. Sus 816 páginas requieren más tiempo de lectura que una obra breve, por lo que encaja menos con quien prefiere historias cortas. El título la identifica como el n.º 1 de Ciudad Medialuna.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Casa de tierra y sangre (Ciudad Medialuna 1) (Best Seller | Ficción) reúne 816 páginas en una edición de bolsillo de Penguin Bolsillo. Kindle permite llevar esa extensión en un lector electrónico o en el móvil, sin cargar con el volumen físico. La elección depende de si se prefiere conservar el libro en papel o leerlo en pantalla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Casa de cielo y aliento (Ciudad Medialuna 2) comparte autora y denominación de saga con Casa de tierra y sangre (Ciudad Medialuna 1) (Best Seller | Ficción). El título del primero lo identifica como el n.º 2, mientras que el segundo lleva el n.º 1. Ambos pertenecen a la obra de Sarah J. Maas, pero ocupan posiciones distintas dentro de Ciudad Medialuna.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396080"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8d5d3c35d0bbdc9e",
+  "origen": "chatgpt-web"
+}

@@ -4,50 +4,52 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Por qué miramos a los animales? se dirige a quienes buscan una reflexión filosófica sobre la relación humana con otras especies y su transformación cultural. Con 94 páginas, responde a un interés por el ensayo breve más que a la búsqueda de una guía práctica sobre el cuidado de animales.",
+      "texto": "¿Por qué miramos a los animales? se dirige a lectores de ensayo, filosofía y naturaleza interesados en cómo cambia la relación humana con otras especies. John Berger plantea una reflexión sobre la manera de observarlas y representarlas. No es una guía de identificación de animales ni un manual práctico sobre su cuidado.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "sinopsis_editorial",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "John Berger analiza el cambio en el lugar que ocupan los animales dentro de las sociedades humanas. El ensayo contrapone sus antiguas funciones simbólicas y prácticas con su progresiva exclusión de la vida compartida y su conversión en objetos de observación y entretenimiento.",
+      "texto": "El ensayo estudia cómo ha cambiado el lugar que ocupan los animales en la sociedad humana. John Berger contrapone antiguas relaciones de veneración y utilidad con formas de separación que convierten a los animales en objetos de observación. Su perspectiva es filosófica y crítica, centrada en la mirada humana más que en la descripción biológica de las especies.",
       "evidencias": [
+        "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¿Por qué miramos a los animales? puede leerse en tapa dura o en Kindle. La edición física reúne 94 páginas y ofrece una encuadernación rígida para conservar el ensayo; Kindle permite llevar ese mismo título en un lector electrónico o consultarlo desde el móvil.",
+      "texto": "¿Por qué miramos a los animales? tiene 94 páginas y está disponible en tapa dura, tapa blanda y Kindle. La tapa dura ofrece una encuadernación rígida para conservar el ensayo; la blanda facilita llevarlo en papel con una cubierta flexible. Kindle permite consultar el texto en pantalla y transportarlo sin ocupar espacio físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
+        "formatos_disponibles",
         "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¿Por qué miramos a los animales? y Filosofía de la corrida de toros examinan la relación entre personas y animales desde preguntas filosóficas. John Berger estudia su posición en la cultura, mientras Francis Wolff se concentra en el conflicto moral y estético de una práctica concreta; Esenciales, por su parte, reúne escritos de pensamiento con un alcance temático más amplio.",
+      "texto": "¿Por qué miramos a los animales? comparte con La vida de los animales: 21 (esenciales), de JM Coetzee, el interés explícito por los animales. John Berger examina la evolución de la mirada humana hacia ellos, mientras que el título de JM Coetzee plantea la vida animal como asunto central. También se relaciona con Temporada de mariposas: Lo que la naturaleza me enseñó sobre el sentido de la vida (Pensamiento), de Lea Korsgaard, cuyo título vincula naturaleza y reflexión personal.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788430629138",
-        "isbn-9791388127250"
+        "isbn-9791399281019",
+        "isbn-9788430629251"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e679cc7cb128c5b9",
+  "fuente_hash": "27c7a00e4fe760c9",
   "origen": "chatgpt-web"
 }

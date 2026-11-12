@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788468378985",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pequeños peluches (Libro guante con títeres de dedo) (Libros para bebés) está dirigido a la primera infancia y a la lectura compartida con adultos. Su propuesta combina un libro de tela de 6 páginas con títeres de dedo, de modo que la manipulación forma parte de la actividad. No está concebido como una lectura extensa para niños que buscan relatos desarrollados.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pequeños peluches (Libro guante con títeres de dedo) (Libros para bebés) se presenta como libro de tela, según la descripción de la edición de Edebé. Sus 6 páginas y el formato de guante con títeres permiten acompañar la lectura con movimientos de los dedos. Es un objeto físico de interacción, diferente de leer texto e imágenes en una pantalla.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4dccbd2df3936c13",
+  "origen": "chatgpt-web"
+}

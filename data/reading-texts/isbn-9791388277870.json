@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388277870",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "MÁGICAS 4 - El hechizo dorado de las hadas: (Libros para niñas de 7, 8 y 9 años) (Jóvenes lectores) está dirigido a niñas de 7, 8 y 9 años interesadas en las hadas, la fantasía y la amistad. Sus 128 páginas lo sitúan en una extensión infantil; por edad y temática, se aparta de la narrativa adulta realista.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Este título de María Lozano Cano se presenta en tapa blanda, con 128 páginas en castellano. La cubierta flexible facilita llevarlo en una mochila y manejarlo durante la lectura infantil; su extensión permite organizar la lectura en varias sesiones sin recurrir a un volumen especialmente largo.",
+      "evidencias": [
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El jardín mágico de las Pequeflores - Susto en la nieve (Primeras lecturas), de Begoña Oro, comparte con MÁGICAS 4 - El hechizo dorado de las hadas: (Libros para niñas de 7, 8 y 9 años) (Jóvenes lectores) el interés por la magia en lecturas infantiles. El libro de María Lozano Cano se identifica con hadas y amistad, mientras que el de Begoña Oro sitúa en su título un susto en la nieve. También cambia la autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448873851"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "66cee1da66787912",
+  "origen": "chatgpt-web"
+}

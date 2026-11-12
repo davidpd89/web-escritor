@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Repensar la pobreza se dirige a adultos interesados en la economía, la desigualdad y las políticas sociales. Su análisis de las decisiones cotidianas de las personas con pocos recursos encaja menos con quien busca una narración autobiográfica o una explicación de la pobreza basada exclusivamente en grandes indicadores económicos.",
+      "texto": "Repensar la pobreza se dirige a lectores adultos interesados en la economía, las políticas públicas y las causas de la desigualdad. Su análisis de decisiones económicas y programas de ayuda encaja menos con quienes buscan un relato autobiográfico o una explicación de la pobreza basada únicamente en opiniones generales.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,26 +14,25 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Esther Duflo y Abhijit Banerjee examinan la pobreza mediante las decisiones reales de quienes la experimentan. Abordan los microcréditos, la vacunación, la educación y la alimentación, y cuestionan las suposiciones que condicionan las políticas públicas. Su enfoque parte de la observación directa de comportamientos y necesidades económicas.",
+      "texto": "Esther Duflo y Abhijit Banerjee estudian la pobreza a través de decisiones concretas relacionadas con la alimentación, la educación, la salud y los microcréditos. Su enfoque parte de observar las circunstancias y conductas de las personas afectadas para cuestionar las suposiciones utilizadas al diseñar políticas públicas.",
       "evidencias": [
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas contiene 480 páginas y permite consultar físicamente los distintos asuntos económicos y sociales tratados. Kindle evita transportar ese volumen y facilita alternar la lectura entre dispositivos compatibles, incluido el móvil, especialmente cuando se lee fuera de casa.",
+      "texto": "La tapa blanda con solapas reúne las 480 páginas de Repensar la pobreza en una edición física apropiada para consultar distintos argumentos. Kindle permite leer el ensayo en dispositivos electrónicos y el audiolibro ofrece una alternativa para seguir su contenido mediante la escucha.",
       "evidencias": [
-        "edicion",
+        "titulo",
         "numero_paginas",
-        "formatos_disponibles",
-        "categorias"
+        "edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Repensar la pobreza y Turismo de terror, de Andy Robinson, observan problemas sociales a través de situaciones concretas. El primero estudia las decisiones económicas de personas con pocos recursos; el segundo utiliza crónicas de viaje por América para examinar el turismo posterior a la pandemia. Manifiesto por otra economía y otra política no figura entre sus títulos afines, por lo que la comparación se limita a Turismo de terror.",
+      "texto": "Repensar la pobreza y Turismo de terror, de Andy Robinson, comparten la atención a problemas económicos y sociales. Esther Duflo y Abhijit Banerjee examinan las decisiones de las personas con pocos recursos y las políticas contra la pobreza; Turismo de terror aborda las consecuencias del turismo contemporáneo mediante crónicas de viaje.",
       "evidencias": [
         "titulo",
         "autores",
@@ -47,6 +46,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "eaf3af1fa67d7a2d",
+  "fuente_hash": "addf41b9f5fd0a44",
   "origen": "chatgpt-web"
 }

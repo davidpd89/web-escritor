@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399309638",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rusia y Ucrania en guerra, de Luis Fraga, se dirige a lectores interesados en los conflictos internacionales y el poder político. Su temática bélica y política lo distancia de quienes buscan una historia de ficción centrada en relaciones personales o aventuras imaginarias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Rusia y Ucrania en guerra cuenta con una edición en tapa blanda de 172 páginas, publicada por El Manifiesto Ediciones. El formato permite leer y consultar el volumen en papel, con una cubierta flexible y una extensión delimitada para organizar su lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rusia y Ucrania en guerra y A la sombra del Estado comparten el interés por el poder y los conflictos. La obra de Luis Fraga se identifica por la guerra entre Rusia y Ucrania, mientras que A la sombra del Estado aborda el espionaje, las operaciones encubiertas, la guerra híbrida y la desinformación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e40ba8e429a1810d",
+  "origen": "chatgpt-web"
+}

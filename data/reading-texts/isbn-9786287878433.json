@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786287878433",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El estado de obmoción / The State of Obmotion se dirige a lectores interesados en psicología y desarrollo personal. La obra de Sebastian Uribe Chinkovsky pertenece al ámbito de la no ficción orientada al conocimiento personal, por lo que no encaja con quien busca una novela de ficción o una narración de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El estado de obmoción / The State of Obmotion está disponible en tapa blanda y tiene 192 páginas. La edición en papel permite señalar fragmentos y volver a ellos durante una lectura centrada en psicología y desarrollo personal. Ediciones B es la editorial responsable de esta publicación.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El estado de obmoción / The State of Obmotion comparte el ámbito del desarrollo personal con Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso. Este último título centra expresamente su propuesta en la infancia, mientras que el libro de Sebastian Uribe Chinkovsky se presenta dentro de la psicología y el desarrollo personal. Ambos se sitúan fuera de la narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8edbc9dfc1a3a2b1",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370093488",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Al despertar, rompe el cascarón (Runas) se sitúa entre la fantasía, la ciencia ficción, el ensayo y los relatos. Encaja con lectores interesados en esa combinación de géneros, pero se distancia de quienes buscan exclusivamente narrativa realista o un manual práctico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Al despertar, rompe el cascarón (Runas) se publica en tapa blanda, con 496 páginas en castellano. Es una edición física de extensión considerable, apropiada para mantener el volumen en una biblioteca y retomar la lectura en distintas sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "UNO: Una distopía sobre la individualidad (Ciencia Ficción) comparte con Al despertar, rompe el cascarón (Runas) el ámbito de la ciencia ficción, aunque su título concreta un enfoque distópico sobre la individualidad. La obra de Becky Chambers abarca también fantasía, ensayo y relatos, por lo que presenta una clasificación más amplia que la propuesta de David Karp.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788445022085"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "380ca6d10eabded2",
+  "origen": "chatgpt-web"
+}

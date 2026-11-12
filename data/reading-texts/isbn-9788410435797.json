@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788410435797",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El cerezo de mi enemigo: 39 (Barlovento) está dirigido a lectores adultos interesados en narrativa contemporánea. Sus 256 páginas delimitan una lectura de extensión moderada, mientras que su clasificación literaria lo sitúa fuera de los libros de actividades, los ensayos y la literatura infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible de El cerezo de mi enemigo: 39 (Barlovento). Sus 256 páginas se reúnen en una edición física publicada por Altamarea Ediciones, una opción para quien prefiere leer en papel y conservar el ejemplar. No hay que elegir entre varias modalidades de lectura.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e24bd840dcaace50",
+  "origen": "chatgpt-web"
+}

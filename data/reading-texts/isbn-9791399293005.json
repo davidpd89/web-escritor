@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791399293005",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores interesados en la organización de centros educativos, la prevención y la confianza en las instituciones. Su enfoque institucional encaja menos con quien busca un manual de actividades de aula o una introducción general a las técnicas de enseñanza.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Cómo construir un sistema integral de prevención y confianza institucional en centros educativos examina la prevención y la confianza como cuestiones relacionadas con la organización escolar. Celeste Iria Graiño Gil sitúa ambas dentro de un planteamiento integral, vinculado al funcionamiento institucional y a las responsabilidades de los centros educativos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Raíz y Rumbo Editorial contiene 368 páginas en castellano. El volumen impreso permite consultar por separado las cuestiones de prevención y confianza institucional, así como conservar el libro para posteriores lecturas relacionadas con la gestión de centros educativos.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparte el interés por las estructuras políticas, aunque se centra en una corriente de pensamiento económico y político. Cómo construir un sistema integral de prevención y confianza institucional en centros educativos traslada el análisis institucional al ámbito escolar, con la prevención y la confianza como ejes.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "202288a519e44ff2",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788430630912",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El futuro del dinero y de la banca: Estabilidad y competencia (Economía), de Miguel A. Fernández Ordóñez, está dirigido a lectores interesados en el funcionamiento del dinero, la banca y la competencia económica. Encaja menos con quienes buscan ficción o consejos de finanzas domésticas, porque su asunto central es el sistema bancario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El futuro del dinero y de la banca: Estabilidad y competencia (Economía) se presenta en tapa blanda, con 192 páginas en castellano. La edición de Taurus permite consultar físicamente los apartados sobre estabilidad y competencia, así como conservar el volumen para futuras consultas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El futuro del dinero y de la banca: Estabilidad y competencia (Economía) se relaciona con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) por su atención a cuestiones económicas. Miguel A. Fernández Ordóñez aborda el dinero y la banca; Miguel Anxo Bastos Boubeta se ocupa de las bases económicas y políticas del anarcocapitalismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f256ede9938a7342",
+  "origen": "chatgpt-web"
+}

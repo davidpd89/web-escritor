@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466393744",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sangre caliente (El Rancho Wells 2) (Best Seller | Ficción) está dirigido a lectores que buscan novelas románticas. El título lo identifica como el n.º 2 de El Rancho Wells, una referencia relevante para quienes prefieren comenzar una serie por su primera entrega; no responde a la búsqueda de narrativa ajena al romance.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sangre caliente (El Rancho Wells 2) (Best Seller | Ficción) se ofrece en tapa blanda y Kindle. La edición de bolsillo de Penguin Bolsillo tiene 392 páginas, mientras que Kindle permite leer la novela en formato digital y llevarla en el móvil mediante una aplicación compatible.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sangre caliente (El Rancho Wells 2) (Best Seller | Ficción) comparte su orientación romántica con A mil por hora, de Hannah Grace. La novela de Hannah Grace presenta una relación entre un piloto de F1 y una mujer marcada por su pasado, mientras que la de Bailey Hannah se distingue por su pertenencia a El Rancho Wells, identificada en el título como segunda entrega.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4db453b855204dac",
+  "origen": "chatgpt-web"
+}

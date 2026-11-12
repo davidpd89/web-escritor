@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399308303",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ondina, de Jean Giraudoux, se sitúa en el ámbito de las publicaciones vinculadas al arte y el diseño. Su edición en castellano permite acercarse a la obra en un volumen de extensión contenida, aunque su clasificación editorial la diferencia de los manuales de desarrollo personal o de divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ondina se publica en tapa blanda, con 180 páginas en castellano. Esta edición de Ápeiron Ediciones ofrece un volumen físico flexible, fácil de guardar en una estantería o transportar para leer fuera de casa. Es una opción de lectura impresa sin necesidad de dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ondina puede compararse con Arde Talía: Una pieza teatral sobre el infierno de la creación artística por su proximidad al ámbito artístico. La obra de Jean Giraudoux figura entre las publicaciones de arte y diseño, mientras que el título de Alba Quintas Garciandia, Ana Saiz, Talita Isla, Carmen Romero Lorenzo e Inés Galiano identifica expresamente una pieza teatral sobre la creación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399289510"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a63f240e061ad7b4",
+  "origen": "chatgpt-web"
+}

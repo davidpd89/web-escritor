@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791370174583",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Entre el deseo y la culpa: 3256 (Bianca), de Lorraine Hall, se dirige a lectores de romance que buscan una obra de extensión breve. Sus 160 páginas permiten distinguirla de las novelas románticas más largas, pero no responde a quien busca principalmente misterio o fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Entre el deseo y la culpa: 3256 (Bianca) está disponible en tapa blanda, con 160 páginas en castellano. Esta edición física de Harlequin Ibérica, S.a. permite leerla en papel y guardarla en una estantería sin necesitar un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c79641b99eb55437",
+  "origen": "chatgpt-web"
+}

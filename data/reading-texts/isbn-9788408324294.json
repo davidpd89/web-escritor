@@ -4,16 +4,15 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Zodiac Academy 1. El despertar. Edición especial se orienta a lectores de fantasía romántica interesados en herencias desconocidas y protagonistas que descubren un origen distinto al que creían tener. Encaja menos con quienes buscan una novela realista, pues la situación de Darcy y Tory Vega parte del contraste entre el mundo mortal y su nueva identidad.",
+      "texto": "Esta novela encaja con lectores de fantasía y romance interesados en historias de identidades ocultas y herencias inesperadas. Las protagonistas son dos gemelas cuya vida cambia al descubrir su origen familiar; se aleja de quienes prefieren relatos realistas sin elementos fantásticos.",
       "evidencias": [
-        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La historia plantea un cambio de identidad y posición social dentro de una fantasía con componentes románticos. Darcy y Tory Vega pasan de una vida marcada por la precariedad y la ausencia de familia al descubrimiento de una herencia, desencadenado por la aparición de un profesor misterioso.",
+      "texto": "La novela combina fantasía y romance con el descubrimiento de una identidad familiar oculta. Darcy y Tory Vega han crecido en el mundo mortal y su situación cambia cuando conocen su condición de herederas, un punto de partida que introduce un conflicto entre su vida anterior y su nueva realidad.",
       "evidencias": [
         "categorias",
         "sinopsis_editorial"
@@ -21,43 +20,42 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Zodiac Academy 1. El despertar. Edición especial se publica en Crossbooks el 26 de agosto de 2026, con 480 páginas en castellano. Su presentación es de tapa dura con sobrecubierta, una característica física concreta para distinguir esta edición de otras presentaciones del título.",
+      "texto": "Esta edición especial de Zodiac Academy 1. El despertar se publica en tapa dura con sobrecubierta bajo el sello Crossbooks. Tiene 480 páginas en castellano y fecha editorial del 26 de agosto de 2026, características que permiten identificarla frente a otras presentaciones de la obra.",
       "evidencias": [
         "titulo",
+        "edicion",
         "editorial",
-        "fecha_publicacion",
         "numero_paginas",
         "idioma",
-        "edicion"
+        "fecha_publicacion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Zodiac Academy 1. El despertar. Edición especial está disponible en tapa dura, con sobrecubierta y una extensión de 480 páginas. Es una presentación física orientada a la conservación en estantería y al regalo; la sobrecubierta añade una pieza exterior que puede retirarse durante la lectura para evitar su desgaste.",
+      "texto": "La tapa dura con sobrecubierta reúne las 480 páginas en un volumen físico adecuado para conservar o regalar. Kindle permite leer la misma obra en un dispositivo electrónico sin transportar el libro, mientras que el audiolibro ofrece una alternativa para escucharla durante desplazamientos.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "edicion",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Zodiac Academy 1, de Caroline Peckham y Susanne Valenti, comparte autoría y planteamiento con la edición especial de El despertar, cuya presentación incluye tapa dura con sobrecubierta. Alas de escarcha y oro: El canto del cisne, de Marta Morillo, también aborda capacidades personales ocultas, pero parte de una protagonista que esconde sus dones, frente al descubrimiento de una herencia por las gemelas Darcy y Tory Vega.",
+      "texto": "Zodiac Academy 1. El despertar comparte historia y autoría con esta edición especial de Caroline Peckham y Susanne Valenti. La diferencia está en la presentación en tapa dura con sobrecubierta de esta edición, mientras que Zodiac Academy 2. Despiadados continúa la misma saga y su título lo identifica como la segunda entrega.",
       "evidencias": [
         "titulo",
         "autores",
         "edicion",
-        "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387949938"
+        "isbn-9788408324317",
+        "isbn-9788408327981"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "13efdadf5009672a",
+  "fuente_hash": "c04586e3826161df",
   "origen": "chatgpt-web"
 }

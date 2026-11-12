@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Doble juego encaja con lectores de novela romántica interesados en las segundas oportunidades, los conflictos emocionales y las relaciones condicionadas por el pasado. La venganza y el amor aparecen como fuerzas enfrentadas, por lo que se distancia de las historias centradas exclusivamente en relaciones sin obstáculos personales.",
+      "texto": "Doble juego encaja con lectores de novela romántica interesados en las segundas oportunidades, las heridas del pasado y los conflictos entre afecto y venganza. Su planteamiento concede importancia a las decisiones emocionales de los protagonistas, por lo que se distancia de las historias centradas principalmente en la aventura o la investigación.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,28 +13,39 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Doble juego, de Lina Galán, es una novela romántica construida alrededor de las consecuencias del pasado y la tensión entre el amor y la venganza. Tristan Clayton busca dejar atrás sus errores, mientras Chiara Monroe afronta heridas personales y aspiraciones postergadas. El conflicto sentimental se desarrolla entre la necesidad de comenzar de nuevo y los asuntos que ambos arrastran.",
+      "texto": "La novela desarrolla un romance condicionado por experiencias anteriores y deseos de empezar de nuevo. Tristan Clayton y Chiara Monroe afrontan conflictos personales que afectan a sus expectativas y a la posibilidad de establecer una relación. La venganza introduce una tensión adicional entre los sentimientos y los objetivos de los personajes.",
       "evidencias": [
-        "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Doble juego está disponible en tapa blanda y Kindle, dos opciones para leer sus 432 páginas. La edición de Booket es rústica sin solapas y permite conservar un ejemplar físico; Kindle facilita continuar la novela desde un dispositivo compatible, incluido el móvil, sin cargar con el volumen impreso.",
+      "texto": "La edición en tapa blanda de Doble juego presenta sus 432 páginas en rústica sin solapas, una encuadernación flexible para leer y transportar. Kindle permite continuar la lectura en el móvil o en un lector electrónico sin cargar con el volumen. El audiolibro ofrece una alternativa para seguir la historia mediante escucha.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
         "edicion",
-        "editorial"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Doble juego y A mil por hora comparten su pertenencia a la novela romántica, aunque plantean conflictos distintos. Lina Galán sitúa el peso de su historia en el pasado de los protagonistas y la venganza; Hannah Grace presenta una relación entre un piloto de F1 y una mujer que tiene dificultades para dejar atrás una etapa anterior.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683449"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "343ef1828ed4b977",
+  "fuente_hash": "6b8244462b565764",
   "origen": "chatgpt-web"
 }

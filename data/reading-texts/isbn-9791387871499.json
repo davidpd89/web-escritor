@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387871499",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El enigma de Dios: De la fe a la incertidumbre (Best Seller | No Ficción) se dirige a lectores interesados en las preguntas filosóficas sobre la fe y la religión. Su orientación reflexiva encaja menos con quienes buscan ficción religiosa o un manual de prácticas espirituales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda presenta sus 352 páginas en formato de bolsillo, apropiado para llevar el libro y consultar pasajes en papel. Kindle permite leerlo en el móvil o en un lector electrónico, con la posibilidad de ajustar el tamaño de letra durante la lectura.",
+      "evidencias": [
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual comparte el interés por la filosofía y la espiritualidad, pero anuncia una orientación práctica. El enigma de Dios: De la fe a la incertidumbre (Best Seller | No Ficción) centra su planteamiento en la relación entre creencia y duda, mientras que Autobiografía de un yogui (Best Seller | No Ficción) se presenta desde una perspectiva autobiográfica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315",
+        "isbn-9791388147838"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fb85dcde3d2dc8a0",
+  "origen": "chatgpt-web"
+}

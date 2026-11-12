@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788401040276",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nunca fui uno de ellos (Éxitos) se dirige a lectores de misterio y thriller interesados también en el poder y la política. Su clasificación temática lo aleja de quienes buscan una historia centrada en el romance o una lectura de divulgación política.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nunca fui uno de ellos (Éxitos) está disponible en tapa blanda, con 400 páginas en castellano. Esta edición de Plaza & Janés permite leer una novela de extensión considerable en un volumen físico flexible, tanto en casa como durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nunca fui uno de ellos (Éxitos) puede compararse con El vuelo de los gansos por su relación temática con el poder y la política. El libro de Ángel Boixadós plantea el enfrentamiento al poder desde los principios, mientras que la obra de Javier Zamora se sitúa en el misterio y el thriller. Son dos aproximaciones distintas a los conflictos vinculados al poder.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425375040"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8a4898c331402bbc",
+  "origen": "chatgpt-web"
+}

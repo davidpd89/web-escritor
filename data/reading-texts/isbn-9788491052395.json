@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788491052395",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La máquina del tiempo: Ediciones icónicas (Penguin Clásicos), de H.G. Wells, se dirige a lectores de clásicos, ciencia ficción y fantasía interesados en los viajes temporales. Con 152 páginas, resulta más breve que una novela extensa; no corresponde a una lectura de realismo cotidiano sin elementos especulativos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La máquina del tiempo: Ediciones icónicas (Penguin Clásicos) cuenta con una edición de bolsillo en tapa blanda de 152 páginas, cómoda para transportar y guardar. La versión Kindle permite llevar el texto en formato digital y leerlo desde dispositivos compatibles.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La máquina del tiempo: Ediciones icónicas (Penguin Clásicos) y Trilogia Nova, la (Compendium) son obras de ficción de H.G. Wells y William S. Burroughs, respectivamente; la primera se clasifica como ciencia ficción y clásico, mientras que la segunda se presenta como una recopilación de trilogía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788433949820"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f39f1f747e20eba0",
+  "origen": "chatgpt-web"
+}

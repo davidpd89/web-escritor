@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788419608581",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ubi sunt? Pisha (Edición 25 aniversario): El libro del bizco Durán, de José Rodríguez Plocia, se encuadra en el humor. Sus 140 páginas lo presentan en una edición de extensión contenida, mientras que los lectores que busquen narrativa romántica, fantástica o histórica encontrarán una propuesta de otro género.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 140 páginas y permite disponer del libro en formato físico flexible. Es la única edición disponible de Ubi sunt? Pisha (Edición 25 aniversario): El libro del bizco Durán, de José Rodríguez Plocia.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica), de Francisco Ibáñez, comparte con Ubi sunt? Pisha (Edición 25 aniversario): El libro del bizco Durán, de José Rodríguez Plocia, la vinculación con el humor. La diferencia está en la presentación: el título de Francisco Ibáñez se identifica como Súper Humor Mortadelo, mientras que el de José Rodríguez Plocia se presenta como el libro del bizco Durán.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431790"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "169a43dc566f29c9",
+  "origen": "chatgpt-web"
+}

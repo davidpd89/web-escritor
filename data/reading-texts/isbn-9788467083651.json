@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788467083651",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan mejorar el descanso nocturno mediante cambios en sus hábitos diarios. Dormir bien no debería ser un sueño: Reordena tus días para recuperar tus noches (Espasa Bienestar y Salud) aborda el bienestar desde el desarrollo personal y la psicología; no está planteado como una novela ni como una lectura de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar y marcar pasajes de sus 320 páginas en papel. La edición Kindle ofrece el mismo título en formato digital, con la posibilidad de llevarlo en el móvil o ajustar el tamaño de letra. La elección depende de si se prefiere trabajar con un ejemplar físico o leer desde una pantalla.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología) comparte el enfoque psicológico, pero estudia las relaciones afectivas en lugar de los hábitos de descanso. Cáncer Después del diagnóstico: El libro que todo paciente oncológico necesita leer también aborda cuestiones de salud, aunque se centra en la experiencia posterior a un diagnóstico oncológico y no en la organización de las rutinas diarias.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387534370",
+        "isbn-9788410944145"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1cfec91758ab1f5d",
+  "origen": "chatgpt-web"
+}

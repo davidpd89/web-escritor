@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788409927166",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este temario está dirigido a quienes preparan las oposiciones de Administrativo del Estado, grupo C1. Su contenido se centra en organización estatal, oficinas públicas y derecho administrativo, con esquemas y pruebas de autoevaluación. No responde a la búsqueda de un ensayo político general ni de una introducción exclusivamente divulgativa al derecho.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Se trata de un manual de preparación de oposiciones, no de una obra narrativa. El volumen 1 reúne materias de organización del Estado, funcionamiento de oficinas públicas y derecho administrativo. José Antonio Moreno Moreno incorpora temas, esquemas y 553 tests con soluciones para trabajar el contenido y comprobar las respuestas.",
+      "evidencias": [
+        "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda y consta de 620 páginas. Este soporte permite estudiar los temas en papel, consultar los esquemas y volver a los 553 tests con soluciones durante el repaso. Por su extensión, resulta más apropiado para una mesa de estudio que para llevarlo a diario.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La formación de España: Una historia de pueblos, costumbres y leyes, de José María Pérez Zúñiga, comparte el interés por las instituciones y las leyes, aunque lo aborda desde la historia. Régimen de responsabilidad objetiva del Estado en atentados terroristas en Colombia: 01 (Derecho), de Erlin Abad Palacios Moreno, trata una cuestión jurídica delimitada. El manual de José Antonio Moreno Moreno se distingue por su finalidad de oposición y sus 553 tests.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430629770",
+        "isbn-9791370632786"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d2375df3f6d2dfef",
+  "origen": "chatgpt-web"
+}

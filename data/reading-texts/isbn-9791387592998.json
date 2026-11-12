@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791387592998",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la historia medieval, los manuscritos y su dimensión artística. Grandes manuscritos medievales (edición limitada con cantos pintados): 27 (Ático Historia), de Christopher de Hamel, combina un asunto histórico con una presentación editorial específica, alejada de la ficción ambientada en la Edad Media.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta versión de Grandes manuscritos medievales (edición limitada con cantos pintados): 27 (Ático Historia) se identifica expresamente como edición limitada con cantos pintados. Está publicada en tapa dura por Atico de los Libros y contiene 688 páginas en castellano, características que permiten distinguirla por su encuadernación y acabado exterior.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa dura, con 688 páginas y cantos pintados. Por su extensión y encuadernación, Grandes manuscritos medievales (edición limitada con cantos pintados): 27 (Ático Historia) resulta más apropiado para la consulta sobre una mesa o la conservación en una biblioteca que para transportarlo a diario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Clásicos Sin Filtros: El Impacto del Mundo Antiguo / Talking Classics: The Shock of the Old y Grandes manuscritos medievales (edición limitada con cantos pintados): 27 (Ático Historia) comparten una perspectiva histórica. La obra de Mary Beard remite al mundo antiguo, mientras que Christopher de Hamel centra la suya en los manuscritos medievales y su dimensión artística.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9786076393055"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "388daa0895aae549",
+  "origen": "chatgpt-web"
+}

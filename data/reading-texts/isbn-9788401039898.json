@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9788401039898",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Martín Vigil, el amigo amable: Una memoria inconfesable (Obras diversas) se dirige a lectores interesados en las memorias personales y el ensayo biográfico. Por su enfoque, queda fuera de las búsquedas centradas en aventuras fantásticas o ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Martín Vigil, el amigo amable: Una memoria inconfesable (Obras diversas) está disponible en tapa blanda. Sus 328 páginas en castellano permiten consultar y releer pasajes en papel, con una encuadernación flexible que facilita llevar el volumen en una bolsa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bc3ce6218223fe6f",
+  "origen": "chatgpt-web"
+}

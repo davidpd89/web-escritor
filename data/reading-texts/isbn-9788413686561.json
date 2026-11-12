@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788413686561",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nada fue casualidad (Astor Nova) está dirigido a quienes buscan narrativa juvenil contemporánea en castellano. Sus 192 páginas ofrecen una extensión más breve que la de muchas novelas largas; no responde, por su clasificación editorial, a una búsqueda específica de fantasía o ensayo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nada fue casualidad (Astor Nova) se presenta en tapa blanda, con 192 páginas y edición de Ediciones Palabra, S.a. Es un volumen físico de extensión contenida que puede transportarse y prestarse sin depender de un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nada fue casualidad (Astor Nova), de Luis Fernández Vaciero, puede compararse con Bajo la estela de un legado, de Carmen Galvañ Bernabé, como otra lectura narrativa del catálogo. También aparece entre sus afines Blue Lock nº 33 (Manga Shonen), de Yusuke Nomura y Muneyuki Kaneshiro, aunque este último pertenece al manga shonen, mientras que Nada fue casualidad (Astor Nova) se clasifica como narrativa juvenil contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399178555",
+        "isbn-9791388101991"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c54d6adeaeb75e1b",
+  "origen": "chatgpt-web"
+}

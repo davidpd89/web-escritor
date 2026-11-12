@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788448874124",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Elmer. Libro juguete - Elmer. El libro puzle (Pequeñas manitas) está dirigido al público infantil que disfruta manipulando libros y resolviendo puzles. Su formato de cartón y sus 16 páginas lo diferencian de las narraciones juveniles extensas destinadas principalmente a la lectura continuada.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Elmer. Libro juguete - Elmer. El libro puzle (Pequeñas manitas) propone una actividad de puzle integrada en un libro infantil. Su presentación en cartón permite combinar la exploración de las páginas con la manipulación propia de un libro juguete, en lugar de limitarse a leer texto seguido.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Elmer. Libro juguete - Elmer. El libro puzle (Pequeñas manitas) está disponible en tapa dura, presentado como libro de cartón. Sus 16 páginas y su planteamiento de puzle favorecen el uso físico y la manipulación directa, especialmente cuando se comparte la actividad con un niño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Elmer. Libro juguete - Elmer. El libro puzle (Pequeñas manitas) puede compararse con Aprende a contar animales por su orientación infantil y su componente de actividad. El primero plantea un puzle en formato de cartón; el segundo utiliza un maletín y animales para trabajar el conteo.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370341589",
+        "isbn-9791370341176"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f55b6ee6a4d7b18d",
+  "origen": "chatgpt-web"
+}

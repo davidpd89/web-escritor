@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9781806072828",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para el público infantil que busca una lectura navideña acompañada de puzles. Su combinación de cuento y juego manipulativo se diferencia de una novela de aventuras extensa; tampoco responde a quien prefiere una actividad basada únicamente en colorear o escribir.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El libro combina la lectura de un cuento de Nochebuena con la actividad de resolver puzles. Sus 10 páginas de cartón permiten alternar el seguimiento de la historia con el juego de las piezas, en una propuesta donde la participación manual acompaña a la lectura.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Solo figura la tapa dura, presentada como libro de cartón de 10 páginas. El soporte físico permite utilizar los puzles junto al cuento y conservar el conjunto como objeto de juego navideño. Su extensión es breve y está orientada a una actividad compartida entre lectura y manipulación.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A la caza de Papá Noel: 3, de Emma S. Varela y Robert García, comparte la ambientación navideña, mientras ¡Ya es Nochebuena! (Un cuento con puzles) incorpora puzles al cuento. El lago de los monstruos (INFANTIL), de Leo Timmers, coincide en dirigirse al público infantil, pero su título plantea un escenario de monstruos en lugar de una celebración navideña.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788419135650",
+        "isbn-9791387884260"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c5d9eceb1f304a23",
+  "origen": "chatgpt-web"
+}

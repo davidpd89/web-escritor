@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788494726453",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El regreso de Hermes, de Andrés Zuzunaga, se sitúa entre las lecturas relacionadas con el desarrollo personal, el bienestar y la familia. Por esa orientación temática, encaja menos con quienes buscan exclusivamente ficción de aventuras o una narración centrada en personajes imaginarios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El regreso de Hermes se presenta en tapa blanda, con 304 páginas en castellano y edición de Cosmograma Ediciones. Su extensión permite una lectura por sesiones y el formato impreso facilita volver a pasajes concretos durante la consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El regreso de Hermes comparte con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito el interés por el bienestar y el desarrollo personal. La obra de Liz Moody anuncia expresamente un enfoque científico, mientras que la de Andrés Zuzunaga se presenta bajo un título de referencia mitológica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a7dfb1ebeb184372",
+  "origen": "chatgpt-web"
+}

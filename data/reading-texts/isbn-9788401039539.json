@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788401039539",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián, se dirige a lectores interesados en la novela histórica ambientada en la Edad Media, las aventuras y las historias con componente romántico. Su temática histórica la diferencia de quienes buscan narrativa contemporánea, fantasía o ficción centrada en otros periodos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián, y reúne sus 536 páginas en un volumen físico. Esta edición permite conservar el libro como parte de una biblioteca personal y consultar su contenido en papel.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La visigoda (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián, es la comparación más directa con Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián: ambos títulos comparten autora y la identificación de la Saga de la Reconquista. Astur aparece clasificado dentro de la novela histórica, las aventuras y el romance, con la Edad Media como marco temático.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401037658"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3c016855c6b297cf",
+  "origen": "chatgpt-web"
+}

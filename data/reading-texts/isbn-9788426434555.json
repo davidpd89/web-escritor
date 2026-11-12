@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788426434555",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Escamas doradas: La fuerza más grande del universo (Lumen Ilustrados) reúne intereses vinculados al desarrollo personal, la fantasía y el amor. Sus 96 páginas lo sitúan entre las lecturas breves, frente a quienes buscan una obra extensa o un tratado especializado en una disciplina académica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de Escamas doradas: La fuerza más grande del universo (Lumen Ilustrados) contiene 96 páginas y ofrece una encuadernación rígida para conservar o regalar. Kindle permite leer la misma obra en un dispositivo electrónico, sin ocupar espacio físico en la estantería.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Escamas doradas: La fuerza más grande del universo (Lumen Ilustrados) y El universo amarillo (edición limitada): La luz siempre vuelve si esperas lo suficiente (Campaña | Libros firmados) comparten autoría: Albert Espinosa. El primero se presenta como una obra de 96 páginas vinculada al desarrollo personal, mientras que el segundo se distingue en su título como edición limitada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466382359"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ed092a030a797fdc",
+  "origen": "chatgpt-web"
+}

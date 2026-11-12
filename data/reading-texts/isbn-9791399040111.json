@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791399040111",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La tienda de los suicidas, de Jean Teule, se dirige a lectores de narrativa contemporánea y cómic o novela gráfica que acepten referencias al suicidio. Por ese tema explícito en el título, puede no encajar con quienes prefieren evitar contenidos relacionados con la muerte o buscan lecturas infantiles de tono ligero.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La tienda de los suicidas puede situarse junto a After God 8 (Shônen) por su presencia en el ámbito del cómic y la narrativa gráfica. La primera obra está firmada por Jean Teule y se clasifica también como narrativa contemporánea; la segunda pertenece a la línea Shônen indicada en su título y está firmada por Sumi Eno.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962647"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1ea754386cc6afe7",
+  "origen": "chatgpt-web"
+}

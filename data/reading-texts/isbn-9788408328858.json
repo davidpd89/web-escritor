@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La añoranza encaja con lectores de narrativa contemporánea que buscan historias sentimentales atravesadas por conflictos políticos y acontecimientos del pasado. La persecución durante una protesta contra el régimen y la relación entre sus protagonistas la alejan de una novela romántica sin trasfondo histórico.",
+      "texto": "La añoranza se dirige a lectores de narrativa contemporánea interesados en relaciones personales atravesadas por acontecimientos políticos e históricos. Sergio Hernández sitúa el encuentro de sus protagonistas en una Barcelona marcada por la oposición al régimen; encaja menos con quienes buscan una historia desligada del contexto social.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La añoranza plantea una relación personal dentro de un contexto de represión política, con la memoria y el paso del tiempo como ejes temáticos. Sergio Hernández parte del encuentro entre Julia Ferré y Bastian Ballard en la primavera de 1959, después de una manifestación en la que interviene la Guardia Civil, para vincular el amor con las circunstancias históricas.",
+      "texto": "La añoranza combina narrativa contemporánea, relaciones afectivas y memoria de una época políticamente conflictiva. La historia arranca en la primavera de 1959, cuando Julia Ferré conoce a Bastian Ballard durante una manifestación en Barcelona. El amor, la guerra y el paso del tiempo forman parte de los conflictos que plantea Sergio Hernández.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,20 +24,19 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de La añoranza está publicada por Editorial Planeta en castellano, con encuadernación de tapa dura y sobrecubierta. Consta de 472 páginas y su fecha de publicación es 2026-11-04. El ISBN 9788408328858 permite identificar este ejemplar concreto frente a otras presentaciones de la obra.",
+      "texto": "Esta edición de La añoranza se presenta en tapa dura con sobrecubierta, publicada por Editorial Planeta en castellano. Tiene 472 páginas y fecha de publicación del 2026-11-04. La sobrecubierta añade una cubierta exterior al volumen, una característica relevante para quienes prefieren conservar sus libros en formato físico.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
-        "idioma",
+        "editorial",
         "numero_paginas",
         "fecha_publicacion",
-        "isbn13"
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa dura de La añoranza presenta sus 472 páginas con sobrecubierta, una opción física para guardar y consultar en una biblioteca personal. La versión Kindle facilita continuar la lectura en el móvil o en un lector electrónico y evita llevar un volumen de esa extensión.",
+      "texto": "La tapa dura con sobrecubierta reúne las 472 páginas de La añoranza en un volumen físico pensado para conservarse en la biblioteca o regalarse. Kindle permite leer la novela en formato digital sin transportar el libro, mientras que el audiolibro ofrece la posibilidad de escucharla. Las tres opciones mantienen distintas formas de acceder a la misma obra.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -45,8 +45,11 @@
       ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "lecturas_afines: afirmaciones sin respaldo: premi",
+    "faltan módulos: lecturas_afines"
+  ],
   "version": 3,
-  "fuente_hash": "a78e146c51c6591a",
+  "fuente_hash": "b2b96651572ad6fc",
   "origen": "chatgpt-web"
 }

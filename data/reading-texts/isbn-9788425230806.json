@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788425230806",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pinta tu mundo: Color en acción se orienta a personas interesadas en el color, la pintura y las actividades artísticas durante su tiempo libre. Por su temática de arte y diseño, se distancia de las lecturas centradas en una trama de ficción o en el estudio histórico de acontecimientos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pinta tu mundo: Color en acción tiene una edición en tapa dura de 208 páginas, publicada por Editorial GG. La encuadernación rígida aporta una cubierta resistente para un volumen dedicado al color y al arte, que puede mantenerse en una mesa o estantería para su consulta.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprende a dibujar con KPop Demon Hunters: Edición OFICIAL en español (Montena) comparte con Pinta tu mundo: Color en acción el interés por la creación visual, aunque el primero se centra en aprender a dibujar personajes de una obra concreta y el segundo sitúa el color en el centro. El gen lúdico: Un recorrido personal y profesional por el diseño de juegos serios trata el diseño desde los juegos, en lugar de la pintura.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388322778",
+        "isbn-9791399278613",
+        "isbn-9791388322952"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7496c2691aa76864",
+  "origen": "chatgpt-web"
+}

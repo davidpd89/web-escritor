@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791259579010",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El cuaderno del detective de G. T. Karber se dirige a quienes disfrutan resolviendo casos y participando en actividades de investigación. Sus 128 páginas y su planteamiento interactivo encajan menos con lectores que prefieren una narración convencional sin ejercicios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Murdle. Cuaderno del detective está disponible en tapa dura y reúne 128 páginas. La cubierta rígida permite manejar y conservar el cuaderno durante las sesiones dedicadas al caso detectivesco. Es una opción física para quien prefiere trabajar con un libro en papel en lugar de utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Este cuaderno del detective de G. T. Karber comparte autor y temática de investigación con Merry Murdle, donde una serie de asesinatos interrumpe las fiestas. La diferencia está en el tipo de lectura: Merry Murdle plantea un misterio festivo, mientras que el cuaderno propone un caso interactivo de 128 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388279324"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0f453940c49a99b8",
+  "origen": "chatgpt-web"
+}

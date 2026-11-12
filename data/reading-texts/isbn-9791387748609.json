@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791387748609",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Arbusto genealógico (Blackie Books), de Beatriz Mateos, se dirige a lectores de narrativa contemporánea en castellano. Sus 176 páginas permiten abordar una obra de extensión moderada; por su clasificación, queda fuera de las búsquedas centradas específicamente en fantasía o ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Arbusto genealógico (Blackie Books) se presenta en tapa blanda, con 176 páginas en castellano. Esta edición de Blackie Books permite leerlo en papel y transportarlo sin la rigidez de una cubierta dura; su extensión facilita repartir la lectura entre varios desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c8b1c4e9162c132f",
+  "origen": "chatgpt-web"
+}

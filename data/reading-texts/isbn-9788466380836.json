@@ -1,0 +1,58 @@
+{
+  "id": "isbn-9788466380836",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta novela de Elísabet Benavent se dirige a lectores de narrativa contemporánea que buscan una obra extensa en castellano. Sus 696 páginas y su presentación en edición limitada con cantos tintados encajan menos con quienes prefieren libros breves o ediciones sin elementos decorativos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición limitada de El arte de engañar al karma se distingue por sus cantos tintados y su encuadernación en tapa dura. Penguin Bolsillo la publica el 19 de noviembre de 2026, con 696 páginas en castellano; el ISBN 9788466380836 permite identificar esta presentación concreta.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "isbn13",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 696 páginas en una edición limitada con cantos tintados, una característica relevante para quien busca un ejemplar físico de regalo o colección. Kindle permite llevar la novela en un dispositivo de lectura o móvil, mientras que el audiolibro ofrece la posibilidad de escucharla sin depender del ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo (no) escribí nuestra historia (edición limitada) (Campaña | Ahora por menos) comparte autoría con El arte de engañar al karma (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados): ambas son obras de Elísabet Benavent. La diferencia identificable está en la presentación editorial, pues la segunda declara expresamente tapa dura y cantos tintados, además de una extensión de 696 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "edicion",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788466394758"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8cecaf9d463e8c9e",
+  "origen": "chatgpt-web"
+}

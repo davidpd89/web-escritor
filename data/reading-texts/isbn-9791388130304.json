@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791388130304",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en el marketing educativo y en la relación entre los centros de enseñanza y las familias. Su atención a la recomendación como herramienta empresarial lo diferencia de los ensayos sobre educación centrados exclusivamente en métodos de enseñanza o contenidos académicos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Aborda la recomendación de las familias como parte del marketing de los centros educativos. Miquel Rossy plantea el papel de estas familias como embajadoras, desde una perspectiva vinculada a la comunicación y la gestión empresarial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene las 164 páginas de esta edición de LID Editorial, publicada en castellano. Su extensión permite trabajar el contenido en papel, marcar apartados y volver a las cuestiones relacionadas con la recomendación y el marketing educativo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Branding con criterio: Una novela-ensayo que, como brújula de arena, nos interpela (TEMATICOS), de Cristián Saracco, comparte el interés por cuestiones vinculadas a la marca y su comunicación. La diferencia está en el enfoque: Miquel Rossy se concentra en la recomendación de las familias dentro del marketing educativo, mientras que el título de Cristián Saracco presenta el branding mediante una novela-ensayo.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791399168648"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ebc2eb6cd486ab1f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399218015",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Espiritualidad hermética e imaginación histórica: Los estados alterados del conocimiento en la antigüedad tardía: 178 (Imaginatio vera) se dirige a lectores interesados en el estudio histórico de la espiritualidad y sus relaciones con el conocimiento. Sus 674 páginas apuntan a una lectura extensa, menos ajustada a quien busca una introducción breve al desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Espiritualidad hermética e imaginación histórica: Los estados alterados del conocimiento en la antigüedad tardía: 178 (Imaginatio vera) se ofrece en tapa dura, con 674 páginas en castellano. La encuadernación rígida favorece su conservación como volumen de consulta, aunque su extensión hace menos cómodo transportarlo para lecturas breves fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Espiritualidad hermética e imaginación histórica: Los estados alterados del conocimiento en la antigüedad tardía: 178 (Imaginatio vera) puede relacionarse con La voz del ver / The Voice of Seeing por su proximidad temática al conocimiento y la percepción. Wouter J. Hanegraaff aborda la espiritualidad hermética desde una perspectiva histórica, mientras que el título de Jacobo Grinberg-Zylberbaum sitúa el acto de ver en primer plano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073877459"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ac041d4b82aef5b2",
+  "origen": "chatgpt-web"
+}

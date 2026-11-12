@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387749316",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa) se dirige a lectores de fantasía y aventuras que también buscan elementos de narrativa contemporánea. Sus 352 páginas plantean una extensión intermedia; quien prefiera una lectura centrada exclusivamente en el realismo encontrará aquí una clasificación distinta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa) está disponible en tapa blanda, con 352 páginas en castellano. Esta edición de Umbriel permite leer en papel y transportar el volumen sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa) comparte el terreno fantástico con Ever and after 2. La boda oscura: Edición con cantos tintados (Inlov Romantasy), de Stella Tack. La diferencia visible está en la presentación: el segundo título se identifica como una segunda entrega y destaca sus cantos tintados, mientras que el libro de Heather Fawcett combina fantasía, aventuras y narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410399426"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c673294eef4a7ff9",
+  "origen": "chatgpt-web"
+}

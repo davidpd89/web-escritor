@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387964443",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Veinticuatro horas en la vida de una mujer se dirige a lectores de narrativa contemporánea interesados en obras de Stefan Zweig. Su clasificación editorial la sitúa fuera de los libros prácticos y de consulta; se presenta como una lectura literaria en castellano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Veinticuatro horas en la vida de una mujer permite conservar un ejemplar físico de Editorial Acantilado. Kindle facilita llevar la lectura en un dispositivo electrónico, mientras que el audiolibro permite escucharla sin tener que seguir el texto en pantalla o papel.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Carta de una desconocida (Austral Esenciales) comparte con Veinticuatro horas en la vida de una mujer la autoría de Stefan Zweig. La curación por el espíritu también pertenece al mismo autor, pero se presenta como ensayo biográfico, frente a la clasificación de narrativa contemporánea de Veinticuatro horas en la vida de una mujer. La comparación permite distinguir entre narrativa y ensayo dentro de su obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331704",
+        "isbn-9788466379021"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bb32e83b698b289f",
+  "origen": "chatgpt-web"
+}

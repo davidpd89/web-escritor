@@ -4,35 +4,22 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Emilio y Margot 8 Monstruos a la vista se dirige a lectores infantiles que disfrutan del cómic, las travesuras y el humor con monstruos. Sus protagonistas recurren a estas criaturas para resolver problemas cotidianos en un castillo; encaja menos con quien busca una historia realista o un misterio de tono serio.",
+      "texto": "Emilio y Margot 8 Monstruos a la vista está dirigido a lectores infantiles interesados en los cómics, los personajes fantásticos y las situaciones humorísticas. Su combinación de aventuras en un castillo y criaturas monstruosas encaja con quienes disfrutan de la fantasía desenfadada, no con quienes buscan relatos realistas o narraciones extensas sin apoyo gráfico.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Emilio y Margot 8 Monstruos a la vista está disponible en tapa blanda, con 96 páginas en castellano. Es una edición física manejable para leer por partes, transportar en una mochila o regalar a quienes prefieren el cómic en papel.",
+      "texto": "La tapa blanda es el formato disponible para sus 96 páginas, reunidas en un volumen físico de Kómikids. Su extensión permite manejar el cómic como un libro completo sin recurrir a una edición digital o a un audiolibro.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Capitán Patata 2 - Quietecito o te dejo frito comparte con Emilio y Margot 8 Monstruos a la vista el humor disparatado y las aventuras breves, aunque cambia los monstruos del castillo por un superhéroe y sus amigos. Cinco cuentos también reúne situaciones protagonizadas por distintos personajes, pero presenta cinco relatos en lugar de las travesuras de Emilio y Margot.",
-      "evidencias": [
-        "titulo",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788427254985",
-        "isbn-9788419981035"
+        "edicion",
+        "formatos_disponibles"
       ]
     }
   ],

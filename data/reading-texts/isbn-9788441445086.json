@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788441445086",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diatribas. 31 lecciones estoicas sobre la vida está dirigido a lectores interesados en la filosofía y el pensamiento estoico. Su planteamiento se aleja de la narrativa de ficción y de los libros de entretenimiento: el centro de interés es la reflexión filosófica de Epicteto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Con 160 páginas, la tapa blanda ofrece un volumen compacto para consultar o releer sus lecciones. Kindle permite llevar Diatribas. 31 lecciones estoicas sobre la vida en el móvil o en un lector electrónico y acceder al texto sin cargar con el libro físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El código bushido: La filosofía de los samuráis / Edición comentada por Marcos Cartagena, de Inazo Nitobe, comparte con Diatribas. 31 lecciones estoicas sobre la vida el interés por el pensamiento filosófico. La diferencia está en el referente de cada título: Epicteto aborda el estoicismo, mientras que El código bushido se centra en la filosofía de los samuráis. Epicuro (Biblioteca Clásica Gredos), de Epicuro y otros, ofrece otra referencia vinculada al pensamiento filosófico clásico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388080968",
+        "isbn-9791387896508"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f61c9d94c783237e",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788466395434",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Oscura (edición limitada) (El Bosque Voraz 2) (Campaña | Ahora por menos) se dirige a lectores de fantasía y aventuras dispuestos a abordar una novela larga. Cuenta con 760 páginas y el título la identifica como el n.º 2 de El Bosque Voraz; por género y extensión, se aleja de la narrativa realista breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Oscura (edición limitada) (El Bosque Voraz 2) (Campaña | Ahora por menos) pertenece al formato de bolsillo de Penguin Bolsillo. Está publicada en castellano, con tapa blanda, 760 páginas e ISBN 9788466395434; el título incluye la indicación «edición limitada».",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "idioma",
+        "formato_edicion",
+        "numero_paginas",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Oscura (edición limitada) (El Bosque Voraz 2) (Campaña | Ahora por menos) se presenta en tapa blanda y formato de bolsillo. Sus 760 páginas forman un volumen físico extenso, pensado para la lectura en papel; antes de elegirlo para desplazamientos frecuentes, conviene valorar la cantidad de páginas que reúne esta edición.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anatema (edición limitada) (El Bosque Voraz 1) (Campaña | Ahora por menos) y Vasmora (Edición limitada en español) (El Bosque Voraz 3) (Éxitos) comparten con Oscura (edición limitada) (El Bosque Voraz 2) (Campaña | Ahora por menos) la autoría de Keri Lake y la referencia a El Bosque Voraz. Sus títulos señalan los números 1, 3 y 2 respectivamente, lo que permite diferenciarlos sin atribuirles argumentos concretos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466393553",
+        "isbn-9788401038204"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d40a2438408e9d67",
+  "origen": "chatgpt-web"
+}

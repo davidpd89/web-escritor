@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788491429586",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Abuelas Y Abuelos (Álbumes Ilustrados castellano), de Helene Delforge, se dirige al público infantil interesado en historias sobre los vínculos familiares. Su temática gira alrededor de los abuelos y las abuelas, por lo que se diferencia de los cuentos centrados en aventuras fantásticas o personajes ajenos al entorno familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Abuelas Y Abuelos (Álbumes Ilustrados castellano) está editado en tapa dura y reúne 64 páginas. Como álbum ilustrado en castellano, su formato físico permite compartir la lectura y pasar las páginas en compañía, además de conservarlo como regalo familiar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2ee9174f0c8ba5dd",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9791387973025",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Unicornia - El libro de recetas mágicas: ¡Más de 25 recetas para cocinar en familia con mucho brilli-brilli! (Universo Unicornia) está dirigido a familias que quieren cocinar juntas con una ambientación fantástica. Su planteamiento práctico encaja menos con quienes buscan una novela de aventuras o una lectura exclusivamente narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "El libro reúne más de 25 recetas para preparar en familia dentro del Universo Unicornia. Sus 144 páginas ofrecen una propuesta de cocina vinculada a la fantasía, concebida para trasladar la actividad del libro a la cocina doméstica.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar físicamente las 144 páginas mientras se cocina y volver a las recetas en otras ocasiones. La versión Kindle ofrece el mismo tipo de lectura en un dispositivo compatible, con la posibilidad de consultar las preparaciones sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Unicornia 18 - Una noche luminosa: ¡Un libro mágico con purpurina en la cubierta! (Universo Unicornia) comparte universo y autoría con este recetario de Ana Punset. La diferencia es su finalidad: uno pertenece a la serie de libros de Unicornia, mientras que Unicornia - El libro de recetas mágicas: ¡Más de 25 recetas para cocinar en familia con mucho brilli-brilli! (Universo Unicornia) propone cocinar en familia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387973001"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "75234a641fd6b5b4",
+  "origen": "chatgpt-web"
+}

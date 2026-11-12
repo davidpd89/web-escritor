@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409946488",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Si escuchas el llanto de las Dalias Negras... se dirige a lectores de terror que también buscan elementos de misterio. La combinación de ambos géneros se aleja de las lecturas centradas en conflictos cotidianos sin componentes inquietantes.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible de Si escuchas el llanto de las Dalias Negras..., con 266 páginas en castellano. Permite leer la obra en papel y conservarla en una estantería sin recurrir a una edición de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Si escuchas el llanto de las Dalias Negras... comparte el terreno del terror con Carrie (edición serie), donde el acoso escolar y el fanatismo religioso forman parte del conflicto. Coraline también incorpora elementos inquietantes, pero los sitúa en una casa con una versión alternativa de la realidad; la obra de Ana María Rodríguez Jiménez se presenta además dentro del misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396806",
+        "lib-0001"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a4fc6a7b5f606313",
+  "origen": "chatgpt-web"
+}

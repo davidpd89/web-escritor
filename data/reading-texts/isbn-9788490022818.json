@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788490022818",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bajo la condición de forajido, de Francisco Castaño, se dirige a lectores interesados en poesía en castellano. Sus 76 páginas permiten abordar el volumen en sesiones breves; no responde a la búsqueda de una novela extensa con desarrollo narrativo continuado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bajo la condición de forajido se presenta en tapa blanda y reúne 76 páginas. Su extensión facilita llevar el ejemplar físico y alternar la lectura de sus páginas con otros libros, sin necesitar un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b0e1a4d397e6e915",
+  "origen": "chatgpt-web"
+}

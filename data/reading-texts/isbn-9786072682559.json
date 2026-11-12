@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9786072682559",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo romper un corazón en 3 pasos, de Martha Salamanca, pertenece al romance y se dirige a quienes buscan ficción centrada en ese género. Con 330 páginas en castellano, se diferencia de una novela corta y no corresponde a una búsqueda centrada en el terror o la investigación criminal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cómo romper un corazón en 3 pasos puede leerse en tapa blanda o Kindle. La versión impresa permite conservar y prestar sus 330 páginas en un solo volumen; Kindle ofrece la misma extensión de lectura en formato digital, sin ocupar espacio físico en la estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "343f47532b22e933",
+  "origen": "chatgpt-web"
+}

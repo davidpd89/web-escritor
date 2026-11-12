@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788410646971",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de thriller psicológico interesados en conflictos judiciales y personajes que deben demostrar su inocencia. La novela de Terry Lynn Thomas plantea la defensa de una abogada acusada y se aleja de las historias centradas exclusivamente en el romance o carentes de misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene las 288 páginas de esta novela de Terry Lynn Thomas y permite conservarla en papel. Kindle ofrece la misma lectura en formato digital, sin necesidad de transportar el volumen físico; ambas opciones corresponden a la edición en castellano.",
+      "evidencias": [
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "028271eaa81264a9",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387740269",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Guerra mundial Z: Una historia oral de la guerra zombi (Reservoir Narrativa), de Max Brooks, está dirigida a lectores de terror y narrativa contemporánea interesados en las historias de zombis. Su temática no corresponde a quienes buscan lecturas centradas en la divulgación, la filosofía o la ficción ajena al terror.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 456 páginas de Guerra mundial Z: Una historia oral de la guerra zombi (Reservoir Narrativa) en un ejemplar físico. Kindle permite leerlo en dispositivos electrónicos, mientras que el audiolibro ofrece una tercera alternativa para seguir la obra mediante escucha.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Guerra mundial Z: Una historia oral de la guerra zombi (Reservoir Narrativa), de Max Brooks, comparte el terror como territorio temático con Creepy nº 11/29, de Varios autores. La diferencia está en el formato: la primera es una obra narrativa identificada como historia oral, mientras que la segunda reúne relatos en una recopilación. También puede compararse con Caminando con la muerte 4 (Seinen), de ryoko, por su relación temática con la muerte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410305830",
+        "isbn-9788411406130"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9873ebcf3804b2ed",
+  "origen": "chatgpt-web"
+}

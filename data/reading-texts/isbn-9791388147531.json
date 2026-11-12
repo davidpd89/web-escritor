@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791388147531",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El escalón 33 (edición limitada) (Campaña | Ahora por menos) se dirige a lectores de novela histórica que prefieren la ficción situada en un marco relacionado con el pasado. Sus 496 páginas corresponden a una lectura de extensión considerable. Encaja menos con quienes buscan ensayo histórico documental o una narración breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "El escalón 33 (edición limitada) (Campaña | Ahora por menos) aparece como libro de bolsillo publicado por Penguin Bolsillo. Esta edición en castellano contiene 496 páginas y tiene fecha editorial del 2027-02-04. La denominación edición limitada forma parte del título y el formato de bolsillo identifica su presentación física.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de El escalón 33 (edición limitada) (Campaña | Ahora por menos) corresponde a un libro de bolsillo de 496 páginas, pensado para manejarse y transportarse en papel. Kindle permite llevarlo en un dispositivo compatible sin cargar con el volumen físico. El audiolibro facilita seguir la narración mediante escucha, por ejemplo durante desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián, comparte con El escalón 33 (edición limitada) (Campaña | Ahora por menos) su pertenencia a la novela histórica. La diferencia visible está en la identificación de Astur con una saga sobre la Reconquista, mientras que el libro de Luis Zueco se presenta como una edición limitada de bolsillo. Ave César (Narrativas Históricas), de Rex Warner, ofrece otra comparación dentro de la narrativa histórica, con una referencia romana explícita en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401039539",
+        "isbn-9788435064125"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2d1c3ca6e2b87372",
+  "origen": "chatgpt-web"
+}

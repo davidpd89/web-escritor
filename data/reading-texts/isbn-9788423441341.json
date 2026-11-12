@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788423441341",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la filosofía y en los pensamientos abstractos vinculados a situaciones cotidianas. Siéntate: Pensamientos abstractos para el concreto momento del retrete (Deusto), de Alberto M. Expósito, tiene 136 páginas; su planteamiento se aleja de los manuales prácticos de alimentación o salud.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Siéntate: Pensamientos abstractos para el concreto momento del retrete (Deusto) se presenta en tapa dura. Sus 136 páginas permiten tener los pensamientos reunidos en un volumen físico de extensión contenida, con una encuadernación rígida que también puede resultar práctica para conservarlo o regalarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte el terreno filosófico con A vivir también se aprende: Los 5 pilares de la sabiduría para ubicarse en tiempos de cambio (Deusto), de Frédéric Lenoir, aunque Alberto M. Expósito sitúa sus pensamientos abstractos en el momento del retrete y Frédéric Lenoir aborda la sabiduría ante los cambios. Frente a Amigos, aduladores, charlatanes, de Plutarco, también cambia la autoría y el enfoque anunciado en el título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423440887",
+        "isbn-9788441445307"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7f81a52ca2cc48e8",
+  "origen": "chatgpt-web"
+}

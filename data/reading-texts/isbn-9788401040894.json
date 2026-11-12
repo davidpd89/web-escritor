@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788401040894",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Y ahora... ¿qué?, de Adam J. Kurtz, se dirige a lectores interesados en el desarrollo personal, la familia y las actividades de ocio. Su enfoque temático lo distingue de los manuales especializados en nutrición o rendimiento deportivo, que abordan ámbitos más concretos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene sus 320 páginas en un volumen físico manejable, pensado para leer en papel y conservar en la biblioteca personal. Es el formato disponible para esta edición de Y ahora... ¿qué?, de Adam J. Kurtz.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Adam J. Kurtz comparte con Cambiar para Vivir, Colección Autoayuda, de Raúl Mir Coll, el interés por el desarrollo personal. En cambio, Gabinete de maravillas para colorear (Somos B), de Carlota Santos, se centra en una actividad creativa de ocio, mientras que la primera se relaciona con la autoayuda, la familia y el bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788415122562",
+        "isbn-9788466685542"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "03d36eacca3d89ef",
+  "origen": "chatgpt-web"
+}

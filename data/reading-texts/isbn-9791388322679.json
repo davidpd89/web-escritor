@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388322679",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Solo un beso más (CAR HOCKEY 2) (Montena), de Susanna Herrero, se dirige a quienes buscan romance y relaciones de pareja en una lectura extensa. Sus 688 páginas requieren más dedicación que una novela breve; no responde a una búsqueda centrada en aventuras sin componente sentimental.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Solo un beso más (CAR HOCKEY 2) (Montena) cuenta con tapa dura, tapa blanda, Kindle y audiolibro. Para sus 688 páginas, la tapa dura favorece la conservación y el regalo, la blanda ofrece una alternativa física, Kindle permite leer en el móvil y el audiolibro facilita escuchar la obra sin sostener el volumen.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Solo un beso más (CAR HOCKEY 2) (Montena) puede compararse con Solo un juego más (CAR HOCKEY 1), también de Susanna Herrero. Ambos títulos comparten autoría y la denominación CAR HOCKEY, pero el segundo presenta a Cannon Donnelly ante decisiones sobre su futuro tras terminar Matemáticas, mientras que el primero se clasifica como romance y amor de pareja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388222801"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6c4c0c9b92ead251",
+  "origen": "chatgpt-web"
+}

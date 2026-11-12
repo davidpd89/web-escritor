@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408330899",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gymnastics Star 4. No estás sola, de Georgia Godwin, se dirige a lectores interesados en aventuras y amistad. Con 128 páginas, presenta una extensión más reducida que las novelas largas y se aparta de las historias centradas en el crimen o el terror.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Gymnastics Star 4. No estás sola está disponible en tapa blanda y Kindle, con una edición impresa de 128 páginas. El ejemplar físico permite conservarlo junto a otros libros, mientras que Kindle facilita leerlo en un móvil o dispositivo compatible sin llevar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gymnastics Star 4. No estás sola comparte las aventuras con Aventura Total 7 - Blastofia (Primeras lecturas), de Òscar Julve y Jaume Copons. La obra de Georgia Godwin incorpora la amistad como tema y su título remite a la gimnasia; la otra se identifica como una entrega de Aventura Total dentro de una colección de primeras lecturas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448875008"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f9cd806733e46574",
+  "origen": "chatgpt-web"
+}

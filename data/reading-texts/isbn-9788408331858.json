@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788408331858",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los amores paralelos (Novela) se dirige a lectores de narrativa contemporánea interesados en las relaciones familiares y los temas históricos del siglo XX. Su combinación de familia e historia se diferencia de las novelas centradas exclusivamente en la acción o en enigmas criminales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los amores paralelos (Novela) dispone de tapa dura, tapa blanda, Kindle y audiolibro. La edición de bolsillo de Booket reúne 544 páginas en tapa blanda, mientras que la tapa dura ofrece una encuadernación rígida para conservar el ejemplar. Kindle facilita la lectura digital y el audiolibro permite seguir la obra mediante escucha.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7b5d3edf689850cc",
+  "origen": "chatgpt-web"
+}

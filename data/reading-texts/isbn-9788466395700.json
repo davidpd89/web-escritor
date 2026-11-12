@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788466395700",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Quidditch a través de los tiempos (Un libro de la biblioteca de Hogwarts) (Harry Potter), de J.K. Rowling, está orientado a lectores interesados en el deporte del universo de Harry Potter. Su temática deportiva y fantástica lo diferencia de las novelas de aventuras que se centran en las peripecias de sus protagonistas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Quidditch a través de los tiempos (Un libro de la biblioteca de Hogwarts) (Harry Potter) tiene 144 páginas y se publica en tapa blanda. Esta edición de bolsillo de Penguin Bolsillo ocupa menos espacio que un volumen de gran formato y permite incorporarlo a una colección física de Harry Potter.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Quidditch a través de los tiempos (Un libro de la biblioteca de Hogwarts) (Harry Potter) comparte autoría y universo con Animales fantásticos y dónde encontrarlos (Un libro de la biblioteca de Hogwarts) (Harry Potter). Mientras el primero gira en torno al deporte, el segundo se ocupa de las criaturas fantásticas; ambos figuran en Estuche Biblioteca de Hogwarts: contiene: Animales fantásticos | Los cuentos de Beedle el bardo | Quidditch a través de los tiempos (Harry Potter).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395687",
+        "isbn-9788466395724",
+        "isbn-9788466395694"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8ccf685225db6c21",
+  "origen": "chatgpt-web"
+}

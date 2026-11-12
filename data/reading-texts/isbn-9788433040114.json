@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788433040114",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta guía está orientada a quienes buscan evaluar e intervenir sobre las habilidades ejecutivas de niños y adolescentes. Su enfoque práctico y psicológico encaja con intereses educativos y de intervención, pero no con quien busca una narración infantil para leer por entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene 448 páginas en castellano, editadas por Desclée de Brouwer. Para una guía de evaluación e intervención, el ejemplar impreso permite consultar distintos apartados y regresar a ellos durante su aplicación práctica.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Despierto pero disperso comparte con Habilidades ejecutivas en niños y adolescentes. Guía práctica para la evaluación y la intervención: 0 (AMAE) el interés por las habilidades ejecutivas y la autoría de Peg Dawson y Richard Guare. El primero se dirige a padres y profesores de niños de entre cuatro y trece años; el segundo amplía su título a niños y adolescentes y plantea expresamente la evaluación y la intervención.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788449345999"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "355ce2be0f568567",
+  "origen": "chatgpt-web"
+}

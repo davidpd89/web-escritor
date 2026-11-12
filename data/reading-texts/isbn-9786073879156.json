@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073879156",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El amante de Janis Joplin / Janis Joplin's Lover se sitúa entre el misterio, el thriller y la narrativa contemporánea, por lo que responde a intereses relacionados con esos géneros. Sus 296 páginas ofrecen una extensión intermedia; queda fuera de las preferencias centradas exclusivamente en relatos breves o narrativa fantástica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda presenta las 296 páginas de El amante de Janis Joplin / Janis Joplin's Lover en un ejemplar físico que puede conservarse o prestarse. Kindle permite leerlo digitalmente desde distintos dispositivos, mientras que el audiolibro ofrece una alternativa de escucha para seguir la obra sin tener el texto delante.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El amante de Janis Joplin / Janis Joplin's Lover y Aguas turbulentas se relacionan por el misterio y la presencia de elementos oscuros en la narrativa; el segundo sitúa expresamente su conflicto en Edimburgo. Corazón de sílex plantea una pérdida de memoria tras una noche desconocida, mientras que la obra de Elmer Mendoza se presenta dentro del thriller y la narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318",
+        "isbn-9788467083330"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "746c3369f7902bb5",
+  "origen": "chatgpt-web"
+}

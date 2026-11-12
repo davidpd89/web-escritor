@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9789585573895",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una holandesa en América / A Dutch Woman in America se sitúa entre la novela histórica y la narrativa contemporánea, por lo que encaja con lectores interesados en esos géneros. Su clasificación la aleja de las búsquedas centradas en ensayo, poesía o manuales de consulta.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Para Una holandesa en América / A Dutch Woman in America, la opción de lectura es la tapa blanda. Sus 304 páginas forman un volumen físico que permite avanzar por la novela, marcar el punto de lectura y volver a fragmentos anteriores sin utilizar dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una holandesa en América / A Dutch Woman in America puede compararse con Conspiración en Londres, de Felipe Pigna, por su presencia en un conjunto de lecturas relacionadas con la narrativa histórica. La obra de Soledad Acosta De Samper está clasificada también como narrativa contemporánea, mientras que el título de Felipe Pigna sitúa expresamente su referencia geográfica en Londres.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329688"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ba1886522410fe9f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788423441440",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La generación ansiosa: Por qué las redes sociales están causando una epidemia de enfermedades mentales entre nuestros jóvenes (Ciencias Humanas y Sociales) se dirige a lectores interesados en la psicología juvenil y los efectos de las redes sociales sobre la salud mental. Su planteamiento de ensayo se aleja de la ficción y de los manuales centrados en problemas individuales de pareja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de bolsillo de Booket reúne 384 páginas en tapa blanda para leer y consultar el ensayo en papel. Kindle facilita acceder al texto desde un lector electrónico o un móvil, y el audiolibro permite escuchar su contenido sin llevar el volumen físico.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La generación ansiosa: Por qué las redes sociales están causando una epidemia de enfermedades mentales entre nuestros jóvenes (Ciencias Humanas y Sociales) y Abraza a tu niño interior: Nunca es tarde para sanar tu infancia comparten el interés por la salud psicológica. Jonathan Haidt examina las redes sociales y la salud mental juvenil; Victoria Cadarso centra su libro en las experiencias de la infancia y su recuperación emocional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0e3e03a2e8af3fe6",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388204319",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche EL REY PASTOR (TAPA BLANDA), de Rachel Gillig, está orientado a lectores de fantasía y aventuras que buscan una lectura extensa. Sus 900 páginas suponen una dedicación mayor que la de un libro breve, y su enfoque fantástico lo distancia de quienes prefieren relatos estrictamente realistas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estuche EL REY PASTOR (TAPA BLANDA) se ofrece en tapa blanda, con una extensión indicada de 900 páginas. El formato de estuche permite reunir la edición física para guardarla o regalarla, aunque su volumen requiere más espacio que un libro corto. La publicación corresponde a Editorial Hidra.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche EL REY PASTOR (TAPA BLANDA), de Rachel Gillig, comparte su orientación fantástica con SIZIGIA: El renacer de la leyenda: 1, de Tamara Allegue. El primero reúne una edición en estuche de tapa blanda con 900 páginas, mientras que el segundo se identifica en su título con el número 1. Ambos se relacionan con la fantasía, pero presentan distintas autorías y formas de identificar sus ediciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "formatos_disponibles",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399318111"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9cd99c6eda68b4e4",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El arte de la negociación se dirige a lectores interesados en la psicología aplicada a los desacuerdos personales y profesionales. Giorgio Nardone y Stefano Bartoli abordan el uso de la palabra para gestionar conflictos y favorecer la cooperación, por lo que su enfoque se aleja de la ficción y de los relatos de experiencias personales.",
+      "texto": "El arte de la negociación se dirige a lectores interesados en la psicología, el desarrollo personal y la comunicación aplicada a situaciones de conflicto. Su planteamiento gira alrededor de la negociación y las relaciones entre personas, por lo que no corresponde a quien busca una novela o una lectura de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,28 +14,11 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El arte de la negociación está disponible en tapa blanda, con 200 páginas en castellano. Esta edición de Herder Editorial permite consultar y recuperar pasajes sobre negociación y gestión de conflictos en un volumen físico de extensión delimitada.",
+      "texto": "La tapa blanda ofrece sus 200 páginas en un volumen físico de extensión contenida. Permite consultar sus planteamientos sobre negociación y comunicación sin depender de una pantalla; es el formato disponible para esta edición.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "El arte de la negociación comparte con Maleducados emocionales el interés por las relaciones personales, aunque el primero se centra en negociar y el segundo en reconocer y gestionar conductas que afectan al bienestar. Frente a PSICOLOGIA, que recorre los orígenes históricos de la disciplina, el libro de Giorgio Nardone y Stefano Bartoli adopta una orientación práctica hacia los conflictos.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788408331339",
-        "isbn-9791370341282"
+        "formato_edicion"
       ]
     }
   ],

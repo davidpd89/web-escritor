@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sherlock se dirige a lectores de misterio y thriller que prefieren los relatos a una novela de trama continua. Sus diez historias giran alrededor de Sherlock Holmes, con enigmas y crímenes; encaja menos con quien busca una única investigación desarrollada durante todo el libro.",
+      "texto": "Sherlock está dirigido a lectores de relatos criminales, enigmas detectivescos y homenajes a Sherlock Holmes. Sus diez historias independientes responden mejor a quien busca una antología de misterio que a quien prefiere seguir una única investigación durante toda una novela.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Sherlock propone una antología de diez relatos de misterio escritos como homenaje a Sherlock Holmes. Participan autores del thriller actual y cada historia recupera al detective mediante nuevos casos, de modo que la lectura se organiza en narraciones independientes en lugar de una sola trama extensa.",
+      "texto": "La lectura se organiza alrededor de diez misterios escritos por distintos autores del thriller contemporáneo. Los relatos recuperan a Sherlock Holmes como figura central del homenaje y plantean situaciones relacionadas con crímenes y enigmas. Una introducción de Stephen Fry precede al conjunto.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -22,44 +22,45 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de Sherlock está publicada por Temas de Hoy en castellano, con encuadernación de tapa dura sin sobrecubierta. Reúne 416 páginas y tiene como fecha editorial el 11 de noviembre de 2026. El volumen incorpora una introducción de Stephen Fry y relatos de distintos autores.",
+      "texto": "Temas de Hoy publica Sherlock en castellano, en una edición de tapa dura sin sobrecubierta, con encuadernación cartoné. El volumen tiene 416 páginas y corresponde al ISBN 9791388279379. Su publicación está fechada el 11 de noviembre de 2026.",
       "evidencias": [
         "titulo",
         "editorial",
         "edicion",
-        "idioma",
         "numero_paginas",
-        "fecha_publicacion",
-        "sinopsis_editorial"
+        "idioma",
+        "isbn13",
+        "fecha_publicacion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Sherlock está disponible en tapa dura, con 416 páginas reunidas en un volumen de cartoné sin sobrecubierta. Esta presentación permite conservar juntos los diez relatos y facilita su consulta o relectura por separado. Es una opción física para quien prefiere tener la antología en papel.",
+      "texto": "La tapa dura presenta los 416 páginas de Sherlock en un volumen cartoné, apropiado para conservar juntos los diez relatos o regalar la antología. Kindle permite leer las historias por separado desde el móvil o un lector electrónico, sin llevar el ejemplar físico. Ambas opciones mantienen el carácter de colección de relatos.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
         "edicion",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Sherlock puede compararse con Merry Murdle, de G. T. Karber, porque ambos utilizan asesinatos y enigmas como punto de partida. La diferencia está en la estructura: Sherlock reúne relatos de varios autores alrededor de Sherlock Holmes, mientras Merry Murdle presenta una investigación del Detective Lógico durante unas fiestas interrumpidas por crímenes.",
+      "texto": "Merry Murdle, de G. T. Karber, también gira alrededor de asesinatos y una investigación, pero sigue al Detective Lógico durante unas fiestas, mientras Sherlock reúne diez relatos de diferentes autores. Rey Dolor: 53 (Noches Negras), de Joe Hill, comparte uno de los autores de la antología, aunque su título no plantea la misma vinculación explícita con Sherlock Holmes.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
+        "isbn-9791387690595",
         "isbn-9791388279324"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "db1326bcaac195d2",
+  "fuente_hash": "42b58820d5cd28e5",
   "origen": "chatgpt-web"
 }

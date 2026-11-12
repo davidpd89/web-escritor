@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788408328971",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La tormenta (Novela) se orienta a lectores que buscan historias relacionadas con la familia y la amistad. Sus 160 páginas la sitúan entre las lecturas breves, mientras que quienes prefieren novelas extensas o aventuras históricas encontrarán aquí un planteamiento temático diferente.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tormenta (Novela) tiene una edición de bolsillo en tapa blanda publicada por Booket. Con 160 páginas, resulta manejable para llevarla durante los desplazamientos y ocupa poco espacio en una estantería; también puede regalarse como libro físico de extensión breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La tormenta (Novela) puede compararse con Casi familia / Almost Family, de Ana Romero, por su relación temática con la familia. También figura entre sus lecturas afines Gracias a Mr. Jacobs / Because of Our Student Teacher, de Rob Buyea. Frente a esos títulos, La tormenta (Novela), de Arturo Padilla de Juan, reúne expresamente familia y amistad en una edición de 160 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073875011",
+        "isbn-9798890988713"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8b36525d1a471ff3",
+  "origen": "chatgpt-web"
+}

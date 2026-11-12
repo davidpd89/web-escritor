@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791388108112",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Asistente del villano (edición especial limitada) (Faeris Editorial) se sitúa entre la fantasía, el romance y la narrativa juvenil, con elementos asociados a la romantasy. Se dirige a quienes buscan esa combinación de géneros y encaja menos con lectores interesados exclusivamente en narrativa realista sin componentes fantásticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta versión de Asistente del villano (edición especial limitada) (Faeris Editorial) se identifica expresamente como una edición especial limitada. Faeris la publica en castellano, en tapa dura y con 488 páginas, bajo el ISBN 9791388108112, que permite distinguirla de otras ediciones de la obra.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "idioma",
+        "edicion",
+        "numero_paginas",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es la tapa dura de Faeris, con 488 páginas y texto en castellano. Su encuadernación rígida resulta apropiada para conservar el ejemplar en una colección física o entregarlo como regalo, aunque ocupa más espacio que una edición digital.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Asistente del villano (edición especial limitada) (Faeris Editorial) comparte editorial con El hechizo más oscuro (Faeris Editorial), de Wanda Hellmund, pero se identifica además con la fantasía romántica juvenil. También se relaciona con Saciar a la bestia - libro 1 (Faeris Editorial), de Tamara Molina, aunque este último señala expresamente su posición mediante el título, mientras que Asistente del villano destaca por su edición especial limitada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388108419",
+        "isbn-9791388108365"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5797e91748336591",
+  "origen": "chatgpt-web"
+}

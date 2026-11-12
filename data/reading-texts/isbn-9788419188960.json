@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419188960",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "This is Macarena (MEMORIA), de José de León, se dirige a lectores interesados en la memoria, la historia y el tiempo libre. Su clasificación temática lo aleja de quienes buscan una novela de aventuras o una historia romántica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "This is Macarena (MEMORIA) está disponible en tapa blanda, con 192 páginas en castellano. Esta edición de El Paseo Editorial permite consultar sus contenidos en papel y llevar el volumen sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "This is Macarena (MEMORIA) comparte el ámbito histórico con Los pilares de la historia, de Javier Fernández Sebastián. Mientras este último plantea la capacidad de la historia para explicar un mundo en crisis, el libro de José de León combina memoria, historia y tiempo libre en su clasificación temática.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430629664"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8487c7b64e9174c1",
+  "origen": "chatgpt-web"
+}

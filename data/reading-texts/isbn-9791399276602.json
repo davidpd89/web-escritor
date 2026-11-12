@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9791399276602",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La orfandad del centinela: 43 (Ultramarinos), de Jesús Miranda, se dirige a lectores de poesía en castellano. Sus 216 páginas corresponden a una edición en tapa blanda, por lo que no responde a quien busca una novela narrativa o un manual práctico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato de La orfandad del centinela: 43 (Ultramarinos), con 216 páginas en castellano. La edición de Ultramarinos Editorial permite conservar el volumen físico y volver a sus páginas durante distintas sesiones de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "50366649df117f20",
+  "origen": "chatgpt-web"
+}

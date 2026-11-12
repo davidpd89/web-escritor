@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788496113206",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La imagen de España a través de sus invenciones encaja con lectores interesados en el arte, el diseño y la relación entre cultura e identidad española. Sus 450 páginas permiten abordar el tema en una edición extensa; no está planteado como una guía práctica de dibujo ni como una novela.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 450 páginas de La imagen de España a través de sus invenciones en un único volumen. Es el formato disponible para consultar el contenido en papel y conservarlo como libro de referencia; no hay una edición digital o audiolibro entre las opciones ofrecidas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2a4ee6ea294e98a9",
+  "origen": "chatgpt-web"
+}

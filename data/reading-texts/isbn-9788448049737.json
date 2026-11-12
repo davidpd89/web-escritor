@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788448049737",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "800 stickers sweet and cosy está dirigido a quienes buscan material de ocio y tiempo libre para utilizar pegatinas. Sus 48 páginas y su formato de tapa dura lo sitúan en una propuesta distinta de los libros de lectura narrativa; encaja con quien prefiere una actividad práctica y visual.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 48 páginas de 800 stickers sweet and cosy en un volumen físico, con una cubierta rígida para conservarlo y guardarlo. Es el formato disponible para esta edición de Libros Cúpula, una opción vinculada al uso de pegatinas y no a la lectura en pantalla o la escucha.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos) comparte con 800 stickers sweet and cosy una orientación hacia las actividades visuales de ocio. La diferencia está en el material y la actividad: uno reúne stickers y el otro propone colorear píxeles relacionados con Roblox.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788408328384"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5242052c3ef27667",
+  "origen": "chatgpt-web"
+}

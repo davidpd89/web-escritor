@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791399311006",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ecografía en cirugia reconstructiva y microcirugía: Manual práctico para incorporar y perfeccionar el uso de la ecografía en la práctica quirúrgica se orienta a lectores con interés profesional o formativo en estas técnicas médicas. Su planteamiento como manual de aplicación quirúrgica se distingue de la divulgación sanitaria general dirigida a pacientes.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra trata la incorporación de la ecografía a la cirugía reconstructiva y la microcirugía, así como el perfeccionamiento de su uso durante la práctica quirúrgica. Paloma Malagón López presenta estos asuntos desde un enfoque de manual práctico, centrado en una herramienta de aplicación médica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de PM Medical Academy se publica en tapa dura y contiene 284 páginas en castellano. Este soporte permite conservar el manual como volumen físico de consulta y volver a sus contenidos sobre ecografía aplicada a procedimientos quirúrgicos.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "ADG_A_0649_01. Mantenimiento básico de equipos, aplicaciones y red. ADG_C_004_5B comparte con este manual la orientación técnica y aplicada, aunque se ocupa de equipos informáticos y redes en lugar de ecografía quirúrgica. 50 cosas que hay que saber sobre IA también aborda conocimientos tecnológicos, pero desde la inteligencia artificial, mientras que la obra de Paloma Malagón López se concentra en la práctica médica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309",
+        "isbn-9791370274542"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "88b64ba5ec5fc7d2",
+  "origen": "chatgpt-web"
+}

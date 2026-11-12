@@ -1,0 +1,65 @@
+{
+  "id": "isbn-9786287880887",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes leen biografías y memorias y buscan una obra de Héctor Abad Faciolince. Por su clasificación, encaja menos con quien prefiere una novela de ficción o un ensayo histórico general; sus 320 páginas permiten valorar también la extensión antes de elegirlo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición conmemorativa del 20 aniversario se distingue por los cantos pintados y la encuadernación en tapa dura. Alfaguara la publica en castellano el 23 de marzo de 2027, con 320 páginas y el ISBN 9786287880887, datos que permiten identificar esta presentación concreta.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El olvido que seremos se sitúa en el ámbito de las biografías y memorias, con un enfoque ligado al relato de experiencias personales. Es una obra de Héctor Abad Faciolince y se presenta como lectura memorialística, no como manual práctico ni como estudio académico de historia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción de compra recogida para esta edición es la tapa dura, con 320 páginas y cantos pintados. Es una presentación física orientada a conservar el volumen en una biblioteca o entregarlo como regalo; la encuadernación rígida también resulta útil para consultar y releer el ejemplar.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puede compararse con Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, por su relación con las vivencias personales. El olvido que seremos pertenece a las biografías y memorias, mientras que el otro título sitúa esas vivencias en el Camino de Santiago. Ambos se diferencian de una lectura centrada en la ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d498bc1debd123b9",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788413686332",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dentro del Evangelio (Paso a paso) se dirige a lectores infantiles interesados en la religión cristiana y el Evangelio. Sus 120 páginas y su temática religiosa lo distinguen de los libros infantiles centrados en aventuras o contenidos ajenos a la espiritualidad.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda tiene 120 páginas en castellano y está publicada por Ediciones Palabra, S.a. Su extensión permite repartir la lectura en sesiones breves y el formato físico facilita consultar páginas concretas o compartir el ejemplar.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Biblia para niños: Las mejores historias del Antiguo y del Nuevo Testamento | Libro infantil con juegos y actividades extra (Mi primera biblioteca) comparte con Dentro del Evangelio (Paso a paso) el público infantil y el contenido religioso. El libro de Javier Alonso López reúne historias bíblicas y anuncia juegos y actividades, mientras que el de Eduardo Granados García concentra su propuesta en el Evangelio.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788413617732"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "51535f75805948d5",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791388115486",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Príncipe: El tratado político clave de Nicolás Maquiavelo sobre el poder y la estrategia de Estado. (No ficción) está dirigido a lectores interesados en filosofía política y en el ejercicio del poder. Por su naturaleza de tratado, encaja menos con quienes buscan una novela histórica protagonizada por personajes ficticios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Nicolás Maquiavelo examina el poder político y la estrategia de Estado mediante un tratado centrado en el gobierno. El enfoque corresponde a la filosofía política y al ensayo, con atención a las decisiones relacionadas con el ejercicio y la organización del poder.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esta edición de El Príncipe: El tratado político clave de Nicolás Maquiavelo sobre el poder y la estrategia de Estado. (No ficción) se presenta en tapa blanda, con 160 páginas en castellano. Publicada por Biblioteca Nueva, permite una lectura en papel de extensión relativamente breve y la consulta de pasajes concretos del tratado.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Príncipe: El tratado político clave de Nicolás Maquiavelo sobre el poder y la estrategia de Estado. (No ficción) puede compararse con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta. Ambos tratan ideas políticas, pero Nicolás Maquiavelo se centra en el poder y la estrategia estatal, mientras que Miguel Anxo Bastos Boubeta presenta los fundamentos económicos y políticos del anarcocapitalismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "887f9319a18b90c4",
+  "origen": "chatgpt-web"
+}

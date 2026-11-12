@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788492917532",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El mejor perro del mundo: Ensayos sobre el amor (Tendencias), de Alice Hoffman, está dirigido a lectores interesados en reflexionar sobre el amor desde el ensayo. Quien busque una novela romántica de ficción encontrará un planteamiento distinto, centrado en la no ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne sus 224 páginas en un volumen físico de Tendencias, mientras que Kindle permite leerlo en formato electrónico. El papel ofrece un ejemplar para conservar o regalar; la edición digital facilita llevarlo en el móvil o en un lector electrónico.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo), de Carlos del Amor, también relaciona el amor con una mirada ensayística. El mejor perro del mundo: Ensayos sobre el amor (Tendencias), de Alice Hoffman, aborda el amor como eje de sus ensayos, mientras que el título de Carlos del Amor incorpora expresamente el arte a esa relación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084122"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "71e96ac4094409ad",
+  "origen": "chatgpt-web"
+}

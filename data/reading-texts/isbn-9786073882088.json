@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9786073882088",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Has Nacido Para Esto / What You're Made For: Powerful Life Lessons from My Career in Sports se dirige a lectores interesados en las experiencias profesionales vinculadas al deporte y sus posibles aplicaciones personales. Por su orientación biográfica y empresarial, se aleja de la ficción deportiva y de las novelas centradas en competiciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje del libro son las lecciones vitales derivadas de una trayectoria profesional en el deporte, tal como anuncia su título. La combinación de biografías y memorias con economía y empresa sitúa esas experiencias en relación con el desarrollo personal y profesional. George Raveling y Ryan Holiday figuran como autores de esta obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Conecta se presenta en tapa blanda y reúne 240 páginas en castellano. Es un volumen físico de extensión intermedia, apropiado para leer por sesiones y consultar posteriormente los pasajes que interesen. Su encuadernación flexible ocupa menos espacio que una tapa dura de dimensiones equivalentes.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Has nacido para esto, de Ryan Holiday y George Raveling, comparte con esta obra el protagonismo de la experiencia de George Raveling y su relación con la superación de dificultades. El ego es tu enemigo, de Ryan Holiday, se concentra en cambio en el papel del ego frente al éxito. La diferencia temática está entre las enseñanzas extraídas de una carrera deportiva y el examen de una actitud personal concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387513146",
+        "isbn-9788418053696"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "37b52a07bf847e1a",
+  "origen": "chatgpt-web"
+}

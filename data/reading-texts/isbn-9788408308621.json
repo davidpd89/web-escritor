@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788408308621",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "No le dejes entrar (Ficción) está dirigido a quienes leen misterio, thriller y narrativa contemporánea. Su clasificación lo sitúa fuera de las novelas centradas en fantasía o aventuras de ambientación fantástica, por lo que responde a intereses de lectura distintos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "No le dejes entrar (Ficción) se publica en tapa blanda con 416 páginas, una opción para quienes prefieren leer en papel y guardar el ejemplar. Kindle ofrece la alternativa digital para continuar la lectura en el móvil sin llevar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "No le dejes entrar (Ficción) puede compararse con Podría haber sido ella (Ficción), ya que ambas obras están firmadas por Lisa Jewell. También comparte el ámbito del misterio con Aguas turbulentas, de Rankin Ian, aunque esta última sitúa su conflicto entre el pasado y el presente de Edimburgo. La primera comparación permite seguir a la misma autora; la segunda introduce otro autor y una ambientación identificada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408327998",
+        "isbn-9791370310318"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "79ebad27ef5d2324",
+  "origen": "chatgpt-web"
+}

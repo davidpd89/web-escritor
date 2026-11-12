@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788425373688",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ofrenda (Ficción), de Aloma Martínez, se dirige a lectores que buscan fantasía, aventuras y relatos. Su combinación de géneros la sitúa en la ficción fantástica y aventurera, no en la narrativa centrada exclusivamente en temas realistas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 448 páginas de Ofrenda (Ficción), de Aloma Martínez, en un único volumen físico. Es la opción para quien prefiere leer en papel y conservar el ejemplar en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ofrenda (Ficción), de Aloma Martínez, comparte el terreno fantástico con La Guerra de la Reina Araña nº 04/06 Extinción: 4 (D&D Reinos Olvidados), de Lisa Smedman, R. A. Salvatore. La diferencia está en el planteamiento editorial: el primero se presenta como fantasía, aventuras y relatos, mientras que el segundo se identifica con el universo D&D Reinos Olvidados y un número concreto de una colección.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788445010884"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "38c134f25a7f99f5",
+  "origen": "chatgpt-web"
+}

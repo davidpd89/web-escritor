@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788401038006",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tierra baldía (Nora Kelly 5) (Éxitos) encaja con lectores que buscan misterio y aventuras en una novela de 352 páginas. Su planteamiento editorial se dirige a quienes prefieren la intriga y la investigación antes que la fantasía o la narrativa romántica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece una edición física de 352 páginas, adecuada para leer sin depender de una pantalla y conservar en la estantería. Kindle permite acceder a la novela en formato digital; la elección depende de si se prefiere pasar páginas o leer en un dispositivo electrónico.",
+      "evidencias": [
+        "numero_paginas",
+        "formato_edicion",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La montaña muerta (Nora Kelly 4), de Douglas Preston, Lincoln Child, comparte con Tierra baldía (Nora Kelly 5) (Éxitos) la autoría y la identificación de la serie Nora Kelly. La numeración permite distinguir ambas entregas: La montaña muerta corresponde al n.º 4 y Tierra baldía al n.º 5.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466392761"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9fb07d2d02ec6f9b",
+  "origen": "chatgpt-web"
+}

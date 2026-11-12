@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387972639",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sangre de cuervo (Serie Infinita), de Nía Blanco, encaja con lectores de fantasía que buscan historias relacionadas con la supervivencia. Sus 504 páginas plantean una lectura extensa dentro del género fantástico, distinta de la narrativa realista o de los libros de divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sangre de cuervo (Serie Infinita) se publica en tapa dura, con 504 páginas en la edición de Montena. La encuadernación rígida resulta apropiada para conservar el volumen, colocarlo en una colección o regalarlo, aunque ocupa más espacio que una edición de bolsillo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sangre de cuervo (Serie Infinita) puede compararse con Los Juegos del Hambre 5 - Amanecer en la cosecha (edición especial), de Suzanne Collins, por su relación con la supervivencia. El primero se presenta como fantasía, mientras que el segundo lleva en su título una referencia a Los Juegos del Hambre y se identifica como edición especial.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427257702"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "abbaa6586dc3248a",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073878470",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Manifiesto por la lectura / Manifesto for Reading, de Irene Vallejo, está dirigido a quienes buscan un ensayo centrado en la lectura. Con 72 páginas, ofrece una extensión breve frente a los estudios voluminosos; no corresponde a una novela ni a una guía práctica de aprendizaje lector.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Manifiesto por la lectura / Manifesto for Reading tiene 72 páginas en su edición de tapa blanda, adecuada para conservar o prestar un ejemplar físico. Kindle permite llevar el texto en el móvil o lector electrónico, mientras que el audiolibro ofrece la posibilidad de escucharlo durante desplazamientos o actividades cotidianas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El infinito en un junco (edición limitada · cantos tintados): La invención de los libros en el mundo antiguo (Campaña | Edición con cantos tintados) comparte autora con Manifiesto por la lectura / Manifesto for Reading: Irene Vallejo. El primero trata la historia de la invención de los libros en el mundo antiguo, mientras que el segundo se presenta como un manifiesto sobre la lectura. Manifiesto por la lectura / Manifesto for Reading tiene 72 páginas y pertenece al ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466393041"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bd7328bdd93fffee",
+  "origen": "chatgpt-web"
+}

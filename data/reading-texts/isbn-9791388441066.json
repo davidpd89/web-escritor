@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388441066",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para lectores de cómic y novela gráfica interesados en continuar la lectura de «El guerrero del antifaz». El título lo identifica como el Vol. 11 y mantiene como referencia la obra de Manuel Gago y Norberto Fernández; no es una novela en prosa ni un libro de ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura ofrece una edición física de 208 páginas publicada por Plan B Publicaciones, S.l. Su encuadernación permite conservar el volumen junto a los demás ejemplares de la colección y facilita su consulta y relectura en papel. Es el formato disponible de esta edición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d71f7ff209e782aa",
+  "origen": "chatgpt-web"
+}

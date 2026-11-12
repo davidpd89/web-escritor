@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9780241839348",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido al público infantil y juvenil interesado en la naturaleza y en los libros de consulta visual. Las formas de la naturaleza: Un caleidoscopio del mundo natural (Enciclopedia visual juvenil), de Ben Hoare, tiene 96 páginas y responde a una intención divulgativa, distinta de la lectura de novelas de aventuras o fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 96 páginas de esta enciclopedia visual juvenil en un volumen físico que permite consultar sus contenidos sobre naturaleza. Kindle ofrece una alternativa digital para leerla en dispositivos compatibles, aunque la edición en papel permite recorrer las páginas sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Animales, de Susaeta Ediciones, comparte con Las formas de la naturaleza: Un caleidoscopio del mundo natural (Enciclopedia visual juvenil) el interés por el mundo animal y natural. El primero reúne seis cuentos ilustrados protagonizados por animales, mientras que el libro de Ben Hoare aborda las formas de la naturaleza mediante una enciclopedia visual juvenil de 96 páginas.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370341589"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "45db7be370991efb",
+  "origen": "chatgpt-web"
+}

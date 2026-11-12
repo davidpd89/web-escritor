@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410944176",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Corona Nostra: De Felipe VI a Felipe V, de Nieves Concostrina, encaja con lectores interesados en historia, biografías y memorias, y especialmente en los asuntos históricos relacionados con la monarquía. Quienes busquen ficción, romance o aventuras encontrarán un libro de no ficción histórica, no una novela.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene sus 528 páginas en una edición física de La Esfera de los Libros. Kindle ofrece la alternativa digital para leer el contenido sin transportar un volumen de esa extensión.",
+      "evidencias": [
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Desastre del 98 y el fin del Imperio español: Visión inédita del Almirante Cervera (Biblioteca de Historia), de Ángel Luis Cervera Fantoni, comparte el enfoque histórico, aunque centra su título en el Desastre del 98 y el Almirante Cervera. Corona Nostra: De Felipe VI a Felipe V aborda la historia desde la perspectiva de la monarquía y sus dos figuras reales protagonistas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388444142"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "36562d3dd2ead4a8",
+  "origen": "chatgpt-web"
+}

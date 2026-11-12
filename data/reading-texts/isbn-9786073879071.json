@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9786073879071",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Frena tu cabeza / Slow Down Your Mind, de Marina Mammoliti, se orienta a lectores interesados en desarrollo personal, psicología y bienestar. Sus 256 páginas corresponden a una obra de estas materias, no a una novela de ficción ni a un tratado especializado de nutrición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Frena tu cabeza / Slow Down Your Mind está disponible en tapa blanda, con 256 páginas publicadas por Penguin Random House Grupo Editorial. El formato impreso permite consultar y releer pasajes sin utilizar una pantalla, además de conservar el volumen en una biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "42a988375e5dabec",
+  "origen": "chatgpt-web"
+}

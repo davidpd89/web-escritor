@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788433040145",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a terapeutas interesados en la terapia de procesamiento cognitivo aplicada al TEPT. Por su enfoque de manual profesional y sus 448 páginas, responde a una necesidad distinta de la lectura divulgativa sobre bienestar o desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, publicada por Desclée de Brouwer en castellano. Sus 448 páginas permiten consultar el manual por partes y volver a apartados concretos durante el trabajo terapéutico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "idioma",
+        "numero_paginas",
+        "titulo"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7ad11f6ff35d2b89",
+  "origen": "chatgpt-web"
+}

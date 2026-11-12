@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788419981431",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Órganos y opioides (Salamandra Graphic) se orienta a quienes leen biografías, memorias y obras de reflexión filosófica. Su clasificación combina experiencias personales y ensayo, por lo que se distancia de las búsquedas centradas exclusivamente en ficción narrativa o manuales prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Órganos y opioides (Salamandra Graphic) cuenta con una edición en tapa blanda de 384 páginas, publicada por Salamandra. El volumen físico permite volver a fragmentos concretos y consultar sus páginas durante una lectura pausada, sin necesidad de pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La gravedad y la gracia (Contemporánea | Narrativa) y Órganos y opioides (Salamandra Graphic) coinciden en su vinculación con la filosofía y la reflexión escrita. La obra de Arizona O'Neill reúne además una clasificación de biografías y memorias, mientras que el título de Simone Weil se presenta como una lectura de orientación filosófica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466392112"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f37c01cd7cd475f6",
+  "origen": "chatgpt-web"
+}

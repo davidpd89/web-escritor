@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791370205515",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "ROMÁNICO LA PALABRA DE DIOS: El mensaje silencioso de los canteros medievales (Historia) se orienta a lectores interesados en la historia medieval, el arte románico y su dimensión religiosa. Por su materia, encaja menos con quienes buscan una historia contemporánea o una introducción general al arte sin un periodo histórico concreto.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro trata el románico desde su relación con la religión y el trabajo de los canteros medievales. El subtítulo de ROMÁNICO LA PALABRA DE DIOS: El mensaje silencioso de los canteros medievales (Historia) sitúa el interés en el significado de sus obras, dentro de un marco que reúne historia, Edad Media y arte.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "ROMÁNICO LA PALABRA DE DIOS: El mensaje silencioso de los canteros medievales (Historia) está disponible en tapa blanda. Sus 216 páginas forman un volumen físico en castellano, publicado por Almuzara, que permite consultar y releer sus contenidos sobre historia medieval y arte románico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "ROMÁNICO LA PALABRA DE DIOS: El mensaje silencioso de los canteros medievales (Historia) puede compararse con Semana Santa de Murcia (Arte y patrimonio) por su relación entre arte y religión. Mariano F. Urresti se centra en el románico y los canteros medievales; Antonio Zambudio Moreno delimita su obra a la Semana Santa de Murcia y su patrimonio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370201906"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0554a0163a77662b",
+  "origen": "chatgpt-web"
+}

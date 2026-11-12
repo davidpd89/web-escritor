@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788491366706",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Auschwitz. Culpa y responsabilidad (Fora de col.Lecciò), de Josep Hereu Bohigas, se dirige a lectores interesados en historia, filosofía y religión y espiritualidad. Sus 578 páginas y su orientación hacia estas materias lo alejan de quien busque narrativa de ficción o una lectura breve de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda concentra las 578 páginas de Auschwitz. Culpa y responsabilidad (Fora de col.Lecciò), de Josep Hereu Bohigas, en un único volumen físico. Es la opción del catálogo para quien prefiera leer en papel y conservar el libro en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7d3c70cf99369318",
+  "origen": "chatgpt-web"
+}

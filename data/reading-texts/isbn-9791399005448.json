@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399005448",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Guiones para la adoración eucarística con jóvenes se dirige a quienes trabajan la espiritualidad y la práctica religiosa con grupos juveniles. La Delegación General de la Juventud Eucarística Reparadora (JER) firma este volumen de 320 páginas, cuyo enfoque no corresponde a una lectura de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Guiones para la adoración eucarística con jóvenes está disponible en tapa blanda, con 320 páginas en castellano. El formato impreso permite consultar los guiones durante la preparación de actividades de adoración eucarística y conservar el volumen como material de trabajo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Guiones para la adoración eucarística con jóvenes y Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación abordan prácticas espirituales desde tradiciones diferentes. El primero trata la adoración eucarística juvenil; el libro de Tsondru Yeshe se ocupa del Dharma y de un camino de liberación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e1430dbf3059646a",
+  "origen": "chatgpt-web"
+}

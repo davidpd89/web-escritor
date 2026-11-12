@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El acorde secreto está dirigido a quienes buscan comprender la relación entre la música, el cerebro y sus aplicaciones terapéuticas. Su perspectiva de divulgación científica se distancia de una novela musical o de un manual dedicado a aprender a tocar un instrumento.",
+      "texto": "El acorde secreto está dirigido a lectores interesados en la neurociencia, la música y sus posibles aplicaciones terapéuticas. Su enfoque divulgativo se aparta de los manuales de interpretación musical y de las historias de ficción construidas alrededor de secretos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,36 +13,34 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Daniel J. Levitin examina cómo la actividad musical se relaciona con el funcionamiento cerebral y puede utilizarse con objetivos terapéuticos. El acorde secreto combina una perspectiva neurocientífica con referencias a prácticas musicales de distintas culturas, desde sociedades orientales hasta tradiciones americanas anteriores a la colonización.",
+      "texto": "Daniel J. Levitin estudia la relación entre la actividad musical y el funcionamiento del cerebro, con especial atención a sus usos terapéuticos. El recorrido incorpora prácticas musicales de distintas culturas y épocas para examinar la presencia histórica de la música como recurso relacionado con el bienestar.",
       "evidencias": [
-        "titulo",
         "autores",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de El acorde secreto tiene 448 páginas y solapas, una opción para leer en papel y volver a consultar sus explicaciones sobre música y cerebro. Kindle permite llevar esa extensión en un dispositivo electrónico y continuar la lectura durante desplazamientos, sin cargar con el ejemplar impreso.",
+      "texto": "La edición en tapa blanda de El acorde secreto tiene 448 páginas y se presenta en rústica con solapas, adecuada para conservar el volumen y consultar sus apartados. Kindle permite transportar digitalmente esta lectura extensa y utilizar las funciones de búsqueda del dispositivo.",
       "evidencias": [
         "titulo",
-        "edicion",
         "numero_paginas",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El acorde secreto y El secreto mejor guardado del gran Museo del Prado se aproximan a manifestaciones artísticas desde enfoques distintos: Daniel J. Levitin estudia la música y sus efectos cerebrales, mientras Diego Arboleda presenta el museo mediante relatos vinculados a Andersen. El primero es divulgación neurocientífica; el segundo utiliza una narración de carácter lúdico para acercar el arte a sus lectores.",
+      "texto": "El acorde secreto y Colegio de poderes secretos 8 - En busca de Trece (Jóvenes lectores) se aproximan desde ámbitos distintos a la idea de conocimientos poco habituales. El primero es una obra divulgativa sobre música y cerebro, mientras que el segundo se presenta como una lectura juvenil centrada en un colegio de poderes secretos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388306181"
+        "isbn-9791387741297"
       ]
     }
   ],

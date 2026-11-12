@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387955496",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Jannik Sinner: El tenista que vino del futuro (Otros deportes) está dirigido a lectores de biografías interesados en el tenis y en las figuras deportivas. Sus 224 páginas se sitúan en el terreno de la no ficción; no corresponde a quien busque una novela deportiva o un libro de actividades.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Jannik Sinner: El tenista que vino del futuro (Otros deportes) cuenta con una edición en tapa blanda de 224 páginas. Libros de Ruta la publica en castellano, en un formato físico flexible que permite leer la biografía en distintos momentos y conservarla en una colección deportiva.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Jannik Sinner: El tenista que vino del futuro (Otros deportes) se relaciona con Kylian Mbappé: La biografía definitiva (Deportes) por su enfoque biográfico sobre deportistas. Alessandro Francesco Ruta aborda a un tenista, mientras que Julien Laurens dedica su libro a una figura del fútbol; ambos permiten acercarse a trayectorias deportivas distintas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049669"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "95a6234d24f0a47d",
+  "origen": "chatgpt-web"
+}

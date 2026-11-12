@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9786073878289",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "En lengua privada / In Private Language se sitúa entre el ensayo, los relatos y la narrativa contemporánea, por lo que encaja con lectores interesados en esas formas de escritura. Sus 240 páginas ofrecen una extensión moderada y se alejan de las expectativas de quien busca exclusivamente fantasía o una novela de género.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda presenta las 240 páginas de En lengua privada / In Private Language en un volumen físico manejable para leer y consultar. Kindle permite acceder al mismo título en formato digital desde dispositivos compatibles, sin necesidad de llevar el ejemplar en papel.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "En lengua privada / In Private Language comparte su vertiente ensayística con El genio griego: Ilíada o el poema de la fuerza y otros textos (Contemporánea | Narrativa), de Simone Weil. La obra de Emiliano Monge también se relaciona con los relatos y la narrativa contemporánea, mientras que el título de Simone Weil identifica expresamente la Ilíada como uno de sus asuntos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394604"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "996e691e61fd1bdb",
+  "origen": "chatgpt-web"
+}

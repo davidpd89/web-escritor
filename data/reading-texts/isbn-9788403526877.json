@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Rosalía, universo creador se dirige a lectores adultos interesados en las biografías musicales y en cómo se desarrolla la identidad de una artista. Daniel Gómez Sánchez aborda la trayectoria personal y creativa de Rosalía, por lo que su enfoque es biográfico y no el de una guía práctica de música.",
+      "texto": "Es una lectura para adultos interesados en biografías musicales y en la trayectoria artística de Rosalía. Se centra en su formación y desarrollo como cantante, por lo que se aparta de los manuales técnicos de música y de las narraciones de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,39 +14,42 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Rosalía, universo creador examina la formación artística de Rosalía desde sus primeras influencias musicales y familiares. Daniel Gómez Sánchez relaciona el descubrimiento de Camarón con la importancia de sus abuelas y la construcción de una identidad pública vinculada a distintas etapas creativas. El relato utiliza la trayectoria vital como eje para explicar su universo musical.",
+      "texto": "Rosalía, universo creador examina la construcción de una identidad artística a partir de influencias familiares, experiencias musicales y decisiones creativas. Daniel Gómez Sánchez plantea un recorrido biográfico que relaciona los primeros contactos de Rosalía con la música y su posterior transformación en figura pública.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Rosalía, universo creador puede leerse en tapa dura o Kindle. La edición física de Aguilar reúne 416 páginas y permite conservar el volumen en una biblioteca o regalarlo; Kindle ofrece la alternativa de llevar esa lectura en un dispositivo electrónico sin transportar el libro impreso.",
+      "texto": "La tapa dura presenta las 416 páginas en una edición física adecuada para conservar o regalar. Kindle permite leer la biografía en formato digital sin cargar con el volumen impreso, mientras que el audiolibro ofrece una alternativa para seguir el relato mediante escucha.",
       "evidencias": [
-        "titulo",
-        "editorial",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Canción de amor definitiva, de Jorge Martí Aguas, comparte con Rosalía, universo creador el interés por las experiencias personales relacionadas con la música. Mientras Daniel Gómez Sánchez reconstruye la formación de una artista concreta, el texto de Jorge Martí Aguas presenta cambios de ánimo, país y profesión como parte de su perspectiva personal.",
+      "texto": "Al andar: Vivencias del Camino de Santiago comparte con Rosalía, universo creador el interés por relatar experiencias personales, aunque Carlos Díaz Ballesta se ocupa de vivencias relacionadas con el Camino de Santiago y Daniel Gómez Sánchez de una trayectoria musical. Alfred y Emily (Narrativa), de Doris Lessing, también se vincula a las historias de vida, pero desde una obra identificada como narrativa y no como biografía musical.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401042119"
+        "isbn-9791388099496",
+        "isbn-9788426438515"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "608a565257bf1508",
+  "fuente_hash": "f8f2dd9bb932e258",
   "origen": "chatgpt-web"
 }

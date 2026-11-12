@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791388435225",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cacadoku (FUERA DE ESCENA) El sudoku nunca había sido tan estimulante se dirige a quienes buscan pasatiempos de lógica y entretenimiento individual. Su planteamiento centrado en el sudoku se aleja de la lectura narrativa y de los libros de actividades artísticas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 128 páginas en castellano y permite resolver los pasatiempos directamente sobre papel. Es una opción física para llevar las actividades consigo o conservarlas una vez completadas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Frente a 80 crímenes imposibles de resolver (FUERA DE ESCENA), centrado en enigmas criminales, Cacadoku (FUERA DE ESCENA) El sudoku nunca había sido tan estimulante propone el sudoku como actividad principal. Ambos se sitúan en el terreno de los pasatiempos, pero plantean distintos tipos de retos.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388015816"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fa4bd5b4f28285d3",
+  "origen": "chatgpt-web"
+}

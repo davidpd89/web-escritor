@@ -1,0 +1,58 @@
+{
+  "id": "isbn-9788408331599",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de romance que busquen una novela de Megan Maxwell en una edición de bolsillo. Sus 560 páginas requieren una lectura de cierta extensión; quien prefiera divulgación o una obra breve encontrará aquí una propuesta distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Tampoco pido tanto: Edición limitada a precio especial (Colección Especial) pertenece a la Colección Especial y se presenta como una edición limitada. Booket la publica en castellano, en formato de bolsillo y con 560 páginas, bajo el ISBN 9788408331599.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "numero_paginas",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es la tapa blanda en formato de bolsillo de Booket. Permite llevar una novela de 560 páginas en una edición pensada para el transporte y la lectura fuera de casa, aunque su extensión sigue siendo considerable para un libro de bolsillo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tampoco pido tanto: Edición limitada a precio especial (Colección Especial) puede compararse con Todo bajo control, menos tú por su autora, Megan Maxwell, y su vinculación al romance. Frente a esa otra obra, Tampoco pido tanto se presenta específicamente como una edición limitada de bolsillo de 560 páginas, dentro de la Colección Especial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083378"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e1bce46aab161816",
+  "origen": "chatgpt-web"
+}

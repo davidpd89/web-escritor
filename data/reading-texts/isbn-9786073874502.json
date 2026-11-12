@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9786073874502",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Agotada / Drained: Reduce Your Mental Load to Do Less and Be More se dirige a lectores interesados en reducir la carga mental y revisar sus exigencias cotidianas. Su orientación hacia el desarrollo personal y la familia lo diferencia de una novela o de un tratado académico especializado.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Agotada / Drained: Reduce Your Mental Load to Do Less and Be More está disponible en tapa blanda y tiene 336 páginas. Esta edición permite subrayar ideas, incorporar notas y consultar apartados durante la lectura, especialmente cuando se utiliza el libro para reflexionar sobre la carga mental.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Agotada / Drained: Reduce Your Mental Load to Do Less and Be More comparte autora y asunto con Agotada: Reduce tu carga mental para hacer menos y ser más (Divulgación), también de Leah Ruppanner. Frente a 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, su título delimita el interés a la carga mental, en lugar de abordar varios ámbitos del bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788403521810",
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "36917d3d8f1950b6",
+  "origen": "chatgpt-web"
+}

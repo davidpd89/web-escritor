@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387520991",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cocina asiática (LAROUSSE - Libros Ilustrados/ Prácticos - Gastronomía) está orientado a quienes buscan un libro práctico sobre gastronomía asiática. Sus 240 páginas pertenecen al ámbito de la cocina y el tiempo libre, no al de la narrativa ni al de los estudios especializados en vinos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cocina asiática (LAROUSSE - Libros Ilustrados/ Prácticos - Gastronomía) se publica en tapa dura, con 240 páginas en castellano. La cubierta rígida facilita conservarlo como libro de consulta en una colección de cocina y ofrece una presentación física adecuada para regalar a alguien interesado en la gastronomía asiática.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Curso de cocina - Recetas italianas, también de Séverine Augé, comparte el enfoque culinario, pero se dedica a Italia y reúne más de 60 recetas ilustradas paso a paso, mientras Cocina asiática (LAROUSSE - Libros Ilustrados/ Prácticos - Gastronomía) se centra en la cocina asiática. Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA), de David Villalón y Mario Villalón, amplía el ámbito gastronómico a la huerta, los vinos y los cócteles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241831397",
+        "isbn-9791387934293"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a57fb80b102aef1e",
+  "origen": "chatgpt-web"
+}

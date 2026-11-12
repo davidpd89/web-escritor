@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788466395632",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estación Damasco (Best Seller | Ficción), de David McCloskey, se sitúa en la ficción relacionada con el poder y la política. Sus 560 páginas corresponden a una obra narrativa, por lo que se diferencia de los ensayos dedicados a explicar sistemas políticos o acontecimientos históricos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estación Damasco (Best Seller | Ficción) se publica en una edición de bolsillo de Penguin Bolsillo con 560 páginas en tapa blanda. Kindle permite leer la obra en un dispositivo digital sin transportar el ejemplar físico y el audiolibro proporciona una modalidad de escucha para el mismo título.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estación Damasco (Best Seller | Ficción) comparte autor con Moscú X (Best Seller | Ficción) y El persa (Novela (Best Seller)), ambos de David McCloskey. Los tres son títulos de ficción, mientras que Estación Damasco (Best Seller | Ficción) aparece vinculada expresamente al poder y la política. Su edición de bolsillo tiene 560 páginas y permite distinguirla por sus características editoriales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387928612",
+        "isbn-9788466396707"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "21bdc1f0cfb24758",
+  "origen": "chatgpt-web"
+}

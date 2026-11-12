@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388103681",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Yuru Camp nº 13 (Manga Seinen) se dirige a lectores de manga interesados en narrativa gráfica vinculada al público juvenil. Su identificación como seinen permite distinguirlo de los títulos presentados como shônen; no es una novela juvenil escrita únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Yuru Camp nº 13 (Manga Seinen) cuenta con una edición en tapa blanda de 178 páginas, publicada en castellano por Planeta Cómic. El formato permite incorporarlo a una colección física de manga y manejar un volumen de cubierta flexible durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Yuru Camp nº 13 (Manga Seinen) comparte autoría con Yuru Camp nº 12, ambos de Afro. El título identifica al primero como el nº 13 y al segundo como el nº 12; la descripción del anterior plantea planes que se complican durante el trayecto hacia sus destinos, mientras que el nuevo volumen se presenta como manga seinen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388101304"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8b1dd6fab39e001a",
+  "origen": "chatgpt-web"
+}

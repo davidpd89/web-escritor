@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387938796",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cartas de desamor: 18 (Tascabili) encaja con lectores interesados en textos personales sobre el desamor y en la escritura de Cesare Pavese. Su clasificación entre biografías, memorias y ensayo lo distingue de una novela romántica convencional; sus 88 páginas plantean una lectura breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cartas de desamor: 18 (Tascabili) está disponible en tapa blanda, en una edición de 88 páginas de Altamarea Ediciones. La extensión facilita leer las cartas en sesiones cortas y volver a fragmentos concretos en el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cartas de desamor: 18 (Tascabili) y Asuntos pendientes: Hay historias que terminan, pero no se acaban (Autoconocimiento) comparten el interés por las relaciones y sus consecuencias emocionales. El libro de Cesare Pavese aborda el desamor desde unas cartas vinculadas a la escritura personal, mientras que el de Frish Brandt se presenta desde el autoconocimiento. La diferencia está en el género y en la perspectiva desde la que se trata la experiencia afectiva.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411193795"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d665cb7a908a023c",
+  "origen": "chatgpt-web"
+}

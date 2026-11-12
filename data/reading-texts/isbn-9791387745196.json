@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791387745196",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "De Enrique Wanton a Ramón López Soler: Refundaciones novelescas al español entre la Ilustración y el Romanticismo (1769-1845): 319 (Biblioteca Filológica Hispana) se orienta a lectores de ensayo y estudios literarios interesados en la evolución de la novela. Su enfoque histórico y filológico se aleja de quien busca una narración de fantasía o ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Javier Muñoz de Morales Galiana aborda las refundaciones novelescas al español entre la Ilustración y el Romanticismo. El periodo 1769-1845 delimita un estudio literario que vincula a Enrique Wanton y Ramón López Soler, con una extensión de 464 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda y tiene 464 páginas, publicadas por Visor Libros. El soporte impreso permite consultar y volver a localizar pasajes durante el estudio de las transformaciones novelescas tratadas en el volumen.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "De Enrique Wanton a Ramón López Soler: Refundaciones novelescas al español entre la Ilustración y el Romanticismo (1769-1845): 319 (Biblioteca Filológica Hispana) comparte con Al despertar, rompe el cascarón (Runas) su presencia en un catálogo que también incluye ciencia ficción. La diferencia es el enfoque: Javier Muñoz de Morales Galiana firma un estudio de historia literaria, mientras que Becky Chambers figura como autora del otro título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370093488"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "97395a91494a68b4",
+  "origen": "chatgpt-web"
+}

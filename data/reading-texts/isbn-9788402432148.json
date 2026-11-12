@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788402432148",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi primer Mortadelo y Filemón - ¡Detectives del montón! (Bruguera Clásica) está dirigido a lectores interesados en cómics de humor que mezclan aventuras e investigaciones. Sus 96 páginas ofrecen una extensión moderada; encaja menos con quienes buscan una novela de misterio narrada únicamente en prosa o sin elementos cómicos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mi primer Mortadelo y Filemón - ¡Detectives del montón! (Bruguera Clásica) se ofrece en tapa dura, con 96 páginas en castellano. La cubierta rígida favorece la conservación del cómic y resulta adecuada para un ejemplar de regalo, mientras que su extensión permite retomarlo en distintas sesiones de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi primer Mortadelo y Filemón - ¡Detectives del montón! (Bruguera Clásica) comparte personajes y autor con Resuelve el caso con Mortadelo y Filemón, aunque este último plantea al lector participar en la resolución de un caso. Mortadeluxe también reúne a los personajes de Francisco Ibáñez, pero su propuesta mencionada gira alrededor de las fiestas y la Navidad, frente al enfoque detectivesco del primero.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431578",
+        "isbn-9788402432063"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1f9eafe09620e908",
+  "origen": "chatgpt-web"
+}

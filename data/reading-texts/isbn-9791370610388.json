@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370610388",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Reclamaciones y gestión de reclamaciones de consumo (Monografía) se orienta a quienes buscan una lectura jurídica sobre las reclamaciones de los consumidores y su gestión. Su enfoque especializado y sus 750 páginas la alejan de una introducción breve al consumo o de una obra narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda presenta las 750 páginas de Reclamaciones y gestión de reclamaciones de consumo (Monografía) en una edición física de Aranzadi. Por su extensión, resulta más apropiada para la consulta en una mesa de trabajo que para llevarla habitualmente en desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos), de Mari Luz Sánchez García-Arista, comparte el interés por la gestión de conflictos, aunque lo sitúa en la mediación educativa. Blockchain: un desafío legal (Monografía), de Ana Isabel Quiroz Ruiz, pertenece también al ámbito jurídico, pero aborda los desafíos legales de una tecnología en lugar de las reclamaciones de consumo.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788429030372",
+        "isbn-9791370610265"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "18d915d524323354",
+  "origen": "chatgpt-web"
+}

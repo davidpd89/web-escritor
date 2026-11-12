@@ -4,47 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un hombre de ley (Aristócratas de Londres 1) se dirige a lectores adultos de romance con diferencias sociales, atracción entre personalidades opuestas y protagonistas marcados por experiencias difíciles. La violencia familiar del pasado de Clara y el carácter intimidante de Rafe hacen que encaje menos con quienes buscan una relación sin traumas ni conflictos de poder.",
+      "texto": "Es una novela romántica para adultos que buscan relaciones entre personajes de posiciones sociales distintas, con traumas personales y una dinámica de atracción entre opuestos. Puede resultar menos adecuada para quienes prefieren romances sin referencias a la violencia familiar o a las secuelas emocionales del pasado.",
       "evidencias": [
-        "titulo",
-        "edad_recomendada",
         "categorias",
+        "edad_recomendada",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela romántica que combina diferencias de posición social, heridas familiares y una relación nacida en el entorno escolar. Susie Tate enfrenta la reserva de Clara, una maestra con un pasado de violencia, con la autoridad de Rafe Sterling, un aristócrata que aspira a ser juez. El título la identifica como el n.º 1 de Aristócratas de Londres.",
+      "texto": "La historia desarrolla un romance entre Clara, una maestra marcada por la violencia de su infancia, y Rafe, un aristócrata con aspiraciones judiciales. La relación comienza con un desacuerdo sobre el hijo de él y avanza hacia una convivencia laboral que pone a prueba la confianza y los secretos personales.",
       "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas permite tener las 344 páginas de Un hombre de ley (Aristócratas de Londres 1) en un ejemplar físico, adecuado para guardar o prestar. La versión Kindle evita transportar el volumen y permite leerlo desde dispositivos compatibles. La diferencia práctica es el soporte, no la temática romántica de la obra.",
+      "texto": "La tapa blanda reúne 344 páginas y permite leer la novela en papel, con una edición de Grijalbo que incorpora solapas. Kindle ofrece la misma obra en formato digital para llevarla en el móvil o en un lector electrónico, sin cargar con el volumen físico.",
       "evidencias": [
-        "titulo",
-        "edicion",
-        "numero_paginas",
         "formatos_disponibles",
-        "categorias"
+        "numero_paginas",
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los finales perfectos no existen y Un hombre de ley (Aristócratas de Londres 1) presentan romances adultos atravesados por experiencias anteriores. La novela de Violeta Reed aborda un matrimonio pendiente de divorcio y utiliza el humor; la de Susie Tate desarrolla la atracción entre una maestra y un aristócrata, con el trauma familiar como parte del conflicto. Cambian tanto la relación inicial como el peso del pasado.",
+      "texto": "BROKEN RIVAL: Cuando el amor es un acto de rebeldía (Titania fresh) comparte el terreno de la ficción romántica, aunque su título presenta el amor como una forma de rebeldía. Un hombre de ley (Aristócratas de Londres 1) desarrolla, en cambio, la atracción entre una maestra y un aristócrata, con la protección, los traumas y las diferencias sociales como elementos de la relación.",
       "evidencias": [
-        "titulo",
-        "autores",
         "afines_catalogo",
+        "titulo",
         "sinopsis_editorial",
         "categorias"
       ],
       "enlaces": [
-        "isbn-9788425371745"
+        "isbn-9786316863164"
       ]
     }
   ],

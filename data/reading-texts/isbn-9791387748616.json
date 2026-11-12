@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387748616",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A ver si esto lo aguantas (Blackie Books), de María Corazón Gallardo, se dirige a lectores de narrativa contemporánea en castellano. Con 192 páginas, ofrece una extensión más reducida que una novela larga y encaja menos con quienes buscan específicamente ensayo histórico o literatura infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "A ver si esto lo aguantas (Blackie Books) está editado en tapa blanda y tiene 192 páginas. Esta presentación de Blackie Books facilita llevar el ejemplar en una bolsa y leerlo en papel sin el volumen de una obra mucho más extensa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "82eb19fc69385904",
+  "origen": "chatgpt-web"
+}

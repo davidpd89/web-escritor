@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387948221",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a niños y niñas a partir de 3 años que disfrutan de los cuentos navideños con humor y búsquedas interactivas. La propuesta consiste en encontrar una prenda perdida de Papá Noel mediante la participación del lector. Sus 32 páginas y su planteamiento infantil lo alejan de las narraciones extensas destinadas a lectores de mayor edad.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Se presenta en tapa dura, con 32 páginas pensadas para manejar el cuento como objeto físico durante la lectura. Este formato permite pasar las páginas y participar en la búsqueda de los calzoncillos de Papá Noel directamente sobre el libro. Su extensión facilita leerlo en sesiones breves y volver a recorrerlo.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El lago de los monstruos (INFANTIL) coincide en su orientación hacia la lectura infantil, pero cambia la búsqueda navideña y humorística por una historia identificada con monstruos. Pipoka y la Fábrica del Desastre también incorpora elementos fantásticos, aunque presenta a un cuentacuentos y una marioneta que recorren paisajes y conocen criaturas legendarias, en lugar de proponer una búsqueda relacionada con Papá Noel.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387884260",
+        "isbn-9791388277085"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d39c877a319eceea",
+  "origen": "chatgpt-web"
+}

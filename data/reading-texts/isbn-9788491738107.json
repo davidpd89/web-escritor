@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788491738107",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "American Caper nº 01: 1 (Thriller) se orienta a lectores de narrativa juvenil que buscan historias vinculadas al misterio y al thriller. Su clasificación temática lo aleja de las preferencias centradas en la fantasía o en relatos sin componentes de intriga.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "American Caper nº 01: 1 (Thriller) dispone de una edición en tapa dura de 144 páginas en castellano. Esta encuadernación permite conservar el ejemplar como parte de una colección física y utilizarlo como regalo, con una extensión contenida para su lectura en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amor Eterno nº 03: 3 (Thriller) comparte con American Caper nº 01: 1 (Thriller) su orientación hacia el misterio y el público juvenil. Amor Eterno incorpora además el amor y la pareja entre sus temas, mientras que American Caper aparece asociado al thriller; sus equipos creativos también son diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388103483"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8b2bc1f85cc1479e",
+  "origen": "chatgpt-web"
+}

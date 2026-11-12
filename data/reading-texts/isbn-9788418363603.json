@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788418363603",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hijas del sol y la luna (Salamandra Narrativa), de Lisa See, encaja con lectores interesados en novelas históricas que también forman parte de la narrativa contemporánea. Quienes busquen manuales divulgativos o testimonios biográficos encontrarán aquí una propuesta de ficción, no una obra de consulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Hijas del sol y la luna (Salamandra Narrativa) es de tapa blanda y tiene 432 páginas en castellano. El volumen publicado por Salamandra reúne una lectura extensa en papel, apropiada para avanzar por sesiones y conservar el punto de lectura entre ellas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hijas del sol y la luna (Salamandra Narrativa) puede compararse con Amargo, amargo (Literaturas), de Joanna Bator, dentro de una selección de ficción literaria. La obra de Lisa See combina novela histórica y narrativa contemporánea, mientras que la de Joanna Bator se presenta bajo el sello Literaturas; la diferencia comprobable entre ambas está en su clasificación editorial y autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387846558"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9b56ce4a9cd6d009",
+  "origen": "chatgpt-web"
+}

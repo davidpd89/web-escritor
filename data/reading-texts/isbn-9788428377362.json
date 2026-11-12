@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788428377362",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "MP1782. Nivel básico de Prevención de riesgos laborales - Energía y Agua se dirige a lectores que buscan contenidos de prevención laboral vinculados al ámbito de la energía y el agua. Su enfoque sectorial lo diferencia de las publicaciones de divulgación científica general y de los manuales centrados en otras actividades profesionales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de MP1782. Nivel básico de Prevención de riesgos laborales - Energía y Agua es de tapa blanda y tiene 148 páginas. Su formato impreso permite consultar los contenidos del nivel básico, realizar anotaciones y localizar apartados durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "MP1782. Nivel básico de Prevención de riesgos laborales - Energía y Agua comparte autor y nivel formativo con MP1782. Nivel básico de Prevención de riesgos laborales - Agraria. Ambos son de Javier Rodrigo Agulló y tratan la prevención de riesgos laborales, pero el primero se centra en energía y agua, mientras que el segundo corresponde al sector agrario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788428377409",
+        "isbn-9788428377393"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "62029f9e0d5c9f83",
+  "origen": "chatgpt-web"
+}

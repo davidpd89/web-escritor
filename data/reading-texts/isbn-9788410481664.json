@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410481664",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pequeñas almas (CLASICOS), de Matilde Serao, encaja con lectores que buscan relatos y narrativa de carácter clásico. Por su clasificación como colección de relatos, se aleja de quienes prefieren una única trama extensa o un libro práctico centrado en instrucciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Libros de Seda publica Pequeñas almas (CLASICOS) en tapa blanda, con 304 páginas en castellano. El volumen permite conservar los relatos reunidos en una edición física y alternar su lectura con otros libros sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pequeñas almas (CLASICOS), de Matilde Serao, puede compararse con Después de medianoche. Trece historias para no dormir: Prólogo de Stephen King (Espasa Narrativa), de Daphne Du Maurier, por su vinculación con el relato. La diferencia está en el enfoque: Pequeñas almas (CLASICOS) se presenta como narrativa clásica, mientras que el título de Daphne Du Maurier anuncia trece historias orientadas a provocar inquietud.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084429"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5848a9800707bd89",
+  "origen": "chatgpt-web"
+}

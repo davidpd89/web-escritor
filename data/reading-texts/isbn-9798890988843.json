@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9798890988843",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de fantasía y terror que buscan ficción relacionada con ambos géneros. La casa de las gardenias (Edición cantos pintados) / The House of Gardenias (Sprayed Edges Edition), de Isabel Cañas, no responde a quien prefiera un ensayo o una lectura de desarrollo personal; su clasificación apunta a una experiencia narrativa de carácter fantástico y terrorífico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta versión se distingue por sus cantos pintados, una característica incorporada expresamente a su denominación editorial. Vintage Espanol la publica en castellano, en tapa blanda y con 304 páginas; el ISBN 9798890988843 identifica esta edición concreta.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "idioma",
+        "edicion",
+        "numero_paginas",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para esta edición de 304 páginas. Permite leerla en papel y conservar el acabado de cantos pintados anunciado en el título, un detalle físico que también puede influir al elegirla como regalo o para una colección.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Asistente del villano (edición especial limitada) (Faeris Editorial) comparte con La casa de las gardenias (Edición cantos pintados) / The House of Gardenias (Sprayed Edges Edition) su relación con la fantasía y el interés por una presentación editorial diferenciada. La obra de Isabel Cañas incorpora además el terror a su clasificación, mientras que el título de Hannah Nicole Maehrer destaca su condición de edición especial limitada.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388108112"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0bb1b1da80959636",
+  "origen": "chatgpt-web"
+}

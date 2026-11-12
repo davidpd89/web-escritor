@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791388279218",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Troya, la guerra que acabó con los dioses: EDICIÓN CANTOS TINTADOS (Historias de hoy), de Pol Gise, encaja con lectores interesados en historia, narrativa juvenil y relatos vinculados a Troya. Su orientación histórica y narrativa lo aleja de las lecturas centradas en consejos prácticos o desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Troya, la guerra que acabó con los dioses: EDICIÓN CANTOS TINTADOS (Historias de hoy) se presenta en una edición con cantos tintados. Temas de Hoy la publica en tapa dura, con 328 páginas en castellano y fecha de publicación del 2026-11-11, características que permiten identificar esta presentación concreta.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura ofrece las 328 páginas de Troya, la guerra que acabó con los dioses: EDICIÓN CANTOS TINTADOS (Historias de hoy) en una edición física con cantos tintados, pensada para conservar el volumen. Kindle permite leer la misma obra en formato digital sin transportar el libro impreso, una diferencia práctica para la lectura fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche Anthropos: Pandora + Troya (Historias de hoy), de Pol Gise, es la comparación más directa por autoría y por la presencia de Troya en ambos títulos. El estuche identifica dos obras, Pandora y Troya, mientras que Troya, la guerra que acabó con los dioses: EDICIÓN CANTOS TINTADOS (Historias de hoy) corresponde a un volumen individual de 328 páginas con cantos tintados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388279539"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a3106d26de1da85e",
+  "origen": "chatgpt-web"
+}

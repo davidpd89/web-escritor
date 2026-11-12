@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788409913824",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Antes del si se orienta a lectores de romance que buscan una obra de extensión contenida. Con 141 páginas en castellano, se diferencia de las novelas románticas de varios cientos de páginas; por su género, queda fuera de las búsquedas centradas exclusivamente en misterio o ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Antes del si se publica en tapa blanda, con 141 páginas en castellano. Esta edición de Nix Shade permite llevar el libro en el bolso o la mochila y leerlo en sesiones cortas; su menor extensión también reduce el espacio necesario para guardarlo frente a novelas más voluminosas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1df4fe053c946771",
+  "origen": "chatgpt-web"
+}

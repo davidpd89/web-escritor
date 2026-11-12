@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788408323914",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Polonia 6 (Guías de País Lonely Planet) se dirige a quienes buscan una guía de viajes dedicada a Polonia, especialmente para preparar desplazamientos y consultar información durante una estancia. Su carácter de guía de país la diferencia de las memorias de viaje y de las novelas ambientadas en un destino.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Polonia 6 (Guías de País Lonely Planet) puede elegirse en tapa blanda o Kindle; la edición impresa tiene 424 páginas en castellano. El papel permite consultar el contenido sin batería, mientras que Kindle facilita llevar la guía en un dispositivo compatible y evitar el peso del ejemplar físico durante el viaje.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Polonia 6 (Guías de País Lonely Planet) y Suiza 5 (Guías de País Lonely Planet) pertenecen a la misma colección de guías de países y comparten autores como Marc Di Duca, Simon Richmond y Anthony Haywood. La elección entre ambas depende del destino que interese consultar: Polonia en la primera y Suiza en la segunda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408320838"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d30e972acb34de7e",
+  "origen": "chatgpt-web"
+}

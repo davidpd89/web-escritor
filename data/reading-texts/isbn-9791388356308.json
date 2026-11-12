@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791388356308",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fuerzas de marea: 628 (Colección Valparaíso de Poesía) se dirige a lectores que buscan poesía contemporánea en castellano. Con 134 páginas y su pertenencia a una colección poética, se aparta de las novelas de argumento continuado y de los libros de narrativa extensa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Fuerzas de marea: 628 (Colección Valparaíso de Poesía) contiene 134 páginas, una extensión que permite llevar el volumen y consultar sus textos en papel. Valparaíso Ediciones publica esta edición en castellano, dentro de su colección de poesía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "58a2826b9fc475fc",
+  "origen": "chatgpt-web"
+}

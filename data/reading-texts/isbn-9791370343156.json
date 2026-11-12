@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La granja está pensado para el público infantil que prefiere colorear, decorar y mostrar sus creaciones en lugar de limitarse a leer. Su propuesta combina láminas temáticas con elementos magnéticos, por lo que se aleja de los cuentos centrados en una historia con personajes y argumento.",
+      "texto": "La granja está orientado al público infantil que disfruta coloreando y decorando escenas de animales de granja. Sus láminas y elementos magnéticos permiten combinar actividades manuales con la exposición de los dibujos terminados. No responde al propósito de quien busque una narración extensa para leer de principio a fin.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "La actividad consiste en trabajar con láminas de la granja y colocarlas sobre una superficie metálica mediante el marco magnético incluido. Además, incorpora 15 imanes independientes que se pueden colorear y utilizar para decorar las composiciones. El resultado permite exhibir los trabajos sin recurrir a un marco convencional.",
+      "texto": "La granja permite colorear láminas y colocarlas sobre superficies metálicas mediante un marco magnético. Incluye 15 imanes adicionales que también pueden colorearse y utilizarse para decorar las composiciones. La actividad combina la creación de dibujos con su colocación y reorganización sobre una superficie compatible.",
       "evidencias": [
         "titulo",
         "sinopsis_editorial"
@@ -21,21 +22,21 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La granja se presenta en tapa blanda, con 24 páginas y una actividad que utiliza láminas, un marco magnético y 15 imanes para colorear. El formato físico permite manipular los elementos y colocar las creaciones sobre metal, de modo que el uso principal va más allá de pasar páginas.",
+      "texto": "La granja cuenta con 24 páginas y se ofrece en tapa dura y tapa blanda. La tapa dura aporta una cubierta rígida para guardar el libro entre sesiones de coloreado, mientras que la blanda corresponde a una encuadernación más flexible. En ambos casos, la actividad gira alrededor de las láminas y los accesorios magnéticos descritos para el título.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "sinopsis_editorial"
+        "formatos_disponibles",
+        "sinopsis_editorial",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La granja comparte con Bajo el mar el uso de láminas y un marco magnético para exponer trabajos, pero cambia los animales marinos por motivos de granja. Dinosaurios propone una actividad magnética semejante con otra temática. Los tres títulos son de Susaeta Ediciones y se orientan a la creación manual infantil.",
+      "texto": "La granja comparte con Bajo el mar y Dinosaurios, ambos de Susaeta Ediciones, el uso de láminas que pueden exponerse mediante un marco magnético. La diferencia principal está en los motivos: escenas de granja, animales marinos o dinosaurios. La granja añade 15 imanes para colorear y decorar las composiciones, lo que permite trabajar con elementos independientes de las láminas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
@@ -48,6 +49,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "07f333a684d6b43e",
+  "fuente_hash": "34c5cc15671ea7ab",
   "origen": "chatgpt-web"
 }

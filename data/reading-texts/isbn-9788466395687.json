@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466395687",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Animales fantásticos y dónde encontrarlos (Un libro de la biblioteca de Hogwarts) (Harry Potter) se orienta a lectores interesados en la fantasía, las criaturas imaginarias y el universo de Harry Potter. Su planteamiento como libro de biblioteca y sus 160 páginas lo distinguen de una novela extensa; encaja menos con quien busca una historia realista sobre animales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Penguin Bolsillo reúne las 160 páginas de Animales fantásticos y dónde encontrarlos (Un libro de la biblioteca de Hogwarts) (Harry Potter) en una edición de bolsillo que puede guardarse en una estantería junto a otros libros de la colección. Kindle permite consultarlo en pantalla y el audiolibro ofrece la posibilidad de escucharlo sin depender de la edición impresa.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los cuentos de Beedle el bardo (Un libro de la biblioteca de Hogwarts) (Harry Potter) comparte con Animales fantásticos y dónde encontrarlos (Un libro de la biblioteca de Hogwarts) (Harry Potter) la autoría de J.K. Rowling y su pertenencia a la biblioteca de Hogwarts. El primero se presenta como una colección de cuentos y el segundo centra su título en las criaturas fantásticas. Estuche Biblioteca de Hogwarts: contiene: Animales fantásticos | Los cuentos de Beedle el bardo | Quidditch a través de los tiempos (Harry Potter) reúne ambos títulos con otro volumen de la misma biblioteca.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395724",
+        "isbn-9788466395694"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5054ee0d843780e4",
+  "origen": "chatgpt-web"
+}

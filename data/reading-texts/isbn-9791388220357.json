@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388220357",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Biblia. Nuevo Testamento (Literatura ilustrada) se dirige a lectores interesados en los textos religiosos y su relación con el arte y el diseño. Su clasificación en religión y espiritualidad y su presentación como literatura ilustrada la alejan de quienes buscan una novela de ficción contemporánea.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Biblia. Nuevo Testamento (Literatura ilustrada) está disponible en tapa dura, con 368 páginas en castellano. Esta encuadernación permite conservar el volumen para consultas y relecturas, además de ofrecer una presentación física adecuada para regalar un libro de temática religiosa y artística.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Biblia. Nuevo Testamento (Literatura ilustrada) comparte el interés por la religión y el arte con ROMÁNICO LA PALABRA DE DIOS: El mensaje silencioso de los canteros medievales (Historia), de Mariano F. Urresti. El primero se centra en el Nuevo Testamento desde una propuesta ilustrada; el segundo aborda el mensaje de los canteros medievales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370205515"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f69d6d8f8309b736",
+  "origen": "chatgpt-web"
+}

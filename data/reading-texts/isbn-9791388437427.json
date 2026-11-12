@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388437427",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para jóvenes y adultos interesados en resolver casos detectivescos mediante la investigación de rutas de huida. CRIMEMAPS: ¿Dónde se esconde el asesino? 7 ciudades del mundo. 50 rutas de huida que investigar: Casos para detectives jóvenes y adultos, de Malla Books, propone una actividad vinculada al misterio y la investigación criminal, en lugar de una lectura centrada en el romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite manejar físicamente las 128 páginas mientras se investigan las 50 rutas de huida anunciadas en el título. Su cubierta flexible facilita llevar el volumen de un lugar a otro y volver a consultar las páginas durante la resolución de los casos, sin necesidad de utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "American Caper nº 01: 1 (Thriller), de Dan Houser, Lazlow, David Lapham y Brent Anderson, comparte con CRIMEMAPS: ¿Dónde se esconde el asesino? 7 ciudades del mundo. 50 rutas de huida que investigar: Casos para detectives jóvenes y adultos el terreno del crimen y el suspense. La diferencia está en la propuesta explícita de Malla Books: investigar 50 rutas de huida distribuidas por 7 ciudades, con casos dirigidos a jóvenes y adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491738107"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b1b920f82ffed4e8",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788433947017",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La dulce existencia encaja con lectores que buscan narrativa contemporánea y prefieren novelas de extensión breve. Sus 112 páginas permiten una lectura concentrada; no responde a quien esté buscando una novela extensa o un libro de viajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece La dulce existencia en una edición física de 112 páginas, adecuada para quien prefiere conservar el libro en papel. Kindle permite llevar la misma lectura en formato digital, sin ocupar espacio en la estantería y con acceso desde un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aa130557f73b5e13",
+  "origen": "chatgpt-web"
+}

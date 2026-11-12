@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Allí donde fueres... está dirigido a quienes viajan y quieren conocer las normas de comportamiento de otros países antes de encontrarse con situaciones incómodas. Su enfoque práctico sobre saludos, gestos y costumbres sociales lo diferencia de una guía dedicada a itinerarios, monumentos o alojamientos.",
+      "texto": "Allí donde fueres... se dirige a quienes viajan al extranjero y quieren conocer las normas de cortesía de otros países. Sus consejos sobre saludos, gestos y comportamiento en la mesa responden a situaciones prácticas; no es un relato de experiencias personales ni una guía de monumentos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,38 +13,33 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Allí donde fueres... es una guía de viajes centrada en la etiqueta cultural y las diferencias de cortesía entre países. Reúne 102 consejos sobre comportamientos cotidianos, desde la forma de saludar hasta las convenciones al comer, con ejemplos orientados a evitar malentendidos durante los desplazamientos.",
+      "texto": "Es una guía de etiqueta cultural aplicada a los viajes, organizada en torno a 102 consejos para evitar equivocaciones al relacionarse con otras costumbres. Patrick Kinsella aborda situaciones cotidianas, desde la forma de saludar hasta las convenciones sociales durante una comida, con ejemplos de distintos países.",
       "evidencias": [
         "titulo",
-        "categorias",
+        "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura de Allí donde fueres... contiene 144 páginas en una edición de Geoplaneta que puede mantenerse como libro de consulta o entregarse como regalo a alguien que viaje. Kindle facilita llevar sus consejos en el móvil y revisar las pautas de cortesía durante una estancia en el extranjero.",
+      "texto": "La tapa dura reúne las 144 páginas de Allí donde fueres... en un volumen físico que puede consultarse antes de salir de viaje. Kindle permite llevar los consejos en el móvil y revisarlos durante los desplazamientos sin transportar el libro impreso.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "edicion",
-        "editorial",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Allí donde fueres... y Amsterdam de cerca 2027-2028 comparten el interés por viajar y comprender otros lugares, pero el primero aborda las normas sociales entre países y el segundo se concentra en una ciudad. Austria 7 también se ocupa de los viajes, aunque presenta un destino mediante su patrimonio y sus paisajes, frente al enfoque de etiqueta cultural de Patrick Kinsella.",
+      "texto": "Allí donde fueres... comparte el interés por viajar con Amsterdam de cerca 2027-2028, pero se centra en las normas de comportamiento entre culturas, mientras que el otro título aborda una ciudad concreta. Frente a Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, sustituye las vivencias de un recorrido por consejos de etiqueta aplicables a distintos destinos.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408320890",
-        "isbn-9788408322221"
+        "isbn-9791388099496",
+        "isbn-9788408320890"
       ]
     }
   ],

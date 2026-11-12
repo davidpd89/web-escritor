@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Bobadas se dirige a lectores interesados en cuestionar hábitos, opiniones y prioridades de la vida cotidiana mediante la reflexión filosófica. Su planteamiento abierto al desacuerdo encaja menos con quienes buscan respuestas definitivas, normas de conducta cerradas o una exposición puramente académica.",
+      "texto": "Bobadas se dirige a lectores interesados en la filosofía cotidiana, el pensamiento crítico y la discusión de ideas. Su planteamiento abierto encaja menos con quien busca un manual de instrucciones personales o conclusiones cerradas sobre cómo debe vivir.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,35 +13,34 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Javier Urra Portillo y Cristina González Reche examinan cómo las opiniones, la información y los estímulos cotidianos condicionan aquello a lo que prestamos atención. Su enfoque consiste en formular preguntas, contrastar perspectivas y promover conversaciones sobre las decisiones individuales y la convivencia social, sin imponer conclusiones únicas.",
+      "texto": "Bobadas examina qué merece atención en la vida diaria y cómo influyen las opiniones y los estímulos constantes en nuestros juicios. Javier Urra Portillo y Cristina González Reche plantean preguntas sobre la conducta individual y colectiva desde la reflexión, aceptando el desacuerdo como parte del diálogo.",
       "evidencias": [
+        "titulo",
         "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Bobadas está disponible en tapa blanda, con 248 páginas en castellano publicadas por Marcombo. El formato permite leer en papel sus reflexiones sobre cuestiones cotidianas y volver a los pasajes que susciten preguntas o discrepancias.",
+      "texto": "Bobadas está disponible en tapa blanda, con 248 páginas en castellano. El ejemplar físico permite detenerse en las preguntas, volver a pasajes anteriores y consultar los argumentos de Javier Urra Portillo y Cristina González Reche durante la lectura.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial",
-        "sinopsis_editorial"
+        "formatos_disponibles",
+        "autores"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Antes de perder el juicio comparte con Bobadas el interés por examinar las opiniones y ejercer el pensamiento crítico, aunque se centra en la propaganda y las cámaras de eco. Contingencia, ironía y solidaridad aborda también la convivencia y las ideas compartidas, pero desde la filosofía política y cultural, mientras Bobadas parte de cuestiones cotidianas.",
+      "texto": "Bobadas comparte con A vivir también se aprende: Los 5 pilares de la sabiduría para ubicarse en tiempos de cambio (Deusto) el interés por examinar la vida cotidiana. Mientras el segundo organiza su propuesta alrededor de pilares de sabiduría, Bobadas favorece la discusión sin establecer respuestas definitivas.",
       "evidencias": [
         "titulo",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388387302",
-        "isbn-9788449345951"
+        "isbn-9788423440887"
       ]
     }
   ],

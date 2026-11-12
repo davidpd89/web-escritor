@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387686420",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Más aventuras en Bullerbyn: 2 (Los niños de Bullerbyn), de Astrid Lindgren, está orientado al público infantil interesado en la amistad, la infancia y las aventuras. Su combinación de narrativa infantil y clásicos encaja menos con lectores que buscan historias de temática adulta o ensayos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Más aventuras en Bullerbyn: 2 (Los niños de Bullerbyn) se publica en tapa dura y tiene 168 páginas en castellano. La encuadernación rígida de Editorial Kókinos resulta práctica para conservar el ejemplar, compartirlo y volver a leerlo en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Más aventuras en Bullerbyn: 2 (Los niños de Bullerbyn) comparte con Onin 1 - Onin y la isla del tesoro, de Ibon Martín, el interés por las aventuras y los grupos de amigos. La obra de Astrid Lindgren se vincula a la infancia y los clásicos, mientras que la de Ibon Martín incorpora misterios y magia. El título identifica la obra de Bullerbyn con el n.º 2.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994549"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2911e64c9fa0d559",
+  "origen": "chatgpt-web"
+}

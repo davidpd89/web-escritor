@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9798901230787",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Madre / The Mother se encuadra en la novela histórica y está dirigida a lectores interesados en narraciones de ese género. No pertenece a la literatura práctica ni a los manuales de desarrollo personal, sino a la ficción de ambientación histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Madre / The Mother cuenta con 512 páginas y puede elegirse en tapa dura, tapa blanda o Kindle. La tapa dura ofrece una encuadernación rígida para conservar el volumen, la tapa blanda facilita su transporte y Kindle permite llevar la lectura en formato digital.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Madre / The Mother puede compararse con La madre, también de José María Zavala, por su autoría y la referencia a la maternidad. La primera se clasifica como novela histórica, mientras que la segunda presenta una historia centrada en la fe, la maternidad y el perdón. Ambas comparten un interés temático por la figura materna.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466685368"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c4901cb93693c46b",
+  "origen": "chatgpt-web"
+}

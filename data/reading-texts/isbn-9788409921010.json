@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409921010",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Navidades (in)voluntarias: Una comedia romántica navideña feel-good de grumpy x sunshine y magia inesperada encaja con lectores de romance juvenil que buscan humor, ambientación navideña y elementos fantásticos. Su planteamiento se distancia del romance realista sin magia y de la fantasía centrada principalmente en conflictos bélicos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Navidades (in)voluntarias: Una comedia romántica navideña feel-good de grumpy x sunshine y magia inesperada se publica en tapa blanda, con 296 páginas en castellano. Esta extensión permite repartir la lectura en varias sesiones, mientras que la edición física puede conservarse o regalarse durante las fiestas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Navidades (in)voluntarias: Una comedia romántica navideña feel-good de grumpy x sunshine y magia inesperada comparte elementos fantásticos con El hechizo más oscuro (Faeris Editorial), de Wanda Hellmund, y Los hijos de Plutón (Montena), de Augusta Thoenig y Fran de Solas. La diferencia reconocible está en el planteamiento de Silvia Dela, que combina romance navideño, humor y la dinámica grumpy x sunshine, mientras los otros títulos destacan la magia y la referencia mitológica desde sus nombres.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388108419",
+        "isbn-9791388417337"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f4f9e09ed9699111",
+  "origen": "chatgpt-web"
+}

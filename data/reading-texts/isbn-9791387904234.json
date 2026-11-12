@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791387904234",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la inteligencia artificial desde sus protagonistas, sus empresas y sus implicaciones científicas y económicas. Encaja menos con quienes buscan exclusivamente instrucciones técnicas para programar sistemas de inteligencia artificial.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro se centra en Demis Hassabis, DeepMind y la investigación orientada hacia la superinteligencia. Sebastian Mallaby aborda esta materia desde un marco que reúne biografía, divulgación científica y dimensión empresarial, en vez de presentarla como un manual técnico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para sus 576 páginas, una extensión considerable dentro de la divulgación científica. Permite leer en papel un volumen dedicado a la trayectoria de DeepMind y a la búsqueda de la superinteligencia, aunque requiere más espacio para transportarlo que un libro breve.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gestión de proyectos de inteligencia artificial comparte el campo tecnológico, pero se orienta desde su título a la organización de proyectos, mientras que La máquina infinita se centra en Demis Hassabis y DeepMind. La era de la extracción: Cómo las plataformas tecnológicas conquistaron la economía y amenazan nuestro futuro (Shackleton Books) permite otra comparación por la relación entre tecnología y economía, aunque plantea una crítica a las plataformas en lugar de una trayectoria biográfica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426742827",
+        "isbn-9788413619460"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e36fc8c5bac13527",
+  "origen": "chatgpt-web"
+}

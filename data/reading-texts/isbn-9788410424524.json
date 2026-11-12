@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788410424524",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir) se dirige a lectores de misterio y thriller. Sus 360 páginas permiten abordar una narración de extensión media; por género, queda fuera de las preferencias de quienes buscan principalmente ensayo o narrativa romántica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir) reúne 360 páginas en castellano. Este formato permite leer la novela en papel y colocarla en una colección física de misterio, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3e628463e935faea",
+  "origen": "chatgpt-web"
+}

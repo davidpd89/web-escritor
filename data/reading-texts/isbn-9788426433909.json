@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788426433909",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El dilema del erizo, de Toon Tellegen, se dirige a lectores interesados en la filosofía, la naturaleza y la narrativa contemporánea. Su adscripción también al ensayo lo sitúa cerca de la reflexión y el pensamiento, en lugar de la ficción de acción o las historias centradas en la aventura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Con 160 páginas, la tapa dura ofrece un volumen físico compacto para leer y conservar. Kindle permite consultar El dilema del erizo, de Toon Tellegen, en formato digital, sin depender del espacio que ocupa un ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El dilema del erizo, de Toon Tellegen, comparte con La vida de los animales: 21 (esenciales), de JM Coetzee, el interés que despierta el mundo animal en la reflexión literaria. También puede ponerse en relación con ¿Por qué miramos a los animales?, de John Berger, que aborda expresamente nuestra relación con ellos desde el ensayo. Las tres obras conectan literatura, pensamiento y naturaleza, aunque cada una parte de un enfoque distinto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399281019",
+        "isbn-9788425236716"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e0706bab042fa4ca",
+  "origen": "chatgpt-web"
+}

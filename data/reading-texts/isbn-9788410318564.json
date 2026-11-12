@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788410318564",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rita y Sr. Oso - ¡Vamos a la nieve! (Pequeñas manitas): Libro con mecanismos para deslizar, girar y soñar (Libros de cartón con solapas) está pensado para pequeños lectores que disfrutan manipulando elementos mientras exploran un libro. Sus mecanismos y su extensión breve encajan menos con quienes buscan una narración larga sin componentes interactivos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El libro se utiliza moviendo sus mecanismos para deslizar y girar, además de explorar las solapas de cartón. Sus 10 páginas permiten combinar la observación de las escenas con la manipulación de los elementos móviles durante una lectura compartida.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura corresponde a una edición de cartón de 10 páginas, concebida para utilizar físicamente sus mecanismos móviles. Este formato permite deslizar, girar y abrir las partes manipulables, de modo que la interacción con el objeto forma parte de la lectura.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0678534d27c22390",
+  "origen": "chatgpt-web"
+}

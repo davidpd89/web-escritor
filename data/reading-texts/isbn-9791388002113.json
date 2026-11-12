@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388002113",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mejor que en las películas (#Romance), de Lynn Painter, está pensado para lectores que buscan historias dentro del género romántico. No encaja tanto con quien prefiera fantasía, ensayo o narrativa sin protagonismo del romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne sus 360 páginas en una edición física para conservar y regalar. Kindle permite leer Mejor que en las películas (#Romance), de Lynn Painter, en dispositivos electrónicos y llevarlo cómodamente en el móvil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "24 historias para enamorarte en navidad: Relatos navideños, de Patricia Bonet, comparte con Mejor que en las películas (#Romance), de Lynn Painter, el interés por las historias de amor. La diferencia está en el planteamiento: el primero reúne 24 relatos vinculados a la Navidad, mientras que el segundo se presenta como un título de romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409929177"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5e789a31aa1a2546",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408326700",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Japón - Un paseo con amigos: Láminas para colorear (GEOPLANETA COLOREA) está dirigido a quienes buscan una actividad de coloreado relacionada con Japón. Es una propuesta de ocio creativo de Flor Kaneshiro, no una novela ni una guía de viajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 96 páginas destinadas al coloreado, en un volumen físico que permite trabajar directamente sobre sus láminas. Geoplaneta lo publica en castellano, con un formato que puede guardarse junto a otros materiales de dibujo.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Japón - Un paseo con amigos: Láminas para colorear (GEOPLANETA COLOREA) comparte la actividad de colorear con 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos). La diferencia está en el motivo anunciado: Japón en la obra de Flor Kaneshiro y Roblox en la otra propuesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328384"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "52c452c6795915a5",
+  "origen": "chatgpt-web"
+}

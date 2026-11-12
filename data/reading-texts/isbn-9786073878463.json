@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073878463",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La jaula de la melancolía / The Cage of Melancholy se dirige a lectores de ensayo e historia que prefieren la reflexión y el análisis a la ficción narrativa. Con 304 páginas, se distancia tanto de las introducciones muy breves como de las novelas centradas en personajes y tramas imaginarias.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La jaula de la melancolía / The Cage of Melancholy se publica en tapa blanda, con 304 páginas en castellano. Esta presentación permite avanzar por el ensayo en papel, marcar puntos de lectura y regresar a apartados anteriores durante su consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La jaula de la melancolía / The Cage of Melancholy y La democracia ausente / The Absent Democracy comparten autor, Roger Bartra, y se pueden comparar desde esa continuidad de autoría. La primera está clasificada como ensayo e historia, mientras que el título de la segunda señala la democracia como asunto central.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073878500"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4dde8046fa83e468",
+  "origen": "chatgpt-web"
+}

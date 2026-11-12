@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788413445656",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tu mejor momento: Por qué la mediana edad está llena de grandes oportunidades se dirige a lectores interesados en el desarrollo personal y la psicología durante la mediana edad. Sus temas se sitúan en el ensayo y el crecimiento personal, no en la narrativa de ficción ni en una guía centrada exclusivamente en la convivencia familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece una edición física de 304 páginas, adecuada para quien prefiere leer y consultar el ensayo en papel. Tu mejor momento: Por qué la mediana edad está llena de grandes oportunidades se publica en castellano con este formato.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tu mejor momento: Por qué la mediana edad está llena de grandes oportunidades comparte el interés por la psicología con «Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología)», de Ramón Nogueras Pérez, aunque este se centra en las relaciones amorosas. También puede compararse con «Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos)», de Toño Ramos, que aborda la convivencia familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387534370",
+        "isbn-9791399249682"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "17db03c9f2f96196",
+  "origen": "chatgpt-web"
+}

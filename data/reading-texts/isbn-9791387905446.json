@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Expediente 411 está dirigido a lectores adultos interesados en el misterio y la ciencia ficción, especialmente en historias sobre vigilancia tecnológica y desapariciones. No encaja con quienes buscan una investigación realista ambientada en el presente, ya que la trama transcurre en una sociedad futura dominada por sistemas automatizados.",
+      "texto": "Expediente 411 está orientada a lectores adultos que buscan un thriller de ciencia ficción sobre vigilancia tecnológica, desapariciones y secretos institucionales. Encaja menos con quienes prefieren investigaciones policiales realistas, sin elementos futuristas ni sistemas tecnológicos que condicionen la vida cotidiana.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,35 +14,35 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Expediente 411 plantea un thriller de ciencia ficción ambientado en Nova Barcelona en 2097, donde la vigilancia y la dependencia de los robots condicionan la vida cotidiana. La búsqueda de una hermana desaparecida veinticuatro años antes conduce a una investigación sobre la fiabilidad de las imágenes y el posible engaño del sistema.",
+      "texto": "La novela desarrolla un misterio familiar en una sociedad futura dominada por la vigilancia y la asistencia robótica. La reaparición de una persona desaparecida impulsa una investigación en la que las pruebas digitales resultan inestables y la fiabilidad del sistema queda en cuestión. El conflicto combina intriga personal y desconfianza hacia el control tecnológico.",
       "evidencias": [
-        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda con solapas de Expediente 411 reúne 448 páginas y permite seguir la investigación en un volumen físico. Kindle facilita llevar la novela completa en un dispositivo electrónico, especialmente para leer fuera de casa sin cargar con el libro en papel.",
+      "texto": "Expediente 411 se ofrece en tapa blanda con solapas, en una edición de Roca Editorial de 448 páginas. Esta opción permite conservar y consultar el thriller en papel, mientras Kindle facilita leerlo en dispositivos electrónicos y continuar sus capítulos sin llevar el volumen físico.",
       "evidencias": [
         "titulo",
         "edicion",
+        "editorial",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El mundo perdido y Expediente 411 comparten elementos de ciencia ficción y peligro, pero el primero parte de dinosaurios encontrados en una isla de Costa Rica, mientras el segundo investiga una desaparición en una sociedad vigilada. Evangelion Anima (novela) nº 04 también presenta amenazas de alcance tecnológico o extraordinario, aunque su conflicto gira alrededor de la Lanza de Longinus y el futuro del mundo.",
+      "texto": "Expediente 411 y Los Propios Dioses / The Gods Themselves pertenecen al ámbito de la ciencia ficción y permiten explorar conflictos desde escenarios alejados del realismo cotidiano. La obra de Anna C. Jaquet incorpora una investigación sobre una desaparición en una sociedad hipervigilada, con un componente de thriller que define su propuesta.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466392143",
-        "isbn-9791388101861"
+        "isbn-9786287897472"
       ]
     }
   ],

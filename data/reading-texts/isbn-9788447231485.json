@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788447231485",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la escultura de época adrianea, la historia del arte y los estudios patrimoniales. Su planteamiento como reunión hispano-italiana de especialistas lo diferencia de una introducción general al arte destinada a lectores sin intereses históricos concretos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El volumen aborda la escultura adrianea desde una perspectiva histórica y artística, con nuevas aportaciones reunidas en un encuentro hispano-italiano. La referencia a Antonio Blanco Freijeiro sitúa además la publicación en un contexto de memoria académica, dentro de la colección Cultura y Patrimonio.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda y tiene 196 páginas, una extensión que permite manejar el volumen como material de consulta. El formato impreso facilita volver a pasajes concretos durante el estudio de la escultura y conservar el libro junto a otras publicaciones sobre patrimonio artístico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los pilares de la historia, de Javier Fernández Sebastián, comparte el interés por el estudio del pasado, pero plantea una reflexión sobre la capacidad de la historia para explicar el mundo actual. Escultura adrianea: nuevas aportaciones se concentra en la producción escultórica de época adrianea y reúne contribuciones de un encuentro hispano-italiano. La diferencia está entre una reflexión sobre la disciplina histórica y un estudio especializado de historia del arte.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430629664"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f213ccc086e89d8d",
+  "origen": "chatgpt-web"
+}

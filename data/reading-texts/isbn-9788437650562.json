@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788437650562",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Éxodo y exilio del arte: La odisea del Museo del Prado durante la Guerra Civil se dirige a lectores interesados en la historia del arte, el exilio y los acontecimientos del siglo XX. Sus 536 páginas plantean una lectura extensa y temática, menos adecuada para quien busca ficción o una introducción breve al arte.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar las 536 páginas de Éxodo y exilio del arte: La odisea del Museo del Prado durante la Guerra Civil en papel, una opción para mantener el volumen en una biblioteca de historia. Kindle facilita transportar digitalmente una obra de esta extensión y continuar la lectura en dispositivos compatibles.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8a8e41a3f25a2af3",
+  "origen": "chatgpt-web"
+}

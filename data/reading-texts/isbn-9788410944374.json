@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788410944374",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la inteligencia artificial y en las disputas por el poder asociadas a su desarrollo. Por su enfoque de divulgación, historia y figuras humanas, encaja menos con quien busca un manual de programación o una explicación exclusivamente técnica de los sistemas de IA.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro examina la inteligencia artificial desde la competencia entre quienes aspiran a controlar su desarrollo y su influencia mundial. Gustavo Entrala aborda esta cuestión en 256 páginas, dentro de un marco que combina divulgación científica, historia y atención a las personas implicadas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 256 páginas de esta obra de Gustavo Entrala en un volumen físico para leer y conservar. Kindle permite llevar el texto en formato digital y consultarlo desde un móvil o lector compatible, sin necesidad de transportar el ejemplar impreso.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La máquina infinita: Demis Hassabis, DeepMind y la búsqueda de la superinteligencia (Ciencia y Tecnología) comparte el interés por la IA, pero se centra en una figura y una organización concretas. El juego de tronos de la IA: Cómo un puñado de hombres se disputa el dominio del mundo plantea una mirada más amplia sobre la competencia por el control de esta tecnología.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387904234"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a42a5ced8c7bb5b1",
+  "origen": "chatgpt-web"
+}

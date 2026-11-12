@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791388032691",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Busca y encuentra en la mitología: Un libro de Clara Booth lleno de objetos perdidos: 80 (Las Tres Edades / Nos Gusta Saber) se dirige al público infantil interesado en la mitología y los juegos de búsqueda. Su propuesta se aleja de la lectura narrativa convencional y se centra en localizar objetos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El libro plantea una actividad de búsqueda de objetos relacionados con la mitología. Puede utilizarse para localizar elementos durante la lectura, volver sobre las páginas y repetir la actividad, en lugar de seguir una historia de principio a fin.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa dura, con 48 páginas publicadas por Ediciones Siruela. Este formato permite manejar el volumen durante las actividades de búsqueda y conservarlo para volver a utilizarlo en distintas sesiones.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Biblia para niños: Las mejores historias del Antiguo y del Nuevo Testamento | Libro infantil con juegos y actividades extra (Mi primera biblioteca) también combina contenidos religiosos con actividades infantiles. La diferencia está en que el libro de Clara Booth se centra en buscar objetos mitológicos, mientras que el de Javier Alonso López presenta relatos bíblicos y juegos complementarios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788413617732"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "23771237c299df58",
+  "origen": "chatgpt-web"
+}

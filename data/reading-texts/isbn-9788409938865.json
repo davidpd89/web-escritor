@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788409938865",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cross in a Box: 50 retos en los que descubrir al culpable se dirige a quienes buscan actividades de deducción y resolución de enigmas. Sus 50 retos sitúan la experiencia en el terreno del entretenimiento participativo, por lo que no responde a quien prefiera una novela policíaca de lectura continua.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cross in a Box: 50 retos en los que descubrir al culpable se publica en tapa blanda, con 154 páginas. Esta edición física permite consultar los retos y regresar a ellos durante la resolución, sin depender de una pantalla; también puede utilizarse como libro de actividades para regalar.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos) comparte con Cross in a Box: 50 retos en los que descubrir al culpable su orientación hacia el ocio mediante actividades. El primero propone colorear píxeles relacionados con Roblox; el segundo plantea resolver retos para identificar culpables, por lo que exige una participación distinta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328384"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3ec6d49e337ff795",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387690625",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El imperio del amanecer: 56 (Noches Negras), de Jay Kristoff, se dirige a lectores de fantasía, aventuras y terror, con elementos de ciencia ficción en su clasificación. Sus 980 páginas requieren una dedicación prolongada; quien prefiera relatos breves o lecturas alejadas de estos géneros encontrará una propuesta diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El imperio del amanecer: 56 (Noches Negras) se publica en tapa blanda y alcanza las 980 páginas. Es un volumen físico extenso, más cómodo para leer apoyado que para sostener durante periodos largos; la edición en castellano de Nocturna Ediciones permite conservar toda la obra en un solo ejemplar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El imperio del amanecer: 56 (Noches Negras) comparte el terreno de la fantasía con Ciudad de dioses y monstruos (DARK ROMANCE), de Kayla Edwards. El primero combina fantasía, aventuras, terror y ciencia ficción, mientras que el segundo incorpora una referencia explícita al romance oscuro en su título; esa diferencia permite distinguir sus orientaciones de género.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788415955559"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e7dbd13a9d8af06b",
+  "origen": "chatgpt-web"
+}

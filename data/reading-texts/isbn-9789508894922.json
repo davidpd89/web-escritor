@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9789508894922",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡Qué emoción! ¿Qué emoción? (EN POCAS PALABRAS), de Georges Didi-Huberman, se dirige a lectores interesados en el ensayo y la filosofía, especialmente en cuestiones relacionadas con las emociones. Sus 88 páginas ofrecen un volumen breve; no es una obra de narrativa ni de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 88 páginas de ¡Qué emoción! ¿Qué emoción? (EN POCAS PALABRAS), de Georges Didi-Huberman. Es un ejemplar físico de La Marca Editora, con una extensión reducida que facilita llevarlo y consultarlo en papel.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c6aeecc64b56eb10",
+  "origen": "chatgpt-web"
+}

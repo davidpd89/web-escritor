@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788426438164",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Tan poca vida (Narrativa), de Hanya Yanagihara, está orientado a lectores de narrativa contemporánea que buscan una edición presentada en estuche. Sus 1008 páginas requieren una lectura prolongada, por lo que no encaja con quienes prefieren novelas cortas o formatos digitales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estuche Tan poca vida (Narrativa) se comercializa en tapa blanda, con una extensión declarada de 1008 páginas. La presentación en estuche lo diferencia de la edición corriente y permite conservar la obra de Hanya Yanagihara en una edición física de Lumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche Tan poca vida (Narrativa) comparte obra y autora con Tan poca vida (Narrativa), de Hanya Yanagihara. La diferencia para el lector está en la presentación: el estuche reúne una edición física de Lumen con 1008 páginas, mientras que el otro título se presenta sin esa denominación. Ambos pertenecen a la narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426438171"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a397156f28ce9235",
+  "origen": "chatgpt-web"
+}

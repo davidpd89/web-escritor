@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466393874",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Familia rica, familia lista: Aumenta el coeficiente financiero de tu familia y toma el control de tu futuro (Best Seller | No Ficción) se dirige a lectores interesados en la educación financiera dentro del entorno familiar. Su temática económica se aparta de los libros centrados exclusivamente en relaciones personales o ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Penguin Bolsillo tiene 232 páginas en tapa blanda, adecuada para llevar el libro y volver a consultar sus apartados. Kindle permite leerlo desde el móvil sin transportar el volumen físico, mientras que el audiolibro ofrece una alternativa de escucha durante desplazamientos o actividades cotidianas.",
+      "evidencias": [
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Familia rica, familia lista: Aumenta el coeficiente financiero de tu familia y toma el control de tu futuro (Best Seller | No Ficción) comparte el interés por las finanzas con Cómo generar ingresos con las opciones: Así transformé la bola de nieve en avalancha (EMPRESA). Robert T. Kiyosaki sitúa el aprendizaje económico en la familia, mientras que Renato Antinori trata la generación de ingresos mediante opciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724357"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ce457d5b1df78465",
+  "origen": "chatgpt-web"
+}

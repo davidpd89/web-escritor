@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9786073878395",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El héroe perdido / The Lost Hero: 1 (Los héroes del Olimpo / The Heroes of Olympus) se dirige a lectores de fantasía interesados en referencias religiosas y mitológicas. Sus 496 páginas requieren una lectura de cierta extensión y encajan menos con quien busca relatos breves o narrativa realista.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer sus 496 páginas en una edición física flexible, mientras que la tapa dura ofrece una encuadernación más rígida para conservar el volumen. Kindle permite llevar el texto en un dispositivo compatible sin transportar el libro impreso.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El héroe perdido / The Lost Hero: 1 (Los héroes del Olimpo / The Heroes of Olympus) comparte autor y colección con El hijo de Neptuno / The Son of Neptune: 2 (Los héroes del Olimpo / The Heroes of Olympus). Los títulos identifican respectivamente los números 1 y 2, mientras que Campamento Mestizo 1 - La zona rebelde, también de Rick Riordan junto a Annabelle Oh, sitúa su propuesta en el Campamento Mestizo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073878401",
+        "isbn-9788419868466"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cf1f95bbe220d87d",
+  "origen": "chatgpt-web"
+}

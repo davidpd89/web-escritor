@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9798890988812",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nunca fuiste impostora / You Were Never an Impostor, de Anamar Orihuela, encaja con quienes buscan lecturas de psicología y desarrollo personal relacionadas con la percepción de uno mismo. Su orientación hacia la autoayuda lo distingue de los manuales de economía o de las obras de ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nunca fuiste impostora / You Were Never an Impostor cuenta con una edición en tapa blanda de 264 páginas, publicada por Aguilar. La cubierta flexible facilita llevar el libro y consultar fragmentos en papel; su extensión permite repartir la lectura entre varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, y Nunca fuiste impostora / You Were Never an Impostor, de Anamar Orihuela, comparten el interés por el desarrollo personal y la psicología. El primero aborda la infancia y la posibilidad de sanar sus heridas; el segundo centra su planteamiento en la sensación de ser una impostora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1c1f420f4f8453c9",
+  "origen": "chatgpt-web"
+}

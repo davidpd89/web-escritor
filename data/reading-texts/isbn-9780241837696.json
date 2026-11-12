@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9780241837696",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El libro de los aviones (Transportes): Helicópteros, planeadores, dirigibles y otras aeronaves (Enciclopedia visual), de DK, se dirige a lectores interesados en la aviación y en conocer distintos tipos de aeronaves. Su enfoque de enciclopedia visual y divulgación científica lo diferencia de las obras narrativas o de los libros centrados en otras disciplinas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne sus 320 páginas en un volumen físico de consulta, mientras que Kindle ofrece la alternativa de lectura digital. El primero permite conservar la enciclopedia en la estantería; el segundo evita depender del espacio físico para acceder al contenido.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antigua Grecia (Civilizaciones antiguas) (Enciclopedia visual), de DK, comparte con El libro de los aviones (Transportes): Helicópteros, planeadores, dirigibles y otras aeronaves (Enciclopedia visual), de DK, el formato de enciclopedia visual y la misma autoría. La diferencia está en el contenido: uno se ocupa de las aeronaves y el otro de la historia de una civilización.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241837610"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "274d8a214e0d0ce4",
+  "origen": "chatgpt-web"
+}

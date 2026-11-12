@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788412792584",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lo personal es político: 16 (NARRATIVA), de Carol Hanisch, se dirige a quienes leen ensayos sobre poder, política e historia del siglo XX. Su enfoque temático se aleja de las lecturas centradas en la ficción y de quienes buscan una novela de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lo personal es político: 16 (NARRATIVA) está disponible en tapa blanda, con 130 páginas en castellano. Esta edición de Sabina Editorial S.l. permite llevar el ensayo en papel y consultar sus páginas durante la lectura o el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lo personal es político: 16 (NARRATIVA) comparte el interés por la política y la historia con Los pilares de la historia, de Javier Fernández Sebastián. Mientras este último plantea la capacidad de la historia para explicar un mundo en crisis, el libro de Carol Hanisch se sitúa en el terreno del ensayo sobre poder y política del siglo XX.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430629664"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e79ead474b015130",
+  "origen": "chatgpt-web"
+}

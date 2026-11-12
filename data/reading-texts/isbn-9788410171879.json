@@ -4,16 +4,15 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La vida en el campo encaja con lectores interesados en relatos sobre desigualdad, vida rural y conflictos humanos tratados desde el realismo literario. Giovanni Verga retrata a trabajadores sicilianos marcados por la pobreza y la muerte, por lo que se aleja de las narraciones de evasión y de los argumentos centrados en aventuras.",
+      "texto": "La vida en el campo encaja con lectores de relatos sobre desigualdad social, comunidades rurales y conflictos humanos tratados desde el realismo. Sus historias de pobreza, muerte y pasiones difíciles pueden resultar menos adecuadas para quienes prefieren argumentos ligeros o desenlaces reconfortantes.",
       "evidencias": [
         "titulo",
-        "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La vida en el campo reúne cuentos de Giovanni Verga sobre campesinos, pastores, mineros y pescadores marcados por la pobreza y las dificultades de su entorno. La narración utiliza el verismo para representar sus conflictos, relaciones y formas de hablar, con una expresión emocional contenida. Publicada originalmente en 1880, la obra combina observación de la vida popular y sensibilidad poética.",
+      "texto": "La vida en el campo reúne cuentos de Giovanni Verga sobre las condiciones de vida de las clases populares sicilianas. El autor retrata trabajos precarios, relaciones personales y conflictos ligados a la pobreza mediante una escritura realista que incorpora expresiones del habla cotidiana y elementos poéticos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -22,26 +21,12 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La vida en el campo puede leerse en tapa blanda o Kindle. La edición de Editorial Periférica tiene 152 páginas, una extensión manejable para transportar el volumen físico y leer sus cuentos por separado; Kindle permite llevar la colección en un dispositivo electrónico y alternar los relatos durante los desplazamientos.",
+      "texto": "La vida en el campo cuenta con 152 páginas y puede leerse en tapa blanda o Kindle. La edición física reúne sus cuentos en un volumen relativamente breve; Kindle permite alternar entre relatos y retomar la lectura desde un dispositivo móvil.",
       "evidencias": [
         "titulo",
-        "editorial",
         "numero_paginas",
         "formatos_disponibles",
         "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "La vida en el campo y Catulo / Marcial comparten el interés por las pasiones humanas y las tensiones sociales, aunque utilizan formas literarias distintas. Giovanni Verga retrata mediante cuentos las condiciones de vida de trabajadores rurales y sus conflictos personales, mientras que Ernesto Cardenal aborda el erotismo, la sátira y las relaciones sociales desde textos vinculados a la antigua Roma.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788467084320"
       ]
     }
   ],

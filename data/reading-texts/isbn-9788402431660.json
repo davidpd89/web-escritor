@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788402431660",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Con Dios todo lo puedo: Enseñanzas cristianas para la vida desde san Pedro hasta san Juan Pablo II, de María Gómez Zúñiga y Laura Trueba, se dirige a lectores interesados en la espiritualidad cristiana y el desarrollo personal. Su orientación religiosa lo diferencia de los manuales de autoayuda centrados en hábitos o técnicas de productividad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece sus 224 páginas en un volumen físico que permite leer, consultar y conservar el contenido. Kindle resulta más práctico para llevarlo en el móvil o una tableta y acceder a sus enseñanzas sin transportar el libro.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, comparte el interés por la espiritualidad y su aplicación a la vida. La diferencia está en el enfoque: Con Dios todo lo puedo: Enseñanzas cristianas para la vida desde san Pedro hasta san Juan Pablo II aborda la tradición cristiana, mientras que el otro título reúne astrología, filosofía y magia.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "78ef33093e503f1a",
+  "origen": "chatgpt-web"
+}

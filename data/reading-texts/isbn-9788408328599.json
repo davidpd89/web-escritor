@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788408328599",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rey de la codicia (Serie Pecados, 3): Edición limitada a precio especial (Colección Especial), de Ana Huang, se dirige a lectores de romance que siguen historias identificadas por series. El título lo identifica como el n.º 3 de Serie Pecados, por lo que encaja menos con quienes prefieren libros ajenos a una serie o buscan principalmente terror y misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición de Booket de Rey de la codicia (Serie Pecados, 3): Edición limitada a precio especial (Colección Especial) se presenta en tapa dura y castellano. Tiene 368 páginas, fecha de publicación del 2026-11-11 y una identificación de edición limitada a precio especial; el título la señala como el n.º 3 de Serie Pecados.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "fecha_publicacion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es la presentación disponible de Rey de la codicia (Serie Pecados, 3): Edición limitada a precio especial (Colección Especial). Sus 368 páginas permiten leer la novela en un único volumen físico, mientras que la cubierta rígida resulta útil para conservarla junto a otros títulos de Ana Huang o regalarla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "The Defender (Dioses del juego, 2) (Novela) y Dioses del juego 3. The Keeper comparten autoría con Rey de la codicia (Serie Pecados, 3): Edición limitada a precio especial (Colección Especial): los tres son de Ana Huang. La diferencia está en la serie indicada por sus títulos; Dioses del juego 3. The Keeper se presenta además como sports romance, mientras que Rey de la codicia pertenece al romance de Serie Pecados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331575",
+        "isbn-9788408330783"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ef3559e812cb5146",
+  "origen": "chatgpt-web"
+}

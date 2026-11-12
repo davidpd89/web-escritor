@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9786287915282",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de fantasía juvenil que buscan una historia con componente romántico y elementos de romantasy. Por su combinación de géneros, encaja menos con quienes prefieren narrativa realista o romances sin ambientación fantástica.",
+      "evidencias": [
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Editorial Planeta se presenta en tapa dura y anuncia cantos tintados como característica distintiva. Reúne 476 páginas en castellano y tiene prevista su publicación para el 2026-12-03.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formato_edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para esta edición de 476 páginas, con cantos tintados como rasgo distintivo. Es una opción física para conservar en la estantería o regalar, frente a la lectura digital o la escucha.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Asistente del villano (edición especial limitada) (Faeris Editorial) permite comparar dos propuestas de fantasía vinculadas al romance. La diferencia visible está en el planteamiento editorial: Las Cadenas del Rey se presenta como edición de lujo con cantos tintados, mientras que el título de Hannah Nicole Maehrer se identifica como edición especial limitada.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388108112"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "52be1c149bb75431",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388387913",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El mundo sin nosotros (Sociedad), de Alan Weisman, se dirige a lectores interesados en la divulgación científica. Sus 448 páginas plantean una lectura de ciencia en formato extenso, distinta de una novela de ficción o de un manual breve de consulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El mundo sin nosotros (Sociedad) está disponible en tapa blanda, en una edición de Debate de 448 páginas. Es una opción física para leer por sesiones, conservar en la estantería o regalar, con una cubierta flexible que facilita su transporte.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El mundo sin nosotros (Sociedad), de Alan Weisman, comparte su enfoque de divulgación científica con 50 cosas que hay que saber sobre IA, de Keith Mansfield. Mientras el primero aborda cuestiones científicas relacionadas con el mundo, el segundo se centra en la inteligencia artificial y presenta sus contenidos como conocimientos esenciales sobre esa tecnología.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3ddc442e9a12c4c2",
+  "origen": "chatgpt-web"
+}

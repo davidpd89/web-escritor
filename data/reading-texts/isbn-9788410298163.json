@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410298163",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Abril Abremundos 2 - El laberinto de las ilusiones (Montena), de Mar Benegas, se dirige a lectores que buscan historias de fantasía en formato breve. Sus 128 páginas permiten una lectura de extensión contenida; encaja menos con quien busca narrativa histórica o novelas de gran extensión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para leer Abril Abremundos 2 - El laberinto de las ilusiones (Montena), de Mar Benegas. Sus 128 páginas forman un volumen físico de extensión reducida, manejable para llevarlo y leerlo fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abril Abremundos 1 - El bosque susurrador (Montena), de Mar Benegas, es la comparación más directa: comparte autora y la denominación Abril Abremundos. El título identifica esta entrega como el n.º 2, mientras que la otra figura como n.º 1; los títulos presentan escenarios diferenciados, el laberinto de las ilusiones y el bosque susurrador.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387972936"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ccdca2796b3b0d95",
+  "origen": "chatgpt-web"
+}

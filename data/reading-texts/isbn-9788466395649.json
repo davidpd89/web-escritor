@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788466395649",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pack Grant Cardone (Contiene: Vendes o vendes | La regla de oro de los negocios) (Best Seller | No Ficción) está dirigido a lectores interesados en ventas y gestión empresarial. Reúne dos títulos de Grant Cardone y se diferencia de las obras centradas exclusivamente en economía doméstica o teoría política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pack Grant Cardone (Contiene: Vendes o vendes | La regla de oro de los negocios) (Best Seller | No Ficción) comparte el ámbito empresarial con Antes de liderar: Una mirada interior a un oficio, aunque este último se centra en el liderazgo. Branding con criterio: Una novela-ensayo que, como brújula de arena, nos interpela (TEMATICOS) aborda el branding desde una propuesta identificada como novela-ensayo, frente al conjunto de dos obras sobre ventas y negocios de Grant Cardone.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921980",
+        "isbn-9791399168648"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "71dbd12fea14d095",
+  "origen": "chatgpt-web"
+}

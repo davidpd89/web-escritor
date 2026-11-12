@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788449346163",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en comprender los hábitos cotidianos desde la psicología y la divulgación científica. El efecto ritual: El poder transformador de nuestros hábitos cotidianos (Divulgación), de Michael Norton, se ocupa de las prácticas habituales y su capacidad de transformación, por lo que encaja menos con quien busca una novela o un manual sobre productividad exclusivamente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene las 288 páginas de El efecto ritual: El poder transformador de nuestros hábitos cotidianos (Divulgación). Su presentación física permite marcar pasajes y consultar de nuevo las explicaciones sobre los hábitos, además de conservar el volumen para futuras lecturas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El efecto ritual: El poder transformador de nuestros hábitos cotidianos (Divulgación) puede compararse con Hackea Tu Cerebro / Hack Your Brain: Neurociencia, Productividad, Aprendizaje por su interés en el comportamiento humano. Michael Norton se centra en los rituales cotidianos, mientras que Nicolás Fernández Miranda orienta su libro hacia la neurociencia, la productividad y el aprendizaje.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789877188455"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "19c8dd72164fe6fd",
+  "origen": "chatgpt-web"
+}

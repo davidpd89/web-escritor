@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388092701",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El alfabeto infinito: Las leyes del conocimiento (Ensayo y Pensamiento) está dirigido a lectores interesados en el conocimiento desde perspectivas filosóficas y económicas. Sus 288 páginas corresponden a un ensayo, por lo que no responde a la búsqueda de una novela con personajes y una trama de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El alfabeto infinito: Las leyes del conocimiento (Ensayo y Pensamiento) consta de 288 páginas en tapa blanda. Es un volumen físico en castellano que puede subrayarse, anotarse y consultarse por apartados durante el estudio de sus planteamientos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparte con El alfabeto infinito: Las leyes del conocimiento (Ensayo y Pensamiento) el terreno del ensayo y la reflexión económica. Miguel Anxo Bastos Boubeta se centra en los fundamentos de una corriente política, mientras que César Hidalgo plantea una aproximación a las leyes del conocimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c8b5d17ff16ff28c",
+  "origen": "chatgpt-web"
+}

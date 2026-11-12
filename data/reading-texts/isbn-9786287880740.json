@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786287880740",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historia oficial del amor (Ed. Conmemorativa) / Official History of Love (Commemorative Edition) se dirige a lectores de narrativa contemporánea interesados en el amor, las relaciones de pareja y la familia. Sus 560 páginas plantean una lectura extensa, menos ajustada a quien prefiera libros breves o busque una obra centrada en la fantasía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición conmemorativa de Historia oficial del amor (Ed. Conmemorativa) / Official History of Love (Commemorative Edition) ofrece tapa dura, Kindle y audiolibro. La tapa dura reúne sus 560 páginas en un volumen físico apropiado para conservar o regalar; Kindle permite leerlo en dispositivos electrónicos y el audiolibro sustituye la lectura visual por la escucha.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Historia oficial del amor (Ed. Conmemorativa) / Official History of Love (Commemorative Edition) comparte el interés por las relaciones afectivas con ROSAURA, AMOR PÚRPURA: Cuando la noche está más oscura, es cuando empieza a clarear, de Reynalldo Rey. La obra de Ricardo Silva Romero se sitúa en la narrativa contemporánea y aborda también la familia, mientras que el título de Reynalldo Rey destaca expresamente el amor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410906303"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ed59fac025781ce9",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9786073881333",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La magia de los cinco elementos / Bewitching the Elements: A Guide to Empowering Yourself Through Earth, Air, Fire, Water, and Spirit se orienta a lectores interesados en la magia vinculada a la tierra, el aire, el fuego, el agua y el espíritu. Su relación con el desarrollo personal y la espiritualidad lo aleja de las lecturas centradas exclusivamente en aventuras de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La magia de los cinco elementos / Bewitching the Elements: A Guide to Empowering Yourself Through Earth, Air, Fire, Water, and Spirit se presenta en tapa blanda, con 352 páginas. Este formato permite mantener el volumen físico a mano para consultar los contenidos relacionados con los elementos y la práctica espiritual.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La magia de los cinco elementos / Bewitching the Elements: A Guide to Empowering Yourself Through Earth, Air, Fire, Water, and Spirit comparte el interés por la magia y la espiritualidad con Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies. Gabriela Herstik organiza su propuesta alrededor de cinco elementos, mientras que Soledad Davies incorpora expresamente la astrología y la filosofía a su planteamiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6388432d5836639e",
+  "origen": "chatgpt-web"
+}

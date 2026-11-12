@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9786073946209",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de historia y ensayo interesados en las figuras femeninas de los mitos y las leyendas. Mitos Y Leyendas Sin Hombres: Vírgenes, Guerreras, Monstruos Y Brujas, Como Nunca Te Las Habían Contrado / Ancient Myths and Legends Without Men, de Mara Gold, no está clasificado como novela fantástica, sino como una obra de no ficción sobre relatos tradicionales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra aborda mitos y leyendas desde la presencia de vírgenes, guerreras, monstruos y brujas, con especial atención a las figuras femeninas. Su clasificación como historia y ensayo sitúa el tratamiento en la revisión de relatos tradicionales, y sus 240 páginas delimitan la extensión del volumen.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es la presentación que puede elegirse para esta obra de Mara Gold, con una extensión de 240 páginas. El volumen permite consultar en papel los temas dedicados a las figuras femeninas de los relatos míticos, sin depender de dispositivos electrónicos para su lectura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "autores",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bestiario de España: Mitos y leyendas de nuestro país (No ficción ilustrados) comparte el interés por las tradiciones míticas, pero delimita su asunto a España. Mitos Y Leyendas Sin Hombres: Vírgenes, Guerreras, Monstruos Y Brujas, Como Nunca Te Las Habían Contrado / Ancient Myths and Legends Without Men, de Mara Gold, desplaza el foco hacia las figuras femeninas, mientras que el libro de Javier Prado Coronel anuncia un tratamiento ilustrado de mitos y leyendas del país.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387949976"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "43c0718527eaa7d4",
+  "origen": "chatgpt-web"
+}

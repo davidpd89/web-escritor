@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387713225",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La caza sutil (caja baja) está dirigida a lectores interesados en el ensayo y en la obra de Julio Ramón Ribeyro. Quien busque una novela de ficción, una historia romántica o una guía práctica encontrará aquí un libro de naturaleza ensayística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 440 páginas de La caza sutil (caja baja) en una edición física publicada por La Caja Books. Su extensión permite disponer de un volumen de ensayo en papel para leerlo y conservarlo; es el formato disponible en esta ficha.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e72f5eaa82a9ae95",
+  "origen": "chatgpt-web"
+}

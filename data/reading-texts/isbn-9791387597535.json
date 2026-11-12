@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387597535",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Floriografía: Una guía ilustrada del lenguaje victoriano de las flores (VARIOS) está pensada para lectores interesados en las flores, su lenguaje y los libros ilustrados de consulta y ocio. No responde al planteamiento de una novela ni al de un libro de narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne sus 224 páginas en una edición de Jessica Roux publicada por Errata naturae. Este formato permite conservar el volumen como libro ilustrado de consulta y tenerlo a mano para volver a sus contenidos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "80 crímenes imposibles de resolver (FUERA DE ESCENA), de Gareth Moore, Laura Jayne Ayres, comparte con Floriografía: Una guía ilustrada del lenguaje victoriano de las flores (VARIOS), de Jessica Roux, el formato de libro pensado para consultar y explorar contenidos visuales. La diferencia está en el tema: uno plantea casos criminales y el otro aborda el significado de las flores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388015816"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "29e379d7f3683b46",
+  "origen": "chatgpt-web"
+}

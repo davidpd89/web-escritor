@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419831774",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vecinos en prácticas (Romántica) se dirige a lectores de romance juvenil y narrativa contemporánea que buscan historias con componentes de humor. La novela de Cristina Prieto Solano tiene 384 páginas y se aleja de la fantasía épica y de los libros prácticos sobre relaciones personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Vecinos en prácticas (Romántica) ofrece una edición física de 384 páginas, adecuada para conservar en la estantería o prestar después de leer. Kindle permite llevar esta novela de Cristina Prieto Solano en el móvil o en un lector electrónico, evitando transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Vecinos en prácticas (Romántica) puede compararse con La conquista perfecta / The Perfect Conquest, de América Rodas, dentro de las lecturas de temática romántica. La obra de Cristina Prieto Solano combina romance juvenil, narrativa contemporánea y humor, mientras que el título de América Rodas plantea la conquista amorosa desde su propio enunciado. Son novelas de autoras distintas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073878746"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f30c65c72c535965",
+  "origen": "chatgpt-web"
+}

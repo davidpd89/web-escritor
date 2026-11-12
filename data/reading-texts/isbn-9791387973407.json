@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791387973407",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aprender a sobrevivir: Lecciones de Japón y del mundo para comprender y prevenir los desastres del siglo XXI (GROU), de Carmen Grau, se dirige a lectores interesados en el desarrollo personal y en comprender la prevención de desastres. Su planteamiento no corresponde a quien busca una novela de ficción o una historia de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne 240 páginas en un volumen físico publicado por Montena. Es el formato disponible para quien prefiere consultar y leer el libro en papel, conservarlo en su biblioteca o compartirlo como regalo.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f651ff2b4634bffa",
+  "origen": "chatgpt-web"
+}

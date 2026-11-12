@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791399153835",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El pacto bajo la acacia (Novela histórica) se orienta a lectores interesados en la ficción ambientada en contextos históricos. La obra de Irene Cordón i Sol-Sagalés pertenece al ámbito de la novela histórica, por lo que no responde a la búsqueda de un manual académico de historia ni de una narración contemporánea ajena al pasado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El pacto bajo la acacia (Novela histórica) está editado en tapa blanda y consta de 432 páginas. Desperta Ferro Ediciones ofrece así una novela histórica en papel, con una extensión que permite distribuir la lectura en varias sesiones y conservar el volumen en una biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2050842d699e798e",
+  "origen": "chatgpt-web"
+}

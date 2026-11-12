@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399072372",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El ajedrez de arena: Todas las claves para apreciar el toreo (ENSAYOS SOBRE UN ARTE MODERNO), de Francisco Aguado Montero, está dirigido a lectores interesados en comprender el toreo desde una perspectiva artística. Su planteamiento ensayístico resulta menos afín a quienes buscan ficción narrativa o actividades manuales de dibujo y pintura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El ajedrez de arena: Todas las claves para apreciar el toreo (ENSAYOS SOBRE UN ARTE MODERNO) cuenta con una edición en tapa blanda de 224 páginas. Su extensión permite abordar el tema en un volumen manejable y la encuadernación flexible facilita transportarlo para leer o consultar sus contenidos sobre el toreo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El ajedrez de arena: Todas las claves para apreciar el toreo (ENSAYOS SOBRE UN ARTE MODERNO) y Cuadernos de iniciación a la acuarela. Flores y hojas a la acuarela. Aprende a pintar 21 motivos botánicos paso a paso comparten el interés por las disciplinas artísticas. Francisco Aguado Montero aborda la apreciación del toreo; Anne-Claire Duval-Dumas se centra en aprender técnicas de pintura mediante motivos botánicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410650930"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1fa257171083776e",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387949976",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bestiario de España: Mitos y leyendas de nuestro país está dirigido a lectores interesados en la historia y las tradiciones legendarias españolas. Su planteamiento de no ficción ilustrada lo diferencia de una novela fantástica o de una narración de ficción protagonizada por criaturas mitológicas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne sus 96 páginas en un volumen físico para conservar y consultar; Kindle permite llevarlo en un dispositivo electrónico. La edición de Bestiario de España: Mitos y leyendas de nuestro país está disponible en ambos formatos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bestiario de España: Mitos y leyendas de nuestro país comparte con Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo) el planteamiento de acercarse a un tema cultural desde la no ficción. Javier Prado Coronel se centra en los mitos y leyendas de España, mientras que Carlos del Amor sitúa el arte y el amor en el centro de su obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084122"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2dd829f221eaa28b",
+  "origen": "chatgpt-web"
+}

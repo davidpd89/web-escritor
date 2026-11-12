@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466395922",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vive más: Reduce tu edad biológica y aumenta tu vitalidad (Best Seller | No Ficción) se dirige a lectores interesados en la salud, la vitalidad y el bienestar físico. El libro de Marcos Vázquez aborda estas cuestiones desde la no ficción y no responde a la búsqueda de una novela ni de un relato autobiográfico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de bolsillo en tapa blanda de Vive más: Reduce tu edad biológica y aumenta tu vitalidad (Best Seller | No Ficción) contiene 304 páginas y facilita la consulta en papel. Kindle permite leerlo en el móvil o un lector electrónico, mientras que el audiolibro sirve para escuchar su contenido durante actividades cotidianas.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Saludable Mente: Hábitos para optimizar tu cerebro y mejorar tu salud a cualquier edad (Best Seller | No Ficción) comparte autor con Vive más: Reduce tu edad biológica y aumenta tu vitalidad (Best Seller | No Ficción), pero centra su propuesta en el cerebro y los hábitos mentales. Chef sapiens: De los orígenes a la actualidad en 100 recetas saludables (Best Seller | No Ficción) incorpora la cocina y las recetas como diferencia principal frente al enfoque sobre edad biológica y vitalidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395939",
+        "isbn-9788466374330"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f868f02979cc5ad1",
+  "origen": "chatgpt-web"
+}

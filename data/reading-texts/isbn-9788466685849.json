@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466685849",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ojalá leas esto desde el infierno (Ediciones B) se orienta a lectores que buscan una novela donde conviven el romance, el misterio y los componentes fantásticos. Su combinación de aventuras y elementos románticos la diferencia de las historias centradas únicamente en relaciones de pareja o de los relatos de misterio sin fantasía. También figura vinculada al humor.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ojalá leas esto desde el infierno (Ediciones B) cuenta con una edición en tapa blanda de 352 páginas, apropiada para quien prefiere leer y conservar novelas en papel. La versión Kindle permite llevar esa extensión en formato digital y continuar la lectura desde un dispositivo compatible. La edición física está publicada por Ediciones B.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE) y Ojalá leas esto desde el infierno (Ediciones B) se sitúan en un entorno de lecturas relacionadas con la fantasía y el romance, aunque pertenecen a autorías distintas. El título de Kayla Edwards destaca expresamente el romance oscuro, mientras que el de Mackenzie Reed también se vincula al misterio, las aventuras y el humor. Divinos y miserables (Umbriel narrativa), de Adalyn Grace, constituye otra referencia de lectura afín dentro de este conjunto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788415955559",
+        "isbn-9786316947055"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a23fb061988d42e3",
+  "origen": "chatgpt-web"
+}

@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Reap & Sow (edición en español) (Reap & Sow 1), de Charlotte B. Plumb, está dirigido al público juvenil que busca fantasía romántica con demonios, pactos sobrenaturales y dilemas morales. La explotación de personas desesperadas y el peligro que afronta una familia lo alejan de las historias de magia cotidiana o relaciones sentimentales sin amenazas oscuras.",
+      "texto": "Reap & Sow (edición en español) (Reap & Sow 1) se dirige al público juvenil que busca fantasía romántica con demonios, pactos y dilemas familiares. El argumento incorpora explotación de personas vulnerables y amenazas sobre la vida de los personajes, por lo que se aleja de las historias románticas realistas y de los relatos fantásticos sin elementos oscuros.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,7 +14,7 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Reap & Sow (edición en español) (Reap & Sow 1) está clasificado como lectura juvenil. Incluye acuerdos demoníacos que consumen años de vida, explotación de personas vulnerables, detenciones y amenazas contra familiares. Su combinación de romance y peligro sobrenatural puede resultar intensa para lectores sensibles a los sacrificios personales y la coerción.",
+      "texto": "Reap & Sow (edición en español) (Reap & Sow 1) está clasificado como lectura juvenil. Incluye acuerdos sobrenaturales que comprometen años de vida, detenciones, desigualdad económica y relaciones con demonios; estos conflictos pueden resultar inquietantes para quienes prefieren fantasía sin amenazas personales ni explotación.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -24,41 +23,41 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una fantasía romántica juvenil ambientada en Blackbridge, donde los deseos pueden obtenerse mediante intercambios con entidades demoníacas. Eda Shaw necesita la colaboración de Kit'rath para proteger a su familia, pero esa alianza implica nuevas obligaciones. La relación entre ambos añade un conflicto afectivo a una trama de deudas sobrenaturales y supervivencia.",
+      "texto": "Reap & Sow (edición en español) (Reap & Sow 1) combina fantasía y romance alrededor de un sistema de pactos con consecuencias sobre la duración de la vida. Eda Shaw necesita la ayuda de Kit'rath para proteger a su familia, mientras el vínculo entre ambos introduce un conflicto sentimental; el título identifica la obra como el n.º 1 de Reap & Sow.",
       "evidencias": [
+        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Reap & Sow (edición en español) (Reap & Sow 1) se ofrece en tapa dura. La edición de Alfaguara contiene 432 páginas en castellano y permite conservar la novela como volumen físico, tanto para lectura habitual como para regalo. El título la identifica como el n.º 1 de Reap & Sow.",
+      "texto": "La edición en tapa dura de Reap & Sow (edición en español) (Reap & Sow 1) contiene 432 páginas y ofrece un volumen de encuadernación rígida para conservar o regalar. Kindle permite leer la novela en formato digital sin llevar ese volumen, mientras que el audiolibro ofrece una opción de escucha.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "edicion",
         "numero_paginas",
-        "editorial",
-        "idioma",
-        "edicion"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Donde duermen las sombras, de Andrea Ornos, comparte con Reap & Sow (edición en español) (Reap & Sow 1) el romance unido a fuerzas sobrenaturales, pero desarrolla una maldición y el cruce de dimensiones en lugar de contratos demoníacos. El ocaso del rey (Dioses y monstruos 5), de Amber V. Nicole, se presenta como dark romantasy, una orientación próxima al componente oscuro de los pactos que condicionan la vida de Eda Shaw.",
+      "texto": "Reap & Sow (edición en español) (Reap & Sow 1) puede compararse con Alas de escarcha y oro: El canto del cisne y Asistente del villano (edición especial limitada) (Faeris Editorial) por su relación con la fantasía romántica. La obra de Charlotte B. Plumb se distingue por los contratos que intercambian deseos por años de vida y por una relación entre una mortal y un demonio, mientras que Alas de escarcha y oro: El canto del cisne parte de una protagonista que oculta sus dones.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055605",
-        "isbn-9788427258280"
+        "isbn-9791387949938",
+        "isbn-9791388108112"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c3ac7df6e4e74702",
+  "fuente_hash": "06f78071a6de1b85",
   "origen": "chatgpt-web"
 }

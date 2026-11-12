@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409933419",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Dónde están las llaves?: Reflexiones sobre cómo habitar, de Aruca Gómez, se dirige a lectores interesados en reflexionar sobre la manera de habitar desde perspectivas personales y filosóficas. Su clasificación como ensayo, desarrollo personal y filosofía lo aleja de quienes buscan una novela de ficción o una guía técnica de construcción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de ¿Dónde están las llaves?: Reflexiones sobre cómo habitar contiene 302 páginas, suficientes para una lectura prolongada en papel. La edición de Araceli Gómez García permite subrayar y consultar físicamente las reflexiones sobre el habitar, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La incomodidad te hace libre: Un ensayo sobre libertad, disciplina e identidad para dejar de obedecer a la comodidad, de Sebastián Romero, comparte con ¿Dónde están las llaves?: Reflexiones sobre cómo habitar el interés por el desarrollo personal, pero aborda la disciplina y la identidad frente a la reflexión sobre el habitar. Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, incorpora una perspectiva espiritual distinta del planteamiento de Aruca Gómez.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315",
+        "isbn-9788409884339"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6dc853aa4d8b520a",
+  "origen": "chatgpt-web"
+}

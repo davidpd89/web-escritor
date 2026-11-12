@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410305830",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Caminando con la muerte 4 (Seinen) se dirige a lectores de manga que buscan historias de terror, fantasía y misterio. Su clasificación como seinen y su combinación de géneros la sitúan en el terreno de la narrativa gráfica de suspense, no en el de la lectura práctica o romántica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda y reúne sus 224 páginas en un volumen físico. Es la opción para quien prefiere leer manga en papel y conservar el ejemplar en su colección, sin depender de una pantalla.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tomogui: que comience la caza 1 (Seinen) comparte el formato de manga seinen y el componente oscuro, pero centra su planteamiento en la venganza contra una profesora. Coraline ofrece otra aproximación a lo inquietante: parte de una puerta hacia una versión alternativa del hogar, con un componente fantástico distinto del terror y el misterio que identifican a Caminando con la muerte 4 (Seinen).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962272",
+        "lib-0001"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f50aaee231434d10",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788419487841",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Winnie the Pooh (La magia de un clásico Disney) (Los clásicos Disney) está dirigido al público infantil interesado en los personajes de Disney y los cuentos de fantasía. Sus 36 páginas lo sitúan entre las lecturas breves, frente a las novelas juveniles extensas o las historias destinadas principalmente a adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Winnie the Pooh (La magia de un clásico Disney) (Los clásicos Disney) se presenta en tapa dura, con 36 páginas en castellano. Su extensión permite leerlo en sesiones breves y la encuadernación rígida facilita conservarlo en una colección infantil de clásicos Disney o entregarlo como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Agente Stitch 5. Los roedores de Roswell comparte con Winnie the Pooh (La magia de un clásico Disney) (Los clásicos Disney) la autoría de Disney y su orientación infantil, pero plantea un misterio intergaláctico en lugar de pertenecer a una colección de clásicos. Ice Age. ¿Dónde está Scrat?, también de Disney, gira en torno a la búsqueda de una bellota, mientras Winnie the Pooh se presenta como un clásico de fantasía infantil de 36 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387901943",
+        "isbn-9791387902353"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9c927e74f169ba58",
+  "origen": "chatgpt-web"
+}

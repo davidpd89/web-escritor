@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388277283",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Saltando al vacío (Sin límites), de Jennifer Iacopelli, se encuadra en el romance y las relaciones de pareja. Su clasificación responde a quienes buscan ficción centrada en el amor, mientras que quienes prefieren ensayos, biografías o estudios jurídicos encontrarán aquí otro tipo de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Saltando al vacío (Sin límites) está disponible en tapa blanda y Kindle, con una extensión de 336 páginas. La primera permite leer y conservar un ejemplar físico; Kindle traslada la novela al móvil o al lector electrónico y evita cargar con el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Saltando al vacío (Sin límites) y Amor en pole position (Dirty Air 3) comparten su orientación romántica. La obra de Lauren Asher sitúa expresamente su historia de amor en la Fórmula 1, mientras que la de Jennifer Iacopelli se identifica por su pertenencia al romance y las relaciones de pareja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "be8ddf322755ee86",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409945122",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La ciencia del baloncesto para niños se dirige a niños y niñas interesados en comprender este deporte mediante preguntas, curiosidades y retos. Sus 145 propuestas se orientan al ocio y al aprendizaje deportivo; no es una lectura centrada en una historia de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La ciencia del baloncesto para niños se publica en tapa blanda y reúne 100 páginas en castellano. El formato permite consultar las 145 curiosidades, preguntas y retos por separado, sin necesidad de leer todo el contenido seguido; también facilita llevar el libro a entrenamientos o actividades deportivas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La ciencia del baloncesto para niños y Moneyfútbol: big data y analítica de datos en el fútbol relacionan el deporte con explicaciones que van más allá del juego. El libro de Angel Manuel Montero Anaya plantea 145 curiosidades, preguntas y retos infantiles sobre baloncesto; el de Jorge Quintana Ortí aborda el análisis de datos y el rendimiento en el fútbol.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387955342"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cddde747f71dc02c",
+  "origen": "chatgpt-web"
+}

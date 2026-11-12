@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788427256972",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orientado al público infantil que disfruta de las aventuras clásicas, los viajes y las exploraciones. El estuche reúne relatos de Julio Verne, por lo que responde menos a quienes buscan historias actuales de vida cotidiana o libros de actividades.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Este estuche reúne Vuelta al mundo en 80 días y Veinte mil leguas de viaje submarino, dos títulos de Julio Verne vinculados a la aventura y los viajes. Su presentación dentro de Julio Verne para niños sitúa estas obras clásicas en una colección dirigida al público infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura permite conservar físicamente las 280 páginas del estuche, que reúne dos obras de Julio Verne y puede entregarse como regalo. Kindle ofrece una alternativa digital para llevar la lectura en el móvil o en un dispositivo compatible sin transportar los volúmenes físicos.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "autores",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pipoka y la Fábrica del Desastre comparte con Mi biblioteca Julio Verne (Julio Verne para niños): Estuche con: Vuelta al mundo en 80 días y Veinte mil leguas de viaje submarino (Peques) el interés por los recorridos y las aventuras. El libro de Jose Such incorpora magia y criaturas legendarias en la Península, mientras que el estuche de Julio Verne reúne dos relatos clásicos de viajes.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388277085"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fe3f79a8337961f2",
+  "origen": "chatgpt-web"
+}

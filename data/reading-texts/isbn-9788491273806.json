@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788491273806",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a quienes leen poesía en castellano y buscan acercarse a la obra de José María Valverde mediante una antología. Por su combinación de poesía y ensayo, encaja menos con lectores que prefieren una narración de ficción continua.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra reúne poesía de José María Valverde en una antología vinculada al centenario de su nacimiento. Su enfoque es literario y conmemorativo: presenta una selección poética bajo el título Un diálogo que no acaba, dentro de la colección Textos UEx.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 326 páginas en castellano, publicadas por Publicauex Editorial. Es un volumen físico que permite consultar poemas concretos, volver a ellos y utilizar marcadores durante la lectura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fuego y raíz: Cancionero (Primera persona) comparte con esta antología el interés por la expresión poética, aunque corresponde a la obra de Gata Cattana y no a una selección de José María Valverde. La falacia del escritor: Anatomía de una fe sin milagros: 7 (im-verso) ofrece otra conexión literaria, centrada desde su título en la figura del escritor.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788403524996",
+        "isbn-9791399257625"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4a7efe1d7f212c00",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788467085235",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores que buscan misterio y thriller en una obra de Carme Chaparro. Por su orientación hacia la intriga, resulta menos afín a quienes prefieren historias centradas en el romance o la fantasía.",
+      "evidencias": [
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Delito: Edición limitada a precio especial (Colección Especial) se publica en formato de bolsillo bajo el sello Booket. Esta presentación en castellano tiene 512 páginas, fecha editorial de 2027-01-08 y pertenece a una colección identificada expresamente como edición limitada.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 512 páginas en un libro de bolsillo que permite seguir la intriga en papel. El audiolibro cambia la lectura visual por la escucha, una opción para continuar la obra durante desplazamientos o actividades compatibles con el audio.",
+      "evidencias": [
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "No decepciones a tu padre (edición limitada) (Campaña | Ahora por menos) es la comparación más directa por compartir la autoría de Carme Chaparro. Ambos títulos se presentan como ediciones limitadas, aunque Delito: Edición limitada a precio especial (Colección Especial) identifica expresamente su pertenencia a la Colección Especial y su orientación al misterio y al thriller.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388147593"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "562b9f1bb060ff1e",
+  "origen": "chatgpt-web"
+}

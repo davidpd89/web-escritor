@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791387964825",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tiempo y caída: Abismos, desengaños y melancolías de los poetas del Barroco: 536 (El Acantilado) se dirige a lectores interesados en la poesía barroca, su contexto histórico y su interpretación ensayística. Por su extensión de 1024 páginas y su enfoque literario, encaja menos con quien busca una antología breve para leer poemas sueltos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Editorial Acantilado es en tapa dura y contiene 1024 páginas en castellano. Por su volumen, se presta a una lectura pausada y a la consulta en una mesa, mientras que la encuadernación rígida facilita conservarlo como obra de referencia.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "48f90c8b848309e5",
+  "origen": "chatgpt-web"
+}

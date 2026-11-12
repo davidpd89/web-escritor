@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788467080292",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El libro de los motes (Espasa Actualidad) se orienta a quienes leen ensayo político y buscan un enfoque relacionado con el humor. Federico Jiménez Losantos firma este volumen de 240 páginas, menos afín a lectores interesados en ficción de aventuras o en un estudio exclusivamente académico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Puede leerse en tapa dura o en Kindle, según se prefiera un volumen físico o una lectura digital. La edición impresa de El libro de los motes (Espasa Actualidad) tiene 240 páginas y permite conservarlo o regalarlo; Kindle facilita llevar el texto en un dispositivo compatible sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El viaje del profesor Caritat o Las desventuras de la Razón: Una comedia filosófica (Andanzas), de Steven Lukes, también relaciona ideas y humor, aunque se presenta como comedia filosófica. El libro de los motes (Espasa Actualidad), de Federico Jiménez Losantos, se sitúa en el ensayo político, con los motes como eje anunciado desde el título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411078696"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "20e5cee3696f29af",
+  "origen": "chatgpt-web"
+}

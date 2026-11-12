@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788410646070",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores infantiles interesados en Minecraft, sus biomas y la exploración dentro de los videojuegos. Está planteado como una enciclopedia de consulta y no como una novela de aventuras con una trama protagonizada por personajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne sus 176 páginas en un volumen físico adecuado para consultar sus contenidos durante las partidas o fuera de ellas. Minecraft Oficial: Enciclopedia de los exploradores (La guía definitiva de los biomas de Minecraft), de Mojang AB, se presenta en este formato.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo",
+        "autores",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "00665cdb3adade63",
+  "origen": "chatgpt-web"
+}

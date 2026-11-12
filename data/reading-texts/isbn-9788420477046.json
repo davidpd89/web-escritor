@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La porteadora se dirige a lectores adultos de novela histórica interesados en la participación de las mujeres en la Primera Guerra Mundial. La narración combina tareas de abastecimiento militar, riesgos de montaña y un vínculo amoroso con un enemigo herido; no está planteada como una historia bélica centrada exclusivamente en combates.",
+      "texto": "La porteadora está dirigida a lectores adultos interesados en la novela histórica protagonizada por mujeres y ambientada en conflictos bélicos. Su combinación de trabajo colectivo, peligro y romance encaja menos con quienes buscan una narración contemporánea sin contexto militar o centrada exclusivamente en una relación amorosa.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La porteadora es una novela histórica ambientada en una comunidad alpina durante la Primera Guerra Mundial. Su protagonista transporta suministros hasta las posiciones militares y debe reconsiderar sus convicciones cuando encuentra a un soldado enemigo herido. El conflicto une las obligaciones hacia su país con una relación afectiva surgida en circunstancias de guerra.",
+      "texto": "La porteadora es una novela histórica ambientada durante la Primera Guerra Mundial que aborda la participación de las mujeres en el abastecimiento de las tropas. La protagonista transporta suministros por caminos de montaña y se enfrenta a un conflicto personal cuando conoce a un soldado enemigo herido. La historia combina las exigencias de la guerra con las tensiones entre el deber, la supervivencia y el amor.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -23,7 +23,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La porteadora está disponible en tapa blanda con solapas y Kindle. La edición impresa de Alfaguara reúne 304 páginas, una extensión que permite leer la novela en un volumen físico único; Kindle ofrece la posibilidad de llevarla en formato digital. El papel resulta apropiado para conservar o regalar el ejemplar, mientras que la versión electrónica evita transportarlo.",
+      "texto": "La edición en tapa blanda con solapas de Alfaguara contiene 304 páginas y permite leer La porteadora en un volumen físico manejable. La alternativa Kindle facilita continuar la lectura en el móvil o en un lector electrónico y evita transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
         "edicion",
@@ -34,7 +34,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La porteadora y La historia de Romana y Uliana (Amadoca 1) comparten un contexto de guerra y la presencia de personajes afectados por ella, aunque Ilaria Tuti se centra en mujeres que abastecen el frente alpino y Sofía Andrujóvich presenta a un soldado herido y amnésico en un hospital de Kiev. Un baile en Versalles también utiliza una ambientación histórica, pero Danielle Steel sitúa su punto de partida en una gala de 1959, lejos del trabajo militar de las porteadoras.",
+      "texto": "La porteadora y Persiguiendo las estrellas (Las mujeres Hard 1) comparten su vinculación con la narrativa histórica y las experiencias femeninas. Sarah Lark sitúa su historia en la Escocia de finales del siglo XIX, mientras Ilaria Tuti desarrolla la suya durante la Primera Guerra Mundial, con el trabajo de las porteadoras y un romance entre enemigos como ejes del conflicto.",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,8 +43,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401037894",
-        "isbn-9791387640491"
+        "isbn-9791387652609"
       ]
     }
   ],

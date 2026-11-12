@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410481329",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo arruinar a un vizconde (Academia Miriñaque 1) (CLEAN ROMANCE) se dirige a lectores de romance ambientado en épocas históricas. La combinación de romance y novela histórica lo aleja de quienes buscan una historia centrada en la fantasía o la ciencia ficción; el título identifica la entrega como la n.º 1.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer las 352 páginas de Cómo arruinar a un vizconde (Academia Miriñaque 1) (CLEAN ROMANCE) en una edición física de Libros de Seda. Kindle ofrece una alternativa digital para llevar la lectura en el móvil o en un lector electrónico, sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La carta perdida (Clean Romance), también de Mimi Matthews, comparte con Cómo arruinar a un vizconde (Academia Miriñaque 1) (CLEAN ROMANCE) la autoría y la identificación como romance limpio. Corazón de una bridgerton (Titania época), de Julia Quinn, ofrece otra referencia vinculada al romance de época, mientras que el libro de Mimi Matthews se presenta además como la entrega n.º 1 de Academia Miriñaque.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410481442",
+        "isbn-9788410391772"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "319238a8a6232f38",
+  "origen": "chatgpt-web"
+}

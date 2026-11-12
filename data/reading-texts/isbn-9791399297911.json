@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791399297911",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Camila (Narrativa), de Mireia Villar, se dirige a lectores de misterio y thriller en castellano. Por su clasificación editorial, queda fuera de las búsquedas centradas específicamente en romance o fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Camila (Narrativa) está disponible en tapa blanda, con 240 páginas en castellano. Esta edición de Ediciones Versátil permite consultar y releer el texto en papel, con una encuadernación flexible para transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "64d685efbf909b18",
+  "origen": "chatgpt-web"
+}

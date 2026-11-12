@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788410252585",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Corazón Crece, El. Enzo Tiene Una Hermanita: 5 | CUENTO interactivo con SOLAPAS para gestionar los celos de manera respetuosa cuando llega un nuevo hermanito. está dirigido a familias que quieren abordar los celos infantiles ante la llegada de un bebé. Su propuesta de cuento con solapas se aleja de las lecturas juveniles extensas y de los manuales teóricos de crianza.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Se utiliza como cuento interactivo: la lectura se acompaña de la apertura de solapas para explorar la llegada de una hermanita y los celos que puede provocar. Sus 26 páginas permiten compartir la actividad entre el adulto y el niño, deteniéndose en las situaciones familiares que plantea.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura es un libro de cartón de 26 páginas, pensado para manipular físicamente sus solapas durante la lectura. Este formato permite compartir el cuento en papel y volver a sus escenas cuando se quiera hablar de los celos ante la llegada de un nuevo hermano.",
+      "evidencias": [
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El cuento de Marta Prada sobre los celos ante la llegada de una hermanita comparte con Tíos y Tías (AMOR DE FAMILIA), de Margarita Del Mazo, el interés por las relaciones familiares. El primero utiliza solapas para abordar las emociones infantiles ante un nuevo hermano, mientras que el segundo se centra en los vínculos con tíos y tías.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410438491"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8e3b6da3e33aded4",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788419819635",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Wind Breaker 1 (Distrito Manga) encaja con lectores de cómic que buscan aventuras y narrativa contemporánea. Sus 192 páginas en tapa blanda ofrecen una lectura gráfica; se aleja de quienes prefieren ensayos históricos o novelas exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Wind Breaker 1 (Distrito Manga) está disponible en tapa blanda, con 192 páginas en castellano. Este formato permite leer las viñetas sobre papel y conservar el volumen junto a otras entregas de la serie, sin recurrir a una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Wind Breaker 17 (Shônen) comparte autor y serie con Wind Breaker 1 (Distrito Manga), ambos de Satoru Nii. El título de este último lo identifica como el n.º 1, mientras que Wind Breaker 17 (Shônen) se identifica como el n.º 17; la diferencia principal para el lector es la entrega que elige.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962623"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "01399b2c5aca9bdd",
+  "origen": "chatgpt-web"
+}

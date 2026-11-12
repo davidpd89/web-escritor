@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387949808",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para niños a partir de 5 años que empiezan a leer y necesitan textos en letra mayúscula. Sus 48 páginas y su planteamiento de aprendizaje de la lectura lo sitúan en la literatura infantil inicial, no en lecturas destinadas a lectores autónomos de mayor edad.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece una edición física de 48 páginas, manejable para las primeras sesiones de lectura. Es el formato disponible y permite que los niños practiquen con el libro en papel, siguiendo los textos en letra mayúscula.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprende a leer con los Animolones 2 - Me equivoqué: En letra MAYÚSCULA (libros para niños a partir de 5 años) (Jóvenes lectores), de Gemma Brie, comparte la propuesta de aprendizaje de lectura y la letra mayúscula, aunque su título corresponde al n.º 2 frente al n.º 1 de este libro. Aprender a leer con Las Fantasticotas 16. Alejandra encuentra una salamandra: En letra MAYÚSCULA para aprender a leer (Libros para niños a partir de 5 años), de Laura Vila, ofrece otra propuesta de lectura inicial con el mismo recurso tipográfico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949815",
+        "isbn-9788408330264"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "88239792b22f4135",
+  "origen": "chatgpt-web"
+}

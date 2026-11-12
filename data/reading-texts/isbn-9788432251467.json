@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Recuerdos. Breve historia de un amor está dirigido a lectores interesados en los testimonios personales, las relaciones afectivas y la memoria histórica del siglo XX. Su carácter autobiográfico y su contexto de guerra encajan menos con quien busca una historia romántica ficticia desligada de acontecimientos históricos.",
+      "texto": "Recuerdos. Breve historia de un amor está dirigido a quienes leen memorias personales, testimonios históricos y relatos sobre relaciones afectivas. Su contexto de guerra, pérdida y amor interrumpido lo aleja de las historias románticas de ficción con desenlaces felices.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,28 +13,27 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Recuerdos. Breve historia de un amor aborda una relación afectiva marcada por el secreto y la violencia política. Juan Ramírez de Lucas ofrece su testimonio sobre el vínculo que mantuvo con Federico García Lorca en 1936, antes de que la Guerra Civil y el asesinato del poeta interrumpieran aquella relación.",
+      "texto": "El libro recoge el testimonio de Juan Ramírez de Lucas sobre su relación con Federico García Lorca durante 1936. La intimidad de una relación mantenida en secreto se cruza con la Guerra Civil y el asesinato del poeta, desde una perspectiva autobiográfica vinculada a la memoria afectiva.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Recuerdos. Breve historia de un amor se publica en tapa blanda, en rústica con solapas, y también está disponible en Kindle. Sus 232 páginas permiten optar entre un ejemplar físico de Seix Barral para conservar y una versión electrónica para leer durante desplazamientos o desde el móvil.",
+      "texto": "La edición en tapa blanda reúne 232 páginas en rústica con solapas, un volumen manejable para leer y conservar en papel. La versión Kindle permite acceder a Recuerdos. Breve historia de un amor desde un lector electrónico o un móvil, sin necesidad de llevar el ejemplar impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
         "numero_paginas",
-        "editorial"
+        "edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Recuerdos. Breve historia de un amor y El tiempo que pasa comparten el interés por la memoria personal en la España del siglo XX. Juan Ramírez de Lucas testimonia una relación con Federico García Lorca truncada en el contexto de la Guerra Civil; Manuel Medina reconstruye recuerdos de infancia desde la España de la posguerra.",
+      "texto": "Recuerdos. Breve historia de un amor puede compararse con Cómo me gustaría contarte por su dimensión personal y afectiva. Juan Ramírez de Lucas reconstruye una relación marcada por la Guerra Civil, mientras que la obra de Ángel Gómez Merino parte de una vida condicionada por las expectativas ajenas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,7 +42,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401040580"
+        "isbn-9788403526723"
       ]
     }
   ],

@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788425376887",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La guerra de las tres reinas (Novela histórica), de Hendrik Van Nievelt Pattillo, se dirige a lectores que buscan ficción ambientada en un contexto histórico. Sus 480 páginas ofrecen una novela de extensión considerable; no corresponde al formato de ensayo histórico ni al de una obra de consulta sobre acontecimientos del pasado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible de La guerra de las tres reinas (Novela histórica), de Hendrik Van Nievelt Pattillo, es en tapa blanda y contiene 480 páginas. Su extensión permite conservar la lectura en un volumen físico y avanzar por una novela larga sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a6826526d61fb29b",
+  "origen": "chatgpt-web"
+}

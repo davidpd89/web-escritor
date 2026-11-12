@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388103469",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El poder del fuego nº 06/06: 6 (Fantasía) se dirige a lectores de fantasía juvenil y aventuras que buscan una obra de Robert Kirkman y Chris Samnee. Encaja menos con quienes prefieren narrativa realista o historias ajenas a la fantasía. El título lo identifica como el n.º 6 de 6.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El poder del fuego nº 06/06: 6 (Fantasía) se publica en tapa dura, con 216 páginas en castellano. Esta edición de Planeta Cómic permite conservar el volumen en formato físico y consultarlo sin depender de dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El poder del fuego nº 06/06: 6 (Fantasía) comparte autoría con El caballero de la capa negra en el sentido de que ambas obras tienen autores identificados, aunque son distintos. Robert Kirkman y Chris Samnee firman El poder del fuego, mientras Carlos J. Sánchez firma El caballero de la capa negra. El primero se encuadra en fantasía y aventuras juveniles y tiene 216 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399254419"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c61aab9d0a7132ee",
+  "origen": "chatgpt-web"
+}

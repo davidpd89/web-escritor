@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788410171930",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Me escribirás? (nueva edición 2026): Páginas en blanco (LARGO RECORRIDO), de Editorial Periférica, se dirige a lectores interesados en narrativa contemporánea. Sus 104 páginas lo sitúan en una extensión breve frente a las novelas largas; no está clasificado como romance, fantasía ni literatura juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Me escribirás? (nueva edición 2026): Páginas en blanco (LARGO RECORRIDO) está disponible en tapa blanda. La edición de Editorial Periférica reúne 104 páginas en un volumen físico de extensión reducida, pensado para quien prefiere leer en papel y guardar el ejemplar.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "69424f9e7c55e431",
+  "origen": "chatgpt-web"
+}

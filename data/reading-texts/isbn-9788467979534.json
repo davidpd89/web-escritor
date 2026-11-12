@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788467979534",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El barco de teseo 05: 5 se dirige a lectores de ciencia ficción interesados en el cómic y la novela gráfica. Su clasificación lo diferencia de la narrativa exclusivamente textual y de los libros centrados en conflictos realistas sin elementos de ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El barco de teseo 05: 5 se publica en tapa blanda, con 388 páginas en castellano. La encuadernación flexible facilita manejar el volumen durante la lectura y guardarlo junto a otros ejemplares de cómic, mientras que su extensión permite repartirlo en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El barco de teseo 05: 5 puede compararse con El incidente Darwin 9 (Seinen) por su pertenencia al ámbito del cómic y su presentación como entrega numerada. El primero es obra de Toshiya Higashimoto y se clasifica como ciencia ficción, mientras que el segundo está firmado por Shun Umezawa y lleva la denominación Seinen. Sus títulos permiten distinguir las entregas sin atribuirles una trama compartida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962616"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c8f598433b50b271",
+  "origen": "chatgpt-web"
+}

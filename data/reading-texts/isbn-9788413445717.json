@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788413445717",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El estuche de Marta Marcè está dirigido a personas interesadas en comprender la menopausia y abordar cuestiones de salud y bienestar durante esta etapa. Reúne tres guías sobre una fase concreta de la vida, por lo que se diferencia de los libros generales de desarrollo personal y de los manuales centrados exclusivamente en alimentación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El estuche de Marta Marcè se presenta en tapa blanda y reúne 912 páginas en castellano. Su extensión permite dedicar distintas sesiones a las tres guías, mientras que la encuadernación flexible facilita manejar los volúmenes durante la lectura y la consulta en casa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El estuche de Marta Marcè comparte el interés por la salud y el bienestar con El arte de comer, nutrir y sanar con la Medicina China (Salud y Bienestar). La obra de Marta Marcè reúne tres guías centradas en la menopausia, mientras que el libro de Prof. Liu Zheng aborda la alimentación y la salud desde la Medicina China. La diferencia principal está en la etapa vital tratada frente al enfoque alimentario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387775421"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4fbe62626313a0ad",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387741617",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Firstborn (Sin límites) se dirige a lectores de fantasía y ciencia ficción que buscan una obra de ficción extensa. Sus 432 páginas y su clasificación temática lo diferencian de las lecturas breves y de los libros de carácter práctico o documental.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Firstborn (Sin límites) es en tapa blanda y reúne 432 páginas en castellano. Permite leer la obra en papel y conservarla como volumen físico, aunque su extensión supone llevar un libro de varios cientos de páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Firstborn (Sin límites) comparte su orientación hacia la fantasía con Aftermyth 1. Penelope y la prueba de los dioses, de Tracy Wolff. La obra de M.J. Hastings tiene 432 páginas y se publica en tapa blanda, mientras que el título de Tracy Wolff identifica una primera entrega y menciona una prueba relacionada con los dioses.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324102"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e0f4461bafb278b8",
+  "origen": "chatgpt-web"
+}

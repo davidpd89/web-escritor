@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388032752",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dilo como Jane Austen: 348 (Las Tres Edades) se dirige al público de narrativa juvenil interesado en una obra breve vinculada por su título a Jane Austen. Sus 80 páginas ofrecen una extensión reducida frente a novelas juveniles largas, mientras que su clasificación lo aleja de los manuales prácticos y de la divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dilo como Jane Austen: 348 (Las Tres Edades) tiene una edición en tapa dura de 80 páginas, publicada en castellano. Su tamaño de lectura breve y su cubierta rígida permiten conservarlo como volumen físico y regalarlo sin recurrir a una edición extensa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dilo como Jane Austen: 348 (Las Tres Edades) y Amor Eterno nº 03: 3 (Thriller) se presentan como obras narrativas, aunque sus títulos y orientaciones son diferentes. La obra de Chiara Codecà pertenece a la narrativa juvenil y tiene 80 páginas; la de Tom King y Elsa Charretier aparece identificada como thriller y con el número 03 en el título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388103483"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b413077f8d38c93c",
+  "origen": "chatgpt-web"
+}

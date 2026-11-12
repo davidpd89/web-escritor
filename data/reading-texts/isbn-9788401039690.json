@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788401039690",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un gato vino a verme encaja con lectores interesados en el desarrollo personal, la filosofía y el ensayo, con presencia también de temas familiares. No está planteado como una obra de ficción narrativa ni como un libro centrado exclusivamente en el cuidado de animales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 256 páginas en un volumen manejable para leer en casa o llevar fuera. Es el formato disponible de esta edición de Plaza & Janés, una alternativa física para quienes prefieren conservar el libro y avanzar sin depender de dispositivos electrónicos.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Dónde están las llaves?: Reflexiones sobre cómo habitar comparte con Un gato vino a verme el terreno de la reflexión personal, aunque plantea esa mirada desde la experiencia de habitar. Astrología, filosofía y magia: Un camino de práctica espiritual se acerca más a la vertiente filosófica y espiritual, frente al enfoque de desarrollo personal y familia de Maestro Bokyeong.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315",
+        "isbn-9788409933419"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9d5ae7c5d712513d",
+  "origen": "chatgpt-web"
+}

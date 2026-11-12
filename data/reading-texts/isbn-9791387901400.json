@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387901400",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Stitch. Cine en casa: Cuento y proyector (Disney. Lilo & Stitch), de Disney, está dirigido al público infantil que busca una actividad alrededor de un cuento y un proyector. Sus 30 páginas plantean una experiencia breve, distinta de una novela extensa o de un libro dedicado exclusivamente a la lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Stitch. Cine en casa: Cuento y proyector (Disney. Lilo & Stitch) se ofrece en tapa dura, con 30 páginas en castellano. La edición física reúne el cuento y la propuesta de proyección anunciada en el título, por lo que su uso se orienta a una actividad compartida además de la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El cuento con proyector de Stitch y Agente Stitch 5. Los roedores de Roswell comparten protagonista y autoría de Disney. El primero plantea una actividad de lectura y proyección en casa, mientras que el segundo desarrolla un misterio intergaláctico en el que Stitch y sus amigos recurren al trabajo en equipo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387901943"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5d405cdd30e90aed",
+  "origen": "chatgpt-web"
+}

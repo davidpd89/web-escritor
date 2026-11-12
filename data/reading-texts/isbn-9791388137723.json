@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388137723",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi novio caballo (Reservoir Gráfica) se dirige a quienes buscan lecturas vinculadas con las biografías y las memorias. La obra de Xiomara Correa Docampo tiene 160 páginas y se presenta en castellano, por lo que se distingue de una novela de fantasía o de un manual práctico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Mi novio caballo (Reservoir Gráfica), editada por Reservoir Books, ofrece sus 160 páginas en un ejemplar físico que puede guardarse o regalarse. Kindle permite llevar la obra en formato digital y acceder a ella desde un dispositivo compatible, sin depender del libro impreso.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al andar: Vivencias del Camino de Santiago comparte con Mi novio caballo (Reservoir Gráfica) el interés por las experiencias personales, aunque el título de Carlos Díaz Ballesta sitúa esas vivencias en el Camino de Santiago. Alfred y Emily (Narrativa), de Doris Lessing, ofrece otra referencia de lectura centrada en nombres personales, pero identificada expresamente como narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496",
+        "isbn-9788426438515"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "805805d7269381ca",
+  "origen": "chatgpt-web"
+}

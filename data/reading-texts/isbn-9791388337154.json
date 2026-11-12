@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388337154",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Haz que duela menos (Contraluz), de Gia B., pertenece al romance y se dirige a lectores interesados en historias centradas en relaciones sentimentales. Sus 546 páginas corresponden a una lectura extensa dentro del género, alejada de los ensayos divulgativos y de los relatos breves.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Haz que duela menos (Contraluz) está disponible en tapa blanda y Kindle. La edición de Contraluz tiene 546 páginas, por lo que el formato digital permite transportar la lectura completa sin el peso del volumen físico; la tapa blanda ofrece una copia en papel para conservar o regalar.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0ec1fb16f1183572",
+  "origen": "chatgpt-web"
+}

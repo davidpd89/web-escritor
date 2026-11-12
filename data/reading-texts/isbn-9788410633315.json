@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410633315",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Panoramas del Nuevo Testamento (Estudios Bíblicos), de Giuseppe Segalla, se orienta a lectores interesados en el estudio de textos religiosos y en la espiritualidad. Por su temática y sus 490 páginas, responde a una búsqueda de lectura especializada más que a la de ficción narrativa o entretenimiento de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Panoramas del Nuevo Testamento (Estudios Bíblicos) se presenta en tapa blanda y reúne 490 páginas en castellano. Es un volumen físico de cubierta flexible que permite consultar y retomar sus contenidos durante distintas sesiones de lectura, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Panoramas del Nuevo Testamento (Estudios Bíblicos), de Giuseppe Segalla, comparte el ámbito religioso y espiritual con Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe. El primero se centra en el Nuevo Testamento, mientras que el segundo aborda los fundamentos y la práctica del Dharma. Ambos se distinguen por el objeto concreto de estudio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "86a3d794c9ff89c4",
+  "origen": "chatgpt-web"
+}

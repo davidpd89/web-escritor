@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788411724227",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El gran libro de los símbolos del tarot (CARTOMANCIA Y TAROT), de Liz Dean, se dirige a lectores interesados en el simbolismo del tarot y su relación con la espiritualidad. Su enfoque temático se aleja de los manuales de salud física y de los libros sobre relaciones familiares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El gran libro de los símbolos del tarot (CARTOMANCIA Y TAROT) está disponible en tapa blanda y tiene 240 páginas. Este formato permite consultar el contenido por apartados y transportarlo sin el peso añadido de una encuadernación rígida; también puede utilizarse como ejemplar físico de consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El gran libro de los símbolos del tarot (CARTOMANCIA Y TAROT) comparte el ámbito esotérico con Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies. El primero se centra en los símbolos del tarot, mientras que el segundo plantea la astrología, la filosofía y la magia como vías de práctica espiritual. Ambos se distinguen de una lectura narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "605dc2559f609954",
+  "origen": "chatgpt-web"
+}

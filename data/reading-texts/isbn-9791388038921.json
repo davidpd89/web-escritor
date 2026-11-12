@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388038921",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vortibooks: Expediente Pesadilla (Vergara) se orienta a lectores interesados en publicaciones de ocio y tiempo libre. Sus 224 páginas ofrecen una extensión intermedia para quien busca un libro de esta temática, en lugar de una obra centrada en nutrición, biografías o estudios académicos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vortibooks: Expediente Pesadilla (Vergara) está disponible en tapa blanda, con 224 páginas en castellano. La edición física permite utilizarlo y consultarlo directamente en papel, además de guardarlo junto a otros títulos de la misma colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La comparación más directa de Vortibooks: Expediente Pesadilla (Vergara) es Vortibooks: Expediente Nexus (Vergara), también de David Velasco. Ambos comparten autoría, denominación de colección y editorial; se distinguen por el expediente identificado en cada título: Pesadilla frente a Nexus.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388038914"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8c44f5eb5760553b",
+  "origen": "chatgpt-web"
+}

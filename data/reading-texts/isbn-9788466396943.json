@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788466396943",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sonetos del amor oscuro y Diván del Tamarit (Best Seller | Ediciones Conmemorativas) está dirigido a lectores de poesía interesados en el amor y las relaciones afectivas. Federico García Lorca reúne dos conjuntos poéticos en una edición de 88 páginas, distinta de una novela romántica construida mediante una narración continua.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Sonetos del amor oscuro y Diván del Tamarit (Best Seller | Ediciones Conmemorativas) contiene 88 páginas en castellano. Su extensión permite llevar el volumen físico para leer poemas por separado, mientras que la encuadernación rígida facilita conservar esta edición de Penguin Bolsillo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "54f028c14349450d",
+  "origen": "chatgpt-web"
+}

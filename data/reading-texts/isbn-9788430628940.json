@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Marco Aurelio: El emperador estoico se dirige a lectores adultos interesados en la biografía histórica, la filosofía estoica y el ejercicio del poder. Donald J. Robertson estudia las decisiones de un gobernante a partir de sus principios morales y de los conflictos que afrontó. Su perspectiva biográfica se diferencia de una exposición puramente teórica de las enseñanzas estoicas.",
+      "texto": "Marco Aurelio: El emperador estoico está dirigido a lectores adultos interesados en las biografías históricas y en la relación entre filosofía y poder. Su tratamiento de decisiones políticas, conflictos morales y circunstancias personales se distancia de una introducción exclusivamente teórica al estoicismo.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,29 +14,26 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Marco Aurelio: El emperador estoico analiza la relación entre las convicciones filosóficas de un gobernante y sus responsabilidades políticas. Donald J. Robertson recurre a escritos personales, correspondencia y testimonios antiguos para estudiar su formación y sus decisiones. Examina cuestiones como la esclavitud, la sucesión imperial, los conflictos armados y la respuesta ante las crisis desde una perspectiva biográfica y moral.",
+      "texto": "Donald J. Robertson examina cómo las convicciones estoicas de Marco Aurelio influyeron en su actuación como gobernante. Aborda la esclavitud, los enfrentamientos militares, la sucesión imperial y el trato a distintos grupos sociales. Para reconstruir esa relación entre pensamiento y conducta utiliza las Meditaciones, correspondencia personal y otros textos antiguos.",
       "evidencias": [
-        "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Marco Aurelio: El emperador estoico está disponible en tapa blanda y Kindle. Taurus publica una edición física de 312 páginas con solapas, que permite conservar la biografía y regresar a sus episodios históricos. Kindle facilita transportar el texto en un dispositivo electrónico y consultar sus reflexiones sobre filosofía y gobierno durante la lectura.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda con solapas reúne las 312 páginas de esta biografía en una edición física que permite consultar y volver a localizar pasajes. Kindle ofrece acceso digital al texto desde un móvil o lector electrónico. El audiolibro permite seguir la reconstrucción histórica mediante escucha durante desplazamientos u otras actividades.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Marco Aurelio: El emperador estoico guarda relación con Churchill por su aproximación biográfica a figuras que ejercieron responsabilidades políticas. Donald J. Robertson estudia al emperador romano desde sus conflictos morales y sus principios filosóficos, mientras que Paul Johnson y Diego Pereda Sancho presentan una personalidad histórica mediante un análisis conciso. Las obras se distinguen por sus protagonistas y por el peso que conceden a la filosofía.",
+      "texto": "Marco Aurelio: El emperador estoico puede compararse con Anatomía de un naufragio: Shackleton, el Endurance y la fuerza del hielo por su atención a experiencias humanas vinculadas a circunstancias históricas. Donald J. Robertson se concentra en la vida y los dilemas de un emperador romano; Jukka Tuhkuri toma como asunto un naufragio y la acción del hielo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -45,12 +41,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388328046"
+        "isbn-9791387873141"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "32ad28093b2c3fd6",
+  "fuente_hash": "2611039d15714ac6",
   "origen": "chatgpt-web"
 }

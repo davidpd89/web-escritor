@@ -4,49 +4,45 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Nuevas evidencias científicas de la existencia de Dios se dirige a lectores adultos interesados en la relación entre ciencia, fe y espiritualidad. No está concebido como una novela ni como una exposición neutral de todas las posiciones filosóficas, ya que José Carlos González-Hurtado desarrolla argumentos científicos que interpreta como indicios de un Creador.",
+      "texto": "Se dirige a lectores adultos interesados en las relaciones entre ciencia, religión y espiritualidad, especialmente en los argumentos sobre la existencia de Dios. Encaja menos con quienes buscan una exposición científica desvinculada de las creencias religiosas o una guía de prácticas espirituales.",
       "evidencias": [
-        "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
+        "titulo",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una obra argumentativa de religión y espiritualidad que examina la posible compatibilidad entre el conocimiento científico y la creencia en Dios. José Carlos González-Hurtado utiliza cuestiones como el Big Bang, la termodinámica, las leyes naturales y la genética para defender su interpretación sobre el origen del universo y la existencia de un Creador.",
+      "texto": "Plantea una reflexión sobre la existencia de Dios a partir de descubrimientos científicos y de la relación entre fe y conocimiento. José Carlos González-Hurtado recurre a cuestiones como el Big Bang, la termodinámica, las leyes naturales y la genética para desarrollar su argumentación, dirigida al público adulto.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "edad_recomendada"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de bolsillo de Nuevas evidencias científicas de la existencia de Dios reúne 432 páginas en tapa blanda, una opción física para seguir sus argumentos y volver a consultar distintos capítulos. Kindle permite leer el texto en el móvil o en un lector electrónico sin llevar el volumen de Debolsillo.",
+      "texto": "La tapa blanda permite leer sus 432 páginas en papel, en una edición de bolsillo que puede transportarse para consultar los argumentos durante la lectura. Kindle ofrece el mismo título como opción digital para leer en un dispositivo compatible, sin necesidad de llevar el volumen físico.",
       "evidencias": [
-        "titulo",
-        "edicion",
-        "editorial",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los genios creen en Dios y Nuevas evidencias científicas de la existencia de Dios comparten autor, José Carlos González-Hurtado, y examinan la relación entre ciencia y fe; el segundo desarrolla argumentos basados en descubrimientos científicos concretos. La Biblia: Una enciclopedia ilustrada también aborda cuestiones religiosas, pero utiliza mapas, objetos históricos y materiales arqueológicos para contextualizar textos y acontecimientos, en lugar de defender una tesis sobre la existencia de Dios.",
+      "texto": "Los genios creen en Dios, de José Carlos González-Hurtado, comparte con Nuevas evidencias científicas de la existencia de Dios el debate sobre la relación entre fe y ciencia. Mientras el primero cuestiona la idea de que el avance científico haya dejado atrás las creencias religiosas, el segundo desarrolla argumentos sobre la existencia de un Creador a partir del Big Bang, la termodinámica y la genética.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788410096547",
-        "isbn-9780241837702"
+        "isbn-9788410096547"
       ]
     }
   ],

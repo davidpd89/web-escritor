@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788411005531",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mitos de la geografía: 8 maneras de malinterpretar el mundo (PENINSULA), de Paul Richardson, está dirigido a lectores interesados en el ensayo, la historia y la relación entre geografía y poder político. Sus 344 páginas se sitúan en el ámbito de la no ficción, por lo que no responde a quien busca una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne el ensayo en un volumen físico de 344 páginas, apropiado para leer y consultar en papel. Kindle permite acceder al contenido en formato digital desde un dispositivo electrónico y prescindir del ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formato_edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mitos de la geografía: 8 maneras de malinterpretar el mundo (PENINSULA) comparte con Los pilares de la historia el interés por interpretar la realidad mediante la historia. También se relaciona con El papel de la violencia en la historia: Texto esencial de Engels sobre violencia, Bismarck y lucha de clases en la Alemania del siglo XIX (No ficción), aunque este último se centra en la violencia, Bismarck y la lucha de clases.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388115479",
+        "isbn-9788430629664"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7e28e785acaece09",
+  "origen": "chatgpt-web"
+}

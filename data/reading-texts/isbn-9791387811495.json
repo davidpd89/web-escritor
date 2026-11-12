@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387811495",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bosque de héroes y mitos: Donde nacen las leyendas (Montaigne), de Luis Alberto de Cuenca, se dirige a lectores interesados en los mitos, las leyendas y su dimensión histórica o espiritual. Por su clasificación en historia y religión, no se plantea como una novela de fantasía ni como una narración de aventuras protagonizada por héroes ficticios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bosque de héroes y mitos: Donde nacen las leyendas (Montaigne) cuenta con una edición en tapa blanda de 304 páginas. El volumen de Editorial Berenice permite consultar sus contenidos en papel y conservarlo junto a otras lecturas sobre historia y mitología. Está publicado en castellano.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bosque de héroes y mitos: Donde nacen las leyendas (Montaigne) se aproxima a Dios: Una Historia Humana / God: A Human History, de Reza Aslan, por su relación con las creencias y las tradiciones humanas. Luis Alberto de Cuenca sitúa héroes, mitos y leyendas en el centro de su título, mientras que Reza Aslan aborda la figura de Dios desde una perspectiva humana. Los dos permiten explorar asuntos religiosos o culturales desde enfoques distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073877565"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4b749dd8d14edec1",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791399200751",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tesis: Guión cinematográfico de la película, de Alejandro Amenábar y Mateo Gil, está dirigido a lectores interesados en los guiones de cine y la escritura audiovisual. Su condición de guion lo distingue de una novela convencional, por lo que encaja menos con quienes buscan narrativa presentada exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tesis: Guión cinematográfico de la película está disponible en tapa blanda y tiene 126 páginas. Esta edición permite consultar el guion en papel, volver a sus pasajes y conservarlo como volumen de referencia para el estudio de la escritura cinematográfica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tesis: Guión cinematográfico de la película comparte el interés por la escritura destinada a la representación con Arde Talía: Una pieza teatral sobre el infierno de la creación artística, de Alba Quintas Garciandia, Ana Saiz, Talita Isla, Carmen Romero Lorenzo e Inés Galiano. La diferencia está en el medio: el primero es un guion cinematográfico y el segundo se presenta como una pieza teatral centrada en la creación artística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399289510"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9f33c4145a71f193",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387911669",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Pálido: Historia de un bandolero: 23 (Partal), de Sergio Molina Reina, encaja con lectores interesados en aventuras ambientadas en contextos históricos y personajes vinculados al bandolerismo. Su orientación hacia la novela histórica lo separa de la fantasía contemporánea y de los relatos centrados en escenarios futuristas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Pálido: Historia de un bandolero: 23 (Partal) se publica en tapa blanda y tiene 320 páginas. Esta presentación permite seguir una narración de aventuras histórica en un único volumen impreso y utilizar un marcapáginas para continuar la lectura en distintas sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig, y El Pálido: Historia de un bandolero: 23 (Partal), de Sergio Molina Reina, comparten una orientación hacia el pasado. El primero remite a Pompeya desde su título, mientras que el segundo sitúa al bandolero en el centro de su propuesta de aventuras históricas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8c3b2f50b05c241c",
+  "origen": "chatgpt-web"
+}

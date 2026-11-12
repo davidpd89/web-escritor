@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791399238310",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este ensayo de Mrs Carmen Centeno Añeses se dirige a lectores interesados en estudios de literatura puertorriqueña y cuestiones de periferia intelectual. Su enfoque literario encaja menos con quienes buscan una novela de ficción o una lectura centrada en el desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Crítica literaria, periferia intelectual y disonancias.: Estudios de literatura puertorriqueña se publica en tapa blanda y cuenta con 301 páginas en castellano. El ejemplar físico permite subrayar, añadir notas y volver a pasajes concretos durante la consulta de los estudios.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c5db02d1abb51385",
+  "origen": "chatgpt-web"
+}

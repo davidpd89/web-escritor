@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788426742827",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gestión de proyectos de inteligencia artificial se dirige a lectores interesados en la aplicación de la inteligencia artificial al ámbito empresarial y a la organización de proyectos. Su enfoque temático se aparta de las obras centradas exclusivamente en divulgación científica general o en cuestiones económicas ajenas a la tecnología.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible de Gestión de proyectos de inteligencia artificial, con 300 páginas en castellano. La edición de Marcombo permite consultar apartados en papel y conservar el volumen como material de referencia para lecturas sucesivas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Inteligencia artificial generativa en Microsoft Azure y Gestión de proyectos de inteligencia artificial comparten el interés por las aplicaciones de la inteligencia artificial. La obra de Adrián González Sánchez, Jaime De Mora y Jorge García se centra en una tecnología generativa vinculada a Microsoft Azure, mientras que el libro de Adrián González Sánchez y Malini Jain Runtasewee aborda la gestión de proyectos.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788426742841"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d19b66517417f22c",
+  "origen": "chatgpt-web"
+}

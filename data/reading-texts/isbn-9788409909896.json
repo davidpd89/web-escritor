@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788409909896",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Desnuda a los 50 se sitúa entre las lecturas de humor y puede interesar a quienes buscan ese registro en lugar de una obra técnica o académica. El título incorpora una referencia a los 50, pero esa cifra forma parte del nombre del libro y no establece por sí misma una edad mínima de lectura.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Desnuda a los 50 puede leerse en tapa blanda o en Kindle. La edición impresa reúne 160 páginas y permite conservar el libro físicamente o regalarlo; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Desnuda a los 50 y 7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica) coinciden en su vinculación con el humor. El primero es una obra de Sol Fernández cuyo título alude a una edad concreta, mientras que el segundo pertenece a la colección Súper Humor Mortadelo y está firmado por Francisco Ibáñez.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431790"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dec64efd3fb35e81",
+  "origen": "chatgpt-web"
+}

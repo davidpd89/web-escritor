@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788418347986",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El iglú (Salamandra Graphic) se dirige a lectores de cómic y novela gráfica que prefieren la narración mediante imágenes y texto. La obra de Guillermo Corral y Laura Pérez pertenece a este formato narrativo, distinto de una novela escrita únicamente en prosa, por lo que responde a una experiencia de lectura diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El iglú (Salamandra Graphic) puede leerse en tapa dura o Kindle. La edición de Salamandra tiene 264 páginas y permite recorrer las ilustraciones sobre papel, mientras que Kindle facilita llevar la novela gráfica en formato digital; para apreciar sus páginas, conviene tener en cuenta el tamaño de pantalla del dispositivo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "84061982db976cf9",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9786073879057",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Libera la fiera / Free the Beast, de Jorge Lozano H., se encuadra en el desarrollo personal y en los asuntos relacionados con la familia y la crianza. Por su clasificación, responde a intereses distintos de los de quienes buscan ficción fantástica, narrativa histórica o divulgación sobre salud física.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Libera la fiera / Free the Beast se publica en tapa blanda y tiene 256 páginas en castellano. La edición de Penguin Random House Grupo Editorial ofrece una lectura en soporte físico que permite marcar páginas, hacer anotaciones y recuperar fragmentos sin utilizar un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d08c95f3ad934536",
+  "origen": "chatgpt-web"
+}

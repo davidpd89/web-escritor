@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791387751333",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta antología se dirige a quienes leen poesía y buscan una selección de voces diferentes en un mismo volumen. Por sus obras los conoceréis. 200 poetas seleccionan su \"poema\": Antología: 168 (Anaquel de Poesía) reúne una propuesta colectiva, distinta de un poemario dedicado a la obra de un solo autor.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 304 páginas de poesía en castellano. Su encuadernación permite llevar el volumen en una bolsa y consultar poemas concretos sin necesidad de seguir una lectura continua.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias",
+        "titulo"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1fb0136b7f91f513",
+  "origen": "chatgpt-web"
+}

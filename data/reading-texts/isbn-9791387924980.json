@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El ensayo de Enric F. Gel se dirige a lectores adultos interesados en la filosofía de la mente y las preguntas sobre la experiencia subjetiva. Examina distintas explicaciones de la conciencia y cuestiona las interpretaciones exclusivamente materiales. Su planteamiento argumentativo se aleja de los manuales dedicados a ejercicios prácticos o técnicas de bienestar.",
+      "texto": "¿Hay conciencia en tu cerebro? está dirigido a adultos interesados en la filosofía de la mente y en las relaciones entre cerebro y experiencia subjetiva. Encaja menos con quienes buscan un manual exclusivamente neurológico o una explicación que dé por resuelto el problema de la conciencia.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,42 +14,40 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "La obra de Enric F. Gel aborda la relación entre la actividad cerebral y la experiencia consciente. Examina diferentes posiciones filosóficas sobre la subjetividad y plantea objeciones a la explicación materialista de la mente. Su aproximación combina discusión conceptual y preguntas sobre la naturaleza de la realidad, desde una perspectiva crítica que evita presentar una única postura como incuestionable.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "¿Hay conciencia en tu cerebro? se publica en tapa blanda y Kindle. La edición de Montena consta de 384 páginas con solapas, útiles para conservar el ensayo en una biblioteca y volver a sus argumentos. Kindle permite consultar el texto en dispositivos electrónicos y retomar sus cuestiones filosóficas sin llevar el volumen físico.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "El ensayo de Enric F. Gel puede compararse con Antes de perder el juicio por su interés en revisar las ideas que condicionan nuestra interpretación del mundo. El primero estudia la conciencia desde distintas corrientes filosóficas, mientras que Mauricio García Villegas se ocupa de la verdad frente a la propaganda y las opiniones sectarias. Uno plantea un problema sobre la mente y el otro se centra en el juicio ante la información pública.",
+      "texto": "Analiza cómo se relacionan los procesos cerebrales con la experiencia consciente y qué explicaciones filosóficas pueden darse a esa relación. Enric F. Gel contrasta distintas posiciones sobre la conciencia y cuestiona el materialismo desde una perspectiva crítica, sin presentar su postura como dogma.",
       "evidencias": [
         "titulo",
         "autores",
         "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda con solapas ofrece 384 páginas para leer y consultar físicamente los argumentos. Kindle facilita continuar la lectura en el móvil o en un lector electrónico, mientras que el audiolibro permite escuchar la exposición filosófica sin seguir el texto impreso.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puede compararse con A vivir también se aprende: Los 5 pilares de la sabiduría para ubicarse en tiempos de cambio (Deusto), de Frédéric Lenoir, por su interés en cuestiones filosóficas relacionadas con la experiencia humana. Enric F. Gel examina la conciencia y las distintas explicaciones sobre la relación entre mente y cerebro. Frédéric Lenoir aborda la sabiduría y sus cinco pilares para orientarse en tiempos de cambio, por lo que ambos libros comparten un público interesado en la reflexión filosófica, pero tratan problemas diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388387302"
+        "isbn-9788423440887"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1c4ab53a1ea28e6c",
+  "fuente_hash": "957632664bf59bce",
   "origen": "chatgpt-web"
 }

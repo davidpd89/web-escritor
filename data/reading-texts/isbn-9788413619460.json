@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788413619460",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores de ensayo interesados en la economía digital y en el poder adquirido por las plataformas tecnológicas. Su planteamiento económico y crítico encaja menos con quien busca un manual de programación o una explicación puramente técnica de las herramientas digitales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Tim Wu examina la expansión económica de las plataformas tecnológicas mediante el concepto de extracción y sus consecuencias para el futuro. El enfoque combina el análisis de la economía y la empresa con una perspectiva ensayística sobre la concentración de poder tecnológico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 240 páginas en castellano y permite subrayar o consultar físicamente los argumentos del ensayo. Es una opción para quien prefiere trabajar sobre papel al leer cuestiones económicas, aunque requiere transportar el volumen en lugar de llevarlo en el móvil.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El enemigo conoce el sistema: Manipulación de ideas, personas e influencias después de la economía de la atenc (Sociedad), de Marta Peirano, comparte el interés por el poder de los sistemas digitales, pero se centra en la manipulación y la economía de la atención. La era de la extracción: Cómo las plataformas tecnológicas conquistaron la economía y amenazan nuestro futuro (Shackleton Books), de Tim Wu, pone el foco en el dominio económico de las plataformas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388387951"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "72687075cdfb860f",
+  "origen": "chatgpt-web"
+}

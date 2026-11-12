@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9798890984005",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La única manera de bailar / The Only Way to Dance se sitúa entre las publicaciones infantiles y juveniles vinculadas al arte. Su temática relacionada con el baile la distingue de los libros infantiles dedicados a otras disciplinas y de las obras de arte dirigidas exclusivamente a lectores adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La única manera de bailar / The Only Way to Dance cuenta con una edición en tapa dura de 40 páginas. Su extensión permite recorrer el volumen en sesiones breves, mientras que la encuadernación rígida proporciona una cubierta resistente para conservarlo y regalarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La única manera de bailar / The Only Way to Dance y Aprende a dibujar con KPop Demon Hunters: Edición OFICIAL en español (Montena) comparten su relación con el arte y el público infantil. El primero gira en torno al baile, mientras que el segundo propone aprender a dibujar. Son aproximaciones a actividades artísticas distintas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388322778"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "56af67b6e268721e",
+  "origen": "chatgpt-web"
+}

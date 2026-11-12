@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388377181",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando lo poco probable se convierte en realidad se sitúa entre el ensayo, la filosofía y la espiritualidad, por lo que encaja con lectores interesados en esos ámbitos. Sus 212 páginas no responden a la búsqueda de una novela de ficción ni de un manual técnico especializado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda consta de 212 páginas en castellano y pertenece al catálogo de Aula Magna Proyecto Clave Mcgraw Hill. El formato impreso permite leer el ensayo por partes y recuperar pasajes para una segunda lectura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Donde no supe: Entre el éxtasis místico y las experiencias extrasensoriales (Ensayo) comparte con Cuando lo poco probable se convierte en realidad el terreno del ensayo y la espiritualidad. Luce López-Baralt aborda en su título el misticismo y las experiencias extrasensoriales, mientras que Enric Vicedo-Rius plantea la relación entre lo improbable y su realización desde un marco filosófico y espiritual.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388019760"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d23a513adada35ed",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788466395694",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de fantasía interesados en los relatos vinculados al universo de Harry Potter y a la biblioteca de Hogwarts. Su estructura de cuentos lo distingue de una novela extensa con una única trama continuada, por lo que responde a una búsqueda diferente de la de las entregas principales de la serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los cuentos de Beedle el bardo (Un libro de la biblioteca de Hogwarts) (Harry Potter) está disponible en tapa blanda, dentro de la edición de bolsillo de Penguin Bolsillo. Sus 144 páginas forman un volumen físico breve, pensado para transportarlo y consultar sus relatos por separado.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Animales fantásticos y dónde encontrarlos (Un libro de la biblioteca de Hogwarts) (Harry Potter) comparte autoría y pertenencia a la biblioteca de Hogwarts, pero su título apunta a criaturas fantásticas, mientras que Los cuentos de Beedle el bardo (Un libro de la biblioteca de Hogwarts) (Harry Potter) reúne relatos. Estuche Biblioteca de Hogwarts: contiene: Animales fantásticos | Los cuentos de Beedle el bardo | Quidditch a través de los tiempos (Harry Potter) agrupa tres obras de J.K. Rowling, frente al volumen individual de 144 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395724",
+        "isbn-9788466395687"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5a91db671628727b",
+  "origen": "chatgpt-web"
+}

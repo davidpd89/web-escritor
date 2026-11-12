@@ -4,16 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Y si desaparece Cupido? está dirigido a quienes disfrutan resolviendo enigmas y siguiendo pistas dentro de una historia de entretenimiento. Su propuesta de investigar un secuestro relacionado con San Valentín se distancia de los libros centrados únicamente en la lectura narrativa, porque asigna al lector el papel de detective.",
+      "texto": "¿Y si desaparece Cupido? se orienta a lectores que prefieren resolver misterios mediante pistas y sospechosos, especialmente cuando el caso incorpora conflictos amorosos. Quien busque una historia romántica convencional encontrará aquí una investigación participativa sobre un secuestro, no únicamente una relación sentimental.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Sion Serra Lopes construye una investigación participativa alrededor del secuestro de Cupido, con 12 pistas y 40.000 sospechosos. El lector asume el papel de Detective del Amor y debe identificar a un único culpable antes de San Valentín, por lo que la resolución del caso constituye la actividad principal.",
+      "texto": "Sion Serra Lopes plantea un juego de investigación alrededor del secuestro de Cupido, situado en vísperas de San Valentín. La resolución depende de interpretar 12 pistas y discriminar entre 40.000 sospechosos, con los celos y las infidelidades como parte del contexto del caso.",
       "evidencias": [
         "autores",
         "sinopsis_editorial"
@@ -21,27 +21,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¿Y si desaparece Cupido? se presenta en tapa blanda, con 256 páginas y encuadernación rústica sin solapas de Libros Cúpula. El formato físico permite consultar las pistas y regresar a páginas anteriores durante la investigación sin depender de una pantalla.",
+      "texto": "¿Y si desaparece Cupido? está disponible en tapa blanda, mediante una edición rústica sin solapas de 256 páginas. El soporte físico permite avanzar por las pistas y retroceder para revisar sospechosos mientras se intenta resolver el secuestro.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "edicion",
         "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Citas conmigo misma y ¿Y si desaparece Cupido? comparten el amor como tema, pero el libro de Isa Muguruza propone planes de autocuidado, mientras que Sion Serra Lopes plantea resolver un secuestro. Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?) también invita a la participación del lector, aunque mediante recuerdos familiares en lugar de pistas y sospechosos.",
+      "texto": "¿Y si desaparece Cupido? y 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos) comparten una propuesta de ocio basada en la participación del lector. Sion Serra Lopes plantea una investigación sobre el secuestro de Cupido, mientras que el libro relacionado con Roblox propone una actividad de coloreado.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788419434289",
-        "isbn-9788401039836"
+        "isbn-9788408328384"
       ]
     }
   ],

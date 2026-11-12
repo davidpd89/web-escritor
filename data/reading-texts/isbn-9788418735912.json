@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788418735912",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Muchos, muchos animales (Otros Infantil), de Marlène Normand, se orienta a lectores interesados en los animales y la naturaleza, dentro de una colección identificada como infantil. Su temática se aparta de las historias centradas en personajes humanos o en conflictos propios de otros géneros narrativos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura ofrece una encuadernación rígida para las 96 páginas de Muchos, muchos animales (Otros Infantil). Este formato permite guardar el libro en una biblioteca infantil y volver a consultarlo físicamente, además de ofrecer una cubierta resistente para su manipulación habitual.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Animales, de Susaeta Ediciones, y Muchos, muchos animales (Otros Infantil), de Marlène Normand, coinciden en situar a los animales en el centro de la lectura. El primero reúne seis cuentos ilustrados protagonizados por animales; el segundo se presenta como una obra infantil vinculada a la naturaleza, con 96 páginas publicadas por Lectio Ediciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias",
+        "numero_paginas",
+        "editorial"
+      ],
+      "enlaces": [
+        "isbn-9791370341589"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8a22c44325e8de6c",
+  "origen": "chatgpt-web"
+}

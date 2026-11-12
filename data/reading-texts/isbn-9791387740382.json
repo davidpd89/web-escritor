@@ -4,10 +4,8 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sin piedad (Harry Hole 14), de Jo Nesbo, está dirigido a lectores adultos de misterio y thriller que buscan una investigación criminal con asesinatos conectados. Los crímenes brutales y la amenaza de un asesino en serie lo alejan de las historias policiales de tono ligero; el título lo identifica como el n.º 14.",
+      "texto": "Está orientado a lectores adultos de novela negra y thriller que buscan investigaciones de homicidios, crímenes en serie y tensión policial. La presencia de asesinatos brutales y un criminal que reproduce escenas cinematográficas lo aleja de los misterios ligeros o las lecturas infantiles.",
       "evidencias": [
-        "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,27 +13,40 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Sin piedad (Harry Hole 14) plantea un thriller policial en el que varios homicidios reproducen escenas de películas clásicas. La investigación de Oleg Fauke y la implicación progresiva de Harry Hole, ahora dedicado a detectar fraudes para una aseguradora, articulan un conflicto marcado por las conexiones entre las víctimas y el peligro creciente.",
+      "texto": "Sin piedad (Harry Hole 14) desarrolla una investigación criminal que conecta varios asesinatos mediante referencias al cine clásico. Oleg Fauke trabaja en Homicidios en Oslo, mientras Harry Hole investiga fraudes para una aseguradora y termina implicado en los crímenes; el título lo identifica como el n.º 14 de la serie.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Sin piedad (Harry Hole 14) se ofrece en tapa blanda y Kindle. La edición impresa de Reservoir Books tiene 488 páginas y solapas, mientras que Kindle permite leer esta novela extensa en un dispositivo compatible y continuarla sin transportar el volumen físico.",
+      "texto": "La tapa blanda con solapas ofrece las 488 páginas en un ejemplar físico para lectura y consulta. Kindle permite llevar una novela de esta extensión en un dispositivo digital, mientras que el audiolibro ofrece la posibilidad de seguir la investigación mediante escucha.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Minnesota y Sin piedad (Harry Hole 14) son obras de Jo Nesbo, por lo que permiten comparar dos títulos del mismo escritor. Sin piedad (Harry Hole 14) pertenece al misterio policial y presenta una investigación de asesinatos que reproducen escenas cinematográficas. Su título lo identifica como el n.º 14 de Harry Hole, una característica que permite distinguirlo de Minnesota dentro de la producción del autor.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas"
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466390767"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9d3a20702d77c017",
+  "fuente_hash": "41c72aff582f59ed",
   "origen": "chatgpt-web"
 }

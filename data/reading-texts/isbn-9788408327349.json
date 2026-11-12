@@ -4,17 +4,18 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El gran libro de Karlos Arguiñano se dirige a lectores que buscan un recetario amplio con instrucciones culinarias, trucos y consejos del cocinero. Su planteamiento general para distintos públicos se diferencia de los libros limitados a una técnica, un electrodoméstico o una familia concreta de alimentos.",
+      "texto": "El gran libro de Karlos Arguiñano se dirige a quienes buscan un recetario amplio con consejos y trucos de cocina para consultar en casa. Sus 704 páginas y su orientación práctica encajan menos con quienes prefieren un manual breve dedicado a una única técnica culinaria.",
       "evidencias": [
         "titulo",
         "autores",
         "sinopsis_editorial",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "El gran libro de Karlos Arguiñano reúne una selección de recetas junto con trucos y consejos para su preparación. Sus 704 páginas permiten utilizarlo como recetario de consulta continuada, tanto para buscar propuestas culinarias como para revisar indicaciones prácticas del autor.",
+      "texto": "El volumen reúne recetas, trucos y consejos culinarios de Karlos Arguiñano en un recetario de 704 páginas. Su contenido está orientado a la preparación de platos y a la consulta de indicaciones prácticas, por lo que puede utilizarse tanto para escoger recetas como para resolver dudas durante la elaboración.",
       "evidencias": [
         "titulo",
         "autores",
@@ -24,33 +25,33 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El gran libro de Karlos Arguiñano se presenta en tapa dura con sobrecubierta, publicado por Editorial Planeta. Sus 704 páginas conforman un volumen físico extenso, pensado para conservarlo como libro de consulta en la cocina o entregarlo como regalo, con una encuadernación rígida que protege las páginas.",
+      "texto": "La tapa dura con sobrecubierta presenta las 704 páginas en un volumen físico que puede conservarse como libro de consulta o entregarse como regalo. Kindle permite acceder a las recetas desde un dispositivo compatible, incluido el móvil, y evita tener que manejar el ejemplar impreso mientras se cocina.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "edicion",
-        "editorial",
+        "formatos_disponibles",
         "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "20 minutos ¡y listo! coincide con El gran libro de Karlos Arguiñano en su finalidad de facilitar la preparación de recetas, pero prioriza la rapidez frente a una recopilación culinaria extensa. Barbacoa, de Jamie Oliver, se concentra en una forma específica de cocinar, mientras que Karlos Arguiñano reúne recetas, consejos y trucos de alcance más general.",
+      "texto": "20 minutos ¡y listo!, de Jamie Oliver, comparte con El gran libro de Karlos Arguiñano su orientación hacia la cocina práctica, pero el primero destaca expresamente la preparación en poco tiempo. Al micro y listo, de Dani García, también plantea facilitar la elaboración de platos, mientras que el volumen de Karlos Arguiñano reúne un repertorio más amplio de recetas, trucos y consejos a lo largo de 704 páginas.",
       "evidencias": [
         "titulo",
         "autores",
+        "afines_catalogo",
         "sinopsis_editorial",
-        "afines_catalogo"
+        "numero_paginas"
       ],
       "enlaces": [
         "isbn-9788425374074",
-        "isbn-9788425374012"
+        "isbn-9788467084757"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1a378ceff7ce3ed5",
+  "fuente_hash": "ad3ce889ef90f244",
   "origen": "chatgpt-web"
 }

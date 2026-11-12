@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788467984576",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nanbanjin, de Cyril Pedrosa y Taiyou Matsumoto, pertenece al ámbito del cómic y la novela gráfica. Sus 480 páginas se ajustan a lectores que buscan una obra gráfica extensa, mientras que quienes prefieren narrativa exclusivamente en prosa encontrarán un tipo de lectura diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nanbanjin cuenta con una edición en tapa dura de 480 páginas, publicada en castellano por Norma Editorial. La cubierta rígida aporta una estructura firme para conservar el volumen y consultarlo sobre una superficie de apoyo, especialmente por su extensión dentro del formato de novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6b66ef6c2e49e46e",
+  "origen": "chatgpt-web"
+}

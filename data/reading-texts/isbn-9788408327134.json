@@ -4,32 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El día que lo fuimos todo, de Ángel Martín, encaja con lectores de narrativa contemporánea que buscan una historia sobre recuerdos, decisiones personales y cambios vitales con presencia del humor. Sus 216 páginas combinan situaciones cotidianas y reflexión sobre el pasado. No está planteado como un manual de ejercicios de desarrollo personal ni como una novela de fantasía.",
+      "texto": "El día que lo fuimos todo se dirige a lectores de narrativa contemporánea interesados en la memoria personal, los cambios vitales y el humor. Ángel Martín combina recuerdos, decisiones y situaciones incómodas, un planteamiento menos cercano a quienes buscan exclusivamente instrucciones de desarrollo personal o ejercicios prácticos.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "El día que lo fuimos todo desarrolla una historia centrada en la relación entre los recuerdos, los planes que cambian y las decisiones que condicionan el futuro. Ángel Martín incorpora situaciones humorísticas junto a la reflexión sobre la identidad personal. Es una narración de 216 páginas, no una guía organizada alrededor de técnicas o actividades prácticas.",
+      "texto": "El día que lo fuimos todo desarrolla una historia sobre recuerdos, expectativas y decisiones que modifican la percepción del pasado. Ángel Martín incorpora el humor a situaciones personales y momentos de cambio, de modo que su contenido funciona como lectura narrativa sobre la experiencia vital, no como un programa de ejercicios.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El día que lo fuimos todo se ofrece en tapa dura y Kindle. La edición de Editorial Planeta cuenta con sobrecubierta y 216 páginas, características que pueden pesar en la elección de un ejemplar físico para conservar o regalar. Kindle permite leer la misma obra en formato digital desde el móvil o un dispositivo de lectura.",
+      "texto": "La edición en tapa dura con sobrecubierta de El día que lo fuimos todo contiene 216 páginas y ofrece un ejemplar físico para conservar o regalar. Kindle permite leer la obra en el móvil o en un lector electrónico, mientras que el audiolibro traslada la experiencia a un formato de escucha.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
         "numero_paginas",
         "formatos_disponibles"
@@ -37,7 +34,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El día que lo fuimos todo puede compararse con Mamá necesita un respiro, de Inma Sáenz, por su atención a experiencias personales y expectativas que no siempre coinciden con la realidad. Ángel Martín trabaja los recuerdos, las decisiones y el ridículo cotidiano desde la narrativa contemporánea y el humor; Inma Sáenz sitúa su punto de partida en las expectativas de la maternidad. El primero plantea una reflexión vital más amplia, mientras que el segundo parte de una experiencia familiar concreta.",
+      "texto": "El día que lo fuimos todo puede compararse con Mamá necesita un respiro, de Inma Sáenz, por su atención a las expectativas personales y la distancia entre lo imaginado y lo vivido. Ángel Martín aborda recuerdos y decisiones mediante una narración con humor; Mamá necesita un respiro sitúa ese contraste en la experiencia de la maternidad.",
       "evidencias": [
         "titulo",
         "autores",
@@ -52,6 +49,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9353523fdf2034b5",
+  "fuente_hash": "d4598ca905cc9672",
   "origen": "chatgpt-web"
 }

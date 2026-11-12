@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788423371297",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las buenas intenciones (Crimen y misterio) se dirige a lectores interesados en el thriller, el crimen y los temas históricos. Su combinación de misterio e historia se aparta de las novelas que prescinden de la intriga y de las obras dedicadas exclusivamente a explicar acontecimientos históricos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de bolsillo de Las buenas intenciones (Crimen y misterio), publicada por Booket, tiene 400 páginas en tapa blanda. Kindle permite leerla en formato digital desde un dispositivo compatible, mientras que el audiolibro sustituye la lectura visual por la escucha. El bolsillo conserva la opción de lectura en papel con un formato transportable.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las buenas intenciones (Crimen y misterio), de Víctor del Árbol, comparte el ámbito del crimen con Bajo tierra seca: Edición limitada a precio especial (Colección Especial), de César Pérez Gellida, y Criminales sin sombra (Salamandra Black), de Juan Carlos Galindo. La obra de Víctor del Árbol incorpora además una clasificación histórica, mientras que los otros títulos se presentan mediante referencias al crimen y a sus respectivas colecciones editoriales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423371259",
+        "isbn-9791387928285"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cf07803e455d8c80",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388415227",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un viernes cualquiera se sitúa entre el ensayo, el desarrollo personal y el ámbito jurídico, por lo que encaja con lectores interesados en esos asuntos. No se presenta como una novela de aventuras ni como una obra de ficción fantástica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un viernes cualquiera está editado en tapa dura y tiene 112 páginas en castellano. La encuadernación rígida protege el volumen durante su conservación y resulta adecuada para mantenerlo en una biblioteca personal o entregarlo como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Todo lo que necesitas saber sobre herencias y donaciones: Guía práctica para ahorrar impuestos y evitar problemas (Deusto) comparte con Un viernes cualquiera su relación con el ámbito jurídico. El libro de Alejandro Ebrat Picart se centra expresamente en herencias, donaciones e impuestos, mientras que el de Miguel Domínguez Palomares también se sitúa en el ensayo y el desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423440962"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "108902e9b090d396",
+  "origen": "chatgpt-web"
+}

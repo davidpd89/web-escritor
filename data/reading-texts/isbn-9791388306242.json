@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388306242",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡Ya voy, ya voy! (Nórdica Joven) está dirigido al público infantil y juvenil, especialmente a lectores que buscan libros de cierta extensión dentro de ese ámbito. Sus 310 páginas requieren una lectura más prolongada que la de un cuento breve, por lo que encaja menos con quien busca un texto muy corto para una sola sesión.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es la opción disponible para leer ¡Ya voy, ya voy! (Nórdica Joven) en papel, con 310 páginas en castellano. Esta edición de Nórdica Libros puede guardarse en una biblioteca infantil o juvenil y permite avanzar por capítulos o sesiones de lectura sin utilizar dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bf327abb051e0114",
+  "origen": "chatgpt-web"
+}

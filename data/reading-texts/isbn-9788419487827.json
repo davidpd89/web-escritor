@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788419487827",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores de literatura infantil que buscan una historia navideña con personajes de Disney. Clásicos Disney. Cuento de Navidad: Una historia de Mickey y sus amigos combina el cuento clásico con las aventuras infantiles; por su planteamiento, se aleja de las novelas juveniles extensas y de la fantasía para adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Se publica en tapa dura, con 72 páginas en castellano. Esta edición de Cliper Plus permite conservar el cuento en una encuadernación rígida y manejarlo como lectura breve en papel. Por su extensión y presentación, también puede utilizarse como regalo navideño.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mickey Mouse comparte protagonismo y temática navideña con Clásicos Disney, aunque Cuentos de 5 minutos plantea relatos breves frente a una historia de 72 páginas. Mickey. Feliz Navidad incorpora mecanismos para interactuar con el libro, mientras que la obra de Disney publicada por Cliper Plus ofrece una edición en tapa dura centrada en el cuento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ],
+      "enlaces": [
+        "isbn-9791387526795"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "66ccab0b317dcb09",
+  "origen": "chatgpt-web"
+}

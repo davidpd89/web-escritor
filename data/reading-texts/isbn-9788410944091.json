@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788410944091",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El poder de las reliquias: Los objetos sagrados que cambiaron la historia, de Margarita Torres, se dirige a lectores interesados en los objetos religiosos y su dimensión histórica. Su enfoque temático se distancia de quienes buscan una narración de ficción o una guía práctica de ejercicios espirituales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El poder de las reliquias: Los objetos sagrados que cambiaron la historia se edita en tapa blanda, con 472 páginas en castellano. El volumen físico permite consultar distintos pasajes durante una lectura prolongada y conservarlo como libro de referencia sobre objetos sagrados e historia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b4b857fc4e33bfc3",
+  "origen": "chatgpt-web"
+}

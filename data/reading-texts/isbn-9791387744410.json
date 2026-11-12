@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791387744410",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Animal Jack 2 la montaña mágica, de Kid Toussaint, encaja con lectores infantiles y juveniles que buscan cómics relacionados con los animales y la naturaleza. Sus 104 páginas lo sitúan entre las lecturas de extensión contenida; no responde a quien busca una novela extensa sin componente gráfico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Animal Jack 2 la montaña mágica se publica en tapa blanda, con 104 páginas en castellano. Su extensión permite manejarlo como un volumen de cómic relativamente corto y guardarlo junto a otras lecturas infantiles. La edición en papel pertenece a Kómikids.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Animal Jack 2 la montaña mágica y Avni 1. Animal verdaderamente no identificado (Txikiberri) comparten el interés por los personajes animales dentro de las lecturas infantiles. El primero es un cómic de Kid Toussaint relacionado con la naturaleza; el segundo, de Romain Pujol, presenta en su título a un animal sin identificar. La autoría y el planteamiento anunciado son distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788417575847",
+        "isbn-9791370341589"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6622619772f44813",
+  "origen": "chatgpt-web"
+}

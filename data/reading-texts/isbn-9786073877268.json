@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9786073877268",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lee esto (cuando necesites una señal) / Read This (When You Need a Sign) se dirige a lectores interesados en desarrollo personal y bienestar. Ali Begun firma un libro de 256 páginas clasificado editorialmente como autoayuda; no pertenece a la narrativa de ficción ni se presenta como una novela.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lee esto (cuando necesites una señal) / Read This (When You Need a Sign) está disponible en tapa blanda, Kindle y audiolibro. La edición impresa de Penguin Random House Grupo Editorial reúne 256 páginas para consultar en papel; Kindle permite acceder al texto desde un lector electrónico y el audiolibro ofrece una modalidad de escucha.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lee esto (cuando necesites una señal) / Read This (When You Need a Sign) comparte el ámbito del desarrollo personal con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody. El título de Liz Moody anuncia un enfoque científico sobre salud, relaciones y bienestar, mientras que el de Ali Begun plantea la lectura en momentos de búsqueda de orientación. Ambos se diferencian por la autoría y por los asuntos que destacan sus respectivos títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "91786c10671e7bef",
+  "origen": "chatgpt-web"
+}

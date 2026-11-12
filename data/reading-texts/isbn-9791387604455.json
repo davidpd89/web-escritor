@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387604455",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Charles Wright Poesía -3 (ESENCIALES) encaja con lectores que buscan poesía y prefieren los volúmenes de gran extensión. Sus 816 páginas ofrecen una edición amplia dedicada a la obra poética de Charles Wright; no es una opción pensada para quien busca narrativa o una lectura breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 816 páginas de Charles Wright Poesía -3 (ESENCIALES) en una edición de gran extensión. Es la opción disponible para conservar el volumen y consultarlo en papel; por su número de páginas, conviene tener en cuenta su tamaño antes de elegirlo para llevarlo habitualmente.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, comparte con Charles Wright Poesía -3 (ESENCIALES) el formato de lectura poética. La diferencia está en el planteamiento que anticipan sus títulos: el volumen de Pedro Salinas se identifica con la poesía amorosa, mientras que el de Charles Wright reúne una propuesta poética de 816 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bd004989b9db6b59",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9782811699475",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Galaxias, 1 (Shônen - Galaxias), de Ao Hatesaka, encaja con lectores de cómic y novela gráfica interesados en las aventuras. Su clasificación lo diferencia de una novela exclusivamente en prosa o de un ensayo, y el título lo identifica como el n.º 1 de Galaxias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Galaxias, 1 (Shônen - Galaxias) se publica en tapa dura, con 192 páginas en castellano. Esta edición de Pika Ediciones ofrece una cubierta rígida para conservar el volumen y consultarlo en papel, tanto en una colección de cómics como durante su lectura habitual.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Galaxias, 1 (Shônen - Galaxias) y Ranger Reject 18 (Shônen) comparten la identificación shônen en sus títulos. El primero, de Ao Hatesaka, figura entre las aventuras y el cómic, mientras que Ranger Reject 18 (Shônen), de Negi Haruba, lleva el número 18 en el título frente al 1 de Galaxias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962661"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f37c5b98058205d7",
+  "origen": "chatgpt-web"
+}

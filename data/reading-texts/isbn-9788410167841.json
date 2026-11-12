@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ciudad se dirige a lectores de poesía interesados en la identidad personal y la responsabilidad ante el entorno. Luis Pérez Capitán aborda el malestar social y ambiental desde la expresión íntima; no responde a quien busca una novela con personajes y una trama continuada.",
+      "texto": "Ciudad se dirige a lectores de poesía contemporánea interesados en la identidad personal, la inquietud social y la relación del ser humano con su entorno. Luis Pérez Capitán propone una reflexión sobre el deterioro ambiental y moral, alejada de la poesía exclusivamente amorosa o de la narrativa de acontecimientos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,36 +14,38 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Ciudad es un poemario que combina introspección y preocupación por la convivencia humana con el mundo. Sus distintas partes pasan de la exploración de la identidad a una mirada crítica sobre la política, la degradación ambiental y la pérdida de referentes morales.",
+      "texto": "Ciudad es un poemario que combina introspección personal y preocupación por los conflictos de la sociedad contemporánea. Luis Pérez Capitán organiza su exploración en distintas partes, entre ellas Claridad y Ciudad, y relaciona la búsqueda de identidad con la pérdida de armonía entre las personas y su entorno.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Ciudad está disponible en tapa blanda, en una edición de Ediciones Cinca de 62 páginas. Su extensión permite leer el poemario en sesiones breves y volver a poemas concretos sin manejar un volumen extenso.",
+      "texto": "Ciudad se publica en tapa blanda y tiene 62 páginas, una extensión que permite recorrer el poemario en sesiones breves. La edición física de Ediciones Cinca facilita volver a determinados versos y consultar por separado las distintas partes de la obra.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "editorial",
-        "categorias"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ciudad y Catulo / Marcial comparten el interés por cuestiones sociales, aunque Luis Pérez Capitán aborda el deterioro ambiental y la identidad humana, mientras que la obra de Ernesto Cardenal combina erotismo y sátira. El libro de los gatos, de Ursula K. Le Guin, reúne poemas, meditaciones y dibujos sobre animales; Ciudad se ocupa de la experiencia interior y de la relación del ser humano con su entorno.",
+      "texto": "Ciudad y Antologia amorosa la voz a ti debida y razon de amor pertenecen al ámbito poético, aunque Luis Pérez Capitán aborda la identidad y las tensiones ambientales y morales, frente al tema amoroso asociado a la obra de Pedro Salinas. Advenir comparte con Ciudad el formato de lectura poética, pero corresponde a Jose Eceolaza y constituye una obra distinta dentro de ese ámbito literario.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467084320",
-        "isbn-9791388306297"
+        "isbn-9788410212749",
+        "isbn-9788466396288"
       ]
     }
   ],

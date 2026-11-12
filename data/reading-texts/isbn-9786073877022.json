@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786073877022",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La guerra del tequila / Tequila Wars: José Cuervo and the Bloody Struggle for the Spirit of Mexico está dirigida a lectores interesados en la historia y en los conflictos relacionados con el tequila. Ted Genoways firma una obra de 320 páginas cuyo título sitúa a José Cuervo en el centro de una disputa histórica. Por su orientación temática, encaja menos con quienes buscan ficción romántica o relatos de fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La guerra del tequila / Tequila Wars: José Cuervo and the Bloody Struggle for the Spirit of Mexico se presenta en tapa blanda, con 320 páginas en castellano. La encuadernación flexible facilita llevarlo en una mochila y consultar distintos pasajes durante la lectura. Es una edición física de Penguin Random House Grupo Editorial.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La guerra del tequila / Tequila Wars: José Cuervo and the Bloody Struggle for the Spirit of Mexico puede compararse con 76, de Felipe Pigna, por su vinculación con la historia. Ted Genoways aborda un conflicto relacionado con José Cuervo y el tequila, mientras que 76 identifica su asunto mediante una cifra. Ambos títulos permiten acercarse a materias históricas diferentes, con autores y enfoques temáticos propios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329695"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "44d3ff19957e32c9",
+  "origen": "chatgpt-web"
+}

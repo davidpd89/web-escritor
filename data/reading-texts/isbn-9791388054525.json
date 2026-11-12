@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388054525",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "En la noche mediante (Poesía) está dirigido a lectores de poesía en castellano que prefieren un volumen de extensión contenida. Sus 92 páginas permiten distribuir la lectura en sesiones breves, aunque no responde a quien busca una novela de argumento continuo o una obra narrativa extensa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "En la noche mediante (Poesía) se publica en tapa blanda, con 92 páginas en castellano. Su extensión facilita llevar el libro en el bolso o la mochila y regresar a sus páginas en distintas sesiones, sin necesitar un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a601134b303efe26",
+  "origen": "chatgpt-web"
+}

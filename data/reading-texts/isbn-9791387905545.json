@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791387905545",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tejedoras de destinos: Una mirada al poder femenino que gobernó la historia de dioses y hombres (No ficción) se dirige a lectores interesados en la historia, las creencias religiosas y la representación del poder femenino. Su planteamiento ensayístico se aleja de la novela de aventuras y de las historias de ficción protagonizadas por dioses.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Laia San José Beltrán aborda el poder femenino y su relación con la historia de los dioses y los hombres. El enfoque combina cuestiones históricas con el ámbito religioso y espiritual, dentro de una obra de ensayo de 320 páginas. El título sitúa la influencia femenina en el centro de esa interpretación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 320 páginas de Tejedoras de destinos: Una mirada al poder femenino que gobernó la historia de dioses y hombres (No ficción) en un volumen físico que permite consultar y volver a pasajes concretos. Kindle ofrece el mismo título como opción de lectura digital, sin necesidad de transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La huella vikinga: Una era que trascendió la historia y ha conquistado nuestra cultura (No ficción) comparte autoría con Tejedoras de destinos: Una mirada al poder femenino que gobernó la historia de dioses y hombres (No ficción), ambas de Laia San José Beltrán. La primera se centra en la herencia cultural vikinga, mientras que la segunda aborda el poder femenino en la historia de dioses y hombres. Mitologías: Los mitos grecorromanos a través del arte (Enciclopedia visual), de Camille Jouneaux, ofrece otra aproximación a los relatos mitológicos, esta vez mediante el arte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788466393843",
+        "isbn-9780241829011"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b90d877010149245",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388277719",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Dónde está Matilda?: Un libro de busca y encuentra (Alfaguara Clásicos), de Roald Dahl, está dirigido a quienes prefieren buscar elementos en las páginas antes que seguir una narración extensa. Su propuesta de busca y encuentra, vinculada a los clásicos y las aventuras, no responde a quien quiera una novela larga de lectura continuada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Dónde está Matilda?: Un libro de busca y encuentra (Alfaguara Clásicos) se presenta en tapa dura, con 48 páginas en castellano. La encuadernación rígida facilita conservar el volumen para repetir las búsquedas y utilizarlo como regalo físico, mientras que su extensión permite manejarlo en sesiones breves.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Dónde está Matilda?: Un libro de busca y encuentra (Alfaguara Clásicos) comparte personaje y autor con El Superingenioso Libro Para Colorear de Matilda / Matilda's Outrageous Coloring Adventure, de Roald Dahl. La diferencia está en la actividad anunciada por cada título: buscar y encontrar elementos en el primero y colorear en el segundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073877299"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b8ce2dc1a42d6f90",
+  "origen": "chatgpt-web"
+}

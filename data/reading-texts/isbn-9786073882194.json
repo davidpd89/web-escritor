@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073882194",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El fantasma de Kennedy / Kennedy's Ghost está dirigido a quienes leen historia, biografías y memorias, especialmente sobre el siglo XX. La obra de Silvia Tirado Bazán tiene 112 páginas y se aparta de las lecturas centradas en ficción o en cuestiones de actualidad sin perspectiva histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El fantasma de Kennedy / Kennedy's Ghost se publica en tapa blanda, con 112 páginas en castellano. Su extensión permite abordar el volumen en sesiones de lectura relativamente breves, y la encuadernación facilita llevarlo en una bolsa o mochila para leer fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Corona Nostra: De Felipe VI a Felipe V, de Nieves Concostrina, comparte con El fantasma de Kennedy / Kennedy's Ghost el interés por las figuras históricas y su contexto político. El primero se centra, según su título, en la monarquía, mientras que la obra de Silvia Tirado Bazán remite a Kennedy y se sitúa en el ámbito de las biografías y la historia del siglo XX.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788410944176"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bcaa95031be2f39d",
+  "origen": "chatgpt-web"
+}

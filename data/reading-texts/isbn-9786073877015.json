@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9786073877015",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Entre la pluma y la política / Between the Pen and Politics, de Roberto Ampuero, se dirige a lectores interesados en biografías, memorias y cuestiones relacionadas con el poder político. No encaja con quien busca ficción narrativa o una lectura centrada en otros ámbitos ajenos a la política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 456 páginas en un volumen manejable para leer y consultar sin necesidad de una edición de gran formato. Es la opción disponible para quien quiera conservar el libro en papel o incorporarlo a su biblioteca.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0d7e28115fb195ae",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388204227",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El eco de los muertos (Alex stern) se dirige a lectores de misterio y thriller que buscan una novela extensa. Sus 512 páginas y su vinculación con Alex stern lo sitúan lejos de las lecturas breves o de quienes prefieren historias familiares sin elementos de intriga.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El eco de los muertos (Alex stern) se presenta en tapa dura, con 512 páginas en castellano y edición de Hidra Adulto. Su encuadernación rígida favorece la conservación en una biblioteca y el regalo, aunque implica manejar un volumen considerable durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche Alex stern (Saga completa) comparte con El eco de los muertos (Alex stern) la autoría de Leigh Bardugo y la vinculación con Alex stern. La diferencia está en la presentación: El eco de los muertos (Alex stern) es un volumen individual de 512 páginas, mientras que el estuche se identifica como la saga completa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388204234"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c2712031aa4261dd",
+  "origen": "chatgpt-web"
+}

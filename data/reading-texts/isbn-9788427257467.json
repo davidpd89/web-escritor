@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788427257467",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta edición de Federico García Lorca se dirige a lectores de clásicos que quieran reunir Bodas de sangre, Yerma y La casa de Bernarda Alba en un volumen. Por su selección de obras y su presentación coleccionista, responde menos a quien busca una novela contemporánea o un único título independiente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las tres obras de Federico García Lorca en 256 páginas y ofrece una presentación física de coleccionista. Kindle permite llevar ese contenido en un lector electrónico o en el móvil, sin ocupar espacio en la estantería. La elección depende de si se prefiere conservar el volumen impreso o leerlo en pantalla.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bodas de sangre. Edición ilustrada (Austral Ilustrados) comparte con esta recopilación la obra Bodas de sangre y la autoría de Federico García Lorca. La diferencia está en el contenido: Trilogía rural reúne también Yerma y La casa de Bernarda Alba. Frente a Romancero gitano (VINTAGE), esta edición se centra en tres obras teatrales y no en un poemario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328148",
+        "isbn-9791388435157"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0134baf6127511cb",
+  "origen": "chatgpt-web"
+}

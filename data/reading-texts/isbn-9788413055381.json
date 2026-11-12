@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788413055381",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Breve Historia del Siglo de Oro Vol. II: Historia, sociedad, cultura y arte está dirigido a lectores interesados en historia y en el estudio de la sociedad, la cultura y el arte. Sus 336 páginas en castellano lo sitúan entre las lecturas de no ficción, no entre las novelas de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Breve Historia del Siglo de Oro Vol. II: Historia, sociedad, cultura y arte se publica en tapa blanda, con 336 páginas. La edición de Ediciones Nowtilus ofrece un ejemplar físico que puede transportarse y consultarse por sus distintos asuntos históricos, sociales, culturales y artísticos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Breve Historia del Siglo de Oro Vol. II: Historia, sociedad, cultura y arte y 76, de Felipe Pigna, son referencias de lectura histórica dentro del catálogo. El primero anuncia un recorrido por historia, sociedad, cultura y arte, mientras que el segundo se identifica mediante un título numérico. También cambia la autoría: Juan Bravo Castillo firma el primero y Felipe Pigna el segundo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788408329695"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5adac4901c2b43d6",
+  "origen": "chatgpt-web"
+}

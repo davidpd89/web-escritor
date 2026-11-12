@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408331537",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tyler. Piezas rotas: 6 (Novela), de Alina Not, se dirige a lectores de romance y relatos centrados en las relaciones de pareja. El título lo identifica como el n.º 6, un dato relevante para quien sigue entregas numeradas; su enfoque romántico lo aleja de quienes buscan una lectura centrada en la investigación histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tyler. Piezas rotas: 6 (Novela) cuenta con una edición de bolsillo en tapa blanda publicada por Booket. Sus 624 páginas suponen una extensión considerable para un volumen de cubierta flexible, que puede llevarse fuera de casa y retomarse en distintas sesiones sin utilizar un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amor en pole position (Dirty Air 3), de Lauren Asher, comparte con Tyler. Piezas rotas: 6 (Novela) su orientación hacia las historias románticas. La obra de Lauren Asher sitúa la relación en el mundo de la Fórmula 1, mientras que la de Alina Not se identifica por su título como el n.º 6 y se clasifica dentro del romance y las relaciones de pareja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "00bfe48c7810dd7a",
+  "origen": "chatgpt-web"
+}

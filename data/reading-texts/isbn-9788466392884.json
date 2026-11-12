@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788466392884",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nunca estuviste solo (Best Seller | Ficción), de Albert Espinosa, se orienta a lectores de narrativa contemporánea que prefieren una extensión de 248 páginas. Su clasificación la distingue de la fantasía y el terror, por lo que responde a una búsqueda diferente de la de quienes priorizan esos géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Penguin Bolsillo permite llevar las 248 páginas de Nunca estuviste solo (Best Seller | Ficción) en un volumen de bolsillo. Kindle evita transportar el libro físico y facilita la lectura en dispositivos compatibles; el audiolibro ofrece la alternativa de escucharlo durante desplazamientos o actividades que no permiten leer en pantalla.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nunca estuviste solo (Best Seller | Ficción) puede compararse con El universo amarillo (edición limitada): La luz siempre vuelve si esperas lo suficiente (Campaña | Libros firmados) y Escamas doradas: La fuerza más grande del universo (Lumen Ilustrados), también de Albert Espinosa. La diferencia identificable está en las ediciones: el primero figura como edición limitada, el segundo pertenece a una colección ilustrada y Nunca estuviste solo (Best Seller | Ficción) es narrativa contemporánea de bolsillo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466382359",
+        "isbn-9788426434555"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e6e528beba6a5590",
+  "origen": "chatgpt-web"
+}

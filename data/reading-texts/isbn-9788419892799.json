@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "DESTAPE GAY, EL se dirige a lectores interesados en la historia de la homosexualidad, el cine y los cambios culturales durante la Transición española. Su investigación sobre censura, representación y recepción comercial encaja con una lectura histórica centrada en un caso cinematográfico; no es una novela ni una panorámica general de toda la producción audiovisual de la época.",
+      "texto": "El destape gay está dirigido a lectores de historia contemporánea interesados en la diversidad sexual, el cine y los cambios culturales de la Transición. Su investigación sobre censura, homosexualidad y representación cinematográfica responde a una búsqueda histórica, no a quien espere una narración de ficción.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Geoffroy Huard estudia cómo pudo desarrollarse el destape gay en una sociedad que todavía mantenía fuertes actitudes contrarias a la homosexualidad. Examina la trayectoria cinematográfica de Eloy de la Iglesia, especialmente Los placeres ocultos, mediante documentación de censura, periódicos y entrevistas. El análisis relaciona el éxito comercial con los cambios en la representación del deseo masculino.",
+      "texto": "Geoffroy Huard estudia cómo alcanzó difusión comercial el cine de temática gay en una sociedad que todavía respaldaba mayoritariamente la penalización de la homosexualidad. Examina el trabajo de Eloy de la Iglesia y Los placeres ocultos mediante documentación de censura, periódicos de la época y entrevistas, relacionando el éxito cinematográfico con los cambios en la representación sexual.",
       "evidencias": [
         "autores",
         "sinopsis_editorial"
@@ -21,32 +21,33 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "DESTAPE GAY, EL se publica en tapa blanda, con 228 páginas en castellano. Esta edición permite seguir en papel el análisis histórico y volver a los pasajes dedicados a la censura, las películas y su recepción pública. La extensión ofrece margen para una lectura por capítulos y para consultar las cuestiones tratadas durante una investigación.",
+      "texto": "El destape gay cuenta con una edición en tapa blanda de 228 páginas, publicada en castellano por Marcial Pons Ediciones de Historia. El volumen físico permite consultar y releer los apartados de esta investigación histórica sin utilizar pantalla, además de incorporarlo a una biblioteca de estudios sobre cine y sociedad.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
+        "editorial",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA y DESTAPE GAY, EL comparten una aproximación histórica mediante el estudio de figuras concretas, pero el primero aborda una investigación sobre la vida y muerte de un poeta y el segundo examina el cine y la homosexualidad durante la Transición. CORONA AUTORITARIA, LA también estudia relaciones entre poder y sociedad, aunque se centra en la monarquía y el nacionalismo bajo la dictadura de Primo de Rivera.",
+      "texto": "Agustín penón y Federico García Lorca, de Juan Carlos García de Polavieja, comparte con El destape gay el interés por investigar figuras y episodios del pasado. La diferencia está en el objeto de estudio: el primero aborda una investigación sobre la vida y muerte de Federico García Lorca, mientras Geoffroy Huard analiza el cine gay durante la Transición y sus condiciones sociales.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788418567933",
-        "isbn-9788419892782"
+        "isbn-9788418567933"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "db0c2dd315b3dd02",
+  "fuente_hash": "2887a134ec2eff68",
   "origen": "chatgpt-web"
 }

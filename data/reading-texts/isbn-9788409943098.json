@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788409943098",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a familias y personas interesadas en prepararse para terremotos mediante una guía práctica. No corresponde a una lectura de ficción sobre catástrofes: su planteamiento se centra en la supervivencia y la protección familiar antes, durante y después de un temblor.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Aborda la preparación ante sismos, las actuaciones durante un temblor y las medidas posteriores a una emergencia. El enfoque es práctico y familiar, con la supervivencia y la protección frente a desastres como ejes de la guía.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne 147 páginas en un ejemplar físico que puede guardarse para consultas sobre preparación y respuesta ante terremotos. Kindle permite llevar la guía en un dispositivo electrónico y acceder a su contenido sin depender del libro impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Manual de supervivencia psicológica. Todo lo que nadie te enseñó sobre salud mental (Psicología y autoayuda), de Marc Garrell Mollons, también plantea la supervivencia desde una perspectiva práctica, pero se ocupa de la salud mental y no de los sismos. Así es la vida de los animales: Historias de crueldad, amor y supervivencia en la naturaleza (Imago Mundi), de Mario Alonso Santamaría, aborda la supervivencia animal, mientras que Manolo Camara se centra en la preparación humana ante terremotos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370979",
+        "isbn-9788441445550"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ee93f4e3ff25e918",
+  "origen": "chatgpt-web"
+}

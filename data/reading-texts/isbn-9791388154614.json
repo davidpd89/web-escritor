@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388154614",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La aldea más allá de la niebla está dirigida al público infantil y juvenil interesado en la fantasía. Es una obra de Sachiko Kashiwaba que se sitúa fuera de la narrativa histórica y del ensayo, de modo que no responde a quienes buscan una lectura documental.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La aldea más allá de la niebla se publica en tapa dura, con 160 páginas en castellano. La encuadernación rígida de Blackie Books ofrece una presentación en papel apropiada para conservar el volumen o entregarlo como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7c0598dc496ec1fb",
+  "origen": "chatgpt-web"
+}

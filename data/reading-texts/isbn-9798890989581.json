@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9798890989581",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Santa Biblia RVR 1960 letra grande tamaño manual, Símil piel Blanca (Boda, Quinceañera) / Spanish Bible RVR 1960 Handy Size Large Print White Leathersoft está orientada a lectores que buscan una Biblia en castellano con letra grande. Su presentación blanca y las ocasiones señaladas en el título también la vinculan al regalo religioso, no a la lectura de ficción.",
+      "evidencias": [
+        "titulo",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación coincide con Santa Biblia RVR 1960 letra grande tamaño manual, Símil piel Blanca (Boda, Quinceañera) / Spanish Bible RVR 1960 Handy Size Large Print White Leathersoft en el ámbito espiritual, pero se centra en los fundamentos y la práctica del Dharma. Al andar: Vivencias del Camino de Santiago aborda vivencias relacionadas con un recorrido, mientras que esta edición de Reina Valera Revisada 1960 está concebida como texto bíblico de consulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496",
+        "isbn-9791399210088"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esta edición de Santa Biblia RVR 1960 letra grande tamaño manual, Símil piel Blanca (Boda, Quinceañera) / Spanish Bible RVR 1960 Handy Size Large Print White Leathersoft se comercializa en tapa blanda y contiene 1280 páginas. El título destaca la letra grande, el tamaño manual y el acabado blanco de símil piel, características relevantes para la lectura frecuente o para entregarla como regalo en las celebraciones indicadas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [
+    "que_formato_elegir: repite otro bloque",
+    "faltan módulos: que_formato_elegir"
+  ],
+  "version": 3,
+  "fuente_hash": "92a2b1eae28bbcb6",
+  "origen": "chatgpt-web"
+}

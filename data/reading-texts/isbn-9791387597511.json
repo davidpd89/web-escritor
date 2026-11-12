@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791387597511",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los cuatro evangelios: Con prólogo de Pablo d'Ors (VARIOS) se dirige a lectores interesados en los textos religiosos y la espiritualidad. Su contenido responde a la lectura de los evangelios, no a quien busca un manual de ejercicios de bienestar o desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Los cuatro evangelios: Con prólogo de Pablo d'Ors (VARIOS) incorpora un prólogo de Pablo d'Ors y está publicada por Errata naturae. Apareció el 2026-10-26, en castellano, con 304 páginas encuadernadas en tapa dura.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "fecha_publicacion",
+        "idioma",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para esta edición de 304 páginas de Errata naturae. Resulta apropiada para conservar el volumen, consultarlo en diferentes momentos o regalar una edición física con el prólogo de Pablo d'Ors.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, comparte el interés por la espiritualidad, pero se orienta hacia la astrología, la filosofía y la magia. Los cuatro evangelios: Con prólogo de Pablo d'Ors (VARIOS) se centra, en cambio, en los textos evangélicos y añade un prólogo de Pablo d'Ors.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "08000a9aad11b9cd",
+  "origen": "chatgpt-web"
+}

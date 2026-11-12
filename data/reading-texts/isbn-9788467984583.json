@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "BLUER THAN LOVE 04 encaja con lectores de romance que buscan relaciones entre chicas, sentimientos expresados mediante la escritura y conflictos afectivos en el instituto. Su atención a los vínculos personales y a las decisiones sentimentales lo distingue de las historias centradas en la acción o el peligro físico.",
+      "texto": "Bluer than love 04 se dirige a lectores de romance interesados en las relaciones sentimentales entre chicas y los personajes adolescentes. El entorno de instituto y la expresión de los sentimientos mediante la escritura sitúan la historia en el terreno del romance juvenil, lejos de quienes buscan fantasía, terror o acción como eje principal.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,29 +13,27 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "BLUER THAN LOVE 04 aborda un momento de cambio sentimental a través de una colaboración literaria entre dos institutos. La escritura de un texto lleva a Takamine a examinar sus preferencias y afrontar una decisión sobre su futuro afectivo. El título lo identifica como el n.º 04.",
+      "texto": "Bluer than love 04 propone una lectura romántica que sigue la evolución de los sentimientos de sus protagonistas en un entorno escolar. La colaboración entre dos clubes de literatura para crear una revista introduce la escritura como parte del conflicto personal de Takamine, que debe decidir cómo afrontar aquello que siente.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "BLUER THAN LOVE 04 tiene una edición en tapa blanda de 192 páginas, publicada en castellano por Norma Editorial. Este formato reúne en un volumen físico la historia de relaciones personales y actividades literarias que desarrolla Kon Fukami.",
+      "texto": "La tapa blanda reúne las 192 páginas de Bluer than love 04 en una edición de Norma Editorial. Es la opción disponible para leer este volumen en papel y conservarlo junto a otros títulos de la colección; no se ofrecen aquí alternativas de tapa dura, Kindle o audiolibro.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "autores",
-        "sinopsis_editorial"
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b731da12680050ba",
+  "fuente_hash": "30e38eacfc819564",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388001253",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una historia divertida (Books4pocket narrativa), de Emily Henry, encaja con quienes buscan una novela romántica en castellano. Sus 448 páginas permiten dedicar varias sesiones a la lectura; no responde a quien prefiera un ensayo o una obra centrada en la fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una historia divertida (Books4pocket narrativa) está disponible en tapa blanda, con 448 páginas. Esta edición de Books4pocket permite leer en papel y transportarla entre sesiones, aunque su extensión supone llevar un volumen considerable.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una historia divertida (Books4pocket narrativa) y Clásico moderno (Titania fresh) comparten autora: Emily Henry. La primera se presenta como romance en una edición de Books4pocket de 448 páginas; la segunda permite continuar con la misma escritora desde otro título de su catálogo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "editorial",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410391888"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d710e11e50ad95b4",
+  "origen": "chatgpt-web"
+}

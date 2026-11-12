@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788425452901",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El niño feliz (fuera de colección) está orientado a lectores interesados en la crianza, la infancia y la psicología familiar. Dorothy Corkille Briggs firma un volumen de 424 páginas relacionado con el desarrollo personal, por lo que su enfoque se aleja de la ficción infantil y de los relatos de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El niño feliz (fuera de colección) se publica en tapa blanda y tiene 424 páginas en castellano. La edición de Herder Editorial permite consultar el contenido en papel, marcar pasajes y regresar a distintos apartados durante la lectura sobre crianza y psicología.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El niño feliz (fuera de colección) se relaciona con ¿Cómo aprenden los bebés? por su interés en la infancia y el desarrollo. Dorothy Corkille Briggs aborda la crianza desde el ámbito de la psicología familiar, mientras que Héctor Ruiz Martín plantea cómo las experiencias tempranas influyen en la mente y el cerebro del bebé.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388038334"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "03486027e211cd35",
+  "origen": "chatgpt-web"
+}

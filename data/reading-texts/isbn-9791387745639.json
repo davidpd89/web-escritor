@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387745639",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nuevos dichos: Textos inéditos (2026): 1324 (Visor de Poesía) está dirigido a lectores de poesía que buscan textos inéditos de Rafael Cadenas. Su planteamiento literario se aleja de la narrativa de aventuras y de las novelas construidas alrededor de una trama continuada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nuevos dichos: Textos inéditos (2026): 1324 (Visor de Poesía) está disponible en tapa blanda, con 116 páginas en castellano. Su extensión facilita llevarlo durante los desplazamientos y volver a determinados textos sin necesidad de transportar un volumen extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nuevos dichos: Textos inéditos (2026): 1324 (Visor de Poesía) puede compararse con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, por su pertenencia a la poesía. La obra de Rafael Cadenas reúne textos identificados como inéditos, mientras que el título de Pedro Salinas señala una selección de temática amorosa. Son propuestas de autores distintos y con enfoques expresados de manera diferente en sus títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5c699dc8d91968cc",
+  "origen": "chatgpt-web"
+}

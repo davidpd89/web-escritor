@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788467982091",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Digimon Adventure v-tamer 08: 8 está dirigido a lectores de cómic y novela gráfica que buscan una entrega identificada por número. El título lo identifica como el n.º 8 y sus 160 páginas corresponden a una edición en castellano; no es una elección orientada a quien prefiera narrativa exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Digimon Adventure v-tamer 08: 8 tiene una edición en tapa blanda de 160 páginas, publicada por Norma Editorial. Este formato físico permite consultar las páginas ilustradas directamente en papel y guardar el volumen junto a otros cómics, sin utilizar un lector digital.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "809a2bb527d03194",
+  "origen": "chatgpt-web"
+}

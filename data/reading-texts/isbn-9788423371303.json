@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788423371303",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Infamia (Crimen y misterio) encaja con lectores que buscan misterio y thriller, especialmente si también les interesan los relatos vinculados a la historia y al siglo XX. Sus 288 páginas plantean una extensión moderada, mientras que su orientación hacia el crimen la separa de lecturas centradas exclusivamente en la historia divulgativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Infamia (Crimen y misterio) se presenta en tapa blanda, concretamente en una edición de bolsillo de Booket con 288 páginas. Este formato facilita transportarlo y leerlo fuera de casa, con un volumen físico más manejable que las ediciones de mayor tamaño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a5588b36223bc51a",
+  "origen": "chatgpt-web"
+}

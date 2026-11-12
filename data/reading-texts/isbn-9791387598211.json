@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387598211",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tardes de otoño (Montena), de Joana Marcús, encaja con lectores que buscan una novela romántica extensa y prefieren dedicar tiempo a una misma lectura. Sus 750 páginas y su temática amorosa lo distancian de los libros breves y de las historias centradas en otros géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tardes de otoño (Montena) está disponible en tapa blanda y Kindle, dos opciones para abordar sus 750 páginas. La tapa blanda permite conservar el ejemplar físico en la biblioteca, mientras que Kindle facilita llevar una novela de esta extensión en un dispositivo compatible sin cargar con el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tardes de otoño (Montena) comparte el género romántico con Amor en pole position (Dirty Air 3), de Lauren Asher. La novela de Joana Marcús se presenta como una historia de romance de 750 páginas, mientras que la de Lauren Asher sitúa la relación amorosa en el entorno de la Fórmula 1.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9d097270b5b89e7a",
+  "origen": "chatgpt-web"
+}

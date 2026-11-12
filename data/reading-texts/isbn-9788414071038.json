@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788414071038",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las sombras del Titanic (Contempla) se dirige a lectores juveniles interesados en la historia del siglo XX y la narrativa contemporánea. Su enfoque histórico lo distingue de las lecturas centradas en mundos fantásticos o conflictos alejados de acontecimientos históricos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Las sombras del Titanic (Contempla) está disponible en tapa dura y reúne 157 páginas en castellano. Es una presentación encuadernada para conservar en una biblioteca personal o regalar, con una extensión que permite distribuir la lectura en pocas sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las sombras del Titanic (Contempla) comparte autoría con Las sirenas y otras quimeras (Enciclopedia de seres mágicos), también de Cécile Roumiguière. La primera se sitúa en el ámbito de la historia del siglo XX y la narrativa juvenil, mientras que la segunda se ocupa de seres mágicos. La diferencia principal está entre el interés histórico y el imaginario fantástico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788414075050"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a8b764109d833f3f",
+  "origen": "chatgpt-web"
+}

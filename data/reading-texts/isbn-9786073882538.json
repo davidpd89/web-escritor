@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9786073882538",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La obra de Julio Rojas encaja con lectores de memorias y ensayos interesados en testimonios sobre encuentros personales. Su asunto central es la relación del autor con Billy Meier, por lo que se aleja de la ficción narrativa y de los manuales prácticos. La clasificación editorial la sitúa en biografías y memorias, además de ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro aborda los encuentros entre Julio Rojas y Billy Meier desde una perspectiva vinculada al testimonio personal. Su planteamiento combina el interés biográfico con el carácter reflexivo propio del ensayo. El título en castellano y en inglés identifica a Billy Meier como figura central de esas experiencias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Penguin Random House Grupo Editorial se presenta en tapa blanda y reúne 312 páginas. Es un volumen físico que permite distribuir la lectura en varias sesiones y volver a pasajes concretos sin depender de un dispositivo electrónico. La encuadernación flexible facilita guardarlo en una mochila o llevarlo durante los desplazamientos.",
+      "evidencias": [
+        "editorial",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Julio Rojas y Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes comparten el interés por experiencias vinculadas a personas concretas. Julio Rojas sitúa sus encuentros con Billy Meier en el centro del relato, mientras Andrew Paxman presenta una biografía dividida en 50 episodios. La diferencia principal está entre narrar encuentros propios y organizar la trayectoria de otra persona en episodios biográficos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073873154"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "28ed1af9ac6cab80",
+  "origen": "chatgpt-web"
+}

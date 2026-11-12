@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388337215",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Prométeme, América (Contraluz), de Joe Biden, se sitúa entre las lecturas de biografía, memorias y política. Sus 704 páginas responden a un interés por obras extensas sobre figuras públicas, más que por manuales breves o ficción de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Prométeme, América (Contraluz) está disponible en tapa dura y Kindle, con 704 páginas en la edición física. La tapa dura permite conservar el volumen en una biblioteca personal, mientras que Kindle facilita transportar una lectura extensa y ajustar el tamaño de letra en dispositivos compatibles.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes comparte con Prométeme, América (Contraluz) el interés por personalidades políticas, aunque organiza su recorrido biográfico en cincuenta episodios. Antes de irme (Espasa Actualidad), de Miguel Ángel Revilla, ofrece otra referencia vinculada a una figura pública, frente a las 704 páginas de la obra de Joe Biden.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9786073873154",
+        "isbn-9788467085044"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e389324bb983605a",
+  "origen": "chatgpt-web"
+}

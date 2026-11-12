@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788493245726",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El sabor en la ruta de Hernán Cortés, de Montserrat Clavé Jové, se dirige a lectores interesados en publicaciones sobre ocio y tiempo libre. Sus 248 páginas en castellano responden a una lectura de extensión media; por su clasificación editorial, no se orienta específicamente a quienes buscan narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El sabor en la ruta de Hernán Cortés se presenta en tapa dura, con 248 páginas. Esta encuadernación ofrece una cubierta rígida para conservar el volumen en una biblioteca doméstica o entregarlo como regalo; su extensión permite consultarlo en distintas sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El sabor en la ruta de Hernán Cortés puede compararse con Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA), de David Villalón y Mario Villalón, por su relación con la alimentación. El primero está firmado por Montserrat Clavé Jové y se clasifica en ocio y tiempo libre; el segundo anuncia en su título contenidos sobre huerta, vinos, cocina y cócteles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934293"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "43679d2e1352860c",
+  "origen": "chatgpt-web"
+}

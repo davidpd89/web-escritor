@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Barbie dreamscape se dirige a lectores a partir de 12 años interesados en fantasía juvenil, aventuras mágicas y relatos sobre la identidad personal. La protagonista cuestiona un sistema que asigna el futuro de cada habitante, por lo que encaja menos con quienes prefieren historias realistas sin reinos imaginarios, poderes ni secretos familiares.",
+      "texto": "Barbie dreamscape encaja con lectores a partir de 12 años interesados en la fantasía juvenil, las aventuras mágicas y los conflictos relacionados con el destino personal. Su mezcla de fantasía, romance y elementos de ciencia ficción se aleja de una novela realista sin componentes sobrenaturales.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,52 +14,50 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Barbie dreamscape está recomendado a partir de 12 años. Su conflicto incluye la pérdida de un futuro considerado seguro, la ruptura de las reglas que organizan un reino y la investigación de secretos relacionados con el pasado familiar. El contenido fantástico se apoya en la incertidumbre sobre la identidad y en los riesgos de una aventura fuera del entorno conocido.",
+      "texto": "La edad recomendada para Barbie dreamscape es a partir de 12 años. La historia incluye una crisis de identidad, incertidumbre sobre el futuro y amenazas al orden de un reino, además de magia y desafíos. Estos conflictos pueden resultar más intensos para lectores que prefieren aventuras sin peligro ni tensión personal.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Barbie dreamscape combina fantasía juvenil, aventura y elementos de ciencia ficción en un reino donde cada habitante tiene un futuro asignado. Barbie es la primera persona que queda fuera de ese sistema y utiliza un collar heredado de su madre para investigar su pasado. El conflicto enfrenta la libertad de elegir el propio destino con las reglas que organizan el país del Corazón.",
+      "texto": "Se trata de una novela juvenil de fantasía y aventuras en la que la protagonista queda fuera de un sistema que asigna el futuro de cada persona. El conflicto enfrenta la libertad individual con las reglas de un reino aparentemente ordenado. La magia, los secretos familiares y la búsqueda de identidad sostienen su desarrollo.",
       "evidencias": [
-        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Barbie dreamscape está disponible en tapa blanda con solapas, en una edición de Alfaguara de 376 páginas. Este formato permite leerlo como volumen físico, guardarlo en una estantería o regalarlo sin recurrir a una encuadernación rígida. Las solapas forman parte de la presentación de esta edición en castellano.",
+      "texto": "La tapa blanda con solapas permite leer las 376 páginas de Barbie dreamscape en papel y conservar una edición física de Alfaguara. Kindle traslada esa extensión a un dispositivo electrónico, con la posibilidad de continuar la lectura desde el móvil. La diferencia práctica está en el soporte y en la facilidad para transportar el libro.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "numero_paginas",
         "edicion",
         "editorial",
-        "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Alas de escarcha y oro: El canto del cisne, de Marta Morillo, comparte con Barbie dreamscape la fantasía alrededor de una protagonista y sus capacidades ocultas, aunque Barbie afronta un sistema de destinos asignados y Eira esconde sus dones. Donde duermen las sombras, de Andrea Ornos, incorpora amor y dimensiones a su romantasy contemporáneo, frente al reino fantástico y la búsqueda de identidad de Alex Aster.",
+      "texto": "Stormside (Starside 2) (Sin límites) comparte autora con Barbie dreamscape: ambos títulos están firmados por Alex Aster, aunque el primero se identifica en su título con Starside 2. Ciudad de dioses y monstruos (DARK ROMANCE), de Kayla Edwards, ofrece otra referencia para lectores interesados en el componente romántico de la fantasía, con una orientación hacia el romance oscuro que contrasta con el enfoque juvenil de Barbie dreamscape.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387949938",
-        "isbn-9788427055605"
+        "isbn-9791387949693",
+        "isbn-9788415955559"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f607a773dc1831d8",
+  "fuente_hash": "81ba64e2a212d3e3",
   "origen": "chatgpt-web"
 }

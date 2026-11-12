@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466375375",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La casa de huéspedes (Best Seller | Ficción), de Ana Lena Rivera, se dirige a lectores de novela histórica y narrativa contemporánea con interés por los temas familiares. Su combinación de historia y familia la distancia de las novelas centradas exclusivamente en aventuras fantásticas o en conflictos de ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La casa de huéspedes (Best Seller | Ficción) tiene 544 páginas y cuenta con una edición de bolsillo en tapa blanda, adecuada para llevar una novela extensa en papel. La tapa dura proporciona una cubierta rígida para conservarla o regalarla; Kindle permite leerla sin cargar con el volumen físico y el audiolibro ofrece la opción de escucharla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amargo, amargo (Literaturas), de Joanna Bator, es otra referencia del catálogo para explorar una autoría distinta. La casa de huéspedes (Best Seller | Ficción), de Ana Lena Rivera, se sitúa expresamente entre la novela histórica, la narrativa contemporánea y los temas familiares; esa combinación define su orientación frente a la comparación por autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387846558"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "364003673ef3182d",
+  "origen": "chatgpt-web"
+}

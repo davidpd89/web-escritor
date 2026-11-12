@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387960476",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Madrid.: Retrato de una ciudad. (Libros de Autor) se dirige a lectores interesados en Madrid y en publicaciones relacionadas con el arte y el diseño. Sus 304 páginas y su presentación en tapa dura corresponden a una edición extensa; por su enfoque urbano, se diferencia de las historias centradas en mundos imaginarios.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Madrid.: Retrato de una ciudad. (Libros de Autor) está editado en tapa dura, una encuadernación rígida apropiada para conservar el volumen y consultarlo repetidamente. La Fábrica reúne 304 páginas en castellano, características que también permiten considerarlo como libro físico para regalar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Madrid.: Retrato de una ciudad. (Libros de Autor) guarda relación con Chema Madoz.: Manual de un distraído. (Libros de Autor.) por su vinculación con el arte y por pertenecer ambos a la línea Libros de Autor. El primero tiene como asunto una ciudad y 304 páginas en tapa dura; el segundo se presenta como una obra centrada en Chema Madoz.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387960391"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "22ed6dbdc4ddd1f1",
+  "origen": "chatgpt-web"
+}

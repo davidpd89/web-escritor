@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788410279612",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La yedra se dirige a lectores que buscan poesía en castellano y prefieren un volumen de extensión contenida. La obra de Elena Cobos Ruiz reúne 64 páginas, por lo que no corresponde a quien busca una novela larga o un ensayo desarrollado en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La yedra se presenta en tapa blanda, con 64 páginas en castellano y edición de Calixto Torres Perales. La encuadernación flexible facilita transportarla y consultar sus páginas en distintos momentos; su extensión también permite dedicar sesiones breves a la lectura poética.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La yedra y Antologia amorosa la voz a ti debida y razon de amor pertenecen al ámbito de la poesía. La primera es una obra de Elena Cobos Ruiz de 64 páginas; la segunda, de Pedro Salinas, identifica expresamente el amor como eje de su selección. La comparación permite distinguir una obra individual de una antología de temática amorosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288",
+        "isbn-9791370140908"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e8e1385c1bac7d13",
+  "origen": "chatgpt-web"
+}

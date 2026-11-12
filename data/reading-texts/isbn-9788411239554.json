@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788411239554",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gran Bilbao se dirige a lectores interesados en el arte y el diseño, especialmente en obras cuyo título remite a un lugar concreto. Sus 220 páginas ofrecen una extensión intermedia, menos ajustada a quienes buscan un manual técnico de otra disciplina o una novela identificada como tal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Gran Bilbao se publica en tapa dura, con 220 páginas en castellano. La encuadernación rígida facilita conservar el volumen en una biblioteca y utilizarlo como libro de consulta o regalo relacionado con el arte y el diseño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gran Bilbao puede compararse con 720 retrats por su vinculación con el ámbito artístico. Martin Mendo presenta una obra cuyo título remite a Bilbao, mientras que el libro de Xavier Mollà i Revert identifica expresamente los retratos como asunto y destaca su cantidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "77f3c022d81850c8",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9786073879293",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Kpop Demon Hunters. El Arte de la Película / The Art of Kpop Demon Hunters está dirigido a lectores interesados en el arte y el diseño vinculados a Kpop Demon Hunters. Es un libro de Jessica Yoon de 160 páginas, más relacionado con la vertiente artística de la película que con la lectura de una novela de fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Kpop Demon Hunters. El Arte de la Película / The Art of Kpop Demon Hunters se edita en tapa dura, con 160 páginas en castellano. La encuadernación rígida favorece su conservación como libro de arte y su consulta sobre una mesa, además de ofrecer una presentación física adecuada para regalar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Kpop Demon Hunters. Libro Oficial de Retos / Kpop Demon Hunters: Official Would You Rather? comparte universo y autoría con el libro de Jessica Yoon, pero plantea retos en lugar de centrarse en el arte y el diseño. El volumen artístico tiene 160 páginas y se presenta en tapa dura, con un enfoque distinto al de las actividades propuestas por el otro título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073880688"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "820abcd221c1f5ad",
+  "origen": "chatgpt-web"
+}

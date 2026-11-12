@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408331704",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Carta de una desconocida (Austral Esenciales) está dirigida a lectores de clásicos literarios y narrativa contemporánea que buscan una obra de extensión reducida. Sus 112 páginas la distinguen de las novelas extensas y permiten abordar el texto en un volumen breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Carta de una desconocida (Austral Esenciales) contiene 112 páginas en castellano y pertenece al sello Austral Editorial. Su extensión permite llevar el volumen en un bolso o mochila y leerlo en papel sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Carta de una desconocida (Austral Esenciales) puede compararse con Veinticuatro horas en la vida de una mujer por compartir autor, Stefan Zweig, y presentar títulos vinculados a figuras femeninas. También guarda relación de autoría con La curación por el espíritu, aunque esta última se identifica como un ensayo biográfico, frente a la clasificación narrativa y clásica de Carta de una desconocida (Austral Esenciales).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466379021",
+        "isbn-9791387964443"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3d45236aef4856bf",
+  "origen": "chatgpt-web"
+}

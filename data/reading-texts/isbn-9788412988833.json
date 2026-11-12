@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788412988833",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "223 esquinas: 16 (La garza roja) está dirigido a lectores de poesía que prefieren este género frente a la narrativa convencional. Sus 124 páginas ofrecen una extensión contenida para la lectura en papel, pero no responden a quien busca una novela con una trama de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "223 esquinas: 16 (La garza roja) se publica en tapa blanda y contiene 124 páginas en castellano. El formato físico permite consultar los poemas, detenerse en pasajes concretos y regresar a ellos sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "223 esquinas: 16 (La garza roja) comparte el género poético con Antología, de Antonio Cano, y Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. La obra de Antonio Fernández Lera se presenta como un volumen de 124 páginas, mientras que Antología reúne la obra completa de su autor y el libro de Pedro Salinas identifica expresamente una selección amorosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288",
+        "isbn-9791370140908"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eb402c7212188cbc",
+  "origen": "chatgpt-web"
+}

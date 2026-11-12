@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399220988",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los promesas perdidos de Kántor se dirige a lectores que alternan fantasía, misterio y ciencia ficción, con interés también por la narrativa contemporánea. Quienes prefieren historias estrictamente realistas, alejadas de los géneros especulativos, encontrarán menos afinidad con su clasificación temática.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los promesas perdidos de Kántor está disponible en tapa blanda, con 216 páginas en castellano. Su extensión permite llevar el volumen físico en una mochila y distribuir la lectura en sesiones breves, sin recurrir a dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El mundo perdido comparte con Los promesas perdidos de Kántor su proximidad al misterio y la ficción especulativa, aunque el libro de Michael Crichton sitúa su planteamiento en una isla con dinosaurios. La obra de Ángel Martín Cañas combina en su clasificación fantasía, ciencia ficción y narrativa contemporánea, sin quedar limitada al escenario descrito para El mundo perdido.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788466392143"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "77080012750ebfd5",
+  "origen": "chatgpt-web"
+}

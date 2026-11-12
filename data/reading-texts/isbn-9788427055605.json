@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Donde duermen las sombras, de Andrea Ornos, se dirige a lectores desde los 14 años que buscan romance juvenil con magia oculta, maldiciones y dimensiones alternativas. El conflicto sentimental depende de una conexión sobrenatural y de la posibilidad de romper una condena, por lo que encaja menos con quienes prefieren romances realistas sin fantasía.",
+      "texto": "Donde duermen las sombras se dirige a lectores desde los 14 años que buscan fantasía contemporánea con romance, magia oculta y conflictos sobrenaturales. Su combinación de maldiciones, vínculos mágicos y dimensiones distintas se aleja de las historias realistas sin elementos fantásticos.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,15 +14,17 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "La edad recomendada comienza a los 14 años. La historia incorpora una maldición que mantiene a un personaje vinculado a las sombras y una relación afectiva condicionada por fuerzas mágicas. El peligro sobrenatural y la situación de condena forman parte de los elementos que conviene considerar para lectores sensibles.",
+      "texto": "Donde duermen las sombras está recomendado a partir de 14 años y combina romance juvenil con fantasía y amenazas sobrenaturales. La maldición vinculada a las sombras y el peligro que rodea a sus protagonistas forman parte del conflicto, por lo que conviene tener en cuenta esos elementos al elegir la lectura.",
       "evidencias": [
+        "titulo",
         "edad_recomendada",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Donde duermen las sombras plantea un romantasy contemporáneo en el que la magia permanece escondida y existen distintas dimensiones. Kaylin Aelis puede desplazarse entre ellas, mientras otro personaje afronta una maldición relacionada con las sombras. El vínculo entre ambos convierte el romance en parte del conflicto sobrenatural.",
+      "texto": "Donde duermen las sombras es una novela de romantasy contemporánea donde la magia permanece oculta y existen conexiones entre dimensiones. El conflicto combina una maldición con un vínculo mágico entre personajes, de modo que la relación sentimental y el componente fantástico avanzan unidos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -32,18 +33,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Donde duermen las sombras está disponible en tapa blanda y Kindle. La edición física de Ediciones Martínez Roca consta de 368 páginas y presenta encuadernación rústica con solapas, adecuada para quien quiere conservar un ejemplar en papel. Kindle ofrece una alternativa digital para leer en dispositivos compatibles sin llevar el volumen impreso.",
+      "texto": "La tapa blanda con solapas de Donde duermen las sombras reúne sus 368 páginas en un volumen físico para leer y conservar. Kindle permite llevar la novela completa en el móvil o en un lector electrónico, sin cargar con el ejemplar de papel durante los desplazamientos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
         "edicion",
-        "editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Donde duermen las sombras comparte con Alas de escarcha y oro: El canto del cisne, de Marta Morillo, el protagonismo de personajes con capacidades extraordinarias, aunque la historia de Eira se centra inicialmente en ocultar sus dones. El ocaso del rey (Dioses y monstruos 5), de Amber V. Nicole, también combina fantasía y romance, pero se presenta como dark romantasy, mientras la novela de Andrea Ornos parte de una ambientación contemporánea con magia secreta.",
+      "texto": "Donde duermen las sombras y Alas de escarcha y oro: El canto del cisne comparten la fantasía construida alrededor de dones extraordinarios, aunque la primera incorpora dimensiones y una maldición, mientras que la segunda presenta a una protagonista que oculta sus capacidades. También puede compararse con Ciudad de dioses y monstruos (DARK ROMANCE) por su relación con la fantasía y el romance, aunque el segundo título se identifica expresamente con el romance oscuro.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -52,7 +52,7 @@
       ],
       "enlaces": [
         "isbn-9791387949938",
-        "isbn-9788427258280"
+        "isbn-9788415955559"
       ]
     }
   ],

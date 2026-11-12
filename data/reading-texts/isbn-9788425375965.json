@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788425375965",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El robot y el jardinero: Ser plenamente humano en una era artificial (Crecimiento personal) se dirige a quienes leen sobre desarrollo personal y espiritualidad. El contraste entre humanidad y era artificial aparece en su propio título, por lo que se aleja de una lectura centrada en la ficción romántica o el suspense.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El robot y el jardinero: Ser plenamente humano en una era artificial (Crecimiento personal) puede leerse en tapa dura o Kindle. La edición física de Grijalbo reúne 240 páginas y permite conservar el libro en papel; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El robot y el jardinero: Ser plenamente humano en una era artificial (Crecimiento personal) puede compararse con Ama tu sistema nervioso, de Elsa Bonafonte, por su orientación hacia el bienestar personal. El libro de Robin Sharma aborda desde su título la condición humana en una era artificial, mientras que el de Elsa Bonafonte centra su propuesta en el sistema nervioso y el amor hacia uno mismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419820853"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "23eccd7d24dea91c",
+  "origen": "chatgpt-web"
+}

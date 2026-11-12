@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788422024569",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Evangelio según San Marcos está dirigido a lectores interesados en los textos cristianos y su estudio dentro del ámbito religioso. Sus 544 páginas lo sitúan entre las lecturas extensas, por lo que se aleja de quien busque una introducción breve o una novela de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Evangelio según San Marcos se publica en tapa blanda, con 544 páginas en castellano. Por su extensión, el volumen en papel permite avanzar por sesiones, marcar puntos de lectura y consultar fragmentos anteriores; la edición corresponde a BAC.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Evangelio según San Marcos y Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación comparten su orientación hacia cuestiones religiosas y espirituales. El libro de Pedro Cabello Morales se centra en un evangelio cristiano, mientras que el de Tsondru Yeshe aborda los fundamentos y la práctica del Dharma.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "55410824dc4c92b0",
+  "origen": "chatgpt-web"
+}

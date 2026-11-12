@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387845124",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La mejor parte (SUMA), de Evann Normandin, se dirige a quienes buscan romance con elementos de ciencia ficción y narrativa contemporánea. No responde a la búsqueda de una novela exclusivamente realista ni de ciencia ficción desligada de las relaciones sentimentales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La mejor parte (SUMA) está disponible en tapa blanda, con 344 páginas en castellano. Esta edición de Suma de Letras permite leerla en papel y mantener el volumen en una biblioteca personal, con una extensión que conviene considerar antes de llevarla de viaje.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La mejor parte (SUMA) comparte el componente de ciencia ficción con Aunque se acabe el mundo, de Clara Duarte, donde una cúpula altera la situación de la humanidad. La obra de Evann Normandin incorpora también romance y narrativa contemporánea, mientras que la de Clara Duarte plantea una transformación colectiva como punto de partida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427255968"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5100cdbf574ce04e",
+  "origen": "chatgpt-web"
+}

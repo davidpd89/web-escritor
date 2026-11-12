@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9786287640597",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Mi mamá tuvo la culpa? / Was It My Mom's Fault? se orienta a lectores interesados en psicología, relaciones familiares y desarrollo personal. Su enfoque temático encaja menos con quien busca ficción narrativa o un manual centrado exclusivamente en cuestiones ajenas a la familia.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Mi mamá tuvo la culpa? / Was It My Mom's Fault? está disponible en tapa blanda, con 264 páginas en castellano. Esta edición física permite avanzar por capítulos, volver a pasajes anteriores y consultar el contenido sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Por su temática familiar y psicológica, este libro se puede comparar con Conectados para el amor / Wired for Love, de Stan Tatkin. Ana María Hoyos V. plantea una cuestión sobre la responsabilidad materna, mientras que el título de Stan Tatkin sitúa el foco en el amor y las relaciones de pareja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d152f2459bb3857d",
+  "origen": "chatgpt-web"
+}

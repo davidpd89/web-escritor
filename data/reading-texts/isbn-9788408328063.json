@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408328063",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche El Alquimista (Edición especial con cantos tintados) (Biblioteca Paulo Coelho) se orienta a lectores que buscan narrativa contemporánea relacionada con la espiritualidad y el desarrollo personal. No tiene el planteamiento de un manual de ejercicios ni el de un estudio histórico de las religiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Editorial Planeta publica este estuche de El Alquimista en tapa dura, con cantos tintados y dentro de Biblioteca Paulo Coelho. La edición en castellano consta de 200 páginas y lleva fecha de publicación del 11 de noviembre de 2026; su presentación especial es el rasgo que la distingue.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 200 páginas de esta edición especial en un volumen pensado también para su conservación y exposición. El estuche y los cantos tintados aportan elementos físicos que cobran especial relevancia al elegirlo para regalo o colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Peregrino (Edición de Lujo, Cantos Pintados) / The Pilgrimage (Deluxe Edition, Sprayed Edges), también de Paulo Coelho, comparte autor y atención a la presentación física, aunque pertenece a una obra distinta. Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, coincide en el interés espiritual, pero se presenta como un camino de práctica frente al carácter narrativo de El Alquimista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890989963",
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "81af081d878d00ff",
+  "origen": "chatgpt-web"
+}

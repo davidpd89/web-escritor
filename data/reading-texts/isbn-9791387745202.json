@@ -4,46 +4,46 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Políticas poéticas, canon y texto en la poesía española contemporánea está dirigido a lectores interesados en la investigación literaria, la historia cultural y las relaciones entre poesía e ideología. Sus 532 páginas de estudios críticos se alejan de una antología destinada únicamente a leer poemas.",
+      "texto": "Políticas poéticas, canon y texto en la poesía española contemporánea se dirige a lectores interesados en la investigación literaria, la historia cultural y las relaciones entre poesía e ideología. Juan José Lanz estudia especialmente la posguerra y la transición mediante herramientas de análisis histórico y textual. Su planteamiento académico se aleja de una antología de poemas destinada a la lectura recreativa.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Juan José Lanz estudia cómo las circunstancias políticas e históricas intervienen en la creación, interpretación y reconocimiento de la poesía española contemporánea. Examina los mecanismos de formación del canon y las relaciones entre ideología y escritura, con especial atención al periodo de posguerra y transición. También analiza la elaboración de poemas desde la crítica genética.",
+      "texto": "Juan José Lanz examina cómo las condiciones políticas e históricas intervienen en la interpretación y consolidación de la poesía española contemporánea. La primera parte estudia los mecanismos de canonización y las orientaciones estéticas entre 1939 y 1955, además de tendencias posteriores. La segunda analiza la elaboración de los poemas, sus contextos y los procesos de escritura mediante crítica genética.",
       "evidencias": [
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Políticas poéticas, canon y texto en la poesía española contemporánea se publica en tapa blanda, con 532 páginas editadas por Visor Libros. El volumen físico permite marcar apartados, consultar distintos estudios y regresar a los análisis de textos y contextos históricos durante un trabajo de investigación.",
+      "texto": "Políticas poéticas, canon y texto en la poesía española contemporánea se edita en tapa blanda, con 532 páginas en castellano. El volumen de Visor Libros reúne investigaciones organizadas en dos partes, una dedicada a las políticas poéticas y otra a la construcción textual. El formato impreso facilita consultar distintos capítulos y regresar a pasajes concretos durante el estudio.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "editorial",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Políticas poéticas, canon y texto en la poesía española contemporánea y Antología se relacionan con la poesía española del siglo pasado, pero Juan José Lanz estudia sus condiciones históricas y literarias, mientras que Antonio Cano reúne su propia obra poética. Los pilares de la historia comparte la preocupación por la interpretación del pasado, aunque aborda la disciplina histórica en términos generales.",
+      "texto": "Plata en los ojos: Una historia de la Generación del 27 (Espasa Lengua y Literatura) comparte con Políticas poéticas, canon y texto en la poesía española contemporánea el interés por la historia literaria española, pero Juan José Lanz amplía el análisis hacia la posguerra, la transición y la formación del canon. Franquistas contra franquistas aborda también un periodo relacionado con la dictadura, aunque desde la historia política y no desde el estudio de los poemas.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788430629664",
-        "isbn-9791370140908"
+        "isbn-9788467084160",
+        "isbn-9791388387395"
       ]
     }
   ],

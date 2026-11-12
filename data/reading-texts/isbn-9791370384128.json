@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791370384128",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores interesados en el cine doméstico, su conservación y sus usos posteriores. El cine doméstico. Definición, preservación y apropiación (Plural) aborda estas cuestiones desde el ámbito audiovisual y artístico, por lo que su planteamiento se distancia de una narración juvenil centrada en personajes y acontecimientos ficticios.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El cine doméstico. Definición, preservación y apropiación (Plural) propone una lectura sobre las imágenes filmadas en el ámbito doméstico y su tratamiento posterior. El título organiza el interés en torno a tres cuestiones: definir este tipo de cine, conservarlo y estudiar su apropiación, dentro de un marco relacionado con el arte y el diseño.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La obra se presenta en tapa blanda y reúne 354 páginas en castellano. Su formato físico permite consultar un volumen de autoría colectiva sobre cine doméstico, con espacio para una lectura continuada o para volver a los distintos aspectos de su definición, preservación y apropiación.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Forcano.: A pie de calle. (Libros de autor) y El cine doméstico. Definición, preservación y apropiación (Plural) se relacionan con el ámbito de la imagen. El primero se presenta como una obra de autor vinculada a Eugeni Forcano, mientras que el segundo reúne distintas autorías y centra su atención en la definición, conservación y apropiación del cine doméstico.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387960353"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c1502cc75828d41e",
+  "origen": "chatgpt-web"
+}

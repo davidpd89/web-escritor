@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788448875640",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Perico el conejo. Mi primera biblioteca: El cuento de Perico el conejo · El cuento del conejito Benjamín · El cuento de los conejitos Pelusa · El cuento del señor Raposo (Cuentos infantiles), de Beatrix Potter, reúne cuentos infantiles clásicos relacionados con animales y naturaleza. Encaja con lectores interesados en ese tipo de relatos, más que con quienes buscan novelas de acción o terror.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esta biblioteca de cuentos de Beatrix Potter se ofrece en tapa dura y suma 272 páginas. La edición física reúne cuatro relatos identificados en el título, por lo que permite conservarlos juntos y alternar su lectura sin recurrir a volúmenes separados. La encuadernación rígida también resulta práctica para regalar el conjunto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Animales, de Susaeta Ediciones, comparte con la biblioteca de Beatrix Potter el protagonismo de los animales, pero reúne seis cuentos ilustrados frente a los cuatro relatos clásicos identificados en Perico el conejo. Agencia de animales mágicos: Medianoche y la leyenda de Santuario (Mi primer cómic), de Steve Smallman, también utiliza personajes animales, aunque se presenta como cómic y añade una dimensión mágica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448875381",
+        "isbn-9791370341589"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "264ba9affd2e9b93",
+  "origen": "chatgpt-web"
+}

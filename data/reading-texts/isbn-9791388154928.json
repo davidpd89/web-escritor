@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791388154928",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Pensamiento Musical / This Is What It Sounds Like: A Legendary Producer Turned Neuroscientist on Finding Yourself Through Music se dirige a lectores interesados en la relación entre música, psicología y desarrollo personal. Su enfoque de ensayo lo distingue de las novelas y de los libros centrados exclusivamente en técnicas musicales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Pensamiento Musical / This Is What It Sounds Like: A Legendary Producer Turned Neuroscientist on Finding Yourself Through Music se publica en tapa blanda, con 288 páginas en castellano. La edición de Blackie Books permite leer el ensayo en papel y volver a consultar sus páginas durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1237a9ec6d21f929",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466393270",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El mesías de Dune se dirige a quienes leen los clásicos de Frank Herbert y quieren seguir Las crónicas de Dune. El título lo identifica como el n.º 2 de la serie, por lo que resulta menos adecuado para lectores que todavía buscan su primer contacto con ella.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición película de El mesías de Dune se publica en tapa blanda y contiene 304 páginas. Su formato de bolsillo, editado por Penguin Bolsillo, facilita llevarlo durante los desplazamientos y ofrece una alternativa física de menor extensión que otros volúmenes de la misma serie.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Herejes de Dune (edición de lujo) (Las crónicas de Dune 5) (Best Seller | Ficción) comparte con El mesías de Dune la autoría de Frank Herbert y su pertenencia a Las crónicas de Dune. Los títulos los identifican como los números 5 y 2, respectivamente; uno se presenta como edición de lujo y el otro como edición película.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466393959"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "225a7a61a58da733",
+  "origen": "chatgpt-web"
+}

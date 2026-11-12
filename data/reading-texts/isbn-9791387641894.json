@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791387641894",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aviarium (EL CHICO AMARILLO) se dirige a lectores que buscan cómic y novela gráfica. Sus 96 páginas lo sitúan entre las ediciones de extensión breve; encaja menos con quien busca una novela extensa en prosa o un ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura presenta Aviarium (EL CHICO AMARILLO) en una edición impresa de 96 páginas. Este formato permite conservar el volumen con una encuadernación rígida y tenerlo como ejemplar físico en la biblioteca.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c619857c85b7b08a",
+  "origen": "chatgpt-web"
+}

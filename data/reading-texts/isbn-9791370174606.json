@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370174606",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dos semanas para seducirla: 3258 (Bianca) encaja con lectores de romance que prefieren historias de extensión breve. Sus 160 páginas permiten abordar la lectura en pocas sesiones; quienes busquen fantasía, investigación histórica o una novela extensa encontrarán aquí otro tipo de propuesta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dos semanas para seducirla: 3258 (Bianca) puede leerse en tapa blanda o Kindle, con una extensión de 160 páginas. La edición impresa permite conservar y prestar el libro, mientras que Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dos semanas para seducirla: 3258 (Bianca) comparte el género romántico con A mil por hora, de Hannah Grace. La diferencia está en el planteamiento anunciado: la obra de Rebecca Hunter sitúa la seducción en un plazo de dos semanas, mientras que A mil por hora presenta un romance vinculado a un piloto de F1. También puede compararse con 24 historias para enamorarte en navidad: Relatos navideños, que reúne relatos de temática amorosa y navideña.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409929177",
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2686f3cd13e519c3",
+  "origen": "chatgpt-web"
+}

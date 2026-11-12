@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408328360",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a quienes leen historia y quieren acercarse a los emperadores romanos a través de Mary Beard. Por su temática histórica, se aleja de las novelas de ficción y de las lecturas centradas en acontecimientos contemporáneos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Emperador de Roma: Edición limitada a precio especial (Colección Especial) pertenece a la Colección Especial de Booket y se presenta en tapa dura. Publicada el 11 de noviembre de 2026, reúne 592 páginas en castellano y lleva el ISBN 9788408328360.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para esta edición de 592 páginas, una opción física para conservarla en la biblioteca y consultarla repetidamente. Su encuadernación rígida también permite regalar el volumen sin recurrir a una presentación adicional.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Clásicos Sin Filtros: El Impacto del Mundo Antiguo / Talking Classics: The Shock of the Old comparte con Emperador de Roma: Edición limitada a precio especial (Colección Especial) la autoría de Mary Beard y el interés por la historia. El primero aborda el impacto del mundo antiguo, mientras que el segundo centra su atención en los emperadores de Roma.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9786076393055"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "afae930792a3b1d0",
+  "origen": "chatgpt-web"
+}

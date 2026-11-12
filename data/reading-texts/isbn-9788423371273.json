@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788423371273",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las que no duermen NASH: Edición limitada a precio especial (Colección Especial) se orienta a lectores de misterio y thriller con interés también por la religión y la espiritualidad. Sus 608 páginas la alejan de quienes prefieren lecturas breves o buscan exclusivamente narrativa romántica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La presentación de Las que no duermen NASH: Edición limitada a precio especial (Colección Especial) corresponde a un libro de bolsillo de Booket, con cubierta flexible. Sus 608 páginas están en castellano y la fecha editorial es 2027-01-08; la denominación del título identifica esta versión como limitada a precio especial.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "formato_edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es la tapa blanda en formato de bolsillo, con 608 páginas. Esta encuadernación facilita llevar el libro en una bolsa frente a una cubierta rígida, aunque la extensión sigue siendo considerable para leerlo fuera de casa.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Todas las noches, todas las ciudades comparte autoría con esta obra de Dolores Redondo y plantea una pregunta de identidad en su presentación. Las que no duermen NASH: Edición limitada a precio especial (Colección Especial) se distingue por combinar el misterio con referencias a religión y espiritualidad, mientras que la comparación con la otra obra parte de su autoría y de esa pregunta inicial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370504"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "94028468d406963b",
+  "origen": "chatgpt-web"
+}

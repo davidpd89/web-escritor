@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788409940493",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de historia y relatos biográficos interesados en las condenas judiciales y las experiencias de un jornalero. No responde al planteamiento de una novela histórica de ficción ni al de una biografía centrada en personajes de la realeza.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro examina el caso de un jornalero condenado a treinta años por una supuesta conversación de nueve minutos. Su enfoque biográfico e histórico sitúa en primer plano la relación entre una acusación concreta y sus consecuencias penales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 188 páginas en castellano y está publicada por Silvestre Linares López. Su extensión permite abordar el relato histórico en un volumen físico relativamente breve, que también puede consultarse para localizar los episodios del caso.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Campo de concentración: 82 (Biblioteca del Exilio), de Eduardo de Ontañón, comparte con UN ELEMENTO PELIGROSO: La verdadera historia de un jornalero condenado a treinta años por una supuesta conversación de nueve minutos el interés por experiencias personales vinculadas a situaciones de privación de libertad. El libro de Silvestre Linares López se concentra en la condena de un jornalero, mientras que el de Eduardo de Ontañón remite desde su título al ámbito de los campos de concentración.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788410148659"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b9de0a9f940e0fe6",
+  "origen": "chatgpt-web"
+}

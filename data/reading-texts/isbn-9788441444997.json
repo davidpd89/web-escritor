@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788441444997",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a quienes leen historia y biografías y quieren conocer la aportación de España al humanitarismo. Su orientación histórica encaja menos con lectores que buscan ficción contemporánea o un manual práctico sobre cooperación humanitaria.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Trata la contribución española al humanitarismo desde una perspectiva histórica y biográfica. Javier Santamarta del Pozo presenta el asunto en una edición actualizada y ampliada, vinculada a las crónicas de la historia y a las figuras humanas relacionadas con ese ámbito.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Siempre tuvimos héroes. La impagable aportación de España al humanitarismo. (Edición actualizada y ampliada) (Crónicas de la historia) se publica en tapa blanda y tiene 256 páginas. Es una edición física de extensión moderada para leer, consultar o incorporar a una colección de historia y biografías.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anatomía de un naufragio: Shackleton, el Endurance y la fuerza del hielo también aborda experiencias humanas desde una perspectiva histórica, pero se concentra en una expedición y las condiciones del hielo. Campo de concentración: 82 (Biblioteca del Exilio) se acerca a otro contexto de la experiencia humana, mientras que Siempre tuvimos héroes. La impagable aportación de España al humanitarismo. (Edición actualizada y ampliada) (Crónicas de la historia) pone el foco en el humanitarismo español.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387873141",
+        "isbn-9788410148659"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ec1250a9aeaae6ce",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408327295",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "JOSPER: Pasión por las brasas (Tendencias gastronómicas) se dirige a lectores interesados en la cocina y, especialmente, en la preparación de alimentos mediante brasas. Su orientación gastronómica lo distancia de los libros de actividades recreativas que no tratan sobre alimentación o técnicas culinarias.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de JOSPER: Pasión por las brasas (Tendencias gastronómicas) es de tapa dura y contiene 304 páginas en castellano. El volumen de Planeta Gastro ofrece un soporte físico rígido para conservarlo en una biblioteca gastronómica y consultarlo sobre una mesa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "JOSPER: Pasión por las brasas (Tendencias gastronómicas) comparte con Atrápame si puedes (Libro interactivo) su relación con el ocio, pero aborda la cocina con brasas en lugar de una actividad interactiva. Frente a Dibujos para colorear, ¡qué misterio! Naturaleza (Hachette HEROES - DISNEY - Arteterapia), se centra en gastronomía y no en colorear imágenes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388220500",
+        "isbn-9791388034497"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "656e82291aa67877",
+  "origen": "chatgpt-web"
+}

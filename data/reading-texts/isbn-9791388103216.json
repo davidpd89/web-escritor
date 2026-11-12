@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388103216",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Star Wars Thrawn nº 01 (manga): 1 (Manga Shonen) está dirigido a lectores interesados en la ciencia ficción y su representación mediante el manga. Se aleja de las preferencias de quienes buscan historias realistas o novelas narradas únicamente mediante texto.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Star Wars Thrawn nº 01 (manga): 1 (Manga Shonen) puede leerse en tapa blanda o en Kindle. La edición física reúne 224 páginas en castellano y permite conservar el manga en papel; Kindle ofrece la alternativa digital para llevar la lectura en un dispositivo compatible sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos) y Star Wars Thrawn nº 01 (manga): 1 (Manga Shonen) se relacionan con universos de entretenimiento reconocibles. La diferencia está en su uso: el primero propone colorear, mientras que el segundo se presenta como un manga de ciencia ficción; ambos figuran bajo la autoría de Varios autores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328384"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8e2ba2b6df042eed",
+  "origen": "chatgpt-web"
+}

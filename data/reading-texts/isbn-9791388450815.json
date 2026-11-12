@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388450815",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dungeon elf 03 se dirige a quienes buscan una lectura vinculada al humor y al ámbito del arte y el diseño. Sus 200 páginas ofrecen una extensión acotada, aunque el título lo identifica como el n.º 03 y puede no ajustarse a quien busca empezar por una entrega inicial.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dungeon elf 03 está disponible en tapa blanda, en una edición bunko de Ivrea con 200 páginas. Es una opción física para llevar en el bolso o consultar sobre papel, sin depender de una pantalla durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El diario de una princesa desastrosa (Diarios), de Maidy, comparte con Dungeon elf 03 su presencia entre las lecturas relacionadas con el humor. La diferencia identificable está en su presentación: Dungeon elf 03 lleva una numeración de entrega y tiene 200 páginas en formato bunko, mientras que el título de Maidy se presenta como un diario.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331148"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "38e2e4d7f81d6fc5",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388277665",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La leyenda de las mujeres gato (Sin límites) se dirige a lectores de fantasía interesados en historias vinculadas con personajes femeninos. Sus 320 páginas plantean una lectura de extensión media; encaja menos con quienes buscan narrativa histórica o realista.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La leyenda de las mujeres gato (Sin límites) se presenta en tapa blanda, con 320 páginas en castellano. Esta edición de Alfaguara permite leerla en papel y transportarla sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La leyenda de las mujeres gato (Sin límites) comparte autora con Secreto de bruja 5 - El diario de los sueños (Jóvenes lectores), también de Patricia García-Rojo. La primera se sitúa en la fantasía vinculada a personajes femeninos, mientras que el título de la segunda señala una temática de brujería y su identificación como lectura juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388277894"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3ff84a281c7459fd",
+  "origen": "chatgpt-web"
+}

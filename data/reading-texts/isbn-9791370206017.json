@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791370206017",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Justicia, ¿quién responde?: El mundo cambia, la justicia no (Ensayo), de Álvaro Lobato Lavín, está dirigido a lectores interesados en el derecho y la reflexión sobre la justicia. No responde a quien busque una novela o una lectura centrada en otros ámbitos ajenos al ensayo jurídico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 272 páginas de Justicia, ¿quién responde?: El mundo cambia, la justicia no (Ensayo), de Álvaro Lobato Lavín, en un volumen físico. Es la opción para quien prefiera leer en papel, subrayar pasajes o conservarlo en la biblioteca.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "65b6a1a09c3b5f0b",
+  "origen": "chatgpt-web"
+}

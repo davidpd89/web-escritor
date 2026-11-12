@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388381416",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lectora amiga: Primeras crónicas (1926-1927): 29 (Biblioteca Elena Fortún) se dirige a lectores interesados en los escritos de Elena Fortún y en los textos vinculados con la historia y las memorias. Por su enfoque ensayístico e histórico, se aleja de quienes buscan una novela de ficción con una trama continuada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Lectora amiga: Primeras crónicas (1926-1927): 29 (Biblioteca Elena Fortún) se presenta en tapa blanda, con 176 páginas en castellano. Este formato permite consultar las crónicas en papel y transportar el volumen sin el peso habitual de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lectora amiga: Primeras crónicas (1926-1927): 29 (Biblioteca Elena Fortún) comparte el interés histórico con Mujeres que la liaron: De Hipatia de Alejandría a Simone de Beauvoir: 3000 años de historia feminista (Divulgación), de Tatiana Gómez Montero. La primera reúne crónicas de Elena Fortún identificadas con unas fechas concretas; la segunda plantea un recorrido por la historia feminista. Ambas se distinguen por su autoría y por el alcance temporal anunciado en sus títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788403527041"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8a872744eff2cdb9",
+  "origen": "chatgpt-web"
+}

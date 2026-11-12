@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788408316022",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El ratoncito Pérez. Libro con solapas (Libros con solapas y lengüetas) está orientado a lectores infantiles interesados en el personaje y en los libros que incorporan elementos para manipular. Sus 14 páginas de cartón y sus solapas lo distinguen de las narraciones extensas sin componentes interactivos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El ratoncito Pérez. Libro con solapas (Libros con solapas y lengüetas) propone explorar sus páginas levantando las solapas integradas en el libro. El formato de cartón permite sujetar las páginas mientras se manipulan estos elementos. La lectura puede alternarse con la exploración física de cada apertura.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El ratoncito Pérez. Libro con solapas (Libros con solapas y lengüetas) se ofrece en tapa dura, con una edición de cartón de 14 páginas publicada por Timun Mas Infantil. Este soporte rígido facilita pasar las páginas y manipular las solapas durante la lectura compartida. Su extensión permite recorrerlo en sesiones breves.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuentos del mundo para ir a dormir (Recopilatorio de cuentos), de YOYO, comparte con El ratoncito Pérez. Libro con solapas (Libros con solapas y lengüetas) su orientación hacia la lectura infantil. El primero reúne cuentos para el momento de acostarse; el segundo utiliza páginas de cartón y solapas para incorporar la manipulación al encuentro con el personaje.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408314592"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a5ca34bf78123d73",
+  "origen": "chatgpt-web"
+}

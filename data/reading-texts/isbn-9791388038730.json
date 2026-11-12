@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388038730",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El experto eres tú, de Mark Beyebach, está dirigido a lectores interesados en el desarrollo personal y en contenidos relacionados con el crecimiento individual. Sus 288 páginas permiten abordar el libro en un volumen relativamente breve; no encaja con quien busque narrativa de ficción, romance o misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece El experto eres tú, de Mark Beyebach, en una edición física de 288 páginas. Es el formato disponible para quien prefiere leer en papel, transportarlo y conservarlo en su biblioteca, en lugar de utilizar un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "40aa7242d599ed93",
+  "origen": "chatgpt-web"
+}

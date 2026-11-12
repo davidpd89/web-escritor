@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9789566402770",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Buzón de las impuras, el coleccionista TD (Chi) (Narrativa general) se dirige a lectores de novela histórica que prefieren obras de extensión considerable. Sus 640 páginas lo alejan de las lecturas breves y de quienes buscan libros prácticos o divulgativos en lugar de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Buzón de las impuras, el coleccionista TD (Chi) (Narrativa general) se publica en tapa dura y reúne 640 páginas. La encuadernación rígida favorece su conservación y su uso como regalo, mientras que la extensión implica un volumen físico considerable para transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d22c0b7c4f886a38",
+  "origen": "chatgpt-web"
+}

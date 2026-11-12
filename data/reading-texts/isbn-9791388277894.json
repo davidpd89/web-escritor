@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388277894",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Secreto de bruja 5 - El diario de los sueños (Jóvenes lectores) se dirige al público juvenil interesado en fantasía, amistad y secretos. Por su clasificación y sus temas, se distancia de quienes buscan narrativa realista para adultos o libros de carácter divulgativo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Secreto de bruja 5 - El diario de los sueños (Jóvenes lectores) puede leerse en tapa dura o Kindle. La edición de Alfaguara tiene 208 páginas en papel y permite conservar el volumen en una colección; Kindle ofrece la misma obra en formato digital para leerla en el móvil o en un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Secreto de bruja 5 - El diario de los sueños (Jóvenes lectores) y La leyenda de las mujeres gato (Sin límites) comparten autora, Patricia García-Rojo, pero presentan motivos distintos: brujas y sueños frente a mujeres gato. Los cazamisterios 12 - El caso de la misión en la Luna, también de Patricia García-Rojo, se centra en casos detectivescos, mientras que Secreto de bruja 5 - El diario de los sueños (Jóvenes lectores) pertenece a la fantasía y aborda la amistad y los secretos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949617",
+        "isbn-9791388277665",
+        "isbn-9791387949778"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "27610cb69108c0a5",
+  "origen": "chatgpt-web"
+}

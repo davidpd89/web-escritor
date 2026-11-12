@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388396427",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan una guía práctica sobre el cuidado de los pies y su relación con el movimiento. Por su enfoque de salud y bienestar, se aleja de las memorias personales y de los libros centrados en alimentación o ejercicio físico general.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Arcopress se presenta en tapa blanda y tiene 272 páginas en castellano. Este formato permite consultar en papel los contenidos sobre el cuidado de los pies y volver a los apartados de interés durante la lectura.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... aborda el bienestar desde distintos aspectos de la vida, mientras que el libro de Manuel Vidal Lamela se concentra en la salud de los pies. Ambos pertenecen al ámbito del cuidado personal, pero el segundo delimita su contenido a una parte concreta del cuerpo.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9895a50ece5dc6ed",
+  "origen": "chatgpt-web"
+}

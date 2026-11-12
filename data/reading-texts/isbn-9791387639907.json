@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387639907",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las puertas del mar: Migración y salvamento en los confines de Europa, de Luna Vives, está dirigido a lectores interesados en el ensayo sobre migración y exilio. Sus 308 páginas corresponden a una obra de no ficción, no a una novela de aventuras ni a un relato de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura concentra las 308 páginas de Las puertas del mar: Migración y salvamento en los confines de Europa, de Luna Vives. Es la edición física publicada por Bellaterra Edicions, con encuadernación rígida para conservar el ejemplar y consultarlo en papel.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las puertas del mar: Migración y salvamento en los confines de Europa, de Luna Vives, puede compararse con Campo de concentración: 82 (Biblioteca del Exilio), de Eduardo de Ontañón, por su relación con el exilio. El enfoque cambia: Luna Vives aborda la migración y el salvamento, mientras que el título de Eduardo de Ontañón sitúa el tema en los campos de concentración.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410148659"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "856bf6a4e0e698d4",
+  "origen": "chatgpt-web"
+}

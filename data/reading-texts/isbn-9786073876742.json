@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073876742",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Kopk poj: el aliento de la montaña / Kopk poj: The Breath of the Mountain se dirige a lectores de narrativa contemporánea interesados en asuntos familiares y de crianza. La obra de Mito Reyes tiene 176 páginas y se sitúa fuera del ámbito de los manuales de psicología o desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer y consultar en papel las 176 páginas de Kopk poj: el aliento de la montaña / Kopk poj: The Breath of the Mountain. La edición Kindle ofrece el mismo título en formato digital, con la posibilidad de llevar la lectura en el móvil o en un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Kopk poj: el aliento de la montaña / Kopk poj: The Breath of the Mountain puede compararse con Celestino antes del alba (Andanzas), de Reinaldo Arenas, por su ubicación entre las lecturas narrativas del catálogo. La diferencia comprobable está en la autoría: Mito Reyes firma el primero, mientras que Reinaldo Arenas firma el segundo; el primero también aparece vinculado a la familia y la crianza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411078535"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1e31a7e71faf7280",
+  "origen": "chatgpt-web"
+}

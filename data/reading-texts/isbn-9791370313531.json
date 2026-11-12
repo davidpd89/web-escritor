@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791370313531",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Haven River Ranch: Crossroads y Sunlight (Lit - New Adult), de Devney Perry, está dirigido a lectores de romance interesados en reunir varios títulos en una misma presentación. El estuche identifica Crossroads y Sunlight y suma 752 páginas, por lo que se diferencia de la compra de una sola novela breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estuche Haven River Ranch: Crossroads y Sunlight (Lit - New Adult) se comercializa en tapa blanda y reúne 752 páginas. Esta edición de RBA Libros agrupa Crossroads y Sunlight en un estuche físico, pensado para mantener ambos títulos juntos en la estantería o entregarlos como conjunto.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "64c86ec0cc4ed45a",
+  "origen": "chatgpt-web"
+}

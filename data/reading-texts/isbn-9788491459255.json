@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788491459255",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vamos al médico (Primeros lectores) está dirigido a quienes buscan una publicación infantil relacionada con las visitas médicas. Su planteamiento se identifica con los primeros lectores y el bienestar, por lo que no corresponde a quien busca narrativa extensa o contenidos dirigidos exclusivamente a adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 5 páginas de Vamos al médico (Primeros lectores) en una edición física de Picarona. Este formato concentra toda la publicación en un volumen encuadernado en tapa dura, con una extensión breve y orientada a los primeros lectores.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El ratoncito Pérez. Libro con solapas, de Ignacio Hernández Fernández, comparte con Vamos al médico (Primeros lectores) su orientación infantil, aunque se identifica específicamente como un libro con solapas. Otra comparación posible es Cuentos del mundo para ir a dormir (Recopilatorio de cuentos), de YOYO, que se presenta como una recopilación de cuentos y sitúa su propuesta en la lectura antes de dormir.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408314592",
+        "isbn-9788408316022"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "05bac69cba50cde2",
+  "origen": "chatgpt-web"
+}

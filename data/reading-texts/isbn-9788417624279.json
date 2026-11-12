@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788417624279",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El último barco: 3 (Nuevos Tiempos / Policiaca) se dirige a lectores de misterio, thriller y aventuras que buscan una novela extensa. Sus 712 páginas requieren más tiempo de lectura que una obra breve; encaja menos con quienes prefieren relatos cortos o narraciones ajenas a la intriga.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El último barco: 3 (Nuevos Tiempos / Policiaca) está editado en tapa blanda y tiene 712 páginas en castellano. Por su extensión, conviene considerar el tamaño del volumen para transportarlo; la encuadernación flexible permite mantener reunida una narración larga en un único libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ojos de agua: 47 (Colección Escolar de / Literatura) comparte con El último barco: 3 (Nuevos Tiempos / Policiaca) la autoría de Domingo Villar y el interés por el misterio. El primero se presenta como narrativa juvenil en una colección escolar, mientras que el segundo combina misterio, thriller y aventuras en una edición de 712 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387688165"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6b42bdc749f5b630",
+  "origen": "chatgpt-web"
+}

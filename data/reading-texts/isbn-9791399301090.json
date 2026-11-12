@@ -1,0 +1,27 @@
+{
+  "id": "isbn-9791399301090",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todavía hay margen: Longevidad y el lujo de decidir a tiempo se orienta a lectores interesados en la longevidad, el bienestar y la divulgación científica. Su planteamiento temático se distancia de una novela de ficción o de una lectura dedicada exclusivamente a la gestión empresarial.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Todavía hay margen: Longevidad y el lujo de decidir a tiempo tiene 124 páginas, una extensión manejable para llevar el libro y consultar apartados en papel. Kindle permite leerlo en formato digital y conservarlo en una biblioteca electrónica sin ocupar espacio físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e36300ba83a45076",
+  "origen": "chatgpt-web"
+}

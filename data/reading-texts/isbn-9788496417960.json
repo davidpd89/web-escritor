@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788496417960",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "With These Eyes, de Fernando Sacristan Laguna, corresponde al ensayo y se dirige a lectores interesados en ese género. No responde a la búsqueda de una novela romántica o de un thriller, ya que su clasificación editorial es distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "With These Eyes tiene una edición en tapa blanda de 140 páginas, publicada por Letra Clara. Su extensión facilita llevar el ejemplar en papel y consultar pasajes sin utilizar un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "db0d07b313423f63",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La revuelta de los copistas se dirige a lectores de ensayo interesados en la inteligencia artificial, la propiedad intelectual y el acceso público al conocimiento. Su enfoque histórico y político, centrado en el trabajo de quienes han conservado y organizado la información, se aleja de los manuales técnicos sobre el funcionamiento de los modelos de lenguaje.",
+      "texto": "La revuelta de los copistas se dirige a lectores interesados en la inteligencia artificial, la propiedad intelectual y las consecuencias políticas de convertir el conocimiento en un negocio. Su enfoque ensayístico encaja menos con quienes buscan un manual práctico de programación o una explicación exclusivamente técnica de los modelos de lenguaje.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Xavier Nueno examina cómo el conocimiento acumulado en bibliotecas y archivos se transforma en un recurso comercial para las empresas de inteligencia artificial. El ensayo relaciona la labor histórica de copistas, bibliotecarios y técnicos con los litigios sobre derechos de autor, la privatización del saber y la propuesta de hacer públicos los modelos de lenguaje.",
+      "texto": "Xavier Nueno analiza cómo el trabajo histórico de bibliotecarios, copistas y otros profesionales de la información se relaciona con el negocio actual de la inteligencia artificial. El ensayo examina la apropiación comercial del conocimiento, los litigios por derechos de autor y la posibilidad de considerar los modelos de lenguaje un recurso público, desde una perspectiva política e histórica.",
       "evidencias": [
         "autores",
         "categorias",
@@ -22,27 +22,13 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La revuelta de los copistas está disponible en tapa blanda y Kindle. La edición impresa de Editorial Anagrama contiene 336 páginas y permite consultar físicamente sus argumentos sobre bibliotecas e inteligencia artificial; Kindle facilita llevar el ensayo en el móvil o en un lector electrónico y retomarlo durante los desplazamientos.",
+      "texto": "La revuelta de los copistas se publica en tapa blanda, con 336 páginas que pueden consultarse físicamente para seguir sus argumentos sobre conocimiento y tecnología. La versión Kindle permite leer el ensayo en el móvil o en un lector electrónico, una alternativa para quienes prefieren transportar sus lecturas en formato digital.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "editorial",
-        "numero_paginas",
         "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
         "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Antes de perder el juicio, de Mauricio García Villegas, comparte con La revuelta de los copistas la preocupación por la circulación del conocimiento y su relación con el debate público. El primero aborda la verdad frente a la propaganda y las cámaras de eco; Xavier Nueno se concentra en la apropiación comercial de los archivos culturales y su utilización por la inteligencia artificial.",
-      "evidencias": [
-        "afines_catalogo",
-        "titulo",
-        "autores",
-        "sinopsis_editorial"
-      ],
-      "enlaces": [
-        "isbn-9791388387302"
       ]
     }
   ],

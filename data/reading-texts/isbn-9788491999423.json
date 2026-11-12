@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788491999423",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a quienes desean estudiar los cuentos de hadas desde una perspectiva psicoanalítica, con interés por la psicología y el ensayo. Psicoanálisis de los cuentos de hadas (Ares y Mares), de Bruno Bettelheim, no se plantea como una recopilación de relatos infantiles, sino como una lectura centrada en su interpretación psicológica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Psicoanálisis de los cuentos de hadas (Ares y Mares) reúne 440 páginas en castellano. Por su extensión y su carácter ensayístico, el volumen permite una lectura por sesiones, con la posibilidad de marcar pasajes y recuperar interpretaciones durante la consulta.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Psicoanálisis de los cuentos de hadas (Ares y Mares) y El efecto ritual: El poder transformador de nuestros hábitos cotidianos (Divulgación) comparten el interés por la psicología. Bruno Bettelheim se ocupa de la interpretación psicoanalítica de los cuentos tradicionales, mientras Michael Norton dirige la atención hacia los rituales y los hábitos de la vida cotidiana.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449346163"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "554c83519ada81ba",
+  "origen": "chatgpt-web"
+}

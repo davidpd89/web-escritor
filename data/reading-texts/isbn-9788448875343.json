@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788448875343",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para quienes disfrutan coloreando personajes de Superthings y realizando actividades con pegatinas. Superthings. Actividades - Pinta y pega. Libro de colorear con pegatinas: Colorea tus propias pegatinas de Superthings (Altea), de Magicbox, se centra en la participación manual y no en la lectura continuada de una historia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite utilizar directamente las 32 páginas de actividades de Superthings. Actividades - Pinta y pega. Libro de colorear con pegatinas: Colorea tus propias pegatinas de Superthings (Altea). Al tratarse de un libro para colorear y pegar, el soporte físico forma parte de la actividad y permite trabajar sobre las páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Superthings. Libro juguete - Súper busca y encuentra comparte los personajes de Magicbox, pero propone buscar héroes y villanos en distintos escenarios. El libro de actividades de Superthings se diferencia por sus 32 páginas dedicadas a colorear y utilizar pegatinas, frente a la búsqueda visual del otro título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874698",
+        "isbn-9788448873790"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ee1b41ab6526fccf",
+  "origen": "chatgpt-web"
+}

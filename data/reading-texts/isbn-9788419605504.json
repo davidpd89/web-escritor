@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788419605504",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La palmera se dirige a lectores que buscan obras relacionadas con biografías y memorias, ensayo y cómic o novela gráfica. Sus 148 páginas en castellano permiten optar por una extensión más breve; no corresponde a quien busque una novela clasificada como ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La palmera se presenta en tapa blanda y tiene 148 páginas. Esta edición en castellano de Andana Gráfica permite llevar el libro en formato físico y consultarlo sin pantalla; su extensión es menor que la de otros volúmenes más largos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La palmera puede compararse con Pack biografias en viñetas, de Varios autores, por su relación con las biografías y la expresión gráfica. La palmera está clasificada como biografías y memorias, ensayo y cómic o novela gráfica, mientras que el otro título presenta expresamente las biografías en viñetas. La autoría también los separa: Marta Sabaté firma La palmera y el otro volumen se atribuye a Varios autores.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9791399295214"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f1d63fbb10e08be8",
+  "origen": "chatgpt-web"
+}

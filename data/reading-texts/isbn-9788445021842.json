@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788445021842",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la fantasía y en las historias presentadas mediante ilustraciones. Sus 64 páginas ofrecen una extensión breve frente a las novelas de fantasía de mayor recorrido, por lo que se diferencia de las lecturas extensas del género.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne sus 64 páginas en un volumen ilustrado de formato físico, apropiado para conservar y volver a consultar sus imágenes. La joven del corazón de nieve (Minotauro Ilustrados), de Loputyn, se publica en esta edición encuadernada.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo",
+        "autores",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aftermyth 1. Penelope y la prueba de los dioses, de Tracy Wolff, comparte con La joven del corazón de nieve (Minotauro Ilustrados), de Loputyn, las referencias a un imaginario fantástico. El primero alude a una prueba vinculada a los dioses y se identifica como el número 1 de una serie, mientras que el segundo se presenta como un volumen ilustrado de 64 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324102"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f6abc0c0817052b6",
+  "origen": "chatgpt-web"
+}

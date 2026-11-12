@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791370205393",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Guia misteriosa de triana (Enigma) se dirige a lectores interesados en los misterios asociados a un lugar concreto. El título plantea una guía sobre Triana desde la perspectiva del enigma, por lo que se aparta de los manuales centrados en hábitos de salud, nutrición o bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Guia misteriosa de triana (Enigma) se presenta en tapa blanda, con 224 páginas editadas por Almuzara. El formato físico permite llevar la guía durante una visita o consultar sus apartados en casa, mientras que su extensión admite repartir la lectura en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d6fc5dd182e312c1",
+  "origen": "chatgpt-web"
+}

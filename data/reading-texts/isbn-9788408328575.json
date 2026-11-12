@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788408328575",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ande, ande, ande, la Mari Morena. Edición especial con cantos decorados (Colección Especial) se dirige a lectores de romance que buscan una edición física de presentación diferenciada. Su extensión de 544 páginas y sus cantos decorados la alejan de los formatos breves y de las ediciones de bolsillo convencionales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Ande, ande, ande, la Mari Morena. Edición especial con cantos decorados (Colección Especial) se distingue por los cantos decorados anunciados en su título. Booket la publica en tapa dura, en castellano y con 544 páginas, dentro de su Colección Especial.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ande, ande, ande, la Mari Morena. Edición especial con cantos decorados (Colección Especial) está disponible en tapa dura y audiolibro. La primera opción conserva los cantos decorados y las 544 páginas impresas, mientras que el audiolibro permite seguir la obra mediante escucha sin manejar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ande, ande, ande, la Mari Morena. Edición especial con cantos decorados (Colección Especial) comparte autoría y orientación romántica con Tampoco pido tanto: Edición limitada a precio especial (Colección Especial). Ambas pertenecen a ediciones especiales de Megan Maxwell, aunque una destaca los cantos decorados y la otra su carácter limitado. Todo bajo control, menos tú permite comparar otra obra de la misma autora sin esa distinción editorial en el título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331599",
+        "isbn-9788467083378"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "584b7898321bd2d7",
+  "origen": "chatgpt-web"
+}

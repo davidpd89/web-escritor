@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9788467083842",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Haría cualquier cosa por ti: El gran libro del recién nacido (Familia) se dirige a lectores interesados en la crianza y el bienestar durante la etapa del recién nacido. Por su enfoque familiar y práctico, encaja menos con quienes buscan ficción infantil o una lectura sobre etapas posteriores de la vida.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Haría cualquier cosa por ti: El gran libro del recién nacido (Familia) se publica en tapa blanda, dentro de una edición de bolsillo de Booket. Sus 240 páginas permiten llevarlo consigo y consultar distintos apartados en papel durante la etapa de crianza.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "858951d4bf2836cf",
+  "origen": "chatgpt-web"
+}

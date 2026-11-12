@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Neuromante (Edición especial) se dirige a lectores de ciencia ficción interesados en el ciberespacio, el robo de información y los conflictos tecnológicos. La historia de Case, apartado de su actividad tras sufrir daños en el sistema nervioso, encaja menos con quienes buscan aventuras alejadas de la tecnología.",
+      "texto": "Neuromante (Edición especial) encaja con lectores de ciencia ficción interesados en el ciberespacio, el robo de información y las consecuencias de una traición. Su conflicto gira alrededor de un personaje que pierde la capacidad de ejercer su oficio; no responde a quien busque una historia centrada en conflictos cotidianos sin tecnología.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,40 +13,39 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela de ciencia ficción centrada en un especialista en vulnerar defensas electrónicas que pierde la capacidad de trabajar en el ciberespacio. William Gibson plantea un conflicto donde el castigo físico de Case afecta directamente a su relación con la tecnología y a su antigua forma de ganarse la vida.",
+      "texto": "Neuromante (Edición especial) es una novela de ciencia ficción centrada en el ciberespacio, el robo de información y las consecuencias de una traición. Case pierde su capacidad para acceder a los sistemas electrónicos después de sufrir daños en el sistema nervioso como castigo. El conflicto parte de esa pérdida y de su expulsión del entorno donde desarrollaba su actividad.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de Minotauro se presenta en tapa dura de cartoné sin sobrecubierta, con 392 páginas en castellano. Neuromante (Edición especial) tiene el ISBN 9788445023914 y fecha de publicación editorial del 27 de enero de 2027. Su encuadernación la distingue de las alternativas en tapa blanda.",
+      "texto": "Esta edición de Neuromante (Edición especial) se presenta en cartoné, sin sobrecubierta, bajo el sello Minotauro. Tiene 392 páginas en castellano y su fecha editorial es el 27 de enero de 2027. El ISBN 9788445023914 permite identificar esta presentación concreta frente a otras ediciones de la obra.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
+        "editorial",
         "numero_paginas",
         "idioma",
-        "isbn13",
         "fecha_publicacion",
-        "formatos_disponibles"
+        "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 392 páginas en un volumen de cartoné, apropiado para conservarlo o regalarlo; la tapa blanda ofrece una alternativa física. Kindle permite llevar la novela en un lector electrónico o móvil, mientras que el audiolibro permite escucharla sin seguir el texto impreso.",
+      "texto": "La opción recogida para Neuromante (Edición especial) es la tapa dura, con 392 páginas. Su encuadernación en cartoné permite conservar el volumen en una estantería y consultarlo repetidamente; también constituye una presentación física para regalar. Es una elección orientada al libro impreso, no a la lectura en pantalla ni a la escucha.",
       "evidencias": [
-        "numero_paginas",
+        "titulo",
+        "formatos_disponibles",
         "edicion",
-        "formatos_disponibles"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aunque se acabe el mundo comparte con Neuromante (Edición especial) la ciencia ficción y una realidad alterada por acontecimientos extraordinarios. Clara Duarte plantea una transformación de la humanidad vinculada a una cúpula sobre la Tierra; William Gibson sitúa el conflicto en el ciberespacio, el robo de datos y las consecuencias de una traición.",
+      "texto": "Neuromante (Edición especial), de William Gibson, puede compararse con Al despertar, rompe el cascarón (Runas), de Becky Chambers, por su presencia entre las lecturas relacionadas del catálogo. La obra de William Gibson pertenece a la ciencia ficción y aborda el robo de información en el ciberespacio. La diferencia identificable entre ambos títulos es la autoría, mientras que Neuromante (Edición especial) plantea un conflicto tecnológico ligado a una traición y sus consecuencias físicas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -55,12 +54,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427255968"
+        "isbn-9791370093488"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "88e04a2b43452466",
+  "fuente_hash": "5da40b4ded3d4138",
   "origen": "chatgpt-web"
 }

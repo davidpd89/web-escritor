@@ -4,52 +4,51 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cómo derrotar a un rey demonio en diez sencillos pasos se dirige a lectores adultos de fantasía que disfrutan de las aventuras con humor y mecanismos propios de los videojuegos. Sus 272 páginas presentan mazmorras, niveles y una protagonista que desafía las reglas establecidas, por lo que se distancia de la fantasía realista o de tono estrictamente solemne.",
+      "texto": "Está dirigida a lectores adultos de fantasía que disfrutan de aventuras con humor y referencias a los videojuegos de rol. Su conflicto gira alrededor de una protagonista que intenta vencer a un rey demonio mediante estrategias de juego, por lo que se distancia de la fantasía realista o de tono exclusivamente solemne.",
       "evidencias": [
-        "titulo",
         "edad_recomendada",
-        "numero_paginas",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La novela de Andrew Rowe combina fantasía de aventuras, humor y progresión mediante reglas semejantes a las de un videojuego. Yui debe enfrentarse al Rey Demonio sin pertenecer a la clase destinada a vencerlo, lo que convierte la búsqueda de alternativas al sistema establecido en el motor de la acción.",
+      "texto": "Cómo derrotar a un rey demonio en diez sencillos pasos combina una misión de fantasía con mecanismos propios de los videojuegos, como subir de nivel, explorar mazmorras y reunir compañeros. Yui intenta derrotar al Rey Demonio sin pertenecer a la clase Héroe, de modo que el conflicto también cuestiona las reglas que determinan quién puede salvar el mundo.",
       "evidencias": [
-        "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cómo derrotar a un rey demonio en diez sencillos pasos tiene una edición en tapa blanda con solapas de 272 páginas, adecuada para quien prefiere leer y conservar el volumen físico. Kindle permite seguir las aventuras de Yui desde el móvil o un lector electrónico, sin transportar el ejemplar impreso.",
+      "texto": "La tapa blanda con solapas reúne las 272 páginas en un volumen físico de extensión moderada. Kindle permite llevar la aventura en un lector digital o dispositivo móvil, mientras que el audiolibro ofrece la opción de seguir los episodios y diálogos mediante escucha.",
       "evidencias": [
-        "titulo",
         "edicion",
         "numero_paginas",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cómo derrotar a un rey demonio en diez sencillos pasos puede compararse con El ojo de la novia frenopática (Carl el Mazmorrero 6) por su relación con aventuras y enfrentamientos contra criaturas. La novela de Andrew Rowe se centra en Yui, que intenta superar un sistema de clases y niveles, mientras el título de Matt Dinniman plantea la captura de un monstruo.",
+      "texto": "7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica) comparte el componente humorístico, pero pertenece a una propuesta de cómic, mientras que Cómo derrotar a un rey demonio en diez sencillos pasos desarrolla una aventura de fantasía. Malvhadas 2. Muerte por sapo (Mi primer cómic) también combina elementos fantásticos y humor, aunque su identificación como cómic infantil contrasta con el público adulto de la novela de Andrew Rowe.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
+        "categorias",
+        "edad_recomendada",
         "sinopsis_editorial",
-        "categorias"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410466470"
+        "isbn-9788402431790",
+        "isbn-9788448874971"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "06f894ef2ed34db1",
+  "fuente_hash": "84247ef539529c03",
   "origen": "chatgpt-web"
 }

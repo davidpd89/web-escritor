@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788413643694",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en la relación entre psicología, yoga y meditación desde una perspectiva de ensayo y filosofía. Las lecciones de Carl Gustav Jung sitúan el contenido en el estudio de estas disciplinas, no en una guía breve de ejercicios físicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Editorial Trotta reúne 376 páginas en castellano. Es una opción física para consultar las lecciones, marcar pasajes y volver a apartados concretos durante el estudio de la psicología del yoga y la meditación.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Psicología del yoga y la meditación puede compararse con Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología), por su relación con la psicología. Carl Gustav Jung aborda el yoga y la meditación mediante lecciones, mientras que el libro de Ramón Nogueras Pérez se centra en el enamoramiento y el desenamoramiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387534370"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "55daab3510c53721",
+  "origen": "chatgpt-web"
+}

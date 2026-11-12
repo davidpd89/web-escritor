@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788467982671",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La sombra de la grulla dorada encaja con lectores interesados en el terror y en libros de extensión breve. Sus 112 páginas en tapa blanda permiten leerlo en pocas sesiones; resulta menos afín a quien busca una historia de tono ligero o alejada de los elementos propios del género.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La sombra de la grulla dorada está disponible en tapa blanda, con 112 páginas en castellano. Su extensión y encuadernación flexible facilitan transportarlo y leerlo fuera de casa, frente a volúmenes rígidos de mayor tamaño. La edición pertenece a Norma Editorial.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "25 días hasta Navidad se aproxima a La sombra de la grulla dorada por su orientación hacia el suspense, aunque el primero se presenta como thriller de adviento y el segundo pertenece al terror. After God 8 (Shônen) ofrece otra referencia entre las lecturas relacionadas, identificada por su título como una octava entrega. La sombra de la grulla dorada, de Mike Mignola, Michael Avon Oeming, Chris Roberson y Chris O'halloran, tiene 112 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063",
+        "isbn-9791387962647"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "085f8ec39216571d",
+  "origen": "chatgpt-web"
+}

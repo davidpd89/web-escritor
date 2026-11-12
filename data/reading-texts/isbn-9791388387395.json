@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Franquistas contra franquistas está destinado a lectores adultos interesados en la historia política del siglo XX y las disputas internas de los regímenes autoritarios. Su atención a las organizaciones y sus rivalidades encaja menos con quienes buscan una biografía individual o una visión general de toda la Guerra Civil.",
+      "texto": "Franquistas contra franquistas está dirigido a lectores adultos interesados en la historia política española del siglo XX y las disputas internas del franquismo. Su enfoque en las relaciones de poder entre los sectores del régimen lo distancia de una historia militar centrada únicamente en las batallas de la Guerra Civil.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,34 +14,23 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Joan Maria Thomàs analiza las tensiones entre los grupos que integraron el franquismo tras la Guerra Civil y sus intentos de ampliar su influencia. Examina la convivencia conflictiva de militares, falangistas, carlistas, monárquicos y sectores económicos dentro de un régimen unido por principios políticos compartidos.",
+      "texto": "Joan Maria Thomàs examina los enfrentamientos por el poder dentro del franquismo después de la Guerra Civil. El análisis abarca al ejército, la Iglesia, los carlistas, los monárquicos y otros grupos que compartían principios políticos, pero competían por controlar el régimen. El eje del libro es cómo esas rivalidades condicionaron los equilibrios internos de la dictadura.",
       "evidencias": [
         "autores",
-        "sinopsis_editorial"
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Franquistas contra franquistas ofrece 320 páginas y puede elegirse en tapa dura, tapa blanda o Kindle. La tapa dura favorece la conservación y la consulta frecuente; la tapa blanda con solapas corresponde a la edición física descrita, mientras que Kindle permite llevar el estudio en formato digital.",
+      "texto": "Franquistas contra franquistas puede leerse en tapa dura, tapa blanda o Kindle; la edición de Debate descrita es de tapa blanda con solapas y tiene 320 páginas. La tapa dura ofrece una encuadernación rígida para conservar el volumen, la tapa blanda facilita transportarlo y Kindle permite consultar el texto en formato digital.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "edicion"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Franquistas contra franquistas y Crónica de un desafío al Estado examinan conflictos políticos relacionados con las instituciones, pero el primero estudia rivalidades dentro del franquismo y el segundo aborda el Procés desde un testimonio personal. Los pilares de la historia se ocupa de la capacidad explicativa de la disciplina histórica, frente al estudio de un régimen concreto que desarrolla Joan Maria Thomàs.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788430629664",
-        "isbn-9788423441303"
+        "edicion",
+        "editorial",
+        "numero_paginas"
       ]
     }
   ],

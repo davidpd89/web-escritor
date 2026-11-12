@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788410092365",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Intentions 1924 entre la nueva literatura y la generación del 27, de Guillermo Perdomo Hernandez, se orienta a lectores de ensayo interesados en la historia literaria y las generaciones de escritores. Sus 160 páginas y su enfoque ensayístico no corresponden a quien busca una novela de ficción o una lectura romántica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Intentions 1924 entre la nueva literatura y la generación del 27 se publica en tapa blanda, con 160 páginas en castellano. Su extensión permite manejar el volumen durante la lectura y regresar a pasajes concretos sin utilizar un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7dde29f0dada37ec",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788430629602",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la historia política española, especialmente en las cortes de Cádiz y la Constitución de 1812. Los límites del liberalismo español: Las cortes de Cádiz y la Constitución de 1812 (Historia), de Ignacio Sánchez-Cuenca, aborda un asunto histórico e institucional, por lo que se aleja de la narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Los límites del liberalismo español: Las cortes de Cádiz y la Constitución de 1812 (Historia) se presenta en tapa blanda. Sus 416 páginas permiten consultar distintos pasajes del volumen en papel, mientras que la encuadernación flexible facilita transportarlo y manejarlo durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparte con Los límites del liberalismo español: Las cortes de Cádiz y la Constitución de 1812 (Historia) el interés por las ideas políticas. El libro de Ignacio Sánchez-Cuenca se centra en un episodio constitucional español, mientras que el de Miguel Anxo Bastos Boubeta aborda los fundamentos del pensamiento anarcocapitalista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c3f4557ad7567b69",
+  "origen": "chatgpt-web"
+}

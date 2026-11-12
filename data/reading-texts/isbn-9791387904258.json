@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387904258",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El cerebro del padre: Cómo la paternidad moldea la cabeza y la vida de los hombres (Psicología), de Darby Saxbe, se dirige a lectores interesados en la paternidad desde la psicología y la divulgación científica. Su enfoque combina familia, crianza y ensayo, por lo que se aparta de las novelas familiares de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El cerebro del padre: Cómo la paternidad moldea la cabeza y la vida de los hombres (Psicología) cuenta con una edición en tapa blanda de Debate. Sus 336 páginas permiten organizar la lectura en varias sesiones y mantener el volumen físico para volver a consultar los temas de paternidad y crianza.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El cerebro del padre: Cómo la paternidad moldea la cabeza y la vida de los hombres (Psicología) comparte el interés por la psicología familiar con Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología), de Ramón Nogueras Pérez. Darby Saxbe aborda la paternidad y sus cambios, mientras que el otro título se centra en las relaciones amorosas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387534370"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cdbbc5f6237c8c88",
+  "origen": "chatgpt-web"
+}

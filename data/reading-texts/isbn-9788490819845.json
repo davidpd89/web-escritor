@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788490819845",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Activa tu vocabulario A1-A2 (Material complementario), de Rebeca Martínez Aguirre, está dirigido a quienes trabajan el vocabulario correspondiente a los niveles A1-A2. Su carácter complementario lo distingue de una novela o de una lectura de ficción; no responde a quien busca una historia narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Activa tu vocabulario A1-A2 (Material complementario) se presenta en tapa blanda, con 88 páginas en castellano. Es un volumen físico de extensión reducida que puede transportarse junto a otros materiales de estudio y consultarse durante las sesiones de trabajo con vocabulario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2d450859b8a64ad8",
+  "origen": "chatgpt-web"
+}

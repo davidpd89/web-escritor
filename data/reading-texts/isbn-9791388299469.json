@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388299469",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Criptofanía (Eria) está dirigido a lectores de poesía que buscan una obra breve en castellano. Con 66 páginas, su extensión es reducida frente a una novela larga y su clasificación poética lo diferencia de la narrativa convencional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Criptofanía (Eria) tiene una edición en tapa blanda de 66 páginas, publicada por Eolas Ediciones. Su extensión permite transportarlo en formato físico sin el volumen de un libro de varios centenares de páginas; la lectura se realiza en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1513912a2322145b",
+  "origen": "chatgpt-web"
+}

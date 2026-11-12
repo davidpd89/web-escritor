@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788466394147",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El maestro Juan Martínez que estaba allí (Best Seller | Ficción) encaja con lectores que buscan relatos de Manuel Chaves Nogales en castellano. Con 352 páginas, tiene una extensión intermedia y se aleja de las lecturas orientadas específicamente a la fantasía o al romance, géneros distintos del que identifica esta edición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Para leer El maestro Juan Martínez que estaba allí (Best Seller | Ficción) en papel y transportarlo habitualmente, la tapa blanda de Penguin Bolsillo ofrece sus 352 páginas en formato de bolsillo. La tapa dura aporta una cubierta rígida para guardarlo o regalarlo; Kindle permite consultar la obra desde un lector electrónico o una aplicación compatible.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El maestro Juan Martínez que estaba allí (Best Seller | Ficción) comparte autor con A sangre y fuego y Juan Belmonte, matador de toros (Best Seller | Ficción), ambos de Manuel Chaves Nogales. A sangre y fuego se identifica por su tratamiento testimonial de un enfrentamiento; Juan Belmonte, matador de toros (Best Seller | Ficción) combina aventuras y relatos, frente a la clasificación exclusivamente de relatos de esta obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331810",
+        "isbn-9788466394154"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9b19b505a9d70d1b",
+  "origen": "chatgpt-web"
+}

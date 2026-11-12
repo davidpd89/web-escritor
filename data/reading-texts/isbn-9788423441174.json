@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La economía del cambio climático encaja con lectores interesados en las consecuencias económicas de las políticas medioambientales. Su perspectiva sobre sostenibilidad y prosperidad se aleja de una novela de ficción y de una lectura dedicada únicamente a los efectos naturales del calentamiento global.",
+      "texto": "La economía del cambio climático se orienta a lectores interesados en la relación entre las decisiones económicas, la sostenibilidad y la prosperidad. Su planteamiento analítico, dentro de economía y empresa, se distancia de las narraciones de ficción sobre desastres ambientales.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La economía del cambio climático plantea una reflexión económica sobre las decisiones necesarias ante el calentamiento global. Rafael Doménech Vilariño y Javier Angel Andrés Domingo examinan la relación entre protección ambiental y prosperidad, cuestionando que ambas deban entenderse como objetivos incompatibles.",
+      "texto": "La economía del cambio climático examina las consecuencias económicas de las decisiones relacionadas con el medioambiente. Rafael Doménech Vilariño y Javier Angel Andrés Domingo abordan la tensión entre crecimiento económico y protección ambiental desde una perspectiva de economía y empresa.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,27 +23,25 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Deusto reúne 296 páginas en rústica con solapas, una opción física para subrayar argumentos y volver a consultarlos. Kindle permite leer La economía del cambio climático en el móvil o en un lector electrónico sin llevar el ejemplar impreso.",
+      "texto": "La tapa blanda ofrece las 296 páginas en una edición rústica con solapas, apropiada para leer y consultar en papel. Kindle permite llevar el contenido en un dispositivo de lectura o en el móvil, sin transportar el volumen físico.",
       "evidencias": [
-        "titulo",
-        "editorial",
-        "edicion",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cómo ganar una guerra comercial comparte con La economía del cambio climático el interés por decisiones económicas de alcance internacional, pero estudia los cambios en el comercio global en lugar de la sostenibilidad. Cariño, ¿y este recibo? desplaza el foco hacia las cuentas personales y las decisiones financieras domésticas.",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, comparte el interés por las cuestiones económicas, pero se centra en una corriente de pensamiento político. La economía del cambio climático, de Rafael Doménech Vilariño y Javier Angel Andrés Domingo, aplica ese campo de análisis al vínculo entre sostenibilidad y prosperidad.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
+        "autores",
         "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788402431332",
-        "isbn-9788423441051"
+        "isbn-9791388182457"
       ]
     }
   ],

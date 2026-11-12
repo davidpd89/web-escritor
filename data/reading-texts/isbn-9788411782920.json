@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788411782920",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "En busca del tiempo perdido IV: Albertine desaparecida. El tiempo recuperado (Alba Clásica Maior) se dirige a lectores de clásicos y narrativa contemporánea interesados en la obra de Marcel Proust. Por sus 680 páginas, encaja menos con quienes buscan una lectura breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 680 páginas de esta edición de Alba Editorial en un volumen físico. Es una opción para conservar la obra en una biblioteca o regalarla, especialmente si se prefiere una encuadernación rígida para una lectura extensa.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Por la senda de Guermantes (Literaturas) comparte autoría con En busca del tiempo perdido IV: Albertine desaparecida. El tiempo recuperado (Alba Clásica Maior): ambas obras son de Marcel Proust. La diferencia está en las partes de la obra que identifican sus títulos; esta edición reúne Albertine desaparecida y El tiempo recuperado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788420456355"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2b70f3f6c348be4f",
+  "origen": "chatgpt-web"
+}

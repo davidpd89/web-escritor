@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788423371259",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bajo tierra seca: Edición limitada a precio especial (Colección Especial) se dirige a lectores de misterio y thriller con interés por la historia y el siglo XX. Su orientación hacia la intriga lo diferencia de una lectura centrada exclusivamente en la divulgación histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Booket presenta Bajo tierra seca: Edición limitada a precio especial (Colección Especial), de César Pérez Gellida, en una versión de bolsillo con cubierta flexible. Sus 512 páginas corresponden a la publicación fechada el 2027-01-08, identificada mediante el ISBN 9788423371259.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "formato_edicion",
+        "numero_paginas",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es de tapa blanda y se presenta como libro de bolsillo, con 512 páginas. Este formato facilita llevar la novela en una bolsa y leerla por sesiones, aunque mantiene la extensión propia de una lectura larga.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nada bueno germina: Edición limitada a precio especial (Colección Especial) comparte con Bajo tierra seca: Edición limitada a precio especial (Colección Especial) la autoría de César Pérez Gellida y el tipo de edición anunciada. Criminales sin sombra (Salamandra Black), de Juan Carlos Galindo, plantea otra opción vinculada a la ficción criminal, con distinta autoría y colección editorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423371266",
+        "isbn-9791387928285"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "40e288adfab36383",
+  "origen": "chatgpt-web"
+}

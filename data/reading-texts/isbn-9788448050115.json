@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788448050115",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Joaquín Sabina. Perdonen la tristeza. Edición tapa blanda (Música), de Javier Menéndez Flores, está dirigido a quienes leen biografías de figuras musicales y libros relacionados con el arte. Sus 520 páginas corresponden a una obra extensa sobre Joaquín Sabina; no responde a la búsqueda de una novela de ficción ni de un manual para aprender música.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Libros Cúpula tiene 520 páginas y permite leer la biografía de Joaquín Sabina en papel. La tapa dura ofrece una cubierta rígida para conservarla o regalarla, mientras que Kindle evita transportar un libro de esa extensión. El audiolibro permite seguir el contenido mediante escucha, sin necesidad de mantener la lectura visual.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La biografía de Joaquín Sabina escrita por Javier Menéndez Flores comparte autor y temática musical con David Summers: en persona, aunque cada libro se centra en un artista distinto. Desde que era un crío, de Locus, también pertenece al ámbito de las figuras musicales, pero cambia la autoría y el protagonista. La comparación permite distinguir dos biografías del mismo escritor de una obra firmada por otro autor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049379",
+        "isbn-9791399084894"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b436770a7d83702f",
+  "origen": "chatgpt-web"
+}

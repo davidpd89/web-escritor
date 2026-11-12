@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466685979",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las chicas de la fábrica (Grandes novelas) está dirigida a lectores interesados en la novela histórica y la narrativa contemporánea. Sus 480 páginas la sitúan entre las novelas de extensión considerable; quienes busquen fantasía, aventuras o una lectura breve encontrarán una propuesta de género y formato diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Con 480 páginas, la tapa blanda permite leer Las chicas de la fábrica (Grandes novelas) en papel sin depender de dispositivos electrónicos. Kindle ofrece una edición digital para quienes prefieren llevar la novela en un lector electrónico y evitar el volumen físico de una obra extensa.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formato_edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cosamala, de Alana S. Portero, puede compararse con Las chicas de la fábrica (Grandes novelas) por su vínculo con la historia y los conflictos del pasado. Sin embargo, Cosamala incorpora elementos góticos, un crimen real de la guerra civil y una historia de brujas, mientras que Las chicas de la fábrica se presenta dentro de la novela histórica y la narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788432251436"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fc8cc8029ae3a7be",
+  "origen": "chatgpt-web"
+}

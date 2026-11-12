@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788431339159",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Manejo avanzado de la enfermedad tromboembolica venosa y anticoagulacion en la fibrilacion auricular se dirige a lectores interesados en cuestiones médicas específicas y en divulgación científica. Por su enfoque en enfermedades y anticoagulación, se distancia de las lecturas generales sobre naturaleza o tecnología.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Manejo avanzado de la enfermedad tromboembolica venosa y anticoagulacion en la fibrilacion auricular y 50 cosas que hay que saber sobre IA tratan cuestiones científicas desde ámbitos diferentes. La obra de Ruiz Artacho se centra en enfermedades vasculares y anticoagulación, mientras que el libro de Keith Mansfield aborda la inteligencia artificial. Ambos se distinguen por su objeto de estudio y su autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "190d9b442583beab",
+  "origen": "chatgpt-web"
+}

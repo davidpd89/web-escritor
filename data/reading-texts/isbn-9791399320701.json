@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9791399320701",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a trabajadores, recursos preventivos, coordinadores y opositores que necesitan estudiar prevención de riesgos laborales de nivel básico. Su contenido práctico, con ejercicios y modelos de coordinación empresarial, se aparta de la narrativa y de los ensayos generales sobre el mundo del trabajo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es un manual de formación en prevención de riesgos laborales de nivel básico, estructurado alrededor de un programa de 50 horas. Incluye 150 test, más de 70 ejemplos, supuestos tipo oposición y modelos CAE, con materiales destinados al estudio y a la aplicación profesional.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece 197 páginas en papel para subrayar contenidos, resolver ejercicios y consultar los modelos CAE durante el estudio. La versión Kindle permite llevar el manual en el móvil o en un lector electrónico y acceder a sus contenidos sin transportar el ejemplar físico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Recurso Preventivo: Guía práctica. Funciones, responsabilidades y modelos: cuándo es obligatorio, cómo vigilar y cuándo parar. Con más de 20 supuestos resueltos y 140 preguntas tipo test comparte autor, materia preventiva y ejercicios, pero se concentra en las funciones del recurso preventivo. Todo lo que necesitas saber sobre herencias y donaciones: Guía práctica para ahorrar impuestos y evitar problemas (Deusto) también tiene un enfoque práctico y jurídico, aunque trata cuestiones sucesorias y fiscales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399320718",
+        "isbn-9788423440962"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d19494de722a062e",
+  "origen": "chatgpt-web"
+}

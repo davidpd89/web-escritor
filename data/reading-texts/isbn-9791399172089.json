@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791399172089",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los hombres que amaban a las mujeres: catálogo de la exposicion: 24 (Biblioteca Añil Feminista) se dirige a lectores interesados en el ensayo, las mujeres y las publicaciones vinculadas a exposiciones. Su carácter de catálogo lo diferencia de una novela y de un ensayo concebido exclusivamente como desarrollo argumentativo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Los hombres que amaban a las mujeres: catálogo de la exposicion: 24 (Biblioteca Añil Feminista) se presenta en tapa blanda, con 72 páginas en castellano. Es un volumen físico de extensión reducida que puede consultarse por partes y conservarse junto a otras publicaciones sobre mujeres y feminismo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bd4565d11e848cb8",
+  "origen": "chatgpt-web"
+}

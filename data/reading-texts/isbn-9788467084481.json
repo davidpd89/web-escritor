@@ -4,28 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El arte de la guerra, de Sun Tzu, encaja con lectores interesados en la estrategia, las relaciones de poder y las distintas maneras de afrontar un conflicto. Sus enseñanzas proceden de un tratado clásico con aplicaciones militares y políticas, por lo que no responde a quien busca una narración bélica con personajes y una trama novelesca.",
+      "texto": "El arte de la guerra interesa a lectores que buscan reflexiones sobre estrategia, conflicto y poder. Se presenta como un tratado clásico mediante aforismos, no como una novela con personajes y una trama narrativa.",
       "evidencias": [
         "titulo",
-        "autores",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El arte de la guerra puede leerse en tapa dura o Kindle, según se prefiera conservar un volumen físico o consultar el texto en formato digital. La edición de Editorial Espasa tiene 160 páginas y encuadernación en cartoné sin sobrecubierta; Kindle facilita llevar sus reflexiones sobre estrategia y conflicto en el móvil o en un lector compatible.",
+      "texto": "La tapa dura y la tapa blanda ofrecen dos opciones físicas para sus 160 páginas; Kindle permite acceder al texto en formato digital y el audiolibro ofrece la alternativa de escucha. El arte de la guerra está disponible en los cuatro formatos, por lo que la elección depende de si se prefiere leer en papel, en pantalla o escuchar.",
       "evidencias": [
-        "titulo",
-        "editorial",
-        "edicion",
         "numero_paginas",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de la guerra: El influyente tratado sobre estrategia militar (Filosofía), de Sun Tzu, coincide con El arte de la guerra en autoría y obra de referencia. El título de esta ficha presenta la obra sin subtítulo, mientras que el otro añade una referencia explícita a la estrategia militar y la filosofía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419467911"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "086794cde55c6906",
+  "fuente_hash": "162c35df36efa9a9",
   "origen": "chatgpt-web"
 }

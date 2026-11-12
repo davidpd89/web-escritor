@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410677548",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fútbol y anarquismo (RELECTURAS) se dirige a lectores interesados en el fútbol y su relación con las ideas anarquistas. Miguel Fernández Ubiría firma un libro de 216 páginas vinculado al deporte y el ocio, cuyo tema se aparta de los manuales de entrenamiento y las biografías centradas en un único futbolista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fútbol y anarquismo (RELECTURAS) cuenta con una edición en tapa blanda de 216 páginas, publicada por Los Libros de la Catarata. Su extensión permite organizar la lectura en varias sesiones y el soporte impreso facilita volver a los pasajes relacionados con el fútbol y el anarquismo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fútbol y anarquismo (RELECTURAS) comparte el fútbol como materia con Kylian Mbappé: La biografía definitiva (Deportes) y El árbitro / The Referee. La obra de Miguel Fernández Ubiría vincula este deporte con el anarquismo, mientras que la de Julien Laurens se centra en la trayectoria de un futbolista y la de Augusto Cruz sitúa al árbitro en el título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073877817",
+        "isbn-9788448049669"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "69b77aa120dcfde0",
+  "origen": "chatgpt-web"
+}

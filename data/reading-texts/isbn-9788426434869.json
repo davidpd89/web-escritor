@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788426434869",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lo mejor de Guille (Los amigos de Mafalda) (Lumen Gráfica) está dirigido a lectores de humor interesados en el personaje de Guille y su relación con el universo de Mafalda. Su temática se distingue de las obras centradas en aventuras fantásticas o relatos de suspense.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lo mejor de Guille (Los amigos de Mafalda) (Lumen Gráfica) se publica en tapa blanda, con 128 páginas en castellano. Es una edición de Lumen que puede guardarse en una estantería y recuperarse para consultas o relecturas sin manejar un volumen extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Colección Mafalda: 11 tomos en una lata (edición limitada) (Lumen Gráfica) comparte autor, Quino, y universo editorial con Lo mejor de Guille (Los amigos de Mafalda) (Lumen Gráfica). La colección reúne 11 tomos, mientras que Lo mejor de Guille concentra su propuesta en un personaje concreto y ocupa 128 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426438188"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5267496a437d1c1f",
+  "origen": "chatgpt-web"
+}

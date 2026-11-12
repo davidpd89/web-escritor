@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9798890989659",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Caballero del Alba (Novela Gráfica) / The Knight at Dawn (Graphic Novel) (Magic Tree House Novela Gráfica), de Mary Pope Osborne, está dirigido a lectores interesados en aventuras y fantasía contadas mediante novela gráfica. No responde al mismo tipo de lectura que un libro informativo o una novela desarrollada exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 176 páginas de El Caballero del Alba (Novela Gráfica) / The Knight at Dawn (Graphic Novel) (Magic Tree House Novela Gráfica). Es el formato disponible para esta obra de Mary Pope Osborne y permite conservar el libro como ejemplar físico dentro de la colección.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dinosaurios Al Atardecer (Novela Gráfica) / Dinosaurs Before Dark (Graphic Novel) (Magic Tree House Novela Gráfica), de Mary Pope Osborne, comparte con El Caballero del Alba (Novela Gráfica) / The Knight at Dawn (Graphic Novel) (Magic Tree House Novela Gráfica) la autora, el formato gráfico y las aventuras fantásticas. Una Momia Al Amanecer (Novela Gráfica) / Mummies in the Morning Graphic Novel (Magic Tree House Novela Gráfica), de Mary Pope Osborne, amplía esa comparación con otra propuesta de aventuras de la misma autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890989642",
+        "isbn-9798890989666"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "53d592720f4c2269",
+  "origen": "chatgpt-web"
+}

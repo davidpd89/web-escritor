@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788466396530",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Quién mató a Miller? (edición limitada): 100 retos de misterio para poner a prueba tu lógica e intuición (Campaña | Ahora por menos) se dirige a quienes disfrutan resolviendo enigmas y ejercitando el razonamiento. Su propuesta se sitúa entre el misterio y los pasatiempos, con 100 retos distribuidos en 296 páginas. Encaja menos con lectores que buscan una novela convencional centrada en una narración continua.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición limitada de ¿Quién mató a Miller? (edición limitada): 100 retos de misterio para poner a prueba tu lógica e intuición (Campaña | Ahora por menos) pertenece a Penguin Bolsillo. Se publica en castellano, en tapa blanda y tamaño de bolsillo, con 296 páginas dedicadas a desafíos de misterio. El ISBN 9788466396530 identifica esta presentación, cuya fecha editorial es 2027-02-04.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "formato_edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción recogida para este título es la tapa blanda, con 296 páginas. El formato de bolsillo permite llevar los retos en papel y volver a los ejercicios durante distintas sesiones, sin depender de una pantalla. Es una elección física para quien quiera trabajar directamente con el libro.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "titulo"
+      ]
+    }
+  ],
+  "descartados": [
+    "que_formato_elegir: repite otro bloque",
+    "faltan módulos: que_formato_elegir"
+  ],
+  "version": 3,
+  "fuente_hash": "81aa561b69f04583",
+  "origen": "chatgpt-web"
+}

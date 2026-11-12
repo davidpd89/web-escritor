@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788408328209",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Criaturas imposibles 3. El Intrépido: Gran fenómeno internacional (La isla del tiempo) se dirige a lectores de fantasía que buscan una obra de 392 páginas. El título lo identifica como el n.º 3, un detalle relevante para quienes prefieren seguir las entregas numeradas; encaja menos con lectores que buscan narrativa realista sin elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Criaturas imposibles 3. El Intrépido: Gran fenómeno internacional (La isla del tiempo) se publica en tapa dura, con 392 páginas en castellano. Esta edición de Destino Infantil & Juvenil permite leer la obra en papel y conservarla junto a otros volúmenes de la colección; su encuadernación también resulta apropiada para un ejemplar destinado a regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ce46d95c79779e6b",
+  "origen": "chatgpt-web"
+}

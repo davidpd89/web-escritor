@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388222245",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los miedos de Emma (Emma 4) (Montena) se relaciona con el desarrollo personal y la amistad, dos asuntos que pueden orientar su elección. El título lo identifica como el n.º 4 de Emma, por lo que se diferencia de una lectura independiente centrada exclusivamente en consejos prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los miedos de Emma (Emma 4) (Montena) está disponible en tapa blanda y Kindle. La edición impresa de Montena tiene 296 páginas y permite conservar el volumen en papel; Kindle ofrece la alternativa de leerlo en un dispositivo compatible sin transportar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amigos de verdad, de Iris Pérez-Bonaventura, comparte con Los miedos de Emma (Emma 4) (Montena) el interés por la amistad. El primero aborda su importancia en la formación personal de niños y adolescentes; el libro de Susana Rubio añade los miedos al planteamiento y su título lo identifica como el n.º 4 de Emma.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994532"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "248c8f0ffe16a243",
+  "origen": "chatgpt-web"
+}

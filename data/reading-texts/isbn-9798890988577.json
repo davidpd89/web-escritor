@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9798890988577",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este libro de Dan Gutman encaja con lectores que buscan humor ambientado en una escuela y situaciones relacionadas con la vida familiar. Sus 96 páginas permiten una lectura breve, mientras que su temática lo aleja de los manuales de crianza y de las novelas de suspense.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Dan Gutman se publica en tapa blanda y reúne 96 páginas en castellano. Su extensión facilita llevarla en la mochila y leerla en trayectos o ratos libres, además de conservarla junto a otros títulos de la colección escolar.",
+      "evidencias": [
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¡La Srta. Lulú no sabe ni la U! / Miss Daisy Is Crazy!: 1 (Una Escuela Rara) comparte autor, Dan Gutman, y ambientación escolar con este título. El Más Gallina / Fight or Flight (Diario del Wimpy Kid), de Jeff Kinney, ofrece otra referencia de humor, aunque pertenece a una serie distinta y tiene otro autor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890988515",
+        "isbn-9798890989772"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d3b8bc647c58659e",
+  "origen": "chatgpt-web"
+}

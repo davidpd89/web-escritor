@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408314592",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuentos del mundo para ir a dormir (Recopilatorio de cuentos) está orientado al público infantil y a quienes buscan relatos para compartir antes de acostarse. Sus 248 páginas reúnen cuentos en lugar de una única narración continuada, por lo que responde a una forma de lectura distinta de la novela.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuentos del mundo para ir a dormir (Recopilatorio de cuentos) se presenta en tapa dura, con 248 páginas en castellano. Esta encuadernación permite mantener el volumen en una biblioteca infantil y utilizarlo en sesiones de lectura compartida, con el libro físico entre quienes escuchan y leen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuentos del mundo para ir a dormir (Recopilatorio de cuentos) y El león y Ellen: Ocho nuevas historias contadas por el león de Ellen (Libros para rumiar) comparten la estructura de varios relatos, aunque el segundo identifica un narrador concreto. Frente a Descubro y aprendo. El mundo, también de YOYO, el primero propone cuentos para la hora de dormir y el otro se orienta a explorar el mundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408313762",
+        "isbn-9788412872781"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1907c5e072c1c5d5",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073951289",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pueblo / The People se dirige a lectores interesados en historia, poder político y biografías vinculadas a figuras públicas. La autoría de Andrés Manuel López Obrador sitúa el libro en ese ámbito, con una extensión de 744 páginas. No está orientado a quien busca una novela de ficción o una lectura breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Pueblo / The People contiene 744 páginas, por lo que supone un volumen físico extenso. Kindle permite consultar y leer el contenido en un dispositivo electrónico sin transportar ese ejemplar. El audiolibro ofrece una alternativa de escucha para quienes prefieren seguir una obra larga sin leerla en papel o pantalla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pueblo / The People puede compararse con Antes de irme (Espasa Actualidad), de Miguel Ángel Revilla, por su relación con las figuras públicas y la actualidad política. La diferencia está en la autoría: Pueblo / The People está firmado por Andrés Manuel López Obrador y se clasifica dentro de la historia, las biografías y memorias y el poder político. Antes de irme (Espasa Actualidad) es una obra de Miguel Ángel Revilla, por lo que permite contrastar libros firmados por distintas figuras públicas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467085044"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b7bddb643db4b265",
+  "origen": "chatgpt-web"
+}

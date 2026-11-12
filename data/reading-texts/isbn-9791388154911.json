@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388154911",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Zapatillas de Ballet / Ballet Shoes se relaciona con lectores interesados en el ballet, el ámbito artístico y los temas familiares. Su clasificación en arte y diseño, familia y desarrollo personal la diferencia de las obras centradas en historia política o investigación científica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Zapatillas de Ballet / Ballet Shoes cuenta con una edición en tapa blanda de 240 páginas, publicada en castellano por Blackie Books. Su extensión permite repartir la lectura en varias sesiones y la encuadernación ofrece una opción física para llevar el libro fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un sueño por cumplir (Montena), de Violeta Madel, ofrece otra referencia del catálogo vinculada, desde su título, a la idea de alcanzar una aspiración. Zapatillas de Ballet / Ballet Shoes, de Noel Streatfeild, concreta su referencia artística en el ballet y se relaciona además con el ámbito familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387972844"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "30e7a364cb794f6f",
+  "origen": "chatgpt-web"
+}

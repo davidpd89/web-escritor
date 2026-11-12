@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788402432100",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nuestra historia de amor: El libro para conoceros mejor y seguir escribiendo vuestra historia (Bruguera Tendencias) se dirige a quienes quieren dedicar un libro a su relación de pareja. Su enfoque en el amor y el conocimiento mutuo lo aleja de las lecturas centradas en la crianza o la psicología general.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa dura, publicada por Bruguera y con 192 páginas. Esta encuadernación permite conservar el libro como recuerdo de pareja y consultarlo en distintas ocasiones; su extensión también facilita repartir la lectura en varias sesiones.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "titulo"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3f04730b61d36674",
+  "origen": "chatgpt-web"
+}

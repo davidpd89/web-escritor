@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788000079806",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Babymoni: ¡Soy Feliz!: 5 (Babymoni en Español) se sitúa en la lectura infantil vinculada al desarrollo personal y al bienestar emocional. Su formato de cartón y sus 20 páginas responden a una experiencia de lectura breve y física, distinta de los manuales extensos de desarrollo personal o las novelas juveniles.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Babymoni: ¡Soy Feliz!: 5 (Babymoni en Español) puede utilizarse como libro infantil de lectura compartida, pasando sus páginas de cartón y conversando sobre la felicidad que anuncia el título. Sus 20 páginas permiten recorrer el volumen en sesiones breves y volver a él sin necesidad de seguir una narración extensa.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Babymoni: ¡Soy Feliz!: 5 (Babymoni en Español) se ofrece en tapa dura, concretamente como libro de cartón de 20 páginas. Este formato proporciona páginas rígidas para la manipulación durante la lectura infantil y permite conservar el volumen como objeto físico, en lugar de depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Emociones: Cuentos infantiles para comprender lo que sentimos: 2 (APRENDE) se relaciona con Babymoni: ¡Soy Feliz!: 5 (Babymoni en Español) por su orientación infantil hacia el mundo emocional. El primero se presenta como un libro de cuentos sobre sentimientos, mientras que Babymoni: ¡Soy Feliz!: 5 (Babymoni en Español), de Rocio Bonilla, se identifica por la felicidad y adopta un formato de cartón de 20 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias",
+        "edicion",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9791388410109"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7d245f515c58f72f",
+  "origen": "chatgpt-web"
+}

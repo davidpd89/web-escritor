@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791370610265",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores que quieren examinar blockchain desde el derecho y comprender los desafíos legales asociados a esta tecnología. No está orientado a quienes buscan aprender a programar cadenas de bloques o seguir una guía práctica de inversión, pues su materia es jurídica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Aranzadi reúne 326 páginas en castellano sobre los desafíos legales de blockchain. El soporte impreso facilita subrayar conceptos jurídicos, añadir notas y volver a los apartados consultados durante el estudio, sin depender de una pantalla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5bea65e50c9dcad3",
+  "origen": "chatgpt-web"
+}

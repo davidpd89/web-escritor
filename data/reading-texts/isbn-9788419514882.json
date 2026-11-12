@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Redes (edición Luna) (Invisible 2) se dirige a lectores a partir de 12 años interesados en la narrativa juvenil sobre redes sociales, autoestima y bienestar emocional. Eloy Moreno aborda la comparación con las vidas aparentemente felices de los influencers, por lo que se aparta de las historias juveniles centradas en aventuras o misterios ajenos al entorno digital.",
+      "texto": "Redes (edición Luna) (Invisible 2) encaja con lectores a partir de 12 años interesados en novelas juveniles sobre redes sociales, autoestima y comparación con otras personas. La presión de las imágenes de felicidad y los modelos de vida de los influencers ocupa un lugar central, por lo que se aleja de quienes buscan una historia desligada de estos conflictos.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,30 +14,25 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Redes (edición Luna) (Invisible 2) está disponible en tapa dura, con 288 páginas publicadas por Nube de Tinta. La encuadernación rígida permite conservar o regalar esta edición y leer en papel una historia juvenil centrada en la influencia de los contenidos digitales sobre la percepción de la propia felicidad.",
+      "texto": "Redes (edición Luna) (Invisible 2) se ofrece en tapa dura, con 288 páginas en castellano. La cubierta rígida favorece su conservación y lo convierte en una opción física para regalar, mientras que su extensión permite organizar la lectura en varias sesiones.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "editorial",
         "formatos_disponibles",
-        "categorias",
-        "sinopsis_editorial"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Invisible (edición Luna), de Eloy Moreno, comparte con Redes (edición Luna) (Invisible 2) la narrativa juvenil y el interés por cómo una persona se percibe frente a los demás, aunque el primero plantea el deseo de desaparecer y el segundo se centra en la comparación a través de las redes sociales. Mentes diferentes, de Chloé Hayden, también aborda la identidad personal, pero desde el testimonio y la divulgación sobre neurodivergencia, en lugar de una novela juvenil.",
+      "texto": "Redes (edición Luna) (Invisible 2) e Invisible (edición Luna) comparten autor, Eloy Moreno, y una presentación editorial identificada como edición Luna. Redes (edición Luna) (Invisible 2) aborda la comparación social y la felicidad asociada a las redes, mientras que Invisible (edición Luna) parte del deseo de ser invisible. El título del primero lo identifica con el número 2, aunque esa numeración no determina por sí sola el orden necesario de lectura.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "edad_recomendada",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788419514318",
-        "isbn-9788411193894"
+        "isbn-9788419514318"
       ]
     }
   ],

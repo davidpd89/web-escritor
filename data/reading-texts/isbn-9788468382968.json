@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788468382968",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este cómic de Sophie Escabasse se dirige a lectores interesados en historias de brujas contadas mediante el lenguaje de la novela gráfica. Sus 272 páginas en castellano encajan menos con quienes buscan una novela escrita principalmente en prosa.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de este cómic de Sophie Escabasse se presenta en tapa dura y reúne 272 páginas en castellano. La encuadernación rígida permite conservar el volumen en la estantería y ofrece una presentación física para regalar o releer.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6fa48126f68ba975",
+  "origen": "chatgpt-web"
+}

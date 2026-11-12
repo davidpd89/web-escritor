@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9791388075513",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La genética de los colores de la piel, el pelo y los ojos: Por qué somos rubios, morenos, pelirrojos o tenemos los ojos azules (Divulgación científica) se dirige a lectores interesados en las causas genéticas de los rasgos físicos humanos. Su enfoque científico encaja menos con quienes buscan consejos de estética o una explicación de los colores basada únicamente en su apariencia.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 304 páginas en castellano, una extensión que permite consultar distintos aspectos de la pigmentación humana en un único volumen. El soporte impreso facilita regresar a los apartados sobre piel, pelo y ojos durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "60d742544bd6199b",
+  "origen": "chatgpt-web"
+}

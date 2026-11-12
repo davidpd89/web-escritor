@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791388137129",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La primera muerte de Lola Han (Roja y negra), de María Pérez Heredia, está dirigida a lectores que buscan misterio y thriller. Sus 384 páginas corresponden a una novela de ese ámbito, por lo que no se presenta como una lectura de ensayo, romance o narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 384 páginas de La primera muerte de Lola Han (Roja y negra), de María Pérez Heredia, en una edición física de Reservoir Books. Es la opción para quien prefiere leer en papel y conservar el ejemplar completo en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "311ea30a83ebc571",
+  "origen": "chatgpt-web"
+}

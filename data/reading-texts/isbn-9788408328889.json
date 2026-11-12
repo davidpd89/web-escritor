@@ -4,28 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Café para tomar aquí está orientado a quienes quieren aprender a seleccionar granos, preparar café y mejorar su técnica mediante distintos métodos de elaboración. Su contenido especializado en bebidas de café encaja menos con lectores que buscan recetas de comidas completas o una introducción general a la gastronomía.",
+      "texto": "Café para tomar aquí, de Morgan Eckroth, está dirigido a quienes quieren aprender a preparar café de especialidad, desde la selección del grano hasta los métodos de elaboración. Sus contenidos prácticos y sus 240 páginas responden menos a quien busca un recetario general de comidas o una lectura narrativa.",
       "evidencias": [
         "titulo",
+        "autores",
+        "sinopsis_editorial",
         "categorias",
-        "sinopsis_editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Café para tomar aquí se ofrece en tapa dura y Kindle, con una edición impresa de 240 páginas de Planeta Gastro. La encuadernación en cartoné permite mantenerlo como libro de consulta junto al equipo de café; Kindle facilita revisar las instrucciones de preparación desde el móvil sin ocupar espacio en la cocina.",
+      "texto": "Café para tomar aquí puede leerse en tapa dura o en Kindle, con una edición física de 240 páginas publicada por Planeta Gastro. La tapa dura permite tener el libro a mano durante la preparación del café y conservarlo como volumen de consulta; Kindle facilita consultar las indicaciones desde el móvil o un lector electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "editorial",
-        "edicion",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Café para tomar aquí comparte con Barbacoa el enfoque práctico de una obra culinaria centrada en una técnica concreta. Morgan Eckroth aborda la elección del grano y los métodos de preparación del café, mientras que Jamie Oliver dedica Barbacoa a la cocina con ese sistema de cocción; ambas propuestas se diferencian por los utensilios y alimentos que trabajan.",
+      "texto": "Café para tomar aquí y Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA) comparten el interés por las bebidas y su preparación dentro del ámbito gastronómico. Morgan Eckroth se concentra en el café de especialidad y sus técnicas, mientras que David Villalón y Mario Villalón abarcan también vinos, cócteles, huerta y cocina.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,7 +35,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425374012"
+        "isbn-9791387934293"
       ]
     }
   ],

@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387634711",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historia nocturna de la arquitectura se orienta a quienes buscan una lectura sobre arquitectura desde la historia y el arte. Sus 284 páginas, firmadas por Javier Fernández Contreras, Vera Sacchetti y Roberto Zancan, se apartan de la ficción y de los manuales de construcción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Historia nocturna de la arquitectura es en tapa blanda y reúne 284 páginas en castellano. El formato permite manejar el volumen durante la lectura y colocarlo en una estantería junto a otros libros de historia de la arquitectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "96bb077477a52e76",
+  "origen": "chatgpt-web"
+}

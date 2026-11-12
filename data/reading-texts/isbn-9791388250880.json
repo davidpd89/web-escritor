@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388250880",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Unión Europea en un mundo en crisis. Prioridades para un actor ¿geopolítico?, de Miguel Ángel Benedicto Solsona, se dirige a lectores interesados en política internacional y en el papel de la Unión Europea. Su planteamiento sobre prioridades geopolíticas se aleja de la ficción política y de las biografías centradas en una sola figura pública.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Unión Europea en un mundo en crisis. Prioridades para un actor ¿geopolítico? cuenta con una edición en tapa blanda de tipo shinsho, publicada por Atelier. Sus 340 páginas en castellano permiten una lectura continuada o una consulta por sesiones sobre el papel político y geopolítico europeo.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Miguel Ángel Benedicto Solsona comparte el interés por el poder político con A la sombra del Estado, de Luis de la Corte Ibáñez. La primera examina las prioridades geopolíticas de la Unión Europea, mientras que la segunda aborda el espionaje, las operaciones encubiertas y la guerra híbrida. La diferencia está en el ámbito de análisis: el papel internacional de las instituciones europeas frente a las actividades clandestinas relacionadas con el poder.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fa5d679373415f17",
+  "origen": "chatgpt-web"
+}

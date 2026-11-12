@@ -4,36 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Enciclopedia de plantas medicinales y fitoterapia está dirigida a quienes buscan una obra de consulta sobre plantas, remedios tradicionales y sus aplicaciones terapéuticas. Josep Lluís Berdonces incorpora datos sobre componentes activos, contraindicaciones y toxicidad, por lo que su contenido va más allá de una recopilación de preparaciones caseras.",
+      "texto": "Enciclopedia de plantas medicinales y fitoterapia se dirige a lectores interesados en la fitoterapia, los remedios tradicionales y sus fundamentos científicos. Sus fichas sobre propiedades, contraindicaciones y toxicidad responden a una consulta práctica, no a la búsqueda de una novela o un relato personal.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Enciclopedia de plantas medicinales y fitoterapia está disponible en tapa dura y Kindle. La edición impresa de 304 páginas permite consultar las fichas visuales de las 330 plantas y conservar el volumen como referencia; Kindle ofrece acceso digital a las descripciones, los usos y las indicaciones de seguridad desde un dispositivo electrónico.",
+      "texto": "La tapa dura reúne las 304 páginas de Enciclopedia de plantas medicinales y fitoterapia en un volumen físico para consultar las fichas de plantas y las fórmulas de preparación. Kindle permite acceder al mismo título desde un lector electrónico o un móvil, sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "edicion",
         "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Enciclopedia de plantas medicinales y fitoterapia y 5 semanas para desinflamarte (edición limitada), de Blanca García-Orea Haro, comparten el ámbito del bienestar, aunque la primera funciona como repertorio de plantas y preparaciones, mientras que la segunda plantea una transformación personal vinculada a la inflamación. Frente a Cáncer con brújula, de Elisa Molina Buendía, centrado en un diagnóstico de cáncer, la enciclopedia organiza conocimientos sobre fitoterapia y seguridad de uso.",
+      "texto": "Enciclopedia de plantas medicinales y fitoterapia y 5 semanas para desinflamarte (edición limitada) comparten el interés por la salud y el bienestar. El libro de Josep Lluís Berdonces se centra en plantas medicinales, usos terapéuticos y precauciones; el de Blanca García-Orea Haro plantea un cambio personal vinculado a la inflamación.",
       "evidencias": [
         "titulo",
+        "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466394390",
-        "isbn-9788441445321"
+        "isbn-9788466394390"
       ]
     }
   ],

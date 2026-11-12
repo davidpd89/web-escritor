@@ -1,0 +1,58 @@
+{
+  "id": "isbn-9791388103384",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orgullo y prejuicio (Novela gráfica) Edición especial se dirige a lectores interesados en la novela gráfica y la narrativa histórica. Sus 320 páginas en tapa dura encajan con quienes prefieren una obra en formato de cómic, pero menos con quienes buscan una novela presentada únicamente como texto narrativo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición especial de Planeta Cómic presenta Orgullo y prejuicio (Novela gráfica) Edición especial en tapa dura y castellano. Cuenta con 320 páginas y tiene fecha de publicación del 25 de noviembre de 2026. Su identificación expresa como novela gráfica permite diferenciar esta presentación de una edición en prosa.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "numero_paginas",
+        "fecha_publicacion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Orgullo y prejuicio (Novela gráfica) Edición especial está disponible en tapa dura, con 320 páginas. Esta encuadernación rígida permite conservar el volumen y consultar sus páginas en formato físico, algo relevante en una obra clasificada como cómic y novela gráfica. Es la presentación publicada por Planeta Cómic para esta edición especial.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Orgullo y prejuicio (Novela gráfica) Edición especial puede compararse con La balada del norte 03 (nueva edición) (Sillón Orejero) por su relación con la narrativa gráfica. La obra de Ana Oncina Tortosa se presenta como una edición especial de una novela gráfica, mientras que el título de Alfonso Zapico identifica una nueva edición y una entrega numerada. La diferencia explícita está en la presentación editorial y en la autoría de cada obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419670373"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4f6f3585b52c94bd",
+  "origen": "chatgpt-web"
+}

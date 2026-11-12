@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408331148",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El diario de una princesa desastrosa (Diarios), de Maidy, se dirige a lectores de aventuras con humor, amistad y relaciones familiares. Su combinación de temas también incluye viajes y arte y diseño, por lo que se diferencia de los relatos centrados exclusivamente en el misterio o el terror.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El diario de una princesa desastrosa (Diarios) se presenta en tapa dura, con 256 páginas en castellano. La encuadernación rígida permite mantener el libro en una colección física y utilizarlo para lecturas sucesivas, además de entregarlo como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El diario de una princesa desastrosa (Diarios) comparte las aventuras con Las Ratitas 18. Aventura K-pop (Jóvenes influencers), de Las Ratitas. El libro de Maidy incorpora humor, familia y amistad, mientras que el título de Las Ratitas identifica expresamente el K-pop como elemento de su aventura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328612"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "541ef95d2564cdb8",
+  "origen": "chatgpt-web"
+}

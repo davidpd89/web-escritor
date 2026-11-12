@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788413445847",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en el desarrollo personal desde la meditación y la neurociencia. Mente fit: Meditación, neurociencia y cuatro pasos para una felicidad duradera (Alienta), de Liam McClintock, se centra en el bienestar psicológico, por lo que no responde a quien busque una novela o un manual de historia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "El contenido gira en torno a la meditación, la neurociencia y cuatro pasos orientados a una felicidad duradera. Sus 266 páginas permiten abordar estas cuestiones dentro del desarrollo personal y la psicología, con un planteamiento centrado en el bienestar y no en la narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es la tapa blanda, publicada por Alienta Editorial en castellano. Sus 266 páginas reúnen el contenido en un volumen físico que puede consultarse por partes y transportarse sin depender de dispositivos electrónicos.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, comparte el interés por el bienestar psicológico, aunque se centra en las experiencias de la infancia. Mente fit: Meditación, neurociencia y cuatro pasos para una felicidad duradera (Alienta), de Liam McClintock, aborda la meditación y la neurociencia mediante una propuesta de desarrollo personal estructurada en cuatro pasos.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4e4f326295e2fbb8",
+  "origen": "chatgpt-web"
+}

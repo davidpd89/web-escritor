@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788435055871",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La estocada de Nevers: El jorobado (Zenda-Edhasa), de Paul Féval, se dirige a lectores de aventuras ambientadas en contextos históricos. Sus 704 páginas plantean una lectura extensa, menos ajustada a quienes buscan relatos breves o divulgación histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 704 páginas de La estocada de Nevers: El jorobado (Zenda-Edhasa) en un volumen físico. Publicada por Editora y Distribuidora Hispano Americana, S.a., permite leer y conservar esta novela histórica sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La estocada de Nevers: El jorobado (Zenda-Edhasa) comparte el interés por la narrativa histórica con Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig. La obra de Paul Féval incorpora además las aventuras entre sus géneros, mientras que el título de María Reig sitúa su referencia histórica en Pompeya.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "987b59801b4abc9b",
+  "origen": "chatgpt-web"
+}

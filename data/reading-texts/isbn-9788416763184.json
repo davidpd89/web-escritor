@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788416763184",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Riqueza de Las Naciones, de Adam Smith, figura dentro del cómic y la novela gráfica, por lo que se dirige a quienes buscan obras de ese ámbito editorial. Esta edición de 200 páginas se diferencia de los volúmenes exclusivamente narrativos y de las novelas extensas; su clasificación no corresponde al romance ni a la literatura infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Riqueza de Las Naciones se ofrece en tapa blanda y Kindle, con una edición física de 200 páginas publicada por Herder & Herder. La tapa blanda permite conservar el volumen y consultar sus páginas en papel; Kindle facilita transportarlo digitalmente y leerlo desde dispositivos compatibles.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d2d0e4f61c349458",
+  "origen": "chatgpt-web"
+}

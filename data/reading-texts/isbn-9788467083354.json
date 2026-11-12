@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La vida nueva de Pedrito de Andía encaja con lectores de narrativa literaria interesados en la adolescencia, las primeras emociones y los cambios en la percepción del entorno familiar. Su conflicto se desarrolla entre relaciones personales y convenciones sociales, por lo que se distancia de las novelas centradas en aventuras o acción constante.",
+      "texto": "La vida nueva de Pedrito de Andía se dirige a lectores de narrativa contemporánea interesados en historias de crecimiento personal, primeras emociones y relaciones familiares. Su planteamiento se aleja de la fantasía y la acción para centrarse en las experiencias de un muchacho durante un verano decisivo.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,27 +13,25 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La vida nueva de Pedrito de Andía, de Rafael Sánchez Mazas, es una novela de formación ambientada en el entorno de una familia vasca acomodada. El protagonista atraviesa un verano marcado por amistades, secretos y experiencias que modifican su manera de entender el mundo. La obra pertenece a la literatura española del siglo XX.",
+      "texto": "La vida nueva de Pedrito de Andía propone una narración centrada en un periodo de transformación personal durante el verano. La experiencia del protagonista se desarrolla entre relaciones familiares, amistades, secretos y primeras emociones, dentro de un entorno familiar acomodado.",
       "evidencias": [
         "titulo",
-        "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La vida nueva de Pedrito de Andía puede elegirse en tapa dura o tapa blanda. La edición en cartoné de Editorial Espasa reúne 360 páginas y ofrece una encuadernación rígida para conservar el ejemplar o regalarlo; la tapa blanda resulta más flexible para transportarla. Ambas permiten leer la misma obra en papel.",
+      "texto": "La tapa dura presenta sus 360 páginas en una edición de cartoné, con una estructura física más rígida que la de un libro de tapa blanda. Es el formato disponible para esta edición y permite conservar el volumen como ejemplar de biblioteca personal.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
-        "edicion",
         "numero_paginas",
-        "editorial"
+        "edicion",
+        "formato_edicion"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "039839209361a63b",
+  "fuente_hash": "330ccdf6c503a265",
   "origen": "chatgpt-web"
 }

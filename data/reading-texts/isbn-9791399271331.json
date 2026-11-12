@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399271331",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Neonomía: Un nuevo marco moral, social y político se dirige a quienes buscan lecturas sobre organización social, moral y política. Su temática se aparta de las novelas centradas en personajes y conflictos de ficción, y se aproxima a los textos de reflexión sobre el poder.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Neonomía: Un nuevo marco moral, social y político está publicado en tapa blanda y tiene 385 páginas en castellano. La edición de Última Línea ofrece un volumen físico que permite marcar páginas y consultar distintos pasajes durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A la sombra del Estado y Neonomía: Un nuevo marco moral, social y político coinciden en su interés por el poder, aunque el primero aborda el espionaje y las operaciones encubiertas y el segundo plantea un marco moral, social y político. Crónica de un desafío al Estado se centra en acontecimientos políticos concretos, frente al planteamiento general anunciado por Pablo Rivera Rodríguez.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057",
+        "isbn-9788423441303"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cc332bb913b97f86",
+  "origen": "chatgpt-web"
+}

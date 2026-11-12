@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788418011641",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Eres lo que piensas: (no lo que piensas que eres) (Crecimiento personal), de Miguel de Lucas, se dirige a lectores interesados en la relación entre pensamiento, identidad y crecimiento personal desde el ámbito de la psicología. Su orientación ensayística lo diferencia de una novela de ficción o de una guía centrada en problemas médicos específicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Eres lo que piensas: (no lo que piensas que eres) (Crecimiento personal) tiene 250 páginas y se publica en tapa blanda. Esta edición permite subrayar ideas y volver a pasajes concretos durante la lectura, una forma de uso relacionada con su enfoque de ensayo psicológico y crecimiento personal.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a920f5d8d4ed143e",
+  "origen": "chatgpt-web"
+}

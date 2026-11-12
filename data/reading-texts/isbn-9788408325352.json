@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788408325352",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una corte de melodías olvidadas: 7 (Ficción) se orienta a lectores de fantasía romántica interesados en historias que combinan elementos fantásticos y relaciones amorosas. Sarah J. Maas firma esta novela de 848 páginas, una extensión que puede no encajar con quienes buscan lecturas breves o relatos ajenos al romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una corte de melodías olvidadas: 7 (Ficción) tiene una edición en tapa blanda de 848 páginas, publicada por Crossbooks en castellano. Su extensión implica un volumen considerable para transportar, mientras que el formato en papel permite conservarlo en una biblioteca junto a otras novelas de Sarah J. Maas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una corte de melodías olvidadas: 7 (Ficción) y Una corte de armonía rota comparten autora, Sarah J. Maas, y la referencia a una corte en sus títulos. La primera combina fantasía y romance, tiene 848 páginas y su título la identifica como el n.º 7; la segunda permite continuar con otra obra de la misma escritora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408325338"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c20bb7a2d81b8866",
+  "origen": "chatgpt-web"
+}

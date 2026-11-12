@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408329688",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Conspiración en Londres, de Felipe Pigna, se orienta a lectores de novela histórica interesados en conflictos de poder y política. Sus 344 páginas y su clasificación como narrativa contemporánea la diferencian de los ensayos históricos y de las obras centradas en explicar hechos sin una estructura novelística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Conspiración en Londres puede leerse en tapa blanda o Kindle; la edición impresa tiene 344 páginas en castellano. La tapa blanda permite conservar el libro y prestarlo físicamente, mientras que Kindle facilita continuar la novela en un lector electrónico o en el móvil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Conspiración en Londres y 76 comparten autor, Felipe Pigna, pero se diferencian por su enfoque: la primera es una novela histórica sobre poder y política, mientras que la segunda pertenece al ámbito de la historia. También puede compararse con Un caballero en Moscú (Salamandra Narrativa), de Amor Towles, por su carácter narrativo y la presencia de una ciudad en el título, aunque presentan escenarios y autorías diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329695",
+        "isbn-9791387928131"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "de29fac2d7620d02",
+  "origen": "chatgpt-web"
+}

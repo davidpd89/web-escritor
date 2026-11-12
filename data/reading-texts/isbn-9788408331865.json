@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408331865",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de psicología y desarrollo personal que buscan comprender y cuidar sus emociones, especialmente ante los días difíciles. Lo bueno de tener un mal día: Cómo cuidar de nuestras emociones para estar mejor. Edición limitada a precio especial (Colección Especial), de Anabel Gonzalez, no está planteado como una novela ni como una obra de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición se presenta como una edición limitada a precio especial dentro de Colección Especial, publicada por Booket. Es un libro de bolsillo en castellano de 288 páginas, con fecha de publicación del 2027-01-08 y el ISBN 9788408331865, datos que permiten identificar esta versión concreta.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "numero_paginas",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 288 páginas en un libro de bolsillo, una presentación física adecuada para llevarlo y consultar sus apartados durante la lectura. El audiolibro permite escuchar el contenido mientras se realizan actividades que no requieren atención visual, sin necesidad de sostener el volumen.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, comparte el interés por las emociones y el bienestar personal, pero dirige su atención a las experiencias infantiles. Lo bueno de tener un mal día: Cómo cuidar de nuestras emociones para estar mejor. Edición limitada a precio especial (Colección Especial), de Anabel Gonzalez, se centra en el cuidado emocional ante los momentos de malestar, sin limitar su planteamiento a la infancia.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e2350a0c9e97e7f3",
+  "origen": "chatgpt-web"
+}

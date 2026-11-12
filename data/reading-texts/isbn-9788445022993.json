@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788445022993",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rebelión en la granja. Edición especial con cantos decorados (Colección Especial) se dirige a lectores interesados en los clásicos literarios y los conflictos relacionados con el poder y la política. Su clasificación también abarca fantasía y ciencia ficción, por lo que no responde exclusivamente a una búsqueda de narrativa realista contemporánea.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Rebelión en la granja. Edición especial con cantos decorados (Colección Especial) se publica en tapa dura con cantos decorados. Esta presentación de Booket reúne 160 páginas en castellano y pertenece a la Colección Especial, con un acabado físico diferenciado por la decoración de los bordes.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Rebelión en la granja. Edición especial con cantos decorados (Colección Especial) está disponible en tapa dura. Sus 160 páginas permiten conservar una edición física relativamente breve, mientras que los cantos decorados aportan un elemento de presentación para colección o regalo.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rebelión en la granja. Edición especial con cantos decorados (Colección Especial) comparte autor y temática política con 1984 (edición especial limitada con cantos tintados). Ambas obras de George Orwell se relacionan con el poder, aunque 1984 presenta una sociedad sometida a la vigilancia de la Policía del Pensamiento. ¿Qué es el fascismo?: Textos escogidos (ENSAYO) permite contrastar la narrativa de Rebelión en la granja con los textos ensayísticos del mismo autor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399203042",
+        "isbn-9788491058298"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "90a35b8708d13374",
+  "origen": "chatgpt-web"
+}

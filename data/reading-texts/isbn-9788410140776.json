@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788410140776",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El médico de la reina está dirigido a lectores que buscan novela histórica y tienen interés por la historia del siglo XX. Sus 480 páginas lo sitúan entre las lecturas de mayor extensión de esta selección; no corresponde a quien busque divulgación histórica en lugar de narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 480 páginas de El médico de la reina en una edición encuadernada en cartoné. Es el formato disponible para este libro y ofrece una presentación física adecuada para conservar una novela de esta extensión en la biblioteca personal.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El médico de la reina puede compararse con Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig, por su presencia en la novela histórica. Los títulos apuntan a focos distintos: el primero identifica a un médico vinculado a la realeza, mientras que el segundo sitúa su referencia histórica en Pompeya. Ambos permiten acercarse a la ficción desde escenarios históricos diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4f8b358c7d5c1073",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788466392792",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Precipicio (Best Seller | Ficción), de Robert Harris, se dirige a lectores interesados en la novela histórica y las cuestiones de poder y política. Su enfoque se aleja de quienes buscan fantasía o aventuras desligadas de los conflictos políticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Precipicio (Best Seller | Ficción) reúne 448 páginas en una edición de bolsillo de Penguin Bolsillo, pensada para llevar en el bolso o la mochila. Kindle permite leer esa misma obra desde un dispositivo electrónico sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Precipicio (Best Seller | Ficción) y Esperanza en París: 1 (El legado del tiempo) figuran entre las lecturas relacionadas con la narrativa histórica, aunque pertenecen a autores distintos: Robert Harris y Miguel Tarín. Frente a La venganza de Odessa (Best Seller | Ficción), de Frederick Forsyth y Tony Kent, Precipicio se identifica específicamente con la novela histórica y el poder político.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399311907",
+        "isbn-9788466391207"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8329d8c646b1fb61",
+  "origen": "chatgpt-web"
+}

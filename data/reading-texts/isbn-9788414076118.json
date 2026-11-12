@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788414076118",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Federico. Mi corazón, tu casa (Álbumes ilustrados) se dirige a lectores interesados en los álbumes ilustrados, el arte y la narrativa juvenil. Por su clasificación editorial, encaja menos con quienes buscan una novela adulta extensa o un manual técnico de diseño.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Federico. Mi corazón, tu casa (Álbumes ilustrados) está disponible en tapa dura, con 88 páginas en castellano. Es una edición física de extensión breve que permite consultar sus páginas y conservar el volumen en una estantería; también puede elegirse para regalar un álbum ilustrado.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Federico. Mi corazón, tu casa (Álbumes ilustrados) comparte el ámbito artístico con Esencia oculta: La belleza de la impermanencia, aunque el primero se presenta como álbum ilustrado juvenil y el segundo aborda la belleza y la impermanencia desde su título. Frente a Forcano.: A pie de calle. (Libros de autor), de Eugeni Forcano, la diferencia está en la orientación juvenil del libro de Antonio Lorente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388285769",
+        "isbn-9791387960353"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e60f2c2bfca2e621",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788467082296",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hijos del universo: La historia del cosmos y de la obsesión por entenderlo (Espasa Divulgación Científica) está dirigido a quienes buscan divulgación sobre el cosmos y la historia de los intentos humanos por comprenderlo. Su planteamiento científico e histórico se diferencia de una novela espacial o de una guía de observación astronómica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hijos del universo: La historia del cosmos y de la obsesión por entenderlo (Espasa Divulgación Científica) cuenta con una edición en tapa blanda de 328 páginas, publicada por Editorial Espasa. El papel permite consultar el volumen físicamente y Kindle facilita continuar la lectura desde distintos dispositivos sin llevar esas páginas encima.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hijos del universo: La historia del cosmos y de la obsesión por entenderlo (Espasa Divulgación Científica), de Pol Bertran, comparte el ámbito de la divulgación científica con 50 cosas que hay que saber sobre IA, de Keith Mansfield. El primero aborda la historia del cosmos y los esfuerzos por comprenderlo; el segundo se ocupa de la inteligencia artificial. Los dos tratan cuestiones científicas desde temas distintos: el universo físico y la tecnología.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5dbb6d848148b0f0",
+  "origen": "chatgpt-web"
+}

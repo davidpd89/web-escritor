@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399054552",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Criaturas míticas 1. Un invierno interminable: 6 (La Sonrisa del Gato) se dirige a lectores interesados en la fantasía y el cómic, con una extensión de 120 páginas. Por sus temas, encaja menos con quien busque una obra centrada exclusivamente en testimonios personales o historia documental.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 120 páginas de Criaturas míticas 1. Un invierno interminable: 6 (La Sonrisa del Gato) en un volumen físico que puede conservarse o regalarse. Kindle permite llevar la misma obra en un lector electrónico o dispositivo compatible, sin ocupar espacio en la estantería.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Criaturas míticas 1. Un invierno interminable: 6 (La Sonrisa del Gato) comparte el terreno de la fantasía con Duelo con varitas (Harry Potter): Guía oficial de hechizos para aprendices de magia, aunque este último se presenta como una guía de hechizos. Frente a 7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica), la diferencia está en la orientación fantástica del primero y la humorística del segundo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419868800",
+        "isbn-9788402431790"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4cdb7c21ba361703",
+  "origen": "chatgpt-web"
+}

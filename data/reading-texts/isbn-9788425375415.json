@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788425375415",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Apartamento 3B (Ficción), de Carolina Moura, se sitúa entre el romance y el misterio, para lectores interesados en ambos géneros. Sus 320 páginas ofrecen una extensión de novela convencional; encaja menos con quien busca exclusivamente fantasía o una lectura de no ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Grijalbo permite leer las 320 páginas de Apartamento 3B (Ficción) en papel y conservar el ejemplar en la biblioteca. Kindle facilita llevar la novela en el móvil o lector electrónico y ajustar la visualización del texto sin cargar con el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "CUANDO TODO FALLA. Solo nos queda la promesa del nosotros.: Una novela romántica New Adult de superación, pasión por el arte y segundas oportunidades (La promesa del nosotros)., de Marta Monroy, comparte con Apartamento 3B (Ficción) el terreno romántico. La obra de Marta Monroy anuncia expresamente superación y segundas oportunidades, mientras que la de Carolina Moura también aparece vinculada al misterio y al thriller.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409942572"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a78e5a89dee745d6",
+  "origen": "chatgpt-web"
+}

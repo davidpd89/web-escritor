@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788411490818",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El talón de hierro | Jack London | Colección Maestros del Fantástico se encuadra en la narrativa clásica y contemporánea. Su clasificación interesa a lectores que buscan obras de narrativa y clásicos, no a quienes buscan específicamente manga o narrativa juvenil.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura presenta sus 296 páginas en una edición física de RBA Coleccionables. Es la opción disponible de El talón de hierro | Jack London | Colección Maestros del Fantástico y ofrece una encuadernación rígida para conservar el volumen.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El talón de hierro | Jack London | Colección Maestros del Fantástico comparte colección editorial con De la Tierra a la Luna | Julio Verne | Colección Maestros del Fantástico, de RBA Coleccionables España. Ambos títulos pertenecen a Maestros del Fantástico, aunque identifican obras y autores diferentes.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411490801"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "021999fa84d40f48",
+  "origen": "chatgpt-web"
+}

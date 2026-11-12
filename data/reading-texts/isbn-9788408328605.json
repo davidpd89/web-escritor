@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788408328605",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Jerusalén, primera entrega de Caballo de Troya, se dirige a lectores interesados en narrativa contemporánea y cuestiones religiosas o espirituales. Sus 624 páginas y su presentación ilustrada la alejan de quienes buscan lecturas breves o manuales prácticos de bienestar.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La particularidad de esta edición de Editorial Planeta es su presentación especial ilustrada, con ilustraciones de Raúl Allén anunciadas en el título. Se publica en tapa dura, en castellano, con 624 páginas y fecha del 25 de noviembre de 2026. El título identifica Jerusalén como Caballo de Troya 1, y su ISBN es 9788408328605.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "numero_paginas",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Editorial Planeta ofrece un volumen físico de 624 páginas y una edición identificada como especial ilustrada, apropiada para conservar o regalar. Kindle permite leerlo en formato electrónico sin cargar con ese volumen. El audiolibro ofrece la alternativa de escucharlo durante desplazamientos u otras actividades.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche El Alquimista (Edición especial con cantos tintados) (Biblioteca Paulo Coelho) comparte con Jerusalén el carácter de edición especial, aunque destaca los cantos tintados frente a las ilustraciones de Raúl Allén. Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia, de Barbara Hand Clow, se centra en la consciencia, mientras que Jerusalén pertenece a la narrativa contemporánea y aborda cuestiones religiosas y espirituales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328063",
+        "isbn-9798888505335"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2368dc5d89378bc3",
+  "origen": "chatgpt-web"
+}

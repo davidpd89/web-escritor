@@ -4,16 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La creación de un mundo aparte se dirige a lectores de historia interesados en las élites económicas y su influencia sobre el desarrollo urbano y social. Su estudio de familias barcelonesas entre 1714 y 1919 encaja menos con quienes buscan una novela histórica protagonizada por personajes ficticios.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "temas_y_enfoque",
-      "texto": "La creación de un mundo aparte analiza la formación, consolidación y declive de una élite económica entre 1714 y 1919. Jose Miguel Sanjuan Marroquin reconstruye las trayectorias de ochenta familias barcelonesas y su influencia en los ámbitos económico, urbano y social, con un enfoque histórico centrado en las relaciones de poder.",
+      "texto": "La creación de un mundo aparte, de Jose Miguel Sanjuan Marroquin, se dirige a lectores interesados en la historia económica, las jerarquías sociales y la influencia de las familias poderosas en el desarrollo de una ciudad. Su enfoque sobre las élites entre 1714 y 1919 encaja menos con quienes buscan una historia política general o una biografía centrada en una sola persona.",
       "evidencias": [
         "titulo",
         "autores",
@@ -22,8 +13,17 @@
       ]
     },
     {
+      "modulo": "temas_y_enfoque",
+      "texto": "La creación de un mundo aparte investiga cómo ochenta familias llegaron a ejercer una influencia decisiva sobre la economía, el urbanismo y la estructura social barcelonesa. Jose Miguel Sanjuan Marroquin reconstruye su ascenso, su posición dominante y su posterior pérdida de poder durante el periodo comprendido entre 1714 y 1919.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
       "modulo": "que_formato_elegir",
-      "texto": "La creación de un mundo aparte está disponible en tapa blanda, con encuadernación rústica con solapas y 320 páginas. Esta edición permite consultar en papel el estudio de las ochenta familias barcelonesas y volver a sus distintos periodos históricos sin depender de un dispositivo electrónico.",
+      "texto": "La creación de un mundo aparte está disponible en tapa blanda, en rústica con solapas y con 320 páginas. Es una opción física para consultar los procesos históricos y las trayectorias familiares que examina, con una cubierta flexible que facilita transportarla y guardarla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -34,16 +34,15 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La creación de un mundo aparte y CORONA AUTORITARIA, LA estudian las relaciones de poder desde una perspectiva histórica. Jose Miguel Sanjuan Marroquin analiza la evolución de la élite económica barcelonesa a través de ochenta familias, mientras que Guillermo María Muñoz examina los vínculos entre la monarquía y el nacionalismo español durante la dictadura de Primo de Rivera.",
+      "texto": "Agustín penón y Federico García Lorca, de Juan Carlos García de Polavieja, comparte con La creación de un mundo aparte el interés por investigar el pasado a partir de personas concretas. El primero se ocupa de una investigación sobre la vida y muerte de Federico García Lorca; Jose Miguel Sanjuan Marroquin estudia colectivamente ochenta familias de la élite barcelonesa.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788419892782"
+        "isbn-9788418567933"
       ]
     }
   ],

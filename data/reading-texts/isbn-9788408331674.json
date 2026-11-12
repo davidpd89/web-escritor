@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408331674",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La locura más ardiente: 2 (Novela), de Danielle Lori, se dirige a lectores de romance contemporáneo con elementos de humor. Por su orientación romántica, se aleja de las historias centradas exclusivamente en la aventura o la fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La locura más ardiente: 2 (Novela) está disponible en tapa blanda y Kindle. La edición de bolsillo de Booket reúne sus 416 páginas en un volumen físico; Kindle permite llevar el texto en un dispositivo de lectura o en el móvil.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La locura más ardiente: 2 (Novela) comparte el ámbito del romance con Mensajes en tazas de café (Ficción), de María Martínez, aunque son obras de distintas autoras. También puede compararse con En mi Era Pistacho: Juliette's version, de Emily Collins, por su presencia en una selección de lecturas afines; la obra de Danielle Lori incorpora además el humor entre sus temas identificados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410648777",
+        "isbn-9788408326519"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9d64ab3cc7812758",
+  "origen": "chatgpt-web"
+}

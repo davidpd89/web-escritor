@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388205071",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ver, oír y representar: Los agentes del Reino de Navarra en la Corte de Madrid, 1640-1790 (Sílex Universidad Magnum) se orienta a lectores de historia política e institucional. El periodo indicado y la atención a los agentes de representación lo alejan de una historia general sin delimitación temporal y de la narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ver, oír y representar: Los agentes del Reino de Navarra en la Corte de Madrid, 1640-1790 (Sílex Universidad Magnum) puede compararse con Agustín penón y Federico García Lorca por su vinculación con la investigación histórica. Rubén Martínez Aznal centra su obra en los agentes del Reino de Navarra ante la Corte de Madrid, mientras que el libro de Juan Carlos García de Polavieja trata una investigación sobre la vida y muerte de Federico García Lorca.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418567933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e5f028502392ec55",
+  "origen": "chatgpt-web"
+}

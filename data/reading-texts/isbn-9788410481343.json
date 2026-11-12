@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788410481343",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El libro de los días (Narrativa histórica) encaja con lectores que buscan ficción vinculada al pasado y prefieren la novela histórica a otros géneros narrativos. La obra de Francesca Kay tiene 320 páginas y se presenta como una novela, no como un manual o estudio académico de historia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El libro de los días (Narrativa histórica) tiene una edición en tapa blanda de 320 páginas, publicada por Libros de Seda. El formato físico permite leerla sin pantalla y conservarla en la estantería; su extensión corresponde a una novela que puede distribuirse entre varias sesiones de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7719bd824456d62f",
+  "origen": "chatgpt-web"
+}

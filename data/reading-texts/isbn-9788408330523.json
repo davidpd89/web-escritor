@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788408330523",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tu cerebro es cíclico: Una guía para entender por qué cambias a lo largo del ciclo y aliviar el síndrome premenstrual (Zenith Her) se dirige a quienes buscan comprender los cambios asociados al ciclo menstrual y abordar el síndrome premenstrual. Su temática de salud y bienestar lo diferencia de los manuales centrados exclusivamente en alimentación o ejercicio físico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 320 páginas en castellano y permite consultar por escrito los apartados dedicados al ciclo y al síndrome premenstrual. Es un formato físico que admite marcadores y anotaciones durante la lectura, especialmente cuando se quiere volver a determinados temas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tu cerebro es cíclico: Una guía para entender por qué cambias a lo largo del ciclo y aliviar el síndrome premenstrual (Zenith Her) puede compararse con 9 mesos que marquen tota una vida por su atención a procesos corporales vinculados con la salud. El libro de Dra. Sarah E. Hill se centra en el ciclo y el síndrome premenstrual, mientras que el de Jessie Inchauspé trata la influencia del embarazo en la salud futura del bebé.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411193818"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ac9a7d844304e91d",
+  "origen": "chatgpt-web"
+}

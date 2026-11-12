@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387911683",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La luz que se escapa: 77 (Cadí) se sitúa entre el romance y la narrativa contemporánea, por lo que responde a la búsqueda de ficción centrada en relaciones humanas. No corresponde a quienes buscan principalmente fantasía, ciencia ficción o aventuras ambientadas en mundos imaginarios.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La luz que se escapa: 77 (Cadí) está disponible en tapa blanda, con una extensión de 245 páginas. La edición física de Editorial Nazarí S.l. permite leer la obra completa en papel y conservarla en una biblioteca personal, sin necesidad de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La luz que se escapa: 77 (Cadí) comparte el ámbito romántico con A mil por hora, de Hannah Grace, y Amor en pole position (Dirty Air 3), de Lauren Asher. Estas dos obras vinculan sus relaciones sentimentales al automovilismo, mientras que la de José Antonio Ruiz Reina se identifica como romance y narrativa contemporánea sin esa especialización temática.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683449",
+        "isbn-9788427055674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b5607d888059ad7c",
+  "origen": "chatgpt-web"
+}

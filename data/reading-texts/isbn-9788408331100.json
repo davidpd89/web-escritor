@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408331100",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Te querré para siempre: Hay personas que están destinadas a encontrarse (Destino Juvenil) se dirige a lectores interesados en la fantasía romántica y las historias de amor. La combinación de fantasía, romantasy y romance sitúa el libro en el terreno de las relaciones sentimentales con elementos fantásticos, no en el de la fantasía desligada del romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 248 páginas en una edición física manejable, mientras que Kindle permite acceder a la lectura en formato digital. Ambas opciones ofrecen el texto completo de Te querré para siempre: Hay personas que están destinadas a encontrarse (Destino Juvenil), de Sophie Jomain.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "«Un otoño para enamorarnos», de Sophie Jomain, es la comparación más directa por compartir autora y el terreno de las historias de amor. La diferencia está en que Te querré para siempre: Hay personas que están destinadas a encontrarse (Destino Juvenil) aparece clasificado también como fantasía y romantasy, mientras que el otro título presenta una historia de amor vinculada a un misterio de Halloween.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408325499"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "247a0410e400a4f3",
+  "origen": "chatgpt-web"
+}

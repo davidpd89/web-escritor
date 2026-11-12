@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791387975302",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de narrativa contemporánea interesados en una obra de Agustín Fernández Mallo presentada como edición definitiva. Su orientación literaria se aleja de los manuales históricos y de quienes buscan una exposición académica de acontecimientos del siglo XX.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Nocilla dream. Edición definitiva (Hispánica) identifica expresamente esta publicación como edición definitiva de la obra de Agustín Fernández Mallo. Alfaguara la publica en castellano, en tapa blanda, con 216 páginas y fecha de publicación del 2026-11-05.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "idioma",
+        "edicion",
+        "numero_paginas",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 216 páginas de Nocilla dream. Edición definitiva (Hispánica) en un volumen físico que puede guardarse y prestarse. Kindle permite llevar la misma obra en un lector electrónico o en el móvil, sin necesidad de transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Corazón de oro: Edición limitada a precio especial (Colección Especial) comparte con Nocilla dream. Edición definitiva (Hispánica) el interés por presentar una obra narrativa en una edición identificada de forma particular. La diferencia editorial está en el planteamiento: una se anuncia como edición limitada a precio especial y la otra como edición definitiva.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788408328353"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2d8b55f9f25db82d",
+  "origen": "chatgpt-web"
+}

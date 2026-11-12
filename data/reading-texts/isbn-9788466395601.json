@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788466395601",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pack Forsyth (contiene: Odessa | La venganza de Odessa) (Best Seller | Ficción), de Frederick Forsyth, está dirigido a lectores interesados en el misterio, el thriller, la novela histórica y las tramas relacionadas con el poder y la política. No encaja tanto con quien busca narrativa romántica o lecturas centradas en el desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La venganza de Odessa (Best Seller | Ficción), de Frederick Forsyth, Tony Kent, es la comparación más directa: ambos comparten el título La venganza de Odessa y la autoría de Frederick Forsyth. La diferencia está en el contenido del volumen: este pack reúne Odessa y La venganza de Odessa, mientras que el otro título identifica únicamente la segunda obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466391207"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0074c730922b3453",
+  "origen": "chatgpt-web"
+}

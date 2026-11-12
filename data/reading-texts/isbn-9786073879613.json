@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786073879613",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando vi a la muerte prestar su sombrero / When I Saw Death Lend Its Hat, de Rodrigo Unda, se dirige a lectores que combinan fantasía, misterio y aventuras con historias sobre la superación y el duelo. Sus 256 páginas ofrecen una extensión menor que la de muchas novelas largas del género. Su enfoque se aleja de quienes buscan exclusivamente romance realista o narrativa sin elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuando vi a la muerte prestar su sombrero / When I Saw Death Lend Its Hat está disponible en tapa dura, tapa blanda, Kindle y audiolibro. La edición de Penguin Random House Grupo Editorial reúne 256 páginas en tapa dura, apropiada para conservar el volumen con una cubierta rígida. La tapa blanda reduce la rigidez del ejemplar, Kindle permite leerlo en el móvil y el audiolibro ofrece la posibilidad de escucharlo.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando vi a la muerte prestar su sombrero / When I Saw Death Lend Its Hat puede compararse con Cuando vi a la muerte prestar su sombrero (Ediciones B), ya que ambas fichas atribuyen la obra a Rodrigo Unda y presentan prácticamente el mismo título. Donde el agua no muerde / Where the Water Doesn't Bite comparte autoría, pero corresponde a otro título. La primera comparación permite localizar otra presentación de la obra; la segunda, otra lectura del mismo autor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073878760",
+        "isbn-9788466685481"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "31f3eea8941c39fe",
+  "origen": "chatgpt-web"
+}

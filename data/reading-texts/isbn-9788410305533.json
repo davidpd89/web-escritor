@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788410305533",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Kare Kano 6 (Shôjo) se orienta a lectores de manga interesados en el romance, las relaciones de pareja y la narrativa contemporánea. Su enfoque sentimental lo distancia de las lecturas centradas en la fantasía de aventuras o el terror.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Kare Kano 6 (Shôjo) puede leerse en tapa blanda o en Kindle, según se prefiera conservar sus 388 páginas en papel o llevar la lectura en un dispositivo compatible. La edición física permite incorporarlo a una colección, mientras que Kindle facilita leerlo sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Honey lemon soda 4 (Shôjo) y Kare Kano 6 (Shôjo) comparten la identificación shôjo y su relación con el manga. Se distinguen por la autoría, Mayu Murata frente a Masami Tsuda, y por los números 4 y 6 que aparecen en sus respectivos títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387962487"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "289b7965ff72b3b0",
+  "origen": "chatgpt-web"
+}

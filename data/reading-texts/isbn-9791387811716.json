@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791387811716",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Maricatólica: Yo no pedí ser trending topic (Conrad), de Israel Pintor, está orientada a lectores de narrativa contemporánea interesados en una obra cuyo título alude a la exposición pública y las tendencias digitales. Sus 184 páginas ofrecen una extensión relativamente breve, alejada de quienes buscan una saga extensa de fantasía o un ensayo académico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Maricatólica: Yo no pedí ser trending topic (Conrad) se presenta en tapa blanda, con 184 páginas en castellano y edición de Editorial Berenice. Es un volumen físico de extensión contenida que puede transportarse para leer fuera de casa y conservarse en papel, sin necesidad de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "77dc3580ddd95d74",
+  "origen": "chatgpt-web"
+}

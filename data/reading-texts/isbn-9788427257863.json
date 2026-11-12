@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788427257863",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este estuche reúne la saga Time Keeper para lectores de fantasía con elementos de romance y ciencia ficción. Sus 1888 páginas y sus tres títulos encajan con quien busca una lectura extensa, pero menos con quien prefiere una historia breve e independiente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite tener reunidos los tres títulos del estuche en una edición física de 1888 páginas. Kindle ofrece la alternativa digital para leer en un dispositivo electrónico, sin transportar los volúmenes impresos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE), de Kayla Edwards, comparte con el estuche Time Keeper la presencia de fantasía y romance. La diferencia principal está en la presentación: el estuche de Iria G. Parente y Selene M. Pascual reúne tres títulos con 1888 páginas, frente a la obra individual de Kayla Edwards.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788415955559"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "644986a0dc631039",
+  "origen": "chatgpt-web"
+}

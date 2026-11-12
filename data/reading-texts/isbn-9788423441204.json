@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788423441204",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Incorruptibles: Por qué las buenas empresas desaparecen y las excelentes siguen creciendo (Deusto) se orienta a lectores interesados en economía, empresas y continuidad empresarial. Eric Ries aborda esta materia en 464 páginas; no responde al interés de quien busca una novela de ficción o un libro centrado exclusivamente en finanzas personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Incorruptibles: Por qué las buenas empresas desaparecen y las excelentes siguen creciendo (Deusto) puede leerse en tapa blanda o Kindle. La edición impresa de 464 páginas permite trabajar con el texto en papel; Kindle evita transportar ese volumen y facilita llevar la lectura en un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2155b08759fd7cb0",
+  "origen": "chatgpt-web"
+}

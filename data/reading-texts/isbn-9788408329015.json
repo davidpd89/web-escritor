@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408329015",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La sombra de la sirena (Los crímenes de Fjällbacka) (Biblioteca Camilla Läckberg) encaja con lectores de misterio y thriller que también buscan elementos de narrativa contemporánea. Sus 496 páginas y su vinculación con Los crímenes de Fjällbacka la distancian de las novelas breves y de las lecturas centradas exclusivamente en otros géneros.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda presenta las 496 páginas de La sombra de la sirena (Los crímenes de Fjällbacka) (Biblioteca Camilla Läckberg) en formato de bolsillo de Booket. Kindle evita transportar el libro físico y facilita leerlo en dispositivos electrónicos, mientras que el audiolibro permite seguir la novela mediante escucha.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aguas turbulentas, de Rankin Ian, comparte con La sombra de la sirena (Los crímenes de Fjällbacka) (Biblioteca Camilla Läckberg) el terreno del misterio, aunque sitúa su conflicto en Edimburgo frente al marco de Fjällbacka indicado en el título de Camilla Läckberg. Asesinato antes de Navidad, de Katherine Black, ofrece otra comparación por su componente criminal y su ambientación navideña, distinta del marco identificado en la obra de Camilla Läckberg.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318",
+        "isbn-9791370310264"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "803f564b023b4f41",
+  "origen": "chatgpt-web"
+}

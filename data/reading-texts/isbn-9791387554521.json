@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791387554521",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una clara llamada (SENSIBLES A LAS LETRAS) encaja con lectores de narrativa contemporánea que prefieren libros extensos y pueden dedicar tiempo a una lectura prolongada. Con 764 páginas, exige un compromiso de lectura mayor que una novela breve y no responde a la búsqueda de una obra corta para terminar en pocas sesiones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 764 páginas de Una clara llamada (SENSIBLES A LAS LETRAS) en una edición física publicada por Hoja de Lata. Su extensión hace conveniente disponer de un lugar donde apoyar el volumen durante las sesiones largas; el formato permite conservarlo en papel y retomarlo sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7b60ab2bd3777e12",
+  "origen": "chatgpt-web"
+}

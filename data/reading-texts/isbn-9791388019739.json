@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388019739",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Erótica de la percepción: Elogio de la atención y la literatura (Ensayo) se dirige a lectores interesados en filosofía y en la relación entre atención y literatura. Es una obra de Juan Arnau de 368 páginas, menos ajustada a quien busca ficción narrativa en lugar de reflexión ensayística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Erótica de la percepción: Elogio de la atención y la literatura (Ensayo) se presenta en tapa dura, con 368 páginas en castellano. Esta edición de Galaxia Gutenberg permite conservar el ensayo como volumen físico y consultarlo por escrito, sin depender de un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "757d9088968c33ef",
+  "origen": "chatgpt-web"
+}

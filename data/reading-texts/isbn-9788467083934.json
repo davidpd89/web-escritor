@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El asesinato de Roger Ackroyd (Edición especial con cantos tintados), de Agatha Christie, se dirige a lectores de misterio detectivesco interesados en reconstruir un crimen mediante pistas y secretos. Su planteamiento gira alrededor de una investigación y un enigma, por lo que encaja menos con quienes buscan una narración centrada en el romance o la aventura fantástica.",
+      "texto": "El asesinato de Roger Ackroyd (Edición especial con cantos tintados) se dirige a lectores de misterio, novela negra e investigaciones detectivescas. Agatha Christie construye el conflicto alrededor de secretos y un crimen; encaja menos con quienes prefieren historias sin enigmas o desean conocer la resolución antes de terminar la lectura.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,27 +14,28 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela de misterio detectivesco construida alrededor de los conocimientos comprometidos de Roger Ackroyd y de un crimen por esclarecer. La investigación exige prestar atención a la información que poseen los personajes. Esta edición incorpora una particularidad narrativa y material: la solución del enigma aparece reservada en un sobre sellado al final.",
+      "texto": "La novela propone una investigación detectivesca centrada en Roger Ackroyd, un hombre que conoce secretos comprometidos sobre una mujer y su pasado. El misterio se articula alrededor de esos conocimientos y de un asesinato. La pertenencia a la novela negra sitúa la investigación y la reconstrucción de los hechos en el centro de la lectura.",
       "evidencias": [
+        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "El asesinato de Roger Ackroyd (Edición especial con cantos tintados) se presenta en tapa dura con sobrecubierta y cantos tintados. La edición de Editorial Espasa, publicada el 28 de octubre de 2026, tiene 272 páginas y guarda la resolución del misterio en un sobre sellado al final del volumen, un elemento distintivo de esta presentación.",
+      "texto": "Esta edición especial de El asesinato de Roger Ackroyd incorpora cantos tintados y un sobre sellado al final del libro que contiene la solución del misterio. Editorial Espasa la publica en tapa dura con sobrecubierta, con 272 páginas en castellano. El sobre permite mantener separada la resolución hasta que el lector decida abrirlo.",
       "evidencias": [
         "titulo",
         "editorial",
         "edicion",
-        "fecha_publicacion",
         "numero_paginas",
+        "idioma",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El asesinato de Roger Ackroyd (Edición especial con cantos tintados) figura disponible en tapa dura. Sus 272 páginas se presentan con sobrecubierta, cantos tintados y un sobre final que contiene la solución del enigma. Es un formato físico orientado a conservar el libro y mantener separado ese desenlace hasta abrir el sobre.",
+      "texto": "La tapa dura de esta edición reúne 272 páginas, cantos tintados y un sobre sellado con la resolución, características vinculadas a este volumen físico. La tapa blanda ofrece otra opción de lectura en papel, mientras que Kindle permite leer en pantalla y el audiolibro escuchar la historia. Quien busque los elementos especiales descritos debe fijarse en la edición de tapa dura.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -45,21 +46,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El enigmático míster Quin, de Agatha Christie, comparte autoría y misterio con El asesinato de Roger Ackroyd (Edición especial con cantos tintados), pero reúne doce relatos frente a una investigación novelística. Los crímenes del sanatorio (Serie Comisario Reykdal 1), de Ragnar Jónasson, también plantea un crimen y varios sospechosos, aunque sitúa el caso en un sanatorio.",
+      "texto": "El enigmático míster Quin comparte con El asesinato de Roger Ackroyd (Edición especial con cantos tintados) la autoría de Agatha Christie y el interés por el misterio. La diferencia está en la estructura: El enigmático míster Quin reúne doce relatos, mientras que El asesinato de Roger Ackroyd desarrolla una investigación en forma de novela. Son dos maneras de leer a la misma autora.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408331520",
-        "isbn-9788432251399"
+        "isbn-9788408331520"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "419e76dfda60d642",
+  "fuente_hash": "82b341b6ac8197da",
   "origen": "chatgpt-web"
 }

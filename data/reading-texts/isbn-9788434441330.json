@@ -4,19 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Matemagia está dirigido a lectores de divulgación científica interesados en las matemáticas explicadas mediante juegos, desafíos y trucos de magia. Fernando Blasco relaciona el entretenimiento con el razonamiento matemático, por lo que el planteamiento se aleja de una exposición centrada exclusivamente en teoría y fórmulas.",
+      "texto": "Matemagia se dirige a lectores interesados en las matemáticas explicadas mediante juegos, trucos y desafíos. Su enfoque de divulgación científica se aparta tanto de la ficción narrativa como de una exposición centrada exclusivamente en fórmulas y procedimientos académicos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Matemagia explora la relación entre las matemáticas y la magia mediante juegos y desafíos que despiertan preguntas sobre su funcionamiento. Fernando Blasco utiliza la sorpresa como punto de partida para acercar el razonamiento científico al lector. El enfoque conecta la curiosidad provocada por un truco con la búsqueda de explicaciones.",
+      "texto": "Fernando Blasco aborda la relación entre matemáticas y magia a través de juegos que plantean preguntas sobre su funcionamiento. El enfoque conecta la sorpresa ante un truco con la curiosidad científica y utiliza los desafíos como punto de partida para razonar sobre lo observado.",
       "evidencias": [
-        "titulo",
         "autores",
         "sinopsis_editorial",
         "categorias"
@@ -24,19 +22,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Matemagia puede leerse en tapa blanda o en Kindle. La edición física de Editorial Ariel tiene 288 páginas y encuadernación rústica con solapas, adecuada para volver a consultar juegos y desafíos; Kindle permite llevar el contenido en un dispositivo de lectura o en el móvil sin transportar el ejemplar impreso.",
+      "texto": "La tapa blanda de Matemagia reúne 288 páginas en una edición rústica con solapas, útil para consultar los juegos y volver a sus explicaciones. Kindle ofrece una alternativa digital para llevar el contenido en un lector electrónico o en el móvil, sin cargar con el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
         "edicion",
-        "editorial",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "50 cosas que hay que saber sobre IA, de Keith Mansfield, comparte con Matemagia la divulgación de conocimientos científicos, aunque se centra en la inteligencia artificial y no en los juegos matemáticos. Cerebro, espacio y tiempo, de Liset Ménendez de la Prida, también parte de preguntas científicas, pero aborda cómo el cerebro determina la posición espacial, frente a la relación entre magia y matemáticas que estudia Fernando Blasco.",
+      "texto": "Matemagia y 50 cosas que hay que saber sobre IA comparten el terreno de la divulgación de conocimientos científicos y tecnológicos. Fernando Blasco utiliza juegos matemáticos y trucos de magia, mientras que el libro de Keith Mansfield se centra en la inteligencia artificial; la elección depende de qué disciplina interese explorar.",
       "evidencias": [
         "titulo",
         "autores",
@@ -45,8 +41,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788434441309",
-        "isbn-9791387941208"
+        "isbn-9788434441309"
       ]
     }
   ],

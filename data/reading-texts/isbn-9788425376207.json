@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788425376207",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sissi investiga. Los diamantes de la emperatriz (Ficción), de Fritzi von Wahl, se dirige a lectores interesados en una historia protagonizada por una figura vinculada a la investigación. El título puede encajar con quienes buscan intriga, pero su clasificación no corresponde a una novela de fantasía, aventuras o desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 240 páginas de Sissi investiga. Los diamantes de la emperatriz (Ficción), de Fritzi von Wahl, en una edición física de Grijalbo. Kindle permite leer la misma obra en formato digital, sin necesidad de conservar un ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bbbae290b10917f5",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370201906",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Semana Santa de Murcia (Arte y patrimonio) se orienta a lectores interesados en las tradiciones religiosas, la historia y el patrimonio artístico de Murcia. Su temática resulta menos afín a quienes buscan una introducción general a la historia del arte sin un ámbito geográfico concreto.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Semana Santa de Murcia (Arte y patrimonio) cuenta con una edición en tapa blanda de 272 páginas, publicada por Almuzara. El soporte impreso permite consultar el volumen por apartados y tenerlo a mano como lectura sobre historia, religión y patrimonio artístico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Semana Santa de Murcia (Arte y patrimonio) comparte el interés por el patrimonio religioso con ROMÁNICO LA PALABRA DE DIOS: El mensaje silencioso de los canteros medievales (Historia). El primero delimita su asunto a la celebración murciana, mientras que el segundo dirige la atención al románico y al mensaje de los canteros medievales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370205515"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8e7ae6867ef801ea",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788466393522",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en las experiencias de pilotos españoles durante el Dakar en África y en los relatos de supervivencia. Su enfoque biográfico y viajero se aleja de quienes buscan una historia de ficción centrada en personajes inventados.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje del libro son las historias de españoles que sobrevivieron al Dakar en África. José Antonio Ponseti aborda esas experiencias desde el terreno de las biografías, las memorias y los viajes, con atención a las personas que participaron en la competición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece una edición de bolsillo de 528 páginas, adecuada para leer por entregas y transportar durante los desplazamientos. Kindle permite llevar esa misma lectura en un dispositivo electrónico sin cargar con el volumen físico.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Vuelo 19 (Best Seller | Ficción) comparte autoría con este libro: ambos son de José Antonio Ponseti, aunque sus títulos sitúan el interés en asuntos distintos. Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, también remite a experiencias de viaje, pero desde el recorrido del Camino de Santiago y no desde la supervivencia en el Dakar africano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466393515",
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e0a2da63c6ccbe10",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788467084405",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Chicas del barrio, las (Novela), de Tania Juste, está dirigido a lectores que buscan narrativa histórica. Quienes prefieran romance contemporáneo, fantasía o historias centradas en otros géneros encontrarán aquí una propuesta identificada específicamente como novela histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 480 páginas de Chicas del barrio, las (Novela) en una edición física de Booket. Kindle permite leer el mismo título en formato digital, una alternativa para quienes prefieren consultar sus lecturas desde un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a89755ec35c9f6ed",
+  "origen": "chatgpt-web"
+}

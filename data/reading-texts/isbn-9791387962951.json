@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387962951",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi amor por Yamada está al Nv. 999 1 (Shôjo): Universo Manga encaja con lectores de manga romántico que buscan relaciones contemporáneas con elementos de humor. La obra de Mashiro se aparta de las historias centradas en la acción o el terror, pues combina romance, vida en pareja y comedia en formato gráfico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer Mi amor por Yamada está al Nv. 999 1 (Shôjo): Universo Manga en una edición física de 184 páginas. Publicada por Distrito Manga en castellano, reúne el contenido en un volumen manejable para transportar y conservar junto a otros tomos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi amor por Yamada está al Nv. 999 9 (Shôjo) pertenece a la misma serie de Mashiro; el título de Mi amor por Yamada está al Nv. 999 1 (Shôjo): Universo Manga lo identifica como el n.º 1, frente al n.º 9 del otro volumen. Una comedia romántica entre dos exnovios (BL), de Kishimoto, también combina romance y humor, pero sitúa el conflicto entre dos antiguos novios que trabajan juntos en un restaurante.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962258",
+        "isbn-9791387962371"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "153cb64d7416b8ab",
+  "origen": "chatgpt-web"
+}

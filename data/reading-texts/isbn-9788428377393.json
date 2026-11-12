@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788428377393",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "MP1782. Nivel básico de Prevención de riesgos laborales - Imagen y Sonido está dirigido a lectores que buscan formación sobre prevención de riesgos laborales vinculada al ámbito de Imagen y Sonido. Su orientación específica lo diferencia de los libros de divulgación científica general y de los manuales dedicados a otros sectores profesionales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene las 144 páginas de MP1782. Nivel básico de Prevención de riesgos laborales - Imagen y Sonido. Es la edición física disponible, en castellano, para quienes prefieren trabajar con el contenido en papel.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "MP1782. Nivel básico de Prevención de riesgos laborales - Imagen y Sonido comparte temática y autoría con MP 1782. Nivel básico de Prevención de riesgos laborales (Hostelería y Turismo), de Javier Rodrigo Agulló. Ambos se ocupan de la prevención de riesgos laborales desde un nivel básico, pero se distinguen por el ámbito profesional al que se dirigen: Imagen y Sonido frente a Hostelería y Turismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788428377355",
+        "isbn-9788428377348"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fbca62f4f1605c58",
+  "origen": "chatgpt-web"
+}

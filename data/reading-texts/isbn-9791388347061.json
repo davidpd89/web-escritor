@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388347061",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los diarios de la boticaria (la novela original) 4 (Distrito Novela) encaja con lectores interesados en el misterio y en continuar la colección de novelas originales. El título lo identifica como el n.º 4, por lo que quienes prefieren empezar una historia desde su primera entrega pueden acudir a los volúmenes anteriores.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los diarios de la boticaria (la novela original) 4 (Distrito Novela) se ofrece en tapa blanda, con 304 páginas en castellano. La edición de Distrito Manga permite mantener este volumen junto a los anteriores de la colección y leerlo en papel sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los diarios de la boticaria (la novela original) 1, de Touko Shino y Hyuganatsu, presenta la llegada de Maomao al palacio imperial; Los diarios de la boticaria (la novela original) 2, de los mismos autores, continúa con su servicio en la corte exterior. Los diarios de la boticaria (la novela original) 4 (Distrito Novela), de Hyuganatsu y Touko Shino, pertenece a la misma colección y su título lo identifica como el n.º 4.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9791387962821",
+        "isbn-9791387962838"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1a3b659e9687c52d",
+  "origen": "chatgpt-web"
+}

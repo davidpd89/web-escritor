@@ -4,38 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "MINECRAFT 09 está dirigido a lectores de manga interesados en el universo de Minecraft, las aventuras de grupo y las búsquedas familiares. La historia se apoya en personajes y elementos del videojuego, por lo que se aleja de quien busca un cómic ajeno a ese mundo.",
+      "texto": "Minecraft 09 encaja con lectores que siguen el manga de Minecraft y disfrutan de las aventuras de Niko y sus compañeros. Su formato de cómic y novela gráfica lo sitúa en la narrativa visual; no está planteado como una guía de juego ni como un manual de Minecraft.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "MINECRAFT 09 traslada al manga una aventura ambientada en el mundo del videojuego, con exploración, enfrentamientos y una búsqueda familiar. La victoria frente al Dragón de Ender modifica la situación del grupo y mantiene abierta la cuestión del reencuentro de Niko con su padre. El título lo identifica como el n.º 09.",
+      "texto": "La lectura combina aventura fantástica y vínculos entre compañeros dentro del universo de Minecraft. Kazuyoshi Seto desarrolla el recorrido de Niko y su grupo hasta el enfrentamiento con el Dragón de Ender, en una historia presentada en formato manga.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "MINECRAFT 09 se ofrece en tapa blanda, con 192 páginas en castellano editadas por Norma Editorial. La edición impresa permite seguir las escenas de aventura y combate del manga y volver a consultar los acontecimientos relacionados con la búsqueda del padre de Niko.",
+      "texto": "La edición en tapa blanda reúne sus 192 páginas en un volumen físico, manejable para leer en papel y conservar junto a otros números de la colección. Es el formato disponible de Minecraft 09, publicado por Norma Editorial.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "autores",
+        "edicion",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "categorias",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "268165276ade9513",
+  "fuente_hash": "cec92791cc154393",
   "origen": "chatgpt-web"
 }

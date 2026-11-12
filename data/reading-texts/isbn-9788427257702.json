@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788427257702",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los Juegos del Hambre 5 - Amanecer en la cosecha (edición especial) se dirige a lectores de ciencia ficción, aventuras y supervivencia que buscan conflictos vinculados al peligro. Su combinación de fantasía y terror se aleja de las lecturas centradas exclusivamente en relaciones cotidianas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición especial de Los Juegos del Hambre 5 - Amanecer en la cosecha (edición especial) está publicada por Molino en tapa dura y castellano. Reúne 496 páginas, lleva el ISBN 9788427257702 y tiene fecha de publicación del 5 de noviembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "isbn13",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura ofrece una encuadernación rígida para conservar y releer sus 496 páginas; la tapa blanda facilita el manejo del volumen. Kindle permite llevar la misma lectura en un dispositivo electrónico sin transportar el ejemplar físico.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los Juegos del Hambre 5 - Amanecer en la cosecha (edición especial) comparte el terreno fantástico con Una corte de alas y ruina: Edición limitada a precio especial (Colección Especial), aunque incorpora ciencia ficción y supervivencia. Frente a Aftermyth 1. Penelope y la prueba de los dioses, de Tracy Wolff, la obra de Suzanne Collins se presenta también bajo las etiquetas de aventuras y terror.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328582",
+        "isbn-9788408324102"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d340a894f05921d5",
+  "origen": "chatgpt-web"
+}

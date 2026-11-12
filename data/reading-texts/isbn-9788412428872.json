@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788412428872",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orientada a lectores que quieren observar el cielo sin instrumentos y reconocer constelaciones, planetas y fenómenos astronómicos durante 2027. Su enfoque práctico de observación encaja menos con quien busca un tratado de astrofísica matemática o una historia general de la astronomía.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La guía trata la identificación de constelaciones y planetas, la observación de la Luna y el seguimiento de eclipses y lluvias de meteoros. Enrique Velasco Caravaca y Pedro Velasco Caravaca organizan el tema alrededor de la observación a simple vista del cielo durante 2027, desde una perspectiva divulgativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 64 páginas de la guía en un volumen físico de extensión reducida. Puede llevarse a una sesión de observación y consultarse mientras se identifican constelaciones, planetas o fenómenos astronómicos, sin depender de una pantalla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA comparte el ámbito de la divulgación científica, aunque se centra en la inteligencia artificial. Guía del cielo 2027: Para la observación a simple vista de constelaciones y planetas, luna, eclipses y lluvias de meteoros se diferencia por su aplicación a la observación astronómica y por estar vinculada a un año concreto.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3fd19692e60ce5ab",
+  "origen": "chatgpt-web"
+}

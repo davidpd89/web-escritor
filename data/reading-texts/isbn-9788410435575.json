@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788410435575",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vino y pan: 48 (Narrativa), de Ignazio Silone, se dirige a lectores de narrativa contemporánea que buscan una obra en castellano de extensión considerable. Sus 400 páginas requieren una lectura más prolongada que la de un volumen breve. Por su clasificación editorial, no está orientado a quienes buscan específicamente cómic o novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vino y pan: 48 (Narrativa) se publica en tapa blanda, con 400 páginas en castellano y edición de Altamarea Ediciones. La encuadernación flexible permite manejar el libro durante sesiones largas de lectura y transportarlo sin la rigidez de una cubierta dura. Su extensión es un factor práctico para quien desea llevarlo habitualmente en el bolso o la mochila.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3435b7dbac865444",
+  "origen": "chatgpt-web"
+}

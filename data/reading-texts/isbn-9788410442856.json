@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Minemurder. 99 casos de lógica y misterio, de E.R. Bucket, está pensado para adultos que prefieren resolver acertijos criminales antes que seguir una narración detectivesca continua. Su estructura de tableros y desafíos resulta menos adecuada para quienes buscan una novela tradicional con una única trama.",
+      "texto": "Minemurder. 99 casos de lógica y misterio está dirigido a adultos que disfrutan resolviendo enigmas mediante deducciones. Sus tableros inspirados en el buscaminas exigen participación activa, por lo que encaja menos con quienes prefieren leer una novela policíaca convencional sin detenerse a resolver problemas.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,7 +14,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Minemurder. 99 casos de lógica y misterio propone resolver crímenes mediante deducción espacial, con una mecánica inspirada en el buscaminas. Cada escenario exige identificar al culpable a partir de su posición respecto a la víctima, con tres niveles de dificultad distribuidos entre los tableros.",
+      "texto": "Minemurder. 99 casos de lógica y misterio propone resolver crímenes mediante ejercicios de lógica inspirados en el buscaminas. Incluye 99 tableros ilustrados a todo color, distribuidos en 3 niveles de dificultad y ambientados en distintos escenarios. El lector debe identificar al culpable aplicando la regla de que comparte habitación con la víctima.",
       "evidencias": [
         "titulo",
         "sinopsis_editorial"
@@ -23,25 +22,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Minemurder. 99 casos de lógica y misterio está disponible en tapa blanda con solapas y tiene 224 páginas. La edición física reúne tableros ilustrados a todo color, por lo que permite examinar directamente los escenarios y sus pistas mientras se resuelven los ejercicios.",
+      "texto": "Minemurder. 99 casos de lógica y misterio está disponible en tapa blanda con solapas, publicada por Roca Editorial. Sus 224 páginas reúnen tableros ilustrados a todo color que requieren observar posiciones y deducir soluciones. El formato físico permite consultar cada escenario directamente sobre la página mientras se resuelve.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "edicion",
+        "editorial",
         "numero_paginas",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Minemurder. 99 casos de lógica y misterio comparte con El crimen de la Navidad. El cuaderno de pasatiempos de Crímenes ilustrados el uso del crimen como punto de partida para una actividad de resolución. El primero presenta 99 tableros con tres dificultades y reglas inspiradas en el buscaminas; el segundo sitúa su misterio navideño en un centro comercial.",
+      "texto": "Minemurder comparte con Atrápame si puedes (Libro interactivo) la participación activa del lector en lugar de una lectura exclusivamente narrativa. La obra de E.R. Bucket propone 99 tableros de deducción criminal, con 3 niveles de dificultad y una mecánica inspirada en el buscaminas. Frente al enfoque interactivo anunciado por el título de Varios autores, aquí el objetivo concreto consiste en identificar al asesino de cada escenario.",
       "evidencias": [
         "titulo",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788401040740"
+        "isbn-9791388220500"
       ]
     }
   ],

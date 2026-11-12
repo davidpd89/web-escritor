@@ -1,0 +1,27 @@
+{
+  "id": "isbn-9788409929528",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "EL SENDERO DEL MONJE SABIO: Historias zen para encontrar la paz en un mundo que no se detiene se dirige a lectores interesados en espiritualidad, bienestar y desarrollo personal. Su planteamiento mediante historias zen lo diferencia de los manuales centrados en nutrición o ejercicio físico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de EL SENDERO DEL MONJE SABIO: Historias zen para encontrar la paz en un mundo que no se detiene es de tapa blanda y tiene 326 páginas. El volumen físico permite leer las historias zen por separado y recuperar pasajes durante posteriores consultas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ad7b436a37118156",
+  "origen": "chatgpt-web"
+}

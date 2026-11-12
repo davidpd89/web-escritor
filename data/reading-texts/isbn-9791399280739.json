@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399280739",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Noverdad Sánchez: Cómo el relato partidista suplantó la realidad en España (Ensayos) se dirige a lectores interesados en el análisis político y en los ensayos sobre el poder. No es una biografía ni una novela de ficción: su planteamiento pertenece al ensayo político, con atención al relato partidista en España.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 320 páginas de Noverdad Sánchez: Cómo el relato partidista suplantó la realidad en España (Ensayos) en una edición física de Editorial Funambulista. Es la opción para quien prefiera leer en papel y conservar el ejemplar; su extensión permite reservarle espacio entre los libros de ensayo y política.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, comparte el terreno del pensamiento político, aunque se concentra en una corriente económica e ideológica concreta. Noverdad Sánchez: Cómo el relato partidista suplantó la realidad en España (Ensayos), de Francisco Rosell, aborda el relato partidista y la relación entre política y realidad en España.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "12d6f3832c557ebe",
+  "origen": "chatgpt-web"
+}

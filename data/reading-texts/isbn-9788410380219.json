@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788410380219",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Bosco y el otro renacimiento (Arte y diseño) se orienta a lectores interesados en la historia del arte y en el estudio del Renacimiento. Su temática histórica y artística lo diferencia de una novela ambientada en esa época o de un manual práctico para aprender a pintar.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Bosco y el otro renacimiento (Arte y diseño) cuenta con una edición en tapa dura de 352 páginas. La encuadernación rígida resulta adecuada para conservar el volumen y consultarlo repetidamente, aunque su extensión y formato físico lo hacen menos ligero que un libro de bolsillo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Bosco y el otro renacimiento (Arte y diseño) puede compararse con Civilización: Una historia del arte y la cultura que dieron forma a la civilización moderna: 126 (Ático Historia), de Kenneth Clark. Ambos relacionan arte e historia, pero Bernard Aikema y Fernando Checa Cremades centran su obra en El Bosco y el Renacimiento, frente al recorrido más amplio por la cultura moderna que anuncia el título de Kenneth Clark.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387592493"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8b45a9d585403651",
+  "origen": "chatgpt-web"
+}

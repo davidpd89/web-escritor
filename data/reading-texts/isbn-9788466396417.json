@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466396417",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Abraza a la niña que fuiste: Sana las heridas del pasado y reconecta con tu interior (Best Seller | No Ficción) se dirige a lectores de desarrollo personal interesados en la infancia y las heridas emocionales. Su planteamiento pertenece a la psicología y no a la narrativa de ficción, con una extensión de 280 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Penguin Bolsillo ofrece 280 páginas en tapa blanda, con una encuadernación flexible y tamaño de bolsillo. Kindle permite llevar el contenido en un lector digital o móvil, mientras que el audiolibro permite escucharlo durante actividades que no requieren atención visual.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza a la niña que fuiste: Sana las heridas del pasado y reconecta con tu interior (Best Seller | No Ficción) se relaciona con Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso. Ambos títulos tratan la infancia desde una perspectiva de trabajo personal, aunque el de Marta Segrelles menciona expresamente las heridas del pasado y la reconexión interior. Son obras de autoras diferentes y con títulos que plantean enfoques distintos sobre ese periodo vital.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d2d36c21a39ba7ac",
+  "origen": "chatgpt-web"
+}

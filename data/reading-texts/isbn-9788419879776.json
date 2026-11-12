@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788419879776",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Para nadar hay que mojarse. Segunda ola: 29 (Erótica | Romántica) está dirigido a lectores de romance interesados en la narrativa romántica y erótica. No se identifica como fantasía ni como novela histórica; su clasificación editorial es romance.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 350 páginas de Para nadar hay que mojarse. Segunda ola: 29 (Erótica | Romántica) en una edición física de LES Editorial. Es el formato disponible para este título de Jackie Valand.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Para nadar hay que mojarse. Primera ola: 28 (Erótica | Romántica), de Jackie Valand, comparte autoría y denominación con Para nadar hay que mojarse. Segunda ola: 29 (Erótica | Romántica). Ambos títulos se sitúan en el romance y la temática erótica; sus nombres los distinguen como Primera ola y Segunda ola, respectivamente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419879745"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7a8c76ed181706f7",
+  "origen": "chatgpt-web"
+}

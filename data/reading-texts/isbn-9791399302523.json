@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791399302523",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mujer y socialismo en España, de Eduardo Montagut, se dirige a lectores de ensayo interesados en la relación entre las mujeres y el socialismo en España. Sus 220 páginas plantean una lectura de no ficción centrada en esa materia, distinta de una novela de entretenimiento o de una obra narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mujer y socialismo en España está disponible en tapa blanda, en una edición de Ondina Ediciones de 220 páginas. Para una lectura de ensayo en castellano, el papel facilita consultar pasajes y volver a ellos sin utilizar una pantalla, además de conservar el ejemplar como material de consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cb0fdeaa994760c8",
+  "origen": "chatgpt-web"
+}

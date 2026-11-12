@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788411724166",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los arcanos del folclore (CARTOMANCIA Y TAROT), de Azzurra D' Agostino, encaja con lectores interesados en el tarot, las tradiciones populares y su dimensión artística. Su orientación temática difiere de la de un manual centrado en técnicas de salud o en cambios de hábitos personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los arcanos del folclore (CARTOMANCIA Y TAROT) se presenta en tapa blanda, con una extensión de 112 páginas. Es una edición física de tamaño de lectura relativamente breve por número de páginas, que puede transportarse y consultarse sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los arcanos del folclore (CARTOMANCIA Y TAROT) y Gabinete de maravillas para colorear (Somos B), de Carlota Santos, se relacionan con el ámbito artístico, aunque proponen actividades distintas. El libro de Azzurra D' Agostino se identifica con los arcanos y el folclore, mientras que el de Carlota Santos está planteado como una obra para colorear. La diferencia principal está entre el interés por el simbolismo y la actividad de colorear.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466685542"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fd07c48c43f63503",
+  "origen": "chatgpt-web"
+}

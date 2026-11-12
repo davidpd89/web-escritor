@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791370174576",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Secuestrada por el deseo: 3257 (Bianca), de Millie Adams, se dirige al público que busca novelas románticas en castellano. Su extensión de 160 páginas encaja con quienes prefieren relatos de romance relativamente breves, pero no con lectores interesados principalmente en cómic o thriller.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Secuestrada por el deseo: 3257 (Bianca) se publica en tapa blanda, con 160 páginas. La edición de Harlequin Ibérica, S.a. ofrece una lectura romántica en papel, con una extensión que facilita transportarla y terminarla sin manejar un volumen especialmente largo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0740e9dfc0fea5cf",
+  "origen": "chatgpt-web"
+}

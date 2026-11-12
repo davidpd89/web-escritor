@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788491459866",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a quienes buscan una lectura breve relacionada con el siglo XIX y el humor. Sus 32 páginas y su presentación como álbum ilustrado responden a un formato distinto del ensayo histórico extenso, por lo que encaja menos con quien busca un estudio académico detallado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Estado desde la sociedad, El. Espacios de poder en la España del siglo XIX. (ÁLBUMES ILUSTRADOS) se presenta en tapa dura, con 32 páginas en castellano. Es una opción física para conservar en una estantería, consultar de nuevo o entregar como regalo, sin necesidad de dedicar espacio a un volumen extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puede compararse con 7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica) por su vinculación con el humor. La diferencia está en el asunto anunciado: Estado desde la sociedad, El. Espacios de poder en la España del siglo XIX. (ÁLBUMES ILUSTRADOS) incorpora una referencia histórica explícita, mientras que el otro título se identifica con la colección Súper Humor Mortadelo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431790"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e198fbc24bd045b9",
+  "origen": "chatgpt-web"
+}

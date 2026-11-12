@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791387592493",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para lectores que quieren estudiar la civilización moderna a través de su historia artística y cultural. Su planteamiento histórico encaja menos con quienes buscan un manual de técnicas artísticas o ejercicios prácticos de creación.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Examina la formación de la civilización moderna desde la relación entre arte, cultura e historia. El enfoque de Kenneth Clark sitúa las manifestaciones artísticas dentro de una interpretación histórica amplia, en lugar de tratarlas únicamente como objetos de diseño.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne 480 páginas dedicadas a la historia del arte y la cultura. Este formato físico permite mantener un volumen extenso como libro de consulta y conservarlo en una biblioteca de historia artística.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Arte Matrio comparte con Civilización el estudio de la historia del arte, pero se centra en el ámbito español y en la representación dentro de esa tradición. La obra de Kenneth Clark amplía el enfoque hacia la relación entre arte, cultura y formación de la civilización moderna, sin limitar su planteamiento a un país.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449346095"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "06e580b352f842a2",
+  "origen": "chatgpt-web"
+}

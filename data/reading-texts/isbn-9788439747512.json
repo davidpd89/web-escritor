@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788439747512",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La revolución ya no es lo que era está dirigida a lectores interesados en el ensayo y la historia. Sus 416 páginas ofrecen un volumen de extensión considerable para quien busca una lectura de no ficción; no es una propuesta de narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda concentra sus 416 páginas en un volumen físico que permite leer y consultar el texto sin recurrir a dispositivos electrónicos. Es el formato disponible de esta edición de Random House, adecuado para quien prefiere los libros impresos incluso cuando tienen una extensión considerable.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ojos que no ven (Narrativa) comparte autor con La revolución ya no es lo que era: ambos libros son de Martín Caparrós. La diferencia está en su planteamiento editorial: el primero aparece identificado como narrativa y el segundo como ensayo e historia, por lo que permiten acercarse a su autor desde propuestas distintas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388019920"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6494ce6841a19fbe",
+  "origen": "chatgpt-web"
+}

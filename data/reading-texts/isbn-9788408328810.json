@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408328810",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La buena suerte (edición ilustrada): Claves de la prosperidad (Zenith Original) encaja con lectores interesados en el desarrollo personal y la reflexión sobre la prosperidad. Sus 176 páginas y su presentación ilustrada ofrecen una lectura de extensión moderada; no está orientada a quien busca una novela de ficción o un tratado especializado de psicología clínica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La buena suerte (edición ilustrada): Claves de la prosperidad (Zenith Original) se presenta en una edición ilustrada de tapa dura publicada por Zenith. El volumen tiene 176 páginas en castellano y fecha de publicación del 11 de noviembre de 2026; la combinación de ilustraciones y encuadernación rígida caracteriza esta presentación.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La buena suerte (edición ilustrada): Claves de la prosperidad (Zenith Original) está disponible en tapa dura, con 176 páginas y una presentación ilustrada. Este formato permite consultar las ilustraciones sobre papel y conservar el volumen en una estantería, además de utilizarlo como ejemplar físico para regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La buena suerte (edición ilustrada): Claves de la prosperidad (Zenith Original) comparte autoría y ámbito de desarrollo personal con El buen dinero: Cómo dejar de sufrir por lo que se tiene, se gana o se debe (Autoayuda y superación). Fernando Trías de Bes participa en ambos títulos, pero el primero trata la prosperidad en sentido amplio junto a Álex Rovira y Laura Agustí (Lalauri), mientras que el segundo se centra en la relación con el dinero.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408330509"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b344479815a6217f",
+  "origen": "chatgpt-web"
+}

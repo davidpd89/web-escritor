@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9798890989406",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en conocer los tornados y otros fenómenos meteorológicos mediante un libro de divulgación científica. Su relación con Magic Tree House #23 Tornado En Martes lo sitúa también entre las lecturas complementarias de esa serie, no entre las novelas gráficas de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El contenido se centra en los tornados y otras tormentas, tratados desde un enfoque informativo y científico. Mary Pope Osborne y Will Osborne firman este complemento de Magic Tree House #23 Tornado En Martes, con 128 páginas dedicadas a una materia distinta de la narración de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Vintage Espanol reúne 128 páginas en castellano. Su extensión permite llevar el libro en una mochila y consultarlo durante una lectura sobre fenómenos meteorológicos, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Independencia de Estados Unidos / American Revolution: Libro Informativo Complementario de Magic Tree House #22 Guerra Revolucionaria En Miércoles (Magic Tree House: Exploradores) comparte la colección y la función de lectura informativa complementaria, pero trata un acontecimiento histórico en lugar de tormentas. Dinosaurios Al Atardecer (Novela Gráfica) / Dinosaurs Before Dark (Graphic Novel) (Magic Tree House Novela Gráfica) pertenece al mismo universo editorial, aunque utiliza el formato de novela gráfica.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9798890989642",
+        "isbn-9798890989420"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "521a47cd5bc76995",
+  "origen": "chatgpt-web"
+}

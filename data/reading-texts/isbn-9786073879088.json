@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9786073879088",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a quienes buscan relatos sobre mujeres y una perspectiva vinculada al México Antiguo. Por su clasificación como narrativa contemporánea y relatos, encaja menos con quien prefiere una novela de fantasía o una historia centrada en un único protagonista.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Propone una lectura de relatos centrados en mujeres célebres del México Antiguo, dentro del ámbito de la narrativa contemporánea. La autoría compartida por Blanca López de Mariscal, Denise Carpinteyro, Mónica Castellanos, Gabriela Riveros y Maria De Alva distingue el libro de una obra firmada por una sola persona.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar y releer sus 256 páginas en papel, mientras que Kindle facilita llevar el texto en un dispositivo móvil. El audiolibro ofrece una alternativa de escucha para quienes prefieren acceder a los relatos sin leer en pantalla o papel.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte el interés por las mujeres con Lo mejor de las mujeres de Bruguera (Bruguera Clásica), aunque este último se vincula por su título a Bruguera y el libro de Blanca López de Mariscal, Denise Carpinteyro, Mónica Castellanos, Gabriela Riveros y Maria De Alva se centra en el México Antiguo. También puede compararse con Esas muchachas que escriben poemas por su atención a figuras femeninas, aunque allí el título apunta a la escritura poética.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402432216",
+        "isbn-9788426434272"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4255da1684b04c57",
+  "origen": "chatgpt-web"
+}

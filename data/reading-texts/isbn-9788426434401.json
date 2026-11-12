@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788426434401",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todas las salidas te llevan a casa (Narrativa), de Naeem Murr, se dirige a lectores de narrativa contemporánea. Su extensión de 408 páginas corresponde a una novela de mayor recorrido, alejada de quienes buscan lecturas muy breves.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 408 páginas en una edición física publicada por Lumen. Es la alternativa disponible para quien prefiere pasar las páginas en papel y guardar el ejemplar en su biblioteca.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bb54edf59dc42046",
+  "origen": "chatgpt-web"
+}

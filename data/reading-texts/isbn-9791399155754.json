@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791399155754",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Mago de Oz: 1 (Desafiando a Oz), de L. Frank Baum, se dirige a lectores interesados en los clásicos. Su clasificación también comprende narrativa contemporánea, por lo que no se presenta como una obra perteneciente específicamente al romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Mago de Oz: 1 (Desafiando a Oz) se ofrece en tapa blanda, con 306 páginas en castellano. La edición de Kabo&bero Ediciones permite incorporar este clásico a una colección de papel con cubierta flexible, sin recurrir a una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3ec8f35d1d2cc31a",
+  "origen": "chatgpt-web"
+}

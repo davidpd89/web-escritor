@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387513504",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El hábito del dinero: Un camino sin preocupaciones hacia la independencia financiera (Economía y finanzas), de Mike Michalowicz, encaja con lectores interesados en desarrollar hábitos relacionados con el dinero y alcanzar independencia financiera. Sus 240 páginas abordan un ámbito distinto del desarrollo personal general, por lo que no responde a quien busca principalmente ficción o entretenimiento narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 240 páginas en una edición de papel manejable para consultar y releer. Es el formato disponible de El hábito del dinero: Un camino sin preocupaciones hacia la independencia financiera (Economía y finanzas), de Mike Michalowicz, una opción física para quien prefiere leer sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El hábito del dinero: Un camino sin preocupaciones hacia la independencia financiera (Economía y finanzas), de Mike Michalowicz, comparte con Construye un negocio atómico / Build an Atomic Business, de Oso Trava, el interés por las decisiones económicas y empresariales. La diferencia está en el enfoque: el primero se centra en los hábitos financieros y la independencia económica, mientras que el segundo plantea la construcción de un negocio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073880336"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0fe5e312229d4a5a",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388204234",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Alex stern (Saga completa) está dirigido a quienes buscan leer una saga de misterio y thriller en una edición conjunta. Sus 1500 páginas responden a una lectura prolongada, por lo que se aleja de quienes prefieren una sola novela breve o independiente.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estuche Alex stern (Saga completa) se ofrece en tapa dura, con una extensión total de 1500 páginas en castellano. La presentación en estuche permite reunir la saga en una misma compra y conservarla como conjunto, especialmente para biblioteca personal o regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El eco de los muertos (Alex stern), de Leigh Bardugo, comparte con Estuche Alex stern (Saga completa) la autoría y la pertenencia al mismo universo narrativo. El primero se presenta como una novela individual de misterio, mientras que el estuche reúne la saga completa en tapa dura y alcanza las 1500 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388204227"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2d96bc92768ac5b8",
+  "origen": "chatgpt-web"
+}

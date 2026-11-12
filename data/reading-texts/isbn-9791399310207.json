@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791399310207",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a quienes leen poesía de intención satírica y burlesca, este volumen reúne textos de distintas autorías en una antología. Su planteamiento se aleja de la novela de argumento continuo y de los libros de poesía centrados exclusivamente en el tono solemne.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La lectura se articula alrededor de la poesía satírico-burlesca y del formato de antología vinculada al I Premio Góngora y Quevedo de Poesía Satírico-Burlesca. Sus 88 páginas reúnen una selección colectiva, por lo que el interés reside en los poemas y en la diversidad de autorías, más que en seguir una única narración.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición se presenta en tapa blanda y contiene 88 páginas en castellano. Es un volumen físico de extensión breve, que permite consultar poemas concretos y volver a ellos sin necesidad de seguir una lectura continua.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antología final: 282 (LITORAL) comparte con este volumen el carácter de antología poética, mientras que Elegía simpática de la gula y otros poemas: Antología del I Premio Góngora y Quevedo de Poesía Satírico-Burlesca: 3 delimita su propuesta a la poesía satírico-burlesca. Poemario mitológico lunar también pertenece al ámbito poético, pero su título sitúa el interés en la mitología lunar, frente al enfoque satírico de esta recopilación.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412931075",
+        "isbn-9791388243264"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a28e31cd8f3dbc7e",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788466387767",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra de Mijaíl Bulgákov se dirige a lectores de clásicos y narrativa contemporánea. Quien busque una lectura breve encontrará una extensión de 512 páginas, más propia de una novela para leer en varias sesiones.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición conmemorativa de El maestro y Margarita (nueva traducción) (Edición conmemorativa) (Contemporánea | Narrativa) incorpora una nueva traducción y se publica en tapa dura. Penguin Bolsillo la presenta en castellano, con 512 páginas y fecha de publicación del 26 de noviembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "numero_paginas",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura permite conservar este volumen como ejemplar de biblioteca personal y consultarlo repetidamente sin depender de un dispositivo electrónico. Sus 512 páginas también hacen conveniente reservarle un espacio fijo de lectura, en lugar de llevarlo a diario en un bolsillo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "308cd8a28db918c6",
+  "origen": "chatgpt-web"
+}

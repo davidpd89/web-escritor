@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408326519",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mensajes en tazas de café (Ficción), de María Martínez, se dirige a lectores interesados en el romance, la narrativa contemporánea y el humor. Quienes busquen principalmente novela histórica, aventuras o narrativa sin componente romántico encontrarán una propuesta de género diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece una edición física de 472 páginas, con espacio para una lectura en papel. Kindle permite leer Mensajes en tazas de café (Ficción) en formato digital, sin necesidad de transportar el volumen.",
+      "evidencias": [
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando no queden más estrellas que contar. Edición especial con cantos decorados, de María Martínez, permite comparar dos títulos de la misma autora; además, su edición especial incorpora cantos decorados. Mensajes en tazas de café (Ficción) se presenta con una combinación de romance y humor, mientras que el otro título ofrece una edición identificada expresamente como especial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408327042"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d72b2c4e6f82e91d",
+  "origen": "chatgpt-web"
+}

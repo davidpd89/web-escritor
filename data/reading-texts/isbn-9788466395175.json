@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788466395175",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pack El vendedor más grande del mundo: contiene: El vendedor más grande del mundo I | El vendedor más grande del mundo II (Best Seller | No Ficción), de Og Mandino, se dirige a lectores interesados en el desarrollo personal y la economía de empresa. No encaja con quien busca ficción narrativa o lecturas de entretenimiento basadas en personajes y tramas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Construye un negocio atómico / Build an Atomic Business, de Oso Trava, comparte con el pack de Og Mandino el interés por el ámbito empresarial, reconocible en ambos títulos. La diferencia está en el planteamiento editorial: el pack reúne dos entregas de El vendedor más grande del mundo, mientras que el libro de Oso Trava aparece como una obra individual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073880336"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bd37131752eef2e5",
+  "origen": "chatgpt-web"
+}

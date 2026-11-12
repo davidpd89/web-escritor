@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788498891768",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Franco: Una historia alternativa: 135 (Alamut Serie Fantástica) encaja con lectores de ciencia ficción interesados en planteamientos de historia alternativa. Por su clasificación y su título, se distancia de una biografía histórica convencional o de un estudio documental sobre Franco.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Franco: Una historia alternativa: 135 (Alamut Serie Fantástica) plantea desde su título una aproximación alternativa a una figura histórica. Su clasificación como ciencia ficción sitúa esa propuesta en el terreno especulativo, con una autoría colectiva y una extensión de 448 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Franco: Una historia alternativa: 135 (Alamut Serie Fantástica) se ofrece en tapa dura, con 448 páginas en castellano. La cubierta rígida facilita su conservación como volumen de colección, especialmente para quien reúne publicaciones de Alamut y prefiere leer en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Señores del Olimpo y Franco: Una historia alternativa: 135 (Alamut Serie Fantástica) comparten la participación de Javier Negrete y la reinterpretación de referentes conocidos. La primera transforma la mitología griega en una historia de aventuras y conflictos, mientras que la segunda se presenta como ciencia ficción de historia alternativa con varios autores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788445019672"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "56289d43f305c820",
+  "origen": "chatgpt-web"
+}

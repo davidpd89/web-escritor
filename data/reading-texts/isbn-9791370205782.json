@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370205782",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Uno, el todo: En busca del dios primigenio (Novela Histórica) se orienta a lectores interesados en la ficción histórica y las cuestiones religiosas y espirituales. Quienes busquen una novela ajena a estos ámbitos temáticos encontrarán aquí un planteamiento distinto al de otros géneros narrativos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene las 424 páginas de Uno, el todo: En busca del dios primigenio (Novela Histórica), de Javier Fernández. Su extensión permite disponer de la obra completa en papel, en una edición de Almuzara.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián, comparte con Uno, el todo: En busca del dios primigenio (Novela Histórica), de Javier Fernández, el marco de la novela histórica. La diferencia está en el punto de partida que anuncian sus títulos: la Reconquista en el primero y la búsqueda de un dios primigenio en el segundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788401039539"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3a09429d12374658",
+  "origen": "chatgpt-web"
+}

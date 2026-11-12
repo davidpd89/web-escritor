@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791039582131",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensado para el público infantil que se acerca a los villancicos mediante un libro de sonidos. Su temática navideña y sus 12 páginas lo distinguen de las lecturas infantiles con narraciones largas y de los libros de actividades centrados en el dibujo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "La propuesta combina el libro físico con sonidos asociados a los primeros villancicos. Permite alternar la exploración de sus 12 páginas con la escucha, de manera que la actividad se centra en reconocer canciones navideñas y relacionarlas con el contenido del libro.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Auzou se presenta en tapa dura, con 12 páginas en castellano. Es un formato físico para manipular durante la actividad sonora y guardar junto a otros libros infantiles de temática navideña.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La única manera de bailar / The Only Way to Dance comparte con este libro una referencia a la expresión musical o corporal, aunque el título de Mei STOYVA se centra específicamente en los villancicos y los sonidos. Frente a Aprende a dibujar con KPop Demon Hunters: Edición OFICIAL en español (Montena), su actividad gira alrededor de la escucha y no del dibujo.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9798890984005",
+        "isbn-9791388322778"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4faf123efddef201",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786287880474",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Serafín (Spanish Edition) encaja con lectores que buscan narrativa contemporánea vinculada al humor y la naturaleza. Daniel Samper Ospina firma una obra de 192 páginas; por su clasificación, se diferencia de los manuales de naturaleza y de los libros concebidos para aprender a leer.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Serafín (Spanish Edition) ofrece tapa blanda, Kindle y audiolibro. La edición impresa de Alfaguara tiene 192 páginas y permite leer en papel; Kindle traslada el texto a un dispositivo electrónico, mientras que el audiolibro permite seguir la obra mediante escucha.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Serafín (Spanish Edition) y Caja metálica con cinco cuentos (La ovejita que vino a cenar): Incluye las historias de la ovejita, los lobos, el cocodrilo, el tigre y la patita (Cuentos infantiles) presentan diferencias de público y enfoque. Daniel Samper Ospina firma una obra de narrativa contemporánea vinculada al humor y la naturaleza, mientras que Steve Smallman y Joëlle Dreidemy reúnen cinco cuentos infantiles protagonizados por animales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e1f84429ab39ab7b",
+  "origen": "chatgpt-web"
+}

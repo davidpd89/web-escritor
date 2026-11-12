@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788483933886",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuentos completos: 395 (Voces / Literatura), de Hermanos Grimm, se dirige a lectores interesados en los cuentos clásicos y en reunirlos en un mismo volumen. Por su extensión de 1152 páginas, responde mejor a la lectura de relatos por separado que a quien busca una novela contemporánea breve con una única trama.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de Cuentos completos: 395 (Voces / Literatura) reúne 1152 páginas en castellano bajo el sello Páginas de Espuma. La encuadernación rígida resulta apropiada para conservar un volumen extenso en una biblioteca y consultarlo repetidamente, aunque su tamaño puede hacerlo menos cómodo para transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8cc8653e6e6df5a9",
+  "origen": "chatgpt-web"
+}

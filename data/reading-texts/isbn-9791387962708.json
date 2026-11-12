@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387962708",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La bestia del rey 14 (Shôjo) se dirige a lectores de manga que combinan fantasía, aventuras y romance. El título lo identifica como el n.º 14, de modo que no es la opción más directa para quien busca una historia independiente o prefiere el romance contemporáneo sin elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La bestia del rey 14 (Shôjo) cuenta con una edición en tapa blanda de 168 páginas, publicada en castellano por Distrito Manga. Su extensión y cubierta flexible facilitan llevar el volumen y guardarlo junto a otras entregas de la colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La bestia del rey 13 (Shôjo) es el referente más cercano a La bestia del rey 14 (Shôjo): ambos llevan la firma de Rei Tôma, aunque el título identifica números distintos. Alas de escarcha y oro: El canto del cisne también plantea fantasía con personajes que ocultan aspectos de sí mismos, pero pertenece a otra obra y está escrita por Marta Morillo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962036",
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3602da34692d6092",
+  "origen": "chatgpt-web"
+}

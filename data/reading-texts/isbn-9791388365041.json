@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388365041",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La última historia de Abby Bloom (Romántica), de Carmen Arteaga, se dirige a quienes buscan una novela que reúna romance y misterio. Su combinación de géneros encaja menos con lectores interesados exclusivamente en historias sentimentales sin intriga o en ensayos sobre relaciones personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La última historia de Abby Bloom (Romántica) cuenta con una edición en tapa blanda de 352 páginas, publicada por Fandom Books. Es una opción física para leer en casa o transportar durante varios días, con la posibilidad de volver a pasajes anteriores sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La última historia de Abby Bloom (Romántica) puede compararse con Todas las veces que se te acelera el corazón (Romántica), también de Carmen Arteaga. Comparten autora y orientación romántica, aunque La última historia de Abby Bloom (Romántica) incorpora además el misterio entre sus géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419831958"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "85f3c053e735f419",
+  "origen": "chatgpt-web"
+}

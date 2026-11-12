@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388049651",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Juntos hasta el final, de Sara Tocino Contioso, se dirige a lectores interesados en cuestiones familiares, procesos de superación y experiencias de duelo. Su orientación temática lo diferencia de los libros de crianza dedicados únicamente a rutinas educativas o desarrollo infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Juntos hasta el final se ofrece en tapa blanda, con 302 páginas en castellano publicadas por Samarcanda. El formato impreso permite señalar fragmentos y volver a ellos durante una lectura repartida en varias sesiones, especialmente si se consulta por sus temas familiares.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El duelo: cómo atenderte: Una guía para acompañarte después de la muerte de una persona amada, de Irma Vallès Hernàndez, comparte con Juntos hasta el final el interés por las experiencias de pérdida. La obra de Irma Vallès Hernàndez se presenta expresamente como una guía para el duelo por una persona querida, mientras que el libro de Sara Tocino Contioso reúne temas de familia, superación y duelo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921065"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a62b13ca3af6c178",
+  "origen": "chatgpt-web"
+}

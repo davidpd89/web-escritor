@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788427255470",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡Atrapa a ese - Slime! ¡Un monstruo muy viscoso! (Ficción Kids) se orienta a lectores de ficción infantil interesados en monstruos, aventuras, humor y situaciones de terror. Por su combinación de estos elementos, encaja menos con quienes buscan relatos cotidianos sin criaturas monstruosas ni componentes inquietantes.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¡Atrapa a ese - Slime! ¡Un monstruo muy viscoso! (Ficción Kids) se publica en tapa blanda, con 80 páginas en castellano. La extensión permite abordar la lectura en sesiones breves y el formato de Molino ofrece una edición física manejable para transportar o guardar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¡Atrapa a ese Yeti! / Catch That Yeti comparte autora, Charlotte Habersack, y presenta otra criatura como protagonista del título. Mientras esa obra gira en torno a un yeti, el libro sobre Slime se centra en un monstruo viscoso y combina aventura, terror y humor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073871884"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "276c79ae36957f18",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370610302",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en la responsabilidad patrimonial de la Administración y la prevención de la violencia de género mediante VioGén. Es una monografía jurídica de Mireia Molina Sanchez, por lo que su enfoque se aleja de la narrativa de ficción y de las lecturas generales sobre relaciones personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La responsabilidad patrimonial de la Administración por el uso de VioGén en la prevención de la violencia de género (Monografía) está disponible en tapa blanda. Sus 320 páginas permiten consultar el contenido jurídico en papel, marcar pasajes y volver a determinados apartados durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte el enfoque jurídico de Blockchain: un desafío legal (Monografía), aunque este último se centra en los desafíos legales de una tecnología y la obra de Mireia Molina Sanchez aborda la responsabilidad administrativa vinculada a VioGén. Ambos títulos tratan cuestiones jurídicas específicas desde ámbitos diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370610265"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "41feb9d436f21e93",
+  "origen": "chatgpt-web"
+}

@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La batalla por la vivienda se dirige a lectores interesados en las causas económicas y políticas de las dificultades de acceso a la vivienda. Michael Byrne analiza la concentración de la propiedad y la financiarización del hogar; no plantea su contenido como una guía de trámites inmobiliarios o de gestión doméstica del dinero.",
+      "texto": "Está dirigido a lectores interesados en la economía política, la desigualdad en la propiedad y los problemas de acceso a la vivienda. La batalla por la vivienda examina las estructuras económicas que intervienen en esta crisis, por lo que no responde a la búsqueda de consejos prácticos sobre decoración o mantenimiento doméstico.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La batalla por la vivienda es un ensayo de economía política que interpreta la crisis habitacional como resultado de un modelo económico. Michael Byrne examina la acumulación de propiedades y el tratamiento de la vivienda como inversión financiera, con atención a los mecanismos estructurales que condicionan el acceso al hogar.",
+      "texto": "La batalla por la vivienda es un ensayo de economía política sobre las causas estructurales de la crisis habitacional. Michael Byrne analiza la concentración de la propiedad y el tratamiento de los hogares como activos financieros, situando el problema dentro del funcionamiento del modelo económico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -24,26 +23,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La batalla por la vivienda se publica en tapa blanda, con 288 páginas y encuadernación rústica con solapas. Esta edición de Ediciones Paidós permite leer el análisis económico en papel y volver a sus argumentos durante la consulta, sin necesidad de un lector electrónico.",
+      "texto": "La batalla por la vivienda está disponible en tapa blanda, con una edición en rústica con solapas de 288 páginas publicada por Ediciones Paidós. Es una opción física para consultar argumentos y volver a pasajes concretos durante el estudio de la economía de la vivienda.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
         "edicion",
-        "editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La batalla por la vivienda y La economía del cuidado examinan cómo los modelos económicos influyen en las condiciones de vida. Michael Byrne se centra en la propiedad inmobiliaria y su dimensión financiera, mientras que Tim Jackson plantea una concepción de la prosperidad vinculada al cuidado, la sostenibilidad y el poscrecimiento.",
+      "texto": "La batalla por la vivienda puede compararse con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), por su atención a las relaciones entre economía y política. Michael Byrne estudia específicamente la vivienda y la concentración de la propiedad, mientras que Miguel Anxo Bastos Boubeta aborda las bases del pensamiento anarcocapitalista.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788449345937"
+        "isbn-9791388182457"
       ]
     }
   ],

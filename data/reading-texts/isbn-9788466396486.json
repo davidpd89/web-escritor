@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788466396486",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores interesados en relaciones familiares, narrativa contemporánea y misterios vinculados a una saga. La historia de Maia, de Lucinda Riley, combina esas líneas temáticas; no responde tanto a la búsqueda de un thriller centrado únicamente en delitos y procedimientos policiales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Penguin Bolsillo presenta esta edición limitada en castellano, con encuadernación de tapa blanda y tamaño de bolsillo. El volumen contiene 560 páginas y se identifica mediante el ISBN 9788466396486. Su denominación incluye Las Siete Hermanas 1 y La historia de Maia, que distinguen esta entrega de las demás obras de Lucinda Riley pertenecientes a la serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formato_edicion",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Para esta edición se ofrece tapa blanda, con una extensión de 560 páginas. El formato de bolsillo concentra la lectura en un solo volumen físico y facilita llevarlo en una bolsa durante los desplazamientos. También permite incorporarlo a una colección en papel de Las Siete Hermanas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La hermana sombra (edición limitada) (Las Siete Hermanas 3): La historia de Star (Campaña | Ahora por menos), también de Lucinda Riley, comparte la serie y el interés por las historias familiares. La diferencia visible está en el personaje central y la numeración: el título identifica Las siete hermanas (edición limitada) (Las Siete Hermanas 1): La historia de Maia (Campaña | Ahora por menos) como el n.º 1 y el de Star como el n.º 3.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396493"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b4f0501d456b1c88",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788408329930",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en aventuras con elementos de terror y en historias relacionadas con videojuegos. La presencia de monstruos en el título marca una diferencia respecto a los libros de humor cotidiano o las narraciones sin amenazas fantásticas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer sus 256 páginas en un ejemplar físico que puede guardarse junto a otros libros basados en juegos. La edición Kindle ofrece el mismo título como lectura digital, adecuada para utilizar un dispositivo compatible sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Roblox Story 2 comparte elementos fantásticos con Anna Kadabra. Estuche Aventuras legendarias 1 y 2, de Pedro Mañas y David Sierra Listón, aunque el libro de Maeva Games Videos se clasifica como aventura y terror. La invasión de los monstruos centra su propuesta en amenazas vinculadas a un juego, mientras que el estuche reúne aventuras de Anna Kadabra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408295518"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f272a8307cb148bc",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788427259782",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan una obra de Charlotte Brontë que combine romance y narrativa clásica. Por su clasificación literaria y sus 600 páginas, se aleja de las lecturas breves y de quienes prefieren historias centradas en la acción.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición se distingue por su sobrecubierta troquelada y su inclusión en La biblioteca de los libros prohibidos. Molino la presenta dentro de Ficción crossover, con el ISBN 9788427259782 como identificador de esta publicación concreta. El diseño de la cubierta es su principal rasgo diferenciador frente a otras presentaciones de la obra.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es la tapa blanda, con 600 páginas en castellano. Es una presentación física que permite consultar y releer pasajes sin depender de una pantalla, aunque su extensión supone un volumen considerable para llevar a diario.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte el componente romántico con A mil por hora, de Hannah Grace, y Amor en pole position (Dirty Air 3), de Lauren Asher. La diferencia está en el enfoque: Jane Eyre pertenece a la narrativa clásica, mientras que las otras dos propuestas sitúan sus relaciones amorosas en el mundo de la Fórmula 1.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683449",
+        "isbn-9788427055674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2c89c715de4217ab",
+  "origen": "chatgpt-web"
+}

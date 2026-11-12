@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419510983",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Magia lunar práctica: Guía empoderadora para alinearte con la luna. se dirige a lectores interesados en la relación entre las prácticas lunares y el desarrollo personal. Por su orientación hacia la autoayuda y el bienestar, se diferencia de las novelas de fantasía centradas en personajes y conflictos narrativos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Magia lunar práctica: Guía empoderadora para alinearte con la luna. se presenta en tapa dura, con 160 páginas en castellano. La edición de Arkano Books permite mantener la guía en formato físico para consultar sus contenidos sobre prácticas lunares sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Magia lunar práctica: Guía empoderadora para alinearte con la luna. y Astrología, filosofía y magia: Un camino de práctica espiritual comparten el interés por la magia aplicada al ámbito personal. Katie Huang centra su título en la luna, mientras que Soledad Davies plantea una relación entre astrología, filosofía y práctica espiritual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6ed579cb8114b065",
+  "origen": "chatgpt-web"
+}

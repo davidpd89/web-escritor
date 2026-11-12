@@ -4,26 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¡El hilo lo es todo! se dirige al público infantil y juvenil que disfruta del humor extraño y las historias con elementos de terror. La afición al crochet, la competición y una ambición inquietante articulan el conflicto; quienes prefieran relatos infantiles sin situaciones amenazantes encontrarán aquí un tono diferente.",
+      "texto": "¡El hilo lo es todo! encaja con lectores infantiles que buscan una historia de humor extraño con elementos de terror. Aaron Reynolds y Peter Brown sitúan el conflicto alrededor del crochet, la competición y una ambición que adquiere consecuencias inquietantes; quienes prefieran relatos infantiles sin sustos encontrarán aquí un tono diferente.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¡El hilo lo es todo! se ofrece en tapa dura, con 112 páginas y edición de Picarona. La cubierta rígida facilita conservar el ejemplar y regalarlo, mientras que su extensión permite repartir la historia en varias sesiones de lectura sin abordar un libro especialmente largo.",
+      "texto": "¡El hilo lo es todo! está disponible en tapa dura, con 112 páginas en castellano publicadas por Picarona. Es una edición física que puede conservarse para sucesivas lecturas y regalarse sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "edicion",
         "numero_paginas",
-        "editorial"
+        "idioma",
+        "editorial",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¡El hilo lo es todo! y Dos veces Poe comparten elementos inquietantes dentro de relatos vinculados al público infantil, aunque el primero gira alrededor del crochet y una competición, mientras el segundo parte de la aparición de un hombre misterioso en un parque. Frente a Creepy nº 11/29, presentado como recopilación de terror, la obra de Aaron Reynolds y Peter Brown desarrolla una historia centrada en una afición concreta.",
+      "texto": "¡El hilo lo es todo! y El lago de los monstruos (INFANTIL) comparten el interés por lo extraño dentro de las lecturas infantiles. La obra de Aaron Reynolds y Peter Brown combina crochet, competición y una amenaza creciente, mientras que el título de Leo Timmers sitúa a los monstruos en el centro de su propuesta; la diferencia está en el conflicto que anuncia cada obra.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,8 +35,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411406130",
-        "isbn-9791399248814"
+        "isbn-9791387884260"
       ]
     }
   ],

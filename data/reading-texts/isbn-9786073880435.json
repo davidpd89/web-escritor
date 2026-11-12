@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9786073880435",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Príncipe de la noche / The Night Prince (El Rey De Los Lobos) encaja con lectores que buscan fantasía combinada con romance y aventuras. Su clasificación como romantasy lo aleja de quienes prefieren una novela romántica sin elementos fantásticos o una historia exclusivamente realista.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 440 páginas en una edición flexible, mientras que la tapa dura proporciona una cubierta rígida para guardarlo o regalarlo. Kindle permite continuar la lectura en un dispositivo electrónico sin transportar el volumen físico.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El rey de los lobos / The Wolf King: 1 es la comparación más directa por compartir autora, Lauren Palphreyman, y la referencia a los lobos en los títulos. Alas de escarcha y oro: El canto del cisne plantea, en cambio, una protagonista que oculta sus dones y debilidades; El Príncipe de la noche / The Night Prince (El Rey De Los Lobos) se presenta como fantasía romántica y de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073874762",
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fe6aed771c7956e8",
+  "origen": "chatgpt-web"
+}

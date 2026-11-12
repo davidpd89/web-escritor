@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388056215",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Qué hacemos con los domingos por la tarde: Apuntes sobre la vida adulta (LIBROS DEL ASTEROIDE): 376 se dirige a quienes leen relatos y narrativa contemporánea sobre la vida adulta. Por su planteamiento, se aleja de las lecturas centradas en la fantasía o la aventura y se sitúa en un terreno más cotidiano.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Qué hacemos con los domingos por la tarde: Apuntes sobre la vida adulta (LIBROS DEL ASTEROIDE): 376 está disponible en tapa blanda. Sus 208 páginas permiten llevar el volumen en el bolso o la mochila, y la encuadernación flexible facilita transportarlo durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Qué hacemos con los domingos por la tarde: Apuntes sobre la vida adulta (LIBROS DEL ASTEROIDE): 376 comparte con Ficciones (Hispánica) su relación con la narrativa breve. La diferencia está en la orientación contemporánea y adulta del libro de Ignacio Peyró frente a la propuesta literaria de Jorge Luis Borges.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387846107"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0851e8ce5a415436",
+  "origen": "chatgpt-web"
+}

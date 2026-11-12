@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388444173",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Imitar a María: Meditaciones sobre la Virgen Nuestra Señora (Domine) está dirigido a lectores interesados en la espiritualidad cristiana y la meditación sobre la figura de la Virgen María. Su enfoque religioso concreto lo distancia de las lecturas de desarrollo personal sin referencias confesionales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Imitar a María: Meditaciones sobre la Virgen Nuestra Señora (Domine) reúne 176 páginas en castellano, publicadas por Sekotia. El libro físico permite volver a las meditaciones y consultar pasajes concretos sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Imitar a María: Meditaciones sobre la Virgen Nuestra Señora (Domine) puede ponerse junto a Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación por su orientación espiritual. El libro de Juan Moya Corredor trata la devoción mariana, mientras que el de Tsondru Yeshe se ocupa de los fundamentos y la práctica del Dharma.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e188b48e44944abf",
+  "origen": "chatgpt-web"
+}

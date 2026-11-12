@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466394703",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Neurociencia del cuerpo (Best Seller | Ficción), de Nazareth Castellanos, se dirige a lectores interesados en las relaciones entre el cuerpo, la psicología y el bienestar. Su orientación hacia el desarrollo personal y la filosofía lo distancia de los manuales dedicados exclusivamente a la alimentación o al ejercicio físico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Neurociencia del cuerpo (Best Seller | Ficción) se presenta en edición de bolsillo de Penguin Bolsillo, con 256 páginas para leer y consultar en papel. El audiolibro permite escuchar el contenido sin llevar el ejemplar físico, por ejemplo durante desplazamientos o paseos.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El puente donde habitan las mariposas: Biosofía de la respiración (Best Seller | No Ficción), también de Nazareth Castellanos, comparte el interés por la psicología y el bienestar, pero delimita su tema a la respiración. Neurociencia del cuerpo (Best Seller | Ficción) presenta un enfoque más general sobre el cuerpo desde su propio título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466393317"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "55d786446808907e",
+  "origen": "chatgpt-web"
+}

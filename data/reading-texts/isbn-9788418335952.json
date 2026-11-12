@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788418335952",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Princesas. Viste a las princesas con imanes: Libro magnético (Disney. Princesas), de Disney, está orientado al público infantil que disfruta vistiendo personajes mediante imanes. Sus 10 páginas y su propuesta de manipulación lo diferencian de un cuento extenso destinado principalmente a la lectura continuada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Princesas. Viste a las princesas con imanes: Libro magnético (Disney. Princesas) es de tapa dura y contiene 10 páginas. El formato físico permite utilizar los imanes anunciados en el título, mientras que la cubierta rígida ofrece soporte para manipular el libro durante la actividad.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "190705356872af81",
+  "origen": "chatgpt-web"
+}

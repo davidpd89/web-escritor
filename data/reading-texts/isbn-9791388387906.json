@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388387906",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Queremos informarle de que mañana seremos asesinados con nuestras familias: Historias de Ruanda (Crónica y Periodismo) se dirige a lectores interesados en la historia y el periodismo sobre hechos violentos. El título anticipa asesinatos y amenazas contra familias, asuntos que pueden resultar perturbadores. No encaja con quien busque una lectura histórica de temática ligera o una narración de ficción romántica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 376 páginas de Queremos informarle de que mañana seremos asesinados con nuestras familias: Historias de Ruanda (Crónica y Periodismo) en papel. Kindle permite leer esta obra histórica en el móvil o en un lector electrónico, mientras que el audiolibro permite escucharla. La elección depende de si se prefiere consultar el texto físicamente, leer en pantalla o seguirlo mediante audio.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Campo de concentración: 82 (Biblioteca del Exilio), de Eduardo de Ontañón, permite establecer una comparación temática con Queremos informarle de que mañana seremos asesinados con nuestras familias: Historias de Ruanda (Crónica y Periodismo) por sus referencias a situaciones históricas de violencia. El libro de Philip Gourevitch sitúa expresamente sus historias en Ruanda, mientras que el otro título remite al internamiento en un campo de concentración. Ambos se distinguen por el asunto histórico anunciado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410148659"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0917edffb0623a2c",
+  "origen": "chatgpt-web"
+}

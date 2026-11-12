@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388211188",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Después del naufragio, de Albert Sánchez Piñol, se dirige a lectores interesados en la narrativa contemporánea en castellano. Por su clasificación editorial, se aparta de las búsquedas centradas específicamente en clásicos o romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Después del naufragio se publica en tapa blanda, con 304 páginas en castellano. Esta edición de Navona Editorial permite leer el volumen en papel y transportarlo sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d70f0db21a61631d",
+  "origen": "chatgpt-web"
+}

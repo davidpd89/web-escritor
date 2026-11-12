@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388136610",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una segunda vez: Autor de Martes con mi viejo profesor (Mitch Albom), de Mitch Albom, encaja con lectores de narrativa contemporánea que prefieren novelas en formato de extensión media. Sus 304 páginas permiten abordar una lectura más larga que la de un relato breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una segunda vez: Autor de Martes con mi viejo profesor (Mitch Albom), de Mitch Albom, está disponible en tapa blanda y Kindle. La edición física reúne sus 304 páginas en papel; Kindle permite llevar el libro en un dispositivo electrónico y leerlo en pantalla.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "269ff681ad136779",
+  "origen": "chatgpt-web"
+}

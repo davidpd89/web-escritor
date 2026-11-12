@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388092602",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La era de la farfolla (Serie ENDEBATE) se dirige a lectores que buscan un ensayo de Daniel Gascón en lugar de una obra narrativa. Su clasificación como ensayo lo diferencia de las novelas de ficción y de los libros organizados como manuales de ejercicios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La era de la farfolla (Serie ENDEBATE) cuenta con una edición en tapa blanda de 136 páginas, publicada por Debate. Su extensión permite distribuir la lectura del ensayo en pocas sesiones y conservar un ejemplar físico para futuras consultas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b2fe56878daebeb8",
+  "origen": "chatgpt-web"
+}

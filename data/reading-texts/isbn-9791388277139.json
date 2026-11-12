@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791388277139",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fearless (edición especial Pae & Kai) (Saga Powerless 3) (Sin límites) encaja con lectores interesados en fantasía y asuntos familiares dentro de una serie de novelas. El título lo identifica como el n.º 3, de modo que no está planteado editorialmente como una entrega inicial ni como una lectura corta: suma 656 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición especial Pae & Kai de Lauren Roberts aparece en el catálogo de Alfaguara con fecha del 26 de noviembre de 2026. Se presenta en castellano, con tapa dura y 656 páginas, bajo el ISBN 9791388277139.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "fecha_publicacion",
+        "idioma",
+        "edicion",
+        "numero_paginas",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sus 656 páginas se ofrecen en tapa dura, una presentación rígida pensada para conservar el ejemplar físico y consultarlo repetidamente. Por la extensión, conviene contar con espacio para sostenerlo durante la lectura y guardarlo después junto a los demás libros de la serie.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Reckless (edición especial Pae & Kai) (Saga Powerless 2) (Sin límites) y Powerless (edición especial Pae & Kai) (Saga Powerless 1) (Sin límites) comparten con Fearless (edición especial Pae & Kai) (Saga Powerless 3) (Sin límites) la autoría de Lauren Roberts y la presentación especial Pae & Kai. Sus títulos los distinguen como los números 2, 1 y 3, respectivamente, dentro de la misma saga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388277122",
+        "isbn-9791388277115"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "41fd8c843190f362",
+  "origen": "chatgpt-web"
+}

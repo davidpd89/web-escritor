@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791399280722",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sobre la charlatanería de los eruditos (Grandes Clásicos) se dirige a lectores de ensayo y filosofía interesados en reflexionar sobre la erudición y los conocimientos académicos. Por su clasificación temática, encaja menos con quien busca una novela de ficción, una biografía o una lectura centrada en acontecimientos narrativos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sobre la charlatanería de los eruditos (Grandes Clásicos) se publica en tapa blanda, con 208 páginas en castellano. Esta edición permite leer el ensayo en papel, subrayar pasajes y conservar el volumen como parte de una biblioteca de filosofía, sin depender de un dispositivo digital.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "edicion",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a15b696b5c42151f",
+  "origen": "chatgpt-web"
+}

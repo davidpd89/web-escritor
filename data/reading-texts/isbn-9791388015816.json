@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388015816",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "80 crímenes imposibles de resolver (FUERA DE ESCENA) está dirigido a lectores interesados en los enigmas criminales y en los retos relacionados con la resolución de crímenes. Sus 256 páginas concentran la propuesta en un volumen de ocio; quien busque una novela de ficción convencional encontrará un planteamiento distinto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene los 80 crímenes imposibles de resolver (FUERA DE ESCENA) en 256 páginas. Es la opción disponible para trabajar con el libro en papel y conservarlo junto a otros libros de enigmas; no se ofrecen aquí ediciones Kindle, tapa dura ni audiolibro.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Agatha Christie. ¿Quién lo hizo? Resuelve los casos más famosos de la Reina del Crimen, de Sarah Dvojack, comparte con 80 crímenes imposibles de resolver (FUERA DE ESCENA) el interés por los casos criminales y su resolución. La diferencia está en el enfoque: el primero se centra en los casos asociados a Agatha Christie, mientras que el segundo presenta 80 crímenes en su propia propuesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791259578907"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c2bd2d36c3de35bc",
+  "origen": "chatgpt-web"
+}

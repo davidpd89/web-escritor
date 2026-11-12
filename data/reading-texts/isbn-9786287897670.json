@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9786287897670",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Maldito Amor / Damned Love encaja con lectores de relatos contemporáneos interesados en el amor y las relaciones de pareja. Jorge Franco firma una obra de 160 páginas que se aparta de los manuales sobre relaciones y se presenta como narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Maldito Amor / Damned Love se publica en tapa blanda y tiene 160 páginas, una extensión manejable para transportar el libro y leerlo en papel fuera de casa. La edición de Debolsillo está en castellano y reúne la obra en un único volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Maldito Amor / Damned Love puede compararse con Melodrama (Spanish Edition), también de Jorge Franco, por compartir autoría. Otra referencia es Caperucita se come al lobo / Little Red Riding Hood Eats the Wolf, de Pilar Quintana, que permite cambiar de autora dentro de la narrativa del catálogo. En Maldito Amor / Damned Love, el amor y la pareja son referencias temáticas expresas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897656",
+        "isbn-9786287880610"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a52b1f87734ecc4f",
+  "origen": "chatgpt-web"
+}

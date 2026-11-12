@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791388147470",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) se orienta a lectores de ciencia ficción, aventuras y misterio. Sus 384 páginas ofrecen una extensión intermedia; por sus géneros, encaja menos con quienes buscan exclusivamente narrativa realista o una lectura centrada en acontecimientos históricos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición limitada de Artemisa incorpora cantos tintados y encuadernación en tapa dura, dos rasgos que distinguen su presentación física. Penguin Bolsillo la publica el 19 de noviembre de 2026 en castellano, con 384 páginas y el ISBN 9791388147470.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura permite conservar las 384 páginas de Artemisa en un volumen físico con cantos tintados, adecuado para una colección de ediciones especiales. Kindle ofrece el mismo título en formato digital para leerlo en un dispositivo compatible o en el móvil, sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El marciano (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) comparte con Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) la autoría de Andy Weir y la presentación de edición limitada. Proyecto Hail Mary (edición deluxe) (Nova) también pertenece al mismo autor, pero se identifica como edición deluxe, frente a los cantos tintados y la tapa dura expresamente indicados para Artemisa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "edicion"
+      ],
+      "enlaces": [
+        "isbn-9791388147272",
+        "isbn-9788410466876"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7d2ef791103f3ba7",
+  "origen": "chatgpt-web"
+}

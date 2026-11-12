@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788448049829",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias) se dirige a lectores interesados en poesía, espiritualidad y textos vinculados a la experiencia personal. Por sus temas y su planteamiento, se diferencia de una novela de ficción o de un manual centrado en procedimientos prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias) se ofrece en tapa dura, con 208 páginas en la edición de Libros Cúpula. Este formato permite conservar el volumen y volver a consultar sus poemas y oraciones en papel, además de utilizarlo como libro de regalo.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias), de Matthew McConaughey, comparte el ámbito poético con Esas muchachas que escriben poemas, de Alba Donati, aunque este último pone el foco en mujeres que escriben poesía. También se aproxima a Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, por su relación con las experiencias vitales; este último se identifica expresamente con las vivencias del Camino de Santiago, mientras que el libro de Matthew McConaughey combina poemas y oraciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426434272",
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eba433388c3e648c",
+  "origen": "chatgpt-web"
+}

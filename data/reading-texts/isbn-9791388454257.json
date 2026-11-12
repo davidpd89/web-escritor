@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791388454257",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Freddie Mercury. Una vida en verso, de Mary Austin, se orienta a lectores interesados en Freddie Mercury y en publicaciones vinculadas al arte y el diseño. Su planteamiento anunciado en el título lo diferencia de los manuales de técnicas artísticas y de las obras de ficción juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Freddie Mercury. Una vida en verso se ofrece en tapa dura, con 320 páginas en castellano. La encuadernación rígida proporciona una cubierta resistente para conservar el volumen en una biblioteca personal o entregarlo como regalo relacionado con Freddie Mercury.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6616e3181c2be967",
+  "origen": "chatgpt-web"
+}

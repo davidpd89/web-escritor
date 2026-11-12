@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788409927210",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historia de una elfa (LUNÁTICO) se orienta a quienes buscan una obra breve vinculada a la narrativa contemporánea y el ensayo. Nhoa Galán firma un volumen de 64 páginas, distinto por su extensión y clasificación de una novela larga de fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Historia de una elfa (LUNÁTICO) está disponible en tapa blanda y Kindle. Sus 64 páginas permiten una lectura en papel de extensión reducida, mientras que la versión Kindle ofrece la posibilidad de llevar el texto en el móvil o en un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Historia de una elfa (LUNÁTICO) comparte autoría con Historia de un lambfe (Lunático) y LUNÁTICO: Primera Parte, ambas de Nhoa Galán. Los títulos identifican asuntos distintos, una elfa y un lambfe en los dos primeros casos, mientras que LUNÁTICO: Primera Parte se presenta como una primera parte. Historia de una elfa (LUNÁTICO) tiene 64 páginas y se clasifica entre la narrativa contemporánea y el ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "numero_paginas",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788409934409",
+        "isbn-9788409929757"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "211e5849b4cd92ab",
+  "origen": "chatgpt-web"
+}

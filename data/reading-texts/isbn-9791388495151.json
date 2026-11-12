@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791388495151",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "RE cervin, vol. 9, de Kousuke Hamada, se dirige a lectores de cómic y novela gráfica interesados en un volumen identificado con el número 9. El título lo identifica como el n.º 9; sus 192 páginas lo diferencian en extensión y formato narrativo de una novela convencional en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "RE cervin, vol. 9 está editado en tapa blanda y contiene 192 páginas en castellano. La edición física de Milky Way Ediciones permite consultar las páginas directamente y colocar el volumen junto a otros ejemplares de una colección de cómic.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "147d48c3f74d7bc8",
+  "origen": "chatgpt-web"
+}

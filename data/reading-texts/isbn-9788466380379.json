@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788466380379",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Unos cuantos sueños (Best Seller | Ficción) está dirigido a lectores interesados en la narrativa contemporánea y las novelas de ficción. Chimamanda Ngozi Adichie firma esta edición de 536 páginas; no es un ensayo ni un libro de divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece 536 páginas en formato físico de bolsillo, mientras que Kindle permite leer el libro en dispositivos electrónicos sin transportar el volumen. Ambas opciones están disponibles para Unos cuantos sueños (Best Seller | Ficción), de Chimamanda Ngozi Adichie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9035ff4696f7694d",
+  "origen": "chatgpt-web"
+}

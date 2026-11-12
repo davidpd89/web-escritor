@@ -4,51 +4,46 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Quemando el hielo se dirige a quienes buscan romance con personajes marcados por pérdidas personales y nuevas oportunidades. El patinaje sobre hielo ocupa un lugar central en la vida de Ellie, por lo que se aleja de las historias románticas que no incorporan el deporte a su conflicto.",
+      "texto": "Encaja con lectores de romance que buscan relaciones atravesadas por pérdidas personales, rivalidad y nuevas oportunidades. La presencia del hielo como espacio importante para Ellie orienta la lectura hacia un conflicto sentimental vinculado al deporte; no corresponde a quien busca una historia centrada en la investigación criminal o la fantasía.",
       "evidencias": [
-        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Quemando el hielo es una novela romántica de Moruena Estríngana que relaciona los vínculos afectivos con las dificultades personales y el patinaje sobre hielo. Ellie encuentra en la pista una forma de libertad tras experiencias de abandono, mientras Jace Roy aparece asociado a la competición y a la victoria.",
+      "texto": "Es una novela romántica en la que las dificultades personales y la competición deportiva condicionan las relaciones. Ellie encuentra en el hielo un espacio de autonomía después de experiencias de abandono, mientras Jace Roy aparece asociado a la victoria. El conflicto combina la necesidad de reconstruirse con las exigencias de ganar.",
       "evidencias": [
-        "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Quemando el hielo está disponible en tapa blanda y Kindle. La edición física de Booket reúne sus 288 páginas en rústica sin solapas, mientras que Kindle permite leer la novela en formato digital desde un dispositivo compatible, sin llevar el volumen impreso.",
+      "texto": "La tapa blanda reúne las 288 páginas en una edición rústica sin solapas, apropiada para leer en papel y transportar. Kindle permite llevar el texto en el móvil o en un lector electrónico sin cargar con el volumen físico; el audiolibro ofrece la alternativa de escuchar la historia durante desplazamientos u otras actividades.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion",
-        "editorial"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Six-step hacia ti y Quemando el hielo comparten la autoría de Moruena Estríngana y relacionan el romance con la competición deportiva. Six-step hacia ti presenta una rivalidad sobre la pista, mientras que Quemando el hielo sitúa el foco en Ellie, su relación con el patinaje y las pérdidas que han marcado su vida.",
+      "texto": "Six-step hacia ti comparte autora, Moruena Estríngana, y relaciona el romance con la rivalidad sobre una pista. Quemando el hielo añade a esa combinación el peso de las pérdidas y las oportunidades de recomenzar en la trayectoria de Ellie. A cinco segundos de ti, de Sandra Miró, plantea en cambio una protagonista definida por la exigencia de ser perfecta.",
       "evidencias": [
-        "titulo",
-        "autores",
         "afines_catalogo",
-        "sinopsis_editorial",
-        "categorias"
+        "autores",
+        "titulo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788408331087"
+        "isbn-9788408331087",
+        "isbn-9788427055735"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d132b66dd9d98d9d",
+  "fuente_hash": "83a5940b850e2183",
   "origen": "chatgpt-web"
 }

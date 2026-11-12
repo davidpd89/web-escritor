@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788408324836",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Destinos vintage: 40 láminas misteriosas para colorear (GEOPLANETA COLOREA) se dirige a quienes buscan actividades de coloreado relacionadas con los viajes y el diseño. Su propuesta de ocio creativo se aleja de la lectura de una novela convencional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Destinos vintage: 40 láminas misteriosas para colorear (GEOPLANETA COLOREA) está disponible en tapa blanda. Sus 80 páginas ofrecen un soporte físico para colorear las láminas, por lo que el uso del papel forma parte de la actividad.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Destinos vintage: 40 láminas misteriosas para colorear (GEOPLANETA COLOREA) comparte el interés por los viajes con Costa amalfitana (VIAJES), de Natasha Penot. La diferencia está en el uso: el libro de Sophie Guët propone colorear láminas, mientras que el de Natasha Penot se presenta como una obra de viajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934156"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d1add55ba4f21a8b",
+  "origen": "chatgpt-web"
+}

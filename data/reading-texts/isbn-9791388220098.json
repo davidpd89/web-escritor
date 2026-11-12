@@ -4,47 +4,49 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los mundos de Dune encaja con lectores interesados en la ciencia ficción y en el origen literario de Dune. Su planteamiento gira alrededor de la creación de ese universo y de su autor, por lo que se distancia de una novela que desarrolle una aventura ficticia nueva.",
+      "texto": "Los mundos de Dune se dirige a lectores interesados en la ciencia ficción y en cómo se construye un universo literario. Su enfoque sobre el origen de una obra del género lo distingue de una novela centrada en seguir las aventuras de personajes ficticios.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Los mundos de Dune plantea una aproximación a la construcción de un universo de ciencia ficción desde la trayectoria de su creador. Tom Huddleston aborda cómo un antiguo militar y periodista llegó a escribir Dune, con una perspectiva sobre la obra y su gestación.",
+      "texto": "Los mundos de Dune aborda la creación de un universo de ciencia ficción desde la trayectoria de quien lo concibió. Tom Huddleston plantea una aproximación al origen literario de Dune y a las circunstancias de su escritura, en un volumen de 208 páginas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los mundos de Dune está disponible en tapa dura, con 208 páginas y encuadernación en cartoné sin sobrecubierta. Es una edición física para conservar y consultar durante la lectura, especialmente si se prefiere tener en papel el estudio del universo literario.",
+      "texto": "La edición disponible es de tapa dura en cartoné, sin sobrecubierta, y contiene 208 páginas. Este formato permite conservar el volumen como libro de consulta sobre el universo de Dune y facilita su presentación como regalo físico.",
       "evidencias": [
-        "titulo",
-        "numero_paginas",
-        "edicion",
         "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "titulo",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aunque se acabe el mundo comparte con Los mundos de Dune el terreno de la ciencia ficción, pero desarrolla una crisis que afecta a la humanidad, mientras el libro de Tom Huddleston examina la creación de Dune. Juntos en cualquier mundo. Tú y yo más allá del tiempo introduce el amor y el multiverso mediante dos novelas, frente al enfoque sobre una obra literaria de Los mundos de Dune.",
+      "texto": "Al despertar, rompe el cascarón (Runas), de Becky Chambers, comparte con Los mundos de Dune su relación con la ciencia ficción, aunque este último se centra en explicar el origen de un universo literario. Aftermyth 1. Penelope y la prueba de los dioses, de Tracy Wolff, remite desde su título a una prueba protagonizada por un personaje, frente al enfoque sobre la creación literaria que adopta Tom Huddleston.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788427255968",
-        "isbn-9788427055483"
+        "isbn-9788408324102",
+        "isbn-9791370093488"
       ]
     }
   ],

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388001222",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las brujas de Belie (Books4pocket narrativa) se dirige a lectores de fantasía que buscan también elementos románticos. Su combinación de fantasía y romance se aparta de la narrativa realista y de las historias centradas exclusivamente en relaciones sentimentales sin componentes fantásticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Las brujas de Belie (Books4pocket narrativa) es de tapa blanda y tiene 448 páginas en castellano. Este formato permite llevar una novela extensa en papel sin la rigidez de una cubierta dura, tanto para leer fuera de casa como para guardarla en una estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alas de escarcha y oro: El canto del cisne y Las brujas de Belie (Books4pocket narrativa) se sitúan en el ámbito de la fantasía, aunque el primero presenta a Eira y sus dones ocultos, mientras que el segundo incorpora las brujas desde el título. Ciudad de dioses y monstruos (DARK ROMANCE) ofrece otra referencia de romance vinculado a elementos fantásticos, con una identificación explícita de romance oscuro.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938",
+        "isbn-9788415955559"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bc9109e6f2253fe6",
+  "origen": "chatgpt-web"
+}

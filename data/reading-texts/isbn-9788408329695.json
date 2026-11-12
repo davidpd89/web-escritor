@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408329695",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "76, de Felipe Pigna, encaja con lectores interesados en la historia y los acontecimientos del siglo XX. Sus 512 páginas lo sitúan entre las lecturas extensas de temática histórica, por lo que se aleja de quienes buscan una obra breve o centrada en instrucciones prácticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "76 está disponible en tapa blanda y Kindle, con una extensión de 512 páginas en su edición impresa. La tapa blanda permite conservar y consultar el volumen físico; Kindle facilita llevar la lectura en un dispositivo electrónico sin transportar ese número de páginas en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "76 y Conspiración en Londres comparten autor, Felipe Pigna, pero el primero está clasificado como historia del siglo XX y el segundo como novela histórica y narrativa contemporánea. La diferencia principal para el lector está en elegir una obra de orientación histórica o una narración de ficción ambientada en un contexto histórico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329688"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3fcecabc7070ed5d",
+  "origen": "chatgpt-web"
+}

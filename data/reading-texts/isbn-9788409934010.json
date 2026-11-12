@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788409934010",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El código del rendimiento: La ciencia detrás de lo que el deportista consume está orientado a lectores interesados en la alimentación deportiva y la relación entre nutrición y rendimiento. Su enfoque se concentra en lo que consume el deportista, por lo que no corresponde a una búsqueda de narrativa de ficción o de ocio desvinculado de la salud.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El código del rendimiento: La ciencia detrás de lo que el deportista consume tiene 108 páginas y está disponible en tapa blanda y Kindle. El papel permite conservarlo como libro de consulta, mientras que Kindle facilita revisar su contenido desde el móvil o un lector electrónico durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El código del rendimiento: La ciencia detrás de lo que el deportista consume, de Eztizen Pérez Díaz, comparte el interés por la ciencia aplicada al deporte con La escalera del músculo: Ponte fuerte usando la ciencia (Fitness), de Jeff Nippard. El primero se centra en la alimentación del deportista, mientras que el segundo aborda el desarrollo muscular desde una perspectiva científica. Ambos tratan aspectos del rendimiento físico, aunque sus temas principales son diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387936594"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "98211d790a6a88ab",
+  "origen": "chatgpt-web"
+}

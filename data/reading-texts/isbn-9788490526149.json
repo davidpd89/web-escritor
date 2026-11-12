@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788490526149",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La gestión IA del tiempo: Productividad inteligente para afrontar la nueva era del trabajo se orienta a lectores interesados en la productividad, la organización del tiempo y la inteligencia artificial aplicada al trabajo. Su temática queda fuera de los enfoques centrados en finanzas personales o en teoría económica general.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar en papel las 193 páginas de La gestión IA del tiempo: Productividad inteligente para afrontar la nueva era del trabajo. Publicado por Ediciones Díaz de Santos, S.a., el volumen reúne en una edición física en castellano los contenidos sobre productividad y organización del tiempo vinculados a la inteligencia artificial.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antes de liderar: Una mirada interior a un oficio y La gestión IA del tiempo: Productividad inteligente para afrontar la nueva era del trabajo coinciden en su relación con la actividad profesional. Miguel Reinoso aborda el liderazgo desde una mirada interior, mientras que Iñaki Bustinduy Cruz sitúa la inteligencia artificial y la productividad temporal en el centro de su libro.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aa7d9f9e49a0e0d7",
+  "origen": "chatgpt-web"
+}

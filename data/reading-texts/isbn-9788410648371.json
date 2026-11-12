@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788410648371",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El ingenioso hidalgo don Quijote de la Mancha, de Miguel de Cervantes, se dirige a lectores interesados en los clásicos de la literatura en castellano. Esta edición de 896 páginas exige asumir una lectura extensa y se aleja de lo que busca quien prefiere libros breves.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El ingenioso hidalgo don Quijote de la Mancha puede elegirse en tapa dura o Kindle. La edición física de Harpercollins reúne 896 páginas en una encuadernación rígida, adecuada para conservar el volumen o regalarlo; Kindle permite leer la obra en un dispositivo compatible sin transportar ese libro de papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8acb8f224bce4962",
+  "origen": "chatgpt-web"
+}

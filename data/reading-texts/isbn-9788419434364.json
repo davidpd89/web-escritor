@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788419434364",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hecho una mierda, pero en casa (Cuadernos creativos) se dirige a quienes buscan un cuaderno relacionado con el desarrollo personal y el bienestar. Su enfoque temático también abarca la familia, por lo que se distancia de los manuales dedicados exclusivamente a cuestiones técnicas o profesionales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hecho una mierda, pero en casa (Cuadernos creativos) se presenta en tapa blanda y tiene 160 páginas. Su extensión permite manejarlo como cuaderno físico, guardarlo en una mochila o tenerlo a mano en casa. La edición está publicada por Planeta Gifts en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "51008e633de64f06",
+  "origen": "chatgpt-web"
+}

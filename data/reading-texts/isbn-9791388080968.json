@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388080968",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El código bushido: La filosofía de los samuráis / Edición comentada por Marcos Cartagena está dirigido a lectores interesados en la filosofía de los samuráis y su contexto histórico. Es un ensayo de 240 páginas con comentarios editoriales, no una novela de aventuras protagonizada por guerreros.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El código bushido: La filosofía de los samuráis / Edición comentada por Marcos Cartagena puede leerse en tapa blanda o Kindle. La edición impresa reúne 240 páginas para consultar y conservar en papel, mientras que Kindle permite acceder al texto desde un dispositivo electrónico durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El código bushido: La filosofía de los samuráis / Edición comentada por Marcos Cartagena puede compararse con Diatribas. 31 lecciones estoicas sobre la vida (Biblioteca Edaf) por su orientación filosófica. La obra de Inazo Nitobe aborda la filosofía de los samuráis mediante una edición comentada, mientras que la de Epicteto presenta lecciones estoicas sobre la vida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788441445086"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a2cd72cbffdf32ea",
+  "origen": "chatgpt-web"
+}

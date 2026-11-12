@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409929757",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "LUNÁTICO: Primera Parte se dirige a lectores interesados en la fantasía con romance y elementos de ciencia ficción. Nhoa Galán combina estos géneros en una obra de 370 páginas, por lo que se aleja de las lecturas breves y de la narrativa estrictamente realista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "LUNÁTICO: Primera Parte está disponible en tapa blanda y Kindle. La edición impresa reúne sus 370 páginas en un volumen físico, mientras que Kindle permite llevar la misma extensión en un lector electrónico o en el móvil sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "LUNÁTICO: Primera Parte comparte autoría con Historia de un lambfe (Lunático) e Historia de una elfa (LUNÁTICO), ambos de Nhoa Galán. Los tres títulos presentan una vinculación nominal con Lunático, pero LUNÁTICO: Primera Parte se distingue por identificar expresamente una primera parte y combinar fantasía, romance y ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788409934409",
+        "isbn-9788409927210"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a1ae907fd4123027",
+  "origen": "chatgpt-web"
+}

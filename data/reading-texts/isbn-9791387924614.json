@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387924614",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "RESET: Si hay vida, hay oportunidad, de Carlos Roca, encaja con lectores interesados en las experiencias personales, las biografías y el desarrollo personal. Sus 256 páginas se sitúan en el ámbito del crecimiento individual y las memorias, no en el de la ficción o los manuales especializados de empresa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 256 páginas de RESET: Si hay vida, hay oportunidad, de Carlos Roca, en una edición física que puede leerse y conservarse en papel. Es el formato disponible para quienes prefieren pasar las páginas de un libro impreso en lugar de leer en una pantalla.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "RESET: Si hay vida, hay oportunidad, de Carlos Roca, comparte con Cuando solo queda aire: Aprender a morir es aprender a vivir (Crecimiento personal), de Paul Kalanithi, el interés por las experiencias vitales y su relación con el desarrollo personal. Sin embargo, el segundo título plantea expresamente la reflexión sobre la muerte y el aprendizaje de vivir, mientras el primero presenta la oportunidad de empezar de nuevo como punto de partida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425375286"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "248dedbbd8003120",
+  "origen": "chatgpt-web"
+}

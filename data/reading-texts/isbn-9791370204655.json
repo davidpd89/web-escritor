@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370204655",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Evangélicos: De la Reforma a nuestros días: Quiénes son los cristianos «con la Biblia bajo el brazo» (Espiritualidad) se dirige a lectores interesados en el cristianismo evangélico y su trayectoria histórica. Por su enfoque religioso, encaja menos con quienes buscan una novela de ficción o una introducción a tradiciones espirituales ajenas al cristianismo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 120 páginas de Evangélicos: De la Reforma a nuestros días: Quiénes son los cristianos «con la Biblia bajo el brazo» (Espiritualidad) en un volumen físico. Publicada por Almuzara en castellano, permite consultar sus apartados y volver a pasajes concretos sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al andar: Vivencias del Camino de Santiago comparte con Evangélicos: De la Reforma a nuestros días: Quiénes son los cristianos «con la Biblia bajo el brazo» (Espiritualidad) el interés por asuntos vinculados a la espiritualidad, pero parte de vivencias relacionadas con el Camino de Santiago. Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación aborda otra tradición religiosa, mientras que José Pablo Sánchez Núñez centra su libro en los evangélicos y su historia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496",
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cd3b8cf98b2e1994",
+  "origen": "chatgpt-web"
+}

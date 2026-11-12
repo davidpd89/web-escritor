@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788410929166",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a quienes quieren regalar a su madrina un espacio dedicado a sus recuerdos y experiencias personales. Madrina, cuéntame tu historia: Un libro de recuerdos para compartir - Un regalo original para la mejor madrina del mundo, de Rose Hannah Morel, responde a un propósito familiar y autobiográfico, no a la búsqueda de una biografía sobre un personaje histórico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La memoria personal y la relación con la madrina constituyen el centro de este libro de recuerdos. Rose Hannah Morel plantea una obra orientada a compartir la historia de una persona cercana, con un enfoque vinculado a las memorias y al regalo familiar. El interés recae en la experiencia individual, no en una reconstrucción histórica general.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda ofrece 100 páginas en un volumen físico concebido como libro de recuerdos para regalar a una madrina. Publicada por Bod - Books On Demand, permite entregar el ejemplar en persona y conservarlo junto a otros recuerdos familiares. Su extensión facilita manejarlo y guardarlo sin ocupar demasiado espacio.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El tiempo que pasa, de Manuel Medina, comparte con Madrina, cuéntame tu historia: Un libro de recuerdos para compartir - Un regalo original para la mejor madrina del mundo el interés por preservar experiencias personales. Manuel Medina evoca la infancia y la España de la posguerra, mientras Rose Hannah Morel propone un libro de recuerdos centrado en la historia de una madrina.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401040580"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "02d0e065b24f9810",
+  "origen": "chatgpt-web"
+}

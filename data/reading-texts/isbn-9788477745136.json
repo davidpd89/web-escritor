@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788477745136",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la estética desde la filosofía y el ensayo, con el arte como eje de reflexión. Por su orientación temática, se distancia de quienes buscan una guía práctica de técnicas artísticas o un recorrido turístico por museos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de A. Machado Libros tiene 208 páginas en castellano. Su extensión permite abordar el ensayo por sesiones y regresar a los apartados dedicados a la relación entre estética y arte sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "De la estética como política: Para una rehabilitación del sentido en el cine (Signo e imagen), de Noël Burch, comparte el interés por la estética, pero lo vincula expresamente al cine y la política. Mirar el Prado: 18 obras para entender el arte (Varios), de Alejandro Vergara, se aproxima al arte mediante obras concretas, mientras que Arturo Leyte plantea una reflexión filosófica sobre la estética.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788437650586",
+        "isbn-9788408325406"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c2057f4ea6fb3781",
+  "origen": "chatgpt-web"
+}

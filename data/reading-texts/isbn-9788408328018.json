@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408328018",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Universidad Sorrowsong: Nightshade + Daybreak (Ficción) reúne dos títulos para lectores interesados en el romance, el misterio y las aventuras ambientadas en un entorno académico. Su combinación de géneros se aleja de la narrativa exclusivamente romántica y de los libros prácticos sobre relaciones personales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El estuche se presenta en tapa blanda y reúne Nightshade y Daybreak en una edición de 872 páginas. Permite adquirir ambos títulos juntos en formato físico, tanto para una lectura consecutiva como para incorporarlos a una colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nightshade (Universidad Sorrowsong, 1): Edición limitada a precio especial (Colección Especial) y Universidad Sorrowsong 2. Daybreak son las comparaciones directas porque pertenecen a la misma serie y comparten autora, Autumn Woods. Frente a esas ediciones individuales, Estuche Universidad Sorrowsong: Nightshade + Daybreak (Ficción) reúne ambos títulos en una sola presentación física.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "formatos_disponibles"
+      ],
+      "enlaces": [
+        "isbn-9788408331681",
+        "isbn-9788408324485"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "23ade4d5922a31c0",
+  "origen": "chatgpt-web"
+}

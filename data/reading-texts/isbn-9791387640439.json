@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Plaza Brugmann, 33 se dirige a lectores adultos interesados en la novela histórica, la supervivencia y los dilemas morales durante una ocupación militar. La historia de Alice Austen se centra en una comunidad de vecinos cuya convivencia cambia bajo la amenaza nazi; encaja menos con quien busque una narración ajena a la guerra o a los conflictos entre personas cercanas.",
+      "texto": "Plaza Brugmann, 33 está dirigida a lectores adultos de novela histórica interesados en la ocupación alemana, la resistencia civil y los conflictos morales. Su trama incluye persecución política, desapariciones y decisiones de supervivencia, por lo que se aleja de una lectura histórica centrada únicamente en la vida cotidiana.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,9 +14,8 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela histórica coral ambientada en Bruselas durante la ocupación nazi, con la resistencia y la supervivencia como ejes del conflicto. Alice Austen utiliza las relaciones entre los habitantes de un edificio, la desaparición de una familia y el destino de una colección artística para plantear decisiones sobre confianza, colaboración y protección mutua.",
+      "texto": "Alice Austen construye una novela histórica coral ambientada en la Bruselas ocupada, donde la convivencia entre vecinos queda condicionada por la persecución y la guerra. El conflicto combina la desaparición de una familia y de su colección artística con decisiones sobre colaboración, resistencia y protección mutua.",
       "evidencias": [
-        "titulo",
         "autores",
         "categorias",
         "sinopsis_editorial"
@@ -25,7 +23,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Plaza Brugmann, 33 está disponible en tapa blanda y Kindle. La edición física de Salamandra tiene 384 páginas y solapas, una opción para leer en papel o regalar; Kindle permite llevar la misma novela en un lector electrónico o dispositivo compatible sin transportar el volumen.",
+      "texto": "Plaza Brugmann, 33 se ofrece en tapa blanda con solapas y en Kindle. La edición de Salamandra tiene 384 páginas para quienes prefieren una novela física; el formato digital permite leer esa historia sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
         "editorial",
@@ -36,16 +34,16 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Plaza Brugmann, 33 puede compararse con Cosamala por su relación con la guerra y sus consecuencias sobre las personas, aunque Alice Austen sitúa el conflicto en una comunidad bajo ocupación y Alana S. Portero recurre a elementos góticos y brujas. También comparte con Cuando seamos inmortales la presencia del arte en un contexto histórico, pero Tony Gratacós aborda la rivalidad artística y el destino político de un reino.",
+      "texto": "Los Juegos del Hambre 5 - Amanecer en la cosecha (edición especial), de Suzanne Collins, permite comparar relatos asociados a la supervivencia y al conflicto con el poder. Plaza Brugmann, 33, de Alice Austen, se distingue por su ambientación histórica en la Bruselas ocupada y por situar las decisiones de resistencia entre los vecinos de un edificio.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788432251436",
-        "isbn-9788423371181"
+        "isbn-9788427257702"
       ]
     }
   ],

@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788491058458",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuentos de misterio y terror (edición especial en tapa dura) (Ediciones Conmemorativas) se dirige a lectores de relatos de terror y misterio clásico. Sus 224 páginas permiten abordar una colección de extensión contenida, pero su orientación temática encaja menos con quienes evitan las historias inquietantes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición conmemorativa de Cuentos de misterio y terror, de Edgar Allan Poe, utiliza una encuadernación en tapa dura. Penguin Clásicos la publica en castellano el 19 de noviembre de 2026, con 224 páginas y el ISBN 9788491058458.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "editorial",
+        "idioma",
+        "fecha_publicacion",
+        "numero_paginas",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para esta recopilación de 224 páginas de Edgar Allan Poe. Su extensión facilita manejar el volumen durante sesiones de lectura breves, mientras que la encuadernación rígida favorece su conservación y su presentación como regalo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La máscara de la muerte roja y otros relatos (Minotauro Ilustrados) comparte con Cuentos de misterio y terror (edición especial en tapa dura) (Ediciones Conmemorativas) la autoría de Edgar Allan Poe y el formato de recopilación de relatos. La diferencia está en la edición: la primera pertenece a Minotauro Ilustrados y acredita también a Ismael Pinteño Visuara, mientras que la segunda es una edición conmemorativa de Penguin Clásicos.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion"
+      ],
+      "enlaces": [
+        "isbn-9788445023273"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a43d6c7118c30df4",
+  "origen": "chatgpt-web"
+}

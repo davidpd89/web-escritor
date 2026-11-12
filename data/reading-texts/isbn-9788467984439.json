@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788467984439",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dan da dan 22, de Yukinobu Tatsu, encaja con lectores de cómic y novela gráfica que prefieren la narración mediante viñetas. El título lo identifica como el n.º 22, por lo que quien busque una primera entrega o una novela escrita exclusivamente en prosa encontrará una propuesta distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dan da dan 22 se presenta en tapa blanda y reúne 194 páginas en castellano. La edición de Norma Editorial ofrece una lectura física de cómic, con páginas que se pueden consultar y volver a abrir sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7b92711e66bc4dfa",
+  "origen": "chatgpt-web"
+}

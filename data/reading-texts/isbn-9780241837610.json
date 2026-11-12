@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9780241837610",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Antigua Grecia (Civilizaciones antiguas) (Enciclopedia visual) está dirigida a lectores interesados en la historia de las civilizaciones antiguas. Su planteamiento enciclopédico y visual se diferencia del de una novela histórica, por lo que responde mejor a una búsqueda de consulta y conocimiento que a una lectura de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Antigua Grecia (Civilizaciones antiguas) (Enciclopedia visual) se edita en tapa dura y contiene 320 páginas en castellano. La encuadernación rígida de DK permite mantener el volumen en una biblioteca de consulta y manejarlo como una obra de referencia histórica, también cuando se utiliza para estudiar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antigua Grecia (Civilizaciones antiguas) (Enciclopedia visual) comparte con Antigua Roma (Civilizaciones antiguas para niños) el interés por las civilizaciones históricas y la autoría de DK. La primera dedica sus 320 páginas a Grecia en formato de enciclopedia visual, mientras que la segunda aborda la vida en Roma y señala expresamente al público infantil en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241839362"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0bdb2ba396ec5d8d",
+  "origen": "chatgpt-web"
+}

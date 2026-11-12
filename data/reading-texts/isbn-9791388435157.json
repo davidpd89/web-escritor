@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388435157",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Romancero gitano (VINTAGE), de Federico García Lorca, se dirige a lectores de poesía en castellano y a quienes buscan obras de este autor. Por su naturaleza poética, se distancia de las novelas de argumento continuo y de los textos teatrales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de Romancero gitano (VINTAGE) tiene 128 páginas y está publicada por Newton Compton Editores. Su encuadernación rígida permite conservar el volumen en una biblioteca personal y utilizarlo para consultas o relecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Romancero gitano (VINTAGE) y Poeta en Nueva York (edición especial con cantos tintados) (Literatura ilustrada) comparten la autoría de Federico García Lorca y su vinculación con la poesía. El primero se presenta en tapa dura con 128 páginas, mientras que el segundo destaca por una edición especial con cantos tintados y la participación de Ricardo Cavolo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388220272"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d02a8496a39741c9",
+  "origen": "chatgpt-web"
+}

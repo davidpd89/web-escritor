@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408327608",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ilusión y persuasión (Ensayos) encaja con lectores que buscan ensayos relacionados con el arte y el diseño. Su planteamiento ensayístico y su autoría colectiva lo diferencian de los libros de actividades creativas y de las narraciones de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ilusión y persuasión (Ensayos) se publica en tapa dura, con 448 páginas en castellano. La encuadernación rígida resulta práctica para conservar un volumen de esta extensión y consultarlo en una biblioteca personal dedicada al arte y el diseño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ilusión y persuasión (Ensayos) puede compararse con Chanel XXI (Divulgación) por su autoría colectiva y su vinculación con el ámbito del arte y el diseño. El primero se presenta como una obra de ensayos sobre ilusión y persuasión, mientras que el segundo se identifica como una publicación divulgativa dedicada a Chanel.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410989726"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8f959c1814e7b637",
+  "origen": "chatgpt-web"
+}

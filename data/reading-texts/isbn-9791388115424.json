@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791388115424",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La ciudad del sol: La obra utópica más importante de la Edad Moderna, inspirada en la «República» de Platón (No Ficción) se dirige a lectores interesados en filosofía, ensayo y pensamiento utópico. Su enfoque en la organización ideal de la sociedad se distancia de la fantasía orientada principalmente a la aventura y la acción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra aborda el pensamiento utópico y su relación con la tradición filosófica de la República de Platón. Tomasso Campanella plantea una propuesta vinculada a la Edad Moderna que puede leerse desde la filosofía y el ensayo, además de su proximidad temática con la ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Biblioteca Nueva publica esta edición en tapa blanda, con 96 páginas en castellano. Su extensión permite abordar el texto filosófico en un volumen breve y conservarlo para consultas posteriores sobre pensamiento utópico.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "SACU: Sistema de Asistencia Cognitiva Universal se relaciona con La ciudad del sol: La obra utópica más importante de la Edad Moderna, inspirada en la «República» de Platón (No Ficción) por su interés en modelos conceptuales, aunque el primero anuncia un sistema de asistencia cognitiva y el segundo una utopía filosófica. Al despertar, rompe el cascarón (Runas) ofrece otro punto de comparación desde la ciencia ficción, frente al enfoque ensayístico de Tomasso Campanella.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399229158",
+        "isbn-9791370093488"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "515f20e9e91891c5",
+  "origen": "chatgpt-web"
+}

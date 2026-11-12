@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788448049904",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Momentos Hygge: Un libro de actividades para pausar, respirar y disfrutar de lo simple encaja con lectores interesados en el bienestar, el desarrollo personal y las actividades de ocio. Sus 104 páginas se orientan a quien busca propuestas para dedicar tiempo a actividades personales, más que ejercicios de concentración o entretenimiento basado en juegos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite manejar sus 104 páginas como un libro físico de actividades, para utilizarlo en momentos de ocio y conservarlo después. Es el formato disponible en esta edición de Libros Cúpula, con una propuesta centrada en las actividades y no en la lectura digital o la escucha.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Flores cuquis para colorear: Colorea flores delicadas y escenas encantadoras (Anti-stress coloring) comparte con Momentos Hygge: Un libro de actividades para pausar, respirar y disfrutar de lo simple la orientación hacia actividades de ocio personal. El primero se centra en colorear flores y escenas; el segundo presenta una propuesta de actividades vinculada al bienestar y al desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788408328797"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "71d7ae26e7b118f0",
+  "origen": "chatgpt-web"
+}

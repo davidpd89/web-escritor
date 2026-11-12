@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388381447",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la trayectoria de Manuel Machado y en los libros que relacionan vida y obra de una figura literaria. Por su enfoque biográfico y sus 546 páginas, se aleja de las novelas de ficción breve y de las lecturas centradas exclusivamente en la trama.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje del libro es la vida y la obra de Manuel Machado, tratadas desde una perspectiva biográfica. Víctor Olmos firma un volumen de 546 páginas que se sitúa entre las biografías, las memorias y el ensayo, con la figura del escritor como asunto central.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, con 546 páginas en castellano publicadas por Editorial Renacimiento. Es una opción física para leer y consultar la trayectoria de Manuel Machado, con una encuadernación flexible frente a la rigidez de una tapa dura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Martín Vigil, el amigo amable: Una memoria inconfesable (Obras diversas) comparte el interés por una figura concreta y su memoria, aunque el libro de Víctor Olmos se centra en la vida y obra de Manuel Machado. El tiempo que pasa aborda los recuerdos de la España de posguerra desde una mirada personal, frente al enfoque biográfico de este volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401039898",
+        "isbn-9788401040580"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4c47cbd48edfe954",
+  "origen": "chatgpt-web"
+}

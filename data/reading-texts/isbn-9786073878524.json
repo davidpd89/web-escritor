@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073878524",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuentos de Terror / Horror Stories se dirige a quienes leen relatos de terror y buscan obras vinculadas a los clásicos del género. Sus 512 páginas forman un volumen extenso de narrativa breve, menos afín a quien prefiere una única novela contemporánea de argumento continuado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 512 páginas de Cuentos de Terror / Horror Stories en un volumen físico que permite consultar distintos relatos. Kindle ofrece una alternativa digital para leerlos en un dispositivo compatible y prescindir del peso del ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuentos de Terror / Horror Stories comparte el género y la estructura de relatos con Después de medianoche. Trece historias para no dormir: Prólogo de Stephen King (Espasa Narrativa). La diferencia está en la autoría: el primero corresponde a H P Lovecraft y el segundo a Daphne Du Maurier, mientras que Estuche Abismo Lovecraft (Minotauro Ilustrados) incorpora también a Tomás Hijo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084429",
+        "isbn-9788445022856"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "26056b4c5bfa817a",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788418690846",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Sistema: 7 (Catálogo a ciegas) encaja con lectores de narrativa contemporánea que prefieren obras de extensión breve. Sus 128 páginas y su publicación bajo la autoría de Anónimo lo distinguen de los libros prácticos y de los ensayos firmados por un autor identificado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Sistema: 7 (Catálogo a ciegas) se publica en tapa blanda, con 128 páginas en castellano. Es una edición física de extensión reducida que permite leer y conservar la obra en papel, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Sistema: 7 (Catálogo a ciegas) comparte la firma de Anónimo con El momento es ahora: Un manifiesto contra la resignación (Espasa Ensayo). La diferencia está en su clasificación y planteamiento editorial: el primero pertenece a la narrativa contemporánea y el segundo se presenta como un manifiesto contra la resignación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467085174"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cd38155c009f47da",
+  "origen": "chatgpt-web"
+}

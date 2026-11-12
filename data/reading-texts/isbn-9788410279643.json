@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410279643",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de poesía que buscan una obra breve en castellano. Con 60 páginas y su pertenencia a Artemisa de primer poemario, se distancia de las novelas extensas y de los libros centrados en una narración continuada.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene las 60 páginas de El reloj del minotauro: 6 (Artemisa de primer poemario). Su extensión permite llevar el volumen en una bolsa y consultar o releer los poemas en papel, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "223 esquinas: 16 (La garza roja) y El reloj del minotauro: 6 (Artemisa de primer poemario) pertenecen al ámbito poético, pero están firmados respectivamente por Antonio Fernández Lera e Iskren Kirilov. Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, señala expresamente el amor como eje de su selección, mientras que El reloj del minotauro se identifica por su pertenencia a Artemisa de primer poemario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "433848771431d2b2",
+  "origen": "chatgpt-web"
+}

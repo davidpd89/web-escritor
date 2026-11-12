@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788412972573",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Admirados Soñadores se encuadra en la narrativa contemporánea y las biografías y memorias. Su clasificación conecta con lectores interesados en obras de carácter biográfico y memorialístico, más que con quienes buscan narrativa de ficción de otros géneros.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda concentra sus 151 páginas en un volumen físico de extensión contenida. Es el formato disponible de Admirados Soñadores, de Juan Salazar Larraz, para quien prefiera conservar el libro en papel.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Admirados Soñadores comparte con Martín Vigil, el amigo amable: Una memoria inconfesable (Obras diversas), de Miguel Fernández, el vínculo con el ámbito de las memorias. El primero se clasifica también como narrativa contemporánea, mientras que el título de Miguel Fernández identifica expresamente una obra memorialística.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401039898"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "109986a2cc248022",
+  "origen": "chatgpt-web"
+}

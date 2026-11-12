@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La misteriosa pastelería de medianoche se dirige a lectores adultos interesados en la fantasía, los misterios familiares y la cocina tradicional. La historia combina el duelo por una abuela, una herencia y encuentros con espíritus; se aleja de los libros centrados en recetas prácticas o investigaciones criminales convencionales.",
+      "texto": "La misteriosa pastelería de medianoche se orienta a lectores adultos interesados en la fantasía sobrenatural, los secretos familiares y la cocina tradicional. Sus espíritus y referencias a la reencarnación la alejan de una narración culinaria realista o de un recetario destinado a preparar postres.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,43 +14,42 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "La misteriosa pastelería de medianoche contiene una narración de 240 páginas organizada alrededor de una pastelería que abre de diez a doce de la noche. Los encargos de sus visitantes sobrenaturales relacionan dulces tradicionales con recuerdos personales, mientras la protagonista investiga el pasado de su familia. Es ficción sobre cocina y memoria, no un manual de repostería.",
+      "texto": "La misteriosa pastelería de medianoche es una narración de 240 páginas que utiliza la elaboración de dulces tradicionales para desarrollar historias de memoria y despedida. Cada visita sobrenatural plantea un asunto pendiente relacionado con la vida anterior de un cliente. La actividad de la pastelería también permite reconstruir la historia de la familia de Yeon-hwa.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda con solapas de Salamandra reúne las 240 páginas de La misteriosa pastelería de medianoche en un volumen físico que puede conservarse o regalarse. Kindle permite leer esa misma extensión desde un dispositivo compatible, sin transportar el ejemplar impreso. La elección depende de si se prefiere pasar páginas en papel o leer en pantalla.",
+      "texto": "La edición de Salamandra ofrece 240 páginas en tapa blanda con solapas, adecuada para quien quiere conservar el libro físico. Kindle permite llevar La misteriosa pastelería de medianoche en el móvil o en un lector electrónico compatible. El audiolibro cambia la lectura visual por la escucha, sin necesidad de sostener el volumen durante el recorrido de la historia.",
       "evidencias": [
         "titulo",
-        "edicion",
         "editorial",
+        "edicion",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La misteriosa pastelería de medianoche y El mundo perdido comparten elementos de misterio, aunque Lee Onhwa utiliza una pastelería frecuentada por espíritus y Michael Crichton plantea una amenaza relacionada con dinosaurios. Frente a 20 minutos ¡y listo!, de Jamie Oliver, que aborda la cocina desde su aplicación práctica, la novela convierte los dulces en parte de un conflicto familiar y sobrenatural.",
+      "texto": "Unicornia - El libro de recetas mágicas: ¡Más de 25 recetas para cocinar en familia con mucho brilli-brilli! comparte con La misteriosa pastelería de medianoche la relación entre cocina y elementos mágicos. El primero presenta recetas para preparar en familia, mientras que la obra de Lee Onhwa es una narración para adultos sobre espíritus, memoria y vínculos familiares.",
       "evidencias": [
         "titulo",
         "autores",
+        "edad_recomendada",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466392143",
-        "isbn-9788425374074"
+        "isbn-9791387973025"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c20e2faa8dc15d91",
+  "fuente_hash": "e9bf63f4c2c7971d",
   "origen": "chatgpt-web"
 }

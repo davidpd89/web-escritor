@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419260734",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Carl el Mazmorrero (Character Limited Edition) (Nova) encaja con lectores de ciencia ficción que buscan una novela de 464 páginas. Su clasificación también incluye narrativa contemporánea; quienes prefieran lecturas breves o libros prácticos encontrarán aquí una extensión y un género diferentes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Carl el Mazmorrero (Character Limited Edition) (Nova) se presenta en tapa blanda, con 464 páginas en castellano. Esta encuadernación permite manejar el volumen durante la lectura y guardarlo en una estantería; su extensión requiere más espacio que una novela corta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La desgracia inevitable (Carl el Mazmorrero 7) y El ojo de la novia frenopática (Carl el Mazmorrero 6) comparten autor, Matt Dinniman, y la referencia a Carl el Mazmorrero (Character Limited Edition) (Nova). Los otros títulos se identifican expresamente con los números 7 y 6, mientras que esta edición se distingue por la indicación Character Limited Edition.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410466784",
+        "isbn-9788410466470"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "23bc52f837ae6587",
+  "origen": "chatgpt-web"
+}
