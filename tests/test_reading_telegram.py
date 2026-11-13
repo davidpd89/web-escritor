@@ -65,7 +65,11 @@ class ReadingTelegramTests(unittest.TestCase):
         self.assertLessEqual(visible_length(text), CAPTION_LIMIT)
         self.assertIn("Título &amp; edición", text)
         self.assertIn("Ver en Amazon", text)
-        self.assertIn("Ficha</a>", text)
+        self.assertNotIn("Ficha", text)
+        self.assertNotIn("davidportodiaz.com", text)
+        self.assertNotIn("📅", text)
+        self.assertTrue(text.startswith("#Novedades #publicidad"))
+        self.assertFalse(text.rstrip().endswith("#publicidad"))
 
     def test_only_verified_site_cover_is_used(self):
         book = {
@@ -219,7 +223,6 @@ class ReadingTelegramTests(unittest.TestCase):
         result = smoke(self.catalog(), "8498382378", self.root / "smoke.db")
         self.assertIn("PRUEBA", result[0]["text"])
         self.assertNotIn("Novedad de hoy", result[0]["text"])
-        self.assertIn("1 de noviembre de 2026", result[0]["text"])
         self.assertFalse((self.root / "smoke.db").exists())
 
     def test_smoke_delivery_and_dedup(self):

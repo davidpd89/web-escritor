@@ -208,6 +208,18 @@ def isbn_search_url(isbns: list[str], tag: str = "") -> str:
     return "https://www.amazon.es/s?" + urlencode(query, safe="|:")
 
 
+# Etiquetas de cada mensaje, arriba y fuera de la línea del enlace de Amazon. Telegram vuelve
+# clicable (y buscable) cualquier #palabra sin espacios; #publicidad deja claro que hay enlace de afiliado.
+HASHTAGS_NOVEDAD = "#Novedades #publicidad"
+HASHTAGS_PROXIMOS = "#ProximosLanzamientos #publicidad"
+DIGEST_HEADS = ("📚 <b>Aquí tienes las publicaciones del día", "🗓️ <b>Próximos lanzamientos del")
+
+
+def is_digest_text(text: str) -> bool:
+    """El resumen empieza por su línea de etiquetas y después por su titular."""
+    return any(line.startswith(DIGEST_HEADS) for line in text.split("\n", 3)[:3])
+
+
 def digest_key(day: str) -> str:
     return f"digest-{day}"
 
@@ -261,14 +273,14 @@ def digest(
         links.append(f'👉 <a href="{escape(isbn_search_url(chunk, tag), quote=True)}">{text}</a>')
     count = f"{len(books)} libro" + ("s" if len(books) != 1 else "")
     if until:
-        head = f"🗓️ <b>Próximos lanzamientos del {human_date(day)} al {human_date(until)}</b>"
+        head = f"{HASHTAGS_PROXIMOS}\n\n🗓️ <b>Próximos lanzamientos del {human_date(day)} al {human_date(until)}</b>"
         key = weekly_key(day)
     else:
-        head = f"📚 <b>Aquí tienes las publicaciones del día {human_date(day)}</b>"
+        head = f"{HASHTAGS_NOVEDAD}\n\n📚 <b>Aquí tienes las publicaciones del día {human_date(day)}</b>"
         key = digest_key(day)
     sub = f"{escape(label)} · {count}" if label else count
     text = (
-        f"{head}\n{sub}\n\n" + "\n".join(lines) + "\n\n" + "\n".join(links) + "\n#publicidad"
+        f"{head}\n{sub}\n\n" + "\n".join(lines) + "\n\n" + "\n".join(links)
     )
     return {"asin": key, "digest": True, "text": text, "release_date": day}
 
@@ -297,17 +309,15 @@ def message(book: dict, tag: str) -> str:
     genres = shorten(", ".join(book.get("genres", [])[:3]), 120)
     title = shorten(book["title"], 360)
     author = shorten(book["author"], 280)
-    meta = [f"📅 {human_date(book['release_date'], year=True)}"]
-    if book.get("publisher"):
-        meta.insert(0, f"🏢 {escape(shorten(book['publisher'], 100))}")
+    # Sin emoji de calendario (su dibujo muestra un «17» que confunde) y sin enlace a la ficha de la web:
+    # el único enlace es el de Amazon.
     head = (
-        f"📚 <b>Novedad de hoy</b>\n\n<b>{escape(title)}</b>\n"
-        f"✍️ {escape(author)}\n" + " · ".join(meta) + "\n"
+        f"{HASHTAGS_NOVEDAD}\n\n📚 <b>Novedad de hoy</b>\n\n<b>{escape(title)}</b>\n"
+        f"✍️ {escape(author)}\n"
+        + (f"🏢 {escape(shorten(book['publisher'], 100))}\n" if book.get("publisher") else "")
         + (f"🏷️ {escape(genres)}\n" if genres else "")
     )
-    tail = f'\n<a href="{escape(url, quote=True)}">Ver en Amazon</a> · #publicidad'
-    if book.get("web_url"):
-        tail += f' · <a href="{escape(book["web_url"], quote=True)}">Ficha</a>'
+    tail = f'\n👉 <a href="{escape(url, quote=True)}">Ver en Amazon</a>'
     room = CAPTION_LIMIT - 24 - visible_length(head + tail)
     blurb = shorten(book.get("synopsis", ""), min(320, room)) if room > 40 else ""
     return head + (f"\n<i>{escape(blurb)}</i>\n" if blurb else "") + tail
@@ -375,12 +385,12 @@ def send_discord(
     first_id, delivered = None, 0
     parts = discord_parts(text)
     digest_embeds = []
-    if text.startswith(("📚 <b>Aquí tienes las publicaciones del día", "🗓️ <b>Próximos lanzamientos del")) and len(parts) > 1:
+    if is_digest_text(text) and len(parts) > 1:
         markdown = to_discord(text)
         if len(markdown) > 6000:
             # Preserve the count and show the catalogue when even embeds cannot fit every link.
             summary = "\n".join(markdown.splitlines()[:2])
-            summary += "\n\n[Ver el catálogo](https://davidportodiaz.com/recomendaciones/) · #publicidad"
+            summary += "\n\n[Ver el catálogo](https://davidportodiaz.com/recomendaciones/)"
             parts = [summary]
         digest_embeds = [{"description": part} for part in parts]
         parts = [""]
