@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 import re
 import sys
+import time
 import traceback
 from urllib.parse import urljoin, urlsplit
 from zoneinfo import ZoneInfo
@@ -288,9 +289,22 @@ def cover_resolver(fixes, get=requests.get, fetch_json=None):
     return resolve
 
 
-def cycle(root: Path, live=False, github_state=False, test_asin=None):
+def seconds_until_send(now: datetime, max_wait: int = 3 * 3600) -> float:
+    """Segundos hasta SEND_AT (hoy, hora de Madrid); 0 si ya pasó o si falta más de max_wait."""
+    target = now.replace(hour=SEND_AT.hour, minute=SEND_AT.minute, second=0, microsecond=0)
+    delta = (target - now).total_seconds()
+    return delta if 0 < delta <= max_wait else 0
+
+
+def cycle(root: Path, live=False, github_state=False, test_asin=None, wait=False):
     root = root.resolve()
     now = datetime.now(ZoneInfo("Europe/Madrid"))
+    if wait and not test_asin:
+        # GitHub retrasa los crons de forma impredecible: se lanza antes y el ciclo espera a las 11:30 exactas.
+        pause = seconds_until_send(now)
+        if pause:
+            time.sleep(pause)
+            now = datetime.now(ZoneInfo("Europe/Madrid"))
     if not test_asin and now.time() < SEND_AT:
         # The day goes out at 11:30 Madrid; earlier cycles do no work at all.
         report = {"at": now.isoformat(), "live": live, "status": "waiting", "deliveries": []}
@@ -396,9 +410,10 @@ def main():
     parser.add_argument("--send", action="store_true")
     parser.add_argument("--github-state", action="store_true")
     parser.add_argument("--test-asin")
+    parser.add_argument("--wait-until-send", action="store_true")
     args = parser.parse_args()
     try:
-        report = cycle(args.root, args.send, args.github_state, args.test_asin)
+        report = cycle(args.root, args.send, args.github_state, args.test_asin, args.wait_until_send)
         if report["status"] == "needs_attention":
             return 2
         return 0
