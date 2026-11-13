@@ -2,6 +2,7 @@
 
 from datetime import date
 from pathlib import Path
+import re
 import sys
 import unittest
 from unittest.mock import patch
@@ -398,3 +399,12 @@ class CoverResolverTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_publisher_has_redundant_crons_after_send_time():
+    """El 12/11 el único cron de las 11:30 arrancó a las 19:29 (GitHub lo retrasa o lo pierde).
+    Debe haber disparos repetidos durante el día; el ciclo es idempotente."""
+    text = (Path(__file__).resolve().parents[1] / ".github/workflows/reading-telegram-publish.yml").read_text(encoding="utf-8")
+    crons = re.findall(r"cron:\s*'([^']+)'", text)
+    assert "30 11 * * *" in crons and any(c.endswith("12-23 * * *") for c in crons)
+    assert text.count("timezone: Europe/Madrid") == len(crons)
