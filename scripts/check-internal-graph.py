@@ -36,6 +36,9 @@ EXCLUDE_DIRS = {
     ".preview-dist",
     "dist",
     ".claude",
+    # Copias locales ignoradas por git (árbol base de local-ci, worktrees): no son la web.
+    ".local",
+    ".worktrees",
 }
 
 ASSET_EXTENSIONS = {

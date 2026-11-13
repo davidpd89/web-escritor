@@ -16,6 +16,8 @@ RESOURCES=['itemInfo.title','itemInfo.byLineInfo','itemInfo.externalIds',
            'itemInfo.classifications','offersV2.listings.price',
            'offersV2.listings.condition','offersV2.listings.availability',
            'offersV2.listings.dealDetails','offersV2.listings.type','browseNodeInfo.websiteSalesRank',
+           # Los nodos delatan lo que no se lee aunque el título no lo diga (item_non_reading).
+           'browseNodeInfo.browseNodes','browseNodeInfo.browseNodes.ancestor',
            # La cubierta viene en la misma respuesta: sin ella, 1398 libros seguían con la tipográfica (08/11).
            'images.primary.large']
 PRINT_FORMATS={'tapa-blanda','tapa-dura'}
@@ -918,6 +920,32 @@ def only_items(payload,asins):
                                     if isinstance(i,dict) and i.get('asin') in asins]}}
 
 
+def item_non_reading(book,payload):
+    """Motivo por el que la edición impresa de este libro no es un libro de lectura según sus nodos, o None.
+
+    Origen (2026-11-13): «Sorry! But I Am With Hurry» se publicó como ensayo y Amazon lo tiene en «Aprendizaje y
+    enseñanza de idiomas». La alta ya lo rechaza; el barrido de precios lo detecta en lo ya publicado y la
+    cuarentena lo retira (reading_quarantine.repair_retire_non_reading)."""
+    from reading_taxonomy import non_reading_reason
+    printed={a for a,f in price_asins(book).items() if not f or f in PRINT_FORMATS}
+    payload=amazon_dict(payload)
+    container=next((value for field in ('searchResult','itemsResult','itemResults')
+                    if isinstance((value:=payload.get(field)),dict)),{})
+    for item in amazon_list(container.get('items')):
+        item=amazon_dict(item)
+        if item.get('asin') not in printed:
+            continue
+        names=[]
+        for node in amazon_list(amazon_dict(item.get('browseNodeInfo')).get('browseNodes')):
+            current=amazon_dict(node)
+            while current:
+                names+=[current.get('contextFreeName') or '',current.get('displayName') or '']
+                current=amazon_dict(current.get('ancestor'))
+        if why:=non_reading_reason('',[n for n in names if n]):
+            return why
+    return None
+
+
 def item_sales_rank(book,payload):
     """Mejor puesto en Libros de Amazon.es de la edición impresa de este libro, o None. Kindle y Audible
     tienen su propia lista y su número no se compara con el de papel."""
@@ -1017,6 +1045,8 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
         answers.setdefault(book['id'],[]).append(payload)
         if book['id'] not in covers and (url:=item_cover_url(book,payload)):
             covers[book['id']]=url
+        if why:=item_non_reading(book,payload):
+            book['no_lectura']=why
         rank=item_sales_rank(book,payload)
         if rank and (book['id'] not in ranks or rank<ranks[book['id']]):
             ranks[book['id']]=rank

@@ -455,7 +455,9 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
     rss_config=read_json(ROOT / 'data/reading-pinterest-boards.json')
     command(sys.executable, 'scripts/build-reading-pinterest-rss.py', *(['--assign'] if rss_config.get('rss_enabled') else []))
     rss_changed=bool(subprocess.check_output(['git','status','--porcelain','--untracked-files=all','--','assets/pinterest/feeds','data/reading-pinterest-state.json'],cwd=ROOT,text=True).strip())
-    if not (report['new_books'] or report['updated_books'] or released or changed_ratings or report['stats'].get('author_profiles_updated') or rss_changed):
+    # Una reparación de la cuarentena (clasificación, retirada de no-libros) también se publica sin novedades.
+    repaired = bool(subprocess.check_output(['git', 'status', '--porcelain', '--', reading_quarantine.CATALOGUE, 'recomendaciones/libros'], cwd=ROOT, text=True).strip())
+    if not (report['new_books'] or report['updated_books'] or released or changed_ratings or report['stats'].get('author_profiles_updated') or rss_changed or repaired):
         drop_checkpoint(checkpoint)
         return
     # Un contrato de datos que nombra libros (p. ej. una sinopsis que empieza gritando) los aparta y se reconstruye;

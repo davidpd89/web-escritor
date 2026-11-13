@@ -62,7 +62,8 @@ class ToRecord(unittest.TestCase):
         self.assertEqual(r['editorial'], 'Ediciones del Faro')
         self.assertEqual(r['fecha_publicacion_edicion'], '2026-11-06')
         self.assertEqual(r['numero_paginas'], 320)
-        self.assertEqual((r['materias'], r['palabras_clave']), (['Misterio'], ['Novela negra', 'Thriller']))
+        # Los nodos ya no son palabras clave: las reglas los leían como si describieran el libro (carga 2026-11-13).
+        self.assertEqual((r['materias'], r['palabras_clave'], r['nodos']), (['Misterio'], [], ['Novela negra', 'Thriller']))
         self.assertTrue(r['fuente_bibliografica_url'].endswith('/dp/B000000001'))
 
     def test_each_rejection_names_its_reason(self):
@@ -98,7 +99,7 @@ class ToRecord(unittest.TestCase):
                  {'displayName': 'Novela negra'}]
         record = ca.to_record({'item': item(nodes=nodes)}, '2026-11-06')
         self.assertEqual(record['materias'], ['Misterio', 'Narrativa contemporánea'])  # mismo nivel: orden fijo
-        self.assertEqual(record['palabras_clave'], ['Ficción literaria', 'Novela negra'])
+        self.assertEqual(record['nodos'], ['Ficción literaria', 'Novela negra'])
 
     def test_ambiguous_node_is_resolved_by_its_branch_and_release_date_fills_the_gap(self):
         nodes = [{'displayName': 'Paranormal', 'contextFreeName': 'Novelas románticas y paranormales para jóvenes',
@@ -187,7 +188,7 @@ class ToRecord(unittest.TestCase):
                  {'displayName': 'Libros en la escuela'}, {'displayName': 'Libros en inglés'}]
         record = ca.to_record({'item': item(nodes=nodes)}, '2026-11-06')
         self.assertEqual(record['materias'], ['Novela histórica'])  # taxonomía cerrada
-        self.assertEqual(record['palabras_clave'], ['Novela histórica', 'Libros en la escuela'])
+        self.assertEqual(record['nodos'], ['Novela histórica', 'Libros en la escuela'])
         proper = ca.proper_words({'libros': [{'titulo': 'Informe de la ONU sobre el clima', 'autores': []}]})
         self.assertEqual(ca.tidy_title('LA ONU Y EL MUNDO', proper), 'La ONU y el mundo')
         self.assertEqual(ca.spelling_variants('Editorial Planeta'), ['Planeta'])

@@ -26,7 +26,7 @@ from reading_editorial_sources import CachedHTTP, SourceError, penguin_edition, 
 from reading_intake_core import affiliate_destination, clean_author, clean_title, split_authors, normalize_text, publisher_slug, tidy_prose
 from reading_intake_fetch import read_json, write_if_changed
 from reading_intake_publishers import resolve_publishers
-from reading_taxonomy import apply_derived, extra_categories, reference_work, REFERENCE_ID
+from reading_taxonomy import apply_derived, extra_categories, non_reading_reason, reference_work, REFERENCE_ID
 from reading_catalogue_publishers import catalogue_publisher, PublisherError
 from reading_generic_source import generic_edition, generic_links, reviewed_hosts
 from reading_planeta_source import COVER_HOSTS as PLANETA_COVER_HOSTS, planeta_edition, planeta_links
@@ -697,6 +697,8 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                         raise DeferredError('Edición fuera de la ventana de selección configurada', wait.isoformat())
                 if normalize_text(record['titulo']).startswith(('estuche ', 'pack ', 'caja ')):
                     raise SourceError('Estuche o pack: requiere relación de obras comprobada')
+                if why := non_reading_reason(record['titulo'], record.get('nodos') or ()):
+                    raise SourceError('No es un libro de lectura: ' + why)
                 record['autores'] = split_authors(record['autores'])
                 # Misma norma que la vía de Amazon: las fichas CEGAL llegan en mayúsculas («DESTAPE GAY, EL»).
                 record['titulo'] = tidy_title(record['titulo'], proper)

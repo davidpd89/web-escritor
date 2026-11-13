@@ -1036,17 +1036,40 @@ def format_prices(b):
     return ' '.join(f"{o['formato']}:{o['precio_centimos']}" for o in amazon_prices(b))
 
 
-def facet_group(key, label, options, opened=False):
-    boxes = ''.join(f'<label class="catalogue-check"><input type="checkbox" id="{key}={esc(v)}" name="{key}" value="{esc(v)}" data-facet="{key}"><span>{esc(t)}</span><small data-facet-count></small></label>' for v, t in options)
+def facet_counts(data, books, anchor):
+    """Recuentos de la vista por defecto (ya publicados, sin filtros) para cada casilla, con la misma lógica que las
+    fichas (grupo, categorías públicas y formatos). El catálogo completo solo se descarga al primer toque (rendimiento),
+    y hasta entonces las casillas salían sin número: «Novela» sin «(411)» (David, 13/11). El JS los recalcula después."""
+    counts = {}
+    for b in books:
+        lower = b.get('fecha_publicacion') or ''
+        if not lower and (month := b.get('fecha_publicacion_parcial')):
+            lower = month + '-01'
+        if not lower and b.get('anio_publicacion'):
+            lower = f"{b['anio_publicacion']}-01-01"
+        if lower and anchor and lower > anchor:
+            continue
+        cats = categories(data, b)
+        keys = [('grupo', book_group(cats))] + [(c['tipo'], c['id']) for c in public(cats)]
+        keys += [('formato', f) for f in {o['formato'] for o in purchase_formats(b)} | ({b['formato_edicion']} if b.get('formato_edicion') else set())]
+        for key in keys:
+            counts[key] = counts.get(key, 0) + 1
+    return counts
+
+
+def facet_group(key, label, options, opened=False, counts=None):
+    def badge(v):
+        return f'({counts.get((key, v), 0)})' if counts is not None else ''
+    boxes = ''.join(f'<label class="catalogue-check"><input type="checkbox" id="{key}={esc(v)}" name="{key}" value="{esc(v)}" data-facet="{key}"><span>{esc(t)}</span><small data-facet-count>{badge(v)}</small></label>' for v, t in options)
     return f'<details class="catalogue-facet" data-facet-group="{key}"' + (' open' if opened else '') + f'><summary>{esc(label)} <small data-facet-selected></small></summary><div class="catalogue-facet__options">{boxes}</div></details>'
 
 
-def render_filters(data, type_options):
+def render_filters(data, type_options, counts=None):
     def select(key, label, options, extra=''):
         return f'<label>{label}<select name="{key}" data-filter="{key}" {extra}>' + ''.join(f'<option value="{esc(v)}">{esc(t)}</option>' for v, t in options) + '</select></label>'
     search = '<label class="catalogue-search">Buscar por título, autor o ISBN<input type="search" name="q" data-filter="q" maxlength="200" autocomplete="off" placeholder="¿Qué te apetece leer?"></label>'
     used = {r['categoria_id'] for r in data['libro_categorias']}
-    facets = facet_group('grupo', 'Tipo de libro', type_options, True)
+    facets = facet_group('grupo', 'Tipo de libro', type_options, True, counts)
     for kind, label in TYPES.items():
         if kind not in PUBLIC_TYPES:
             continue
@@ -1056,8 +1079,8 @@ def render_filters(data, type_options):
             continue
         options = [(c['id'], c['nombre']) for c in choices]
         # Las ofertas de Amazon se filtran con «Ofertas» (descuento vigente), no como temporada.
-        facets += facet_group(kind, label, options)
-    facets += facet_group('formato', 'Formato', list(FORMATS.items()))
+        facets += facet_group(kind, label, options, counts=counts)
+    facets += facet_group('formato', 'Formato', list(FORMATS.items()), counts=counts)
     price_format = '<label class="catalogue-price-range__format">Formato<select name="precio_formato" data-filter="precio_formato">' + '<option value="">Cualquier formato</option>' + ''.join(f'<option value="{k}">{esc(FORMATS[k])}</option>' for k in BOX_ORDER) + '</select></label>'
     facets += '<div class="catalogue-facet catalogue-price-range"><p class="catalogue-facet__title">Precio (€)</p><p class="catalogue-price-range__hint">Elige el formato para no mezclar precios de Kindle y de papel.</p>' + price_format + '<div class="catalogue-price-range__fields">' + ''.join(f'<label>{t}<input type="number" min="0" max="100000" step="0.01" inputmode="decimal" name="{k}" data-filter="{k}" placeholder="{ph}"></label>' for k, t, ph in (('precio_min', 'Desde', '0'), ('precio_max', 'Hasta', '100'))) + '</div></div>'
     # Orden de las preguntas (David, 09/11): qué libro (tipo, género, edad), cómo leerlo (formato, precio de ese
@@ -1171,7 +1194,7 @@ def render_hub(data, books, template, page_number=1):
     show = '<label>Mostrar<select name="estado" data-filter="estado" form="catalogue-search-form" disabled><option value="">Ya publicados</option><option value="proximos" id="estado=proximos">Próximos lanzamientos</option><option value="todos">Todos</option></select></label>'
     upcoming = ('<div class="catalogue-shortcuts"><a class="catalogue-upcoming-link" href="#estado=proximos" data-catalogue-upcoming>Ver los próximos lanzamientos →</a>'
                 + community_cta() + '</div>')
-    filters = render_filters(data, group_options(groups)).replace('<form class=', '<form id="catalogue-search-form" class=',1)
+    filters = render_filters(data, group_options(groups), facet_counts(data, books, anchor)).replace('<form class=', '<form id="catalogue-search-form" class=',1)
     if page_number > 1:
         filters = show = sort = upcoming = ''
     static_count = f'Mostrando {offset + 1}–{offset + len(visible_books)} de {len(books)} libros' if books else '0 libros'
