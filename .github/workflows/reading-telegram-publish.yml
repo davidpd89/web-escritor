@@ -12,6 +12,18 @@ on:
       timezone: Europe/Madrid
     - cron: '0 11 * * *'
       timezone: Europe/Madrid
+    # Arranques de rescate: si GitHub se salta los anteriores, uno posterior envía en cuanto arranca (pasadas
+    # las 11:30 no espera). Con el día ya enviado el ciclo no hace nada: el estado durable evita duplicados.
+    - cron: '17 11 * * *'
+      timezone: Europe/Madrid
+    - cron: '42 11 * * *'
+      timezone: Europe/Madrid
+    - cron: '12 12 * * *'
+      timezone: Europe/Madrid
+    - cron: '7 13 * * *'
+      timezone: Europe/Madrid
+    - cron: '37 14 * * *'
+      timezone: Europe/Madrid
   workflow_dispatch:
     inputs:
       test_asin:
