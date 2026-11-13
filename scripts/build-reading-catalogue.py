@@ -1583,6 +1583,18 @@ def registry_entries(books):
     return [{"id": "reading-book-" + b["id"], "url": url(b), "label": b["titulo"], "shortLabel": b["titulo"], "type": "article", "territory": "recomendaciones", "parentId": "recommendations-hub", "hubId": "recommendations-hub", "discoverability": "secondary", "audience": ["reader"], "jobs": ["buscar-lecturas"], "sourceFile": url(b).lstrip('/') + 'index.html'} for b in books]
 
 
+RETIRABLE = ('reading-book-', 'reading-author-', 'reading-publisher-')
+
+
+def retired_entries(previous, current):
+    """Fichas que existían y ya no se generan (libro retirado, autor o sello sin libros): siguen en el registro como
+    «deprecated», sin página, fuera de índices y del sitemap. El retiro queda declarado y no parece un enlace perdido;
+    si la ficha vuelve, su entrada viva la sustituye."""
+    live = {e['id'] for e in current}
+    return [{**e, 'status': 'deprecated', 'searchIndex': False, 'sitemap': False, 'sourceFile': None}
+            for e in previous if e['id'].startswith(RETIRABLE) and e['id'] not in live]
+
+
 def render_map(original, books, authors=(), publishers=()):
     start, end = '<!-- reading-catalogue-map:start -->', '<!-- reading-catalogue-map:end -->'
     original = re.sub(re.escape(start) + r'[\s\S]*?' + re.escape(end) + r'\n?', '', original)
@@ -1638,11 +1650,13 @@ def render_outputs(root, data):
     orphans += [p for p in (root / 'recomendaciones/editoriales').glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
     require(not orphans, 'Hay fichas existentes fuera de los datos: revisar retirada/URL antes de eliminarlas')
     registry = json.loads((root / 'data/content-registry.json').read_text(encoding='utf-8'))
+    previous = list(registry['entries'])
     registry['entries'] = [e for e in registry['entries'] if not e['id'].startswith(('reading-book-', 'reading-author-', 'reading-publisher-', 'reading-index-', 'reading-page-'))] + registry_entries(books)
     registry['entries'] += [{'id': 'reading-author-' + a['slug'], 'url': author_url(a), 'label': a['nombre'], 'shortLabel': a['nombre'], 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': author_url(a).lstrip('/') + 'index.html'} for a in active_authors]
     registry['entries'] += [{'id': 'reading-publisher-' + p['slug'], 'url': publisher_url(p), 'label': p['nombre'], 'shortLabel': p['nombre'], 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': publisher_url(p).lstrip('/') + 'index.html'} for p in active_publishers]
     registry['entries'] += [{'id': 'reading-index-' + key, 'url': '/recomendaciones/' + key + '/', 'label': label, 'shortLabel': label, 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'footerEligible': True, 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': 'recomendaciones/' + key + '/index.html'} for key, label in (('autores', 'Autores'), ('editoriales', 'Editoriales del catálogo'))]
     registry['entries'] += [{'id':f'reading-page-{n}','url':catalogue_page_url(n),'label':f'Libros recomendados: página {n}','shortLabel':f'Página {n}','type':'article','territory':'recomendaciones','parentId':'recommendations-hub','hubId':'recommendations-hub','discoverability':'secondary','searchIndex':False,'sourceFile':catalogue_page_url(n).lstrip('/')+'index.html'} for n in range(2, max(1, math.ceil(len(books) / CATALOGUE_PAGE_SIZE)) + 1)]
+    registry['entries'] += retired_entries(previous, registry['entries'])
     outputs['data/content-registry.json'] = json.dumps(registry, ensure_ascii=False, indent=2) + '\n'
     return books, outputs
 

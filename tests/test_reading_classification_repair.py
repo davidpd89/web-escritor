@@ -188,5 +188,25 @@ class FallbackSignalTests(unittest.TestCase):
         self.assertIn('fantasia', fallback.reader)
 
 
+class RetiredRegistryTests(unittest.TestCase):
+    """Una ficha retirada sigue declarada (deprecated): si no, el mapa del sitio pierde un destino sin explicación."""
+
+    def test_retired_pages_stay_declared_and_live_ones_win(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location('build_reading', ROOT / 'scripts/build-reading-catalogue.py')
+        build = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(build)
+        old = [{'id': 'reading-book-a', 'url': '/a/', 'sourceFile': 'a/index.html'},
+               {'id': 'reading-author-b', 'url': '/b/', 'sourceFile': 'b/index.html'},
+               {'id': 'reading-book-c', 'url': '/c/', 'sourceFile': 'c/index.html'},
+               {'id': 'reading-page-9', 'url': '/p/9/', 'sourceFile': 'p/9/index.html'}]
+        gone = build.retired_entries(old, [{'id': 'reading-book-c'}])
+        self.assertEqual([e['id'] for e in gone], ['reading-book-a', 'reading-author-b'])
+        for entry in gone:
+            self.assertEqual((entry['status'], entry['searchIndex'], entry['sitemap'], entry['sourceFile']),
+                             ('deprecated', False, False, None))
+        self.assertEqual(build.retired_entries(gone, []), gone, 'sigue declarada en las cargas siguientes')
+
+
 if __name__ == '__main__':
     unittest.main()
