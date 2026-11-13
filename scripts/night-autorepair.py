@@ -41,6 +41,7 @@ WT_BASE = Path(os.environ.get('AUTOREPAIR_WT_BASE') or REPO.parent)
 VIGILADOS = (
     'reading-catalogue-sync.yml', 'atlas-directory-sync.yml', 'reading-telegram-publish.yml', 'postdeploy-deep-audit.yml',
     'radar-clock-refresh.yml', 'radar-source-monitor.yml', 'production-smoke-monitor.yml', 'broken-links.yml', 'weekly-full-audit.yml',
+    'npm-supply-chain-watch.yml',
 )
 INGESTA = 'reading-catalogue-sync.yml'
 LOCAL = 'local:'         # flujos que corren en este equipo; su estado lo deja scripts/estado_local.py
