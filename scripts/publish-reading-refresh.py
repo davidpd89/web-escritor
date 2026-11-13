@@ -5,6 +5,7 @@ import importlib.util
 import json
 import os
 import re
+import shutil
 import subprocess
 from pathlib import Path
 
@@ -32,7 +33,7 @@ def allowed_path(path):
 
 
 def clean_main_tree(root, tree):
-    """Árbol de origin/main limpio para publicar desde este equipo, con las dependencias de Node del checkout principal.
+    """Árbol de origin/main limpio para publicar desde este equipo, con las dependencias de Node al día.
 
     git clean no toca node_modules (está ignorado) y un worktree nuevo no lo trae: sin él Pagefind no corre y la
     publicación se para. Así se paró la auditoría de Amazon del 07/11 con 603 formatos y 116 portadas ya aplicados.
@@ -48,22 +49,54 @@ def clean_main_tree(root, tree):
     return tree
 
 
+def _quitar_node_modules(link):
+    """Quita lo que haya en `link`: un enlace (solo el enlace, nunca lo que señala) o una instalación propia."""
+    if os.name == 'nt':
+        try:
+            os.rmdir(link)  # con un enlace (junction), esto quita solo el enlace, no el destino
+        except OSError:
+            shutil.rmtree(link)
+    elif link.is_symlink():
+        link.unlink()
+    else:
+        shutil.rmtree(link)
+
+
 def link_node_modules(tree):
-    """Enlaza tree/node_modules al node_modules del checkout principal del repositorio (no lo copia)."""
+    """Pone tree/node_modules al día con el lockfile de esta rama (origin/main).
+
+    Antes se enlazaba sin más al node_modules del checkout principal la primera vez y ya no se volvía a mirar:
+    si ese checkout se quedaba desfasado de su propio lockfile (instalación a medias, o un cambio de dependencias
+    en main que nadie sincronizó allí con `npm ci`) todo lo que enlazaba a él se quedaba con el mismo desfase para
+    siempre. Así se cayó dos publicaciones seguidas el 13/11: Pagefind pasó de 1.5.2 a 1.6.0 en el lockfile de main,
+    el checkout principal no tenía esa versión instalada, y `npx --no-install pagefind` no puede resolverla sin red.
+
+    npm escribe node_modules/.package-lock.json con lo que hay realmente instalado; comparar eso con el
+    package-lock.json de esta rama basta para saber si lo que hay en tree/node_modules (enlazado o propio) sigue
+    sirviendo, sin asumir que un enlace creado un día cualquiera seguirá siendo válido los siguientes.
+    """
+    tree = Path(tree)
+    lock = tree / 'package-lock.json'
+    if not lock.exists():
+        return
+    link = tree / 'node_modules'
+    instalado = link / '.package-lock.json'
+    if link.is_dir() and instalado.is_file() and instalado.read_bytes() == lock.read_bytes():
+        return
+    if link.exists() or os.path.lexists(link):
+        _quitar_node_modules(link)
     common = subprocess.check_output(['git', 'rev-parse', '--path-format=absolute', '--git-common-dir'],
                                      cwd=tree, text=True).strip()
-    source, link = Path(common).parent / 'node_modules', Path(tree) / 'node_modules'
-    if link.exists() or not source.is_dir():
-        return
-    if os.path.lexists(link):  # enlace roto
+    principal = Path(common).parent
+    principal_lock = principal / 'package-lock.json'
+    source = principal / 'node_modules'
+    if source.is_dir() and principal_lock.is_file() and principal_lock.read_bytes() == lock.read_bytes():
         if os.name == 'nt':
-            os.rmdir(link)
+            subprocess.run(['cmd', '/c', 'mklink', '/J', str(link), str(source)], check=True, stdout=subprocess.DEVNULL)
         else:
-            link.unlink()
-    if os.name == 'nt':
-        subprocess.run(['cmd', '/c', 'mklink', '/J', str(link), str(source)], check=True, stdout=subprocess.DEVNULL)
+            link.symlink_to(source, target_is_directory=True)
     else:
-        link.symlink_to(source, target_is_directory=True)
+        subprocess.run('npm ci --no-audit --no-fund', cwd=tree, shell=True, check=True)
 
 
 def resume_pending(branch):
