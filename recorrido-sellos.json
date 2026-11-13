@@ -545,132 +545,323 @@
     "conectando mentes",
     "erandique debates",
     "fragua",
-    "debols llo"
+    "debols llo",
+    "cristian diana",
+    "diane kane publishing"
   ],
   "cola": [
     {
       "consulta": "Diana",
-      "nivel": 1,
-      "nodo": "902498031",
+      "nivel": 3,
+      "nodo": "13355949031",
       "ruta": [
-        "Biografías, diarios y hechos reales"
+        "Infantil",
+        "Ciencia, naturaleza y cómo funciona",
+        "Cómo funcionan las cosas"
       ],
       "sello": "Diana"
     },
     {
       "consulta": "Diana",
-      "nivel": 1,
-      "nodo": "902503031",
+      "nivel": 3,
+      "nodo": "16172046031",
       "ruta": [
-        "Ciencias, tecnología y medicina"
+        "Infantil",
+        "Ciencia, naturaleza y cómo funciona",
+        "Desastres naturales"
       ],
       "sello": "Diana"
     },
     {
       "consulta": "Diana",
-      "nivel": 1,
-      "nodo": "902613031",
+      "nivel": 3,
+      "nodo": "13355950031",
       "ruta": [
-        "Cocina, bebida y hospitalidad"
+        "Infantil",
+        "Ciencia, naturaleza y cómo funciona",
+        "Electricidad y electrónica"
       ],
       "sello": "Diana"
     },
     {
       "consulta": "Diana",
-      "nivel": 1,
-      "nodo": "902517031",
+      "nivel": 3,
+      "nodo": "13355951031",
       "ruta": [
-        "Consulta"
+        "Infantil",
+        "Ciencia, naturaleza y cómo funciona",
+        "Experimentos y proyectos"
       ],
       "sello": "Diana"
     },
     {
       "consulta": "Diana",
-      "nivel": 1,
-      "nodo": "902516031",
+      "nivel": 3,
+      "nodo": "13355952031",
       "ruta": [
-        "Cómics, manga y novelas gráficas"
+        "Infantil",
+        "Ciencia, naturaleza y cómo funciona",
+        "Física"
       ],
       "sello": "Diana"
     },
     {
       "consulta": "Diana",
-      "nivel": 1,
-      "nodo": "902520031",
+      "nivel": 3,
+      "nodo": "13355953031",
       "ruta": [
-        "Deportes y aire libre"
+        "Infantil",
+        "Ciencia, naturaleza y cómo funciona",
+        "Ingeniería"
       ],
       "sello": "Diana"
     },
     {
       "consulta": "Diana",
-      "nivel": 1,
-      "nodo": "902590031",
+      "nivel": 3,
+      "nodo": "13355954031",
       "ruta": [
-        "Derecho"
+        "Infantil",
+        "Ciencia, naturaleza y cómo funciona",
+        "Inventos e inventores"
       ],
       "sello": "Diana"
     },
     {
       "consulta": "Diana",
-      "nivel": 1,
-      "nodo": "902595031",
+      "nivel": 3,
+      "nodo": "13355955031",
       "ruta": [
-        "Economía y empresa"
+        "Infantil",
+        "Ciencia, naturaleza y cómo funciona",
+        "Luz y sonido"
       ],
       "sello": "Diana"
     },
     {
       "consulta": "Diana",
-      "nivel": 1,
-      "nodo": "902681031",
+      "nivel": 3,
+      "nodo": "16172047031",
       "ruta": [
-        "Erótica"
+        "Infantil",
+        "Ciencia, naturaleza y cómo funciona",
+        "Maquinaria pesada"
       ],
       "sello": "Diana"
     },
     {
       "consulta": "Diana",
-      "nivel": 1,
-      "nodo": "1349107031",
+      "nivel": 3,
+      "nodo": "13355956031",
       "ruta": [
+        "Infantil",
+        "Ciencia, naturaleza y cómo funciona",
+        "Medio ambiente y ecología"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 3,
+      "nodo": "13355957031",
+      "ruta": [
+        "Infantil",
+        "Ciencia, naturaleza y cómo funciona",
+        "Misterios y maravillas"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 3,
+      "nodo": "5272179031",
+      "ruta": [
+        "Infantil",
+        "Ciencia, naturaleza y cómo funciona",
+        "Naturaleza"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 3,
+      "nodo": "13355968031",
+      "ruta": [
+        "Infantil",
+        "Ciencia, naturaleza y cómo funciona",
+        "Química"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 3,
+      "nodo": "13355969031",
+      "ruta": [
+        "Infantil",
+        "Ciencia, naturaleza y cómo funciona",
+        "Reciclaje y vida ecológica"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 3,
+      "nodo": "13355970031",
+      "ruta": [
+        "Infantil",
+        "Ciencia, naturaleza y cómo funciona",
+        "Zoología"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 2,
+      "nodo": "5272181031",
+      "ruta": [
+        "Infantil",
+        "Coches, trenes y otros vehículos"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 2,
+      "nodo": "5273743031",
+      "ruta": [
+        "Infantil",
+        "Cuentos, fábulas y mitos"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 2,
+      "nodo": "902622031",
+      "ruta": [
+        "Infantil",
+        "Cómics y novelas gráficas"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 2,
+      "nodo": "5272297031",
+      "ruta": [
+        "Infantil",
+        "Deporte y juegos al aire libre"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 2,
+      "nodo": "902626031",
+      "ruta": [
+        "Infantil",
+        "Desarrollo y cuestiones personales y sociales"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 2,
+      "nodo": "902623031",
+      "ruta": [
+        "Infantil",
+        "Educación y consulta"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 2,
+      "nodo": "1349108031",
+      "ruta": [
+        "Infantil",
         "Fantasía y ciencia ficción"
       ],
       "sello": "Diana"
     },
     {
       "consulta": "Diana",
-      "nivel": 1,
-      "nodo": "902600031",
+      "nivel": 2,
+      "nodo": "5272184031",
       "ruta": [
+        "Infantil",
         "Historia"
       ],
       "sello": "Diana"
     },
     {
       "consulta": "Diana",
-      "nivel": 1,
-      "nodo": "902610031",
+      "nivel": 2,
+      "nodo": "5272306031",
       "ruta": [
-        "Hogar, manualidades y estilos de vida"
-      ],
-      "sello": "Diana"
-    },
-    {
-      "consulta": "Diana",
-      "nivel": 1,
-      "nodo": "902620031",
-      "ruta": [
+        "Infantil",
         "Humor"
       ],
       "sello": "Diana"
     },
     {
       "consulta": "Diana",
-      "nivel": 1,
-      "nodo": "902621031",
+      "nivel": 2,
+      "nodo": "5382015031",
       "ruta": [
-        "Infantil"
+        "Infantil",
+        "Literatura y ficción"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 2,
+      "nodo": "5272187031",
+      "ruta": [
+        "Infantil",
+        "Lugares y culturas"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 2,
+      "nodo": "13356163031",
+      "ruta": [
+        "Infantil",
+        "Misterios y detectives"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 2,
+      "nodo": "5328472031",
+      "ruta": [
+        "Infantil",
+        "Ordenadores y tecnología"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 2,
+      "nodo": "5272188031",
+      "ruta": [
+        "Infantil",
+        "Religión"
+      ],
+      "sello": "Diana"
+    },
+    {
+      "consulta": "Diana",
+      "nivel": 2,
+      "nodo": "13356180031",
+      "ruta": [
+        "Infantil",
+        "Vacaciones y celebraciones"
       ],
       "sello": "Diana"
     },
@@ -1152,14 +1343,16 @@
     "CONECTANDO MENTES",
     "Erandique Debates",
     "Fragua",
-    "DEBOLS!LLO"
+    "DEBOLS!LLO",
+    "Cristian Diana",
+    "Diane Kane Publishing"
   ],
   "dia": "2026-11-08",
   "errores": [],
   "grupos": {
     "diana": {
-      "libros_es": 10,
-      "pendientes": 26
+      "libros_es": 52,
+      "pendientes": 42
     }
   },
   "hijos": {
@@ -1577,6 +1770,210 @@
       [
         "28166970031",
         "Yuri"
+      ]
+    ],
+    "5272177031": [
+      [
+        "13355944031",
+        "Aeronáutica y astronáutica"
+      ],
+      [
+        "13355941031",
+        "Agricultura y ganadería"
+      ],
+      [
+        "13355942031",
+        "Anatomía y fisiología"
+      ],
+      [
+        "13355945031",
+        "Astronomía"
+      ],
+      [
+        "13355946031",
+        "Biología"
+      ],
+      [
+        "13355947031",
+        "Botánica"
+      ],
+      [
+        "13355948031",
+        "Ciencias de la tierra"
+      ],
+      [
+        "13355949031",
+        "Cómo funcionan las cosas"
+      ],
+      [
+        "16172046031",
+        "Desastres naturales"
+      ],
+      [
+        "13355950031",
+        "Electricidad y electrónica"
+      ],
+      [
+        "13355951031",
+        "Experimentos y proyectos"
+      ],
+      [
+        "13355952031",
+        "Física"
+      ],
+      [
+        "13355953031",
+        "Ingeniería"
+      ],
+      [
+        "13355954031",
+        "Inventos e inventores"
+      ],
+      [
+        "13355955031",
+        "Luz y sonido"
+      ],
+      [
+        "16172047031",
+        "Maquinaria pesada"
+      ],
+      [
+        "13355956031",
+        "Medio ambiente y ecología"
+      ],
+      [
+        "13355957031",
+        "Misterios y maravillas"
+      ],
+      [
+        "5272179031",
+        "Naturaleza"
+      ],
+      [
+        "13355968031",
+        "Química"
+      ],
+      [
+        "13355969031",
+        "Reciclaje y vida ecológica"
+      ],
+      [
+        "13355970031",
+        "Zoología"
+      ]
+    ],
+    "5272178031": [
+      [
+        "13355861031",
+        "Animales de granja"
+      ],
+      [
+        "13355863031",
+        "Aves"
+      ],
+      [
+        "13355864031",
+        "Ballenas y delfines"
+      ],
+      [
+        "13355880031",
+        "Bebés de animales"
+      ],
+      [
+        "13355865031",
+        "Caballos"
+      ],
+      [
+        "13355866031",
+        "Cerdos"
+      ],
+      [
+        "13355867031",
+        "Cocodrilos y caimanes"
+      ],
+      [
+        "13355868031",
+        "Conejos"
+      ],
+      [
+        "13355869031",
+        "Dinosaurios y criaturas prehistóricas"
+      ],
+      [
+        "13355870031",
+        "Elefantes"
+      ],
+      [
+        "13355862031",
+        "Ficción"
+      ],
+      [
+        "13355871031",
+        "Gatos"
+      ],
+      [
+        "13355872031",
+        "Insectos y arañas"
+      ],
+      [
+        "13355873031",
+        "Leones, tigres y grandes felinos"
+      ],
+      [
+        "13355874031",
+        "Mamíferos"
+      ],
+      [
+        "13355875031",
+        "Mascotas"
+      ],
+      [
+        "13355876031",
+        "Monos y simios"
+      ],
+      [
+        "13355877031",
+        "Osos"
+      ],
+      [
+        "13355878031",
+        "Patos y aves acuáticas"
+      ],
+      [
+        "13355879031",
+        "Peces"
+      ],
+      [
+        "13355881031",
+        "Perros"
+      ],
+      [
+        "13355882031",
+        "Ranas y sapos"
+      ],
+      [
+        "13355884031",
+        "Reptiles y anfibios"
+      ],
+      [
+        "13355883031",
+        "Roedores"
+      ],
+      [
+        "13355885031",
+        "Tortugas"
+      ],
+      [
+        "16171969031",
+        "Vida marina"
+      ],
+      [
+        "13355886031",
+        "Zoo"
+      ],
+      [
+        "13355887031",
+        "Zorros y lobos"
       ]
     ],
     "5272187031": [
@@ -2405,6 +2802,80 @@
         "Steampunk"
       ]
     ],
+    "902678031": [
+      [
+        "202413774031",
+        "Acción y aventura"
+      ],
+      [
+        "211757868031",
+        "Acogedor"
+      ],
+      [
+        "202413778031",
+        "Antologías"
+      ],
+      [
+        "202413767031",
+        "Baja fantasía"
+      ],
+      [
+        "202413771031",
+        "Dragones y criaturas míticas"
+      ],
+      [
+        "202413772031",
+        "Épico"
+      ],
+      [
+        "202413777031",
+        "Espadas y brujería"
+      ],
+      [
+        "202413765031",
+        "Gaslamp"
+      ],
+      [
+        "202413764031",
+        "Humorístico"
+      ],
+      [
+        "202413775031",
+        "Jóvenes adultos"
+      ],
+      [
+        "202413780031",
+        "LGBTQ+"
+      ],
+      [
+        "202413773031",
+        "Militar"
+      ],
+      [
+        "202413770031",
+        "Mitos y leyendas"
+      ],
+      [
+        "202413776031",
+        "Paranormal y urbana"
+      ],
+      [
+        "202413768031",
+        "Relatos breves"
+      ],
+      [
+        "202413779031",
+        "Romántico"
+      ],
+      [
+        "202413769031",
+        "Superhéroes"
+      ],
+      [
+        "202413766031",
+        "Universitaria y jóvenes adultos"
+      ]
+    ],
     "902681031": [
       [
         "13440881031",
@@ -2634,7 +3105,7 @@
       ]
     ]
   },
-  "libros_es": 12041,
+  "libros_es": 12106,
   "origen": {
     "Editorial Akelarre Ediciones": "Akelarre Ediciones",
     "Editorial Asociacion HAY Soluciones para Todo": "Asociacion HAY Soluciones para Todo",
@@ -2650,14 +3121,14 @@
     "Editorial Plomo Ediciones": "Plomo Ediciones",
     "Grupo Planeta Mexico": "Grupo Planeta México"
   },
-  "particiones": 941,
-  "peticiones": 2132,
-  "reintentos": 5363,
-  "reintentos_dia": "2026-11-12",
-  "segundos": 481,
+  "particiones": 1066,
+  "peticiones": 2252,
+  "reintentos": 9307,
+  "reintentos_dia": "2026-11-13",
+  "segundos": 133,
   "sellos_leidos": 179,
-  "sellos_llenos": 91,
-  "sellos_nuevos": 77,
+  "sellos_llenos": 105,
+  "sellos_nuevos": 79,
   "sellos_saltados": 9,
   "variantes_probadas": [
     "matchstories|editorial matchstories",

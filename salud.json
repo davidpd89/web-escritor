@@ -1,20 +1,20 @@
 {
- "generado": "2026-11-12T07:23:04+00:00",
- "publicados": 3237,
+ "generado": "2026-11-13T02:14:08+00:00",
+ "publicados": 3631,
  "secciones": {
   "portadas_tipograficas": {
-   "total": 287,
-   "proximos": 201,
+   "total": 343,
+   "proximos": 218,
    "por_mes": {
     "2027-08": 1,
     "2027-05": 3,
     "2027-04": 7,
     "2027-03": 4,
-    "2027-02": 83,
-    "2027-01": 42,
-    "2026-12": 10,
-    "2026-11": 117,
-    "2026-10": 13,
+    "2027-02": 80,
+    "2027-01": 40,
+    "2026-12": 15,
+    "2026-11": 150,
+    "2026-10": 36,
     "2026-09": 1,
     "2026-08": 3,
     "2025-08": 1
@@ -157,14 +157,6 @@
      "fuente": "https://www.amazon.es/dp/B0HNW38G5T"
     },
     {
-     "id": "isbn-9791388163852",
-     "titulo": "Los diarios de Emma M. Lion 7 (SUMA)",
-     "isbn13": "9791388163852",
-     "editorial": "Suma de Letras",
-     "fecha_publicacion": "2027-02-25",
-     "fuente": "https://www.amazon.es/dp/B0HNWJX81S"
-    },
-    {
      "id": "isbn-9791388277870",
      "titulo": "MÁGICAS 4 - El hechizo dorado de las hadas: (Libros para niñas de 7, 8 y 9 años) (Jóvenes lectores)",
      "isbn13": "9791388277870",
@@ -219,17 +211,25 @@
      "editorial": "Grijalbo",
      "fecha_publicacion": "2027-02-25",
      "fuente": "https://www.amazon.es/dp/8425363063"
+    },
+    {
+     "id": "isbn-9788426433282",
+     "titulo": "El largo regreso de Josefina Carabias (Ensayo)",
+     "isbn13": "9788426433282",
+     "editorial": "Lumen",
+     "fecha_publicacion": "2027-02-25",
+     "fuente": "https://www.amazon.es/dp/8426433286"
     }
    ]
   },
   "formatos_sin_precio": {
-   "total": 351,
-   "libros": 257,
+   "total": 412,
+   "libros": 305,
    "por_formato": {
-    "ebook": 136,
-    "tapa-blanda": 82,
-    "audiolibro": 71,
-    "tapa-dura": 62
+    "ebook": 163,
+    "tapa-blanda": 104,
+    "audiolibro": 76,
+    "tapa-dura": 69
    },
    "muestra": [
     {
@@ -460,7 +460,7 @@
    ]
   },
   "sin_formatos_de_compra": {
-   "total": 43,
+   "total": 44,
    "muestra": [
     {
      "id": "isbn-9788408326861",
@@ -617,13 +617,6 @@
      "fecha_publicacion": "2026-11-17"
     },
     {
-     "id": "isbn-9791388330124",
-     "titulo": "Aunque el cielo se desmorone (Tríada 3)",
-     "isbn13": "9791388330124",
-     "editorial": "Ediciones Kiwi",
-     "fecha_publicacion": "2026-11-11"
-    },
-    {
      "id": "isbn-9791399129878",
      "titulo": "Los tristes del Paseo",
      "isbn13": "9791399129878",
@@ -631,206 +624,206 @@
      "fecha_publicacion": "2026-11-11"
     },
     {
-     "id": "isbn-9788448271831",
-     "titulo": "Jaime I, un viaje documental y visual",
-     "isbn13": "9788448271831",
-     "editorial": "Generalitat Valenciana",
-     "fecha_publicacion": "2026-11-16"
+     "id": "isbn-9788499502724",
+     "titulo": "La Dieta Carton: La alimentación natural que regenera y da vida (CON RECETAS): 39 (SALUD NATURAL)",
+     "isbn13": "9788499502724",
+     "editorial": "Ediciones Librería Argentina (ela)",
+     "fecha_publicacion": "2026-11-02"
+    },
+    {
+     "id": "isbn-9791370651305",
+     "titulo": "Fiscalidad de la renta fija, la renta variable y la cesión de capitales a terceros. Paso a paso: De los depósitos y los bonos a las acciones: claves ... de productos para inversores particulares",
+     "isbn13": "9791370651305",
+     "editorial": "Colex",
+     "fecha_publicacion": "2026-10-27"
     }
    ]
   },
   "sin_texto": {
-   "total": 2394,
-   "proximos": 1468,
+   "total": 361,
+   "proximos": 94,
    "por_mes": {
-    "2027-09": 1,
-    "2027-08": 1,
-    "2027-05": 10,
-    "2027-04": 14,
-    "2027-03": 51,
-    "2027-02": 250,
-    "2027-01": 352,
-    "2026-12": 124,
-    "2026-11": 1310,
-    "2026-10": 229,
-    "2026-09": 24,
-    "2026-08": 4
+    "2027-02": 1,
+    "2027-01": 1,
+    "2026-12": 3,
+    "2026-11": 219,
+    "2026-10": 137
    },
    "muestra": [
     {
-     "id": "isbn-9788415955627",
-     "titulo": "Hermoso veneno (DARK ROMANCE)",
-     "isbn13": "9788415955627",
-     "editorial": "Sombras",
-     "fecha_publicacion": "2027-05-04"
+     "id": "isbn-9788433875884",
+     "titulo": "RECONSTRUYENDO LA MEMORIA: Un mural dedicado a Federico García Lorca en la Universidad de Granada: 21 (Cuadernos Técnicos de Patrimonio)",
+     "isbn13": "9788433875884",
+     "editorial": "Editorial Universidad de Granada",
+     "fecha_publicacion": "2026-10-16"
     },
     {
-     "id": "isbn-9781400351442",
-     "titulo": "Los milagros: Cuando lo eterno irrumpe en lo natural",
-     "isbn13": "9781400351442",
-     "editorial": "Grupo Nelson",
-     "fecha_publicacion": "2027-05-04"
+     "id": "isbn-9788411005692",
+     "titulo": "Un pais entre costuras",
+     "isbn13": "9788411005692",
+     "editorial": "Ediciones Península",
+     "fecha_publicacion": "2027-01-20"
     },
     {
-     "id": "isbn-9781400351466",
-     "titulo": "La abolición del hombre: El peligro del progreso sin principios",
-     "isbn13": "9781400351466",
-     "editorial": "Grupo Nelson",
-     "fecha_publicacion": "2027-05-04"
+     "id": "isbn-9788408332008",
+     "titulo": "Ana Karenina edición limitada con cantos decorados",
+     "isbn13": "9788408332008",
+     "editorial": "Austral Editorial",
+     "fecha_publicacion": "2027-02-03"
     },
     {
-     "id": "isbn-9781400351428",
-     "titulo": "El gran divorcio: Un relato intemporal sobre el cielo y el infierno",
-     "isbn13": "9781400351428",
-     "editorial": "Grupo Nelson",
-     "fecha_publicacion": "2027-05-04"
+     "id": "isbn-9791399068672",
+     "titulo": "Renacer nuclear: cómo la energía nuclear salvará el mundo.",
+     "isbn13": "9791399068672",
+     "editorial": "Antoni Bosch Editor",
+     "fecha_publicacion": "2026-11-11"
     },
     {
-     "id": "isbn-9786287880740",
-     "titulo": "Historia oficial del amor (Ed. Conmemorativa) / Official History of Love (Commemorative Edition)",
-     "isbn13": "9786287880740",
-     "editorial": "Alfaguara",
-     "fecha_publicacion": "2027-05-04"
+     "id": "isbn-9788488020987",
+     "titulo": "La palabra encendida: 29 (Vanguardia clásica)",
+     "isbn13": "9788488020987",
+     "editorial": "Ardora Ediciones",
+     "fecha_publicacion": "2026-11-16"
     },
     {
-     "id": "isbn-9789585573895",
-     "titulo": "Una holandesa en América / A Dutch Woman in America",
-     "isbn13": "9789585573895",
-     "editorial": "Penguin Random House Grupo Editorial S.a.s",
-     "fecha_publicacion": "2027-05-04"
+     "id": "isbn-9791388487972",
+     "titulo": "Konosuba 11",
+     "isbn13": "9791388487972",
+     "editorial": "Ivrea",
+     "fecha_publicacion": "2026-11-12"
     },
     {
-     "id": "isbn-9798890988676",
-     "titulo": "El Laberinto del Quetzal / The Labyrinth of the Quetzal",
-     "isbn13": "9798890988676",
-     "editorial": "Vintage Espanol",
-     "fecha_publicacion": "2027-05-04"
+     "id": "isbn-9788409937349",
+     "titulo": "Y ahora, vivir",
+     "isbn13": "9788409937349",
+     "editorial": "Vanesa Clavero Bote",
+     "fecha_publicacion": "2026-11-11"
     },
     {
-     "id": "isbn-9798890988713",
-     "titulo": "Gracias a Mr. Jacobs / Because of Our Student Teacher",
-     "isbn13": "9798890988713",
-     "editorial": "Vintage Espanol",
-     "fecha_publicacion": "2027-05-04"
+     "id": "isbn-9788410043992",
+     "titulo": "La isla del tesoro (Novela gráfica): 2 (Obras maestras en novela gráfica)",
+     "isbn13": "9788410043992",
+     "editorial": "Editorial Base (es)",
+     "fecha_publicacion": "2026-11-17"
     },
     {
-     "id": "isbn-9789877188455",
-     "titulo": "Hackea Tu Cerebro / Hack Your Brain: Neurociencia, Productividad, Aprendizaje",
-     "isbn13": "9789877188455",
-     "editorial": "Ediciones Lea",
-     "fecha_publicacion": "2027-05-03"
+     "id": "isbn-9788409935369",
+     "titulo": "Marimé",
+     "isbn13": "9788409935369",
+     "editorial": "Mercedes Fernández Jorge",
+     "fecha_publicacion": "2026-11-06"
     },
     {
-     "id": "isbn-9798384561019",
-     "titulo": "Mi Experiencia Con Dios Día a Día: Diario Devocional",
-     "isbn13": "9798384561019",
-     "editorial": "B&h Espanol",
-     "fecha_publicacion": "2027-05-01"
+     "id": "isbn-9791387953997",
+     "titulo": "Transformers (Edición Z deluxe) Libro 02",
+     "isbn13": "9791387953997",
+     "editorial": "Moztros Producciones SL",
+     "fecha_publicacion": "2026-11-19"
     },
     {
-     "id": "isbn-9791387641894",
-     "titulo": "Aviarium (EL CHICO AMARILLO)",
-     "isbn13": "9791387641894",
-     "editorial": "Impedimenta",
-     "fecha_publicacion": "2027-04-19"
+     "id": "isbn-9791388337079",
+     "titulo": "Estuche Mindf*ck. Serie completa en castellano (Contraluz)",
+     "isbn13": "9791388337079",
+     "editorial": "Contraluz",
+     "fecha_publicacion": "2026-11-05"
     },
     {
-     "id": "isbn-9791387625108",
-     "titulo": "Nuevo Diccionario Internacional Conciso de Teología y Exégesis del Nuevo Testamento: 0",
-     "isbn13": "9791387625108",
-     "editorial": "Clie",
-     "fecha_publicacion": "2027-04-15"
+     "id": "isbn-9791399036381",
+     "titulo": "El tigre en la casa: Una historia cultural del gato",
+     "isbn13": "9791399036381",
+     "editorial": "Sigilo Editorial",
+     "fecha_publicacion": "2026-11-04"
     },
     {
-     "id": "isbn-9786287832657",
-     "titulo": "Dentro de casa. Rituales de bienestar / Inside the Home: Rituals of Well-Being",
-     "isbn13": "9786287832657",
-     "editorial": "Grijalbo",
-     "fecha_publicacion": "2027-04-06"
+     "id": "isbn-9788410417526",
+     "titulo": "Mogollón (Nuevo): Retos para hacer explotar tu cabeza",
+     "isbn13": "9788410417526",
+     "editorial": "Mosquito Books Barcelona",
+     "fecha_publicacion": "2026-11-04"
     },
     {
-     "id": "isbn-9786287880658",
-     "titulo": "Otras Aguas. Cuentos nuevos y selectos / Other Waters: New and Selected Stories",
-     "isbn13": "9786287880658",
-     "editorial": "Alfaguara",
-     "fecha_publicacion": "2027-04-06"
+     "id": "isbn-9791388155413",
+     "titulo": "La octava carta (Novela)",
+     "isbn13": "9791388155413",
+     "editorial": "Kolima",
+     "fecha_publicacion": "2026-11-03"
     },
     {
-     "id": "isbn-9786287880641",
-     "titulo": "Las noches todas / All the Nights",
-     "isbn13": "9786287880641",
-     "editorial": "Alfaguara",
-     "fecha_publicacion": "2027-04-06"
+     "id": "isbn-9788432175619",
+     "titulo": "Ocio con dignidad (Bolsillo)",
+     "isbn13": "9788432175619",
+     "editorial": "Ediciones Rialp S.a.",
+     "fecha_publicacion": "2026-11-03"
     },
     {
-     "id": "isbn-9786287880627",
-     "titulo": "Sin remedio / No Remedy",
-     "isbn13": "9786287880627",
-     "editorial": "Alfaguara",
-     "fecha_publicacion": "2027-04-06"
+     "id": "isbn-9791387574819",
+     "titulo": "Murciélagos de la República (EDICIÓN LUJO)",
+     "isbn13": "9791387574819",
+     "editorial": "Duomo Ediciones",
+     "fecha_publicacion": "2026-11-02"
     },
     {
-     "id": "isbn-9786287880610",
-     "titulo": "Caperucita se come al lobo / Little Red Riding Hood Eats the Wolf",
-     "isbn13": "9786287880610",
-     "editorial": "Alfaguara",
-     "fecha_publicacion": "2027-04-06"
+     "id": "isbn-9791388487507",
+     "titulo": "Tu Lado Oculto 02: 02",
+     "isbn13": "9791388487507",
+     "editorial": "Editorial Ivrea",
+     "fecha_publicacion": "2026-11-02"
     },
     {
-     "id": "isbn-9786287880603",
-     "titulo": "Los Sinsabores del Verdadero Policia / Woes of the True Policeman",
-     "isbn13": "9786287880603",
-     "editorial": "Alfaguara",
-     "fecha_publicacion": "2027-04-06"
+     "id": "isbn-9788410016668",
+     "titulo": "El gigante de la nieve (ILUSTRADOS)",
+     "isbn13": "9788410016668",
+     "editorial": "A Buen Paso Editorial S.l.",
+     "fecha_publicacion": "2026-11-23"
     },
     {
-     "id": "isbn-9786073879453",
-     "titulo": "Paseo de la reforma (edición 30 aniversario) / Paseo de la Reforma (30th Anniversary Edition)",
-     "isbn13": "9786073879453",
-     "editorial": "Penguin Random House Grupo Editorial",
-     "fecha_publicacion": "2027-04-06"
+     "id": "isbn-9791399119879",
+     "titulo": "Patologías: La caía de Johan van Vere de With",
+     "isbn13": "9791399119879",
+     "editorial": "Asociación Cultural Amistades Particulares, Libros Libres",
+     "fecha_publicacion": "2026-11-23"
     },
     {
-     "id": "isbn-9786073879156",
-     "titulo": "El amante de Janis Joplin / Janis Joplin's Lover",
-     "isbn13": "9786073879156",
-     "editorial": "Penguin Random House Grupo Editorial",
-     "fecha_publicacion": "2027-04-06"
+     "id": "isbn-9788410794672",
+     "titulo": "Aprender para leer: Literatura auténtica en la enseñanza de inglés (Horizontes Educación)",
+     "isbn13": "9788410794672",
+     "editorial": "Editorial Octaedro, S.l.",
+     "fecha_publicacion": "2026-11-01"
     },
     {
-     "id": "isbn-9786287832732",
-     "titulo": "Supernova (Spanish Edition)",
-     "isbn13": "9786287832732",
-     "editorial": "Grijalbo",
-     "fecha_publicacion": "2027-04-06"
+     "id": "isbn-9791399244502",
+     "titulo": "Valencia (LAS AFUERAS)",
+     "isbn13": "9791399244502",
+     "editorial": "Las afueras",
+     "fecha_publicacion": "2026-11-16"
     },
     {
-     "id": "isbn-9786287897571",
-     "titulo": "El Fin de la Eternidad / The End of Eternity",
-     "isbn13": "9786287897571",
-     "editorial": "Debolsillo",
-     "fecha_publicacion": "2027-04-06"
+     "id": "isbn-9791388220364",
+     "titulo": "Una maleta, dos libros y un corazón (Literatura ilustrada)",
+     "isbn13": "9791388220364",
+     "editorial": "Lunwerg Editores",
+     "fecha_publicacion": "2026-11-18"
     },
     {
-     "id": "isbn-9786073878500",
-     "titulo": "La democracia ausente / The Absent Democracy",
-     "isbn13": "9786073878500",
-     "editorial": "Penguin Random House Grupo Editorial",
-     "fecha_publicacion": "2027-04-06"
+     "id": "isbn-9788410264458",
+     "titulo": "Dos personas: Dos personas (NOVELA GRAFICA)",
+     "isbn13": "9788410264458",
+     "editorial": "Ediciones la Cúpula, S.l.",
+     "fecha_publicacion": "2026-11-05"
     },
     {
-     "id": "isbn-9786073882538",
-     "titulo": "I want to believe. Mis encuentros con Billy Meier / I Want to Believe. My Encounters with Billy Meier",
-     "isbn13": "9786073882538",
-     "editorial": "Penguin Random House Grupo Editorial",
-     "fecha_publicacion": "2027-03-23"
+     "id": "isbn-9788410439481",
+     "titulo": "El peso de la niebla (Plata)",
+     "isbn13": "9788410439481",
+     "editorial": "Plata",
+     "fecha_publicacion": "2026-11-03"
     },
     {
-     "id": "isbn-9786287878471",
-     "titulo": "Ídolos de paja / Idols of Straw",
-     "isbn13": "9786287878471",
-     "editorial": "Ediciones B",
-     "fecha_publicacion": "2027-03-23"
+     "id": "isbn-9786316599896",
+     "titulo": "Una tentación de susurros y lobos: La isla mártir #1 (Puck fantasía romántica)",
+     "isbn13": "9786316599896",
+     "editorial": "Puck",
+     "fecha_publicacion": "2026-11-01"
     }
    ]
   },
@@ -840,10 +833,10 @@
   }
  },
  "cambio": {
-  "portadas_tipograficas": -18,
-  "formatos_sin_precio": 0,
-  "sin_formatos_de_compra": -4,
-  "sin_texto": 1,
+  "portadas_tipograficas": 56,
+  "formatos_sin_precio": 61,
+  "sin_formatos_de_compra": 1,
+  "sin_texto": -2033,
   "portada_sin_fichero": 0
  },
  "amazon": {
@@ -853,6 +846,27 @@
   "errores": {},
   "oportunidades": [],
   "sin_portada_en_amazon": [
+   {
+    "id": "isbn-9788419930279",
+    "titulo": "Madres: 20 (Clásicos modernos)",
+    "isbn13": "9788419930279",
+    "editorial": "Caleidoscopio de Libros, S.l.",
+    "fecha_publicacion": "2026-11-13"
+   },
+   {
+    "id": "isbn-9788449602122",
+    "titulo": "Madrid siglo 21: Arquitectura Urbanismo Paisaje",
+    "isbn13": "9788449602122",
+    "editorial": "Tanais.architecta",
+    "fecha_publicacion": "2026-11-13"
+   },
+   {
+    "id": "isbn-9791399155754",
+    "titulo": "El Mago de Oz: 1 (Desafiando a Oz)",
+    "isbn13": "9791399155754",
+    "editorial": "Kabo&bero Ediciones",
+    "fecha_publicacion": "2026-11-13"
+   },
    {
     "id": "isbn-9791399308709",
     "titulo": "Diversos: Antología de relatos - Primer Premio de Relatos ­Fundación Las Fuentes: 1",
@@ -868,6 +882,20 @@
     "fecha_publicacion": "2026-11-12"
    },
    {
+    "id": "isbn-9791399178555",
+    "titulo": "Bajo la estela de un legado",
+    "isbn13": "9791399178555",
+    "editorial": "Fílide Ediciones",
+    "fecha_publicacion": "2026-11-14"
+   },
+   {
+    "id": "isbn-9791399178548",
+    "titulo": "El lienzo de las musas: Relatos premiados",
+    "isbn13": "9791399178548",
+    "editorial": "Fílide Ediciones",
+    "fecha_publicacion": "2026-11-14"
+   },
+   {
     "id": "isbn-9788419461438",
     "titulo": "Casos clínicos internacionales en salud de la mujer",
     "isbn13": "9788419461438",
@@ -875,18 +903,32 @@
     "fecha_publicacion": "2026-11-11"
    },
    {
-    "id": "isbn-9788419930279",
-    "titulo": "Madres: 20 (Clásicos modernos)",
-    "isbn13": "9788419930279",
-    "editorial": "Caleidoscopio de Libros, S.l.",
-    "fecha_publicacion": "2026-11-13"
+    "id": "isbn-9788410033030",
+    "titulo": "El Cangrejo Juguetón. ¡Descubre la magia del circo!: 3",
+    "isbn13": "9788410033030",
+    "editorial": "Editorial Germinar",
+    "fecha_publicacion": "2026-11-15"
    },
    {
-    "id": "isbn-9788449602122",
-    "titulo": "Madrid siglo 21: Arquitectura Urbanismo Paisaje",
-    "isbn13": "9788449602122",
-    "editorial": "Tanais.architecta",
-    "fecha_publicacion": "2026-11-13"
+    "id": "isbn-9788412486483",
+    "titulo": "Senderos entre los árboles",
+    "isbn13": "9788412486483",
+    "editorial": "Fundacióin Museo Evaristo Valle",
+    "fecha_publicacion": "2026-11-15"
+   },
+   {
+    "id": "isbn-9788412983449",
+    "titulo": "Vida y milagros: 2 (La enciclopedia inabarcable)",
+    "isbn13": "9788412983449",
+    "editorial": "Adel Editores",
+    "fecha_publicacion": "2026-11-15"
+   },
+   {
+    "id": "isbn-9788414074916",
+    "titulo": "Lazos (Laude)",
+    "isbn13": "9788414074916",
+    "editorial": "Editorial Luis Vives (edelvives)",
+    "fecha_publicacion": "2026-11-15"
    },
    {
     "id": "isbn-9789877713367",
@@ -903,11 +945,32 @@
     "fecha_publicacion": "2026-11-11"
    },
    {
-    "id": "isbn-9791399155754",
-    "titulo": "El Mago de Oz: 1 (Desafiando a Oz)",
-    "isbn13": "9791399155754",
-    "editorial": "Kabo&bero Ediciones",
-    "fecha_publicacion": "2026-11-13"
+    "id": "isbn-9791399269444",
+    "titulo": "El legado del anarquismo negro: 4 (Devenir)",
+    "isbn13": "9791399269444",
+    "editorial": "Calumnia",
+    "fecha_publicacion": "2026-11-15"
+   },
+   {
+    "id": "isbn-9791399272741",
+    "titulo": "Juntos y extraños: 21 (Dabisse Romero)",
+    "isbn13": "9791399272741",
+    "editorial": "Editorial Anáfora",
+    "fecha_publicacion": "2026-11-15"
+   },
+   {
+    "id": "isbn-9788412557855",
+    "titulo": "El peso de la abulia",
+    "isbn13": "9788412557855",
+    "editorial": "Anantes",
+    "fecha_publicacion": "2026-11-15"
+   },
+   {
+    "id": "isbn-9791388540035",
+    "titulo": "La bruja buena del tiempo",
+    "isbn13": "9791388540035",
+    "editorial": "Livensoul",
+    "fecha_publicacion": "2026-11-15"
    },
    {
     "id": "isbn-9791399129878",
@@ -922,76 +985,6 @@
     "isbn13": "9786316714107",
     "editorial": "Cactus",
     "fecha_publicacion": "2026-11-11"
-   },
-   {
-    "id": "isbn-9789874441768",
-    "titulo": "Una familia no es un clan",
-    "isbn13": "9789874441768",
-    "editorial": "Letras del SUR",
-    "fecha_publicacion": "2026-11-11"
-   },
-   {
-    "id": "isbn-9788410192416",
-    "titulo": "Clave para identificar anfibios",
-    "isbn13": "9788410192416",
-    "editorial": "Sociedad de Ciencias Aranzadi",
-    "fecha_publicacion": "2026-11-10"
-   },
-   {
-    "id": "isbn-9788410279629",
-    "titulo": "PECES VOLADORES: Aforismos y notas para una filosofía mínima: 6 (ARTEMISA DE AFORISMOS)",
-    "isbn13": "9788410279629",
-    "editorial": "Calixto Torres Perales",
-    "fecha_publicacion": "2026-11-10"
-   },
-   {
-    "id": "isbn-9791399305111",
-    "titulo": "El temple y las armas",
-    "isbn13": "9791399305111",
-    "editorial": "Castellón Digital SL",
-    "fecha_publicacion": "2026-11-10"
-   },
-   {
-    "id": "isbn-9788410279636",
-    "titulo": "La luna en el cuenco roto: 6 (Artemisa de poesía)",
-    "isbn13": "9788410279636",
-    "editorial": "Calixto Torres Perales",
-    "fecha_publicacion": "2026-11-10"
-   },
-   {
-    "id": "isbn-9788412972566",
-    "titulo": "Mi escrito taurino",
-    "isbn13": "9788412972566",
-    "editorial": "Letras de Almagre",
-    "fecha_publicacion": "2026-11-10"
-   },
-   {
-    "id": "isbn-9788419943606",
-    "titulo": "Decesura: 72 (ποίησις [poíesis])",
-    "isbn13": "9788419943606",
-    "editorial": "Libros de la Resistencia",
-    "fecha_publicacion": "2026-11-10"
-   },
-   {
-    "id": "isbn-9791399178555",
-    "titulo": "Bajo la estela de un legado",
-    "isbn13": "9791399178555",
-    "editorial": "Fílide Ediciones",
-    "fecha_publicacion": "2026-11-14"
-   },
-   {
-    "id": "isbn-9791388581106",
-    "titulo": "Pero no se lo digas: 148 (VdB Teatro contemporáneo)",
-    "isbn13": "9791388581106",
-    "editorial": "Uvedebe",
-    "fecha_publicacion": "2026-11-10"
-   },
-   {
-    "id": "isbn-9788410172968",
-    "titulo": "Paisaje, conocimiento e identidad. Visiones emergentes entrelazadas: 25 (Vestigios de un mismo mundo)",
-    "isbn13": "9788410172968",
-    "editorial": "Editum. Ediciones de la Universidad de Murcia",
-    "fecha_publicacion": "2026-11-10"
    }
   ]
  }
