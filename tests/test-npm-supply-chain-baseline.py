@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import io
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -130,17 +131,52 @@ def run_audit(npm_cmd: str, args: list[str]) -> dict:
     return parsed
 
 
+DEPENDENCY_FILES = ("package.json", "package-lock.json")
+
+
+def dependency_files_changed(base_ref: str = "origin/main") -> bool | None:
+    """True/False si la rama cambia package*.json respecto a main; None si git no lo puede decir."""
+    try:
+        base = subprocess.run(["git", "merge-base", base_ref, "HEAD"], capture_output=True, text=True, cwd=ROOT, check=True).stdout.strip()
+        if not base:
+            return None
+        out = subprocess.run(["git", "diff", "--name-only", base, "HEAD", "--", *DEPENDENCY_FILES],
+                             capture_output=True, text=True, cwd=ROOT, check=True).stdout
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    return bool(out.strip())
+
+
+def strict_mode() -> bool:
+    """Los avisos que npm publica de madrugada son un cambio externo: no deben bloquear una PR que no toca
+    dependencias (el 13/11 un aviso de basic-ftp tumbó la carga nocturna de libros). Bloquean cuando la PR
+    cambia dependencias, cuando git no puede comprobarlo, y siempre en el vigilante diario
+    (npm-supply-chain-watch.yml, NPM_SUPPLY_CHAIN_STRICT=1), que vigila la autorreparación."""
+    forced = os.environ.get("NPM_SUPPLY_CHAIN_STRICT", "").strip()
+    if forced in {"0", "1"}:
+        return forced == "1"
+    changed = dependency_files_changed()
+    return True if changed is None else changed
+
+
 def check_supply_chain(npm_cmd: str, baseline_data: dict) -> list[str]:
+    errors, drift = check_supply_chain_split(npm_cmd, baseline_data)
+    return errors + drift
+
+
+def check_supply_chain_split(npm_cmd: str, baseline_data: dict) -> tuple[list[str], list[str]]:
+    """Devuelve (errores propios del repositorio, deriva externa de npm audit)."""
     errors = validate_baseline_structure(baseline_data)
     if errors:
-        return errors
+        return errors, []
+    drift: list[str] = []
 
     # 1. Audit production dependencies (--omit=dev)
     prod_data = run_audit(npm_cmd, ["--omit=dev"])
     prod_vulns = prod_data.get("metadata", {}).get("vulnerabilities", {})
     total_prod = sum(prod_vulns.values()) if isinstance(prod_vulns, dict) else 0
     if total_prod != 0:
-        errors.append(f"Production supply-chain has {total_prod} vulnerabilities: {prod_vulns}")
+        drift.append(f"Production supply-chain has {total_prod} vulnerabilities: {prod_vulns}")
 
     # 2. Audit dev dependencies
     full_data = run_audit(npm_cmd, [])
@@ -179,16 +215,16 @@ def check_supply_chain(npm_cmd: str, baseline_data: dict) -> list[str]:
     # Detect uncataloged new advisories
     for adv_id, live_info in live_advisories.items():
         if adv_id not in baseline_advisories:
-            errors.append(f"New untracked advisory: {adv_id} ({live_info['package']}, severity {live_info['severity']})")
+            drift.append(f"New untracked advisory: {adv_id} ({live_info['package']}, severity {live_info['severity']})")
         else:
             base_sev = baseline_advisories[adv_id].get("severity")
             if base_sev != live_info["severity"]:
-                errors.append(f"{adv_id}: severity mismatch (baseline='{base_sev}', npm audit='{live_info['severity']}')")
+                drift.append(f"{adv_id}: severity mismatch (baseline='{base_sev}', npm audit='{live_info['severity']}')")
             for field in ("package", "installedVersion", "lockfileNode", "fixAvailable"):
                 baseline_value = baseline_advisories[adv_id].get(field)
                 live_value = live_info[field]
                 if baseline_value is not None and live_value is not None and baseline_value != live_value:
-                    errors.append(f"{adv_id}: {field} mismatch (baseline='{baseline_value}', live='{live_value}')")
+                    drift.append(f"{adv_id}: {field} mismatch (baseline='{baseline_value}', live='{live_value}')")
 
     # Detect phantom advisories in baseline (advisories that were fixed/removed from tree)
     for adv_id in baseline_advisories:
@@ -197,7 +233,7 @@ def check_supply_chain(npm_cmd: str, baseline_data: dict) -> list[str]:
             # todas las PR a la vez (pasó el 2026-11-04 con GHSA-g3hv-75wg-m249). Los avisos nuevos sí bloquean.
             print(f"WARN: aviso fantasma en la base (npm audit ya no lo reporta): {adv_id}; muévelo a notReportedAdvisories.")
 
-    return errors
+    return errors, drift
 
 
 def main() -> None:
@@ -208,8 +244,17 @@ def main() -> None:
     if not npm_cmd:
         raise AssertionError("npm binary is required for the supply-chain gate; refusing a silent SKIP")
 
-    errors = check_supply_chain(npm_cmd, baseline_data)
+    errors, drift = check_supply_chain_split(npm_cmd, baseline_data)
+    warned = bool(drift)
+    if drift and not strict_mode():
+        for item in drift:
+            print(f"WARN (deriva externa, la PR no toca dependencias; la bloquea npm-supply-chain-watch.yml): {item}")
+        drift = []
+    errors += drift
     assert not errors, "Supply-chain baseline checks failed:\n" + "\n".join(f"- {e}" for e in errors)
+    if warned:
+        print("test-npm-supply-chain-baseline: OK con avisos externos pendientes (ver WARN)")
+        return
     print("  ok   1. Production supply-chain has 0 vulnerabilities (npm audit --omit=dev)")
     print(f"  ok   2. All {len(baseline_data.get('advisories', []))} dev supply-chain advisories match live npm audit exactly")
     print("test-npm-supply-chain-baseline: OK")

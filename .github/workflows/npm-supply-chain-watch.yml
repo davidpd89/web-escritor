@@ -1,0 +1,29 @@
+name: npm supply-chain watch
+
+# Los avisos nuevos de npm audit son un cambio externo: en las PR que no tocan dependencias
+# solo avisan (tests/test-npm-supply-chain-baseline.py). Aquí bloquean siempre, a diario y
+# antes de la carga nocturna de libros, para que night-autorepair.py lo arregle de día.
+on:
+  schedule:
+    - cron: '30 15 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Strict npm supply-chain baseline
+        env:
+          NPM_SUPPLY_CHAIN_STRICT: '1'
+        run: python tests/test-npm-supply-chain-baseline.py
