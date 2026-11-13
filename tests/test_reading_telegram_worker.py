@@ -2,6 +2,7 @@
 
 from datetime import date
 from pathlib import Path
+import re
 import sys
 import unittest
 from unittest.mock import patch
@@ -398,3 +399,22 @@ class CoverResolverTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_publisher_launches_early_and_waits_until_send_time():
+    """GitHub retrasa los crons (12/11: 11:30 -> 19:29). Se lanza antes de las 11:30 y el ciclo espera;
+    nunca hay relanzamientos cada 30 min."""
+    text = (Path(__file__).resolve().parents[1] / ".github/workflows/reading-telegram-publish.yml").read_text(encoding="utf-8")
+    crons = re.findall(r"cron:\s*'(\d+) (\d+) \* \* \*'", text)
+    assert crons and all(int(h) * 60 + int(m) < 11 * 60 + 30 for m, h in crons)
+    assert text.count("timezone: Europe/Madrid") == len(crons)
+    assert "--wait-until-send" in text
+
+
+def test_seconds_until_send():
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+    tz = ZoneInfo("Europe/Madrid")
+    assert reading_telegram_worker.seconds_until_send(datetime(2026, 11, 14, 11, 0, tzinfo=tz)) == 1800
+    assert reading_telegram_worker.seconds_until_send(datetime(2026, 11, 14, 12, 0, tzinfo=tz)) == 0
+    assert reading_telegram_worker.seconds_until_send(datetime(2026, 11, 14, 5, 0, tzinfo=tz)) == 0

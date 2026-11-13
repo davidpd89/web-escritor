@@ -2,14 +2,23 @@ name: Reading Telegram publish
 
 on:
   schedule:
-    - cron: '30 11 * * *'
+    # GitHub retrasa los crons de forma impredecible (el 12/11 el de las 11:30 arrancó a las 19:29).
+    # Se lanza con margen (9:30, 10:15 y 11:00 Madrid) y el ciclo ESPERA hasta las 11:30 exactas antes de
+    # enviar. Solo se envía a las 11:30; los demás arranques, si el día ya salió, no envían nada
+    # (estado durable por destino).
+    - cron: '30 9 * * *'
+      timezone: Europe/Madrid
+    - cron: '15 10 * * *'
+      timezone: Europe/Madrid
+    - cron: '0 11 * * *'
       timezone: Europe/Madrid
   workflow_dispatch:
     inputs:
       test_asin:
         description: 'Labelled example edition; independent delivery history'
         type: string
-        required: true
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -20,9 +29,9 @@ concurrency:
 
 jobs:
   publish:
-    if: vars.READING_TELEGRAM_ENABLED == 'true' && github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || inputs.test_asin != '')
+    if: vars.READING_TELEGRAM_ENABLED == 'true' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 180
     steps:
       - uses: actions/checkout@v5
         with:
@@ -70,6 +79,8 @@ jobs:
                   str(Path(os.environ['RUNNER_TEMP']) / 'reading-telegram'), '--send', '--github-state']
           if os.environ.get('TEST_ASIN'):
               args += ['--test-asin', os.environ['TEST_ASIN']]
+          else:
+              args += ['--wait-until-send']
           raise SystemExit(subprocess.call(args))
       - name: Aggregate operational result without private identifiers
         if: always()
