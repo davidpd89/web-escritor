@@ -63,3 +63,11 @@ La entrada manual `test_asin` sirve para reproducir ejemplos etiquetados, con un
 La siguiente fase es una página propia de Telegram dentro de redes sociales, con acceso a los canales y enlaces desde los libros. Para sumar un canal de novedades por género, reutilizar el servicio y añadir su destino y filtros al secreto de configuración. Un mismo bot puede publicar en varios canales; crear bots adicionales no es necesario para separar temáticas.
 
 Los fallos quedan reflejados en Actions y sus resúmenes agregados. Nuevas fuentes, más tipos de canal y alertas adicionales se incorporarán sobre esta base remota, sin volver a introducir dependencia del ordenador.
+
+## Capas de arranque diario (13/11/2026)
+
+El envío sale a las 11:30 Madrid. Como GitHub programa los crons «a mejor esfuerzo», hay tres capas independientes; el estado durable por destino impide duplicados entre ellas:
+
+1. Crons de GitHub: 9:30, 10:15 y 11:00 (el ciclo espera a las 11:30) y arranques de rescate a las 11:17, 11:42, 12:12, 13:07 y 14:37 (pasadas las 11:30 envían en cuanto arrancan; con el día ya enviado no hacen nada).
+2. Tarea de Windows `WEB_Libros_Telegram_Vigilante` (11:25 y 11:50, `StartWhenAvailable`): si no hay ciclo del día, lo lanza con `gh workflow run`. Log en `%LOCALAPPDATA%\web-escritor\telegram-guardian\vigilante.log`.
+3. Hueco conocido: PC apagado todo el día **y** GitHub sin disparar ningún cron. Cubrirlo exige un servicio externo con un token de GitHub.
