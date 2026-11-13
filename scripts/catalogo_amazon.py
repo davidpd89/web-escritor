@@ -54,6 +54,7 @@ from reading_amazon_market import (AMAZON_COVER_BASIS, BINDINGS, CreatorsPrices,
                                    select_offers, store_prices)
 from reading_amazon_radar import BOOKS_NODE, SPANISH  # noqa: E402
 from reading_ratings_refresh import isbn13, key  # noqa: E402
+from reading_taxonomy import non_reading_reason  # noqa: E402
 from reading_titles import proper_words, tidy_title  # noqa: E402,F401
 
 WORK = ROOT / '.local/catalogo'
@@ -135,7 +136,7 @@ AMAZON_SUBJECTS = {
     'Economía': ['empresa, estrategia y gestion', 'economia', 'industria y sectores economicos'],
     'Ciencia': ['ciencias de la tierra', 'biologia', 'ciencias, tecnologia y medicina', 'ciencias informaticas'],
     'Tiempo libre': ['deportes y aire libre', 'baloncesto', 'hogar, manualidades y estilos de vida', 'artesania, artes decorativas y manualidades',
-                     'juegos y adivinanzas', 'libros para colorear', 'libros para colorear para adultos', 'futbol'],
+                     'juegos y adivinanzas', 'futbol'],
     'Religión y espiritualidad': ['cristianismo', 'religion', 'teologia y filosofia de la religion'],
     'Derecho': ['derecho internacional', 'derecho', 'jurisprudencia', 'derecho publico', 'derecho privado', 'procesos y practica legal'],
     'Poder y política': ['politica', 'estructuras y procesos politicos', 'ideologias politicas', 'teoria politica',
@@ -571,7 +572,7 @@ def reencolar(day, deferred, rejected, previous=None, pending=None):
 
     def row_of(record, asin):
         row = pending.get(asin) or dict(previous.get(asin) or {'primera': day, 'intentos': 0})
-        return row | {'grupo': record.get('asin') or asin, 'ruta': list(reversed(record.get('palabras_clave') or []))}
+        return row | {'grupo': record.get('asin') or asin, 'ruta': list(reversed(record.get('nodos') or record.get('palabras_clave') or []))}
     for record in deferred:
         for asin in record_asins(record):
             pending[asin] = row_of(record, asin) | {'motivo': 'aplazado por cupo de altas', 'siguiente': day}
@@ -1111,11 +1112,15 @@ def to_record(entry, day, proper=None):
         raise Rejected('sin fecha de publicación')
     pages = amazon_dict(content.get('pagesCount')).get('displayValue')
     nodes = subjects(item, entry.get('ruta'))
+    # Un producto para rellenar, colorear o estudiar idiomas no es un libro de lectura aunque Amazon lo venda como
+    # libro (non_reading_reason es la misma prueba que retira los ya publicados en la cuarentena).
+    if why := non_reading_reason(title, nodes):
+        raise Rejected('no es un libro de lectura: ' + why)
     materias = list(dict.fromkeys(node_subjects(item) + [SUBJECT_OF_NODE[key(n)] for n in nodes if key(n) in SUBJECT_OF_NODE]))
     record = {
         'isbn13': isbn, 'asin': asin, 'titulo': title, 'autores': authors, 'editorial': publisher,
         'encuadernacion': binding_text[:1].upper() + binding_text[1:], 'formato_edicion': fmt,
-        'materias': sorted(materias, key=lambda m: m not in ('Cómic y novela gráfica', 'Guías y referencia'))[:3], 'palabras_clave': nodes[:12],
+        'materias': sorted(materias, key=lambda m: m not in ('Cómic y novela gráfica', 'Guías y referencia'))[:3], 'palabras_clave': [], 'nodos': nodes[:12],
         'fecha_publicacion_edicion': published[:10], 'precision_fecha': 'dia',
         'numero_paginas': pages if isinstance(pages, int) and 0 < pages < 10000 else None,
         'portada_fuente_url': f'https://www.amazon.es/dp/{asin}', 'cover_use_basis': COVER_BASIS,
@@ -1170,7 +1175,7 @@ def transformar(day, catalogue, write_pending=True):
         except SourceError:
             # Con nodos que no están en el mapa, reintentar no cambia nada: va a revisión con los nodos,
             # que son la lista de lo que falta por mapear (AMAZON_SUBJECTS).
-            nodes = node_names(entry['item']) or record.get('palabras_clave') or []
+            nodes = node_names(entry['item']) or record.get('nodos') or []
             failures.append({'asin': asin, 'isbn13': record['isbn13'], 'fase': 'transformar',
                              'motivo': 'materia sin mapear' if nodes else 'sin materia'} | ({'nodos': nodes} if nodes else {}))
             continue

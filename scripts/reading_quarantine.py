@@ -218,7 +218,63 @@ def repair_title_accents(books, root, today):
     return fixed
 
 
-REPAIRS = (repair_catalogue_publishers, repair_title_accents)
+def repair_retire_non_reading(books, root, today):
+    """Retira (borrador) lo que no es un libro de lectura: cuadernos, agendas, pegatinas, métodos de idiomas.
+
+    Origen (carga del 2026-11-13): Amazon los vende como libros y la carga los publicaba («Watashi no nihongo N4»
+    como ensayo, «Sorry! But I Am With Hurry»). La alta ya los rechaza con la misma prueba (non_reading_reason);
+    aquí salen los publicados antes; drop_retired_pages quita después sus fichas."""
+    from reading_taxonomy import non_reading_reason
+    retired = 0
+    for book in books:
+        # El título lo dice, o lo dijeron sus nodos de Amazon en el barrido de precios (no_lectura).
+        if book.get('estado') != 'borrador' and (non_reading_reason(book.get('titulo') or '') or book.get('no_lectura')):
+            book['estado'] = 'borrador'
+            book['fecha_actualizacion'] = today
+            retired += 1
+        if book.get('estado') == 'borrador':
+            unprice(book)
+    return retired
+
+
+def unprice(book):
+    """Un borrador no lleva precio: el barrido diario solo revisa publicados y el precio quedaría congelado."""
+    for option in book.get('formatos_compra', []):
+        option.pop('precio_centimos', None)
+        option.pop('precio_referencia_centimos', None)
+
+
+REPAIRS = (repair_catalogue_publishers, repair_title_accents, repair_retire_non_reading)
+
+
+def retired_pages(data, root):
+    """Páginas generadas de lo que sigue en los datos pero ya no tiene libro publicado.
+
+    La build no borra fichas (una URL cambiada no debe perder su página en silencio) y para si encuentra una sin
+    dato. Retirar un libro es distinto: su ficha, la de un autor o sello que se queda sin libros y la última página
+    del listado sobran. Solo se quitan rutas de entidades que siguen en los datos; una URL desconocida sigue parando."""
+    published = [b for b in data['libros'] if b.get('estado') == 'publicado']
+    live_books = {b['slug'] for b in published}
+    pages = [f"recomendaciones/libros/{b['slug']}/index.html" for b in data['libros']
+             if b.get('slug') and b['slug'] not in live_books]
+    names = {n for b in published for n in b.get('autores') or []}
+    pages += [build.author_url(a).lstrip('/') + 'index.html' for a in build.author_records(root) if a['nombre'] not in names]
+    sellos = {b.get('editorial_catalogo_slug') for b in published}
+    pages += [build.publisher_url(p).lstrip('/') + 'index.html' for p in build.publisher_records(root) if p['slug'] not in sellos]
+    last = max(1, -(-len(published) // build.CATALOGUE_PAGE_SIZE))
+    pages += [p.relative_to(root).as_posix() for p in (root / 'recomendaciones/pagina').glob('*/index.html')
+              if p.parent.name.isdigit() and int(p.parent.name) > last]
+    return [p for p in pages if (root / p).exists()]
+
+
+def drop_retired_pages(data, root):
+    """Quita del árbol y del índice de git las páginas de retired_pages. Devuelve las rutas quitadas."""
+    pages = retired_pages(data, root)
+    if pages:
+        subprocess.run(['git', 'rm', '-q', '--cached', '--ignore-unmatch', '--', *pages], cwd=root, check=False)
+        for page in pages:
+            (root / page).unlink(missing_ok=True)
+    return pages
 
 
 def apply(root=ROOT, today=None, flagged=None):
@@ -227,16 +283,18 @@ def apply(root=ROOT, today=None, flagged=None):
     path, held_path = root / CATALOGUE, root / QUARANTINE
     data = json.loads(path.read_text(encoding='utf-8'))
     original = json.loads(json.dumps(data))
-    from reading_taxonomy import repair_classification
-    repair_classification(data, today=today)
     held = json.loads(held_path.read_text(encoding='utf-8'))['libros'] if held_path.exists() else []
     for repair in REPAIRS:
         repair(data['libros'] + [h['libro'] for h in held], root, today)
+    # Después de las reparaciones: el género de respaldo por sello cuenta solo lo que sigue publicado.
+    from reading_taxonomy import repair_classification
+    repair_classification(data, today=today)
     clean, out = isolate(data, root, committed(root), held, today=today, flagged=flagged)
     if clean != original:  # mismo formato que el último escritor del catálogo (precios), sin reordenar claves
         write_changed(path, clean)
     if out or held_path.exists():
         write_if_changed(held_path, {'schema_version': 1, 'libros': out})
+    drop_retired_pages(clean, root)
     for h in out:
         print(f"Cuarentena: {h['libro']['id']} — {h['motivo']}", flush=True)
     return out
