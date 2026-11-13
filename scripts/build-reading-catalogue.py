@@ -1591,7 +1591,7 @@ def retired_entries(previous, current):
     «deprecated», sin página, fuera de índices y del sitemap. El retiro queda declarado y no parece un enlace perdido;
     si la ficha vuelve, su entrada viva la sustituye."""
     live = {e['id'] for e in current}
-    return [{**e, 'status': 'deprecated', 'searchIndex': False, 'sitemap': False, 'sourceFile': None}
+    return [{**e, 'status': 'deprecated', 'searchIndex': False, 'sitemap': False, 'sourceFile': ''}
             for e in previous if e['id'].startswith(RETIRABLE) and e['id'] not in live]
 
 

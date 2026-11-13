@@ -204,7 +204,7 @@ class RetiredRegistryTests(unittest.TestCase):
         self.assertEqual([e['id'] for e in gone], ['reading-book-a', 'reading-author-b'])
         for entry in gone:
             self.assertEqual((entry['status'], entry['searchIndex'], entry['sitemap'], entry['sourceFile']),
-                             ('deprecated', False, False, None))
+                             ('deprecated', False, False, ''))
         self.assertEqual(build.retired_entries(gone, []), gone, 'sigue declarada en las cargas siguientes')
 
 
