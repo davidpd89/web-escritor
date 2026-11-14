@@ -42,7 +42,8 @@ def preparar(cwd, paths, env=None):
         known.add(tracked)
         parts = tracked.split('/')
         dirs.update('/'.join(parts[:i]) for i in range(1, len(parts)))
-    keep = [p for p in paths if (Path(cwd) / p).exists() or p.rstrip('/') in known or p.rstrip('/') in dirs]
+    # lexists: un enlace simbólico colgante existe para git aunque su destino no (Codex, #1315).
+    keep = [p for p in paths if os.path.lexists(Path(cwd) / p) or p.rstrip('/') in known or p.rstrip('/') in dirs]
     if keep:
         subprocess.run(['git', 'add', '-A', '--pathspec-from-file=-', '--pathspec-file-nul'], cwd=cwd, check=True,
                        input='\0'.join(keep).encode('utf-8', 'surrogateescape'),

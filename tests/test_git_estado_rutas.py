@@ -92,6 +92,19 @@ class RutasTest(unittest.TestCase):
             self.assertEqual(sorted(staged.splitlines()),
                              ['A	rec/nuevo/index.html', 'D	rec/otro/index.html', 'D	rec/viejo/index.html'])
 
+    def test_preparar_incluye_un_enlace_simbolico_colgante(self):
+        """Codex en #1315: `exists()` sigue el enlace; uno colgante se omitía sin prepararse."""
+        with tempfile.TemporaryDirectory() as tmp:
+            repo = Path(tmp)
+            git(repo, 'init', '-q')
+            try:
+                (repo / 'enlace').symlink_to('no-esta')
+            except OSError:
+                self.skipTest('sin permiso para crear enlaces simbólicos')
+            git_estado.preparar(repo, ['enlace'])
+            staged = subprocess.check_output(['git', 'diff', '--cached', '--name-only'], cwd=repo, text=True)
+            self.assertEqual(staged.split(), ['enlace'])
+
     def test_preparar_miles_de_rutas_y_nombres_con_comodines(self):
         """Codex en #1312: miles de rutas en argv superan los 32 767 caracteres de Windows (WinError 206).
         Y `[ab]` no debe arrastrar otros ficheros como patrón."""
