@@ -248,7 +248,18 @@ def refresh(*, publish=False):
     print(json.dumps(report['stats'], ensure_ascii=True), flush=True)
     if not publish:
         return
-    changed = market_refresh(config)
+    # Un fallo de precios o portadas (API caída, respuesta rara de un libro) no puede llevarse las altas: antes
+    # tumbaba la carga antes de save_checkpoint y la noche se perdía. Se deshace solo lo escrito por el mercado.
+    antes = git_estado.foto(ROOT, *SOURCE_PATHS)
+    market_failure = None
+    try:
+        changed = market_refresh(config)
+    except Exception as exc:  # noqa: BLE001
+        market_failure = exc
+        print(f'::error::Precios y portadas fallidos ({type(exc).__name__}: {exc}); se deshacen y siguen las altas',
+              flush=True)
+        git_estado.restaurar(ROOT, antes, *SOURCE_PATHS)
+        changed = False
     follow_main()
     day = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
     saved = save_checkpoint(day)
@@ -260,6 +271,8 @@ def refresh(*, publish=False):
     result = assemble(report, changed=changed, checkpoint=saved)
     if failure:
         raise RuntimeError('Las altas de Amazon fallaron; precios y portadas sí se publicaron') from failure
+    if market_failure:
+        raise RuntimeError('Precios y portadas fallaron; las altas sí se publicaron') from market_failure
     return result
 
 

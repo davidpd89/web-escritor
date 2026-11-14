@@ -73,6 +73,47 @@ class RecoveryTests(unittest.TestCase):
     refresh.carry(branch,root=repo.work)
    self.assertEqual(repo.git('status','--porcelain'),'')
 
+ def test_existing_book_updates_survive_a_conflicting_main(self):
+  """#1312 (CodeRabbit): con choque, solo se trasladaban altas y los cambios de libros existentes se perdían."""
+  with tempfile.TemporaryDirectory() as tmp:
+   repo=Repo(tmp);branch='automation/reading-catalogue-2026-11-14-updates'
+   repo.git('switch','-q','-c',branch,'origin/main')
+   data=json.loads(books('a','b','c','d','e','f'))
+   data['libros'][0]['titulo']='A corregido';data['libros'][1]['titulo']='B de la carga'
+   repo.write({CATALOGUE:json.dumps(data),'assets/reading-covers/a.webp':b'portada nueva'})
+   repo.commit('source');repo.git('push','-q','origin',branch);repo.git('switch','-q','--detach','origin/main')
+   moved=json.loads(books('a','b','c','d','e','f','main-book'));moved['libros'][1]['titulo']='B de main'
+   repo.main_moves({CATALOGUE:json.dumps(moved)})
+   self.assertEqual(refresh.carry(branch,root=repo.work),[])
+   result={b['id']:b['titulo'] for b in json.loads((repo.work/CATALOGUE).read_text(encoding='utf-8'))['libros']}
+   self.assertEqual(result['a'],'A corregido')
+   self.assertEqual(result['b'],'B de main')
+   self.assertIn('main-book',result)
+   self.assertEqual((repo.work/'assets/reading-covers/a.webp').read_bytes(),b'portada nueva')
+ def test_existing_book_dependencies_and_asset_only_changes_survive(self):
+  """CodeRabbit #1320: editorial y categoría nuevas de un libro actualizado, y la portada nueva de un libro cuya
+  ficha no cambió, se perdían al recuperar con choque."""
+  with tempfile.TemporaryDirectory() as tmp:
+   repo=Repo(tmp);branch='automation/reading-catalogue-2026-11-14-deps'
+   repo.git('switch','-q','-c',branch,'origin/main')
+   data=json.loads(books('a','b','c','d','e','f'))
+   data['libros'][0]['editorial_catalogo_slug']='nueva';data['libros'][1]['titulo']='B de la carga'
+   data['categorias']=[{'id':'cat-x'}];data['libro_categorias']=[{'libro_id':'a','categoria_id':'cat-x'}]
+   repo.write({CATALOGUE:json.dumps(data),'assets/reading-covers/c.webp':b'portada de c',
+               'assets/reading-covers/b.webp':b'portada de b','data/reading-publishers.json':json.dumps({'editoriales':[{'slug':'nueva','nombre':'Nueva'}]})})
+   repo.commit('source');repo.git('push','-q','origin',branch);repo.git('switch','-q','--detach','origin/main')
+   moved=json.loads(books('a','b','c','d','e','f','main-book'));moved['libros'][1]['titulo']='B de main'
+   repo.main_moves({CATALOGUE:json.dumps(moved)})
+   self.assertEqual(refresh.carry(branch,root=repo.work),[])
+   result=json.loads((repo.work/CATALOGUE).read_text(encoding='utf-8'))
+   self.assertEqual({b['id']:b.get('editorial_catalogo_slug') for b in result['libros']}['a'],'nueva')
+   self.assertIn({'libro_id':'a','categoria_id':'cat-x'},result['libro_categorias'])
+   publishers=json.loads((repo.work/'data/reading-publishers.json').read_text(encoding='utf-8'))
+   self.assertEqual([p['slug'] for p in publishers['editoriales']],['nueva'])
+   self.assertEqual((repo.work/'assets/reading-covers/c.webp').read_bytes(),b'portada de c')
+   # b lo cambió main: su portada del origen no se trae.
+   self.assertFalse((repo.work/'assets/reading-covers/b.webp').exists())
+
 class CheckpointLifetimeTests(unittest.TestCase):
  def check(self,fail):
   with tempfile.TemporaryDirectory() as tmp,contextlib.ExitStack() as stack:
