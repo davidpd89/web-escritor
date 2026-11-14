@@ -20,6 +20,7 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
+import git_estado  # noqa: E402
 from reading_amazon_market import audit_book, apply_audit, cover_kind, fetch_amazon_image, fetch_amazon_page, replace_cover  # noqa: E402
 
 LOCAL = ROOT / '.local/reading-amazon-audit'
@@ -216,7 +217,7 @@ def publish():
     for script in scripts:
         run('scripts/' + script, '--check')
     run('scripts/check-reading-data.py')  # el código lo prueba el Required merge gate; aquí, solo los datos
-    paths = [line[3:] for line in git('status', '--porcelain', '--untracked-files=all', cwd=tree, capture=True).splitlines()]
+    paths = git_estado.rutas(tree)
     if not paths:
         print('La auditoría ya está en main')
         return False

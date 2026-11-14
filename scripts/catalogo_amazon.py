@@ -572,7 +572,12 @@ def reencolar(day, deferred, rejected, previous=None, pending=None):
 
     def row_of(record, asin):
         row = pending.get(asin) or dict(previous.get(asin) or {'primera': day, 'intentos': 0})
-        return row | {'grupo': record.get('asin') or asin, 'ruta': list(reversed(record.get('nodos') or record.get('palabras_clave') or []))}
+        row = row | {'grupo': record.get('asin') or asin, 'ruta': list(reversed(record.get('nodos') or record.get('palabras_clave') or []))}
+        # Fecha de publicación de la edición: reintentar pide antes los que salen más cerca de hoy.
+        published = (record.get('fecha_publicacion_edicion') or '')[:10]
+        if re.fullmatch(r'\d{4}-\d{2}-\d{2}', published):
+            row['fecha'] = published
+        return row
     for record in deferred:
         for asin in record_asins(record):
             pending[asin] = row_of(record, asin) | {'motivo': 'aplazado por cupo de altas', 'siguiente': day}
@@ -589,13 +594,57 @@ def record_asins(record):
     return list(dict.fromkeys(a for a in ([record.get('asin')] + [amazon_dict(i).get('asin') for i in items]) if a))
 
 
+NEAR_PER_OLD = 3  # en reintentar: por cada obra que más lleva esperando, tres de fecha cercana
+
+
+def retry_order(rows, day):
+    """Pendientes que tocan hoy, por obras (mismo `grupo`: sus ediciones van seguidas y vuelven juntas).
+
+    El portal es de novedades: primero las obras que salen más cerca de hoy (hoy, mañana, ayer…, en la ventana de
+    `priorizar`), y por cada NEAR_PER_OLD de esas, una de las que más llevan esperando, para que el fondo y las filas
+    sin fecha no esperen siempre. Hasta el 14/11 iba solo por espera: con 9000 pendientes y 120 peticiones por lote,
+    un libro de mañana aplazado ayer no volvía a pedirse a tiempo."""
+    try:
+        today = date.fromisoformat(day)
+        window = (today - timedelta(days=60), today + timedelta(days=183))
+    except ValueError:
+        today = window = None
+    groups = {}
+    for asin, row in rows.items():
+        if row.get('siguiente', '') <= day:
+            groups.setdefault(row.get('grupo') or asin, []).append(asin)
+
+    def distance(group):
+        if today is None:
+            return None
+        gaps = []
+        for asin in groups[group]:
+            try:
+                published = date.fromisoformat(rows[asin].get('fecha') or '')
+            except ValueError:
+                continue
+            if window[0] <= published <= window[1]:
+                gaps.append((abs((published - today).days), published < today))
+        return min(gaps) if gaps else None
+    near = sorted((g for g in groups if distance(g) is not None), key=lambda g: (distance(g), g))
+    oldest = sorted(groups, key=lambda g: (min(rows[a].get('siguiente', '') for a in groups[g]),
+                                           min(rows[a].get('primera', '') for a in groups[g]), g))
+    ordered, seen, olds = [], set(), iter(oldest)
+    for n, group in enumerate(near, 1):
+        if group not in seen:
+            ordered.append(group); seen.add(group)
+        if n % NEAR_PER_OLD == 0:
+            group = next((g for g in olds if g not in seen), None)
+            if group is not None:
+                ordered.append(group); seen.add(group)
+    ordered += [g for g in oldest if g not in seen]
+    return [a for g in ordered for a in sorted(groups[g])]
+
+
 def reintentar(prov, tag, day, out, budget):
-    """getItems de los pendientes que tocan hoy, de 10 en 10, al mismo raw que el recorrido."""
-    # Los que más llevan esperando, primero: con más pendientes que cupo, ordenar por ASIN dejaría siempre a los
-    # mismos al final. Las ediciones de una obra (mismo `grupo`) van seguidas, para que vuelvan juntas.
+    """getItems de los pendientes que tocan hoy, de 10 en 10, al mismo raw que el recorrido (orden: `retry_order`)."""
     rows = read_json(pending_path(), {})
-    due = sorted((a for a, row in rows.items() if row.get('siguiente', '') <= day),
-                 key=lambda a: (rows[a].get('siguiente', ''), rows[a].get('primera', ''), rows[a].get('grupo', a), a))
+    due = retry_order(rows, day)
     used, asked, got = 0, set(), set()
     for start in range(0, len(due), 10):
         if used >= budget:

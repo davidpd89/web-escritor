@@ -141,6 +141,27 @@ jobs:
             gh workflow run reading-catalogue-sync.yml --repo "$GITHUB_REPOSITORY" --ref main
             echo "Next night batch dispatched (accepted $accepted at $hour h Madrid)." >> "$GITHUB_STEP_SUMMARY"
           fi
+      - name: Retry a failed night batch
+        # 2026-11-14: two batches failed after accepting 200 books each and the chain stopped until the
+        # next night. A failed batch leaves its data on automation/reading-datos-*, so a new run publishes
+        # it without querying the sources again (and a fixed main may already be in place). Night only,
+        # and at most two failed runs per night, so a broken rule never loops.
+        if: failure() && !inputs.dry_run
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          hour=$(TZ=Europe/Madrid date +%-H)
+          since=$(TZ=Europe/Madrid date -d 'today 00:00' -u +%Y-%m-%dT%H:%M:%SZ)
+          failed=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow reading-catalogue-sync.yml --limit 30 \
+            --json databaseId,conclusion,createdAt \
+            -q "[.[] | select(.databaseId != ${GITHUB_RUN_ID} and .conclusion == \"failure\" and .createdAt >= \"$since\")] | length")
+          echo "Madrid hour $hour, earlier failures tonight $failed"
+          if [ "$hour" -lt 6 ] && [ "$failed" -lt 2 ]; then
+            gh workflow run reading-catalogue-sync.yml --repo "$GITHUB_REPOSITORY" --ref main
+            echo "Failed batch: one retry dispatched (recovers the saved data branch)." >> "$GITHUB_STEP_SUMMARY"
+          fi
       - name: Read-only live provider pilot
         if: inputs.dry_run && inputs.live_provider_pilot
         env:

@@ -13,6 +13,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+import git_estado
 import reading_quarantine
 import catalogo_estado as estado
 import materializar_generados as materializar
@@ -489,9 +490,7 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
     else:
         raise RuntimeError('check-reading-data sigue fallando tras apartar libros en 3 rondas')
     command('git', 'diff', '--check')
-    changed = subprocess.check_output(
-        ['git', 'status', '--porcelain', '--untracked-files=all'], cwd=ROOT, text=True)
-    paths = [line[3:] for line in changed.splitlines()]
+    paths = git_estado.rutas(ROOT)
     if not paths or any(not publisher.allowed_path(p) for p in paths):
         raise ValueError('Cambios fuera de los artefactos permitidos: ' + str([p for p in paths if not publisher.allowed_path(p)]))
     command('git', 'add', '--', *paths)

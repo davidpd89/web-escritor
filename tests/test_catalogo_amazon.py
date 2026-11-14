@@ -886,6 +886,33 @@ class Pendientes(unittest.TestCase):
         self.assertEqual((pending['D1']['siguiente'], pending['D1']['intentos']), ('2026-11-06', 0))
         self.assertEqual((pending['R1']['siguiente'], pending['R1']['intentos']), ('2026-11-07', 1))
 
+    def test_deferred_rows_keep_their_publication_date(self):
+        record = {'asin': 'D1', 'isbn13': '1', 'fecha_publicacion_edicion': '2026-11-15T00:00:01Z',
+                  'item': {'asin': 'D1'}, 'otras_ediciones': [{'asin': 'D1K'}]}
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            ca.reencolar('2026-11-14', [record], [])
+            pending = ca.read_json(ca.pending_path())
+        self.assertEqual((pending['D1']['fecha'], pending['D1K']['fecha']), ('2026-11-15', '2026-11-15'))
+
+    def test_retry_order_puts_near_release_dates_first_and_still_moves_the_oldest(self):
+        # 14/11: 9000 pendientes por espera y 120 peticiones; un libro de mañana no volvía a pedirse a tiempo.
+        day = '2026-11-14'
+        rows = {f'OLD{i}': {'siguiente': day, 'primera': f'2026-10-{i + 10:02}'} for i in range(5)}
+        rows |= {'TOMORROW': {'siguiente': day, 'primera': '2026-11-13', 'fecha': '2026-11-15', 'grupo': 'TOMORROW'},
+                 'TOMORROW-K': {'siguiente': day, 'primera': '2026-11-13', 'grupo': 'TOMORROW'},
+                 'TODAY': {'siguiente': day, 'primera': '2026-11-14', 'fecha': '2026-11-14'},
+                 'YESTERDAY': {'siguiente': day, 'primera': '2026-11-14', 'fecha': '2026-11-13'},
+                 'MAY': {'siguiente': day, 'primera': '2026-11-14', 'fecha': '2027-05-01'},
+                 'FAR': {'siguiente': day, 'primera': '2026-11-14', 'fecha': '2031-01-01'},
+                 'LATER': {'siguiente': '2026-11-20', 'fecha': '2026-11-14'}}
+        order = ca.retry_order(rows, day)
+        self.assertEqual(order[:4], ['TODAY', 'TOMORROW', 'TOMORROW-K', 'YESTERDAY'])  # ediciones juntas
+        self.assertEqual(order[4], 'OLD0')  # cada 3 obras cercanas, la que más espera
+        self.assertNotIn('LATER', order)
+        self.assertLess(order.index('MAY'), order.index('OLD1'))
+        self.assertEqual(sorted(order), sorted(set(rows) - {'LATER'}))
+
     def test_queue_is_written_once_after_requeueing(self):
         # Un corte entre transformar y reencolar no puede dejar la cola sin los que transformar quitó.
         with tempfile.TemporaryDirectory() as tmp:
