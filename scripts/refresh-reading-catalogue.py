@@ -123,8 +123,8 @@ def save_checkpoint(day, root=ROOT):
     index = root / git('rev-parse', '--git-path', 'checkpoint-index', root=root).decode().strip()
     env = {**os.environ, 'GIT_INDEX_FILE': str(index)}
     try:
-        for args in (('read-tree', 'HEAD'), ('add', '--', *paths)):
-            subprocess.run(['git', *args], cwd=root, check=True, capture_output=True, env=env)
+        subprocess.run(['git', 'read-tree', 'HEAD'], cwd=root, check=True, capture_output=True, env=env)
+        git_estado.preparar(root, paths, env=env)
         tree = subprocess.run(['git', 'write-tree'], cwd=root, check=True, capture_output=True, text=True, env=env).stdout.strip()
     finally:
         index.unlink(missing_ok=True)
@@ -469,8 +469,7 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
               'data/reading-quarantine.json', 'data/content-registry.json', 'assets/reading-covers', 'assets/reading-audio', 'recomendaciones', 'editoriales', 'editoriales-sitemap.xml', 'mapa-del-sitio/index.html')
     # Register new routes before builders that deliberately consume git ls-files.
     def registrar(_root):
-        command('git', 'add', '--', *[p for p in staged if (ROOT / p).exists()])
-        command('git','add','--','assets/pinterest/feeds')
+        git_estado.preparar(ROOT, [*staged, 'assets/pinterest/feeds'])
     flagged = {}
     for _ in range(3):
         # Misma cadena que rebase-regenerando y merge-main (scripts/materializar_generados.py).
@@ -494,7 +493,7 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
     paths = git_estado.rutas(ROOT)
     if not paths or any(not publisher.allowed_path(p) for p in paths):
         raise ValueError('Cambios fuera de los artefactos permitidos: ' + str([p for p in paths if not publisher.allowed_path(p)]))
-    command('git', 'add', '--', *paths)
+    git_estado.preparar(ROOT, paths)
     day = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
     branch = publisher.publication.fresh_branch('automation/reading-catalogue-' + day + '-', cwd=ROOT)
     bot_identity()

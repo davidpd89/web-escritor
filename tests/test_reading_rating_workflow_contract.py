@@ -31,7 +31,10 @@ class RatingWorkflowContract(unittest.TestCase):
     def test_publish_stages_only_existing_paths(self):
         # Sync 41755229440: sin libros en cuarentena no hay data/reading-quarantine.json y git add abortaba la carga.
         src = (ROOT / "scripts/refresh-reading-catalogue.py").read_text(encoding="utf-8")
-        self.assertIn("command('git', 'add', '--', *[p for p in staged if (ROOT / p).exists()])", src)
+        # 14/11: las rutas pasan por git_estado.preparar (omite rutas ausentes y borrados ya preparados; lo prueba
+        # test_git_estado_rutas). Ningún `git add -- *rutas` directo.
+        self.assertIn("git_estado.preparar(ROOT, [*staged, 'assets/pinterest/feeds'])", src)
+        self.assertNotIn("command('git', 'add', '--'", src)
         self.assertNotIn("command('git', 'add', '--', 'assets/page-order.generated.js'", src)
 
     def test_daily_sync_has_optional_credentials_and_no_extra_workflow(self):
