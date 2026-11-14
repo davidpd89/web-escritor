@@ -4,42 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Paseo conmigo mismo (Reservoir Gráfica) se dirige a lectores de narrativa contemporánea interesados también en el humor. La obra de Carlos Giménez tiene 128 páginas y encaja menos con quienes buscan una lectura extensa de ciencia ficción o fantasía.",
+      "texto": "Paseo conmigo mismo (Reservoir Gráfica) se orienta a lectores interesados en la narrativa contemporánea de Carlos Giménez. Su identificación editorial con Reservoir Gráfica también permite distinguirlo de una búsqueda centrada exclusivamente en novelas de fantasía o aventuras.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Paseo conmigo mismo (Reservoir Gráfica) puede leerse en tapa dura o en Kindle. La edición física de Reservoir Books reúne 128 páginas en castellano y resulta adecuada para conservarla en una estantería o regalarla; Kindle permite llevar la lectura en un dispositivo compatible sin transportar el volumen.",
+      "texto": "Paseo conmigo mismo (Reservoir Gráfica) ofrece tapa dura y Kindle para una obra de 128 páginas. La tapa dura proporciona una cubierta rígida para conservar el ejemplar en una biblioteca o regalarlo; Kindle permite llevar la lectura en un dispositivo compatible sin transportar el libro físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "editorial",
-        "numero_paginas",
-        "idioma"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Paseo conmigo mismo (Reservoir Gráfica) puede compararse con El día que lo fuimos todo por su relación con la narrativa contemporánea y el humor. Carlos Giménez firma una obra de 128 páginas, mientras que el libro de Ángel Martín se presenta como una historia sobre experiencias que transforman la vida. La diferencia más clara está en la autoría y en el enfoque anunciado de cada título.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "numero_paginas",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788408327134"
+        "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0df0e06ff535d4e8",
+  "fuente_hash": "1611ca9f207a7517",
   "origen": "chatgpt-web"
 }

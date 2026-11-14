@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788498297492",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El gran agujero en el cielo (Premio Desnivel de Literatura) se dirige a lectores de narrativa contemporánea con interés por obras vinculadas al ocio y el tiempo libre. Su clasificación editorial lo aleja de los manuales técnicos y de los libros centrados exclusivamente en una actividad práctica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El gran agujero en el cielo (Premio Desnivel de Literatura) se publica en tapa blanda, con 176 páginas en castellano. Esta edición de Ediciones Desnivel, S. L permite llevar el volumen en una bolsa y leerlo sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El gran agujero en el cielo (Premio Desnivel de Literatura) comparte el ámbito narrativo con Good Rebels (Spanish Edition), aunque son obras de distinta autoría. Frente a 80 crímenes imposibles de resolver (FUERA DE ESCENA), centrado por su título en enigmas criminales, se sitúa en la narrativa contemporánea y el ocio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876773",
+        "isbn-9791388015816"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6a5751350b872836",
+  "origen": "chatgpt-web"
+}

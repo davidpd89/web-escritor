@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388449420",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dion, el esclavo se dirige a lectores de novela histórica interesados en relatos vinculados a la esclavitud, asunto anunciado en el título. Sus 264 páginas lo sitúan en una extensión intermedia; encaja menos con quien busca fantasía desligada de la historia o un estudio académico sobre la esclavitud.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dion, el esclavo se publica en tapa blanda, con 264 páginas en castellano. La edición de Avant Editorial permite leer la novela en papel y conservarla en una biblioteca física; por su extensión, también puede dividirse en varias sesiones de lectura sin recurrir a un dispositivo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dion, el esclavo puede ponerse junto a Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon y Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth, ambos de Valerio Massimo Manfredi. Los títulos permiten distinguir sus enfoques: Dion, el esclavo anuncia una figura sometida a esclavitud, mientras los otros identifican entregas numeradas y escenarios diferentes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897090",
+        "isbn-9786287897106"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "90709fcd3fb87d4a",
+  "origen": "chatgpt-web"
+}

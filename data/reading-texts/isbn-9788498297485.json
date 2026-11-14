@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788498297485",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta guía se dirige a lectores interesados en la escalada y en las actividades al aire libre en Gredos. Su contenido se centra en 50 escaladas, por lo que se aleja de los libros de pasatiempos, los juegos de lógica y otras actividades de ocio realizadas en interiores.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de tapa blanda reúne 176 páginas en castellano y está publicada por Ediciones Desnivel, S. L. El formato físico permite consultar las 50 escaladas de Gredos durante la planificación de las actividades y transportar el ejemplar junto al material de lectura habitual.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "99 Sudoku (LIBROS SINGULARES) comparte con esta guía su orientación hacia las actividades de ocio, aunque se centra en pasatiempos numéricos. La obra de Raúl Lora del Cerro aborda 50 escaladas en Gredos, mientras el libro de Anónimo propone una actividad que puede realizarse sin desplazamientos al aire libre.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724425"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e9aafff4e6e89641",
+  "origen": "chatgpt-web"
+}

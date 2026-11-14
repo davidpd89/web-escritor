@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387934231",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Escoge un buen vino: 100 botellas para cambiar tu forma de beber (GASTRONOMIA) se dirige a lectores interesados en conocer vinos y orientar sus elecciones de consumo. Su enfoque gastronómico encaja menos con quienes buscan recetas de cocina general o una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Escoge un buen vino: 100 botellas para cambiar tu forma de beber (GASTRONOMIA) está disponible en tapa dura, con 256 páginas en castellano. La encuadernación rígida facilita conservarlo como volumen de consulta y regalarlo a alguien interesado en el vino; su extensión permite volver a distintas partes del libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Escoge un buen vino: 100 botellas para cambiar tu forma de beber (GASTRONOMIA) puede compararse con Atlas Mundial Del Vino (NATURART), de Hugh Johnson, porque ambos se centran en el vino. Dan Keeling plantea su libro alrededor de la elección de 100 botellas, mientras que el título de Hugh Johnson anuncia una perspectiva geográfica mundial. La diferencia está entre seleccionar botellas y consultar un atlas dedicado al vino.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418075933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2e9bc9baa07bf564",
+  "origen": "chatgpt-web"
+}

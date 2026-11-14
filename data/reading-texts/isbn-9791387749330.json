@@ -4,38 +4,21 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Placeres mortales -edición especial se dirige a lectores de fantasía que buscan una obra extensa en castellano. Sus 624 páginas y su orientación fantástica la separan de las lecturas breves y de quienes prefieren historias centradas exclusivamente en situaciones realistas.",
+      "texto": "Placeres mortales -edición especial se dirige a lectores de fantasía y ciencia ficción que buscan una novela extensa. Sus 624 páginas la sitúan entre las lecturas de mayor recorrido, mientras que su clasificación temática la diferencia de la narrativa realista y de los libros de divulgación.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Placeres mortales -edición especial está disponible en tapa dura y Kindle, dos opciones para sus 624 páginas. La edición física de Umbriel permite conservar el volumen encuadernado como parte de una colección, mientras que Kindle facilita leer una obra de esta extensión en el móvil o en un lector electrónico.",
+      "texto": "La tapa dura presenta las 624 páginas de Placeres mortales -edición especial en una edición física de Umbriel, adecuada para conservar en la biblioteca o regalar. Kindle permite leer esa misma obra en un dispositivo electrónico o en el móvil, sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "formatos_disponibles",
         "numero_paginas",
-        "edicion"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Aftermyth 1. Penelope y la prueba de los dioses comparte con Placeres mortales -edición especial el ámbito de la fantasía, aunque su título sitúa el conflicto en torno a una prueba vinculada a los dioses. Al despertar, rompe el cascarón (Runas) introduce otra propuesta de Becky Chambers, frente a la novela de fantasía de Belen Martinez publicada en edición especial.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo",
-        "edicion"
-      ],
-      "enlaces": [
-        "isbn-9788408324102",
-        "isbn-9791370093488"
+        "formatos_disponibles",
+        "editorial"
       ]
     }
   ],

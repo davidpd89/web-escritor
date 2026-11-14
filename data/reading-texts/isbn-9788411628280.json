@@ -4,24 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta obra se dirige a lectores interesados en la protección jurídica de las personas afectadas por migraciones forzadas, especialmente ante el Tribunal Europeo de Derechos Humanos. Su atención al principio de non-refoulement y a la prohibición de la tortura la distingue de los estudios generales sobre movimientos migratorios sin perspectiva jurídica.",
+      "texto": "Esta obra de Andrea Bartomeu Navarro está dirigida a lectores interesados en los derechos humanos, las migraciones forzadas y la protección jurídica frente a la tortura. Su estudio del principio de non-refoulement ante el Tribunal Europeo de Derechos Humanos la aleja de los libros centrados en experiencias migratorias narradas desde una perspectiva personal.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El principio de non-refoulement en el Tribunal Europeo de Derechos Humanos: Un análisis de la protección de las víctimas de migraciones forzadas a la luz de la prohibición de la tortura (Estudios) se presenta en tapa blanda y tiene 360 páginas. El ejemplar impreso facilita el subrayado y la consulta de pasajes relacionados con la protección de derechos.",
+      "texto": "La edición en tapa blanda de El principio de non-refoulement en el Tribunal Europeo de Derechos Humanos: Un análisis de la protección de las víctimas de migraciones forzadas a la luz de la prohibición de la tortura (Estudios) tiene 360 páginas. El volumen físico permite marcar apartados y volver a ellos durante el estudio de las cuestiones jurídicas que plantea.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) comparte el interés por los conflictos y su tratamiento, pero se sitúa en la mediación educativa. La obra de Andrea Bartomeu Navarro estudia, en cambio, la protección frente a la devolución de víctimas de migraciones forzadas desde el Derecho europeo de los derechos humanos.",
+      "texto": "El principio de non-refoulement en el Tribunal Europeo de Derechos Humanos: Un análisis de la protección de las víctimas de migraciones forzadas a la luz de la prohibición de la tortura (Estudios) y Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I pertenecen al ámbito jurídico. Andrea Bartomeu Navarro estudia la protección de las personas afectadas por migraciones forzadas, mientras que Juan Felipe Criado-Castilla se ocupa de las relaciones contractuales de consumo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,12 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788429030372"
+        "isbn-9791370297305"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4cde67200435bbb2",
+  "fuente_hash": "f40a3b97c8fde8fa",
   "origen": "chatgpt-web"
 }

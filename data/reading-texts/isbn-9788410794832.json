@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410794832",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿A qué suena la paz?, de Sonia París Albert, se dirige a quienes buscan una lectura breve relacionada con el ensayo y los relatos. Sus 32 páginas permiten abordarlo en poco tiempo; encaja menos con quien prefiere una obra extensa o una novela de largo desarrollo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de ¿A qué suena la paz? está disponible en tapa blanda y reúne 32 páginas en castellano. Es una opción física de extensión reducida, fácil de transportar y de guardar junto a otras lecturas breves, sin necesidad de reservar espacio para un volumen grueso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿A qué suena la paz? puede compararse con El genio griego: Ilíada o el poema de la fuerza y otros textos (Contemporánea | Narrativa), de Simone Weil, por su vinculación con el ensayo. También comparte con El árbol de la buena muerte y otros cuentos (Minotauro Esenciales), de H.G. Oesterheld, el ámbito de los relatos, aunque este último se presenta expresamente como una colección de cuentos y el libro de Sonia París Albert combina ambas clasificaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394604",
+        "isbn-9788445023259"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7963ed22020a4162",
+  "origen": "chatgpt-web"
+}

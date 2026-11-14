@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "BIM ON SITE: Consultoría e implantación BIM en PYME se orienta a lectores interesados en la aplicación de BIM dentro de pequeñas y medianas empresas. Por su enfoque de consultoría e implantación y su clasificación en economía y empresa, se aleja de la ficción y de los libros centrados exclusivamente en cuestiones personales.",
+      "texto": "BIM ON SITE: Consultoría e implantación BIM en PYME se orienta a lectores interesados en introducir BIM en pequeñas y medianas empresas mediante procesos de consultoría e implantación. Su enfoque empresarial y técnico lo distancia de los libros de gestión general que no se ocupan de esta metodología.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,30 +12,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "BIM ON SITE: Consultoría e implantación BIM en PYME se presenta en tapa blanda, con 250 páginas en castellano. El formato físico permite consultar y releer apartados sobre consultoría e implantación BIM, y su extensión ofrece un volumen de trabajo que puede mantenerse a mano durante la lectura.",
+      "texto": "La tapa blanda presenta las 250 páginas de BIM ON SITE: Consultoría e implantación BIM en PYME como manual físico para consultar durante el trabajo. Kindle permite acceder al contenido desde un dispositivo electrónico, una alternativa para revisar conceptos de consultoría e implantación sin llevar el libro en papel.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "BIM ON SITE: Consultoría e implantación BIM en PYME y Antes de liderar: Una mirada interior a un oficio se sitúan en el ámbito empresarial, aunque abordan asuntos distintos. Mario B.G. centra su título en la consultoría y la implantación BIM en pequeñas y medianas empresas; Miguel Reinoso pone el foco en el liderazgo y su dimensión profesional.",
+      "texto": "Antes de liderar: Una mirada interior a un oficio comparte con BIM ON SITE: Consultoría e implantación BIM en PYME el ámbito profesional, pero aborda el liderazgo en lugar de la implantación BIM. ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido se ocupa de las ideas, mientras que BIM ON SITE delimita su asunto a la consultoría y la implantación en PYME.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9791399087222",
         "isbn-9788409921980"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "fdbffc9394cff88a",
+  "fuente_hash": "9d33143a5ccb3588",
   "origen": "chatgpt-web"
 }

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Y si desaparece Cupido? se orienta a lectores que prefieren resolver misterios mediante pistas y sospechosos, especialmente cuando el caso incorpora conflictos amorosos. Quien busque una historia romántica convencional encontrará aquí una investigación participativa sobre un secuestro, no únicamente una relación sentimental.",
+      "texto": "¿Y si desaparece Cupido? se dirige a lectores que disfrutan resolviendo misterios mediante pistas, sospechosos y deducciones. Su investigación ambientada en la víspera de San Valentín, con celos e infidelidades como trasfondo, se aparta de las historias románticas centradas exclusivamente en las relaciones de pareja.",
       "evidencias": [
         "titulo",
         "sinopsis_editorial",
@@ -13,39 +13,40 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Sion Serra Lopes plantea un juego de investigación alrededor del secuestro de Cupido, situado en vísperas de San Valentín. La resolución depende de interpretar 12 pistas y discriminar entre 40.000 sospechosos, con los celos y las infidelidades como parte del contexto del caso.",
+      "texto": "El libro plantea una investigación interactiva sobre el secuestro de Cupido, con el lector en el papel de Detective del Amor. El caso reúne 12 pistas y 40.000 sospechosos, y exige identificar al culpable antes de San Valentín. El misterio utiliza conflictos sentimentales como parte de su planteamiento.",
       "evidencias": [
-        "autores",
+        "titulo",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¿Y si desaparece Cupido? está disponible en tapa blanda, mediante una edición rústica sin solapas de 256 páginas. El soporte físico permite avanzar por las pistas y retroceder para revisar sospechosos mientras se intenta resolver el secuestro.",
+      "texto": "¿Y si desaparece Cupido? se ofrece en tapa blanda, con una edición rústica sin solapas de Libros Cúpula. Sus 256 páginas permiten seguir físicamente la investigación, consultar las pistas y regresar a los sospechosos mientras se intenta resolver el secuestro.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
+        "editorial",
         "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¿Y si desaparece Cupido? y 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos) comparten una propuesta de ocio basada en la participación del lector. Sion Serra Lopes plantea una investigación sobre el secuestro de Cupido, mientras que el libro relacionado con Roblox propone una actividad de coloreado.",
+      "texto": "80 crímenes imposibles de resolver (FUERA DE ESCENA) comparte con ¿Y si desaparece Cupido? la resolución de enigmas, aunque este último plantea un secuestro relacionado con el amor. Ambos proponen investigar un misterio, pero el libro de Sion Serra Lopes sitúa al lector ante 12 pistas y 40.000 sospechosos en la víspera de San Valentín.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328384"
+        "isbn-9791388015816"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9a15fdb8f922f504",
+  "fuente_hash": "25a3bce023badb46",
   "origen": "chatgpt-web"
 }

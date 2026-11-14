@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I está orientado a lectores interesados en el derecho del consumo y las condiciones generales de los contratos. Su especialización jurídica lo separa de las lecturas sobre mediación educativa o de las introducciones generales a la gestión empresarial.",
+      "texto": "Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I está dirigido a quienes desean estudiar el derecho de consumo desde la perspectiva contractual. Su contenido jurídico encaja menos con lectores que buscan consejos generales sobre compras o una introducción a materias ajenas a los contratos.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,22 +12,21 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es la presentación disponible de Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I. Sus 338 páginas en castellano forman un volumen físico publicado por Letrame Grupo Editorial, adecuado para mantener a mano durante consultas sobre la materia contractual.",
+      "texto": "Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I se publica en tapa blanda y tiene 338 páginas. Esta edición en papel permite consultar el contenido jurídico, señalar pasajes y regresar a las cuestiones relativas a las condiciones generales de contratación durante el estudio.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Blockchain: un desafío legal (Monografía) y Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I comparten el tratamiento de cuestiones jurídicas especializadas. Ana Isabel Quiroz Ruiz se ocupa de los desafíos legales de blockchain, mientras que Juan Felipe Criado-Castilla centra su obra en los contratos de consumo y sus condiciones generales.",
+      "texto": "Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I y Blockchain: un desafío legal (Monografía) comparten el interés por cuestiones jurídicas. Juan Felipe Criado-Castilla aborda el ámbito contractual del consumo y las condiciones generales de contratación, mientras Ana Isabel Quiroz Ruiz trata un desafío legal relacionado con blockchain. La diferencia principal está en la materia jurídica que identifica cada título.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "autores"
+        "autores",
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791370610265"
@@ -36,6 +35,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0170286c4c80bd50",
+  "fuente_hash": "3b5a79732261a730",
   "origen": "chatgpt-web"
 }

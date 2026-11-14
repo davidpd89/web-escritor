@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Resignificar para vivir: El dolor como puerta hacia el propósito está orientado a lectores interesados en el desarrollo personal y en cómo interpretar las experiencias dolorosas. El planteamiento de Daiana Dos Santos se relaciona con el bienestar y la búsqueda de propósito, no con una narración de aventuras ni con una guía de ficción.",
+      "texto": "Se dirige a lectores interesados en abordar el dolor desde una perspectiva de bienestar y búsqueda de propósito personal. El planteamiento de Daiana Dos Santos se centra en resignificar las experiencias dolorosas, por lo que no responde a quien busca una guía de nutrición o un manual de tratamientos médicos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,30 +13,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Resignificar para vivir: El dolor como puerta hacia el propósito se presenta en tapa dura, con 130 páginas en castellano. La encuadernación rígida favorece su conservación y permite tenerlo como ejemplar de consulta para regresar a las reflexiones sobre dolor y propósito.",
+      "texto": "Resignificar para vivir: El dolor como puerta hacia el propósito se presenta en tapa dura, con 130 páginas en castellano. Es una edición física de extensión contenida que permite conservar el volumen y volver a sus contenidos sobre dolor y propósito personal sin depender de una pantalla.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
         "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Resignificar para vivir: El dolor como puerta hacia el propósito y 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito comparten el interés por el bienestar personal. Daiana Dos Santos plantea la relación entre dolor y propósito, mientras que Liz Moody aborda cambios relacionados con la salud, las relaciones y la felicidad desde una perspectiva científica.",
+      "texto": "Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida también aborda las heridas personales, aunque su título pone el acento en la aceptación y el equilibrio. Resignificar para vivir: El dolor como puerta hacia el propósito desplaza el foco hacia la relación entre sufrimiento y propósito; son obras de Kelly Ann Street y Daiana Dos Santos, respectivamente.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9798890981776"
+        "isbn-9788410451988"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "71293e16e8fc6ff5",
+  "fuente_hash": "195a56e8da198db3",
   "origen": "chatgpt-web"
 }

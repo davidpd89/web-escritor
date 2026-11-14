@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El diablo viste de Helvetica está dirigido a adultos interesados en el diseño gráfico y su influencia en la vida cotidiana. Elena López recurre a casos históricos y curiosidades sobre objetos, tipografías y señales; encaja menos con quienes buscan una novela o un manual de técnicas profesionales de diseño.",
+      "texto": "El diablo viste de Helvetica se dirige a lectores adultos interesados en el diseño gráfico y su influencia sobre decisiones habituales. Sus ejemplos abarcan tipografías, señales, envases y objetos cotidianos, por lo que encaja con una lectura divulgativa más que con un manual técnico de herramientas de diseño.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,29 +14,27 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "El diablo viste de Helvetica propone una lectura divulgativa sobre las consecuencias prácticas del diseño gráfico. Elena López utiliza ejemplos de papeletas electorales, señales de tráfico, envases y tipografías para mostrar cómo las decisiones visuales intervienen en la comunicación, la accesibilidad y el comportamiento cotidiano, sin desarrollar una trama de ficción.",
+      "texto": "Elena López examina cómo las decisiones de diseño modifican la manera de interpretar información y utilizar objetos. Entre sus casos aparecen una papeleta electoral, el color de las señales de stop y la legibilidad de Comic Sans. El libro relaciona estas cuestiones con situaciones habituales en espacios públicos, comercios y dispositivos personales.",
       "evidencias": [
-        "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El diablo viste de Helvetica se ofrece en tapa blanda y Kindle. La edición de Ediciones B tiene 216 páginas y solapas, por lo que permite conservar y consultar los ejemplos en papel; Kindle facilita transportar el contenido y leerlo desde el móvil o un dispositivo electrónico.",
+      "texto": "El diablo viste de Helvetica tiene 216 páginas y se presenta en tapa blanda con solapas, un formato físico que puede transportarse para leer sus ejemplos sobre diseño cotidiano. La edición Kindle permite consultarlo desde un móvil o lector electrónico. La primera opción conserva el volumen en papel; la segunda facilita llevarlo en un dispositivo.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "editorial",
         "numero_paginas",
+        "edicion",
         "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El diablo viste de Helvetica puede compararse con Stranger Things, de Gina McIntyre, por su interés en los procesos creativos y las decisiones que hay detrás de productos culturales. La diferencia está en el objeto de estudio: Elena López analiza el diseño gráfico presente en la vida cotidiana, mientras Gina McIntyre se ocupa de la creación de una producción audiovisual y de sus participantes.",
+      "texto": "El diablo viste de Helvetica y Stranger Things comparten el interés por los procesos visuales, aunque examinan objetos diferentes. Elena López analiza cómo el diseño gráfico afecta a la vida cotidiana, mientras que Gina McIntyre reúne materiales de creación y producción de una serie audiovisual. All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial, de Daniel Sedcontra, aborda otro terreno de la cultura: la música industrial.",
       "evidencias": [
         "titulo",
         "autores",
@@ -45,12 +42,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425375576"
+        "isbn-9788425375576",
+        "isbn-9788410045538"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "20925170275ac6c0",
+  "fuente_hash": "b474f531919ca5e6",
   "origen": "chatgpt-web"
 }

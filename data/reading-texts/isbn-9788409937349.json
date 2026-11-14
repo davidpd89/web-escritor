@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788409937349",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Y ahora, vivir se dirige a lectores de narrativa contemporánea en castellano que buscan una obra breve. Sus 139 páginas encajan con quien prefiere una extensión contenida, frente a quienes buscan novelas largas o lecturas de otros géneros.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Y ahora, vivir está disponible en tapa blanda, con 139 páginas en castellano. Esta edición física permite llevar el libro en el bolso o la mochila y conservarlo en la estantería después de leerlo, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "71322aa8d0e1e5ce",
+  "origen": "chatgpt-web"
+}

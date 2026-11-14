@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388411540",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El sabor de la soledad se dirige a lectores de biografías y memorias interesados en obras de carácter personal. Sus 218 páginas ofrecen una extensión intermedia, mientras que su clasificación la distancia de quienes buscan específicamente ficción fantástica o manuales prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El sabor de la soledad se presenta en tapa blanda, con 218 páginas escritas en castellano. Esta edición permite leer la obra en papel y conservarla para posteriores consultas, con una extensión inferior a la de volúmenes de mayor tamaño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El sabor de la soledad y Al andar: Vivencias del Camino de Santiago pueden relacionarse por su proximidad a la escritura de experiencias personales. La primera obra está clasificada como biografía y memorias, mientras que la segunda anuncia vivencias vinculadas al Camino de Santiago. A bordo de un diario sin fin (CUENTOS PARA ALARGAR-LA-VIDA) introduce otra posibilidad de lectura mediante su referencia al diario y a los cuentos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388436727",
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ac2584ed4f4eb593",
+  "origen": "chatgpt-web"
+}

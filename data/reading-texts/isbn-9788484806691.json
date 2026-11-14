@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788484806691",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las escalas de la pintura europea se dirige a lectores interesados en la historia del arte y, específicamente, en la pintura europea. Por su orientación histórica y artística, queda fuera de las búsquedas de ficción narrativa o de manuales de creación artística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las escalas de la pintura europea se presenta en tapa blanda, con 200 páginas en castellano. Es una edición física de Museo del Prado que permite consultar el texto de Alexander Nagel y volver a sus apartados durante el estudio de la pintura europea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Civilización: Una historia del arte y la cultura que dieron forma a la civilización moderna: 126 (Ático Historia), de Kenneth Clark, comparte el interés por la historia del arte. Mientras ese título abarca también la cultura y la civilización moderna, Las escalas de la pintura europea, de Alexander Nagel, delimita su asunto a la pintura europea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387592493"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fcb95ec5ac75b70c",
+  "origen": "chatgpt-web"
+}

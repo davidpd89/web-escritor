@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788420132853",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Revista imago critica 11, de Varios autores, se dirige a lectores interesados en publicaciones de ensayo en castellano. Su autoría colectiva y su identificación como revista la distinguen de una obra firmada por una sola persona; no responde a la búsqueda de una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Revista imago critica 11 puede compararse con Libro anual de psicoanalisis 2026 por su autoría colectiva y su identificación como publicación numerada. La primera figura como revista de ensayo, mientras que el segundo título identifica expresamente el psicoanálisis y un año concreto. Ambos se diferencian de una obra atribuida a un único autor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399156171"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f0463e143f520e8f",
+  "origen": "chatgpt-web"
+}

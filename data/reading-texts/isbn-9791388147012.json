@@ -4,17 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Este estuche de Brandon Sanderson está dirigido a lectores de fantasía y aventuras que quieren reunir las cuatro obras de Wax & Wayne en una sola compra. Con 1952 páginas en conjunto, encaja menos con quien busca una novela breve, un volumen independiente o una lectura alejada de los elementos fantásticos.",
+      "texto": "Este estuche de Brandon Sanderson encaja con lectores de fantasía, aventuras y ciencia ficción que quieren reunir varias obras en una sola compra. Sus cuatro títulos y 1952 páginas lo alejan de quien busca una novela independiente y breve o una edición ligera para transportar.",
       "evidencias": [
-        "titulo",
         "autores",
         "categorias",
+        "titulo",
         "numero_paginas"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Estuche Wax & Wayne reúne cuatro títulos de Brandon Sanderson: Aleación de ley, Sombras de identidad, Brazales de Duelo y El metal perdido. La propuesta se sitúa entre la fantasía, las aventuras y la ciencia ficción, con el duelo también presente en su clasificación temática. Es una lectura extensa distribuida entre varias obras.",
+      "texto": "El estuche Wax & Wayne propone una lectura extensa dentro de la fantasía, las aventuras y la ciencia ficción de Brandon Sanderson. Reúne Aleación de ley, Sombras de identidad, Brazales de Duelo y El metal perdido, cuatro obras presentadas conjuntamente en una edición de 1952 páginas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -24,34 +24,35 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición limitada especial reúne cuatro obras en un estuche de tapa dura con cantos tintados. Penguin Bolsillo fija su publicación en castellano para el 19 de noviembre de 2026; el conjunto suma 1952 páginas y se identifica mediante el ISBN 9791388147012.",
+      "texto": "Esta edición limitada de Wax & Wayne reúne cuatro títulos en un estuche con cantos tintados. Penguin Bolsillo la publica en castellano y tapa dura, con 1952 páginas en total y fecha editorial del 19 de noviembre de 2026; su rasgo distintivo es la presentación conjunta de las cuatro obras.",
       "evidencias": [
         "titulo",
         "editorial",
         "edicion",
-        "fecha_publicacion",
         "numero_paginas",
-        "idioma",
-        "isbn13"
+        "fecha_publicacion",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El formato de este estuche Wax & Wayne es la tapa dura, con cantos tintados y 1952 páginas repartidas entre las obras incluidas. Su principal utilidad es reunir los cuatro títulos en una misma presentación física, tanto para conservarlos juntos como para regalarlos. Por volumen total, está más orientado a una biblioteca doméstica que al transporte cotidiano.",
+      "texto": "La tapa dura es el formato disponible para este estuche de Brandon Sanderson, compuesto por cuatro títulos y 1952 páginas en conjunto. Su presentación limitada con cantos tintados está orientada a conservar la colección o entregarla como regalo, aunque su extensión hace menos cómodo transportarla completa.",
       "evidencias": [
         "titulo",
-        "edicion",
+        "autores",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El estuche Wax & Wayne puede compararse con Los fuegos de Diciembre, de Brandon Sanderson, porque ambas propuestas pertenecen al Cosmere y comparten autor. La diferencia está en su estructura: el estuche reúne cuatro obras, mientras que Los fuegos de Diciembre es una novela independiente. Para quien busca varias lecturas del mismo autor en una sola compra, el estuche ofrece Aleación de ley, Sombras de identidad, Brazales de Duelo y El metal perdido.",
+      "texto": "El estuche Wax & Wayne de Brandon Sanderson comparte autor con Los fuegos de Diciembre, una novela independiente del Cosmere. La diferencia está en la extensión y la presentación: el estuche reúne cuatro obras y 1952 páginas en tapa dura, mientras Los fuegos de Diciembre se presenta como una historia independiente narrada por Hoid.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
+        "numero_paginas",
+        "edicion",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -61,6 +62,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b6e8c2c1c6236132",
+  "fuente_hash": "40743591157a3910",
   "origen": "chatgpt-web"
 }

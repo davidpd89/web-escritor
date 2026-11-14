@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388411663",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La traición de Brizo: Matar también es arte se dirige a lectores de misterio y thriller que también buscan narrativa contemporánea. Sus 272 páginas sitúan la obra de Raúl Tort en una extensión intermedia. Por su orientación temática, se aleja de quienes prefieren poesía o relatos infantiles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La traición de Brizo: Matar también es arte está disponible en tapa blanda, con 272 páginas en castellano. Es una edición física que permite leer sin dispositivos y conservar el ejemplar en una estantería. El formato resulta manejable para trasladarlo y continuar la lectura en distintos lugares.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aguas turbulentas y La traición de Brizo: Matar también es arte comparten su vinculación con el misterio y los conflictos oscuros. Aguas turbulentas sitúa el choque entre pasado y presente en Edimburgo, mientras que la obra de Raúl Tort se presenta también como narrativa contemporánea. Asesinato antes de Navidad introduce, en cambio, una situación navideña inicialmente tranquila.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318",
+        "isbn-9791370310264"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "707ec2b20423c337",
+  "origen": "chatgpt-web"
+}

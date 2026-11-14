@@ -4,23 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Inventario del tránsito encaja con lectores que buscan poesía y prefieren obras breves frente a novelas extensas. Sus 130 páginas permiten acercarse a la lectura poética en un volumen de tapa blanda.",
+      "texto": "Inventario del tránsito se dirige a quienes buscan poesía en castellano y prefieren una obra de extensión contenida. Sus 130 páginas y su clasificación poética lo distinguen de una novela extensa o de un libro práctico con instrucciones.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas",
-        "formato_edicion"
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Inventario del tránsito se publica en tapa blanda y reúne 130 páginas en un único volumen. Es un formato físico manejable para leer en papel y conservar junto a otros libros de poesía.",
+      "texto": "Inventario del tránsito está disponible en tapa blanda, con 130 páginas en castellano. Es una edición física que permite consultar y releer los poemas directamente sobre papel, sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Inventario del tránsito puede compararse con Advenir, de Jose Eceolaza, y Animales que flotan lejos de casa: 43 (Leteo), de Nicolás Peña, por su pertenencia al ámbito poético. La diferencia comprobable está en la autoría: Inventario del tránsito pertenece a Jorge Enrique González Pacheco, mientras que las otras obras corresponden a autores distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410212749",
+        "isbn-9791388299421"
       ]
     }
   ],

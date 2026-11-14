@@ -4,41 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Kenji mizoguchi el pesaroso rocío de la existencia se orienta a lectores interesados en el arte y el diseño que buscan una obra de gran extensión sobre una figura concreta. Con 1244 páginas, exige una lectura prolongada y no responde a la búsqueda de una introducción breve o un manual práctico de técnicas artísticas.",
+      "texto": "Kenji mizoguchi el pesaroso rocío de la existencia encaja con lectores interesados en obras de arte y diseño de gran extensión. Sus 1244 páginas plantean una lectura prolongada, menos adecuada para quien busca una publicación breve o de consulta rápida. Está escrito por Fernando Usón Forniés y publicado en castellano.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Kenji mizoguchi el pesaroso rocío de la existencia está editado en tapa blanda por Providence Ediciones y contiene 1244 páginas en castellano. Su extensión hace más cómodo consultarlo sobre una mesa o leerlo en casa que transportarlo a diario; el formato físico permite volver a distintos pasajes durante una lectura prolongada.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "editorial",
         "numero_paginas",
         "idioma"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para Kenji mizoguchi el pesaroso rocío de la existencia. Con 1244 páginas, se trata de una edición extensa cuya consulta puede resultar más cómoda sobre una mesa que durante los desplazamientos. Providence Ediciones la publica en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Kenji mizoguchi: El pesaroso rocío de la existencia vol 2: Segunda plenitud, de Fernando Usón Forniés, comparte autoría y asunto con Kenji mizoguchi el pesaroso rocío de la existencia, pero su título lo identifica como volumen 2. All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial, de Daniel Sedcontra, también aborda una manifestación cultural, aunque se centra en la música industrial en lugar de la figura de Kenji mizoguchi.",
+      "texto": "Kenji mizoguchi: El pesaroso rocío de la existencia vol 2: Segunda plenitud es el título más cercano a Kenji mizoguchi el pesaroso rocío de la existencia por compartir autor, Fernando Usón Forniés, y denominación principal. La obra aquí tratada tiene 1244 páginas, mientras que el título relacionado se identifica expresamente como volumen 2 y añade el subtítulo Segunda plenitud. Esta distinción permite reconocer las dos publicaciones dentro de la obra del mismo autor.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788412908565",
-        "isbn-9788410045538"
+        "isbn-9788412908565"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d7c4cbc31723fa5b",
+  "fuente_hash": "c5a1a0c47d2a6bb8",
   "origen": "chatgpt-web"
 }

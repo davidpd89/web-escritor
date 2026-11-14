@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9781807661793",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fe Cada Vez Mayor - el Poder de una Fe que se Atreve a Creer (en español moderno): Sanidades Milagrosas, Resurrecciones de los Muertos y Señales Sobrenaturales se dirige a lectores interesados en la fe religiosa y los fenómenos sobrenaturales vinculados a ella. Su temática espiritual encaja menos con quien busca una explicación científica de las curaciones o una novela fantástica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La obra de Smith Wigglesworth está publicada en tapa blanda, con 129 páginas en castellano. Su extensión facilita una lectura relativamente breve y la consulta posterior de los asuntos religiosos que anuncia el título, sin necesidad de recurrir a una pantalla.",
+      "evidencias": [
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fe Cada Vez Mayor - el Poder de una Fe que se Atreve a Creer (en español moderno): Sanidades Milagrosas, Resurrecciones de los Muertos y Señales Sobrenaturales comparte temática religiosa con AKITA: Las lágrimas y el mensaje de María, de Teiji Yasuda, y Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe. Se distingue por centrarse en la fe y los sucesos sobrenaturales, mientras que el primero aborda un mensaje mariano y el segundo trata los fundamentos y la práctica del Dharma.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388176357",
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0096c27476c72141",
+  "origen": "chatgpt-web"
+}

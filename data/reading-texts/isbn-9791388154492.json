@@ -4,36 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Perro Apestoso en la prehistoria, de Colas Gutman, se dirige a quienes buscan una lectura protagonizada por un personaje animal en un contexto prehistórico. Sus 112 páginas en tapa dura ofrecen una extensión delimitada; no responde a quien busca un tratado extenso sobre historia natural.",
+      "texto": "Perro Apestoso en la prehistoria, de Colas Gutman, se orienta a lectores interesados en historias de animales y escenarios prehistóricos. Su extensión de 112 páginas permite una lectura relativamente breve; encaja menos con quien busca una obra extensa sobre naturaleza.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "formatos_disponibles"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Perro Apestoso en la prehistoria se presenta en tapa dura, con 112 páginas en castellano. El volumen permite leerlo en papel, guardarlo en una estantería y volver a consultarlo sin depender de un dispositivo electrónico; también puede entregarse como ejemplar físico.",
+      "texto": "Perro Apestoso en la prehistoria está disponible en tapa dura, con 112 páginas en castellano publicadas por Blackie Books. Esta encuadernación resulta práctica para conservar el ejemplar y compartirlo en lecturas repetidas, además de presentarlo como regalo físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Animales, de Susaeta Ediciones, comparte con Perro Apestoso en la prehistoria la presencia de animales, pero reúne seis cuentos ilustrados en lugar de centrarse en el personaje del título. Agencia de animales mágicos: Medianoche y la leyenda de Santuario (Mi primer cómic), de Steve Smallman, incorpora animales mágicos y se identifica como cómic, mientras que la obra de Colas Gutman sitúa a su protagonista en la prehistoria.",
+      "texto": "Animales, de Susaeta Ediciones, reúne seis cuentos ilustrados protagonizados por animales, mientras Perro Apestoso en la prehistoria, de Colas Gutman, sitúa su propuesta en un escenario prehistórico. Aprende a contar animales, también de Susaeta Ediciones, se diferencia por su finalidad de aprendizaje numérico del 1 al 10.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788448875381",
-        "isbn-9791370341589"
+        "isbn-9791370341589",
+        "isbn-9791370341176"
       ]
     }
   ],

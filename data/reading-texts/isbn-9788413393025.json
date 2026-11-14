@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788413393025",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este ensayo de Robert Barron se dirige a lectores interesados en la persecución de los cristianos en la actualidad y en sus implicaciones religiosas e históricas. Su enfoque sobre un conflicto contemporáneo lo diferencia de las novelas juveniles y de las obras de ficción histórica.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Encuentro está disponible en tapa blanda y reúne 118 páginas en castellano. Su extensión permite abordar el ensayo en un volumen físico breve, que puede transportarse y consultarse sin necesidad de dispositivos electrónicos.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Esperpento o la Tragedia: España en la crisis de Occidente: 194 (Nuevo Ensayo) comparte con el libro de Robert Barron el interés por cuestiones históricas y sociales, aunque se centra en España y Occidente. La escuela de salamanca.: Antecedentes, raíces europeas y vocación teológica: 192 (Nuevo Ensayo) se aproxima más a la dimensión religiosa, pero desde sus antecedentes intelectuales y teológicos, frente a la persecución contemporánea de los cristianos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788413393032",
+        "isbn-9788413393001"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8a78fc3c86b5449e",
+  "origen": "chatgpt-web"
+}

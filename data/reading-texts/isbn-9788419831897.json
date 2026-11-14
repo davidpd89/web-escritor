@@ -4,24 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores de romance juvenil que buscan una historia de amor ambientada en las fiestas navideñas y con elecciones que intervienen en su desarrollo. Su planteamiento resulta menos afín a quienes prefieren una narración lineal sin decisiones del lector o buscan una historia alejada de las relaciones sentimentales.",
+      "texto": "Todas las navidades posibles: Esta historia de amor la eliges tú (Romántica), de Michelle Durán, se dirige a lectores de romance juvenil interesados en historias amorosas vinculadas a las fiestas navideñas. La propuesta de elegir la historia de amor la diferencia de una narración romántica convencional y encaja menos con quienes prefieren tramas ajenas a las relaciones sentimentales.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece las 336 páginas de Todas las navidades posibles: Esta historia de amor la eliges tú (Romántica) en un volumen físico que facilita volver a las distintas elecciones. Kindle permite llevar la misma obra en un lector electrónico o en el móvil, sin transportar el libro impreso.",
+      "texto": "La edición en tapa blanda de Fandom Books contiene 336 páginas y permite leer Todas las navidades posibles: Esta historia de amor la eliges tú (Romántica) en papel. Kindle facilita llevar la lectura en el móvil o en un lector electrónico, una opción distinta para quien prefiere consultar el texto digitalmente.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Irresistibles Navidades comparte la temática navideña y reúne Imperfectas navidades e Inesperadas Navidades en un estuche. Todas las navidades posibles: Esta historia de amor la eliges tú (Romántica), de Michelle Durán, se diferencia por plantear una historia de amor en la que el lector toma decisiones sobre su desarrollo.",
+      "texto": "CUANDO TODO FALLA. Solo nos queda la promesa del nosotros.: Una novela romántica New Adult de superación, pasión por el arte y segundas oportunidades (La promesa del nosotros). comparte con Todas las navidades posibles: Esta historia de amor la eliges tú (Romántica) el interés por las relaciones amorosas, pero se centra en la superación y las segundas oportunidades. La obra de Michelle Durán se orienta al romance juvenil y plantea una historia amorosa que el lector puede elegir, frente al enfoque New Adult de Marta Monroy.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387871482"
+        "isbn-9788409942572"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3f5ab37314fec944",
+  "fuente_hash": "e4d4d1ae50676d01",
   "origen": "chatgpt-web"
 }

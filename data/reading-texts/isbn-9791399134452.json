@@ -4,39 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "The Blood of Dawnwalker: El arte del juego está dirigido a quienes buscan publicaciones sobre arte y diseño vinculadas a un videojuego. Su planteamiento editorial se distingue del de una novela convencional y del de un manual general de dibujo.",
+      "texto": "The Blood of Dawnwalker: El arte del juego se dirige a lectores interesados en el arte y el diseño vinculados a los videojuegos. La obra de Matthew Pellet, de 192 páginas, se aleja de quienes buscan una novela de ficción narrativa.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "The Blood of Dawnwalker: El arte del juego se publica en tapa dura, con 192 páginas en castellano. La encuadernación rígida de GTM Ediciones C.b. resulta práctica para conservar el volumen y consultarlo repetidamente como libro de arte.",
+      "texto": "The Blood of Dawnwalker: El arte del juego está disponible en tapa dura, con 192 páginas en castellano. Esta encuadernación permite conservar el volumen en una biblioteca de arte y diseño y consultarlo de forma repetida, además de ofrecer una presentación física para regalo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "The Blood of Dawnwalker: El arte del juego comparte el ámbito de la creación visual con Aprende a dibujar con KPop Demon Hunters: Edición OFICIAL en español (Montena). El libro de Matthew Pellet se presenta como una publicación sobre el arte de un juego, mientras que el segundo título plantea expresamente el aprendizaje del dibujo.",
+      "texto": "The Blood of Dawnwalker: El arte del juego puede compararse con All Black Cuaderno (LIBRETAS ARTÖSTICAS) por su relación con el arte y el diseño. La obra de Matthew Pellet es un libro de 192 páginas sobre el arte de un juego, mientras que el título de Varios autores se presenta como un cuaderno artístico, con una finalidad distinta de la lectura y consulta de una obra sobre diseño.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388322778"
+        "isbn-9789879871119"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "17db974065970d1b",
+  "fuente_hash": "4d4671b3999345ab",
   "origen": "chatgpt-web"
 }

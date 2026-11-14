@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788435065641",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El traidor: El valido que conquistó el poder (Narrativas Históricas), de Nadal Fernando, se orienta a lectores de novela histórica interesados en las figuras políticas y las relaciones de poder. No corresponde a una lectura infantil de aventuras ni a un manual divulgativo, sino a una obra de ficción histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El traidor: El valido que conquistó el poder (Narrativas Históricas) cuenta con una edición en tapa dura de 384 páginas. La cubierta rígida facilita su conservación en una biblioteca personal y ofrece una presentación física para regalo; el volumen requiere el espacio propio de una novela de esta extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El traidor: El valido que conquistó el poder (Narrativas Históricas) puede ponerse junto a Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon, de Valerio Massimo Manfredi. Ambos títulos remiten a figuras y escenarios históricos, pero el de Nadal Fernando señala el papel de un valido y la conquista del poder, mientras que el de Valerio Massimo Manfredi identifica otra figura histórica y una entrega numerada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897090"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eaad614a1dee1811",
+  "origen": "chatgpt-web"
+}

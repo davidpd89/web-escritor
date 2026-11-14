@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está pensado para el público infantil que busca una lectura navideña acompañada de puzles. Su combinación de cuento y juego manipulativo se diferencia de una novela de aventuras extensa; tampoco responde a quien prefiere una actividad basada únicamente en colorear o escribir.",
+      "texto": "¡Ya es Nochebuena! (Un cuento con puzles) se dirige al público infantil interesado en los cuentos navideños y las actividades con piezas para encajar. Su combinación de fantasía, lectura y puzles responde a una experiencia distinta de la de una novela extensa o un cuento destinado únicamente a la lectura.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "El libro combina la lectura de un cuento de Nochebuena con la actividad de resolver puzles. Sus 10 páginas de cartón permiten alternar el seguimiento de la historia con el juego de las piezas, en una propuesta donde la participación manual acompaña a la lectura.",
+      "texto": "¡Ya es Nochebuena! (Un cuento con puzles) combina la lectura de un cuento con la actividad de resolver puzles. El formato de libro de cartón permite manipular sus páginas durante el uso, mientras la temática de Nochebuena sitúa la actividad en un contexto navideño. Sus 10 páginas plantean una experiencia de lectura breve.",
       "evidencias": [
         "titulo",
         "edicion",
@@ -22,30 +22,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Solo figura la tapa dura, presentada como libro de cartón de 10 páginas. El soporte físico permite utilizar los puzles junto al cuento y conservar el conjunto como objeto de juego navideño. Su extensión es breve y está orientada a una actividad compartida entre lectura y manipulación.",
+      "texto": "¡Ya es Nochebuena! (Un cuento con puzles) está disponible en tapa dura, en una edición de cartón publicada por Ediciones Usborne. Sus 10 páginas y la presencia de puzles hacen que el soporte físico forme parte de la actividad: permite pasar las páginas y utilizar las piezas del libro durante la lectura.",
       "evidencias": [
-        "formatos_disponibles",
+        "titulo",
+        "editorial",
         "edicion",
         "numero_paginas",
-        "titulo"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "A la caza de Papá Noel: 3, de Emma S. Varela y Robert García, comparte la ambientación navideña, mientras ¡Ya es Nochebuena! (Un cuento con puzles) incorpora puzles al cuento. El lago de los monstruos (INFANTIL), de Leo Timmers, coincide en dirigirse al público infantil, pero su título plantea un escenario de monstruos en lugar de una celebración navideña.",
+      "texto": "¡Ya es Nochebuena! (Un cuento con puzles) comparte la temática navideña con A la caza de Papá Noel: 3, de Emma S. Varela y Robert García, pero incorpora puzles como parte de la lectura. Acurrúcate a mi lado (Cuentos para peques), de Rosie Dickins, también se dirige a lectores infantiles mediante el cuento, mientras la obra de Sam Taplin añade una actividad manipulativa.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788419135650",
-        "isbn-9791387884260"
+        "isbn-9781836066385"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c5d9eceb1f304a23",
+  "fuente_hash": "e31c7f228447bef7",
   "origen": "chatgpt-web"
 }

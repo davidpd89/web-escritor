@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788417231705",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una lengua parca: (Sentencias en la Grecia antigua) se dirige a quienes buscan lecturas sobre filosofía y expresiones del pensamiento de la Grecia antigua. Por su orientación hacia las sentencias y el ensayo, se aparta de una narración histórica centrada en personajes y acontecimientos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una lengua parca: (Sentencias en la Grecia antigua) cuenta con una edición en tapa blanda de 154 páginas. El volumen de Libros del Innombrable está publicado en castellano y ofrece una extensión contenida para la lectura y consulta en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una lengua parca: (Sentencias en la Grecia antigua) puede compararse con Diccionario de conceptos y términos para entender y moverse en política: 16 (Biblos) por su relación con las ideas y el lenguaje. José Luis Trullo Herrera y Anastasia Vakouftsi se centran en sentencias de la Grecia antigua, mientras que Eduardo Montagut aborda conceptos y términos políticos desde una perspectiva de consulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388175671"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ad0fb54d1ccc6cd4",
+  "origen": "chatgpt-web"
+}

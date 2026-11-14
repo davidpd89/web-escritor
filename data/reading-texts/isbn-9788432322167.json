@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788432322167",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "John Berger: Modos de aprender se orienta a lectores interesados en el ensayo y los textos biográficos. Su clasificación también incluye la narrativa contemporánea, aunque se distancia de quienes buscan específicamente una novela de fantasía o aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "John Berger: Modos de aprender, de Iona Heath, tiene una edición en tapa blanda de 228 páginas, publicada por Siglo XXI de España Editores, S.a. Su extensión permite consultar y retomar pasajes en papel, con un volumen físico que puede guardarse junto a otros ensayos y biografías.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "John Berger: Modos de aprender puede compararse con El largo regreso de Josefina Carabias (Ensayo), de César Suárez, por su vinculación con el ensayo y la atención a una figura concreta. Frente a Vida y obra de Manuel Machado: Tengo el alma de nardo del árabe español: 24 (Biblioteca de la Memoria), de Víctor Olmos, cambia la figura que centra el título y la autoría del estudio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426433282",
+        "isbn-9791388381447"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "12748437ec16dbc7",
+  "origen": "chatgpt-web"
+}

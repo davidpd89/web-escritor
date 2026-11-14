@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791399122961",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ladrones de ojos: 5 (Acción 2.0), de Guillermo Conde García, encaja con lectores interesados en la fantasía, las aventuras y los relatos. Sus 450 páginas ofrecen una extensión considerable para estos géneros, mientras que quienes buscan ensayo o divulgación científica encontrarán una orientación temática diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ladrones de ojos: 5 (Acción 2.0) está disponible en tapa blanda y tiene 450 páginas. Esta edición en castellano de Con Pluma y Píxel reúne su contenido en un único volumen físico, adecuado para organizar la lectura en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ladrones de ojos: 5 (Acción 2.0) y Juramento de fuego y ceniza se relacionan por su presencia entre las lecturas afines de fantasía. La obra de Guillermo Conde García combina fantasía, aventuras y relatos en 450 páginas, mientras que Juramento de fuego y ceniza está firmada por Marta Montoya. La primera se presenta en tapa blanda y su título incorpora una numeración, a diferencia del título de la segunda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399236514"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cd4ae872868c2f2a",
+  "origen": "chatgpt-web"
+}

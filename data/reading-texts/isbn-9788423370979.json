@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Así es la vida de los animales: Historias de crueldad, amor y supervivencia en la naturaleza (Imago Mundi) encaja con lectores interesados en el comportamiento animal y la divulgación sobre naturaleza. Sus temas de crueldad y supervivencia pueden resultar menos adecuados para quienes buscan exclusivamente historias amables sobre animales.",
+      "texto": "Así es la vida de los animales: Historias de crueldad, amor y supervivencia en la naturaleza (Imago Mundi) se dirige a lectores interesados en el comportamiento animal y la supervivencia en entornos naturales. Su orientación divulgativa lo diferencia de una aventura juvenil construida alrededor de un conflicto ficticio.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,7 +12,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El libro trata las relaciones entre los animales, sus conductas de supervivencia y las manifestaciones de afecto o violencia en la naturaleza. Mario Alonso Santamaría reúne estos asuntos bajo un enfoque vinculado con la divulgación científica, las aventuras y el mundo natural.",
+      "texto": "El libro aborda la vida animal a través de situaciones relacionadas con la crueldad, los vínculos afectivos y la supervivencia. Mario Alonso Santamaría presenta estas cuestiones dentro de una obra clasificada también como divulgación científica, con atención a la naturaleza y sus habitantes.",
       "evidencias": [
         "titulo",
         "autores",
@@ -21,31 +21,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es la presentación disponible de este volumen de 288 páginas publicado por Ediciones Destino. Su encuadernación rígida permite conservarlo para consultas posteriores sobre naturaleza y utilizarlo como regalo en formato físico.",
+      "texto": "La tapa dura reúne las 288 páginas de esta edición de Ediciones Destino. Es una presentación física que permite conservar el libro y volver a consultar sus contenidos sobre animales y naturaleza sin necesidad de una pantalla.",
       "evidencias": [
         "formatos_disponibles",
         "numero_paginas",
         "editorial",
-        "edicion",
-        "categorias"
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El arte de caminar: Consejos para partir con buen pie: 4 (Senderos), de Luca Gianotti, comparte con este libro la atención al entorno natural, pero su título plantea consejos para caminar. Así es la vida de los animales: Historias de crueldad, amor y supervivencia en la naturaleza (Imago Mundi), de Mario Alonso Santamaría, se centra en los animales y sus formas de supervivencia.",
+      "texto": "El caballero de la capa negra y Así es la vida de los animales: Historias de crueldad, amor y supervivencia en la naturaleza (Imago Mundi) coinciden en su vinculación con las lecturas de aventuras. La diferencia está en el enfoque explícito del segundo hacia la naturaleza y la divulgación científica, frente al planteamiento aventurero que anuncia el título de Carlos J. Sánchez.",
       "evidencias": [
         "afines_catalogo",
         "titulo",
-        "autores",
         "categorias"
       ],
       "enlaces": [
-        "isbn-9788419794949"
+        "isbn-9791399254419"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "67d39e57f1721876",
+  "fuente_hash": "df85693da54c1061",
   "origen": "chatgpt-web"
 }

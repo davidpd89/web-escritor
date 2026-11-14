@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388306587",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bolsa homenaje a Federico García Lorca se dirige a quienes buscan un objeto de homenaje literario vinculado a la poesía. Por su denominación de bolsa y su extensión registrada de 1 página, no responde a la búsqueda de un poemario extenso para leer.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bolsa homenaje a Federico García Lorca figura en tapa blanda, con una extensión registrada de 1 página. Es la única presentación recogida para esta edición de Nórdica Libros, por lo que la elección se centra en el objeto físico y no en una lectura digital o una escucha.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bolsa homenaje a Federico García Lorca comparte la vinculación con la poesía de Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. La diferencia está en el planteamiento: el primero se presenta como una bolsa de homenaje, mientras que el segundo se identifica como una antología amorosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bfebbea354f0f05c",
+  "origen": "chatgpt-web"
+}

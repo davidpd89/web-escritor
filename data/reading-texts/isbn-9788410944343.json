@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788410944343",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los cimientos del cielo se dirige a lectores interesados en la historia y la novela histórica. Juan Miguel Zunzunegui firma una obra de 368 páginas, por lo que encaja menos con quien busca una lectura breve o un libro de actividades prácticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los cimientos del cielo está disponible en tapa blanda, con 368 páginas en castellano. Esta edición de La Esfera de los Libros permite leer una obra de extensión media en papel y conservarla en la biblioteca sin recurrir a un volumen de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Otra historia de México / Another History of Mexico comparte autor con Los cimientos del cielo: ambos son de Juan Miguel Zunzunegui. Zunzunegui aborda el encuentro entre dos mundos tras la conquista de América, mientras que Los cimientos del cielo figura entre las obras de historia y novela histórica del autor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073877831",
+        "isbn-9788410944183"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bb4b232c49e78bd2",
+  "origen": "chatgpt-web"
+}

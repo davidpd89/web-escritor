@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788428576130",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Me permites que te ayude como psicólogo y filósofo? (Alétheia XL) se dirige a lectores interesados en cuestiones humanas abordadas desde la filosofía y la psicología. Su clasificación como ensayo lo distingue de una novela y de los libros dedicados exclusivamente a ejercicios o pasatiempos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Editorial San Pablo ofrece 388 páginas en tapa blanda y en castellano. Su extensión permite una lectura repartida en varias sesiones, mientras que el soporte impreso facilita volver a las ideas tratadas y señalar pasajes para futuras consultas.",
+      "evidencias": [
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar, comparte con ¿Me permites que te ayude como psicólogo y filósofo? (Alétheia XL) el interés por la reflexión, pero el primero anuncia una colección de aforismos y el segundo plantea un acercamiento desde la psicología y la filosofía. También se aproxima a 365 citas para progresar.: Una frase diaria con ciencia y casos reales., de José Vicente Martínez, aunque este último organiza su propuesta alrededor de citas diarias y casos reales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409946853",
+        "isbn-9791387548278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3d68ed2ac1f8223c",
+  "origen": "chatgpt-web"
+}

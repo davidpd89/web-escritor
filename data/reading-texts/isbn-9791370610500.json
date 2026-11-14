@@ -1,10 +1,10 @@
 {
   "id": "isbn-9791370610500",
-  "familia": "practico",
+  "familia": "narrativa",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La salud laboral ante los riesgos emergentes: Digitalización, vulnerabilidad, clima y tutela preventiva (Monografía) se orienta a lectores interesados en el derecho laboral y la prevención de riesgos profesionales. Su enfoque jurídico sobre digitalización, vulnerabilidad y clima se aleja de los manuales de bienestar personal o alimentación.",
+      "texto": "Se dirige a quienes estudian la protección jurídica de la salud laboral frente a la digitalización, la vulnerabilidad y los riesgos relacionados con el clima. Su orientación hacia la tutela preventiva lo distancia de los libros centrados exclusivamente en conflictos contractuales o procedimientos judiciales.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,32 +12,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La salud laboral ante los riesgos emergentes: Digitalización, vulnerabilidad, clima y tutela preventiva (Monografía) se publica en tapa blanda, con 300 páginas en castellano. Es un volumen físico que permite marcar apartados y consultar cuestiones jurídicas durante el estudio o el trabajo, sin necesidad de pantalla.",
+      "texto": "En tapa blanda, las 300 páginas permiten trabajar con un ejemplar físico y señalar los pasajes dedicados a los distintos riesgos laborales. La extensión facilita distribuir la consulta entre digitalización, vulnerabilidad, clima y prevención sin depender de un dispositivo electrónico.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "categorias"
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La salud laboral ante los riesgos emergentes: Digitalización, vulnerabilidad, clima y tutela preventiva (Monografía) y Blockchain: un desafío legal (Monografía) comparten el enfoque jurídico ante cuestiones actuales, aunque uno aborda los riesgos laborales y el otro la tecnología blockchain. Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) trata la gestión de conflictos en el ámbito educativo, frente a la tutela preventiva laboral del libro de Maria Olaya Martin Rodriguez.",
+      "texto": "Casos prácticos sobre el despido (Supuestos prácticos), de Departamento de Documentación Iberley, coincide en su relación con el ámbito laboral, pero trata situaciones de despido en lugar de riesgos preventivos. Blockchain: un desafío legal (Monografía), de Ana Isabel Quiroz Ruiz, comparte la atención a los desafíos jurídicos de la tecnología, aunque desde blockchain y no desde la salud en el trabajo.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788429030372",
-        "isbn-9791370610265"
+        "isbn-9791370610265",
+        "isbn-9791370651749"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e7463882605e9be6",
+  "fuente_hash": "5ae35cc556cb58bc",
   "origen": "chatgpt-web"
 }

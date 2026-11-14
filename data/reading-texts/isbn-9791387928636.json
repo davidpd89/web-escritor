@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mujeres de París, mujeres de letras (Salamandra Narrativa), de Irène Némirovsky, reúne intereses relacionados con las mujeres, la narrativa contemporánea, las biografías y el ensayo. Su clasificación editorial encaja menos con quienes buscan exclusivamente literatura fantástica o manuales prácticos.",
+      "texto": "Mujeres de París, mujeres de letras (Salamandra Narrativa) se orienta a lectores interesados en la escritura, las mujeres y el ámbito cultural parisino. Por su clasificación entre biografías, memorias, ensayo y narrativa contemporánea, se distancia de las lecturas centradas exclusivamente en la acción o el suspense.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mujeres de París, mujeres de letras (Salamandra Narrativa) tiene 112 páginas en tapa blanda, editadas por Salamandra. Su extensión permite abordar el volumen en sesiones relativamente breves, y la encuadernación flexible facilita llevarlo en el bolso o consultar sus páginas durante un desplazamiento.",
+      "texto": "Mujeres de París, mujeres de letras (Salamandra Narrativa) se publica en tapa blanda, con 112 páginas en castellano. Es una edición física de Salamandra cuya extensión permite organizar la lectura en sesiones breves y volver a consultar fragmentos en papel.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mujeres de París, mujeres de letras (Salamandra Narrativa) comparte con Esas muchachas que escriben poemas, de Alba Donati, el interés por las mujeres vinculadas a la escritura. Frente a ese enfoque poético, el libro de Irène Némirovsky aparece clasificado también como narrativa contemporánea, biografías y memorias y ensayo.",
+      "texto": "Mujeres de París, mujeres de letras (Salamandra Narrativa) puede compararse con El largo regreso de Josefina Carabias (Ensayo) por su vinculación con las mujeres y la escritura. El título de Irène Némirovsky sitúa su atención en París y las letras, mientras que el de César Suárez se articula alrededor de Josefina Carabias y tiene una identificación explícita como ensayo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788426434272"
+        "isbn-9788426433282"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "222164b9193f3ecb",
+  "fuente_hash": "fbc44c7dcd8f4f9b",
   "origen": "chatgpt-web"
 }

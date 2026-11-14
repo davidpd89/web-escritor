@@ -4,41 +4,44 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se orienta a lectores interesados en la historia de los espacios culturales y sociales, especialmente en el proyecto identificado en el título como Plaza spñ8. Su enfoque temático se aparta de las lecturas centradas en ficción narrativa o aventuras.",
+      "texto": "Está orientado a quienes buscan una obra de historia sobre un espacio cultural y social vinculado a la Fundación mutua madrileña. Por su tema institucional y sus 228 páginas, encaja menos con lectores que buscan ficción o un recorrido histórico centrado en conflictos bélicos.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El asunto central es Plaza spñ8 como espacio cultural y social de la Fundación mutua madrileña. La obra se sitúa en el ámbito de la historia y cuenta con la autoría de Almudena Dato, Pedro Corral, Miguel Ángel García Vega, Fernando Espinosa de los Monteros y Txema Ybarra.",
+      "texto": "El libro se centra en Plaza spñ8 como espacio cultural y social de la Fundación mutua madrileña. Su clasificación histórica y la autoría compartida por Almudena Dato, Pedro Corral, Miguel Ángel García Vega, Fernando Espinosa de los Monteros y Txema Ybarra sitúan el proyecto en una perspectiva colectiva sobre ese espacio.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "autores"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es el formato de esta obra de 228 páginas, una opción física para consultar y conservar el volumen. Su encuadernación rígida también permite entregarlo como regalo sin depender de un dispositivo de lectura.",
+      "texto": "La edición de Ediciones Ingobernables SL se presenta en tapa dura y contiene 228 páginas en castellano. La encuadernación rígida favorece su conservación en una biblioteca y su presentación como regalo, especialmente para alguien interesado en el espacio cultural y social que da título al volumen.",
       "evidencias": [
+        "editorial",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion"
+        "idioma",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo) permite establecer una comparación por su relación con la cultura, aunque se centra en el vínculo entre amor y arte y no en un espacio cultural y social. Agustín penón y Federico García Lorca comparte el interés por la investigación histórica, pero aborda la vida y la muerte de un escritor en lugar de un proyecto cultural.",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, comparte el interés histórico, pero se centra en una crisis política, mientras que Plaza spñ8: Espacio cultural y social de la Fundación mutua madrileña trata un espacio cultural y social. Agustín penón y Federico García Lorca, de Juan Carlos García de Polavieja, aborda una investigación biográfica, frente al asunto institucional de Plaza spñ8.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788418567933",
-        "isbn-9788467084122"
+        "isbn-9788411005517",
+        "isbn-9788418567933"
       ]
     }
   ],

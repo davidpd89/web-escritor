@@ -4,41 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Novia de la Bratva (La Bratva 1) (Ediciones B) se orienta a lectores de romance que también buscan elementos de misterio, thriller y humor. Quien prefiera una novela exclusivamente detectivesca o sin componente romántico encontrará aquí una combinación de géneros distinta.",
+      "texto": "Novia de la Bratva (La Bratva 1) (Ediciones B) se dirige a lectores que buscan novelas románticas. Su clasificación se limita al romance, por lo que no corresponde a quien priorice el misterio, la fantasía o la narrativa de otros géneros.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Novia de la Bratva (La Bratva 1) (Ediciones B) contiene 352 páginas y permite incorporarla a una colección física. Kindle ofrece la alternativa digital para leerla en un dispositivo compatible sin transportar el volumen impreso.",
+      "texto": "La tapa blanda ofrece sus 352 páginas en un ejemplar físico, adecuado para quien prefiere leer en papel y conservarlo. Kindle permite acceder a la novela en formato digital desde dispositivos compatibles, sin necesidad de transportar el volumen.",
       "evidencias": [
-        "titulo",
         "numero_paginas",
         "formatos_disponibles",
-        "edicion"
+        "formato_edicion",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Novia de la Bratva (La Bratva 1) (Ediciones B) puede compararse con Hate Me, Take Me. Amor a ciegas (Ediciones B), de Laura Bishop, por su vinculación con el romance y el sello editorial. La primera incorpora además misterio, thriller y humor entre sus géneros. Frente a 24 historias para enamorarte en navidad: Relatos navideños, de Patricia Bonet, se presenta como una novela de 352 páginas y no como una colección de relatos navideños.",
+      "texto": "A mil por hora, de Hannah Grace, comparte con Novia de la Bratva (La Bratva 1) (Ediciones B) el enfoque romántico. Se diferencia por una trama centrada en un piloto de F1 y una mujer que no consigue dejar atrás su pasado, frente a la referencia a La Bratva que aparece en el título de T. J. Maguire.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466684187",
-        "isbn-9788409929177"
+        "isbn-9788466683449"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bb56767f998993ef",
+  "fuente_hash": "502aab2bb35ae43e",
   "origen": "chatgpt-web"
 }

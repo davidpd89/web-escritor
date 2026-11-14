@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387662592",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tina: El perro que cambió el mundo (Crecimiento personal) se dirige a lectores interesados en historias relacionadas con animales y crecimiento personal. Por su orientación hacia el desarrollo personal y el bienestar, encaja menos con quienes buscan ficción fantástica o un manual especializado de nutrición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tina: El perro que cambió el mundo (Crecimiento personal) está disponible en tapa blanda y cuenta con 264 páginas. La edición en castellano de Urano permite leer el libro en papel, conservarlo en la biblioteca y consultar de nuevo los pasajes que interesen al lector.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tina: El perro que cambió el mundo (Crecimiento personal) y Cambiar para Vivir, Colección Autoayuda comparten su relación con el desarrollo personal. El libro de Niall Harbison sitúa a un perro en el centro de su propuesta, mientras que el de Raúl M. Mir Coll presenta el cambio personal como asunto principal desde el propio título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788415122562"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "55251f2eb3a8f9db",
+  "origen": "chatgpt-web"
+}

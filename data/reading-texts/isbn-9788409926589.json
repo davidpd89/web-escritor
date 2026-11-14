@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "EXITUS [SAGA CORSARIOS I]: Una atracción inevitable, de Naiara Ruz Redondo, se dirige a lectores de romance juvenil con interés por el misterio y las relaciones de pareja. Sus 362 páginas se alejan de las lecturas breves y de quienes buscan una historia sin componente romántico.",
+      "texto": "EXITUS [SAGA CORSARIOS I]: Una atracción inevitable encaja con lectores que buscan romance dentro de la narrativa juvenil. Sus 362 páginas desarrollan una propuesta dirigida al público interesado en historias románticas y juveniles; quienes prefieran la fantasía o la ciencia ficción encontrarán aquí otra orientación temática.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,21 +14,19 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "EXITUS [SAGA CORSARIOS I]: Una atracción inevitable está disponible en tapa blanda, con 362 páginas en castellano. Esta edición de Naiara Ruz Redondo permite seguir la historia en papel y conservarla físicamente, con una extensión intermedia entre un libro breve y una novela de gran volumen.",
+      "texto": "La tapa blanda permite leer sus 362 páginas en una edición física, mientras que Kindle ofrece la alternativa digital para llevar la lectura en un dispositivo electrónico. La primera opción responde a quien prefiere conservar el ejemplar en papel; la segunda evita depender del libro físico.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
+        "formatos_disponibles",
+        "formato_edicion",
         "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "EXITUS [SAGA CORSARIOS I]: Una atracción inevitable comparte el componente romántico con CUANDO TODO FALLA. Solo nos queda la promesa del nosotros.: Una novela romántica New Adult de superación, pasión por el arte y segundas oportunidades (La promesa del nosotros). La obra de Naiara Ruz Redondo combina romance juvenil y misterio, mientras que la de Marta Monroy anuncia una historia New Adult sobre arte, superación y segundas oportunidades.",
+      "texto": "EXITUS [SAGA CORSARIOS I]: Una atracción inevitable comparte el componente romántico con CUANDO TODO FALLA. Solo nos queda la promesa del nosotros.: Una novela romántica New Adult de superación, pasión por el arte y segundas oportunidades (La promesa del nosotros), de Marta Monroy. Ambos títulos se sitúan en el terreno romántico, aunque el segundo se dirige al público New Adult y aborda el arte y las segundas oportunidades, frente a la orientación juvenil de EXITUS.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
@@ -39,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4c863f51acc50f54",
+  "fuente_hash": "9d1e2ee8027a6dd0",
   "origen": "chatgpt-web"
 }

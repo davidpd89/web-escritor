@@ -1,0 +1,37 @@
+{
+  "id": "isbn-9788491926009",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Anuario calderoniano (19, 2026): Astro, exhalación, prodigio: el gran teatro de Calderón. Segunda jornada se orienta a lectores de ensayo interesados en el estudio del teatro de Calderón. Su planteamiento académico y su extensión de 376 páginas lo alejan de una introducción narrativa breve o de una edición de una obra teatral para lectura recreativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El volumen aborda el teatro de Calderón desde un enfoque ensayístico, bajo el eje temático Astro, exhalación, prodigio. El título lo identifica como el número 19 del Anuario calderoniano, correspondiente a 2026, y como Segunda jornada de ese tratamiento del gran teatro de Calderón.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato de Anuario calderoniano (19, 2026): Astro, exhalación, prodigio: el gran teatro de Calderón. Segunda jornada. Sus 376 páginas forman un volumen de consulta que puede conservarse en una biblioteca de estudios literarios, con una encuadernación rígida apropiada para volver a sus contenidos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3b92a9ea1bd0d0e8",
+  "origen": "chatgpt-web"
+}

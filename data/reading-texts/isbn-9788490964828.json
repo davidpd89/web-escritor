@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788490964828",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Velázquez: el arte alusiva: 16 (Essais de la Casa de Velázquez), de Mercedes Blanco, se orienta a lectores interesados en el ensayo y el estudio del arte. Su planteamiento ensayístico lo diferencia de una novela histórica o de una narración de ficción ambientada en el mundo artístico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Velázquez: el arte alusiva: 16 (Essais de la Casa de Velázquez) se presenta en tapa blanda, con 260 páginas publicadas por Casa de Velázquez. Es una edición física que permite consultar y volver a localizar pasajes durante la lectura de un ensayo sobre arte.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Charlotte Perriand. La libertad de repensar el mundo y Velázquez: el arte alusiva: 16 (Essais de la Casa de Velázquez) sitúan figuras vinculadas al arte en el centro de sus títulos. La obra de Mercedes Blanco se presenta como ensayo sobre Velázquez, mientras que la de Varios autores se centra en Charlotte Perriand.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788416411993"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ecffb570e48542b5",
+  "origen": "chatgpt-web"
+}

@@ -4,28 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sabes lo que te importa: ¿Por qué sigues eligiendo otra cosa? se dirige a lectores interesados en el desarrollo personal y en la distancia entre sus prioridades y sus decisiones. Emily Falk plantea esta cuestión en un libro de 320 páginas relacionado con el bienestar; no está orientado a quien busca una historia de ficción.",
+      "texto": "Se dirige a quienes buscan comprender la distancia entre sus prioridades personales y las decisiones que toman. Sabes lo que te importa: ¿Por qué sigues eligiendo otra cosa?, de Emily Falk, pertenece al ámbito del desarrollo personal y el bienestar, no al de la narrativa de ficción ni al de los manuales especializados en una disciplina deportiva.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Sabes lo que te importa: ¿Por qué sigues eligiendo otra cosa? se publica en tapa blanda, con 320 páginas y edición de Hestia. El formato físico permite subrayar ideas sobre decisiones personales, volver a pasajes concretos y consultar el contenido sin depender de una pantalla.",
+      "texto": "Sabes lo que te importa: ¿Por qué sigues eligiendo otra cosa? está publicado en tapa blanda, con 320 páginas en castellano. La edición física permite señalar apartados, añadir notas y regresar a cuestiones relacionadas con las decisiones personales sin utilizar una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
+        "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Sabes lo que te importa: ¿Por qué sigues eligiendo otra cosa? comparte con Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta el interés por las decisiones personales y sus consecuencias cotidianas. Emily Falk centra su libro en la distancia entre las prioridades y las elecciones, mientras Anca Martínez aborda los aprendizajes de la vida adulta. Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida también trata el bienestar personal, pero Kelly Ann Street orienta su propuesta hacia las heridas emocionales y el equilibrio interior.",
+      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito comparte con el libro de Emily Falk el interés por el cambio personal. La obra de Liz Moody anuncia un recorrido por distintos ámbitos de la vida, mientras que Sabes lo que te importa: ¿Por qué sigues eligiendo otra cosa? centra su planteamiento en las elecciones que contradicen las propias prioridades.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,13 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410451988",
-        "isbn-9788409938490"
+        "isbn-9798890981776"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "51156f71e276fdba",
+  "fuente_hash": "1897add8829a7216",
   "origen": "chatgpt-web"
 }

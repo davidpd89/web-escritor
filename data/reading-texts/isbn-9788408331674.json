@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La locura más ardiente: 2 (Novela), de Danielle Lori, se dirige a lectores de romance contemporáneo con elementos de humor. Por su orientación romántica, se aleja de las historias centradas exclusivamente en la aventura o la fantasía.",
+      "texto": "La locura más ardiente: 2 (Novela), de Danielle Lori, encaja con lectores de romance y narrativa contemporánea. Quienes prefieran historias centradas en el misterio o la fantasía encontrarán aquí una orientación temática diferente; el título la identifica con el número 2.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,18 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La locura más ardiente: 2 (Novela) está disponible en tapa blanda y Kindle. La edición de bolsillo de Booket reúne sus 416 páginas en un volumen físico; Kindle permite llevar el texto en un dispositivo de lectura o en el móvil.",
+      "texto": "La locura más ardiente: 2 (Novela) está disponible en tapa blanda y Kindle, con una extensión de 416 páginas en su edición de bolsillo de Booket. La primera opción permite leerla en papel; Kindle facilita llevar el texto en el móvil o en un lector electrónico.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "editorial",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La locura más ardiente: 2 (Novela) comparte el ámbito del romance con Mensajes en tazas de café (Ficción), de María Martínez, aunque son obras de distintas autoras. También puede compararse con En mi Era Pistacho: Juliette's version, de Emily Collins, por su presencia en una selección de lecturas afines; la obra de Danielle Lori incorpora además el humor entre sus temas identificados.",
+      "texto": "La locura más ardiente: 2 (Novela) comparte el romance como eje de lectura con Amor en pole position (Dirty Air 3), de Lauren Asher, aunque este último se ambienta en la Fórmula 1. También puede compararse con A mil por hora, de Hannah Grace, que plantea una relación entre un piloto de F1 y una mujer marcada por su pasado, un contexto distinto del que identifica el título de Danielle Lori.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410648777",
-        "isbn-9788408326519"
+        "isbn-9788466683449",
+        "isbn-9788427055674"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9d64ab3cc7812758",
+  "fuente_hash": "ce2b469fcd49e450",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388386060",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fugitivo de mí se dirige a lectores interesados en la narrativa contemporánea y el ensayo en castellano. Sus 244 páginas sitúan la obra en una extensión intermedia; por su clasificación editorial, se aleja de quienes buscan exclusivamente manuales técnicos o literatura fantástica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fugitivo de mí está disponible en tapa blanda, con 244 páginas publicadas por Pregunta Ediciones. Esta presentación permite consultar y releer pasajes en papel, además de transportarla sin el peso habitual de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fugitivo de mí comparte el ámbito de la narrativa con Alfred y Emily (Narrativa), de Doris Lessing, mientras que El largo regreso de Josefina Carabias (Ensayo), de César Suárez, ofrece otra referencia dentro del ensayo. La diferencia verificable está en la autoría y en que Fugitivo de mí figura tanto en narrativa contemporánea como en ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426438515",
+        "isbn-9788426433282"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "05452ebcd5d15400",
+  "origen": "chatgpt-web"
+}

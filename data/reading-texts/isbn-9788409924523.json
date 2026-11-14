@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409924523",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diario secreto de 2 hermanas magas: Magia, pifias y mucha superación. Lectura preadolescente se dirige a lectores preadolescentes interesados en la magia, las relaciones entre hermanas y la superación personal. Por su orientación infantil y juvenil, se aleja de las lecturas centradas en conflictos adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer y conservar en papel las 164 páginas de Diario secreto de 2 hermanas magas: Magia, pifias y mucha superación. Lectura preadolescente. La edición Kindle ofrece el mismo título en formato digital, una alternativa para llevar la lectura en el móvil o en un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diario secreto de 2 hermanas magas: Magia, pifias y mucha superación. Lectura preadolescente comparte con Abuelas Y Abuelos (Álbumes Ilustrados castellano) el interés por las relaciones familiares. La obra de Niñas del Mago se orienta a lectores preadolescentes mediante la magia y la superación, mientras que el libro de Helene Delforge se centra en los abuelos y pertenece al formato de álbum ilustrado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491429586"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4775cec1e77b5797",
+  "origen": "chatgpt-web"
+}

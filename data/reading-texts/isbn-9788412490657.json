@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788412490657",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Intervención en la atención sociosanitaria en instituciones (MF1018_2): MF1018-2 se dirige a quienes buscan contenidos sobre atención sociosanitaria en entornos institucionales. Por su temática y sus 492 páginas, se aleja de las lecturas centradas en relatos familiares o consejos generales de bienestar.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Intervención en la atención sociosanitaria en instituciones (MF1018_2): MF1018-2 se presenta en tapa blanda, con 492 páginas en castellano. El formato en papel permite consultar distintos apartados y volver a ellos durante el estudio, aunque su extensión implica transportar un volumen considerable.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito comparte con Intervención en la atención sociosanitaria en instituciones (MF1018_2): MF1018-2 el interés por la salud. La obra de Liz Moody aborda cambios personales relacionados con el bienestar y las relaciones, mientras que la de María Dolores Salmerón Salmerón se centra en la atención sociosanitaria institucional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "53b3024988fa8685",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788498748208",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para personas interesadas en bordar letras y números a mano siguiendo diagramas. Su contenido práctico se distancia de las lecturas narrativas y de los manuales dedicados a otras aficiones, como la cocina o el dibujo para colorear.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 128 páginas y reúne más de 1.000 letras y números con sus diagramas. El papel facilita mantener las instrucciones a la vista mientras se trabaja en un bordado y regresar a un diseño concreto cuando sea necesario.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Magia oscura. Colorea: Fantasía gótica: 7 (COSY) y Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas comparten su orientación hacia actividades manuales. El primero propone colorear motivos de fantasía gótica, mientras que el segundo se centra en reproducir letras y números mediante bordado y diagramas. Ambos figuran bajo la autoría de Varios autores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387690656"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "de5fe6ca5fbe389b",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791370650728",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan estudiar las ventajas fiscales aplicables a mayores de 65 años y a su entorno próximo. El trabajo del Departamento de Documentación Iberley aborda impuestos como el IRPF y el IVA, por lo que su enfoque jurídico y tributario no corresponde a una lectura de narrativa o entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 204 páginas dedicadas al estudio de los beneficios fiscales para mayores de 65 años. Este formato físico permite consultar los distintos impuestos y volver a los apartados necesarios durante el estudio o la revisión de cuestiones tributarias.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte autoría y enfoque tributario con Fiscalidad de la renta fija, la renta variable y la cesión de capitales a terceros. Paso a paso: De los depósitos y los bonos a las acciones: claves ... de productos para inversores particulares. El libro sobre mayores de 65 años organiza su materia alrededor de un colectivo, mientras que el otro se centra en productos financieros y sus impuestos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370651305"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c99fbfb3761f48cb",
+  "origen": "chatgpt-web"
+}

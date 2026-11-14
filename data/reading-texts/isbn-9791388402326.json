@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388402326",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inteligencia artificial aplicada a la gestión administrativa: recursos didácticos para FP. se dirige a lectores interesados en aplicar la inteligencia artificial a la enseñanza de la gestión administrativa. Su enfoque anunciado es didáctico y vinculado a la FP, no el de una novela ni el de una introducción general a la ficción sobre inteligencia artificial.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Inteligencia artificial aplicada a la gestión administrativa: recursos didácticos para FP. se publica en tapa blanda y reúne 104 páginas en castellano. El ejemplar físico permite consultar sus recursos didácticos durante la preparación de actividades o el trabajo con contenidos de gestión administrativa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Inteligencia artificial aplicada a la gestión administrativa: recursos didácticos para FP. puede compararse con ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido, de Rory Sutherland, por su relación con ideas aplicables al ámbito empresarial. El libro de Ana María López Martínez delimita su contenido a la inteligencia artificial y los recursos didácticos para FP, mientras que ALQUIMIA anuncia una reflexión sobre el poder de las ideas. También se diferencia de Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, cuyo título sitúa el foco en el liderazgo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399087222",
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3f4f77ef918d96a0",
+  "origen": "chatgpt-web"
+}

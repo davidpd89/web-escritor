@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Neuromante (Edición especial) encaja con lectores de ciencia ficción interesados en el ciberespacio, el robo de información y las consecuencias de una traición. Su conflicto gira alrededor de un personaje que pierde la capacidad de ejercer su oficio; no responde a quien busque una historia centrada en conflictos cotidianos sin tecnología.",
+      "texto": "Neuromante (Edición especial) se dirige a lectores de ciencia ficción interesados en el ciberespacio, el robo de información y las consecuencias de una traición. Su conflicto parte de un personaje que pierde la capacidad de trabajar en el entorno digital que dominaba; no encaja con quien busque una historia ajena a la tecnología.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,48 +13,33 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Neuromante (Edición especial) es una novela de ciencia ficción centrada en el ciberespacio, el robo de información y las consecuencias de una traición. Case pierde su capacidad para acceder a los sistemas electrónicos después de sufrir daños en el sistema nervioso como castigo. El conflicto parte de esa pérdida y de su expulsión del entorno donde desarrollaba su actividad.",
+      "texto": "Es ciencia ficción centrada en el acceso clandestino a sistemas electrónicos y en el castigo por una traición. Case, antiguo especialista en penetrar defensas digitales, sufre daños neurológicos que le impiden regresar al ciberespacio. La pérdida de esa capacidad establece el conflicto personal de partida.",
       "evidencias": [
-        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de Neuromante (Edición especial) se presenta en cartoné, sin sobrecubierta, bajo el sello Minotauro. Tiene 392 páginas en castellano y su fecha editorial es el 27 de enero de 2027. El ISBN 9788445023914 permite identificar esta presentación concreta frente a otras ediciones de la obra.",
+      "texto": "Esta edición de Neuromante (Edición especial) se publica en tapa dura de cartoné, sin sobrecubierta, bajo el sello Minotauro. Reúne 392 páginas en castellano y tiene el ISBN 9788445023914. Su fecha de publicación editorial es el 27 de enero de 2027, un dato útil para distinguirla de otras ediciones de la obra.",
       "evidencias": [
         "titulo",
         "edicion",
         "editorial",
         "numero_paginas",
         "idioma",
-        "fecha_publicacion",
-        "isbn13"
+        "isbn13",
+        "fecha_publicacion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La opción recogida para Neuromante (Edición especial) es la tapa dura, con 392 páginas. Su encuadernación en cartoné permite conservar el volumen en una estantería y consultarlo repetidamente; también constituye una presentación física para regalar. Es una elección orientada al libro impreso, no a la lectura en pantalla ni a la escucha.",
+      "texto": "La opción recogida para Neuromante (Edición especial) es la tapa dura, con 392 páginas y encuadernación de cartoné sin sobrecubierta. Es un formato físico apropiado para conservar el volumen en una estantería o entregarlo como regalo; frente a una edición digital, requiere transportar el libro completo durante la lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "edicion",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Neuromante (Edición especial), de William Gibson, puede compararse con Al despertar, rompe el cascarón (Runas), de Becky Chambers, por su presencia entre las lecturas relacionadas del catálogo. La obra de William Gibson pertenece a la ciencia ficción y aborda el robo de información en el ciberespacio. La diferencia identificable entre ambos títulos es la autoría, mientras que Neuromante (Edición especial) plantea un conflicto tecnológico ligado a una traición y sus consecuencias físicas.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791370093488"
+        "numero_paginas",
+        "edicion"
       ]
     }
   ],

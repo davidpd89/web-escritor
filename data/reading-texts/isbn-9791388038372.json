@@ -4,8 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a adultos interesados en la espiritualidad, las constelaciones familiares y la influencia de la historia familiar en la vida personal. Encaja con lectores que quieren explorar cómo los vínculos y las experiencias de generaciones anteriores pueden relacionarse con sus dificultades actuales; no es una novela ni un estudio histórico familiar.",
+      "texto": "El origen. La raíz invisible de lo que dirige tu vida se dirige a adultos interesados en las relaciones familiares, el desarrollo personal y las constelaciones familiares. Su enfoque relaciona las dificultades presentes con vínculos y experiencias de generaciones anteriores, por lo que no responde a quien busque exclusivamente un manual de nutrición o ejercicio físico.",
       "evidencias": [
+        "titulo",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -13,8 +14,9 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas reúne sus 288 páginas en una edición física para leer y consultar. Kindle permite acceder al contenido en formato digital desde un móvil o lector electrónico, sin necesidad de transportar el ejemplar.",
+      "texto": "El origen. La raíz invisible de lo que dirige tu vida está disponible en tapa blanda, Kindle y audiolibro. La edición impresa reúne 288 páginas con solapas para consultar el texto en papel; Kindle facilita la lectura digital y el audiolibro permite escucharlo durante actividades compatibles con la atención al contenido.",
       "evidencias": [
+        "titulo",
         "edicion",
         "numero_paginas",
         "formatos_disponibles"
@@ -22,7 +24,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, comparte con El origen. La raíz invisible de lo que dirige tu vida el interés por la espiritualidad y la exploración personal. La diferencia está en el enfoque: el primero reúne astrología, filosofía y magia, mientras que Graciela del Campo Vara aborda las constelaciones familiares y la influencia de los vínculos entre generaciones.",
+      "texto": "El origen. La raíz invisible de lo que dirige tu vida y Anatomía de una relación tóxica: Como reconocerla, salir de ella y recuperar tu vida, de David C, tratan cuestiones relacionadas con los vínculos personales. Graciela del Campo Vara aborda las constelaciones familiares y la influencia de generaciones anteriores, mientras que el libro de David C se concentra en reconocer y abandonar relaciones tóxicas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411214315"
+        "isbn-9788409923595"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9b88a6ea05cf550b",
+  "fuente_hash": "f9f08b92983cff5d",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388484049",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Teenage Mutant Ninja Turtles vol. 3 está dirigido a lectores de cómic y novela gráfica interesados en esta serie. Gene Luen Yang y Freddie E. Williams II firman un volumen de 160 páginas, menos relacionado con la narrativa en prosa que con la lectura de historietas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Teenage Mutant Ninja Turtles vol. 3 se ofrece en tapa blanda, con 160 páginas en castellano. La edición de Moztros Producciones SL permite leer y conservar el cómic en papel, con una encuadernación flexible para manejar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Teenage Mutant Ninja Turtles vol. 3 y Book of Clash nº 07/08: 7 (Cómic infantil juvenil) comparten el formato de cómic y la participación de Gene Luen Yang. Se diferencian por sus respectivas series y por el equipo creativo: Freddie E. Williams II firma el primero junto a Gene Luen Yang, mientras que Alison Acton y Les McClaine participan en el segundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388102004"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7d817ced929dab1f",
+  "origen": "chatgpt-web"
+}

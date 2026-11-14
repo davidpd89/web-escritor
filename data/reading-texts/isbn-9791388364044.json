@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Textos recobrados. 1931-1955 (Hispánica) se dirige a lectores interesados en los escritos de Jorge Luis Borges y en la literatura vinculada al siglo XX. Combina las clasificaciones de relatos, historia y biografías y memorias; no responde a la búsqueda de una novela contemporánea centrada en una única trama.",
+      "texto": "Textos recobrados. 1931-1955 (Hispánica) se dirige a lectores interesados en los escritos de Jorge Luis Borges y en su contexto histórico y literario. Su clasificación entre biografías y memorias, historia y relatos lo aleja de una novela de argumento único; el periodo recogido en el título delimita el interés de esta entrega.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,17 +13,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Textos recobrados. 1931-1955 (Hispánica) contiene 368 páginas y permite consultar los textos en papel. La alternativa Kindle facilita llevar el volumen en un lector electrónico o en el móvil, especialmente para alternar su lectura con otras obras de Jorge Luis Borges.",
+      "texto": "La tapa blanda reúne 368 páginas y permite consultar los textos en un volumen físico. La edición Kindle ofrece la alternativa digital para leer en un dispositivo compatible, sin transportar el ejemplar impreso; ambas opciones corresponden a Textos recobrados. 1931-1955 (Hispánica).",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles",
-        "autores"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Textos recobrados: 1919-1929 (Hispánica) y Textos recobrados. 1931-1955 (Hispánica) pertenecen a la misma línea de obras de Jorge Luis Borges, pero sus títulos delimitan periodos diferentes. Textos recobrados 1956-1986 (Hispánica) desplaza el marco temporal hacia años posteriores, por lo que permite comparar distintas etapas de su escritura.",
+      "texto": "Textos recobrados: 1919-1929 (Hispánica) y Textos recobrados 1956-1986 (Hispánica) pertenecen a la misma línea de obras de Jorge Luis Borges. Frente al periodo 1931-1955 del volumen consultado, el primero se identifica con años anteriores y el segundo con posteriores; la elección depende de la etapa de escritura que interese examinar.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5d0c342f0e7a7374",
+  "fuente_hash": "d56b6422dfc2f1ca",
   "origen": "chatgpt-web"
 }

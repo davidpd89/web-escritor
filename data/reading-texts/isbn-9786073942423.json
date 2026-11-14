@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tamara (Novela Histórica / A Historical Novel) se dirige a quienes leen ficción histórica y narrativa contemporánea. Su planteamiento novelístico se distancia de los libros de divulgación histórica que presentan los hechos mediante un discurso ensayístico.",
+      "texto": "Tamara (Novela Histórica / A Historical Novel), de Pedro Ángel Palou, encaja con lectores que buscan novela histórica dentro de la narrativa contemporánea. Su doble clasificación permite situarla entre ambos ámbitos, pero no corresponde a una búsqueda centrada exclusivamente en terror o fantasía.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Tamara (Novela Histórica / A Historical Novel) tiene 344 páginas y está publicada en castellano. El volumen físico permite seguir la narración y regresar a capítulos anteriores sin recurrir a un lector electrónico.",
+      "texto": "La tapa blanda es la opción de lectura en papel para Tamara (Novela Histórica / A Historical Novel). Con 344 páginas, permite avanzar por la novela sin depender de una pantalla y conservar el ejemplar para futuras lecturas. El texto está en castellano.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
         "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth, de Valerio Massimo Manfredi, comparte con Tamara (Novela Histórica / A Historical Novel) el terreno de la ficción histórica, pero su título remite a una entrega numerada y a otro protagonista. Cosamala, de Alana S. Portero, aborda un crimen de la guerra civil mediante elementos góticos y brujería, frente a la combinación de novela histórica y narrativa contemporánea de Pedro Ángel Palou.",
+      "texto": "Tamara (Novela Histórica / A Historical Novel) se puede comparar con Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon, de Valerio Massimo Manfredi, por su relación con la narrativa histórica. La diferencia está en que Tamara también figura como narrativa contemporánea y está firmada por Pedro Ángel Palou, mientras que el otro título identifica una segunda entrega y tiene distinta autoría.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,8 +31,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9786287897106",
-        "isbn-9788432251436"
+        "isbn-9786287897090"
       ]
     }
   ],

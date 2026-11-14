@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399299502",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "José Ballester. Escritos inéditos y autobiográficos se dirige a lectores interesados en los testimonios personales, los escritos autobiográficos y las biografías. Su enfoque documental lo separa de las novelas de ficción y de los manuales prácticos, con una extensión de 224 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "José Ballester. Escritos inéditos y autobiográficos está editado en tapa blanda por Compobell, S.l., con 224 páginas en castellano. El volumen físico permite consultar los escritos y regresar a pasajes concretos durante una lectura centrada en materiales autobiográficos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al andar: Vivencias del Camino de Santiago y José Ballester. Escritos inéditos y autobiográficos se relacionan por su atención a las experiencias personales. El primero anuncia vivencias vinculadas al Camino de Santiago, mientras que el segundo reúne escritos inéditos y autobiográficos. Sus autores son Carlos Díaz Ballesta y José López Rico, respectivamente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a90d5c4e53ecdfb9",
+  "origen": "chatgpt-web"
+}

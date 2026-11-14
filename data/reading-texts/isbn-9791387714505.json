@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387714505",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡Cartago debe ser destruida! (Istoría) se dirige a lectores de novela histórica que buscan una narración vinculada al mundo antiguo y con elementos de aventura. Sus 544 páginas plantean una lectura extensa, menos ajustada a quienes prefieren relatos breves o ficción contemporánea sin ambientación histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne las 544 páginas de ¡Cartago debe ser destruida! (Istoría) en un volumen físico pensado para conservarlo y volver a consultarlo. Kindle permite leer esta obra extensa en formato digital, sin cargar con el peso de la edición impresa.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¡Cartago debe ser destruida! (Istoría) y Patria de sangre comparten su relación con la novela histórica y los conflictos sugeridos por sus títulos. La obra de Gabriel Castelló sitúa a Cartago en el centro de su planteamiento y combina historia y aventuras, mientras la de Mario Niebla Del Toro Carrión presenta una referencia a la patria y la sangre desde su propio título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410373471"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cdf254c4903a7e39",
+  "origen": "chatgpt-web"
+}

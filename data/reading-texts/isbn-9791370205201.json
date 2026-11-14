@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791370205201",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Por un puñado de fósiles: Un paleoantropólogo entre la sabana africana y la jungla académica (Arqueología) se dirige a lectores interesados en la paleoantropología, las memorias y la divulgación científica. Su enfoque en la experiencia de un paleoantropólogo lo diferencia de los manuales técnicos y de las novelas de aventuras ambientadas en excavaciones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro aborda la paleoantropología desde la figura de un investigador situado entre el trabajo en la sabana africana y el entorno académico. Manuel Domínguez-Rodrigo combina así, en el planteamiento de la obra, el ámbito científico con una perspectiva biográfica vinculada a la investigación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 288 páginas en un ejemplar físico que permite consultar pasajes y volver a ellos sin utilizar pantallas. Kindle ofrece una alternativa para leer en dispositivos compatibles, transportar el contenido digitalmente y ajustar la visualización del texto.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Historias de la curiosidad cientifica, de Carly Anne York, comparte con Por un puñado de fósiles el interés por cuestiones científicas, aunque este último delimita su asunto a la paleoantropología y al ámbito académico. La guardia infinita: Crónica de una enfermera en tiempos de pandemia, de Natalia Bonillo y Álex Zahinos, permite otra comparación desde el relato de experiencias profesionales, pero situado en el entorno sanitario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388075476",
+        "isbn-9791387687205"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3b53f33246c53aff",
+  "origen": "chatgpt-web"
+}

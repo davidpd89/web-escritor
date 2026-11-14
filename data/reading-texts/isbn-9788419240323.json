@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419240323",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Desarmada y desarmante: La paz en un don (Papa león XIV- monográficos) se dirige a lectores interesados en la paz desde una perspectiva religiosa y espiritual. La autoría de Papa León Xiv sitúa el libro en ese ámbito, por lo que encaja menos con quienes buscan un estudio exclusivamente político o militar de los conflictos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Desarmada y desarmante: La paz en un don (Papa león XIV- monográficos) se publica en tapa dura, con 240 páginas en castellano. La encuadernación rígida resulta adecuada para conservar el volumen en una biblioteca personal o regalarlo, y facilita mantenerlo protegido durante consultas posteriores.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación y Desarmada y desarmante: La paz en un don (Papa león XIV- monográficos) comparten el interés por la espiritualidad. Tsondru Yeshe aborda los fundamentos y la práctica del Dharma, mientras que Papa León Xiv centra su obra en la paz. La comparación distingue un texto sobre un camino espiritual de otro dedicado a una cuestión concreta dentro del pensamiento religioso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3aafba024061b376",
+  "origen": "chatgpt-web"
+}

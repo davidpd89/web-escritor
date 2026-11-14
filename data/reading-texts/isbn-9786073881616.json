@@ -4,28 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El canto invisible / The Invisible Song se dirige a lectores de narrativa contemporánea interesados en obras de este género. Su clasificación editorial la sitúa en la ficción contemporánea, en lugar de en el ensayo o la literatura de desarrollo personal.",
+      "texto": "El canto invisible / The Invisible Song, de Claudia Piñeiro, se orienta a lectores de narrativa contemporánea en castellano. Con 288 páginas, se sitúa en una extensión intermedia y responde menos a quienes buscan específicamente poesía, fantasía o una lectura de pocas páginas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "idioma",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda presenta El canto invisible / The Invisible Song en un volumen de 288 páginas, publicado por Penguin Random House Grupo Editorial. Es una edición física en castellano para quienes prefieren la lectura en papel.",
+      "texto": "El canto invisible / The Invisible Song ofrece tres opciones: tapa blanda, Kindle y audiolibro. La edición en papel de Penguin Random House Grupo Editorial reúne 288 páginas; Kindle permite leerlo en un dispositivo compatible y el audiolibro ofrece una alternativa para escucharlo durante otras actividades.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
+        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "formatos_disponibles"
+        "editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8af93c529b70b615",
+  "fuente_hash": "96732a1c6300ed3d",
   "origen": "chatgpt-web"
 }

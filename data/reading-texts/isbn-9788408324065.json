@@ -4,40 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Brasil 8 (Guías de País Lonely Planet) está dirigido a lectores que buscan una guía de viajes centrada en Brasil, tanto para preparar una estancia como para consultar información sobre el destino. Sus 656 páginas lo alejan de quienes prefieren una lectura narrativa breve o un libro de viajes centrado en las experiencias personales de un único autor.",
+      "texto": "Brasil 8 (Guías de País Lonely Planet) se dirige a lectores que preparan una estancia en Brasil y necesitan una guía centrada en ese destino. Con 656 páginas dedicadas a viajes, responde a necesidades de planificación y consulta, por lo que no encaja con quienes buscan una novela ambientada en el país o un relato autobiográfico.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas",
-        "autores"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Brasil 8 (Guías de País Lonely Planet) se ofrece en tapa blanda y cuenta con 656 páginas en castellano. El formato impreso permite consultar la guía sin conexión ni batería durante el viaje, aunque su extensión hace que ocupe más espacio en el equipaje que un volumen de menor tamaño.",
+      "texto": "Brasil 8 (Guías de País Lonely Planet) está disponible en tapa blanda, con 656 páginas en una edición física de Geoplaneta. Puede utilizarse para preparar el viaje en casa y llevarse como material de consulta durante el recorrido, aunque su extensión supone transportar un volumen considerable.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
+        "edicion",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Brasil 8 (Guías de País Lonely Planet) comparte con Polonia 6 (Guías de País Lonely Planet) su pertenencia a una colección de guías de países y la participación de Marc Di Duca entre sus autores. La diferencia principal está en el destino: la primera se centra en Brasil y cuenta con 656 páginas, mientras que la segunda está dedicada a Polonia.",
+      "texto": "Indonesia 7 y Brasil 8 (Guías de País Lonely Planet) son guías dedicadas a países concretos y comparten a Anthony Ham entre sus autores. La primera orienta la consulta hacia Indonesia, mientras que la segunda se centra en Brasil y cuenta también con la participación de Marc Di Duca y otros autores.",
       "evidencias": [
         "titulo",
         "autores",
-        "numero_paginas",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408323914"
+        "isbn-9788408329534"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "df6530172907b5d6",
+  "fuente_hash": "66adbc216cc54ba5",
   "origen": "chatgpt-web"
 }

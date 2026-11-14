@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está orientado a lectores de desarrollo personal que quieren reflexionar sobre su propósito vital y sus capacidades. La propuesta de Tony Estruch se relaciona con la psicología y el crecimiento individual, más que con quienes buscan exclusivamente instrucciones técnicas de gestión empresarial o finanzas.",
+      "texto": "Dirigido a lectores interesados en el desarrollo personal, la psicología y la búsqueda de un propósito vital. El genio que has venido a ser: Todos tenemos un propósito en la vida ¿conoces ya el tuyo? (No ficción), de Tony Estruch, se aleja de la narrativa de ficción y se sitúa en el terreno de la reflexión personal.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,27 +13,24 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Roca Editorial publica esta obra en tapa blanda, con 288 páginas en castellano. Su extensión permite repartir la lectura en varias sesiones y el formato físico facilita volver a los apartados relacionados con el propósito personal sin utilizar una pantalla.",
+      "texto": "La edición de El genio que has venido a ser: Todos tenemos un propósito en la vida ¿conoces ya el tuyo? (No ficción) se presenta en tapa blanda. Sus 288 páginas permiten consultar distintos pasajes en papel, con una encuadernación flexible para transportarlo y leerlo fuera de casa.",
       "evidencias": [
-        "editorial",
+        "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "titulo"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Belleza con cabeza: Las claves para verte bien sin dejar de ser tú (Alienta) comparte el interés por el desarrollo personal, pero dirige la atención hacia la imagen y la identidad, mientras que El genio que has venido a ser: Todos tenemos un propósito en la vida ¿conoces ya el tuyo? (No ficción) se centra en el propósito vital. Construye un negocio atómico / Build an Atomic Business se orienta al ámbito empresarial, frente al enfoque de autoconocimiento de Tony Estruch.",
+      "texto": "Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio. comparte con El genio que has venido a ser: Todos tenemos un propósito en la vida ¿conoces ya el tuyo? (No ficción) el interés por el desarrollo personal. El primero plantea un método de trabajo con partes internas, mientras que el libro de Tony Estruch centra su propuesta en el propósito vital.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788413445687",
-        "isbn-9786073880336"
+        "isbn-9788409924059"
       ]
     }
   ],

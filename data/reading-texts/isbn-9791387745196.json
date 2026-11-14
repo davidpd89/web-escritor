@@ -4,35 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "De Enrique Wanton a Ramón López Soler: Refundaciones novelescas al español entre la Ilustración y el Romanticismo (1769-1845): 319 (Biblioteca Filológica Hispana) se orienta a lectores de ensayo y estudios literarios interesados en la evolución de la novela. Su enfoque histórico y filológico se aleja de quien busca una narración de fantasía o ciencia ficción.",
+      "texto": "De Enrique Wanton a Ramón López Soler: Refundaciones novelescas al español entre la Ilustración y el Romanticismo (1769-1845): 319 (Biblioteca Filológica Hispana) se dirige a lectores interesados en el estudio histórico de la narrativa y sus transformaciones literarias. Su orientación ensayística y filológica lo distingue de las novelas de ciencia ficción destinadas a la lectura de entretenimiento.",
       "evidencias": [
         "titulo",
         "categorias",
-        "autores"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Javier Muñoz de Morales Galiana aborda las refundaciones novelescas al español entre la Ilustración y el Romanticismo. El periodo 1769-1845 delimita un estudio literario que vincula a Enrique Wanton y Ramón López Soler, con una extensión de 464 páginas.",
+      "texto": "La transformación de formas novelescas en español entre la Ilustración y el Romanticismo constituye el eje de este estudio. Javier Muñoz de Morales Galiana delimita su investigación al periodo 1769-1845, con un enfoque histórico y filológico sobre las refundaciones literarias.",
       "evidencias": [
         "titulo",
         "autores",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es en tapa blanda y tiene 464 páginas, publicadas por Visor Libros. El soporte impreso permite consultar y volver a localizar pasajes durante el estudio de las transformaciones novelescas tratadas en el volumen.",
+      "texto": "De Enrique Wanton a Ramón López Soler: Refundaciones novelescas al español entre la Ilustración y el Romanticismo (1769-1845): 319 (Biblioteca Filológica Hispana) se publica en tapa blanda. Sus 464 páginas ofrecen un volumen físico que permite consultar pasajes, marcar referencias y regresar a distintas partes del estudio durante la lectura.",
       "evidencias": [
-        "edicion",
+        "titulo",
         "numero_paginas",
-        "formatos_disponibles",
-        "titulo"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "De Enrique Wanton a Ramón López Soler: Refundaciones novelescas al español entre la Ilustración y el Romanticismo (1769-1845): 319 (Biblioteca Filológica Hispana) comparte con Al despertar, rompe el cascarón (Runas) su presencia en un catálogo que también incluye ciencia ficción. La diferencia es el enfoque: Javier Muñoz de Morales Galiana firma un estudio de historia literaria, mientras que Becky Chambers figura como autora del otro título.",
+      "texto": "Distopías: Cómo imaginar otros futuros posibles: 15 (Libros de FILOSOFÍA&CO) y De Enrique Wanton a Ramón López Soler: Refundaciones novelescas al español entre la Ilustración y el Romanticismo (1769-1845): 319 (Biblioteca Filológica Hispana) permiten aproximarse a la ficción desde el ensayo. Lucía Hellín Nistal se centra en imaginar futuros alternativos, mientras Javier Muñoz de Morales Galiana estudia transformaciones novelescas de un periodo histórico delimitado.",
       "evidencias": [
         "titulo",
         "autores",
@@ -40,12 +39,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370093488"
+        "isbn-9788410086777"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "97395a91494a68b4",
+  "fuente_hash": "10346def0e0e03da",
   "origen": "chatgpt-web"
 }

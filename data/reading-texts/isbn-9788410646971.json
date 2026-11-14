@@ -4,25 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta novela de Terry Lynn Thomas se dirige a lectores de thriller psicológico y misterio interesados en conflictos judiciales y acusaciones personales. Su protagonista es una abogada que debe defender su propia inocencia, por lo que se aleja de las historias de fantasía, aventuras y conflictos sobrenaturales.",
+      "texto": "La traición, de Terry Lynn Thomas, se dirige a lectores interesados en el misterio y el thriller psicológico. Su protagonista es una abogada que debe defender su propia inocencia, un conflicto que sitúa la historia en el terreno de la sospecha y la investigación.",
       "evidencias": [
-        "autores",
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 288 páginas de esta novela de Terry Lynn Thomas en un volumen físico que puede prestarse o regalarse. Kindle permite leer el mismo título en un dispositivo electrónico o en el móvil, sin transportar el ejemplar impreso.",
+      "texto": "La edición en tapa blanda reúne las 288 páginas de La traición en un ejemplar físico para leer y conservar. Kindle permite acceder a la misma obra desde un dispositivo electrónico, sin transportar el libro en papel.",
       "evidencias": [
-        "autores",
+        "titulo",
         "numero_paginas",
+        "edicion",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La novela de Terry Lynn Thomas comparte el misterio con El último pase (Los casos de Inés Robles), de Carlos Polo Araujo. La primera plantea el conflicto de una abogada que debe demostrar su inocencia, mientras que el título de la segunda remite a una serie de casos protagonizada por Inés Robles.",
+      "texto": "Aguas turbulentas, de Rankin Ian, comparte con La traición, de Terry Lynn Thomas, el terreno del misterio y los conflictos marcados por la sospecha. La diferencia está en el planteamiento: La traición presenta a una abogada que debe defender su inocencia, mientras Aguas turbulentas sitúa la historia en Edimburgo, donde se enfrentan un pasado siniestro y un presente oscuro.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409936441"
+        "isbn-9791370310318"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "028271eaa81264a9",
+  "fuente_hash": "d6cbd77e7120f19a",
   "origen": "chatgpt-web"
 }

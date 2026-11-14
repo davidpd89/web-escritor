@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores de romance y novela histórica que buscan una historia sentimental situada en un marco relacionado con el siglo XX. Su orientación narrativa se aleja de quienes prefieren ensayos históricos o libros de consulta sin una trama de ficción.",
+      "texto": "Los Amores de Sofía (Novela) / The Loves of Sofía (a Novel), de Guadalupe Loaeza, se dirige a quienes buscan una novela que combine romance y ambientación histórica. Sus 216 páginas ofrecen una extensión relativamente contenida; por temática, se aleja de las lecturas centradas en ciencia ficción o fantasía.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "sinopsis_editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los Amores de Sofía (Novela) / The Loves of Sofía (a Novel) se presenta en tapa blanda, con 216 páginas en castellano. Es una edición física que permite leer la novela completa y retomarla sin dispositivos electrónicos.",
+      "texto": "Los Amores de Sofía (Novela) / The Loves of Sofía (a Novel) está disponible en tapa blanda, Kindle y audiolibro. La edición física tiene 216 páginas y permite conservar el ejemplar; Kindle facilita la lectura digital y el audiolibro ofrece la posibilidad de escucharlo en lugar de leerlo en pantalla o papel.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Corazón de una bridgerton (Titania época), de Julia Quinn, comparte con Los Amores de Sofía (Novela) / The Loves of Sofía (a Novel) el vínculo entre romance y ambientación de época, aunque pertenece a una propuesta editorial distinta. Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián, desplaza el interés hacia la Reconquista, mientras que la novela de Guadalupe Loaeza combina romance y un marco histórico vinculado al siglo XX.",
+      "texto": "Los Amores de Sofía (Novela) / The Loves of Sofía (a Novel) comparte romance y marco histórico con Corazón de una bridgerton (Titania época), de Julia Quinn. La novela de Guadalupe Loaeza se presenta como una historia sobre los amores de Sofía, mientras que la de Julia Quinn se identifica por su protagonista y su pertenencia a una línea de romance de época. La carta perdida (Clean Romance), de Mimi Matthews, ofrece otra comparación romántica, esta vez con la indicación de romance limpio en el título.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,13 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401039539",
-        "isbn-9788410391772"
+        "isbn-9788410391772",
+        "isbn-9788410481442"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f322cd768cbb1fe3",
+  "fuente_hash": "d60180d3e76b4ecf",
   "origen": "chatgpt-web"
 }

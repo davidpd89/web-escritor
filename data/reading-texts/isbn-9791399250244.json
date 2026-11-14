@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399250244",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Atlas de un errante: 112 (Colección Tántalo), de Rafael Arauz González, se dirige a lectores interesados en los viajes y las obras de consulta relacionadas con ellos. Por su orientación temática, se distancia de quienes buscan principalmente ficción fantástica o novelas centradas en conflictos entre personajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene las 326 páginas de Atlas de un errante: 112 (Colección Tántalo), una extensión que permite dedicarle varias sesiones de lectura. El ejemplar puede transportarse o mantenerse a mano para consultar pasajes en papel, sin necesitar un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Récords para entender el planeta, de Un Mundo Inmenso, comparte con Atlas de un errante: 112 (Colección Tántalo) el interés por conocer el mundo. La primera obra organiza su propuesta alrededor de récords del planeta; la de Rafael Arauz González pertenece al ámbito de los viajes y las guías de referencia, con una orientación temática diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005494"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "702f7091ce568619",
+  "origen": "chatgpt-web"
+}

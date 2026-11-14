@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370623371",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Temario parte general auxiliar de cuidadores xunta está orientado a quienes estudian materias generales relacionadas con el puesto de auxiliar de cuidadores de la xunta. Su planteamiento como temario y sus 418 páginas lo diferencian de una lectura narrativa o de divulgación general.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Temario parte general auxiliar de cuidadores xunta se publica en tapa blanda, con 418 páginas en castellano. La edición física de Editorial MAD permite subrayar, colocar marcadores y consultar apartados durante el estudio, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Libro anual de psicoanalisis 2026 comparte con Temario parte general auxiliar de cuidadores xunta la autoría colectiva de Varios autores. Sin embargo, sus títulos delimitan materias distintas: el primero se centra en el psicoanálisis y el segundo en la parte general de un temario para auxiliares de cuidadores. La elección depende del ámbito de estudio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399156171"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dcb4e915a39e990e",
+  "origen": "chatgpt-web"
+}

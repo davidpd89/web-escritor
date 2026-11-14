@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388107078",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Entre pinceles y misterios está orientado al público infantil que busca historias de aventuras. Sus 116 páginas permiten abordar una lectura de extensión moderada; encaja menos con quienes prefieren ensayos o narraciones dirigidas específicamente a adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Entre pinceles y misterios se presenta en tapa blanda y tiene 116 páginas en castellano. Su extensión y encuadernación permiten transportarlo en una mochila para leer fuera de casa, sin necesidad de un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Entre pinceles y misterios puede compararse con Abre el misterio 1 - El robo de las croquetas, de Carlos G. Gurpegui, por su relación con el misterio infantil. El segundo plantea expresamente la desaparición de unas croquetas, mientras que la obra de Belén Monreal se presenta dentro de las aventuras y vincula en su título los pinceles con los misterios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8031f5c4ac1a4f7d",
+  "origen": "chatgpt-web"
+}

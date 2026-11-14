@@ -4,41 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Después de los días (Proyectos de artista) se dirige a quienes buscan publicaciones de arte y diseño vinculadas a proyectos de autor. Sus 216 páginas lo distinguen de un cuaderno de uso cotidiano o de un manual introductorio de dibujo.",
+      "texto": "Después de los días (Proyectos de artista) está orientado a lectores interesados en publicaciones de arte y proyectos de artista. La obra de Pablo Genovés se sitúa en el ámbito del arte y el diseño, por lo que responde menos a quien busca una novela convencional centrada en personajes y argumento.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas",
-        "afines_catalogo"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura de Exit Publicaciones reúne las 216 páginas de Después de los días (Proyectos de artista) en un volumen físico. Esta encuadernación facilita su conservación y consulta repetida, especialmente para quien reúne publicaciones de arte y diseño.",
+      "texto": "La edición de Exit Publicaciones consta de 216 páginas en tapa dura y está publicada en castellano. La encuadernación rígida permite conservar el volumen en una biblioteca de arte y consultarlo repetidamente, además de presentarlo como ejemplar físico para regalo.",
       "evidencias": [
-        "formatos_disponibles",
-        "editorial",
+        "edicion",
         "numero_paginas",
-        "titulo",
-        "categorias"
+        "idioma",
+        "categorias",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Después de los días (Proyectos de artista) puede compararse con 720 retrats por su vinculación con la producción artística de autor. El volumen de Pablo Genovés pertenece a una línea de proyectos de artista, mientras que el título de Xavier Mollà i Revert señala específicamente el retrato como asunto de su publicación.",
+      "texto": "720 retrats, de Xavier Mollà i Revert, permite comparar dos publicaciones relacionadas con el ámbito artístico, aunque su título señala específicamente el retrato y Después de los días (Proyectos de artista) se presenta como proyecto de artista. All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial, de Daniel Sedcontra, aborda una manifestación cultural concreta, frente al planteamiento artístico de Pablo Genovés.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "afines_catalogo",
         "categorias"
       ],
       "enlaces": [
-        "isbn-9788412678802"
+        "isbn-9788412678802",
+        "isbn-9788410045538"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5fa3a716a00b6575",
+  "fuente_hash": "84702067220dbbd8",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370274542",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en el mantenimiento básico de equipos, aplicaciones y redes, con un enfoque técnico. Sus 68 páginas y su orientación hacia la divulgación científica lo alejan de quienes buscan una novela o una lectura centrada en personajes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar las 68 páginas en papel y volver a los apartados de mantenimiento de equipos, aplicaciones y redes. La edición Kindle ofrece el mismo título en formato digital, una alternativa para llevar la lectura en el móvil o en un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte autoría con Energías renovables: Especialidad biomasa-ENAE010PO, también de Elsa Rubio Duce, pero aborda el mantenimiento informático en lugar de la biomasa. Supervisión agrícola mediante imágenes y drones-AGAU42, de la misma autora, se orienta hacia la tecnología aplicada al ámbito agrícola, mientras que este libro se centra en equipos, aplicaciones y redes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388586279",
+        "isbn-9791388586156"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b2df5db186a7f494",
+  "origen": "chatgpt-web"
+}

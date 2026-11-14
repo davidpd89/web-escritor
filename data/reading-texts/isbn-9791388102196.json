@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388102196",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hajime no Ippo nº 18 (Manga Shonen) se dirige a lectores juveniles interesados en el manga y la narrativa gráfica. Sus 368 páginas corresponden a una obra presentada como cómic, por lo que se diferencia de una novela juvenil escrita únicamente en prosa; el título lo identifica como el n.º 18.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hajime no Ippo nº 18 (Manga Shonen) se presenta en tapa blanda, con 368 páginas en castellano. Esta edición física permite recorrer las páginas del manga directamente en papel y conservar el volumen en una colección; su extensión también conviene tenerla en cuenta para transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hajime no Ippo nº 18 (Manga Shonen) y Blue Lock nº 33 (Manga Shonen) comparten la identificación como manga shonen, aunque son obras de Joji Morikawa y de Yusuke Nomura y Muneyuki Kaneshiro, respectivamente. Gokurakugai nº 06: 6 (Manga Shonen), de Yuto Sano, pertenece también a esa línea editorial de lectura gráfica, pero corresponde a otro título y autor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388101991",
+        "isbn-9791388102134"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "279bab50a4787ce5",
+  "origen": "chatgpt-web"
+}

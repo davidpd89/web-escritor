@@ -4,40 +4,43 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Kati Horna: Lo insolito es lo cotidiano, de Kati Horna, Fundación Jenkins, Instituto Nacional de Bellas Artes, está dirigido a lectores interesados en el arte y el diseño. Su título sitúa la propuesta alrededor de Kati Horna, por lo que se distingue de los manuales prácticos para aprender técnicas de dibujo.",
+      "texto": "Kati Horna: Lo insolito es lo cotidiano se dirige a lectores interesados en el arte y el diseño, especialmente en publicaciones vinculadas a una autora concreta. Sus 280 páginas en castellano responden a ese ámbito; no es una elección orientada a quien busca una novela de aventuras o fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Kati Horna: Lo insolito es lo cotidiano se publica en tapa dura, con 280 páginas y edición de RM. Esta encuadernación permite conservar el volumen en una biblioteca de arte o entregarlo como regalo físico, aunque resulta menos ligera para transportarla que una edición de bolsillo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Kati Horna: Lo insolito es lo cotidiano comparte el ámbito artístico con 720 retrats, de Xavier Mollà i Revert, pero cada título se vincula a una autoría diferente. Frente a All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial, de Daniel Sedcontra, su título plantea lo cotidiano como eje, mientras el segundo identifica expresamente la música industrial y el terrorismo cultural.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
         "afines_catalogo"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 280 páginas de Kati Horna: Lo insolito es lo cotidiano, de Kati Horna, Fundación Jenkins, Instituto Nacional de Bellas Artes, en una edición física encuadernada. Es el formato disponible para quien prefiera conservar el libro en papel y tenerlo como parte de su biblioteca de arte.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "numero_paginas",
-        "formatos_disponibles",
-        "formato_edicion"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Kati Horna: Lo insolito es lo cotidiano, de Kati Horna, Fundación Jenkins, Instituto Nacional de Bellas Artes, comparte el interés artístico con 720 retrats, de Xavier Mollà i Revert. Este último anuncia un enfoque centrado en los retratos, mientras que el título de Kati Horna plantea una perspectiva vinculada a lo cotidiano y lo insólito.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788412678802"
+        "isbn-9788412678802",
+        "isbn-9788410045538"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ef8129459574f32a",
+  "fuente_hash": "aef2f26354b739e2",
   "origen": "chatgpt-web"
 }

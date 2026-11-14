@@ -4,41 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuando vi a la muerte prestar su sombrero / When I Saw Death Lend Its Hat, de Rodrigo Unda, se dirige a lectores que combinan fantasía, misterio y aventuras con historias sobre la superación y el duelo. Sus 256 páginas ofrecen una extensión menor que la de muchas novelas largas del género. Su enfoque se aleja de quienes buscan exclusivamente romance realista o narrativa sin elementos fantásticos.",
+      "texto": "Cuando vi a la muerte prestar su sombrero / When I Saw Death Lend Its Hat, de Rodrigo Unda, se dirige a lectores que buscan fantasía con elementos de misterio y aventuras. No responde a quienes prefieren una novela realista sin componentes fantásticos.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cuando vi a la muerte prestar su sombrero / When I Saw Death Lend Its Hat está disponible en tapa dura, tapa blanda, Kindle y audiolibro. La edición de Penguin Random House Grupo Editorial reúne 256 páginas en tapa dura, apropiada para conservar el volumen con una cubierta rígida. La tapa blanda reduce la rigidez del ejemplar, Kindle permite leerlo en el móvil y el audiolibro ofrece la posibilidad de escucharlo.",
+      "texto": "La edición en tapa dura de Cuando vi a la muerte prestar su sombrero / When I Saw Death Lend Its Hat reúne 256 páginas y ofrece una encuadernación rígida para conservar o regalar. La tapa blanda permite una lectura en papel más flexible, Kindle facilita llevar el texto en el móvil y el audiolibro permite escucharlo.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
         "numero_paginas",
+        "edicion",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuando vi a la muerte prestar su sombrero / When I Saw Death Lend Its Hat puede compararse con Cuando vi a la muerte prestar su sombrero (Ediciones B), ya que ambas fichas atribuyen la obra a Rodrigo Unda y presentan prácticamente el mismo título. Donde el agua no muerde / Where the Water Doesn't Bite comparte autoría, pero corresponde a otro título. La primera comparación permite localizar otra presentación de la obra; la segunda, otra lectura del mismo autor.",
+      "texto": "Cuando vi a la muerte prestar su sombrero (Ediciones B) comparte título y autoría con Cuando vi a la muerte prestar su sombrero / When I Saw Death Lend Its Hat, de Rodrigo Unda. Donde el agua no muerde / Where the Water Doesn't Bite también es de Rodrigo Unda, pero presenta un título distinto y constituye otra opción para explorar su obra.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9786073878760",
-        "isbn-9788466685481"
+        "isbn-9788466685481",
+        "isbn-9786073878760"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "31f3eea8941c39fe",
+  "fuente_hash": "1f317f7f52debf17",
   "origen": "chatgpt-web"
 }

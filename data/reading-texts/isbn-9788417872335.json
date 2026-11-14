@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788417872335",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gestión de la producción en cocina (CFGS DIRECCIÓN DE COCINA) está orientado a quienes estudian la organización y gestión de la actividad culinaria. Por su enfoque en la producción, se diferencia de los recetarios destinados a preparar platos concretos en casa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Gestión de la producción en cocina (CFGS DIRECCIÓN DE COCINA) se presenta en tapa blanda, con 168 páginas en castellano. La edición física permite consultar el contenido durante el estudio y realizar anotaciones sobre la organización de la producción en cocina.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gestión de la producción en cocina (CFGS DIRECCIÓN DE COCINA) comparte el ámbito culinario con 20 minutos ¡y listo!, de Jamie Oliver. El primero aborda la organización de la producción en cocina, mientras que el segundo se centra en preparar comidas en poco tiempo. La diferencia está entre estudiar la gestión profesional y buscar propuestas para cocinar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d85042b7d3760176",
+  "origen": "chatgpt-web"
+}

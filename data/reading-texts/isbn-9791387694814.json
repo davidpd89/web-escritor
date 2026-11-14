@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387694814",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vidas por oficio: Y otras indagaciones históricas (Sílex Magnum Historia) se dirige a lectores de historia interesados en los oficios y otras investigaciones sobre el pasado. Por su enfoque histórico y sus 266 páginas, se diferencia de una novela de ficción o de una introducción muy breve a la materia.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vidas por oficio: Y otras indagaciones históricas (Sílex Magnum Historia) tiene una edición en tapa blanda de 266 páginas, publicada por Sílex Ediciones. El volumen físico permite consultar sus contenidos y conservarlo como lectura de historia, con una extensión intermedia para un libro de no ficción.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Vidas por oficio: Y otras indagaciones históricas (Sílex Magnum Historia) comparte el ámbito histórico con 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback. El primero apunta al estudio de los oficios y otras indagaciones, mientras que el segundo se centra en el derrumbe de una democracia. También se aproxima a Agustín penón y Federico García Lorca, de Juan Carlos García de Polavieja, por su interés en la investigación histórica, aunque este último aborda una investigación biográfica concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517",
+        "isbn-9788418567933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "832b25394c1efa4c",
+  "origen": "chatgpt-web"
+}

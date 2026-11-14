@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387775391",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Medicina China Tradicional. Edición X aniversario. Actualizada y ampliada: Vivir en salud (Salud y Bienestar) se dirige a lectores interesados en la medicina tradicional china y el bienestar. Su enfoque temático se aparta de los libros centrados exclusivamente en ejercicio físico o entrenamiento deportivo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Medicina China Tradicional. Edición X aniversario. Actualizada y ampliada: Vivir en salud (Salud y Bienestar) se presenta en tapa blanda, con 352 páginas. El volumen físico permite consultar distintos pasajes, colocar marcadores y volver a ellos durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de comer, nutrir y sanar con la Medicina China (Salud y Bienestar) comparte con el libro de Prof. Liu Zheng el interés por la medicina china y la salud. La diferencia está en el enfoque: el título comparado destaca la alimentación y la nutrición, mientras que la edición de aniversario plantea una visión más general del bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387775421"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0973c0eebcee5f4d",
+  "origen": "chatgpt-web"
+}

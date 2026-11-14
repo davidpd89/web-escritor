@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788414064146",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "The Hidden Society : Sueños y destellos: 3, de Serena Archer, se dirige a lectores de fantasía juvenil que buscan una historia con componente romántico. Sus 443 páginas plantean una lectura de cierta extensión; quien busque una novela realista sin elementos fantásticos encontrará una propuesta distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "The Hidden Society : Sueños y destellos: 3 se publica en tapa dura, con 443 páginas en castellano. La encuadernación rígida resulta práctica para conservar el ejemplar y regalarlo, especialmente si se busca una edición física para una lectura prolongada.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "The Hidden Society : Sueños y destellos: 3 puede compararse con El hechizo más oscuro (Faeris Editorial), de Wanda Hellmund, por su relación con la fantasía romántica. También se aproxima a Asistente del villano (edición especial limitada) (Faeris Editorial), de Hannah Nicole Maehrer, dentro de ese ámbito; la diferencia identificable es que la obra de Serena Archer se presenta como narrativa juvenil y su título la identifica como el n.º 3.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388108112",
+        "isbn-9791388108419"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ac9ce62ef5b0621d",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Anatomía de la Inconsciencia Cautiva: Los mecanismos invisibles que nos gobiernan se orienta a lectores interesados en el desarrollo personal y los factores que influyen en la conducta. Sus temas también se relacionan con el bienestar y la familia, por lo que se aleja de una lectura centrada en la ficción y la aventura.",
+      "texto": "Anatomía de la Inconsciencia Cautiva: Los mecanismos invisibles que nos gobiernan se orienta a lectores interesados en el bienestar y en los factores que condicionan la conducta humana. Su enfoque anunciado sobre mecanismos invisibles resulta distinto de una guía centrada exclusivamente en alimentación, ejercicio físico o recetas saludables.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,17 +12,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de tapa blanda reúne 358 páginas en castellano, una extensión que permite distribuir la lectura en varias sesiones. El formato físico facilita volver a apartados anteriores y señalar pasajes relacionados con los mecanismos que aborda el título.",
+      "texto": "Anatomía de la Inconsciencia Cautiva: Los mecanismos invisibles que nos gobiernan cuenta con una edición en tapa blanda de 358 páginas. El formato físico permite mantener el volumen a mano para retomar apartados y conservar una copia en papel de esta obra de Josep María Soldevila Miró.",
       "evidencias": [
-        "formatos_disponibles",
+        "titulo",
+        "autores",
         "numero_paginas",
-        "idioma",
-        "titulo"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito comparte con Anatomía de la Inconsciencia Cautiva: Los mecanismos invisibles que nos gobiernan el interés por el desarrollo personal. La obra de Liz Moody anuncia cambios en distintos ámbitos de la vida, mientras que la de Josep María Soldevila Miró pone el foco en mecanismos que condicionan la conducta.",
+      "texto": "Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida, de Kelly Ann Street, comparte con Anatomía de la Inconsciencia Cautiva: Los mecanismos invisibles que nos gobiernan el interés por aspectos internos de la persona. Kelly Ann Street presenta un enfoque de sanación y equilibrio emocional, mientras que Josep María Soldevila Miró sitúa el foco en los mecanismos invisibles que influyen sobre nosotros.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9798890981776"
+        "isbn-9788410451988"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c2dbfd433129997f",
+  "fuente_hash": "5d7dcc5707e26dfa",
   "origen": "chatgpt-web"
 }

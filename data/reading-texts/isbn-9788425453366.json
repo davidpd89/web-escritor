@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788425453366",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en la filosofía y el ensayo, especialmente en los escritos de Simone Weil. Curso de Filosofía: Le Puy 1931-1932 (fuera de colección) tiene 352 páginas y se aparta de las lecturas de ficción o de quienes buscan una introducción breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Curso de Filosofía: Le Puy 1931-1932 (fuera de colección) se presenta en tapa blanda, con 352 páginas en castellano. Este formato permite consultar y señalar pasajes durante el estudio, además de conservar el volumen en una biblioteca de filosofía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esenciales también reúne escritos de Simone Weil, pero plantea una lectura panorámica de su obra, mientras que Curso de Filosofía: Le Puy 1931-1932 (fuera de colección) delimita su contenido mediante un curso y unas fechas concretas. La gravedad y la gracia (Contemporánea | Narrativa) comparte autoría con ambos, aunque su título propone otro eje de lectura filosófica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788430629138",
+        "isbn-9788466392112"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "68df9b449d48ca13",
+  "origen": "chatgpt-web"
+}

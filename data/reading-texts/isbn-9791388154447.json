@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388154447",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra se dirige a lectores interesados en la divulgación científica y las innovaciones tecnológicas que pueden influir en el futuro. Kelly Weinersmith y Zach Weinersmith abordan esta materia en 480 páginas, una extensión que encaja menos con quienes buscan lecturas breves o novelas de ficción.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "titulo",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El libro está disponible en tapa dura y tapa blanda, dos opciones para leerlo en papel. La edición de tapa blanda reúne 480 páginas y permite manejar el volumen con una cubierta flexible; la tapa dura ofrece una cubierta rígida para conservarlo en la estantería o regalarlo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "formato_edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esta obra de Kelly Weinersmith y Zach Weinersmith comparte el interés por la tecnología con 50 cosas que hay que saber sobre IA, de Keith Mansfield. Mientras el primer libro aborda las innovaciones que marcarán el futuro desde la divulgación científica, el segundo concentra su temática en la inteligencia artificial.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3014a5ec7edced21",
+  "origen": "chatgpt-web"
+}

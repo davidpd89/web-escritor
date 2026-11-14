@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Rey Dolor: 53 (Noches Negras) encaja con lectores que buscan terror combinado con misterio y thriller. Sus 960 páginas requieren disposición para una lectura extensa, mientras que quienes prefieren historias breves o alejadas del terror encontrarán una propuesta distinta de sus gustos.",
+      "texto": "Rey Dolor: 53 (Noches Negras), de Joe Hill, se dirige a lectores de terror y misterio que buscan una obra extensa. Sus 960 páginas y su orientación hacia el suspense lo alejan de quienes prefieren narraciones breves o lecturas ajenas a los elementos inquietantes.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Rey Dolor: 53 (Noches Negras) se publica en tapa blanda, con 960 páginas en castellano. Es una edición física extensa, por lo que conviene tener en cuenta su volumen al transportarla o leerla fuera de casa. La edición corresponde a Nocturna Ediciones.",
+      "texto": "Con 960 páginas, Rey Dolor: 53 (Noches Negras) ofrece dos opciones de lectura: tapa blanda y Kindle. La primera reúne toda la obra en un volumen físico de considerable extensión, mientras que Kindle evita transportar ese volumen y permite avanzar desde un dispositivo compatible.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Rey Dolor: 53 (Noches Negras), de Joe Hill, puede compararse con Carrie (edición serie), de Stephen King, por su relación con el terror. Carrie sitúa su conflicto en el acoso escolar y una convivencia familiar marcada por el fanatismo religioso, mientras que Rey Dolor se presenta dentro del terror y el misterio. Coraline, de Neil Gaiman, introduce otra variante inquietante mediante una puerta hacia una versión alternativa del hogar.",
+      "texto": "Rey Dolor: 53 (Noches Negras) comparte el terreno del terror con Carrie (edición serie), de Stephen King, aunque esta última parte del acoso escolar y una convivencia familiar marcada por el fanatismo religioso. Coraline, de Neil Gaiman, también incorpora una situación inquietante, pero su punto de partida es una casa con una puerta hacia otra versión del hogar, frente al planteamiento de terror y misterio de Joe Hill.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "74c539ed0ed65a91",
+  "fuente_hash": "1855714c95f9aa42",
   "origen": "chatgpt-web"
 }

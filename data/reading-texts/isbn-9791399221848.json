@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a quienes buscan un ensayo sobre Marilyn Monroe desde el ámbito del arte y el diseño. Por su enfoque ensayístico y sus 454 páginas, se aleja de las lecturas de ficción y de los libros breves.",
+      "texto": "Orientado a lectores interesados en MARILYN MONROE desde el ensayo y el ámbito artístico, con una aproximación firmada por numerosos autores. Por su temática y sus 454 páginas, se aparta de los manuales prácticos y de las lecturas breves sobre cuestiones generales.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El eje del libro es Marilyn Monroe, presentada bajo la idea de una figura luminosa en tiempos confusos. La obra se sitúa entre el ensayo y el arte y diseño, con una autoría colectiva que reúne distintas firmas en una misma publicación.",
+      "texto": "La figura de MARILYN MONROE constituye el centro de una obra situada entre el ensayo y el arte. Su título plantea una lectura de esa figura en relación con tiempos confusos, mientras que la autoría colectiva introduce distintas firmas en un mismo volumen.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -22,7 +23,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición se ofrece en tapa blanda, con 454 páginas en castellano. Es una opción física para consultar y releer el volumen, con una cubierta flexible que facilita guardarlo en una estantería o transportarlo.",
+      "texto": "La edición disponible es en tapa blanda, con 454 páginas en castellano. Por su extensión, resulta más apropiada para una lectura prolongada o para consultar pasajes concretos en papel que para transportar un volumen especialmente breve.",
       "evidencias": [
         "formatos_disponibles",
         "numero_paginas",
@@ -31,15 +32,15 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Puede compararse con De la estética como política: Para una rehabilitación del sentido en el cine (Signo e imagen), de Noël Burch, por su relación con el estudio del ámbito artístico. Mientras aquel título plantea una reflexión sobre estética, política y cine, MARILYN MONROE: Luminaria en tiempos confusos/ A Beacon in Confusing Times centra su atención en una figura concreta y reúne múltiples autores.",
+      "texto": "Puede compararse con Charlotte Perriand. La libertad de repensar el mundo por su atención a una figura vinculada al ámbito artístico. MARILYN MONROE: Luminaria en tiempos confusos/ A Beacon in Confusing Times se presenta como ensayo de autoría colectiva, mientras que el título sobre Charlotte Perriand destaca la libertad de replantear el mundo.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788437650586"
+        "isbn-9788416411993"
       ]
     }
   ],

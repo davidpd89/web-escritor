@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788409949113",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "LA EXIGENCIA IDÓNEA: Separar el Yo Persona del Yo Profesional para dirigir personas, construir equipos y decidir bajo presión se dirige a lectores interesados en la gestión de personas y el desarrollo profesional. Sus 68 páginas y su planteamiento empresarial lo sitúan lejos de quienes buscan una biografía extensa o una obra de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "LA EXIGENCIA IDÓNEA: Separar el Yo Persona del Yo Profesional para dirigir personas, construir equipos y decidir bajo presión plantea la distinción entre identidad personal y desempeño profesional. El enfoque se centra en tres ámbitos de responsabilidad: la dirección de personas, la construcción de equipos y la toma de decisiones en situaciones de presión.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 68 páginas de LA EXIGENCIA IDÓNEA: Separar el Yo Persona del Yo Profesional para dirigir personas, construir equipos y decidir bajo presión en un volumen físico de extensión reducida. Es la opción de esta edición para quien prefiere leer en papel, conservar el libro o incorporarlo a una biblioteca profesional.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "LA EXIGENCIA IDÓNEA: Separar el Yo Persona del Yo Profesional para dirigir personas, construir equipos y decidir bajo presión comparte con Has Nacido Para Esto / What You're Made For: Powerful Life Lessons from My Career in Sports el interés por las lecciones aplicadas al desarrollo profesional. La diferencia está en el punto de partida: Ricard Casas aborda la dirección de personas y los equipos, mientras que el otro título sitúa su planteamiento en la experiencia deportiva.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073882088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a325bab7df126bc3",
+  "origen": "chatgpt-web"
+}

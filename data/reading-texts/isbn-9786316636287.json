@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9786316636287",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La música cambia, la ciudad tiembla: Apuntes sobre lenguaje, tecnología y estética se dirige a lectores interesados en las relaciones entre música, lenguaje y tecnología desde una perspectiva estética. El planteamiento de Eduardo Berti se aleja de los manuales técnicos centrados exclusivamente en el funcionamiento de herramientas musicales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sus 352 páginas se presentan en tapa blanda, una opción física para leer y consultar los apuntes de Eduardo Berti sobre lenguaje, tecnología y estética. El volumen puede conservarse como referencia de lectura sobre estas materias, con acceso directo a sus páginas sin necesidad de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La música cambia, la ciudad tiembla: Apuntes sobre lenguaje, tecnología y estética comparte el interés por la música con All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial. Eduardo Berti relaciona música, lenguaje, tecnología y estética, mientras que Daniel Sedcontra delimita su obra a la música industrial y su dimensión cultural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410045538"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bc2f8c39a491661f",
+  "origen": "chatgpt-web"
+}

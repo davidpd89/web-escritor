@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791370382568",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Migración y agricultura en el sistema-mundo se dirige a lectores interesados en el ensayo y en las relaciones entre economía, agricultura y migración. También figura en narrativa juvenil y juvenil, aunque su título y su adscripción a economía y empresa lo sitúan en un terreno distinto del de la ficción juvenil convencional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Migración y agricultura en el sistema-mundo relaciona dos fenómenos sociales y económicos dentro de una perspectiva global. El título sitúa el análisis en el sistema-mundo y la publicación se encuadra en los estudios de economía y sociología, con una extensión de 224 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 224 páginas de Migración y agricultura en el sistema-mundo en un volumen físico. Publicada por Tirant Humanidades en castellano, esta edición permite leer el ensayo en papel y conservarlo como referencia para consultas posteriores.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Trabajo gris. Por qué el trabajo ha perdido sentido y cómo devolverle el color (Nuestro Tiempo) comparte con Migración y agricultura en el sistema-mundo el interés por cuestiones económicas y sociales desde el ensayo. Se diferencian en el foco: el primero aborda el sentido del trabajo, mientras que el segundo relaciona migración y agricultura dentro del sistema-mundo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788431341749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e8891f5035ff77ef",
+  "origen": "chatgpt-web"
+}

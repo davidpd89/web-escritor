@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788413432984",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El baile diminuto (Poesía Ilustrada) está dirigido al público infantil interesado en la poesía y los libros ilustrados. La obra de María José Ferrada se sitúa en un terreno distinto al de las narraciones extensas, con una edición de 36 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El baile diminuto (Poesía Ilustrada) se presenta en tapa dura, con 36 páginas en castellano. Su extensión permite leerlo en sesiones breves, mientras que la encuadernación rígida resulta práctica para conservarlo y compartirlo en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El baile diminuto (Poesía Ilustrada) comparte con Un año paseando por el bosque la presencia de poesía en una propuesta infantil ilustrada. El libro de Rachel Piercey incorpora poemas rimados para leer en voz alta y más de 60 ventanas, mientras que el de María José Ferrada reúne su propuesta poética en 36 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418735936"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1c31c92ec5da5184",
+  "origen": "chatgpt-web"
+}

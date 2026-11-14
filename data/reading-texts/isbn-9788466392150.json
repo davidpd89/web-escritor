@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788466392150",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Parque Jurásico: Contiene: Parque jurásico | El mundo perdido (Best Seller | Ficción) reúne dos obras de Michael Crichton para lectores de ciencia ficción y aventuras. Su presentación en estuche y tapa dura responde a la búsqueda de una edición conjunta, no a quien quiera adquirir únicamente una de las dos obras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El mundo perdido comparte autoría y título con una de las dos obras incluidas en Estuche Parque Jurásico: Contiene: Parque jurásico | El mundo perdido (Best Seller | Ficción). La diferencia está en el contenido: el estuche reúne Parque jurásico y El mundo perdido, mientras que la ficha afín corresponde a El mundo perdido por separado. Ambas opciones permiten acercarse a la ficción de Michael Crichton.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466392143"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aed73d0abb399e05",
+  "origen": "chatgpt-web"
+}

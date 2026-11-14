@@ -4,41 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Krabat (Alma Juvenil) se sitúa entre la fantasía, el terror y los clásicos, por lo que encaja con lectores interesados en relatos fantásticos con elementos oscuros. Su orientación juvenil y su clasificación literaria lo separan de los manuales divulgativos y de la narrativa estrictamente realista.",
+      "texto": "Krabat (Alma Juvenil) encaja con lectores interesados en la fantasía y los clásicos, especialmente quienes buscan narrativa con elementos alejados del realismo. Su clasificación temática lo separa de los libros prácticos y de las novelas centradas exclusivamente en situaciones cotidianas.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Editorial Alma publica Krabat (Alma Juvenil) en tapa dura, con 272 páginas en castellano. Esta encuadernación proporciona una cubierta rígida para conservar el ejemplar en la biblioteca y resulta adecuada para quienes prefieren leer y releer en papel.",
+      "texto": "Krabat (Alma Juvenil) se presenta en tapa dura, con una extensión de 272 páginas. Esta encuadernación aporta cubiertas rígidas para conservar el ejemplar en una biblioteca personal y facilita su presentación como regalo físico.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Endemoniada (Faeris Editorial), de Laura Thalassa, comparte con Krabat (Alma Juvenil) una referencia a lo sobrenatural, aunque sus títulos presentan enfoques distintos. Otfried Preussler firma una obra clasificada entre los clásicos, la fantasía y el terror, mientras que el libro de Laura Thalassa se identifica por su temática demoníaca y su publicación bajo Faeris Editorial.",
+      "texto": "Krabat (Alma Juvenil) comparte el terreno de la fantasía con El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa), aunque este último anuncia desde su título un refugio de gatos como elemento central. El trono de las pesadillas (Umbriel narrativa) ofrece otra comparación dentro de las lecturas de imaginación fantástica, con un título que remite a las pesadillas.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388108303"
+        "isbn-9791387749316",
+        "isbn-9791387749255"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "edede7b449915c02",
+  "fuente_hash": "c05a05d4d362ece4",
   "origen": "chatgpt-web"
 }

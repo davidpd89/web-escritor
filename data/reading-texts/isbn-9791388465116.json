@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388465116",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La esgrima de florete, espada y sable: 12 (Minor), de Román de Lorca Díez, se dirige a quienes tienen interés por la esgrima y sus tres modalidades mencionadas en el título. Con 80 páginas y una orientación hacia las aficiones, encaja menos con lectores que buscan una novela o una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La esgrima de florete, espada y sable: 12 (Minor) se publica en tapa blanda y reúne 80 páginas en castellano. Su extensión facilita consultarlo en sesiones cortas, mientras que la cubierta flexible permite transportarlo junto con otros materiales de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La esgrima de florete, espada y sable: 12 (Minor) comparte el ámbito de las aficiones con ATP No. 1 Club. Iconos del tenis masculino (CONOCIMIENTO), de Mark Hodgkinson, aunque trata una disciplina deportiva distinta. Frente a 99 Sudoku (LIBROS SINGULARES), de Anónimo, su tema es la esgrima y no los pasatiempos numéricos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724425",
+        "isbn-9791387934248"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "19312f9ce19c8e00",
+  "origen": "chatgpt-web"
+}

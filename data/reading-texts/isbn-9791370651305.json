@@ -4,18 +4,19 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta obra se dirige a lectores que buscan información jurídica sobre la fiscalidad de depósitos, bonos, acciones y cesiones de capital a terceros. El enfoque anunciado para inversores particulares la distingue de una introducción general a la inversión que no trate sus consecuencias tributarias.",
+      "texto": "Fiscalidad de la renta fija, la renta variable y la cesión de capitales a terceros. Paso a paso: De los depósitos y los bonos a las acciones: claves ... de productos para inversores particulares se dirige a lectores interesados en el tratamiento fiscal de inversiones y productos financieros. Su enfoque jurídico encaja menos con quienes buscan una introducción general a la inversión sin contenido tributario.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Colex se publica en tapa blanda y reúne 128 páginas en castellano. Su extensión permite manejar en papel una consulta centrada en la tributación de productos de renta fija, renta variable y cesiones de capital, con posibilidad de señalar los apartados que se necesiten revisar.",
+      "texto": "La edición disponible es de tapa blanda, publicada por Colex y con 128 páginas en castellano. Este formato permite consultar en papel los apartados dedicados a depósitos, bonos, acciones y cesiones de capitales, así como regresar a ellos durante una revisión de cuestiones fiscales.",
       "evidencias": [
-        "editorial",
         "formatos_disponibles",
+        "editorial",
         "numero_paginas",
         "idioma",
         "titulo"
@@ -23,7 +24,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "ITPyAJD: de la norma a la liquidación comparte con este libro el enfoque jurídico y práctico del Departamento de Documentación Iberley, pero trata la tributación de transmisiones patrimoniales, operaciones societarias y actos jurídicos documentados. Casos prácticos sobre el despido (Supuestos prácticos), del mismo autor, se centra en el ámbito laboral, mientras que esta obra aborda la fiscalidad de depósitos, bonos, acciones y cesiones de capital a terceros.",
+      "texto": "La prescripción de la deuda tributaria. Paso a paso: Reglas de cómputo, causas de interrupción y situaciones problemáticas comparte con esta obra la autoría de Departamento de Documentación Iberley y el enfoque jurídico-tributario. La primera se ocupa de los plazos y la interrupción de la prescripción, mientras que el libro sobre renta fija, renta variable y cesión de capitales aborda la fiscalidad de productos de inversión.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370651749"
+        "isbn-9791370651282"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c54b2ef7ded777e9",
+  "fuente_hash": "ad107be01bb20942",
   "origen": "chatgpt-web"
 }

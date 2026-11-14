@@ -4,16 +4,15 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en la religión, la espiritualidad y la vida cristiana, especialmente en la cuestión del demonio. El demonio existe y actúa (Palabra Hoy. Vida cristiana), de Eduardo Toraño López, se aleja de las lecturas centradas en otras tradiciones espirituales.",
+      "texto": "El demonio existe y actúa (Palabra Hoy. Vida cristiana) se dirige a lectores interesados en la espiritualidad cristiana y en la cuestión del demonio desde un marco religioso. Su planteamiento temático se aleja de las obras sobre otras tradiciones espirituales y de quienes buscan una narración de terror centrada en criaturas sobrenaturales.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de El demonio existe y actúa (Palabra Hoy. Vida cristiana) se presenta en tapa blanda, con 192 páginas en castellano. Es una opción física de extensión moderada, que permite consultar y recuperar pasajes sin depender de un dispositivo electrónico.",
+      "texto": "El demonio existe y actúa (Palabra Hoy. Vida cristiana) está disponible en tapa blanda, con 192 páginas en castellano. Esta edición permite leer y consultar el contenido en papel, conservarlo en una biblioteca de temática religiosa o entregarlo como ejemplar físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -23,19 +22,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación también aborda cuestiones espirituales, pero desde el Dharma y su práctica. El demonio existe y actúa (Palabra Hoy. Vida cristiana) se sitúa en el ámbito cristiano y centra su título en la existencia y actuación del demonio; las dos obras pertenecen a tradiciones religiosas distintas.",
+      "texto": "AKITA: Las lágrimas y el mensaje de María, de Teiji Yasuda, comparte con El demonio existe y actúa (Palabra Hoy. Vida cristiana) un marco de espiritualidad cristiana. La obra de Teiji Yasuda se centra en María y su mensaje, mientras que Eduardo Toraño López aborda la existencia y actuación del demonio dentro de la vida cristiana.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399210088"
+        "isbn-9791388176357"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4d8f202f33d44181",
+  "fuente_hash": "f0c74f14643cb901",
   "origen": "chatgpt-web"
 }

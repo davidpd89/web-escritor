@@ -4,40 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "En el Ártico no hay pingüinos (LIBRE ALBEDRIO) se orienta al público infantil interesado en la naturaleza y en cuestiones relacionadas con el mundo animal. Su enfoque temático y sus 48 páginas lo separan de las narraciones juveniles extensas y de los ensayos especializados para adultos.",
+      "texto": "En el Ártico no hay pingüinos (LIBRE ALBEDRIO), de Hilo Moreno, se sitúa en el ámbito de la lectura infantil y juvenil, con una referencia geográfica y animal en el título. Puede interesar a lectores que buscan temas relacionados con el mundo natural; se aparta de las obras orientadas exclusivamente al público adulto.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa dura tiene 48 páginas en castellano y está publicada por Www.editoriallibrealbedrio.com. La encuadernación rígida permite conservar el volumen para sucesivas consultas y resulta adecuada para una biblioteca infantil de libros sobre naturaleza.",
+      "texto": "En el Ártico no hay pingüinos (LIBRE ALBEDRIO) se publica en tapa dura y cuenta con 48 páginas. Esta extensión permite organizar la lectura en sesiones breves, mientras que la encuadernación rígida facilita conservar el ejemplar y utilizarlo en lecturas compartidas. La edición está publicada por Www.editoriallibrealbedrio.com.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "categorias"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "En el Ártico no hay pingüinos (LIBRE ALBEDRIO) y Dinosaurios / Dinosaurs: Libro Informativo Complementario de Magic Tree House #1 Dinosaurios Al Atardecer (Magic Tree House: Exploradores) comparten el interés por los animales y la naturaleza. El libro de Hilo Moreno se centra en una cuestión geográfica sobre los pingüinos, mientras que el de Mary Pope Osborne trata sobre dinosaurios y se identifica como complemento informativo.",
+      "texto": "El mundo desde arriba (Lonely Planet Junior) y En el Ártico no hay pingüinos (LIBRE ALBEDRIO) comparten el interés por el conocimiento del mundo desde una perspectiva infantil. El primero anuncia una mirada desde las alturas, mientras que el segundo centra su título en el Ártico y los pingüinos. Dinosaurios / Dinosaurs: Libro Informativo Complementario de Magic Tree House #1 Dinosaurios Al Atardecer (Magic Tree House: Exploradores) desplaza la atención hacia los animales prehistóricos.",
       "evidencias": [
         "titulo",
-        "autores",
-        "afines_catalogo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9798890989383"
+        "isbn-9798890989383",
+        "isbn-9788408311454"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "fae5ad0165942fe5",
+  "fuente_hash": "45fc3689b449f1fc",
   "origen": "chatgpt-web"
 }

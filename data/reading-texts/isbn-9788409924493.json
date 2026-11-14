@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409924493",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "IRREMPLAZABLE EN LA ERA DE LA IA: Cómo volverte clave en tu sector se dirige a lectores interesados en la inteligencia artificial y su relación con el trabajo y la actividad empresarial. Su enfoque sobre el posicionamiento profesional se aparta de una introducción centrada exclusivamente en programación o fundamentos técnicos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La versión física de IRREMPLAZABLE EN LA ERA DE LA IA: Cómo volverte clave en tu sector utiliza una cubierta flexible y reúne 244 páginas. Este formato facilita llevar el volumen, marcar pasajes y volver a consultar cuestiones relacionadas con la inteligencia artificial y el ámbito profesional.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "IRREMPLAZABLE EN LA ERA DE LA IA: Cómo volverte clave en tu sector y Asistentes y agentes empresariales con IA relacionan la inteligencia artificial con el ámbito profesional. Javier Garzás aborda cómo adquirir relevancia en un sector, mientras que Iván Rodríguez centra su título en asistentes y agentes para empresas. El primero plantea una cuestión de posicionamiento laboral y el segundo delimita herramientas empresariales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426742704"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d6e7e89081ddbb97",
+  "origen": "chatgpt-web"
+}

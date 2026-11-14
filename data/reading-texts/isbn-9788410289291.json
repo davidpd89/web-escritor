@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788410289291",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Horizontes de fe: Una mirada creyente al mundo actual, de Jesús Ortiz López, se dirige a lectores interesados en ensayos que abordan el presente desde una perspectiva religiosa. Su enfoque creyente lo diferencia de los análisis estrictamente seculares; no corresponde a quien busca una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Horizontes de fe: Una mirada creyente al mundo actual está editado en tapa blanda por Bibliotecaonline. Sus 182 páginas forman un volumen de extensión relativamente breve, manejable para leer en papel, transportar o consultar por apartados durante una lectura de ensayo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a58d2fb944865e9b",
+  "origen": "chatgpt-web"
+}

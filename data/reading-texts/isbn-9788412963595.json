@@ -4,39 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "INMIGRACIÓN: LA GRAN TRANSFORMACIÓN DE OCCIDENTE se dirige a lectores interesados en el poder político, la inmigración y los discursos sobre las élites. Su planteamiento, expresado en el subtítulo, encaja menos con quienes buscan una aproximación ajena a las tesis políticas o una narración de ficción.",
+      "texto": "Esta obra de Óscar Rivas Pérez se dirige a lectores interesados en la inmigración, las estructuras de poder y el debate político contemporáneo. Su enfoque sobre la transformación de Occidente encaja con quienes buscan un ensayo de orientación política, no con quienes prefieren ficción o una guía práctica sobre trámites migratorios.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de INMIGRACIÓN: LA GRAN TRANSFORMACIÓN DE OCCIDENTE es de tapa blanda y reúne 452 páginas en castellano. Publicada por La Burla Negra, ofrece un volumen físico que puede consultarse por partes y transportarse sin recurrir a una encuadernación rígida.",
+      "texto": "La edición de INMIGRACIÓN: LA GRAN TRANSFORMACIÓN DE OCCIDENTE se presenta en tapa blanda y tiene 452 páginas. Es un volumen físico de extensión considerable, pensado para una lectura prolongada y para conservarlo en una biblioteca de ensayo político.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "A la sombra del Estado, de Luis de la Corte Ibáñez, también aborda estructuras de poder, pero se centra en espionaje, operaciones encubiertas y desinformación. INMIGRACIÓN: LA GRAN TRANSFORMACIÓN DE OCCIDENTE, de Óscar Rivas Pérez, plantea en cambio una tesis política sobre inmigración, élites y desarraigo. Ambos tratan cuestiones de poder desde asuntos distintos.",
+      "texto": "A la sombra del Estado comparte con esta obra el interés por las relaciones de poder, aunque aborda el espionaje, las operaciones encubiertas y la desinformación, mientras Óscar Rivas Pérez centra su libro en la inmigración y las élites. Brainwashing: Populismo en la era del like ofrece otra comparación desde la política contemporánea, con el populismo como asunto principal frente a la transformación de Occidente.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788434441057"
+        "isbn-9788434441057",
+        "isbn-9791399271379"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c4ce195e8b138b2e",
+  "fuente_hash": "41e3fc3c9b7a2175",
   "origen": "chatgpt-web"
 }

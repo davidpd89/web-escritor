@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está pensado para lectores que buscan aventuras con humor, amistad y referencias al K-pop. Las Ratitas 18. Aventura K-pop (Jóvenes influencers), de Las Ratitas, se aleja de las lecturas centradas en el ensayo o en conflictos adultos y sitúa su propuesta en la aventura juvenil.",
+      "texto": "Las Ratitas 18. Aventura K-pop (Jóvenes influencers) se dirige a lectores de aventuras interesados en el universo K-pop y en los libros de Las Ratitas. Su planteamiento se distancia de la narrativa histórica y de quienes prefieren ensayos o relatos sin componentes de aventura.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 144 páginas de Las Ratitas 18. Aventura K-pop (Jóvenes influencers) en un volumen físico que puede guardarse junto a otros libros de la colección. La versión Kindle permite llevar la misma lectura en un dispositivo compatible sin transportar el ejemplar impreso.",
+      "texto": "Las Ratitas 18. Aventura K-pop (Jóvenes influencers) ofrece tapa dura y Kindle, con una edición impresa de 144 páginas. La tapa dura sirve para conservarlo o regalarlo, mientras que Kindle permite llevar la lectura en un dispositivo compatible sin transportar el volumen físico.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Las Ratitas 18. Aventura K-pop (Jóvenes influencers) comparte el terreno de la narrativa juvenil con Lyniel. El juego final - Edición de España (Primeras lecturas), de Lyna Vallejos y Daniel Morro. La obra de Las Ratitas señala una aventura vinculada al K-pop, mientras que el título de Lyniel pone el foco en un juego final y se presenta dentro de las primeras lecturas.",
+      "texto": "Las Ratitas 18. Aventura K-pop (Jóvenes influencers) y Abre el misterio 1 - El robo de las croquetas comparten el terreno de las aventuras, pero el primero incorpora el K-pop y el segundo parte de la desaparición de unas croquetas. Frente a A, B, C Y La Sra.smith En Tierra De Vikingos: 11 (MiniMini), también cambia el escenario anunciado en el título y la autoría.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788448876043"
+        "isbn-9788412857597",
+        "isbn-9788427256644"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "76f8de881aae6183",
+  "fuente_hash": "551fb57cc8d7ed47",
   "origen": "chatgpt-web"
 }

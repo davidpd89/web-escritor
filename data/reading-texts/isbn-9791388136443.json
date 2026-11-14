@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Muerte bajo el muérdago: Un misterio para Jane Wunderly (MAEVA noir), de Erica Ruth Neubauer, encaja con lectores de misterio e intriga protagonizada por una figura femenina. Sus 176 páginas lo sitúan entre las novelas de extensión breve; no se orienta a quien busque una historia romántica sin componente de investigación o suspense.",
+      "texto": "Dirigido a lectores de misterio y thriller que buscan una historia de extensión breve. Muerte bajo el muérdago: Un misterio para Jane Wunderly (MAEVA noir), de Erica Ruth Neubauer, tiene 176 páginas y se aleja de las lecturas centradas en el ensayo o la historia.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,16 +14,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Muerte bajo el muérdago: Un misterio para Jane Wunderly (MAEVA noir) permite leer sus 176 páginas en un volumen flexible y transportable. Kindle ofrece la alternativa digital para continuar la lectura desde un dispositivo compatible, sin depender del ejemplar de papel.",
+      "texto": "La tapa blanda permite leer las 176 páginas en una edición física manejable, mientras que Kindle facilita llevar el libro en el móvil o en un lector electrónico. Ambas opciones corresponden a Muerte bajo el muérdago: Un misterio para Jane Wunderly (MAEVA noir), publicado por Maeva Ediciones.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Muerte bajo el muérdago: Un misterio para Jane Wunderly (MAEVA noir) y El último pase (Los casos de Inés Robles) comparten la referencia a una figura femenina vinculada a un misterio o a una serie de casos. La primera obra es de Erica Ruth Neubauer y la segunda de Carlos Polo Araujo; sus títulos presentan protagonistas distintas y marcos de identificación diferentes.",
+      "texto": "Muerte bajo el muérdago: Un misterio para Jane Wunderly (MAEVA noir) comparte el terreno del misterio con 25 días hasta Navidad, de Per Jacobsen, presentado como un thriller de adviento. Frente a Aguas turbulentas, de Rankin Ian, cuyo planteamiento sitúa el conflicto en Edimburgo y enfrenta pasado y presente, la obra de Erica Ruth Neubauer se identifica por el misterio asociado a Jane Wunderly y el muérdago.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409936441"
+        "isbn-9788427055063",
+        "isbn-9791370310318"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "16c70a279925bd26",
+  "fuente_hash": "1dacdb0507b8cb35",
   "origen": "chatgpt-web"
 }

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Oráculo de María Magdalena (CARTOMANCIA Y TAROT), de Marisa Ventura Saban, se orienta a lectores interesados en cartomancia, tarot y espiritualidad. Sus 96 páginas ofrecen una extensión breve frente a obras de desarrollo personal más largas; no responde a la búsqueda de narrativa de ficción.",
+      "texto": "Oráculo de María Magdalena (CARTOMANCIA Y TAROT), de Marisa Ventura Saban, se orienta a lectores interesados en la cartomancia y la espiritualidad. Por su temática y sus 96 páginas, se aparta de las novelas de ficción y de los manuales extensos centrados en disciplinas científicas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,30 +14,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Oráculo de María Magdalena (CARTOMANCIA Y TAROT) se presenta en tapa blanda, con 96 páginas editadas por Ediciones Obelisco S.l. Es una edición física de extensión reducida, que puede guardarse y consultarse en papel sin depender de una pantalla.",
+      "texto": "Oráculo de María Magdalena (CARTOMANCIA Y TAROT) se publica en tapa blanda, con 96 páginas en castellano. Este formato permite consultar el contenido en papel, conservarlo en una estantería o entregarlo como regalo a alguien interesado en la cartomancia.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "formatos_disponibles",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Oráculo de María Magdalena (CARTOMANCIA Y TAROT) comparte el ámbito espiritual con Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies. El libro de Marisa Ventura Saban se centra, por su título, en el oráculo y la cartomancia, mientras que el de Soledad Davies plantea la astrología, la filosofía y la magia como vías de práctica espiritual.",
+      "texto": "Oráculo de María Magdalena (CARTOMANCIA Y TAROT) se aproxima a Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia, de Barbara Hand Clow, por su orientación espiritual. El primero se identifica con la cartomancia y el tarot, mientras que el segundo plantea desde su título el desarrollo de la consciencia.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411214315"
+        "isbn-9798888505335"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9133bb1b5ea01223",
+  "fuente_hash": "00c203f61803d134",
   "origen": "chatgpt-web"
 }

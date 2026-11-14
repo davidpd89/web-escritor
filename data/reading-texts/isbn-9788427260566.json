@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788427260566",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las aventuras de Enola Holmes 5 - El caso del pictograma (Ficción juvenil), de Nancy Springer, se dirige a lectores de ficción juvenil interesados en misterios, aventuras y ambientaciones históricas. Encaja menos con quienes buscan narrativa contemporánea sin enigmas o una obra histórica de carácter exclusivamente documental.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las aventuras de Enola Holmes 5 - El caso del pictograma (Ficción juvenil) se publica en tapa blanda, con 192 páginas en castellano. Esta edición de Molino permite llevar el libro en papel y conservarlo junto a otros volúmenes de la serie; el título lo identifica como el n.º 5.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las aventuras de Enola Holmes 5 - El caso del pictograma (Ficción juvenil) comparte con DESTERRADOS DE CASTILLA: Aventura, traición y venganza en las Indias el cruce entre aventura y ambientación histórica. Nancy Springer presenta una obra de misterio juvenil, mientras que el título de Antonio Ortega Castro destaca la traición y la venganza en las Indias. Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig, ofrece otra referencia histórica, centrada por su título en Pompeya.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410907478",
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8fe85a40ede1e73a",
+  "origen": "chatgpt-web"
+}

@@ -4,15 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El poder transformador del Derecho de la Unión Europea y su impacto en el Derecho Procesal Nacional (Estudios) se dirige a quienes investigan las relaciones entre el ordenamiento europeo y las normas procesales nacionales. Su enfoque sobre la influencia jurídica europea se aparta de los manuales centrados exclusivamente en procedimientos internos.",
+      "texto": "El poder transformador del Derecho de la Unión Europea y su impacto en el Derecho Procesal Nacional (Estudios) está orientado a quienes estudian las relaciones entre el ordenamiento europeo y los procedimientos judiciales nacionales. El planteamiento jurídico de Juan Jorge Piernas Lopez se distancia de las introducciones generales a las instituciones europeas o a la historia de la integración.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece las 400 páginas de El poder transformador del Derecho de la Unión Europea y su impacto en el Derecho Procesal Nacional (Estudios) en un volumen físico que permite anotaciones y consultas. La edición Kindle permite llevar el texto en un dispositivo compatible sin transportar el ejemplar impreso.",
+      "texto": "El poder transformador del Derecho de la Unión Europea y su impacto en el Derecho Procesal Nacional (Estudios) puede leerse en tapa blanda o Kindle. La edición impresa de 400 páginas facilita las anotaciones sobre papel y la consulta en una biblioteca jurídica; Kindle permite llevar el texto en un dispositivo compatible sin transportar el volumen físico.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -21,7 +22,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I comparte el estudio de normas jurídicas, pero se centra en los contratos de consumo. La obra de Juan Jorge Piernas Lopez examina la influencia del Derecho de la Unión Europea sobre el Derecho Procesal Nacional, mientras que Casos prácticos sobre el despido (Supuestos prácticos) se orienta a situaciones concretas de despido.",
+      "texto": "Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I y El poder transformador del Derecho de la Unión Europea y su impacto en el Derecho Procesal Nacional (Estudios) comparten su orientación hacia el estudio jurídico. Juan Felipe Criado-Castilla aborda los contratos de consumo, mientras que Juan Jorge Piernas Lopez se ocupa de la influencia del derecho europeo sobre el derecho procesal nacional.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,13 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370651749",
         "isbn-9791370297305"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "24747248dc3c717f",
+  "fuente_hash": "a9bbb3df052b7db7",
   "origen": "chatgpt-web"
 }

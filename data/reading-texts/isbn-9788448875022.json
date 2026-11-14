@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Érase una (y otra) vez: Todo lo que no sabías sobre los cuentos clásicos (Cuentos infantiles) se orienta a quienes sienten curiosidad por los cuentos tradicionales y los relatos clásicos. Sus 96 páginas plantean una lectura acotada sobre ese universo, distinta de una novela extensa o de una obra centrada en narrativa contemporánea.",
+      "texto": "Érase una (y otra) vez: Todo lo que no sabías sobre los cuentos clásicos (Cuentos infantiles), de Lucía Serrano, está orientado a lectores interesados en los cuentos tradicionales y en conocer aspectos de esas historias. Su enfoque sobre relatos clásicos lo distingue de una novela con una única trama extensa; también puede interesar a quienes buscan lecturas relacionadas con la literatura infantil.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Érase una (y otra) vez: Todo lo que no sabías sobre los cuentos clásicos (Cuentos infantiles) cuenta con una edición en tapa dura de 96 páginas. Su encuadernación rígida permite conservar el libro para posteriores lecturas y entregarlo como regalo físico; Beascoa lo publica en castellano.",
+      "texto": "Érase una (y otra) vez: Todo lo que no sabías sobre los cuentos clásicos (Cuentos infantiles) se publica en tapa dura, con 96 páginas en castellano. La encuadernación rígida resulta práctica para conservar el ejemplar, regalarlo o volver a consultar sus contenidos sobre cuentos clásicos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
         "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Érase una (y otra) vez: Todo lo que no sabías sobre los cuentos clásicos (Cuentos infantiles) puede ponerse junto a Avni 1. Animal verdaderamente no identificado (Txikiberri) por su relación con la lectura de relatos. El libro de Lucía Serrano se centra en los cuentos clásicos, mientras que el de Romain Pujol presenta un personaje identificado como Avni.",
+      "texto": "Aitana Bonmatí y la pandilla Poti-poti 1. Las brujas, de Ricard Bonmatí Guidonet, comparte con Érase una (y otra) vez: Todo lo que no sabías sobre los cuentos clásicos (Cuentos infantiles), de Lucía Serrano, la relación con historias de brujas y cuentos infantiles, aunque el primero presenta una aventura identificada como entrega de una serie. La obra de Lucía Serrano se centra, en cambio, en los propios cuentos clásicos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,7 +31,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788417575847"
+        "isbn-9791388439100"
       ]
     }
   ],

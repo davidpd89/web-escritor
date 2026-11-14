@@ -4,34 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sonetos del amor oscuro y Diván del Tamarit (Best Seller | Ediciones Conmemorativas) se dirige a lectores de poesía interesados en el amor y las relaciones afectivas. Por su naturaleza poética, no responde a la búsqueda de una novela con trama continuada ni de un manual sobre relaciones de pareja.",
+      "texto": "Sonetos del amor oscuro y Diván del Tamarit (Best Seller | Ediciones Conmemorativas) se dirige a quienes buscan poesía de Federico García Lorca centrada, desde su título, en el amor. No responde a la búsqueda de una novela extensa: esta edición reúne 88 páginas de poesía.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Sonetos del amor oscuro y Diván del Tamarit (Best Seller | Ediciones Conmemorativas) se publica en tapa dura, con 88 páginas en castellano. La cubierta rígida favorece su conservación y presentación como regalo, mientras que su extensión permite leerlo en sesiones breves. Esta edición pertenece a Penguin Bolsillo.",
+      "texto": "La edición de Sonetos del amor oscuro y Diván del Tamarit (Best Seller | Ediciones Conmemorativas) se presenta en tapa dura y tiene 88 páginas. Es una opción física de extensión breve, con cubierta rígida para conservarla en la biblioteca o entregarla como regalo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
         "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Sonetos del amor oscuro y Diván del Tamarit (Best Seller | Ediciones Conmemorativas) puede compararse con Romancero gitano (VINTAGE), también de Federico García Lorca. Los dos pertenecen a su producción poética, aunque el primero reúne obras identificadas como sonetos y diván, mientras el segundo se presenta como romancero. También comparten autoría con Poeta en Nueva York (edición especial con cantos tintados) (Literatura ilustrada), que incorpora a Ricardo Cavolo.",
+      "texto": "Romancero gitano (VINTAGE) comparte con Sonetos del amor oscuro y Diván del Tamarit (Best Seller | Ediciones Conmemorativas) la autoría de Federico García Lorca y el interés por su poesía, aunque sus títulos señalan composiciones diferentes. Poeta en Nueva York (edición especial con cantos tintados) (Literatura ilustrada) incorpora también a Ricardo Cavolo y destaca por una presentación editorial distinta. La edición de Sonetos del amor oscuro y Diván del Tamarit reúne 88 páginas en tapa dura.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "numero_paginas",
+        "formatos_disponibles"
       ],
       "enlaces": [
         "isbn-9791388220272",
@@ -41,6 +41,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "54f028c14349450d",
+  "fuente_hash": "2067ca908e1690b4",
   "origen": "chatgpt-web"
 }

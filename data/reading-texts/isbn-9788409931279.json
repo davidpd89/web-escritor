@@ -4,15 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El camino correcto de la vida se dirige a lectores interesados en el desarrollo personal, la psicología y las cuestiones familiares. Por su orientación temática, se aleja de las lecturas centradas exclusivamente en la aventura o la fantasía.",
+      "texto": "El camino correcto de la vida se orienta a lectores interesados en desarrollo personal y psicología, con elementos de narrativa contemporánea. Sus 584 páginas plantean una lectura extensa, menos adecuada para quien busca un manual breve o una novela centrada exclusivamente en la ficción.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El camino correcto de la vida está disponible en tapa blanda, con 584 páginas en castellano. Es una edición física extensa, adecuada para consultar distintos pasajes y retomar la lectura sin depender de un dispositivo electrónico.",
+      "texto": "El camino correcto de la vida está disponible en tapa blanda, con 584 páginas en castellano. Es una edición física para leer por partes, consultar pasajes anteriores y conservar el volumen; su extensión conviene tenerla en cuenta si se pretende transportarlo a diario.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -22,20 +23,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El camino correcto de la vida comparte el interés por el desarrollo personal con Cuando no sé lo que quiero: 150 enseñanzas para encontrar tu camino (Bruguera Tendencias), de Seung-hwan Jeon. Este último plantea 150 enseñanzas sobre la búsqueda de orientación personal, mientras que la obra de A.m. A.m. también se sitúa en el ámbito de la psicología, la familia y el bienestar.",
+      "texto": "El camino correcto de la vida se relaciona con Abraza a tu niño interior: Nunca es tarde para sanar tu infancia por su orientación hacia el desarrollo personal y la psicología. Mientras que el título de Victoria Cadarso delimita su asunto a la infancia, la obra de A.m. A.m. combina desarrollo personal con narrativa contemporánea y tiene 584 páginas.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788402431684"
+        "isbn-9788410944206"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "920a05d99726dd2b",
+  "fuente_hash": "5565c8d7d7662e03",
   "origen": "chatgpt-web"
 }

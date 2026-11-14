@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Al despertar, rompe el cascarón (Runas) se dirige a lectores interesados en ciencia ficción, fantasía y relatos, con espacio también para el ensayo. Sus 496 páginas requieren una lectura de cierta extensión; encaja menos con quienes buscan exclusivamente realismo cotidiano o manuales prácticos de consulta rápida.",
+      "texto": "Al despertar, rompe el cascarón (Runas) se dirige a lectores interesados en ciencia ficción, relatos y ensayo. Esa combinación de géneros encaja menos con quienes buscan exclusivamente romance contemporáneo o fantasía juvenil, y sus 496 páginas corresponden a una lectura de extensión considerable.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,19 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Al despertar, rompe el cascarón (Runas) está publicado por Alianza Editorial en tapa blanda, con 496 páginas en castellano. La edición física permite manejar el volumen en papel, mientras que Kindle facilita llevar una obra de esa extensión en el móvil o en un lector electrónico.",
+      "texto": "La tapa blanda de Al despertar, rompe el cascarón (Runas) contiene 496 páginas y permite leer en papel sin recurrir a una encuadernación rígida. Kindle resulta más práctico para llevar esa extensión en un dispositivo digital y continuar la lectura fuera de casa.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
         "numero_paginas",
-        "idioma",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Al despertar, rompe el cascarón (Runas), de Becky Chambers, puede compararse con Tecnomusas: Utopías y distopías de mujeres conectadas: 1 por su relación con la ciencia ficción. También comparte ese ámbito con UNO: Una distopía sobre la individualidad (Ciencia Ficción), de David Karp. Frente a la orientación distópica explícita de esos títulos, Al despertar, rompe el cascarón (Runas) combina ciencia ficción con fantasía, relatos y ensayo.",
+      "texto": "Al despertar, rompe el cascarón (Runas) y Tecnomusas: Utopías y distopías de mujeres conectadas: 1 comparten su relación con la ciencia ficción. La diferencia es que la obra de Becky Chambers también está clasificada como ensayo y relatos, mientras que el título de Tecnomusas señala expresamente las utopías y distopías relacionadas con mujeres conectadas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,13 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399126235",
-        "isbn-9788445022085"
+        "isbn-9791399126235"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "cbaf344c3a417632",
+  "fuente_hash": "577b270340c57d72",
   "origen": "chatgpt-web"
 }

@@ -4,28 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Criaturas imposibles 3. El Intrépido: Gran fenómeno internacional (La isla del tiempo) se dirige a lectores de fantasía que buscan una obra de 392 páginas. El título lo identifica como el n.º 3, un detalle relevante para quienes prefieren seguir las entregas numeradas; encaja menos con lectores que buscan narrativa realista sin elementos fantásticos.",
+      "texto": "Criaturas imposibles 3. El Intrépido: Gran fenómeno internacional (La isla del tiempo), de Katherine Rundell, se dirige a lectores de fantasía que buscan una obra de cierta extensión. Sus 392 páginas encajan menos con quienes prefieren lecturas breves o narrativa realista; el título lo identifica con el número 3.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Criaturas imposibles 3. El Intrépido: Gran fenómeno internacional (La isla del tiempo) se publica en tapa dura, con 392 páginas en castellano. Esta edición de Destino Infantil & Juvenil permite leer la obra en papel y conservarla junto a otros volúmenes de la colección; su encuadernación también resulta apropiada para un ejemplar destinado a regalo.",
+      "texto": "Criaturas imposibles 3. El Intrépido: Gran fenómeno internacional (La isla del tiempo) está disponible en tapa dura y Kindle. La edición física de Destino Infantil & Juvenil reúne 392 páginas y permite conservar el volumen en una colección; Kindle ofrece la posibilidad de llevar esa lectura en un dispositivo compatible sin cargar con el ejemplar.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "edicion"
+        "editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ce46d95c79779e6b",
+  "fuente_hash": "a7ca1e9d12f1a1e8",
   "origen": "chatgpt-web"
 }

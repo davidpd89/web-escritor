@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791370093174",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Guns N' Roses: La banda más peligrosa del planeta (Alianza Pop) se dirige a quienes buscan una lectura de carácter biográfico sobre una banda musical concreta. Sus 504 páginas y su clasificación entre biografías y memorias lo separan de una novela musical o de una guía breve de canciones.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Guns N' Roses: La banda más peligrosa del planeta (Alianza Pop) reúne 504 páginas en un volumen físico para leer y conservar. Kindle permite acceder al mismo título desde un dispositivo electrónico, una opción que evita transportar un libro de esa extensión.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El rey de la baraja: La imperecedera vida de Roberto Iniesta: 7 (Marea gráfica) comparte con Guns N' Roses: La banda más peligrosa del planeta (Alianza Pop) el interés por figuras de la música. El primero se concentra en la trayectoria vital de Roberto Iniesta, mientras que el libro de Jesús Casañas toma como protagonista a una banda completa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387938499"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0a5a21d2425b666a",
+  "origen": "chatgpt-web"
+}

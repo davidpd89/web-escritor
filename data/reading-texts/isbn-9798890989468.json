@@ -4,25 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Horóscopo Chino 2027 / Chinese Horoscope 2027 se dirige a quienes buscan una lectura sobre el horóscopo chino vinculada al desarrollo personal y el bienestar. Por su temática, se aleja de las novelas de ficción y de los manuales centrados en la alimentación.",
+      "texto": "Horóscopo Chino 2027 / Chinese Horoscope 2027 se dirige a lectores interesados en consultar el horóscopo chino correspondiente a 2027. Sus 448 páginas lo sitúan entre las lecturas extensas sobre esta materia; no está orientado a quien busca una guía centrada exclusivamente en nutrición o ejercicio físico.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Horóscopo Chino 2027 / Chinese Horoscope 2027 está disponible en tapa blanda, con 448 páginas en castellano. Esta edición física permite consultar distintos pasajes y volver a ellos sin depender de una pantalla.",
+      "texto": "La tapa blanda permite consultar las 448 páginas de Horóscopo Chino 2027 / Chinese Horoscope 2027 en papel. Es una opción para mantener el volumen a mano durante el año indicado en el título, marcar páginas con separadores y regresar a distintas consultas sin utilizar una pantalla.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Horóscopo Chino 2027 / Chinese Horoscope 2027 comparte el ámbito del desarrollo personal con Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta. La diferencia está en el enfoque: Squirru Ludovica aborda el horóscopo chino, mientras que Anca Martínez se centra en cuestiones de la vida adulta.",
+      "texto": "Horóscopo Chino 2027 / Chinese Horoscope 2027 se centra en el horóscopo chino de un año concreto, mientras que 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia) aborda la longevidad y el bienestar desde los consejos de Dick Van Dyke. Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida trata el equilibrio personal desde otra perspectiva, vinculada a las heridas emocionales.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409938490"
+        "isbn-9791387852290",
+        "isbn-9788410451988"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ec7f0a1fba79b3fa",
+  "fuente_hash": "1acae936f1e85795",
   "origen": "chatgpt-web"
 }

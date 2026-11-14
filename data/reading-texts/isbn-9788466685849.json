@@ -4,25 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ojalá leas esto desde el infierno (Ediciones B) se orienta a lectores que buscan una novela donde conviven el romance, el misterio y los componentes fantásticos. Su combinación de aventuras y elementos románticos la diferencia de las historias centradas únicamente en relaciones de pareja o de los relatos de misterio sin fantasía. También figura vinculada al humor.",
+      "texto": "Ojalá leas esto desde el infierno (Ediciones B), de Mackenzie Reed, encaja con lectores que buscan romance combinado con misterio y aventuras. Su mezcla de géneros se aleja de las historias centradas exclusivamente en una relación sentimental o en la resolución de un enigma.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Ojalá leas esto desde el infierno (Ediciones B) cuenta con una edición en tapa blanda de 352 páginas, apropiada para quien prefiere leer y conservar novelas en papel. La versión Kindle permite llevar esa extensión en formato digital y continuar la lectura desde un dispositivo compatible. La edición física está publicada por Ediciones B.",
+      "texto": "La tapa blanda de Ojalá leas esto desde el infierno (Ediciones B) reúne sus 352 páginas en un volumen físico publicado por Ediciones B. La edición Kindle permite leer el mismo título en un dispositivo electrónico o en el móvil, sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles",
-        "editorial"
+        "editorial",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE) y Ojalá leas esto desde el infierno (Ediciones B) se sitúan en un entorno de lecturas relacionadas con la fantasía y el romance, aunque pertenecen a autorías distintas. El título de Kayla Edwards destaca expresamente el romance oscuro, mientras que el de Mackenzie Reed también se vincula al misterio, las aventuras y el humor. Divinos y miserables (Umbriel narrativa), de Adalyn Grace, constituye otra referencia de lectura afín dentro de este conjunto.",
+      "texto": "Ojalá leas esto desde el infierno (Ediciones B) comparte el romance con Alas de escarcha y oro: El canto del cisne, de Marta Morillo. Esta última presenta a Eira, que oculta sus dones y debilidades, mientras que la novela de Mackenzie Reed combina romance, misterio y aventuras. También puede compararse con Nightshade (Universidad Sorrowsong, 1): Edición limitada a precio especial (Colección Especial), de Autumn Woods, aunque este título identifica expresamente su pertenencia a una serie.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,13 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788415955559",
-        "isbn-9786316947055"
+        "isbn-9791387949938",
+        "isbn-9788408331681"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a23fb061988d42e3",
+  "fuente_hash": "86241508992a83a3",
   "origen": "chatgpt-web"
 }

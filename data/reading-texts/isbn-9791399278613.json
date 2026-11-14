@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El gen lúdico: Un recorrido personal y profesional por el diseño de juegos serios se orienta a lectores interesados en el diseño de juegos y su dimensión profesional. El enfoque anunciado por Mikel Calvo se aleja de los manuales dedicados únicamente a practicar una actividad recreativa.",
+      "texto": "El gen lúdico: Un recorrido personal y profesional por el diseño de juegos serios se dirige a lectores interesados en la creación de juegos y en la experiencia de quienes los diseñan. Su enfoque sobre diseño y trayectoria profesional lo diferencia de los libros dedicados exclusivamente a practicar una afición artística.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El gen lúdico: Un recorrido personal y profesional por el diseño de juegos serios se publica en tapa blanda y reúne 420 páginas en castellano. El formato físico permite consultar distintos pasajes sobre diseño de juegos y mantener el volumen como referencia de lectura.",
+      "texto": "La tapa blanda contiene 420 páginas en castellano, una extensión que permite abordar el libro por sesiones. Esta edición de Sugaar Editorial ofrece un volumen físico flexible para consultar distintos pasajes sobre diseño de juegos durante la lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aprende a dibujar con KPop Demon Hunters: Edición OFICIAL en español (Montena) también se relaciona con el aprendizaje creativo, pero se centra en el dibujo, mientras que El gen lúdico: Un recorrido personal y profesional por el diseño de juegos serios aborda el diseño de juegos desde una perspectiva personal y profesional. Destinos vintage: 40 láminas misteriosas para colorear (GEOPLANETA COLOREA) propone una actividad artística concreta, en lugar de un recorrido sobre diseño.",
+      "texto": "Paisajes naturales a la acuarela: Un recorrido por sus elementos y cómo pintarlos comparte con El gen lúdico: Un recorrido personal y profesional por el diseño de juegos serios el interés por explicar procesos creativos. El primero se concentra en técnicas pictóricas, mientras que el libro de Mikel Calvo aborda el diseño de juegos desde una perspectiva personal y profesional.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,14 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388322778",
-        "isbn-9788408324836",
-        "isbn-9791388322952"
+        "isbn-9788498748260"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f86c595946a98375",
+  "fuente_hash": "fd3ac1b823ae3185",
   "origen": "chatgpt-web"
 }

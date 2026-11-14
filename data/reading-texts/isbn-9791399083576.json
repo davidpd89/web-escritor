@@ -1,0 +1,34 @@
+{
+  "id": "isbn-9791399083576",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ida y vuelta. Norteamérica 2026 encaja con lectores de ensayo interesados en Norteamérica y en libros relacionados con el ocio y el tiempo libre. Juan Villoro y Martín Caparrós firman esta obra en castellano, alejada de las propuestas de narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La revolución ya no es lo que era (Random House) y Ojos que no ven (Narrativa) permiten comparar distintas obras vinculadas a Martín Caparrós. La diferencia de Ida y vuelta. Norteamérica 2026 está en su autoría compartida con Juan Villoro y en su clasificación como ensayo relacionado con el ocio y el tiempo libre.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788439747512",
+        "isbn-9791388019920"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "62ff39e4c54fa2a9",
+  "origen": "chatgpt-web"
+}

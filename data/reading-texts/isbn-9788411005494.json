@@ -1,45 +1,51 @@
 {
   "id": "isbn-9788411005494",
-  "familia": "narrativa",
+  "familia": "no_ficcion",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Récords para entender el planeta se dirige a quienes sienten curiosidad por la geografía, los lugares extremos y las particularidades de distintos territorios. Su enfoque divulgativo y sus 240 páginas encajan menos con quien busca una novela de viajes protagonizada por personajes ficticios.",
+      "texto": "Récords para entender el planeta se dirige a lectores interesados en geografía, viajes y curiosidades sobre lugares extremos del mundo. Sus 240 páginas reúnen cuestiones sobre ciudades aisladas, husos horarios y particularidades geográficas; no está planteado como una guía de itinerarios turísticos.",
       "evidencias": [
         "titulo",
         "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Un Mundo Inmenso utiliza récords geográficos para explicar características poco habituales de distintos territorios. El libro aborda el aislamiento de las ciudades, la distribución de los husos horarios y fenómenos naturales como la radiación solar en el desierto de Atacama, combinando datos territoriales con divulgación.",
+      "evidencias": [
+        "autores",
         "sinopsis_editorial",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 240 páginas de Récords para entender el planeta en una edición física de Ediciones Península, apropiada para consultar en casa o regalar. Kindle permite llevar el contenido en un lector electrónico o en el móvil, sin transportar el volumen impreso.",
+      "texto": "La tapa dura reúne las 240 páginas de Récords para entender el planeta en un volumen físico que puede consultarse repetidamente y regalarse. Kindle permite llevar el mismo título en un lector electrónico o en el móvil, sin transportar el ejemplar de cartoné.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "editorial",
-        "edicion",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "33 islas: Un periplo mediterráneo comparte con Récords para entender el planeta el interés por la geografía, pero se centra en islas del Mediterráneo frente a los récords de distintos lugares del mundo. Diccionario de conceptos y términos para entender y moverse en política: 16 (Biblos) también tiene una finalidad divulgativa, aunque aborda el vocabulario político en lugar de las singularidades geográficas.",
+      "texto": "Récords para entender el planeta y Atlas de la noche (¡incluye un póster que brilla en la oscuridad!): Explora las constelaciones y las historias de las estrellas (Cuentos que cuentan) comparten el interés por explicar aspectos del mundo mediante referencias geográficas o astronómicas. El primero aborda récords terrestres, mientras que el segundo se centra en las constelaciones e incluye un póster que brilla en la oscuridad.",
       "evidencias": [
         "titulo",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388175671",
-        "isbn-9791387873127"
+        "isbn-9788410318823"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6f456d2acfb31a06",
+  "fuente_hash": "a398c87783e24d81",
   "origen": "chatgpt-web"
 }

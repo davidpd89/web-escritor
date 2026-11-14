@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está orientado a familias y personas interesadas en prepararse para terremotos mediante una guía práctica. No corresponde a una lectura de ficción sobre catástrofes: su planteamiento se centra en la supervivencia y la protección familiar antes, durante y después de un temblor.",
+      "texto": "Se dirige a quienes buscan pautas prácticas de preparación familiar ante terremotos y medidas de actuación durante una emergencia sísmica. Por su orientación a la supervivencia y la prevención, resulta menos afín a lectores interesados exclusivamente en explicaciones geológicas o estudios académicos sobre los sismos.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,38 +12,37 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Aborda la preparación ante sismos, las actuaciones durante un temblor y las medidas posteriores a una emergencia. El enfoque es práctico y familiar, con la supervivencia y la protección frente a desastres como ejes de la guía.",
+      "texto": "Aborda la preparación previa a un terremoto, las decisiones durante el temblor y las actuaciones posteriores. Manolo Camara plantea estas cuestiones desde una perspectiva práctica de supervivencia y protección familiar, con una organización temporal que permite distinguir las diferentes fases de la emergencia.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne 147 páginas en un ejemplar físico que puede guardarse para consultas sobre preparación y respuesta ante terremotos. Kindle permite llevar la guía en un dispositivo electrónico y acceder a su contenido sin depender del libro impreso.",
+      "texto": "La tapa blanda contiene 147 páginas y permite conservar la guía en papel para consultas domésticas sobre preparación ante sismos. La versión Kindle facilita llevar el contenido en un dispositivo móvil y revisar las pautas antes, durante o después de un temblor.",
       "evidencias": [
-        "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Manual de supervivencia psicológica. Todo lo que nadie te enseñó sobre salud mental (Psicología y autoayuda), de Marc Garrell Mollons, también plantea la supervivencia desde una perspectiva práctica, pero se ocupa de la salud mental y no de los sismos. Así es la vida de los animales: Historias de crueldad, amor y supervivencia en la naturaleza (Imago Mundi), de Mario Alonso Santamaría, aborda la supervivencia animal, mientras que Manolo Camara se centra en la preparación humana ante terremotos.",
+      "texto": "Comparte con CÓMO AYUDAR A LOS ERIZOS: Más de 100 ideas para transformar tu jardín en un refugio para la naturaleza su orientación hacia actuaciones concretas, aunque Manolo Camara se centra en la seguridad ante terremotos y Helen Bostock y Sophie Collins en el cuidado de la fauna. ¿Intervenir?: Habitar para el equilibrio ecológico (GGNatura), de Gilles Clément, aborda otra relación práctica con el entorno, desde la perspectiva ecológica y no desde la preparación para desastres.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788423370979",
-        "isbn-9788441445550"
+        "isbn-9791399220322",
+        "isbn-9788425236921"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ee93f4e3ff25e918",
+  "fuente_hash": "84e155a5488d514a",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410335424",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo criar niños y niñas emocionalmente maduros: Una guía para acompañarlos hacia una vida feliz y plena, de Lindsay C. Gibson, está dirigido a adultos interesados en la crianza y el desarrollo emocional infantil. Su orientación hacia la familia y la psicología lo diferencia de los cuentos destinados a niños y niñas. También se aparta de los manuales centrados exclusivamente en las relaciones de pareja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cómo criar niños y niñas emocionalmente maduros: Una guía para acompañarlos hacia una vida feliz y plena ofrece dos formatos: tapa blanda y Kindle. La edición impresa de Editorial Sirio tiene 420 páginas, apropiadas para una lectura pausada y la consulta de apartados en papel. Kindle permite acceder al contenido digital desde dispositivos compatibles sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos) comparte con Cómo criar niños y niñas emocionalmente maduros: Una guía para acompañarlos hacia una vida feliz y plena el interés por la vida familiar. El libro de Toño Ramos amplía el ámbito a la adolescencia y la vejez desde la psicología conductual; Lindsay C. Gibson concentra su propuesta en la madurez emocional durante la crianza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399249682"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3605505caeb5ce78",
+  "origen": "chatgpt-web"
+}

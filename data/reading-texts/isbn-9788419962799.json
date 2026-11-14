@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419962799",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a padres y educadores interesados en la crianza, los límites familiares y el desarrollo personal. Por su enfoque en la educación de los hijos, encaja menos con quienes buscan una guía de bienestar individual ajena a las relaciones familiares.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Su Majestad no recoge el cuarto. Guía para no criar a un pequeño rey tirano (Padres y educadores) está disponible en tapa blanda y tiene 208 páginas. Este formato permite consultar distintos apartados durante la crianza y conservar el volumen como material de referencia en casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Convertirse en padre: 02 (Psicologia) comparte el interés por la experiencia de la paternidad, mientras que Su Majestad no recoge el cuarto. Guía para no criar a un pequeño rey tirano (Padres y educadores) se centra en la educación y los límites. La culpa materna: 01 (Psicologia) aborda una cuestión vinculada a la maternidad, frente al enfoque educativo del libro de Juan Bautista Fernández Álvarez-Robles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370550288",
+        "isbn-9791370550240"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eadb6ef8c71ccc7c",
+  "origen": "chatgpt-web"
+}

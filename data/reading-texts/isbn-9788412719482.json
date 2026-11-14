@@ -4,28 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Perverso, de Ivan Mourin, se encuadra en el misterio y el thriller, por lo que corresponde a lectores que buscan ficción de esos géneros. Sus 264 páginas en castellano suponen una extensión menor que la de muchas novelas largas; no está orientado a una búsqueda centrada específicamente en el romance.",
+      "texto": "Perverso, de Ivan Mourin, encaja con lectores de misterio y thriller que buscan una obra de extensión intermedia. Sus 264 páginas ofrecen una alternativa a las novelas más largas, pero no responden a quien prefiere poesía o narrativa alejada del suspense.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Perverso se ofrece en tapa blanda y Kindle, dos opciones para leer sus 264 páginas. El ejemplar físico de Fabula Nova puede guardarse, prestarse o regalarse; la edición Kindle permite leerlo en dispositivos compatibles y llevarlo en el móvil sin cargar con el libro impreso.",
+      "texto": "Perverso puede leerse en tapa blanda, Kindle o audiolibro, según se prefiera papel, pantalla o escucha. La edición física de Fabula Nova tiene 264 páginas y permite conservar el ejemplar; Kindle facilita llevarlo en un dispositivo compatible y el audiolibro permite escucharlo sin mantener la vista en el texto.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "editorial"
       ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Perverso comparte el terreno del misterio con Aguas turbulentas, de Rankin Ian, cuya presentación sitúa el conflicto entre un pasado siniestro y un presente oscuro en Edimburgo. También puede compararse con 25 días hasta Navidad, de Per Jacobsen, presentado como un thriller de adviento. Frente a esas referencias temáticas, Perverso se identifica por la autoría de Ivan Mourin y su extensión de 264 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063",
+        "isbn-9791370310318"
+      ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "33eada90cc61db1f",
+  "fuente_hash": "a154461bf476613b",
   "origen": "chatgpt-web"
 }

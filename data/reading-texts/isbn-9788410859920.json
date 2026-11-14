@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Educación financiera y emprendimiento: situación y retos: Libro de Actas del VIII Congreso de educación financiera de Edufinet (Monografía) se dirige a lectores interesados en la formación económica y el emprendimiento. Al reunir actas de un congreso, responde a una finalidad distinta de la narrativa de ficción o los manuales de finanzas domésticas.",
+      "texto": "Educación financiera y emprendimiento: situación y retos: Libro de Actas del VIII Congreso de educación financiera de Edufinet (Monografía) encaja con lectores interesados en la formación económica y los retos del emprendimiento. Su carácter de libro de actas lo diferencia de los manuales de finanzas personales orientados a resolver dudas cotidianas mediante instrucciones prácticas.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,30 +12,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Educación financiera y emprendimiento: situación y retos: Libro de Actas del VIII Congreso de educación financiera de Edufinet (Monografía) tiene 372 páginas y se edita en tapa blanda. Su presentación física permite consultar las actas, tomar notas y localizar apartados durante el estudio de cuestiones económicas.",
+      "texto": "Las 372 páginas de Educación financiera y emprendimiento: situación y retos: Libro de Actas del VIII Congreso de educación financiera de Edufinet (Monografía) se presentan en tapa blanda. El formato permite trabajar con el libro de actas en papel, señalar intervenciones o temas de interés y conservar el volumen como material de consulta sobre educación financiera y emprendimiento.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Educación financiera y emprendimiento: situación y retos: Libro de Actas del VIII Congreso de educación financiera de Edufinet (Monografía) y Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparten el interés por la economía, pero el primero reúne actas sobre educación financiera y emprendimiento y el segundo es un ensayo sobre pensamiento anarcocapitalista. Antes de liderar: Una mirada interior a un oficio se centra en el liderazgo, frente al enfoque formativo y económico de las actas.",
+      "texto": "Educación financiera y emprendimiento: situación y retos: Libro de Actas del VIII Congreso de educación financiera de Edufinet (Monografía) puede compararse con Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, por su relación con el ámbito empresarial. El primero reúne actas de un congreso sobre formación financiera y emprendimiento; el segundo centra su propuesta en el liderazgo como oficio y en la reflexión sobre su ejercicio.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388182457",
         "isbn-9788409921980"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f09cdce597dba2f5",
+  "fuente_hash": "f65c13ce5ed65253",
   "origen": "chatgpt-web"
 }

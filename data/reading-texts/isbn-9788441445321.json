@@ -4,21 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cáncer con brújula está dirigido a pacientes oncológicos, familiares y cuidadores que buscan orientación psicológica durante la enfermedad. Aborda la comunicación, los cambios físicos y el miedo a la recaída; no está planteado como un manual de tratamientos médicos ni como una obra de ficción.",
+      "texto": "Cáncer con brújula está dirigido a pacientes oncológicos, familiares y cuidadores que buscan orientación psicológica durante la enfermedad. Trata las emociones asociadas al diagnóstico, los cambios físicos, la comunicación y el temor a una recaída; su enfoque no es el de un manual sobre tratamientos médicos o técnicas quirúrgicas.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cáncer con brújula se presenta en tapa blanda, con 256 páginas dedicadas al acompañamiento psicológico durante el proceso oncológico. El formato físico permite consultar apartados sobre emociones, relaciones y cuidados, además de volver a ellos en diferentes momentos del tratamiento.",
+      "texto": "Cáncer con brújula se ofrece en tapa blanda, con 256 páginas en castellano. Esta edición permite consultar en papel los apartados sobre gestión emocional, relaciones personales y cuidados, así como volver a cuestiones concretas en diferentes momentos del proceso oncológico.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
         "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cáncer con brújula y 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito comparten el interés por el bienestar personal. Elisa Molina Buendía aborda específicamente el acompañamiento psicológico durante el cáncer, mientras que Liz Moody trata aspectos más amplios de salud, relaciones y desarrollo personal. Anatomía de una relación tóxica: Como reconocerla, salir de ella y recuperar tu vida, de David C, se centra en las relaciones perjudiciales y la recuperación personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776",
+        "isbn-9788409923595"
       ]
     }
   ],

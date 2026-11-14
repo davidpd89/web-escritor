@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408327509",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este estuche encaja con lectores de narrativa contemporánea que quieran reunir tres novelas de Paloma Sánchez-Garnica en una misma edición. Sus 1772 páginas plantean una lectura extensa, menos adecuada para quien busque una novela breve o una historia independiente en un solo volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es un estuche de libros de bolsillo en tapa blanda, publicado por Booket. Reúne Últimos días en Berlín, Victoria y La sospecha de Sofía, con 1772 páginas en total; permite conservar las tres obras juntas y leerlas por separado.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Últimos días en Berlín. Edición de bolsillo con cantos decorados comparte con el estuche una obra de Paloma Sánchez-Garnica. La diferencia está en el contenido: la edición individual se centra en Últimos días en Berlín, mientras que el estuche reúne también Victoria y La sospecha de Sofía. Ambos permiten leer a la misma autora, pero el estuche agrupa tres novelas en una sola compra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328346"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "253f74491f77d588",
+  "origen": "chatgpt-web"
+}

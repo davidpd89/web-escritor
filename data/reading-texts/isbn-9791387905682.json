@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387905682",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores interesados en la relación entre la salud bucodental, la prevención de enfermedades y el bienestar personal. La obra de Sandra G. Martín aborda la boca como punto de partida, por lo que se aparta de los libros centrados exclusivamente en alimentación o ejercicio físico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Roca Editorial tiene 256 páginas y está escrita en castellano. Permite consultar en papel una obra centrada en la salud de la boca y sus vínculos con la prevención, la autoestima y la longevidad.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia) comparte el interés por la longevidad, pero lo aborda desde consejos generales en lugar de centrarse en la salud bucal. 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... amplía el foco hacia las relaciones y otros ámbitos personales, mientras Sandra G. Martín se concentra en la boca.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387852290",
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fbe6a55731d415e5",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se termina la pareja, no la familia: Cómo transformar patrones de maltrato en vínculos conscientes se dirige a lectores interesados en las relaciones familiares tras una ruptura y en los patrones de maltrato. Su enfoque de desarrollo personal y familia encaja menos con quienes buscan una historia romántica de ficción o entretenimiento desvinculado de conflictos de pareja.",
+      "texto": "Está dirigido a lectores interesados en las relaciones familiares después de una ruptura de pareja y en la transformación de patrones de maltrato. Su orientación hacia el desarrollo personal y la familia lo diferencia de una novela romántica o de una obra centrada en conflictos ajenos a la convivencia.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,30 +12,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Se termina la pareja, no la familia: Cómo transformar patrones de maltrato en vínculos conscientes se publica en tapa blanda, con 247 páginas en castellano. El ejemplar físico permite subrayar ideas y consultar de nuevo apartados relacionados con los vínculos familiares durante la lectura.",
+      "texto": "La edición en tapa blanda de Letralma Editorial contiene 247 páginas y permite consultar el contenido en papel. La versión Kindle facilita la lectura digital en el móvil o en un lector compatible, especialmente para retomar apartados sobre vínculos familiares.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "edicion",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Se termina la pareja, no la familia: Cómo transformar patrones de maltrato en vínculos conscientes comparte con Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología) el interés por las relaciones de pareja. El libro de Viviana Quiroga aborda los vínculos familiares y los patrones de maltrato, mientras que el de Ramón Nogueras Pérez se centra en el enamoramiento y el desenamoramiento.",
+      "texto": "Anatomía de una relación tóxica: Como reconocerla, salir de ella y recuperar tu vida aborda el reconocimiento y la salida de relaciones dañinas. Se termina la pareja, no la familia: Cómo transformar patrones de maltrato en vínculos conscientes se diferencia por centrarse en los vínculos familiares cuando termina la relación de pareja, con atención a los patrones de maltrato.",
       "evidencias": [
         "titulo",
-        "autores",
         "afines_catalogo",
         "categorias"
       ],
       "enlaces": [
-        "isbn-9791387534370"
+        "isbn-9788409923595"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c5f7c9e93f02b18d",
+  "fuente_hash": "5293a7e90857bf24",
   "origen": "chatgpt-web"
 }

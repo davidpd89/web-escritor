@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387789770",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nueva gramática de la lengua latina (Estudios clásicos) se dirige a lectores que estudian la lengua latina o buscan una obra extensa sobre su gramática. Sus 720 páginas y su orientación hacia los estudios clásicos la distancian de una introducción breve o de una lectura narrativa de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Nueva gramática de la lengua latina (Estudios clásicos) aborda el estudio gramatical del latín desde el campo de los estudios clásicos. Es una obra de 720 páginas firmada por siete autores, entre ellos Álvaro Cancela Cilleruelo, Eveling Garzón Fontalvo y Pedro Riesco García, con una extensión propia de un tratamiento amplio de la materia.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nueva gramática de la lengua latina (Estudios clásicos) se presenta en tapa blanda, con 720 páginas en castellano. La edición de Guillermo Escolar Editor ofrece un volumen físico extenso, apropiado para consultar sobre una mesa y volver a distintos apartados durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "39dcb240a13e06f4",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788413738994",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El juego de la eternidad se dirige a lectores interesados en la filosofía y el ensayo, especialmente a quienes buscan una lectura de reflexión. Sus 200 páginas corresponden a una obra de no ficción, por lo que no responde a la búsqueda de una novela de aventuras o de una historia romántica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El juego de la eternidad está editado en tapa blanda y tiene 200 páginas. Esta presentación permite leerlo en papel, transportarlo y volver a los pasajes durante la reflexión, sin recurrir a un dispositivo electrónico. La edición en castellano corresponde a Bod - Books On Demand.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar, comparte con El juego de la eternidad el ámbito de la reflexión filosófica. El primero se presenta como una obra de aforismos, mientras que el segundo figura como ensayo de . Medhananda. La comparación permite distinguir entre una propuesta identificada por sus textos breves y un libro de filosofía de 200 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387548278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dd6db3667628260a",
+  "origen": "chatgpt-web"
+}

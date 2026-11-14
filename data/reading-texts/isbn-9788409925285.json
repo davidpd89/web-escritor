@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409925285",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en testimonios personales relacionados con el poder político y las instituciones del Estado. Estado Paralelo: Cómo el Estado intentó destruir a un ciudadano, de Evan Rexton, se sitúa entre las memorias y la política, por lo que no responde a la búsqueda de una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Estado Paralelo: Cómo el Estado intentó destruir a un ciudadano se presenta en tapa blanda y contiene 198 páginas en castellano. Este formato permite consultar y releer pasajes en papel, además de transportar el volumen sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estado Paralelo: Cómo el Estado intentó destruir a un ciudadano comparte con Crónica de un desafío al Estado el interés por los conflictos entre personas, política e instituciones. La obra de Evan Rexton se presenta desde la experiencia de un ciudadano, mientras que la de Javier Alberto Zaragoza Aguado aborda los acontecimientos del Procés y la tensión política en Cataluña.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423441303"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "77e8a73e12479a9e",
+  "origen": "chatgpt-web"
+}

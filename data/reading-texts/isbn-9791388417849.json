@@ -4,41 +4,43 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La conquista perfecta (Montena) está dirigida a lectores que buscan ficción romántica y asuntos relacionados con el amor y la pareja. Sus 400 páginas corresponden a una obra de América Rodas, alejada por su orientación temática de los ensayos históricos o los manuales de bienestar.",
+      "texto": "La conquista perfecta (Montena), de América Rodas, se dirige a lectores que buscan una novela de romance. Su clasificación la sitúa en ese género, por lo que no responde a una búsqueda centrada en fantasía, ciencia ficción o aventuras como principales referencias de lectura.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de La conquista perfecta (Montena) reúne 400 páginas en una edición física de Montena, apropiada para conservar o regalar. Kindle permite leerla en formato digital desde el móvil o un lector compatible; el audiolibro ofrece la opción de escucharla durante desplazamientos u otras actividades.",
+      "texto": "La conquista perfecta (Montena) ofrece tres opciones: tapa blanda, Kindle y audiolibro. La edición en papel de Montena tiene 400 páginas y permite conservar el ejemplar; Kindle facilita leer en el móvil o lector electrónico, mientras el audiolibro permite seguir la obra mediante escucha.",
       "evidencias": [
         "titulo",
-        "editorial",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La conquista perfecta / The Perfect Conquest es el título más próximo a La conquista perfecta (Montena), ya que ambos figuran bajo la autoría de América Rodas y comparten su denominación principal. Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, ofrece otra referencia relacionada con el amor, aunque su título identifica una entrega numerada y la denominación Shôjo.",
+      "texto": "La conquista perfecta (Montena) puede compararse con La conquista perfecta / The Perfect Conquest, también de América Rodas, por la coincidencia de autoría y la denominación compartida. Frente a A medio salto (Romántica), de Valera Gomalva, mantiene el vínculo con el romance, pero cambia la firma y el título de la obra. La edición de Montena reúne 400 páginas y se ofrece tanto en papel como en formatos digitales y de escucha.",
       "evidencias": [
         "titulo",
         "autores",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9786073878746",
-        "isbn-9791387962494"
+        "isbn-9791388365089"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3c61ed4a4c1ee8a6",
+  "fuente_hash": "506aff7fd40c138c",
   "origen": "chatgpt-web"
 }

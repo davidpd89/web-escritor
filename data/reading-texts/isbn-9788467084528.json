@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788467084528",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El descubrimiento de la vida interior: Sentir, pensar, decidir (Espasa Bienestar y Salud) se orienta a lectores interesados en comprender sus pensamientos, emociones y decisiones desde la psicología y la filosofía. Encaja menos con quienes buscan ficción o una obra dedicada exclusivamente a técnicas de organización personal.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de El descubrimiento de la vida interior: Sentir, pensar, decidir (Espasa Bienestar y Salud) tiene 248 páginas. Publicada en castellano por Editorial Espasa, permite volver sobre las cuestiones de pensamiento y vida interior mediante la consulta directa del ejemplar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de organizar los pensamientos: Sabiduría pausada para un mundo acelerado comparte la atención al pensamiento, aunque pone el acento en su organización. De cuerpo presente: Las ciencias cognitivas y la experiencia humana (Caja Verde) aborda la experiencia humana desde las ciencias cognitivas, mientras Javier López-Ibor reúne sentimiento, pensamiento y decisión en una perspectiva de vida interior.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425454851",
+        "isbn-9788430629657"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c94b9539bf81007e",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388066573",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Donde el alma se asoma se dirige a quienes leen poesía y relatos en castellano. Sus 116 páginas permiten abordar una obra de extensión contenida, mientras que su clasificación literaria la aleja de quienes buscan específicamente una novela extensa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Donde el alma se asoma se publica en tapa blanda y reúne 116 páginas. Esta edición física resulta manejable para llevarla durante los desplazamientos y permite volver a los textos en papel sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Donde el alma se asoma puede compararse con Estar (Rhēma) por su proximidad dentro de una selección de lecturas poéticas. La primera obra está firmada por Isabel Toledo Gómez y Juan Martín García, mientras que la segunda reúne a Emily Roberts, Marina Casado, Juan Ángel Asensio y Francisco José Martínez Morán. Antología final: 282 (LITORAL) plantea otra diferencia de autoría al presentarse como una antología de varios autores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412931075",
+        "isbn-9788419243812"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "01c11ad7a0922513",
+  "origen": "chatgpt-web"
+}

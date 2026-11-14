@@ -4,38 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tomando el pulso a la relación entre Inteligencia Artificial, Derecho y Ética (Estudios) se dirige a lectores interesados en las conexiones entre tecnología, normas jurídicas y cuestiones éticas. Su orientación hacia el Derecho y sus 845 páginas lo alejan de una introducción breve a las herramientas digitales o de una novela sobre tecnología.",
+      "texto": "Dirigido a lectores interesados en las relaciones entre inteligencia artificial, derecho y ética. Tomando el pulso a la relación entre Inteligencia Artificial, Derecho y Ética (Estudios) aborda una materia jurídica y resulta menos afín a quienes buscan narrativa de ficción o estudios centrados exclusivamente en tecnología.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Aranzadi se presenta en tapa blanda y reúne 845 páginas en castellano. Es una opción de lectura física extensa, que permite señalar fragmentos y consultar distintas partes del estudio sin depender de un dispositivo electrónico.",
+      "texto": "La edición en tapa blanda reúne las 845 páginas de Tomando el pulso a la relación entre Inteligencia Artificial, Derecho y Ética (Estudios). Es un volumen extenso en papel, cuya encuadernación flexible permite consultar sus contenidos sin recurrir a un dispositivo electrónico.",
       "evidencias": [
-        "editorial",
-        "formatos_disponibles",
+        "titulo",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Blockchain: un desafío legal (Monografía) también relaciona tecnología y Derecho, pero concentra su asunto en blockchain. Tomando el pulso a la relación entre Inteligencia Artificial, Derecho y Ética (Estudios), de Pablo M Melgarejo Cordon y Francisco Herr, incorpora expresamente la dimensión ética y sitúa la Inteligencia Artificial en el centro del análisis.",
+      "texto": "Blockchain: un desafío legal (Monografía) comparte el interés por los problemas jurídicos relacionados con la tecnología, aunque se centra en blockchain frente al enfoque sobre inteligencia artificial y ética de esta obra. Ambos se distinguen de Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I, dedicado a las relaciones contractuales de consumo.",
       "evidencias": [
         "titulo",
-        "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370610265"
+        "isbn-9791370610265",
+        "isbn-9791370297305"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "95a4c2c26a39b7cd",
+  "fuente_hash": "161feb48f57d76f5",
   "origen": "chatgpt-web"
 }

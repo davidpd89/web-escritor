@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Te querré para siempre: Hay personas que están destinadas a encontrarse (Destino Juvenil) se dirige a lectores interesados en la fantasía romántica y las historias de amor. La combinación de fantasía, romantasy y romance sitúa el libro en el terreno de las relaciones sentimentales con elementos fantásticos, no en el de la fantasía desligada del romance.",
+      "texto": "Te querré para siempre: Hay personas que están destinadas a encontrarse (Destino Juvenil) combina fantasía y romance, por lo que se orienta a lectores interesados en ambos géneros. Sus 248 páginas ofrecen una extensión relativamente breve; no responde a la búsqueda de una historia exclusivamente realista o ajena al componente romántico.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne sus 248 páginas en una edición física manejable, mientras que Kindle permite acceder a la lectura en formato digital. Ambas opciones ofrecen el texto completo de Te querré para siempre: Hay personas que están destinadas a encontrarse (Destino Juvenil), de Sophie Jomain.",
+      "texto": "Te querré para siempre: Hay personas que están destinadas a encontrarse (Destino Juvenil) está disponible en tapa blanda y Kindle. La edición impresa de Destino Infantil & Juvenil reúne 248 páginas y permite conservar el ejemplar físico; Kindle facilita llevar la misma obra en un lector electrónico o dispositivo compatible sin transportar el libro.",
       "evidencias": [
         "titulo",
-        "autores",
-        "numero_paginas",
         "formatos_disponibles",
-        "edicion"
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "«Un otoño para enamorarnos», de Sophie Jomain, es la comparación más directa por compartir autora y el terreno de las historias de amor. La diferencia está en que Te querré para siempre: Hay personas que están destinadas a encontrarse (Destino Juvenil) aparece clasificado también como fantasía y romantasy, mientras que el otro título presenta una historia de amor vinculada a un misterio de Halloween.",
+      "texto": "Un otoño para enamorarnos comparte autora con Te querré para siempre: Hay personas que están destinadas a encontrarse (Destino Juvenil): ambas obras son de Sophie Jomain. La primera incorpora una lupa mágica y un secreto amoroso vinculado a Halloween, mientras que la segunda se presenta como una obra de fantasía y romance. Alas de escarcha y oro: El canto del cisne, de Marta Morillo, ofrece otra comparación por sus dones ocultos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408325499"
+        "isbn-9788408325499",
+        "isbn-9791387949938"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "247a0410e400a4f3",
+  "fuente_hash": "bffd079abf4a17c6",
   "origen": "chatgpt-web"
 }

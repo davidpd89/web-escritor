@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sofia Coppola se dirige a lectores interesados en el cine, la dirección cinematográfica y el análisis de una trayectoria artística. Ian Nathan aborda la formación y la visión creativa de la directora; no es una novela de ficción ni un manual de técnicas de rodaje.",
+      "texto": "Sofia Coppola se dirige a quienes buscan conocer el trabajo cinematográfico de una directora desde la perspectiva del arte. Su enfoque en la trayectoria y la visión creativa encaja menos con quien prefiere una novela de ficción o un manual de técnicas de rodaje.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Sofia Coppola es un libro de arte centrado en la obra cinematográfica de la directora y en las experiencias que contribuyeron a formar su mirada. Ian Nathan examina su relación temprana con los rodajes y el desarrollo de una identidad creativa propia.",
+      "texto": "Es un libro sobre el universo cinematográfico de Sofia Coppola, escrito por Ian Nathan desde una perspectiva centrada en su obra y su visión artística. Aborda su relación temprana con los rodajes y el desarrollo de una mirada propia dentro del cine, con un enfoque de retrato cinematográfico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -24,7 +24,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Sofia Coppola está disponible en tapa dura, con una edición de 176 páginas que incorpora estuche. Este formato permite conservar el volumen protegido y entregarlo como regalo físico; su extensión también facilita consultar distintos pasajes sin necesidad de seguir una lectura continua.",
+      "texto": "Sofia Coppola está disponible en tapa dura, con 176 páginas y una edición que incorpora estuche. Esta presentación permite conservar el volumen protegido y entregarlo como regalo físico, mientras que su extensión facilita consultarlo por partes.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -34,20 +34,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Sofia Coppola y El cine de mi vida comparten el interés por el cine como expresión artística. El libro de Ian Nathan se concentra en una directora y su universo cinematográfico, mientras que el de Esther Gili relaciona el cine con la ilustración y se presenta como una propuesta de regalo.",
+      "texto": "El cine de mi vida también gira alrededor del cine, aunque su propuesta incorpora la ilustración, mientras Sofia Coppola se concentra en la obra de una directora concreta. Black Sabbath & Ozzy Osbourne comparte el interés por las figuras culturales, pero sustituye el análisis cinematográfico por las historias de las letras de una banda de rock.",
       "evidencias": [
         "titulo",
-        "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788448048181",
         "isbn-9791388220302"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e8ba433d72b2f266",
+  "fuente_hash": "fa3964a8f934f147",
   "origen": "chatgpt-web"
 }

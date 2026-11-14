@@ -4,40 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El fantasma de Kennedy / Kennedy's Ghost está dirigido a quienes leen historia, biografías y memorias, especialmente sobre el siglo XX. La obra de Silvia Tirado Bazán tiene 112 páginas y se aparta de las lecturas centradas en ficción o en cuestiones de actualidad sin perspectiva histórica.",
+      "texto": "El fantasma de Kennedy / Kennedy's Ghost se dirige a lectores interesados en la historia y las biografías, con Kennedy como referencia central del título. Sus 112 páginas lo sitúan entre las lecturas breves de estos ámbitos, pero encaja menos con quienes buscan una novela fantástica o un manual de desarrollo personal.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El fantasma de Kennedy / Kennedy's Ghost se publica en tapa blanda, con 112 páginas en castellano. Su extensión permite abordar el volumen en sesiones de lectura relativamente breves, y la encuadernación facilita llevarlo en una bolsa o mochila para leer fuera de casa.",
+      "texto": "El fantasma de Kennedy / Kennedy's Ghost está disponible en tapa blanda, con 112 páginas en castellano. Esta edición de Penguin Random House Grupo Editorial permite leer el volumen en papel y transportarlo con facilidad por su extensión reducida.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Corona Nostra: De Felipe VI a Felipe V, de Nieves Concostrina, comparte con El fantasma de Kennedy / Kennedy's Ghost el interés por las figuras históricas y su contexto político. El primero se centra, según su título, en la monarquía, mientras que la obra de Silvia Tirado Bazán remite a Kennedy y se sitúa en el ámbito de las biografías y la historia del siglo XX.",
+      "texto": "El fantasma de Kennedy / Kennedy's Ghost puede compararse con Ayer enterramos a un niño en Palma: Vida y muerte de Chocolate (1965-1978) por su vinculación con las biografías y la historia. El libro de Silvia Tirado Bazán toma a Kennedy como referencia, mientras que el de Tomeu Canyelles Canyelles se centra en la vida y muerte de Chocolate. Corona Nostra: De Felipe VI a Felipe V ofrece otra lectura relacionada con figuras históricas, aunque orientada a la monarquía.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788417645311",
         "isbn-9788410944176"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bcaa95031be2f39d",
+  "fuente_hash": "285ee93a393e3ca3",
   "origen": "chatgpt-web"
 }

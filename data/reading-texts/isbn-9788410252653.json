@@ -4,28 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Y si sale bien? Atrévete a vencer tus miedos (Tesoros) está dirigido al público infantil interesado en los miedos, la confianza personal y las emociones. Sus 40 páginas permiten compartir la lectura en familia; por su orientación infantil, queda más lejos de quienes buscan un manual extenso de desarrollo personal para adultos.",
+      "texto": "¿Y si sale bien? Atrévete a vencer tus miedos está dirigido a lectores interesados en el desarrollo personal y los contenidos infantiles. Su planteamiento gira en torno a los miedos, por lo que se diferencia de los cuentos centrados en otros aspectos de la infancia, como los celos entre hermanos; también se aparta de la narrativa de ficción para adultos.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas",
-        "sinopsis_editorial"
+        "afines_catalogo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¿Y si sale bien? Atrévete a vencer tus miedos (Tesoros) se presenta en tapa dura, con 40 páginas en castellano. Esta encuadernación resulta práctica para conservar el libro en una biblioteca infantil, prestarlo o regalarlo; su extensión también permite repartir la lectura en momentos compartidos.",
+      "texto": "La tapa dura reúne las 40 páginas de ¿Y si sale bien? Atrévete a vencer tus miedos en una edición física. Es el formato disponible para conservar el libro en papel y compartir su lectura; su extensión corresponde a una obra breve frente a los libros infantiles de mayor paginación.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "categorias"
+        "formatos_disponibles",
+        "formato_edicion",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¿Y si sale bien? Atrévete a vencer tus miedos (Tesoros) y Amigos de verdad comparten el interés por las emociones y las relaciones durante la infancia. El libro de Marta Prada se centra en afrontar los miedos, mientras que el de Iris Pérez-Bonaventura aborda la amistad y su importancia en el desarrollo infantil. La elección depende de si se quiere tratar el miedo o las relaciones de amistad.",
+      "texto": "¿Y si sale bien? Atrévete a vencer tus miedos comparte autora con Corazón Crece, El, de Marta Prada. Ambos títulos abordan aspectos emocionales de la infancia, aunque se centran en situaciones diferentes: el primero trata los miedos y el segundo los celos relacionados con la llegada de un nuevo hermano. También puede compararse con Emociones: Cuentos infantiles para comprender lo que sentimos: 2 (APRENDE), de Pau Ju y Ric Caralca, centrado en comprender las emociones.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,13 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387994532",
         "isbn-9791388410109"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a404d3249e56806b",
+  "fuente_hash": "daa3b212164cb963",
   "origen": "chatgpt-web"
 }

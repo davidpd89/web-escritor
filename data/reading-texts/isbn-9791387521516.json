@@ -4,33 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Filosofía de la mitología: 0 (LECTURAS DE FILOSOFÍA) se dirige a lectores interesados en el estudio filosófico de la mitología y en el ensayo. Su planteamiento temático se aleja de las narraciones mitológicas de ficción y de los libros centrados exclusivamente en contar leyendas.",
+      "texto": "Filosofía de la mitología: 0 (LECTURAS DE FILOSOFÍA) se dirige a lectores interesados en la filosofía y el ensayo. La obra de F.W.J. Schelling cuenta con 488 páginas, por lo que se aleja de las lecturas breves y de quienes buscan una novela de ficción.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Filosofía de la mitología: 0 (LECTURAS DE FILOSOFÍA) se publica en tapa blanda, con 488 páginas en castellano. Este formato reúne el ensayo de F.W.J. Schelling en un volumen físico que permite consultar pasajes, utilizar marcadores y volver a apartados anteriores durante el estudio.",
+      "texto": "La edición de Filosofía de la mitología: 0 (LECTURAS DE FILOSOFÍA) se presenta en tapa blanda, con 488 páginas en castellano. Este formato permite consultar y señalar pasajes en papel, especialmente en una obra de filosofía de esta extensión.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "autores"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Filosofía de la mitología: 0 (LECTURAS DE FILOSOFÍA) puede compararse con Astrología, filosofía y magia: Un camino de práctica espiritual por su relación con cuestiones filosóficas y tradiciones de pensamiento. La obra de F.W.J. Schelling se centra en la mitología, mientras que la de Soledad Davies vincula filosofía, astrología, magia y práctica espiritual.",
+      "texto": "Filosofía de la mitología: 0 (LECTURAS DE FILOSOFÍA), de F.W.J. Schelling, comparte el ámbito filosófico con Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar. El primero aborda la mitología desde la filosofía, mientras que el segundo se presenta como una colección de aforismos orientados a la reflexión y la meditación.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411214315"
+        "isbn-9791387548278"
       ]
     }
   ],

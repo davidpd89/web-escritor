@@ -4,29 +4,43 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "No soy Robot / I Am Not a Robot se dirige a lectores interesados en la fantasía y la ciencia ficción dentro de la literatura infantil y juvenil. Sus 168 páginas corresponden a una obra de esos géneros, por lo que no está planteada como una lectura de narrativa adulta.",
+      "texto": "No soy Robot / I Am Not a Robot se dirige al público infantil y juvenil interesado en la ciencia ficción y los temas relacionados con robots. Sus 168 páginas lo sitúan en una extensión intermedia entre los cuentos infantiles breves y las novelas juveniles más largas; no responde a una búsqueda de narrativa realista.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda concentra las 168 páginas de No soy Robot / I Am Not a Robot en un volumen físico de Montena. Es el formato disponible para esta edición de Laetitia Thollot, una extensión que permite consultar su longitud antes de elegir.",
+      "texto": "No soy Robot / I Am Not a Robot está disponible en tapa blanda, con 168 páginas en castellano. La edición de Montena reúne la lectura en un volumen físico que puede transportarse y consultarse sin dispositivos electrónicos, dentro de una extensión propia de una narración infantil o juvenil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Buenas noches, robot y No soy Robot / I Am Not a Robot comparten la presencia del robot en sus títulos y su relación con la ficción infantil. Reconexión, de Neal Shusterman, ofrece otra comparación por su vinculación con la distopía. Frente a esas referencias, la obra de Laetitia Thollot se presenta como ciencia ficción infantil y juvenil de 168 páginas.",
       "evidencias": [
         "titulo",
         "autores",
-        "edicion",
-        "editorial",
+        "categorias",
         "numero_paginas",
-        "formatos_disponibles"
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491459354",
+        "isbn-9791388365027"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f124ac5d1aa39574",
+  "fuente_hash": "b44888375172e9f3",
   "origen": "chatgpt-web"
 }

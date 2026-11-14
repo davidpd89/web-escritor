@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Indonesia 7 está dirigida a quienes preparan una estancia en Indonesia y quieren organizar visitas culturales, recorridos por islas y actividades en la naturaleza. Sus 688 páginas responden a una consulta de planificación turística, no a quien busca una novela ambientada en el país.",
+      "texto": "Indonesia 7 se dirige a quienes quieren recorrer Indonesia y combinar visitas culturales, paisajes volcánicos y desplazamientos entre islas. Sus referencias a Bali, Java y Komodo encajan menos con lectores que buscan ficción o una guía dedicada exclusivamente a una ciudad.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Indonesia 7 es una guía de viajes centrada en la diversidad geográfica y cultural del archipiélago. Reúne propuestas relacionadas con Bali, los templos y volcanes de Java y la navegación por las islas de Komodo, de modo que su contenido sirve para preparar distintas etapas de una estancia.",
+      "texto": "Es una guía de viajes dedicada al archipiélago de Indonesia, con propuestas para conocer distintos territorios y organizar el recorrido. Reúne referencias culturales de Bali, templos y volcanes de Java y navegación entre las islas de Komodo, con un enfoque práctico más que narrativo.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -23,31 +22,33 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Indonesia 7 está disponible en tapa blanda, con encuadernación rústica sin solapas. Sus 688 páginas permiten consultar distintas zonas y experiencias durante la preparación del itinerario; el volumen físico también puede utilizarse como referencia durante los desplazamientos.",
+      "texto": "Indonesia 7 está disponible en tapa blanda, con encuadernación rústica sin solapas y 688 páginas. Es una edición física para consultar durante la preparación del viaje y llevar como referencia, aunque su extensión supone más volumen en el equipaje que una guía breve.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
-        "numero_paginas",
-        "sinopsis_editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Indonesia 7 comparte con Japón 2027-2028 el enfoque de guía turística y la atención a las experiencias culturales; Ray Bartlett participa en ambas obras. Mientras la primera recorre un archipiélago con templos, volcanes e islas, la segunda presenta un país donde conviven tradiciones, cultura popular y modernidad.",
+      "texto": "Brasil 8 (Guías de País Lonely Planet) comparte con Indonesia 7 el enfoque de guía dedicada a un país y la participación de Anthony Ham, pero cambia el destino americano por un archipiélago asiático. Explora Japón 2027-2028 (Guías Explora Lonely Planet) también aborda un destino asiático y cuenta con Ray Bartlett, aunque se centra en Japón.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788408324065",
+        "isbn-9788408324324",
         "isbn-9788408323181"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "16ded78ccd946e50",
+  "fuente_hash": "019012c764d8653d",
   "origen": "chatgpt-web"
 }

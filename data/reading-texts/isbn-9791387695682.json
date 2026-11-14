@@ -4,40 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Iris y Luna: cuidadoras de cachorritos mágicos 8 - ¡Un reno en apuros!: ¡Un libro con purpurina en la cubierta! (Primeras lecturas) se dirige a lectores infantiles interesados en fantasía, aventuras y naturaleza. Sus 128 páginas y su identificación como primeras lecturas lo sitúan en el ámbito de la literatura infantil, no en el de la narrativa adulta.",
+      "texto": "Iris y Luna: cuidadoras de cachorritos mágicos 8 - ¡Un reno en apuros!: ¡Un libro con purpurina en la cubierta! (Primeras lecturas) está orientado a lectores infantiles que buscan fantasía y aventuras con animales mágicos. Por su planteamiento de primeras lecturas, se diferencia de las novelas de fantasía dirigidas a un público de mayor edad.",
       "evidencias": [
         "titulo",
-        "autores",
-        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite disfrutar físicamente de las 128 páginas y de la cubierta con purpurina, un detalle que también distingue esta edición como objeto de regalo. Kindle ofrece la alternativa digital para leer el contenido en un dispositivo electrónico, sin conservar el acabado físico de la cubierta.",
+      "texto": "La tapa blanda de Ediciones B contiene 128 páginas y una cubierta con purpurina, un detalle físico propio de esta edición. Kindle permite leer la obra en formato digital, mientras que la edición impresa conserva el acabado anunciado en el título.",
       "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
         "numero_paginas",
-        "formato_edicion",
-        "formatos_disponibles",
-        "titulo"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Las aventuras navideñas de los Mimosaurios: Tres cuentos llenos de magia, amistad y espíritu navideño, de Laura Naiara Aldana Ramaker, comparte con Iris y Luna: cuidadoras de cachorritos mágicos 8 - ¡Un reno en apuros!: ¡Un libro con purpurina en la cubierta! (Primeras lecturas) el componente mágico y el público infantil. Se diferencian en el planteamiento: uno reúne tres cuentos navideños y el otro se presenta como una entrega de una serie de cuidadoras de animales mágicos.",
+      "texto": "Brujas y dragones 2: La bruja mala del oeste comparte el ámbito de la fantasía y presenta una historia vinculada a brujas, mientras que Iris y Luna: cuidadoras de cachorritos mágicos 8 - ¡Un reno en apuros!: ¡Un libro con purpurina en la cubierta! (Primeras lecturas) gira alrededor del cuidado de criaturas mágicas. Las aventuras navideñas de los Mimosaurios: Tres cuentos llenos de magia, amistad y espíritu navideño también combina magia y animales, pero reúne tres cuentos de temática navideña.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9791387501877",
         "isbn-9788409926671"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3b688147bb4911ea",
+  "fuente_hash": "87491924078ba23d",
   "origen": "chatgpt-web"
 }

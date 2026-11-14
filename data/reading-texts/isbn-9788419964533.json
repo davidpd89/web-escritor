@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788419964533",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los restos del naufragio: 12 (SEISDOBLE), de Nieves Abarca, se dirige a lectores de narrativa juvenil interesados en el misterio y el thriller. Con 176 páginas, ofrece una extensión contenida y se aleja de las preferencias por novelas largas de otros géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los restos del naufragio: 12 (SEISDOBLE) está editado en tapa blanda y tiene 176 páginas. Esta edición de Menoscuarto Ediciones ofrece una lectura en papel de extensión moderada, fácil de repartir en sesiones cortas y de guardar sin ocupar tanto espacio como un volumen más largo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los restos del naufragio: 12 (SEISDOBLE) comparte el ámbito del thriller con El asesino del metro, de Andrew Reid. También se relaciona con La casa Manzev: Una historia de horror báltico, de Džena Andersone, por su proximidad al misterio, aunque esta última se identifica expresamente con el horror y la obra de Nieves Abarca con la narrativa juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399227406",
+        "isbn-9791388049606"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ba06054eb69b9733",
+  "origen": "chatgpt-web"
+}

@@ -4,25 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en la escultura de época adrianea, la historia del arte y los estudios patrimoniales. Su planteamiento como reunión hispano-italiana de especialistas lo diferencia de una introducción general al arte destinada a lectores sin intereses históricos concretos.",
+      "texto": "Escultura adrianea: nuevas aportaciones: Reunión hispano-italiana en recuerdo de Antonio Blanco Freijeiro: 11 (Cultura y Patrimonio) se orienta a lectores interesados en la historia y el estudio de la escultura. Su enfoque especializado y académico se aleja de los manuales de creación artística y de las lecturas generales sobre diseño contemporáneo.",
       "evidencias": [
         "titulo",
         "categorias",
-        "autores"
+        "editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El volumen aborda la escultura adrianea desde una perspectiva histórica y artística, con nuevas aportaciones reunidas en un encuentro hispano-italiano. La referencia a Antonio Blanco Freijeiro sitúa además la publicación en un contexto de memoria académica, dentro de la colección Cultura y Patrimonio.",
+      "texto": "La obra aborda la escultura adrianea mediante nuevas aportaciones presentadas en una reunión hispano-italiana dedicada al recuerdo de Antonio Blanco Freijeiro. Su planteamiento reúne historia, arte y patrimonio desde una perspectiva colectiva, con nueve autores identificados en la edición.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es en tapa blanda y tiene 196 páginas, una extensión que permite manejar el volumen como material de consulta. El formato impreso facilita volver a pasajes concretos durante el estudio de la escultura y conservar el libro junto a otras publicaciones sobre patrimonio artístico.",
+      "texto": "La tapa blanda es el formato de Escultura adrianea: nuevas aportaciones: Reunión hispano-italiana en recuerdo de Antonio Blanco Freijeiro: 11 (Cultura y Patrimonio). Sus 196 páginas forman un volumen de encuadernación flexible que puede transportarse para consultas académicas y lecturas relacionadas con la historia del arte.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "categorias"
@@ -30,19 +32,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los pilares de la historia, de Javier Fernández Sebastián, comparte el interés por el estudio del pasado, pero plantea una reflexión sobre la capacidad de la historia para explicar el mundo actual. Escultura adrianea: nuevas aportaciones se concentra en la producción escultórica de época adrianea y reúne contribuciones de un encuentro hispano-italiano. La diferencia está entre una reflexión sobre la disciplina histórica y un estudio especializado de historia del arte.",
+      "texto": "Clásicos Sin Filtros: El Impacto del Mundo Antiguo / Talking Classics: The Shock of the Old comparte con Escultura adrianea: nuevas aportaciones: Reunión hispano-italiana en recuerdo de Antonio Blanco Freijeiro: 11 (Cultura y Patrimonio) el interés por el mundo antiguo. Mary Beard aborda su impacto desde una perspectiva amplia, mientras que la obra colectiva se concentra en la escultura adrianea. Civilización: Una historia del arte y la cultura que dieron forma a la civilización moderna: 126 (Ático Historia) extiende el campo de comparación hacia el desarrollo histórico del arte y la cultura.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788430629664"
+        "isbn-9791387592493",
+        "isbn-9786076393055"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f213ccc086e89d8d",
+  "fuente_hash": "f54c53ad73a2c6d6",
   "origen": "chatgpt-web"
 }

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cocina para cara almendras está dirigido a adultos interesados en preparar platos de carne, desde elaboraciones sencillas hasta otras más complejas. El humor directo de Bosco Castro forma parte del planteamiento, por lo que encaja menos con quienes buscan cocina exclusivamente vegetal o un manual de tono académico.",
+      "texto": "Cocina para cara almendras se dirige a adultos interesados en preparar recetas de carne con un enfoque desenfadado y humorístico. Bosco Castro combina preparaciones sencillas con otras más elaboradas, por lo que encaja menos con quien busca exclusivamente cocina vegetariana o un recetario de tono académico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,35 +15,37 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "El recetario de Bosco Castro reúne más de 100 recetas ilustradas en 208 páginas. Incluye preparaciones de distinta dificultad, con especial presencia de hamburguesas, filetes y guisos, y sirve para consultar instrucciones culinarias tanto en comidas habituales como en elaboraciones más trabajadas.",
+      "texto": "El recetario reúne más de 100 preparaciones ilustradas en 208 páginas, con distintos niveles de elaboración. Incluye filetes, hamburguesas y guisos, con especial protagonismo de la carne. Las ilustraciones acompañan las recetas y permiten consultar el libro durante la preparación de los platos.",
       "evidencias": [
-        "autores",
+        "sinopsis_editorial",
         "numero_paginas",
-        "sinopsis_editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cocina para cara almendras puede leerse en tapa blanda o Kindle. La edición impresa, de 208 páginas y con solapas, permite mantener el recetario a mano en la cocina; Kindle facilita consultar las recetas desde el móvil o una tableta sin transportar el volumen.",
+      "texto": "Cocina para cara almendras está disponible en tapa blanda y Kindle. La edición física de Roca Editorial tiene 208 páginas y solapas, apropiadas para manejar el recetario sobre una mesa; Kindle permite consultar las preparaciones desde el móvil o un lector electrónico sin ocupar espacio en la cocina.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "edicion"
+        "edicion",
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "20 minutos ¡y listo!, de Jamie Oliver, comparte con Cocina para cara almendras su orientación a cocinar en casa, pero pone el acento en el tiempo disponible. Al micro y listo, de Dani García, también aborda la preparación de comida de forma práctica, mientras que Bosco Castro centra su recetario en platos de carne y un humor irreverente.",
+      "texto": "Cocina para cara almendras y 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia) comparten el humor dirigido a lectores adultos. La diferencia está en su finalidad: Bosco Castro presenta recetas de cocina centradas en la carne, mientras que Dick Van Dyke aborda la longevidad, el optimismo y el buen humor mediante consejos.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "categorias",
+        "edad_recomendada",
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425374074",
-        "isbn-9788467084757"
+        "isbn-9791387852290"
       ]
     }
   ],

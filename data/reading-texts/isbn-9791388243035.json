@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388243035",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La implantación de la Mediación en España se dirige a lectores interesados en la mediación desde una perspectiva jurídica y en su desarrollo en España. Por su enfoque en el derecho y las instituciones, se diferencia de los manuales de convivencia centrados específicamente en el entorno educativo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La implantación de la Mediación en España se publica en tapa blanda, con 104 páginas en castellano. Su extensión permite abordar el tema en un volumen físico relativamente breve y localizar apartados durante las consultas posteriores.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La implantación de la Mediación en España comparte el tema de la mediación con Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos), de Mari Luz Sánchez García-Arista. Aldona Ziaja sitúa el asunto en el marco español y jurídico, mientras que el segundo título lo vincula a la convivencia educativa. Régimen de responsabilidad objetiva del Estado en atentados terroristas en Colombia: 01 (Derecho), de Erlin Abad Palacios Moreno, también aborda cuestiones jurídicas, pero relacionadas con la responsabilidad estatal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370632786",
+        "isbn-9788429030372"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "52707fcecd756744",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788409916917",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Te pagaron en humo: Tu tiempo es finito, el dinero no se orienta a lectores interesados en desarrollo personal, economía y reflexión sobre el valor del tiempo. Es un ensayo de Ramón Merino de 100 páginas, por lo que encaja menos con quienes buscan una narración de ficción o un tratado económico extenso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Te pagaron en humo: Tu tiempo es finito, el dinero no se publica en tapa blanda, con 100 páginas en castellano. Esta edición de Editorial Tiempo Finito permite leer el ensayo en papel y transportarlo sin el volumen de un manual extenso; su tamaño de lectura también facilita volver a pasajes concretos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio. comparte con Te pagaron en humo: Tu tiempo es finito, el dinero no el interés por el desarrollo personal, aunque el libro de Beatriz García Saez se centra en el autoliderazgo y los procesos de cambio. El de Ramón Merino incorpora además una perspectiva económica sobre el tiempo y el dinero. La persona que eliges ser (Un café con Marisa) / The Person You Choose to Be (Coffee with Marisa), de Marisa Lazo, ofrece otra referencia centrada en las decisiones personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409924059",
+        "isbn-9786073882132"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5d088ca9796a5478",
+  "origen": "chatgpt-web"
+}

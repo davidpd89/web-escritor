@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia se dirige a lectores adultos interesados en la psicología, el desarrollo personal y la influencia de la infancia. Victoria Cadarso aborda un ámbito distinto del entretenimiento infantil o de las novelas de ficción, por lo que encaja menos con quienes buscan esos tipos de lectura.",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia se dirige a lectores interesados en el desarrollo personal y la psicología, especialmente en cuestiones relacionadas con la infancia y su influencia en la vida adulta. Su enfoque corresponde al ensayo psicológico, no a una obra de ficción ni a un manual de narrativa.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,30 +13,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer y consultar las 320 páginas de Abraza a tu niño interior: Nunca es tarde para sanar tu infancia en papel. Kindle facilita la lectura digital y el audiolibro ofrece la posibilidad de escuchar la obra, por ejemplo durante desplazamientos o actividades que no requieren atención visual.",
+      "texto": "La tapa blanda reúne sus 320 páginas en una edición física que puede conservarse y consultarse sin dispositivos. Kindle permite leer el contenido en formato digital, mientras que el audiolibro ofrece la alternativa de escucharlo en lugar de leerlo.",
       "evidencias": [
-        "titulo",
         "numero_paginas",
+        "formato_edicion",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia comparte el interés por la psicología y la infancia con El niño feliz (fuera de colección), de Dorothy Corkille Briggs, aunque Victoria Cadarso centra su título en la revisión de la propia infancia. Frente a Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos), de Toño Ramos, su enfoque se orienta al desarrollo personal más que a la organización de la convivencia familiar.",
+      "texto": "Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio. comparte con Abraza a tu niño interior: Nunca es tarde para sanar tu infancia el interés por el trabajo personal y los procesos internos, aunque el primero se centra en un método de acompañamiento y el segundo aborda la infancia. Cuando no sé lo que quiero: 150 enseñanzas para encontrar tu camino (Bruguera Tendencias) se orienta a la búsqueda de dirección personal.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399249682",
-        "isbn-9788425452901"
+        "isbn-9788409924059",
+        "isbn-9788402431684"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "60bd107a3830fecf",
+  "fuente_hash": "a712e069815e27af",
   "origen": "chatgpt-web"
 }

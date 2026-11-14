@@ -4,27 +4,24 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas), de Carlos Briones, se dirige a quienes buscan conexiones entre divulgación científica y creación artística. Su clasificación también incluye historia, por lo que encaja menos con lectores interesados exclusivamente en ficción o en manuales de aplicación técnica.",
+      "texto": "Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas) se dirige a lectores interesados en la divulgación científica y sus relaciones con el arte y la historia. Por su enfoque temático, se aleja de quienes buscan una novela de ficción o una guía de técnicas artísticas.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas) se presenta en tapa blanda, con 280 páginas en castellano. El volumen físico permite consultar de nuevo apartados durante la lectura y conservarlo en una biblioteca dedicada a ciencia y arte.",
+      "texto": "La tapa blanda permite consultar y subrayar en papel las 280 páginas de Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas). Kindle ofrece la misma extensión editorial como referencia para quien prefiere llevar la lectura en un dispositivo, sin cargar con el volumen físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas) se relaciona con Manual de ilustración científica - Nueva edición con láminas (Ilustrados) por el encuentro entre ciencia y expresión visual. El libro de Carlos Briones plantea un diálogo amplio entre ciencia y arte, mientras que el manual de Varios autores se centra, desde su propio título, en la ilustración científica. La diferencia principal está entre una aproximación divulgativa y una obra presentada como manual.",
+      "texto": "Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas) comparte el interés por la ciencia y el arte con Manual de ilustración científica - Nueva edición con láminas (Ilustrados). El libro de Carlos Briones aborda el diálogo entre disciplinas, mientras que el título de Varios autores se centra en la ilustración científica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -38,6 +35,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "67b94ba02faadfb9",
+  "fuente_hash": "312576960c844ab4",
   "origen": "chatgpt-web"
 }

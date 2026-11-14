@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788410287846",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Kabuki (Novela Gráfica) se dirige a lectores de cómic y narrativa gráfica juvenil. La obra de Tiago Minamisawa reúne 152 páginas en castellano y utiliza el formato de novela gráfica, por lo que se diferencia de una novela juvenil compuesta únicamente por prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Kabuki (Novela Gráfica) tiene una edición en tapa dura de 152 páginas, publicada por Nuevo Nueve Editores, S.l. La encuadernación rígida proporciona protección a un volumen pensado para la lectura visual y la consulta de sus páginas. También permite conservarlo como ejemplar físico dentro de una colección de novelas gráficas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Kabuki (Novela Gráfica) puede compararse con Flechazo: 42 (Bromelia), de Stepánka Jislová, y Blue Lock nº 33 (Manga Shonen), de Yusuke Nomura y Muneyuki Kaneshiro. Las tres obras se relacionan con la lectura de cómics, pero Kabuki se presenta como novela gráfica, mientras que Blue Lock nº 33 (Manga Shonen) se identifica expresamente como manga. También tienen autorías diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388101991",
+        "isbn-9788410158504"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6f2e564f7f4e4dc2",
+  "origen": "chatgpt-web"
+}

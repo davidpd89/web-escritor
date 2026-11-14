@@ -4,39 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Historia oficial del amor (Ed. Conmemorativa) / Official History of Love (Commemorative Edition) se dirige a lectores de narrativa contemporánea interesados en el amor, las relaciones de pareja y la familia. Sus 560 páginas plantean una lectura extensa, menos ajustada a quien prefiera libros breves o busque una obra centrada en la fantasía.",
+      "texto": "Historia oficial del amor (Ed. Conmemorativa) / Official History of Love (Commemorative Edition) se dirige a lectores de narrativa contemporánea que buscan una obra extensa de Ricardo Silva Romero. Sus 560 páginas la alejan de quienes prefieren lecturas breves, mientras que su carácter conmemorativo aparece identificado en el propio título.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición conmemorativa de Historia oficial del amor (Ed. Conmemorativa) / Official History of Love (Commemorative Edition) ofrece tapa dura, Kindle y audiolibro. La tapa dura reúne sus 560 páginas en un volumen físico apropiado para conservar o regalar; Kindle permite leerlo en dispositivos electrónicos y el audiolibro sustituye la lectura visual por la escucha.",
+      "texto": "Historia oficial del amor (Ed. Conmemorativa) / Official History of Love (Commemorative Edition) ofrece tres opciones: tapa dura, Kindle y audiolibro. Sus 560 páginas en papel favorecen la conservación de la edición conmemorativa; Kindle permite leerla en dispositivos compatibles y el audiolibro sustituye la lectura visual por la escucha.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
         "edicion"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Historia oficial del amor (Ed. Conmemorativa) / Official History of Love (Commemorative Edition) comparte el interés por las relaciones afectivas con ROSAURA, AMOR PÚRPURA: Cuando la noche está más oscura, es cuando empieza a clarear, de Reynalldo Rey. La obra de Ricardo Silva Romero se sitúa en la narrativa contemporánea y aborda también la familia, mientras que el título de Reynalldo Rey destaca expresamente el amor.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788410906303"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ed59fac025781ce9",
+  "fuente_hash": "b4ea2dd90178ccdc",
   "origen": "chatgpt-web"
 }

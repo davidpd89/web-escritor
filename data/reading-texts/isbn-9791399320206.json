@@ -4,40 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las baterías del amor, de Fernando Poveda, está dirigido a lectores interesados en las relaciones de pareja, la familia y el desarrollo personal. Por sus temas, se aleja de quienes buscan ficción de aventuras o una historia centrada en conflictos fantásticos.",
+      "texto": "Las baterías del amor encaja con lectores interesados en la familia, la crianza y el bienestar personal. Su orientación práctica se aleja de quienes buscan una novela de ficción o una historia narrativa.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las baterías del amor se ofrece en tapa blanda y cuenta con 320 páginas en castellano. Esta edición permite leer y consultar en papel un volumen dedicado al amor, la pareja y el bienestar, con una encuadernación flexible para su transporte.",
+      "texto": "La tapa blanda reúne sus 320 páginas en una edición física de Nueva Eva, adecuada para leer en papel y consultar durante la lectura. Es el formato disponible para esta edición de Las baterías del amor.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "categorias"
+        "formatos_disponibles",
+        "edicion",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Las baterías del amor comparte el interés por las relaciones de pareja con Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología). Fernando Poveda aborda un ámbito que incluye familia y desarrollo personal, mientras que el título de Ramón Nogueras Pérez señala específicamente el enamoramiento y el desenamoramiento.",
+      "texto": "Convertirse en padre: 02 (Psicologia), de Patricia Catalá Mesón, Cecilia Peñacoba Puente, María P. Huertas-Vieco, comparte el interés por la experiencia de la paternidad y el ámbito familiar. Anatomía de una relación tóxica: Como reconocerla, salir de ella y recuperar tu vida, de David C, aborda las relaciones desde otro ángulo, centrado en reconocer y afrontar vínculos perjudiciales.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9791387534370"
+        "isbn-9788409923595",
+        "isbn-9791370550288"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e541a9e760566aa4",
+  "fuente_hash": "b3501b81815b8813",
   "origen": "chatgpt-web"
 }

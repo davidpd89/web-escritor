@@ -4,26 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El póquer del mentiroso (Deusto), de Michael Lewis, se dirige a lectores interesados en economía y empresa. Su clasificación temática lo sitúa fuera de la narrativa fantástica y de los libros de actividades recreativas, por lo que responde a una búsqueda de lectura económica.",
+      "texto": "El póquer del mentiroso (Deusto) se orienta a lectores interesados en economía y empresa. Sus 336 páginas en castellano permiten dedicarle una lectura extensa dentro de ese ámbito; encaja menos con quienes buscan una novela de fantasía o una guía de viajes.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El póquer del mentiroso (Deusto) cuenta con una edición en tapa blanda de 336 páginas. El formato físico permite marcar pasajes y consultar apartados durante una lectura prolongada sobre economía y empresa.",
+      "texto": "El póquer del mentiroso (Deusto) se publica en tapa blanda, con 336 páginas en castellano. Esta edición de Deusto permite consultar y releer pasajes en papel, así como marcar páginas para recuperar contenidos relacionados con la economía.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "editorial",
+        "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El póquer del mentiroso (Deusto) y Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) se relacionan por su atención a cuestiones económicas. Michael Lewis firma el primero, mientras que Miguel Anxo Bastos Boubeta aborda en el segundo las raíces del pensamiento anarcocapitalista. Este último anuncia expresamente una introducción económica y política.",
+      "texto": "El póquer del mentiroso (Deusto) comparte el ámbito empresarial con ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido, de Rory Sutherland, aunque este último título pone el foco en las ideas. Frente a Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, centrado por su título en el liderazgo, la obra de Michael Lewis se sitúa en el terreno de la economía.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +34,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388182457"
+        "isbn-9791399087222",
+        "isbn-9788409921980"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "edf270670fb7eafb",
+  "fuente_hash": "33a160c0a5ff3814",
   "origen": "chatgpt-web"
 }

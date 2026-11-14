@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387938949",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Miura: Morir en el campo: 07 (Cromos) se sitúa entre las lecturas de ocio y aficiones. Sus 104 páginas encajan con quien prefiere un volumen breve relacionado con ese ámbito, pero menos con lectores que buscan una obra extensa de consulta técnica o una saga de fantasía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Miura: Morir en el campo: 07 (Cromos), de Toni Padilla, tiene una edición en tapa blanda de 104 páginas. Su extensión permite manejarlo como un libro físico breve, tanto para leerlo seguido como para conservarlo dentro de una colección en papel.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Miura: Morir en el campo: 07 (Cromos) puede compararse con ATP No. 1 Club. Iconos del tenis masculino (CONOCIMIENTO), de Mark Hodgkinson, dentro de las lecturas relacionadas con aficiones. El título de Mark Hodgkinson identifica expresamente el tenis masculino, mientras que el de Toni Padilla presenta otro asunto y se distingue por su extensión de 104 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934248"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a10f0556dab88e8b",
+  "origen": "chatgpt-web"
+}

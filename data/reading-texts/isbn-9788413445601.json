@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788413445601",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Suplementa tu menopausia: Una guía para elegir suplementos con criterio y potenciar tus hábitos (Alienta) se dirige a personas interesadas en los suplementos y los hábitos de salud durante la menopausia. Su enfoque específico encaja menos con quienes buscan una introducción general a la nutrición sin relación con esta etapa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Suplementa tu menopausia: Una guía para elegir suplementos con criterio y potenciar tus hábitos (Alienta) está disponible en tapa blanda, con 352 páginas. Esta edición en papel permite volver a los apartados sobre suplementos y hábitos, y consultar el contenido sin utilizar un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Suplementa tu menopausia: Una guía para elegir suplementos con criterio y potenciar tus hábitos (Alienta) y 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia) abordan cuestiones relacionadas con el bienestar personal. Marta Marcè centra su obra en los suplementos y hábitos durante la menopausia, mientras que Dick Van Dyke trata la longevidad desde una perspectiva más general, con atención al optimismo y el humor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387852290"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ece82f0a58518997",
+  "origen": "chatgpt-web"
+}

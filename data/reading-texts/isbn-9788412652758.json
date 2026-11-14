@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788412652758",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores que buscan relacionar la filosofía con el cine mediante un enfoque ensayístico. Su combinación de pensamiento filosófico y reflexión cinematográfica se aparta tanto de la ficción narrativa como de los manuales centrados exclusivamente en técnicas de rodaje.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Filosofía, cámara y acción: Apuntes de Filosofía y cine cuenta con una edición en tapa blanda de 186 páginas publicada por Rema y Vive Editorial. Su extensión permite dividir la lectura en varias sesiones y el soporte físico facilita volver a los apuntes sobre filosofía y cine.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Coincide con De la estética como política: Para una rehabilitación del sentido en el cine (Signo e imagen), de Noël Burch, en el interés por pensar el cine, aunque Pablo Huerga Melcóm plantea expresamente una relación con la filosofía. La estética como si fuera arte: 246 (La balsa de la Medusa), de Arturo Leyte, comparte la reflexión estética, pero su título aborda el arte de forma más general.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788437650586",
+        "isbn-9788477745136"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "01ba9aca9ccf681d",
+  "origen": "chatgpt-web"
+}

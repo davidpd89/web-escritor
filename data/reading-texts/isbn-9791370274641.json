@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791370274641",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en la identificación de invertebrados y los servicios de control de plagas y organismos nocivos. Su enfoque técnico y sus 124 páginas lo alejan de una lectura centrada en relatos sobre animales o naturaleza.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Aborda la identificación de diferentes grupos de invertebrados en relación con los servicios de control de plagas y organismos nocivos. El título vincula el reconocimiento de estos animales con un ámbito concreto de actividad técnica, más que con una exposición general sobre zoología.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de IC Editorial se presenta en tapa blanda y reúne 124 páginas en castellano. Este formato permite consultar el contenido en papel y transportarlo sin el volumen habitual de una encuadernación de tapa dura.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Boletines derivados de una instalación-IMAI0010 e Instalación y mantenimiento de redes 5G-ELES03 comparten con este libro la autoría de Beatriz Coronado García y la orientación hacia materias técnicas. La diferencia está en el campo tratado: aquí se identifican invertebrados vinculados al control de plagas, mientras los otros títulos se ocupan de instalaciones y redes de comunicaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411354790",
+        "isbn-9788411354813"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "63a3c66585d7dd7f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387948337",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a niños y niñas a partir de 6 años que disfrutan de los misterios ambientados en una escuela de circo. Sus 40 páginas y el uso de solapas corresponden a una lectura infantil breve, por lo que se aleja de las novelas de misterio extensas destinadas al público adulto.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 40 páginas y una propuesta de lectura con solapas, tal como indica el título. El formato físico permite manipular esos elementos durante la lectura y conservar el libro dentro de la colección.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abre el misterio 1 - El robo de las croquetas comparte el enfoque de misterio infantil, pero plantea la desaparición de unas croquetas como conflicto central. La Escuela del Circo 02 - El misterio de la señora Enigma, de Max Olivetti, sitúa el misterio en una escuela de circo e incorpora solapas como parte de la experiencia de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "26cd7488fe5598bf",
+  "origen": "chatgpt-web"
+}

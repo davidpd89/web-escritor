@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a lectores interesados en la relación entre psicología, yoga y meditación desde una perspectiva de ensayo y filosofía. Las lecciones de Carl Gustav Jung sitúan el contenido en el estudio de estas disciplinas, no en una guía breve de ejercicios físicos.",
+      "texto": "Está dirigido a lectores interesados en la relación entre psicología, yoga y meditación desde una perspectiva filosófica y ensayística. Las lecciones de Carl Gustav Jung se sitúan en un contexto académico, por lo que encaja menos con quien busca un manual de ejercicios físicos o rutinas de meditación.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,31 +13,33 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Editorial Trotta reúne 376 páginas en castellano. Es una opción física para consultar las lecciones, marcar pasajes y volver a apartados concretos durante el estudio de la psicología del yoga y la meditación.",
+      "texto": "La edición en tapa blanda de Editorial Trotta reúne 376 páginas en castellano. Este formato permite consultar las lecciones de Carl Gustav Jung, volver a determinados pasajes y realizar anotaciones durante una lectura centrada en psicología, yoga y meditación.",
       "evidencias": [
-        "formatos_disponibles",
+        "edicion",
         "numero_paginas",
-        "editorial",
         "idioma",
-        "titulo"
+        "titulo",
+        "autores",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Psicología del yoga y la meditación puede compararse con Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología), por su relación con la psicología. Carl Gustav Jung aborda el yoga y la meditación mediante lecciones, mientras que el libro de Ramón Nogueras Pérez se centra en el enamoramiento y el desenamoramiento.",
+      "texto": "De cuerpo presente: Las ciencias cognitivas y la experiencia humana (Caja Verde), de Francisco Varela, Evan Thompson y Eleanor Rosch, comparte el interés por la experiencia humana, pero la estudia desde las ciencias cognitivas. El descubrimiento de la vida interior: Sentir, pensar, decidir (Espasa Bienestar y Salud), de Javier López-Ibor, aborda los procesos internos de la persona, mientras que Carl Gustav Jung centra sus lecciones en la psicología del yoga y la meditación.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9791387534370"
+        "isbn-9788425454851",
+        "isbn-9788467084528"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "55daab3510c53721",
+  "fuente_hash": "c3f8cc6cd7c07bfb",
   "origen": "chatgpt-web"
 }

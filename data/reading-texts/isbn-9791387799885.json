@@ -4,28 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Historia de la ópera: Nacimiento, esplendor y muerte (Altoparlante) se dirige a lectores interesados en la historia de la ópera y su evolución como manifestación artística. Darío Fernández trata el asunto en un ensayo de 208 páginas; no es una obra teatral ni una recopilación de libretos operísticos.",
+      "texto": "Historia de la ópera: Nacimiento, esplendor y muerte (Altoparlante) se dirige a lectores interesados en la evolución histórica de la ópera y en el ensayo sobre manifestaciones artísticas. Su enfoque se diferencia del de los manuales de interpretación musical o las obras de ficción ambientadas en el mundo del espectáculo.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Historia de la ópera: Nacimiento, esplendor y muerte (Altoparlante) tiene una edición en tapa blanda de 208 páginas, publicada por El Desvelo. El papel permite consultar distintas partes de este recorrido histórico, subrayar referencias y conservar el volumen junto a otros ensayos sobre arte.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "editorial",
         "categorias"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "Historia de la ópera: Nacimiento, esplendor y muerte (Altoparlante) se publica en tapa blanda, con 208 páginas en castellano. La edición de El Desvelo ofrece un volumen físico de extensión intermedia que puede transportarse y consultarse durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "De la estética como política: Para una rehabilitación del sentido en el cine (Signo e imagen) comparte con Historia de la ópera: Nacimiento, esplendor y muerte (Altoparlante) el estudio de una expresión artística. Noël Burch se centra en el cine y su dimensión estética y política, mientras Darío Fernández aborda la trayectoria histórica de la ópera. Clásicos Sin Filtros: El Impacto del Mundo Antiguo / Talking Classics: The Shock of the Old también adopta una perspectiva histórica, aunque su objeto es el mundo antiguo.",
+      "texto": "Historia de la ópera: Nacimiento, esplendor y muerte (Altoparlante) puede compararse con Clásicos Sin Filtros: El Impacto del Mundo Antiguo / Talking Classics: The Shock of the Old por su aproximación a manifestaciones culturales desde el ensayo. Darío Fernández se ocupa de la trayectoria histórica de la ópera, mientras que Mary Beard aborda el mundo antiguo y su impacto. También se distingue de Charlotte Perriand. La libertad de repensar el mundo, centrado por su título en una figura del ámbito creativo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,8 +31,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9786076393055",
-        "isbn-9788437650586"
+        "isbn-9788416411993",
+        "isbn-9786076393055"
       ]
     }
   ],

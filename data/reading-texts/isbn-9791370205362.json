@@ -4,25 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El asesino de la almarada (Novela Histórica) encaja con lectores interesados en el misterio dentro de la novela histórica. Su combinación de géneros se aparta de la narrativa contemporánea sin intriga y de las obras centradas exclusivamente en la reconstrucción histórica.",
+      "texto": "El asesino de la almarada (Novela Histórica), de Gastón Morata, se dirige a lectores que buscan una combinación de novela histórica y misterio. Con 336 páginas, responde a una lectura narrativa de cierta extensión; no encaja con quien prefiere exclusivamente ensayo histórico o relatos breves independientes.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El asesino de la almarada (Novela Histórica) se publica en tapa blanda y tiene 336 páginas. Es una edición física en castellano que permite leer la novela completa y conservarla en papel, sin necesidad de un dispositivo electrónico.",
+      "texto": "El asesino de la almarada (Novela Histórica) se presenta en tapa blanda, con 336 páginas en castellano. Esta edición permite leer la novela en papel y utilizar un marcapáginas para retomar la trama de misterio; su encuadernación flexible facilita transportarla frente a un volumen rígido de dimensiones semejantes.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "edicion",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El asesino de la almarada (Novela Histórica) puede compararse con El baile de las que sobran (Novela histórica) por su pertenencia a la narrativa histórica. La obra de Gastón Morata incorpora además el misterio como género, mientras que la de Fermina Cañaveras se presenta expresamente como novela histórica.",
+      "texto": "DESTERRADOS DE CASTILLA: Aventura, traición y venganza en las Indias comparte con El asesino de la almarada (Novela Histórica) el interés por la ficción de ambientación histórica, aunque el título de Antonio Ortega Castro destaca la aventura y la venganza. El hombre que fue casi nadie (Salamandra Black), de Victoria González Torralba, ofrece una comparación desde la vertiente del misterio, frente al componente histórico señalado en la obra de Gastón Morata.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,7 +34,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467083910"
+        "isbn-9788410907478",
+        "isbn-9791387928599"
       ]
     }
   ],

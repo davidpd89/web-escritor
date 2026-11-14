@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388581076",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Grecia con gracia. VOL.1: 079 (Vdb Nuevo Teatro), de Florián Recio, se dirige a lectores interesados en el teatro y en las publicaciones vinculadas al ámbito artístico. Sus 118 páginas permiten abordar un volumen breve, y el título lo identifica como VOL.1 dentro de Vdb Nuevo Teatro. No responde a la búsqueda de una novela extensa ni de un manual técnico de dibujo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Grecia con gracia. VOL.1: 079 (Vdb Nuevo Teatro) está disponible en tapa blanda, con 118 páginas en castellano. La edición de Vdb reúne el texto en un volumen físico breve, manejable para leer fuera de casa o consultar por partes. Su extensión facilita guardarlo junto a otros títulos de la colección identificada en la cubierta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Grecia con gracia. VOL.1: 079 (Vdb Nuevo Teatro) y Ahorcados, de Miguel Ávila Cabezas, aparecen vinculados al ámbito artístico, aunque corresponden a autores diferentes. El título de Florián Recio identifica expresamente una colección teatral, mientras que Ahorcados se presenta sin esa indicación. All Black Cuaderno (LIBRETAS ARTÖSTICAS), de Varios autores, se distingue por su identificación como cuaderno, frente al volumen de Vdb Nuevo Teatro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399276725",
+        "isbn-9789879871119"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "24e0935ebec244f5",
+  "origen": "chatgpt-web"
+}

@@ -4,38 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores de romance y novela histórica interesados en relatos vinculados al siglo XX y a temas de superación y duelo. Sus 288 páginas se alejan de los ensayos históricos y de las novelas que no incorporan relaciones sentimentales entre sus ejes temáticos.",
-      "evidencias": [
-        "categorias",
-        "numero_paginas",
-        "titulo"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La carta perdida (Clean Romance) puede leerse en tapa blanda o en Kindle, con una edición impresa de 288 páginas. El papel permite conservar el ejemplar en la biblioteca, mientras que Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el volumen físico.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Cómo arruinar a un vizconde (Academia Miriñaque 1) (CLEAN ROMANCE) comparte con La carta perdida (Clean Romance) la autoría de Mimi Matthews y la identificación editorial Clean Romance. La carta perdida se vincula además con la novela histórica, el siglo XX y el duelo, mientras que el título de la otra obra identifica su pertenencia a Academia Miriñaque y la señala como número 1.",
+      "texto": "La carta perdida (Clean Romance), de Mimi Matthews, encaja con lectores interesados en el romance ambientado en contextos históricos. Sus 288 páginas ofrecen una extensión intermedia; no es la elección más ajustada para quien busca terror, fantasía o una obra centrada exclusivamente en hechos históricos.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La carta perdida (Clean Romance) está disponible en tapa blanda y Kindle. La edición física de Libros de Seda tiene 288 páginas y permite conservar o regalar el ejemplar; Kindle facilita llevar la lectura en un dispositivo compatible sin cargar con el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La carta perdida (Clean Romance) comparte autora y orientación romántica con Cómo arruinar a un vizconde (Academia Miriñaque 1) (CLEAN ROMANCE), también de Mimi Matthews. Frente a Corazón de una bridgerton (Titania época), de Julia Quinn, mantiene el interés por el romance de época, pero cambia la autoría y la colección editorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "editorial"
       ],
       "enlaces": [
-        "isbn-9788410481329"
+        "isbn-9788410481329",
+        "isbn-9788410391772"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d4df6d0cfbbde6dd",
+  "fuente_hash": "dfff1e8bb6a3832d",
   "origen": "chatgpt-web"
 }

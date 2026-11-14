@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Para Dafne 2 se dirige a lectores adultos interesados en la fantasía romántica con conflictos de rechazo, imposición amorosa y venganza. Su tratamiento del sufrimiento emocional y de las relaciones de poder lo aleja de quienes buscan un romance ligero o una historia infantil.",
+      "texto": "Para Dafne 2 está dirigido a lectores adultos de fantasía romántica y cómic que buscan conflictos de amor no correspondido, rechazo y pérdida de autonomía. Su planteamiento de una relación opresiva y el sufrimiento de Dafne lo aleja de quienes prefieren romances ligeros o relaciones sin componentes coercitivos.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,38 +14,40 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Para Dafne 2 combina fantasía, romance y narrativa gráfica con una reinterpretación conflictiva del vínculo entre Dafne y Febo. El deseo impuesto, la resistencia al amor y las consecuencias emocionales del rechazo articulan una lectura centrada en la autonomía personal, más que en la conquista romántica.",
+      "texto": "Para Dafne 2 presenta un conflicto de fantasía romántica marcado por el rechazo de Dafne hacia Febo y las consecuencias de un amor impuesto. La obra de KKAM y 3_jokseom combina romance, sufrimiento emocional y una dinámica de poder desigual en 288 páginas de cómic para adultos.",
       "evidencias": [
         "titulo",
+        "autores",
+        "sinopsis_editorial",
         "categorias",
-        "sinopsis_editorial"
+        "edad_recomendada",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Para Dafne 2 está disponible en tapa blanda con solapas, en la edición castellana de Distrito Manga. Sus 288 páginas permiten conservar el volumen en una estantería y volver a consultar sus escenas sin depender de un dispositivo electrónico.",
+      "texto": "Para Dafne 2 se publica en tapa blanda con solapas y tiene 288 páginas. Esta edición física permite conservar el volumen junto a otros títulos de la colección y leerlo en papel; el formato disponible es el de encuadernación flexible.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "editorial",
-        "numero_paginas",
         "formatos_disponibles",
-        "idioma"
+        "edicion",
+        "numero_paginas",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Para Dafne 3 (Distrito Manhwa) comparte con Para Dafne 2 la autoría de KKAM y 3_jokseom, mientras que sus títulos identifican entregas distintas. La bestia del rey 14 (Shôjo), de Rei Tôma, ofrece otra referencia de narrativa gráfica; frente a ella, Para Dafne 2 sitúa el conflicto en el rechazo amoroso y la imposición del deseo.",
+      "texto": "Para Dafne 3 (Distrito Manhwa) comparte con Para Dafne 2 la autoría de KKAM y 3_jokseom, aunque sus títulos identifican volúmenes distintos. Casa de cielo y aliento (Ciudad Medialuna 2) también pertenece a la fantasía romántica, pero es una obra de Sarah J. Maas, mientras Para Dafne 2 se presenta como cómic para adultos.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
         "categorias",
-        "sinopsis_editorial"
+        "edad_recomendada",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791387962067",
-        "isbn-9791387962708"
+        "isbn-9788466396080"
       ]
     }
   ],

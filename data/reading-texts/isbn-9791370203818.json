@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pensado para lectores interesados en las biografías políticas, el monarquismo y la historia del siglo XX. Sus 838 páginas y su orientación histórica encajan menos con quien busca una introducción breve a la política o una lectura de ficción.",
+      "texto": "José María de Areilza. La política ante todo: Biografía de un monárquico del siglo XX (Historia de las dinámicas sociales, culturales y políticas) está dirigido a lectores de biografías políticas e historia del siglo XX. Sus 838 páginas requieren una lectura extensa y lo alejan de quienes prefieren introducciones breves o ficción histórica.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Examina la trayectoria de José María de Areilza desde su vinculación con la monarquía y la actividad política del siglo XX. Pablo Hispán Iglesias de Ussel aborda esa figura mediante una biografía situada en el ámbito de la historia política y social.",
+      "texto": "La trayectoria política de José María de Areilza y su vinculación con la monarquía constituyen el núcleo de esta biografía. Pablo Hispán Iglesias de Ussel aborda al personaje desde una perspectiva histórica, dentro del estudio de las dinámicas sociales, culturales y políticas del siglo XX.",
       "evidencias": [
         "titulo",
         "autores",
@@ -22,29 +22,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de José María de Areilza. La política ante todo: Biografía de un monárquico del siglo XX (Historia de las dinámicas sociales, culturales y políticas) está disponible en tapa blanda. Sus 838 páginas hacen de ella un volumen extenso, más adecuado para consultar y leer en sesiones prolongadas que para llevar habitualmente en el bolsillo.",
+      "texto": "José María de Areilza. La política ante todo: Biografía de un monárquico del siglo XX (Historia de las dinámicas sociales, culturales y políticas) se presenta en tapa blanda, con 838 páginas. Es un volumen físico extenso, pensado para una lectura prolongada y para consultar distintos pasajes durante el estudio del personaje.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes comparte el interés por reconstruir una trayectoria política individual, aunque organiza su propuesta en episodios. Antes de irme (Espasa Actualidad) también se relaciona con una figura de la política, mientras que José María de Areilza. La política ante todo: Biografía de un monárquico del siglo XX (Historia de las dinámicas sociales, culturales y políticas) se centra expresamente en un monárquico del siglo XX.",
+      "texto": "Corona Nostra: De Felipe VI a Felipe V comparte con esta biografía el interés por la monarquía y la historia política, aunque su título plantea un recorrido entre distintos monarcas. José María de Areilza. La política ante todo: Biografía de un monárquico del siglo XX (Historia de las dinámicas sociales, culturales y políticas) concentra sus 838 páginas en una figura política concreta.",
       "evidencias": [
         "afines_catalogo",
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ],
       "enlaces": [
-        "isbn-9786073873154",
-        "isbn-9788467085044"
+        "isbn-9788410944176"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "338baada92523253",
+  "fuente_hash": "d251a7122e871ebf",
   "origen": "chatgpt-web"
 }

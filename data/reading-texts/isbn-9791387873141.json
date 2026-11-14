@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Anatomía de un naufragio: Shackleton, el Endurance y la fuerza del hielo se dirige a lectores interesados en la historia de las expediciones, los viajes y las experiencias humanas vinculadas a acontecimientos reales. Su enfoque histórico y biográfico lo diferencia de las aventuras de ficción y de las guías de viaje orientadas al turismo.",
+      "texto": "Anatomía de un naufragio: Shackleton, el Endurance y la fuerza del hielo se dirige a lectores de historia, viajes y relatos vinculados a figuras reales. El naufragio y las condiciones del hielo delimitan su asunto, alejado de quienes buscan una novela de aventuras inventadas.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,18 +12,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda ofrece 464 páginas en castellano, una extensión que permite dedicar varias sesiones a la lectura. El volumen físico facilita consultar de nuevo los pasajes sobre Shackleton, el Endurance y el hielo, además de conservar el libro como obra de historia y viajes.",
+      "texto": "Anatomía de un naufragio: Shackleton, el Endurance y la fuerza del hielo está disponible en tapa blanda. Sus 464 páginas forman un volumen físico de extensión considerable, adecuado para mantener reunida una lectura histórica sobre el naufragio del Endurance y consultarla posteriormente.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Anatomía de un naufragio: Shackleton, el Endurance y la fuerza del hielo comparte con Al andar: Vivencias del Camino de Santiago el interés por los viajes y las experiencias humanas. Carlos Díaz Ballesta aborda las vivencias de un recorrido terrestre, mientras Jukka Tuhkuri se centra en un naufragio marcado por el hielo. Cuando éramos pilotos: Historias de los españoles que sobrevivieron al Dakar en África también trata experiencias de supervivencia, pero vinculadas a pilotos y una competición en África.",
+      "texto": "Anatomía de un naufragio: Shackleton, el Endurance y la fuerza del hielo comparte con Al andar: Vivencias del Camino de Santiago el interés por las experiencias vinculadas a desplazamientos y lugares concretos. Jukka Tuhkuri aborda un naufragio condicionado por el hielo, mientras que Carlos Díaz Ballesta se centra en las vivencias del Camino de Santiago.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,8 +30,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388099496",
-        "isbn-9788466393522"
+        "isbn-9791388099496"
       ]
     }
   ],

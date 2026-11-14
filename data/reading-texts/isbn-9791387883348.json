@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791387883348",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un día sin cole (Álbumes), de Oliver Jeffers y Kevin Waldron, pertenece a la literatura infantil y se presenta como un álbum. Su formato de 44 páginas permite plantear sesiones de lectura breves; no está orientado a quien busca una novela extensa para adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un día sin cole (Álbumes) se publica en tapa dura, en una edición de Andana Editorial de 44 páginas. La encuadernación rígida facilita conservar el álbum y utilizarlo en lecturas compartidas o repetidas; también permite regalar un ejemplar físico sin depender de dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f467ee59f1adfc33",
+  "origen": "chatgpt-web"
+}

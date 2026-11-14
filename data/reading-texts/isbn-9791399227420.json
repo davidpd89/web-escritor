@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399227420",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La tiranía de la fe: 2 (Richard Swan) encaja con lectores de fantasía y aventuras que buscan una narración extensa, también dentro del ámbito juvenil. Sus 544 páginas requieren una dedicación mayor que la de una lectura breve. El título lo identifica como el n.º 2, circunstancia que conviene considerar al buscar una obra para empezar una colección; no responde a una búsqueda de narrativa realista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tiranía de la fe: 2 (Richard Swan) tiene una edición en tapa blanda de 544 páginas, publicada por Gamon Fantasy. Es un volumen físico extenso que permite leer en papel y conservar la edición en una estantería. Por su número de páginas, resulta menos ligero de transportar que un libro breve, un aspecto relevante para quien lee habitualmente fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La tiranía de la fe: 2 (Richard Swan) y Tempestad (New Adult), de Victoria Aveyard, se sitúan en un ámbito de lectura próximo por su relación con la narrativa fantástica. La primera se presenta como fantasía juvenil de aventuras, mientras que la segunda incorpora la identificación New Adult en el título. Edición LEGACY Muerte a la oscuridad- Black Bird Academy: Black Bird Academy: 1 (Inlov Romantasy), de Stella Tack, introduce además una orientación romántica explícita en su colección.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410399518",
+        "isbn-9791399221527"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6c9ebcef684689f8",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788499502748",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a quienes buscan cuentos de hadas chinos y relatos de tradición oriental con una dimensión interpretativa. Por su combinación de fantasía y ensayo, se aleja de las novelas de aventuras centradas en una única trama continuada.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra reúne cuentos de hadas literarios y otros relatos chinos, acompañados de comentarios e interpretaciones. El enfoque combina la lectura de narraciones fantásticas con su examen como textos, en lugar de limitarse a presentar los cuentos de forma aislada.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 156 páginas en castellano, publicadas por Ediciones Librería Argentina (ela). Su extensión permite repartir la lectura de los cuentos y sus comentarios en sesiones independientes, mientras que la encuadernación flexible facilita transportarla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puede compararse con A Buentiempo Mala Cara: 9 (Enseñanza Mágica Obligatoria) por la presencia de elementos mágicos en sus respectivos títulos. La diferencia está en el planteamiento: Richard Wilhelm presenta cuentos chinos comentados e interpretados, mientras que el libro de Sergio Sánchez Morán se identifica con una enseñanza mágica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399305517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8c98ffa1140daf20",
+  "origen": "chatgpt-web"
+}

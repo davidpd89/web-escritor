@@ -4,7 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Wordle in crime: La palabra asesina del día se dirige a quienes disfrutan resolviendo crímenes mediante juegos de letras y deducción. Su planteamiento combina asesinatos, sospechosos y coartadas, por lo que se aleja de los pasatiempos centrados únicamente en encontrar palabras.",
+      "texto": "Wordle in crime: La palabra asesina del día encaja con quienes disfrutan resolviendo acertijos de letras vinculados a investigaciones criminales. Su propuesta de ocio participativo se distancia de las novelas policiacas convencionales, en las que el lector sigue una investigación sin tener que resolver personalmente los desafíos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La lectura funciona como un juego de investigación en el que las palabras ayudan a esclarecer asesinatos. Los sospechosos, las coartadas y las pistas forman parte de los problemas que debe resolver el lector, con una mecánica inspirada en Wordle y los juegos de misterio.",
       "evidencias": [
         "titulo",
         "sinopsis_editorial",
@@ -12,18 +21,10 @@
       ]
     },
     {
-      "modulo": "encaje_documentado",
-      "texto": "Es un libro de entretenimiento interactivo que utiliza las letras como herramienta para investigar asesinatos. Cocoludic parte de la mecánica de Wordle y de los juegos de misterio para plantear casos con sospechosos y declaraciones contradictorias, en lugar de desarrollar una narración criminal convencional.",
-      "evidencias": [
-        "autores",
-        "sinopsis_editorial",
-        "categorias"
-      ]
-    },
-    {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es en tapa blanda, con encuadernación rústica con solapas y 256 páginas. Este formato permite consultar y resolver los juegos sobre papel, además de volver a páginas anteriores durante la investigación de cada caso.",
+      "texto": "La edición disponible de Wordle in crime: La palabra asesina del día es de tapa blanda, con solapas. Sus 256 páginas reúnen una propuesta de acertijos criminales que puede utilizarse en papel, con el libro a mano para revisar las pistas y trabajar las soluciones.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "edicion",
         "numero_paginas",
@@ -32,20 +33,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Wordle in crime: La palabra asesina del día comparte con 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos) su relación con actividades inspiradas en juegos. La diferencia está en la tarea: Cocoludic propone investigar asesinatos mediante letras, mientras que el otro título se centra en colorear píxeles.",
+      "texto": "80 crímenes imposibles de resolver (FUERA DE ESCENA) comparte el interés por los enigmas criminales, mientras Wordle in crime: La palabra asesina del día incorpora desafíos con letras. Agatha Christie. ¿Quién lo hizo? Resuelve los casos más famosos de la Reina del Crimen (FICCIÓN) también propone resolver casos, pero vinculados a los misterios de la autora.",
       "evidencias": [
         "titulo",
-        "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328384"
+        "isbn-9791388015816",
+        "isbn-9791259578907"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9fa2d96ba8aabd1a",
+  "fuente_hash": "ea27ca6a14a710aa",
   "origen": "chatgpt-web"
 }

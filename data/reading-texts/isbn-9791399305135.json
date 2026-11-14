@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399305135",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Puedes llamarme Enero, de José Ramón Franco León, se dirige a lectores de poesía en castellano que prefieren un volumen breve. Sus 84 páginas plantean una lectura de extensión reducida frente a una novela larga; no responde a quien busca narrativa de ficción extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Puedes llamarme Enero está disponible en tapa blanda, con 84 páginas impresas. Esta edición de Castellón Digital SL permite llevar el libro en papel y consultar sus textos sin depender de una pantalla; su extensión también facilita guardarlo y transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puedes llamarme Enero comparte su clasificación como poesía con Advenir, de Jose Eceolaza, y Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. La diferencia identificable está en la autoría y en el enfoque amoroso anunciado por el título de la antología, mientras que Puedes llamarme Enero no delimita así su temática.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410212749",
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "210a42aa8256c909",
+  "origen": "chatgpt-web"
+}

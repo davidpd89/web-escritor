@@ -4,17 +4,15 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cáncer Después del diagnóstico: El libro que todo paciente oncológico necesita leer se dirige a personas interesadas en abordar el diagnóstico oncológico desde una lectura relacionada con la psicología y el bienestar. Sus 278 páginas corresponden a una obra de orientación práctica y ensayística, no a una novela ni a un manual especializado en procedimientos médicos.",
+      "texto": "Cáncer Después del diagnóstico: El libro que todo paciente oncológico necesita leer se orienta a personas interesadas en el proceso posterior a un diagnóstico de cáncer y en su dimensión psicológica. Por su enfoque de desarrollo personal y ensayo, no responde a quien busca una novela ni a quien necesita exclusivamente un manual técnico de oncología.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas",
-        "sinopsis_editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cáncer Después del diagnóstico: El libro que todo paciente oncológico necesita leer se ofrece en tapa blanda, con 278 páginas en castellano. El formato permite transportarlo y consultar distintos pasajes durante la lectura, sin necesitar un dispositivo; su extensión facilita dividirlo en sesiones según el tiempo disponible.",
+      "texto": "Cáncer Después del diagnóstico: El libro que todo paciente oncológico necesita leer está disponible en tapa blanda, con 278 páginas en castellano. Esta edición física permite consultar distintos pasajes, marcar páginas y conservar el volumen para volver a él cuando sea necesario.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -24,7 +22,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuentoterapia social: El cuento como herramienta en la intervención social y la relación de ayuda comparte el interés por el acompañamiento, aunque aborda el uso del cuento en la intervención social en lugar del diagnóstico oncológico. Cuando no sé lo que quiero: 150 enseñanzas para encontrar tu camino (Bruguera Tendencias) se sitúa en el desarrollo personal, mientras que el libro de Carolina Pan centra su asunto en el cáncer y la experiencia posterior al diagnóstico.",
+      "texto": "Crónica de una esquizofrenia, de Isaac Soler Villanueva, comparte con Cáncer Después del diagnóstico: El libro que todo paciente oncológico necesita leer el interés por cuestiones de salud, aunque aborda una enfermedad diferente. Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, se aproxima desde el desarrollo personal y la psicología, pero centra su propuesta en las experiencias de la infancia y no en el diagnóstico oncológico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +30,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409930005",
-        "isbn-9788402431684"
+        "isbn-9788410944206",
+        "isbn-9788409906048"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "fd30d4874d731d6f",
+  "fuente_hash": "673b171a948714d7",
   "origen": "chatgpt-web"
 }

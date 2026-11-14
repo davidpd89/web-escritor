@@ -4,17 +4,18 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Gymnastics Star 4. No estás sola, de Georgia Godwin, se dirige a lectores interesados en aventuras y amistad. Con 128 páginas, presenta una extensión más reducida que las novelas largas y se aparta de las historias centradas en el crimen o el terror.",
+      "texto": "Gymnastics Star 4. No estás sola, de Georgia Godwin, se orienta a lectores de aventuras en el ámbito infantil y juvenil. Con 128 páginas, encaja con quienes prefieren lecturas de extensión contenida y menos con quienes buscan novelas largas; el título lo identifica como el n.º 4.",
       "evidencias": [
         "titulo",
         "autores",
+        "editorial",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Gymnastics Star 4. No estás sola está disponible en tapa blanda y Kindle, con una edición impresa de 128 páginas. El ejemplar físico permite conservarlo junto a otros libros, mientras que Kindle facilita leerlo en un móvil o dispositivo compatible sin llevar el volumen.",
+      "texto": "Gymnastics Star 4. No estás sola puede leerse en tapa blanda o Kindle. La edición en papel tiene 128 páginas, una extensión manejable para transportarla; Kindle permite llevar el libro en el móvil o en un lector electrónico compatible sin cargar con el ejemplar físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -23,7 +24,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Gymnastics Star 4. No estás sola comparte las aventuras con Aventura Total 7 - Blastofia (Primeras lecturas), de Òscar Julve y Jaume Copons. La obra de Georgia Godwin incorpora la amistad como tema y su título remite a la gimnasia; la otra se identifica como una entrega de Aventura Total dentro de una colección de primeras lecturas.",
+      "texto": "Gymnastics Star 4. No estás sola comparte su clasificación de aventuras con A, B, C Y La Sra.smith En Tierra De Vikingos: 11 (MiniMini), de Núria Parera Ciuró. La diferencia está en los referentes de sus títulos: el primero alude a la gimnasia y el segundo a una tierra de vikingos, mientras que Georgia Godwin firma una entrega identificada con el n.º 4.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788448875008"
+        "isbn-9788412857597"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f9cd806733e46574",
+  "fuente_hash": "b0be4bba29467d5a",
   "origen": "chatgpt-web"
 }

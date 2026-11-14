@@ -4,26 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La guerra de las librerías (Lo más visto) está orientada a lectores de romance interesados también en el humor y las relaciones familiares. Su combinación de amor, pareja y familia se distancia de las lecturas centradas exclusivamente en la acción o en contenidos prácticos.",
+      "texto": "La guerra de las librerías (Lo más visto), de Ali Brady, se dirige a lectores de romance que buscan una novela extensa en castellano. Sus 464 páginas permiten distinguirla de las lecturas románticas breves; no responde a quien prefiera ensayo, divulgación o relatos cortos.",
       "evidencias": [
         "titulo",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La guerra de las librerías (Lo más visto) tiene una edición en tapa blanda de 464 páginas, publicada en castellano por Montena. El formato permite leerla en papel y transportarla sin una cubierta rígida; por su extensión, ocupa más espacio que una novela breve.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "autores",
+        "categorias",
         "numero_paginas",
-        "editorial",
         "idioma"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La guerra de las librerías (Lo más visto) está disponible en tapa blanda, con 464 páginas en castellano. Es una edición física de Montena que permite leer y conservar el volumen en papel, aunque su extensión implica llevar un libro de varios cientos de páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "La guerra de las librerías (Lo más visto) se puede comparar con Mentiras y deseo (Bourbon Boys 1) (Lo más visto) por su orientación romántica y sus elementos de humor. La obra de Ali Brady añade la familia entre sus temas, mientras que la de Victoria Wilder se identifica en el título como el n.º 1 de Bourbon Boys.",
+      "texto": "La guerra de las librerías (Lo más visto), de Ali Brady, comparte el romance con A medio salto (Romántica), de Valera Gomalva, aunque son obras de distintas autoras. También puede compararse con A mil por hora, de Hannah Grace, que desarrolla una relación entre un piloto de F1 y una mujer incapaz de dejar atrás su pasado; esta ambientación deportiva distingue su planteamiento del título de Ali Brady.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +34,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387972509"
+        "isbn-9791388365089",
+        "isbn-9788466683449"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "273de372357b4c56",
+  "fuente_hash": "73ae39a2b7167b8e",
   "origen": "chatgpt-web"
 }

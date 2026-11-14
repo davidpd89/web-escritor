@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788412481655",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "De gira con los ramones se orienta a lectores interesados en la música y las giras de grupos, dentro del ámbito cultural y artístico. Por su tema y sus 384 páginas, se aleja de los manuales de aprendizaje artístico o de las obras centradas en técnicas de dibujo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "De gira con los ramones se publica en tapa blanda, con 384 páginas en castellano. Es una edición física que permite consultar distintos pasajes y conservar el volumen en una biblioteca dedicada a la música o la cultura, sin necesidad de un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial comparte con De gira con los ramones el interés por la música como fenómeno cultural. El libro de Daniel Sedcontra se centra, desde su título, en la música industrial y la subversión, mientras que el de Monte A. Melnick y Frank Meyer sitúa el foco en las giras de los ramones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410045538"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "58d83fb7f37915b9",
+  "origen": "chatgpt-web"
+}

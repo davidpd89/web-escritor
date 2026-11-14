@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Zapatillas de Ballet / Ballet Shoes se relaciona con lectores interesados en el ballet, el ámbito artístico y los temas familiares. Su clasificación en arte y diseño, familia y desarrollo personal la diferencia de las obras centradas en historia política o investigación científica.",
+      "texto": "Zapatillas de Ballet / Ballet Shoes, de Noel Streatfeild, se sitúa entre las lecturas relacionadas con el arte, el diseño y el desarrollo personal. Puede interesar a quienes exploran esas materias, pero encaja menos con quienes buscan específicamente un tratado de historia o un manual científico.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Zapatillas de Ballet / Ballet Shoes cuenta con una edición en tapa blanda de 240 páginas, publicada en castellano por Blackie Books. Su extensión permite repartir la lectura en varias sesiones y la encuadernación ofrece una opción física para llevar el libro fuera de casa.",
+      "texto": "Zapatillas de Ballet / Ballet Shoes cuenta con una edición en tapa blanda de 240 páginas, publicada por Blackie Books. Su extensión permite organizar la lectura en varias sesiones, mientras que el formato físico facilita conservar el ejemplar o prestarlo sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
+        "formatos_disponibles",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Un sueño por cumplir (Montena), de Violeta Madel, ofrece otra referencia del catálogo vinculada, desde su título, a la idea de alcanzar una aspiración. Zapatillas de Ballet / Ballet Shoes, de Noel Streatfeild, concreta su referencia artística en el ballet y se relaciona además con el ámbito familiar.",
+      "texto": "Zapatillas de Ballet / Ballet Shoes comparte con Pack El acto de crear (Autoconocimiento), de Rick Rubin, su relación editorial con materias de creación y desarrollo personal. Frente al enfoque de autoconocimiento anunciado en el título de Rick Rubin, la obra de Noel Streatfeild remite al ballet y se encuentra también clasificada dentro del arte y el diseño.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387972844"
+        "isbn-9788411191951"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "30e7a364cb794f6f",
+  "fuente_hash": "37b12a3a9df042a9",
   "origen": "chatgpt-web"
 }

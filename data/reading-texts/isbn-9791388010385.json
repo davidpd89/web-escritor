@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388010385",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hishiryo, de Marcos Juan Fricke, se sitúa en el ámbito de la salud y el bienestar. Encaja con lectores que buscan publicaciones de esa materia, pero no con quienes necesitan un recetario o una guía específicamente dedicada a la alimentación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hishiryo se presenta en tapa blanda, con 274 páginas en castellano y edición de Universo de Letras. El formato impreso permite consultar el volumen y señalar páginas de interés sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia), de Dick Van Dyke, aborda el bienestar desde la longevidad y los consejos. Por su parte, 5 semanas para desinflamarte (edición limitada), de Blanca García-Orea Haro, anuncia un programa temporal centrado en la inflamación; Hishiryo, de Marcos Juan Fricke, queda identificado de forma más amplia dentro de la salud.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791387852290",
+        "isbn-9788466394390"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "13675cf54c916319",
+  "origen": "chatgpt-web"
+}

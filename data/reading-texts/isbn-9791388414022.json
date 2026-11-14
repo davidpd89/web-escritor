@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El viaje de Anubis (ENIGMAS Y CONSPIRACIONES), de Javier Expósito Lorenzo, se sitúa en el ámbito de la religión, la espiritualidad y los viajes, con referencias al poder y la política. Su enfoque temático se aparta de las novelas centradas en relaciones románticas o conflictos familiares cotidianos.",
+      "texto": "El viaje de Anubis (ENIGMAS Y CONSPIRACIONES), de Javier Expósito Lorenzo, se orienta a lectores interesados en religión y espiritualidad. Por su clasificación temática y sus 360 páginas, queda fuera de la búsqueda de quien prefiera una lectura breve centrada en otros asuntos.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El viaje de Anubis (ENIGMAS Y CONSPIRACIONES) se publica en tapa blanda, con 360 páginas en castellano. La edición física de Luciérnaga CAS permite consultar y retomar sus contenidos en papel, sin depender de un dispositivo electrónico.",
+      "texto": "El viaje de Anubis (ENIGMAS Y CONSPIRACIONES) está disponible en tapa blanda, con 360 páginas en castellano. Esta edición de Luciérnaga CAS permite leerlo en papel y conservarlo en una encuadernación flexible, sin necesidad de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -24,21 +25,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El viaje de Anubis (ENIGMAS Y CONSPIRACIONES) comparte el interés por la espiritualidad con Cultos y sombras, de Acheron Delacroix, centrado en las tradiciones ocultas del mundo. También se relaciona con Cuando llega la felicidad, de Adrien Candiard, que aborda la Biblia desde la perspectiva de quienes han dejado de creer. La obra de Javier Expósito Lorenzo incorpora además el poder, la política y los viajes entre sus temas.",
+      "texto": "El viaje de Anubis (ENIGMAS Y CONSPIRACIONES) puede compararse con AKITA: Las lágrimas y el mensaje de María, de Teiji Yasuda, por su vinculación con asuntos religiosos. También comparte el ámbito espiritual con Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe, aunque este último anuncia un enfoque de fundamentos y práctica, mientras que El viaje de Anubis (ENIGMAS Y CONSPIRACIONES) se presenta bajo el rótulo de enigmas y conspiraciones.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788432175169",
-        "isbn-9791387667948"
+        "isbn-9791388176357",
+        "isbn-9791399210088"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e578cc78346ea9ff",
+  "fuente_hash": "e28cc04e0f10b829",
   "origen": "chatgpt-web"
 }

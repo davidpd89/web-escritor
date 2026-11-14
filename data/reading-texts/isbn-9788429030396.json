@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a lectores interesados en el derecho penal y su relación con la cuarta revolución industrial. Su temática jurídica especializada lo distancia de los libros de divulgación tecnológica general o de los manuales introductorios sobre informática.",
+      "texto": "Está dirigido a lectores que estudian el Derecho penal y su relación con los cambios de la cuarta revolución industrial. Por su enfoque jurídico especializado, responde a intereses académicos o profesionales del derecho, no a quienes buscan una introducción general a la tecnología.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,8 +12,9 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es la edición disponible, con 228 páginas en castellano para estudiar y consultar cuestiones jurídicas. El ejemplar físico permite marcar pasajes y conservar referencias durante la lectura académica o profesional.",
+      "texto": "Derecho penal 4.0: el Derecho penal en la cuarta revolución industrial: 124 (Propiedad Intelectual) se publica en tapa blanda, con 228 páginas en castellano. Esta edición permite consultar el contenido jurídico en papel, marcar pasajes y localizar referencias durante el estudio.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
@@ -22,7 +23,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Blockchain: un desafío legal (Monografía) también relaciona tecnología y derecho, pero se concentra en las implicaciones jurídicas del blockchain. Derecho penal 4.0: el Derecho penal en la cuarta revolución industrial: 124 (Propiedad Intelectual) sitúa esa relación en el ámbito penal y en el contexto más amplio de la transformación industrial.",
+      "texto": "Blockchain: un desafío legal (Monografía), de Ana Isabel Quiroz Ruiz, comparte el interés por los problemas jurídicos relacionados con las transformaciones tecnológicas. Mientras esa obra delimita su asunto al blockchain, Derecho penal 4.0: el Derecho penal en la cuarta revolución industrial: 124 (Propiedad Intelectual) aborda el Derecho penal en el contexto más amplio de la cuarta revolución industrial.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -35,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ef4f2d85975df17c",
+  "fuente_hash": "46f86bfcb25e452b",
   "origen": "chatgpt-web"
 }

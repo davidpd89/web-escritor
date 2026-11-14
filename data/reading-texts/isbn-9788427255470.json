@@ -4,30 +4,32 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¡Atrapa a ese - Slime! ¡Un monstruo muy viscoso! (Ficción Kids) se orienta a lectores de ficción infantil interesados en monstruos, aventuras, humor y situaciones de terror. Por su combinación de estos elementos, encaja menos con quienes buscan relatos cotidianos sin criaturas monstruosas ni componentes inquietantes.",
+      "texto": "¡Atrapa a ese - Slime! ¡Un monstruo muy viscoso! (Ficción Kids) se orienta a lectores de aventuras con elementos de terror y monstruos. Sus 80 páginas permiten una lectura relativamente breve; encaja menos con quienes buscan historias largas o prefieren evitar los temas terroríficos.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¡Atrapa a ese - Slime! ¡Un monstruo muy viscoso! (Ficción Kids) se publica en tapa blanda, con 80 páginas en castellano. La extensión permite abordar la lectura en sesiones breves y el formato de Molino ofrece una edición física manejable para transportar o guardar.",
+      "texto": "¡Atrapa a ese - Slime! ¡Un monstruo muy viscoso! (Ficción Kids) tiene una edición en tapa blanda de 80 páginas, publicada por Molino. Su extensión facilita transportarlo y repartir la lectura en sesiones cortas, sin depender de una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "editorial",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¡Atrapa a ese Yeti! / Catch That Yeti comparte autora, Charlotte Habersack, y presenta otra criatura como protagonista del título. Mientras esa obra gira en torno a un yeti, el libro sobre Slime se centra en un monstruo viscoso y combina aventura, terror y humor.",
+      "texto": "¡Atrapa a ese Yeti! / Catch That Yeti y el libro de Charlotte Habersack sobre un slime comparten autora y presentan criaturas distintas, un yeti y un monstruo viscoso. Anna Kadabra, en su Estuche Aventuras legendarias 1 y 2, también se relaciona con las aventuras, pero reúne dos entregas de Pedro Mañas y David Sierra Listón, frente a las 80 páginas de la obra de Charlotte Habersack.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -37,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "276c79ae36957f18",
+  "fuente_hash": "323b8e3639d200ea",
   "origen": "chatgpt-web"
 }

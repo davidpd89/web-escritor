@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9791387960421",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Steve McQueen. 66-76-26. (Libros de Autor.) se dirige a lectores interesados en el arte, el diseño y las publicaciones de autor. Sus 288 páginas y su edición en tapa dura lo sitúan entre los libros para consultar o conservar, más que entre las novelas de aventuras o fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato de Steve McQueen. 66-76-26. (Libros de Autor.), con 288 páginas publicadas por La Fábrica Editorial. Su encuadernación rígida favorece la conservación del volumen y resulta apropiada para quien prefiera consultar una publicación de arte en papel.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "edicion",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "720 retrats, de Xavier Mollà i Revert, permite establecer una comparación desde el interés por las publicaciones de autor y el retrato, mientras que Steve McQueen. 66-76-26. (Libros de Autor.) se presenta como una obra vinculada al nombre de Steve McQueen. All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial, de Daniel Sedcontra, aborda un ámbito artístico distinto, centrado expresamente en la música industrial y su dimensión cultural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802",
+        "isbn-9788410045538"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a071c30bcec11914",
+  "origen": "chatgpt-web"
+}

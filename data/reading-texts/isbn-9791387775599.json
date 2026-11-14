@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387775599",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rosalía: Un icono del pop mundial (Tendencias y Aficiones) se dirige a quienes buscan una lectura sobre Rosalía desde el ámbito de las biografías, la música popular y la cultura contemporánea. Su enfoque sobre una figura del pop se diferencia de los libros dedicados a enseñar técnicas artísticas o desarrollar habilidades creativas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Rosalía: Un icono del pop mundial (Tendencias y Aficiones) cuenta con una edición en tapa dura de 256 páginas, publicada por Oberon. La encuadernación rígida resulta práctica para conservar el volumen en una biblioteca personal o entregarlo como regalo a alguien interesado en la figura de Rosalía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo vivir una vida con arte: 366 inspiraciones de artistas para llevar la creatividad a tu día a día (Ático de los Libros) comparte con Rosalía: Un icono del pop mundial (Tendencias y Aficiones) el interés por el ámbito artístico. Katy Hessel reúne inspiraciones de artistas aplicadas a la vida cotidiana, mientras que Adrian Besley dedica su libro a una figura concreta de la música popular.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388324239"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "582162f944830daf",
+  "origen": "chatgpt-web"
+}

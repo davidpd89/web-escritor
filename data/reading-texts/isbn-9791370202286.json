@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791370202286",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Momentos estelares de la historia de Córdoba, de Mar Rodríguez Vacas, está dirigido a lectores interesados en la historia de Córdoba. Sus 256 páginas y su orientación histórica lo separan de los libros de ficción o de las guías centradas exclusivamente en actividades de ocio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Momentos estelares de la historia de Córdoba se publica en tapa blanda, con 256 páginas en castellano. La edición de Almuzara permite leer sus contenidos históricos en papel y volver a consultar los pasajes relacionados con Córdoba.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Momentos estelares de la historia de Córdoba y La Corredera de Córdoba: De coso taurino, patíbulo y mercado a gran bar (Arte y patrimonio) comparten su atención al pasado de Córdoba. Mar Rodríguez Vacas aborda la historia de la ciudad desde un título de alcance general, mientras que Francisco Solano Márquez centra su obra en La Corredera de Córdoba y sus distintos usos históricos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370205911"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "29be2aa29c7ed802",
+  "origen": "chatgpt-web"
+}

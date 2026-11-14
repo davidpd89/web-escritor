@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788483597286",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Relatos de Sebastopol: 22 (Clásicos), de León Tolstói, se dirige a lectores interesados en los clásicos literarios y los relatos. Su clasificación también incluye narrativa contemporánea, pero quien busque una novela identificada exclusivamente con ese género encontrará aquí una obra presentada como clásico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Relatos de Sebastopol: 22 (Clásicos) está disponible en tapa blanda y reúne 218 páginas en castellano. La edición de Calambur Editorial, S.l. ofrece un volumen físico de extensión relativamente contenida, manejable para leer fuera de casa y guardar junto a otros clásicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "89b5a5284ad53320",
+  "origen": "chatgpt-web"
+}

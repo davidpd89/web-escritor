@@ -4,41 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Estuche Abismo Lovecraft (Minotauro Ilustrados) encaja con lectores de terror, relatos y fantasía que buscan una edición ilustrada vinculada a H. P. Lovecraft. Su planteamiento se aparta de las novelas románticas y de las lecturas realistas, al situarse en el terreno de la ficción de terror y ciencia ficción.",
+      "texto": "Estuche Abismo Lovecraft (Minotauro Ilustrados) se dirige a lectores interesados en los relatos de terror y ciencia ficción, especialmente en la obra de H. P. Lovecraft. Su planteamiento no corresponde a quien busca una novela extensa o lecturas alejadas del terror y la ficción especulativa.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El estuche se presenta en tapa dura y reúne una edición de 192 páginas publicada por Minotauro. Su pertenencia a Minotauro Ilustrados y la encuadernación rígida lo convierten en una opción física para conservar, consultar las ilustraciones y regalar a lectores interesados en H. P. Lovecraft.",
+      "texto": "La tapa dura reúne sus 192 páginas en una edición física de Minotauro presentada en formato de estuche. Es la opción disponible para quien busca conservar el volumen en papel o incorporarlo a una colección de libros de H. P. Lovecraft.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
         "editorial",
         "autores"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Necronomicón comparte con Estuche Abismo Lovecraft (Minotauro Ilustrados) la autoría de H. P. Lovecraft y el vínculo con el terror y la fantasía oscura. El estuche incorpora también a Tomás Hijo entre sus autores y pertenece a una colección ilustrada, una diferencia relevante para quien busca una edición de carácter visual.",
+      "texto": "Necronomicón, de H. P. Lovecraft, comparte la autoría y su vinculación con el terror y la fantasía oscura. Cuentos de Terror / Horror Stories, de H P Lovecraft, también reúne relatos asociados al mismo autor, por lo que permite comparar dos propuestas de lectura vinculadas a su obra.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387574536"
+        "isbn-9791387574536",
+        "isbn-9786073878524"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "39160f4866e79927",
+  "fuente_hash": "081f3bc6b895662b",
   "origen": "chatgpt-web"
 }

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Imágenes del bien y del mal (fuera de colección), de Martin Buber, encaja con lectores que buscan filosofía y ensayo en una extensión contenida. Sus 104 páginas lo distinguen de obras más extensas; no responde a una búsqueda de ficción narrativa.",
+      "texto": "Imágenes del bien y del mal (fuera de colección), de Martin Buber, se dirige a lectores interesados en la filosofía y el ensayo, especialmente en cuestiones relacionadas con el bien y el mal. Con 104 páginas, ofrece una extensión más breve que la de un tratado voluminoso y se aleja de la narrativa de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,17 +14,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Imágenes del bien y del mal (fuera de colección) reúne 104 páginas en una edición física de Herder Editorial. Kindle permite llevar el texto en formato digital y leerlo desde un dispositivo compatible, sin ocupar espacio en la estantería.",
+      "texto": "Imágenes del bien y del mal (fuera de colección) está disponible en tapa blanda y Kindle. La edición de Herder Editorial reúne 104 páginas en un volumen físico breve; Kindle permite leer el mismo título en formato digital y llevarlo en el móvil.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "editorial",
-        "formatos_disponibles"
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Imágenes del bien y del mal (fuera de colección), de Martin Buber, comparte el ámbito filosófico con Arendt y la antropología de la condición plural en doble movimiento, de Javier Pons-Gallach. El primero plantea el bien y el mal desde su título; el segundo sitúa el foco en la condición plural y la antropología.",
+      "texto": "Imágenes del bien y del mal (fuera de colección) puede compararse con Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar, por su orientación hacia la reflexión. Martin Buber aborda el bien y el mal desde un título encuadrado en filosofía y ensayo, mientras que la obra de Raimon Panikkar se presenta expresamente como una recopilación de aforismos para meditar.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,7 +33,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399308358"
+        "isbn-9791387548278"
       ]
     }
   ],

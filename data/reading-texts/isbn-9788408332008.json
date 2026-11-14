@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788408332008",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ana Karenina edición limitada con cantos decorados, de Liev N Tolstoi, se dirige a lectores de narrativa que también prestan atención a la presentación física de sus libros. La edición resulta menos afín a quienes buscan exclusivamente una lectura digital o prefieren ejemplares sin elementos decorativos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Ana Karenina edición limitada con cantos decorados se distingue por los cantos decorados anunciados en su título y su presentación como edición limitada. Austral Editorial publica esta versión en castellano y tapa blanda, con fecha de publicación 2027-02-03. Su ISBN 9788408332008 permite identificarla frente a otras ediciones de la obra.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c26159b52b98fee2",
+  "origen": "chatgpt-web"
+}

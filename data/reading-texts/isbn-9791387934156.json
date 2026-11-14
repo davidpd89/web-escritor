@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Costa amalfitana (VIAJES), de Natasha Penot, está dirigido a quienes buscan lecturas sobre destinos turísticos y viajes. Por su temática, encaja menos con lectores interesados en novelas de ficción o libros centrados en el desarrollo personal.",
+      "texto": "Costa amalfitana (VIAJES) se dirige a lectores interesados en conocer un destino concreto y en los libros de viajes. Su enfoque geográfico la diferencia de las novelas ambientadas en lugares turísticos y de las obras de ocio que no se centran en un territorio.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Costa amalfitana (VIAJES) se presenta en tapa dura, con 290 páginas en castellano. La encuadernación rígida favorece su conservación en una estantería y su consulta sobre una mesa, aunque ocupa más espacio que una edición flexible de extensión semejante.",
+      "texto": "Costa amalfitana (VIAJES) está disponible en tapa dura, con 290 páginas y edición de Cinco Tintas. Esta presentación permite conservar el volumen como libro de consulta o regalo relacionado con el destino, aunque la cubierta rígida resulta menos flexible para transportarlo durante un viaje.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Costa amalfitana (VIAJES) comparte su orientación viajera con Córcega de cerca 1 (Guías De cerca Lonely Planet). La obra de Natasha Penot se centra en la costa amalfitana, mientras que la de Claire Angot, Élodie Lecadieu y Clara Jaeger aborda Córcega y se identifica expresamente como guía de viaje. La elección depende del destino que interese conocer.",
+      "texto": "Córcega de cerca 1 (Guías De cerca Lonely Planet) comparte con Costa amalfitana (VIAJES) el interés por destinos de viaje, pero se centra en Córcega y se identifica como guía de cerca. Amsterdam de cerca 2027-2028 también aborda un destino concreto, aunque su referencia es una ciudad y el libro de Natasha Penot se centra en la costa amalfitana.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328056"
+        "isbn-9788408328056",
+        "isbn-9788408320890"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d173b359f8254518",
+  "fuente_hash": "a89abdb5014d649c",
   "origen": "chatgpt-web"
 }

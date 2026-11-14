@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388613166",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Librecidas: Cómo identificar su filosofía se dirige a lectores interesados en examinar ideas filosóficas y su relación con el poder y la política. Es un ensayo de 141 páginas, menos adecuado para quien busca una novela con personajes y trama o un manual de ejercicios de bienestar.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Librecidas: Cómo identificar su filosofía se ofrece en tapa dura, con 141 páginas en castellano. Esta encuadernación proporciona una cubierta rígida para conservar y consultar el ensayo en papel, además de una presentación apropiada para regalar un libro de filosofía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Librecidas: Cómo identificar su filosofía puede compararse con Dinerosofía: Conoce y cuida la Economía con Filosofía, de María del Carmen Bengoechea Bernal. Ambas obras comparten autora y enfoque filosófico, pero Librecidas aborda la identificación de una filosofía y se relaciona con el poder y la política, mientras Dinerosofía aplica la reflexión filosófica a la economía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388613098"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f58d46b6a1bc9f54",
+  "origen": "chatgpt-web"
+}

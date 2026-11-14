@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388449444",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El abismo del placer, de Jonathan Turrientes Roldán, se dirige a lectores interesados en novelas de romance. Con 368 páginas, ofrece una extensión mayor que la de un relato breve y encaja menos con quienes buscan una lectura centrada en otros géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El abismo del placer se presenta en tapa blanda, con 368 páginas en castellano. Su encuadernación flexible permite llevarlo en una bolsa y leerlo en varias sesiones sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El abismo del placer comparte el género romántico con A mil por hora, de Hannah Grace, aunque este último sitúa su romance en el entorno de la F1. También puede compararse con 24 historias para enamorarte en navidad: Relatos navideños, de Patricia Bonet, que propone relatos ambientados en una época concreta, frente a la extensión de 368 páginas del libro de Jonathan Turrientes Roldán.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409929177",
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5c96e37bdde98b9a",
+  "origen": "chatgpt-web"
+}

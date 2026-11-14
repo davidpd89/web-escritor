@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9791370382643",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a quienes estudian las relaciones entre literatura, imagen y creación artística desde una perspectiva ensayística. Encaja menos con lectores que buscan una novela juvenil de argumento continuo o un manual práctico dedicado exclusivamente a técnicas de dibujo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro plantea el diálogo entre lo escrito y lo visual como cuestión de estudio. La referencia a la literatura comparada sitúa ese diálogo en un marco de análisis cultural, mientras que su vinculación con el arte y el diseño amplía el campo más allá del examen de textos literarios aislados.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 398 páginas de esta publicación de Tirant Humanidades en un volumen físico. Su extensión permite dedicar sesiones de lectura y consulta al contenido ensayístico, con la posibilidad de marcar páginas y anotar referencias en papel.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El cine doméstico comparte el interés por las manifestaciones visuales, pero se concentra en la definición, preservación y apropiación del cine doméstico. Chema Madoz.: Manual de un distraído se vincula al ámbito artístico desde una autoría identificada, mientras que Texto e imagen. Más acá de la literatura comparada (Plural) plantea una relación explícita entre lenguajes escritos y visuales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387960391"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "66a9c86ab1a8a0b7",
+  "origen": "chatgpt-web"
+}

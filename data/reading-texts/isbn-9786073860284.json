@@ -4,40 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El ministro del poder. Un infiltrado en el 4T/ The Secretary in Power: Un infiltrado en el 4T se dirige a lectores interesados en el poder y la política. Su enfoque lo sitúa en la narrativa política, por lo que no responde a quien busca ficción de entretenimiento o una historia centrada en otros géneros.",
+      "texto": "El ministro del poder. Un infiltrado en el 4T/ The Secretary in Power: Un infiltrado en el 4T se orienta a lectores interesados en las estructuras de poder y la política contemporánea. Su asunto central es la infiltración en un entorno político, por lo que queda fuera de las búsquedas centradas en historia del arte o literatura fantástica.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne las 328 páginas de El ministro del poder. Un infiltrado en el 4T/ The Secretary in Power: Un infiltrado en el 4T en un único volumen físico. Es el formato disponible en esta edición, con Hernn Gmez Bruera como autor y Grijalbo Mondadori como editorial.",
+      "texto": "El ministro del poder. Un infiltrado en el 4T/ The Secretary in Power: Un infiltrado en el 4T está disponible en tapa blanda, con 328 páginas en castellano. Es una edición física que puede guardarse y consultarse por pasajes durante la lectura de sus contenidos políticos.",
       "evidencias": [
         "titulo",
-        "autores",
-        "edicion",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "idioma",
+        "edicion",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "A la sombra del Estado, de Luis de la Corte Ibáñez, aborda el espionaje, las operaciones encubiertas y el poder clandestino, mientras que El ministro del poder. Un infiltrado en el 4T/ The Secretary in Power: Un infiltrado en el 4T se sitúa en el ámbito del poder y la política. Ambos permiten acercarse a las relaciones de poder desde perspectivas distintas: las operaciones clandestinas y la política.",
+      "texto": "El ministro del poder. Un infiltrado en el 4T/ The Secretary in Power: Un infiltrado en el 4T comparte con A la sombra del Estado el interés por el poder y las actuaciones que transcurren fuera de la esfera pública, aunque este último aborda espionaje y operaciones encubiertas. Brainwashing: Populismo en la era del like desplaza la atención hacia el populismo y su relación con la cultura digital.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788434441057"
+        "isbn-9788434441057",
+        "isbn-9791399271379"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bdb66c61fae7bb1f",
+  "fuente_hash": "420b29fe80fda6b4",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9798182959094",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La extraña aventura: Ser diferente te hace ser tú se dirige a lectores de literatura infantil interesados en la identidad personal y las aventuras. Su enfoque en la diferencia individual también conecta con el desarrollo personal; se aleja de las lecturas centradas exclusivamente en la acción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La extraña aventura: Ser diferente te hace ser tú está disponible en tapa blanda, con 76 páginas en castellano. Esta edición permite llevar el libro en papel sin cargar con un volumen extenso y conservarlo para posteriores lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La imaginación de Michael y La extraña aventura: Ser diferente te hace ser tú comparten la autoría de Brian Edlin. El segundo título señala expresamente la diferencia personal como tema, mientras que el primero pone el foco de su título en la imaginación. Ambos permiten explorar distintas propuestas del mismo autor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798182960182"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "64e84e0a12339de4",
+  "origen": "chatgpt-web"
+}

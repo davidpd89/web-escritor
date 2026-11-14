@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370383060",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Obras selectas del Dr. José López Yepes: padre de la documentación Tomo IV (Plural -México-) se orienta a lectores interesados en la documentación y en publicaciones académicas relacionadas con el derecho. Su extensión de 568 páginas y su carácter de recopilación de obras selectas encajan menos con quien busque una introducción breve o una novela.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 568 páginas de Obras selectas del Dr. José López Yepes: padre de la documentación Tomo IV (Plural -México-) en una edición de Tirant Humanidades. Es una opción física para consultar, anotar y conservar los textos, aunque su extensión supone un volumen considerable para transportarlo diariamente.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Blockchain: un desafío legal (Monografía), de Ana Isabel Quiroz Ruiz, comparte con Obras selectas del Dr. José López Yepes: padre de la documentación Tomo IV (Plural -México-) su vinculación con el ámbito jurídico, pero se concentra en los desafíos legales de una tecnología concreta. Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I, de Juan Felipe Criado-Castilla, también presenta una materia especializada, centrada esta vez en los contratos de consumo frente al enfoque documental de la recopilación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370610265",
+        "isbn-9791370297305"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "12bdffa9a0839e40",
+  "origen": "chatgpt-web"
+}

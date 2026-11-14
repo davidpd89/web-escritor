@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Soldados, Tribus y Forajidos: Relatos de Frederic Remington en el Lejano Oeste (Colección Clásicos de la Naturaleza) encaja con lectores interesados en relatos del Lejano Oeste y publicaciones vinculadas a la naturaleza. No responde al mismo interés que una guía práctica de jardinería o un manual de técnicas artísticas, porque su título anuncia una recopilación de relatos.",
+      "texto": "Soldados, Tribus y Forajidos: Relatos de Frederic Remington en el Lejano Oeste (Colección Clásicos de la Naturaleza) se dirige a lectores interesados en relatos ambientados en el Lejano Oeste. Su temática histórica y fronteriza encaja menos con quienes buscan manuales prácticos de ocio o actividades para resolver.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,31 +13,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Soldados, Tribus y Forajidos: Relatos de Frederic Remington en el Lejano Oeste (Colección Clásicos de la Naturaleza) tiene 402 páginas y se publica en tapa blanda. La edición en castellano de Editorial Carbrame permite leer los relatos en un volumen físico de cubierta flexible.",
+      "texto": "La edición en tapa blanda de Soldados, Tribus y Forajidos: Relatos de Frederic Remington en el Lejano Oeste (Colección Clásicos de la Naturaleza) tiene 402 páginas en castellano. El formato permite leer los relatos en papel y conservarlos reunidos en un solo volumen, aunque su extensión requiere más espacio que un libro breve.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "idioma",
-        "editorial"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Soldados, Tribus y Forajidos: Relatos de Frederic Remington en el Lejano Oeste (Colección Clásicos de la Naturaleza) comparte el interés por la naturaleza con CÓMO AYUDAR A LOS ERIZOS: Más de 100 ideas para transformar tu jardín en un refugio para la naturaleza. La diferencia es el propósito: Frederic Remington presenta relatos ambientados en el Lejano Oeste, mientras que Helen Bostock y Sophie Collins proponen actuaciones para favorecer la fauna del jardín.",
+      "texto": "Soldados, Tribus y Forajidos: Relatos de Frederic Remington en el Lejano Oeste (Colección Clásicos de la Naturaleza) y 80 crímenes imposibles de resolver (FUERA DE ESCENA) ofrecen contenidos relacionados con conflictos y situaciones por resolver. Frederic Remington presenta relatos del Lejano Oeste, mientras que Gareth Moore y Laura Jayne Ayres plantean crímenes como desafíos para el lector.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399220322"
+        "isbn-9791388015816"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3be95fee1492ef54",
+  "fuente_hash": "785fd1a89436f612",
   "origen": "chatgpt-web"
 }

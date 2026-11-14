@@ -4,40 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La bestia del rey 14 (Shôjo) se dirige a lectores de manga que combinan fantasía, aventuras y romance. El título lo identifica como el n.º 14, de modo que no es la opción más directa para quien busca una historia independiente o prefiere el romance contemporáneo sin elementos fantásticos.",
+      "texto": "La bestia del rey 14 (Shôjo), de Rei Tôma, se orienta a quienes buscan fantasía y aventuras narradas mediante cómic. No corresponde a una lectura de narrativa realista ni a una novela presentada únicamente en prosa.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La bestia del rey 14 (Shôjo) cuenta con una edición en tapa blanda de 168 páginas, publicada en castellano por Distrito Manga. Su extensión y cubierta flexible facilitan llevar el volumen y guardarlo junto a otras entregas de la colección.",
+      "texto": "La bestia del rey 14 (Shôjo) tiene una edición en tapa blanda de 168 páginas, publicada en castellano por Distrito Manga. Su extensión permite incorporarlo a una colección física de manga sin el volumen de un tomo de muchas páginas.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La bestia del rey 13 (Shôjo) es el referente más cercano a La bestia del rey 14 (Shôjo): ambos llevan la firma de Rei Tôma, aunque el título identifica números distintos. Alas de escarcha y oro: El canto del cisne también plantea fantasía con personajes que ocultan aspectos de sí mismos, pero pertenece a otra obra y está escrita por Marta Morillo.",
+      "texto": "La bestia del rey 13 (Shôjo) comparte autoría con La bestia del rey 14 (Shôjo), y su argumento sitúa a Rangetsu de regreso en el palacio como oficial semihumano del ejército. A Buentiempo Mala Cara: 9 (Enseñanza Mágica Obligatoria), de Sergio Sánchez Morán, ofrece otra referencia vinculada a la magia, con distinta autoría y colección.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791387962036",
-        "isbn-9791387949938"
+        "isbn-9791399305517"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3602da34692d6092",
+  "fuente_hash": "7faee55f867b8cd4",
   "origen": "chatgpt-web"
 }

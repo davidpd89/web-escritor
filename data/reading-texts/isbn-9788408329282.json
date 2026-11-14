@@ -4,24 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "GoDeik1. GoDeik y la gema maldita. Edición exclusiva: 1 (Jóvenes influencers) se dirige a lectores interesados en aventuras que combinan misterio y humor. Resulta menos afín a quienes buscan narraciones costumbristas sin enigmas o prefieren historias alejadas de la aventura.",
+      "texto": "Se dirige a lectores de aventuras y misterio interesados en una historia cuyo conflicto gira alrededor de una gema maldita. Sus 192 páginas y su pertenencia a Jóvenes influencers lo distinguen de una novela realista sin elementos misteriosos o de una narración de gran extensión.",
       "evidencias": [
         "titulo",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "GoDeik1. GoDeik y la gema maldita. Edición exclusiva: 1 (Jóvenes influencers) está disponible en tapa dura y tiene 192 páginas. Esta presentación permite leerlo, prestarlo o conservarlo como ejemplar físico y mantiene la identificación de edición exclusiva que figura en el título.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "categorias",
         "numero_paginas"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 192 páginas de esta edición exclusiva publicada por Destino Infantil & Juvenil. Es una presentación física que permite conservar el volumen individualmente o combinarlo con otros libros de Jóvenes influencers sin comprar el estuche completo.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "afines_catalogo"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "GoDeiK 2. GoDeiK y los amigos enemigos (Jóvenes influencers) comparte autoría con este libro de GoDeiK y mantiene el marco de aventuras y misterio. Los títulos distinguen los números 1 y 2, mientras que Estuche GoDeiK 1 + GoDeiK 2 (Jóvenes influencers) los presenta juntos en lugar de ofrecer únicamente este volumen.",
+      "texto": "Estuche GoDeiK 1 + GoDeiK 2 (Jóvenes influencers) comparte autoría y colección con GoDeik y la gema maldita. El estuche agrupa dos entregas, mientras que la edición exclusiva ofrece por separado una aventura de misterio centrada en una gema maldita.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,13 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328476",
-        "isbn-9788408328087"
+        "isbn-9788408328476"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b3667b0f06be2de1",
+  "fuente_hash": "c3d662eed40bb728",
   "origen": "chatgpt-web"
 }

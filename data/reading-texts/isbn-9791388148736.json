@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388148736",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lo que el toldero no te dice...: (porque tiene prisa) se dirige a lectores interesados en experiencias personales relacionadas con el ámbito profesional y empresarial. Su clasificación entre biografías, memorias y ensayo lo distingue de una novela de ficción o de una lectura centrada en mundos imaginarios.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lo que el toldero no te dice...: (porque tiene prisa) se ofrece en tapa blanda, con 264 páginas en castellano. La edición de Uno Editorial permite leer y consultar el contenido en un único volumen de papel, sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lo que el toldero no te dice...: (porque tiene prisa) puede compararse con Detrás de una Estrella por su relación con el ámbito empresarial. El libro de Vicente Pacheco Carrasco se sitúa entre las memorias y el ensayo, mientras que el de Fernando Trías de Bes aborda la transformación de una empresa cervecera. Horneando el éxito / Baking Success, de Gabriel Torres, ofrece otra referencia del catálogo vinculada por su título al éxito.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423441075",
+        "isbn-9786073878982"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eac19fb056c1a259",
+  "origen": "chatgpt-web"
+}

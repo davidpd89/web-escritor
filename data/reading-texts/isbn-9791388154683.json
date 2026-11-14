@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9791388154683",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en comprender el universo mediante explicaciones gráficas e ilustradas. Su enfoque divulgativo y visual se aleja de una narración de ficción o de una obra centrada en la historia de la astronomía.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Explica conceptos fundamentales del cosmos mediante gráficos sencillos e ilustraciones. Esta versión se presenta como extendida y actualizada, con una organización propia de una guía de consulta sobre el universo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa dura y reúne 328 páginas publicadas por Blackie Books. Este formato permite conservar en un volumen físico las ilustraciones y los gráficos de la guía, tanto para una lectura continuada como para consultas posteriores.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Atlas de la noche (¡incluye un póster que brilla en la oscuridad!): Explora las constelaciones y las historias de las estrellas (Cuentos que cuentan) comparte el interés por el cielo, pero se centra en constelaciones y relatos estelares. La obra de Toshifumi Futamase y Toshimiro Nakamaru aborda conceptos generales del universo mediante recursos gráficos.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788410318823"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5a5feeaa9dc531eb",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pequeño libro de Estoicismo, de Rasha Barrage, se dirige a lectores interesados en una introducción breve a la filosofía estoica y su aplicación a la vida cotidiana. Explica sus orígenes, sus pensadores y sus principales virtudes, con atención a la serenidad y la fortaleza personal. Su planteamiento introductorio se diferencia del de un tratado académico especializado en una única escuela o figura filosófica.",
+      "texto": "Pequeño libro de Estoicismo, de Rasha Barrage, se dirige a lectores interesados en la filosofía aplicada a la vida cotidiana. Trata los fundamentos del estoicismo, sus pensadores y sus virtudes, por lo que no está orientado a quien busca una narración de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,8 +13,17 @@
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "Pequeño libro de Estoicismo está disponible en tapa dura y Kindle. La tapa dura ofrece un ejemplar físico para conservar o regalar; Kindle permite consultar sus explicaciones sobre el estoicismo desde un dispositivo de lectura compatible, sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Pequeño libro de Estoicismo y Pequeño libro de Criminología comparten autoría, Rasha Barrage, y un planteamiento introductorio, aunque el primero aborda una corriente filosófica y el segundo estudia las teorías y causas de la conducta criminal. Frente a El ego es tu enemigo, de Ryan Holiday, centrado en controlar el ego para alcanzar el éxito, Pequeño libro de Estoicismo ofrece una visión más general de los orígenes, pensadores y virtudes del estoicismo.",
+      "texto": "Pequeño libro de Estoicismo puede compararse con Pequeño libro de Criminología, también de Rasha Barrage, por su planteamiento introductorio. El primero aborda una corriente filosófica y su aplicación cotidiana; el segundo explica teorías criminológicas, causas de la conducta criminal y problemas relacionados con el delito.",
       "evidencias": [
         "titulo",
         "autores",
@@ -22,13 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388177057",
-        "isbn-9788418053696"
+        "isbn-9791388177057"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b9468f63d770235e",
+  "fuente_hash": "d4816ca164075c71",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791370206246",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sonata a Marie (Novela), de Rafael Domínguez de Gor, encaja con lectores que buscan una novela de narrativa contemporánea en castellano. Sus 320 páginas corresponden a una lectura de extensión media; por su clasificación editorial, no es la elección más ajustada para quien busca específicamente ensayo o divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sonata a Marie (Novela) se publica en tapa dura, con 320 páginas en castellano. Esta edición de Almuzara ofrece una cubierta rígida para guardar el libro en la estantería o entregarlo como regalo, sin necesidad de escoger entre distintas encuadernaciones de papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1cfe21cca0e385cd",
+  "origen": "chatgpt-web"
+}

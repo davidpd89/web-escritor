@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pink Floyd: Un moderno Frankenstein (Sílex Música) se dirige a lectores interesados en la música y en el ensayo sobre manifestaciones artísticas. Sus 524 páginas lo alejan de quienes buscan una introducción breve o un libro de actividades prácticas.",
+      "texto": "Pink Floyd: Un moderno Frankenstein (Sílex Música) se dirige a quienes buscan un ensayo relacionado con Pink Floyd y el ámbito artístico. Su extensión de 524 páginas corresponde a una lectura de largo recorrido, alejada de los formatos breves de consulta. No responde a la búsqueda de una novela de ficción.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,19 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Sílex Ediciones está disponible en tapa blanda, con 524 páginas en castellano. Este formato permite conservar el ensayo en una biblioteca personal y consultar sus páginas en papel, aunque su extensión añade volumen al transportarlo.",
+      "texto": "La edición de Pink Floyd: Un moderno Frankenstein (Sílex Música) se presenta en tapa blanda y reúne 524 páginas. El volumen físico permite marcar apartados y regresar a ellos durante la lectura, aunque su extensión supone transportar un libro considerable. Está publicado en castellano por Sílex Ediciones.",
       "evidencias": [
-        "editorial",
-        "edicion",
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "categorias"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Pink Floyd: Un moderno Frankenstein (Sílex Música) y De la estética como política: Para una rehabilitación del sentido en el cine (Signo e imagen) comparten el interés por el análisis de expresiones artísticas. Javier Franco Madrid centra su título en la música, mientras Noël Burch aborda las relaciones entre estética, política y cine.",
+      "texto": "Pink Floyd: Un moderno Frankenstein (Sílex Música) y Clásicos Sin Filtros: El Impacto del Mundo Antiguo / Talking Classics: The Shock of the Old comparten una orientación ensayística hacia asuntos culturales. Javier Franco Madrid centra su título en Pink Floyd, mientras que Mary Beard aborda el mundo antiguo. La diferencia principal está en el objeto de estudio.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,7 +32,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788437650586"
+        "isbn-9786076393055"
       ]
     }
   ],

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419426901",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Palestina 1936: La gran revuelta y los orígenes del conlicto en oriente próximo, de Oren Kessler, se dirige a lectores interesados en la historia de Oriente Próximo y los antecedentes de sus conflictos. Su enfoque histórico y sus 416 páginas lo separan de una introducción breve o de una novela ambientada en la región.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Palestina 1936: La gran revuelta y los orígenes del conlicto en oriente próximo es de tapa blanda y contiene 416 páginas. El formato permite conservar el libro como volumen de consulta y regresar a los pasajes relacionados con la revuelta y sus antecedentes históricos durante una lectura repartida en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA) y Palestina 1936: La gran revuelta y los orígenes del conlicto en oriente próximo comparten el interés por procesos históricos de conflicto político. Timothy W. Ryback aborda la caída de una democracia vinculada a Hitler, mientras que Oren Kessler sitúa su estudio en la revuelta de Palestina de 1936 y los orígenes de un conflicto regional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3bf66deb1a343a10",
+  "origen": "chatgpt-web"
+}

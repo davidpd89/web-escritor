@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9789878231297",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Desobedientes: Familiares de genocidas por la Memoria, la Verdad y la Justi (HISTORIA URGENTE) se dirige a lectores interesados en la memoria, la responsabilidad familiar y las consecuencias de los crímenes colectivos. La obra de Verónica Estay Stange pertenece al ensayo y a las biografías y memorias, no a la narrativa de evasión; su asunto puede resultar difícil para quien prefiera evitar referencias al genocidio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Desobedientes: Familiares de genocidas por la Memoria, la Verdad y la Justi (HISTORIA URGENTE) cuenta con una edición en tapa blanda de 248 páginas. El volumen permite leer y consultar en papel una obra de ensayo y memoria, con la posibilidad de marcar pasajes relacionados con su temática histórica y familiar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Desobedientes: Familiares de genocidas por la Memoria, la Verdad y la Justi (HISTORIA URGENTE) puede compararse con Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes por su relación con las vidas personales, aunque el libro de Verónica Estay Stange se centra en familiares de genocidas y la memoria. Alfred y Emily (Narrativa), de Doris Lessing, ofrece otra referencia de lectura vinculada a nombres personales, pero se presenta como narrativa y no como ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426438515",
+        "isbn-9786073873154"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6ceb5712f9658276",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9786316810229",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La biblioteca astral (CONTEMPORÁNEA), de Kate Quinn, se dirige a lectores de narrativa contemporánea. Su clasificación editorial la sitúa fuera de las colecciones identificadas como clásicos o guías de viaje; es una elección de género para quien busca ficción contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La biblioteca astral (CONTEMPORÁNEA) se presenta en tapa blanda, con 320 páginas en castellano. Esta edición de Stefano Books permite leer el volumen en papel y conservarlo en una estantería sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "05cba5fc8207db3b",
+  "origen": "chatgpt-web"
+}

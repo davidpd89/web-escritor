@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a lectores adultos interesados en el desarrollo personal, la espiritualidad y la reflexión sobre la aceptación de los cambios. Combina planteamientos filosóficos con experiencias personales; quienes busquen un manual centrado exclusivamente en ejercicios físicos o instrucciones técnicas encontrarán un enfoque distinto.",
+      "texto": "Uketamo. Abrazar la vida tal cual viene está dirigido a lectores adultos interesados en la aceptación personal, la filosofía japonesa y la espiritualidad. Combina psicología práctica con experiencias y tradiciones como el zen y el kintsugi, por lo que se distancia de los manuales centrados únicamente en técnicas de productividad.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,26 +14,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas reúne sus 208 páginas en un volumen físico para leer y conservar. Kindle permite llevarlo en un dispositivo electrónico, mientras que el audiolibro ofrece la posibilidad de escuchar el contenido sin depender de la lectura en pantalla o papel.",
+      "texto": "Uketamo. Abrazar la vida tal cual viene puede leerse en tapa blanda o Kindle y también escucharse como audiolibro. La edición impresa de 208 páginas incorpora solapas y permite consultar sus reflexiones en papel; Kindle facilita la lectura en dispositivos compatibles y el audiolibro permite seguir el contenido mediante escucha.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "edicion",
-        "formatos_disponibles"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Uketamo. Abrazar la vida tal cual viene, de Ana Galeote Frontelo, puede compararse con Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, por su aproximación a la espiritualidad. La diferencia está en el enfoque: el primero aborda la aceptación de la vida desde la filosofía y la psicología práctica, mientras que el segundo sitúa su propuesta en la astrología, la filosofía y la magia.",
+      "texto": "Ama tu sistema nervioso y Uketamo. Abrazar la vida tal cual viene comparten una aproximación al bienestar personal, aunque el primero plantea el cuidado del sistema nervioso y el segundo desarrolla la aceptación desde la filosofía japonesa. Frente a Con Dios todo lo puedo: Enseñanzas cristianas para la vida desde san Pedro hasta san Juan Pablo II (Bruguera Tendencias), de María Gómez Zúñiga y Laura Trueba, la obra de Ana Galeote Frontelo recurre al zen y a tradiciones japonesas en lugar de enseñanzas cristianas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788411214315"
+        "isbn-9788419820853",
+        "isbn-9788402431660"
       ]
     }
   ],

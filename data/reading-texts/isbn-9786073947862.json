@@ -4,26 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está orientado a lectores que buscan abordar las celebraciones navideñas y las relaciones familiares desde el desarrollo personal. Su enfoque sobre la convivencia y el bienestar se aparta de quienes prefieren una novela ambientada en las fiestas o un manual de cocina navideña.",
+      "texto": "¡Felices Fiestas! Evita El Drama En Familia Y Disfruta Las Fechas Decembrinas / Happy Holidays! How to Enjoy the Christmas & Hanukkah Season to the Fullest está dirigido a quienes buscan orientación sobre las relaciones familiares durante las celebraciones de fin de año. Wayne W Dyer aborda un tema de desarrollo personal y bienestar en 104 páginas; no es una novela navideña de ficción.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "sinopsis_editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de ¡Felices Fiestas! Evita El Drama En Familia Y Disfruta Las Fechas Decembrinas / Happy Holidays! How to Enjoy the Christmas & Hanukkah Season to the Fullest reúne 104 páginas. Su extensión permite consultar el contenido en papel durante las celebraciones familiares y volver a los apartados que interesen.",
+      "texto": "La tapa blanda permite leer y consultar las 104 páginas de la obra de Wayne W Dyer en un ejemplar físico de extensión breve. Kindle facilita acceder al contenido desde el móvil, una opción práctica para revisar las cuestiones familiares tratadas durante las celebraciones sin llevar el libro en papel.",
       "evidencias": [
-        "titulo",
         "numero_paginas",
+        "autores",
         "formatos_disponibles",
+        "titulo",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, también aborda el bienestar y las relaciones, pero desde un planteamiento de cambio personal más amplio. Anatomía de una relación tóxica: Como reconocerla, salir de ella y recuperar tu vida, de David C, se centra en relaciones perjudiciales, mientras que Wayne W Dyer sitúa su propuesta en la convivencia familiar durante las fiestas.",
+      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, comparte el interés por el bienestar y las relaciones, pero aborda más ámbitos de la vida cotidiana. Anatomía de una relación tóxica: Como reconocerla, salir de ella y recuperar tu vida, de David C, también trata dificultades relacionales, aunque se centra en reconocer y abandonar vínculos tóxicos en lugar de gestionar las celebraciones familiares.",
       "evidencias": [
         "titulo",
         "autores",
@@ -38,6 +40,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "50f20484b3313aa2",
+  "fuente_hash": "15cbd1cd575b0025",
   "origen": "chatgpt-web"
 }

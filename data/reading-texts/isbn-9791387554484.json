@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9791387554484",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado al público infantil y juvenil interesado en lecturas relacionadas con la naturaleza. Por su clasificación temática, se distancia de los libros técnicos sobre medioambiente y de las obras dirigidas específicamente a lectores adultos.",
+      "evidencias": [
+        "categorias",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mamá Viento del Oeste: 02 (Hojalatinos) cuenta con una edición en tapa blanda de 144 páginas. Es un volumen físico de extensión contenida que puede guardarse en una mochila, compartirse en casa o conservarse junto a otras lecturas infantiles.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "74a0678ffa41c4a2",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409921331",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tetti la cigarra ibérica se dirige al público infantil interesado en los animales y en acercarse a la ciencia mediante la lectura. Su orientación divulgativa la distingue de los relatos infantiles centrados únicamente en aventuras ficticias; tampoco responde a quien busca un manual científico especializado.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 36 páginas de Tetti la cigarra ibérica en un volumen físico en castellano. Su extensión permite repartir la lectura en sesiones breves y volver a las páginas anteriores sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tetti la cigarra ibérica puede compararse con 50 cosas que hay que saber sobre IA por su orientación hacia la divulgación científica. Sonia Quilón Sánchez aborda una cigarra ibérica desde una perspectiva infantil, mientras que Keith Mansfield trata cuestiones relacionadas con la inteligencia artificial. La diferencia principal está en el tema y el público al que se dirige cada obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6334e95823ff1abb",
+  "origen": "chatgpt-web"
+}

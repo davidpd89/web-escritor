@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387649029",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Trabajo, Ahorro y Capitalismo (Jarana) se dirige a quienes buscan lecturas sobre economía, capitalismo y cuestiones políticas. Su materia se aparta de la ficción centrada en personajes y conflictos narrativos, por lo que responde a intereses distintos de los de una novela convencional.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Trabajo, Ahorro y Capitalismo (Jarana) tiene una edición en tapa dura de 280 páginas, publicada por Jarana Editores. La encuadernación rígida resulta apropiada para conservar el volumen y consultarlo repetidamente, además de ofrecer una presentación física para regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Trabajo, Ahorro y Capitalismo (Jarana) comparte autor, Miguel Anxo Bastos Boubeta, con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo). Ambos se sitúan en el terreno económico y político, aunque el segundo anuncia una introducción al anarcocapitalismo y el primero delimita su asunto mediante el trabajo, el ahorro y el capitalismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1ba52d647e22d056",
+  "origen": "chatgpt-web"
+}

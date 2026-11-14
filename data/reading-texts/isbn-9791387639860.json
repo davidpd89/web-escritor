@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387639860",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "EL DIVÁN INVERTIDO: Hacia una clínica esquizo-queer (Serie General Universitaria) se dirige a lectores interesados en el ensayo psicológico y sus enfoques clínicos. Sus 204 páginas lo sitúan en una extensión contenida; no responde a quien busca una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de EL DIVÁN INVERTIDO: Hacia una clínica esquizo-queer (Serie General Universitaria) es en tapa dura y reúne 204 páginas. Este formato ofrece una encuadernación rígida para conservar el volumen y consultarlo repetidamente, especialmente en una biblioteca de estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "ACE: Lo que la asexualidad desvela sobre el deseo, la sociedad y el significado del sexo (Tendencias) aborda cuestiones relacionadas con la sexualidad, mientras que EL DIVÁN INVERTIDO: Hacia una clínica esquizo-queer (Serie General Universitaria) se centra en una perspectiva clínica. Crónica de una esquizofrenia comparte una referencia temática a la esquizofrenia, aunque presenta un enfoque distinto desde su propio título.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788492917525",
+        "isbn-9788409906048"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "24b54a850a4d59e4",
+  "origen": "chatgpt-web"
+}

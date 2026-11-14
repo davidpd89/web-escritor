@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791387929862",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un universo semitico\". Estudios en honor del prof. Gregorio del olmo lete, de Clara Carbonell Ortiz, se orienta a lectores interesados en estudios dedicados a una figura académica y en publicaciones de carácter biográfico. No responde a la búsqueda de una novela de ficción ni de una narración de aventuras, por su planteamiento expresado en el título y su clasificación editorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un universo semitico\". Estudios en honor del prof. Gregorio del olmo lete puede compararse con Admirados Soñadores por su vinculación con personas como materia de lectura. El primero se presenta como estudios en honor de una figura académica, mientras que Admirados Soñadores, de Juan Salazar Larraz, se identifica por su título y autoría, sin ese planteamiento académico explícito.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412972573"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9a3f03c6d7ce1c03",
+  "origen": "chatgpt-web"
+}

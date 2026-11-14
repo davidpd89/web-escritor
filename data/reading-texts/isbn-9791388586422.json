@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388586422",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Abonado y fertilización en agricultura ecológica-AGAU001PO encaja con lectores que buscan contenidos sobre fertilización y prácticas agrícolas ecológicas. Su enfoque específico en el abonado lo distancia de los libros dedicados a la agricultura convencional en general o de las lecturas narrativas sobre el mundo rural.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Abonado y fertilización en agricultura ecológica-AGAU001PO es de tapa blanda y tiene 106 páginas. Su extensión permite manejar el volumen como material físico de consulta sobre abonado y fertilización, con el texto íntegramente en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abonado y fertilización en agricultura ecológica-AGAU001PO se relaciona con Energías renovables: Especialidad biomasa-ENAE010PO y Supervisión agrícola mediante imágenes y drones-AGAU42, ambos de Elsa Rubio Duce. Los tres tratan materias técnicas, pero el primero aborda la fertilización ecológica, frente a la biomasa energética y la supervisión agrícola con drones de los otros títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388586279",
+        "isbn-9791388586156"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "88a7a76d0e3463c3",
+  "origen": "chatgpt-web"
+}

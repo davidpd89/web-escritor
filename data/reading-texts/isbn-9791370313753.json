@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370313753",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "EDIT & LIVE II: Una mirada extraordinaria (Cultura y Ocio) se orienta a lectores interesados en arte, diseño y publicaciones de consulta cultural. La obra de RBA Revistas tiene 304 páginas y se aparta, por su clasificación temática, de los manuales jurídicos o los ensayos científicos especializados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "EDIT & LIVE II: Una mirada extraordinaria (Cultura y Ocio) cuenta con una edición en tapa blanda de 304 páginas. El volumen de RBA Libros está publicado en castellano y permite mantener la obra en una biblioteca física para su lectura y consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "EDIT & LIVE II: Una mirada extraordinaria (Cultura y Ocio) puede compararse con Diccionario de conceptos y términos para entender y moverse en política: 16 (Biblos), de Eduardo Montagut, por su orientación hacia la consulta y la referencia. La obra de RBA Revistas se sitúa en arte y diseño, mientras que el diccionario delimita su contenido al vocabulario político. Cambian, por tanto, tanto el ámbito de consulta como la autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388175671"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9fe93c12c9de8ff7",
+  "origen": "chatgpt-web"
+}

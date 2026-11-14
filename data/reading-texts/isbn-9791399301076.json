@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399301076",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La aventura de educar: Mirada profesional e internacional desde Alemania para educar niños y adolescentes seguros y autónomos. se dirige a adultos interesados en la crianza y en fomentar la autonomía infantil y adolescente. Su planteamiento de desarrollo personal y ensayo se aleja de la ficción de aventuras, aunque esta figure entre sus clasificaciones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La aventura de educar: Mirada profesional e internacional desde Alemania para educar niños y adolescentes seguros y autónomos. se publica en tapa blanda, con 180 páginas en castellano. El formato permite consultar en papel sus contenidos sobre educación y volver a determinados apartados durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La aventura de educar: Mirada profesional e internacional desde Alemania para educar niños y adolescentes seguros y autónomos. comparte el interés por la crianza con Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos), de Toño Ramos. Pilar Cordova centra su título en educar para la autonomía; Toño Ramos anuncia herramientas conductuales para la convivencia entre generaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399249682"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "75e3bcb91967feb5",
+  "origen": "chatgpt-web"
+}

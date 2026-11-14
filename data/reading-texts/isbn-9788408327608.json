@@ -4,27 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ilusión y persuasión (Ensayos) encaja con lectores que buscan ensayos relacionados con el arte y el diseño. Su planteamiento ensayístico y su autoría colectiva lo diferencian de los libros de actividades creativas y de las narraciones de ficción.",
+      "texto": "Ilusión y persuasión (Ensayos) se dirige a lectores interesados en el arte y el diseño desde una perspectiva ensayística. Quien prefiera cuadernos para realizar actividades creativas encontrará aquí un enfoque distinto, centrado en la lectura y no en la práctica manual.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Ilusión y persuasión (Ensayos) se publica en tapa dura, con 448 páginas en castellano. La encuadernación rígida resulta práctica para conservar un volumen de esta extensión y consultarlo en una biblioteca personal dedicada al arte y el diseño.",
+      "texto": "La edición en tapa dura de Editorial Crítica contiene 448 páginas en castellano. Su encuadernación rígida permite conservar un volumen extenso de ensayos y consultarlo en una biblioteca dedicada al arte y el diseño.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
+        "editorial",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ilusión y persuasión (Ensayos) puede compararse con Chanel XXI (Divulgación) por su autoría colectiva y su vinculación con el ámbito del arte y el diseño. El primero se presenta como una obra de ensayos sobre ilusión y persuasión, mientras que el segundo se identifica como una publicación divulgativa dedicada a Chanel.",
+      "texto": "Banksy: I want to be what you saw in me (MISCELANEAS) comparte con Ilusión y persuasión (Ensayos) la autoría colectiva y el ámbito artístico, aunque el primero identifica expresamente a Banksy como asunto central. Isabel Matoses: La imagen recuperada (Ilustrados) también se vincula con la imagen, pero señala a Isabel Matoses en su título, frente al planteamiento conceptual de Ilusión y persuasión (Ensayos).",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +33,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410989726"
+        "isbn-9789509509504",
+        "isbn-9788408325970"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8f959c1814e7b637",
+  "fuente_hash": "cfc8b582c5477670",
   "origen": "chatgpt-web"
 }

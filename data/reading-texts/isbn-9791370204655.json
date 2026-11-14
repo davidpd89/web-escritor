@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Evangélicos: De la Reforma a nuestros días: Quiénes son los cristianos «con la Biblia bajo el brazo» (Espiritualidad) se dirige a lectores interesados en la historia y la identidad del cristianismo evangélico. Su enfoque religioso e histórico se aleja de la ficción y de los manuales de prácticas espirituales personales.",
+      "texto": "Evangélicos: De la Reforma a nuestros días: Quiénes son los cristianos «con la Biblia bajo el brazo» (Espiritualidad) aborda la identidad y trayectoria histórica de los cristianos evangélicos. Está orientado a lectores interesados en religión, historia y espiritualidad, más que a quienes buscan ficción o una lectura centrada en otras tradiciones religiosas.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,16 +12,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite consultar y subrayar las 120 páginas de esta obra de José Pablo Sánchez Núñez en papel. La edición Kindle ofrece el mismo título en formato digital para llevarlo en un lector electrónico o consultarlo desde el móvil, sin necesidad de transportar el ejemplar físico.",
+      "texto": "Evangélicos: De la Reforma a nuestros días: Quiénes son los cristianos «con la Biblia bajo el brazo» (Espiritualidad) ofrece 120 páginas en su edición de tapa blanda, adecuada para tener el texto en papel y volver a consultarlo. El formato Kindle permite llevar el contenido en un lector electrónico o en una aplicación compatible.",
       "evidencias": [
-        "autores",
+        "titulo",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Evangélicos: De la Reforma a nuestros días: Quiénes son los cristianos «con la Biblia bajo el brazo» (Espiritualidad) comparte el interés religioso con AKITA: Las lágrimas y el mensaje de María, de Teiji Yasuda. El primero se centra en la identidad y trayectoria del cristianismo evangélico, mientras que el segundo aborda un mensaje vinculado a María. Frente a Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe, cambia tanto la tradición religiosa como el enfoque: historia del evangelicalismo frente a fundamentos y práctica del dharma.",
+      "texto": "Evangélicos: De la Reforma a nuestros días: Quiénes son los cristianos «con la Biblia bajo el brazo» (Espiritualidad) trata una corriente del cristianismo desde una perspectiva histórica e identitaria. Frente a él, AKITA: Las lágrimas y el mensaje de María, de Teiji Yasuda, dirige la atención hacia María, mientras que Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe, aborda otra tradición espiritual.",
       "evidencias": [
         "titulo",
         "afines_catalogo"
@@ -34,6 +34,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d8ef89b4dd12953b",
+  "fuente_hash": "bc119e592e742292",
   "origen": "chatgpt-web"
 }

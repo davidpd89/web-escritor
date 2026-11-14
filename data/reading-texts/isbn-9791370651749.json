@@ -4,26 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Casos prácticos sobre el despido (Supuestos prácticos) se dirige a quienes estudian o trabajan con cuestiones jurídicas relacionadas con el despido. Su planteamiento de supuestos prácticos encaja con la consulta de casos concretos, mientras que no responde a quien busca una novela o una introducción general a materias ajenas al derecho laboral.",
+      "texto": "Casos prácticos sobre el despido (Supuestos prácticos), del Departamento de Documentación Iberley, está orientado a lectores que necesitan trabajar con supuestos jurídicos sobre el despido. Sus 366 páginas y su enfoque práctico lo alejan de una introducción general al derecho o de una lectura narrativa.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Casos prácticos sobre el despido (Supuestos prácticos) está disponible en tapa blanda, con 366 páginas editadas por Colex. El papel permite marcar apartados y volver a los supuestos durante el estudio o la consulta profesional; se trata de un volumen físico que puede mantenerse junto a otros materiales jurídicos.",
+      "texto": "Casos prácticos sobre el despido (Supuestos prácticos) está editado en tapa blanda y reúne 366 páginas en castellano. El formato físico permite consultar los supuestos y volver a ellos durante el estudio o el trabajo jurídico, con una encuadernación flexible para transportar el volumen.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
+        "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Casos prácticos sobre el despido (Supuestos prácticos) comparte autoría con La prescripción de la deuda tributaria. Paso a paso: Reglas de cómputo, causas de interrupción y situaciones problemáticas, ambos del Departamento de Documentación Iberley. El primero se centra en supuestos de despido; el segundo aborda plazos y circunstancias de la prescripción tributaria, por lo que sirven para consultas jurídicas distintas.",
+      "texto": "Casos prácticos sobre el despido (Supuestos prácticos) comparte autoría jurídica con La prescripción de la deuda tributaria. Paso a paso: Reglas de cómputo, causas de interrupción y situaciones problemáticas, del Departamento de Documentación Iberley. El primero aborda supuestos sobre despidos; el segundo se concentra en plazos, interrupciones y problemas relacionados con deudas tributarias.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "70b3830f75e18923",
+  "fuente_hash": "ddf3a4fccdc8362c",
   "origen": "chatgpt-web"
 }

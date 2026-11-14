@@ -4,11 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores de teatro contemporáneo y a quienes siguen las obras vinculadas a certámenes literarios. Su identificación con la modalidad teatral lo distancia de las novelas extensas y de los ensayos que desarrollan una argumentación académica.",
+      "texto": "El cerco de San Marino: XXXI Certamen de Letras Hispánicas Rafael de Cózar (modalidad teatro): 19 (El teatro moderno) se dirige a lectores interesados en el teatro y en la narrativa contemporánea. Su identificación como obra de modalidad teatral lo diferencia de los ensayos sobre arte y de los libros dedicados exclusivamente a historia del diseño.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible de El cerco de San Marino: XXXI Certamen de Letras Hispánicas Rafael de Cózar (modalidad teatro): 19 (El teatro moderno). Sus 92 páginas conforman un volumen físico breve, cuya extensión permite manejarlo con facilidad y conservarlo junto a otras obras teatrales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El cerco de San Marino: XXXI Certamen de Letras Hispánicas Rafael de Cózar (modalidad teatro): 19 (El teatro moderno) puede compararse con Clásicos Sin Filtros: El Impacto del Mundo Antiguo / Talking Classics: The Shock of the Old, de Mary Beard, por su relación con el ámbito cultural y artístico. Se diferencian en el enfoque: el primero se identifica como una obra de modalidad teatral, mientras que el título de Mary Beard sitúa su atención en el mundo antiguo y su impacto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786076393055"
       ]
     },
     {
@@ -17,32 +39,12 @@
       "evidencias": [
         "titulo"
       ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Ediciones Espuela de Plata reúne 92 páginas en castellano. Su extensión permite abordar el texto teatral en pocas sesiones y facilita llevar el ejemplar para una lectura compartida o una consulta durante el trabajo escénico.",
-      "evidencias": [
-        "formatos_disponibles",
-        "edicion",
-        "numero_paginas",
-        "idioma",
-        "titulo"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "De la estética como política: Para una rehabilitación del sentido en el cine (Signo e imagen) y El cerco de San Marino: XXXI Certamen de Letras Hispánicas Rafael de Cózar (modalidad teatro): 19 (El teatro moderno) se relacionan con las artes escénicas o audiovisuales. La obra de Noël Burch plantea una reflexión sobre el cine, mientras que la de David Alberto Martínez Vallejo se identifica como texto teatral.",
-      "evidencias": [
-        "afines_catalogo",
-        "titulo",
-        "autores"
-      ],
-      "enlaces": [
-        "isbn-9788437650586"
-      ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "temas_y_enfoque: repite otro bloque",
+    "faltan módulos: temas_y_enfoque"
+  ],
   "version": 3,
   "fuente_hash": "1e3928e171e5b988",
   "origen": "chatgpt-web"

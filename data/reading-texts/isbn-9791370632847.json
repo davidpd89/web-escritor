@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370632847",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi pasión: El amor nace de un reto: 1 (Romance) se dirige a lectores interesados en historias románticas donde el amor se vincula a un desafío. Sus 452 páginas responden a una lectura prolongada, menos adecuada para quien busca relatos cortos o una trama ajena al romance.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mi pasión: El amor nace de un reto: 1 (Romance) tiene una edición en tapa blanda de 452 páginas. El volumen de Letrame S.l. permite leer la historia en papel y conservarla como libro físico, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi pasión: El amor nace de un reto: 1 (Romance) puede compararse con A mil por hora, de Hannah Grace, por su enfoque romántico. Mientras el título de Federick Ávila relaciona el amor con un reto, A mil por hora sitúa su romance entre un piloto de F1 y una mujer incapaz de dejar atrás.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2a651ab38c95f5a6",
+  "origen": "chatgpt-web"
+}

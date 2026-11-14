@@ -4,44 +4,43 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Morvenn Vahl: Lanza de la Fe se dirige a lectores de ciencia ficción interesados en guerras entre fuerzas enfrentadas, mundos amenazados y conflictos de autoridad. La historia de Jude Reid desarrolla una intervención militar para proteger un planeta sagrado, por lo que se aleja de las tramas centradas en relaciones cotidianas sin enfrentamientos armados.",
+      "texto": "Morvenn Vahl: Lanza de la Fe encaja con lectores de ciencia ficción interesados en guerras, mundos imperiales y conflictos entre autoridad y deber. Quien prefiera historias realistas o ciencia ficción centrada en la exploración científica encontrará aquí un enfrentamiento militar y religioso.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela de ciencia ficción con un conflicto bélico y religioso situado en un imperio de varios mundos. Morvenn Vahl desafía al Senatorum Imperialis para defender Ophelia VII frente a la amenaza de Kol Rakhul, conocido como el Asesino de Santas.",
+      "texto": "La historia enfrenta la defensa de Ophelia VII con las decisiones del poder imperial y la amenaza de Kol Rakhul, conocido como el Asesino de Santas. Morvenn Vahl desobedece al Senatorum Imperialis para intervenir, de modo que el conflicto combina acción bélica y desafío a la autoridad.",
       "evidencias": [
-        "categorias",
+        "titulo",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece las 224 páginas de Morvenn Vahl: Lanza de la Fe en una edición de Minotauro en rústica con solapas. Kindle permite leer la historia en formato digital desde un dispositivo compatible, mientras que el ejemplar impreso facilita conservarla en una colección física.",
+      "texto": "La tapa blanda ofrece Morvenn Vahl: Lanza de la Fe en rústica con solapas, con 224 páginas que pueden consultarse y releerse en papel. Kindle permite llevar la novela en formato digital y continuarla desde un dispositivo compatible sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
+        "formatos_disponibles",
         "edicion",
-        "formatos_disponibles"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Morvenn Vahl: Lanza de la Fe y Al despertar, rompe el cascarón (Runas) figuran entre las lecturas vinculadas a la ficción especulativa. La obra de Jude Reid presenta una amenaza militar contra un mundo sagrado y un conflicto con la autoridad imperial, mientras que el título de Becky Chambers plantea desde su formulación una referencia al despertar y al cambio.",
+      "texto": "Amanecer Rojo I Deluxe Edition, de Pierce Brown, permite comparar el interés por la estrategia con los enfrentamientos imperiales de Morvenn Vahl: Lanza de la Fe. Aunque se acabe el mundo, de Clara Duarte, también presenta una amenaza de gran alcance, pero parte de una transformación de la humanidad en la Tierra, mientras Jude Reid sitúa el conflicto en un mundo sagrado del Imperio.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370093488"
+        "isbn-9791370313463",
+        "isbn-9788427255968"
       ]
     }
   ],

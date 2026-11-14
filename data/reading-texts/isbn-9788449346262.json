@@ -1,41 +1,37 @@
 {
   "id": "isbn-9788449346262",
-  "familia": "narrativa",
+  "familia": "no_ficcion",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Para qué aprender? se dirige a quienes buscan comprender el valor del aprendizaje humano ante la inteligencia artificial. Torkel Klingberg y Asa Wikforss abordan la cuestión desde la neurociencia, la psicología y la historia; no es una lectura centrada en enseñar el manejo técnico de herramientas digitales.",
+      "texto": "Se dirige a lectores de ensayo interesados en el aprendizaje humano y su papel ante la inteligencia artificial. Su enfoque combina neurociencia, psicología e historia, por lo que se aparta de los manuales exclusivamente técnicos sobre herramientas digitales.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
-      "modulo": "encaje_documentado",
-      "texto": "¿Para qué aprender? es un ensayo de ciencias humanas y sociales sobre la importancia de desarrollar la inteligencia propia en una época marcada por la inteligencia artificial. Torkel Klingberg y Asa Wikforss combinan perspectivas de la neurociencia, la psicología y la historia para examinar el sentido de seguir aprendiendo.",
+      "modulo": "temas_y_enfoque",
+      "texto": "¿Para qué aprender? examina por qué sigue siendo necesario desarrollar la inteligencia humana en una época marcada por la inteligencia artificial. Torkel Klingberg y Asa Wikforss abordan esta cuestión desde la neurociencia, la psicología y la historia, con una defensa del aprendizaje como capacidad humana.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¿Para qué aprender? cuenta con una edición en tapa blanda de 112 páginas, publicada por Ediciones Paidós. La encuadernación rústica con solapas ofrece un volumen físico relativamente breve, que puede transportarse y consultarse sin recurrir a una pantalla.",
+      "texto": "Está disponible en tapa blanda, concretamente en rústica con solapas, con una extensión de 112 páginas. Este formato permite transportar el ensayo y consultar sus argumentos en papel sin manejar un volumen extenso.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
-        "numero_paginas",
         "edicion",
-        "editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¿Para qué aprender? y Despierto pero disperso tratan capacidades relacionadas con el aprendizaje, aunque desde públicos distintos. Torkel Klingberg y Asa Wikforss reflexionan sobre la inteligencia humana ante la inteligencia artificial; Peg Dawson, Richard Guare y Colin Guare ofrecen una guía para familias y docentes centrada en las habilidades ejecutivas infantiles.",
+      "texto": "Despierto pero disperso, de Peg Dawson, Richard Guare y Colin Guare, también aborda capacidades cognitivas, aunque se centra en mejorar las habilidades ejecutivas infantiles mediante una guía práctica. ¿Para qué aprender?, de Torkel Klingberg y Asa Wikforss, plantea una reflexión más general sobre el aprendizaje y la inteligencia humana ante la inteligencia artificial, sin limitarse al ámbito educativo infantil.",
       "evidencias": [
         "titulo",
         "autores",
@@ -49,6 +45,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8d98cbb1601e3c30",
+  "fuente_hash": "d7829044a341bada",
   "origen": "chatgpt-web"
 }

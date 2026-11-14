@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Stranger Things se dirige a lectores adultos interesados en los materiales de creación de una serie audiovisual. Incluye entrevistas, diseños de criaturas, documentos de producción y fotografías de vestuario. Su enfoque documental y visual se aparta de una novela que desarrolla su historia únicamente mediante la narración.",
+      "texto": "Stranger Things está pensado para lectores adultos interesados en conocer la creación audiovisual de la serie y sus materiales de producción. Su contenido se dirige especialmente a quienes buscan entrevistas, diseños y documentos del rodaje, más que una novela que vuelva a contar la historia de los personajes.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,29 +14,27 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Stranger Things es una publicación sobre la creación y el universo visual de la serie, no una narración convencional de sus acontecimientos. Gina McIntyre reúne intervenciones del equipo, arte conceptual, mapas, planos y materiales de guion. También incorpora un código secreto que conduce a contenido adicional en una web.",
+      "texto": "Gina McIntyre reúne materiales relacionados con el desarrollo y la producción de Stranger Things, desde sus comienzos hasta su desenlace. El volumen contiene comentarios de los hermanos Duffer, entrevistas con el reparto, arte conceptual, fotografías de vestuario y fragmentos de guiones. También incorpora mapas, planos, storyboards y un código para acceder a contenido adicional en una web.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Stranger Things se ofrece en tapa dura, con 304 páginas publicadas por Grijalbo. El formato físico permite consultar fotografías, mapas, diseños y documentos de producción en un volumen encuadernado. También reúne materiales visuales y entrevistas que pueden revisarse por separado sin seguir una lectura narrativa continua.",
+      "texto": "Stranger Things está disponible en tapa dura, con 304 páginas dedicadas a materiales visuales y documentación de la serie. El formato físico permite consultar fotografías, diseños, mapas y bocetos en un volumen pensado para conservarse o regalarse. Su contenido incluye además un acceso digital mediante un código secreto.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "editorial",
         "numero_paginas",
         "formatos_disponibles",
+        "edicion",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Stranger Things y El diablo viste de Helvetica se relacionan con la creación visual, aunque abordan asuntos diferentes. Gina McIntyre reúne materiales gráficos y testimonios de una producción audiovisual; Elena López plantea las consecuencias que puede tener el diseño de una papeleta electoral. Uno se centra en el universo de una serie y el otro introduce una cuestión de diseño mediante un caso electoral.",
+      "texto": "Stranger Things y El diablo viste de Helvetica permiten examinar cómo se crean y utilizan elementos visuales, aunque desde ámbitos distintos. Gina McIntyre reúne materiales de producción de una serie, mientras que Elena López analiza decisiones de diseño gráfico presentes en objetos y situaciones cotidianas. All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial se desplaza hacia el ámbito musical y cultural.",
       "evidencias": [
         "titulo",
         "autores",
@@ -44,12 +42,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466685443"
+        "isbn-9788466685443",
+        "isbn-9788410045538"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "12fbe5c3d6b0aa0b",
+  "fuente_hash": "22ed7fb1e40c56ed",
   "origen": "chatgpt-web"
 }

@@ -4,26 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La vida de los animales: 21 (esenciales) encaja con lectores de ensayo interesados en la relación entre animales, filosofía y naturaleza. Su clasificación temática incluye también el derecho, por lo que se aparta de las expectativas de quien busque una narración de aventuras protagonizada por animales.",
+      "texto": "La vida de los animales: 21 (esenciales), de JM Coetzee, se dirige a lectores interesados en el pensamiento filosófico, el ensayo y las cuestiones relacionadas con los animales y el derecho. Su planteamiento se aleja de la narrativa de ficción y de quienes buscan una historia con personajes y una trama novelesca.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La vida de los animales: 21 (esenciales) se publica en tapa blanda, con 148 páginas en castellano. La edición de Bauplan reúne el texto en un volumen de extensión contenida, adecuado para transportarlo y volver a consultar sus apartados durante la lectura.",
+      "texto": "La edición en tapa blanda reúne sus 148 páginas en un volumen físico de tamaño manejable. Es el formato disponible de La vida de los animales: 21 (esenciales), de JM Coetzee, publicado por Bauplan en castellano.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "autores",
+        "edicion",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles",
+        "editorial",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¿Por qué miramos a los animales? comparte con La vida de los animales: 21 (esenciales) el interés por los animales desde el pensamiento, aunque el ensayo de John Berger examina especialmente cómo ha cambiado nuestra manera de relacionarnos con ellos. Temporada de mariposas: Lo que la naturaleza me enseñó sobre el sentido de la vida se aproxima desde las enseñanzas personales de la naturaleza, frente al encuadre filosófico y jurídico de la obra de JM Coetzee.",
+      "texto": "La vida de los animales: 21 (esenciales), de JM Coetzee, comparte el interés por las cuestiones jurídicas con Justicia, ¿quién responde?: El mundo cambia, la justicia no (Ensayo), de Álvaro Lobato Lavín. La diferencia está en que el primero incorpora la reflexión sobre los animales a su ámbito filosófico y ensayístico, mientras que el segundo centra su planteamiento en la justicia.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,13 +34,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425236716",
-        "isbn-9788430629251"
+        "isbn-9791370206017"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "77d3e6f268501b0f",
+  "fuente_hash": "77c8e4d2bbe98984",
   "origen": "chatgpt-web"
 }

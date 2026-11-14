@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788469646687",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a primeros lectores a partir de los 3 años interesados en las hadas y los libros manipulativos. Combina fantasía con elementos físicos para explorar, por lo que se diferencia de los álbumes infantiles concebidos únicamente para leer una historia de principio a fin.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El libro incorpora ocho minilibros y un desplegable sorpresa, dos elementos que amplían su uso más allá de la lectura de un volumen convencional. Los pequeños pueden manipular los minilibros y abrir el pop-up para explorar el contenido en distintos formatos físicos.",
+      "evidencias": [
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne sus 20 páginas y los elementos manipulativos en una edición física. Es el formato disponible para compartir la exploración de los ocho minilibros y el pop-up, con una estructura pensada para interactuar directamente con sus componentes.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Brujas y dragones 2: La bruja mala del oeste comparte el territorio fantástico y los personajes vinculados a la magia, pero su planteamiento se identifica con una obra de fantasía narrativa. Acurrúcate a mi lado (Cuentos para peques) se orienta también al público infantil, aunque La biblioteca secreta de las hadas incorpora ocho minilibros y un pop-up como elementos manipulativos.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9781836066385",
+        "isbn-9791387501877"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6d4b59e91a2d8d91",
+  "origen": "chatgpt-web"
+}

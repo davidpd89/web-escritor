@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La voz del desierto se dirige a lectores interesados en experiencias deportivas, memorias personales y desarrollo personal. Cristina Gutiérrez relaciona en el título su participación en el Dakar con el aprendizaje vital. No responde tanto a quien busca una guía exclusivamente técnica de competición o un recetario de nutrición.",
+      "texto": "La voz del desierto: El Dakar me enseñó a competir. El desierto me enseñó a vivir (No ficción) encaja con lectores interesados en las memorias deportivas y el desarrollo personal. Cristina Gutiérrez firma una obra de 312 páginas que se aparta de la ficción para situarse en el terreno de la experiencia personal y la competición.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de La voz del desierto contiene 312 páginas y permite conservar el relato de Cristina Gutiérrez en papel. Kindle ofrece la misma obra como opción de lectura digital, accesible desde el móvil o un lector electrónico. La decisión depende de si se prefiere manejar un volumen impreso o llevarlo en pantalla.",
+      "texto": "La voz del desierto: El Dakar me enseñó a competir. El desierto me enseñó a vivir (No ficción) puede leerse en tapa blanda o Kindle. La edición física reúne sus 312 páginas en un volumen manejable, mientras que Kindle permite llevar la lectura en el móvil o en un lector electrónico sin transportar el libro.",
       "evidencias": [
         "titulo",
-        "autores",
-        "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Por si tu avión se cae: El viaje del héroe: de los Andes a tus travesías vitales comparte con La voz del desierto la relación entre una experiencia personal y los aprendizajes vitales. La diferencia está en el punto de partida: Cristina Gutiérrez vincula su relato al Dakar, mientras que Eduardo Strauch Urioste y Beatriz Ogando Díaz lo relacionan con los Andes. El código del rendimiento aborda el deporte desde la ciencia de lo que consume el deportista, no desde unas memorias personales.",
+      "texto": "La voz del desierto: El Dakar me enseñó a competir. El desierto me enseñó a vivir (No ficción) puede compararse con Has Nacido Para Esto / What You're Made For: Powerful Life Lessons from My Career in Sports, de George Raveling y Ryan Holiday. Ambos relacionan la experiencia deportiva con aprendizajes personales, aunque Cristina Gutiérrez parte del Dakar y el otro título plantea lecciones de una trayectoria deportiva.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,13 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788498297478",
-        "isbn-9788409934010"
+        "isbn-9786073882088"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2611f5ee23ae34f4",
+  "fuente_hash": "14b991ce9a90afb7",
   "origen": "chatgpt-web"
 }

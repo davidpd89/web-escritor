@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta obra se dirige a lectores de Derecho interesados en la protección de las personas mayores y con discapacidad desde las perspectivas civil y procesal. Su ámbito especializado la distancia de quienes buscan relatos personales sobre el envejecimiento o una aproximación sanitaria a la discapacidad.",
+      "texto": "Está dirigido a quienes buscan un tratamiento jurídico de los derechos de las personas mayores y con discapacidad. Mayores, ancianos y discapacidad: una doble mirada civil y procesal de los derechos de las personas vulnerables (Estudios) se centra en las perspectivas civil y procesal, por lo que no responde a una búsqueda de ficción o de divulgación general sobre envejecimiento.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,29 +12,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mayores, ancianos y discapacidad se publica en tapa blanda, con 322 páginas en castellano. La edición de Aranzadi permite trabajar sobre el texto impreso, marcar pasajes y volver a las cuestiones civiles y procesales durante su consulta.",
+      "texto": "Sus 322 páginas se presentan en tapa blanda, una opción de papel para leer y consultar el estudio jurídico. La encuadernación flexible permite manejar el volumen y volver a los apartados dedicados a los derechos de las personas vulnerables sin depender de una pantalla.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) también trata cuestiones vinculadas a las relaciones y los conflictos, pero desde la mediación educativa. Mayores, ancianos y discapacidad se concentra en los derechos de las personas vulnerables y en su tratamiento civil y procesal, no en la convivencia escolar.",
+      "texto": "Beneficios fiscales para mayores de 65 años impuesto a impuesto. Paso a paso: Estudio de las principales ventajas fiscales en el IRPF, el IVA y otros ... para este colectivo y su entorno más próximo comparte la atención a las personas mayores, pero desde la fiscalidad. Mayores, ancianos y discapacidad: una doble mirada civil y procesal de los derechos de las personas vulnerables (Estudios) aborda, en cambio, sus derechos civiles y procesales.",
       "evidencias": [
-        "afines_catalogo",
-        "titulo"
+        "titulo",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788429030372"
+        "isbn-9791370650728"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a20a41009851f705",
+  "fuente_hash": "672f058bd6088081",
   "origen": "chatgpt-web"
 }

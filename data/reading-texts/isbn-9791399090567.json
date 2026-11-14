@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791399090567",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orientado a lectores interesados en la historia de la salud mental, el tratamiento institucional de las mujeres y las relaciones entre psicología y control social. Su asunto histórico y su carácter ensayístico lo alejan de los manuales de bienestar emocional y de las guías prácticas de psicología.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje del libro es la relación entre la locura atribuida a las mujeres y los mecanismos de control social. Carmen Valiña sitúa esa cuestión en el manicomio de Conxo, en Santiago de Compostela, durante el periodo 1885-1900, delimitando así un contexto institucional y temporal concreto.",
+      "evidencias": [
+        "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Piedra Papel Libros se presenta en tapa blanda y tiene 64 páginas en castellano. Es un volumen breve que permite abordar el asunto en pocas sesiones de lectura y consultar después sus cuestiones históricas sin manejar un libro extenso.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte con Crónica de una esquizofrenia el interés por los trastornos mentales, aunque Carmen Valiña se centra en las mujeres internadas en una institución histórica. También se aproxima a Abraza a tu niño interior: Nunca es tarde para sanar tu infancia por su relación con la psicología, pero sustituye el enfoque de sanación personal por el estudio del control social.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206",
+        "isbn-9788409906048"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "28182f70cf1d260c",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788449346071",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Caminos opuestos: Contra el sionismo (Biblioteca Judith Butler) se dirige a lectores de ensayo político y filosofía interesados en el debate sobre el sionismo. La obra de Judith Butler aborda una cuestión ideológica concreta, por lo que se aleja de quienes buscan una introducción general a la historia o una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Caminos opuestos: Contra el sionismo (Biblioteca Judith Butler) se publica en tapa blanda, con 384 páginas. La encuadernación permite manejar el ensayo en papel y volver a sus pasajes durante el estudio, mientras que la extensión requiere más tiempo de lectura que un texto político breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Caminos opuestos: Contra el sionismo (Biblioteca Judith Butler) y Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) examinan cuestiones ideológicas, aunque Judith Butler se centra en el sionismo y Miguel Anxo Bastos Boubeta en el anarcocapitalismo. También puede compararse con Ese afán de dureza: Nuevo fascismo y propiedad fantasma: 26 (seriecero), de Eva von Redecker, por su orientación hacia el pensamiento político, aunque sus asuntos centrales son distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457",
+        "isbn-9791399152197"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "abae04b88c5d02fe",
+  "origen": "chatgpt-web"
+}

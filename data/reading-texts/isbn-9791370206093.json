@@ -4,25 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Relatos de la dehesa: I Premio Maximiliano Jabugo de Relatos de la Dehesa (Naturaleza y Mundo Rural) se dirige a lectores interesados en relatos, narrativa contemporánea y naturaleza. Su orientación hacia el mundo rural lo diferencia de una novela urbana o de un manual técnico sobre el medio natural.",
+      "texto": "Relatos de la dehesa: I Premio Maximiliano Jabugo de Relatos de la Dehesa (Naturaleza y Mundo Rural), de Almudena Villegas Becerril, se dirige a lectores interesados en relatos relacionados con el entorno rural y la naturaleza. Sus 216 páginas se sitúan en la narrativa contemporánea; no es la elección para quien busca específicamente una novela extensa de argumento único.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Relatos de la dehesa: I Premio Maximiliano Jabugo de Relatos de la Dehesa (Naturaleza y Mundo Rural) cuenta con una edición en tapa dura de 216 páginas. La encuadernación rígida resulta apropiada para conservar el volumen en una estantería o entregarlo como regalo, mientras que su extensión permite organizar la lectura por sesiones.",
+      "texto": "La edición en tapa dura reúne las 216 páginas de Relatos de la dehesa: I Premio Maximiliano Jabugo de Relatos de la Dehesa (Naturaleza y Mundo Rural). El formato rígido favorece su conservación y presentación como regalo, mientras que la extensión permite tener reunidos los relatos en un solo volumen físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion"
+        "edicion",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Relatos de la dehesa: I Premio Maximiliano Jabugo de Relatos de la Dehesa (Naturaleza y Mundo Rural) puede compararse con Historia Universal de la Alimentación por compartir autora, Almudena Villegas Becerril. El primero pertenece a los relatos de temática rural y natural; el segundo se centra, según su título, en la historia de la alimentación.",
+      "texto": "Historia Universal de la Alimentación comparte con Relatos de la dehesa: I Premio Maximiliano Jabugo de Relatos de la Dehesa (Naturaleza y Mundo Rural) la autoría de Almudena Villegas Becerril, pero se ocupa de la alimentación en lugar de los relatos rurales. Caperucita se come al lobo / Little Red Riding Hood Eats the Wolf, de Pilar Quintana, ofrece otra referencia narrativa, con una autoría y un planteamiento temático diferentes.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +33,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370202132"
+        "isbn-9791370202132",
+        "isbn-9786287880610"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6719630d589f7516",
+  "fuente_hash": "4e858d4a73d522ba",
   "origen": "chatgpt-web"
 }

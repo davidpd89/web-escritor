@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388422164",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Te cuento las pecas, de Damià Olivés Buixó, se orienta a lectores interesados en el misterio y el thriller. Su clasificación la sitúa lejos de las comedias románticas y de la divulgación, por lo que responde mejor a una búsqueda de intriga que a una lectura centrada en el humor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Te cuento las pecas se publica en tapa blanda, con 256 páginas en castellano. La edición de Universo de Letras ofrece una lectura física de extensión intermedia que puede transportarse, prestarse o incorporarse a una colección de novelas de misterio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "25 días hasta Navidad, de Per Jacobsen, comparte el terreno del thriller, aunque se presenta específicamente como una historia de adviento. Aguas turbulentas, de Rankin Ian, introduce un escenario definido en Edimburgo y un conflicto entre pasado y presente. Te cuento las pecas, de Damià Olivés Buixó, se identifica dentro del misterio y el thriller sin que su título delimite un escenario equivalente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063",
+        "isbn-9791370310318"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f2709337ca736c7c",
+  "origen": "chatgpt-web"
+}

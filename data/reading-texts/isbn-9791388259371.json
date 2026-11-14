@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta recopilación de Anna Stuart se dirige a lectores de novela histórica interesados en relatos vinculados a Auschwitz y en reunir varias historias de una misma autora. Sus 1152 páginas y sus tres obras diferenciadas encajan menos con quienes buscan una novela breve o una lectura centrada en una sola historia.",
+      "texto": "La recopilación de Anna Stuart se dirige a lectores de novela histórica interesados en relatos relacionados con Auschwitz y personajes femeninos. Sus 1152 páginas reúnen tres historias, por lo que se aleja de quienes buscan una novela breve o una narración de ambientación contemporánea.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,19 +14,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne las tres historias de Anna Stuart en un volumen de 1152 páginas publicado por Newton Compton Editores. Permite conservarlas juntas en papel, aunque su extensión supone un libro considerable para llevar durante los desplazamientos cotidianos.",
+      "texto": "La recopilación de Anna Stuart está disponible en tapa blanda y contiene tres historias en un volumen de 1152 páginas. Esta edición de Newton Compton Editores permite conservar los tres títulos juntos, aunque su extensión puede resultar menos cómoda para llevarla a diario que la de un libro más corto.",
       "evidencias": [
         "titulo",
         "autores",
+        "formatos_disponibles",
         "numero_paginas",
-        "edicion",
-        "editorial",
-        "formatos_disponibles"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Astur (Saga de la Reconquista) (Éxitos) comparte con las tres historias de Anna Stuart su pertenencia a la novela histórica, pero sitúa su referencia histórica en la Reconquista frente a los relatos vinculados a Auschwitz. Ave César (Narrativas Históricas) también remite a otro contexto histórico y a una obra de Rex Warner, en lugar de reunir tres historias de una misma autora.",
+      "texto": "La recopilación de Anna Stuart y Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth pertenecen a la novela histórica. Anna Stuart reúne historias cuyos títulos aluden a Auschwitz y a personajes femeninos, mientras que Valerio Massimo Manfredi presenta una obra identificada como una entrega de Aléxandros.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,8 +33,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401039539",
-        "isbn-9788435064125"
+        "isbn-9786287897090",
+        "isbn-9786287897106"
       ]
     }
   ],

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las nueve vidas del gato del escritor (Salamandra Narrativa), de Kentaro Utsugi, se dirige a lectores interesados en el misterio y en temas relacionados con el bienestar y la familia. Por su clasificación temática, encaja menos con quienes buscan exclusivamente historia o narrativa romántica.",
+      "texto": "Las nueve vidas del gato del escritor (Salamandra Narrativa), de Kentaro Utsugi, se sitúa entre el misterio y los temas de bienestar. Puede interesar a quienes buscan esas dos áreas temáticas, mientras que su clasificación lo distancia de los manuales dedicados exclusivamente a alimentación o ejercicio físico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,17 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Salamandra reúne 240 páginas en castellano. Es una opción física para leer y conservar en la biblioteca, con una extensión concreta que permite valorar el tiempo de lectura antes de elegirla.",
+      "texto": "Las nueve vidas del gato del escritor (Salamandra Narrativa) se presenta en tapa blanda, con 240 páginas en castellano. El volumen de Salamandra permite una lectura en papel de extensión intermedia y puede transportarse sin el peso habitual de obras mucho más largas.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Frente a 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, Las nueve vidas del gato del escritor (Salamandra Narrativa) comparte el interés por el bienestar. La diferencia está en que el libro de Kentaro Utsugi también se clasifica como misterio, mientras que el de Liz Moody plantea cambios personales desde la ciencia.",
+      "texto": "Las nueve vidas del gato del escritor (Salamandra Narrativa) comparte el ámbito del bienestar con 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia), de Dick Van Dyke. La diferencia está en el enfoque declarado: este último aborda la longevidad mediante consejos, mientras que el libro de Kentaro Utsugi también se clasifica dentro del misterio.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9798890981776"
+        "isbn-9791387852290"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9c0079a9680a1027",
+  "fuente_hash": "3a337356cf45052a",
   "origen": "chatgpt-web"
 }

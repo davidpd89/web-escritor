@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788413393001",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en historia del pensamiento, filosofía y fundamentos teológicos de la escuela de Salamanca. Su planteamiento ensayístico e histórico se diferencia de la narrativa juvenil de ficción y de los libros centrados exclusivamente en cuestiones filosóficas contemporáneas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "José María Pardo de Santayana examina los antecedentes de la escuela de Salamanca, sus raíces europeas y su orientación teológica. El planteamiento sitúa esta corriente en un marco de formación intelectual e histórica, atendiendo a sus fundamentos antes que a una exposición aislada de doctrinas filosóficas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Encuentro publica esta obra en tapa blanda, con 282 páginas en castellano. La encuadernación flexible permite transportarla para estudiar o leer fuera de casa, mientras que su extensión ofrece un volumen delimitado para organizar sesiones de lectura y consulta.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte con El dinero: 193 (Nuevo Ensayo) su pertenencia a la colección Nuevo Ensayo, aunque José María Pardo de Santayana aborda los fundamentos históricos y teológicos de una escuela intelectual. Frente a El Esperpento o la Tragedia: España en la crisis de Occidente: 194 (Nuevo Ensayo), el objeto de estudio se desplaza de una crisis histórica a las raíces europeas del pensamiento salmantino.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413393056",
+        "isbn-9788413393032"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "979c139045c8d822",
+  "origen": "chatgpt-web"
+}

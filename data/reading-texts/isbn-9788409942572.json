@@ -4,24 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "CUANDO TODO FALLA. Solo nos queda la promesa del nosotros.: Una novela romántica New Adult de superación, pasión por el arte y segundas oportunidades (La promesa del nosotros). se dirige a lectores de romance juvenil y New Adult interesados en el duelo, las relaciones y las segundas oportunidades. Encaja menos con quienes buscan una historia ajena a los conflictos sentimentales.",
+      "texto": "CUANDO TODO FALLA. Solo nos queda la promesa del nosotros.: Una novela romántica New Adult de superación, pasión por el arte y segundas oportunidades (La promesa del nosotros). está dirigida a lectores interesados en romance juvenil y relaciones de segunda oportunidad. Su planteamiento se aleja de quienes buscan fantasía o aventuras como eje principal de la lectura.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La novela de Marta Monroy puede leerse en tapa blanda o Kindle. La edición física tiene 375 páginas y permite conservarla en papel; Kindle facilita llevar la lectura en el móvil o en un lector electrónico sin transportar el volumen.",
+      "texto": "La tapa blanda reúne sus 375 páginas en una edición física de Marta Monroy López, mientras que Kindle permite acceder al texto desde un móvil o lector electrónico. La elección depende de si se prefiere conservar el ejemplar en papel o llevar la novela en formato digital.",
       "evidencias": [
-        "autores",
+        "numero_paginas",
         "formatos_disponibles",
-        "numero_paginas"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La novela de Marta Monroy puede compararse con Cuando fuimos todo, de Noelia Dopazo, por su atención a las relaciones sentimentales. El título de Marta Monroy destaca la superación, el arte y las segundas oportunidades, mientras que la referencia de Noelia Dopazo presenta una relación entre Emma y Gael marcada por la expectativa de permanencia.",
+      "texto": "La novela de Marta Monroy comparte el ámbito romántico con Acelerando en rojo. Edición especial: Edición con cantos tintados (Ficción), de Iryna Zubkova. La primera se identifica como romance New Adult centrado en las segundas oportunidades, mientras que la segunda destaca por su edición especial con cantos tintados.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,12 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387598440"
+        "isbn-9788408316572"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "51d91ee46ec4350c",
+  "fuente_hash": "1f0eab636758b60f",
   "origen": "chatgpt-web"
 }

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La luna en una noche de lluvia 9 (Yuri), de Kuzushiro, encaja con lectores que buscan manga de romance y relaciones afectivas. Su orientación hacia el amor y la pareja lo diferencia de quienes prefieren cómic de aventuras o narraciones ajenas al género romántico.",
+      "texto": "La luna en una noche de lluvia 9 (Yuri), de Kuzushiro, encaja con lectores de romance contemporáneo contado mediante cómic. Su orientación hacia las relaciones sentimentales lo distingue de las lecturas centradas en el terror o el misterio.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,17 +13,19 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 144 páginas de La luna en una noche de lluvia 9 (Yuri), de Kuzushiro, en un volumen físico. Su extensión es más reducida que la de una novela de varios cientos de páginas, por lo que resulta un ejemplar manejable para leer en papel.",
+      "texto": "La luna en una noche de lluvia 9 (Yuri) se publica en tapa blanda, con 144 páginas en castellano. Esta edición de Distrito Manga permite leer el cómic en papel y conservarlo junto a otros volúmenes de la misma colección.",
       "evidencias": [
         "titulo",
-        "autores",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "idioma",
+        "editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La luna en una noche de lluvia 9 (Yuri), de Kuzushiro, tiene una referencia directa en La luna en una noche de lluvia 1 (Yuri): Universo Manga, también de Kuzushiro. Ambos comparten título, autoría y presentación como manga yuri; la diferencia identificable es su numeración, n.º 9 frente a n.º 1.",
+      "texto": "La luna en una noche de lluvia 1 (Yuri): Universo Manga comparte autoría y orientación romántica con La luna en una noche de lluvia 9 (Yuri), ambas de Kuzushiro. Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, ofrece otra referencia de manga romántico, pero con distinta autoría y la identificación Shôjo en el título, frente a Yuri.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +33,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387962814"
+        "isbn-9791387962814",
+        "isbn-9791387962494"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "870b5535c2be9706",
+  "fuente_hash": "1bac197865926db2",
   "origen": "chatgpt-web"
 }

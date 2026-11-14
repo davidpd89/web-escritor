@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399305517",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A Buentiempo Mala Cara: 9 (Enseñanza Mágica Obligatoria), de Sergio Sánchez Morán, encaja con lectores de cómic y novela gráfica interesados en la fantasía y las aventuras. Su extensión de 76 páginas puede atraer a quienes prefieren volúmenes breves; se aparta de la lectura de novelas extensas en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 76 páginas de A Buentiempo Mala Cara: 9 (Enseñanza Mágica Obligatoria) en un volumen físico de extensión breve. Permite leerlo y volver a consultar sus páginas sin pantalla, además de colocarlo junto a otros ejemplares de cómic y novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rajaestrellas: 1 (La espada más larga jamás contada) comparte autor con A Buentiempo Mala Cara: 9 (Enseñanza Mágica Obligatoria): ambos son de Sergio Sánchez Morán. Los títulos los identifican como el n.º 1 y el n.º 9 de sus respectivas denominaciones; A Buentiempo Mala Cara se encuadra expresamente en fantasía, aventuras y cómic, mientras que Rajaestrellas alude a una espada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399305500"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "33a04d2ed16dc49a",
+  "origen": "chatgpt-web"
+}

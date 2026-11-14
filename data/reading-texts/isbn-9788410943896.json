@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410943896",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El perdón: Una sabiduría silenciosa (ENSAYO) está dirigido a quienes buscan reflexionar sobre el perdón desde el desarrollo personal y la espiritualidad. Su planteamiento ensayístico encaja menos con lectores que prefieren una novela de ficción o una guía centrada exclusivamente en la alimentación y el ejercicio.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El perdón: Una sabiduría silenciosa (ENSAYO) se publica en tapa blanda, con 200 páginas en castellano. Es una edición física que permite consultar y releer pasajes sin pantalla, con una extensión más breve que la de muchos ensayos de mayor volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El perdón: Una sabiduría silenciosa (ENSAYO) comparte con Los sueños no soñados: Del duelo al consuelo: 15 (Trayectos) el interés por cuestiones relacionadas con el sufrimiento y su elaboración personal. Rafael Domingo Osle centra su obra en el perdón, mientras que el título de Santiago Roldán sitúa el duelo y el consuelo en primer plano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399250930"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8bbdc614ebe34786",
+  "origen": "chatgpt-web"
+}

@@ -4,47 +4,50 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Estados Unidos: 250 años de la república imperial, 1776 - 2026 / United States: 250 Years of the Imperial Republic, 17762026 se dirige a lectores interesados en la historia política y la evolución del poder estadounidense. Su marco histórico y su extensión de 320 páginas lo alejan de quienes buscan ficción o una introducción breve a la actualidad.",
+      "texto": "Estados Unidos: 250 años de la república imperial, 1776 - 2026 / United States: 250 Years of the Imperial Republic, 17762026, de Carlos Alberto Patiño, se dirige a lectores interesados en la historia y el poder político estadounidense. Su enfoque temático lo aleja de quienes buscan ficción histórica protagonizada por personajes inventados o una novela de aventuras.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "temas_y_enfoque",
-      "texto": "El libro examina la trayectoria de Estados Unidos desde la perspectiva de su historia política y de la noción de república imperial. El periodo indicado en el título abarca de 1776 a 2026, mientras que su clasificación incluye historia, poder y política y siglo XX.",
-      "evidencias": [
-        "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra aborda la trayectoria histórica de Estados Unidos entre 1776 y 2026 desde el marco de una república imperial. El título relaciona esa evolución con el poder político y plantea un recorrido de 250 años, mientras que su clasificación editorial combina historia y política. Carlos Alberto Patiño firma este volumen de 320 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores",
+        "numero_paginas"
+      ]
+    },
+    {
       "modulo": "que_formato_elegir",
-      "texto": "Estados Unidos: 250 años de la república imperial, 1776 - 2026 / United States: 250 Years of the Imperial Republic, 17762026 está disponible en tapa blanda y tiene 320 páginas. El formato permite leer en papel un recorrido histórico amplio y volver a sus distintos periodos sin depender de una pantalla.",
+      "texto": "La tapa blanda es el formato disponible de Estados Unidos: 250 años de la república imperial, 1776 - 2026 / United States: 250 Years of the Imperial Republic, 17762026. Sus 320 páginas en castellano permiten consultar y releer apartados en papel, una característica práctica para una obra dedicada a la historia y la política.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Este estudio histórico de Carlos Alberto Patiño puede compararse con 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, por su interés en la historia y el poder político. El primero abarca la trayectoria estadounidense de 1776 a 2026, mientras que el segundo se centra, según su título, en el derrumbe de una democracia durante 53 días.",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, comparte el interés por la historia política, pero concentra su asunto en el derrumbe de una democracia, frente al recorrido de 250 años de Estados Unidos: 250 años de la república imperial, 1776 - 2026 / United States: 250 Years of the Imperial Republic, 17762026. Dentro del genocidio: Informes sobre la actuación del Estado de Israel en Palestina (GENERAL), de Francesca Albanese, también trata cuestiones de poder político, aunque desde informes sobre una actuación estatal concreta.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411005517"
+        "isbn-9788411005517",
+        "isbn-9791388244148"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "952874b3c602c5a4",
+  "fuente_hash": "c50f9ae93334856b",
   "origen": "chatgpt-web"
 }

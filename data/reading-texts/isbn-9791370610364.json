@@ -4,40 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a quienes buscan una aproximación jurídica al teletrabajo y su relación con la conciliación familiar y laboral en España. No responde al mismo interés que una lectura sobre organización personal o productividad, porque su tema central es la relación entre trabajo, familia y derecho.",
+      "texto": "El teletrabajo y la conciliación de la vida familiar y laboral en España (Monografía) se dirige a lectores interesados en el marco jurídico del trabajo a distancia y su relación con las responsabilidades familiares. El enfoque de Jorge Gabriel Pol Pujol resulta más específico que una guía general de productividad o de organización doméstica.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La obra de Jorge Gabriel Pol Pujol está disponible en tapa blanda, con 320 páginas en castellano. Esta edición de Aranzadi permite leer y consultar en papel el tratamiento del teletrabajo y la conciliación, además de realizar anotaciones para recuperar cuestiones concretas.",
+      "texto": "El teletrabajo y la conciliación de la vida familiar y laboral en España (Monografía) tiene una edición en tapa blanda de 320 páginas. El volumen en castellano permite una lectura por sesiones y la consulta física de cuestiones relacionadas con el derecho laboral y familiar.",
       "evidencias": [
-        "autores",
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial",
-        "titulo"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Se relaciona con Familia y sucesiones en la jurisprudencia: tendencias actuales (Monografía) por su atención a asuntos familiares desde el derecho. Jorge Gabriel Pol Pujol estudia el teletrabajo y la conciliación en España; Romina Santillan Santa Cruz se ocupa de las tendencias jurisprudenciales en familia y sucesiones. La diferencia está entre el ámbito laboral y el análisis jurisprudencial familiar y sucesorio.",
+      "texto": "Casos prácticos sobre el despido (Supuestos prácticos) comparte con El teletrabajo y la conciliación de la vida familiar y laboral en España (Monografía) su interés por las cuestiones laborales. El libro de Departamento de Documentación Iberley plantea supuestos sobre despidos, mientras que Jorge Gabriel Pol Pujol aborda el teletrabajo y la conciliación familiar desde una perspectiva jurídica.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370610425"
+        "isbn-9791370651749"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f1edd565cf417e3b",
+  "fuente_hash": "697ae233c9ef8d31",
   "origen": "chatgpt-web"
 }

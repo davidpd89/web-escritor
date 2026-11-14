@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta se dirige a lectores interesados en el desarrollo personal y las cuestiones de la vida adulta. Sus temas se relacionan con el bienestar y la familia, por lo que encaja menos con quien busca ficción o un tratado exclusivamente científico.",
+      "texto": "Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta está dirigido a quienes buscan lecturas sobre desarrollo personal y cuestiones relacionadas con la vida adulta. Su orientación hacia el ensayo y el bienestar lo aleja de la narrativa de ficción y de los libros centrados exclusivamente en una disciplina técnica.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,17 +12,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta está editado en tapa blanda y tiene 225 páginas. Este formato permite conservar el libro para volver a consultar sus contenidos sobre desarrollo personal y llevarlo durante los desplazamientos sin recurrir a dispositivos electrónicos.",
+      "texto": "Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta está disponible en tapa blanda, con 225 páginas. Esta edición permite leer en papel y volver a consultar apartados del libro sin depender de una pantalla, con una encuadernación flexible para transportarlo o guardarlo.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta y Cuando no sé lo que quiero: 150 enseñanzas para encontrar tu camino (Bruguera Tendencias) comparten el interés por la orientación personal. La obra de Anca Martínez aborda la vida adulta, mientras que la de Seung-hwan Jeon se presenta alrededor de la búsqueda de un camino propio mediante 150 enseñanzas.",
+      "texto": "Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta comparte el interés por el bienestar personal con No estoy bien y no sé por qué: Cómo dejar de vivir en piloto automático y superar la ansiedad silenciosa (Kitaeru Libros), de Tamara Arroyo Fenoll, aunque este último se centra en la ansiedad silenciosa. También guarda relación con Desbloquea tu dislexia: Guía práctica de confianza, estrategias y fortalezas para el trabajo y la vida, de Natalie Brooks, que aborda específicamente la dislexia, mientras que el libro de Anca Martínez plantea un ámbito más general: la vida adulta.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +29,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788402431684"
+        "isbn-9791387852283",
+        "isbn-9788410428522"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "68f07d9e6588727c",
+  "fuente_hash": "f8855cbe27e16f1a",
   "origen": "chatgpt-web"
 }

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Lectora amiga: Primeras crónicas (1926-1927): 29 (Biblioteca Elena Fortún) se dirige a lectores interesados en los escritos de Elena Fortún y en los textos vinculados con la historia y las memorias. Por su enfoque ensayístico e histórico, se aleja de quienes buscan una novela de ficción con una trama continuada.",
+      "texto": "Lectora amiga: Primeras crónicas (1926-1927): 29 (Biblioteca Elena Fortún) se dirige a lectores interesados en las crónicas históricas y los textos de Elena Fortún. Su vinculación con la historia, las memorias y el ensayo lo aleja de quienes buscan una novela de ficción contemporánea.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,17 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Lectora amiga: Primeras crónicas (1926-1927): 29 (Biblioteca Elena Fortún) se presenta en tapa blanda, con 176 páginas en castellano. Este formato permite consultar las crónicas en papel y transportar el volumen sin el peso habitual de una encuadernación rígida.",
+      "texto": "Lectora amiga: Primeras crónicas (1926-1927): 29 (Biblioteca Elena Fortún) está disponible en tapa blanda, con 176 páginas en castellano. Esta edición de Editorial Renacimiento permite conservar las crónicas en papel, marcar pasajes y volver a consultarlos sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Lectora amiga: Primeras crónicas (1926-1927): 29 (Biblioteca Elena Fortún) comparte el interés histórico con Mujeres que la liaron: De Hipatia de Alejandría a Simone de Beauvoir: 3000 años de historia feminista (Divulgación), de Tatiana Gómez Montero. La primera reúne crónicas de Elena Fortún identificadas con unas fechas concretas; la segunda plantea un recorrido por la historia feminista. Ambas se distinguen por su autoría y por el alcance temporal anunciado en sus títulos.",
+      "texto": "Campo de concentración: 82 (Biblioteca del Exilio), de Eduardo de Ontañón, comparte con Lectora amiga: Primeras crónicas (1926-1927): 29 (Biblioteca Elena Fortún) el interés por los textos vinculados a la historia, aunque sus títulos sitúan el foco en experiencias distintas. El mejor hotel de Kabul: Una historia en primera persona de Afganistán y sus gentes (Salamandra Miradas), de Lyse Doucet, también se aproxima a la realidad mediante el testimonio, pero se centra en Afganistán y sus habitantes, frente a las primeras crónicas de Elena Fortún.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,7 +32,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788403527041"
+        "isbn-9788410148659",
+        "isbn-9791387928360"
       ]
     }
   ],

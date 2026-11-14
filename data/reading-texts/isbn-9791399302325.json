@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399302325",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "MÁS (la continuación del bestseller del Sunday Times QUIERO) (Literatura Juvenil), de Gillian Anderson, se presenta como continuación de QUIERO y está clasificado entre las biografías y memorias. Se dirige a lectores interesados en esa modalidad de no ficción, más que a quienes buscan una novela fantástica o de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de MÁS (la continuación del bestseller del Sunday Times QUIERO) (Literatura Juvenil) publicada por Ediciones Camelot0 consta de 312 páginas en tapa blanda. Este formato permite leer y conservar el volumen en papel, además de colocarlo junto a otros libros de memorias.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia), de Dick Van Dyke, y MÁS (la continuación del bestseller del Sunday Times QUIERO) (Literatura Juvenil), de Gillian Anderson, figuran entre las lecturas vinculadas a experiencias personales. El primero anuncia consejos sobre longevidad y bienestar, mientras que el segundo se presenta como continuación de QUIERO dentro del ámbito de las biografías y memorias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387852290"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "98ec141dd3f0d04b",
+  "origen": "chatgpt-web"
+}

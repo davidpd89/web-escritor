@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788466390200",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A la deriva contigo (Best Seller | Ficción), de Beth O'Leary, encaja con lectores de romance y narrativa contemporánea. Sus 400 páginas responden a una lectura de extensión media-larga, distinta de los relatos breves o de las novelas centradas en la fantasía y la ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "A la deriva contigo (Best Seller | Ficción) puede leerse en tapa blanda o Kindle y también escucharse en audiolibro. La edición de bolsillo de Penguin Bolsillo reúne 400 páginas; Kindle permite llevarla en el móvil y el audiolibro ofrece una opción para escuchar durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A la deriva contigo (Best Seller | Ficción) comparte el romance con A mil por hora, de Hannah Grace, y Amor en pole position (Dirty Air 3), de Lauren Asher. La novela de Beth O'Leary se encuadra también en la narrativa contemporánea, mientras que las otras dos sitúan sus historias románticas en el entorno de la Fórmula 1.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683449",
+        "isbn-9788427055674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4fba892ba8537070",
+  "origen": "chatgpt-web"
+}

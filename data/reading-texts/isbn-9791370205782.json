@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Uno, el todo: En busca del dios primigenio (Novela Histórica) se orienta a lectores interesados en la ficción histórica y las cuestiones religiosas y espirituales. Quienes busquen una novela ajena a estos ámbitos temáticos encontrarán aquí un planteamiento distinto al de otros géneros narrativos.",
+      "texto": "Uno, el todo: En busca del dios primigenio (Novela Histórica) se dirige a lectores de novela histórica interesados en cuestiones religiosas y espirituales. La obra de Javier Fernández se aleja de los libros de divulgación religiosa al presentar su materia dentro de una narración de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,26 +13,25 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda contiene las 424 páginas de Uno, el todo: En busca del dios primigenio (Novela Histórica), de Javier Fernández. Su extensión permite disponer de la obra completa en papel, en una edición de Almuzara.",
+      "texto": "Uno, el todo: En busca del dios primigenio (Novela Histórica) está editado en tapa blanda por Almuzara. Con 424 páginas, es una novela de extensión considerable que puede leerse por sesiones y conservarse en una biblioteca personal sin la rigidez de una encuadernación de tapa dura.",
       "evidencias": [
         "titulo",
-        "autores",
-        "numero_paginas",
+        "editorial",
         "formatos_disponibles",
-        "edicion"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián, comparte con Uno, el todo: En busca del dios primigenio (Novela Histórica), de Javier Fernández, el marco de la novela histórica. La diferencia está en el punto de partida que anuncian sus títulos: la Reconquista en el primero y la búsqueda de un dios primigenio en el segundo.",
+      "texto": "Al otro lado de la niebla (Novela), de Juan Luis Arsuaga, y Uno, el todo: En busca del dios primigenio (Novela Histórica), de Javier Fernández, se sitúan entre las opciones narrativas del catálogo. El segundo identifica expresamente la búsqueda de una divinidad primordial y combina novela histórica con religión y espiritualidad, mientras que el primero se presenta bajo el título Al otro lado de la niebla (Novela).",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "afines_catalogo",
         "categorias"
       ],
       "enlaces": [
-        "isbn-9788401039539"
+        "isbn-9788423370849"
       ]
     }
   ],

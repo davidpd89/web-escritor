@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788410908178",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dieciséis conversaciones viajeras (imaginadas) se dirige a lectores interesados en los viajes tratados mediante conversaciones imaginadas. Su planteamiento se aleja de quienes buscan principalmente una guía práctica de destinos, con recorridos y lugares organizados para preparar una visita.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dieciséis conversaciones viajeras (imaginadas) está disponible en tapa blanda y Kindle. La edición impresa reúne sus 202 páginas en un volumen físico, mientras que Kindle permite consultar la obra desde un dispositivo electrónico sin llevar el libro en papel.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dieciséis conversaciones viajeras (imaginadas) comparte el interés por los viajes con Austria 7, de Anthony Haywood. Xavier F. Vidal propone conversaciones imaginadas relacionadas con los viajes, mientras que Austria 7 presenta un destino mediante su patrimonio histórico y sus paisajes naturales. La diferencia está entre una obra de planteamiento conversacional y otra centrada en las características de un país.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408322221"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cb669750f16e83f2",
+  "origen": "chatgpt-web"
+}

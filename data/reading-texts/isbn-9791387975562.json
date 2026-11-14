@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Obra reunida (Hispánica), de Mario Bellatin, está dirigida a lectores de narrativa contemporánea que buscan un volumen de extensión considerable. Sus 512 páginas la alejan de quienes prefieren libros breves, aunque la clasificación editorial no determina por sí sola la complejidad de la lectura.",
+      "texto": "Obra reunida (Hispánica) encaja con lectores de narrativa contemporánea interesados en una recopilación de textos de Mario Bellatin. Sus 512 páginas requieren más tiempo que un libro breve; no responde a quien busca específicamente cómic o novela gráfica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,17 +14,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Obra reunida (Hispánica) se edita en tapa blanda y contiene 512 páginas. Esta edición de Alfaguara reúne una extensión amplia en un único volumen físico, con cubierta flexible para su manejo y almacenamiento.",
+      "texto": "Obra reunida (Hispánica) puede leerse en tapa blanda o Kindle. La edición física de Alfaguara reúne 512 páginas y permite consultar el volumen en papel; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "editorial"
+        "editorial",
+        "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d52e66c754145187",
+  "fuente_hash": "57969c4cb06e6c46",
   "origen": "chatgpt-web"
 }

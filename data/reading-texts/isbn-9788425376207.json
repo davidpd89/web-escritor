@@ -4,35 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sissi investiga. Los diamantes de la emperatriz (Ficción) se orienta a quienes buscan ficción con una investigación vinculada a una emperatriz y sus diamantes. El planteamiento anunciado por el título se aleja de los libros documentales sobre mujeres y de los manuales prácticos.",
+      "texto": "Sissi investiga. Los diamantes de la emperatriz (Ficción) se dirige a quienes buscan ficción con una investigación vinculada a unos diamantes. El título sitúa a Sissi en el centro de esa búsqueda y la edición tiene 240 páginas. No corresponde a una biografía documental ni a un estudio histórico sobre una emperatriz.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Sissi investiga. Los diamantes de la emperatriz (Ficción) contiene 240 páginas y permite leer la obra en papel. La edición Kindle ofrece una alternativa digital para continuar la lectura desde el móvil o un lector electrónico compatible.",
+      "texto": "Sissi investiga. Los diamantes de la emperatriz (Ficción) se ofrece en tapa blanda y Kindle. La edición física de Grijalbo tiene 240 páginas y permite conservar o regalar el libro en papel; Kindle facilita leer la misma obra desde un dispositivo compatible. La elección depende de si se prefiere un ejemplar físico o una lectura digital.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Asesinato en la Casa Rosa (edición limitada) (Los crímenes de Loeiro 1) (Campaña | Ahora por menos) y Sissi investiga. Los diamantes de la emperatriz (Ficción) presentan títulos relacionados con investigaciones. El primero anuncia un asesinato y unos crímenes, mientras que el segundo sitúa el interés en los diamantes de una emperatriz.",
-      "evidencias": [
-        "titulo",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788466396363"
+        "editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bbbae290b10917f5",
+  "fuente_hash": "8ace74171e9613ad",
   "origen": "chatgpt-web"
 }

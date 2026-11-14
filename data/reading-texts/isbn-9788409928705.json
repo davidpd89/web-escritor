@@ -4,25 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Rosalvia: El hilo que cambió de camino se dirige a lectores de fantasía infantil y juvenil interesados en la amistad y el desarrollo personal. Por sus temas, encaja menos con quienes buscan una lectura centrada exclusivamente en la ciencia ficción o alejada de las relaciones personales.",
+      "texto": "Rosalvia: El hilo que cambió de camino encaja con lectores infantiles y juveniles que buscan fantasía relacionada con el desarrollo personal. El libro de Ignacio Estévez Simonet tiene 110 páginas y se aleja, por su orientación temática, de las lecturas centradas exclusivamente en contenidos realistas o informativos.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Rosalvia: El hilo que cambió de camino está disponible en tapa blanda, con 110 páginas en castellano. Es una edición física de extensión breve, manejable para llevar en una mochila y consultar o releer sin depender de un dispositivo electrónico.",
+      "texto": "Rosalvia: El hilo que cambió de camino puede leerse en tapa blanda o Kindle. La edición impresa reúne sus 110 páginas en un volumen manejable para la lectura en papel, mientras que Kindle permite llevar el mismo título en formato digital y leerlo desde un dispositivo compatible.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Rosalvia: El hilo que cambió de camino comparte la fantasía y la amistad con Las aventuras navideñas de los Mimosaurios: Tres cuentos llenos de magia, amistad y espíritu navideño. La diferencia está en el enfoque: el libro de Ignacio Estévez Simonet incorpora el desarrollo personal y la ciencia ficción, mientras que el de Laura Naiara Aldana Ramaker reúne cuentos de temática navideña.",
+      "texto": "Brujas y dragones 2: La bruja mala del oeste y Rosalvia: El hilo que cambió de camino comparten su orientación hacia lectores de fantasía infantil y juvenil. La obra de Ledicia Costas y Luis Miguel Pérez anuncia una historia de brujas y dragones, mientras Ignacio Estévez Simonet vincula su libro con el desarrollo personal y la fantasía.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409926671"
+        "isbn-9791387501877"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "610d9dded5e8028b",
+  "fuente_hash": "b95e61aaf5d97c76",
   "origen": "chatgpt-web"
 }

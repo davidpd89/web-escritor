@@ -4,25 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Brainwashing: Populismo en la era del like se dirige a lectores interesados en el populismo, la política y su relación con la cultura de los likes. Su temática se aparta de las historias centradas en relaciones personales o conflictos ajenos al ejercicio del poder.",
+      "texto": "Brainwashing: Populismo en la era del like está dirigido a lectores interesados en el populismo, el poder político y su relación con la cultura digital. Con 292 páginas, se sitúa en el ámbito de la política y la actualidad; encaja menos con quien busca una novela romántica o una historia de fantasía.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Brainwashing: Populismo en la era del like está disponible en tapa blanda, con 292 páginas en castellano. Su encuadernación flexible facilita transportarlo para leer sobre política y populismo fuera de casa, sin depender de un dispositivo electrónico.",
+      "texto": "Brainwashing: Populismo en la era del like se ofrece en tapa blanda, en una edición de Última Línea. Sus 292 páginas pueden leerse y consultarse en papel, una opción para quien prefiere conservar físicamente los libros de política y actualidad.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "idioma"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "A la sombra del Estado comparte con Brainwashing: Populismo en la era del like el interés por el poder político, pero aborda el espionaje, las operaciones encubiertas y la desinformación. Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) se ocupa de una corriente de pensamiento económico y político, frente al foco en el populismo y los likes del libro de Andrés Roemer.",
+      "texto": "Brainwashing: Populismo en la era del like, de Andrés Roemer, puede compararse con A la sombra del Estado, de Luis de la Corte Ibáñez, por su interés compartido en los mecanismos del poder. El primero aborda el populismo en la cultura del like, mientras que el segundo trata el espionaje, la desinformación y las operaciones encubiertas. También se aproxima a El estado del Estado, de Enrique López López, aunque este último centra su reflexión política en España y la polarización.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +33,12 @@
       ],
       "enlaces": [
         "isbn-9788434441057",
-        "isbn-9791388182457"
+        "isbn-9788423441013"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "926faf64f77c45fb",
+  "fuente_hash": "070464865e6a0ee2",
   "origen": "chatgpt-web"
 }

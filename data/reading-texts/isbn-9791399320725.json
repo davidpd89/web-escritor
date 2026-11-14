@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791399320725",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a trabajadores, mandos y empresas que necesitan prevenir, detectar y abordar el burnout laboral. Su orientación hacia casos, pruebas y modelos de trabajo lo separa de los libros de bienestar general sin aplicación específica al entorno profesional.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne 222 páginas e incluye, según el título, 170 test y modelos para fotocopiar. El soporte físico facilita localizar ejercicios, consultar casos y utilizar los modelos durante actividades de prevención en el trabajo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Acoso en el trabajo: Guía práctica para trabajadores, mandos y empresas: reconocerlo, prevenirlo y actuar. Laboral, sexual, por razón de sexo y LGTBI. Con 50 casos y sentencias, test y protocolos, también de José Luis Efraín Zeballos, trata los conflictos laborales desde el acoso y sus protocolos. Burnout en el trabajo se concentra en el desgaste profesional y añade 170 test y modelos para fotocopiar.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9791399320732"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "454348631964c72b",
+  "origen": "chatgpt-web"
+}

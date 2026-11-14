@@ -4,32 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Una holandesa en América / A Dutch Woman in America se sitúa entre la novela histórica y la narrativa contemporánea, por lo que encaja con lectores interesados en esos géneros. Su clasificación la aleja de las búsquedas centradas en ensayo, poesía o manuales de consulta.",
+      "texto": "Se sitúa entre la novela histórica y la narrativa contemporánea, por lo que encaja con lectores que buscan ficción vinculada a esas dos vertientes. No responde a la búsqueda de un ensayo histórico o de una obra divulgativa, ya que su clasificación editorial corresponde a la narrativa.",
       "evidencias": [
-        "titulo",
-        "categorias"
+        "categorias",
+        "titulo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Para Una holandesa en América / A Dutch Woman in America, la opción de lectura es la tapa blanda. Sus 304 páginas forman un volumen físico que permite avanzar por la novela, marcar el punto de lectura y volver a fragmentos anteriores sin utilizar dispositivos electrónicos.",
+      "texto": "Una holandesa en América / A Dutch Woman in America se presenta en tapa blanda, con 304 páginas en castellano. Es una edición física que permite leer la novela sin dispositivo electrónico y conservarla en una biblioteca de narrativa.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Una holandesa en América / A Dutch Woman in America puede compararse con Conspiración en Londres, de Felipe Pigna, por su presencia en un conjunto de lecturas relacionadas con la narrativa histórica. La obra de Soledad Acosta De Samper está clasificada también como narrativa contemporánea, mientras que el título de Felipe Pigna sitúa expresamente su referencia geográfica en Londres.",
+      "texto": "Comparte la clasificación de novela histórica con Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon, de Valerio Massimo Manfredi. Son obras de distinta autoría y sus títulos sitúan el interés histórico en referentes diferentes; Una holandesa en América / A Dutch Woman in America también figura como narrativa contemporánea.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788408329688"
+        "isbn-9786287897090"
       ]
     }
   ],

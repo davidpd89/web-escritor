@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388036484",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Apapachar se dirige a quienes buscan poesía en castellano en un volumen breve. Sus 60 páginas permiten abordar la lectura en sesiones cortas; por su género, queda fuera de las preferencias de quien busca una novela con una trama narrativa extensa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Apapachar está editado en tapa blanda, con 60 páginas en castellano. Su extensión facilita llevar el ejemplar en el bolso o consultar poemas en distintos momentos, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Apapachar comparte el terreno de la poesía con Advenir, de Jose Eceolaza, y Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. Frente a la orientación amorosa que anuncia este último título, Apapachar se presenta como un poemario de Andrea Bravo Camacho sin esa delimitación temática en su título. Son obras de autoría diferente que permiten explorar distintas propuestas poéticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410212749",
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1fc44ddf38f62843",
+  "origen": "chatgpt-web"
+}

@@ -4,29 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Qué es una vida buena?: Sócrates y lo que de verdad importa (Salamandra Graphic) se dirige a lectores interesados en la historia, las biografías y las preguntas sobre la vida. Sus 144 páginas plantean una lectura de extensión breve alrededor de Sócrates; no responde al perfil de quien busca una novela de ficción o una narración de aventuras.",
+      "texto": "¿Qué es una vida buena?: Sócrates y lo que de verdad importa (Salamandra Graphic) se dirige a lectores interesados en la figura de Sócrates y en las preguntas sobre cómo vivir. Su clasificación en biografías, memorias e historia lo aleja de quienes buscan una novela de aventuras o una trama de suspense.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer ¿Qué es una vida buena?: Sócrates y lo que de verdad importa (Salamandra Graphic) en una edición física de 144 páginas. Su extensión contenida facilita transportarlo y consultarlo en distintos momentos, sin necesitar un dispositivo electrónico para seguir la lectura.",
+      "texto": "¿Qué es una vida buena?: Sócrates y lo que de verdad importa (Salamandra Graphic) se presenta en tapa blanda, con 144 páginas en castellano. Es una edición de Salamandra que permite leer y consultar en papel el contenido dedicado a Sócrates, con una extensión delimitada para organizar la lectura.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "numero_paginas",
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cesar La conquista de la eternidad, de Alberto Angela, comparte con ¿Qué es una vida buena?: Sócrates y lo que de verdad importa (Salamandra Graphic) el interés por las figuras históricas. La diferencia está en el enfoque: el primero presenta un recorrido centrado en una figura del pasado, mientras el segundo plantea preguntas sobre la vida a partir de Sócrates. Ambos permiten acercarse a la historia desde perspectivas diferentes.",
+      "texto": "¿Qué es una vida buena?: Sócrates y lo que de verdad importa (Salamandra Graphic) y Cesar La conquista de la eternidad se aproximan a figuras del pasado desde asuntos diferentes. Barbara Stok centra su obra en Sócrates y la vida buena, mientras que Alberto Angela aborda la trayectoria de un general romano.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
@@ -37,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "29b18ba5a62e7d8b",
+  "fuente_hash": "3c0ee96457357aef",
   "origen": "chatgpt-web"
 }

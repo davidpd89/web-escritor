@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388107313",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fernando Giner. El chufa, de Conrado Valle, se dirige a lectores interesados en biografías y trayectorias personales. Su clasificación como biografía lo distingue de una obra de ficción o de un manual práctico de ocio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Editorial Sargantana se publica en tapa blanda y tiene 204 páginas en castellano. Permite leer la biografía en papel y consultar pasajes concretos sobre la figura que da título al libro.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Jannik Sinner: El tenista que vino del futuro (Otros deportes), de Alessandro Francesco Ruta, comparte con Fernando Giner. El chufa, de Conrado Valle, el interés por una figura personal, aunque el primero identifica expresamente el tenis. Has Nacido Para Esto / What You're Made For: Powerful Life Lessons from My Career in Sports, de George Raveling y Ryan Holiday, se orienta hacia las lecciones de una carrera deportiva, mientras que Fernando Giner. El chufa se presenta como una biografía.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9786073882088",
+        "isbn-9791387955496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7c0212e878079695",
+  "origen": "chatgpt-web"
+}

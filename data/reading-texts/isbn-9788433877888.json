@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788433877888",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en el estudio de la música metal, sus referencias culturales y la construcción de identidades. Por su enfoque musicológico y ensayístico, se aleja de las biografías de músicos y de las lecturas centradas exclusivamente en escuchar o interpretar canciones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 220 páginas en castellano, publicadas por Editorial Universidad de Granada. Es una opción física para consultar y subrayar un estudio sobre música metal, con una extensión que permite distribuir la lectura en varias sesiones.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mägo de Oz: Intertextualidad, imaginarios e identidades en la música metal (Musicología) y Clásicos Sin Filtros: El Impacto del Mundo Antiguo / Talking Classics: The Shock of the Old comparten el interés por las manifestaciones culturales. El primero se concentra en la música metal y sus identidades; el segundo aborda el impacto del mundo antiguo. También se aproxima a Charlotte Perriand. La libertad de repensar el mundo por su relación con la creación artística, aunque cambia la música por el ámbito de una figura del diseño.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788416411993",
+        "isbn-9786076393055"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9f08d14701908a59",
+  "origen": "chatgpt-web"
+}

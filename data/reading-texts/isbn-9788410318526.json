@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cacahuete, el elfo pedorrete está dirigido a lectores infantiles interesados en la fantasía y el humor. Su combinación temática también incorpora poesía, mientras que sus 48 páginas lo diferencian de las novelas extensas y de los ensayos para adultos.",
+      "texto": "Cacahuete, el elfo pedorrete (Libros ilustrados), de Rafael Ordóñez, se dirige a lectores infantiles interesados en la fantasía y la poesía. Sus 48 páginas permiten una lectura breve, pero su planteamiento se aleja de las novelas juveniles extensas y de las historias realistas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,17 +14,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 48 páginas de Cacahuete, el elfo pedorrete en un libro físico compacto, adecuado para conservar y regalar. Kindle permite acceder al contenido desde una pantalla, aunque la elección del formato físico mantiene la edición en papel.",
+      "texto": "La tapa dura permite conservar Cacahuete, el elfo pedorrete (Libros ilustrados) como libro físico y manejar sus 48 páginas durante la lectura compartida. Kindle ofrece el mismo título en formato digital, con acceso desde dispositivos compatibles sin ocupar espacio en la estantería.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles",
-        "formato_edicion"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cacahuete, el elfo pedorrete comparte el público infantil con El lago de los monstruos (INFANTIL), de Leo Timmers. Ambos títulos presentan referentes fantásticos en sus propios nombres, aunque el primero se identifica con un elfo y combina humor y poesía, mientras que el segundo introduce monstruos. Estuche Magic Animals. Misiones especiales 1 y 2, de Susanna Isern, Carles Dalmau, Nil López, aporta otra referencia del catálogo infantil.",
+      "texto": "El baile diminuto (Poesía Ilustrada), de María José Ferrada, comparte con Cacahuete, el elfo pedorrete (Libros ilustrados) el vínculo con la poesía, aunque este último incorpora la fantasía infantil. Un año paseando por el bosque, de Rachel Piercey, también utiliza poemas, pero propone una exploración del bosque con ventanas para levantar, frente al formato de lectura ilustrada de Rafael Ordóñez.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387884260",
-        "isbn-9788408327332"
+        "isbn-9788413432984",
+        "isbn-9788418735936"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "fe82982e395dac1b",
+  "fuente_hash": "0679d1b7f372521f",
   "origen": "chatgpt-web"
 }

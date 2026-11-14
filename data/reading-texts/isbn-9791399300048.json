@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791399300048",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El libro olvidado: 1 (La saga de la luz) se dirige al público infantil y juvenil que busca lecturas de extensión breve. Sus 129 páginas permiten distinguirlo de obras más largas; no responde a quien busca narrativa dirigida específicamente a adultos. El título lo identifica como el n.º 1 de La saga de la luz.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El libro olvidado: 1 (La saga de la luz) está disponible en tapa blanda, con 129 páginas en castellano. Esta edición de Cometas permite leerlo en papel y guardarlo sin el volumen de una obra extensa. Es una opción física tanto para la lectura habitual como para regalar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "be2bfc17e98412da",
+  "origen": "chatgpt-web"
+}

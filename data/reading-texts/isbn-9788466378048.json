@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Soy como como se dirige a adultos que quieren revisar sus hábitos alimentarios y desarrollar criterios propios sobre nutrición. Núria Coll plantea reflexiones y consejos frente a las dietas de moda, de modo que su enfoque se distingue del de los libros centrados en recetas o planes de comidas cerrados.",
+      "texto": "Soy como como está dirigido a adultos interesados en la alimentación saludable y en desarrollar criterios propios sobre nutrición. Núria Coll plantea reflexiones y consejos para interpretar las recomendaciones alimentarias sin depender de las dietas de moda, por lo que se distancia de los libros centrados exclusivamente en recetas o planes de comidas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,13 +15,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Soy como como cuenta con una edición de bolsillo de 200 páginas y una versión Kindle. El formato físico permite subrayar y consultar sus reflexiones sobre alimentación en papel, mientras que Kindle facilita llevar el texto en el móvil y recuperar sus consejos durante la lectura cotidiana.",
+      "texto": "Soy como como se publica en tapa blanda de bolsillo y en Kindle. La edición física de Penguin Bolsillo contiene 200 páginas y facilita su transporte y consulta en papel; Kindle permite leer las reflexiones y consejos de Núria Coll desde el móvil o un lector electrónico sin llevar el volumen.",
       "evidencias": [
         "titulo",
+        "autores",
         "edicion",
+        "editorial",
         "numero_paginas",
         "formatos_disponibles",
         "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Soy como como y La fibra es la solución comparten el interés por la alimentación y su relación con el bienestar. Núria Coll propone desarrollar un criterio propio frente a las dietas de moda, mientras que Kristen Stavridis se centra en el consumo de fibra y sus posibles beneficios para la salud. También puede compararse con 5 semanas para desinflamarte (edición limitada), de Blanca García-Orea Haro, aunque Soy como como prioriza la reflexión sobre los hábitos alimentarios frente a un planteamiento organizado en semanas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394390",
+        "isbn-9788425374869"
       ]
     }
   ],

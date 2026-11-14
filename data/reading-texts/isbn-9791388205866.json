@@ -4,41 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pau Riba en 20 canciones (Sílex Música), de Ramon Moreno, se orienta a lectores interesados en la música y en aproximarse a una figura artística mediante canciones concretas. Su planteamiento musical lo diferencia de los manuales de dibujo y de las obras centradas en técnicas de creación visual.",
+      "texto": "Pau Riba en 20 canciones (Sílex Música) se orienta a quienes buscan acercarse a una figura musical mediante una selección de canciones. El planteamiento de Ramon Moreno se distancia de los manuales de dibujo y de los libros dedicados exclusivamente a las artes visuales.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Pau Riba en 20 canciones (Sílex Música) se publica en tapa blanda y reúne 192 páginas en castellano. Esta edición de Sílex Ediciones permite mantener el volumen en una biblioteca musical y consultar sus contenidos en papel. Su extensión facilita alternar la lectura con otras actividades sin necesidad de un dispositivo electrónico.",
+      "texto": "Pau Riba en 20 canciones (Sílex Música) está disponible en tapa blanda, con 192 páginas publicadas por Sílex Ediciones. Esta edición permite consultar el contenido en papel y volver a las canciones mencionadas sin depender de una pantalla.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "idioma",
         "editorial",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Pau Riba en 20 canciones (Sílex Música) y 720 retrats comparten el interés por las expresiones artísticas. Ramon Moreno centra su libro en 20 canciones de Pau Riba, mientras que Xavier Mollà i Revert presenta una obra identificada por sus retratos. La diferencia está en el objeto de atención: canciones en el primero y retratos en el segundo.",
+      "texto": "All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial, de Daniel Sedcontra, comparte con Pau Riba en 20 canciones (Sílex Música) el interés por la música como objeto de estudio. Ramon Moreno organiza su libro alrededor de las canciones de Pau Riba, mientras que Daniel Sedcontra aborda la música industrial desde el ruido, la subversión y el terrorismo cultural.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788412678802"
+        "isbn-9788410045538"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "774ac38f288e909d",
+  "fuente_hash": "21f3818c1593f8ec",
   "origen": "chatgpt-web"
 }

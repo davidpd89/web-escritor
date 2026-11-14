@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788409925902",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "TECNOLOGÍA SIN MIEDO: Manual práctico de competencias digitales en Android. Explicado con lenguaje humano, ejemplos sencillos y guías paso a paso (WhatsApp, Cl@ve, Bizum y Seguridad) está dirigido a quienes buscan aprender operaciones digitales cotidianas. Su orientación introductoria y práctica se aleja de los tratados técnicos sobre programación o desarrollo de aplicaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El uso de Android, WhatsApp, Cl@ve y Bizum, junto con la seguridad digital, forma el núcleo de este manual. Elías Fernández Martín organiza el aprendizaje mediante ejemplos sencillos e instrucciones paso a paso, con un lenguaje orientado a comprender y realizar tareas tecnológicas habituales.",
+      "evidencias": [
+        "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "TECNOLOGÍA SIN MIEDO: Manual práctico de competencias digitales en Android. Explicado con lenguaje humano, ejemplos sencillos y guías paso a paso (WhatsApp, Cl@ve, Bizum y Seguridad) se ofrece en tapa blanda. Sus 126 páginas pueden mantenerse abiertas junto al dispositivo mientras se siguen las instrucciones y se comprueba cada operación.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA y TECNOLOGÍA SIN MIEDO: Manual práctico de competencias digitales en Android. Explicado con lenguaje humano, ejemplos sencillos y guías paso a paso (WhatsApp, Cl@ve, Bizum y Seguridad) comparten una orientación divulgativa sobre tecnología. Keith Mansfield trata conceptos de inteligencia artificial, mientras Elías Fernández Martín se centra en competencias digitales prácticas y aplicaciones cotidianas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b4fd931e93a041a6",
+  "origen": "chatgpt-web"
+}

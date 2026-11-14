@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788411723718",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes quieren aprender a leer la baraja petit lenormand mediante el método alemán. La propuesta de Odete Lopes Mazza pertenece al ámbito de la cartomancia y el tarot, de modo que no responde a quien busca una guía de salud física o nutrición, aunque figure en una clasificación de bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 718 páginas de LA BIBLIA DE LA BARAJA. PETIT LENORMAND: Guía para aprender a leer la baraja petit lenormand - el método alemán (CARTOMANCIA Y TAROT). Por su extensión, funciona como volumen físico para estudiar y consultar el método, aunque resulta menos manejable para transportarlo a diario.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Se diferencia de Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida por su propósito: enseñar la lectura de la baraja petit lenormand mediante el método alemán. El título de Kelly Ann Street se centra en las heridas personales y el equilibrio interior, mientras que Odete Lopes Mazza plantea el aprendizaje de una práctica de cartomancia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410451988"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "16fe858c54517389",
+  "origen": "chatgpt-web"
+}

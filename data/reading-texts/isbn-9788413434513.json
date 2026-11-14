@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Peligro, ¡hay un lobo en el bosque! (Libros interactivos) está dirigido al público infantil interesado en animales, humor y propuestas de lectura interactiva. Sus 32 páginas permiten una lectura breve; por su orientación infantil, queda fuera de las búsquedas de narrativa adulta extensa.",
+      "texto": "Peligro, ¡hay un lobo en el bosque! (Libros interactivos) está dirigido al público infantil y se presenta como un libro interactivo. Sus 32 páginas ofrecen una extensión breve frente a obras infantiles más largas; no responde a la búsqueda de una novela juvenil extensa.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,31 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Peligro, ¡hay un lobo en el bosque! (Libros interactivos) se publica en tapa dura y tiene 32 páginas. Esta encuadernación ofrece una cubierta rígida para manipular el libro durante lecturas compartidas y conservarlo después, especialmente en un título infantil de carácter interactivo.",
+      "texto": "Peligro, ¡hay un lobo en el bosque! (Libros interactivos) se presenta en tapa dura, con 32 páginas en castellano. Esta edición física de Kalandraka permite manejar el libro directamente durante la lectura y conservarlo en una biblioteca infantil sin depender de una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "El lago de los monstruos (INFANTIL) comparte con Peligro, ¡hay un lobo en el bosque! (Libros interactivos) su orientación infantil, aunque sus títulos presentan criaturas distintas. El mono que vino a cenar (La ovejita que vino a cenar) (Cuentos infantiles) también utiliza un animal como referencia central, pero pertenece a otra obra y tiene un autor diferente, Steve Smallman frente a Anne Derenne.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791387884260",
-        "isbn-9788448874056"
+        "idioma",
+        "editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "45025399d4cc2359",
+  "fuente_hash": "4002519a5184adde",
   "origen": "chatgpt-web"
 }

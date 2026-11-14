@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Conan: Las Crónicas de Bolsillo 6: Clavos rojos / Más allá del río Negro (Las crónicas nemedias) se dirige a lectores de fantasía con interés por relatos que incorporan elementos de terror. Su orientación hacia estos géneros encaja menos con quienes buscan narrativa realista o historias centradas principalmente en las relaciones románticas.",
+      "texto": "Es una lectura de fantasía y terror para quienes buscan relatos vinculados al personaje de Conan. El título reúne Clavos rojos y Más allá del río Negro, por lo que se aleja de las novelas contemporáneas realistas y de los libros de orientación práctica.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,33 +12,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Spórtula se presenta en tapa blanda y contiene 226 páginas en castellano. Este formato permite llevar los relatos de Robert Ervin Howard en papel y conservar el volumen junto a otros títulos de la colección identificada en la cubierta.",
+      "texto": "La edición de Spórtula se presenta en tapa blanda y tiene 226 páginas. Es una opción física para leer y conservar los dos relatos identificados en el título dentro de un mismo volumen de Las crónicas nemedias.",
       "evidencias": [
-        "editorial",
-        "formatos_disponibles",
+        "edicion",
         "numero_paginas",
-        "idioma",
-        "autores",
-        "titulo"
+        "titulo",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Conan: Las Crónicas de Bolsillo 6: Clavos rojos / Más allá del río Negro (Las crónicas nemedias) comparte el ámbito fantástico con Aftermyth 1. Penelope y la prueba de los dioses, aunque el primero incorpora el terror y el segundo remite desde su título a una prueba relacionada con dioses. Frente a Bones: ¿Cuál es tu razón para sobrevivir?: 1 (Matchstories Romántica Fantasy), la obra de Robert Ervin Howard se sitúa en la fantasía y el terror, mientras que la otra añade una orientación romántica.",
+      "texto": "Comparte con Coraline, de Neil Gaiman, su vinculación con la fantasía y el terror. Mientras Coraline parte de una casa antigua y una puerta hacia otra versión del hogar, Conan: Las Crónicas de Bolsillo 6: Clavos rojos / Más allá del río Negro (Las crónicas nemedias) reúne dos relatos identificados por sus títulos y vinculados a Conan.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408324102",
-        "isbn-9788427055964"
+        "lib-0001"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "97b18276b0d8bbd5",
+  "fuente_hash": "921f6d582a2991cf",
   "origen": "chatgpt-web"
 }

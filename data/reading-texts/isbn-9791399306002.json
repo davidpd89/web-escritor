@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9791399306002",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan orientación sobre la gestión de fiestas municipales desde una perspectiva de oficio. La Biblia del Concejal de Fiestas: Un manual de oficio para gestionar las fiestas de tu municipio, de Jesús Rivas Melchor, se centra en la actividad municipal, por lo que se aleja de las lecturas dedicadas exclusivamente a la teoría política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La organización y gestión de fiestas municipales constituye el asunto central del libro. Jesús Rivas Melchor lo plantea como un manual de oficio, con una orientación hacia las responsabilidades prácticas de esa actividad y su relación con la gestión pública local.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Biblia del Concejal de Fiestas: Un manual de oficio para gestionar las fiestas de tu municipio está disponible en tapa blanda, con 435 páginas. Esta edición física permite consultar distintos apartados y volver a ellos durante el trabajo, además de realizar anotaciones en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Música Sin Músicos: Inteligencia artificial y el futuro del ecosistema creativo comparte autoría con La Biblia del Concejal de Fiestas: Un manual de oficio para gestionar las fiestas de tu municipio. Jesús Rivas Melchor aborda en el primero la inteligencia artificial y la creación musical, mientras que el segundo se ocupa de la gestión de fiestas municipales desde un enfoque profesional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399306019"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1c4e8dee77ca98ab",
+  "origen": "chatgpt-web"
+}

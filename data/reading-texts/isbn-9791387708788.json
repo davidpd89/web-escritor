@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791387708788",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Desafío musical se orienta a lectores interesados en el entretenimiento relacionado con la música y las actividades de ocio. Por su temática, queda fuera de las preferencias de quienes buscan una novela de ficción o un estudio histórico de la música.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne las 50 páginas de Desafío musical en un volumen físico de extensión breve. Este formato permite guardarlo junto a otros libros de ocio y consultarlo sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Desafío musical y 99 Sudoku (LIBROS SINGULARES), de Anónimo, comparten su orientación hacia el entretenimiento y las aficiones. El primero se centra en la música, mientras que el segundo propone sudokus, por lo que la elección depende del tipo de actividad que interese al lector.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724425"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dfc54ffc8300e877",
+  "origen": "chatgpt-web"
+}

@@ -4,28 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Conectados para el amor / Wired for Love, de Stan Tatkin, se dirige a lectores interesados en la psicología de pareja, las relaciones afectivas y la convivencia familiar. Sus 304 páginas se sitúan en el ámbito del desarrollo personal; quien busque una historia romántica de ficción encontrará un enfoque diferente.",
+      "texto": "Conectados para el amor / Wired for Love se dirige a lectores interesados en la psicología de las relaciones y el desarrollo personal. La obra de Stan Tatkin se sitúa en el ámbito de la familia y la psicología, por lo que encaja menos con quien busca una historia romántica de ficción.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Conectados para el amor / Wired for Love está disponible en tapa blanda, con 304 páginas en castellano. La edición impresa permite subrayar pasajes y consultar de nuevo apartados relacionados con la psicología y las relaciones de pareja. Su extensión admite repartir la lectura entre varias sesiones.",
+      "texto": "Conectados para el amor / Wired for Love está disponible en tapa blanda y consta de 304 páginas en castellano. Esta edición de Penguin Random House Grupo Editorial permite leer en papel y volver a consultar sus contenidos sobre psicología y relaciones familiares.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
+        "editorial",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Conectados para el amor / Wired for Love comparte el interés por las relaciones de pareja con Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología), de Ramón Nogueras Pérez. Este último centra su planteamiento en el enamoramiento y el desenamoramiento, mientras que la obra de Stan Tatkin se encuadra también en la psicología y la convivencia familiar.",
+      "texto": "Conectados para el amor / Wired for Love se relaciona con Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología) por su atención a las relaciones afectivas. Stan Tatkin aborda el amor desde el ámbito de la psicología y la familia, mientras que el título de Ramón Nogueras Pérez plantea específicamente cómo surgen y terminan los enamoramientos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d1698a5594874588",
+  "fuente_hash": "0a326062b3350214",
   "origen": "chatgpt-web"
 }

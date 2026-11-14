@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El Arte del Balón: Enciclopedia práctica de las jugadas del fútbol. 240 técnicas explicadas e ilustradas se dirige a quienes quieren consultar recursos técnicos de fútbol. Su enfoque es práctico y deportivo, no una biografía de futbolistas ni una narración sobre partidos históricos.",
+      "texto": "El Arte del Balón: Enciclopedia práctica de las jugadas del fútbol. 240 técnicas explicadas e ilustradas se dirige a quienes quieren consultar movimientos y recursos técnicos del fútbol. Su enfoque práctico y enciclopédico lo separa de las lecturas deportivas centradas en biografías, competiciones o relatos de ficción.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,28 +12,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El Arte del Balón: Enciclopedia práctica de las jugadas del fútbol. 240 técnicas explicadas e ilustradas está disponible en tapa blanda y contiene 380 páginas. El formato físico permite consultar las explicaciones y las ilustraciones de las técnicas mientras se estudian o practican las jugadas.",
+      "texto": "La tapa blanda reúne las 380 páginas de El Arte del Balón: Enciclopedia práctica de las jugadas del fútbol. 240 técnicas explicadas e ilustradas en un volumen físico. Este formato permite consultar las técnicas y sus ilustraciones directamente sobre papel, pasar de una jugada a otra y volver a las páginas de referencia.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El Arte del Balón: Enciclopedia práctica de las jugadas del fútbol. 240 técnicas explicadas e ilustradas comparte temática deportiva con Kylian Mbappé: La biografía definitiva (Deportes). La diferencia está en el objeto de lectura: Joaquín Comeche López y Noah Comeche presentan 240 técnicas de fútbol, mientras que Julien Laurens centra su libro en la biografía de Kylian Mbappé.",
+      "texto": "99 Sudoku (LIBROS SINGULARES) comparte con El Arte del Balón: Enciclopedia práctica de las jugadas del fútbol. 240 técnicas explicadas e ilustradas su orientación al ocio, pero propone pasatiempos numéricos en lugar de técnicas deportivas. Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas también utiliza recursos visuales para una actividad práctica, aunque se ocupa del bordado y no de las jugadas de fútbol.",
       "evidencias": [
         "titulo",
-        "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788448049669"
+        "isbn-9788411724425",
+        "isbn-9788498748208"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "34e785928fac42a0",
+  "fuente_hash": "95501de5e6ce2dd1",
   "origen": "chatgpt-web"
 }

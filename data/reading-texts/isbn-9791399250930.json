@@ -4,27 +4,24 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los sueños no soñados: Del duelo al consuelo: 15 (Trayectos) se dirige a lectores interesados en el duelo, la superación personal y la dimensión espiritual de la pérdida. Por su temática y sus 128 páginas, se aleja de las lecturas centradas en la ficción o en cuestiones ajenas al bienestar emocional.",
+      "texto": "Los sueños no soñados: Del duelo al consuelo: 15 (Trayectos) se dirige a lectores interesados en el duelo, el consuelo y las cuestiones de desarrollo personal y espiritualidad. Su orientación encaja menos con quien busca una novela de aventuras o un tratado exclusivamente técnico sobre salud.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Los sueños no soñados: Del duelo al consuelo: 15 (Trayectos) está disponible en tapa blanda, con 128 páginas en castellano. Esta edición física permite consultar pasajes sobre el duelo y el consuelo, volver a ellos y conservar el volumen en papel sin depender de un dispositivo electrónico.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
         "categorias"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "Los sueños no soñados: Del duelo al consuelo: 15 (Trayectos) está disponible en tapa blanda, con una extensión de 128 páginas. El volumen en papel permite realizar una lectura breve o regresar a determinados pasajes relacionados con el duelo y el consuelo, sin necesidad de utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Los sueños no soñados: Del duelo al consuelo: 15 (Trayectos) comparte el tema de la pérdida con El duelo: cómo atenderte: Una guía para acompañarte después de la muerte de una persona amada, de Irma Vallès Hernàndez. Mientras este último título plantea el acompañamiento tras la muerte de una persona querida, el de Santiago Roldán vincula el duelo con el consuelo y la espiritualidad.",
+      "texto": "Los sueños no soñados: Del duelo al consuelo: 15 (Trayectos) puede compararse con El origen. La raíz invisible de lo que dirige tu vida por su relación con el desarrollo personal. Santiago Roldán aborda el duelo y el consuelo, mientras que Graciela del Campo Vara plantea las constelaciones familiares y la exploración de la propia historia como vías de transformación personal.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +29,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409921065"
+        "isbn-9791388038372"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f9420a27a4315c79",
+  "fuente_hash": "3b450bf90d4e39ff",
   "origen": "chatgpt-web"
 }

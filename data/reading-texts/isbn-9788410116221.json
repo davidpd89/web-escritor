@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Blanco de niebla y locura (TBR) se dirige a lectores que buscan fantasía con romance y aventuras dentro de una narración extensa. Sus 736 páginas lo alejan de quienes prefieren novelas cortas o historias realistas sin elementos fantásticos.",
+      "texto": "Blanco de niebla y locura (TBR), de Lisette Marshall, se dirige a quienes buscan fantasía con romance y aventuras. Su combinación de géneros encaja menos con lectores interesados exclusivamente en narrativa realista o historias románticas sin elementos fantásticos.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura de Blanco de niebla y locura (TBR) reúne sus 736 páginas en una edición física rígida, adecuada para conservar en la estantería o regalar. Kindle evita transportar un volumen tan extenso y permite continuar la lectura desde un dispositivo compatible.",
+      "texto": "Blanco de niebla y locura (TBR) puede leerse en tapa dura o en Kindle. La edición física reúne 736 páginas y permite conservar el volumen en papel o regalarlo; Kindle facilita llevar esa misma extensión en un dispositivo electrónico sin cargar con el libro.",
       "evidencias": [
         "titulo",
         "numero_paginas",
         "formatos_disponibles",
-        "edicion"
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE) y Blanco de niebla y locura (TBR) pueden compararse desde su vinculación con el romance y los elementos fantásticos. La primera obra, de Kayla Edwards, destaca el romance oscuro en su título editorial; la segunda, de Lisette Marshall, combina fantasía, romance y aventuras entre sus géneros.",
+      "texto": "Blanco de niebla y locura (TBR) puede compararse con Alas de escarcha y oro: El canto del cisne por su relación con la fantasía. Mientras la obra de Lisette Marshall combina fantasía, romance y aventuras, la de Marta Morillo presenta a Eira, que ha crecido ocultando sus dones y debilidades. La diferencia está en el conflicto que permite identificar cada descripción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788415955559"
+        "isbn-9791387949938"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f96d8efd670bd5a4",
+  "fuente_hash": "b2032f7fbe0977f5",
   "origen": "chatgpt-web"
 }

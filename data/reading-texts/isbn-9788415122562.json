@@ -4,26 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cambiar para Vivir, Colección Autoayuda, de Raúl M. Mir Coll, se dirige a lectores interesados en el desarrollo personal y el bienestar. También se relaciona con la familia y el tiempo libre, mientras que quien busque una novela de ficción encontrará aquí una propuesta de orientación práctica.",
+      "texto": "Cambiar para Vivir, Colección Autoayuda se dirige a quienes buscan lecturas de desarrollo personal y bienestar. Por su orientación hacia la autoayuda, se distingue de los manuales dedicados a una técnica profesional concreta y de las obras de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cambiar para Vivir, Colección Autoayuda se ofrece en tapa blanda, con 320 páginas en castellano. Esta presentación permite consultar el contenido en papel, marcar pasajes y regresar a apartados anteriores durante la lectura, sin depender de una pantalla.",
+      "texto": "La tapa blanda reúne las 320 páginas de Cambiar para Vivir, Colección Autoayuda en un volumen físico. Permite avanzar por capítulos, volver a pasajes anteriores y conservar el ejemplar para consultas posteriores; la edición está publicada en castellano por Chronica.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
         "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cambiar para Vivir, Colección Autoayuda comparte su interés por el bienestar con El código del rendimiento: La ciencia detrás de lo que el deportista consume, de Eztizen Pérez Díaz. La obra de Raúl M. Mir Coll se sitúa en el desarrollo personal y la autoayuda, mientras que la de Eztizen Pérez Díaz aborda la alimentación desde la perspectiva del rendimiento deportivo.",
+      "texto": "Defiéndete: Claves básicas para fortalecer tu seguridad personal y salir a la calle sin miedo (Alienta) comparte con Cambiar para Vivir, Colección Autoayuda el interés por el desarrollo personal, pero María Cabas delimita su propuesta a la seguridad personal. Tina: El perro que cambió el mundo (Crecimiento personal), de Niall Harbison, aborda el cambio desde una historia vinculada a un perro, mientras que el libro de Raúl M. Mir Coll se presenta dentro de una colección de autoayuda.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +33,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409934010"
+        "isbn-9788413445373",
+        "isbn-9791387662592"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5c9e2fe0849557ed",
+  "fuente_hash": "95ef2749ba15c318",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788409944798",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ready4Exit: Una guía práctica para preparar la venta de tu empresa y/o maximizar su valor está dirigido a quienes estudian cómo preparar una operación de venta empresarial. Su materia económica y su orientación práctica lo distancian de las lecturas de ficción y de los manuales centrados exclusivamente en la gestión cotidiana de un negocio.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ready4Exit: Una guía práctica para preparar la venta de tu empresa y/o maximizar su valor se presenta en tapa blanda y reúne 307 páginas. El soporte impreso permite marcar pasajes y volver a las cuestiones relacionadas con la preparación de una venta empresarial durante su estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ready4Exit: Una guía práctica para preparar la venta de tu empresa y/o maximizar su valor y ANTES DE QUE OCURRA: Vender, formar y proteger el futuro comparten una orientación empresarial relacionada con la venta. La obra de Diego Gutiérrez Zarza se concentra en preparar la venta de una empresa y aumentar su valor, mientras que el título de Rafael De la Torre Pérez incorpora también la formación y la protección del futuro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409935604"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0fa549ea8a225fb0",
+  "origen": "chatgpt-web"
+}

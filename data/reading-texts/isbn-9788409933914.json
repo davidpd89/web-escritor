@@ -4,24 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Por qué sigo creyendo se sitúa en el ámbito del desarrollo personal, el bienestar y las cuestiones familiares. Por su clasificación temática, se dirige a lectores interesados en estas materias y no a quienes buscan una novela de ficción o un tratado técnico especializado.",
+      "texto": "Por qué sigo creyendo, de Llorenç Gómez, se sitúa en el ámbito del desarrollo personal y el bienestar. Puede interesar a lectores que buscan reflexiones relacionadas con estas materias, mientras que quienes necesitan un tratado médico especializado o una novela de ficción encontrarán un enfoque editorial distinto.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Por qué sigo creyendo está disponible en tapa blanda y tiene 114 páginas. Su extensión permite abordar el volumen en sesiones relativamente breves y facilita transportarlo para leer fuera de casa; la edición física también permite marcar pasajes durante la lectura.",
+      "texto": "Por qué sigo creyendo está editado en tapa blanda y cuenta con 114 páginas. Su extensión permite abordar el volumen en varias sesiones breves, mientras que el soporte físico facilita conservarlo y consultar de nuevo sus páginas.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Por qué sigo creyendo comparte el ámbito del desarrollo personal con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody. La obra de Llorenç Gómez presenta la creencia como eje de su título, mientras que la de Liz Moody anuncia propuestas de cambio personal relacionadas con la salud, la felicidad y las relaciones.",
+      "texto": "Alma de vencedor: Los 10 principios innegociables para hacerte más fuerte cuando la vida más aprieta comparte con Por qué sigo creyendo su vinculación al desarrollo personal, aunque el primero anuncia principios para afrontar situaciones difíciles. Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta aborda cuestiones de la vida cotidiana desde otra perspectiva. El libro de Llorenç Gómez plantea, desde su propio título, la continuidad de una creencia como eje de reflexión.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,12 +30,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9798890981776"
+        "isbn-9788409938490",
+        "isbn-9788409938193"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b6d5d3dabcbe2e1b",
+  "fuente_hash": "881398d0942bb986",
   "origen": "chatgpt-web"
 }

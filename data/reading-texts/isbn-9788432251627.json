@@ -4,39 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "poemas de amor (Los Tres Mundos) se dirige a lectores interesados en poesía sobre el amor y las relaciones de pareja. Por su género y temática, se aparta de quienes buscan una novela de trama continuada o un ensayo centrado en el análisis de un asunto.",
+      "texto": "Está dirigido a lectores que buscan poesía centrada en el amor y prefieren una obra de 144 páginas frente a una narración extensa. No responde a la expectativa de una novela construida principalmente mediante una trama continua y capítulos narrativos.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "poemas de amor (Los Tres Mundos) está disponible en tapa dura, con 144 páginas en castellano publicadas por Seix Barral. El formato físico permite conservar el volumen en una biblioteca personal, consultarlo por páginas y entregarlo como regalo sin depender de un dispositivo electrónico.",
+      "texto": "La edición de Seix Barral se presenta en tapa dura y reúne 144 páginas. Este formato permite conservar el volumen como libro físico y regalar una edición encuadernada en tapa rígida, especialmente para quien prefiere leer poesía en papel.",
       "evidencias": [
-        "titulo",
+        "edicion",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Puede compararse con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, por la presencia del amor y la poesía en ambos títulos. poemas de amor (Los Tres Mundos) es una obra de rupi kaur, mientras que la otra reúne una antología amorosa atribuida a Pedro Salinas.",
+      "texto": "Fuego y raíz: Cancionero (Primera persona), de Gata Cattana, comparte con poemas de amor (Los Tres Mundos) el interés por la expresión poética, aunque el primero se identifica como cancionero y el segundo centra su título en el amor. El hacha de raskolnikov: 54 (Poesía - los libros del mississippi), de Teresa Sánchez Ruiz, ofrece otra referencia poética frente a la obra de rupi kaur.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788466396288"
+        "isbn-9791399132656",
+        "isbn-9788403524996"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "660f90c7da29bdf5",
+  "fuente_hash": "1ccbda2fbe1ae4c6",
   "origen": "chatgpt-web"
 }

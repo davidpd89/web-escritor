@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388155475",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Liderazgo de emergencia: Herramientas para gestionar lo imprevisible (Liderazgo con valores) está orientado a lectores interesados en la dirección de equipos y la gestión de situaciones inesperadas. Su enfoque empresarial y de liderazgo se aparta de las lecturas que buscan relatos de ficción o contenidos ajenos a la gestión.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Liderazgo de emergencia: Herramientas para gestionar lo imprevisible (Liderazgo con valores) tiene 192 páginas. Este formato permite consultar y marcar físicamente los apartados relacionados con el liderazgo y la gestión de lo imprevisible, tanto durante la lectura como en consultas posteriores.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Liderazgo de emergencia: Herramientas para gestionar lo imprevisible (Liderazgo con valores) comparte con Antes de liderar: Una mirada interior a un oficio el interés por el ejercicio del liderazgo. El primero se centra en gestionar lo imprevisible, mientras que el segundo plantea una reflexión interior anterior al desempeño del cargo. También puede compararse con Soplo (No ficción) por la autoría compartida de Fernando Botella, aunque sus títulos presentan enfoques distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387629663",
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6d468586b16f082b",
+  "origen": "chatgpt-web"
+}

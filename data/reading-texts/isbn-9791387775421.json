@@ -4,28 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El arte de comer, nutrir y sanar con la Medicina China (Salud y Bienestar) se dirige a lectores interesados en la alimentación, la nutrición y la salud desde la perspectiva de la medicina china. Su orientación temática es distinta de la de un recetario de cocina general o una novela familiar.",
+      "texto": "El arte de comer, nutrir y sanar con la Medicina China (Salud y Bienestar), de Prof. Liu Zheng, se dirige a lectores interesados en la alimentación y el bienestar desde la perspectiva de la medicina china. Su temática se centra en la nutrición y la salud, por lo que se aparta de los libros dedicados exclusivamente al ejercicio físico o a la cocina recreativa.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "El arte de comer, nutrir y sanar con la Medicina China (Salud y Bienestar) se publica en tapa blanda y Kindle. La edición de Oberon consta de 320 páginas, que pueden consultarse en papel para volver a determinados temas de alimentación y bienestar; Kindle facilita transportar el contenido y leerlo en el móvil.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas",
+        "autores",
         "categorias"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de El arte de comer, nutrir y sanar con la Medicina China (Salud y Bienestar) ofrece 320 páginas en un volumen físico que puede mantenerse como libro de consulta. Kindle permite leerlo en formato digital y acceder al contenido desde el móvil o un lector electrónico; ambas opciones corresponden al título de Prof. Liu Zheng.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "El arte de comer, nutrir y sanar con la Medicina China (Salud y Bienestar) y La amenaza invisible: disruptores endocrinos y salud infantil: Prevención, ciencia y sentido común (Parenting) abordan cuestiones relacionadas con la salud. El libro de Prof. Liu Zheng se centra en alimentación, nutrición y medicina china, mientras que el de Diego López de Lara trata los disruptores endocrinos y la prevención en la infancia. El primero plantea el bienestar desde la alimentación; el segundo delimita su atención a la salud infantil.",
+      "texto": "El arte de comer, nutrir y sanar con la Medicina China (Salud y Bienestar) y 5 semanas para desinflamarte (edición limitada) comparten el interés por la alimentación y la salud, aunque Prof. Liu Zheng aborda la medicina china y Blanca García-Orea Haro plantea un programa temporal. Frente a 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, el primero concentra su temática en nutrición y bienestar.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387775551"
+        "isbn-9798890981776",
+        "isbn-9788466394390"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "96e84bfbbeca7c8b",
+  "fuente_hash": "87d3a0cde46a0382",
   "origen": "chatgpt-web"
 }

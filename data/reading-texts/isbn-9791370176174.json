@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370176174",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Herida de amor - Como casarse con un millonario: 603 (Ómnibus Jazmín) se dirige a lectores que buscan narrativa romántica y relaciones sentimentales como centro de lectura. Sus 320 páginas reúnen una propuesta de romance firmada por Diana Palmer y Ally Blake, alejada de quienes prefieren aventuras, fantasía o historias sin componente sentimental.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer sus 320 páginas en un volumen físico, que puede transportarse y guardarse sin ocupar el espacio de una edición de tapa dura. Es el formato disponible de Herida de amor - Como casarse con un millonario: 603 (Ómnibus Jazmín), publicado por Harlequin Ibérica, S.a.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Herida de amor - Como casarse con un millonario: 603 (Ómnibus Jazmín) comparte el romance como eje con Amor en pole position (Dirty Air 3), de Lauren Asher. Se diferencian en la presentación: el título de Lauren Asher sitúa su historia en el mundo de la Fórmula 1, mientras que el de Diana Palmer y Ally Blake plantea el amor junto al matrimonio con un millonario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4b5b3ad0664b4689",
+  "origen": "chatgpt-web"
+}

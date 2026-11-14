@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La justicia negociada en la era algorítmica: Los MASC tras la Ley Orgánica 1/2025: requisito de procedibilidad, tutela judicial efectiva y transformación digital (Estudios) se orienta a lectores de Derecho interesados en los mecanismos de solución de controversias y su transformación digital. No responde a la búsqueda de ficción judicial ni de una guía general de tecnología.",
+      "texto": "Se orienta a lectores interesados en los MASC, la tutela judicial efectiva y la transformación digital de la justicia. La justicia negociada en la era algorítmica: Los MASC tras la Ley Orgánica 1/2025: requisito de procedibilidad, tutela judicial efectiva y transformación digital (Estudios) se sitúa en el ámbito jurídico, no en el de la narrativa de ficción.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,30 +12,28 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es de tapa blanda, con 326 páginas publicadas por Aranzadi. Este soporte permite trabajar en papel con los conceptos jurídicos del título, realizar anotaciones y localizar pasajes durante la consulta.",
+      "texto": "La tapa blanda permite consultar en papel las 326 páginas de esta obra sobre justicia negociada y transformación digital. Su extensión es menor que la de otros tratados jurídicos de gran volumen, y la encuadernación flexible facilita manejar el ejemplar durante la lectura o el estudio.",
       "evidencias": [
-        "formatos_disponibles",
+        "titulo",
         "numero_paginas",
-        "editorial",
-        "titulo"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) comparte el interés por las vías de resolución de conflictos, pero lo sitúa en la educación. La obra de Jesus del Aguila Martinez se diferencia por su tratamiento jurídico de los MASC, la tutela judicial efectiva y la transformación digital.",
+      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) comparte el interés por las vías de resolución de conflictos, pero lo sitúa en la educación. Blockchain: un desafío legal (Monografía) también trata cuestiones jurídicas vinculadas a la tecnología, aunque desde blockchain y no desde los MASC y la tutela judicial efectiva.",
       "evidencias": [
         "titulo",
-        "autores",
-        "afines_catalogo",
-        "categorias"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788429030372"
+        "isbn-9788429030372",
+        "isbn-9791370610265"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "39f1d7d609aa4982",
+  "fuente_hash": "5e1d3bca0458eeb0",
   "origen": "chatgpt-web"
 }

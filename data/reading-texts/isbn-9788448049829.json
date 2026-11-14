@@ -4,25 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias) se dirige a lectores interesados en poesía, espiritualidad y textos vinculados a la experiencia personal. Por sus temas y su planteamiento, se diferencia de una novela de ficción o de un manual centrado en procedimientos prácticos.",
+      "texto": "Está dirigido a quienes leen poesía, textos de espiritualidad y libros vinculados a las memorias personales. Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias), de Matthew McConaughey, se aleja de la ficción narrativa y se sitúa en el terreno de la reflexión personal.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias) se ofrece en tapa dura, con 208 páginas en la edición de Libros Cúpula. Este formato permite conservar el volumen y volver a consultar sus poemas y oraciones en papel, además de utilizarlo como libro de regalo.",
+      "texto": "La edición de Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias) se presenta en tapa dura y tiene 208 páginas. Este formato permite conservar el volumen en una biblioteca y volver a consultar sus textos en papel, sin depender de una pantalla.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias), de Matthew McConaughey, comparte el ámbito poético con Esas muchachas que escriben poemas, de Alba Donati, aunque este último pone el foco en mujeres que escriben poesía. También se aproxima a Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, por su relación con las experiencias vitales; este último se identifica expresamente con las vivencias del Camino de Santiago, mientras que el libro de Matthew McConaughey combina poemas y oraciones.",
+      "texto": "Esas muchachas que escriben poemas, de Alba Donati, comparte con Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias) el interés por la poesía, aunque se aproxima a ella desde las experiencias de distintas mujeres. Rainer Maria Rilke o La vida abierta: Una biografía (Tiempo Recobrado), de Sandra Richter, ofrece otra perspectiva: una biografía centrada en una figura literaria, frente a los poemas y oraciones de Matthew McConaughey.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,7 +31,7 @@
       ],
       "enlaces": [
         "isbn-9788426434272",
-        "isbn-9791388099496"
+        "isbn-9788413643687"
       ]
     }
   ],

@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788413434650",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bim Bam Bum (Acartonado) está dirigido al público infantil y utiliza una presentación de libro de cartón. Sus 40 páginas lo sitúan entre las lecturas infantiles de extensión reducida, no entre las novelas juveniles largas. La edición está firmada por Maria Girón.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bim Bam Bum (Acartonado) se ofrece en tapa dura, concretamente como libro de cartón de 40 páginas. Esta edición de Kalandraka permite pasar las páginas físicamente y resulta adecuada para conservar el ejemplar entre otros libros infantiles de uso frecuente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2953636e1c873d62",
+  "origen": "chatgpt-web"
+}

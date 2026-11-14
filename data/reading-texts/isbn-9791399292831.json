@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399292831",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Visión de lejos II: Seguir mirando: 2 se dirige a lectores interesados en biografías, memorias, ensayo y divulgación científica. Sus 136 páginas plantean una lectura de extensión contenida, menos ajustada a quien busca ficción de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 136 páginas de Visión de lejos II: Seguir mirando: 2 en un volumen físico de encuadernación rígida. Es una opción para conservarlo en una biblioteca personal o regalarlo, con una extensión relativamente breve para su formato.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Visión de lejos II: Seguir mirando: 2 y La guardia infinita: Crónica de una enfermera en tiempos de pandemia comparten el ámbito de la no ficción, aunque el segundo título se centra en la experiencia de enfermería durante una pandemia. Frente a Somos como dioses: Un manual de supervivencia para la era de la abundancia (Deusto), de orientación tecnológica y prospectiva por su título, la obra de Pablo Artal se sitúa entre el ensayo, las memorias y la divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387687205",
+        "isbn-9788423441228"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "49a49c7c0aab8521",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788413739397",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Capitalismo del contrato social se orienta a lectores interesados en las relaciones entre economía, poder y organización política. Su temática encaja menos con quien busca una lectura centrada en conflictos personales o una historia ajena al debate sobre las instituciones y la sociedad.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Capitalismo del contrato social se presenta en tapa blanda, con 432 páginas en castellano. Es una edición física de Bod - Books On Demand que permite avanzar por una lectura extensa sobre cuestiones políticas y conservar el volumen para posteriores consultas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Capitalismo del contrato social puede compararse con El estado del Estado por su atención a la organización política y las instituciones. Enrique López López centra su obra en una reflexión sobre España, mientras que el título de José Antonio Torrealday Llona sitúa el capitalismo y el contrato social en el centro de su planteamiento. Ambos se alejan del enfoque sobre espionaje y operaciones encubiertas de A la sombra del Estado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057",
+        "isbn-9788423441013"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "65d19f9fdad5a2f1",
+  "origen": "chatgpt-web"
+}

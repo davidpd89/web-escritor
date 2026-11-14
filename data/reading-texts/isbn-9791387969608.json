@@ -4,26 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La obra de Jordi Barrachina se dirige a lectores interesados en la rumba catalana, su relación con Barcelona y las manifestaciones culturales vinculadas a la música. Por su temática, se aleja de las novelas de fantasía, los relatos de aventuras y los manuales de aprendizaje musical.",
+      "texto": "El libro de Jordi Barrachina se dirige a lectores interesados en la rumba catalana y su vinculación con Barcelona. Sus 306 páginas pertenecen al ámbito del arte y la cultura musical, mientras que su temática se distancia de los manuales de dibujo y de las narraciones de ficción.",
       "evidencias": [
         "titulo",
         "autores",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Editorial Comanegra está disponible en tapa blanda y contiene 306 páginas en castellano. La encuadernación flexible permite transportar el volumen y consultar sus contenidos sobre papel, sin necesidad de utilizar un dispositivo electrónico.",
+      "texto": "La edición en tapa blanda de Editorial Comanegra contiene 306 páginas en castellano. Es un volumen físico que permite consultar sus páginas, señalar fragmentos con marcadores y conservar el ejemplar en una biblioteca dedicada a la música y las manifestaciones culturales.",
       "evidencias": [
         "editorial",
+        "edicion",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La obra de Jordi Barrachina comparte su temática musical con All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial, de Daniel Sedcontra. La primera se centra en la rumba catalana y su vinculación con Barcelona, mientras que la segunda aborda la música industrial, la subversión y el terrorismo cultural.",
+      "texto": "All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial, de Daniel Sedcontra, también aborda una manifestación musical concreta. Frente a su enfoque en la música industrial y la subversión cultural, el libro de Jordi Barrachina trata la rumba catalana vinculada a Barcelona.",
       "evidencias": [
         "titulo",
         "autores",
@@ -36,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c4593c1a41e143c0",
+  "fuente_hash": "f9adec1dfdd7ec43",
   "origen": "chatgpt-web"
 }

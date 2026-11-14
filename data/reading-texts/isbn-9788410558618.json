@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410558618",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómic Moztruos 1: Un amigo muy espacial encaja con quienes buscan fantasía contada en viñetas. Sus 48 páginas sitúan la lectura en una extensión breve; quien prefiera una novela extensa en prosa encontrará aquí otro tipo de narración.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cómic Moztruos 1: Un amigo muy espacial se publica en tapa dura, con 48 páginas en castellano. Esta encuadernación permite conservar el volumen para sucesivas lecturas y entregarlo como regalo físico, sin tener que elegir entre distintas ediciones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómic Moztruos 1: Un amigo muy espacial puede compararse con Entre dos sonidos, de Joonas Sildre, por su relación con el cómic. La diferencia está en que el libro de Pedro Mañas Romero se presenta también como fantasía, mientras que el de Joonas Sildre se identifica por su título y autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388156670"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c07e1831accecdd8",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419831934",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hecha de estrellas (Romántica) se dirige a lectores de romance juvenil y narrativa centrada en las relaciones sentimentales. Por su clasificación juvenil, encaja menos con quienes buscan una novela romántica orientada específicamente al público adulto o una historia de misterio.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hecha de estrellas (Romántica) se presenta en tapa blanda, con 416 páginas en castellano. Esta edición de Fandom Books permite leer en papel una novela de extensión considerable, conservarla en una colección física o regalarla sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "CUANDO TODO FALLA. Solo nos queda la promesa del nosotros.: Una novela romántica New Adult de superación, pasión por el arte y segundas oportunidades (La promesa del nosotros). comparte el romance, pero se presenta como New Adult y destaca la superación y el arte. Hecha de estrellas (Romántica), de Fátima Sánchez, se sitúa en la narrativa juvenil, por lo que la orientación de público es distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409942572"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ea8b818e2dab1ade",
+  "origen": "chatgpt-web"
+}

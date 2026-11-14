@@ -4,43 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El árbitro / The Referee, de Augusto Cruz, encaja con lectores interesados en el deporte desde una perspectiva de ensayo. Sus 232 páginas se orientan a una lectura de no ficción; quien busque ejercicios deportivos, instrucciones técnicas o una novela encontrará un planteamiento distinto.",
+      "texto": "El árbitro / The Referee se dirige a lectores de ensayo interesados en lecturas vinculadas al ocio y el tiempo libre. Por su clasificación editorial, se distancia de la narrativa de ficción y de los libros concebidos principalmente como manuales técnicos.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El árbitro / The Referee se publica en tapa blanda, con 232 páginas en castellano. La edición física permite leer el ensayo por sesiones y regresar a los pasajes que interesen sobre el ámbito deportivo. El volumen está editado por Penguin Random House Grupo Editorial.",
+      "texto": "El árbitro / The Referee está editado en tapa blanda, con 232 páginas en castellano. Su extensión permite abordarlo como una lectura de ensayo en papel, y la encuadernación flexible facilita llevarlo en una mochila o bolso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "categorias",
-        "editorial"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El árbitro / The Referee puede compararse con MENTE DE JUEGO: Psicología clínica, rendimiento mental y construcción de equipos aplicada al fútbol de competición., de Sergio Pérez Serer y Thalía Pérez Vieco. Ambos se relacionan con el deporte, pero el segundo delimita su contenido a la psicología y al trabajo de equipos en el fútbol competitivo, mientras que la obra de Augusto Cruz se presenta como ensayo deportivo. Fútbol y anarquismo (RELECTURAS), de Miguel Fernández Ubiría, añade otra perspectiva centrada en la relación entre fútbol y pensamiento político.",
+      "texto": "El árbitro / The Referee y Cervezasofía: Filosofía del pan líquido comparten su vinculación con el ensayo y los intereses de ocio. El título de Cervezasofía: Filosofía del pan líquido delimita su asunto mediante la cerveza y la filosofía, mientras que El árbitro / The Referee sitúa la figura del árbitro en el centro de su planteamiento.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409824816",
-        "isbn-9788410677548"
+        "isbn-9791388613111"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5bf3fcacd04ad2e7",
+  "fuente_hash": "947c9b416d389604",
   "origen": "chatgpt-web"
 }

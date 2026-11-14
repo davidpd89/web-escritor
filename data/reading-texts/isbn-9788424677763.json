@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La bruja Ring Ring #5. El secreto de las flores está orientado al público infantil que busca fantasía y relatos relacionados con secretos y magia. Sus 72 páginas permiten abordar una lectura de extensión reducida; su temática se aleja de las historias estrictamente realistas.",
+      "texto": "La bruja Ring Ring #5. El secreto de las flores se dirige al público infantil interesado en historias de fantasía y brujas. Sus 72 páginas ofrecen una extensión breve frente a novelas juveniles largas, mientras que su temática fantástica lo aleja de los relatos infantiles de carácter estrictamente realista.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,17 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La bruja Ring Ring #5. El secreto de las flores se ofrece en tapa dura, con 72 páginas en castellano. La cubierta rígida protege las páginas durante la manipulación habitual y facilita conservar el ejemplar junto a otros libros de la misma colección.",
+      "texto": "La bruja Ring Ring #5. El secreto de las flores está disponible en tapa dura, con 72 páginas en castellano. Este formato proporciona una cubierta rígida para manipular el libro y conservarlo en una biblioteca infantil, además de permitir compartir la lectura directamente sobre las páginas impresas.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
+        "formatos_disponibles",
         "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La bruja Ring Ring #5. El secreto de las flores comparte con El diario de Wiska 2 - Un secreto entre amigas la presencia de un secreto en el título y su orientación hacia lectores de ficción infantil. Alicia Teba presenta una historia vinculada a una bruja y unas flores, mientras que la obra de Harriet Muncaster sitúa el secreto en una relación de amistad. El título identifica el libro de Alicia Teba como el n.º 5.",
+      "texto": "La bruja Ring Ring #5. El secreto de las flores se aproxima a Brujas y dragones 2: La bruja mala del oeste, de Ledicia Costas y Luis Miguel Pérez, por la presencia de brujas en sus títulos y su relación con la fantasía. Alicia Teba presenta una historia asociada al secreto de las flores, mientras que el otro libro menciona también dragones y una bruja del oeste; ambos títulos identifican una entrega numerada.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388277023"
+        "isbn-9791387501877"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "413666d9a3dfbd45",
+  "fuente_hash": "b46a25807ea789a4",
   "origen": "chatgpt-web"
 }

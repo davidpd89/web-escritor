@@ -4,39 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ave César (Narrativas Históricas) se dirige a quienes leen novela histórica y buscan una obra extensa en castellano. Sus 752 páginas encajan con una lectura prolongada, mientras que quienes prefieran libros breves o centrados en asuntos contemporáneos encontrarán una propuesta distinta.",
+      "texto": "Ave César (Narrativas Históricas) se dirige a lectores interesados en la novela histórica y en obras narrativas relacionadas con la historia. Sus 752 páginas requieren una lectura prolongada, por lo que se aleja de quienes buscan un libro breve. Su clasificación también incluye la narrativa juvenil.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas",
-        "idioma"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La edición de Ave César (Narrativas Históricas) está disponible en tapa blanda, con 752 páginas. Este formato permite consultar y retomar una obra extensa en papel, aunque su volumen resulta menos cómodo para llevarlo a diario que un libro corto.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas"
       ]
     },
     {
-      "modulo": "lecturas_afines",
-      "texto": "Ave César (Narrativas Históricas) y Troya, la guerra que acabó con los dioses: EDICIÓN CANTOS TINTADOS (Historias de hoy) comparten una orientación hacia asuntos del pasado. La diferencia visible está en el enfoque anunciado: el primero se presenta como novela histórica y el segundo remite a una guerra vinculada a los dioses. Estuche Anthropos: Pandora + Troya (Historias de hoy) ofrece otra referencia relacionada con ese segundo ámbito.",
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Ave César (Narrativas Históricas) reúne 752 páginas en castellano, una extensión considerable para transportar en papel. Kindle permite llevar el texto en formato digital y continuar la lectura desde un dispositivo compatible. El ejemplar impreso ofrece una opción para conservarlo físicamente o regalarlo.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig, comparte con Ave César (Narrativas Históricas), de Rex Warner, la vinculación con la historia y presenta una referencia concreta a Pompeya. El médico de la reina (NdeNovela), de Rubén Moreno, propone otro punto de comparación dentro de la narrativa histórica, con una figura médica y una reina en su título. Ave César (Narrativas Históricas) se diferencia por sus 752 páginas y su referencia a César.",
+      "evidencias": [
+        "titulo",
+        "autores",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388279539",
-        "isbn-9791388279218"
+        "isbn-9788467084870",
+        "isbn-9788410140776"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0ee527b5ff3826c3",
+  "fuente_hash": "2118f2cb219664e4",
   "origen": "chatgpt-web"
 }

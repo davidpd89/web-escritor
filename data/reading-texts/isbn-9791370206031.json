@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370206031",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El colmado de La Esperanza (Novela), de Antonio Ceballos, se orienta a lectores interesados en la novela histórica y la narrativa contemporánea. Con 320 páginas, presenta una extensión intermedia; su clasificación lo aleja de quienes buscan principalmente fantasía, ciencia ficción o thriller policial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El colmado de La Esperanza (Novela) se presenta en tapa blanda, en una edición de Almuzara de 320 páginas. Su cubierta flexible permite manejar el volumen durante la lectura y guardarlo en una estantería; es una opción física para quienes prefieren leer en papel.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El colmado de La Esperanza (Novela) y Amargo, amargo (Literaturas), de Joanna Bator, comparten su vinculación con la narrativa literaria. La obra de Antonio Ceballos combina novela histórica y contemporánea, mientras que el título de Joanna Bator se presenta bajo la denominación Literaturas. Son obras de distinta autoría y con enfoques editoriales diferenciados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387846558"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2062083f8377af3d",
+  "origen": "chatgpt-web"
+}

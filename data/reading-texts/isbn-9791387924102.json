@@ -4,39 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "World Football Records 2027 (No ficción ilustrados) está dirigido a quienes buscan contenidos sobre fútbol, récords deportivos y ocio relacionado con este deporte. Es una obra de no ficción de 224 páginas, por lo que su planteamiento se aleja de las novelas deportivas y de los relatos protagonizados por futbolistas.",
+      "texto": "World Football Records 2027 (No ficción ilustrados) se dirige a quienes buscan lecturas sobre fútbol dentro del ocio y las aficiones. Es una obra de Miguel Trujillo Fernández de 224 páginas, alejada de la narrativa de ficción y centrada en una temática deportiva.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "World Football Records 2027 (No ficción ilustrados) se publica en tapa dura, con 224 páginas en castellano. Esta presentación física permite consultar el volumen por secciones y conservarlo como libro de referencia sobre fútbol, además de ofrecer una encuadernación rígida para regalar.",
+      "texto": "World Football Records 2027 (No ficción ilustrados) está disponible en tapa dura, con 224 páginas en castellano. Esta encuadernación permite conservar el volumen en una estantería y consultarlo repetidamente sin depender de dispositivos electrónicos.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
         "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Kylian Mbappé: La biografía definitiva (Deportes), de Julien Laurens, comparte con World Football Records 2027 (No ficción ilustrados) el ámbito futbolístico. La primera obra se centra en la trayectoria de un jugador concreto; la de Miguel Trujillo Fernández aborda los récords del fútbol desde una perspectiva más amplia.",
+      "texto": "World Football Records 2027 (No ficción ilustrados) comparte el interés deportivo con ATP No. 1 Club. Iconos del tenis masculino (CONOCIMIENTO), de Mark Hodgkinson. La diferencia está en la disciplina: Miguel Trujillo Fernández aborda el fútbol, mientras que el otro título se centra en figuras del tenis masculino.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788448049669"
+        "isbn-9791387934248"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f88b301d50e17b08",
+  "fuente_hash": "d3c6694624c0db19",
   "origen": "chatgpt-web"
 }

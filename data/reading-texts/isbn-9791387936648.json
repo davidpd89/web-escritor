@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791387936648",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la aplicación de la inteligencia artificial al ámbito empresarial y en la creación de relevancia a gran escala. PersonotecnIA: Cómo crear relevancia a gran escala en la era de la inteligencia artificial (Negocios) se aparta de una introducción puramente técnica a la programación y de los estudios científicos desvinculados de los negocios.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro plantea cómo construir relevancia a gran escala en un contexto marcado por la inteligencia artificial. Su planteamiento conecta la transformación tecnológica con cuestiones propias de la economía y la empresa, tomando la relevancia como concepto central en lugar de limitarse a describir la tecnología.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Tenos está disponible en tapa blanda y tiene 260 páginas en castellano. Es un volumen de extensión intermedia que puede leerse de forma continuada o consultarse por partes, con una encuadernación flexible para llevarlo al trabajo o mantenerlo como lectura de escritorio.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "IRREMPLAZABLE EN LA ERA DE LA IA: Cómo volverte clave en tu sector comparte la preocupación por conservar relevancia ante la inteligencia artificial, aunque se centra en la posición profesional individual. Gestión de proyectos de inteligencia artificial aborda la organización de proyectos tecnológicos, mientras que PersonotecnIA: Cómo crear relevancia a gran escala en la era de la inteligencia artificial (Negocios) pone el acento en la relevancia a escala.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426742827",
+        "isbn-9788409924493"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6c1dd91008cdbf8f",
+  "origen": "chatgpt-web"
+}

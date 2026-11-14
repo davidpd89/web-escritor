@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387964726",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una definición musical de Rusia: 534 (El Acantilado), de Richard Taruskin, se dirige a lectores interesados en el ensayo, la música y su relación con la cultura rusa. Su extensión de 913 páginas apunta a una lectura prolongada; no responde a quien busque una introducción breve o una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una definición musical de Rusia: 534 (El Acantilado) está disponible en tapa blanda, con 913 páginas en castellano. La edición de Editorial Acantilado constituye un volumen extenso para leer y consultar en papel, con un tamaño de contenido que conviene considerar si se va a transportar habitualmente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Clásicos Sin Filtros: El Impacto del Mundo Antiguo / Talking Classics: The Shock of the Old, de Mary Beard, comparte con Una definición musical de Rusia: 534 (El Acantilado) el interés por el estudio cultural, aunque se ocupa del mundo antiguo y no de la música rusa. Charlotte Perriand. La libertad de repensar el mundo, de Varios autores, ofrece otra perspectiva artística, centrada en una figura concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788416411993",
+        "isbn-9786076393055"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2aed3ef7af462f85",
+  "origen": "chatgpt-web"
+}

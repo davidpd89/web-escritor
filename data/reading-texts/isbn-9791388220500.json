@@ -4,35 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Atrápame si puedes (Libro interactivo) se dirige a quienes buscan entretenimiento relacionado con el misterio y las actividades de tiempo libre. Su planteamiento como libro interactivo lo distingue de una novela de intriga convencional, por lo que no responde a la búsqueda de una narración extensa.",
+      "texto": "Se dirige a quienes buscan una actividad de ocio vinculada al misterio y prefieren participar en un libro interactivo. Por su planteamiento, se aparta de la novela convencional destinada únicamente a seguir una narración sin intervención del lector.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Atrápame si puedes (Libro interactivo) está disponible en tapa blanda, con 128 páginas en castellano. Esta edición física permite consultar y manejar el libro durante las actividades, sin depender de una pantalla; su extensión facilita transportarlo y utilizarlo en distintos momentos.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
         "categorias"
       ]
     },
     {
-      "modulo": "lecturas_afines",
-      "texto": "Atrápame si puedes (Libro interactivo) comparte con Dibujos para colorear, ¡qué misterio! Superclásicos (Hachette HEROES - DISNEY - Arteterapia) su relación con el misterio y el entretenimiento participativo. El primero se presenta como libro interactivo, mientras que el segundo identifica el coloreado como actividad principal; ambos figuran bajo la autoría de Varios autores.",
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para este libro interactivo de 128 páginas, publicado por Lunwerg Editores. Permite tener el contenido en papel durante la actividad y volver a consultar sus páginas sin utilizar una pantalla.",
       "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Magia oscura. Colorea: Fantasía gótica: 7 (COSY) también propone una actividad en papel, aunque su título la identifica con colorear y la fantasía gótica. Atrápame si puedes (Libro interactivo) se sitúa en el terreno del misterio y el ocio interactivo; ambos figuran con Varios autores como autoría.",
+      "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "autores",
         "categorias",
-        "afines_catalogo"
+        "autores"
       ],
       "enlaces": [
-        "isbn-9791388034510"
+        "isbn-9791387690656"
       ]
     }
   ],

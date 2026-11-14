@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Denis Villeneuve: Dune y otras alquimias (Cine/Claqueta) se dirige a lectores interesados en el cine y en la figura de Denis Villeneuve. La obra de Juan Laborda Barceló se sitúa en el ámbito artístico y no está planteada como una novela de ciencia ficción.",
+      "texto": "Denis Villeneuve: Dune y otras alquimias (Cine/Claqueta) se dirige a lectores interesados en el cine y en los estudios sobre creación audiovisual. Su enfoque dentro del arte y el diseño lo aleja de quienes buscan una novela de ficción o una historia protagonizada por personajes de Dune.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Denis Villeneuve: Dune y otras alquimias (Cine/Claqueta) tiene 149 páginas y se presenta en tapa blanda. Esta edición en castellano de Sílex Ediciones permite una lectura en papel relativamente breve y facilita volver a consultar pasajes concretos.",
+      "texto": "La edición de Denis Villeneuve: Dune y otras alquimias (Cine/Claqueta) se presenta en tapa blanda, con 149 páginas en castellano. Es un volumen físico de extensión contenida que permite consultar y retomar apartados sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "idioma",
-        "editorial"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "720 retrats comparte con Denis Villeneuve: Dune y otras alquimias (Cine/Claqueta) el interés por las figuras individuales dentro del ámbito artístico, aunque el primero se presenta como una colección de retratos y el segundo se centra en Denis Villeneuve. Arde Talía: Una pieza teatral sobre el infierno de la creación artística aborda el proceso creativo desde el teatro, mientras que Juan Laborda Barceló dedica su obra al cine.",
+      "texto": "Denis Villeneuve: Dune y otras alquimias (Cine/Claqueta) comparte con All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial el interés por las manifestaciones culturales. Juan Laborda Barceló se centra en el ámbito cinematográfico, mientras que Daniel Sedcontra aborda la música industrial y su dimensión cultural.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788412678802",
-        "isbn-9791399289510"
+        "isbn-9788410045538"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "72ba2769f5befefb",
+  "fuente_hash": "ed70ed3c3cd55445",
   "origen": "chatgpt-web"
 }

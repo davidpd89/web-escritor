@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9798953837002",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Para Llegar A La Luna está dirigido al público infantil interesado en aventuras y ciencia ficción relacionadas con el espacio. Sus 34 páginas ofrecen una extensión breve, distinta de la que busca quien prefiere novelas largas o divulgación astronómica especializada.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Para Llegar A La Luna se presenta en tapa blanda, con 34 páginas en castellano. Su extensión permite organizar la lectura en sesiones cortas, mientras que la encuadernación flexible facilita llevar el ejemplar en una mochila.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Para Llegar A La Luna y Clic y Clara en el espacio: Las aventuras más científicamente divertidas (Pequeños curiosos) comparten el espacio como referencia para lectores infantiles, aunque el primero se clasifica como ciencia ficción y aventuras y el segundo destaca su orientación científica. Frente a Superdónuts 3 - El destino de los dónuts, que plantea un viaje al futuro, la obra de Emmanuel Taveras sitúa su referencia principal en la Luna.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448873479",
+        "isbn-9788448874759"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0279eb5b9fad7fa2",
+  "origen": "chatgpt-web"
+}

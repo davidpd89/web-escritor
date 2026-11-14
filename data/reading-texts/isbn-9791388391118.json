@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388391118",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Amor sempiterno, de Belén Mezcua, encaja con lectores de narrativa contemporánea interesados en el amor y las relaciones de pareja. Sus 234 páginas ofrecen una extensión intermedia; por su clasificación temática, se aleja de quienes buscan principalmente terror, fantasía o ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Amor sempiterno se publica en tapa blanda, con 234 páginas en castellano. La edición de Editorial Cuadranta permite leerlo en papel y conservarlo en una estantería sin recurrir a dispositivos electrónicos; su extensión también permite repartir la lectura en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "95323b46cbd8178b",
+  "origen": "chatgpt-web"
+}

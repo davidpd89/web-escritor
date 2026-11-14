@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Precipicio (Best Seller | Ficción), de Robert Harris, se dirige a lectores interesados en la novela histórica y las cuestiones de poder y política. Su enfoque se aleja de quienes buscan fantasía o aventuras desligadas de los conflictos políticos.",
+      "texto": "Precipicio (Best Seller | Ficción), de Robert Harris, se dirige a lectores de novela histórica que buscan una narración de cierta extensión. Sus 448 páginas lo sitúan lejos de las lecturas breves y su clasificación histórica lo diferencia de las obras centradas exclusivamente en escenarios contemporáneos.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Precipicio (Best Seller | Ficción) reúne 448 páginas en una edición de bolsillo de Penguin Bolsillo, pensada para llevar en el bolso o la mochila. Kindle permite leer esa misma obra desde un dispositivo electrónico sin transportar el volumen físico.",
+      "texto": "La edición de bolsillo en tapa blanda permite leer sus 448 páginas en papel y guardarlas en una estantería con otros volúmenes del mismo formato. Kindle ofrece una alternativa digital para llevar el libro en el móvil o en un lector electrónico, sin transportar el ejemplar físico.",
       "evidencias": [
-        "titulo",
-        "numero_paginas",
         "edicion",
-        "editorial",
+        "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Precipicio (Best Seller | Ficción) y Esperanza en París: 1 (El legado del tiempo) figuran entre las lecturas relacionadas con la narrativa histórica, aunque pertenecen a autores distintos: Robert Harris y Miguel Tarín. Frente a La venganza de Odessa (Best Seller | Ficción), de Frederick Forsyth y Tony Kent, Precipicio se identifica específicamente con la novela histórica y el poder político.",
+      "texto": "Al otro lado de la niebla (Novela), de Juan Luis Arsuaga, comparte con Precipicio (Best Seller | Ficción) su vinculación con la narrativa histórica, aunque pertenece a otro autor. Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon, de Valerio Massimo Manfredi, plantea otra opción dentro de las lecturas históricas y se identifica en el título como una segunda entrega, frente al volumen individual de Robert Harris.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399311907",
-        "isbn-9788466391207"
+        "isbn-9788423370849",
+        "isbn-9786287897090"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8329d8c646b1fb61",
+  "fuente_hash": "cc79574a6a36976e",
   "origen": "chatgpt-web"
 }

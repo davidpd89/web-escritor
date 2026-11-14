@@ -4,39 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La familia conejito (Libro guante con títeres de dedo) (Libros para bebés) está dirigido a bebés y a quienes comparten con ellos sus primeras experiencias con libros. Su propuesta de tela y títeres de dedo se aparta de la lectura autónoma de relatos extensos.",
+      "texto": "Está pensado para bebés y para la lectura compartida mediante un libro guante con títeres de dedo. La familia conejito (Libro guante con títeres de dedo) (Libros para bebés), de Rettore, consta de 6 páginas y se sitúa en el ámbito infantil; no está concebido como una lectura narrativa extensa para lectores autónomos.",
       "evidencias": [
         "titulo",
-        "edicion",
+        "autores",
         "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La familia conejito (Libro guante con títeres de dedo) (Libros para bebés) figura disponible en tapa dura, aunque la edición se describe como libro de tela. Sus 6 páginas y el formato de guante con títeres de dedo orientan su uso hacia la manipulación y la lectura compartida.",
+      "texto": "La familia conejito (Libro guante con títeres de dedo) (Libros para bebés) se presenta como libro de tela, con 6 páginas y elementos de títeres de dedo. Aunque la opción comercial figura como tapa dura, la edición de Edebé se describe como libro de tela, un detalle relevante para su manipulación durante la lectura compartida.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "edicion",
-        "numero_paginas"
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La familia conejito (Libro guante con títeres de dedo) (Libros para bebés) puede compararse con Pequeños peluches (Libro guante con títeres de dedo) (Libros para bebés), también de Rettore. Ambos comparten el formato anunciado de guante con títeres de dedo y el público de bebés; sus títulos distinguen la temática de conejitos de la de pequeños peluches.",
+      "texto": "Pequeños peluches (Libro guante con títeres de dedo) (Libros para bebés) es la comparación más directa: comparte autoría de Rettore, formato de libro guante y público de bebés, pero cambia los conejitos por pequeños peluches. Acurrúcate a mi lado (Cuentos para peques) también pertenece a las lecturas infantiles, aunque su título lo presenta como cuento y no como libro guante.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788468378985"
+        "isbn-9788468378985",
+        "isbn-9781836066385"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7e1f11a8eadae22c",
+  "fuente_hash": "d50c0b920956d46d",
   "origen": "chatgpt-web"
 }

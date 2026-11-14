@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788468597195",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en el síncope dentro de la atención de urgencias extrahospitalarias. Su enfoque sanitario y específico se distancia de quienes buscan divulgación científica sobre temas generales o una obra de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Trata el síncope en el contexto de las urgencias atendidas fuera del hospital. El enfoque queda delimitado por una situación clínica concreta y por el entorno asistencial extrahospitalario, en lugar de abordar de manera general todas las urgencias médicas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne 77 páginas en castellano, publicadas por Bubok Publishing. Es un volumen físico breve que permite consultar el contenido sobre síncope en urgencias extrahospitalarias y retomarlo en distintas sesiones de estudio.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA comparte su relación con la divulgación de conocimientos, pero se centra en la inteligencia artificial. Síncope en urgencias extrahospitalarias, en cambio, delimita su contenido a una cuestión sanitaria y a su contexto de atención fuera del hospital.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f7201db6cc6c59cb",
+  "origen": "chatgpt-web"
+}

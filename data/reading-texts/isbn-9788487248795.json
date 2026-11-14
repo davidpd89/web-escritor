@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788487248795",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensado para lectores interesados en arqueología, necrópolis antiguas e historia de los asentamientos de la península ibérica. Su objeto de estudio, un yacimiento del II milenio AC, lo distancia de las historias generales y de las narraciones históricas centradas en personajes.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El estudio se concentra en la necrópolis del Cerro de La Encantada, situada en Granátula de Calatrava, Ciudad Real. José Lorenzo Sánchez Meseguer y Catalina Galán Saulnier abordan un enclave funerario del II milenio AC vinculado a una antigua acrópolis, con una delimitación arqueológica y geográfica precisa.",
+      "evidencias": [
+        "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura del Instituto de Estudios Manchegos consta de 518 páginas en castellano. Por su extensión y encuadernación rígida, resulta adecuada para conservarla como volumen de consulta y trabajar con ella sobre una mesa, aunque es menos manejable para llevarla a diario.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Se relaciona con 53 días: Cómo Hitler derribó una democracia (HISTORIA) por su interés histórico, pero estudia una necrópolis antigua en vez de un proceso político. Frente a Agustín penón y Federico García Lorca, centrado en una investigación biográfica, José Lorenzo Sánchez Meseguer y Catalina Galán Saulnier delimitan su trabajo a un enclave arqueológico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517",
+        "isbn-9788418567933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8d968e1483c8ff14",
+  "origen": "chatgpt-web"
+}

@@ -4,45 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ormuz. Historia militar de un estrecho se dirige a lectores interesados en la historia militar, las rutas marítimas estratégicas y los conflictos geopolíticos. Luis Claret analiza episodios históricos y condicionantes geográficos, de modo que su enfoque se aleja de la narrativa bélica de ficción y de las guías de viaje.",
+      "texto": "Ormuz. Historia militar de un estrecho se dirige a lectores interesados en historia militar, geopolítica y control de rutas marítimas estratégicas. Su análisis de operaciones y decisiones militares se aleja de una narración bélica de ficción y se concentra en cómo la geografía condiciona los conflictos y las posibilidades de bloquear el paso.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "temas_y_enfoque",
-      "texto": "El libro analiza cómo las características geográficas del estrecho de Ormuz han condicionado las decisiones militares y el control de la navegación. Sus nueve capítulos abarcan desde la expedición de Nearco hasta 2026, con episodios como la presencia portuguesa, la alianza anglo-persa de 1622 y la guerra de los petroleros de 1980-1988. El enfoque relaciona las posibilidades de bloqueo con los intereses políticos y estratégicos de cada periodo.",
-      "evidencias": [
-        "titulo",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Ormuz. Historia militar de un estrecho está disponible en tapa blanda y Kindle, con una extensión de 92 páginas. La edición impresa permite consultar el recorrido histórico en papel y realizar anotaciones; Kindle facilita llevar el ensayo en un lector electrónico o en el móvil sin transportar el volumen.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
+        "sinopsis_editorial",
         "categorias"
       ]
     },
     {
-      "modulo": "lecturas_afines",
-      "texto": "76, de Felipe Pigna, comparte con Ormuz. Historia militar de un estrecho el terreno de la historia, aunque Luis Claret delimita su investigación a un enclave marítimo y sus conflictos militares. Agustín penón y Federico García Lorca se aproxima al pasado mediante una investigación biográfica, frente al análisis estratégico y geográfico que organiza el ensayo sobre Ormuz.",
+      "modulo": "temas_y_enfoque",
+      "texto": "Luis Claret estudia cómo las características geográficas del estrecho de Ormuz condicionan las decisiones militares a lo largo de distintas épocas. El análisis recorre nueve capítulos y relaciona el control marítimo, los conflictos regionales y la capacidad de bloquear el paso con sus consecuencias estratégicas.",
       "evidencias": [
+        "autores",
+        "sinopsis_editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 92 páginas de Ormuz. Historia militar de un estrecho en un volumen físico de extensión breve. La edición Kindle permite llevar el mismo título en un dispositivo electrónico y consultarlo sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Breve Historia de la alquimia: Desde el fuego sagrado a la ciencia moderna comparte autoría con Ormuz. Historia militar de un estrecho: ambos son de Luis Claret. El primero sigue la evolución de la alquimia hacia la ciencia moderna, mientras que el segundo analiza la historia militar de un paso marítimo estratégico.",
+      "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo",
         "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788408329695",
-        "isbn-9788418567933"
+        "isbn-9788413055473"
       ]
     }
   ],

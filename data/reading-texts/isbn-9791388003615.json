@@ -4,29 +4,30 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Infierno Azul. Edición Integral, de Paco Asenjo, se dirige a lectores interesados en la historia, el siglo XX y las biografías y memorias. Su enfoque histórico se aleja de las novelas de ficción y de los manuales prácticos.",
+      "texto": "Infierno Azul. Edición Integral se dirige a lectores interesados en la historia y las biografías y memorias. Sus 480 páginas plantean una lectura extensa, menos adecuada para quien busque una obra breve o una novela de fantasía.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Infierno Azul. Edición Integral está disponible en tapa dura, con 480 páginas en castellano. Esta encuadernación permite conservar el volumen completo en una sola edición física y consultarlo repetidamente, sin depender de un dispositivo de lectura.",
+      "texto": "Infierno Azul. Edición Integral está disponible en tapa dura, con 480 páginas en castellano. Es una edición física de Cartem Cómics que permite conservar el volumen completo en la estantería y consultarlo sin depender de un dispositivo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "edicion"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Infierno Azul. Edición Integral comparte el interés histórico con Campo de concentración: 82 (Biblioteca del Exilio), de Eduardo de Ontañón, aunque este último identifica el exilio en su colección. También se aproxima a Anatomía de un naufragio: Shackleton, el Endurance y la fuerza del hielo, de Jukka Tuhkuri, cuyo título sitúa el foco en un naufragio y la resistencia al hielo.",
+      "texto": "Infierno Azul. Edición Integral comparte su orientación histórica con Campo de concentración: 82 (Biblioteca del Exilio), de Eduardo de Ontañón, aunque este último identifica un contexto concreto en su título. También puede compararse con Anatomía de un naufragio: Shackleton, el Endurance y la fuerza del hielo, de Jukka Tuhkuri, centrado por su título en un naufragio, frente al enfoque histórico y biográfico de la obra de Paco Asenjo.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
@@ -38,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a7265b30451b6d07",
+  "fuente_hash": "7f9490cdf792f89f",
   "origen": "chatgpt-web"
 }

@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Nunca fui uno de ellos (Éxitos) se dirige a lectores de misterio y thriller con interés por el poder y la política. Sus 400 páginas plantean una lectura de extensión media, alejada de los libros de desarrollo personal o de consulta práctica.",
+      "texto": "Nunca fui uno de ellos (Éxitos), de Javier Zamora, se dirige a lectores de misterio y thriller. Su clasificación editorial lo sitúa fuera de las lecturas centradas en romance o ensayo, por lo que encaja mejor con quienes buscan narrativa de intriga.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer las 400 páginas de Nunca fui uno de ellos (Éxitos) en papel, con una edición de Plaza & Janés. Kindle ofrece el mismo título en formato digital para llevarlo en un lector electrónico o consultarlo desde el móvil.",
+      "texto": "La tapa blanda permite leer las 400 páginas de Nunca fui uno de ellos (Éxitos) en una edición física de Plaza & Janés. Kindle ofrece el mismo título en formato digital, con la ventaja de llevarlo en un lector electrónico o en el móvil sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "edicion",
+        "editorial",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Nunca fui uno de ellos (Éxitos) comparte el interés por el poder con El candidato perfecto: No todos los monstruos viven en la oscuridad. Algunos buscan tu voto., de Félix Jiménez Velando. Este último sitúa el conflicto en torno al voto, mientras que el libro de Javier Zamora se presenta dentro del misterio y thriller y aborda también la política.",
+      "texto": "Aguas turbulentas comparte con Nunca fui uno de ellos (Éxitos) su vinculación al misterio, aunque la obra de Rankin Ian sitúa el conflicto entre el pasado y el presente de Edimburgo. Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir), de Ann Cleeves, ofrece otra referencia dentro de la narrativa de intriga, con una autoría distinta de la de Javier Zamora.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410647565"
+        "isbn-9788410424524",
+        "isbn-9791370310318"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e5f5b68cd9b58391",
+  "fuente_hash": "43a7c819e0eb1012",
   "origen": "chatgpt-web"
 }

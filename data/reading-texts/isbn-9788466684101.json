@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El pequeño libro de los padres (Somos B), de 72 Kilos, se dirige a quienes buscan contenidos sobre familia y crianza tratados desde el humor y el lenguaje del cómic. Sus 112 páginas encajan con una lectura breve, pero no con quien prefiera un manual extenso de psicología o educación infantil.",
+      "texto": "El pequeño libro de los padres (Somos B) está dirigido a lectores interesados en la familia y la crianza desde un formato relacionado con el cómic y la novela gráfica. La obra de 72 Kilos tiene 112 páginas y se aleja de quienes buscan una novela extensa o un tratado académico sobre educación familiar.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,33 +14,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de El pequeño libro de los padres (Somos B) está disponible en tapa dura, con 112 páginas en castellano publicadas por Ediciones B. Su encuadernación rígida resulta práctica para conservarlo, consultarlo de nuevo o regalarlo a alguien interesado en la crianza y el humor gráfico.",
+      "texto": "El pequeño libro de los padres (Somos B) se ofrece en tapa dura, con 112 páginas en castellano. La edición de Ediciones B proporciona una encuadernación rígida para conservar el libro, regalarlo o volver a consultarlo. Su extensión es relativamente breve frente a obras de varios cientos de páginas.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial",
-        "categorias"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¡Hola, superpapá!: De marido estándar a papá regulero. 40 escenas de supervivencia paternal (Crecer en familia) comparte con El pequeño libro de los padres (Somos B) el interés por la paternidad y el humor. El primero anuncia escenas de supervivencia paternal, mientras que el libro de 72 Kilos se presenta dentro del cómic y la novela gráfica, con 112 páginas.",
+      "texto": "El pequeño libro de los padres (Somos B) comparte el interés por la familia con Entre hormonas y comilonas (Vergara), de Juan Llorca y Melisa Gómez. La obra de 72 Kilos se relaciona con el cómic y la novela gráfica, mientras que la de Juan Llorca y Melisa Gómez combina cocina y crianza. La diferencia principal es el tratamiento gráfico frente al enfoque alimentario.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425373664"
+        "isbn-9788419820143"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "37b7a30764b2c5c1",
+  "fuente_hash": "6e11581a5263854f",
   "origen": "chatgpt-web"
 }

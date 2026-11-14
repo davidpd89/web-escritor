@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399152197",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en el pensamiento político, la filosofía y el análisis del fascismo contemporáneo. Ese afán de dureza: Nuevo fascismo y propiedad fantasma: 26 (seriecero), de Eva von Redecker, aborda esas cuestiones desde el ensayo, por lo que no corresponde a una búsqueda de ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ese afán de dureza: Nuevo fascismo y propiedad fantasma: 26 (seriecero) se publica en tapa blanda, con 280 páginas en castellano. La encuadernación permite llevar el ensayo y consultar sus páginas en papel; la edición pertenece al catálogo de Bauplan.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte el terreno del ensayo político con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta. Este último se centra en el anarcocapitalismo, mientras que Ese afán de dureza: Nuevo fascismo y propiedad fantasma: 26 (seriecero), de Eva von Redecker, plantea el fascismo y la propiedad como ejes de reflexión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a75da7aaf72747eb",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399230079",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en la historia política, la ultraderecha y el supremacismo blanco. Traed la guerra a casa: El resurgimiento de la ultraderecha y el supremacismo blanco (Ensayo), de Kathleen Belew, se sitúa en el terreno del ensayo histórico y político, no en el de la ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar y releer en papel las 416 páginas de este ensayo de Kathleen Belew. La edición Kindle ofrece el mismo título en formato digital, para llevar la lectura en un dispositivo compatible sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Traed la guerra a casa: El resurgimiento de la ultraderecha y el supremacismo blanco (Ensayo) puede compararse con 53 días: Cómo Hitler derribó una democracia (HISTORIA) por su interés en la política y la historia. Kathleen Belew centra su título en la ultraderecha y el supremacismo blanco, mientras que el de Timothy W. Ryback aborda la caída de una democracia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "04ae453a2e492586",
+  "origen": "chatgpt-web"
+}

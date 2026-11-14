@@ -1,0 +1,37 @@
+{
+  "id": "isbn-9788432175527",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a quienes buscan un ensayo sobre la lectura y relectura de autores clásicos, este libro de Luis Daniel González aborda el interés por comprender sus obras. No responde a la búsqueda de una novela de ficción ni de una narración original de esos autores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje del libro es la comprensión de los clásicos a través de su lectura y relectura. Luis Daniel González sitúa a Homero, Virgilio, Dante, Shakespeare y Cervantes en el centro de un ensayo dedicado a los libros y a las razones para volver a ellos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar y releer en papel las 338 páginas del ensayo, con una encuadernación flexible. La edición Kindle ofrece el mismo título en formato digital para llevarlo en un lector electrónico o consultarlo desde el móvil.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2ea70f36965aa46a",
+  "origen": "chatgpt-web"
+}

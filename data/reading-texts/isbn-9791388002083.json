@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Una corona de ruinas (#Fantasy) se dirige a lectores que buscan ficción de fantasía y ciencia ficción. Sus 192 páginas lo sitúan entre las novelas de extensión más contenida, frente a quienes prefieren ensayos o lecturas centradas en temas alejados de estos géneros.",
+      "texto": "Una corona de ruinas (#Fantasy), de Jennifer Armentrout, se dirige a lectores de fantasía que buscan una obra de 192 páginas. Por su clasificación temática, se diferencia de las lecturas realistas o de los libros de divulgación centrados en hechos documentados.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,19 +14,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece las 192 páginas de Una corona de ruinas (#Fantasy) en un volumen físico, mientras que Kindle permite llevar la lectura en un dispositivo digital. Los dos formatos están disponibles para esta edición en castellano de Puck.",
+      "texto": "La tapa blanda de Puck contiene 192 páginas y permite leer la obra en papel sin recurrir a dispositivos. La edición Kindle ofrece una alternativa digital para llevar el libro en un lector electrónico o en el móvil, sin ocupar espacio físico en la biblioteca.",
       "evidencias": [
-        "titulo",
-        "autores",
+        "editorial",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Una corona de ruinas (#Fantasy) comparte autora con «Una corona de huesos dorados - Edición Especial Limitada (#RomanceParanormal)», de Jennifer Armentrout. Ambos títulos permiten comparar propuestas de la misma autora, aunque el primero se identifica con la fantasía y la ciencia ficción, mientras que el segundo se presenta dentro del romance paranormal. La diferencia de enfoque permite distinguir ambas lecturas sin confundir sus títulos.",
+      "texto": "Una corona de huesos dorados - Edición Especial Limitada (#RomanceParanormal) comparte autora con Una corona de ruinas (#Fantasy): ambas obras son de Jennifer Armentrout. La diferencia explícita está en su presentación editorial: una se identifica como edición especial limitada de romance paranormal y la otra aparece bajo el distintivo de fantasía.",
       "evidencias": [
         "titulo",
         "autores",
@@ -40,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "574602e7b326b47c",
+  "fuente_hash": "461c89ab2c768304",
   "origen": "chatgpt-web"
 }

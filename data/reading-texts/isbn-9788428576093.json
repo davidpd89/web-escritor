@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788428576093",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en el diálogo entre religiones, la fraternidad y la espiritualidad cristiana. Por su enfoque documental y sus 72 páginas, encaja mejor con quien busca una reflexión religiosa breve que con quien prefiere una novela o una introducción general a distintas creencias.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Propone una lectura religiosa centrada en sesenta años de diálogo y fraternidad interreligiosa, tomando como referencia la Declaración conciliar Nostra aetate. Sus 72 páginas y la autoría de tres dicasterios sitúan el texto en el ámbito de la reflexión institucional sobre las relaciones entre religiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Editorial San Pablo reúne el texto en 72 páginas, una extensión manejable para consultar o transportar el volumen. Su formato físico permite volver a los pasajes sobre diálogo interreligioso y conservar el documento en una biblioteca de religión y espiritualidad.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "AKITA: Las lágrimas y el mensaje de María, de Teiji Yasuda, comparte el ámbito religioso, pero se centra en un mensaje mariano frente al diálogo interreligioso de este volumen. Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe, aborda una tradición espiritual desde sus fundamentos y su práctica, mientras aquí predomina la reflexión sobre las relaciones entre religiones.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388176357",
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fc9033df065ff7ad",
+  "origen": "chatgpt-web"
+}

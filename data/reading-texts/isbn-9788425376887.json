@@ -4,20 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La guerra de las tres reinas (Novela histórica), de Hendrik Van Nievelt Pattillo, se dirige a lectores que buscan ficción situada en un contexto histórico. Su título sitúa el conflicto entre tres figuras reales como elemento central de la propuesta. Con 480 páginas, responde a una lectura de mayor extensión que una novela breve; no está orientada a quien busca un ensayo histórico.",
+      "texto": "La guerra de las tres reinas (Novela histórica) se dirige a lectores de ficción ambientada en el pasado. Por su clasificación como novela histórica, encaja menos con quienes buscan manuales de historia o lecturas prácticas.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La guerra de las tres reinas (Novela histórica) está disponible en tapa blanda, con 480 páginas en castellano. La encuadernación flexible facilita llevar una novela extensa en el equipaje y leerla en distintos lugares. Grijalbo publica esta edición física de la obra de Hendrik Van Nievelt Pattillo.",
+      "texto": "La guerra de las tres reinas (Novela histórica) está disponible en tapa blanda, con 480 páginas en castellano. Esta edición de Grijalbo permite leer la obra en papel y conservarla en la biblioteca sin recurrir a un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "autores",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
@@ -26,7 +23,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián, y La guerra de las tres reinas (Novela histórica), de Hendrik Van Nievelt Pattillo, comparten el terreno de la ficción histórica. Astur identifica expresamente la Reconquista y su pertenencia a una saga; La guerra de las tres reinas sitúa en el título un enfrentamiento entre tres reinas. La elección depende del contexto histórico que interese explorar.",
+      "texto": "La guerra de las tres reinas (Novela histórica) puede compararse con Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon, otra lectura vinculada por sus títulos a personajes y conflictos del pasado. La primera es de Hendrik Van Nievelt Pattillo; la segunda, de Valerio Massimo Manfredi, y su título la identifica como la segunda entrega.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,7 +31,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401039539"
+        "isbn-9786287897090"
       ]
     }
   ],

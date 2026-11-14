@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788468599571",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Guia turistica pridniestrovie está orientada a lectores interesados en las guías de viaje y en conocer Pridniestrovie. Por su temática turística y su extensión, se aleja de los libros de entretenimiento basados en pasatiempos breves o actividades para resolver.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Guia turistica pridniestrovie cuenta con una edición en tapa blanda de 552 páginas. Es un volumen físico extenso, más apropiado para una consulta detenida que para quien busca llevar una guía ligera en el bolsillo. Está publicado en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Guia turistica pridniestrovie y 99 Sudoku (LIBROS SINGULARES) se relacionan con el tiempo libre, aunque proponen actividades diferentes. Fernando Bergillos e Ignacio Bergillos firman una guía turística centrada en Pridniestrovie; el título de Anónimo se orienta a los sudokus y al entretenimiento mediante pasatiempos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724425"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cd5fc245b47af3ba",
+  "origen": "chatgpt-web"
+}

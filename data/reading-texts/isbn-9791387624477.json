@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791387624477",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El retorno de Orfeo. El cerebro de Beaubourg: 30 (MínimaTeatro) se orienta a lectores interesados en textos vinculados al teatro y las artes. Sus 120 páginas en castellano ofrecen una extensión contenida; no responde a la búsqueda de un manual de dibujo o de un cuaderno para realizar ejercicios gráficos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Punto de Vista Editores se presenta en tapa blanda y contiene 120 páginas. Es una opción física de extensión reducida para leer, transportar o conservar junto a otros títulos de la colección MínimaTeatro.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ahorcados, de Miguel Ávila Cabezas, es otro título del ámbito artístico con una autoría diferente a la de Tadeusz Słobodzianek. All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial aborda expresamente la música industrial, mientras que El retorno de Orfeo. El cerebro de Beaubourg: 30 (MínimaTeatro) se presenta dentro de una colección teatral.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399276725",
+        "isbn-9788410045538"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9e47df1ecb16f5ce",
+  "origen": "chatgpt-web"
+}

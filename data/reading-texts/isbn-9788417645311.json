@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788417645311",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ayer enterramos a un niño en Palma: Vida y muerte de Chocolate (1965-1978) se dirige a lectores de biografías, memorias e historia interesados en una vida situada entre 1965 y 1978. Sus 144 páginas corresponden a una obra de Tomeu Canyelles Canyelles, alejada de la ficción fantástica y las novelas de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ayer enterramos a un niño en Palma: Vida y muerte de Chocolate (1965-1978) se publica en tapa blanda por Es Pop Ediciones. Sus 144 páginas en castellano forman un volumen físico de extensión contenida, apropiado para transportar y conservar junto a otros libros de historia y memorias.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ayer enterramos a un niño en Palma: Vida y muerte de Chocolate (1965-1978) y El mejor hotel de Kabul: Una historia en primera persona de Afganistán y sus gentes (Salamandra Miradas) comparten el interés por las experiencias humanas vinculadas a lugares concretos. Tomeu Canyelles Canyelles aborda una vida en Palma entre 1965 y 1978; Lyse Doucet presenta una historia en primera persona centrada en Afganistán y sus habitantes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387928360"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "22912c0ffbd1a945",
+  "origen": "chatgpt-web"
+}

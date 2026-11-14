@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387906023",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A la luz de la oscuridad (La pequeña Salamandra), de Aitor Saraiba, encaja con lectores que buscan una obra breve relacionada con la fantasía, el terror y el desarrollo personal. Sus 48 páginas permiten abordar esos ámbitos en una extensión reducida; no corresponde a quien prefiera una novela histórica o un ensayo extenso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 48 páginas de A la luz de la oscuridad (La pequeña Salamandra) en una edición física de Salamandra, una opción para conservar o regalar el libro. Kindle ofrece la alternativa digital para leerlo en un dispositivo compatible y evitar llevar un volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A la luz de la oscuridad (La pequeña Salamandra) coincide con Coraline en su relación con la fantasía y el terror. La obra de Aitor Saraiba incorpora además el desarrollo personal entre sus ámbitos temáticos, mientras que Coraline, de Neil Gaiman, plantea una historia sobre una casa y una realidad alternativa; son enfoques distintos de lo inquietante.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "lib-0001"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f3d03834aeff24ac",
+  "origen": "chatgpt-web"
+}

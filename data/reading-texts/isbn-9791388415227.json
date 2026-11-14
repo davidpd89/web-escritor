@@ -4,39 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un viernes cualquiera se sitúa entre el ensayo, el desarrollo personal y el ámbito jurídico, por lo que encaja con lectores interesados en esos asuntos. No se presenta como una novela de aventuras ni como una obra de ficción fantástica.",
+      "texto": "Un viernes cualquiera se dirige a lectores interesados en el desarrollo personal, el ensayo y las cuestiones relacionadas con el derecho. Su clasificación lo sitúa fuera de la narrativa de ficción y de los libros concebidos como novelas.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Un viernes cualquiera está editado en tapa dura y tiene 112 páginas en castellano. La encuadernación rígida protege el volumen durante su conservación y resulta adecuada para mantenerlo en una biblioteca personal o entregarlo como regalo físico.",
+      "texto": "La tapa dura reúne las 112 páginas de Un viernes cualquiera en una edición física de Serendipia Editorial. Su cubierta rígida ofrece una presentación distinta de los libros en tapa blanda, mientras que la extensión permite hacerse una idea del volumen que se lleva en papel.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Todo lo que necesitas saber sobre herencias y donaciones: Guía práctica para ahorrar impuestos y evitar problemas (Deusto) comparte con Un viernes cualquiera su relación con el ámbito jurídico. El libro de Alejandro Ebrat Picart se centra expresamente en herencias, donaciones e impuestos, mientras que el de Miguel Domínguez Palomares también se sitúa en el ensayo y el desarrollo personal.",
+      "texto": "Justicia, ¿quién responde?: El mundo cambia, la justicia no (Ensayo), de Álvaro Lobato Lavín, comparte con Un viernes cualquiera, de Miguel Domínguez Palomares, el acercamiento al ámbito jurídico desde el ensayo. El momento es ahora: Un manifiesto contra la resignación (Espasa Ensayo), de Anónimo, ofrece otra referencia de pensamiento ensayístico, aunque su título apunta a un planteamiento centrado en la resignación.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788423440962"
+        "isbn-9788467085174",
+        "isbn-9791370206017"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "108902e9b090d396",
+  "fuente_hash": "5829f9b3bbbc228d",
   "origen": "chatgpt-web"
 }

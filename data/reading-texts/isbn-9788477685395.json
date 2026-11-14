@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788477685395",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensado para lectores interesados en la historia local de Navarra, sus curiosidades y los aspectos menos conocidos de su territorio. Lo que Navarra esconde: 50 historias, curiosidades y secretos de nuestra tierra que te sorprenderán, de Iñigo Alzueta Aramburu, no plantea una narración de ficción ni una historia general de otros países.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Lo que Navarra esconde: 50 historias, curiosidades y secretos de nuestra tierra que te sorprenderán está disponible en tapa blanda y contiene 192 páginas. Su formato permite llevar el libro y consultar sus historias sobre Navarra durante una visita o una lectura en casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Agustín penón y Federico García Lorca comparte con Lo que Navarra esconde: 50 historias, curiosidades y secretos de nuestra tierra que te sorprenderán el interés por investigar y recuperar acontecimientos del pasado. La obra de Juan Carlos García de Polavieja aborda una investigación sobre Federico García Lorca, mientras que Iñigo Alzueta Aramburu reúne historias y curiosidades relacionadas con Navarra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418567933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "62367ae6c84f12fd",
+  "origen": "chatgpt-web"
+}

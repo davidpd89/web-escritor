@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399306040",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan artículos de opinión y escritura ensayística vinculada a una mirada retrospectiva. Su planteamiento se aparta de la novela de argumento continuo: el título identifica una colección de artículos y sitúa su revisión veinticinco años después.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Última Columna: Artículos de opinión, veinticinco años después está disponible en tapa blanda, con 242 páginas en castellano. El soporte impreso permite alternar artículos, señalar pasajes y regresar a ellos sin necesidad de seguir una lectura continua.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Última Columna: Artículos de opinión, veinticinco años después se relaciona con La empatía de mí mismo por compartir la autoría de Jesús Rivas Melchor. También puede compararse con Textos recobrados 1956-1986 (Hispánica), de Jorge Luis Borges, por su orientación hacia textos vinculados a una trayectoria literaria; Última Columna se identifica expresamente como artículos de opinión revisados desde la distancia temporal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399306026",
+        "isbn-9791388364068",
+        "isbn-9791388364020"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ff0309ef47511f5c",
+  "origen": "chatgpt-web"
+}

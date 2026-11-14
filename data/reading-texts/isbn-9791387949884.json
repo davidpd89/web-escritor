@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "No eres tú, es el sistema se dirige a lectores juveniles interesados en comprender cómo influyen las estructuras sociales en sus decisiones cotidianas. Su enfoque divulgativo, que combina ensayo y narrativa, se aleja de las novelas centradas en una trama de ficción.",
+      "texto": "No eres tú, es el sistema está dirigido al público juvenil interesado en comprender la sociedad, la política y la influencia de las estructuras económicas sobre la vida cotidiana. Miriam Jiménez Lastra combina ensayo y narrativa para explicar cuestiones sociales mediante ejemplos reconocibles. Encaja menos con quienes buscan una novela centrada exclusivamente en personajes y una trama de ficción.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,7 +15,7 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "No eres tú, es el sistema está clasificado como lectura juvenil y aborda cuestiones de desigualdad, meritocracia y capitalismo desde la sociología crítica. Su contenido se centra en el análisis de la vida cotidiana y las relaciones sociales, con un tratamiento divulgativo de asuntos políticos y económicos.",
+      "texto": "No eres tú, es el sistema está clasificado como lectura juvenil, sin que esa clasificación equivalga a una edad mínima concreta. Aborda desigualdades sociales, meritocracia, capitalismo y relaciones de poder desde la sociología crítica. Su contenido exige interés por cuestiones políticas y sociales más que familiaridad previa con una trama de ficción.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -24,26 +25,29 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una obra de divulgación sociológica que combina recursos del ensayo y la narrativa para examinar comportamientos individuales y fenómenos colectivos. Miriam Jiménez Lastra utiliza referencias culturales y situaciones reconocibles para relacionar las experiencias personales con el funcionamiento del sistema social.",
+      "texto": "No eres tú, es el sistema es una obra divulgativa que mezcla ensayo y narrativa para explicar cómo funciona la sociedad. Miriam Jiménez Lastra conecta conceptos sociológicos con el consumo, las plataformas digitales y las decisiones personales. Sus 192 páginas desarrollan una lectura centrada en interpretar situaciones cotidianas desde una perspectiva crítica.",
       "evidencias": [
+        "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite consultar y releer sus 192 páginas en papel, con solapas en la edición de Alfaguara. Kindle ofrece el mismo título en formato digital para leerlo en el móvil o en un lector electrónico, sin transportar el volumen físico.",
+      "texto": "La edición en tapa blanda de No eres tú, es el sistema tiene 192 páginas y solapas, una presentación física manejable para leer y consultar sus explicaciones. Kindle permite llevar el texto en el móvil o en un lector electrónico y acceder a él sin cargar con el libro. Ambos formatos corresponden a una obra que combina divulgación sociológica y narrativa.",
       "evidencias": [
+        "titulo",
         "numero_paginas",
         "edicion",
-        "editorial",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuando el mundo mira hacia otro lado: 24 mujeres en la guerra de Ucrania comparte con No eres tú, es el sistema el interés por cuestiones sociales que afectan a las personas. El primero se centra en mujeres y un conflicto bélico concreto, mientras que Miriam Jiménez Lastra explica fenómenos cotidianos mediante la sociología crítica.",
+      "texto": "No eres tú, es el sistema comparte con Brainwashing: Populismo en la era del like el interés por la relación entre sociedad, poder y entorno digital. La obra de Miriam Jiménez Lastra parte de ejemplos cotidianos para explicar conceptos sociológicos, mientras que el título de Andrés Roemer sitúa el foco en el populismo. También se relaciona con Capitalismo del contrato social, de José Antonio Torrealday Llona, por su atención al sistema económico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -52,12 +56,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388406256"
+        "isbn-9791399271379",
+        "isbn-9788413739397"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "eca9ae3e395b3974",
+  "fuente_hash": "2ac035de26c10a5e",
   "origen": "chatgpt-web"
 }

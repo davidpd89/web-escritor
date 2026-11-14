@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El mono que vino a cenar (La ovejita que vino a cenar) (Cuentos infantiles) está orientado a la lectura infantil, especialmente a quienes disfrutan de historias sobre animales, amistad y humor. Su extensión de 32 páginas responde a un formato de cuento breve, distinto de las novelas juveniles de mayor recorrido.",
+      "texto": "El mono que vino a cenar (La ovejita que vino a cenar) (Cuentos infantiles) se dirige al público infantil que lee cuentos breves y sigue las historias de La ovejita que vino a cenar. Sus 32 páginas lo sitúan entre las lecturas de extensión reducida, frente a las novelas juveniles de mayor recorrido.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,17 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El mono que vino a cenar (La ovejita que vino a cenar) (Cuentos infantiles) se publica en tapa dura y Kindle. La edición de Beascoa tiene 32 páginas: el volumen físico permite compartir la lectura pasando páginas, mientras que Kindle facilita llevar el cuento en un dispositivo electrónico.",
+      "texto": "La tapa dura de Beascoa reúne las 32 páginas en un volumen físico apropiado para conservar junto a otros cuentos de la colección. Kindle ofrece una alternativa digital para leerlo en dispositivos compatibles sin transportar el ejemplar impreso.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "edicion",
         "editorial",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El mono que vino a cenar (La ovejita que vino a cenar) (Cuentos infantiles) pertenece al mismo universo editorial que Caja metálica con cinco cuentos (La ovejita que vino a cenar): Incluye las historias de la ovejita, los lobos, el cocodrilo, el tigre y la patita (Cuentos infantiles). El primero es un cuento de 32 páginas firmado por Steve Smallman; el segundo reúne cinco historias y acredita también a Joëlle Dreidemy.",
+      "texto": "La ovejita va al espacio (La ovejita que vino a cenar. Libro de cartón con mecanismos) (Pequeñas manitas) comparte autor y colección, pero propone un libro de cartón con mecanismos frente al cuento de 32 páginas de El mono que vino a cenar (La ovejita que vino a cenar) (Cuentos infantiles). Caja metálica con cinco cuentos (La ovejita que vino a cenar): Incluye las historias de la ovejita, los lobos, el cocodrilo, el tigre y la patita (Cuentos infantiles) reúne varias historias en lugar de presentar un único título.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788448875435",
         "isbn-9788448874278"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1a714f96926531ac",
+  "fuente_hash": "ce1d5f1d6bc00c18",
   "origen": "chatgpt-web"
 }

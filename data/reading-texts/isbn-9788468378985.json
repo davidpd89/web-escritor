@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pequeños peluches (Libro guante con títeres de dedo) (Libros para bebés) está orientado a los primeros contactos con los libros mediante el juego y la manipulación. Su formato de libro guante con títeres de dedo se distingue de las lecturas infantiles que dependen principalmente de textos extensos y una narración continuada.",
+      "texto": "Pequeños peluches (Libro guante con títeres de dedo) (Libros para bebés) se dirige a la primera infancia mediante un libro de tela con títeres de dedo. Sus 6 páginas y su formato manipulable lo distinguen de las narraciones infantiles extensas y de los libros destinados a la lectura autónoma.",
       "evidencias": [
         "titulo",
         "edicion",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Pequeños peluches (Libro guante con títeres de dedo) (Libros para bebés) figura en tapa dura, mientras que la descripción editorial identifica la edición como libro de tela. Sus 6 páginas y el formato de guante con títeres de dedo permiten combinar el paso de páginas con la interacción manual durante la lectura compartida.",
+      "texto": "La edición disponible figura en tapa dura, aunque su descripción editorial la identifica como libro de tela. Sus 6 páginas y los títeres de dedo permiten combinar el contacto físico con el libro y la representación de personajes durante la lectura compartida.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "edicion",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La familia conejito (Libro guante con títeres de dedo) (Libros para bebés) y Pequeños peluches (Libro guante con títeres de dedo) (Libros para bebés) comparten autoría de Rettore y formato de guante con títeres de dedo. El primero identifica una familia de conejitos como motivo central, mientras que el segundo presenta pequeños peluches; ambos se sitúan en el ámbito de los libros para bebés.",
+      "texto": "La familia conejito (Libro guante con títeres de dedo) (Libros para bebés) comparte con Pequeños peluches (Libro guante con títeres de dedo) (Libros para bebés) la autoría de Rettore y el formato de libro guante con títeres de dedo. La diferencia está en los personajes anunciados: una familia de conejitos frente a pequeños peluches.",
       "evidencias": [
         "titulo",
         "autores",
@@ -36,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4dccbd2df3936c13",
+  "fuente_hash": "7e92fd1906dfaa36",
   "origen": "chatgpt-web"
 }

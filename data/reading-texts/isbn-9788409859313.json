@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409859313",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "COMO SER MILLONARIO: Una historia verídica. Tú también puedes serlo se orienta a lectores interesados en las experiencias personales relacionadas con el dinero, la economía y el desarrollo personal. Su planteamiento autobiográfico lo diferencia de una obra centrada exclusivamente en teoría económica o conceptos financieros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "COMO SER MILLONARIO: Una historia verídica. Tú también puedes serlo se presenta en tapa blanda y reúne 202 páginas en castellano. El formato físico permite conservar la obra, señalar pasajes y consultarlos posteriormente, tanto para lectura personal como para regalar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "COMO SER MILLONARIO: Una historia verídica. Tú también puedes serlo puede compararse con Detrás de una Estrella por su relación con el mundo económico y las experiencias vinculadas al éxito. Antonio Prieto plantea una historia personal sobre la posibilidad de alcanzar riqueza, mientras que Fernando Trías de Bes aborda la transformación de una empresa cervecera local en un negocio internacional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423441075"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4fa73d4766f5b9f1",
+  "origen": "chatgpt-web"
+}

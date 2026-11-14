@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388054433",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fechas lejanas (Narrativa) se orienta a lectores interesados en biografías y memorias. Por su clasificación editorial, encaja menos con quienes buscan manuales técnicos o ficción fantástica; sus 202 páginas ofrecen una extensión intermedia dentro de la lectura en papel.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fechas lejanas (Narrativa), de Carmen Gauger, se presenta en tapa blanda y reúne 202 páginas en castellano. Es una edición física de Editorial Pre-Textos que permite leer, subrayar y consultar pasajes directamente sobre papel.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fechas lejanas (Narrativa) puede ponerse junto a Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, por su relación con las vivencias personales. La obra de Carmen Gauger se clasifica entre las biografías y memorias, mientras que el título de Carlos Díaz Ballesta delimita su asunto a las experiencias del Camino de Santiago.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6d5846b5c1e862cb",
+  "origen": "chatgpt-web"
+}

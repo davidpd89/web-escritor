@@ -4,27 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La luna en una noche de lluvia 1 (Yuri): Universo Manga está orientado a quienes buscan romance contemporáneo en formato manga y se interesan por el yuri. La obra de Kuzushiro se centra en el ámbito de las relaciones afectivas, no en los géneros de aventuras o fantasía épica.",
+      "texto": "La luna en una noche de lluvia 1 (Yuri): Universo Manga, de Kuzushiro, se orienta a lectores interesados en el romance y el manga yuri de ambientación contemporánea. Sus 176 páginas corresponden a una narración gráfica; resulta menos afín a quien busque fantasía épica o una novela convencional sin ilustraciones.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La luna en una noche de lluvia 1 (Yuri): Universo Manga cuenta con una edición en tapa blanda de 176 páginas. El volumen de Distrito Manga, publicado en castellano, permite leer la obra en papel y guardarla con otros títulos de la colección.",
+      "texto": "La luna en una noche de lluvia 1 (Yuri): Universo Manga está disponible en tapa blanda, con 176 páginas en castellano publicadas por Distrito Manga. El volumen físico permite leer las viñetas sobre papel y colocarlo junto a otros tomos de una colección. Por su extensión, también resulta manejable para llevarlo fuera de casa.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "editorial",
         "idioma",
-        "formatos_disponibles"
+        "editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La luna en una noche de lluvia 9 (Yuri) comparte autoría y serie con La luna en una noche de lluvia 1 (Yuri): Universo Manga, aunque sus títulos identifican los números 9 y 1 respectivamente. Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, también pertenece al manga romántico, pero se presenta como shôjo en lugar de yuri.",
+      "texto": "La luna en una noche de lluvia 1 (Yuri): Universo Manga se relaciona directamente con La luna en una noche de lluvia 9 (Yuri), también de Kuzushiro; el título identifica los volúmenes con números distintos. Frente a Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, comparte el terreno del romance gráfico, pero se distingue por su identificación como yuri frente al shôjo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,6 +41,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9e67f510e6f3ce72",
+  "fuente_hash": "a89c614ad7603c13",
   "origen": "chatgpt-web"
 }

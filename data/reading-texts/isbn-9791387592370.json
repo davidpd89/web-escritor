@@ -4,27 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se orienta a lectores de clásicos juveniles que prefieren relatos de aventuras frente a la narrativa exclusivamente adulta. Su pertenencia a la literatura juvenil y clásica encaja menos con quienes buscan una novela de actualidad centrada en problemas contemporáneos.",
+      "texto": "Más allá del viento del norte (edición limitada en tapa dura con cantos pintados) (Ático de los Libros), de George MacDonald, se dirige a lectores de narrativa juvenil interesados en los clásicos. Por su clasificación editorial, queda fuera de quienes buscan específicamente una obra de ensayo o un manual práctico.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La edición limitada de Ático de los Libros combina tapa dura y cantos pintados, dos características señaladas expresamente en el título. Contiene 400 páginas en castellano y está fechada para el 30 de noviembre de 2026.",
+      "texto": "Esta edición limitada de Ático de los Libros se distingue por su encuadernación en tapa dura y sus cantos pintados. Publicada en castellano, reúne 400 páginas y lleva el ISBN 9791387592370, que permite identificar esta presentación concreta frente a otras ediciones de la obra.",
       "evidencias": [
         "titulo",
         "editorial",
-        "formato_edicion",
+        "edicion",
         "numero_paginas",
         "idioma",
-        "fecha_publicacion"
+        "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es la presentación disponible de esta obra de 400 páginas. Los cantos pintados distinguen el ejemplar físico y hacen que esta edición tenga un componente material específico para regalar o conservar.",
+      "texto": "La tapa dura es el formato de esta edición de Más allá del viento del norte (edición limitada en tapa dura con cantos pintados) (Ático de los Libros). Sus 400 páginas y los cantos pintados hacen que la encuadernación forme parte de la presentación del ejemplar, tanto para conservarlo como para regalarlo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -33,19 +34,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El caballero de la capa negra puede servir de comparación para quien busca otra lectura de aventuras. Más allá del viento del norte se distingue por su adscripción a los clásicos juveniles y por esta edición limitada con cantos pintados, mientras que el título de Carlos J. Sánchez plantea otra referencia narrativa desde su propio protagonista.",
+      "texto": "Cuentos de Navidad (Otras Latitudes) comparte con Más allá del viento del norte (edición limitada en tapa dura con cantos pintados) (Ático de los Libros) su relación con la literatura clásica, aunque reúne textos de distintos autores frente a la obra de George MacDonald. Dibujos (Ilsutrados), de Silvia Plath, ofrece otro contraste: su título apunta al dibujo, mientras que el libro de George MacDonald se presenta como narrativa juvenil.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399254419"
+        "isbn-9791388306518",
+        "isbn-9791388306365"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a5d92957b6827fae",
+  "fuente_hash": "26c50b9616c277ce",
   "origen": "chatgpt-web"
 }

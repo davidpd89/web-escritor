@@ -4,28 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El Fin de la Eternidad / The End of Eternity, de Isaac Asimov, se dirige a lectores interesados en obras clasificadas como clásicos. Su extensión de 288 páginas puede encajar con quienes buscan una lectura de tamaño intermedio, pero menos con quienes prefieren manuales prácticos o libros infantiles.",
+      "texto": "El Fin de la Eternidad / The End of Eternity se dirige a lectores interesados en los clásicos y la narrativa de Isaac Asimov. Por su clasificación literaria, encaja menos con quienes buscan un manual práctico, un ensayo de desarrollo personal o una obra de consulta religiosa.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El Fin de la Eternidad / The End of Eternity está editado por Debolsillo en tapa blanda y castellano, con 288 páginas. Esta presentación facilita llevar el libro en una bolsa y conservar una copia física para futuras lecturas.",
+      "texto": "El Fin de la Eternidad / The End of Eternity se publica en tapa blanda, con 288 páginas en castellano. La edición de Debolsillo permite llevar la novela en papel y guardarla en una estantería sin el volumen propio de una edición de gran formato.",
       "evidencias": [
         "titulo",
-        "editorial",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los Propios Dioses / The Gods Themselves y El Fin de la Eternidad / The End of Eternity comparten autor, Isaac Asimov, pero son títulos distintos de su bibliografía. Los límites de la Fundación / Fundación y Tierra: 134 (Alamut Serie Fantástica) ofrece otra lectura del mismo escritor, identificada en su título con Fundación y Tierra, frente al título independiente de El Fin de la Eternidad / The End of Eternity.",
+      "texto": "El Fin de la Eternidad / The End of Eternity comparte autor con Los Propios Dioses / The Gods Themselves y Los límites de la Fundación / Fundación y Tierra: 134 (Alamut Serie Fantástica). Los tres permiten continuar con Isaac Asimov, aunque sus títulos señalan asuntos distintos: la eternidad, los dioses y la Fundación. El último se distingue además por presentar dos títulos asociados a Fundación y Tierra en una misma referencia editorial.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b9f984409de1f812",
+  "fuente_hash": "1ecb2a4b9419ee0c",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786073875110",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Árbol / Tree, de Aya Koda, se sitúa en el ámbito del ocio y el bienestar, por lo que puede interesar a lectores que exploran esas materias. No responde al mismo tipo de búsqueda que una novela histórica o un manual especializado en una profesión concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Árbol / Tree se ofrece en tapa blanda, con 176 páginas en castellano publicadas por Lumen. Es una edición física que permite leer sin dispositivos y conservar el volumen en una estantería; su extensión también facilita transportarlo para leer fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Árbol / Tree puede compararse con Cambiar para Vivir, Colección Autoayuda por su proximidad al ámbito del bienestar y el tiempo libre. La obra de Aya Koda presenta un título centrado en el árbol, mientras que la de Raúl M. Mir Coll anuncia un enfoque de cambio personal. Frente a ambas, Coloración capilar (CFGM PELUQUERÍA Y COSMETICA CAPILAR) se identifica expresamente con la formación en peluquería.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788415122562",
+        "isbn-9788415309567"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "10b7304fb64b4b8c",
+  "origen": "chatgpt-web"
+}

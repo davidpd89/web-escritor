@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791370079345",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Roberto Cavalli | Colección Leyendas de la Moda | Libro LXIV está dirigido a lectores interesados en moda, arte y diseño. Es un volumen de RBA Coleccionables España identificado como parte de una colección, por lo que se diferencia de una novela o de un manual de confección. Su extensión es de 128 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Roberto Cavalli | Colección Leyendas de la Moda | Libro LXIV se ofrece en tapa dura, con 128 páginas en castellano. Su encuadernación rígida permite colocarlo junto a otros volúmenes de la misma colección y consultarlo por separado. La edición corresponde a RBA Coleccionables.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Roberto Cavalli | Colección Leyendas de la Moda | Libro LXIV comparte colección y autoría editorial con Alberta Ferretti | Colección Leyendas de la Moda | Libro LXII. Ambos se centran en figuras distintas del mundo de la moda y ocupan posiciones diferentes dentro de la serie. Raf Simons | Colección Leyendas de la Moda | Libro LXIII mantiene ese planteamiento, pero dedica su volumen a otro diseñador.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370079321",
+        "isbn-9791370079338"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d0cbd87be18ef32f",
+  "origen": "chatgpt-web"
+}

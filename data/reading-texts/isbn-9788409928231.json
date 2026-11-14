@@ -1,41 +1,50 @@
 {
   "id": "isbn-9788409928231",
-  "familia": "practico",
+  "familia": "no_ficcion",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a profesionales de clínicas dentales interesados en aplicar ChatGPT a su actividad sin descuidar la protección de los datos de sus pacientes. Su enfoque combina inteligencia artificial y gestión profesional, por lo que se aleja de los manuales generales de informática y de las lecturas sobre tratamientos odontológicos.",
+      "texto": "ChatGPT para tu clínica dental: Usa la inteligencia artificial con criterio y protege los datos de tus pacientes (Colección Inteligencia Clínica) se dirige a quienes quieren aplicar inteligencia artificial en una consulta odontológica. Su enfoque profesional y la atención a la privacidad de los pacientes lo alejan de una introducción general a la tecnología sin contexto sanitario.",
       "evidencias": [
         "titulo",
         "categorias"
       ]
     },
     {
-      "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne 200 páginas en castellano, publicadas por Ediciones G10. Es un formato físico que permite consultar apartados durante el trabajo, señalar páginas y conservar anotaciones sobre el uso de inteligencia artificial en una clínica dental.",
+      "modulo": "temas_y_enfoque",
+      "texto": "María Peñarrocha Diago centra el libro en el uso responsable de ChatGPT dentro de una clínica dental. La protección de los datos de los pacientes aparece vinculada a las decisiones sobre cómo incorporar herramientas de inteligencia artificial al trabajo profesional, con una perspectiva que combina gestión y divulgación tecnológica.",
       "evidencias": [
-        "formatos_disponibles",
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Ediciones G10 ofrece 200 páginas impresas para consultar cuestiones sobre inteligencia artificial y protección de datos en la clínica dental. Kindle permite acceder al contenido desde un lector electrónico o un móvil, una alternativa para quienes prefieren realizar consultas sin llevar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "titulo"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Gestión de proyectos de inteligencia artificial, de Adrián González Sánchez y Malini Jain Runtasewee, comparte el interés por aplicar esta tecnología en entornos profesionales. La diferencia está en el alcance: María Peñarrocha Diago centra su libro en las clínicas dentales y la protección de datos de pacientes, mientras que el título afín aborda la gestión de proyectos de inteligencia artificial.",
+      "texto": "Asistentes y agentes empresariales con IA comparte con ChatGPT para tu clínica dental: Usa la inteligencia artificial con criterio y protege los datos de tus pacientes (Colección Inteligencia Clínica) el interés por aplicar inteligencia artificial en entornos profesionales. El libro de Iván Rodríguez se sitúa en el ámbito empresarial, mientras María Peñarrocha Diago delimita su enfoque a las clínicas dentales y la privacidad de sus pacientes.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "autores"
+        "autores",
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788426742827"
+        "isbn-9788426742704"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1bd71dec05dbe029",
+  "fuente_hash": "0a572d1d08779636",
   "origen": "chatgpt-web"
 }

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "This is Macarena (MEMORIA), de José de León, se dirige a lectores interesados en la memoria, la historia y el tiempo libre. Su clasificación temática lo aleja de quienes buscan una novela de aventuras o una historia romántica.",
+      "texto": "This is Macarena (MEMORIA), de José de León, se dirige a lectores interesados en la historia y en obras relacionadas con el tiempo libre. Su clasificación temática lo aleja de quienes buscan una novela de ficción o un manual centrado en técnicas profesionales.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "This is Macarena (MEMORIA) está disponible en tapa blanda, con 192 páginas en castellano. Esta edición de El Paseo Editorial permite consultar sus contenidos en papel y llevar el volumen sin recurrir a un dispositivo electrónico.",
+      "texto": "This is Macarena (MEMORIA) se publica en tapa blanda, con 192 páginas en castellano. Esta edición de El Paseo Editorial permite llevar el volumen en una bolsa y consultarlo en papel, sin necesitar un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -24,7 +24,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "This is Macarena (MEMORIA) comparte el ámbito histórico con Los pilares de la historia, de Javier Fernández Sebastián. Mientras este último plantea la capacidad de la historia para explicar un mundo en crisis, el libro de José de León combina memoria, historia y tiempo libre en su clasificación temática.",
+      "texto": "This is Macarena (MEMORIA) comparte el ámbito histórico con La Corredera de Córdoba: De coso taurino, patíbulo y mercado a gran bar (Arte y patrimonio), aunque este último delimita su asunto a un espacio urbano concreto. Frente a El príncipe espía: Cosimo III en la España de la Regencia (Ariel), centrado por su título en una figura histórica y un periodo determinados, la obra de José de León se presenta bajo el concepto de memoria.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788430629664"
+        "isbn-9788434441149",
+        "isbn-9791370205911"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8487c7b64e9174c1",
+  "fuente_hash": "8b9bf630189f4a1e",
   "origen": "chatgpt-web"
 }

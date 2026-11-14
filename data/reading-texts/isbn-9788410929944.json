@@ -4,35 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El caballero inventor de la corte: Jerónimo de Ayanz. Aprovechando que el Pisuerga pasa por Valladolid se dirige a lectores interesados en personajes históricos y narrativa de ambientación histórica. Manuel Sánchez Valiente sitúa a un inventor vinculado a la corte en el centro de su propuesta. No está orientado a quien busca un manual técnico de inventos.",
+      "texto": "El caballero inventor de la corte: Jerónimo de Ayanz. Aprovechando que el Pisuerga pasa por Valladolid se dirige a lectores de narrativa con interés por la historia y las figuras vinculadas a la invención. Sus 430 páginas se alejan de un manual técnico sobre inventos y se sitúan en el terreno de la narración histórica.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "La figura de Jerónimo de Ayanz permite abordar el vínculo entre la invención y el entorno cortesano desde una perspectiva narrativa. La referencia a Valladolid introduce un marco geográfico concreto, mientras que la clasificación de la obra reúne historia y narrativa contemporánea. El interés se sitúa en el personaje y su contexto, más que en la exposición técnica de sus inventos.",
+      "texto": "Manuel Sánchez Valiente toma como referencia a Jerónimo de Ayanz y su condición de inventor relacionado con la corte. La obra se vincula a la historia y a la narrativa contemporánea, con una referencia geográfica explícita a Valladolid en el título.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La obra de Manuel Sánchez Valiente está disponible en tapa blanda, con 430 páginas en castellano. La edición de Bod - Books On Demand permite seguir la lectura en papel y regresar a pasajes relacionados con el personaje histórico. Su extensión corresponde a un volumen para leer en varias sesiones.",
+      "texto": "La tapa dura permite conservar las 430 páginas en una encuadernación rígida, mientras que la tapa blanda ofrece una alternativa física más flexible para leer y transportar. Kindle permite llevar El caballero inventor de la corte: Jerónimo de Ayanz. Aprovechando que el Pisuerga pasa por Valladolid en un dispositivo electrónico o en el móvil.",
       "evidencias": [
-        "autores",
-        "formatos_disponibles",
+        "titulo",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El caballero inventor de la corte: Jerónimo de Ayanz. Aprovechando que el Pisuerga pasa por Valladolid comparte el terreno narrativo con Corazón de oro: Edición limitada a precio especial (Colección Especial), de Luz Gabás, y El fuego de Bandung (Hispánica), de Jordi Soler. Frente a esos títulos, el de Manuel Sánchez Valiente identifica expresamente a Jerónimo de Ayanz y su relación con la corte como centro de atención.",
+      "texto": "El caballero inventor de la corte: Jerónimo de Ayanz. Aprovechando que el Pisuerga pasa por Valladolid puede compararse con Corazón de oro: Edición limitada a precio especial (Colección Especial) por su vinculación con la narrativa. La obra de Manuel Sánchez Valiente identifica expresamente a un inventor y su relación con la corte, mientras que el título de Luz Gabás destaca una edición limitada a precio especial.",
       "evidencias": [
         "titulo",
         "autores",
@@ -40,13 +39,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328353",
-        "isbn-9791387846602"
+        "isbn-9788408328353"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a3b36c258afd5f07",
+  "fuente_hash": "adacf38c7d3a37aa",
   "origen": "chatgpt-web"
 }

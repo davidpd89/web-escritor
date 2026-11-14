@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El Inicio de una nueva historia y la aparición del hombre nuevo, de Enrique Sánchez Motos, se sitúa en el ámbito de economía y empresa. Sus 114 páginas encajan con quien busca una lectura breve dentro de esa temática, pero no con quien pretende elegir una novela de fantasía o romance.",
+      "texto": "El Inicio de una nueva historia y la aparición del hombre nuevo, de Enrique Sánchez Motos, se dirige a lectores interesados en cuestiones económicas y en las ideas de transformación social sugeridas por el título. Con 114 páginas, se aleja de quienes buscan una novela extensa o una historia de ficción centrada en personajes.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,18 +14,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El Inicio de una nueva historia y la aparición del hombre nuevo está disponible en tapa blanda, con 114 páginas en castellano. La edición de Editorial Cuadernos para la Paz ofrece un volumen físico de extensión contenida, adecuado para transportar y consultar en papel.",
+      "texto": "El Inicio de una nueva historia y la aparición del hombre nuevo se ofrece en tapa blanda, en una edición de 114 páginas publicada por Editorial Cuadernos para la Paz. Su extensión permite transportar el ejemplar físico con facilidad y conservarlo para consultas o relecturas.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
+        "formatos_disponibles",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El Inicio de una nueva historia y la aparición del hombre nuevo puede situarse junto a Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, dentro del ámbito de economía y empresa. El título de Enrique Sánchez Motos plantea una nueva etapa histórica y la figura del hombre nuevo, mientras que el de Miguel Reinoso dirige la atención hacia el liderazgo como oficio. Ambos parten de enfoques distintos dentro de ese ámbito.",
+      "texto": "El Inicio de una nueva historia y la aparición del hombre nuevo puede compararse con ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido, de Rory Sutherland, por su relación con las ideas y el ámbito económico. El libro de Enrique Sánchez Motos plantea desde el título una transformación histórica y humana, mientras que el de Rory Sutherland centra su propuesta anunciada en el poder de las ideas aparentemente ilógicas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409921980"
+        "isbn-9791399087222"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b3767cdd6751002e",
+  "fuente_hash": "69aac55658d13b86",
   "origen": "chatgpt-web"
 }

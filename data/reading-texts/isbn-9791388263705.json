@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388263705",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El efecto de la bruma: 236 (Narrativa) se dirige a lectores interesados en la narrativa contemporánea y juvenil en castellano. Sus 394 páginas corresponden a una lectura de cierta extensión, menos ajustada a quien busca un relato breve o una obra ilustrada. El título incorpora la referencia 236 dentro de la colección Narrativa, sin que esa cifra describa la extensión del libro.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El efecto de la bruma: 236 (Narrativa) se publica en tapa blanda, con 394 páginas. Esta presentación permite leer la obra en papel, utilizar un marcapáginas y conservar el ejemplar en una biblioteca personal. La edición en castellano pertenece al sello Loto Azul.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo la estela de un legado, de Carmen Galvañ Bernabé, ofrece otra referencia de narrativa firmada por una autora distinta de Rosa Chover. Frente a esa opción, El efecto de la bruma: 236 (Narrativa) se identifica expresamente con la narrativa contemporánea y juvenil. También puede contrastarse con Cuentos de Navidad (Otras Latitudes), una obra cuyo título anuncia cuentos y que reúne a varios autores, frente a la autoría individual de El efecto de la bruma: 236 (Narrativa).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399178555",
+        "isbn-9791388306518"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d2c8ced6b161c4cb",
+  "origen": "chatgpt-web"
+}

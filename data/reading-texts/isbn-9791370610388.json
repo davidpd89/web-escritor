@@ -4,39 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Reclamaciones y gestión de reclamaciones de consumo (Monografía) se orienta a quienes buscan una lectura jurídica sobre las reclamaciones de los consumidores y su gestión. Su enfoque especializado y sus 750 páginas la alejan de una introducción breve al consumo o de una obra narrativa.",
+      "texto": "Está orientado a lectores que buscan estudiar las reclamaciones de consumo y su gestión desde una perspectiva jurídica. Su especialización en este ámbito lo separa de las obras generales sobre relaciones comerciales y de las lecturas destinadas únicamente a conocer derechos básicos como consumidor.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda presenta las 750 páginas de Reclamaciones y gestión de reclamaciones de consumo (Monografía) en una edición física de Aranzadi. Por su extensión, resulta más apropiada para la consulta en una mesa de trabajo que para llevarla habitualmente en desplazamientos.",
+      "texto": "La tapa blanda presenta las 750 páginas en un único volumen de consulta sobre reclamaciones de consumo. Por su extensión, resulta más apropiado reservarle un espacio de lectura o trabajo estable que utilizarlo como libro ligero de transporte cotidiano.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos), de Mari Luz Sánchez García-Arista, comparte el interés por la gestión de conflictos, aunque lo sitúa en la mediación educativa. Blockchain: un desafío legal (Monografía), de Ana Isabel Quiroz Ruiz, pertenece también al ámbito jurídico, pero aborda los desafíos legales de una tecnología en lugar de las reclamaciones de consumo.",
+      "texto": "Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I, de Juan Felipe Criado-Castilla, comparte el ámbito del consumo, pero se ocupa de los contratos y sus condiciones generales. Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos), de Mari Luz Sánchez García-Arista, también trata la gestión de conflictos, aunque dentro del entorno educativo y no de las reclamaciones de consumo.",
       "evidencias": [
         "titulo",
-        "afines_catalogo",
-        "categorias"
+        "autores",
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788429030372",
-        "isbn-9791370610265"
+        "isbn-9791370297305"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "18d915d524323354",
+  "fuente_hash": "a2b59c2930622c03",
   "origen": "chatgpt-web"
 }

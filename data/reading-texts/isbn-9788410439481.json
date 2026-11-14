@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788410439481",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El peso de la niebla (Plata), de Isaias Fanlo, pertenece a la narrativa contemporánea y se orienta a lectores interesados en novelas de ese ámbito. Con 384 páginas, requiere una lectura más extensa que un relato corto y se aparta de quienes buscan específicamente un ensayo o una obra de fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El peso de la niebla (Plata) cuenta con una edición en tapa blanda de 384 páginas, publicada por Plata. El formato impreso permite leer la novela sin pantalla y conservar el volumen en una biblioteca personal, con acceso directo a sus páginas para futuras consultas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6b512e10eace12b5",
+  "origen": "chatgpt-web"
+}

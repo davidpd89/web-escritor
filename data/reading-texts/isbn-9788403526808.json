@@ -4,9 +4,8 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a adultos que atraviesan la pérdida de un animal querido, anticipan esa despedida o acompañan a alguien en el duelo. Donde me lleven tus huellas trata el vínculo afectivo y la memoria, por lo que no responde a quien busca una guía práctica sobre cuidados animales.",
+      "texto": "Se dirige a lectores adultos que atraviesan la pérdida de un animal de compañía, anticipan esa despedida o acompañan a alguien en ese proceso. Su temática emocional y de duelo lo aleja de las lecturas centradas en entretenimiento, pasatiempos o aventuras.",
       "evidencias": [
-        "titulo",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,38 +13,39 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Donde me lleven tus huellas aborda la separación de un animal de compañía desde el recuerdo y el afecto. Su enfoque se centra en conservar el vínculo emocional después de la despedida y en acompañar a quienes viven ese proceso, dentro de una lectura sobre superación y duelo.",
+      "texto": "Propone una lectura sobre el duelo por los animales de compañía y la permanencia del vínculo afectivo después de la separación. El enfoque abarca tanto la experiencia personal de la pérdida como el acompañamiento de otras personas, con especial atención a la memoria y al recuerdo.",
       "evidencias": [
-        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Donde me lleven tus huellas tiene 232 páginas y solapas, una opción física para conservar o regalar. Kindle permite llevar el texto en el móvil y consultarlo sin transportar el ejemplar impreso.",
+      "texto": "La tapa blanda con solapas contiene 232 páginas y permite conservar un ejemplar físico al que regresar durante el proceso de duelo. La edición Kindle ofrece el mismo título en formato digital para leerlo en dispositivos compatibles sin transportar el volumen impreso.",
       "evidencias": [
-        "titulo",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Donde me lleven tus huellas puede compararse con CÓMO AYUDAR A LOS ERIZOS: Más de 100 ideas para transformar tu jardín en un refugio para la naturaleza por su relación con los animales. El primero aborda la pérdida de un compañero querido; el segundo se orienta a actuaciones concretas para favorecer la fauna en el jardín.",
+      "texto": "Frente a 99 Sudoku (LIBROS SINGULARES), Donde me lleven tus huellas plantea una lectura de reflexión emocional en lugar de una actividad de resolución numérica. Ambos se sitúan en el ámbito del tiempo libre, pero el libro de Yhong-Hee Shim aborda específicamente la despedida de un animal querido y el acompañamiento durante el duelo.",
       "evidencias": [
         "titulo",
+        "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399220322"
+        "isbn-9788411724425"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f68f72d04f4709ee",
+  "fuente_hash": "9f9e96bd5e2e4a1e",
   "origen": "chatgpt-web"
 }

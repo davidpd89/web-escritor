@@ -4,40 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La casa de muñecas de Gabby. Libro de cartón - Con mucho amor, Gabby (Pequeñas manitas) se dirige a lectores que buscan una lectura breve sobre el amor vinculada a La casa de muñecas de Gabby. Sus 20 páginas en cartón responden a un uso distinto del de un ensayo extenso sobre las relaciones de pareja.",
+      "texto": "La casa de muñecas de Gabby. Libro de cartón - Con mucho amor, Gabby (Pequeñas manitas) está dirigido a quienes buscan un libro infantil de cartón de extensión reducida. Sus 20 páginas permiten una lectura breve; no responde a quien busque una novela larga o un libro de actividades de mayor extensión.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "edicion",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La casa de muñecas de Gabby. Libro de cartón - Con mucho amor, Gabby (Pequeñas manitas) está disponible en tapa dura, con páginas de cartón. Sus 20 páginas permiten una lectura breve en formato físico, que puede guardarse y volver a abrirse sin depender de una pantalla.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "edicion",
         "numero_paginas"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es un libro de cartón presentado como tapa dura, con 20 páginas en castellano. Su formato físico permite pasar las páginas directamente y compartir la lectura sin dispositivos electrónicos; la extensión facilita recorrerlo en sesiones breves.",
+      "evidencias": [
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "La casa de muñecas de Gabby. Libro de cartón - Fiesta sorpresa de cumpleaños (Pequeñas manitas) comparte con este libro el universo de La casa de muñecas de Gabby y la autoría de Universal Studios. La diferencia está en el asunto anunciado por cada título: uno gira alrededor de un cumpleaños sorpresa y el otro del amor.",
+      "texto": "La casa de muñecas de Gabby. Libro de cartón - Con mucho amor, Gabby (Pequeñas manitas) puede compararse con La casa de muñecas de Gabby. Libro de cartón - Fiesta sorpresa de cumpleaños (Pequeñas manitas). Ambos pertenecen a la misma línea de libros de cartón de Universal Studios; uno se identifica con el amor y el otro con una celebración de cumpleaños.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788448872625",
-        "isbn-9788425373602"
+        "isbn-9788448872625"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2ad4ea871fb29595",
+  "fuente_hash": "f446823e0ae34741",
   "origen": "chatgpt-web"
 }

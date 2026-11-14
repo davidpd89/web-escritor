@@ -4,28 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Frenesí (Literaturas), de Joyce Carol Oates, se dirige a lectores de narrativa contemporánea que prefieren los relatos a una novela extensa. Por su clasificación literaria, encaja menos con quienes buscan fantasía, aventuras o una historia de romance como eje principal.",
+      "texto": "Frenesí (Literaturas), de Joyce Carol Oates, se dirige a lectores de narrativa contemporánea interesados en los relatos. Sus 344 páginas reúnen una extensión considerable dentro de este tipo de lectura; no corresponde a quien busca específicamente una novela juvenil de fantasía o una historia romántica de género.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Frenesí (Literaturas) está disponible en tapa blanda, con 344 páginas en castellano publicadas por Alfaguara. Esta edición física permite leer los relatos por separado y volver a ellos sin depender de un dispositivo electrónico.",
+      "texto": "Frenesí (Literaturas) está disponible en tapa blanda y Kindle. La edición de Alfaguara contiene 344 páginas para quienes prefieren leer en papel; Kindle permite llevar el contenido en formato digital y consultarlo desde dispositivos compatibles sin transportar el volumen físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "categorias"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Frenesí (Literaturas) comparte el terreno del relato con Después de medianoche. Trece historias para no dormir: Prólogo de Stephen King (Espasa Narrativa), de Daphne Du Maurier. La diferencia está en la orientación: el segundo título anuncia historias para no dormir, mientras que la obra de Joyce Carol Oates se presenta como narrativa contemporánea. En lengua privada / In Private Language, de Emiliano Monge, es otra referencia de autoría distinta dentro de las lecturas relacionadas.",
+      "texto": "Frenesí (Literaturas) comparte su vinculación con la narrativa breve con Ficciones (Hispánica), de Jorge Luis Borges, y Después de medianoche. Trece historias para no dormir: Prólogo de Stephen King (Espasa Narrativa), de Daphne Du Maurier. La segunda obra anuncia historias orientadas al miedo, mientras que Frenesí (Literaturas) se clasifica como narrativa contemporánea y relatos, sin esa delimitación temática.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,12 +33,12 @@
       ],
       "enlaces": [
         "isbn-9788467084429",
-        "isbn-9786073878289"
+        "isbn-9791387846107"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b67904009b333b46",
+  "fuente_hash": "dca7092a27ca6901",
   "origen": "chatgpt-web"
 }

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¡Atrapa a ese Yeti! / Catch That Yeti, de Charlotte Habersack, se orienta a lectores que disfrutan de la fantasía con monstruos, humor y elementos de terror. Con 80 páginas, encaja con quienes prefieren historias cortas; puede resultar menos adecuado para quienes evitan las criaturas inquietantes o buscan novelas extensas.",
+      "texto": "¡Atrapa a ese Yeti! / Catch That Yeti, de Charlotte Habersack, encaja con lectores que buscan historias breves de fantasía con componentes de terror. Sus 80 páginas ofrecen una extensión reducida frente a novelas largas, aunque la temática puede no responder a quienes prefieren relatos completamente realistas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¡Atrapa a ese Yeti! / Catch That Yeti se presenta en tapa blanda y reúne 80 páginas en castellano. Su extensión y encuadernación flexible facilitan llevarlo en una mochila y leerlo en sesiones breves, sin necesidad de reservar espacio para un volumen grueso.",
+      "texto": "¡Atrapa a ese Yeti! / Catch That Yeti tiene una edición en tapa blanda de 80 páginas, publicada en castellano. La extensión permite abordar el libro en sesiones cortas y la encuadernación flexible facilita transportarlo y manejarlo durante la lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -24,22 +24,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¡Atrapa a ese Yeti! / Catch That Yeti, de Charlotte Habersack, comparte autora con El lago de los monstruos (INFANTIL), de Leo Timmers, únicamente en su interés por las criaturas monstruosas. La diferencia está en la autoría y en la criatura anunciada: un yeti frente a los monstruos de un lago. La obra de Charlotte Habersack tiene 80 páginas y combina fantasía, terror y humor.",
+      "texto": "La historia del yeti de Charlotte Habersack comparte autoría y presencia de criaturas fantásticas con la obra sobre un monstruo viscoso titulada ¡Atrapa a ese - Slime! ¡Un monstruo muy viscoso! La primera combina fantasía y terror en 80 páginas, mientras que la segunda identifica a una criatura diferente como elemento central de su título.",
       "evidencias": [
         "titulo",
         "autores",
-        "numero_paginas",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427255470",
-        "isbn-9791387884260"
+        "isbn-9788427255470"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "fa7644ebd69103c4",
+  "fuente_hash": "f4b7007145e0f7e1",
   "origen": "chatgpt-web"
 }

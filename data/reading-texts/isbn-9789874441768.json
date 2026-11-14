@@ -4,42 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Una familia no es un clan se orienta a lectores interesados en la familia desde una perspectiva de divulgación, no a quienes buscan una historia de ficción familiar. Luciano Luterau firma este libro de 148 páginas, situado entre los asuntos familiares y la divulgación científica.",
+      "texto": "Una familia no es un clan está dirigido a lectores interesados en la divulgación científica. Sus 148 páginas forman una edición en tapa blanda en castellano; quienes busquen principalmente ficción, fantasía o romance encontrarán una propuesta de carácter divulgativo en lugar de narrativa de género.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Una familia no es un clan cuenta con una edición en tapa blanda de 148 páginas, que facilita llevarlo para leer en distintos momentos del día. El volumen de Letras del SUR está escrito en castellano y ofrece una opción física para consultar o releer sus contenidos sobre familia y divulgación.",
+      "texto": "La tapa blanda es el formato disponible para las 148 páginas de Una familia no es un clan. Su edición física permite conservar el libro en papel y consultarlo sin depender de una pantalla; es la opción recogida para este título.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "idioma",
-        "categorias"
+        "formatos_disponibles",
+        "formato_edicion",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Una familia no es un clan puede compararse con El cerebro del padre: Cómo la paternidad moldea la cabeza y la vida de los hombres (Psicología), de Darby Saxbe, por su relación con el ámbito familiar. El libro de Luciano Luterau plantea la distinción entre familia y clan desde su título; el de Darby Saxbe delimita su asunto a la paternidad y sus efectos. Ambos ofrecen puntos de partida diferentes para leer sobre las relaciones familiares.",
+      "texto": "Una familia no es un clan puede compararse con 50 cosas que hay que saber sobre IA, de Keith Mansfield, porque ambos títulos se relacionan con contenidos de divulgación y conocimiento. La diferencia está en el asunto concreto: el segundo se centra expresamente en la inteligencia artificial, mientras que Una familia no es un clan se presenta dentro de la divulgación científica.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387904258"
+        "isbn-9788434441309"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c0f67941d89786de",
+  "fuente_hash": "c8c777ecee7ac83c",
   "origen": "chatgpt-web"
 }

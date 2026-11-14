@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788495065551",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todos somos Ulises está dirigido a lectores de poesía en castellano que buscan un volumen de extensión reducida. Sus 55 páginas permiten abordar el libro en sesiones breves; no corresponde a quien busca una novela extensa o una narración centrada en una trama continuada.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Todos somos Ulises se publica en tapa blanda, con 55 páginas y edición de Ajuntament de Calvià. Su reducido número de páginas facilita transportarlo y volver a pasajes concretos durante la lectura; la cubierta flexible mantiene el volumen ligero y manejable.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Todos somos Ulises puede compararse con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, y Advenir, de Jose Eceolaza, como referencias cercanas dentro de la poesía. La diferencia identificable está en sus títulos y autorías: Salvador de Anta firma Todos somos Ulises, un volumen de 55 páginas cuyo título remite a Ulises.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f53849378bc0b07e",
+  "origen": "chatgpt-web"
+}

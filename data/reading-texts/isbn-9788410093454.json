@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788410093454",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Criptomonedas sin espejismos está dirigido a lectores interesados en las criptomonedas desde una perspectiva económica. No corresponde a quien busque una novela de ficción o una obra centrada en el desarrollo de personajes, pues pertenece al ámbito de la economía y la empresa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Criptomonedas sin espejismos se publica en tapa blanda, con una extensión de 152 páginas. Esta presentación permite consultar el volumen en papel y transportarlo sin el peso de un manual mucho más extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Criptomonedas sin espejismos y ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido, de Rory Sutherland, comparten su vinculación con cuestiones económicas y empresariales. Carlos de Anta Puig centra su título en las criptomonedas, mientras que Rory Sutherland plantea el papel de las ideas aparentemente carentes de sentido.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399087222"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bf1f36fec03af280",
+  "origen": "chatgpt-web"
+}

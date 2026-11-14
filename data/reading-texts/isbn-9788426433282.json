@@ -4,35 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El largo regreso de Josefina Carabias (Ensayo), de César Suárez, se dirige a quienes leen ensayos, biografías y obras relacionadas con figuras concretas. Su enfoque se distingue de una novela de fantasía o de un manual práctico, y sus 240 páginas permiten situar la extensión antes de elegirlo.",
+      "texto": "El largo regreso de Josefina Carabias (Ensayo), de César Suárez, se dirige a quienes leen ensayos y obras de carácter biográfico sobre personas concretas. Su combinación de memoria, ensayo y narrativa contemporánea lo aleja de las lecturas centradas exclusivamente en mundos imaginarios o tramas de fantasía.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El largo regreso de Josefina Carabias (Ensayo) tiene una edición en tapa blanda de 240 páginas, publicada por Lumen. El formato permite llevar el libro en una bolsa y consultar fragmentos durante la lectura, sin el volumen rígido de una encuadernación en tapa dura.",
+      "texto": "El largo regreso de Josefina Carabias (Ensayo) cuenta con una edición en tapa blanda de 240 páginas, publicada por Lumen en castellano. El formato en papel permite mantener el volumen a mano para consultar pasajes y retomar la lectura de este ensayo biográfico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "editorial",
+        "idioma",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mujeres de París, mujeres de letras (Salamandra Narrativa) comparte con El largo regreso de Josefina Carabias (Ensayo) el interés por figuras femeninas vinculadas al ámbito de las letras, aunque sus títulos sitúan el foco en referentes distintos. Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes permite otra comparación biográfica, centrada en una figura política y estructurada en episodios.",
+      "texto": "John Berger: Modos de aprender, de Iona Heath, comparte con El largo regreso de Josefina Carabias (Ensayo), de César Suárez, la atención a una figura concreta, aunque sus protagonistas son distintos. Vida y obra de Manuel Machado: Tengo el alma de nardo del árabe español: 24 (Biblioteca de la Memoria), de Víctor Olmos, plantea una aproximación biográfica explícita, mientras que la obra de César Suárez se presenta como ensayo.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387928636",
-        "isbn-9786073873154"
+        "isbn-9788432322167",
+        "isbn-9791388381447"
       ]
     }
   ],

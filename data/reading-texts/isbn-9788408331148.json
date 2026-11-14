@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El diario de una princesa desastrosa (Diarios), de Maidy, se dirige a lectores de aventuras con humor, amistad y relaciones familiares. Su combinación de temas también incluye viajes y arte y diseño, por lo que se diferencia de los relatos centrados exclusivamente en el misterio o el terror.",
+      "texto": "El diario de una princesa desastrosa (Diarios), de Maidy, se orienta a lectores de aventuras interesados también en el arte y el diseño. Su publicación bajo Destino Infantil & Juvenil lo sitúa en el ámbito infantil y juvenil, por lo que encaja menos con quienes buscan un thriller adulto o una novela de romance.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El diario de una princesa desastrosa (Diarios) se presenta en tapa dura, con 256 páginas en castellano. La encuadernación rígida permite mantener el libro en una colección física y utilizarlo para lecturas sucesivas, además de entregarlo como regalo.",
+      "texto": "El diario de una princesa desastrosa (Diarios) se publica en tapa dura, con 256 páginas en castellano. La encuadernación rígida protege el ejemplar durante su uso y permite conservarlo en una estantería; también ofrece una presentación física apropiada para un regalo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -23,20 +24,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El diario de una princesa desastrosa (Diarios) comparte las aventuras con Las Ratitas 18. Aventura K-pop (Jóvenes influencers), de Las Ratitas. El libro de Maidy incorpora humor, familia y amistad, mientras que el título de Las Ratitas identifica expresamente el K-pop como elemento de su aventura.",
+      "texto": "El diario de una princesa desastrosa (Diarios) puede ponerse junto a Comeback inesperado, un (Kpop Girls 2) (Sin límites), de Silvia Aliaga, por su presencia en un entorno de lecturas juveniles. La diferencia visible está en sus referentes: la obra de Maidy se presenta como un diario de princesa vinculado a las aventuras, mientras que el otro título remite al k-pop.",
       "evidencias": [
         "titulo",
         "autores",
+        "editorial",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328612"
+        "isbn-9791387949907"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "541ef95d2564cdb8",
+  "fuente_hash": "a8adea719ae0de2a",
   "origen": "chatgpt-web"
 }

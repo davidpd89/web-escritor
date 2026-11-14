@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9791388337079",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Mindf*ck. Serie completa en castellano (Contraluz), de S.T. Abby, se dirige a lectores de romance que buscan una serie reunida en un estuche. Su presentación como serie completa lo diferencia de una novela romántica independiente; no responde a la búsqueda de un único título presentado por separado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche Mindf*ck. Serie completa en castellano (Contraluz) y A mil por hora comparten su vinculación con el romance, pero ofrecen planteamientos distintos: el primero reúne una serie completa, mientras que el segundo presenta una relación entre un piloto de F1 y una mujer ligada a su pasado. Frente a ambos, 24 historias para enamorarte en navidad: Relatos navideños propone una colección de relatos de temática navideña, no un estuche de serie completa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409929177",
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "670684593b9479dd",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9789564242101",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pasajes de la ciudad radiante: Poemario sobre una batalla perdida se dirige a lectores de poesía interesados en la derrota como asunto literario. Por su condición de poemario, no responde a quien busque una novela con una trama narrativa continuada.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Pasajes de la ciudad radiante: Poemario sobre una batalla perdida está disponible en tapa blanda. Sus 48 páginas permiten llevar el volumen en una bolsa y consultar poemas concretos sin cargar con un libro extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pasajes de la ciudad radiante: Poemario sobre una batalla perdida puede compararse con Advenir, de Jose Eceolaza, como otra opción de lectura poética del catálogo. El libro de Omar Medina identifica expresamente una batalla perdida como eje de su título, mientras que Advenir apunta, desde su denominación, a la idea de llegada o devenir.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "96a411e995ebe96b",
+  "origen": "chatgpt-web"
+}

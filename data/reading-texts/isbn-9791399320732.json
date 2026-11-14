@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791399320732",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para trabajadores, mandos y empresas que necesitan reconocer, prevenir y abordar situaciones de acoso laboral. Trata el acoso sexual, por razón de sexo y LGTBI, además del laboral; su orientación jurídica y empresarial encaja menos con quien busca una narración personal sobre conflictos de oficina.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Psicoprevención Ediciones contiene 332 páginas y permite consultar en papel los casos, sentencias, test y protocolos anunciados en el título. Su formato físico facilita marcar apartados y volver a los materiales de consulta durante la formación o el trabajo.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Burnout en el trabajo: Guía práctica para trabajadores, mandos y empresas: prevenirlo, detectarlo y actuar. Con casos, 170 test y modelos para fotocopiar comparte autor y destinatarios profesionales con esta guía. La diferencia está en el problema tratado: agotamiento laboral en el primero y acoso laboral, sexual, por razón de sexo y LGTBI en Acoso en el trabajo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399320725"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2d777601c1369065",
+  "origen": "chatgpt-web"
+}

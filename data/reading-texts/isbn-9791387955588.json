@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Odio correr. Y a ti también te puede pasar: Cómo empezar, no abandonar y entender una pasión irracional (Otros deportes) se dirige a lectores interesados en iniciarse en la carrera a pie, mantener el hábito y explorar el deporte desde el humor. Brendan Leonard aborda un tema vinculado al ocio, el bienestar y el desarrollo personal, por lo que encaja menos con quien busca entrenamiento técnico especializado o una guía centrada exclusivamente en nutrición.",
+      "texto": "Está dirigido a quienes quieren iniciarse en la carrera a pie o mantener el hábito sin abandonarlo. Odio correr. Y a ti también te puede pasar: Cómo empezar, no abandonar y entender una pasión irracional (Otros deportes), de Brendan Leonard, aborda el ejercicio desde una perspectiva práctica, distinta de la ficción deportiva o los manuales de nutrición.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,29 +13,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es la opción disponible para leer este libro en papel. Sus 160 páginas permiten manejarlo sin el volumen de un manual deportivo extenso; también resulta una opción sencilla para regalar a alguien interesado en empezar a correr o mantener la constancia.",
+      "texto": "La edición de Odio correr. Y a ti también te puede pasar: Cómo empezar, no abandonar y entender una pasión irracional (Otros deportes) se presenta en tapa blanda. Sus 160 páginas permiten consultar los apartados sobre iniciación y continuidad en la práctica de correr en un volumen físico manejable.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "formato_edicion",
-        "titulo"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Odio correr. Y a ti también te puede pasar: Cómo empezar, no abandonar y entender una pasión irracional (Otros deportes), de Brendan Leonard, comparte con El código del rendimiento: La ciencia detrás de lo que el deportista consume, de Eztizen Pérez Díaz, el interés por el deporte. La diferencia está en el enfoque que anticipan sus títulos: empezar y mantener el hábito de correr frente a la alimentación vinculada al rendimiento deportivo.",
+      "texto": "Cuidarse no debería ser tan difícil: Una visión más humana de la alimentación y la salud ante la cultura de la optimización constante (Salud natural) comparte con el libro de Brendan Leonard el interés por el bienestar. La diferencia está en el enfoque: Sarah Ann Macklin trata la alimentación y la salud, mientras que Odio correr. Y a ti también te puede pasar: Cómo empezar, no abandonar y entender una pasión irracional (Otros deportes) se centra en empezar a correr y sostener esa práctica.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788409934010"
+        "isbn-9788411193900"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a5c5d24828081573",
+  "fuente_hash": "e3b043cb20355001",
   "origen": "chatgpt-web"
 }

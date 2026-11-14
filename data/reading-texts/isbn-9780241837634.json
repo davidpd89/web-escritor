@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Vida salvaje (La guía visual definitiva): Una enciclopedia del mundo animal encaja con lectores interesados en la divulgación científica y el conocimiento de los animales. Sus 480 páginas responden a una propuesta de consulta amplia, más cercana a una enciclopedia que a una lectura narrativa.",
+      "texto": "Vida salvaje (La guía visual definitiva) se dirige a lectores interesados en conocer el mundo animal mediante una enciclopedia visual de divulgación científica. Sus 480 páginas responden a una consulta extensa sobre naturaleza, no a la búsqueda de una novela protagonizada por animales.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,30 +13,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 480 páginas de esta enciclopedia en un volumen físico de consulta. Es una opción para conservar y hojear en casa, especialmente cuando se quiere volver a consultar sus contenidos sobre el mundo animal sin depender de una pantalla.",
+      "texto": "La tapa dura de DK reúne las 480 páginas de esta enciclopedia visual en un volumen físico para consultar sus contenidos. Kindle permite acceder a la obra en formato digital; para elegir entre ambos conviene considerar el tamaño de pantalla utilizado para visualizar el material.",
       "evidencias": [
-        "numero_paginas",
-        "formatos_disponibles",
         "titulo",
-        "edicion"
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "33 islas: Un periplo mediterráneo. De Marettimo a Venecia. comparte el enfoque divulgativo de acercarse a un ámbito concreto, aunque su recorrido se centra en islas mediterráneas y no en animales. Vida salvaje (La guía visual definitiva): Una enciclopedia del mundo animal ofrece una consulta temática sobre fauna, con 480 páginas dedicadas a ese universo.",
+      "texto": "Vida salvaje (La guía visual definitiva) y 50 cosas que hay que saber sobre IA comparten un enfoque de divulgación de conocimientos. Charlotte Uhlenbroek se centra en el mundo animal mediante una enciclopedia visual, mientras que Keith Mansfield aborda la inteligencia artificial; la elección depende del campo científico que interese consultar.",
       "evidencias": [
         "titulo",
-        "afines_catalogo",
-        "numero_paginas",
-        "categorias"
+        "autores",
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387873127"
+        "isbn-9788434441309"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f1b3337dbd6de51d",
+  "fuente_hash": "ab1b32eadf17c556",
   "origen": "chatgpt-web"
 }

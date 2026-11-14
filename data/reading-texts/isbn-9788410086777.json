@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410086777",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Distopías: Cómo imaginar otros futuros posibles: 15 (Libros de FILOSOFÍA&CO) se dirige a lectores interesados en reflexionar sobre futuros alternativos desde el ensayo y la filosofía. Sus 108 páginas lo sitúan en una extensión breve, aunque su enfoque ensayístico lo diferencia de una novela de ciencia ficción centrada en una trama y sus personajes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 108 páginas de Distopías: Cómo imaginar otros futuros posibles: 15 (Libros de FILOSOFÍA&CO) en una edición física en castellano. Su extensión permite una lectura continuada o por sesiones, con la posibilidad de volver sobre los planteamientos filosóficos directamente en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Distopías: Cómo imaginar otros futuros posibles: 15 (Libros de FILOSOFÍA&CO) y La ciudad del sol: La obra utópica más importante de la Edad Moderna, inspirada en la «República» de Platón (No Ficción) comparten el interés por imaginar sociedades distintas, aunque una aborda las distopías y la otra se presenta como una obra utópica. Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados), de Andy Weir, ofrece una referencia de ciencia ficción frente al enfoque ensayístico y filosófico de Lucía Hellín Nistal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388115424",
+        "isbn-9791388147470"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8e9009fda40f27c0",
+  "origen": "chatgpt-web"
+}

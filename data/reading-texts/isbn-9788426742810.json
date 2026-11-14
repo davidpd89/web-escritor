@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Seguridad en la aviación. De la gestión de riesgos al impacto ambiental (Alfaomega) se orienta a lectores interesados en la seguridad aérea, la gestión de riesgos y sus implicaciones ambientales. Por su temática técnica y su relación con la economía y la divulgación científica, encaja menos con quien busca relatos de viajes o ficción ambientada en aviones.",
+      "texto": "Se dirige a lectores interesados en la seguridad de la aviación, especialmente desde la gestión de riesgos y el impacto ambiental. Por su enfoque técnico y su clasificación en economía y divulgación científica, encaja menos con quienes buscan relatos de viajes, historia aeronáutica o ficción ambientada en aviones.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,36 +12,33 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "La obra relaciona la seguridad en la aviación con dos ámbitos concretos: la gestión de riesgos y el impacto ambiental. Su enfoque se sitúa entre la divulgación científica y las cuestiones de gestión, con una extensión de 224 páginas que delimita el volumen de la edición publicada por Marcombo.",
+      "texto": "La obra relaciona la seguridad en la aviación con la gestión de riesgos y el impacto ambiental. Su planteamiento conecta cuestiones operativas y ambientales dentro de un campo técnico que también se vincula con la economía y la divulgación científica.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas",
-        "editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Seguridad en la aviación. De la gestión de riesgos al impacto ambiental (Alfaomega) está disponible en tapa blanda, con 224 páginas en castellano. Es una edición física de Marcombo que permite consultar el contenido en papel, marcar pasajes y volver a los apartados de interés durante el estudio.",
+      "texto": "La edición de Marcombo reúne 224 páginas en castellano y se presenta en tapa blanda. El soporte físico permite consultar el contenido sobre riesgos y seguridad aeronáutica en papel, así como señalar los apartados relacionados con el impacto ambiental.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "editorial",
         "numero_paginas",
         "idioma",
-        "editorial",
-        "edicion"
+        "formatos_disponibles",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Seguridad en la aviación. De la gestión de riesgos al impacto ambiental (Alfaomega) y La era de la extracción: Cómo las plataformas tecnológicas conquistaron la economía y amenazan nuestro futuro (Shackleton Books) comparten el interés por las consecuencias de actividades tecnológicas y económicas. La primera se concentra en los riesgos y el medioambiente dentro de la aviación; la segunda sitúa su análisis en las plataformas tecnológicas y la economía.",
+      "texto": "Gestión de proyectos de inteligencia artificial, de Adrián González Sánchez y Malini Jain Runtasewee, comparte el interés por la gestión en entornos técnicos, aunque se ocupa de proyectos de inteligencia artificial. Seguridad en la aviación. De la gestión de riesgos al impacto ambiental (Alfaomega) delimita su campo al sector aeronáutico y relaciona la seguridad con los riesgos y las cuestiones ambientales.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788413619460"
+        "isbn-9788426742827"
       ]
     }
   ],

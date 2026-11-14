@@ -4,28 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "720 retrats, de Xavier Mollà i Revert, está dirigido a quienes consultan o leen publicaciones extensas de arte y diseño. Sus 1522 páginas y su encuadernación en tapa dura lo alejan de las lecturas breves y de los libros concebidos para llevar habitualmente en el bolsillo.",
+      "texto": "720 retrats se orienta a lectores interesados en los retratos y en las publicaciones de arte y diseño de Xavier Mollà i Revert. Con 1522 páginas, exige espacio y tiempo de consulta; resulta menos adecuado para quien busca un libro breve o una novela centrada en una trama de ficción.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "formatos_disponibles"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "720 retrats se publica en tapa dura, con una extensión de 1522 páginas. La encuadernación rígida resulta adecuada para conservar un volumen de estas dimensiones, aunque su extensión hace menos práctico transportarlo para lecturas fuera de casa.",
+      "texto": "720 retrats se publica en tapa dura y alcanza las 1522 páginas, una extensión que conviene tener presente antes de elegirlo. La encuadernación rígida favorece su conservación en una biblioteca personal y su consulta sobre una superficie estable, especialmente por el volumen de páginas que reúne.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "edicion"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "720 retrats y La sort de trobar un trèvol pertenecen al ámbito del arte y diseño y están firmados por Xavier Mollà i Revert. La diferencia principal es el formato y la extensión: 720 retrats reúne 1522 páginas en tapa dura, mientras que La sort de trobar un trèvol se presenta en tapa blanda y tiene una extensión menor. Estas características condicionan el espacio necesario para guardar cada volumen y su manejo durante la consulta.",
+      "texto": "720 retrats y La sort de trobar un trèvol son obras de Xavier Mollà i Revert vinculadas al arte y diseño. La primera anuncia una recopilación de retratos y cuenta con 1522 páginas en tapa dura, mientras la segunda presenta un título de temática diferente. Para quien sigue al autor, la comparación permite distinguir una publicación centrada en retratos de otra con un planteamiento anunciado de forma distinta.",
       "evidencias": [
         "titulo",
         "autores",
@@ -41,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "90f58d2949f076af",
+  "fuente_hash": "d225f58a90e4bdf0",
   "origen": "chatgpt-web"
 }

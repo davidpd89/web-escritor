@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388086038",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diccionario político de inteligencia artificial, de Natalia Zuazo, se dirige a quienes buscan abordar la inteligencia artificial desde el poder, la política y la divulgación científica. Su planteamiento de diccionario encaja menos con quien prefiere una novela o una historia de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Diccionario político de inteligencia artificial se presenta en tapa blanda, con 192 páginas en castellano. Es una opción física para consultar y volver a localizar conceptos durante la lectura, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El enemigo conoce el sistema: Manipulación de ideas, personas e influencias después de la economía de la atenc (Sociedad), de Marta Peirano, comparte el interés por las relaciones entre tecnología e influencia. Diccionario político de inteligencia artificial, de Natalia Zuazo, delimita su asunto a la inteligencia artificial y adopta el enfoque de un diccionario político.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388387951"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6726c692d7a68f51",
+  "origen": "chatgpt-web"
+}

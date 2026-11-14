@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387667900",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Creer sin pertenecer (TESTIMONIOS Y VIVENCIAS) se dirige a lectores interesados en la espiritualidad y en las experiencias personales vinculadas a las creencias. Sus 512 páginas plantean una lectura extensa, menos ajustada a quien busque una introducción breve o un manual centrado exclusivamente en cuestiones prácticas de salud.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Creer sin pertenecer (TESTIMONIOS Y VIVENCIAS) cuenta con una edición en tapa blanda de 512 páginas publicada por Luciérnaga CAS. El formato físico permite señalar fragmentos y volver a ellos durante una lectura prolongada, aunque su extensión supone transportar un volumen considerable de páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Creer sin pertenecer (TESTIMONIOS Y VIVENCIAS) puede ponerse junto a CONCIENCIA PRIMERA: La Revelación Empírica de un Más Allá por su relación con las creencias espirituales. César R. Espinel plantea desde el título la relación entre creer y pertenecer, mientras que Roberto Lloreda anuncia una exploración de la existencia de un más allá.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409901364"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "20da4b6d97d7b88f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399258950",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un planeta llamado garage, de Ubaldo Fambuena, se sitúa en el ámbito del arte y el diseño. Su clasificación temática lo aproxima a lectores interesados en esas disciplinas, más que a quienes buscan específicamente una novela de fantasía o un manual de salud.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un planeta llamado garage se publica en tapa blanda, con 144 páginas en castellano. La edición de Osadía Ediciones ofrece un volumen físico de extensión contenida para leerlo o conservarlo junto a otros títulos sobre arte y diseño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "720 retrats y Un planeta llamado garage comparten su ubicación en el ámbito artístico, aunque el primero anuncia una colección de retratos y el segundo plantea el garage como asunto central desde su título. All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial ofrece otra aproximación cultural, centrada expresamente en la música industrial y su dimensión subversiva.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788412678802",
+        "isbn-9788410045538"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7661aadb7dd38070",
+  "origen": "chatgpt-web"
+}

@@ -4,27 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cartas a Lucilio: Edición íntegra (Clásicos) se dirige a quienes buscan filosofía de Séneca en una edición completa. Sus 656 páginas y su clasificación como ensayo y filosofía lo distancian de lectores que prefieren novelas de ficción o libros breves de entretenimiento.",
+      "texto": "Cartas a Lucilio: Edición íntegra (Clásicos) se dirige a lectores interesados en la filosofía y el ensayo, especialmente en la obra de Séneca. Su enfoque filosófico lo aleja de quienes buscan una novela de ficción o una lectura narrativa convencional.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cartas a Lucilio: Edición íntegra (Clásicos) está disponible en tapa blanda y Kindle. La edición física de Clásicos Arpa tiene 656 páginas y permite consultar el texto en papel; Kindle facilita transportar esa extensión en un dispositivo electrónico sin cargar con el volumen impreso.",
+      "texto": "La tapa blanda permite leer y consultar las 656 páginas de Cartas a Lucilio: Edición íntegra (Clásicos) en un volumen físico. Kindle ofrece el mismo título en formato digital, una alternativa para llevar la lectura en el móvil o en un lector electrónico sin cargar con el libro impreso.",
       "evidencias": [
         "titulo",
-        "editorial",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cartas a Lucilio: Edición íntegra (Clásicos) comparte su orientación filosófica con La gravedad y la gracia (Contemporánea | Narrativa), de Simone Weil, pero presenta las cartas de Séneca en edición íntegra. Frente a FILOSOFÍA&CO ESPECIAL FOUCAULT: Pensamiento, vida y obra del filósofo más citado hoy (REVISTA FILOSOFIA&CO), de Javier Correa Román, cambia tanto el pensador tratado como el planteamiento editorial: correspondencia completa frente a una publicación especial sobre pensamiento, vida y obra.",
+      "texto": "La gravedad y la gracia (Contemporánea | Narrativa), de Simone Weil, comparte con Cartas a Lucilio: Edición íntegra (Clásicos) el interés por la reflexión filosófica, aunque corresponde a otra autora. FILOSOFÍA&CO ESPECIAL FOUCAULT: Pensamiento, vida y obra del filósofo más citado hoy (REVISTA FILOSOFIA&CO), de Javier Correa Román, se centra en un pensador concreto, mientras que el libro de Séneca presenta una edición íntegra de sus cartas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e664cc4f83517fe7",
+  "fuente_hash": "95d5f6fb0daae962",
   "origen": "chatgpt-web"
 }

@@ -4,40 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tyler. Piezas rotas: 6 (Novela), de Alina Not, se dirige a lectores de romance y relatos centrados en las relaciones de pareja. El título lo identifica como el n.º 6, un dato relevante para quien sigue entregas numeradas; su enfoque romántico lo aleja de quienes buscan una lectura centrada en la investigación histórica.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Tyler. Piezas rotas: 6 (Novela) cuenta con una edición de bolsillo en tapa blanda publicada por Booket. Sus 624 páginas suponen una extensión considerable para un volumen de cubierta flexible, que puede llevarse fuera de casa y retomarse en distintas sesiones sin utilizar un lector electrónico.",
-      "evidencias": [
-        "titulo",
-        "edicion",
-        "editorial",
-        "numero_paginas",
-        "formatos_disponibles"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Amor en pole position (Dirty Air 3), de Lauren Asher, comparte con Tyler. Piezas rotas: 6 (Novela) su orientación hacia las historias románticas. La obra de Lauren Asher sitúa la relación en el mundo de la Fórmula 1, mientras que la de Alina Not se identifica por su título como el n.º 6 y se clasifica dentro del romance y las relaciones de pareja.",
+      "texto": "Tyler. Piezas rotas: 6 (Novela), de Alina Not, se dirige a lectores de romance que buscan una novela extensa. Sus 624 páginas la alejan de quienes prefieren historias breves, y el título la identifica como el n.º 6.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible de Tyler. Piezas rotas: 6 (Novela) es de tapa blanda, en formato de bolsillo. Sus 624 páginas permiten una lectura prolongada en papel, con una encuadernación flexible que facilita guardarlo y transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tyler. Piezas rotas: 6 (Novela) comparte el romance con A medio salto (Romántica), aunque son obras de Alina Not y Valera Gomalva, respectivamente. También puede compararse con A mil por hora, de Hannah Grace, que sitúa su historia romántica en el entorno de un piloto de F1; Tyler. Piezas rotas: 6 (Novela) se distingue por sus 624 páginas y su identificación como n.º 6.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055674"
+        "isbn-9791388365089",
+        "isbn-9788466683449"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "00bfe48c7810dd7a",
+  "fuente_hash": "114ad94c00e574c8",
   "origen": "chatgpt-web"
 }

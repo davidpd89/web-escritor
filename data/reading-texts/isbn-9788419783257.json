@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788419783257",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Desnudo y desarmado en Rusia: Crónicas desde Europa oriental se dirige a lectores interesados en historia, ensayo y crónicas vinculadas a Europa oriental. La obra de Brais Suárez tiene 304 páginas y se presenta como no ficción; no responde a la búsqueda de una novela de aventuras o una historia romántica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Desnudo y desarmado en Rusia: Crónicas desde Europa oriental se publica en tapa blanda, con 304 páginas en castellano. La edición de Cuatro Lunas permite leer las crónicas en papel, señalar pasajes y conservar el volumen para futuras consultas sobre los asuntos históricos tratados.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Desnudo y desarmado en Rusia: Crónicas desde Europa oriental y A sangre y fuego (Clásicos ilustrados) se relacionan por su temática histórica y su atención a experiencias vinculadas a conflictos. Brais Suárez presenta crónicas situadas en Europa oriental, mientras que Manuel Chaves Nogales firma una obra identificada como clásico ilustrado; difieren en autoría, enfoque geográfico y presentación editorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387752590"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "61917023fd316522",
+  "origen": "chatgpt-web"
+}

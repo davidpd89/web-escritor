@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Gestión pública para todos: Conceptos para el día a día se dirige a quienes buscan una lectura sobre gestión pública, economía y política. Sus 97 páginas plantean una extensión breve; no responde a quien prefiera una novela de ficción o un estudio jurídico especializado.",
+      "texto": "Gestión pública para todos: Conceptos para el día a día está dirigido a lectores interesados en comprender la administración y los conceptos de gestión pública. Sus 97 páginas y su orientación hacia la economía y la política lo alejan de las novelas y de los manuales centrados exclusivamente en la gestión de empresas privadas.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Gestión pública para todos: Conceptos para el día a día está disponible en tapa blanda, con 97 páginas en castellano. Es una edición física de extensión breve, manejable para consultar conceptos durante la lectura y conservarla como referencia en papel.",
+      "texto": "La tapa blanda reúne las 97 páginas de Gestión pública para todos: Conceptos para el día a día en un ejemplar físico que puede utilizarse para consultar conceptos. Kindle permite llevar el contenido en el móvil o en un lector electrónico, con acceso digital a la obra de Hugo Gabriel Amarillo Cordero.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "autores"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Gestión pública para todos: Conceptos para el día a día comparte el interés por la política con ERGOCRACIA: La evolución natural de la democracia, de JC Pascual. El primero se centra en conceptos de gestión pública cotidiana; el segundo plantea, desde su título, la evolución de la democracia. Ambos abordan asuntos públicos desde enfoques distintos.",
+      "texto": "Gestión pública para todos: Conceptos para el día a día y ERGOCRACIA: La evolución natural de la democracia, de JC Pascual, comparten el interés por los asuntos públicos, aunque el segundo se centra en la evolución de la democracia. Frente a Cómo ganar una guerra comercial, de Soumaya Keynes y Chad P. Bown, la obra de Hugo Gabriel Amarillo Cordero aborda conceptos cotidianos de gestión pública en lugar de conflictos comerciales internacionales.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788423441051",
         "isbn-9788409934171"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "52524fe9c627c3eb",
+  "fuente_hash": "09ddd6fb691f7ab0",
   "origen": "chatgpt-web"
 }

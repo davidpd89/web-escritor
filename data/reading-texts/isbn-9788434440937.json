@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "En la mente de... se dirige a lectores interesados en el poder político, las ideologías y el funcionamiento de las democracias contemporáneas. El Orden Mundial y Franco Delle Donne examinan el ascenso de distintos gobernantes desde una perspectiva de análisis político; no es una novela ni un manual de participación electoral.",
+      "texto": "En la mente de... se dirige a lectores interesados en la política contemporánea, los liderazgos autoritarios y el funcionamiento de las democracias. Su enfoque examina trayectorias e ideologías de gobernantes concretos, por lo que no es un manual general de instituciones políticas ni una novela de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,31 +14,31 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "En la mente de... es un ensayo de política y ciencias sociales centrado en el acceso al poder y las ideas de dirigentes contemporáneos. Examina figuras como Trump, Milei, Putin, Meloni y Bukele, y plantea hasta qué punto sus decisiones responden a convicciones ideológicas, oportunismo o pragmatismo.",
+      "texto": "En la mente de... es un ensayo de análisis político sobre el ascenso al poder de dirigentes como Trump, Milei, Putin, Meloni y Bukele. El Orden Mundial y Franco Delle Donne examinan sus ideologías y plantean la cuestión de cómo pueden debilitarse las democracias desde sus propias estructuras.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "En la mente de... puede leerse en tapa blanda o en Kindle. La edición física de Editorial Ariel tiene 320 páginas y encuadernación rústica con solapas, apropiada para consultar y marcar pasajes en papel; Kindle permite llevar el ensayo en un lector electrónico o dispositivo compatible sin transportar el volumen.",
+      "texto": "En la mente de... está disponible en tapa blanda y Kindle, dos opciones para consultar un ensayo de 320 páginas. La edición impresa de Editorial Ariel utiliza rústica con solapas; Kindle permite llevar el análisis político en un lector electrónico o en el móvil.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "numero_paginas",
         "edicion",
-        "editorial",
-        "numero_paginas"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "En la mente de... y ¿Qué pasó con la democracia liberal? coinciden en el análisis de los problemas de las democracias actuales. El Orden Mundial y Franco Delle Donne estudian las trayectorias e ideologías de gobernantes concretos, mientras que Daron Acemoglu aborda cómo las democracias pueden recuperar la relación con sus ciudadanos.",
+      "texto": "En la mente de... y ¿Qué pasó con la democracia liberal? abordan las dificultades de las democracias contemporáneas. El Orden Mundial y Franco Delle Donne estudian el ascenso y la ideología de dirigentes concretos, mientras que Daron Acemoglu plantea cómo pueden las democracias recuperar a sus ciudadanos.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
@@ -49,6 +49,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "716288a2d5fef2ed",
+  "fuente_hash": "7be9e12a3a2227ba",
   "origen": "chatgpt-web"
 }

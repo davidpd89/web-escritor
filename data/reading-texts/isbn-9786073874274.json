@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9786073874274",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La cosmovisión de los chamanes / The Worldview of the Shamans se dirige a lectores interesados en las concepciones espirituales y filosóficas asociadas al chamanismo. El ensayo de Jacobo Grinberg-Zylberbaum se aleja de quienes buscan una narración de ficción o una guía centrada en hábitos cotidianos de bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro aborda la visión del mundo de los chamanes desde un ámbito relacionado con la filosofía, la religión y la espiritualidad. Jacobo Grinberg-Zylberbaum sitúa así el chamanismo como objeto de reflexión en una obra clasificada como ensayo, más que como relato narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 216 páginas de la edición publicada por Penguin Random House Grupo Editorial, apropiadas para consultar y releer pasajes en papel. El audiolibro permite acceder al contenido mediante escucha, una alternativa para quienes prefieren seguir un ensayo sin depender de la lectura visual.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La voz del ver / The Voice of Seeing comparte autoría con La cosmovisión de los chamanes / The Worldview of the Shamans, ambas de Jacobo Grinberg-Zylberbaum. La segunda centra expresamente su asunto en la visión del mundo de los chamanes, mientras que la primera presenta en su título una referencia a la percepción visual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073877459"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "17da2f8661d7ed23",
+  "origen": "chatgpt-web"
+}

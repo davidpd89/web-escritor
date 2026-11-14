@@ -4,30 +4,31 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a quienes buscan una monografía jurídica centrada en la protección de las patentes dentro del ámbito español. Por su especialización en derecho, se aleja de las lecturas narrativas y de los textos de divulgación general.",
+      "texto": "La tutela de las patentes en España (Monografía), de Marta Cantos Pardo, se dirige a lectores interesados en el derecho y, concretamente, en la protección jurídica de las patentes. Su enfoque monográfico se aleja de la narrativa de ficción y de las lecturas de divulgación cultural general.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "edicion"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Aranzadi publica esta monografía de Marta Cantos Pardo el 28 de noviembre de 2026, en castellano y con encuadernación de tapa blanda. Sus 376 páginas reúnen el contenido en un volumen identificado por el ISBN 9788410859074.",
+      "texto": "Aranzadi publica La tutela de las patentes en España (Monografía) en castellano y tapa blanda, con una extensión de 376 páginas. La edición está identificada mediante el ISBN 9788410859074 y tiene como fecha editorial el 28 de noviembre de 2026, datos útiles para distinguirla en un catálogo jurídico.",
       "evidencias": [
+        "titulo",
         "editorial",
-        "autores",
-        "fecha_publicacion",
-        "idioma",
-        "formato_edicion",
+        "edicion",
         "numero_paginas",
-        "isbn13"
+        "idioma",
+        "isbn13",
+        "fecha_publicacion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es el formato disponible para esta monografía de 376 páginas. Permite consultar el contenido en papel y transportar el volumen entre distintos lugares de estudio o trabajo, aunque requiere espacio físico para guardarlo.",
+      "texto": "La tapa blanda permite manejar las 376 páginas de La tutela de las patentes en España (Monografía) como un volumen de consulta jurídica. Es una presentación física que puede trasladarse entre lugares de estudio o trabajo y utilizarse para localizar pasajes durante la lectura.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "categorias"
@@ -35,19 +36,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Blockchain: un desafío legal (Monografía) y La tutela de las patentes en España (Monografía) comparten el tratamiento jurídico especializado, aunque sus títulos delimitan objetos de estudio distintos. El primero se ocupa del desafío legal asociado a blockchain; el segundo se concentra en las patentes españolas.",
+      "texto": "Blockchain: un desafío legal (Monografía), de Ana Isabel Quiroz Ruiz, comparte con La tutela de las patentes en España (Monografía) el tratamiento jurídico de una materia especializada, aunque aborda blockchain en lugar de patentes. Casos prácticos sobre el despido (Supuestos prácticos), de Departamento de Documentación Iberley, se diferencia por su orientación hacia supuestos laborales frente al enfoque monográfico sobre patentes.",
       "evidencias": [
         "titulo",
-        "afines_catalogo",
-        "categorias"
+        "autores",
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370610265"
+        "isbn-9791370610265",
+        "isbn-9791370651749"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2767101892a4abb2",
+  "fuente_hash": "b85bf5ba91db11ad",
   "origen": "chatgpt-web"
 }

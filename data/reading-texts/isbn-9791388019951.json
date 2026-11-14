@@ -4,24 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El soñador de refugios se dirige a lectores interesados en la memoria familiar, los vínculos entre hermanos y las historias personales atravesadas por la pérdida. Sus 176 páginas desarrollan un relato relacionado con la recuperación de la memoria de un familiar; no es un manual de nutrición ni una guía de bienestar.",
+      "texto": "El soñador de refugios se dirige a lectores interesados en la memoria familiar, los vínculos entre hermanos y el duelo. Anna Caballé recupera la figura de su hermano Carlos, poeta y músico fallecido en 1993; su enfoque autobiográfico se aleja de los manuales de bienestar y de las historias románticas convencionales.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El soñador de refugios está disponible en tapa blanda y Kindle. La edición física reúne 176 páginas y permite conservar el libro en papel; Kindle facilita llevar la lectura en un dispositivo electrónico sin transportar el ejemplar.",
+      "texto": "El soñador de refugios puede leerse en tapa blanda o en Kindle. La edición impresa reúne 176 páginas y permite conservar el volumen físico, mientras que Kindle facilita llevar esta historia de memoria familiar en un lector electrónico o en el móvil.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "edicion",
         "formatos_disponibles",
-        "formato_edicion"
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida y El soñador de refugios coinciden en abordar experiencias personales dolorosas. La obra de Kelly Ann Street plantea la sanación como objetivo, mientras que Anna Caballé reconstruye la memoria de su hermano y su relación familiar, sin adoptar el enfoque de una guía de autoayuda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410451988"
       ]
     }
   ],

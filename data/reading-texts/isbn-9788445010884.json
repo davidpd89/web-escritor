@@ -4,32 +4,21 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La Guerra de la Reina Araña nº 04/06 Extinción: 4 (D&D Reinos Olvidados) se dirige a lectores de fantasía y aventuras interesados en historias vinculadas a Reinos Olvidados. El título lo identifica como el n.º 4, por lo que no es una entrega inicial para quienes prefieren comenzar una serie desde su primer volumen.",
+      "texto": "La Guerra de la Reina Araña nº 04/06 Extinción: 4 (D&D Reinos Olvidados) se dirige a lectores de fantasía y aventuras que buscan una entrega identificada dentro de una serie. Sus 352 páginas y su orientación hacia los relatos de fantasía encajan menos con quien prefiere narrativa contemporánea ajena a ese género.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La Guerra de la Reina Araña nº 04/06 Extinción: 4 (D&D Reinos Olvidados) dispone de tapa blanda y Kindle. La edición impresa de Minotauro tiene 352 páginas y permite conservar el volumen junto a otros de la serie; Kindle facilita continuar la lectura desde un móvil o lector electrónico.",
+      "texto": "La tapa blanda permite leer las 352 páginas de La Guerra de la Reina Araña nº 04/06 Extinción: 4 (D&D Reinos Olvidados) en una edición física de Minotauro. Kindle ofrece una alternativa digital para llevar la lectura en el móvil o en un lector electrónico, sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
-        "editorial",
         "numero_paginas",
+        "editorial",
         "formatos_disponibles"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "La Guerra de la Reina Araña nº 04/06 Extinción: 4 (D&D Reinos Olvidados) y Alas de Hierro. Edición Especial Limitada Con Cantos Decorados / Iron Flame. Limited Special Edition with Sprayed Edges: 2 (Empíreo / Empyrean) pertenecen al ámbito de la fantasía y presentan entregas numeradas. El título de la primera identifica el volumen como el n.º 4 y lo vincula a Reinos Olvidados, mientras que el de la segunda señala el n.º 2 de Empíreo y una edición especial con cantos decorados.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9786073950664"
       ]
     }
   ],

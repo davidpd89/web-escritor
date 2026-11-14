@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788419234605",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Viaje a través del sentimiento: Arthur russell, una vida (Bihotza) está dirigido a lectores interesados en las biografías y las trayectorias personales vinculadas al ámbito artístico. La obra de King Richard se clasifica en biografías y memorias y arte y diseño, por lo que se aleja de una novela de ficción o de un manual técnico de creación artística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Viaje a través del sentimiento: Arthur russell, una vida (Bihotza) es de tapa dura y contiene 320 páginas. Esta encuadernación ofrece cubiertas rígidas para conservar el volumen y facilita su colocación en una biblioteca de biografías; también permite entregarlo como libro físico de regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Viaje a través del sentimiento: Arthur russell, una vida (Bihotza) y El rey de la baraja: La imperecedera vida de Roberto Iniesta: 7 (Marea gráfica) comparten el interés por una vida individual, aunque se ocupan de personas distintas y tienen autores diferentes. Desde que era un crío, de Locus, también apunta desde su título a una perspectiva personal, mientras que la obra de King Richard identifica expresamente a Arthur russell como protagonista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399084894",
+        "isbn-9791387938499"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a7c046da1c003a4f",
+  "origen": "chatgpt-web"
+}

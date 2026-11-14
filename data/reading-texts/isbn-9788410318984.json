@@ -4,40 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Es un cuento dirigido a quienes buscan abordar la frustración mediante una historia, especialmente en contextos de lectura infantil acompañada. No responde al planteamiento de un tratado de psicología para adultos ni al de una guía extensa de ejercicios.",
+      "texto": "Un, dos, tres, ¡probamos otra vez! está dirigido a quienes buscan un cuento sobre cómo comprender y gestionar la frustración. La obra de Aiora Larrañaga Zugarramurdi aborda esta emoción desde el desarrollo personal, por lo que se aleja de las novelas de aventuras o fantasía. Sus 48 páginas corresponden a una lectura de extensión breve.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "editorial",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura contiene 48 páginas en castellano y permite manejar el cuento como un libro físico de lectura compartida. Su extensión facilita retomarlo en distintas sesiones y la encuadernación rígida resulta práctica para conservarlo entre lecturas.",
+      "texto": "Un, dos, tres, ¡probamos otra vez! se publica en tapa dura, con 48 páginas en castellano. La encuadernación rígida permite conservar el cuento para sucesivas lecturas, mientras que su extensión facilita consultarlo en sesiones cortas. Esta edición de Penguin Kids reúne en un volumen el contenido dedicado a comprender y gestionar la frustración.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "titulo"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Duelo animal: Entre el dolor de la ausencia y el amor que permanece (Crecimiento personal), de David Gómez, también aborda la gestión de emociones difíciles. La diferencia está en el conflicto tratado: el libro de David Gómez se centra en el duelo por la pérdida de un animal, mientras el cuento de Aiora Larrañaga Zugarramurdi aborda la frustración y cómo gestionarla.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9789507885365"
+        "editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9c60c3b9836d0e55",
+  "fuente_hash": "af1a83dd5d372219",
   "origen": "chatgpt-web"
 }

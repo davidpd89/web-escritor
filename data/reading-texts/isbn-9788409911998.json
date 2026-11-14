@@ -4,28 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Entre Líneas y la Ciudad Oculta (Saga Entre Líneas), de Teo Viedma, se dirige a lectores de misterio y thriller que buscan una novela extensa. Tiene 508 páginas y su título la vincula con la Saga Entre Líneas. Quien prefiera relatos breves o historias centradas en las relaciones románticas encontrará una propuesta de lectura diferente.",
+      "texto": "Entre Líneas y la Ciudad Oculta (Saga Entre Líneas) encaja con lectores que buscan misterio y una historia asociada a una ciudad oculta. El libro de Teo Viedma se sitúa en el terreno del thriller, por lo que se aleja de las preferencias de quienes buscan romance como tema principal.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Entre Líneas y la Ciudad Oculta (Saga Entre Líneas) está publicada en tapa blanda y contiene 508 páginas. Permite leer la novela en papel, con una extensión que conviene tener presente si se transporta habitualmente. TVF Ediciones ofrece esta edición en castellano.",
+      "texto": "La tapa blanda reúne las 508 páginas de Entre Líneas y la Ciudad Oculta (Saga Entre Líneas) en un volumen físico publicado por TVF Ediciones. Kindle permite leer la misma obra en formato digital y llevarla en el móvil o en un lector electrónico, una diferencia práctica ante su extensión.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
         "editorial",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Entre Líneas y la Ciudad Oculta (Saga Entre Líneas) se relaciona con Aguas turbulentas, de Rankin Ian, por su orientación hacia el misterio y el thriller. Aguas turbulentas sitúa su conflicto entre el pasado y el presente de Edimburgo, mientras que el título de Teo Viedma introduce una ciudad oculta. Ambos planteamientos utilizan el espacio urbano como referencia, aunque con enfoques anunciados distintos.",
+      "texto": "Aguas turbulentas y Entre Líneas y la Ciudad Oculta (Saga Entre Líneas) comparten su vinculación con el misterio. La obra de Rankin Ian sitúa el conflicto en Edimburgo y enfrenta acontecimientos del pasado con el presente; la de Teo Viedma introduce una ciudad oculta desde su propio título. El escenario anunciado es una diferencia concreta entre ambas lecturas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "383bb3abb6c51097",
+  "fuente_hash": "aa204dc470badd32",
   "origen": "chatgpt-web"
 }

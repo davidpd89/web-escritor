@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Animal Jack 2 la montaña mágica, de Kid Toussaint, encaja con lectores infantiles y juveniles que buscan cómics relacionados con los animales y la naturaleza. Sus 104 páginas lo sitúan entre las lecturas de extensión contenida; no responde a quien busca una novela extensa sin componente gráfico.",
+      "texto": "Animal Jack 2 la montaña mágica se dirige a lectores de cómic infantil que prefieren la narración gráfica a la novela en prosa. Sus 104 páginas permiten abordar una lectura de extensión contenida; no responde a la búsqueda de un ensayo o una novela para adultos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Animal Jack 2 la montaña mágica se publica en tapa blanda, con 104 páginas en castellano. Su extensión permite manejarlo como un volumen de cómic relativamente corto y guardarlo junto a otras lecturas infantiles. La edición en papel pertenece a Kómikids.",
+      "texto": "Animal Jack 2 la montaña mágica está disponible en tapa blanda, con 104 páginas en castellano. Es una edición física de Kómikids que permite leer el cómic en papel y conservarlo en una colección de lecturas infantiles.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -26,7 +25,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Animal Jack 2 la montaña mágica y Avni 1. Animal verdaderamente no identificado (Txikiberri) comparten el interés por los personajes animales dentro de las lecturas infantiles. El primero es un cómic de Kid Toussaint relacionado con la naturaleza; el segundo, de Romain Pujol, presenta en su título a un animal sin identificar. La autoría y el planteamiento anunciado son distintos.",
+      "texto": "Animal Jack 2 la montaña mágica puede compararse con Avni 1. Animal verdaderamente no identificado (Txikiberri) por su relación con personajes animales dentro del cómic infantil. La diferencia está en la autoría: Kid Toussaint firma el primero y Romain Pujol el segundo. Ambos se distinguen de una lectura infantil centrada exclusivamente en la prosa.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,13 +33,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788417575847",
-        "isbn-9791370341589"
+        "isbn-9788417575847"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6622619772f44813",
+  "fuente_hash": "d240140dcfbd3149",
   "origen": "chatgpt-web"
 }

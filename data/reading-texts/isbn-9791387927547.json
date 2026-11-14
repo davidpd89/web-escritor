@@ -4,42 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sucesos críticos variados. Vol. 2 (Sillón Orejero), de Deniz Camp y Eric Zawadzki, encaja con lectores de cómic y novela gráfica interesados también en la narrativa contemporánea. Sus 152 páginas ofrecen una extensión relativamente breve; quien busque una novela extensa en prosa encontrará aquí otro tipo de lectura.",
+      "texto": "Sucesos críticos variados. Vol. 2 (Sillón Orejero) se dirige a lectores interesados en el cómic, la novela gráfica y la narrativa contemporánea. La obra de Deniz Camp y Eric Zawadzki encaja menos con quienes prefieren narrativa exclusivamente en prosa; el título la identifica como el segundo volumen.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Sucesos críticos variados en tapa dura reúne 152 páginas en castellano. Su encuadernación rígida permite conservar el cómic en una estantería, consultarlo de nuevo y regalarlo como volumen físico.",
+      "texto": "Sucesos críticos variados. Vol. 2 (Sillón Orejero) se publica en tapa dura y tiene 152 páginas. La edición de Astiberri Ediciones en castellano permite incorporar este volumen de cómic a una colección física y consultarlo sin depender de dispositivos electrónicos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "editorial",
         "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Sucesos críticos variados comparte el ámbito del cómic con Los pecados de la familia Ichinose 6 (Shônen), de Taizan 5. Mientras este último se identifica como shônen, la obra de Deniz Camp y Eric Zawadzki también se clasifica como narrativa contemporánea. Cinco cuentos, de Posy Simmonds, ofrece otra comparación mediante cinco relatos reunidos en un volumen.",
+      "texto": "Sucesos críticos variados. Vol. 2 (Sillón Orejero) puede compararse con After God 8 (Shônen) por su relación con la narrativa gráfica. El primero es una obra de Deniz Camp y Eric Zawadzki, publicada en tapa dura, mientras que el segundo pertenece a una serie identificada como shônen y está firmado por Sumi Eno.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "formatos_disponibles",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410305106",
-        "isbn-9788419981035"
+        "isbn-9791387962647"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "41da74e507e9db18",
+  "fuente_hash": "abbc3e618eaa2238",
   "origen": "chatgpt-web"
 }

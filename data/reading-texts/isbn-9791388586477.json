@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388586477",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cocina sana-HOTR0009 se orienta a lectores interesados en la cocina relacionada con la alimentación saludable. Su materia se sitúa en el ámbito culinario y del tiempo libre, por lo que se aleja de quienes buscan una novela o un ensayo dedicado a cuestiones ajenas a la gastronomía.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cocina sana-HOTR0009 se publica en tapa blanda, con 190 páginas en castellano. Esta edición de Ediciones Playa Blanca permite mantener el libro a mano para consultar sus contenidos de cocina durante la preparación de alimentos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cocina sana-HOTR0009 comparte con Arroz (Comerse el mundo) su orientación hacia la cocina. El libro de Miguel Ángel Cañedo Fernández aborda la cocina saludable en términos generales, mientras que el de Tove Nilsson centra su propuesta en un alimento concreto: el arroz. Ambos tratan cuestiones culinarias, pero con distinto grado de especialización temática.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419483898"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d2e9809bd522ced2",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cómo ganar una guerra comercial se dirige a lectores interesados en economía internacional, decisiones políticas y disputas comerciales. Su tratamiento de los aranceles y las tensiones geopolíticas encaja menos con quien busca una novela o una introducción general a las finanzas personales.",
+      "texto": "Cómo ganar una guerra comercial se dirige a lectores interesados en economía internacional, política comercial y relaciones de poder entre países. Su enfoque en los aranceles y las tensiones geopolíticas encaja menos con quien busca una introducción general a las finanzas personales o a la gestión empresarial.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una obra de economía y política centrada en los cambios del comercio mundial y sus consecuencias. Soumaya Keynes y Chad P. Bown abordan los aranceles, los conflictos internacionales y las tensiones geopolíticas como elementos de un escenario comercial en transformación.",
+      "texto": "Es una obra de análisis económico y político centrada en los conflictos del comercio internacional. Soumaya Keynes y Chad P. Bown abordan el cambio de las reglas comerciales, el uso de aranceles y las tensiones entre países, con atención a sus consecuencias para el orden económico mundial.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,7 +23,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece una edición de 424 páginas en rústica con solapas, adecuada para consultar y señalar pasajes durante la lectura. Kindle permite llevar Cómo ganar una guerra comercial en un dispositivo electrónico sin transportar el volumen físico.",
+      "texto": "La edición en tapa blanda de Cómo ganar una guerra comercial tiene 424 páginas y se presenta en rústica con solapas, adecuada para consultar y señalar pasajes en papel. La versión Kindle permite llevar el texto en un lector electrónico o en el móvil sin cargar con el volumen físico.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -33,21 +33,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cómo ganar una guerra comercial comparte con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) el interés por las relaciones entre economía y política. Mientras Soumaya Keynes y Chad P. Bown se centran en los conflictos comerciales internacionales, la obra de Miguel Anxo Bastos Boubeta aborda las raíces del pensamiento anarcocapitalista.",
+      "texto": "La gran transformación global: El declive de la globalización y el nuevo orden mundial (Economía) comparte con Cómo ganar una guerra comercial el interés por los cambios del sistema económico internacional. Branko Milanovic aborda el declive de la globalización y el nuevo orden mundial, mientras Soumaya Keynes y Chad P. Bown se concentran en las disputas comerciales y los aranceles.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388182457"
+        "isbn-9788430628438"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c103423488d53865",
+  "fuente_hash": "f68bae2d40653275",
   "origen": "chatgpt-web"
 }

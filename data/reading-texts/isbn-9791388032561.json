@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791388032561",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en las biografías y en el estudio del arte y las imágenes. Athanasius Kircher: Itinerario del éxtasis o las imágenes de un saber universal: 176 (El Ojo del Tiempo), de Ignacio Gómez de Liaño, se aleja de la narrativa de ficción y se presenta en un volumen de 468 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje de la obra es Athanasius Kircher y la relación entre las imágenes y la aspiración a un saber universal. Ignacio Gómez de Liaño aborda esta materia en una publicación situada entre las biografías y memorias y el arte y diseño, con el itinerario del éxtasis como parte de su planteamiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción de compra es la tapa dura, publicada por Ediciones Siruela. Sus 468 páginas forman un volumen extenso que puede mantenerse en una biblioteca de consulta y cuya encuadernación rígida resulta adecuada para conservarlo y volver a sus páginas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El rey de la baraja: La imperecedera vida de Roberto Iniesta: 7 (Marea gráfica), de Nacho Nava Laiz, comparte el interés por una figura concreta, pero lo orienta hacia una trayectoria musical. Athanasius Kircher: Itinerario del éxtasis o las imágenes de un saber universal: 176 (El Ojo del Tiempo), de Ignacio Gómez de Liaño, se sitúa en el terreno del arte, las imágenes y el conocimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387938499"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f060a411945caea8",
+  "origen": "chatgpt-web"
+}

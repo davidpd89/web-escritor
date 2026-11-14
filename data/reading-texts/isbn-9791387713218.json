@@ -4,28 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "No subir montañas: 10 (Bastardilla) se sitúa entre las lecturas de ensayo, memorias y tiempo libre, para lectores interesados en esos ámbitos. Sus 160 páginas plantean una extensión relativamente breve; por su clasificación editorial, queda fuera de una búsqueda centrada en ficción fantástica o narrativa de aventuras.",
+      "texto": "No subir montañas: 10 (Bastardilla), de Paula Pontes, se orienta a lectores de ensayo, memorias y textos relacionados con el ocio y el tiempo libre. Sus 160 páginas ofrecen una extensión relativamente breve, distinta de la que busca quien prefiere novelas extensas o manuales técnicos especializados.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "numero_paginas",
-        "sinopsis_editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "No subir montañas: 10 (Bastardilla) está editado en tapa blanda por La Caja Books, con 160 páginas en castellano. Esta presentación permite leerlo en papel y transportarlo sin el volumen de una obra de gran extensión; también puede guardarse en una estantería junto a otros títulos de la colección.",
+      "texto": "No subir montañas: 10 (Bastardilla) se publica en tapa blanda, con 160 páginas en la edición de La Caja Books. Su extensión permite manejarlo y transportarlo como un volumen físico relativamente breve, además de conservarlo en una biblioteca personal o regalarlo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "editorial",
         "numero_paginas",
-        "idioma"
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "No subir montañas: 10 (Bastardilla) y La voz del desierto: El Dakar me enseñó a competir. El desierto me enseñó a vivir (No ficción) pueden compararse desde el interés por las experiencias personales y el tiempo libre. El libro de Paula Pontes se presenta como ensayo y memorias, mientras que el de Cristina Gutiérrez anuncia en su título una experiencia vinculada al Dakar y la competición.",
+      "texto": "No subir montañas: 10 (Bastardilla), de Paula Pontes, puede compararse con Hasta donde me lleve el viento: La vuelta al mundo en un velero de ocho metros, de Eduardo Rejduch de la Mancha, dentro de las lecturas vinculadas al tiempo libre y las experiencias personales. El segundo anuncia una travesía en velero, mientras que No subir montañas: 10 (Bastardilla) se presenta como una obra de ensayo y memorias sin identificar una travesía concreta en su título.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,7 +33,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466685528"
+        "isbn-9791387873189"
       ]
     }
   ],

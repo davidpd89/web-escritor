@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788446058366",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La actualidad de Marx está dirigido a lectores interesados en la filosofía, el pensamiento político y el ensayo. Sus 416 páginas corresponden a una obra de no ficción, por lo que se aparta de las novelas de entretenimiento y de las lecturas centradas en personajes ficticios.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La actualidad de Marx tiene una edición en tapa blanda de 416 páginas, publicada por Ediciones Akal. El volumen físico permite consultar y retomar apartados durante la lectura de un ensayo filosófico y político, además de conservarlo como libro de referencia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La actualidad de Marx puede compararse con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, porque ambas obras se sitúan en el debate sobre ideas políticas y económicas, aunque parten de referentes intelectuales distintos. Ecología o economía: Hay que elegir: 136 (Ensayo), de Anselm Jappe, desplaza el foco hacia la relación entre ecología y economía, mientras La actualidad de Marx toma como referencia el pensamiento de Marx.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457",
+        "isbn-9788410476585"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b8135150a36a9424",
+  "origen": "chatgpt-web"
+}

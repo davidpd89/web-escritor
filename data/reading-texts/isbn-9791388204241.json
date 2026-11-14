@@ -4,40 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Incandescente (Kraken), de Emily Tesh, se sitúa entre la fantasía, la aventura y la ciencia ficción. Su clasificación la acerca a lectores de ficción especulativa y la aleja de quienes buscan una historia realista o una obra de divulgación.",
+      "texto": "Incandescente (Kraken) se dirige a lectores de fantasía que también buscan aventuras. Con 432 páginas, plantea una lectura de extensión considerable y se distancia de quienes prefieren historias realistas o libros breves.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Incandescente (Kraken) está disponible en tapa dura, con 432 páginas en castellano. Esta presentación permite conservar la novela en una colección física de fantasía y ofrece una encuadernación rígida para quienes prefieren leer en papel.",
+      "texto": "Incandescente (Kraken) se presenta en tapa dura, con 432 páginas y edición en castellano de Editorial Hidra. La encuadernación rígida resulta práctica para conservar el ejemplar y colocarlo en una biblioteca, aunque supone manejar un volumen físico durante la lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "categorias"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aftermyth 1. Penelope y la prueba de los dioses y Incandescente (Kraken) comparten su orientación hacia la ficción fantástica. Tracy Wolff plantea una prueba vinculada a los dioses, mientras la obra de Emily Tesh se clasifica también entre la aventura y la ciencia ficción, ampliando el marco de géneros.",
+      "texto": "Incandescente (Kraken) puede compararse con Alas de escarcha y oro: El canto del cisne, de Marta Morillo, por su vinculación con la fantasía. La segunda presenta a una protagonista que oculta sus dones, mientras que Incandescente (Kraken), de Emily Tesh, se sitúa también en el terreno de las aventuras y cuenta con 432 páginas.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408324102"
+        "isbn-9791387949938"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9dbeb6122212bac7",
+  "fuente_hash": "3dcefb4367346ff8",
   "origen": "chatgpt-web"
 }

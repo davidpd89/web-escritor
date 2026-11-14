@@ -4,16 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Inteligencia artificial generativa en Microsoft Azure se dirige a lectores interesados en la inteligencia artificial y en su relación con una plataforma tecnológica concreta. El enfoque anunciado por Adrián González Sánchez, Jaime De Mora y Jorge García se diferencia de una introducción general a la ciencia sin atención específica a Microsoft Azure.",
+      "texto": "Inteligencia artificial generativa en Microsoft Azure se dirige a lectores interesados en la inteligencia artificial y su relación con una plataforma tecnológica concreta. Sus 316 páginas lo sitúan en la divulgación científica, por lo que se aparta de quienes buscan una novela o una lectura de ficción sobre las consecuencias de la tecnología.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Inteligencia artificial generativa en Microsoft Azure se publica en tapa blanda, con 316 páginas en castellano. Esta edición física de Marcombo permite mantener el volumen abierto durante el estudio y consultar de nuevo sus páginas sin utilizar un lector electrónico.",
+      "texto": "Inteligencia artificial generativa en Microsoft Azure se presenta en tapa blanda, con 316 páginas en castellano. La edición física de Marcombo permite consultar el contenido, colocar marcadores y volver a determinados apartados sin utilizar una pantalla; es una opción de lectura y consulta en papel.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -24,14 +24,14 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "50 cosas que hay que saber sobre IA y Inteligencia artificial generativa en Microsoft Azure comparten la inteligencia artificial como materia central. El libro de Keith Mansfield presenta su alcance como una selección de conocimientos sobre IA, mientras que Adrián González Sánchez, Jaime De Mora y Jorge García delimitan el suyo a la inteligencia artificial generativa en Microsoft Azure.",
+      "texto": "Inteligencia artificial generativa en Microsoft Azure y Gestión de proyectos de inteligencia artificial comparten el ámbito de la inteligencia artificial y la autoría de Adrián González Sánchez. El primero se centra, según su título, en la inteligencia artificial generativa vinculada a Microsoft Azure; el segundo aborda la gestión de proyectos y está firmado también por Malini Jain Runtasewee.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788434441309"
+        "isbn-9788426742827"
       ]
     }
   ],

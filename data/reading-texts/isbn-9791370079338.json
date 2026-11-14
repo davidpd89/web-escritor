@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370079338",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en Raf Simons, la moda y el diseño, especialmente a quienes siguen la Colección Leyendas de la Moda. Es un libro de 128 páginas clasificado como arte y diseño y ensayo, por lo que no responde a la búsqueda de una novela de ficción ni de un manual técnico general.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Raf Simons | Colección Leyendas de la Moda | Libro LXIII está disponible en tapa dura, con 128 páginas en castellano. La encuadernación rígida permite conservarlo como volumen físico de la colección y colocarlo junto a otros títulos de la misma serie. Es la edición publicada por RBA Coleccionables.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Donna Karan | Colección Leyendas de la Moda | Libro LX y Marine Serre | Colección Leyendas de la Moda | Libro LIX comparten con este volumen la colección, la autoría de RBA Coleccionables España y el interés por figuras de la moda. La diferencia principal es la persona tratada: aquellos títulos se dedican a Donna Karan y Marine Serre, mientras que este se centra en Raf Simons. El título lo identifica como el Libro LXIII.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370077914",
+        "isbn-9791370077907"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5f843c57fdd84d7f",
+  "origen": "chatgpt-web"
+}

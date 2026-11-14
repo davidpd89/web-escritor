@@ -4,39 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La historia más grande jamás contada: El relato de un testigo presencial se dirige a lectores interesados en religión y espiritualidad, especialmente en relatos presentados desde la perspectiva de un testigo. Su clasificación temática lo aleja de los manuales de supervivencia y de las novelas de aventuras, aunque su autor sea Bear Grylls.",
+      "texto": "La historia más grande jamás contada: El relato de un testigo presencial se dirige a lectores interesados en religión y espiritualidad, especialmente en obras que presentan un relato vinculado a la experiencia de un testigo. No corresponde a quien busca narrativa de ficción, aventuras o un libro centrado en otros ámbitos temáticos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda contiene 368 páginas y permite leer el relato de Bear Grylls en un volumen físico que puede conservarse o regalarse. Kindle ofrece la alternativa digital para leerlo en un dispositivo compatible, con mayor facilidad de transporte que el ejemplar impreso.",
+      "texto": "La tapa blanda contiene sus 368 páginas en una edición física de La Esfera de los Libros, adecuada para quien prefiere leer en papel. Kindle permite acceder a la misma obra en formato digital y llevarla en un dispositivo electrónico sin transportar el volumen.",
       "evidencias": [
-        "titulo",
-        "autores",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Al andar: Vivencias del Camino de Santiago comparte con La historia más grande jamás contada: El relato de un testigo presencial su relación con la espiritualidad y las experiencias narradas. Carlos Díaz Ballesta sitúa su obra en el Camino de Santiago, mientras que Bear Grylls presenta un relato desde la perspectiva de un testigo presencial. La diferencia está en el marco de cada narración.",
+      "texto": "La historia más grande jamás contada: El relato de un testigo presencial puede compararse con AKITA: Las lágrimas y el mensaje de María, de Teiji Yasuda, por su relación con la temática religiosa. Biblia Católica Biblia de Jerusalén Latinoamericana símil piel rosada / Spanish Catholic Jerusalem Bible, Pink Leathersoft, de Biblia de Jerusalén, pertenece también al ámbito religioso, aunque se presenta como una edición de la Biblia y no como un relato testimonial.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9791388099496"
+        "isbn-9791388176357",
+        "isbn-9798890989536"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ad47265fc92bc234",
+  "fuente_hash": "c962c8ae590f1243",
   "origen": "chatgpt-web"
 }

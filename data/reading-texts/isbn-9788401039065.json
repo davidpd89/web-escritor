@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788401039065",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en el desarrollo personal a través de Mr Skelly, el personaje creado por Christian Watson. Su enfoque inspirador y su extensión de 128 páginas lo distinguen de los manuales centrados en ejercicios físicos o técnicas específicas de nutrición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Plaza & Janés contiene las 128 páginas de esta obra de Christian Watson. Su encuadernación rígida permite conservarla en una estantería o entregarla como regalo, mientras que la extensión facilita distribuir su lectura en sesiones breves.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cambiar para Vivir, Colección Autoayuda coincide en el terreno del desarrollo personal, mientras que la obra de Christian Watson presenta ese enfoque mediante Mr Skelly. Tina: El perro que cambió el mundo (Crecimiento personal) también vincula su propuesta a una figura concreta, pero sitúa a un perro en el centro en lugar de un esqueleto.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788415122562",
+        "isbn-9791387662592"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8d8631c6d6503149",
+  "origen": "chatgpt-web"
+}

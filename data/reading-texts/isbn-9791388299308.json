@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388299308",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La gran enciclopedia de las criaturas mitológicas de León (Caraid), de Víctor Fuertes Melón, se orienta a lectores interesados en criaturas mitológicas y obras clasificadas como terror. Por su temática y clasificación, no responde a una búsqueda de narrativa realista alejada de lo sobrenatural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La gran enciclopedia de las criaturas mitológicas de León (Caraid) está disponible en tapa blanda y tiene 204 páginas. La edición en castellano de Eolas Ediciones permite consultar el volumen físicamente, volver a sus páginas y colocarlo en una estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La gran enciclopedia de las criaturas mitológicas de León (Caraid) comparte el interés por lo mitológico con Aftermyth 1. Penelope y la prueba de los dioses, de Tracy Wolff. La primera se centra, desde su título, en criaturas de León y está clasificada como terror; la segunda plantea una prueba vinculada a los dioses y tiene otra autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324102"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "effe62fe847ba761",
+  "origen": "chatgpt-web"
+}

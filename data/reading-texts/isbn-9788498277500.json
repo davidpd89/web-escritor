@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788498277500",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "s-t técnica mixta: (colección de poemas) está dirigido a lectores interesados en la poesía, especialmente dentro de un catálogo que también lo vincula con la literatura juvenil. Sus 382 páginas requieren más tiempo de lectura que un poemario breve y encajan menos con quien busca una novela convencional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "s-t técnica mixta: (colección de poemas) cuenta con una edición en tapa blanda de 382 páginas, publicada por Editorial Dilema. Es un volumen de cierta extensión para leer en papel, conservar los poemas reunidos y regresar a ellos sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "s-t técnica mixta: (colección de poemas) puede compararse con Vuela, extraña alma por su presencia entre las lecturas afines del catálogo, aunque el título de Aldo Sanz identifica expresamente una colección poética. Acaba de decir si quiero cuando desperté constituye otra referencia próxima; frente a ella, s-t técnica mixta: (colección de poemas) tiene 382 páginas y una identificación formal centrada en los poemas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388391521",
+        "isbn-9791388391477"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "671560fab12a91b1",
+  "origen": "chatgpt-web"
+}

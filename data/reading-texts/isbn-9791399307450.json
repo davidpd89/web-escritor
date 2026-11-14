@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399307450",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores de cuentos infantiles ambientados en Navidad, con Rosa y el gato Rosalino como personajes del título. Sus 28 páginas permiten una lectura breve; no responde a quien busca una novela juvenil extensa o una historia alejada de las celebraciones navideñas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 28 páginas del cuento en un volumen físico de extensión reducida. Es la opción para conservarlo en papel, llevarlo de un sitio a otro o regalar una historia infantil de temática navideña.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rosa, la caracola Lola y el gato Rosalino: Un cuento de verano de Rosa y Rosalino: 7 comparte autoría y personajes con este cuento, pero cambia la Navidad por el verano. Rosa, el dinosaurio Hilario y el gato Rosalino: Un cuento para dormir de Rosa y Rosalino: 9 (Rosa y el gato Rosalino) mantiene a Rosa y Rosalino, aunque se presenta como lectura para dormir. Los títulos identifican estas entregas con los números 5, 7 y 9.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399320008",
+        "isbn-9791399307474"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bc6c3e18bad55ee6",
+  "origen": "chatgpt-web"
+}

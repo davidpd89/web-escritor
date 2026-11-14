@@ -4,15 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ángeles de Praga / Angels of Prague está orientado a lectores interesados en la historia del siglo XX. Su clasificación histórica lo diferencia de la ficción contemporánea y de las guías prácticas, por lo que encaja menos con quienes buscan una novela romántica o ejercicios de desarrollo personal.",
+      "texto": "Ángeles de Praga / Angels of Prague, de Edward Abel Smith, se dirige a lectores interesados en libros de historia. Su clasificación lo diferencia de las obras centradas en consejos prácticos o ficción fantástica, por lo que encaja menos con quienes buscan esos contenidos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Ángeles de Praga / Angels of Prague se presenta en tapa blanda, con 240 páginas en castellano. La encuadernación flexible facilita llevar el volumen durante los desplazamientos y su extensión permite organizar la lectura histórica en varias sesiones. La edición corresponde a Penguin Random House Grupo Editorial.",
+      "texto": "Ángeles de Praga / Angels of Prague se publica en tapa blanda y reúne 240 páginas en castellano. Esta edición de Penguin Random House Grupo Editorial permite consultar el contenido en papel, marcar páginas y distribuir la lectura en varias sesiones.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -23,20 +24,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "76, de Felipe Pigna, figura entre los títulos con los que puede compararse Ángeles de Praga / Angels of Prague. Este último se identifica expresamente con la historia del siglo XX, mientras que el título 76 no permite precisar por sí solo su alcance temático. Agustín penón y Federico García Lorca, de Juan Carlos García de Polavieja, ofrece una comparación más concreta por su investigación sobre la vida y la muerte de Federico García Lorca.",
+      "texto": "Ángeles de Praga / Angels of Prague y 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, pertenecen al ámbito de la historia. La obra de Timothy W. Ryback anuncia un análisis de la caída de una democracia, mientras que el título de Edward Abel Smith sitúa su referencia geográfica en Praga.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408329695",
-        "isbn-9788418567933"
+        "isbn-9788411005517"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d680ff984e8cbe36",
+  "fuente_hash": "0fad6fc97955ce1c",
   "origen": "chatgpt-web"
 }

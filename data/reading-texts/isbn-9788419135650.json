@@ -4,39 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "A la caza de Papá Noel: 3 se dirige al público infantil interesado en la fantasía y los temas navideños. Emma S. Varela y Robert García firman un libro de 36 páginas que también aparece vinculado al terror; puede encajar menos con quienes prefieren lecturas infantiles exclusivamente realistas o alejadas de ese género.",
+      "texto": "A la caza de Papá Noel: 3 está dirigido al público infantil que disfruta de relatos de fantasía relacionados con personajes navideños. Sus 36 páginas permiten plantear una lectura breve, mientras que quienes buscan novelas juveniles extensas encontrarán aquí un formato narrativo diferente.",
       "evidencias": [
         "titulo",
-        "autores",
-        "numero_paginas",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "A la caza de Papá Noel: 3 está disponible en tapa dura, con 36 páginas en castellano. Esta edición física permite compartir la lectura y conservar el libro entre las lecturas navideñas; también puede entregarse como regalo sin depender de un dispositivo electrónico.",
+      "texto": "A la caza de Papá Noel: 3 se presenta en tapa dura, con 36 páginas y edición de Pijama Books. El formato físico permite compartir la lectura y conservar el ejemplar como libro infantil, sin necesidad de recurrir a una pantalla.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "formatos_disponibles"
+        "editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "A la caza de Papá Noel: 3 puede compararse con ¡Ya es Nochebuena! (Un cuento con puzles) por su temática navideña y su orientación infantil. El primero incorpora la fantasía y figura también entre las obras de terror, mientras que el segundo se presenta como un cuento con puzles. La diferencia para el lector está entre una propuesta de ficción fantástica y otra que anuncia una actividad de puzles.",
+      "texto": "Brujas y dragones 2: La bruja mala del oeste comparte con A la caza de Papá Noel: 3 su vinculación con la fantasía infantil, aunque la obra de Ledicia Costas y Luis Miguel Pérez utiliza figuras de brujería y la de Emma S. Varela y Robert García gira en torno a Papá Noel. Buenas noches, hada, de Jeffrey Burton y Zoe Waring, ofrece otra referencia infantil de temática mágica, con una figura fantástica diferente.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9781806072828"
+        "isbn-9791387501877",
+        "isbn-9788491459347"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ca9881a7bb22e428",
+  "fuente_hash": "47f60d2908fc611d",
   "origen": "chatgpt-web"
 }

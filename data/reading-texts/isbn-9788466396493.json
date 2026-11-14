@@ -4,46 +4,43 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores de narrativa contemporánea que buscan historias familiares con elementos de misterio. La historia de Star, de Lucinda Riley, pertenece al universo de Las Siete Hermanas; se aleja de las expectativas de quien busca exclusivamente acción o investigación criminal, porque su clasificación también destaca la familia.",
+      "texto": "Está dirigido a lectores de narrativa contemporánea interesados en la historia de Star dentro de Las Siete Hermanas. Por su pertenencia a una serie y sus 592 páginas, encaja menos con quienes buscan una lectura breve y ajena a cualquier continuidad entre libros.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La edición limitada de Penguin Bolsillo se publica en castellano y en formato de bolsillo, con encuadernación de tapa blanda. Sus 592 páginas corresponden a la presentación identificada por el ISBN 9788466396493. El título incluye Las Siete Hermanas 3 y La historia de Star, referencias que permiten distinguir esta obra dentro de la serie de Lucinda Riley.",
+      "texto": "Esta edición de La hermana sombra (edición limitada) (Las Siete Hermanas 3): La historia de Star (Campaña | Ahora por menos) se publica en formato de bolsillo por Penguin Bolsillo. Tiene 592 páginas, está encuadernada en tapa blanda y se publica el 2027-02-04. El título la identifica como edición limitada y como el n.º 3 de Las Siete Hermanas.",
       "evidencias": [
         "titulo",
-        "autores",
         "editorial",
         "edicion",
         "numero_paginas",
         "formato_edicion",
-        "idioma",
-        "isbn13"
+        "fecha_publicacion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Sus 592 páginas se ofrecen aquí en tapa blanda, dentro de la colección de bolsillo de Penguin Bolsillo. Esta presentación reúne una lectura extensa en un volumen físico que puede transportarse sin recurrir a un dispositivo electrónico. También permite conservar la obra en papel junto a otros títulos de la misma serie.",
+      "texto": "La tapa blanda es el formato disponible para esta edición de 592 páginas. Su presentación como libro de bolsillo permite llevar la historia de Star en un volumen físico de cubierta flexible, sin recurrir a una edición de tapa dura.",
       "evidencias": [
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
         "edicion",
-        "editorial",
-        "titulo"
+        "titulo",
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Las siete hermanas (edición limitada) (Las Siete Hermanas 1): La historia de Maia (Campaña | Ahora por menos), de Lucinda Riley, comparte autoría, serie y enfoque familiar con este libro. La diferencia está en la protagonista identificada por cada título: Maia en aquel y Star en La hermana sombra (edición limitada) (Las Siete Hermanas 3): La historia de Star (Campaña | Ahora por menos).",
+      "texto": "Las siete hermanas (edición limitada) (Las Siete Hermanas 1): La historia de Maia (Campaña | Ahora por menos) pertenece a la misma serie y comparte autoría con este libro. La diferencia principal está en la protagonista anunciada por cada título: Maia en el primero y Star en La hermana sombra (edición limitada) (Las Siete Hermanas 3): La historia de Star (Campaña | Ahora por menos).",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
+        "autores"
       ],
       "enlaces": [
         "isbn-9788466396486"
@@ -52,6 +49,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4ad1c4f1154030b6",
+  "fuente_hash": "6544292b31d8c455",
   "origen": "chatgpt-web"
 }

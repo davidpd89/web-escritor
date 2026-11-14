@@ -4,38 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "José María Gil: 10 (Islas de Memoria), de Benito Cabrera Hernández, se dirige a lectores interesados en las biografías, la memoria y el arte. Su orientación documental y biográfica lo diferencia de la ficción narrativa y de los libros dedicados exclusivamente a enseñar técnicas artísticas.",
+      "texto": "José María Gil: 10 (Islas de Memoria) se dirige a lectores interesados en las biografías, las memorias y el arte. Sus 168 páginas ofrecen una extensión relativamente breve, aunque su orientación temática lo aleja de quienes buscan una novela de aventuras o fantasía.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "José María Gil: 10 (Islas de Memoria) se publica en tapa blanda, con 168 páginas en castellano. Su extensión permite manejarlo como un volumen físico relativamente breve, mientras que la encuadernación flexible facilita llevarlo para leer o consultar fuera de casa.",
+      "texto": "José María Gil: 10 (Islas de Memoria) está disponible en tapa blanda, con 168 páginas en castellano. Esta edición de Fundación César Manrique ofrece un volumen físico de extensión contenida, adecuado para transportar y consultar sin utilizar dispositivos electrónicos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "José María Gil: 10 (Islas de Memoria) comparte el interés por la memoria y el arte con RECONSTRUYENDO LA MEMORIA: Un mural dedicado a Federico García Lorca en la Universidad de Granada: 21 (Cuadernos Técnicos de Patrimonio), de José Ignacio Barrera Maturana. El primero se presenta como obra biográfica, mientras que el segundo centra su título en un mural y su relación con el patrimonio.",
+      "texto": "José María Gil: 10 (Islas de Memoria), de Benito Cabrera Hernández, comparte su orientación biográfica con El rey de la baraja: La imperecedera vida de Roberto Iniesta: 7 (Marea gráfica), de Nacho Nava Laiz. La diferencia está en la figura protagonista y en el ámbito artístico que aborda cada título. También se relaciona con Desde que era un crío, de Locus, por su vinculación con las memorias personales, aunque José María Gil: 10 (Islas de Memoria) se presenta como una obra biográfica escrita por otro autor.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788433875884"
+        "isbn-9791399084894",
+        "isbn-9791387938499"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5dfc2f908d65d43f",
+  "fuente_hash": "eccad32244d3b1b9",
   "origen": "chatgpt-web"
 }

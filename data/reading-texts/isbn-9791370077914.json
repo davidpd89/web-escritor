@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791370077914",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Donna Karan | Colección Leyendas de la Moda | Libro LX está orientado a lectores interesados en la moda, el diseño y las figuras que dan nombre a esta colección. El volumen de RBA Coleccionables España se sitúa en el ámbito del ensayo y el arte, por lo que no responde a la búsqueda de una novela o un manual general de costura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Donna Karan | Colección Leyendas de la Moda | Libro LX se publica en tapa dura, con 128 páginas. Esta presentación permite mantener el volumen junto a otros títulos de la colección y ofrece una encuadernación rígida para su conservación o para regalarlo a alguien interesado en la moda.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Marine Serre | Colección Leyendas de la Moda | Libro LIX y Donna Karan | Colección Leyendas de la Moda | Libro LX pertenecen a la misma colección y comparten la autoría de RBA Coleccionables España. Cada título se centra en una figura distinta de la moda; además, sus denominaciones identifican los volúmenes LIX y LX, respectivamente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370077907"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b72bc4b64d6cb69d",
+  "origen": "chatgpt-web"
+}

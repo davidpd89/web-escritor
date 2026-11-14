@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387975555",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Salón de belleza (Hispánica), de Mario Bellatin, se dirige a lectores de narrativa contemporánea que prefieren libros de extensión reducida. Con 128 páginas, se diferencia de las novelas extensas y, por su clasificación, no está orientado específicamente a quienes buscan fantasía o novela histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Salón de belleza (Hispánica) tiene una edición en tapa blanda de 128 páginas, publicada por Alfaguara. Su extensión permite llevar el libro en papel sin el volumen de una novela larga, tanto para leerlo fuera de casa como para conservarlo en una biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Obra reunida (Hispánica) es la comparación más directa para Salón de belleza (Hispánica), porque ambos títulos pertenecen a la bibliografía de Mario Bellatin. Salón de belleza (Hispánica) es una publicación individual de 128 páginas, mientras que Obra reunida (Hispánica) se presenta como una recopilación desde su propio título. La coincidencia de autor permite explorar dos formas distintas de acercarse a sus textos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387975562"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "93b17612bdffd3a2",
+  "origen": "chatgpt-web"
+}

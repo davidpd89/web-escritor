@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788409935369",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Marimé encaja con lectores interesados en narrativa contemporánea escrita en castellano y dispuestos a dedicar tiempo a una obra extensa. Con 440 páginas, se aleja de las lecturas breves; tampoco está clasificada editorialmente como fantasía, terror o ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Marimé se presenta en tapa blanda, con 440 páginas reunidas en un único volumen físico. Esta edición de Mercedes Fernández Jorge permite leer en papel, colocar el ejemplar en una biblioteca personal o entregarlo como regalo sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "017c96bb5f66d977",
+  "origen": "chatgpt-web"
+}

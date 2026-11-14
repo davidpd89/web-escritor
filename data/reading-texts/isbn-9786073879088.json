@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a quienes buscan relatos sobre mujeres y una perspectiva vinculada al México Antiguo. Por su clasificación como narrativa contemporánea y relatos, encaja menos con quien prefiere una novela de fantasía o una historia centrada en un único protagonista.",
+      "texto": "Nosotras también contamos. Mujeres célebres del México Antiguo / We Matter Too: Famous Women of Ancient Mexico se orienta a lectores interesados en relatos sobre mujeres vinculadas al pasado mexicano. Por su clasificación como narrativa contemporánea y relatos, se diferencia de una obra concebida como manual histórico o estudio académico.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,7 +12,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Propone una lectura de relatos centrados en mujeres célebres del México Antiguo, dentro del ámbito de la narrativa contemporánea. La autoría compartida por Blanca López de Mariscal, Denise Carpinteyro, Mónica Castellanos, Gabriela Riveros y Maria De Alva distingue el libro de una obra firmada por una sola persona.",
+      "texto": "Nosotras también contamos. Mujeres célebres del México Antiguo / We Matter Too: Famous Women of Ancient Mexico reúne una propuesta narrativa centrada en figuras femeninas del México antiguo. La obra figura entre los relatos y la narrativa contemporánea, con autoría compartida por Blanca López de Mariscal, Denise Carpinteyro, Mónica Castellanos, Gabriela Riveros y Maria De Alva.",
       "evidencias": [
         "titulo",
         "autores",
@@ -21,29 +21,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite consultar y releer sus 256 páginas en papel, mientras que Kindle facilita llevar el texto en un dispositivo móvil. El audiolibro ofrece una alternativa de escucha para quienes prefieren acceder a los relatos sin leer en pantalla o papel.",
+      "texto": "La tapa blanda reúne las 256 páginas de Nosotras también contamos. Mujeres célebres del México Antiguo / We Matter Too: Famous Women of Ancient Mexico en un volumen físico. Kindle facilita la lectura en dispositivos electrónicos, mientras que el audiolibro permite escuchar la obra durante desplazamientos u otras actividades.",
       "evidencias": [
+        "titulo",
         "numero_paginas",
-        "formatos_disponibles",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Comparte el interés por las mujeres con Lo mejor de las mujeres de Bruguera (Bruguera Clásica), aunque este último se vincula por su título a Bruguera y el libro de Blanca López de Mariscal, Denise Carpinteyro, Mónica Castellanos, Gabriela Riveros y Maria De Alva se centra en el México Antiguo. También puede compararse con Esas muchachas que escriben poemas por su atención a figuras femeninas, aunque allí el título apunta a la escritura poética.",
+      "texto": "Nosotras también contamos. Mujeres célebres del México Antiguo / We Matter Too: Famous Women of Ancient Mexico y Caperucita se come al lobo / Little Red Riding Hood Eats the Wolf comparten una presentación titular en español e inglés, pero la primera se centra en mujeres del México antiguo. En lengua privada / In Private Language también presenta un título bilingüe, aunque corresponde a una obra de Emiliano Monge, frente a la autoría colectiva de la primera.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788402432216",
-        "isbn-9788426434272"
+        "isbn-9786287880610",
+        "isbn-9786073878289"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4255da1684b04c57",
+  "fuente_hash": "a56cf2b0fb91b986",
   "origen": "chatgpt-web"
 }

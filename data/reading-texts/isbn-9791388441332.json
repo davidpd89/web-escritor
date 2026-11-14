@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388441332",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historia de amor inesperada Vol. 5 está orientado a lectores de cómic y novela gráfica interesados en una obra de temática romántica. El título lo identifica como el volumen 5, por lo que no responde a la búsqueda de una entrega inicial ni de una novela escrita exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Historia de amor inesperada Vol. 5 se publica en tapa blanda y cuenta con 240 páginas. La edición de Tsubaki está en castellano y permite leer el volumen en papel, guardarlo en una estantería o incorporarlo a una colección física de cómics.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "31990bd4ee7dd7fe",
+  "origen": "chatgpt-web"
+}

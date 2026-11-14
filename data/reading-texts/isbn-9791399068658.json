@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791399068658",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Economía monetaria y bancaria: Fundamentos y perspectivas está orientado a lectores interesados en comprender cuestiones monetarias y bancarias dentro del ámbito económico. Por su materia, resulta menos afín a quienes buscan narrativa de ficción, desarrollo de personajes o una historia de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar las 318 páginas de Economía monetaria y bancaria: Fundamentos y perspectivas en papel, con acceso directo a los apartados durante el estudio. Kindle ofrece una alternativa digital para leer el contenido en un dispositivo compatible sin llevar el libro físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Economía monetaria y bancaria: Fundamentos y perspectivas y ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido comparten su relación con el ámbito económico y empresarial. Francisco Rodríguez Fernández centra su título en los fundamentos monetarios y bancarios, mientras Rory Sutherland plantea el papel de ideas aparentemente ilógicas, una diferencia de enfoque para quien busca una materia concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399087222"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3293c2f179fb360e",
+  "origen": "chatgpt-web"
+}

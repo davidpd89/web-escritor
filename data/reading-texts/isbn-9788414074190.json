@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788414074190",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tarot de los gatos místicos (Patas) se dirige a lectores de narrativa juvenil interesados en una obra cuyo título combina el tarot y los gatos. Sus 95 páginas ofrecen una extensión contenida; quien busque una novela adulta de gran volumen encontrará una propuesta editorial distinta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tarot de los gatos místicos (Patas) se edita en tapa blanda, con 95 páginas en castellano. Su extensión permite transportarlo sin cargar con un volumen largo, y la edición impresa facilita tenerlo a mano para consultar o releer sus páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tarot de los gatos místicos (Patas) puede compararse con Alya a veces me susurra en ruso 9 (Shônen - Alya) por su presencia entre lecturas de orientación juvenil. La diferencia visible está en sus títulos y autorías: Michelle Romo firma el primero, mientras que SunSunSun firma el segundo, identificado además con el número 9.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791043309670"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a1184e227b9a5cde",
+  "origen": "chatgpt-web"
+}

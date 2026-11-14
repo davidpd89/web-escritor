@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791388289088",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un regalo de los dioses: Neurociencia de la lectura: 96 (Biblioteca de Ensayo / Serie menor) se dirige a lectores interesados en comprender la lectura desde la neurociencia y la psicología. Su enfoque de ensayo y divulgación científica encaja menos con quien busca una novela o una historia de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La cuestión central es la relación entre la lectura y la neurociencia, abordada desde el ensayo y la divulgación científica. Antonio Basanta y Nazareth Castellanos firman una obra de 168 páginas que también se sitúa en el ámbito de la psicología. El planteamiento se centra en estudiar la lectura como objeto de conocimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa dura y contiene 168 páginas en castellano. Su encuadernación rígida permite conservar el volumen para posteriores consultas sobre neurociencia de la lectura, además de ofrecer una presentación física apropiada para regalar.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un regalo de los dioses: Neurociencia de la lectura: 96 (Biblioteca de Ensayo / Serie menor) comparte con Neurociencia del cuerpo el interés por la neurociencia y la autoría de Nazareth Castellanos. El primero estudia la lectura desde una perspectiva científica y psicológica, mientras que el segundo centra su atención, según su título, en el cuerpo. La diferencia principal está en el objeto de estudio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394703"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4784d80c949d52c5",
+  "origen": "chatgpt-web"
+}

@@ -4,28 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "BROKEN RIVAL: Cuando el amor es un acto de rebeldía (Titania fresh), de Tessa Bailey, está orientado a quienes buscan romance y relaciones de pareja como eje de lectura. El título vincula el amor con la rebeldía y sus 448 páginas ofrecen una novela extensa. No responde a la búsqueda de una obra centrada principalmente en el misterio o la historia.",
+      "texto": "BROKEN RIVAL: Cuando el amor es un acto de rebeldía (Titania fresh) se dirige a lectores de romance interesados en el amor asociado a la rebeldía. La propuesta de Tessa Bailey se aleja de quienes buscan una lectura centrada en el misterio o en cuestiones prácticas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "BROKEN RIVAL: Cuando el amor es un acto de rebeldía (Titania fresh) se presenta en tapa blanda, con 448 páginas en castellano. Es una edición física que puede llevarse durante los desplazamientos, aunque su extensión supone un volumen considerable de lectura. Titania figura como editorial de esta edición.",
+      "texto": "La tapa blanda permite leer las 448 páginas de BROKEN RIVAL: Cuando el amor es un acto de rebeldía (Titania fresh) en papel y conservar el ejemplar en la estantería. Kindle ofrece una alternativa digital para llevar la lectura en el móvil o en un lector electrónico, sin transportar el volumen físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "BROKEN RIVAL: Cuando el amor es un acto de rebeldía (Titania fresh) comparte el interés por las relaciones amorosas con Amor en pole position (Dirty Air 3), de Lauren Asher. La obra de Lauren Asher sitúa su historia en la Fórmula 1, mientras que el título de Tessa Bailey destaca la rebeldía vinculada al amor. Son propuestas de autoras diferentes dentro del romance.",
+      "texto": "A mil por hora comparte con BROKEN RIVAL: Cuando el amor es un acto de rebeldía (Titania fresh) el romance como eje. La obra de Hannah Grace plantea una relación entre un piloto de F1 y una mujer vinculada a su pasado, mientras que el título de Tessa Bailey relaciona el amor con la rebeldía. Ambas presentan el conflicto sentimental desde enfoques distintos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055674"
+        "isbn-9788466683449"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6c07e3a49bdc866b",
+  "fuente_hash": "005d9fce771c783d",
   "origen": "chatgpt-web"
 }

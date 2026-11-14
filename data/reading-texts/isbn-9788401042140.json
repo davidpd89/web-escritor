@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788401042140",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes prefieren resolver casos criminales mediante la observación de escenas y pistas. El libro de Modesto García plantea doce casos, por lo que se aleja de la novela policíaca convencional y se orienta hacia la participación del lector.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 224 páginas dedicadas a resolver casos mediante el examen de escenas del crimen. Es la presentación de Plaza & Janés para leer en papel y volver sobre los detalles de cada caso durante la investigación.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "80 crímenes imposibles de resolver (FUERA DE ESCENA) comparte el planteamiento de investigar delitos, aunque reúne 80 casos frente a los doce de Modesto García. Frente a 99 Sudoku (LIBROS SINGULARES), aquí el ejercicio consiste en examinar escenas criminales en lugar de resolver cuadrículas numéricas.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9791388015816",
+        "isbn-9788411724425"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f1aa2f8ba44939d6",
+  "origen": "chatgpt-web"
+}

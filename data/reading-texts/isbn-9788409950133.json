@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788409950133",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hesed: El amor detrás del canto se dirige a lectores interesados en la poesía, el amor y la espiritualidad. Sus 152 páginas ofrecen una extensión contenida; encaja menos con quienes buscan una novela de aventuras o un thriller centrado en la investigación.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hesed: El amor detrás del canto está disponible en tapa blanda, con 152 páginas en castellano. La edición de Saul Hidalgo Ibañez permite conservar el texto en papel y regresar a sus páginas durante distintas sesiones de lectura; su extensión facilita llevarlo fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias), de Matthew McConaughey, comparte con Hesed: El amor detrás del canto el interés por la poesía y la dimensión espiritual. El primero menciona expresamente las oraciones y las inspiraciones vitales, mientras que la obra de Saul Hidalgo Ibañez vincula el amor con el canto desde su título. Frente a ambos, 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, constituye otra referencia poética de distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049829",
+        "isbn-9788412988833"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f3fe79667c1877bf",
+  "origen": "chatgpt-web"
+}

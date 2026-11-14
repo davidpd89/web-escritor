@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Estados Unidos y la España escondida: En busca de la esencia hispana de USA (Historia), de Paco Reyero, se dirige a lectores interesados en las conexiones históricas entre España y Estados Unidos. Su planteamiento sobre la huella hispana se aparta de las novelas históricas de ficción y de las guías turísticas.",
+      "texto": "Estados Unidos y la España escondida: En busca de la esencia hispana de USA (Historia), de Paco Reyero, está dirigido a lectores interesados en la historia y en la presencia hispana en Estados Unidos. Su enfoque temático se aparta de las historias generales de otros países y de las obras centradas exclusivamente en acontecimientos políticos contemporáneos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,17 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Estados Unidos y la España escondida: En busca de la esencia hispana de USA (Historia) se ofrece en tapa blanda, con 216 páginas. Esta edición de Almuzara permite consultar el texto en papel y trasladarlo con facilidad para leerlo fuera de casa.",
+      "texto": "Estados Unidos y la España escondida: En busca de la esencia hispana de USA (Historia) está disponible en tapa blanda, con 216 páginas en castellano. La edición de Almuzara permite consultar el contenido en papel y volver a pasajes concretos durante la lectura sobre la presencia hispana en Estados Unidos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Estados Unidos y la España escondida: En busca de la esencia hispana de USA (Historia) y 76, de Felipe Pigna, permiten acercarse a la historia desde autores distintos. Paco Reyero delimita su tema mediante la presencia hispana en Estados Unidos, mientras que 76 presenta una referencia numérica en su título y una autoría diferente.",
+      "texto": "Estados Unidos y la España escondida: En busca de la esencia hispana de USA (Historia) y 53 días: Cómo Hitler derribó una democracia (HISTORIA) comparten el interés por el pasado. Paco Reyero se centra en la huella hispana de Estados Unidos, mientras que Timothy W. Ryback aborda la caída de una democracia bajo Hitler. Son enfoques históricos distintos tanto por su ámbito geográfico como por el asunto investigado.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408329695"
+        "isbn-9788411005517"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2e3d47f299c6f875",
+  "fuente_hash": "93159b93058e0490",
   "origen": "chatgpt-web"
 }

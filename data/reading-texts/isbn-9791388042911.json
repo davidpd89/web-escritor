@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388042911",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Surtido 1+1 (Duomo bolsillo) encaja con lectores de narrativa contemporánea que buscan una publicación breve en castellano. Está firmado por Varios autores y tiene 111 páginas; por su clasificación editorial, no responde a la búsqueda de un manual práctico o un ensayo especializado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Surtido 1+1 (Duomo bolsillo) se presenta en tapa blanda, con una extensión de 111 páginas. Es una edición física breve que puede transportarse y guardarse sin ocupar tanto espacio como un volumen extenso; el formato también permite prestar el ejemplar o conservarlo en una biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Surtido 1+1 (Duomo bolsillo) y Los clásicos que hay que leer al menos una vez en la vida (Cofanetto) comparten la firma de Varios autores, aunque el segundo título se orienta expresamente a los clásicos. Antología final: 282 (LITORAL) también figura bajo esa autoría colectiva, pero se identifica como antología, mientras que Surtido 1+1 (Duomo bolsillo) está clasificado como narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388259586",
+        "isbn-9788412931075"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c42531859b978204",
+  "origen": "chatgpt-web"
+}

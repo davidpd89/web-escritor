@@ -4,27 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a terapeutas interesados en la terapia de procesamiento cognitivo aplicada al TEPT. Por su enfoque de manual profesional y sus 448 páginas, responde a una necesidad distinta de la lectura divulgativa sobre bienestar o desarrollo personal.",
+      "texto": "Está dirigido a lectores interesados en el tratamiento psicológico del trastorno de estrés postraumático desde la práctica terapéutica. Por su enfoque de manual para el terapeuta, encaja menos con quien busca una lectura general sobre bienestar emocional o desarrollo personal.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es en tapa blanda, publicada por Desclée de Brouwer en castellano. Sus 448 páginas permiten consultar el manual por partes y volver a apartados concretos durante el trabajo terapéutico.",
+      "texto": "La edición en tapa blanda reúne 448 páginas en castellano y permite consultar el manual en papel. Es una opción para trabajar con anotaciones, señalar apartados y volver a contenidos concretos durante su utilización profesional.",
       "evidencias": [
         "formatos_disponibles",
-        "editorial",
-        "idioma",
         "numero_paginas",
+        "idioma",
         "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Crónica de una esquizofrenia comparte con este manual el interés por la salud mental, pero se centra en la esquizofrenia y se presenta como una crónica. El libro de Patricia A Resick, Candice M Monson y Kathleen M Chard aborda específicamente la terapia de procesamiento cognitivo para el TEPT y está dirigido a terapeutas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788409906048"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7ad11f6ff35d2b89",
+  "fuente_hash": "3e298520120335a6",
   "origen": "chatgpt-web"
 }

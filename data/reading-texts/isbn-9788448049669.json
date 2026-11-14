@@ -4,16 +4,15 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Kylian Mbappé: La biografía definitiva (Deportes) está dirigida a lectores interesados en la trayectoria personal de Kylian Mbappé y en las biografías vinculadas al deporte. Por su planteamiento biográfico, encaja menos con quienes buscan un manual de entrenamiento o una explicación técnica de las reglas deportivas.",
+      "texto": "Kylian Mbappé: La biografía definitiva (Deportes) se dirige a quienes buscan una lectura biográfica sobre una figura del deporte. Su enfoque en las memorias y la trayectoria personal encaja menos con quien prefiere manuales de entrenamiento o novelas deportivas.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Kylian Mbappé: La biografía definitiva (Deportes) reúne 352 páginas en una edición física que puede guardarse o regalarse. Kindle permite leer la biografía en un dispositivo electrónico o en el móvil, sin transportar el libro de papel.",
+      "texto": "La tapa blanda permite leer las 352 páginas de Kylian Mbappé: La biografía definitiva (Deportes) en una edición física que puede guardarse o prestarse. Kindle ofrece el mismo título en formato digital, más práctico para llevarlo en el móvil o consultar pasajes sin transportar el volumen.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -22,21 +21,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Kylian Mbappé: La biografía definitiva (Deportes) y Real Madrid: 125 años de historia blanca (Alianza Pop) comparten su relación con el fútbol. Julien Laurens centra el primero en la biografía de Kylian Mbappé, mientras que Antonio Romero aborda en el segundo la historia del Real Madrid. El árbitro / The Referee, de Augusto Cruz, ofrece otro punto de comparación por su referencia a una figura diferente del ámbito deportivo.",
+      "texto": "Jannik Sinner: El tenista que vino del futuro (Otros deportes) comparte con Kylian Mbappé: La biografía definitiva (Deportes) el interés por una figura deportiva, aunque cambia el protagonista y la disciplina. Enzo Ferrari: Velocidad, sangre y gloria. La biografía definitiva sobre Ferrari y su legado en el mundo del automovilismo. (No ficción) amplía la comparación hacia el automovilismo y su legado, frente al retrato personal de Kylian Mbappé.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370093464",
-        "isbn-9786073877817"
+        "isbn-9788412955835",
+        "isbn-9791387955496"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "854aa52330bda35b",
+  "fuente_hash": "fcd13fa31d84dae5",
   "origen": "chatgpt-web"
 }

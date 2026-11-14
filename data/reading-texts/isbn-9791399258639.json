@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399258639",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esperanza, de Txema Sanz, se orienta a lectores que buscan fantasía, aventuras y relatos. Su clasificación reúne estos tres ámbitos narrativos, por lo que se distancia de las lecturas de carácter documental o de los manuales prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esperanza se publica en tapa blanda, en una edición de Servicios de Escritura Jphc. Sus 190 páginas ofrecen una extensión contenida dentro de la narrativa fantástica y de aventuras, con una encuadernación flexible para el transporte y la lectura cotidiana.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Juramento de fuego y ceniza, de Marta Montoya, y Esperanza, de Txema Sanz, figuran entre las lecturas de ficción relacionadas del catálogo. Esperanza se clasifica expresamente como fantasía, aventuras y relatos, mientras que Juramento de fuego y ceniza se presenta con un título centrado en un juramento. Son obras de autoría diferente y con identidades narrativas propias.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791399236514"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9ecb416030b19d28",
+  "origen": "chatgpt-web"
+}

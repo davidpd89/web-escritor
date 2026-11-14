@@ -4,38 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores interesados en los viajes y en las estampas vinculadas a un destino concreto. Por su orientación temática, se aleja de quienes buscan una guía práctica de otra ciudad o una narración centrada en expediciones polares.",
+      "texto": "Está dirigido a lectores interesados en la literatura de viajes y en las estampas de lugares y culturas. Estampas japonesas: 37 (Arrayanes), de Josefina Martos Peregrín, tiene 189 páginas y pertenece al ámbito de los viajes; no está orientado a quienes buscan una novela de fantasía o una guía de economía.",
       "evidencias": [
         "titulo",
+        "autores",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Editorial Nazarí S.l. consta de 189 páginas en castellano. Su extensión permite llevar el libro en desplazamientos y leerlo en varias sesiones, con la posibilidad de volver a consultar sus páginas en papel.",
+      "texto": "Estampas japonesas: 37 (Arrayanes) tiene una edición en tapa blanda de 189 páginas, publicada por Editorial Nazarí S.l. Su extensión permite llevar el volumen físico durante desplazamientos y consultar sus páginas sin depender de un dispositivo electrónico.",
       "evidencias": [
-        "formatos_disponibles",
+        "titulo",
         "numero_paginas",
-        "idioma",
+        "formatos_disponibles",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Allí donde fueres..., de Patrick Kinsella, comparte la atención a los viajes e incluye cuestiones prácticas como los saludos en Japón, mientras que Estampas japonesas: 37 (Arrayanes) se identifica por su enfoque geográfico japonés. También se relaciona con 33 islas: Un periplo mediterráneo. De Marettimo a Venecia., de Lucio Bellomo, aunque este último sitúa su recorrido en el Mediterráneo.",
+      "texto": "Allí donde fueres... también aborda Japón, aunque pone el foco en las formas de saludar y las costumbres del viajero. Estampas japonesas: 37 (Arrayanes) se identifica por su enfoque en estampas japonesas, mientras que Amsterdam de cerca 2027-2028 está dedicado a otra ciudad y a su contexto urbano.",
       "evidencias": [
         "titulo",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387873127",
-        "isbn-9788408324331"
+        "isbn-9788408324331",
+        "isbn-9788408320890"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "246e3e32bf32af09",
+  "fuente_hash": "0f8b6f146288b005",
   "origen": "chatgpt-web"
 }

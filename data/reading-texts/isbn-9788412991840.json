@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788412991840",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inventario de ferocidades, de Jade Sal, está dirigido a lectores que buscan poesía contemporánea en castellano. Sus 88 páginas encajan con una lectura de extensión contenida, pero no con quien prefiere una novela de trama continuada o un libro de carácter práctico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Inventario de ferocidades se publica en tapa blanda y tiene 88 páginas en castellano. Es un volumen físico de extensión breve que puede transportarse con facilidad y mantenerse a mano para releer poemas, sin ocupar el espacio de una recopilación extensa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Inventario de ferocidades comparte el terreno de la poesía con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, y Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. El título de esta última señala expresamente una orientación amorosa, mientras que Inventario de ferocidades presenta otro campo temático desde su nombre; además, se trata de obras de autoría distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f62f3b72f1dbe4ad",
+  "origen": "chatgpt-web"
+}

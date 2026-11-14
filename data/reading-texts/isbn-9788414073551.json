@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788414073551",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Egiptología: En busca de la tumba de Osiris se dirige al público infantil interesado en la historia antigua y las búsquedas de tumbas. Sus 30 páginas y su pertenencia a una colección de álbumes ilustrados lo diferencian de las novelas históricas extensas, por lo que encaja menos con lectores que buscan narraciones largas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Egiptología: En busca de la tumba de Osiris (Álbumes ilustrados) está disponible en tapa dura y consta de 30 páginas. La encuadernación rígida permite conservar este álbum ilustrado en una biblioteca infantil y utilizarlo en lecturas compartidas. Editorial Luis Vives (edelvives) publica esta edición en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon, de Valerio Massimo Manfredi, comparte con Egiptología: En busca de la tumba de Osiris (Álbumes ilustrados) el interés por el mundo antiguo y las referencias egipcias. La diferencia está en el enfoque: el libro de Templar Books es un álbum ilustrado infantil de 30 páginas sobre una tumba, mientras que el título de Valerio Massimo Manfredi se presenta como una entrega numerada de narrativa histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897090"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "24353131ce3b4505",
+  "origen": "chatgpt-web"
+}

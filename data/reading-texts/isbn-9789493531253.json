@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9789493531253",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Monir Shahroudy Farmanfarmaian se dirige a lectores interesados en el arte, el diseño y su dimensión histórica. Por su temática y su autoría compartida entre Asrin Haidari, Reza Daftarian y Sussan Babaie, se diferencia de las novelas y de los manuales prácticos ajenos al estudio artístico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Monir Shahroudy Farmanfarmaian está disponible en tapa blanda, con 224 páginas en castellano. Esta edición de Hannibal Books permite consultar físicamente el volumen firmado por Asrin Haidari, Reza Daftarian y Sussan Babaie y conservarlo junto a otros libros de arte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Charlotte Perriand. La libertad de repensar el mundo, de Varios autores, comparte con Monir Shahroudy Farmanfarmaian el interés por una figura vinculada al arte y el diseño. La diferencia principal es la persona que identifica cada título y su autoría: Varios autores en el primero, frente a Asrin Haidari, Reza Daftarian y Sussan Babaie en el segundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788416411993"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c753ea78295f3b37",
+  "origen": "chatgpt-web"
+}

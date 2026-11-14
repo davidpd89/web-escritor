@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Winter Blood 4 (Uprising Comics) se orienta a lectores de cómic que buscan terror y aventuras en una entrega breve. Por su combinación de géneros, se distancia de las historias infantiles centradas en aprender a leer y de las aventuras sin elementos de terror.",
+      "texto": "Winter Blood 4 (Uprising Comics) se dirige a lectores de cómic interesados en el terror y las aventuras. Sus 24 páginas ofrecen una lectura breve en formato de historieta, distinta de una novela extensa o de los libros infantiles destinados al aprendizaje de la lectura.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Winter Blood 4 (Uprising Comics) se presenta en tapa blanda, con encuadernación grapada y 24 páginas. Es un volumen físico de extensión reducida, que puede guardarse junto a otras entregas de cómic y transportarse sin ocupar tanto espacio como un tomo extenso.",
+      "texto": "Winter Blood 4 (Uprising Comics) está disponible en tapa blanda, con una edición grapada de 24 páginas publicada por Cartem Cómics. Este formato permite guardar el ejemplar junto a otros números de cómic y leerlo sin manejar un volumen de gran extensión.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -23,15 +24,17 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Dead Mount Death Play 9 (Seinen) y Winter Blood 4 (Uprising Comics) comparten el formato narrativo del cómic y una numeración en sus títulos. El primero se identifica como seinen, mientras que el segundo se presenta como una obra de terror y aventuras firmada por Antonio Rojo y Jason Michalski.",
+      "texto": "Winter Blood 4 (Uprising Comics) comparte autores, Antonio Rojo y Jason Michalski, con Winter Blood 4. Especial (Uprising Comics), aunque el primero se identifica con el número 4 y el segundo como especial. Ambos pertenecen a la misma serie, pero Winter Blood 4 (Uprising Comics) ofrece 24 páginas en formato grapado y se sitúa entre el terror y las aventuras.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "numero_paginas",
+        "edicion",
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9791387962319"
+        "isbn-9791388003646"
       ]
     }
   ],

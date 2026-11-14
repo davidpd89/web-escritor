@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dibuja con Itspoli (HARPERKIDS) se dirige a quienes buscan una lectura vinculada al dibujo y la creación visual. Su temática artística lo distingue de los libros centrados en historia del arte o narrativa, por lo que encaja menos con quien prefiere estudiar movimientos y autores históricos.",
+      "texto": "Dibuja con Itspoli (HARPERKIDS) se orienta a quienes buscan una publicación relacionada con el dibujo y la actividad artística. Su planteamiento, anunciado desde el título, se aparta de la lectura de una novela o de una biografía; el interés principal está en dibujar.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Dibuja con Itspoli (HARPERKIDS) se presenta en tapa blanda, con 160 páginas en castellano. Es una edición física que puede transportarse y consultarse sin dispositivos, tanto en casa como fuera de ella.",
+      "texto": "Dibuja con Itspoli (HARPERKIDS) se publica en tapa blanda, con 160 páginas en castellano. El formato físico permite tener el libro a mano durante las sesiones de dibujo y consultarlo sin depender de una pantalla, tanto en casa como en una mesa de trabajo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -24,20 +23,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Dibuja con Itspoli (HARPERKIDS) se puede comparar con Aprende a dibujar con KPop Demon Hunters: Edición OFICIAL en español (Montena), porque ambos títulos sitúan el dibujo en el centro de su propuesta. El libro de Itspoli presenta una orientación artística general, mientras que el segundo vincula el aprendizaje del dibujo a KPop Demon Hunters.",
+      "texto": "All Black Cuaderno (LIBRETAS ARTÖSTICAS), de Varios autores, comparte con Dibuja con Itspoli (HARPERKIDS) su vinculación con la actividad artística, aunque el primero se identifica expresamente como cuaderno. En cambio, 720 retrats, de Xavier Mollà i Revert, remite al retrato, mientras que el título de Itspoli plantea el dibujo de manera más general.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9791388322778"
+        "isbn-9788412678802",
+        "isbn-9789879871119"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8843513979b3d10a",
+  "fuente_hash": "59fbde3cb821b187",
   "origen": "chatgpt-web"
 }

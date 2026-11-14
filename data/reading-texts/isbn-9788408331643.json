@@ -4,28 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ahora te toca ser feliz: Disfruta del presente y haz que llegue todo lo bueno (Vivir Mejor), de Curro Cañete, se dirige a lectores que buscan contenidos de desarrollo personal. Su clasificación lo diferencia de las novelas de ficción y de los libros destinados al público infantil.",
+      "texto": "Ahora te toca ser feliz: Disfruta del presente y haz que llegue todo lo bueno (Vivir Mejor), de Curro Cañete, se dirige a quienes leen sobre desarrollo personal, bienestar y atención al presente. Su enfoque de autoayuda encaja menos con lectores que buscan ficción, una trama con personajes o una narración de acontecimientos.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de bolsillo de Ahora te toca ser feliz: Disfruta del presente y haz que llegue todo lo bueno (Vivir Mejor) contiene 384 páginas en tapa blanda. Publicada por Booket, permite llevar el libro en un formato físico compacto y leerlo sin depender de dispositivos electrónicos.",
+      "texto": "Ahora te toca ser feliz: Disfruta del presente y haz que llegue todo lo bueno (Vivir Mejor) puede leerse en tapa blanda o Kindle y también está disponible como audiolibro. La edición de bolsillo de Booket tiene 384 páginas para leer y consultar en papel; Kindle evita transportar ese volumen físico y el audiolibro permite escuchar el contenido durante los desplazamientos.",
       "evidencias": [
         "titulo",
-        "editorial",
+        "formatos_disponibles",
         "edicion",
-        "numero_paginas",
-        "formato_edicion",
-        "formatos_disponibles"
+        "editorial",
+        "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "682388794eb3eed8",
+  "fuente_hash": "754904fc8f9087a3",
   "origen": "chatgpt-web"
 }

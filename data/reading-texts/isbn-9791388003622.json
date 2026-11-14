@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El círculo de Acheron (Pulp) se dirige a lectores de cómic y novela gráfica interesados en la fantasía y la ciencia ficción. Por sus géneros y sus 80 páginas, se distingue de las novelas extensas de narrativa realista o histórica.",
+      "texto": "El círculo de Acheron (Pulp) se dirige a lectores de fantasía que prefieren el cómic y la novela gráfica a la narrativa exclusivamente textual. Sus 80 páginas lo sitúan entre las lecturas de extensión breve; encaja menos con quien busca una novela larga en prosa.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,33 +13,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El círculo de Acheron (Pulp) está disponible en tapa dura, con 80 páginas en castellano. Esta edición de Cartem Cómics permite conservar el volumen en formato físico y consultarlo sin depender de una pantalla.",
+      "texto": "El círculo de Acheron (Pulp) está disponible en tapa dura, con una extensión de 80 páginas. Esta edición de Cartem Cómics permite conservar el volumen en formato físico y consultarlo de nuevo sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El círculo de Acheron (Pulp) comparte con El incidente Darwin 1 (Seinen): Universo Manga su pertenencia al cómic, aunque el primero incorpora fantasía y ciencia ficción. También puede compararse con Criaturas míticas 1. Un invierno interminable: 6 (La Sonrisa del Gato) por su relación con lo fantástico; la diferencia está en la autoría y en el formato editorial identificado en cada título.",
+      "texto": "El círculo de Acheron (Pulp) comparte la fantasía y el formato de cómic con A Buentiempo Mala Cara: 9 (Enseñanza Mágica Obligatoria), de Sergio Sánchez Morán. La diferencia está en la autoría: El círculo de Acheron (Pulp) reúne a Ángel G. Nieto y Mariano Saura. También puede compararse con After God 8 (Shônen), de Sumi Eno, por su pertenencia al ámbito de la narrativa gráfica, aunque este último se identifica como shônen.",
       "evidencias": [
         "titulo",
-        "categorias",
         "autores",
-        "formatos_disponibles",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399054552",
-        "isbn-9791387962791"
+        "isbn-9791399305517",
+        "isbn-9791387962647"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6fe967440f7a795a",
+  "fuente_hash": "720f731686022508",
   "origen": "chatgpt-web"
 }

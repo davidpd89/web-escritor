@@ -4,41 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Biblia Católica Biblia de Jerusalén Latinoamericana símil piel rosada / Spanish Catholic Jerusalem Bible, Pink Leathersoft se dirige a lectores interesados en textos religiosos y espiritualidad católica. Su contenido y sus 1152 páginas la alejan de una lectura de ficción breve o de una introducción ligera a temas generales de bienestar.",
+      "texto": "Biblia Católica Biblia de Jerusalén Latinoamericana símil piel rosada / Spanish Catholic Jerusalem Bible, Pink Leathersoft está dirigida a lectores de textos religiosos católicos en castellano. Por su carácter de Biblia, responde a una búsqueda de lectura religiosa más que a la de una novela o un manual general de desarrollo personal.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "idioma",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Origen figura en tapa blanda, con 1152 páginas en castellano. El título identifica un acabado símil piel rosada, mientras que la ficha editorial clasifica la encuadernación como tapa blanda; por su extensión, resulta más manejable para consulta en un lugar fijo que para llevarla a diario.",
+      "texto": "La edición en tapa blanda de Biblia Católica Biblia de Jerusalén Latinoamericana símil piel rosada / Spanish Catholic Jerusalem Bible, Pink Leathersoft reúne 1152 páginas. Su extensión favorece la consulta en un lugar fijo frente al transporte frecuente; el título identifica además un acabado de símil piel rosada.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Biblia Católica Biblia de Jerusalén Latinoamericana símil piel rosada / Spanish Catholic Jerusalem Bible, Pink Leathersoft y Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe, comparten el ámbito espiritual. La primera es una edición bíblica católica, mientras que la segunda presenta fundamentos y prácticas del Dharma. Se diferencian, por tanto, en la tradición religiosa y en el tipo de texto.",
+      "texto": "Biblia Letra Gigante Ntv Con Filament, León (Tapa Dura, Letra Roja), de Nueva Traducción Viviente, comparte el carácter bíblico con Biblia Católica Biblia de Jerusalén Latinoamericana símil piel rosada / Spanish Catholic Jerusalem Bible, Pink Leathersoft. La primera destaca la letra gigante y la tapa dura; la segunda se identifica como Biblia de Jerusalén Latinoamericana con acabado rosado y edición en tapa blanda.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
+        "formatos_disponibles",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399210088"
+        "isbn-9798400515996"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6b07353ac635dae6",
+  "fuente_hash": "965dda07a281de1e",
   "origen": "chatgpt-web"
 }

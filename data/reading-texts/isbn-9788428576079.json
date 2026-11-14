@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788428576079",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a quienes buscan una lectura sobre inteligencia artificial vinculada al pensamiento religioso y la era digital. Por su orientación hacia la divulgación científica y la espiritualidad, se aleja de los manuales centrados exclusivamente en herramientas tecnológicas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La cuestión central es la relación entre la inteligencia artificial y la dimensión humana en el entorno digital. La referencia a León XIV y Magnifica humanitas sitúa el debate en un marco de reflexión religiosa, con atención al significado de lo humano ante los cambios tecnológicos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Editorial San Pablo se presenta en tapa blanda y reúne 592 páginas en castellano. Es un volumen extenso que puede consultarse por partes y mantenerse en una estantería de estudio; su encuadernación flexible facilita manejarlo sin la rigidez de una tapa dura.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA comparte el interés por la inteligencia artificial, pero aborda la materia desde la divulgación tecnológica, mientras que este libro incorpora una perspectiva religiosa. Breve historia de la alquimia: El arte que unió química, magia y espíritu también relaciona ciencia y espiritualidad, aunque desde una mirada histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388395031",
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a2a12e71b3b15c8c",
+  "origen": "chatgpt-web"
+}

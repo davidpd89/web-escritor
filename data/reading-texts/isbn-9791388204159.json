@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388204159",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El último contrato de Isako (FICCIÓN) se dirige a lectores de fantasía y aventuras que buscan una novela extensa. Sus 528 páginas permiten distinguirla de lecturas más breves; por género, no responde a quien busca un ensayo o una guía práctica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El último contrato de Isako (FICCIÓN) está disponible en tapa dura, con 528 páginas en castellano. Esta edición de Editorial Hidra reúne la novela en un volumen físico de cubierta rígida, una opción para conservarla en la estantería o regalarla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El último contrato de Isako (FICCIÓN) puede compararse con Alas de escarcha y oro: El canto del cisne por su vinculación con la fantasía. La obra de Marta Morillo presenta a Eira y sus dones ocultos, mientras que la de Fonda Lee se identifica como fantasía y aventuras. También comparte género con Anatema (edición limitada) (El Bosque Voraz 1) (Campaña | Ahora por menos), aunque son obras de distintas autoras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938",
+        "isbn-9788466393553"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8951259ddc16400b",
+  "origen": "chatgpt-web"
+}

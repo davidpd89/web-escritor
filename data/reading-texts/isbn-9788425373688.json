@@ -4,34 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ofrenda (Ficción), de Aloma Martínez, se dirige a lectores que buscan fantasía, aventuras y relatos. Su combinación de géneros la sitúa en la ficción fantástica y aventurera, no en la narrativa centrada exclusivamente en temas realistas.",
+      "texto": "Ofrenda (Ficción) se dirige a lectores que buscan literatura fantástica con elementos de aventura. Su clasificación también incluye relatos, por lo que se sitúa lejos de la narrativa estrictamente realista y de las lecturas de carácter documental o práctico.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 448 páginas de Ofrenda (Ficción), de Aloma Martínez, en un único volumen físico. Es la opción para quien prefiere leer en papel y conservar el ejemplar en su biblioteca.",
+      "texto": "La edición en tapa blanda de Grijalbo tiene 448 páginas, una extensión que conviene considerar para leerla durante desplazamientos o llevarla en el bolso. El ejemplar físico permite mantener toda la lectura reunida en un único volumen y conservarlo después en la biblioteca.",
       "evidencias": [
-        "titulo",
-        "autores",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ofrenda (Ficción), de Aloma Martínez, comparte el terreno fantástico con La Guerra de la Reina Araña nº 04/06 Extinción: 4 (D&D Reinos Olvidados), de Lisa Smedman, R. A. Salvatore. La diferencia está en el planteamiento editorial: el primero se presenta como fantasía, aventuras y relatos, mientras que el segundo se identifica con el universo D&D Reinos Olvidados y un número concreto de una colección.",
+      "texto": "Ofrenda (Ficción) comparte el terreno de la fantasía con Alas de Hierro. Edición Especial Limitada Con Cantos Decorados / Iron Flame. Limited Special Edition with Sprayed Edges: 2 (Empíreo / Empyrean), aunque esta última destaca desde el título su condición de edición especial y su identificación numérica. También puede compararse con Juramento de fuego y ceniza por su presencia entre las lecturas afines, pero Ofrenda (Ficción) incorpora además las clasificaciones de aventuras y relatos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788445010884"
+        "isbn-9786073950664",
+        "isbn-9791399236514"
       ]
     }
   ],

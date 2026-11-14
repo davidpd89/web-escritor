@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788410417380",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mujeres inuit: Un viaje al ártico (Las últimas mujeres) se orienta a lectores interesados en las mujeres inuit y en los libros vinculados a viajes y territorios del Ártico. Su temática se aparta de las novelas centradas en relaciones familiares ficticias o conflictos sentimentales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mujeres inuit: Un viaje al ártico (Las últimas mujeres) está disponible en tapa dura, con 48 páginas en castellano. Es una edición física de extensión breve que puede conservarse en una biblioteca personal o entregarse como regalo a alguien interesado en su temática.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mujeres inuit: Un viaje al ártico (Las últimas mujeres) y Esas muchachas que escriben poemas comparten el protagonismo temático de las mujeres. El libro de Francesc Bailón Trueba se sitúa en el ámbito inuit y el Ártico, mientras que el de Alba Donati presenta a mujeres vinculadas a la escritura poética, con experiencias y personalidades diversas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426434272"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b603e84acdb89848",
+  "origen": "chatgpt-web"
+}

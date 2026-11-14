@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788411193788",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Hábitos atómicos + Hábitos atómicos en acción (Autoconocimiento) está orientado a lectores interesados en el desarrollo personal y el trabajo sobre los hábitos. Sus 688 páginas reúnen dos títulos de James Clear, por lo que se aparta de quienes buscan una novela o una lectura breve sobre bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El estuche de James Clear se presenta en tapa blanda y reúne Hábitos atómicos y Hábitos atómicos en acción. Sus 688 páginas permiten tener ambos títulos en una misma edición física, tanto para conservarlos juntos como para regalarlos a alguien interesado en el autoconocimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche Hábitos atómicos + Hábitos atómicos en acción (Autoconocimiento) y 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito abordan cambios personales. James Clear concentra su propuesta en los hábitos, mientras que Liz Moody anuncia un recorrido por la salud, las relaciones y otros ámbitos de la vida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f53144706a07ffa0",
+  "origen": "chatgpt-web"
+}

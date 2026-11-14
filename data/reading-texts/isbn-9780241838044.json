@@ -1,43 +1,42 @@
 {
   "id": "isbn-9780241838044",
-  "familia": "narrativa",
+  "familia": "no_ficcion",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Warhammer Age of Sigmar. La guía visual definitiva se dirige a lectores interesados en consultar material visual sobre Warhammer Age of Sigmar. Por su planteamiento de guía y su clasificación en ocio y tiempo libre, se aparta de las novelas con una trama desarrollada de principio a fin.",
+      "texto": "Warhammer Age of Sigmar. La guía visual definitiva está dirigida a quienes buscan una obra de consulta sobre ese universo y prefieren las guías visuales. Por su clasificación como guía y referencia, responde menos a quien desea una novela de aventuras con una trama narrativa.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es el formato disponible para las 288 páginas de Warhammer Age of Sigmar. La guía visual definitiva. La edición de DK reúne el contenido en un volumen físico que puede mantenerse en una estantería y consultarse por separado, sin depender de una pantalla.",
+      "texto": "Warhammer Age of Sigmar. La guía visual definitiva se publica en tapa dura y reúne 288 páginas en castellano. El formato físico permite tenerla a mano como volumen de consulta y colocarla en una estantería junto a otras guías de referencia.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "edicion",
-        "editorial",
-        "formatos_disponibles"
+        "idioma",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "100% Roblox comparte con Warhammer Age of Sigmar el vínculo con los juegos, pero propone actividades para colorear frente al contenido de una guía visual. Récords para entender el planeta también presenta información de consulta, aunque se ocupa de particularidades geográficas en lugar de un universo de juego.",
+      "texto": "Warhammer Age of Sigmar. La guía visual definitiva comparte con Atlas de la noche (¡incluye un póster que brilla en la oscuridad!): Explora las constelaciones y las historias de las estrellas (Cuentos que cuentan) su orientación hacia la consulta visual. La primera se centra en Warhammer Age of Sigmar y está firmada por Phil Kelly y Jordan Green; la segunda aborda las constelaciones y las historias de las estrellas y está firmada por Davide Cenadelli.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411005494"
+        "isbn-9788410318823"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "466d4c94bed64b34",
+  "fuente_hash": "45c82f9b95a04e8b",
   "origen": "chatgpt-web"
 }

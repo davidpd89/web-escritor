@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788445021491",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Warhammer Verminslayer (Warhammer Age of Sigmar) encaja con lectores de fantasía y aventuras que buscan una obra de David Guymer vinculada al universo mencionado en el título. Sus 336 páginas en castellano se alejan de las preferencias de quienes buscan narrativa realista o libros centrados en asuntos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Warhammer Verminslayer (Warhammer Age of Sigmar) ofrece dos opciones: tapa blanda y Kindle. La primera permite leer sus 336 páginas en un volumen físico de Minotauro, mientras que Kindle facilita llevar la obra en un lector electrónico o en el móvil sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Warhammer Verminslayer (Warhammer Age of Sigmar) coincide en el terreno fantástico con A Buentiempo Mala Cara: 9 (Enseñanza Mágica Obligatoria), de Sergio Sánchez Morán, aunque este último se identifica mediante una serie de enseñanza mágica. También puede compararse con Alas de escarcha y oro: El canto del cisne, de Marta Morillo, cuya presentación menciona dones ocultos y debilidades, frente a la vinculación explícita de la obra de David Guymer con Warhammer Age of Sigmar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399305517",
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d897b5abf1064e59",
+  "origen": "chatgpt-web"
+}

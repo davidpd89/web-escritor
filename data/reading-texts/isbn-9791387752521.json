@@ -4,39 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Crucigramas para pensar y disfrutar (XL) (Cuadrados XL) encaja con quienes dedican parte de su tiempo libre a resolver crucigramas. Sus 144 páginas ofrecen una actividad basada en palabras y resolución de pistas, distinta de la lectura continuada de una novela. No responde al mismo interés que un libro de dibujo o una obra narrativa.",
+      "texto": "Crucigramas para pensar y disfrutar (XL) (Cuadrados XL) se dirige a quienes prefieren resolver crucigramas durante su tiempo libre. Es un libro de pasatiempos de Miquel Sesé, no una novela ni una colección de relatos; sus 144 páginas están dedicadas a una propuesta de ocio basada en palabras.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es el formato de Crucigramas para pensar y disfrutar (XL) (Cuadrados XL), con 144 páginas destinadas a una actividad de pasatiempo. El soporte en papel permite trabajar directamente sobre los crucigramas y volver a los ejercicios pendientes. Su extensión facilita repartir la actividad entre distintas sesiones.",
+      "texto": "Crucigramas para pensar y disfrutar (XL) (Cuadrados XL) está disponible en tapa blanda, con 144 páginas. La edición física permite escribir las respuestas directamente sobre el papel y volver a los crucigramas pendientes sin utilizar una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Crucigramas para pensar y disfrutar (XL) (Cuadrados XL) y 80 crímenes imposibles de resolver (FUERA DE ESCENA) comparten el planteamiento de resolver problemas, aunque uno se centra en crucigramas y el otro en crímenes. Agatha Christie. ¿Quién lo hizo? Resuelve los casos más famosos de la Reina del Crimen (FICCIÓN) también propone resolver casos, frente al trabajo con palabras del libro de Miquel Sesé.",
+      "texto": "Crucigramas para pensar y disfrutar (XL) (Cuadrados XL) comparte con 99 Sudoku (LIBROS SINGULARES) el enfoque de pasatiempos para el tiempo libre. El libro de Miquel Sesé se centra en crucigramas, mientras que el de Anónimo propone sudokus, por lo que cambia el tipo de ejercicio: palabras frente a números.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388015816",
-        "isbn-9791259578907"
+        "isbn-9788411724425"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5f36ea8785b686d1",
+  "fuente_hash": "f8c370696ad4f180",
   "origen": "chatgpt-web"
 }

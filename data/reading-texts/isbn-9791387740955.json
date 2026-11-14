@@ -4,39 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los Yahoo boys: Estafadores del amor: identidades falsas y vidas reales (Reservoir Narrativa), de Carlos Barragán, se dirige a quienes buscan ensayos sobre relaciones sentimentales, engaños e identidad. Su enfoque temático se aleja de las historias románticas centradas únicamente en el enamoramiento.",
+      "texto": "Los Yahoo boys: Estafadores del amor: identidades falsas y vidas reales (Reservoir Narrativa) se dirige a lectores interesados en el engaño sentimental, las identidades falsas y sus consecuencias en vidas reales. Su clasificación como ensayo y narrativa contemporánea lo diferencia de una novela romántica centrada en la formación de una pareja.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Los Yahoo boys: Estafadores del amor: identidades falsas y vidas reales (Reservoir Narrativa) es de tapa blanda y tiene 312 páginas. Publicada por Reservoir Books en castellano, permite una lectura en papel que puede interrumpirse y retomarse por sesiones.",
+      "texto": "Los Yahoo boys: Estafadores del amor: identidades falsas y vidas reales (Reservoir Narrativa) se publica en tapa blanda, con 312 páginas en castellano. Esta edición de Reservoir Books permite leer y consultar el texto en papel, con una cubierta flexible para transportarlo o guardarlo en una estantería.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los Yahoo boys: Estafadores del amor: identidades falsas y vidas reales (Reservoir Narrativa) comparte el interés por las relaciones afectivas con Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología). El primero aborda las estafas amorosas y las identidades falsas; el segundo plantea preguntas sobre el enamoramiento y el desenamoramiento.",
+      "texto": "El largo regreso de Josefina Carabias (Ensayo), de César Suárez, comparte con Los Yahoo boys: Estafadores del amor: identidades falsas y vidas reales (Reservoir Narrativa), de Carlos Barragán, su vinculación con el ensayo. El primero sitúa a Josefina Carabias en el centro de su título, mientras que el segundo aborda las estafas sentimentales y las identidades falsas. Alfred y Emily (Narrativa), de Doris Lessing, ofrece otra comparación desde la narrativa, frente al enfoque también ensayístico de Carlos Barragán.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387534370"
+        "isbn-9788426438515",
+        "isbn-9788426433282"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "85689881ba326032",
+  "fuente_hash": "9649c578283f4354",
   "origen": "chatgpt-web"
 }

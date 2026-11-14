@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419514431",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un millón de pequeños misiles todos a la vez (Nube de Tinta) encaja con lectores de narrativa juvenil contemporánea que buscan historias vinculadas al romance. Por su orientación juvenil y sentimental, se distancia de las lecturas centradas en el ensayo, la divulgación o la narrativa histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Nube de Tinta está disponible en tapa blanda y tiene 224 páginas. Su extensión permite llevar el libro en una mochila o bolso sin el volumen de una novela mucho más larga, mientras que la encuadernación flexible facilita la lectura fuera de casa.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La lista de los deseos (Serie Infinita) comparte con Un millón de pequeños misiles todos a la vez (Nube de Tinta) su orientación hacia lectores juveniles, aunque pertenece a una serie y está escrita por María Peláez García en lugar de Lucas Maxwell. La conquista perfecta / The Perfect Conquest ofrece otra referencia de autoría diferente, mientras que la obra de Lucas Maxwell combina romance y narrativa juvenil contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073878746",
+        "isbn-9791387973988"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7a4e7cc124a4f3eb",
+  "origen": "chatgpt-web"
+}

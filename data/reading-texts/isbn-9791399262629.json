@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791399262629",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Leopoldo de Alba Salcedo (1843-1913), periodista, diputado y embajador está dirigido a lectores de historia interesados en trayectorias individuales vinculadas al periodismo, la política y la diplomacia. Su planteamiento biográfico se aparta de las obras centradas en panoramas históricos generales o en acontecimientos sin una figura central.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Leopoldo de Alba Salcedo (1843-1913), periodista, diputado y embajador tiene una edición en tapa blanda de 128 páginas. El volumen de Editorial Palitroque0 permite leer en papel una obra de extensión contenida y volver a los pasajes sobre las distintas facetas de su protagonista.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Leopoldo de Alba Salcedo (1843-1913), periodista, diputado y embajador puede compararse con Agustín penón y Federico García Lorca por su atención a figuras históricas concretas. José Luis Aragón Panés aborda una trayectoria ligada al periodismo, la política y la diplomacia; Juan Carlos García de Polavieja trata una investigación relacionada con la vida y la muerte de Federico García Lorca.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418567933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "30a527337c03e7c6",
+  "origen": "chatgpt-web"
+}

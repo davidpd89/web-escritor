@@ -4,40 +4,43 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El jardín de las brujas (Best Seller | Ficción), de Clara Tahoces, se orienta a lectores de narrativa contemporánea con interés por la historia y el siglo XX. Por su clasificación temática, encaja menos con quienes buscan principalmente romance o fantasía juvenil.",
+      "texto": "El jardín de las brujas (Best Seller | Ficción), de Clara Tahoces, se sitúa entre la narrativa contemporánea y la historia. Sus 384 páginas responden a una lectura de cierta extensión; encaja menos con quien busca un manual práctico o una obra centrada exclusivamente en el romance.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de bolsillo en tapa blanda de Penguin Bolsillo reúne las 384 páginas de El jardín de las brujas (Best Seller | Ficción) en un volumen transportable. La tapa dura ofrece una encuadernación más rígida para conservarlo o regalarlo; Kindle facilita la lectura digital y el audiolibro permite escucharlo durante otras actividades.",
+      "texto": "El jardín de las brujas (Best Seller | Ficción) cuenta con opciones en tapa dura, tapa blanda, Kindle y audiolibro. La edición de bolsillo de Penguin Bolsillo contiene 384 páginas y facilita llevar el libro fuera de casa; la tapa dura resulta más rígida para conservarlo o regalarlo, Kindle permite leerlo en el móvil y el audiolibro cambia la lectura por la escucha.",
       "evidencias": [
         "titulo",
         "edicion",
+        "editorial",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Estuche Lo esencial de grafología y Sueños (PRÁCTICA) comparte con El jardín de las brujas (Best Seller | Ficción) la autoría de Clara Tahoces, pero presenta materias prácticas en lugar de narrativa histórica. Anna Karénina (edición especial en tapa dura) (Ediciones Conmemorativas), de Lev Tolstoi, ofrece otra lectura narrativa, diferenciada por su condición de clásico y su edición especial.",
+      "texto": "Estuche Lo esencial de grafología y Sueños (PRÁCTICA) comparte con El jardín de las brujas (Best Seller | Ficción) la autoría de Clara Tahoces, pero presenta dos materias prácticas frente a una obra de narrativa contemporánea e historia. Corazón de oro: Edición limitada a precio especial (Colección Especial), de Luz Gabás, permite otra comparación desde la narrativa, aunque corresponde a una autora y una edición diferentes.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "edicion",
         "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791388414114",
-        "isbn-9788491058397"
+        "isbn-9788408328353"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "cfe3c11c5879043b",
+  "fuente_hash": "5556dc09a65e6329",
   "origen": "chatgpt-web"
 }

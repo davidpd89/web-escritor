@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786287880375",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Obra Literaria / Literary Work (Commemorative Edition) se dirige a lectores de narrativa contemporánea y relatos que quieran acercarse a la escritura de Álvaro Cepeda Samudio. Su carácter de edición conmemorativa y su orientación literaria la alejan de los libros prácticos y de los ensayos divulgativos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 392 páginas de Obra Literaria / Literary Work (Commemorative Edition), publicada por Alfaguara. El volumen permite recorrer la obra en papel, volver a los relatos y consultar distintos pasajes sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Caperucita se come al lobo / Little Red Riding Hood Eats the Wolf, de Pilar Quintana, comparte con Obra Literaria / Literary Work (Commemorative Edition) su vinculación con la narrativa contemporánea. Ficciones (Hispánica), de Jorge Luis Borges, ofrece otra referencia literaria, aunque se trata de una obra de distinta autoría y título; la de Álvaro Cepeda Samudio se presenta específicamente como edición conmemorativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287880610",
+        "isbn-9791387846107"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "98319ed56fdb8340",
+  "origen": "chatgpt-web"
+}

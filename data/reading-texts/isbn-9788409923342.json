@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788409923342",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Terrarium: El iluminador de las cavernas encaja con lectores que buscan narrativa de ciencia ficción en castellano. Sus 238 páginas y su edición en tapa blanda responden a una lectura de extensión moderada, pero no a quien busca un ensayo científico o una guía divulgativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Terrarium: El iluminador de las cavernas está disponible en tapa blanda, con 238 páginas. La edición de Newrules ofrece un volumen físico que puede transportarse y guardarse sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Terrarium: El iluminador de las cavernas comparte el terreno de la ciencia ficción con Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados). La obra de Nefta Nervo se presenta en tapa blanda, mientras que el título de Andy Weir identifica una edición limitada con cantos tintados. La comparación permite distinguir entre una edición convencional y otra que destaca un acabado físico específico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388147470"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d160ee89c56133c1",
+  "origen": "chatgpt-web"
+}

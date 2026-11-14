@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9791388337000",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A 55 millas por hora (Contraluz) se orienta a lectores que buscan un libro relacionado con los viajes y firmado por Guillermo Fesser. Sus 480 páginas corresponden a una obra extensa dentro de esa temática, distinta de las guías breves pensadas para consultar rápidamente destinos y recorridos concretos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "A 55 millas por hora (Contraluz) está disponible en tapa dura, con 480 páginas y edición de Contraluz. Es un volumen físico de extensión considerable, pensado para leer y conservar, cuya encuadernación rígida también permite colocarlo en una biblioteca de libros de viajes.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A 55 millas por hora (Contraluz) comparte con Allí donde fueres... el interés por los viajes, aunque el libro de Patrick Kinsella plantea cuestiones de comportamiento en otros países. Guillermo Fesser firma una obra de 480 páginas, mientras que Amsterdam de cerca 2027-2028, de Catherine Le Nevez, identifica un destino urbano y un periodo concreto desde el título. La diferencia está entre una obra de temática viajera amplia y publicaciones centradas en costumbres o lugares determinados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324331",
+        "isbn-9788408320890"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fae2af2154594616",
+  "origen": "chatgpt-web"
+}

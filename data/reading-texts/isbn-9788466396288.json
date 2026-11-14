@@ -4,45 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, encaja con lectores interesados en la poesía sobre el amor y las relaciones de pareja. Sus 280 páginas reúnen una propuesta poética, por lo que se aparta de quienes buscan una novela romántica narrada en prosa.",
+      "texto": "Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, está dirigida a quienes buscan poesía centrada en el amor. Por su género y enfoque temático, se aleja de las novelas con una trama narrativa continua y de las lecturas orientadas principalmente a la acción.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Antologia amorosa la voz a ti debida y razon de amor se publica en tapa blanda, en una edición de Penguin Bolsillo de 280 páginas. El volumen físico permite volver a los poemas y consultar pasajes concretos sin depender de un dispositivo electrónico.",
+      "texto": "Antologia amorosa la voz a ti debida y razon de amor se publica en tapa blanda, con 280 páginas. La edición de Penguin Bolsillo permite tener los poemas reunidos en un volumen físico, adecuado para consultar pasajes concretos y alternar sesiones de lectura sin depender de un dispositivo.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
         "editorial",
+        "formatos_disponibles",
         "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, comparte con poemas de amor (Los Tres Mundos), de rupi kaur, el interés por la poesía amorosa. También se relaciona con Sonetos del amor oscuro y Diván del Tamarit, de Federico García Lorca, por el tratamiento poético del amor. Las diferencias están en la autoría y en las obras reunidas: el volumen de Pedro Salinas presenta una antología amorosa de 280 páginas.",
+      "texto": "Antología, de Antonio Cano, comparte con Antologia amorosa la voz a ti debida y razon de amor el carácter de recopilación poética, aunque reúne una obra completa y el libro de Pedro Salinas se presenta como una selección amorosa. Advenir, de Jose Eceolaza, aparece también entre las lecturas relacionadas, pero su título no delimita el tema amoroso que identifica al volumen de Pedro Salinas.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788432251627",
-        "isbn-9788466396943",
+        "isbn-9788410212749",
         "isbn-9791370140908"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "57c6660d2579e5ec",
+  "fuente_hash": "bcc659e22e7db5c8",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788410399518",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Edición LEGACY Muerte a la oscuridad- Black Bird Academy: Black Bird Academy: 1 (Inlov Romantasy) encaja con lectores de fantasía juvenil que también buscan romance y aventuras. Sus 528 páginas requieren más tiempo que una novela corta; resulta menos afín a quienes prefieren historias realistas sin elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición LEGACY de Black Bird Academy se presenta en tapa dura y contiene 528 páginas en castellano. Publicada por Inlov, esta presentación permite conservar la novela en una encuadernación rígida y regalarla como edición física; por su extensión, exige más espacio que un libro breve de bolsillo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ever and after 2. La boda oscura: Edición con cantos tintados (Inlov Romantasy) comparte con Edición LEGACY Muerte a la oscuridad- Black Bird Academy: Black Bird Academy: 1 (Inlov Romantasy) la autoría de Stella Tack y el sello Inlov Romantasy. El primero destaca los cantos tintados en su título, mientras que el segundo se presenta como edición LEGACY en tapa dura de 528 páginas. Una tempestad para matar un beso: La balada del fuego solar 2 (Inlov Romantasy), de Julia Dippel, pertenece al mismo sello, pero cambia de autora y de serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410399426",
+        "isbn-9788410399327"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "55faf08e92e10ef5",
+  "origen": "chatgpt-web"
+}

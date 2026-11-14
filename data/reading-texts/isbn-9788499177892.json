@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788499177892",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La tragedia catara se dirige a lectores interesados en la historia y, por su título, en los acontecimientos relacionados con los cátaros. Su orientación histórica la diferencia de las novelas de ficción y de los manuales prácticos, que responden a otras expectativas de lectura.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tragedia catara se edita en tapa blanda y cuenta con 184 páginas en castellano. El volumen publicado por Redbook permite una lectura en papel y la consulta posterior de pasajes sobre su materia histórica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La tragedia catara comparte su orientación histórica con 53 días: Cómo Hitler derribó una democracia (HISTORIA). Fernando Saez Aldana aborda una materia vinculada a los cátaros, mientras que Timothy W. Ryback se centra en la caída de una democracia bajo Hitler. Ambos títulos tratan asuntos históricos de épocas diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "96d0112943f7840f",
+  "origen": "chatgpt-web"
+}

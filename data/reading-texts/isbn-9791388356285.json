@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388356285",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El rito (POESIA), de Carlota Roby, se dirige a quienes buscan poesía contemporánea en castellano. Su clasificación poética lo diferencia de una novela con trama continuada o de un ensayo dedicado a explicar un tema.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Valparaiso Ediciones contiene 98 páginas en castellano. Es un volumen físico de extensión breve que permite volver a sus páginas y marcar pasajes durante la lectura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, ofrece otra referencia poética del catálogo, con una numeración de colección visible en el título. Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, delimita expresamente su materia amorosa, mientras que El rito (POESIA), de Carlota Roby, presenta el rito como referencia principal de su título.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4ca87ae18a3d5e5e",
+  "origen": "chatgpt-web"
+}

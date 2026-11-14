@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788419509598",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Baladas criminales: 50 canciones sobre el mal que nos habita. (NeoPerson Sounds) se dirige a lectores interesados en la música, sus expresiones artísticas y las historias relacionadas con el mal. Sus 50 canciones constituyen el eje de la propuesta, por lo que se distancia de los libros centrados exclusivamente en técnicas de dibujo o fotografía.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne sus 216 páginas en un volumen de encuadernación rígida, adecuado para conservarlo en una biblioteca o incorporarlo a una colección. Es el formato disponible de Baladas criminales: 50 canciones sobre el mal que nos habita. (NeoPerson Sounds), firmado por Bosco Gil de Gárate, Fernando Ruibal Piai y Susana R. Barcia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Baladas criminales: 50 canciones sobre el mal que nos habita. (NeoPerson Sounds) comparte con All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial, de Daniel Sedcontra, el interés por la música y sus expresiones vinculadas a temas oscuros. La diferencia está en el enfoque: el primero reúne 50 canciones alrededor del mal, mientras que el segundo aborda el ruido, la subversión y la música industrial.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410045538"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8077522ebbc3d5a4",
+  "origen": "chatgpt-web"
+}

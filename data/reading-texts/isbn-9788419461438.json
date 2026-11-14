@@ -1,39 +1,49 @@
 {
   "id": "isbn-9788419461438",
-  "familia": "practico",
+  "familia": "no_ficcion",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Casos clínicos internacionales en salud de la mujer se dirige a lectores interesados en la salud femenina desde una perspectiva clínica y científica. Su enfoque en casos clínicos lo diferencia de los libros de bienestar general y de las guías de hábitos cotidianos.",
+      "texto": "Casos clínicos internacionales en salud de la mujer se dirige a quienes buscan una lectura científica centrada en cuestiones de salud femenina. Por su enfoque clínico y sus 160 páginas, se aleja de la narrativa de ficción y de los libros de desarrollo personal.",
       "evidencias": [
         "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La salud de la mujer se aborda mediante casos clínicos de alcance internacional, con un planteamiento vinculado a la divulgación científica. La obra reúne las aportaciones de distintos autores y centra su contenido en situaciones clínicas, en lugar de desarrollar una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Casos clínicos internacionales en salud de la mujer está disponible en tapa blanda, con 160 páginas en castellano. Esta edición permite consultar los casos clínicos en papel, localizar pasajes y volver a ellos durante el estudio o la lectura.",
+      "texto": "Casos clínicos internacionales en salud de la mujer está disponible en tapa blanda, con una extensión de 160 páginas. Esta presentación permite consultar el volumen en papel y volver a los casos durante la lectura, sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Calidad de vida y hábitos saludables de mujeres en la peri y posmenopausia en dos zonas básicas de salud de Tenerife. comparte con Casos clínicos internacionales en salud de la mujer el interés por la salud femenina. El primero delimita su asunto a los hábitos y la calidad de vida durante la peri y posmenopausia en Tenerife, mientras que el segundo reúne casos clínicos internacionales sobre salud de la mujer.",
+      "texto": "50 cosas que hay que saber sobre IA comparte con Casos clínicos internacionales en salud de la mujer su orientación hacia cuestiones científicas. La diferencia está en el objeto de estudio: Keith Mansfield trata la inteligencia artificial, mientras que esta obra reúne casos clínicos relacionados con la salud femenina.",
       "evidencias": [
         "titulo",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388485879"
+        "isbn-9788434441309"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d5735e8dea38ee20",
+  "fuente_hash": "38178a380efc8ba9",
   "origen": "chatgpt-web"
 }

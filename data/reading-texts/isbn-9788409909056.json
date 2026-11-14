@@ -4,24 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El libro negro del boxeo: los 10 problemas de la dulce ciencia se dirige a lectores interesados en los problemas del boxeo y en el deporte como actividad de tiempo libre. Por su enfoque temático, encaja menos con quienes buscan una novela deportiva o una guía de ejercicios físicos.",
+      "texto": "El libro negro del boxeo: los 10 problemas de la dulce ciencia, de Hugo Daniel Fernández López, está dirigido a lectores interesados en los problemas asociados al boxeo. Su planteamiento temático se diferencia de las guías de entrenamiento físico y de los libros centrados en aprender técnicas deportivas.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es en tapa blanda, con 88 páginas en castellano. Su extensión permite leerla en sesiones breves y transportarla sin el volumen de un manual deportivo extenso.",
+      "texto": "El libro negro del boxeo: los 10 problemas de la dulce ciencia puede leerse en tapa blanda o en Kindle. La edición física tiene 88 páginas y permite consultar el texto en papel; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el ejemplar impreso.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El libro negro del boxeo: los 10 problemas de la dulce ciencia y 80 crímenes imposibles de resolver (FUERA DE ESCENA) comparten el interés por examinar problemas, aunque el primero trata el boxeo y el segundo plantea crímenes por resolver. Frente a 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos), centrado en colorear, el libro de Hugo Daniel Fernández López aborda cuestiones deportivas mediante texto.",
+      "texto": "El libro negro del boxeo: los 10 problemas de la dulce ciencia y ATP No. 1 Club. Iconos del tenis masculino (CONOCIMIENTO) comparten el interés por el deporte. Hugo Daniel Fernández López aborda problemas relacionados con el boxeo, mientras que Mark Hodgkinson centra su título en figuras del tenis masculino, con una orientación temática distinta.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,13 +31,12 @@
         "categorias"
       ],
       "enlaces": [
-        "isbn-9788408328384",
-        "isbn-9791388015816"
+        "isbn-9791387934248"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d307637b6ad19d3f",
+  "fuente_hash": "00da3d9fc2ceaac3",
   "origen": "chatgpt-web"
 }

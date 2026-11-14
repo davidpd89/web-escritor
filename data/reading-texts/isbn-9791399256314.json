@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399256314",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Qué es el hombre? Serie 4: El hombre glorificado se dirige a lectores interesados en religión y espiritualidad. Su enfoque temático lo aleja de quienes buscan narrativa de ficción o una lectura centrada en asuntos ajenos a la reflexión religiosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Qué es el hombre? Serie 4: El hombre glorificado está disponible en tapa blanda, con 280 páginas en castellano. Esta edición física permite consultar pasajes y volver a ellos durante la lectura, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Qué es el hombre? Serie 4: El hombre glorificado comparte el ámbito religioso con AKITA: Las lágrimas y el mensaje de María, aunque sus títulos apuntan a cuestiones distintas: la condición del hombre y el mensaje de María. Frente a Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, mantiene el interés espiritual, pero con una referencia temática diferente.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388176357",
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fc7128f7d411587d",
+  "origen": "chatgpt-web"
+}

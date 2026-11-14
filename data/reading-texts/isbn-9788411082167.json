@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788411082167",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El código del corazón: El método revolucionario para abrir tu corazón y transformar tu vida. (Psicoemoción), de Bradley Nelson, Jean Nelson, se dirige a lectores interesados en el desarrollo personal y el bienestar. Su enfoque temático se distancia de la ficción y se encuadra en los libros orientados a la reflexión personal y la nutrición y el bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 448 páginas en una edición física de Gaia Ediciones, adecuada para quien prefiera leer y consultar el contenido en papel. Es el formato disponible para este título, con una extensión que permite identificarlo como un libro de desarrollo personal de considerable volumen.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El código del corazón: El método revolucionario para abrir tu corazón y transformar tu vida. (Psicoemoción), de Bradley Nelson, Jean Nelson, comparte el ámbito del desarrollo personal con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody. Ambos títulos abordan el cambio personal, aunque el segundo pone el foco en la salud, la felicidad y las relaciones, mientras que el primero se presenta desde el bienestar y el corazón.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5d893e54104d9fcc",
+  "origen": "chatgpt-web"
+}

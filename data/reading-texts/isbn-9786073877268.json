@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Lee esto (cuando necesites una señal) / Read This (When You Need a Sign) se dirige a lectores interesados en desarrollo personal y bienestar. Ali Begun firma un libro de 256 páginas clasificado editorialmente como autoayuda; no pertenece a la narrativa de ficción ni se presenta como una novela.",
+      "texto": "Lee esto (cuando necesites una señal) / Read This (When You Need a Sign) se dirige a lectores interesados en el desarrollo personal y la autoayuda. Es una obra de Ali Begun de 256 páginas, distinta de una novela de ficción por su orientación temática; su título plantea la lectura en momentos de búsqueda de orientación personal.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,31 +15,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Lee esto (cuando necesites una señal) / Read This (When You Need a Sign) está disponible en tapa blanda, Kindle y audiolibro. La edición impresa de Penguin Random House Grupo Editorial reúne 256 páginas para consultar en papel; Kindle permite acceder al texto desde un lector electrónico y el audiolibro ofrece una modalidad de escucha.",
+      "texto": "Lee esto (cuando necesites una señal) / Read This (When You Need a Sign) está disponible en tapa blanda, Kindle y audiolibro. La edición impresa tiene 256 páginas para consultar en papel; Kindle permite acceder al texto digitalmente y el audiolibro ofrece una opción de escucha.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
-        "numero_paginas",
-        "formatos_disponibles"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Lee esto (cuando necesites una señal) / Read This (When You Need a Sign) comparte el ámbito del desarrollo personal con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody. El título de Liz Moody anuncia un enfoque científico sobre salud, relaciones y bienestar, mientras que el de Ali Begun plantea la lectura en momentos de búsqueda de orientación. Ambos se diferencian por la autoría y por los asuntos que destacan sus respectivos títulos.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9798890981776"
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "91786c10671e7bef",
+  "fuente_hash": "ce4dfac51e98b3ed",
   "origen": "chatgpt-web"
 }

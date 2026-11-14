@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408327516",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este estuche está orientado a lectores de romance y narrativa juvenil que buscan dos obras de Inma Rubiales reunidas en una misma edición. Estuche Todos los lugares + Nuestro lugar en el mundo (Novela) no responde a quien prefiera ensayo, divulgación o una lectura ajena a las relaciones sentimentales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estuche Todos los lugares + Nuestro lugar en el mundo (Novela) se presenta en tapa blanda, en edición de bolsillo de Booket. Sus 1184 páginas corresponden al conjunto, por lo que resulta una compra física de lectura extensa y una opción para regalar las dos obras reunidas.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de ser nosotros. Edición de bolsillo con cantos decorados (Colección Especial) comparte con Estuche Todos los lugares + Nuestro lugar en el mundo (Novela) la autoría de Inma Rubiales y el ámbito juvenil. La diferencia está en la presentación: el estuche reúne dos títulos, mientras que El arte de ser nosotros se ofrece como una edición de bolsillo con cantos decorados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408326830"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5cad945513cbd2da",
+  "origen": "chatgpt-web"
+}

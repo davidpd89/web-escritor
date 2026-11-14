@@ -4,40 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Fuera de pista (Corazones al límite 2) (Sin límites) reúne romance, aventuras y elementos asociados a la fantasía y la ciencia ficción. Puede interesar a quienes alternan estos géneros, pero encaja menos con lectores que buscan exclusivamente realismo cotidiano. El título lo identifica como el n.º 2 de Corazones al límite.",
+      "texto": "Fuera de pista (Corazones al límite 2) (Sin límites) encaja con lectores que buscan romance combinado con aventuras y ciencia ficción. Sus 440 páginas plantean una lectura extensa, menos ajustada a quien prefiere relatos breves o historias centradas exclusivamente en relaciones sentimentales.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Fuera de pista (Corazones al límite 2) (Sin límites) se ofrece en tapa blanda, con 440 páginas en castellano. Esta edición de Alfaguara reúne la lectura en un volumen físico de cubierta flexible, que puede transportarse y conservarse junto a otros libros de la misma colección.",
+      "texto": "La tapa blanda es el formato disponible de Fuera de pista (Corazones al límite 2) (Sin límites). Reúne sus 440 páginas en un volumen físico de Alfaguara, una opción para leer en papel y conservar junto a otros títulos de la colección.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Saciar a la bestia - libro 1 (Faeris Editorial) sirve de comparación por su identificación explícita como entrega de una serie, aunque Fuera de pista (Corazones al límite 2) (Sin límites) lleva el n.º 2 en el título. Ciudad de dioses y monstruos (DARK ROMANCE) apunta desde su título hacia el romance oscuro y los elementos fantásticos; el libro de Sara Hernández abarca además aventuras y ciencia ficción.",
+      "texto": "Fuera de pista (Corazones al límite 2) (Sin límites) comparte con Barbie dreamscape la presencia de ciencia ficción, aunque el primero también se sitúa en el romance y las aventuras. Frente a Clic y Clara en el espacio: Las aventuras más científicamente divertidas (Pequeños curiosos), de Carlos Pazos, propone una extensión mucho mayor, con 440 páginas, y añade el componente romántico.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388108365",
-        "isbn-9788415955559"
+        "isbn-9791388277481",
+        "isbn-9788448874759"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e157d419d5d1e3e8",
+  "fuente_hash": "a3d480dba09edb9a",
   "origen": "chatgpt-web"
 }

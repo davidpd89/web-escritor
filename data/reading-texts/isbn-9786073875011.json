@@ -4,24 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Casi familia / Almost Family se relaciona con la fantasía, la amistad y los vínculos familiares. Se dirige a quienes buscan esos temas en una misma lectura, mientras que se aleja de las obras centradas exclusivamente en el realismo histórico o la divulgación científica.",
+      "texto": "Casi familia / Almost Family, de Ana Romero, se orienta a lectores que buscan fantasía vinculada a temas familiares. Sus 264 páginas en castellano la diferencian de los libros prácticos de crianza y de quienes prefieren lecturas centradas exclusivamente en el desarrollo personal.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Casi familia / Almost Family se publica en tapa blanda y Kindle, con una extensión de 264 páginas. La edición impresa permite leer y conservar el libro en papel; Kindle facilita acceder al texto desde un dispositivo compatible y llevarlo sin ocupar espacio físico.",
+      "texto": "Casi familia / Almost Family puede leerse en tapa blanda o en Kindle, con una edición impresa de 264 páginas. El papel permite conservar y prestar el volumen de Ana Romero; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro físico.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "formatos_disponibles"
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Casi familia / Almost Family comparte la temática familiar con Tíos y Tías (AMOR DE FAMILIA), de Margarita Del Mazo. La obra de Ana Romero incorpora además fantasía y amistad a su clasificación temática, mientras que el título de Margarita Del Mazo pone el foco en los vínculos con tíos y tías.",
+      "texto": "Isadora Moon 1 - Isadora Moon va al colegio (edición 10º aniversario): ¡Un libro mágico con purpurina en la cubierta! (Harriet Muncaster) comparte con Casi familia / Almost Family su vinculación con la fantasía. La obra de Harriet Muncaster identifica el colegio y una edición conmemorativa en su título, mientras que la de Ana Romero se presenta como una obra de fantasía relacionada también con la familia.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,12 +33,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410438491"
+        "isbn-9791388277290"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b5b223ed034e4c94",
+  "fuente_hash": "aa37e71a1b1ee90c",
   "origen": "chatgpt-web"
 }

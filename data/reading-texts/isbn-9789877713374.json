@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9789877713374",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la inteligencia artificial, los algoritmos y su relación con la pedagogía. La IA no sabe decir \"No se\". Pedagogias del Umbral en tiempos de algoritmos, de Valentina Marquez, pertenece a la divulgación científica, por lo que su enfoque se aleja de la ficción y de los manuales de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de La IA no sabe decir \"No se\". Pedagogias del Umbral en tiempos de algoritmos está disponible en tapa blanda y tiene 124 páginas. El volumen publicado por Homo Sapiens Argentina permite consultar sus contenidos en papel y conservarlo junto a otros libros de divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA comparte con La IA no sabe decir \"No se\". Pedagogias del Umbral en tiempos de algoritmos el interés por la inteligencia artificial. El libro de Keith Mansfield plantea conocimientos sobre esta tecnología, mientras que el de Valentina Marquez centra su título en la pedagogía y los algoritmos. La diferencia principal está en el ámbito educativo frente a una aproximación general a la IA.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d41a02c8e59e9ba0",
+  "origen": "chatgpt-web"
+}

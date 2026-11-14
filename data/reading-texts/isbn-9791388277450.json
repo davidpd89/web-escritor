@@ -4,28 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mi querido rebelde (Los diabólicos Darling 3) (Sin límites) se dirige a lectores de romance interesados en historias centradas en las relaciones amorosas. Alexandra Moody firma esta novela de 352 páginas; el título la identifica como el n.º 3 de Los diabólicos Darling, por lo que se distingue de una historia presentada como independiente.",
+      "texto": "Mi querido rebelde (Los diabólicos Darling 3) (Sin límites) encaja con lectores que buscan romance y quieren acercarse a una obra de Alexandra Moody. El título lo identifica como el n.º 3 de Los diabólicos Darling, por lo que no responde a quien busca expresamente un libro presentado como inicio de serie.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mi querido rebelde (Los diabólicos Darling 3) (Sin límites) se presenta en tapa blanda, con 352 páginas en castellano. Esta edición de Alfaguara permite leer la novela en papel y colocarla junto a otros volúmenes de la serie identificada en el título. Su encuadernación flexible facilita transportarla.",
+      "texto": "Mi querido rebelde (Los diabólicos Darling 3) (Sin límites) tiene una edición en tapa blanda de 352 páginas, publicada por Alfaguara. La cubierta flexible facilita transportarlo durante una lectura de extensión media y permite incorporarlo a una colección física de novelas románticas.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "edicion",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "editorial",
+        "formatos_disponibles",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mi querido rebelde (Los diabólicos Darling 3) (Sin límites) comparte el género romántico con Amor en pole position (Dirty Air 3), de Lauren Asher. Ambos títulos llevan el número 3, aunque pertenecen a series diferentes: Los diabólicos Darling y Dirty Air. La obra de Lauren Asher sitúa el romance en la Fórmula 1, mientras que la de Alexandra Moody se identifica por su pertenencia a Los diabólicos Darling.",
+      "texto": "A mil por hora, de Hannah Grace, y Mi querido rebelde (Los diabólicos Darling 3) (Sin límites), de Alexandra Moody, comparten el género romántico. A mil por hora presenta un romance relacionado con un piloto de F1, mientras que el título de Alexandra Moody identifica su pertenencia a Los diabólicos Darling. Quien prefiera relatos breves puede distinguir ambos de 24 historias para enamorarte en navidad: Relatos navideños, de Patricia Bonet, que anuncia una colección de historias.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +33,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055674"
+        "isbn-9788409929177",
+        "isbn-9788466683449"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f65c1da1c007cf0f",
+  "fuente_hash": "1c46069782869221",
   "origen": "chatgpt-web"
 }

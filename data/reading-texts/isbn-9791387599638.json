@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9791387599638",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La casa del jazmín: 117 (Los Versos de Cordelia) se dirige a lectores de poesía en castellano. Es una obra de Ramiro Gairín Muñoz de 112 páginas, por lo que se diferencia de las lecturas que buscan una novela extensa o una narración en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La casa del jazmín: 117 (Los Versos de Cordelia) se presenta en tapa blanda, con 112 páginas. Esta edición física permite consultar y releer los poemas en papel, además de ocupar menos espacio que un volumen de mayor extensión. La publica Reino de Cordelia S.l. en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La casa del jazmín: 117 (Los Versos de Cordelia) comparte el ámbito de la poesía con Advenir, de Jose Eceolaza, y Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. Frente a la orientación amorosa que anuncia esta última antología, el título de Ramiro Gairín Muñoz remite a una casa y al jazmín. Son obras de distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410212749",
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ba5f673d6a5c1e55",
+  "origen": "chatgpt-web"
+}

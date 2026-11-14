@@ -4,42 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con quienes buscan humor relacionado con la escuela y las relaciones familiares. ¡La Srta. Lulú no sabe ni la U! / Miss Daisy Is Crazy!: 1 (Una Escuela Rara), de Dan Gutman, tiene 96 páginas y se aleja de las lecturas centradas en asuntos económicos o profesionales.",
+      "texto": "¡La Srta. Lulú no sabe ni la U! / Miss Daisy Is Crazy!: 1 (Una Escuela Rara) se dirige a lectores interesados en historias escolares y libros vinculados al entorno familiar. Su extensión de 96 páginas permite una lectura breve, frente a quienes buscan obras extensas sobre crianza o desarrollo personal.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de ¡La Srta. Lulú no sabe ni la U! / Miss Daisy Is Crazy!: 1 (Una Escuela Rara) se presenta en tapa blanda. Sus 96 páginas permiten llevar el libro en una mochila y leerlo en varias sesiones cortas; Vintage Espanol lo publica en castellano.",
+      "texto": "La edición de ¡La Srta. Lulú no sabe ni la U! / Miss Daisy Is Crazy!: 1 (Una Escuela Rara) está disponible en tapa blanda. Sus 96 páginas forman un volumen relativamente corto, manejable para llevar en la mochila o leer en varias sesiones, con texto en castellano.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
         "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El Más Gallina / Fight or Flight (Diario del Wimpy Kid), de Jeff Kinney, comparte con la obra de Dan Gutman su relación con el humor, aunque pertenece a otra serie. El pequeño libro de los padres (Somos B), de 72 Kilos, se acerca al ámbito familiar desde la crianza, mientras que la obra de Dan Gutman sitúa su propuesta humorística en el entorno escolar.",
+      "texto": "Abuelas Y Abuelos (Álbumes Ilustrados castellano) comparte con el libro de Dan Gutman su vinculación con el ámbito familiar. La obra de Helene Delforge se presenta como un álbum ilustrado sobre los abuelos, mientras que la de Dan Gutman pertenece a una serie escolar y tiene 96 páginas en tapa blanda.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9798890989772",
-        "isbn-9788466684101"
+        "isbn-9788491429586"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "00625bc4f443caf6",
+  "fuente_hash": "f3af8c6cc0d8a8fc",
   "origen": "chatgpt-web"
 }

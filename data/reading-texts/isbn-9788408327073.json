@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408327073",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Corbin Crow 1. El misterio de Crowhills, de Pol Castellanos, se dirige al público infantil y juvenil que busca aventuras con elementos de misterio. Su clasificación no corresponde a una novela histórica para adultos ni a un libro práctico, sino a una narración de ficción juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Corbin Crow 1. El misterio de Crowhills se presenta en tapa dura, con 224 páginas en castellano. Esta encuadernación ofrece una cubierta rígida para conservar el ejemplar y permite regalarlo como libro físico, sin depender de dispositivos de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Corbin Crow 1. El misterio de Crowhills comparte el interés por los enigmas con Abre el misterio 1 - El robo de las croquetas y Agente Stitch 5. Los roedores de Roswell. El primero parte de una desaparición cotidiana y el segundo plantea un misterio intergaláctico, mientras que el libro de Pol Castellanos se identifica por el misterio de Crowhills y combina aventura con intriga juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788427256644",
+        "isbn-9791387901943"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f9e19449cf8c95ee",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387702274",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores de literatura infantil y juvenil interesados en biografías, cuentos y narración gráfica. Su enfoque sobre la vida de Andersen lo diferencia de las historias de fantasía centradas en personajes ficticios y aventuras independientes.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Bookolia tiene tapa dura, 96 páginas y texto en castellano. Su encuadernación rígida resulta adecuada para conservar el ejemplar, regalarlo o volver a consultar sus páginas sobre Andersen y su relación con los cuentos.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Se relaciona con El rey de la baraja: La imperecedera vida de Roberto Iniesta: 7 (Marea gráfica), de Nacho Nava Laiz, por el interés biográfico y la vinculación con la narrativa gráfica. Fran Nuño centra su obra en Andersen y los cuentos, mientras que el otro título aborda la vida de Roberto Iniesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387938499"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "14fdb2433f628f8d",
+  "origen": "chatgpt-web"
+}

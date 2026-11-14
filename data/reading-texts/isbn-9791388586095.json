@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791388586095",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Prácticas y métodos de producción ecológica, integrada y biodinámica-AGAU41 se dirige a lectores interesados en los distintos enfoques de producción agrícola y su estudio técnico. Por su materia, no responde a búsquedas centradas en jardinería ornamental o relatos sobre la vida rural.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Prácticas y métodos de producción ecológica, integrada y biodinámica-AGAU41 se publica en tapa blanda y cuenta con 90 páginas. Su extensión permite trabajar con un volumen impreso relativamente breve y localizar apartados durante la consulta sobre métodos de producción.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Prácticas y métodos de producción ecológica, integrada y biodinámica-AGAU41 comparte el ámbito agrícola con Abonado y fertilización en agricultura ecológica-AGAU001PO, de Elsa Rubio Duce. El libro de Félix Sánchez Paredes reúne en su planteamiento la producción ecológica, integrada y biodinámica, mientras que el de Elsa Rubio Duce delimita su tema al abonado y la fertilización ecológica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388586422"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c5cc300c5a50a1d6",
+  "origen": "chatgpt-web"
+}

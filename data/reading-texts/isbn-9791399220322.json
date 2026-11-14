@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "CÓMO AYUDAR A LOS ERIZOS: Más de 100 ideas para transformar tu jardín en un refugio para la naturaleza está dirigido a personas interesadas en la jardinería, la fauna y la divulgación naturalista. Sus propuestas se centran en convertir espacios ajardinados en refugios para la naturaleza, por lo que encaja menos con quienes buscan ficción o un tratado exclusivamente teórico.",
+      "texto": "CÓMO AYUDAR A LOS ERIZOS está dirigido a lectores interesados en la naturaleza, la divulgación científica y las actividades al aire libre. Su planteamiento se orienta a quienes quieren dedicar el jardín al cuidado de la fauna; no es una obra de ficción ni una novela sobre animales.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,31 +12,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Mimura se ofrece en tapa blanda, con 228 páginas en castellano. Al tratarse de un libro con más de 100 ideas relacionadas con el jardín y la naturaleza, el ejemplar físico permite consultar propuestas concretas, volver a ellas y mantenerlo a mano durante la planificación de tareas.",
+      "texto": "La tapa blanda contiene 228 páginas y permite consultar el contenido en el jardín, volver sobre sus propuestas y conservar el libro como material de referencia. Es el formato disponible de CÓMO AYUDAR A LOS ERIZOS, de Helen Bostock y Sophie Collins.",
       "evidencias": [
-        "titulo",
-        "edicion",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "titulo",
+        "autores"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Así es la vida de los animales: Historias de crueldad, amor y supervivencia en la naturaleza (Imago Mundi) comparte con CÓMO AYUDAR A LOS ERIZOS: Más de 100 ideas para transformar tu jardín en un refugio para la naturaleza el interés por los animales. El libro de Mario Alonso Santamaría aborda historias de supervivencia, mientras que el de Helen Bostock y Sophie Collins propone actuaciones prácticas en el jardín.",
+      "texto": "TERREMOTO: ¿Qué hacer? Antes, Durante y Después de un Temblor. Guía práctica de supervivencia y preparación ante sismos para proteger a tu familia en un desastre (PREPÁRATE!!!), de Manolo Camara, comparte con CÓMO AYUDAR A LOS ERIZOS un planteamiento práctico y orientado a la preparación. La diferencia está en el ámbito de aplicación: uno aborda el cuidado de la fauna en el jardín y el otro la respuesta ante terremotos.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788423370979"
+        "isbn-9788409943098"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "99375f3b5aa1f3e5",
+  "fuente_hash": "e2aeb9adb92ad9f8",
   "origen": "chatgpt-web"
 }

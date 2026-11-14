@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788426742704",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Asistentes y agentes empresariales con IA, de Iván Rodríguez, se dirige a lectores interesados en la inteligencia artificial aplicada al ámbito empresarial. Su enfoque combina economía, empresa y divulgación científica, por lo que se aleja de las lecturas centradas únicamente en la historia de la tecnología o en sus usos recreativos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Asistentes y agentes empresariales con IA está disponible en tapa blanda, con 378 páginas en castellano. Esta edición de Marcombo permite consultar el contenido en papel, volver a apartados anteriores y mantener el volumen como referencia física sobre inteligencia artificial empresarial.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gestión de proyectos de inteligencia artificial, de Adrián González Sánchez y Malini Jain Runtasewee, comparte con Asistentes y agentes empresariales con IA el interés por aplicar la inteligencia artificial en entornos de trabajo. El libro de Iván Rodríguez se centra en asistentes y agentes empresariales, mientras que el otro aborda la gestión de proyectos. ChatGPT para tu clínica dental: Usa la inteligencia artificial con criterio y protege los datos de tus pacientes (Colección Inteligencia Clínica), de María Peñarrocha Diago, delimita su aplicación al sector dental.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409928231",
+        "isbn-9788426742827"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1f60f4b0eb69382e",
+  "origen": "chatgpt-web"
+}

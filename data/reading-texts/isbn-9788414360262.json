@@ -4,39 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "K-pop Academy. El resplandor de los guardianes: Libro 4 (LITERATURA INFANTIL - Narrativa infantil) se dirige a lectores de narrativa infantil interesados en la fantasía. Sus 192 páginas ofrecen una extensión intermedia; por su orientación fantástica, encaja menos con quienes buscan historias realistas.",
+      "texto": "K-pop Academy. El resplandor de los guardianes: Libro 4 (LITERATURA INFANTIL - Narrativa infantil) se dirige al público infantil interesado en la fantasía y en las historias vinculadas al universo del K-pop. El título lo identifica como el libro 4, por lo que quien busque el comienzo de una serie deberá distinguirlo de sus entregas anteriores.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 192 páginas de K-pop Academy. El resplandor de los guardianes: Libro 4 (LITERATURA INFANTIL - Narrativa infantil) en un volumen físico, apropiado para conservarlo o regalarlo. Kindle permite leer el mismo título en un dispositivo compatible sin transportar el libro impreso.",
+      "texto": "La edición en tapa dura de K-pop Academy. El resplandor de los guardianes: Libro 4 (LITERATURA INFANTIL - Narrativa infantil) contiene 192 páginas y ofrece una encuadernación rígida para conservar el ejemplar. Kindle permite leerlo en formato digital y transportarlo sin añadir otro libro físico a la mochila.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles",
-        "edicion"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Dream Magic. El dodo musical: Libro 4 (LITERATURA INFANTIL - Narrativa infantil) comparte con K-pop Academy. El resplandor de los guardianes: Libro 4 (LITERATURA INFANTIL - Narrativa infantil) su orientación hacia la narrativa infantil y la identificación como Libro 4. La diferencia está en la autoría: Alena Pons firma el primero y Mina Finch el segundo.",
+      "texto": "Brujas y dragones 2: La bruja mala del oeste comparte con K-pop Academy. El resplandor de los guardianes: Libro 4 (LITERATURA INFANTIL - Narrativa infantil) la fantasía dirigida al público infantil, aunque sus títulos apuntan a imaginarios diferentes: brujas y dragones frente al K-pop y los guardianes. AVATAR. La leyenda de Aang 5 - Norte y sur también pertenece a una serie de aventuras fantásticas, pero sitúa su historia en el universo de Avatar.",
       "evidencias": [
         "titulo",
-        "autores",
-        "afines_catalogo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788414360149"
+        "isbn-9788448874803",
+        "isbn-9791387501877"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1dc0c0bb6d8f2fe5",
+  "fuente_hash": "0ae1c7d62f1a7403",
   "origen": "chatgpt-web"
 }

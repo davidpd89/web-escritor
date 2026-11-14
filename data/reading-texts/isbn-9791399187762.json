@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791399187762",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores de poesía que buscan una selección de textos de Carilda Oliver Labra acompañada de un prólogo de Bibiana Collado Cabrera. Por su carácter de selección poética, no responde a la búsqueda de una novela ni de una narración continua.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición de Rosita y Amparo Editores incorpora una selección y un prólogo atribuidos a Bibiana Collado Cabrera. Publicada el 19 de octubre de 2026, consta de 128 páginas en castellano y se presenta en tapa blanda, con los textos de Carilda Oliver Labra como contenido principal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne 128 páginas de poesía de Carilda Oliver Labra, con selección y prólogo de Bibiana Collado Cabrera. Su extensión permite llevar el volumen en papel y regresar a poemas concretos sin necesidad de seguir una lectura continua.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, comparte con Con gusto derramada el carácter de recopilación poética. La diferencia está en la autoría y la presentación editorial: el volumen de Carilda Oliver Labra identifica expresamente a Bibiana Collado Cabrera como responsable de la selección y el prólogo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "df35f8daa9a95e57",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409915750",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bienestar: Habitar el equilibrio (Conversaciones con mis hijos) se dirige a lectores interesados en desarrollo personal, psicología y bienestar. Sus 388 páginas corresponden a una obra extensa dentro de estos temas, por lo que encaja menos con quien busca una introducción muy breve o una lectura de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bienestar: Habitar el equilibrio (Conversaciones con mis hijos) está editado en tapa blanda y tiene 388 páginas. Esta presentación permite leer y consultar el contenido en papel, aunque su extensión hace que resulte menos compacto que un libro breve para transportar a diario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bienestar: Habitar el equilibrio (Conversaciones con mis hijos) y Cómo sobrevivir a las putadas de la vida (Vivir Mejor) comparten su orientación hacia el bienestar personal. El primero aborda el equilibrio desde un marco relacionado con la psicología y la salud, mientras que el segundo plantea cómo afrontar las dificultades vitales. Dormir bien no debería ser un sueño: Reordena tus días para recuperar tus noches (Espasa Bienestar y Salud) delimita más su asunto al descanso nocturno.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055957",
+        "isbn-9788467083651"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3629e1663af53f15",
+  "origen": "chatgpt-web"
+}

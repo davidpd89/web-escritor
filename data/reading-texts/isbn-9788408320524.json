@@ -4,34 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mi primer Carnaval de los animales. Con 7 melodías (Libros con sonido) está orientado a quienes buscan una primera aproximación a la música mediante un libro infantil sonoro. La combinación de melodías y 14 páginas responde a una experiencia breve de exploración musical, no a una lectura narrativa extensa.",
+      "texto": "Mi primer Carnaval de los animales. Con 7 melodías (Libros con sonido) se dirige a quienes buscan una introducción a la música mediante un libro con sonidos. Reúne 7 melodías en 14 páginas de cartón; no está planteado como una lectura extensa centrada en una trama narrativa.",
       "evidencias": [
         "titulo",
-        "autores",
-        "editorial",
-        "edicion",
         "numero_paginas",
-        "categorias"
+        "edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mi primer Carnaval de los animales. Con 7 melodías (Libros con sonido) se ofrece en tapa dura, concretamente como libro de cartón de Timun Mas Infantil. Sus 14 páginas y las 7 melodías anunciadas en el título reúnen lectura y sonido en un objeto físico pensado para manipularse durante la actividad musical.",
+      "texto": "Mi primer Carnaval de los animales. Con 7 melodías (Libros con sonido) está disponible en tapa dura, en una edición de cartón de 14 páginas. El soporte físico permite combinar el paso de las páginas con las 7 melodías anunciadas en el título, sin depender de una aplicación de lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
-        "editorial",
         "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mi primer Carnaval de los animales. Con 7 melodías (Libros con sonido) puede compararse con Mis melodías clásicas de Navidad. Con 7 melodías (Libros con sonido), también de Séverine Cordier. Ambos títulos anuncian 7 melodías, pero el primero se centra en los animales y el segundo en la música clásica navideña.",
+      "texto": "Mi primer Carnaval de los animales. Con 7 melodías (Libros con sonido) y Mis melodías clásicas de Navidad. Con 7 melodías (Libros con sonido) comparten autora, Séverine Cordier, y anuncian 7 melodías. El primero se centra en el Carnaval de los animales; el segundo identifica expresamente la Navidad y las melodías clásicas como tema.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -41,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ffe1a1840387333a",
+  "fuente_hash": "a019e9c749e2e627",
   "origen": "chatgpt-web"
 }

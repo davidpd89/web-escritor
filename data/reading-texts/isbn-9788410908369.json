@@ -4,25 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "LIDERAZGO SIN CANAS: El manifiesto del nuevo jefe se dirige a lectores interesados en el liderazgo, la gestión empresarial y el desarrollo personal. Por su enfoque en la figura del jefe, se aleja de quienes buscan ficción o contenidos centrados exclusivamente en nutrición y bienestar.",
+      "texto": "LIDERAZGO SIN CANAS: El manifiesto del nuevo jefe se dirige a lectores interesados en el liderazgo, el desarrollo personal y la gestión empresarial. El enfoque de Rogers Sierraalta encaja menos con quien busca una novela o un manual especializado en inversiones.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de LIDERAZGO SIN CANAS: El manifiesto del nuevo jefe es en tapa blanda y reúne 180 páginas en castellano. Su extensión permite organizar la lectura en sesiones breves y volver a los apartados de interés sobre liderazgo sin manejar un volumen especialmente extenso.",
+      "texto": "La tapa blanda permite consultar y marcar sobre papel las 180 páginas de LIDERAZGO SIN CANAS: El manifiesto del nuevo jefe. La edición Kindle reúne el contenido en formato digital, apropiado para leer desde el móvil o un lector electrónico sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El factor tú: Claves para comunicar con autenticidad y conseguir lo que te propongas (No ficción), de Rafa Rodrigo, comparte con LIDERAZGO SIN CANAS: El manifiesto del nuevo jefe el interés por las habilidades personales, aunque el primero se centra en la comunicación y el segundo en el liderazgo. EL RECORRIDO DEL SÍ: El sistema para que tu paciente entienda, acepte, y tu equipo ejecute sin sorpresas ni repeticiones, de Luken de Arbeloa, aborda la coordinación de equipos desde un contexto sanitario, frente al enfoque general sobre la figura del jefe de Rogers Sierraalta.",
+      "texto": "LIDERAZGO SIN CANAS: El manifiesto del nuevo jefe y Burnout en el trabajo: Guía práctica para trabajadores, mandos y empresas: prevenirlo, detectarlo y actuar. Con casos, 170 test y modelos para fotocopiar comparten el ámbito laboral. Rogers Sierraalta aborda el liderazgo, mientras José Luis Efraín Zeballos se centra en prevenir y gestionar el desgaste profesional mediante casos y herramientas prácticas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,13 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388139239",
-        "isbn-9788409921782"
+        "isbn-9791399320725"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "19ec72eefeac9186",
+  "fuente_hash": "91d6f068819951f8",
   "origen": "chatgpt-web"
 }

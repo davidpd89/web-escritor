@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788419794796",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores infantiles interesados en el aprendizaje de las primeras palabras y en los libros protagonizados por Lolo. El título lo identifica como el número 2, de modo que se integra en una secuencia que cuenta con Lolo aprende a hablar: 1 como título anterior del catálogo.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Su planteamiento gira en torno a las primeras palabras, tal como indica el título, y se presenta en formato de libro de cartón. Sus 40 páginas conforman el soporte físico de una propuesta infantil centrada en el lenguaje temprano y en el reconocimiento de palabras.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en libro de cartón reúne 40 páginas en un soporte físico pensado para la manipulación infantil. Es el formato disponible y permite compartir la lectura en papel sin recurrir a una pantalla.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lolo aprende a hablar: 1 es el título más cercano dentro del catálogo: comparte protagonista y pertenece a la misma secuencia de libros de Marta Galewska-Kustra. La diferencia está en el enfoque que anuncian los títulos: el primero se centra en aprender a hablar y este segundo en las primeras palabras.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788419794789"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cc2610b62775cd99",
+  "origen": "chatgpt-web"
+}

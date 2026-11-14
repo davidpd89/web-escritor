@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399221527",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tempestad (New Adult), de Victoria Aveyard, se dirige a lectores interesados en fantasía, aventuras y narrativa juvenil con orientación New Adult. Sus 624 páginas plantean una lectura extensa; por género y público, se aleja de quienes buscan realismo cotidiano o una novela breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tempestad (New Adult) cuenta con una edición en tapa blanda de 624 páginas, publicada por Gran Travesía. El volumen físico permite leer una obra extensa sin depender de dispositivos electrónicos, aunque su número de páginas puede resultar menos cómodo para transportarlo a diario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tempestad (New Adult), de Victoria Aveyard, comparte el terreno de la fantasía con La tiranía de la fe: 2 (Richard Swan), de Richard Swan, aunque este último se identifica mediante su título como una entrega numerada. También puede compararse con Edición LEGACY Muerte a la oscuridad- Black Bird Academy: Black Bird Academy: 1 (Inlov Romantasy), de Stella Tack, que incorpora una orientación romantasy explícita en su denominación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410399518",
+        "isbn-9791399227420"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8a4c615766483b1d",
+  "origen": "chatgpt-web"
+}

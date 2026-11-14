@@ -4,29 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Polonia 6 (Guías de País Lonely Planet) se dirige a quienes buscan una guía de viajes dedicada a Polonia, especialmente para preparar desplazamientos y consultar información durante una estancia. Su carácter de guía de país la diferencia de las memorias de viaje y de las novelas ambientadas en un destino.",
+      "texto": "Polonia 6 (Guías de País Lonely Planet) encaja con lectores que necesitan preparar una visita a Polonia y prefieren consultar una guía de país. Su orientación práctica y sus 424 páginas la separan de los relatos de viajes personales y de las obras de ficción.",
       "evidencias": [
         "titulo",
         "categorias",
-        "autores"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Polonia 6 (Guías de País Lonely Planet) puede elegirse en tapa blanda o Kindle; la edición impresa tiene 424 páginas en castellano. El papel permite consultar el contenido sin batería, mientras que Kindle facilita llevar la guía en un dispositivo compatible y evitar el peso del ejemplar físico durante el viaje.",
+      "texto": "La tapa blanda reúne las 424 páginas de Polonia 6 (Guías de País Lonely Planet) en un volumen físico que puede consultarse antes y durante el viaje. Kindle facilita llevar la guía en el móvil o en un lector electrónico, sin ocupar espacio adicional en el equipaje.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Polonia 6 (Guías de País Lonely Planet) y Suiza 5 (Guías de País Lonely Planet) pertenecen a la misma colección de guías de países y comparten autores como Marc Di Duca, Simon Richmond y Anthony Haywood. La elección entre ambas depende del destino que interese consultar: Polonia en la primera y Suiza en la segunda.",
+      "texto": "Suiza 5 (Guías de País Lonely Planet) y Polonia 6 (Guías de País Lonely Planet) pertenecen a la misma colección de guías de país y comparten a Marc Di Duca, Simon Richmond y Anthony Haywood entre sus autores. La diferencia principal es el destino: la primera se dedica a Suiza y la segunda a Polonia.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -36,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d30e972acb34de7e",
+  "fuente_hash": "9d3e6b44f696de5c",
   "origen": "chatgpt-web"
 }

@@ -4,32 +4,30 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Vecinos en prácticas (Romántica) se dirige a lectores de romance juvenil y narrativa contemporánea que buscan historias con componentes de humor. La novela de Cristina Prieto Solano tiene 384 páginas y se aleja de la fantasía épica y de los libros prácticos sobre relaciones personales.",
+      "texto": "Vecinos en prácticas (Romántica) encaja con lectores juveniles que buscan historias de romance y narrativa contemporánea. Su planteamiento editorial se dirige al público juvenil; no corresponde a quien busque fantasía, ensayo o una obra centrada en otro género.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Vecinos en prácticas (Romántica) ofrece una edición física de 384 páginas, adecuada para conservar en la estantería o prestar después de leer. Kindle permite llevar esta novela de Cristina Prieto Solano en el móvil o en un lector electrónico, evitando transportar el volumen impreso.",
+      "texto": "La tapa blanda reúne las 384 páginas de Vecinos en prácticas (Romántica) en un ejemplar físico, adecuado para leer fuera de casa y conservar en papel. Kindle ofrece la alternativa digital para llevar la novela en un dispositivo sin transportar el volumen.",
       "evidencias": [
         "titulo",
-        "autores",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Vecinos en prácticas (Romántica) puede compararse con La conquista perfecta / The Perfect Conquest, de América Rodas, dentro de las lecturas de temática romántica. La obra de Cristina Prieto Solano combina romance juvenil, narrativa contemporánea y humor, mientras que el título de América Rodas plantea la conquista amorosa desde su propio enunciado. Son novelas de autoras distintas.",
+      "texto": "La conquista perfecta / The Perfect Conquest, de América Rodas, ofrece otra referencia para comparar títulos de narrativa romántica. Vecinos en prácticas (Romántica), de Cristina Prieto Solano, se identifica expresamente con el público juvenil y el género romántico.",
       "evidencias": [
-        "titulo",
+        "afines_catalogo",
         "autores",
         "categorias",
-        "afines_catalogo"
+        "titulo"
       ],
       "enlaces": [
         "isbn-9786073878746"
@@ -38,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f30c65c72c535965",
+  "fuente_hash": "be0141d1e161ffcc",
   "origen": "chatgpt-web"
 }

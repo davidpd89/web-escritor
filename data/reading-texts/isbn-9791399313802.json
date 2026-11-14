@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399313802",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "INA: El sentido de mi movimiento se sitúa en el ámbito del arte y el diseño, por lo que se dirige a lectores interesados en esas disciplinas y en la idea del movimiento. La obra de Sharon Fridman y Melania Olcina Yuguero se aparta temáticamente de los manuales de economía o de los ensayos filosóficos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "INA: El sentido de mi movimiento tiene una edición en tapa blanda de 116 páginas, publicada por Ediciones Moy. Este formato facilita llevar el libro en una bolsa y consultar sus páginas en papel; su extensión es relativamente contenida para una obra vinculada al arte y el diseño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "720 retrats, de Xavier Mollà i Revert, comparte con INA: El sentido de mi movimiento su relación con el ámbito artístico, aunque su título apunta al retrato frente al movimiento. All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial, de Daniel Sedcontra, se acerca desde otra disciplina creativa: la música industrial, en lugar del movimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802",
+        "isbn-9788410045538"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b7cf8fa90c639515",
+  "origen": "chatgpt-web"
+}

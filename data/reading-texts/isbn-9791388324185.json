@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388324185",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Había un romano en tu jardín: Una historia de los romanos a través de 20 tesoros enterrados (Ático de los Libros) se dirige al público infantil y juvenil interesado en la historia de los romanos. Sus 224 páginas presentan el pasado a través de 20 tesoros enterrados, un enfoque distinto al de las novelas de fantasía o las historias ambientadas en la actualidad.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Había un romano en tu jardín: Una historia de los romanos a través de 20 tesoros enterrados (Ático de los Libros) reúne 224 páginas en castellano. Es un volumen físico que puede utilizarse para consultar los distintos tesoros y retomar la lectura por partes, tanto en casa como en un contexto educativo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hicieron historia: 10 personajes épicos de España (Ciudadela Libros) comparte el acercamiento juvenil al pasado, pero se organiza alrededor de personajes históricos españoles, mientras que Había un romano en tu jardín: Una historia de los romanos a través de 20 tesoros enterrados (Ático de los Libros) se centra en objetos enterrados vinculados a los romanos. Dinosaurios / Dinosaurs: Libro Informativo Complementario de Magic Tree House #1 Dinosaurios Al Atardecer (Magic Tree House: Exploradores) ofrece otra lectura informativa para jóvenes, dedicada a la prehistoria en lugar de a la historia romana.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890989383",
+        "isbn-9791388328107"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "385b1bd7b900b9c6",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Hollywood ¿Nunca aprenderás? (A contraluz) se sitúa en el ámbito del arte y el diseño, con una referencia explícita a Hollywood en su título. Sus 476 páginas apuntan a una lectura extensa para quienes buscan publicaciones relacionadas con ese entorno cultural. Se aleja de las necesidades de quien busca un cuaderno de ejercicios artísticos.",
+      "texto": "Hollywood ¿Nunca aprenderás? (A contraluz) se sitúa en el ámbito del arte y el diseño y puede interesar a lectores que buscan publicaciones relacionadas con ese campo. Su título remite a Hollywood, por lo que se aleja de las lecturas centradas en técnicas de dibujo o manualidades; cuenta con 476 páginas.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,18 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Hollywood ¿Nunca aprenderás? (A contraluz) se publica en tapa blanda y contiene 476 páginas. La encuadernación flexible permite manejar el volumen durante la lectura, aunque su extensión hace que resulte menos ligero que una publicación breve. Es una edición física en castellano de Unión Editorial.",
+      "texto": "Hollywood ¿Nunca aprenderás? (A contraluz) se publica en tapa blanda, con una extensión de 476 páginas. Esta edición de Unión Editorial reúne el contenido en un único volumen físico, una opción para quienes prefieren leer en papel y conservar el ejemplar en su biblioteca.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "editorial",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Hollywood ¿Nunca aprenderás? (A contraluz) y All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial se relacionan con manifestaciones culturales, aunque sus títulos señalan ámbitos distintos: Hollywood y la música industrial. Arde Talía: Una pieza teatral sobre el infierno de la creación artística se aproxima desde el teatro y la creación, mientras que el libro de Diego Luis Sanromán Peña remite al entorno cinematográfico.",
+      "texto": "Hollywood ¿Nunca aprenderás? (A contraluz) puede compararse con All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial por su relación con manifestaciones culturales. El libro de Diego Luis Sanromán Peña apunta hacia Hollywood, mientras que el de Daniel Sedcontra identifica expresamente la música industrial como asunto central.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410045538",
-        "isbn-9791399289510"
+        "isbn-9788410045538"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "54f768b0c9295f74",
+  "fuente_hash": "676d58e39a3ba3c2",
   "origen": "chatgpt-web"
 }

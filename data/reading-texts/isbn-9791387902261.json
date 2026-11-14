@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Este volumen de Disney está dirigido a lectores infantiles interesados en las aventuras de Mickey Mouse y los cuentos navideños. Sus 192 páginas reúnen historias breves, frente a las novelas infantiles de mayor extensión.",
+      "texto": "Mickey Mouse de Disney protagoniza una colección infantil de cuentos navideños de 5 minutos centrados en las aventuras. Sus 192 páginas reúnen una propuesta de relatos breves, diferente de las novelas extensas de lectura continuada y de las obras dirigidas al público adulto.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,29 +14,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne los cuentos en un volumen físico de 192 páginas, con una encuadernación apropiada para conservarlo o regalarlo. Kindle permite acceder a la misma obra en formato digital y leerla desde un dispositivo electrónico.",
+      "texto": "Los cuentos navideños de Mickey Mouse están disponibles en tapa dura y Kindle. La edición física de Libros Disney contiene 192 páginas en un volumen de cubierta rígida, mientras que Kindle permite leer los relatos en formato electrónico desde un dispositivo compatible.",
       "evidencias": [
         "titulo",
+        "edicion",
         "numero_paginas",
-        "formato_edicion",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Comparte con Mickey. Feliz Navidad: Libro con mecanismos (Disney. Mickey), de Disney, el protagonismo de Mickey y la ambientación navideña. La diferencia está en la propuesta: este volumen reúne cuentos breves, mientras que el otro incorpora mecanismos.",
+      "texto": "Clásicos Disney. Cuento de Navidad: Una historia de Mickey y sus amigos comparte con los cuentos navideños de Mickey Mouse la autoría de Disney, el personaje protagonista y la temática de Navidad. El primero presenta una historia navideña, mientras que el segundo reúne cuentos de 5 minutos en una edición de 192 páginas.",
       "evidencias": [
         "titulo",
         "autores",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387526795"
+        "isbn-9788419487827"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b6813a7b2483cc10",
+  "fuente_hash": "d7e05a528e0dcef0",
   "origen": "chatgpt-web"
 }

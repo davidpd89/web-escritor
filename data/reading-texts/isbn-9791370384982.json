@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791370384982",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Psicometría avanzada con R (Plural -México-) se dirige a lectores interesados en psicología y en el estudio de la psicometría mediante R. Por su enfoque especializado, se aleja de los libros de desarrollo personal centrados en experiencias cotidianas o consejos de bienestar.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 244 páginas de Psicometría avanzada con R (Plural -México-) en un volumen físico que permite consultar distintos apartados durante el estudio. La edición Kindle ofrece el mismo título en formato digital, para llevar la lectura en un dispositivo compatible sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Psicometría avanzada con R (Plural -México-) y Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio. comparten el interés por métodos relacionados con la psicología. El primero se centra en psicometría y R; el segundo aborda el trabajo con partes internas y el autoliderazgo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409924059"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aa39875fb7e45da4",
+  "origen": "chatgpt-web"
+}

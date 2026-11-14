@@ -4,24 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un gato vino a verme encaja con lectores interesados en el desarrollo personal, la filosofía y el ensayo, con presencia también de temas familiares. No está planteado como una obra de ficción narrativa ni como un libro centrado exclusivamente en el cuidado de animales.",
+      "texto": "Un gato vino a verme (Obras diversas) encaja con lectores interesados en el desarrollo personal, la filosofía y el ensayo. Maestro Bokyeong firma una obra de 256 páginas orientada a esos ámbitos; quienes busquen una novela de ficción o un manual técnico sobre animales encontrarán un enfoque distinto.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne sus 256 páginas en un volumen manejable para leer en casa o llevar fuera. Es el formato disponible de esta edición de Plaza & Janés, una alternativa física para quienes prefieren conservar el libro y avanzar sin depender de dispositivos electrónicos.",
+      "texto": "La tapa blanda de Un gato vino a verme (Obras diversas) permite consultar sus 256 páginas en papel y conservar el volumen en una biblioteca personal. Kindle ofrece la misma obra en soporte digital, una opción para leer desde el móvil o un lector electrónico sin llevar el ejemplar físico.",
       "evidencias": [
+        "titulo",
         "numero_paginas",
-        "formatos_disponibles",
-        "edicion"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¿Dónde están las llaves?: Reflexiones sobre cómo habitar comparte con Un gato vino a verme el terreno de la reflexión personal, aunque plantea esa mirada desde la experiencia de habitar. Astrología, filosofía y magia: Un camino de práctica espiritual se acerca más a la vertiente filosófica y espiritual, frente al enfoque de desarrollo personal y familia de Maestro Bokyeong.",
+      "texto": "La incomodidad te hace libre: Un ensayo sobre libertad, disciplina e identidad para dejar de obedecer a la comodidad comparte con Un gato vino a verme (Obras diversas) el interés por el desarrollo personal. El libro de Sebastián Romero explicita la disciplina y la identidad como ejes, mientras que el de Maestro Bokyeong se presenta dentro del ensayo y la filosofía, con un gato como referencia en el título.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,13 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411214315",
-        "isbn-9788409933419"
+        "isbn-9788409884339"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9d5ae7c5d712513d",
+  "fuente_hash": "30af85d40bacf107",
   "origen": "chatgpt-web"
 }

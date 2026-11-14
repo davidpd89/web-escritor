@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación se dirige a lectores interesados en la espiritualidad y sus fundamentos prácticos. Tsondru Yeshe desarrolla esta materia en 482 páginas, con un planteamiento diferente del entretenimiento narrativo o de los libros sobre cuestiones políticas.",
+      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación se orienta a lectores interesados en los fundamentos y la práctica espiritual del Dharma. La obra de Tsondru Yeshe, de 482 páginas, no responde a la búsqueda de una narración de aventuras ni de una introducción breve a temas generales de desarrollo personal.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,17 +14,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación se publica en tapa dura, con 482 páginas en la edición de Editorial Nous. La encuadernación rígida permite conservar el volumen para consultas y relecturas, aunque su extensión supone transportar un libro físico considerable.",
+      "texto": "La tapa dura reúne las 482 páginas de Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación en un volumen físico de cubierta rígida. Esta presentación permite conservarlo como libro de consulta y volver a sus apartados sobre fundamentos y práctica sin utilizar dispositivos electrónicos.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación se relaciona con Al andar: Vivencias del Camino de Santiago por su orientación hacia cuestiones espirituales. Tsondru Yeshe aborda fundamentos y práctica del Dharma, mientras que Carlos Díaz Ballesta presenta vivencias vinculadas al Camino de Santiago, con una perspectiva más personal.",
+      "texto": "AKITA: Las lágrimas y el mensaje de María y Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación se sitúan en el terreno de la espiritualidad. Teiji Yasuda aborda un asunto vinculado a María, mientras Tsondru Yeshe se ocupa de los fundamentos y la práctica del Dharma; cada título parte de una tradición religiosa diferente.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388099496"
+        "isbn-9791388176357"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b6e5a24acf0abdc4",
+  "fuente_hash": "a96fc84cc58866ff",
   "origen": "chatgpt-web"
 }

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La vida perra de Juanita Narboni (NARRATIVA) encaja con lectores interesados en la narrativa contemporánea y en obras de Ángel Vázquez. Sus 272 páginas ofrecen una extensión superior a la de una lectura breve; no es la opción para quien esté buscando cómic, novela gráfica o una guía de viajes.",
+      "texto": "La vida perra de Juanita Narboni (NARRATIVA), de Ángel Vázquez, encaja con lectores interesados en narrativa contemporánea y novelas de extensión intermedia. Con 272 páginas, se aparta de la lectura breve y no responde a quien busca específicamente un ensayo o una obra de no ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,18 +14,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece La vida perra de Juanita Narboni (NARRATIVA) en una edición física de 272 páginas. Es el formato disponible para quien prefiere leer en papel, conservar el ejemplar o incorporarlo a su biblioteca junto a otras obras de Ángel Vázquez.",
+      "texto": "La vida perra de Juanita Narboni (NARRATIVA) puede leerse en tapa blanda o Kindle. La edición física de El Paseo Editorial reúne 272 páginas y permite prestar o conservar el volumen; Kindle ofrece una alternativa digital para leerlo sin transportar el libro en papel.",
       "evidencias": [
         "titulo",
-        "autores",
-        "numero_paginas",
         "formatos_disponibles",
-        "edicion"
+        "editorial",
+        "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "970ac0ba792d3fd4",
+  "fuente_hash": "8f439430a6c0a8ce",
   "origen": "chatgpt-web"
 }

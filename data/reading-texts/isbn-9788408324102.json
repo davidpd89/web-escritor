@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Aftermyth 1. Penelope y la prueba de los dioses encaja con lectores de fantasía y aventuras que también buscan elementos de terror. Por su combinación de géneros, se aleja de las lecturas centradas exclusivamente en situaciones cotidianas y realistas.",
+      "texto": "Aftermyth 1. Penelope y la prueba de los dioses se dirige a lectores de fantasía que también aceptan elementos de terror. Su título sitúa una prueba relacionada con los dioses en el centro del planteamiento, por lo que se distancia de quienes buscan exclusivamente relatos realistas o cotidianos.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,7 +12,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 488 páginas de Aftermyth 1. Penelope y la prueba de los dioses en un volumen físico, apropiado para conservar en la estantería o regalar. Kindle permite leer la misma obra en formato digital y llevarla en el móvil sin transportar el ejemplar impreso.",
+      "texto": "La tapa dura reúne las 488 páginas de Aftermyth 1. Penelope y la prueba de los dioses en un volumen físico, adecuado para conservarlo o regalarlo. Kindle permite leer la misma obra en formato digital y llevarla en el móvil o en un lector electrónico, sin transportar el libro impreso.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -21,7 +21,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aftermyth 1. Penelope y la prueba de los dioses puede compararse con Artefactos mágicos: El catálogo secreto (MAGIA Y OCULTISMO) por su relación con lo fantástico y la magia. El primero se presenta como una obra de fantasía y aventuras de Tracy Wolff, mientras que el segundo aborda los artefactos mágicos desde un planteamiento de catálogo firmado por Emanuela Brumana y Marco Guadalupi.",
+      "texto": "Aftermyth 1. Penelope y la prueba de los dioses comparte con Coraline, de Neil Gaiman, la presencia de elementos fantásticos e inquietantes. Coraline explora una versión alternativa del hogar, mientras que la obra de Tracy Wolff plantea una prueba vinculada a los dioses. La primera parte de un entorno doméstico transformado y la segunda sitúa su conflicto en el terreno de la fantasía mitológica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,12 +29,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411724210"
+        "lib-0001"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d2f34b8d3ce7e02e",
+  "fuente_hash": "510221fd013cb6dc",
   "origen": "chatgpt-web"
 }

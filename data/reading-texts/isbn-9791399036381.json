@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791399036381",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El tigre en la casa: Una historia cultural del gato, de Carl Van Vechten, se dirige a lectores interesados en los gatos desde una perspectiva cultural y ensayística. Su enfoque corresponde a la no ficción, por lo que se diferencia de una novela protagonizada por animales o de una historia de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El tigre en la casa: Una historia cultural del gato se publica en tapa blanda, con 320 páginas en castellano. La edición impresa permite avanzar por el ensayo y regresar a pasajes concretos sobre la historia cultural del gato; reúne el contenido en un solo volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "43a8cc042247646c",
+  "origen": "chatgpt-web"
+}

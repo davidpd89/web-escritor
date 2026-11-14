@@ -4,28 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores de ciencia ficción y fantasía interesados en la obra de Philip K. Dick. Por su clasificación literaria, se distancia de quienes buscan exclusivamente ensayos sobre hechos reales, aunque también aparece vinculado a ese ámbito temático.",
+      "texto": "¿Sueñan los androides con ovejas eléctricas? (Random House) se orienta a lectores interesados en la ciencia ficción y en obras que también se relacionan con el ensayo. Sus 360 páginas ofrecen una extensión intermedia; encaja menos con quienes buscan exclusivamente fantasía o aventuras sin componentes de reflexión.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¿Sueñan los androides con ovejas eléctricas? (Random House) dispone de una edición en tapa dura de 360 páginas, publicada en castellano por Random House. La cubierta rígida resulta apropiada para conservar el ejemplar y mantenerlo en una biblioteca de ciencia ficción.",
+      "texto": "La tapa dura ofrece las 360 páginas de ¿Sueñan los androides con ovejas eléctricas? (Random House) en un volumen físico de cubierta rígida, adecuado para conservar o regalar. La edición Kindle permite llevar el mismo título en un lector electrónico o dispositivo compatible, sin transportar el libro impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados), de Andy Weir, comparte con ¿Sueñan los androides con ovejas eléctricas? (Random House) su pertenencia a la ciencia ficción, pero destaca una presentación con cantos tintados. Al despertar, rompe el cascarón (Runas), de Becky Chambers, aporta otra referencia del mismo ámbito literario, con distinta autoría.",
+      "texto": "Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) comparte con la obra de Philip K. Dick su vinculación con la ciencia ficción, pero corresponde a Andy Weir y destaca una presentación con cantos tintados. El marciano (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) ofrece otra comparación dentro del mismo género, mientras que ¿Sueñan los androides con ovejas eléctricas? (Random House) también aparece asociado al ensayo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,13 +30,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370093488",
-        "isbn-9791388147470"
+        "isbn-9791388147470",
+        "isbn-9791388147272"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "df9de9b3ad44a7ac",
+  "fuente_hash": "31b6ce05eca188dc",
   "origen": "chatgpt-web"
 }

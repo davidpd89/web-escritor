@@ -4,28 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La incomodidad te hace libre: Un ensayo sobre libertad, disciplina e identidad para dejar de obedecer a la comodidad se dirige a lectores interesados en el desarrollo personal y la reflexión filosófica. Sus 211 páginas abordan cuestiones relacionadas con la disciplina y la identidad, por lo que encaja menos con quien busca una novela o un manual de nutrición centrado en pautas alimentarias.",
+      "texto": "La incomodidad te hace libre: Un ensayo sobre libertad, disciplina e identidad para dejar de obedecer a la comodidad se dirige a lectores interesados en el desarrollo personal desde una perspectiva filosófica. Por su enfoque en la disciplina y la identidad, encaja menos con quienes buscan ficción o una lectura centrada en personajes y tramas.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda presenta las 211 páginas del ensayo de Sebastián Romero en una edición física que permite consultar y marcar pasajes. Kindle ofrece el mismo título como opción de lectura digital, práctica para llevarlo en el móvil o en un lector electrónico. Ambas opciones corresponden a una obra de ensayo y filosofía.",
+      "texto": "La tapa blanda permite consultar y releer en papel las 211 páginas del ensayo de Sebastián Romero, con espacio para incorporar notas propias. Kindle ofrece el mismo título en formato digital, una alternativa para llevar la lectura en el móvil o cambiar el tamaño de letra.",
       "evidencias": [
-        "titulo",
         "autores",
         "numero_paginas",
         "formatos_disponibles",
-        "categorias",
-        "edicion"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El arte de la guerra: El influyente tratado sobre estrategia militar (Filosofía) comparte con La incomodidad te hace libre: Un ensayo sobre libertad, disciplina e identidad para dejar de obedecer a la comodidad el interés por la conducta y la disciplina. El primero aborda la estrategia militar, mientras que Sebastián Romero sitúa la reflexión en la libertad personal y la identidad. Astrología, filosofía y magia: Un camino de práctica espiritual también incorpora la filosofía, pero la relaciona con la práctica espiritual.",
+      "texto": "365 citas para progresar.: Una frase diaria con ciencia y casos reales. comparte con La incomodidad te hace libre: Un ensayo sobre libertad, disciplina e identidad para dejar de obedecer a la comodidad el interés por el progreso personal, pero plantea una estructura de citas diarias frente al ensayo de Sebastián Romero. El arte de la prudencia (Serie Great Ideas): Ediciones icónicas (Penguin Clásicos | Vintage) permite otra comparación desde la filosofía, aunque su eje declarado es la prudencia y no la relación entre libertad y disciplina.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,13 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411214315",
-        "isbn-9788419467911"
+        "isbn-9788409946853",
+        "isbn-9788491058670"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6fe2f4da29e8ac44",
+  "fuente_hash": "d78ac2b86c72bb9e",
   "origen": "chatgpt-web"
 }

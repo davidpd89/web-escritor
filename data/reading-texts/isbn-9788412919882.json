@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788412919882",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Political Herbarium: Propuestas artísticas desde el Herbario Histórico de Ruiz & Pavón (1777-1789) se dirige a lectores interesados en el arte vinculado a materiales históricos y botánicos. Su planteamiento gira alrededor de propuestas artísticas, por lo que se distancia de la narrativa de ficción convencional.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Political Herbarium: Propuestas artísticas desde el Herbario Histórico de Ruiz & Pavón (1777-1789) se presenta en tapa blanda y tiene 47 páginas. Su extensión permite consultar el volumen en papel durante sesiones breves, sin necesidad de manejar una publicación extensa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Political Herbarium: Propuestas artísticas desde el Herbario Histórico de Ruiz & Pavón (1777-1789) y 720 retrats comparten una orientación hacia el arte. La obra de Pamela Martínez Rodríguez parte de un herbario histórico y plantea propuestas artísticas, mientras que el título de Xavier Mollà i Revert sitúa los retratos en primer plano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a489e363a8fa95ff",
+  "origen": "chatgpt-web"
+}

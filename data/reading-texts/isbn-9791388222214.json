@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Reach out (Montena), de Alexandra Monet, se dirige a quienes buscan lecturas relacionadas con el romance, las relaciones de pareja y la familia. Por su clasificación temática, queda fuera de las búsquedas centradas exclusivamente en aventuras o ficción histórica.",
+      "texto": "Reach out (Montena), de Alexandra Monet, se orienta a lectores interesados en el romance. Su clasificación también incluye el ocio y el tiempo libre, por lo que encaja menos con quienes buscan exclusivamente terror, fantasía o novela histórica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,32 +13,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Reach out (Montena) se presenta en tapa blanda, con 400 páginas en castellano. Es una opción física que permite llevar la lectura consigo y consultar pasajes sin depender de una pantalla, aunque su extensión supone cierto volumen al transportarla.",
+      "texto": "Reach out (Montena) está disponible en tapa blanda y cuenta con 400 páginas. Esta edición permite leerlo en papel sin la rigidez de una cubierta dura y conservarlo como volumen físico; por su extensión, resulta más cómodo llevarlo en una bolsa que en un bolsillo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Reach out (Montena), de Alexandra Monet, puede compararse con Estuche Universidad Sorrowsong: Nightshade + Daybreak (Ficción), de Autumn Woods, por su vinculación con la ficción. La diferencia está en la presentación: el primero es un libro de 400 páginas en tapa blanda, mientras que el segundo reúne dos títulos en un estuche. También se distingue por su enfoque romántico frente a las propuestas de alimentación y bienestar presentes entre sus lecturas afines.",
+      "texto": "Reach out (Montena), de Alexandra Monet, se orienta al romance, mientras que 80 crímenes imposibles de resolver (FUERA DE ESCENA), de Gareth Moore y Laura Jayne Ayres, propone resolver enigmas criminales. También se diferencia de Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA), de David Villalón y Mario Villalón, cuyo contenido gira alrededor de la gastronomía. Frente a estas lecturas, Reach out (Montena) se distingue por su temática romántica.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "formatos_disponibles",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328018"
+        "isbn-9791388015816",
+        "isbn-9791387934293"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0c6a729322ec7264",
+  "fuente_hash": "85b5188c8021fd61",
   "origen": "chatgpt-web"
 }

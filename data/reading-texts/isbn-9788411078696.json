@@ -4,25 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El viaje del profesor Caritat o Las desventuras de la Razón: Una comedia filosófica (Andanzas) se orienta a lectores interesados en la narrativa contemporánea con humor y cuestiones políticas. Su planteamiento filosófico y su relación con el poder encajan menos con quienes buscan exclusivamente romance o aventuras sin reflexión política.",
+      "texto": "El viaje del profesor Caritat o Las desventuras de la Razón: Una comedia filosófica (Andanzas) se dirige a lectores de narrativa contemporánea interesados en la política, el poder y el humor. Steven Lukes combina estos ámbitos en una obra de 320 páginas que, por su clasificación, encaja menos con quien busca una novela histórica convencional o un romance.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El viaje del profesor Caritat o Las desventuras de la Razón: Una comedia filosófica (Andanzas) cuenta con una edición en tapa blanda de 320 páginas. El volumen permite leer y retomar sus cuestiones filosóficas y políticas en papel, sin utilizar un dispositivo electrónico.",
+      "texto": "La edición de Tusquets Editores se presenta en tapa blanda y tiene 320 páginas. Este formato permite transportar El viaje del profesor Caritat o Las desventuras de la Razón: Una comedia filosófica (Andanzas) y guardarlo en una estantería sin el volumen adicional de una cubierta rígida.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "edicion",
+        "editorial",
         "numero_paginas",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El viaje del profesor Caritat o Las desventuras de la Razón: Una comedia filosófica (Andanzas) puede compararse con La máquina del tiempo: Ediciones icónicas (Penguin Clásicos) por su relación con la ficción especulativa. Steven Lukes incorpora humor y cuestiones políticas a una comedia filosófica, mientras que el título de H.G. Wells sitúa el desplazamiento temporal en el centro de su propuesta.",
+      "texto": "El vuelo de los gansos, de Ángel Boixadós, comparte con El viaje del profesor Caritat o Las desventuras de la Razón: Una comedia filosófica (Andanzas) el interés por el poder, aunque el primero plantea enfrentarse a él como una cuestión de principios y el segundo incorpora humor y filosofía. El fuego de Bandung (Hispánica), de Jordi Soler, ofrece otra opción de narrativa con autoría distinta, sin que su título establezca el mismo enfoque filosófico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +33,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788491052395"
+        "isbn-9791387846602",
+        "isbn-9788425375040"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "03d15d478566a99f",
+  "fuente_hash": "aef10acbb961f5af",
   "origen": "chatgpt-web"
 }

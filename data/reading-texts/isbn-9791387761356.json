@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387761356",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Siempre París: Guía ilustrada de una ciudad infinita se dirige a quienes buscan una aproximación a París desde los viajes y el arte. Por su orientación hacia el diseño y el tiempo libre, se aleja de las guías centradas exclusivamente en cuestiones prácticas del desplazamiento.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Siempre París: Guía ilustrada de una ciudad infinita está disponible en tapa dura, con 304 páginas dedicadas a una guía ilustrada de París. Esta edición física permite consultar sus contenidos sobre viajes y arte, conservarla en una biblioteca o entregarla como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Siempre París: Guía ilustrada de una ciudad infinita comparte con Itálica (Arte y patrimonio) el interés por los lugares desde una perspectiva artística y cultural. Marin Montagut centra su obra en París, mientras que el título de Rosa García Perea se ocupa de Itálica y su patrimonio. Frente a Paisajes naturales a la acuarela: Un recorrido por sus elementos y cómo pintarlos, de Johannes Vloothuis, la diferencia está entre conocer una ciudad ilustrada y aprender a representar paisajes mediante la pintura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370205577",
+        "isbn-9788498748260"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "75d427a1bfdae73f",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La magia de los cinco elementos / Bewitching the Elements: A Guide to Empowering Yourself Through Earth, Air, Fire, Water, and Spirit se orienta a lectores interesados en la magia vinculada a la tierra, el aire, el fuego, el agua y el espíritu. Su relación con el desarrollo personal y la espiritualidad lo aleja de las lecturas centradas exclusivamente en aventuras de ficción.",
+      "texto": "La magia de los cinco elementos / Bewitching the Elements: A Guide to Empowering Yourself Through Earth, Air, Fire, Water, and Spirit se dirige a lectores interesados en la espiritualidad y el desarrollo personal mediante los elementos naturales. Su enfoque práctico y espiritual encaja menos con quienes buscan una novela de magia y aventuras.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,30 +12,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La magia de los cinco elementos / Bewitching the Elements: A Guide to Empowering Yourself Through Earth, Air, Fire, Water, and Spirit se presenta en tapa blanda, con 352 páginas. Este formato permite mantener el volumen físico a mano para consultar los contenidos relacionados con los elementos y la práctica espiritual.",
+      "texto": "La magia de los cinco elementos / Bewitching the Elements: A Guide to Empowering Yourself Through Earth, Air, Fire, Water, and Spirit se publica en tapa blanda, con 352 páginas en castellano. El formato físico permite volver a los apartados dedicados a los elementos y conservar el libro como lectura de consulta sobre espiritualidad.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La magia de los cinco elementos / Bewitching the Elements: A Guide to Empowering Yourself Through Earth, Air, Fire, Water, and Spirit comparte el interés por la magia y la espiritualidad con Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies. Gabriela Herstik organiza su propuesta alrededor de cinco elementos, mientras que Soledad Davies incorpora expresamente la astrología y la filosofía a su planteamiento.",
+      "texto": "El doble / The Double comparte con esta obra su proximidad a cuestiones espirituales, aunque presenta otro asunto desde el propio título. El origen. La raíz invisible de lo que dirige tu vida aborda las constelaciones familiares y la historia personal, mientras que Gabriela Herstik organiza su propuesta alrededor de la tierra, el aire, el fuego, el agua y el espíritu.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "afines_catalogo",
         "categorias"
       ],
       "enlaces": [
-        "isbn-9788411214315"
+        "isbn-9786073877428",
+        "isbn-9791388038372"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6388432d5836639e",
+  "fuente_hash": "a1600d903f877b93",
   "origen": "chatgpt-web"
 }

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Yo, mi, me, pero contigo: Terapia de pareja para construir una relación sana sin dejar de ser tú (Salud y bienestar), de Dra. Marisa Navarro, aborda las relaciones de pareja desde la psicología y el desarrollo personal. Se dirige a quienes buscan tratar la convivencia afectiva y la identidad individual, no a lectores interesados en una historia romántica de ficción.",
+      "texto": "Yo, mi, me, pero contigo: Terapia de pareja para construir una relación sana sin dejar de ser tú (Salud y bienestar), de Dra. Marisa Navarro, se dirige a lectores interesados en las relaciones de pareja, la psicología y el desarrollo personal. Su planteamiento sobre convivencia e identidad individual no corresponde a quien busca una historia romántica de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,18 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne las 352 páginas de Yo, mi, me, pero contigo: Terapia de pareja para construir una relación sana sin dejar de ser tú (Salud y bienestar). El soporte físico permite consultar distintos pasajes y volver a ellos durante la lectura, sin depender de un dispositivo electrónico. Está publicada en castellano por Libros Cúpula.",
+      "texto": "Yo, mi, me, pero contigo: Terapia de pareja para construir una relación sana sin dejar de ser tú (Salud y bienestar) está disponible en tapa blanda. Sus 352 páginas, publicadas por Libros Cúpula en castellano, permiten una lectura en papel y la consulta posterior de apartados sobre relaciones de pareja.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "editorial",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Yo, mi, me, pero contigo: Terapia de pareja para construir una relación sana sin dejar de ser tú (Salud y bienestar) comparte el interés por las relaciones afectivas con Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología), de Ramón Nogueras Pérez. La obra de Dra. Marisa Navarro se centra en construir una relación sana conservando la identidad personal, mientras que la de Ramón Nogueras Pérez plantea cómo surgen y terminan los enamoramientos.",
+      "texto": "Yo, mi, me, pero contigo: Terapia de pareja para construir una relación sana sin dejar de ser tú (Salud y bienestar), de Dra. Marisa Navarro, aborda las relaciones de pareja desde la psicología. Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, se centra en las experiencias de la infancia y su proceso de sanación. Ambos tratan cuestiones personales, pero el primero pone el foco en la relación de pareja y el segundo en la relación con la propia infancia.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387534370"
+        "isbn-9788410944206"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c6ef0a8b66d4e4b3",
+  "fuente_hash": "cfb33aaa60c050f3",
   "origen": "chatgpt-web"
 }

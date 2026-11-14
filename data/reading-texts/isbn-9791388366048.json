@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Memento Administrativo 2027 está dirigido a lectores que trabajan o estudian materias de derecho administrativo. Sus 2064 páginas corresponden a una obra jurídica extensa, alejada de la lectura narrativa y de los libros de divulgación general.",
+      "texto": "Memento Administrativo 2027 está orientado a lectores que buscan una obra jurídica sobre derecho administrativo, con una extensión propia de un volumen de consulta. Sus 2064 páginas lo alejan de las introducciones breves y de las lecturas generales sin enfoque jurídico.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Memento Administrativo 2027 se publica en tapa blanda, con una extensión de 2064 páginas. Por su volumen, resulta más manejable como libro de consulta sobre una mesa que como lectura para transportar diariamente. La edición física permite revisar páginas sin utilizar una pantalla.",
+      "texto": "Memento Administrativo 2027 se ofrece en tapa blanda y reúne 2064 páginas en un volumen físico. Por su extensión, resulta más apropiado para consultar en una mesa de trabajo que para transportarlo habitualmente durante los desplazamientos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -22,20 +22,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Memento Administrativo 2027 comparte el ámbito jurídico con Blockchain: un desafío legal (Monografía), de Ana Isabel Quiroz Ruiz. La diferencia está en el alcance anunciado: Lefebvre aborda el derecho administrativo, mientras que la monografía de Ana Isabel Quiroz Ruiz se centra en los desafíos legales de blockchain. Son enfoques distintos dentro del estudio del derecho.",
+      "texto": "Memento Administrativo 2027 aborda el derecho administrativo, mientras que Blockchain: un desafío legal (Monografía) delimita su materia a las cuestiones jurídicas relacionadas con blockchain. Casos prácticos sobre el despido (Supuestos prácticos) se diferencia por su atención a los despidos y por presentar supuestos prácticos, frente al alcance administrativo del primero.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370610265"
+        "isbn-9791370610265",
+        "isbn-9791370651749"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b01d8256a4c25423",
+  "fuente_hash": "6c43a2f1a1cf5468",
   "origen": "chatgpt-web"
 }

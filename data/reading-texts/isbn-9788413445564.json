@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Niños ancestrales está dirigido a quienes buscan comprender la salud infantil desde el embarazo hasta las primeras etapas de alimentación y desarrollo. Su contenido aborda decisiones de crianza, nutrición y bienestar, por lo que no se plantea como un libro de entretenimiento infantil ni como una colección de actividades para niños.",
+      "texto": "Niños ancestrales se dirige a familias y personas interesadas en la salud infantil desde el embarazo hasta las primeras etapas de alimentación y desarrollo. Su orientación hacia la crianza, la nutrición y el bienestar encaja menos con quien busca relatos infantiles o actividades recreativas para niños.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,26 +13,28 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Niños ancestrales explica cómo la gestación, la lactancia, la incorporación de alimentos y el entorno intervienen en el desarrollo infantil. Rubén Muñoz aborda aspectos digestivos, inmunitarios, neurológicos y emocionales a lo largo de sus capítulos, relacionándolos con decisiones de cuidado durante las primeras etapas de vida.",
+      "texto": "Niños ancestrales organiza su contenido alrededor de las decisiones que afectan al desarrollo infantil durante el embarazo, la lactancia y la introducción de alimentos. Rubén Muñoz también trata la influencia del entorno y el funcionamiento digestivo, vinculándolos con aspectos inmunitarios, neurológicos y emocionales. Sus 320 páginas permiten abordar estas cuestiones por etapas de crianza.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Niños ancestrales ofrece 320 páginas en tapa blanda, Kindle y audiolibro. La edición impresa en rústica con solapas permite consultar capítulos en papel; Kindle facilita la lectura desde el móvil y el audiolibro permite escuchar los contenidos mientras se realizan otras actividades.",
+      "texto": "Niños ancestrales está disponible en tapa blanda con solapas, Kindle y audiolibro. La edición impresa reúne 320 páginas para consultar apartados durante la crianza; Kindle facilita la lectura digital y el audiolibro permite escuchar el contenido mientras se realizan otras actividades.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "edicion",
-        "formatos_disponibles"
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Niños ancestrales y ¿Cómo aprenden los bebés? comparten el interés por el desarrollo temprano, aunque Rubén Muñoz incorpora alimentación, digestión e inmunidad y Héctor Ruiz Martín se centra en experiencias, mente y cerebro. Los dones de los niños altamente sensibles, de Úrsula Perona, aborda específicamente la sensibilidad infantil, frente al enfoque más amplio de salud y crianza de Niños ancestrales.",
+      "texto": "Niños ancestrales comparte con ¿Cómo aprenden los bebés? el interés por el desarrollo infantil, aunque Rubén Muñoz aborda también el embarazo, la alimentación y la salud digestiva, mientras Héctor Ruiz Martín se centra en la mente y el cerebro del bebé. Frente a Los dones de los niños altamente sensibles, su enfoque abarca distintas dimensiones de la salud infantil en lugar de centrarse en la alta sensibilidad.",
       "evidencias": [
         "titulo",
         "autores",

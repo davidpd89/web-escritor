@@ -4,41 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Materia viva (Rosita y Amparo por... LiterNatura), de Jorge Comensal, se dirige a lectores interesados en el ensayo y la reflexión filosófica, con el derecho como otro ámbito de referencia. Por su clasificación temática, se aleja de quienes buscan una novela de ficción o un manual centrado exclusivamente en cuestiones prácticas.",
+      "texto": "Materia viva (Rosita y Amparo por... LiterNatura) se dirige a lectores interesados en el ensayo y en cuestiones filosóficas y jurídicas. Por su clasificación temática, queda fuera de las búsquedas centradas en novelas de ficción o manuales prácticos de una disciplina concreta.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Materia viva (Rosita y Amparo por... LiterNatura) está disponible en tapa blanda, con 240 páginas en castellano. Esta edición de Rosita y Amparo Editores permite consultar y releer pasajes en papel, además de incorporar anotaciones durante una lectura dedicada al ensayo y la filosofía.",
+      "texto": "La tapa blanda reúne las 240 páginas de Materia viva (Rosita y Amparo por... LiterNatura) en una edición física que permite consultar y señalar pasajes. Kindle ofrece el mismo título en formato digital, sin necesidad de transportar el volumen impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "categorias"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Materia viva (Rosita y Amparo por... LiterNatura) puede compararse con La vida de los animales: 21 (esenciales), de JM Coetzee, por su relación con la reflexión sobre la vida. La diferencia está en el enfoque anunciado: el primero figura entre los ensayos de filosofía y derecho, mientras que el segundo sitúa a los animales en el centro de su título.",
+      "texto": "Materia viva (Rosita y Amparo por... LiterNatura) puede compararse con La vida de los animales: 21 (esenciales) por su orientación hacia cuestiones de reflexión. También se aproxima a Justicia, ¿quién responde?: El mundo cambia, la justicia no (Ensayo) por su relación con el pensamiento jurídico, aunque este último plantea expresamente una cuestión sobre la justicia. Son obras de autoría diferente.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "autores"
       ],
       "enlaces": [
-        "isbn-9791399281019"
+        "isbn-9791399281019",
+        "isbn-9791370206017"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8a19cbdfcd56d60e",
+  "fuente_hash": "2cefa9e0023b89aa",
   "origen": "chatgpt-web"
 }

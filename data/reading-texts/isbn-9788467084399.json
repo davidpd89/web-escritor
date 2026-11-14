@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788467084399",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi verdadera historia: Edición limitada a precio especial (Colección Especial) se dirige a lectores interesados en las biografías y memorias vinculadas a figuras públicas. Su clasificación también incluye arte y diseño, por lo que reúne dos ámbitos de interés para quien busca libros de no ficción; no responde a quien busca una novela o un relato de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Mi verdadera historia: Edición limitada a precio especial (Colección Especial) se presenta en tapa dura, publicada por Booket el 11 de noviembre de 2026. Sus 336 páginas corresponden a una edición en castellano identificada como Colección Especial, con el título Edición limitada a precio especial.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para Mi verdadera historia: Edición limitada a precio especial (Colección Especial). Sus 336 páginas ofrecen una edición física de extensión intermedia, adecuada para conservar en la biblioteca o consultar sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi verdadera historia: Edición limitada a precio especial (Colección Especial) comparte con Desde que era un crío un planteamiento centrado en la trayectoria personal, aunque sus autores son distintos: Isabel Preysler y Locus. Frente a El cardadismo ilustrado: Filosofía para sobrevivir a las caídas sin despeinarte, de Mario Vaquerizo, cambia el foco de la reflexión filosófica sobre las dificultades por el relato biográfico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399084894",
+        "isbn-9788410647756"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "002f1dfa53893cf1",
+  "origen": "chatgpt-web"
+}

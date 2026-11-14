@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Damián, de J O'Pater, se orienta a lectores interesados en fantasía, aventuras y ciencia ficción, con elementos relacionados con la historia y la Edad Media. Sus 596 páginas lo sitúan entre las lecturas extensas, lejos de quienes prefieren relatos breves o libros centrados exclusivamente en hechos históricos.",
+      "texto": "Damián, de J O'Pater, se orienta a lectores de fantasía y aventuras con interés por elementos históricos. Sus 596 páginas corresponden a una lectura extensa, por lo que se aleja de quien busca una narración breve o un libro centrado exclusivamente en hechos históricos documentados.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,31 +14,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Damián se presenta en tapa blanda, con 596 páginas en castellano. Por su extensión, conviene tener en cuenta el tamaño de la lectura física: permite mantener toda la obra en un solo volumen, aunque resulta menos ligero de transportar que un libro corto.",
+      "texto": "Damián está disponible en tapa blanda y tiene 596 páginas en castellano. La edición de J. O reúne una lectura extensa en un único volumen físico, apropiado para quien prefiera avanzar por sus capítulos en papel y conservar el libro en su biblioteca.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aftermyth 1. Penelope y la prueba de los dioses, de Tracy Wolff, y Damián, de J O'Pater, se relacionan por su vinculación con la fantasía. El primero identifica desde el título una prueba ligada a los dioses, mientras que Damián combina fantasía y aventuras con referencias a la historia, la ciencia ficción y la Edad Media en 596 páginas.",
+      "texto": "Damián puede compararse con La estocada de Nevers: El jorobado (Zenda-Edhasa), de Paul Féval, por su relación con la aventura. La obra de J O'Pater combina fantasía, aventuras e historia, mientras que el título de Paul Féval pone el acento en una estocada y un personaje identificado como el jorobado. La elección depende del interés por una mezcla de géneros o por una aventura presentada desde esos elementos concretos.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408324102"
+        "isbn-9788435055871"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5a3a58f328ac6e69",
+  "fuente_hash": "a6fc99ffc3f5b70e",
   "origen": "chatgpt-web"
 }

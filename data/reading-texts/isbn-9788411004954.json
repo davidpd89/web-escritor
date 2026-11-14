@@ -4,50 +4,51 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La galaxia ultra se dirige a lectores interesados en la actualidad política, los movimientos de extrema derecha y sus efectos sobre las democracias. Su orientación periodística y su atención a dirigentes y gobiernos contemporáneos lo diferencian de una novela política o de una historia general de las ideologías.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "encaje_documentado",
-      "texto": "La galaxia ultra es una investigación periodística de Miguel González sobre el crecimiento de las fuerzas políticas ultras en distintos países. Examina figuras como Abascal, Milei, Meloni y Trump, y relaciona su presencia institucional y electoral con los cambios políticos que afectan a las democracias contemporáneas.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La galaxia ultra se ofrece en tapa blanda y Kindle. La edición en papel consta de 424 páginas y utiliza encuadernación rústica con solapas; Kindle permite leer la investigación en el móvil o en un lector electrónico y prescindir del volumen físico durante los desplazamientos.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "edicion",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "La galaxia ultra y El estado del Estado comparten el interés por la política contemporánea y las tensiones que afectan a las instituciones. Miguel González investiga el avance internacional de movimientos ultras, mientras que Enrique López López centra su reflexión en España, la polarización y la incertidumbre política.",
+      "texto": "La galaxia ultra, de Miguel González, se dirige a lectores interesados en la extrema derecha, los movimientos políticos actuales y sus efectos sobre la democracia. Su enfoque de investigación periodística encaja menos con quienes buscan ficción o una aproximación histórica desligada de la actualidad.",
       "evidencias": [
         "titulo",
         "autores",
         "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La galaxia ultra examina el crecimiento de las fuerzas políticas ultras mediante una investigación periodística de alcance internacional. Miguel González aborda figuras como Abascal, Milei, Meloni y Trump, y sitúa su influencia en distintos países y entre los jóvenes dentro del debate sobre el futuro democrático.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La galaxia ultra puede leerse en tapa blanda o en Kindle. La edición física de Ediciones Península tiene 424 páginas y encuadernación rústica con solapas, mientras que Kindle permite consultar el texto desde un dispositivo compatible sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La galaxia ultra y El estado del Estado tratan cuestiones políticas contemporáneas, aunque el primero investiga el auge de dirigentes ultras y el segundo plantea una reflexión sobre España y sus instituciones. A la sombra del Estado también examina mecanismos de poder, pero concentra su atención en el espionaje, la desinformación y las operaciones encubiertas.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788434441057",
         "isbn-9788423441013"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ff3745ef7852b317",
+  "fuente_hash": "db1fcffcca04e707",
   "origen": "chatgpt-web"
 }

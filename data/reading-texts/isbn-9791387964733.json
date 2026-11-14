@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387964733",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El maestro de amor: 402 (Narrativa del Acantilado), de Mauricio Wiesenthal, se sitúa entre la narrativa contemporánea, el ensayo y la filosofía. Encaja con lectores interesados en esos ámbitos y se aleja de las búsquedas centradas en manuales prácticos, guías de viaje o literatura juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El maestro de amor: 402 (Narrativa del Acantilado) se publica en tapa blanda, con 336 páginas en castellano. La edición de Editorial Acantilado permite leerlo en papel y conservarlo para posteriores consultas o relecturas, sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar, comparte con El maestro de amor: 402 (Narrativa del Acantilado) el terreno de la reflexión filosófica, aunque su título anuncia aforismos frente al cruce de narrativa y ensayo de Mauricio Wiesenthal. El dilema del erizo (Narrativa), de Toon Tellegen, ofrece otra referencia narrativa, diferenciada por su autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426433909",
+        "isbn-9791387548278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "21de862c728b5ca9",
+  "origen": "chatgpt-web"
+}

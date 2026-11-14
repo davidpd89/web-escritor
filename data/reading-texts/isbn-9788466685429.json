@@ -4,33 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Nos quisieron histéricas, nos volvimos históricas (No ficción), de Lidia San José, se dirige a quienes leen historia, ensayo y biografías. Su enfoque editorial encaja menos con quien busca una novela de ficción o una obra centrada exclusivamente en la divulgación científica.",
+      "texto": "Nos quisieron histéricas, nos volvimos históricas (No ficción) se dirige a lectores interesados en historia, biografías y ensayo. Su orientación documental lo diferencia de las novelas de ficción y de quienes buscan una narración fantástica o de aventuras.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer y consultar en papel las 304 páginas de Nos quisieron histéricas, nos volvimos históricas (No ficción). La edición Kindle reúne el libro en formato digital, que puede llevarse en un lector electrónico o en el móvil sin transportar el volumen físico.",
+      "texto": "La tapa blanda ofrece las 304 páginas de Nos quisieron histéricas, nos volvimos históricas (No ficción) en un volumen físico que permite consultar y señalar pasajes. Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro de papel.",
       "evidencias": [
-        "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Nos quisieron histéricas, nos volvimos históricas (No ficción) comparte el terreno de la escritura histórica con Lectora amiga: Primeras crónicas (1926-1927): 29 (Biblioteca Elena Fortún). La obra de Lidia San José se presenta como ensayo, historia y biografías, mientras que el título de Elena Fortún identifica expresamente unas primeras crónicas. Ambas se distinguen también por su autoría.",
+      "texto": "Ayer enterramos a un niño en Palma: Vida y muerte de Chocolate (1965-1978), de Tomeu Canyelles Canyelles, permite comparar el enfoque biográfico con el interés histórico de Nos quisieron histéricas, nos volvimos históricas (No ficción). Campo de concentración: 82 (Biblioteca del Exilio), de Eduardo de Ontañón, plantea otra aproximación a la memoria histórica, frente al enfoque sobre las mujeres que sugiere el título de Lidia San José.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9791388381416"
+        "isbn-9788417645311",
+        "isbn-9788410148659"
       ]
     }
   ],

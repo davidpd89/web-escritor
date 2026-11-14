@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388485879",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Calidad de vida y hábitos saludables de mujeres en la peri y posmenopausia en dos zonas básicas de salud de Tenerife. se dirige a lectores interesados en la salud femenina durante esas etapas y en su estudio dentro de un ámbito territorial concreto. No está planteado por su título como una guía general de nutrición para todas las edades.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda tiene 32 páginas, una extensión que permite consultar el contenido en un volumen físico breve. Calidad de vida y hábitos saludables de mujeres en la peri y posmenopausia en dos zonas básicas de salud de Tenerife. puede guardarse junto a otras publicaciones sobre salud y bienestar para posteriores consultas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Calidad de vida y hábitos saludables de mujeres en la peri y posmenopausia en dos zonas básicas de salud de Tenerife. y Todavía hay margen: Longevidad y el lujo de decidir a tiempo comparten el interés por la salud y las etapas de la vida. El primero delimita su atención a mujeres en la peri y posmenopausia de Tenerife; el segundo aborda la longevidad y las decisiones relacionadas con ella.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399301090"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dc7d040c1d3f7a4f",
+  "origen": "chatgpt-web"
+}

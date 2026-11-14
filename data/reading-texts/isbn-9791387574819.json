@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791387574819",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Murciélagos de la República (EDICIÓN LUJO) se dirige a lectores de narrativa contemporánea que buscan una obra de Zachary Thomas Dodson en castellano. Sus 448 páginas corresponden a una edición en tapa dura, por lo que se aleja de las lecturas breves y de quienes prefieren el cómic o el ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Murciélagos de la República (EDICIÓN LUJO) se presenta en tapa dura, con 448 páginas encuadernadas en un volumen físico. Esta edición de Duomo Ediciones permite conservar el libro en una biblioteca o entregarlo como regalo, aunque su extensión requiere tener en cuenta el espacio y el peso al transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e79d72af1fcfa79e",
+  "origen": "chatgpt-web"
+}

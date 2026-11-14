@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mexikid: Sueña / Mexikid: Dreams: A Graphic Memoir se dirige a lectores interesados en las memorias gráficas, la historia y el humor. La obra de Pedro Martín tiene 320 páginas y se aparta de la novela fantástica al presentarse como un relato de carácter autobiográfico.",
+      "texto": "Mexikid: Sueña / Mexikid: Dreams: A Graphic Memoir se dirige a lectores interesados en las memorias gráficas y los relatos personales vinculados a la historia. Pedro Martín firma una obra de 320 páginas, distinta de una novela de ficción convencional o de un manual de consulta histórica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,17 +14,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mexikid: Sueña / Mexikid: Dreams: A Graphic Memoir cuenta con una edición en tapa blanda de 320 páginas, publicada por Vintage Espanol. El soporte físico permite recorrer sus memorias gráficas y volver a consultar las páginas, sin depender de una pantalla para la lectura.",
+      "texto": "Mexikid: Sueña / Mexikid: Dreams: A Graphic Memoir se publica en tapa blanda, con 320 páginas. La edición de Vintage Espanol permite leer la obra en papel y conservarla en una biblioteca física. Su encuadernación flexible facilita transportarla frente a un volumen rígido de dimensiones semejantes.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "editorial",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La Risa de mi vida comparte con Mexikid: Sueña / Mexikid: Dreams: A Graphic Memoir la presencia del humor como punto de encuentro para el lector. Jorge Bolaños parte de la adopción de una perra, mientras que Pedro Martín presenta unas memorias gráficas vinculadas también a la historia. La diferencia reside en el punto de partida y en el carácter gráfico anunciado por Mexikid: Sueña / Mexikid: Dreams: A Graphic Memoir.",
+      "texto": "Mexikid: Sueña / Mexikid: Dreams: A Graphic Memoir puede ponerse junto a 76, de Felipe Pigna, por su vinculación con la historia. La diferencia más visible está en el planteamiento anunciado: Pedro Martín presenta una memoria gráfica, mientras que 76 lleva un título centrado en una referencia numérica. También cambia la autoría, un criterio para distinguir ambas lecturas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +33,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466684606"
+        "isbn-9788408329695"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b5a71e9952e67a45",
+  "fuente_hash": "33e5a20bf9bcd998",
   "origen": "chatgpt-web"
 }

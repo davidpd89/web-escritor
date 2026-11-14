@@ -4,42 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Publica sin perecer (y sin vender el alma al diablo) se dirige especialmente a investigadores de ciencias sociales y humanidades preocupados por la integridad académica. También aborda cuestiones relevantes para quienes trabajan en otros campos científicos, pero su centro de atención es la ética de la investigación, no la preparación técnica de artículos.",
+      "texto": "Está dirigido principalmente a investigadores del ámbito social y humanístico que desean examinar las implicaciones morales de sus decisiones profesionales. También puede interesar a quienes se preocupan por la integridad científica, pero no está concebido como un manual de metodología ni como una guía práctica para publicar artículos académicos.",
       "evidencias": [
-        "titulo",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "temas_y_enfoque",
-      "texto": "Ramón Andrés Feenstra analiza los conflictos de autoría, los procesos de evaluación científica y la influencia de los indicadores de rendimiento en la universidad. Para hacerlo, organiza situaciones reconocibles de la actividad investigadora dentro de una semana ficticia, utilizando la narración como herramienta de reflexión ética.",
-      "evidencias": [
-        "autores",
         "sinopsis_editorial",
         "categorias"
       ]
     },
     {
-      "modulo": "que_formato_elegir",
-      "texto": "Publica sin perecer (y sin vender el alma al diablo) se publica en tapa blanda, con 144 páginas. Esta edición permite anotar los dilemas profesionales planteados y consultar en papel los apartados sobre publicación, evaluación y relaciones de poder en el ámbito académico.",
+      "modulo": "temas_y_enfoque",
+      "texto": "Examina la autoría académica, la revisión por pares, las métricas de evaluación y las jerarquías universitarias. Ramón Andrés Feenstra utiliza una semana ficticia en la vida de un investigador para presentar decisiones con consecuencias éticas, sin reducirlas a soluciones universales.",
       "evidencias": [
-        "titulo",
+        "sinopsis_editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda y reúne 144 páginas en castellano. Su extensión permite consultar por separado los dilemas relacionados con la investigación y volver a los pasajes que interesen durante el trabajo académico.",
+      "evidencias": [
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Publica sin perecer (y sin vender el alma al diablo) comparte con Antes de perder el juicio, de Mauricio García Villegas, la preocupación por el juicio crítico y la relación entre verdad y presiones externas. El primero delimita esos conflictos al trabajo científico y universitario; el segundo los aborda desde la propaganda, el sectarismo y los entornos de opinión.",
+      "texto": "Puede compararse con Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar, por su orientación hacia la reflexión. Mientras ese título propone aforismos, Publica sin perecer (y sin vender el alma al diablo) desarrolla conflictos de ética académica mediante una narración ficticia.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9791388387302"
+        "isbn-9791387548278"
       ]
     }
   ],

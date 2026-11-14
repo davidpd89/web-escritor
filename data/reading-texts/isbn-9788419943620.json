@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788419943620",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tabacalera: 73 (ποίησις [poíesis]), de Acoyani Guzmán Bárcena, se dirige a lectores de narrativa contemporánea. Con 184 páginas, presenta una extensión más reducida que la de una novela larga, por lo que se ajusta menos a quien busque una lectura especialmente extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tabacalera: 73 (ποίησις [poíesis]) se ofrece en tapa blanda, con 184 páginas en castellano. La edición de Libros de la Resistencia reúne el contenido en un volumen físico relativamente breve, cómodo para transportar y leer sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8a87ea2fe4d0b615",
+  "origen": "chatgpt-web"
+}

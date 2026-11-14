@@ -4,50 +4,47 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "A la sombra del Estado se dirige a lectores interesados en las relaciones internacionales, los servicios de inteligencia y los mecanismos clandestinos del poder. Su atención a las operaciones encubiertas y la desinformación lo diferencia de una novela de espías centrada en personajes ficticios y aventuras individuales.",
+      "texto": "A la sombra del Estado se orienta a lectores interesados en el espionaje, las relaciones internacionales y los mecanismos ocultos del poder político. No responde al planteamiento de una novela de aventuras, porque su eje es explicar el funcionamiento de los servicios de inteligencia.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La obra examina el funcionamiento de los servicios de inteligencia y su intervención en conflictos políticos internacionales. Luis de la Corte Ibáñez aborda el espionaje, las operaciones secretas y las estrategias de guerra híbrida desde una perspectiva explicativa sobre las estructuras del poder, desarrollada en 576 páginas.",
+      "texto": "La lectura examina cómo intervienen los servicios de inteligencia en los conflictos internacionales. Luis de la Corte Ibáñez trata el espionaje, la desinformación, las operaciones clandestinas y la guerra híbrida desde una perspectiva vinculada a la política contemporánea.",
       "evidencias": [
-        "titulo",
         "autores",
         "sinopsis_editorial",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "A la sombra del Estado puede leerse en tapa blanda o en Kindle. La edición física de Editorial Ariel presenta 576 páginas en rústica con solapas, mientras que Kindle permite llevar la obra en un lector electrónico o dispositivo compatible sin transportar ese volumen de papel.",
+      "texto": "La tapa blanda con solapas permite leer las 576 páginas en papel y conservarlas para futuras consultas. Kindle ofrece una alternativa digital para llevar el mismo título en un lector electrónico o dispositivo compatible, sin transportar el volumen físico.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Crónica de un desafío al Estado comparte con A la sombra del Estado el interés por los conflictos políticos, pero reconstruye los acontecimientos del Procés desde una perspectiva personal. El otro lado de la guerra también trata las consecuencias de decisiones políticas y militares, aunque desplaza la atención hacia quienes padecen los conflictos, frente al análisis del espionaje y los servicios de inteligencia.",
+      "texto": "Nada es lo que era y A la sombra del Estado comparten el interés por las transformaciones del orden internacional. Florentino Portero aborda las claves de una nueva etapa global, mientras que Luis de la Corte Ibáñez concentra su atención en los servicios de inteligencia y las operaciones encubiertas.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "autores",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788423441303",
-        "isbn-9788408326137"
+        "isbn-9788467083729"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "03a6d3b2648735f2",
+  "fuente_hash": "7414198c173c4f1f",
   "origen": "chatgpt-web"
 }

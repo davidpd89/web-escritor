@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370205621",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Libro de la Ley: Liber AL vel Legis (Sapientia Aurea) se dirige a lectores interesados en religión y espiritualidad. Sus 136 páginas, firmadas por Aleister Crowley, responden a ese ámbito temático más que a una búsqueda de divulgación científica o historia general.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Libro de la Ley: Liber AL vel Legis (Sapientia Aurea) está disponible en tapa blanda, con 136 páginas en castellano. Esta edición de Almuzara permite llevar el volumen en papel y consultarlo por partes sin manejar un libro especialmente extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Libro de la Ley: Liber AL vel Legis (Sapientia Aurea) comparte el ámbito espiritual con Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia, de Barbara Hand Clow. El segundo título anuncia un enfoque sobre la consciencia, mientras que la obra de Aleister Crowley se presenta como un libro de la ley. Ambos se distinguen también por su autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798888505335"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "424c21c5257c3bf0",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387948160",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bienvenido, bebé: Un libro muy tierno para dar la bienvenida a un nuevo bebé y celebrar el amor que lo rodea: 15 (Álbumes ilustrados) está dirigido al ámbito de la lectura infantil y familiar, especialmente cuando llega un bebé. Su tema es la bienvenida y el afecto familiar, no las aventuras juveniles ni los conflictos propios de lectores adolescentes.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de tapa dura contiene 32 páginas y pertenece a la colección identificada en el título como Álbumes ilustrados. Su encuadernación rígida permite conservar el ejemplar como recuerdo familiar o regalarlo con motivo de la llegada de un bebé.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bienvenido, bebé: Un libro muy tierno para dar la bienvenida a un nuevo bebé y celebrar el amor que lo rodea: 15 (Álbumes ilustrados) comparte con Este Regalo Es Para Ti (Tesoros) | El mejor regalo para el hermano mayor: un cuento de parte del bebé que acaba de llegar. la llegada de un bebé a la familia. Jane Chapman aborda la bienvenida al recién nacido, mientras que Sandra Alonso plantea un regalo dirigido al hermano mayor desde la perspectiva del bebé.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410252622"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "afcfd836e70650bc",
+  "origen": "chatgpt-web"
+}

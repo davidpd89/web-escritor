@@ -4,39 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Lazos (Laude) se orienta a lectores juveniles interesados en la familia, la narrativa contemporánea y la divulgación científica. Su combinación temática se aleja de las obras centradas exclusivamente en la fantasía o la aventura, y sus 79 páginas permiten abordar la lectura en sesiones breves.",
+      "texto": "Lazos (Laude) se dirige a lectores de narrativa juvenil y contemporánea interesados también en contenidos de divulgación científica. Su combinación de ámbitos se aleja de las lecturas centradas exclusivamente en la fantasía o la aventura.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Lazos (Laude) se publica en tapa dura, con 79 páginas en castellano. La encuadernación rígida facilita conservar el ejemplar o entregarlo como regalo, mientras que su extensión permite una lectura breve sin necesidad de transportar un volumen grueso.",
+      "texto": "La edición en tapa dura reúne las 79 páginas de Lazos (Laude) en un volumen de extensión breve. Su encuadernación rígida resulta práctica para conservarlo en una biblioteca personal o entregarlo como regalo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Lazos (Laude) puede compararse con El clan Monet 1 - Tesoro (Ficción crossover), de Weronika Anna Marczak, por su relación con la narrativa dirigida al público joven. La obra de Elda Moreno Villanueva incorpora la familia y la divulgación científica entre sus temas, mientras que el título de Weronika Anna Marczak se presenta como ficción crossover y señala el número 1 en su denominación.",
+      "texto": "Lazos (Laude) comparte el ámbito de la divulgación científica con Así es la vida de los animales: Historias de crueldad, amor y supervivencia en la naturaleza (Imago Mundi), centrado en la naturaleza. Frente a ese enfoque animal, Lazos (Laude) también se sitúa en la narrativa juvenil y contemporánea.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427226074"
+        "isbn-9788423370979"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a48f7d051d37fab0",
+  "fuente_hash": "e360bb307e798fa9",
   "origen": "chatgpt-web"
 }

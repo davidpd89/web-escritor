@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409901364",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "CONCIENCIA PRIMERA: La Revelación Empírica de un Más Allá, de Roberto Lloreda, se dirige a lectores interesados en la conciencia, la espiritualidad y el desarrollo personal. Por su enfoque temático y sus 828 páginas, encaja menos con quienes buscan una lectura breve de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de CONCIENCIA PRIMERA: La Revelación Empírica de un Más Allá es de tapa blanda y reúne 828 páginas en castellano. Su extensión favorece una lectura distribuida en varias sesiones, mientras que el formato físico permite consultar y retomar pasajes directamente sobre el papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "CONCIENCIA PRIMERA: La Revelación Empírica de un Más Allá puede compararse con Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia, de Barbara Hand Clow, por su interés compartido en la conciencia. Frente a esa referencia a las dimensiones, el título de Roberto Lloreda plantea una revelación empírica sobre el más allá.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798888505335"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "70dd5aae678625c2",
+  "origen": "chatgpt-web"
+}

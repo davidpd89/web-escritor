@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388078675",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Guía práctica para la valoración de la declaración de la víctima de violencia de género en el proceso penal se dirige a lectores interesados en el tratamiento jurídico de estas declaraciones. Su enfoque procesal y su clasificación en derecho la alejan de quienes buscan narrativa de ficción o una aproximación general a la violencia de género.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Guía práctica para la valoración de la declaración de la víctima de violencia de género en el proceso penal se presenta en tapa blanda, con 150 páginas. La edición física permite consultar y marcar pasajes durante el estudio de esta materia jurídica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Guía práctica para la valoración de la declaración de la víctima de violencia de género en el proceso penal comparte con Casos prácticos sobre el despido (Supuestos prácticos) su orientación hacia cuestiones jurídicas aplicadas. Vicente Magro Servet se centra en la valoración de declaraciones dentro del proceso penal, mientras que la obra del Departamento de Documentación Iberley aborda supuestos relacionados con el despido.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370651749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "255cd2811d0e7d71",
+  "origen": "chatgpt-web"
+}

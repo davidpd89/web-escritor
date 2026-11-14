@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410407800",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando era pequeña - Ahora que soy mayor (Infantil i juvenil) se dirige al público infantil y juvenil interesado en el crecimiento personal. Sus 44 páginas sitúan la lectura en una extensión breve; no está planteado como una obra extensa de desarrollo personal para adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Cuando era pequeña - Ahora que soy mayor (Infantil i juvenil) es de tapa dura y tiene 44 páginas en castellano. Su extensión permite leerla en pocas sesiones y la encuadernación rígida facilita guardarla y volver a utilizarla como libro físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amigos de verdad aborda la amistad en la construcción de la personalidad infantil y adolescente, mientras que Cuando era pequeña - Ahora que soy mayor (Infantil i juvenil) se sitúa en el desarrollo personal. Emociones: Cuentos infantiles para comprender lo que sentimos: 2 (APRENDE) comparte el ámbito infantil, pero centra su propuesta en comprender los sentimientos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994532",
+        "isbn-9791388410109"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "273c8e15493b3772",
+  "origen": "chatgpt-web"
+}

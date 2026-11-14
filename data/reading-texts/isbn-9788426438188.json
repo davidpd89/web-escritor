@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Colección Mafalda: 11 tomos en una lata (edición limitada) (Lumen Gráfica) se dirige a lectores interesados en el humor gráfico y en reunir varias entregas de Quino. Su presentación en 11 tomos la diferencia de un relato único y de una novela convencional, por lo que no responde a quien busca una narración continua en un solo volumen.",
+      "texto": "Colección Mafalda: 11 tomos en una lata (edición limitada) (Lumen Gráfica), de Quino, se dirige a lectores interesados en reunir Mafalda en una colección física. Su presentación en varios tomos encaja menos con quienes buscan una novela de volumen único o una lectura narrativa continua.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,30 +13,28 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "El rasgo distintivo de esta edición limitada es la reunión de 11 tomos en una lata, tal como indica su título. Lumen la publica el 26 de noviembre de 2026 en castellano, con un total de 1056 páginas en tapa blanda y el ISBN 9788426438188.",
+      "texto": "La característica distintiva de Colección Mafalda: 11 tomos en una lata (edición limitada) (Lumen Gráfica) es su presentación de 11 tomos reunidos en una lata. Lumen la publica en castellano, con tapa blanda y 1056 páginas en total, bajo el ISBN 9788426438188.",
       "evidencias": [
         "titulo",
         "editorial",
-        "fecha_publicacion",
-        "idioma",
-        "numero_paginas",
         "edicion",
+        "numero_paginas",
+        "idioma",
         "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La colección está disponible en tapa blanda, distribuida en 11 tomos que suman 1056 páginas. Esta organización permite manejar los tomos por separado durante la lectura, mientras que la lata forma parte de la presentación física de la edición limitada.",
+      "texto": "La tapa blanda es el formato de los 11 tomos incluidos en Colección Mafalda: 11 tomos en una lata (edición limitada) (Lumen Gráfica). La distribución de sus 1056 páginas en varios volúmenes permite manejar cada tomo por separado, mientras que la lata sirve como presentación conjunta para guardarlos o regalarlos.",
       "evidencias": [
-        "formatos_disponibles",
         "titulo",
-        "numero_paginas",
-        "edicion"
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Lo mejor de Guille (Los amigos de Mafalda) (Lumen Gráfica) comparte con Colección Mafalda: 11 tomos en una lata (edición limitada) (Lumen Gráfica) la autoría de Quino y la vinculación con Mafalda. La diferencia editorial está en el alcance anunciado: uno se centra en Guille, mientras que el otro reúne una colección de 11 tomos.",
+      "texto": "Lo mejor de Guille (Los amigos de Mafalda) (Lumen Gráfica), también de Quino, comparte el universo de Mafalda con Colección Mafalda: 11 tomos en una lata (edición limitada) (Lumen Gráfica). La diferencia está en el alcance anunciado por sus títulos: el primero se centra en Guille, mientras que la colección reúne 11 tomos de Mafalda en una lata.",
       "evidencias": [
         "titulo",
         "autores",
@@ -49,6 +47,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0c93ee705f1d6b89",
+  "fuente_hash": "2ff808a7d0dc171d",
   "origen": "chatgpt-web"
 }

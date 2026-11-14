@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "HISTORIAS DE LA CANARICULTURA se dirige a lectores interesados en la cría del canario, la historia de su domesticación y los relatos breves. Miguel Ángel Jiménez combina ficción histórica y divulgación científica alrededor de un mismo animal. Su estructura de relatos se aleja de quien busca una novela extensa con una única trama.",
+      "texto": "Está pensado para lectores interesados en la historia de la domesticación del canario y en los relatos breves con elementos de divulgación. No se plantea como una novela de argumento único: Miguel Ángel Jiménez distribuye el recorrido histórico en 23 narraciones de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "La obra examina el origen, los cambios históricos y la situación actual de la domesticación del pájaro canario mediante 23 relatos cortos de ficción histórica. Miguel Ángel Jiménez utiliza la narración para tratar una actividad relacionada con los animales y su relación con las personas. La combinación de relatos y divulgación diferencia su enfoque de un tratado exclusivamente científico.",
+      "texto": "El libro aborda el origen, los cambios históricos y la situación actual de la cría doméstica del pájaro canario. Miguel Ángel Jiménez utiliza 23 relatos cortos de ficción histórica para tratar ese proceso, combinando una temática vinculada a la divulgación científica con una estructura narrativa.",
       "evidencias": [
         "titulo",
         "autores",
@@ -22,22 +22,23 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "HISTORIAS DE LA CANARICULTURA se ofrece en tapa blanda, con 178 páginas en castellano. El formato en papel permite leer sus 23 relatos por separado y retomar el volumen sin necesidad de seguir una narración única. Su extensión facilita distribuir la lectura en sesiones breves.",
+      "texto": "La tapa blanda corresponde a la edición de Editorial Letra Minúscula de 178 páginas, una extensión que permite leer los relatos por separado. También se ofrece en tapa dura para quien prefiera una encuadernación rígida y en Kindle para leerlos en formato digital.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "edicion",
+        "editorial",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "HISTORIAS DE LA CANARICULTURA comparte con Terrores cotidianos (edición bilingüe español/zoque) / Everyday Fears (Bilingual Edition), de Jaime Sakäsmä, el ámbito de los relatos. También puede compararse con A sangre y fuego, de Manuel Chaves Nogales, por la relación entre narración e historia. La obra de Miguel Ángel Jiménez se distingue por sus 23 ficciones dedicadas a la domesticación del canario.",
+      "texto": "A sangre y fuego comparte con HISTORIAS DE LA CANARICULTURA el uso de la literatura para acercarse al pasado, aunque Manuel Chaves Nogales aborda un enfrentamiento histórico y Miguel Ángel Jiménez la domesticación del canario. Terrores cotidianos (edición bilingüe español/zoque) / Everyday Fears (Bilingual Edition) ofrece otra aproximación al relato, diferenciada por su edición bilingüe y su temática de temores cotidianos.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
         "isbn-9786073879095",
@@ -47,6 +48,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a4d59abb6be6afcc",
+  "fuente_hash": "2c17c7f5cf82e5fb",
   "origen": "chatgpt-web"
 }

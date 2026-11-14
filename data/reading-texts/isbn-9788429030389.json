@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El principio de primacía de la persona deportista: Un nuevo paradigma de interpretación del Derecho deportivo se dirige a quienes estudian o trabajan con cuestiones jurídicas relacionadas con el deporte. Su enfoque sobre la interpretación del Derecho deportivo queda fuera de la lectura recreativa de historias deportivas o de los manuales de entrenamiento.",
+      "texto": "El principio de primacía de la persona deportista: Un nuevo paradigma de interpretación del Derecho deportivo se orienta a lectores interesados en el análisis jurídico del deporte y en la posición de quienes lo practican. Su materia es la interpretación del Derecho deportivo, por lo que no responde a la búsqueda de consejos de entrenamiento ni de historias sobre competiciones.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,30 +12,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El principio de primacía de la persona deportista: Un nuevo paradigma de interpretación del Derecho deportivo se publica en tapa blanda, con 176 páginas en castellano. Su extensión permite trabajar con el volumen físico y volver a consultar los apartados relacionados con la interpretación jurídica del deporte.",
+      "texto": "El principio de primacía de la persona deportista: Un nuevo paradigma de interpretación del Derecho deportivo se presenta en tapa blanda, con 176 páginas en castellano. El ejemplar impreso permite realizar anotaciones y consultar de nuevo los apartados dedicados a la interpretación jurídica en el ámbito deportivo.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
+        "formatos_disponibles",
         "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Blockchain: un desafío legal (Monografía) coincide con El principio de primacía de la persona deportista: Un nuevo paradigma de interpretación del Derecho deportivo en el tratamiento jurídico de una materia específica, pero aborda la tecnología blockchain en lugar del deporte. Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I también pertenece al ámbito del Derecho, aunque se ocupa de las relaciones contractuales de consumo y no de la posición jurídica de la persona deportista.",
+      "texto": "El principio de primacía de la persona deportista: Un nuevo paradigma de interpretación del Derecho deportivo y Blockchain: un desafío legal (Monografía) comparten el interés por los problemas jurídicos vinculados a ámbitos específicos. José Manuel Chía Salas centra su obra en la persona deportista y el Derecho deportivo, mientras que Ana Isabel Quiroz Ruiz aborda las cuestiones legales asociadas a la tecnología blockchain. La diferencia principal es el sector al que se aplica el análisis jurídico.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370610265",
-        "isbn-9791370297305"
+        "isbn-9791370610265"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "81dc5446d873a65f",
+  "fuente_hash": "90713c326c50b233",
   "origen": "chatgpt-web"
 }

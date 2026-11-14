@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788483678961",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los libros vivos, de Jesus Aller, se sitúa entre el ensayo y la narrativa contemporánea, por lo que se dirige a lectores interesados en esos dos ámbitos literarios. Con 842 páginas, se aleja de las lecturas breves y de quienes buscan específicamente una obra de fantasía o un manual práctico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los libros vivos se publica en tapa blanda, con 842 páginas en castellano. Por su extensión, conviene contar con un volumen físico considerable para leerlo en casa o transportarlo; el formato permite conservarlo en papel sin recurrir a una edición de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alfred y Emily (Narrativa), de Doris Lessing, ofrece un punto de comparación por su orientación narrativa. Los libros vivos, de Jesus Aller, combina su clasificación como narrativa contemporánea con la de ensayo, mientras que Alfred y Emily (Narrativa) se presenta expresamente bajo una denominación narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426438515"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3174486d1c163bd0",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788409824816",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "MENTE DE JUEGO: Psicología clínica, rendimiento mental y construcción de equipos aplicada al fútbol de competición. está dirigido a lectores interesados en la psicología aplicada al deporte y el trabajo en equipo. Su enfoque sobre el fútbol competitivo resulta menos ajustado a quienes buscan un manual general de técnica futbolística o una lectura de ficción deportiva.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "MENTE DE JUEGO: Psicología clínica, rendimiento mental y construcción de equipos aplicada al fútbol de competición. está disponible en tapa blanda y Kindle. La edición física tiene 266 páginas para consultar y revisar en papel; Kindle facilita llevar el contenido en el móvil o en un lector electrónico durante entrenamientos y desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "MENTE DE JUEGO: Psicología clínica, rendimiento mental y construcción de equipos aplicada al fútbol de competición. comparte el fútbol como materia con La ciencia del fútbol para niños: El libro de los porqués del fútbol: 145 curiosidades, preguntas y retos para niños y niñas futboleros de 8 a 12 años (La ciencia del deporte para niños), de Angel Manuel Montero Anaya. Sergio Pérez Serer y Thalía Pérez Vieco se centran en la psicología y los equipos de competición; el otro título plantea preguntas y retos para un público infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409925155"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "472cb6345c81cfd8",
+  "origen": "chatgpt-web"
+}

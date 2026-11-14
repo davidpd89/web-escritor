@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los guardianes de la bahía mágica: 2 (Alma Juvenil) encaja con lectores infantiles y juveniles interesados en la fantasía, las aventuras y los entornos naturales. Se aleja de las lecturas realistas que prescinden de elementos mágicos y de los relatos centrados exclusivamente en situaciones cotidianas.",
+      "texto": "Los guardianes de la bahía mágica: 2 (Alma Juvenil), de Kira Gembri, se dirige a lectores infantiles y juveniles interesados en la fantasía y las aventuras. Su clasificación temática lo sitúa en la narrativa fantástica, por lo que no corresponde a quienes buscan una historia realista o centrada en otros géneros.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los guardianes de la bahía mágica: 2 (Alma Juvenil) se publica en tapa dura y tiene 224 páginas en castellano. La encuadernación rígida protege el volumen durante su uso y permite conservarlo en una colección de libros infantiles y juveniles.",
+      "texto": "La tapa dura reúne sus 224 páginas en un volumen físico, con una encuadernación pensada para conservarlo en la estantería. Es el formato disponible de esta edición de Editorial Alma, adecuado para quien prefiere leer en papel y conservar el libro.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "categorias"
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los guardianes de la bahía mágica: 2 (Alma Juvenil) comparte con Estuche Magic Animals. Misiones especiales 1 y 2 la combinación de magia y aventuras dirigida al público infantil. La obra de Kira Gembri sitúa la bahía en su título, mientras que la propuesta de Susanna Isern, Carles Dalmau y Nil López reúne misiones especiales en un estuche. El título identifica la obra de Kira Gembri con el n.º 2.",
+      "texto": "Comparte el componente mágico y fantástico con K-Pop Witch Academy 1. El sueño de una aprendiz, de Fiona Scoble, aunque este último incorpora el contexto de una academia y las actuaciones. También tiene puntos de contacto con Iris y Luna: cuidadoras de cachorritos mágicos 8 - ¡Un reno en apuros!: ¡Un libro con purpurina en la cubierta!, de Aurora Quirón, que lleva la fantasía al terreno de las primeras lecturas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408327332"
+        "isbn-9791387695682",
+        "isbn-9788408325048"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "14f088be024ac2e5",
+  "fuente_hash": "3312ffc52dcd4b0a",
   "origen": "chatgpt-web"
 }

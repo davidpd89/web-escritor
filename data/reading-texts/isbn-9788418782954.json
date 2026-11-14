@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788418782954",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Heridas: 45 (Libros inútiles), de Regina Fiz Santos, encaja con lectores de poesía y con quienes buscan obras incluidas en el ámbito juvenil. Su clasificación combina poesía y narrativa juvenil, por lo que no responde a la búsqueda de una novela extensa centrada en la aventura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Heridas: 45 (Libros inútiles) es de tapa blanda y contiene 66 páginas en castellano. Su extensión permite transportarla con facilidad y consultar pasajes en papel sin manejar un volumen grueso. La publica Ediciones la Uña Rota.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Heridas: 45 (Libros inútiles) comparte el ámbito poético con s-t técnica mixta: (colección de poemas), de Aldo Sanz. La segunda obra identifica expresamente su contenido como una colección de poemas, mientras que el libro de Regina Fiz Santos también está clasificado como narrativa juvenil. Vuela, extraña alma, de Emilio Arnaiz López, constituye otra referencia del catálogo con distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788498277500",
+        "isbn-9791388391477"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "49fb1955d708bb0e",
+  "origen": "chatgpt-web"
+}

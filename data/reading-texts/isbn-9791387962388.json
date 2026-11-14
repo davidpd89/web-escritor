@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387962388",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "After God 7 (Shônen) se dirige a lectores de manga y fantasía que buscan una narración gráfica. El título lo identifica como el n.º 7, por lo que se diferencia de los primeros volúmenes de una serie y de las novelas fantásticas desarrolladas exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "After God 7 (Shônen) está disponible en tapa blanda, con 192 páginas en castellano. Esta edición de Distrito Manga permite leer las viñetas en papel y colocar el volumen junto a otros títulos de la colección física de Sumi Eno.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "After God 8 (Shônen) es la comparación más directa con After God 7 (Shônen): ambos llevan la firma de Sumi Eno y pertenecen a la misma serie, aunque sus títulos identifican números distintos. Astro Royale 1 (Shônen): Universo Manga comparte el formato narrativo del manga shônen, pero corresponde a una obra de Ken Wakui. Para distinguirlos, la autoría y el número indicado en cada título son las referencias principales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962647",
+        "isbn-9791387962845"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d83525784383b286",
+  "origen": "chatgpt-web"
+}

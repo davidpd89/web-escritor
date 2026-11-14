@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Memento Penal 2027 se dirige a lectores que necesitan una obra extensa sobre derecho penal, especialmente para estudio o consulta jurídica. Sus 2274 páginas lo alejan de una introducción breve al derecho y de las lecturas narrativas destinadas al ocio.",
+      "texto": "Memento Penal 2027 se dirige a quienes necesitan consultar una obra jurídica centrada en el ámbito penal. Sus 2274 páginas responden a un uso de estudio o consulta extensa, más que a una lectura introductoria breve sobre cuestiones legales.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,32 +13,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Memento Penal 2027 se ofrece en tapa blanda y reúne 2274 páginas en castellano. Por su extensión, resulta más apropiado para mantenerlo en un lugar fijo de estudio o consulta que para transportarlo a diario; el papel permite localizar y revisar apartados durante el trabajo.",
+      "texto": "La tapa blanda de Memento Penal 2027 contiene 2274 páginas, una extensión considerable para transportar a diario. El volumen físico permite trabajar con referencias y localizar pasajes durante sesiones de estudio, aunque su tamaño favorece la consulta en un lugar fijo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Memento Penal 2027 puede compararse con Casos prácticos sobre el despido (Supuestos prácticos), de Departamento de Documentación Iberley, porque ambos se sitúan en el ámbito jurídico. El primero se identifica con el derecho penal y reúne 2274 páginas; el segundo se centra en supuestos prácticos de despido, una materia laboral distinta.",
+      "texto": "Casos prácticos sobre el despido (Supuestos prácticos) comparte con Memento Penal 2027 su orientación jurídica, pero se concentra en supuestos de despido frente al ámbito penal. Blockchain: un desafío legal (Monografía) también aborda cuestiones de derecho, aunque delimita su materia a los problemas legales relacionados con blockchain.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9791370610265",
         "isbn-9791370651749"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "73012790ad994f45",
+  "fuente_hash": "56856f79058052d6",
   "origen": "chatgpt-web"
 }

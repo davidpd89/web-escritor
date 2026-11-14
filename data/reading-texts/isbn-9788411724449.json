@@ -4,38 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El asiento del alma; La expansión de la percepción humana más allá de los cinco sentidos (ESPIRITUALIDAD Y VIDA INTERIOR) se dirige a lectores interesados en la espiritualidad y en las ideas sobre la percepción que trascienden los sentidos físicos. Su enfoque se aleja de quien busca una explicación exclusivamente científica de los mecanismos sensoriales.",
+      "texto": "Se orienta a lectores de espiritualidad interesados en la percepción humana más allá de los cinco sentidos. El planteamiento de Gary Zukav se aleja de una lectura centrada exclusivamente en la nutrición o el bienestar físico, pues su tema principal es la vida interior y la expansión de la percepción.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El asiento del alma; La expansión de la percepción humana más allá de los cinco sentidos (ESPIRITUALIDAD Y VIDA INTERIOR) cuenta con una edición en tapa blanda de 248 páginas. La encuadernación flexible permite llevar el libro y consultar sus contenidos sobre espiritualidad y percepción en formato físico.",
+      "texto": "La tapa blanda de Ediciones Obelisco S.l. contiene 248 páginas en castellano. Es una edición física que permite subrayar y consultar pasajes sobre espiritualidad y percepción humana, con una extensión delimitada para organizar la lectura por sesiones.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "edicion",
         "numero_paginas",
-        "categorias"
+        "idioma",
+        "titulo",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El asiento del alma; La expansión de la percepción humana más allá de los cinco sentidos (ESPIRITUALIDAD Y VIDA INTERIOR), de Gary Zukav, comparte el interés espiritual con Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies. El primero centra su planteamiento en la percepción más allá de los sentidos; el segundo anuncia un acercamiento a la astrología, la filosofía y la magia. Los dos títulos presentan vías temáticas distintas para explorar la espiritualidad.",
+      "texto": "Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia comparte con El asiento del alma; La expansión de la percepción humana más allá de los cinco sentidos (ESPIRITUALIDAD Y VIDA INTERIOR) el interés por ampliar la consciencia, aunque Barbara Hand Clow lo plantea mediante las dimensiones. Caminando a través de la sombra, de Calvin Amandus, ofrece otra lectura vinculada a la espiritualidad, frente al enfoque de Gary Zukav sobre la percepción humana.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788411214315"
+        "isbn-9798888505335",
+        "isbn-9798182903509"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2fb46090e7e123e3",
+  "fuente_hash": "876268d042ce0b1e",
   "origen": "chatgpt-web"
 }

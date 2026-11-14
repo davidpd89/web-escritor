@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788413618005",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la historia universal a través de los naufragios y los hallazgos de la arqueología submarina. Su enfoque histórico encaja menos con quienes buscan exclusivamente una aventura naval de ficción o un manual técnico de navegación.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Aborda la historia del mundo a partir de 12 naufragios y de los descubrimientos realizados mediante la arqueología submarina. David Gibbins utiliza los restos de embarcaciones como eje temático para relacionar el pasado histórico con su investigación bajo el agua.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene 420 páginas y permite consultar en papel los episodios históricos vinculados a los naufragios. Kindle ofrece la misma obra en formato digital para leerla en un dispositivo electrónico o móvil, sin necesidad de transportar el volumen físico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La historia del mundo en 12 naufragios: Los mayores descubrimientos de la arqueología submarina (Shackleton Books) y Ave César (Narrativas Históricas) comparten su vinculación con el pasado, pero David Gibbins lo aborda desde los hallazgos submarinos y Rex Warner desde la narrativa histórica. España en la escena global. Redes de poder, comercio y cultura (siglos XV-XXI): 1 (Plural) amplía la comparación hacia las conexiones comerciales y culturales, frente al eje de los naufragios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788435064125",
+        "isbn-9791370380779"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "efd717d0d340b962",
+  "origen": "chatgpt-web"
+}

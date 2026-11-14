@@ -4,38 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Detectives de barrio 3 - ¿Quién la está liando en la feria? (Montena) está dirigido a lectores que buscan misterio, aventuras y humor. Su planteamiento se sitúa en la narrativa de intriga y entretenimiento; no responde a quien busque una lectura de desarrollo personal o divulgación.",
+      "texto": "Detectives de barrio 3 - ¿Quién la está liando en la feria? (Montena) encaja con lectores interesados en aventuras, detectives y misterios situados en una feria. Sus 128 páginas ofrecen una extensión relativamente breve y el título lo identifica como el n.º 3 de Detectives de barrio. No se orienta a quienes buscan una novela romántica.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es en tapa dura y tiene 128 páginas, un volumen manejable para llevarlo o terminarlo en pocas sesiones. Es la opción para quien prefiere conservar el libro en papel y tener una encuadernación rígida.",
+      "texto": "Detectives de barrio 3 - ¿Quién la está liando en la feria? (Montena) está disponible en tapa dura, con 128 páginas en castellano. La cubierta rígida permite conservar el ejemplar y resulta práctica para regalarlo o incorporarlo a una colección. Es la edición publicada por Montena.",
       "evidencias": [
-        "edicion",
+        "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "idioma",
+        "editorial",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Comparte con Animalize 21 3. Animalize 21 y el misterioso show de teatro (Jóvenes influencers), de Animalize21, la presencia de un número en el título y un planteamiento editorial dirigido a lectores de entretenimiento. La diferencia está en sus referencias: Isaac Palmiola firma una propuesta de misterio, aventuras y humor, mientras que el otro título se identifica con Animalize21.",
+      "texto": "Perrock Holmes 22 - La caza de Lord Monty: El final de la serie Perrock Holmes (Jóvenes lectores) comparte autor, Isaac Palmiola, y la referencia detectivesca con Detectives de barrio 3 - ¿Quién la está liando en la feria? (Montena). El primero anuncia el final de su serie y el segundo plantea desde el título un misterio en una feria. Ambos pertenecen a series distintas, identificadas por sus propios títulos.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328131"
+        "isbn-9791388222092"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5a838151b5daee26",
+  "fuente_hash": "aa3bf6c86a64b8ae",
   "origen": "chatgpt-web"
 }

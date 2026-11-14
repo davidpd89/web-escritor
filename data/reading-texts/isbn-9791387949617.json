@@ -4,38 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Este pack de Patricia García-Rojo se dirige a jóvenes lectores que buscan misterios, aventuras y humor, con elementos de terror. Reúne dos casos detectivescos, uno relacionado con un tren y otro con una casa con ruedas. Por sus temas, se aleja de las lecturas centradas en el realismo cotidiano y sin enigmas.",
+      "texto": "Este pack se dirige a lectores jóvenes interesados en las aventuras de misterio con elementos de terror. Reúne dos casos de Los cazamisterios, uno relacionado con un tren y una bruja y otro con una casa con ruedas; se aleja de las lecturas centradas en conflictos realistas.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Los cazamisterios - Pack con: El caso del tren de la bruja | El caso de la casa con ruedas: Secretos, risas y detectives... ¿te unes al club? (Jóvenes lectores) está disponible en tapa blanda. Sus 256 páginas reúnen los dos casos en un mismo pack, que puede guardarse junto al resto de libros de la colección.",
+      "texto": "El pack se presenta en tapa blanda, con 256 páginas en castellano publicadas por Alfaguara. Esta edición reúne El caso del tren de la bruja y El caso de la casa con ruedas en una misma compra, por lo que permite tener ambos casos en papel sin adquirirlos por separado.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "formatos_disponibles",
-        "numero_paginas"
+        "editorial",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los cazamisterios 12 - El caso de la misión en la Luna comparte con este pack la autoría de Patricia García-Rojo y los casos de los hermanos Misterio, aunque plantea una misión lunar en lugar de los dos escenarios del pack. Secreto de bruja 5 - El diario de los sueños (Jóvenes lectores) también pertenece a la obra de Patricia García-Rojo, pero su título se centra en las brujas y los sueños, no en casos detectivescos.",
+      "texto": "Los cazamisterios 12 - El caso de la misión en la Luna comparte con este pack la autoría de Patricia García-Rojo y las investigaciones de los hermanos Misterio. La diferencia está en los casos anunciados: aquí se reúnen el del tren de la bruja y el de la casa con ruedas, mientras que el otro título plantea una misión en la Luna.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388277894",
         "isbn-9791387949778"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9f40011979c75177",
+  "fuente_hash": "d8f1d8c168e0fa34",
   "origen": "chatgpt-web"
 }

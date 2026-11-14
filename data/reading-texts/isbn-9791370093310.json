@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9791370093310",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigida a lectores de poesía que buscan reunir la obra poética de Miguel Hernández en un solo volumen. Por sus 832 páginas y su presentación especial en tapa dura, responde mejor a una lectura extensa o de consulta que a quien prefiere una antología breve de poemas seleccionados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Alianza Editorial se distingue por la tapa dura, los cantos tintados y la recopilación de la obra poética completa de Miguel Hernández. Publicada el 15 de octubre de 2026, cuenta con 832 páginas y aparece identificada en el título como el número 20 de Especial (Únicos).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Alianza Editorial reúne 832 páginas y añade cantos tintados, una característica material que también influye en su presentación como regalo. Para quien quiera conservar la poesía de Miguel Hernández y volver a sus textos, el volumen ofrece una encuadernación rígida destinada a un uso continuado.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, comparte el interés por la poesía, pero delimita su selección al ámbito amoroso frente a la recopilación completa de Miguel Hernández. 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, también pertenece a la poesía, aunque se presenta como un título individual y no como una obra poética completa en edición especial.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "51370b40ba812597",
+  "origen": "chatgpt-web"
+}

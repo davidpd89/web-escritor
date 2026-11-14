@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9786073875905",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tu brújula interior / The Inner Compass: Cultivating the Courage to Trust Yourself se dirige a lectores interesados en el desarrollo personal y el bienestar. Sus 136 páginas encajan con quien busca una lectura breve sobre estos asuntos, pero no con quien prefiere una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Tu brújula interior / The Inner Compass: Cultivating the Courage to Trust Yourself está disponible en tapa blanda. Sus 136 páginas permiten llevar el volumen en papel y consultarlo por partes, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tu brújula interior / The Inner Compass: Cultivating the Courage to Trust Yourself comparte el ámbito del desarrollo personal con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito. El libro de Lawrence Yeo se centra, según su título, en aprender a confiar en uno mismo, mientras que el de Liz Moody plantea cambios relacionados con la salud, las relaciones y otros aspectos de la vida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "039cdc604004a882",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388599026",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Toda la lana es pelos: Poesía satírica, burlesca y jocosa actual se dirige a lectores de poesía que buscan humor, sátira y tratamiento burlesco. Sus 92 páginas ofrecen una extensión breve, pero su planteamiento poético se aleja de la narrativa convencional y de los poemarios centrados en un tono solemne.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Toda la lana es pelos: Poesía satírica, burlesca y jocosa actual se publica en tapa blanda y reúne 92 páginas. Esta combinación facilita llevar el poemario en el bolso o la mochila y volver a poemas concretos sin transportar un volumen extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Toda la lana es pelos: Poesía satírica, burlesca y jocosa actual puede compararse con 223 esquinas: 16 (La garza roja), ya que ambos pertenecen al ámbito de la poesía. La diferencia está en la autoría y el enfoque anunciado: Isabel Bermejo Calle propone poesía satírica y burlesca, mientras que Antonio Fernández Lera presenta una obra cuyo título no señala ese tratamiento humorístico. El primero reúne 92 páginas en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ea13a6eb0658a38a",
+  "origen": "chatgpt-web"
+}

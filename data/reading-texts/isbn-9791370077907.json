@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370077907",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Marine Serre | Colección Leyendas de la Moda | Libro LIX se dirige a lectores interesados en moda, arte y diseño. Sus 128 páginas corresponden a un volumen de colección centrado en una figura de la moda, no a una novela de ficción ni a un manual general de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Marine Serre | Colección Leyendas de la Moda | Libro LIX se presenta en tapa dura y reúne 128 páginas en castellano. La edición de RBA Coleccionables permite conservarlo como volumen físico dentro de Colección Leyendas de la Moda, con cubierta rígida para su consulta y almacenamiento.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Marine Serre | Colección Leyendas de la Moda | Libro LIX pertenece a la misma colección que Donna Karan | Colección Leyendas de la Moda | Libro LX y Raf Simons | Colección Leyendas de la Moda | Libro LXIII. Los tres títulos son de RBA Coleccionables España y comparten su enfoque en figuras de la moda, pero cada volumen se dedica a una figura diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370077914",
+        "isbn-9791370079338"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1521f5fd44abc794",
+  "origen": "chatgpt-web"
+}

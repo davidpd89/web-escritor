@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Nachín y Renacho 1 - Mutantes en la ciudad (Ficción Kids), de Jota Jota, encaja con lectores de aventuras que también buscan humor. Su propuesta gira alrededor de mutantes en un entorno urbano, por lo que se distancia de las lecturas centradas en el romance o la historia.",
+      "texto": "Nachín y Renacho 1 - Mutantes en la ciudad (Ficción Kids), de Jota Jota, se orienta a lectores de ficción infantil interesados en aventuras con mutantes y escenarios urbanos. Por su planteamiento, se distancia de las historias centradas en relaciones románticas o conflictos realistas sin elementos extraordinarios.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,17 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Nachín y Renacho 1 - Mutantes en la ciudad (Ficción Kids) se presenta en tapa dura, con 176 páginas en castellano. La encuadernación rígida resulta práctica para conservar el libro entre lecturas y entregarlo como regalo físico.",
+      "texto": "Nachín y Renacho 1 - Mutantes en la ciudad (Ficción Kids) cuenta con una edición en tapa dura de 176 páginas. La encuadernación rígida resulta práctica para conservar el libro entre lecturas y entregarlo como regalo; su extensión permite identificar de antemano el volumen de lectura en papel.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Nachín y Renacho 1 - Mutantes en la ciudad (Ficción Kids) comparte el humor con 7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica), de Francisco Ibáñez. La obra de Jota Jota combina aventuras y mutantes urbanos, mientras que la de Francisco Ibáñez se presenta dentro de una colección de humor clásico.",
+      "texto": "Abre el misterio 1 - El robo de las croquetas, de Carlos G. Gurpegui, comparte con Nachín y Renacho 1 - Mutantes en la ciudad (Ficción Kids) una propuesta narrativa construida alrededor de un problema concreto, aunque uno gira en torno a unas croquetas desaparecidas y el otro anuncia mutantes en la ciudad. A, B, C Y La Sra.smith En Tierra De Vikingos: 11 (MiniMini), de Núria Parera Ciuró, también plantea un escenario de aventuras, pero sitúa su referencia temática en los vikingos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788402431790"
+        "isbn-9788412857597",
+        "isbn-9788427256644"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bfd669260018921b",
+  "fuente_hash": "e323168568d6566d",
   "origen": "chatgpt-web"
 }

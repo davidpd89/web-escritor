@@ -4,28 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La vida que pensamos. Cuentos de fútbol / The Life We Imagined. Stories About Soccer está dirigida a lectores de relatos contemporáneos interesados en el fútbol como asunto literario. Eduardo Sacheri reúne cuentos en un volumen de 352 páginas; su planteamiento no corresponde a una novela de argumento único ni a un manual deportivo.",
+      "texto": "Está dirigido a lectores de relatos contemporáneos que buscan historias vinculadas al fútbol. La vida que pensamos. Cuentos de fútbol / The Life We Imagined. Stories About Soccer, de Eduardo Sacheri, reúne el interés literario y el deportivo, por lo que se distancia de los manuales de entrenamiento y de las novelas concebidas como una única narración extensa.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La vida que pensamos. Cuentos de fútbol / The Life We Imagined. Stories About Soccer cuenta con una edición en tapa blanda de 352 páginas, publicada por Penguin Random House Grupo Editorial. El formato permite leer los relatos por separado en papel y retomar el volumen entre sesiones, sin necesidad de seguir una narración continua.",
+      "texto": "La vida que pensamos. Cuentos de fútbol / The Life We Imagined. Stories About Soccer cuenta con una edición en tapa blanda de 352 páginas. Al tratarse de un libro de cuentos, el volumen físico permite alternar relatos y retomar la lectura en distintas sesiones, manteniendo todas las historias reunidas en un solo ejemplar.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Caperucita se come al lobo / Little Red Riding Hood Eats the Wolf y Ficciones (Hispánica) permiten comparar La vida que pensamos. Cuentos de fútbol / The Life We Imagined. Stories About Soccer con otras propuestas de narrativa breve. Las tres obras se relacionan con la ficción literaria, pero Eduardo Sacheri delimita sus cuentos mediante el fútbol, mientras los otros títulos no presentan ese eje deportivo en su identificación.",
+      "texto": "Ficciones (Hispánica) y La vida que pensamos. Cuentos de fútbol / The Life We Imagined. Stories About Soccer comparten su vinculación con el relato literario. La diferencia temática está en el fútbol, presente expresamente en el título de Eduardo Sacheri, frente a la identificación más general de la obra de Jorge Luis Borges como ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,13 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9786287880610",
         "isbn-9791387846107"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0c5dabeb79390e4a",
+  "fuente_hash": "73afd45b0cf7a432",
   "origen": "chatgpt-web"
 }

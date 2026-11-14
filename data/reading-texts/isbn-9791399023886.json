@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399023886",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El secreto de la Ciudadela está orientado a lectores de fantasía juvenil que buscan una novela extensa dentro de ese género. Sus 490 páginas y su clasificación como narrativa juvenil lo distancian de la ficción realista para adultos y de las lecturas cortas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El secreto de la Ciudadela se ofrece en tapa blanda, con 490 páginas en castellano. Es una edición física para quienes prefieren leer fantasía juvenil en papel y conservar el volumen en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El secreto de la Ciudadela puede compararse con Brujas de Aerthea: El secreto de Violet por su relación con la fantasía y la presencia de un secreto en ambos títulos. Frente a Asistente del villano (edición especial limitada) (Faeris Editorial), la obra de Lena P. Castaño se presenta expresamente como narrativa juvenil y en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388108112",
+        "isbn-9788409934164"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "27396ad976fe5540",
+  "origen": "chatgpt-web"
+}

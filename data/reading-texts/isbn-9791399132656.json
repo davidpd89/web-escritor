@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399132656",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de poesía que también se interesan por textos de ensayo, las dos áreas asociadas a esta obra de Teresa Sánchez Ruiz. Sus 60 páginas ofrecen una extensión breve; no responde a quien busque una novela larga o un manual práctico de consulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene las 60 páginas de El hacha de raskolnikov: 54 (Poesía - los libros del mississippi). Su extensión permite llevar el volumen y regresar a distintos pasajes durante la lectura, sin ocupar el espacio de una recopilación extensa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fuego y raíz: Cancionero (Primera persona) comparte con El hacha de raskolnikov: 54 (Poesía - los libros del mississippi) su relación con la escritura poética, aunque se presenta específicamente como cancionero. La falacia del escritor: Anatomía de una fe sin milagros: 7 (im-verso) permite otra comparación por su planteamiento reflexivo, frente a la identificación explícita de la obra de Teresa Sánchez Ruiz con la poesía. Son libros de autorías distintas y con enfoques expresados de forma diferente en sus títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788403524996",
+        "isbn-9791399257625"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "93de02c900dca5b0",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788410476615",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de ensayo y divulgación científica interesados en los incendios forestales y su evolución histórica. Quien busque una novela sobre catástrofes naturales encontrará aquí un planteamiento de no ficción centrado en el fuego y sus implicaciones.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Stephen J. Pyne examina los incendios forestales desde la relación entre sus formas históricas y las actuales. El concepto de Piroceno sitúa el fuego como eje de reflexión sobre la época contemporánea, dentro de un ensayo vinculado a la divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Piroceno: Viejo y nuevo orden de los incendios forestales. Vivir en la Edad del fuego: 133 (Ensayo) está disponible en tapa blanda, con 232 páginas. La edición de Pepitas de calabaza permite leer y consultar el ensayo en papel, con una encuadernación flexible para transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La guardia infinita: Crónica de una enfermera en tiempos de pandemia también aborda una realidad contemporánea desde la no ficción, aunque se centra en la experiencia sanitaria. Stephen J. Pyne dirige su atención a los incendios forestales y al papel del fuego, con un enfoque de ensayo y divulgación científica.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387687205"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4875cd86f50464ee",
+  "origen": "chatgpt-web"
+}

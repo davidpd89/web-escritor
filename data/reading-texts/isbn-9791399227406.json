@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399227406",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El asesino del metro se dirige a lectores de narrativa juvenil que buscan misterio y thriller. La obra de Andrew Reid tiene 400 páginas y se ajusta a una lectura de ficción extensa, no a quien prefiere libros prácticos o relatos breves.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El asesino del metro se presenta en tapa blanda, con 400 páginas en castellano. Esta encuadernación permite transportar la novela sin la rigidez de una cubierta dura, aunque exige llevar el volumen físico durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amor Eterno nº 03: 3 (Thriller) y El asesino del metro coinciden en su orientación hacia el misterio y el thriller juvenil. Se diferencian por la autoría y la numeración: Andrew Reid firma El asesino del metro, mientras que Tom King y Elsa Charretier firman una obra cuyo título la identifica como el n.º 03.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388103483"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fff99bf66fd76af3",
+  "origen": "chatgpt-web"
+}

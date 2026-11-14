@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388581007",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Yo quisiera ser poeta se sitúa en el ámbito del arte y la creación, por lo que puede interesar a lectores que buscan obras relacionadas con la expresión artística. Por su temática declarada, se distancia de los manuales técnicos sobre disciplinas ajenas a la creación literaria.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Yo quisiera ser poeta, de Noelia Pérez, cuenta con una edición en tapa blanda de 136 páginas publicada por Uvedebe. Su extensión permite manejar el volumen con facilidad, conservarlo en una biblioteca personal o utilizarlo como lectura física para regalar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Yo quisiera ser poeta y Arde Talía: Una pieza teatral sobre el infierno de la creación artística comparten su vinculación con el arte y la actividad creadora. El título de Noelia Pérez apunta a la aspiración de escribir poesía, mientras que la obra de Alba Quintas Garciandia, Ana Saiz, Talita Isla, Carmen Romero Lorenzo e Inés Galiano aborda la creación artística desde el teatro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399289510"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3e80045f4126fa34",
+  "origen": "chatgpt-web"
+}

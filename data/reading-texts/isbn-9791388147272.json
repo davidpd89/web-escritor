@@ -4,28 +4,30 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El marciano (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) se dirige a lectores de ciencia ficción y aventuras. Por su clasificación temática, encaja menos con quienes buscan una obra centrada exclusivamente en la narrativa contemporánea o histórica.",
+      "texto": "El marciano se dirige a lectores de ciencia ficción que también buscan aventuras en sus lecturas. La obra de Andy Weir tiene 408 páginas y encaja menos con quienes prefieren narraciones breves o alejadas de los temas científicos y especulativos.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de El marciano (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) se distingue por sus cantos tintados y su encuadernación en tapa dura. Penguin Bolsillo la publica el 19 de noviembre de 2026, con 408 páginas en castellano y el ISBN 9791388147272.",
+      "texto": "Esta edición limitada de El marciano se distingue por sus cantos tintados y su encuadernación en tapa dura. Penguin Bolsillo la publica en castellano, con 408 páginas y fecha editorial del 19 de noviembre de 2026; su ISBN es 9791388147272.",
       "evidencias": [
         "titulo",
-        "edicion",
         "editorial",
-        "fecha_publicacion",
+        "edicion",
         "numero_paginas",
+        "fecha_publicacion",
         "idioma",
         "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La opción recogida para El marciano (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) es la tapa dura, con cantos tintados. Sus 408 páginas forman un volumen físico pensado tanto para conservar en la estantería como para regalar; el acabado de los cantos es parte de esta edición.",
+      "texto": "La tapa dura permite tener las 408 páginas de El marciano en una edición física con cantos tintados. Su acabado limitado tiene interés para quien busca conservar el volumen o regalarlo, mientras que la encuadernación rígida resulta menos cómoda para transportar a diario.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -35,21 +37,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El marciano (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) puede compararse con Proyecto Hail Mary (edición deluxe) (Nova): ambos pertenecen a la obra de Andy Weir. La diferencia documentada está en la presentación editorial, con cantos tintados y tapa dura en El marciano, frente a la denominación deluxe del otro título.",
+      "texto": "Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) comparte autor, ciencia ficción y acabado editorial con El marciano, aunque incorpora el misterio entre sus géneros. Proyecto Hail Mary (edición deluxe) (Nova) es otra obra de Andy Weir, presentada en una edición deluxe diferente de la colección de cantos tintados.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "edicion",
-        "formatos_disponibles"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9791388147470",
         "isbn-9788410466876"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e4141d21c3d4d70f",
+  "fuente_hash": "3ed1f452dab25f26",
   "origen": "chatgpt-web"
 }

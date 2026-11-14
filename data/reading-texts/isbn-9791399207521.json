@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Conviértete en cíborg: 3 (Tú decides), de Leti Moregal, encaja con lectores interesados en propuestas de ocio relacionadas con la transformación en cíborg. Su planteamiento temático se aleja de quienes buscan una lectura centrada en acontecimientos históricos o problemas cotidianos sin elementos tecnológicos. El título lo identifica como el n.º 3 de Tú decides.",
+      "texto": "Conviértete en cíborg: 3 (Tú decides) se dirige a lectores interesados en el ocio y en una propuesta cuyo título plantea la transformación en cíborg. La obra de Leti Moregal se aleja de quienes buscan un manual de bienestar o una lectura centrada en relaciones románticas. El título la identifica como el n.º 3 de Tú decides.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,17 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Conviértete en cíborg: 3 (Tú decides) está disponible en tapa blanda, con 274 páginas en castellano. Esta edición permite leerlo en papel, conservarlo en una colección física o regalar un ejemplar impreso. Su extensión permite valorar el espacio que ocupará antes de elegirlo para llevar de viaje.",
+      "texto": "Conviértete en cíborg: 3 (Tú decides) se presenta en tapa blanda, con 274 páginas publicadas por Henko Ediciones. El formato físico permite mantener el libro a mano para dedicarle distintas sesiones de lectura o entretenimiento, sin necesidad de utilizar un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial",
+        "formatos_disponibles",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Conviértete en cíborg: 3 (Tú decides) puede compararse con Equipo capibara porque ambos cuentan con Leti Moregal entre sus autores y se relacionan con el ocio. La diferencia más visible está en sus títulos: el primero plantea convertirse en cíborg y se identifica como el n.º 3 de Tú decides, mientras que Equipo capibara tiene también a Nuria Gallego como autora.",
+      "texto": "Equipo capibara y Conviértete en cíborg: 3 (Tú decides) comparten la autoría de Leti Moregal y su presencia entre las propuestas de ocio. Equipo capibara cuenta también con Nuria Gallego, mientras que Conviértete en cíborg: 3 (Tú decides) figura únicamente a nombre de Leti Moregal. Además, este último título plantea la transformación en cíborg y se identifica como el n.º 3 de Tú decides.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "268374fa76b958cc",
+  "fuente_hash": "5355fab4c2f6aa31",
   "origen": "chatgpt-web"
 }

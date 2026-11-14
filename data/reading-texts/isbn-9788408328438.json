@@ -4,40 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un invierno (in)esperado (Matchstories Romántica Contemporánea) se orienta a lectores de romance ambientado en un contexto contemporáneo, con el humor entre sus componentes. Quien prefiera relatos históricos, divulgación o fantasía sin trama romántica encontrará aquí un planteamiento distinto.",
+      "texto": "Un invierno (in)esperado encaja con lectores que buscan historias de romance en un contexto contemporáneo. Sus 440 páginas lo sitúan entre las novelas de extensión considerable, dentro de una propuesta centrada en las relaciones románticas.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Un invierno (in)esperado (Matchstories Romántica Contemporánea) ofrece 440 páginas en una edición física publicada por Esencia. La versión Kindle permite leer esa extensión en dispositivos electrónicos y continuar la lectura desde el móvil sin llevar el volumen impreso.",
+      "texto": "La tapa blanda ofrece una edición física de 440 páginas, mientras que Kindle permite llevar Un invierno (in)esperado en un dispositivo electrónico. La primera opción corresponde a la lectura en papel; la segunda, a la lectura digital.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "editorial",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Un invierno (in)esperado (Matchstories Romántica Contemporánea) puede compararse con En mi Era Pistacho: Juliette's version por su presencia en un catálogo de narrativa romántica. La obra de Enara Ziaran combina romance contemporáneo y humor en 440 páginas, mientras que la de Emily Collins presenta otra propuesta narrativa con distinta autoría.",
+      "texto": "A mil por hora, de Hannah Grace, comparte con Un invierno (in)esperado el género romántico, aunque sitúa su historia en el mundo de la Fórmula 1. Ambos títulos permiten comparar distintas ambientaciones dentro de la ficción centrada en las relaciones sentimentales.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410648777"
+        "isbn-9788466683449"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "aa8e0d264b658c0b",
+  "fuente_hash": "4cf2c6850866a943",
   "origen": "chatgpt-web"
 }

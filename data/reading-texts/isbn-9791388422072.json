@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388422072",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La niebla de ninguna parte, de David Fox, se dirige a lectores que buscan una obra de misterio y thriller. Su clasificación la sitúa en el terreno de la intriga, frente a quienes prefieren lecturas centradas en el ensayo, la divulgación o los relatos infantiles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La niebla de ninguna parte cuenta con una edición en tapa blanda de 322 páginas en castellano. Publicada por Universo de Letras, ofrece una lectura física de extensión media, con cubierta flexible para llevar el volumen o guardarlo en una biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir), de Ann Cleeves, comparte con La niebla de ninguna parte su vinculación al misterio. La obra de David Fox tiene 322 páginas, mientras que el título de Ann Cleeves se identifica además por su relación con Shetland. Aguas turbulentas, de Rankin Ian, sitúa su conflicto en Edimburgo, una localización concreta que permite distinguirlo de La niebla de ninguna parte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410424524",
+        "isbn-9791370310318"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d4c7ad98eb268d76",
+  "origen": "chatgpt-web"
+}

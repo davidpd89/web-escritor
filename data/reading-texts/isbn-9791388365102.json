@@ -4,38 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Una hermosa tragedia (Romántica) encaja con lectores de narrativa juvenil que buscan romance combinado con fantasía y aventuras. Quienes prefieran historias realistas sin elementos fantásticos encontrarán aquí una orientación distinta a sus gustos habituales.",
+      "texto": "Una hermosa tragedia (Romántica) encaja con lectores de narrativa juvenil que buscan fantasía y aventuras en una misma obra. Sus 384 páginas se sitúan lejos de una lectura breve y su clasificación no corresponde a una novela realista ni a un ensayo.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Fandom Books permite leer sus 384 páginas en un volumen físico que puede prestarse o colocarse en la estantería. La edición Kindle ofrece el mismo título en formato digital, con la posibilidad de llevar la lectura en un móvil o lector electrónico sin transportar el libro impreso.",
+      "texto": "La tapa blanda de Una hermosa tragedia (Romántica) ofrece 384 páginas en papel, una opción para leer sin pantalla y conservar el ejemplar. Kindle permite llevar esa extensión en el móvil o en un lector electrónico, sin depender del espacio que ocupa el volumen físico.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Una hermosa tragedia (Romántica) y Una tempestad para matar un beso: La balada del fuego solar 2 (Inlov Romantasy) comparten el terreno de la fantasía romántica. La diferencia identificable está en la presentación: el título de Julia Dippel señala una segunda entrega, mientras que el de De Elizabeth se presenta como una obra de romance, fantasía y aventuras juveniles.",
+      "texto": "Una hermosa tragedia (Romántica) comparte el terreno fantástico con Edición LEGACY Muerte a la oscuridad- Black Bird Academy: Black Bird Academy: 1 (Inlov Romantasy), de Stella Tack, cuyo título identifica una primera entrega y una orientación romantasy. También se aproxima a Tempestad (New Adult), de Victoria Aveyard, aunque esta última se presenta bajo la denominación New Adult y Una hermosa tragedia (Romántica) está clasificada como narrativa juvenil y aventuras.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410399327"
+        "isbn-9788410399518",
+        "isbn-9791399221527"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4a0727da178242f4",
+  "fuente_hash": "24ec977bc27fa8e0",
   "origen": "chatgpt-web"
 }

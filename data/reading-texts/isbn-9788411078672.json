@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Inverness, California (Andanzas), de Francisco Serrano, se dirige a lectores interesados en el misterio, la historia y la narrativa contemporánea vinculada al siglo XX. Su combinación temática queda lejos de los manuales prácticos y de las lecturas centradas exclusivamente en la fantasía.",
+      "texto": "Inverness, California (Andanzas), de Francisco Serrano, se orienta a lectores interesados en el misterio, la narrativa contemporánea y la historia. Sus 352 páginas ofrecen una extensión intermedia; encaja menos con quienes buscan poesía o manuales prácticos de bienestar.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Inverness, California (Andanzas) se presenta en tapa blanda, con 352 páginas en castellano publicadas por Tusquets Editores. Esta edición permite leer la obra en papel, conservarla en la biblioteca y consultar sus páginas sin dispositivos electrónicos.",
+      "texto": "Inverness, California (Andanzas) se publica en tapa blanda, con 352 páginas editadas por Tusquets Editores. Esta presentación permite leer la obra en papel y conservarla en la biblioteca sin recurrir a un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Bajo tierra seca: Edición limitada a precio especial (Colección Especial), de César Pérez Gellida, constituye otra referencia para comparar con el misterio de Inverness, California (Andanzas), aunque su título remite a un escenario distinto. Criminales sin sombra (Salamandra Black), de Juan Carlos Galindo, apunta por su título hacia la criminalidad, mientras que Francisco Serrano combina misterio, narrativa contemporánea e historia del siglo XX.",
+      "texto": "Inverness, California (Andanzas), de Francisco Serrano, comparte su orientación hacia el misterio con Criminales sin sombra (Salamandra Black), de Juan Carlos Galindo. La primera obra también se vincula con la narrativa contemporánea y la historia, mientras que el segundo título remite expresamente a criminales. Bajo tierra seca: Edición limitada a precio especial (Colección Especial), de César Pérez Gellida, constituye otra comparación dentro de las lecturas afines, aunque corresponde a una autoría distinta.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9196d5e70d3a811f",
+  "fuente_hash": "6f1c1f7011fd6ded",
   "origen": "chatgpt-web"
 }

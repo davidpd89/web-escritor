@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388132858",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El fantasma de las bragas rotas (Libro de cartón) (NUBEOCHO) está orientado al público infantil y a quienes buscan libros breves para compartir con niños. Sus 32 páginas y su edición en cartón lo distinguen de las novelas juveniles extensas y de los libros dirigidos principalmente a adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Puede utilizarse como lectura compartida, pasando las páginas de cartón mientras se lee el texto en voz alta. Sus 32 páginas permiten organizar la actividad en una sesión o repartirla en varias, y el título ofrece un punto de partida para conversar sobre el fantasma y sus bragas rotas.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es de tapa dura, presentada como libro de cartón, con 32 páginas. Este soporte permite manipular físicamente las páginas durante la lectura infantil y conservar el ejemplar para repetir la actividad, en lugar de depender de una pantalla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "44c4652fc7d52a8f",
+  "origen": "chatgpt-web"
+}

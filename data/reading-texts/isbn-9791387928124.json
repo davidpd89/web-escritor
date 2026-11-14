@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387928124",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Piranesi (Salamandra Narrativa) encaja con lectores que buscan fantasía vinculada a las aventuras y a la narrativa contemporánea. No responde a la búsqueda de un ensayo científico ni de una obra estrictamente realista, porque la fantasía forma parte de su clasificación editorial.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Piranesi (Salamandra Narrativa) cuenta con una edición en tapa dura de 272 páginas. El volumen de Salamandra está pensado para quien prefiere leer en papel con una encuadernación rígida, una característica que también puede resultar práctica al escoger un libro para regalar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Piranesi (Salamandra Narrativa) comparte el ámbito de la fantasía con El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa), aunque son obras de Susanna Clarke y Heather Fawcett, respectivamente. También puede compararse con Estuche Las crónicas de Emily Wilde (Umbriel narrativa), de Heather Fawcett: Piranesi (Salamandra Narrativa) es un volumen de 272 páginas en tapa dura, mientras que el otro título se presenta como un estuche.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387749316",
+        "isbn-9791387749347"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6f92faa74cac9dd2",
+  "origen": "chatgpt-web"
+}

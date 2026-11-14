@@ -4,39 +4,43 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Teatro inédito (Literaturas), de Yasmina Reza, encaja con quienes buscan textos teatrales y se interesan por la escritura dramática. Por su naturaleza teatral, se distingue de una novela narrativa convencional y de los manuales prácticos de creación artística.",
+      "texto": "Teatro inédito (Literaturas), de Yasmina Reza, se dirige a quienes buscan textos teatrales en castellano y lecturas vinculadas a las artes. Sus 472 páginas requieren una dedicación distinta de la que busca quien prefiere una novela breve o un manual práctico.",
       "evidencias": [
         "titulo",
         "autores",
+        "numero_paginas",
+        "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Teatro inédito (Literaturas) se publica en tapa blanda, con 472 páginas en castellano. El volumen físico permite volver sobre escenas y diálogos durante la lectura o el estudio de los textos teatrales, sin necesidad de una pantalla.",
+      "texto": "Teatro inédito (Literaturas) se publica en tapa blanda, con 472 páginas en castellano. Esta edición de Alfaguara permite consultar el texto en papel y volver a pasajes concretos durante la lectura o el estudio.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Teatro inédito (Literaturas) comparte autoría con Babilonia y Hammerklavier y Ninguna parte, obras también firmadas por Yasmina Reza. La diferencia está en la forma literaria: Teatro inédito (Literaturas) se presenta como una obra teatral, mientras que los otros títulos pertenecen al ámbito de la ficción.",
+      "texto": "Teatro inédito (Literaturas) puede compararse con Ahorcados por su vinculación con las artes y la creación escrita. La obra de Yasmina Reza se presenta como teatro y cuenta con 472 páginas, mientras que Ahorcados figura en el catálogo como un título de Miguel Ávila Cabezas. La diferencia comprobable está en la autoría y en la identificación teatral de Teatro inédito (Literaturas).",
       "evidencias": [
         "titulo",
         "autores",
+        "numero_paginas",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466382328",
-        "isbn-9788466382298"
+        "isbn-9791399276725"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ca368e2f1b007eb2",
+  "fuente_hash": "7d330f9cc4e68c8b",
   "origen": "chatgpt-web"
 }

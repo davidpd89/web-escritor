@@ -4,26 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Padre Salou, de A. Rodríguez, se sitúa en el terreno del misterio y el thriller. Se dirige a lectores que buscan este tipo de narrativa y encaja menos con quienes prefieren historias centradas en la fantasía, el romance o el humor.",
+      "texto": "Padre Salou, de A. Rodríguez, encaja con lectores que buscan títulos de misterio y thriller en castellano. Sus 271 páginas ofrecen una extensión concreta para quienes prefieren este género, mientras que quienes buscan libros de actividades o ensayos encontrarán una orientación distinta.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Padre Salou se publica en tapa blanda, con 271 páginas en castellano. Esta edición física permite leer el misterio en papel y conservar el volumen en la biblioteca, sin necesidad de un lector electrónico.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "categorias",
         "numero_paginas",
         "idioma"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "Padre Salou puede leerse en tapa blanda o Kindle, según se prefiera un ejemplar físico o la lectura digital. La edición impresa tiene 271 páginas y permite conservar el libro en papel; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Padre Salou comparte el ámbito del thriller con 25 días hasta Navidad, de Per Jacobsen. La diferencia reconocible está en el planteamiento editorial: la obra de Per Jacobsen se presenta como un thriller de adviento, mientras que la de A. Rodríguez se identifica dentro del misterio y el thriller sin ese marco navideño.",
+      "texto": "Padre Salou y Aguas turbulentas comparten su orientación hacia el misterio y el thriller, aunque son obras de A. Rodríguez y Rankin Ian, respectivamente. Aguas turbulentas sitúa su conflicto entre el pasado y el presente de Edimburgo, mientras que Padre Salou se identifica por su pertenencia al género de misterio.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +33,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055063"
+        "isbn-9791370310318"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "293be57ef9e94877",
+  "fuente_hash": "f98ba40453ba94e6",
   "origen": "chatgpt-web"
 }

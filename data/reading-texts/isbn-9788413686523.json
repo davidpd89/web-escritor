@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mejor que no: El desafío de la complejidad y el arte del et-et...para salvarse de las absolutizaciones y de las banalizaciones (Palabra Hoy. Vida cristiana) se dirige a lectores interesados en la reflexión cristiana y la complejidad de los juicios absolutos. Por su orientación religiosa y espiritual, se diferencia de los manuales de bienestar físico y de la narrativa de ficción.",
+      "texto": "Mejor que no: El desafío de la complejidad y el arte del et-et...para salvarse de las absolutizaciones y de las banalizaciones (Palabra Hoy. Vida cristiana) se orienta a lectores interesados en la reflexión cristiana y en las dificultades de los planteamientos absolutos. No responde a la búsqueda de una novela de aventuras ni de una introducción general a las religiones.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,30 +12,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Mejor que no: El desafío de la complejidad y el arte del et-et...para salvarse de las absolutizaciones y de las banalizaciones (Palabra Hoy. Vida cristiana) es de tapa blanda y contiene 256 páginas. El volumen de Ediciones Palabra, S.a. permite leer y consultar sus reflexiones en papel, además de conservarlo en una biblioteca personal.",
+      "texto": "Mejor que no: El desafío de la complejidad y el arte del et-et...para salvarse de las absolutizaciones y de las banalizaciones (Palabra Hoy. Vida cristiana) está disponible en tapa blanda, con 256 páginas en castellano. Es una edición física que permite subrayar argumentos, añadir notas y regresar a los pasajes durante una lectura de estudio.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mejor que no: El desafío de la complejidad y el arte del et-et...para salvarse de las absolutizaciones y de las banalizaciones (Palabra Hoy. Vida cristiana), de Fabio Rosini, comparte el ámbito espiritual con Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe. El primero plantea una reflexión desde la vida cristiana sobre la complejidad y las absolutizaciones; el segundo se centra en los fundamentos y la práctica del Dharma. Ambos abordan cuestiones espirituales desde tradiciones distintas.",
+      "texto": "AKITA: Las lágrimas y el mensaje de María comparte con Mejor que no: El desafío de la complejidad y el arte del et-et...para salvarse de las absolutizaciones y de las banalizaciones (Palabra Hoy. Vida cristiana) el ámbito religioso, pero se concentra en María y su mensaje. Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación plantea otra tradición espiritual, mientras que Fabio Rosini aborda la complejidad desde una colección dedicada a la vida cristiana.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "categorias"
       ],
       "enlaces": [
+        "isbn-9791388176357",
         "isbn-9791399210088"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d4251ed2dc1dda76",
+  "fuente_hash": "a5e4911dbd6a7861",
   "origen": "chatgpt-web"
 }

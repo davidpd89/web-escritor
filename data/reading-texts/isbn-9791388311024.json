@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388311024",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "MP1782 Prevención de riesgos laborales, de Laura Cano García, encaja con lectores interesados en la prevención de riesgos laborales desde el ámbito del derecho. Su orientación temática lo separa de las obras de ficción y de los libros centrados en otras ramas jurídicas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "MP1782 Prevención de riesgos laborales se publica en tapa blanda y reúne 116 páginas en castellano. La edición impresa permite localizar y marcar páginas durante la consulta, con una extensión más reducida que la de un manual de varios cientos de páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "MP1782 Prevención de riesgos laborales puede compararse con Casos prácticos sobre el despido (Supuestos prácticos), por su relación con cuestiones del entorno laboral. El primero se centra en la prevención de riesgos, mientras que el segundo aborda el despido mediante supuestos prácticos; también cambia la autoría, de Laura Cano García a Departamento de Documentación Iberley.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370651749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "72ad8a4f202fb745",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370743222",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este pack se dirige a lectores interesados en los videojuegos, especialmente en Grand Theft Auto y su representación de la acción urbana. Reúne dos libros de RBA Coleccionables España y se aleja de la narrativa de ficción convencional para centrarse en una colección dedicada a los videojuegos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne dos libros dedicados a Grand Theft Auto, con 302 páginas en total. Este formato permite conservar ambos títulos como parte de una colección física sobre videojuegos y resulta apropiado para quienes prefieren consultar los volúmenes en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alberta Ferretti | Colección Leyendas de la Moda | Libro LXII comparte con este pack la autoría de RBA Coleccionables España y su pertenencia a una colección temática. La diferencia está en el contenido: aquel se dedica a la moda, mientras que este reúne dos libros sobre Grand Theft Auto y Grand Theft Auto V, centrados en los videojuegos y la acción urbana.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370079321"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d4965e8a57a0d7ee",
+  "origen": "chatgpt-web"
+}

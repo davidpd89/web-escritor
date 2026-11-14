@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788413393056",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El dinero: 193 (Nuevo Ensayo), de Charles Péguy, se dirige a lectores interesados en el ensayo y la filosofía, especialmente en cuestiones relacionadas con el dinero. Sus 282 páginas ofrecen una extensión intermedia para este tipo de lectura; por su orientación ensayística, no responde a quien busca principalmente una novela de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El dinero: 193 (Nuevo Ensayo) se presenta en tapa blanda, con 282 páginas en castellano publicadas por Encuentro. El soporte físico permite consultar y volver a localizar pasajes durante una lectura de estudio, además de incorporar el volumen a una colección de ensayos en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La escuela de salamanca.: Antecedentes, raíces europeas y vocación teológica: 192 (Nuevo Ensayo) y El Esperpento o la Tragedia: España en la crisis de Occidente: 194 (Nuevo Ensayo) comparten con El dinero: 193 (Nuevo Ensayo) la identificación editorial Nuevo Ensayo. Los títulos distinguen sus asuntos: raíces teológicas, crisis de Occidente y dinero, respectivamente. También cambian los autores: José María Pardo de Santayana, Pío Moa y Charles Péguy.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413393001",
+        "isbn-9788413393032"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f11f8b59218dd26e",
+  "origen": "chatgpt-web"
+}

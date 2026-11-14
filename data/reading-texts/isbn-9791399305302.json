@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399305302",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores de poesía interesados en una antología que abarca el periodo 1964-2026. Pasan vencejos: Antología poética de granada (1964-2026), de Jenaro Talens Carmona, se aleja de la narrativa con una trama continua y reúne su propuesta en 176 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Pasan vencejos: Antología poética de granada (1964-2026) se presenta en tapa blanda, con 176 páginas en castellano. Este formato permite consultar y releer los poemas en papel, además de transportar el volumen sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, comparte con Pasan vencejos: Antología poética de granada (1964-2026) su carácter de antología poética, aunque el primero delimita su selección al amor y el segundo a un periodo temporal. Advenir, de Jose Eceolaza, figura también entre sus lecturas afines, pero su título no plantea ese recorrido cronológico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410212749",
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "28d005de6ac5c883",
+  "origen": "chatgpt-web"
+}

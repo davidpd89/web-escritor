@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El león y Ellen: Ocho nuevas historias contadas por el león de Ellen (Libros para rumiar), de Crockett Johnson, se dirige al público infantil y juvenil interesado en relatos protagonizados por animales. Sus 80 páginas y su estructura de historias lo distinguen de una novela extensa y continuada; también se aparta de los libros centrados en explicaciones científicas sobre la naturaleza.",
+      "texto": "Está dirigido a lectores infantiles que buscan relatos breves y personajes recurrentes. El león y Ellen: Ocho nuevas historias contadas por el león de Ellen (Libros para rumiar), de Crockett Johnson, pertenece a la literatura infantil y reúne ocho historias. Su planteamiento se aleja de las novelas juveniles extensas y de las narraciones concebidas como una única trama larga.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,30 +14,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El león y Ellen: Ocho nuevas historias contadas por el león de Ellen (Libros para rumiar) se ofrece en tapa dura, con 80 páginas publicadas por Wonder Ponder. Es una edición física que permite conservar juntas las ocho historias, compartir el ejemplar durante la lectura y guardarlo en una biblioteca infantil.",
+      "texto": "La edición de El león y Ellen: Ocho nuevas historias contadas por el león de Ellen (Libros para rumiar) se presenta en tapa dura. Sus 80 páginas reúnen ocho historias en un volumen físico de extensión reducida, apropiado para repartir la lectura entre distintas sesiones. Wonder Ponder publica esta edición en castellano.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
         "editorial",
-        "formatos_disponibles"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El león y Ellen: Ocho nuevas historias contadas por el león de Ellen (Libros para rumiar) puede compararse con Avni 1. Animal verdaderamente no identificado (Txikiberri) por la presencia de personajes animales en sus títulos. Crockett Johnson presenta ocho historias narradas por el león de Ellen, mientras que la obra de Romain Pujol se identifica mediante un personaje animal y una numeración de entrega. La diferencia está en la estructura de relatos anunciada por el primero frente a la identificación seriada del segundo.",
+      "texto": "Gran zootel comparte con El león y Ellen: Ocho nuevas historias contadas por el león de Ellen (Libros para rumiar) su presencia entre las lecturas infantiles del catálogo, aunque este último se presenta expresamente como una colección de ocho relatos. Otra referencia es Emociones: Cuentos infantiles para comprender lo que sentimos: 2 (APRENDE), cuyo título señala un propósito de comprensión emocional frente a las historias protagonizadas por el león de Ellen.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788417575847"
+        "isbn-9791388410109",
+        "isbn-9791387501679"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4d08d6203522db1e",
+  "fuente_hash": "fa9082ec5508ea7e",
   "origen": "chatgpt-web"
 }

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Chile y la Isla de Pascua 9 se dirige a quienes preparan un viaje y prefieren organizar recorridos por su cuenta. Sus mapas, rutas a pie y en coche e itinerarios flexibles responden a necesidades prácticas, no a la búsqueda de una novela de viajes.",
+      "texto": "Chile y la Isla de Pascua 9 está dirigido a viajeros que quieren organizar recorridos por Chile y la Isla de Pascua mediante mapas, itinerarios y propuestas de visitas. Resulta menos adecuado para quienes buscan una novela ambientada en esos lugares o una lectura centrada exclusivamente en su historia.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,29 +13,32 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una guía de viajes centrada en la planificación y la exploración del destino. Combina propuestas de recorridos, cartografía detallada y orientaciones para elegir dónde comer o descansar, con alternativas para desplazarse caminando o en coche.",
+      "texto": "Chile y la Isla de Pascua 9 es una guía práctica de viajes que combina planificación de itinerarios con información para explorar el destino. Incluye mapas detallados, rutas a pie y en coche, propuestas de experiencias locales y recomendaciones de establecimientos donde comer o descansar.",
       "evidencias": [
+        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne sus 432 páginas en una edición rústica sin solapas, adecuada para consultar mapas y recorridos en papel. Kindle permite llevar la guía en el móvil y revisar las propuestas de itinerarios sin transportar el volumen físico.",
+      "texto": "Chile y la Isla de Pascua 9 está disponible en tapa blanda y Kindle. La edición impresa de Geoplaneta reúne 432 páginas en rústica sin solapas, útiles para consultar mapas durante la planificación; Kindle permite llevar la guía en un dispositivo compatible y acceder a sus contenidos durante el viaje.",
       "evidencias": [
+        "titulo",
+        "formatos_disponibles",
         "numero_paginas",
         "edicion",
-        "formatos_disponibles",
+        "editorial",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Irlanda 7 comparte con Chile y la Isla de Pascua 9 su orientación viajera, aunque se centra en la música, los castillos y la hospitalidad irlandesa, frente a los itinerarios y rutas del segundo. Japón 2027-2028 también aborda un destino internacional, pero destaca tradiciones, cultura pop y gastronomía en lugar de la planificación de recorridos por Chile y la Isla de Pascua.",
+      "texto": "Irlanda 7 comparte con Chile y la Isla de Pascua 9 el enfoque turístico y la participación de Isabel Albiston, aunque se centra en Irlanda y sus tradiciones. Japón 2027-2028 también comparte una autora, Wendy Yanagihara, pero aborda específicamente la cultura popular, la gastronomía y la convivencia entre tradición y modernidad en Japón.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -46,6 +49,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a12b14c6d0982a22",
+  "fuente_hash": "b1e47d7fdd203149",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788410907478",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "DESTERRADOS DE CASTILLA: Aventura, traición y venganza en las Indias se dirige a lectores de novela histórica que también buscan aventuras y misterio. Por su combinación de géneros, encaja menos con quienes prefieren historias contemporáneas alejadas de los conflictos históricos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer las 342 páginas de DESTERRADOS DE CASTILLA: Aventura, traición y venganza en las Indias en una edición física. Kindle ofrece la alternativa digital para llevar la novela en el móvil o en un lector electrónico, sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "DESTERRADOS DE CASTILLA: Aventura, traición y venganza en las Indias puede compararse con Astur (Saga de la Reconquista) (Éxitos) por su vinculación con la narrativa histórica. La obra de Antonio Ortega Castro incorpora además aventuras y misterio, mientras que el título de Isabel San Sebastián se presenta como parte de una saga sobre la Reconquista. Ambos permiten elegir entre propuestas históricas con enfoques distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401039539"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fd8d9ff863e51ac9",
+  "origen": "chatgpt-web"
+}

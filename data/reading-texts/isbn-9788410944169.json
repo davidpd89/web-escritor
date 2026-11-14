@@ -4,52 +4,49 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La traición de las élites se dirige a lectores interesados en las relaciones de poder, los organismos supranacionales y la política contemporánea. Fernando Paz plantea una interpretación crítica de las élites occidentales y sus intereses, por lo que encaja menos con quien busca una exposición neutral de las instituciones o una novela de ficción política.",
+      "texto": "La traición de las élites se dirige a lectores interesados en la política contemporánea, las estructuras de poder y las relaciones entre instituciones y sociedad. Su planteamiento crítico sobre las élites occidentales lo aleja de una exposición neutral de las distintas interpretaciones políticas.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es un ensayo de crítica política que atribuye a las élites contemporáneas un papel central en los cambios de soberanía, identidad y libertad de las sociedades occidentales. Fernando Paz examina intereses institucionales, económicos y mediáticos desde una tesis explícitamente crítica con el globalismo y los organismos supranacionales.",
+      "texto": "Fernando Paz desarrolla una interpretación crítica del poder occidental basada en la supuesta ruptura entre las élites y las poblaciones a las que representan. Examina el globalismo, los organismos supranacionales, la inmigración y los mecanismos de control informativo y económico como partes de esa tesis política.",
       "evidencias": [
-        "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La traición de las élites puede leerse en tapa blanda o en Kindle. La edición física de La Esfera de los Libros tiene 312 páginas y permite conservar anotaciones en papel; Kindle facilita la lectura digital y el transporte de la obra sin llevar el volumen impreso.",
+      "texto": "La edición en tapa blanda de La Esfera de los Libros contiene 312 páginas y permite consultar el ensayo en papel. Kindle ofrece una alternativa digital para leerlo en dispositivos compatibles y acceder al texto sin transportar el ejemplar físico.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "edicion",
         "editorial",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La traición de las élites y A la sombra del Estado examinan distintas manifestaciones del poder y sus mecanismos menos visibles. Fernando Paz plantea una crítica de las élites políticas y económicas occidentales, mientras que el libro de Luis de la Corte Ibáñez se vincula al espionaje, las operaciones encubiertas y la desinformación. Ambos tratan asuntos políticos, pero desde focos diferentes.",
+      "texto": "A la sombra del Estado, de Luis de la Corte Ibáñez, aborda el espionaje, las operaciones encubiertas y la guerra híbrida, mientras que La traición de las élites, de Fernando Paz, examina las relaciones entre los intereses políticos, económicos y culturales. Brainwashing: Populismo en la era del like, de Andrés Roemer, permite otra comparación centrada en el populismo, frente al análisis de los organismos supranacionales y el globalismo.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788434441057"
+        "isbn-9788434441057",
+        "isbn-9791399271379"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c5eeb1916e8736bf",
+  "fuente_hash": "680f88749e2955c4",
   "origen": "chatgpt-web"
 }

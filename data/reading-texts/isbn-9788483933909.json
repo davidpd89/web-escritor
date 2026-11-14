@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788483933909",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Arpilleras: Narradoras latinoamericanas del siglo veintiuno: 398 (Voces / Ensayo), de Erica Durante, se dirige a quienes buscan ensayos sobre narradoras latinoamericanas contemporáneas. Sus 480 páginas responden a un interés por el estudio literario, más que a la búsqueda de una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Arpilleras: Narradoras latinoamericanas del siglo veintiuno: 398 (Voces / Ensayo) está disponible en tapa blanda. Sus 480 páginas, publicadas en castellano por Páginas de Espuma, permiten consultar y retomar distintos pasajes en papel, con una cubierta flexible para manejar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9e38f60a349686d3",
+  "origen": "chatgpt-web"
+}

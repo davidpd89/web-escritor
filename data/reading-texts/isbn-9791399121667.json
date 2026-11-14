@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Brasil: Un viaje viaje por las junglas de sentimientos y canibalismo de almas en el corazón del ... se orienta a lectores interesados en el cómic, la novela gráfica y las experiencias vinculadas a lugares y personas. Su clasificación entre biografías y memorias lo distancia de quienes buscan una guía práctica de viaje o un manual turístico.",
+      "texto": "Brasil: Un viaje viaje por las junglas de sentimientos y canibalismo de almas en el corazón del ... se dirige a lectores de cómic y novela gráfica interesados en temas humanos y biográficos. Su presentación gráfica y su extensión de 128 páginas lo diferencian de una biografía extensa escrita únicamente en prosa.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "autores"
-      ]
-    },
-    {
-      "modulo": "temas_y_enfoque",
-      "texto": "Marcello Quintanilha plantea una aproximación a Brasil relacionada con los sentimientos y las experiencias humanas. La obra se sitúa entre el cómic, la novela gráfica y las memorias, con una extensión de 128 páginas que concentra su propuesta en un volumen breve.",
-      "evidencias": [
-        "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
-      "modulo": "que_formato_elegir",
-      "texto": "La edición de Autsaider Cómics se publica en tapa dura, con 128 páginas en castellano. La encuadernación rígida ofrece protección al volumen durante su conservación y consulta, una característica pertinente para una obra clasificada como cómic y novela gráfica.",
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra de Marcello Quintanilha sitúa Brasil y los sentimientos humanos en el centro de su propuesta. La combinación de cómic, novela gráfica y elementos biográficos apunta a una aproximación narrativa visual, en lugar de un estudio histórico o sociológico convencional.",
       "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Autsaider Cómics publica Brasil: Un viaje viaje por las junglas de sentimientos y canibalismo de almas en el corazón del ... en tapa dura y castellano, con 128 páginas. La encuadernación rígida proporciona un soporte físico para conservar y releer las páginas de esta obra gráfica.",
+      "evidencias": [
+        "titulo",
         "editorial",
         "formatos_disponibles",
         "numero_paginas",
@@ -34,19 +34,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, comparte el interés por las experiencias vinculadas a un lugar, pero sitúa su recorrido en el Camino de Santiago. Brasil: Un viaje viaje por las junglas de sentimientos y canibalismo de almas en el corazón del ... se relaciona con Brasil y adopta el formato de cómic o novela gráfica, frente al planteamiento de vivencias de viaje del otro título.",
+      "texto": "Andersen: una vida de cuentos (Tiralíneas) comparte con Brasil: Un viaje viaje por las junglas de sentimientos y canibalismo de almas en el corazón del ... el interés por las vidas humanas, aunque el primero se centra en Andersen y el segundo sitúa Brasil en su planteamiento. El rey de la baraja: La imperecedera vida de Roberto Iniesta: 7 (Marea gráfica) ofrece otra aproximación biográfica gráfica, centrada en una figura concreta.",
       "evidencias": [
         "titulo",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388099496"
+        "isbn-9791387702274",
+        "isbn-9791387938499"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e1bf873aba875f81",
+  "fuente_hash": "8377fd5ec748734a",
   "origen": "chatgpt-web"
 }

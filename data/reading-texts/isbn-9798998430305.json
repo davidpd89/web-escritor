@@ -4,32 +4,30 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "MADAME IVONNE: Poesía popular, de Alberto Julián Pérez, se dirige a lectores interesados en la poesía popular y su relación con la expresión escrita. Por su orientación poética, se diferencia de los libros centrados en una narración extensa o en instrucciones prácticas.",
+      "texto": "MADAME IVONNE: Poesía popular se orienta a lectores de poesía en castellano que buscan una obra centrada en la expresión poética popular. Encaja menos con quienes prefieren una novela de argumento continuo o un manual de instrucciones prácticas.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "MADAME IVONNE: Poesía popular se publica en tapa blanda, con 184 páginas en castellano. Esta extensión permite tener el contenido reunido en un volumen manejable y volver a sus textos durante distintas sesiones de lectura.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
+        "categorias",
         "idioma"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 184 páginas de MADAME IVONNE: Poesía popular en un volumen físico que permite señalar poemas y releerlos sobre papel. Kindle facilita llevar la obra en un lector electrónico o consultarla desde el móvil sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Fuego y raíz: Cancionero (Primera persona) y MADAME IVONNE: Poesía popular comparten su vinculación con la expresión poética. La primera obra se presenta como cancionero de Gata Cattana, mientras la segunda, de Alberto Julián Pérez, se identifica expresamente con la poesía popular y reúne 184 páginas.",
+      "texto": "Fuego y raíz: Cancionero (Primera persona) comparte con MADAME IVONNE: Poesía popular su relación con la expresión poética. La obra de Gata Cattana se presenta como un cancionero, mientras que Alberto Julián Pérez identifica la suya como poesía popular. La diferencia principal está en el tipo de recopilación que anuncia cada título.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo",
-        "numero_paginas"
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788403524996"
@@ -38,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "884a996095bdaf48",
+  "fuente_hash": "a6e1f3d1387ed7ec",
   "origen": "chatgpt-web"
 }

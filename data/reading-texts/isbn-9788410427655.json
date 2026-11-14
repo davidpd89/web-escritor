@@ -4,31 +4,31 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Y entonces fuimos gatos: ¿Te gustaría pasar el resto de tu vida siendo un gato? (GRANDES ÉXITOS DE ASIA) se dirige a lectores de narrativa contemporánea con elementos de fantasía y ciencia ficción. La pregunta de su título plantea la posibilidad de vivir como un gato, por lo que se aleja de quienes buscan una historia completamente realista. Tiene 208 páginas.",
+      "texto": "Y entonces fuimos gatos encaja con lectores que buscan narrativa contemporánea con elementos de fantasía. Sus 208 páginas se sitúan dentro de una propuesta que combina ambos ámbitos; quienes prefieran una historia exclusivamente realista o una obra de divulgación encontrarán otro tipo de lectura.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Y entonces fuimos gatos: ¿Te gustaría pasar el resto de tu vida siendo un gato? (GRANDES ÉXITOS DE ASIA) se ofrece en tapa blanda, con 208 páginas en castellano. La edición de Neko Books permite llevar la novela en papel y repartir su lectura en varias sesiones, sin depender de un dispositivo electrónico.",
+      "texto": "Y entonces fuimos gatos ofrece dos posibilidades: tapa blanda, con sus 208 páginas en papel, y Kindle, para la lectura en formato digital. La edición física permite conservar el ejemplar, mientras que la versión electrónica facilita llevar el texto en un dispositivo.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles",
+        "formato_edicion",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Y entonces fuimos gatos: ¿Te gustaría pasar el resto de tu vida siendo un gato? (GRANDES ÉXITOS DE ASIA) puede compararse con El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa), de Heather Fawcett. Ambos títulos relacionan gatos y ficción fantástica, pero el de Lee Jong San plantea la posibilidad de convertirse en gato, mientras que el de Heather Fawcett sitúa a estos animales en un refugio mágico. La autoría y el planteamiento anunciado son diferentes.",
+      "texto": "Y entonces fuimos gatos puede ponerse en relación con El mágico refugio de gatos de Agnes Aubert, de Heather Fawcett. Ambos títulos comparten una referencia explícita a los gatos, aunque presentan escenarios distintos desde sus propios títulos: la transformación en gatos en el primero y un refugio de gatos en el segundo. La autoría también es diferente.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -38,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a97d64235d18bcab",
+  "fuente_hash": "39848211e6bd798a",
   "origen": "chatgpt-web"
 }

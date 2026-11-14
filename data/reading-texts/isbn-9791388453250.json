@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388453250",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hadas: El mundo encantado de la Gente Menuda (Biblioteca Mysteria), de Gertrude M. Faulding, se orienta a lectores interesados en las hadas y los seres fantásticos. Su temática se aleja de los contenidos prácticos sobre nutrición o bienestar físico, pese a su clasificación editorial, y sus 84 páginas ofrecen una lectura breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hadas: El mundo encantado de la Gente Menuda (Biblioteca Mysteria) puede leerse en tapa blanda o Kindle. La edición impresa reúne 84 páginas y ocupa poco espacio; Kindle permite llevar el texto en un lector electrónico o en el móvil sin transportar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hadas: El mundo encantado de la Gente Menuda (Biblioteca Mysteria) se diferencia de Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida por su enfoque temático. Gertrude M. Faulding presenta un título dedicado a las hadas, mientras que Kelly Ann Street aborda la sanación de heridas personales y el equilibrio interior.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410451988"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "741efd914c4e8255",
+  "origen": "chatgpt-web"
+}

@@ -4,27 +4,43 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Atlas de las cosas que vibran (ESPASAesPOESÍA) se dirige a lectores que buscan libros vinculados a la poesía y a la Edad Media. Iván Vergara firma esta edición de 120 páginas, clasificada en la temática histórica de la Edad Media; no es una elección orientada a quienes buscan narrativa contemporánea o novelas extensas.",
+      "texto": "Atlas de las cosas que vibran (ESPASAesPOESÍA), de Iván Vergara, se dirige a quienes buscan poesía en castellano. Con 120 páginas, ofrece una extensión contenida dentro del género; encaja menos con lectores que prefieren novelas de aventuras o narraciones extensas.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer Atlas de las cosas que vibran (ESPASAesPOESÍA) en una edición física de 120 páginas. Es la opción para quien prefiere tener el libro en papel y manejar un volumen de extensión contenida.",
+      "texto": "Atlas de las cosas que vibran (ESPASAesPOESÍA) tiene una edición en tapa blanda de 120 páginas, publicada por Editorial Espasa. El volumen físico permite conservar los poemas en papel y volver a ellos sin depender de un dispositivo de lectura.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Atlas de las cosas que vibran (ESPASAesPOESÍA), de Iván Vergara, puede compararse con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, por su vinculación con la poesía. Se distinguen por la autoría y por las referencias de sus títulos. Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, señala expresamente una orientación amorosa, mientras que Atlas de las cosas que vibran (ESPASAesPOESÍA) remite en su título a una variedad de cosas que vibran.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788466396288"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "dc7757bd2b8852cd",
+  "fuente_hash": "c8dc81c7dc932fa4",
   "origen": "chatgpt-web"
 }

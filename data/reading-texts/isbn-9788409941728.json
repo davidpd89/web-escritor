@@ -4,41 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Susurros del olvido encaja con lectores interesados en relatos de fantasía y ciencia ficción escritos por distintas voces. Sus 401 páginas reúnen una autoría colectiva, por lo que su planteamiento difiere del de una novela atribuida a un único escritor.",
+      "texto": "Susurros del olvido se dirige a lectores de fantasía interesados en obras de relatos y en la participación de distintas voces autorales. Sus 401 páginas y su autoría colectiva lo alejan de quien prefiera una novela breve escrita por una sola persona.",
       "evidencias": [
         "titulo",
         "categorias",
-        "autores",
-        "numero_paginas"
+        "numero_paginas",
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Susurros del olvido se presenta en tapa blanda, con 401 páginas en castellano. Es un volumen físico de extensión considerable que permite alternar la lectura con consultas posteriores, manteniendo reunidas las aportaciones de sus distintos autores.",
+      "texto": "Susurros del olvido se publica en tapa blanda con una extensión de 401 páginas. Esta presentación permite reunir en un único volumen físico una obra de relatos de fantasía firmada por varios autores, con posibilidad de retomar la lectura directamente sobre el papel.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
+        "categorias",
         "autores"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Susurros del olvido puede compararse con Al despertar, rompe el cascarón (Runas), de Becky Chambers, por su relación con la narrativa de imaginación. La diferencia comprobable está en la autoría: Susurros del olvido reúne diez nombres, mientras que Al despertar, rompe el cascarón (Runas) figura firmado por Becky Chambers.",
+      "texto": "Susurros del olvido comparte con Caníbales de caramelandia su vinculación con la fantasía, aunque el primero reúne relatos de varios autores y el segundo figura como obra de Carlton Mellick Iii. Estuche Biblioteca de Hogwarts: contiene: Animales fantásticos | Los cuentos de Beedle el bardo | Quidditch a través de los tiempos (Harry Potter) también agrupa textos fantásticos, pero corresponde a J.K. Rowling, frente a la autoría colectiva de Susurros del olvido.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
+        "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370093488"
+        "isbn-9788412837278",
+        "isbn-9788466395724"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4801544b1f2fefc5",
+  "fuente_hash": "690cf99ec20e3728",
   "origen": "chatgpt-web"
 }

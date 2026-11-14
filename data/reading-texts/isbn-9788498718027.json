@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788498718027",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡Tira que Tira! (colección O), de Charo Pita Villares, se dirige al público infantil y a quienes buscan lecturas breves en castellano. Sus 48 páginas permiten incorporarlo a sesiones de lectura compartida; no está orientado a quienes prefieren narraciones juveniles extensas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¡Tira que Tira! (colección O) está editado en tapa dura, con 48 páginas en castellano. La cubierta rígida resulta práctica para conservar el ejemplar durante lecturas repetidas y para regalarlo como libro físico infantil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b5613f1b31279648",
+  "origen": "chatgpt-web"
+}

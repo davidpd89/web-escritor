@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se orienta a quienes buscan narrativa contemporánea de Cristina Campos centrada en mujeres y relaciones matrimoniales. Por su temática, puede encajar menos con lectores interesados principalmente en aventuras, fantasía o tramas de investigación.",
+      "texto": "Historias de mujeres casadas: Edición limitada a precio especial (Colección Especial), de Cristina Campos, encaja con lectores de narrativa contemporánea interesados en historias relacionadas con las mujeres y el matrimonio. Su orientación es distinta de la fantasía, la aventura o el thriller, por lo que no responde a una búsqueda centrada en esos géneros.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,33 +13,33 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La edición de Booket se presenta en formato de bolsillo, con 464 páginas y el ISBN 9788408331612. Forma parte de Colección Especial y está identificada como edición limitada a precio especial. La fecha de publicación indicada es 2027-01-08.",
+      "texto": "La Colección Especial de Booket presenta Historias de mujeres casadas: Edición limitada a precio especial (Colección Especial) como una edición limitada a precio especial. Es un libro de bolsillo en tapa blanda, con 464 páginas en castellano y fecha de publicación 2027-01-08. Esta presentación permite identificarla frente a otras versiones por su colección, editorial y encuadernación.",
       "evidencias": [
         "titulo",
         "editorial",
         "edicion",
         "numero_paginas",
-        "isbn13",
-        "fecha_publicacion"
+        "idioma",
+        "fecha_publicacion",
+        "formato_edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El formato disponible es tapa blanda, concretamente una edición de bolsillo de Booket. Las 464 páginas permiten conservar la novela en un único volumen de papel, con dimensiones de bolsillo para facilitar su transporte frente a ediciones de mayor tamaño.",
+      "texto": "La tapa blanda es la opción de lectura para esta edición de Historias de mujeres casadas: Edición limitada a precio especial (Colección Especial). Sus 464 páginas están reunidas en un libro de bolsillo de Booket, pensado para quien prefiere una copia física que pueda transportar y guardar en la estantería.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Hombres en terapia comparte autoría con Historias de mujeres casadas, pues ambas obras son de Cristina Campos. La primera sitúa en su presentación a una profesional que escucha a sus pacientes, mientras que la segunda se identifica por su temática matrimonial y su enfoque en las mujeres dentro de la narrativa contemporánea.",
+      "texto": "Hombres en terapia comparte autora con Historias de mujeres casadas: Edición limitada a precio especial (Colección Especial), ambas obras de Cristina Campos. La primera presenta a Olivia Cohen, que lleva más de treinta años escuchando a sus pacientes, mientras que la segunda se identifica por su temática relacionada con las mujeres casadas. La comparación permite elegir entre un punto de partida vinculado a la terapia y otro centrado en el matrimonio.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -49,6 +49,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9a46140904297beb",
+  "fuente_hash": "f9fec40f9d38cce7",
   "origen": "chatgpt-web"
 }

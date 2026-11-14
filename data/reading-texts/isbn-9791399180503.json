@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "ROMA 2023 D. C., de Antonio Tello, se dirige a quienes buscan poesía en castellano en un volumen breve de 66 páginas. Por su clasificación editorial, no corresponde a quien busca una novela narrativa o un manual de consulta.",
+      "texto": "ROMA 2023 D. C., de Antonio Tello, se dirige a quienes buscan poesía en castellano y prefieren obras de extensión reducida. Sus 66 páginas permiten una lectura breve en papel; encaja menos con quien busca una novela de trama extensa.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,12 +15,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "ROMA 2023 D. C. está disponible en tapa blanda, con 66 páginas. Esta edición en papel permite leer el volumen por partes y volver a sus páginas sin depender de un dispositivo electrónico.",
+      "texto": "ROMA 2023 D. C. está disponible en tapa blanda, con 66 páginas publicadas por In-verso Ediciones de Poesía. Esta extensión permite llevar el ejemplar en el bolso y alternar sesiones de lectura cortas con la consulta de páginas anteriores.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion"
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "ROMA 2023 D. C., de Antonio Tello, puede compararse con Advenir, de Jose Eceolaza, por su relación con las lecturas de poesía del catálogo. La diferencia comprobable está en la autoría, pues cada obra corresponde a un escritor distinto. Otra referencia es Acaba de decir si quiero cuando desperté, de Rox, que amplía las opciones de lectura con una tercera autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388391521",
+        "isbn-9788410212749"
       ]
     }
   ],

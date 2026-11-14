@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791399318500",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La noche de los sustos, de Servando Martínez Huici, pertenece a la literatura infantil y juvenil y tiene 34 páginas. Por su extensión, permite abordar la lectura en sesiones breves; el título introduce la idea de los sustos, por lo que no es la opción más ajustada para quien busque una lectura infantil alejada de ese motivo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La noche de los sustos está editado en tapa blanda y reúne 34 páginas en castellano. El formato físico permite pasar las páginas durante una lectura compartida y su extensión hace posible leerlo en pocas sesiones. La edición corresponde a Lirula.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d4e152ce7f882a73",
+  "origen": "chatgpt-web"
+}

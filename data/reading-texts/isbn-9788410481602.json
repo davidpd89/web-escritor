@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cecilia (Clásicos), de Frances Burney, está dirigida a lectores interesados en la literatura clásica. Sus 865 páginas corresponden a una obra de gran extensión, por lo que no encaja tanto con quien busca una lectura breve o prefiere centrarse en narrativa contemporánea.",
+      "texto": "Cecilia (Clásicos), de Frances Burney, se dirige a lectores interesados en obras clásicas y dispuestos a dedicar tiempo a una narración extensa. Sus 865 páginas la alejan de las lecturas breves, por lo que no encaja con quien busca un libro corto para terminar en pocas sesiones. La edición pertenece a la colección Clásicos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,18 +14,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cecilia (Clásicos) se encuentra disponible en tapa blanda. La edición de Libros de Seda contiene 865 páginas en un volumen físico de gran extensión, adecuado para quien prefiere leer en papel y conservar una obra clásica en su biblioteca.",
+      "texto": "Cecilia (Clásicos) se ofrece en tapa blanda, con 865 páginas en castellano. La cubierta flexible evita la rigidez de la tapa dura, pero la cantidad de páginas aconseja tener en cuenta el volumen físico al transportarlo o sostenerlo durante sesiones largas. Libros de Seda publica esta edición.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "editorial",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "idioma"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0deb58338d7628d6",
+  "fuente_hash": "2b39a3185bd00bf0",
   "origen": "chatgpt-web"
 }

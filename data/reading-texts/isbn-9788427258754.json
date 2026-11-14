@@ -4,28 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La correspondencia privada: Un libro de Rojo, blanco y sangre azul, de Casey McQuiston, encaja con lectores que buscan romance y narrativa contemporánea. Sus 296 páginas y su clasificación como ficción crossover sitúan la obra en un territorio narrativo distinto del ensayo, la fantasía o los libros prácticos.",
+      "texto": "La correspondencia privada: Un libro de Rojo, blanco y sangre azul (Ficción crossover) se dirige a lectores de romance y narrativa contemporánea. Sus 296 páginas encajan con quien busca una lectura de extensión media centrada en esos géneros, no con quien prefiere fantasía o divulgación.",
       "evidencias": [
         "titulo",
-        "autores",
-        "numero_paginas",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 296 páginas de La correspondencia privada: Un libro de Rojo, blanco y sangre azul, de Casey McQuiston, en una edición física de mayor consistencia que una cubierta flexible. Es el formato disponible y permite conservar el ejemplar en papel o incorporarlo a una colección.",
+      "texto": "La edición de La correspondencia privada: Un libro de Rojo, blanco y sangre azul (Ficción crossover) es en tapa dura, publicada por Molino. Sus 296 páginas forman un volumen encuadernado en cubierta rígida, una opción para conservar en la estantería o entregar como regalo físico.",
       "evidencias": [
         "titulo",
-        "autores",
-        "numero_paginas",
         "formatos_disponibles",
-        "edicion"
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La correspondencia privada: Un libro de Rojo, blanco y sangre azul, de Casey McQuiston, comparte el romance como eje de lectura con Amor en pole position (Dirty Air 3), de Lauren Asher. La diferencia está en el contexto: este último sitúa su historia amorosa en el mundo de la Fórmula 1, mientras que el título de Casey McQuiston se identifica con Rojo, blanco y sangre azul. Ambos permiten comparar distintas propuestas dentro de la narrativa romántica.",
+      "texto": "A mil por hora, de Hannah Grace, comparte el componente romántico con La correspondencia privada: Un libro de Rojo, blanco y sangre azul (Ficción crossover), de Casey McQuiston. La obra de Hannah Grace plantea una relación entre un piloto de F1 y una mujer marcada por su pasado, mientras que la de Casey McQuiston se encuadra en el romance y la narrativa contemporánea. Amor en pole position (Dirty Air 3), de Lauren Asher, también desarrolla una historia amorosa en el mundo de la Fórmula 1.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788466683449",
         "isbn-9788427055674"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "72148ae3bb846cd1",
+  "fuente_hash": "bd1888af54a58930",
   "origen": "chatgpt-web"
 }

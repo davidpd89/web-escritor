@@ -4,30 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Freddie Mercury. Una vida en verso, de Mary Austin, se dirige a quienes buscan una obra vinculada a una figura musical desde el ámbito del arte y el diseño. Su planteamiento anunciado en el título se aparta de los manuales técnicos de dibujo o de las historias generales del arte.",
+      "texto": "Freddie Mercury. Una vida en verso se dirige a lectores interesados en obras sobre figuras musicales tratadas desde una perspectiva artística. El título anuncia una aproximación en verso y sus 320 páginas conforman un volumen extenso; no responde a la búsqueda de una novela de ficción convencional.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Freddie Mercury. Una vida en verso se presenta en tapa dura, con 320 páginas publicadas por Blume (naturart). Es una edición física que puede conservarse en una biblioteca personal o entregarse como regalo, con una encuadernación rígida.",
+      "texto": "Freddie Mercury. Una vida en verso se presenta en tapa dura y cuenta con 320 páginas en castellano. El formato físico permite conservar el libro y consultarlo por partes, mientras que la encuadernación rígida resulta apropiada para mantener una obra de esta extensión en una colección.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "formatos_disponibles"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Freddie Mercury. Una vida en verso, de Mary Austin, puede compararse con All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial, de Daniel Sedcontra, por su relación con la música. El primero se centra en una figura concreta y anuncia un tratamiento en verso; el segundo aborda la música industrial y su dimensión cultural.",
+      "texto": "Freddie Mercury. Una vida en verso puede ponerse junto a All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial por su relación con el ámbito musical. La obra de Mary Austin anuncia una vida contada en verso, mientras que la de Daniel Sedcontra se centra, según su título, en la música industrial y su dimensión cultural.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -37,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6616e3181c2be967",
+  "fuente_hash": "c47c929335ce2933",
   "origen": "chatgpt-web"
 }

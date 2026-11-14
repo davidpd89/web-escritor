@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388205064",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mujeres negras en la historia de Cuba: Protagonistas que dejaron huella (Sílex Universidad) se dirige a lectores interesados en la historia cubana y en el papel de las mujeres negras dentro de ella. Por su delimitación geográfica y temática, se aparta de las historias generales de otros países y de los relatos de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Mujeres negras en la historia de Cuba: Protagonistas que dejaron huella (Sílex Universidad) tiene 362 páginas en tapa blanda. Es un volumen en castellano publicado por Sílex Ediciones, cuya encuadernación flexible facilita transportarlo para su lectura o consulta fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mujeres negras en la historia de Cuba: Protagonistas que dejaron huella (Sílex Universidad) comparte con 53 días: Cómo Hitler derribó una democracia (HISTORIA) el interés por acontecimientos y procesos históricos. El libro de Oilda Hevia Lanier y Manuel Ramírez Chicharro delimita su atención a las mujeres negras de Cuba, mientras que el de Timothy W. Ryback se centra en la caída de una democracia bajo Hitler. La diferencia principal está en los protagonistas y el contexto geográfico de cada obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dccded5d44c3877c",
+  "origen": "chatgpt-web"
+}

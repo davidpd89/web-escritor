@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388406140",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Generación Pantalla: Comprender y educar a tus hijos en la era digital, de Adoración Díaz, se dirige a familias interesadas en la crianza y la educación de sus hijos en relación con la tecnología. No es una novela juvenil ni un relato de ficción, sino una obra de orientación familiar vinculada también al bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Generación Pantalla: Comprender y educar a tus hijos en la era digital se publica en tapa blanda, con 200 páginas en castellano. Su extensión permite consultar el volumen por partes y volver a determinados pasajes, mientras que la encuadernación flexible facilita guardarlo junto a otros libros de crianza.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Generación Pantalla: Comprender y educar a tus hijos en la era digital se relaciona con Convertirse en padre: 02 (Psicologia) y CONECTANDO CON MI BEBÉ: Relatos y actividades para vivir el embarazo con presencia, conexión y conciencia. Los tres abordan cuestiones familiares, pero Adoración Díaz centra su título en la educación digital de los hijos, mientras que los otros se ocupan de la paternidad y el embarazo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409936465",
+        "isbn-9791370550288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0ea4cf94cd006a86",
+  "origen": "chatgpt-web"
+}

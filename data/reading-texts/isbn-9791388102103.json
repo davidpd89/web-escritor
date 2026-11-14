@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388102103",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Doraemon nº 07/15 (català): 7 (Manga Kodomo) está orientado a lectores infantiles y juveniles que prefieren las historias contadas mediante viñetas. Su clasificación como manga infantil lo diferencia de una novela convencional; el título lo identifica como el n.º 7, por lo que también interesa a quienes siguen esa numeración.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Doraemon nº 07/15 (català): 7 (Manga Kodomo) se presenta en tapa blanda, con 568 páginas de contenido impreso. Es una edición extensa para un manga infantil, de modo que conviene considerar su volumen al transportarlo o guardarlo junto a otros tomos de la colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Doraemon nº 07/15 (català): 7 (Manga Kodomo) comparte autoría y numeración con Doraemon nº 07/15: 7 (Manga Kodomo), también de Fujiko F. Fujio; la diferencia visible está en la indicación «català» del título. Frente a Animal Jack 2 la montaña mágica, de Kid Toussaint, mantiene la referencia al manga infantil y a una colección identificada mediante números.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388102080",
+        "isbn-9791387744410"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2db69fb1e9f7ee2e",
+  "origen": "chatgpt-web"
+}

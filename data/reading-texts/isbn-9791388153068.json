@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388153068",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo ganar a los fachas: (Leer antes de votar) se dirige a lectores interesados en política, actualidad y debates sobre el poder. El libro de Gabriel Rufián Romero tiene 224 páginas y se sitúa fuera de la narrativa de ficción; no encaja con quien busque una novela o una lectura alejada de la discusión política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cómo ganar a los fachas: (Leer antes de votar) puede leerse en tapa blanda o en Kindle. La edición impresa reúne 224 páginas y permite consultar pasajes sobre papel; Kindle facilita llevar el texto en un dispositivo compatible sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Brainwashing: Populismo en la era del like comparte con Cómo ganar a los fachas: (Leer antes de votar) el interés por el debate político, aunque el título de Andrés Roemer centra la atención en el populismo y su relación con el entorno digital. El estado del Estado, de Enrique López López, aborda la situación de España desde una perspectiva de reflexión institucional, frente al planteamiento de confrontación política anunciado en el título de Gabriel Rufián Romero.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399271379",
+        "isbn-9788423441013"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "847dca5249e20843",
+  "origen": "chatgpt-web"
+}

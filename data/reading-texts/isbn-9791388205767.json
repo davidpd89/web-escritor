@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388205767",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Qué es el teatro se dirige a lectores interesados en las artes escénicas y en el teatro como disciplina artística. Con 62 páginas, su extensión es reducida frente a la de un tratado amplio; encaja menos con quien busque una novela extensa o una obra centrada en las artes visuales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Qué es el teatro se publica en tapa blanda, con 62 páginas en castellano editadas por Sílex Ediciones. Su extensión facilita llevar el ejemplar en una bolsa y consultarlo en papel, sin necesidad de reservar espacio para un volumen de gran tamaño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Qué es el teatro y Arde Talía: Una pieza teatral sobre el infierno de la creación artística comparten su vinculación con el ámbito teatral. José Luis González Subías aborda el teatro como asunto central de su libro, mientras que la obra de Alba Quintas Garciandia, Ana Saiz, Talita Isla, Carmen Romero Lorenzo e Inés Galiano se identifica como una pieza teatral sobre la creación artística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399289510"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e3c09cc4fe0e577b",
+  "origen": "chatgpt-web"
+}

@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los Exploradores de Emociones / The Emotion Explorers está orientado a lectores interesados en las emociones, el bienestar y las relaciones familiares. La obra de Karmele Morales Aspra se sitúa en el ámbito del desarrollo personal y la crianza, por lo que no responde a la búsqueda de una novela de aventuras.",
+      "texto": "Los Exploradores de Emociones / The Emotion Explorers, de Karmele Morales Aspra, se orienta a lectores interesados en el desarrollo personal y las cuestiones familiares. Su clasificación dentro de familia y crianza lo acerca a ese ámbito, pero resulta menos afín a quienes buscan ficción de aventuras o estudios históricos.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los Exploradores de Emociones / The Emotion Explorers se presenta en tapa blanda, con 84 páginas en castellano. Su extensión permite manejar el volumen con facilidad y volver a consultar apartados relacionados con las emociones sin recurrir a una edición digital.",
+      "texto": "Los Exploradores de Emociones / The Emotion Explorers se presenta en tapa blanda, con 84 páginas en castellano. La edición de Penguin Kids ofrece un volumen de extensión reducida que puede manejarse y consultarse en papel durante actividades de lectura compartida.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito comparte con Los Exploradores de Emociones / The Emotion Explorers el interés por el bienestar personal. La obra de Liz Moody abarca salud, felicidad y relaciones, mientras que la de Karmele Morales Aspra concentra su planteamiento en las emociones y el entorno familiar.",
+      "texto": "Los Exploradores de Emociones / The Emotion Explorers se relaciona con Conectados para el amor / Wired for Love, de Stan Tatkin, por su proximidad a las cuestiones personales y familiares. El título de Stan Tatkin señala las relaciones amorosas, mientras que el de Karmele Morales Aspra pone el foco en las emociones y está clasificado también en familia y crianza.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9798890981776"
+        "isbn-9786073876056"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "879a890cfb708c61",
+  "fuente_hash": "43045123a2582b64",
   "origen": "chatgpt-web"
 }

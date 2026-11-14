@@ -4,34 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Moonwalk (Trayectos), de Michael Jackson, se sitúa entre las lecturas vinculadas al ámbito artístico. Sus 360 páginas encajan con quien busca un volumen dedicado a una figura musical concreta, más que un manual de técnicas de dibujo o diseño.",
+      "texto": "Moonwalk (Trayectos) se orienta a lectores interesados en Michael Jackson y en publicaciones vinculadas al ámbito artístico. Su clasificación en arte y diseño lo aleja de las lecturas centradas en técnicas de dibujo o manuales de creación visual. La edición en castellano reúne 360 páginas.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La edición de Moonwalk (Trayectos) publicada por Alba Editorial se presenta en tapa blanda y castellano. Con 360 páginas, ofrece un volumen físico para leer, conservar o regalar, sin necesidad de utilizar un lector electrónico.",
-      "evidencias": [
-        "titulo",
-        "editorial",
-        "edicion",
-        "formatos_disponibles",
         "idioma",
         "numero_paginas"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "Moonwalk (Trayectos) está disponible en tapa blanda, con 360 páginas en castellano. Este formato permite conservar el volumen en una biblioteca personal, utilizar separadores y consultar distintos pasajes sin depender de un dispositivo electrónico. La edición corresponde a Alba Editorial.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Moonwalk (Trayectos) y All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial comparten el ámbito musical. Michael Jackson firma el primero, mientras Daniel Sedcontra aborda en el segundo la música industrial y su dimensión cultural, una diferencia de enfoque entre ambos títulos.",
+      "texto": "Moonwalk (Trayectos) puede compararse con All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial por su vinculación con el ámbito musical. El primero lleva la firma de Michael Jackson, mientras que el segundo, de Daniel Sedcontra, anuncia un enfoque sobre la música industrial y su dimensión cultural.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788410045538"
@@ -40,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5fc92dda91ce3b42",
+  "fuente_hash": "e080703071a1118d",
   "origen": "chatgpt-web"
 }

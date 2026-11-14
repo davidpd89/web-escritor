@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791399068672",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Renacer nuclear: cómo la energía nuclear salvará el mundo. se dirige a lectores interesados en la energía nuclear desde una perspectiva de divulgación científica y economía. Tim Gregory aborda un asunto relacionado con la ciencia y sus implicaciones económicas, por lo que encaja menos con quien busca ficción o un manual empresarial centrado en herramientas de gestión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Renacer nuclear: cómo la energía nuclear salvará el mundo. y Gestión de proyectos de inteligencia artificial tratan asuntos científicos y tecnológicos con posibles aplicaciones económicas. La diferencia está en el enfoque: Tim Gregory se centra en la energía nuclear, mientras que el título de Adrián González Sánchez y Malini Jain Runtasewee apunta a la gestión de proyectos de inteligencia artificial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426742827"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c90ab7da9cdc2580",
+  "origen": "chatgpt-web"
+}

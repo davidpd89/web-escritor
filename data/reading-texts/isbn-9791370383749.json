@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791370383749",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores interesados en el pensamiento marxista, el Estado dependiente y el análisis político desde una perspectiva teórica. Sus 404 páginas y su encuadre en el ensayo y el derecho lo distancian de un manual breve de actualidad política o de una narración histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje del libro es la teoría marxista del Estado dependiente, abordada desde sus distintas trayectorias y encrucijadas conceptuales. La combinación de ensayo, derecho y pensamiento político sitúa el tema en el estudio de las relaciones entre Estado, dependencia y teoría política.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Tirant Humanidades está encuadernada en tapa blanda y contiene 404 páginas en castellano. Su extensión permite una lectura prolongada y la consulta de apartados en papel, con una encuadernación flexible para transportar el volumen.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo ganar unas elecciones: El manual del candidato. Commentariolum petitionis: 68 (Historia y pensamiento), de Quinto Tulio Cicerón, también se ocupa de cuestiones políticas, pero desde la perspectiva de una candidatura electoral. La teoría marxista del Estado dependiente: entre senderos, ecos y encrucijadas (Plural -México-) desplaza el foco hacia el análisis teórico del Estado y la dependencia, con una autoría colectiva.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387624712"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6dbbe02fbc585655",
+  "origen": "chatgpt-web"
+}

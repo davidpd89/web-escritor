@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788467084269",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Secretos y mentiras: Crónica sentimental de la Transición (Espasa Periodismo) se dirige a quienes leen sobre política, memoria personal e historia reciente desde el ensayo. Su enfoque temático encaja menos con lectores que buscan una novela de ficción o una narración de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 312 páginas de Secretos y mentiras: Crónica sentimental de la Transición (Espasa Periodismo) en un ejemplar físico que permite consultar y releer pasajes. La versión Kindle facilita la lectura digital y evita llevar el volumen en papel durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Secretos y mentiras: Crónica sentimental de la Transición (Espasa Periodismo) puede compararse con Crónica de un desafío al Estado por su atención a la política española. Mientras Nativel Preciado aborda la Transición desde una perspectiva sentimental, la obra de Javier Alberto Zaragoza Aguado presenta en primera persona los acontecimientos del Procés y la tensión política en Cataluña.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423441303"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9928b277ebe939bb",
+  "origen": "chatgpt-web"
+}

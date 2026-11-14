@@ -4,25 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Blockchain: un desafío legal (Monografía) se orienta a lectores que buscan estudiar blockchain desde el Derecho y sus problemas jurídicos. Quien prefiera una explicación exclusivamente técnica de esta tecnología encontrará aquí un enfoque distinto, centrado en su dimensión legal.",
+      "texto": "Blockchain: un desafío legal (Monografía) se dirige a quienes buscan estudiar las cuestiones jurídicas relacionadas con blockchain. El enfoque de Ana Isabel Quiroz Ruiz se sitúa en el derecho, por lo que se aleja de las lecturas centradas exclusivamente en el funcionamiento técnico de esta tecnología.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Blockchain: un desafío legal (Monografía) está disponible en tapa blanda, con 326 páginas en castellano. Esta edición física permite subrayar, anotar y volver a consultar apartados durante el estudio de las cuestiones legales relacionadas con blockchain.",
+      "texto": "La tapa blanda permite consultar y subrayar las 326 páginas de Blockchain: un desafío legal (Monografía) en papel. Esta edición de Aranzadi reúne el contenido en un volumen físico que puede incorporarse a una biblioteca jurídica y utilizarse para localizar pasajes durante el estudio.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Derecho penal 4.0: el Derecho penal en la cuarta revolución industrial: 124 (Propiedad Intelectual) comparte el interés por las relaciones entre tecnología y Derecho, pero se ocupa específicamente del ámbito penal. Blockchain: un desafío legal (Monografía), de Ana Isabel Quiroz Ruiz, concentra esa perspectiva jurídica en blockchain, mientras que Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I aborda los contratos de consumo.",
+      "texto": "Derecho penal 4.0: el Derecho penal en la cuarta revolución industrial: 124 (Propiedad Intelectual) comparte con Blockchain: un desafío legal (Monografía) el interés por los desafíos jurídicos asociados a la tecnología. La obra de Raquel Roso Cañadillas, José-Zamir Vega Gutiérrez y Carmen Pérez-Sauquillo Muñoz se centra en el derecho penal y la cuarta revolución industrial, mientras que Ana Isabel Quiroz Ruiz aborda blockchain desde una perspectiva jurídica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,13 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370297305",
         "isbn-9788429030396"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5bea65e50c9dcad3",
+  "fuente_hash": "129a7a4f56e906ed",
   "origen": "chatgpt-web"
 }

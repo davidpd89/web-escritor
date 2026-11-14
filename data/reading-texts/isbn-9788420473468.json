@@ -4,42 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La guaracha del Macho Camacho (Ed. conmemorativa) (Ediciones conmemorativas) encaja con lectores de narrativa contemporánea interesados en el humor y las ediciones conmemorativas. Sus 424 páginas y su orientación narrativa la alejan de quienes buscan una lectura breve o centrada exclusivamente en la acción fantástica.",
+      "texto": "La guaracha del Macho Camacho (Ed. conmemorativa) (Ediciones conmemorativas) se orienta a lectores de narrativa contemporánea interesados en una edición conmemorativa. Su clasificación también incluye cómic y novela gráfica, por lo que responde menos a una búsqueda centrada exclusivamente en fantasía o novela histórica.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición conmemorativa de RAE se presenta en tapa dura, con 424 páginas en castellano, una opción física para conservar en la biblioteca. Kindle permite leer La guaracha del Macho Camacho (Ed. conmemorativa) (Ediciones conmemorativas) en formato digital, sin necesidad de llevar el libro impreso.",
+      "texto": "La edición en tapa dura de La guaracha del Macho Camacho (Ed. conmemorativa) (Ediciones conmemorativas) permite conservar sus 424 páginas en un volumen físico de carácter conmemorativo. Kindle ofrece una alternativa digital para leer sin cargar con el ejemplar impreso.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
         "numero_paginas",
-        "idioma",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La guaracha del Macho Camacho (Ed. conmemorativa) (Ediciones conmemorativas) puede compararse con Los pecados de la familia Ichinose 6 (Shônen), de Taizan 5, por su presencia en el ámbito narrativo del catálogo. La obra de Luis Rafael Sánchez se orienta a la narrativa contemporánea y al humor, mientras que el título de Taizan 5 pertenece a una serie identificada como Shônen. También se diferencia por presentarse como edición conmemorativa en tapa dura.",
+      "texto": "La guaracha del Macho Camacho (Ed. conmemorativa) (Ediciones conmemorativas) y After God 7 (Shônen) figuran en un entorno de lecturas que incluye cómic y novela gráfica. La diferencia está en la presentación: la obra de Luis Rafael Sánchez es una edición conmemorativa de narrativa contemporánea, mientras que After God 7 (Shônen), de Sumi Eno, se identifica como una entrega numerada de una colección shônen.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "edicion",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410305106"
+        "isbn-9791387962388"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4276a6801ebed57e",
+  "fuente_hash": "95c598b9bbd979bc",
   "origen": "chatgpt-web"
 }

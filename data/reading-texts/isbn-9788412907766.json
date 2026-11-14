@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788412907766",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Resonancia del pájaro, de Luis Baeza Andreu, está dirigido a quienes leen poesía y prefieren este género frente a la narrativa convencional. Sus 84 páginas ofrecen un volumen breve, aunque no responde a quienes buscan una novela con una trama extensa y desarrollo continuado de personajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Resonancia del pájaro se publica en tapa blanda, con 84 páginas en castellano. Su tamaño permite llevar el volumen para leer en desplazamientos y volver a los textos en distintas sesiones; también resulta manejable para conservarlo junto a otros poemarios.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Resonancia del pájaro se relaciona con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, por su pertenencia al ámbito poético. El segundo identifica expresamente el amor como eje de su selección, mientras que el primero presenta un título vinculado a la imagen de un pájaro. La autoría también es diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fe699136d40bcd82",
+  "origen": "chatgpt-web"
+}

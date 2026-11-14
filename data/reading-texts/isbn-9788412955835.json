@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788412955835",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Enzo Ferrari: Velocidad, sangre y gloria. La biografía definitiva sobre Ferrari y su legado en el mundo del automovilismo. (No ficción) se dirige a lectores interesados en las biografías, las trayectorias personales y el mundo del motor. Su enfoque corresponde a la no ficción biográfica, no a quienes buscan una novela de ficción o una historia deportiva centrada en otros deportes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra aborda la figura de Enzo Ferrari y su legado en el mundo del automovilismo desde el género biográfico. El enfoque combina la trayectoria de una persona con su relación con un ámbito empresarial y deportivo vinculado al motor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura contiene sus 576 páginas en un volumen físico, una opción para quien prefiere leer y conservar una biografía extensa en papel. Es el formato disponible de esta edición de Malpaso, por lo que resulta la elección para quien busca precisamente este ejemplar impreso.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Memorias olímpicas: Historia de los Juegos Olímpicos narrada por el hombre que los inventó (Clásicos) comparte el interés por las trayectorias personales vinculadas al deporte. La diferencia está en el ámbito: Enzo Ferrari: Velocidad, sangre y gloria. La biografía definitiva sobre Ferrari y su legado en el mundo del automovilismo. (No ficción) se centra en el automovilismo y la figura de Ferrari, mientras que el otro título aborda la historia de los Juegos Olímpicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387955540"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a957d1a3a0221d37",
+  "origen": "chatgpt-web"
+}

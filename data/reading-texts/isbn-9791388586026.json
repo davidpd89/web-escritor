@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388586026",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Normas de operación de las redes de distribución eléctrica-ELEE013PO está orientado a lectores interesados en el funcionamiento y las normas de operación de las redes eléctricas. Su temática técnica se distancia de las lecturas de divulgación general sin relación con la infraestructura eléctrica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Normas de operación de las redes de distribución eléctrica-ELEE013PO tiene una edición en tapa blanda de 174 páginas. El formato impreso permite señalar apartados y consultar el contenido técnico durante el estudio o el trabajo con documentación sobre redes eléctricas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Normas de operación de las redes de distribución eléctrica-ELEE013PO se relaciona con Iniciación en mantenimiento eléctrico industrial-ELEE0012, también de Beatriz Coronado García, por su temática eléctrica. El primero aborda las normas de operación de redes de distribución y el segundo se centra en el mantenimiento industrial. Boletines derivados de una instalación-IMAI0010, de la misma autora, desplaza la atención hacia la documentación de instalaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411354783",
+        "isbn-9788411354790"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "64c16d21913b0fef",
+  "origen": "chatgpt-web"
+}

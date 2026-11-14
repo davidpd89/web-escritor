@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Karateka encaja con quienes buscan testimonios deportivos sobre perseverancia y trayectorias personales alejadas de los recorridos habituales hacia la élite. Sandra Sánchez cuenta su experiencia como campeona olímpica de karate; no es una obra centrada en enseñar técnicas de combate ni una ficción deportiva.",
+      "texto": "Karateka se dirige a lectores de memorias deportivas interesados en la trayectoria de Sandra Sánchez y en la perseverancia dentro del deporte de élite. Su testimonio personal se diferencia de un manual de entrenamiento técnico o de una guía para aprender movimientos de karate.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,11 +14,10 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Karateka puede leerse en tapa blanda o Kindle. La edición física de Lunwerg Editores tiene 184 páginas y se presenta en rústica con solapas, una opción para conservar o regalar el testimonio de Sandra Sánchez; Kindle permite leerlo en el móvil sin transportar el ejemplar impreso.",
+      "texto": "Karateka cuenta con una edición en tapa blanda, rústica con solapas, de 184 páginas, adecuada para leer y conservar el testimonio físico de Sandra Sánchez. La versión Kindle permite llevar esta autobiografía deportiva en el móvil o en un lector electrónico.",
       "evidencias": [
         "titulo",
         "autores",
-        "editorial",
         "edicion",
         "numero_paginas",
         "formatos_disponibles",
@@ -27,16 +26,16 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Karateka y Trabaja como un monje budista abordan experiencias vinculadas al esfuerzo y al sentido de la actividad personal, aunque Sandra Sánchez relata una trayectoria deportiva y Shoukei Matsumoto reflexiona sobre el trabajo. También puede compararse con Cómo me gustaría contarte, de Ángel Gómez Merino: ambas parten de experiencias personales, pero Karateka sitúa el deporte en el centro.",
+      "texto": "Karateka y 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia) relacionan experiencias personales con la manera de afrontar la vida. Sandra Sánchez cuenta su trayectoria deportiva y su perseverancia, mientras Dick Van Dyke aborda la longevidad, el optimismo y el humor desde una perspectiva distinta.",
       "evidencias": [
         "titulo",
         "autores",
         "sinopsis_editorial",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410427594",
-        "isbn-9788403526723"
+        "isbn-9791387852290"
       ]
     }
   ],

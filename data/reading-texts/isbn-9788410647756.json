@@ -4,41 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El cardadismo ilustrado: Filosofía para sobrevivir a las caídas sin despeinarte encaja con lectores interesados en el humor, las memorias y la relación entre personalidad y estilo. Sus 208 páginas se alejan de una obra académica extensa sobre filosofía, por lo que responde menos a quien busca un tratado especializado.",
+      "texto": "El cardadismo ilustrado: Filosofía para sobrevivir a las caídas sin despeinarte se dirige a lectores interesados en Mario Vaquerizo y en una perspectiva personal sobre cómo afrontar los contratiempos. Su vinculación con las biografías, las memorias y el arte lo diferencia de un tratado académico de filosofía o de una novela de ficción.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 208 páginas de El cardadismo ilustrado: Filosofía para sobrevivir a las caídas sin despeinarte en una edición física de Harpercollins. Kindle permite leerlo en el móvil o en un dispositivo electrónico, mientras que el audiolibro ofrece la posibilidad de escucharlo durante desplazamientos o actividades cotidianas.",
+      "texto": "La tapa blanda reúne las 208 páginas de El cardadismo ilustrado: Filosofía para sobrevivir a las caídas sin despeinarte en un ejemplar físico que puede prestarse o regalarse. Kindle permite leerlo en dispositivos digitales, mientras que el audiolibro ofrece la alternativa de escucharlo durante desplazamientos u otras actividades.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles",
-        "edicion"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La Risa de mi vida comparte con El cardadismo ilustrado: Filosofía para sobrevivir a las caídas sin despeinarte el vínculo con el humor y las experiencias personales. La obra de Jorge Bolaños parte de la adopción de una perra, mientras que Mario Vaquerizo plantea una filosofía personal ante las dificultades. Mexikid: Sueña / Mexikid: Dreams: A Graphic Memoir ofrece otra aproximación a las vivencias personales, presentada como memoria gráfica.",
+      "texto": "Desde que era un crío, de Locus, comparte el ámbito de las publicaciones personales, aunque su título remite a los primeros años de vida, frente a la filosofía ante las caídas que plantea Mario Vaquerizo. El rey de la baraja: La imperecedera vida de Roberto Iniesta: 7 (Marea gráfica), de Nacho Nava Laiz, se centra en una trayectoria individual, mientras que El cardadismo ilustrado: Filosofía para sobrevivir a las caídas sin despeinarte anuncia una perspectiva sobre los contratiempos.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788466684606",
-        "isbn-9798890988690"
+        "isbn-9791399084894",
+        "isbn-9791387938499"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ece759eb540f9655",
+  "fuente_hash": "81bf4c1cc2ab06bb",
   "origen": "chatgpt-web"
 }

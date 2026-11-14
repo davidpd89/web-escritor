@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388075476",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historias de la curiosidad cientifica está dirigido a lectores interesados en la divulgación científica y en las historias relacionadas con el conocimiento y la investigación. Su combinación de ciencia y perspectiva biográfica se diferencia de los manuales especializados centrados en procedimientos técnicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Historias de la curiosidad cientifica, de Carly Anne York, se publica en tapa blanda con 224 páginas en castellano. Esta edición permite leer el contenido en papel, marcar fragmentos y conservar el volumen para futuras consultas sobre sus temas científicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Historias de la curiosidad cientifica y Por un puñado de fósiles: Un paleoantropólogo entre la sabana africana y la jungla académica (Arqueología) relacionan ciencia y experiencias humanas. Carly Anne York aborda la curiosidad científica desde un planteamiento general, mientras que Manuel Domínguez-Rodrigo sitúa su obra en la paleoantropología y el entorno académico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370205201"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "827d8e208c1ff97f",
+  "origen": "chatgpt-web"
+}

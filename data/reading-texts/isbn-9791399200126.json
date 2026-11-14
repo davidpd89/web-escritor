@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399200126",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Club: Todos corren. Uno muere. se orienta a lectores de misterio y thriller, con una muerte anunciada desde el propio título. Sus 326 páginas corresponden a una novela de extensión media; no encaja con quien busca una historia centrada en viajes o aventuras sin componente criminal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Club: Todos corren. Uno muere. puede leerse en tapa blanda o Kindle. La edición impresa reúne 326 páginas para quienes prefieren pasar páginas físicas, mientras que Kindle permite llevar la novela en formato digital y continuarla desde un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Club, de Haizea López, puede compararse con Aguas turbulentas, de Rankin Ian, por su relación con el misterio y los conflictos criminales. El primero vincula su planteamiento a una muerte entre corredores, mientras que Aguas turbulentas sitúa la acción en Edimburgo y relaciona sucesos del pasado con el presente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6ca1af61cbb1098b",
+  "origen": "chatgpt-web"
+}

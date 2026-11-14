@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9789505186983",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Formación del pensamiento sociológico, la 3a ED (Sociologia) se orienta a lectores interesados en el pensamiento sociológico y en el ensayo. La obra de Robert Nisbet tiene 448 páginas en castellano y se aparta de las preferencias de quienes buscan ficción narrativa o una lectura breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Formación del pensamiento sociológico, la 3a ED (Sociologia) es de tapa blanda y contiene 448 páginas. El volumen de Amorrortu permite la lectura y consulta en papel, con una encuadernación flexible que puede manejarse sobre una mesa o trasladarse para estudiar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a69b017d736786d0",
+  "origen": "chatgpt-web"
+}

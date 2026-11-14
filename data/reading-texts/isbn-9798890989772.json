@@ -4,41 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El Más Gallina / Fight or Flight (Diario del Wimpy Kid) encaja con lectores interesados en el humor y las historias relacionadas con el entorno familiar. Su clasificación temática y sus 224 páginas lo distinguen de un ensayo especializado en crianza o de una novela histórica extensa.",
+      "texto": "El Más Gallina / Fight or Flight (Diario del Wimpy Kid) se dirige a lectores interesados en los libros de Jeff Kinney y en las historias de la colección identificada en su título. Sus 224 páginas y su encuadre familiar lo separan de los manuales de desarrollo personal y de las lecturas centradas en temas de adultos.",
       "evidencias": [
         "titulo",
+        "autores",
+        "numero_paginas",
         "categorias",
-        "numero_paginas"
+        "afines_catalogo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El Más Gallina / Fight or Flight (Diario del Wimpy Kid) se publica en tapa dura, con 224 páginas en castellano. La edición de Molino ofrece una cubierta rígida que protege el volumen durante el uso frecuente y permite conservarlo en una colección de libros físicos.",
+      "texto": "El Más Gallina / Fight or Flight (Diario del Wimpy Kid) se presenta en tapa dura, con 224 páginas en castellano. Esta edición de Molino ofrece una encuadernación rígida para conservar el volumen, prestarlo o incorporarlo a una colección de libros de Jeff Kinney.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "editorial",
+        "autores"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El Más Gallina / Fight or Flight (Diario del Wimpy Kid) comparte autor, Jeff Kinney, con Diario de Greg 21 - Montando un pollo y Diario de Rowley: Historias Supergeniales de Miedo 2 / Rowley Jeffersons Awesome Friendly Spooky Stories 2 (Diario de Rowley / Rowley Jefferson's Journal). El primero sitúa parte de su conflicto en el instituto y el segundo anuncia historias de miedo, mientras que El Más Gallina / Fight or Flight (Diario del Wimpy Kid) se clasifica dentro del humor y el ámbito familiar.",
+      "texto": "Diario de Greg 21 - Montando un pollo es la comparación más directa con El Más Gallina / Fight or Flight (Diario del Wimpy Kid), ya que ambos pertenecen al entorno de libros de Jeff Kinney. El primero sitúa a Greg Heffley ante los conflictos del instituto, mientras que el segundo se identifica por su título bilingüe y su pertenencia a Diario del Wimpy Kid.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9798890989802",
         "isbn-9788427255951"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4bec1a5815e9363f",
+  "fuente_hash": "f968b1e99659bc99",
   "origen": "chatgpt-web"
 }

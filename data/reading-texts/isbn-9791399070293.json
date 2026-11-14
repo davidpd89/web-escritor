@@ -4,39 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Soplar las heridas: Identidad y trauma: claves para acompañar en la vulnerabilidad se dirige a lectores interesados en el trauma, la identidad y el acompañamiento de personas vulnerables. Su enfoque se sitúa entre el desarrollo personal, el bienestar y el ensayo, por lo que no responde a la búsqueda de una novela de ficción o de un recetario de salud.",
+      "texto": "Soplar las heridas: Identidad y trauma: claves para acompañar en la vulnerabilidad se dirige a lectores interesados en el trauma, la identidad y el acompañamiento de personas vulnerables. El libro de Luis E. Estévez Cachafeiro combina asuntos de desarrollo personal, salud y ensayo; no está planteado como una guía general de hábitos o productividad.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Soplar las heridas: Identidad y trauma: claves para acompañar en la vulnerabilidad se edita en tapa blanda y tiene 168 páginas en castellano. El volumen físico permite marcar y recuperar apartados relacionados con la identidad y el trauma durante sucesivas consultas, sin necesidad de utilizar una pantalla.",
+      "texto": "La edición en tapa blanda contiene las 168 páginas de Soplar las heridas: Identidad y trauma: claves para acompañar en la vulnerabilidad. Su extensión permite leer el volumen en sesiones separadas y volver sobre las cuestiones de identidad, trauma y acompañamiento tratadas en el libro.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta y Soplar las heridas: Identidad y trauma: claves para acompañar en la vulnerabilidad coinciden en abordar cuestiones personales, pero el primero se centra en la vida adulta y el segundo en el trauma y el acompañamiento. Consciencia Inmortal: Conversaciones con Sri Ramana Maharshihi propone conversaciones de carácter espiritual, frente al tratamiento de la identidad y la vulnerabilidad de Luis E. Estévez Cachafeiro.",
+      "texto": "Soplar las heridas: Identidad y trauma: claves para acompañar en la vulnerabilidad y No estoy bien y no sé por qué: Cómo dejar de vivir en piloto automático y superar la ansiedad silenciosa (Kitaeru Libros) comparten el interés por el malestar emocional. Luis E. Estévez Cachafeiro se centra en identidad, trauma y acompañamiento, mientras que Tamara Arroyo Fenoll aborda la ansiedad silenciosa y la vida en piloto automático.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409938490",
-        "isbn-9791399252705"
+        "isbn-9788410428522"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5a1089e4537ad9bd",
+  "fuente_hash": "a524a44418371e92",
   "origen": "chatgpt-web"
 }

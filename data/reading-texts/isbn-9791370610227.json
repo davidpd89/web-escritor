@@ -4,37 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El Compliance en la era de la IA: La gestión de los riesgos jurídicos tras la irrupción de la IA en las empresas (Gran tratado) se dirige a quienes estudian el cumplimiento normativo y los riesgos jurídicos empresariales asociados a la inteligencia artificial. Su planteamiento jurídico y empresarial no responde a una búsqueda de divulgación tecnológica general.",
+      "texto": "Pensado para lectores que trabajan con cumplimiento normativo y riesgos jurídicos derivados de la inteligencia artificial en empresas. Sus 800 páginas y su identificación como gran tratado apuntan a una consulta extensa y especializada, alejada de una introducción breve a las herramientas de IA.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda contiene las 800 páginas de El Compliance en la era de la IA: La gestión de los riesgos jurídicos tras la irrupción de la IA en las empresas (Gran tratado). Por su extensión, resulta más apropiada para mantenerla como volumen de consulta que para transportarla continuamente.",
+      "texto": "La edición en tapa blanda concentra 800 páginas dedicadas al cumplimiento normativo y a los riesgos legales de la IA empresarial. Por su extensión, resulta más apropiada para la consulta sobre una mesa que para transportarla habitualmente; el papel permite anotar y señalar pasajes de trabajo.",
       "evidencias": [
-        "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Blockchain: un desafío legal (Monografía) coincide en examinar cuestiones jurídicas relacionadas con tecnologías, pero trata blockchain en vez de los riesgos empresariales de la inteligencia artificial. Casos prácticos sobre el despido (Supuestos prácticos) también aborda el Derecho en el entorno profesional, aunque se concentra en situaciones de despido y no en el cumplimiento normativo tecnológico.",
+      "texto": "Blockchain: un desafío legal (Monografía), de Ana Isabel Quiroz Ruiz, también aborda el encuentro entre tecnología y derecho. Frente al análisis jurídico de blockchain, el tratado de Xabier Ribas se concentra en el cumplimiento normativo y la gestión de riesgos asociados a la IA en las empresas. El contraste está en la tecnología examinada y en el ámbito empresarial del segundo título.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "categorias",
-        "afines_catalogo"
+        "autores"
       ],
       "enlaces": [
-        "isbn-9791370610265",
-        "isbn-9791370651749"
+        "isbn-9791370610265"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5a6e0ec0f8512806",
+  "fuente_hash": "7b25cc95611e16da",
   "origen": "chatgpt-web"
 }

@@ -4,43 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mantequilla (Novela), de Asako Yuzuki, se dirige a lectores de misterio y narrativa contemporánea que buscan una novela extensa. Sus 496 páginas en castellano encajan menos con quienes prefieren lecturas breves o relatos centrados exclusivamente en la acción.",
+      "texto": "Mantequilla (Novela) se dirige a lectores que buscan narrativa contemporánea con elementos de misterio y thriller. Por su combinación de géneros, encaja menos con quienes prefieren una novela histórica o una obra práctica de desarrollo personal.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mantequilla (Novela) se publica en formato de bolsillo con tapa blanda y 496 páginas en castellano. Esta presentación facilita llevar una novela extensa en un volumen de bolsillo y permite leerla en papel durante desplazamientos o sesiones de lectura prolongadas.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formato_edicion",
+        "formatos_disponibles",
         "numero_paginas",
         "idioma"
       ]
     },
     {
-      "modulo": "que_formato_elegir",
-      "texto": "Mantequilla (Novela) está disponible en tapa blanda, en una edición de bolsillo de Booket. Sus 496 páginas permiten leerla por etapas y el formato facilita llevarla en el bolso o la mochila sin recurrir a un dispositivo electrónico.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas"
-      ]
-    },
-    {
       "modulo": "lecturas_afines",
-      "texto": "Mantequilla (Novela) puede compararse con Aguas turbulentas por su vinculación con el misterio y la narrativa de intriga. La obra de Rankin Ian sitúa su conflicto en Edimburgo y enfrenta acontecimientos del pasado con el presente; la de Asako Yuzuki se presenta también como narrativa contemporánea, con una extensión de 496 páginas.",
+      "texto": "Mantequilla (Novela), de Asako Yuzuki, puede contrastarse con 無 (MU) (Narrativa), de Jorge Bonells, por su vinculación con la narrativa. Mantequilla (Novela) incorpora además una clasificación de misterio y thriller, mientras que 無 (MU) (Narrativa) se presenta desde su título como una obra narrativa. Para quien busca específicamente intriga, la primera ofrece una orientación de género más concreta.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo",
-        "numero_paginas"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370310318"
+        "isbn-9791388054457"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "277c005153f6be03",
+  "fuente_hash": "2a714540de4ad5a8",
   "origen": "chatgpt-web"
 }

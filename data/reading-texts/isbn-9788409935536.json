@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788409935536",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a profesionales responsables de organizar proyectos en despachos de arquitectura, ingeniería y consultoría de 15 a 50 personas. Su enfoque empresarial y organizativo encaja menos con quienes buscan una introducción general al diseño arquitectónico o una obra de divulgación sin aplicación a la gestión de proyectos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra aborda la gestión de proyectos mediante un modelo de PMO invisible y una perspectiva holónica. Delimita su aplicación a despachos de arquitectura, ingeniería y consultoría de 15 a 50 personas, por lo que sitúa la organización del trabajo en un entorno profesional concreto.",
+      "evidencias": [
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 347 páginas de LA PMO INVISIBLE: Gestión de proyectos holónica para despachos de arquitectura, ingeniería y consultoría de 15 a 50 personas en papel, para consultar y señalar apartados durante el trabajo. Kindle permite llevar el contenido en formato digital y acceder a él desde dispositivos compatibles sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gestión de proyectos de inteligencia artificial, de Adrián González Sánchez y Malini Jain Runtasewee, comparte el interés por organizar proyectos, pero delimita su campo a la inteligencia artificial. LA PMO INVISIBLE: Gestión de proyectos holónica para despachos de arquitectura, ingeniería y consultoría de 15 a 50 personas se centra, en cambio, en despachos técnicos y profesionales de un tamaño determinado.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo"
+      ],
+      "enlaces": [
+        "isbn-9788426742827"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a930b7e23cb56f5c",
+  "origen": "chatgpt-web"
+}

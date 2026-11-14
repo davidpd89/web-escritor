@@ -4,49 +4,49 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los cuatro evangelios: Con prólogo de Pablo d'Ors (VARIOS) se dirige a lectores interesados en los textos religiosos y la espiritualidad. Su contenido responde a la lectura de los evangelios, no a quien busca un manual de ejercicios de bienestar o desarrollo personal.",
+      "texto": "Se dirige a lectores interesados en los evangelios y en los textos de tradición religiosa, especialmente si buscan una edición en castellano con prólogo de Pablo d'Ors. Su contenido se aleja de los manuales de bienestar centrados en ejercicios o hábitos físicos.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "idioma"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de Los cuatro evangelios: Con prólogo de Pablo d'Ors (VARIOS) incorpora un prólogo de Pablo d'Ors y está publicada por Errata naturae. Apareció el 2026-10-26, en castellano, con 304 páginas encuadernadas en tapa dura.",
+      "texto": "La edición de Errata naturae incorpora un prólogo de Pablo d'Ors y está publicada en tapa dura. Apareció el 26 de octubre de 2026, con 304 páginas en castellano; estos datos permiten identificarla frente a otras publicaciones de los mismos textos.",
       "evidencias": [
         "titulo",
         "editorial",
         "fecha_publicacion",
-        "idioma",
         "numero_paginas",
+        "idioma",
         "edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es el formato disponible para esta edición de 304 páginas de Errata naturae. Resulta apropiada para conservar el volumen, consultarlo en diferentes momentos o regalar una edición física con el prólogo de Pablo d'Ors.",
+      "texto": "La tapa dura es el formato disponible para esta edición de 304 páginas. Su encuadernación rígida resulta adecuada para conservar el volumen, regalarlo o volver a consultar los evangelios y el prólogo de Pablo d'Ors en papel.",
       "evidencias": [
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
         "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, comparte el interés por la espiritualidad, pero se orienta hacia la astrología, la filosofía y la magia. Los cuatro evangelios: Con prólogo de Pablo d'Ors (VARIOS) se centra, en cambio, en los textos evangélicos y añade un prólogo de Pablo d'Ors.",
+      "texto": "Los cuatro evangelios: Con prólogo de Pablo d'Ors (VARIOS) y Creer sin pertenecer (TESTIMONIOS Y VIVENCIAS) comparten el ámbito de la religión y la espiritualidad. El primero reúne los evangelios con un prólogo identificado, mientras que el título de César R. Espinel apunta a la relación entre creencia y pertenencia desde los testimonios y las vivencias.",
       "evidencias": [
         "titulo",
-        "afines_catalogo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411214315"
+        "isbn-9791387667900"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "08000a9aad11b9cd",
+  "fuente_hash": "05cb74254bab52e2",
   "origen": "chatgpt-web"
 }

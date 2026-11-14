@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9791387902254",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Disney. ¿Dónde está? Especial Navidad está dirigido al público infantil interesado en los libros de Disney y la temática navideña. Su planteamiento de búsqueda, anunciado en el título, lo diferencia de las novelas juveniles extensas y de los libros para adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Disney. ¿Dónde está? Especial Navidad se presenta en tapa dura, con 48 páginas en castellano. La encuadernación rígida permite manejarlo y conservarlo como libro infantil de temática navideña, mientras que su extensión facilita consultarlo en sesiones breves.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "a52e4c2e77aa3be2",
+  "origen": "chatgpt-web"
+}

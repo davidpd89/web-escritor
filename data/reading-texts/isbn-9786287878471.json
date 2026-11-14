@@ -4,17 +4,15 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Enfocado a quienes leen sobre historia y poder político desde la no ficción. Ídolos de paja / Idols of Straw, de Nicolás Pernett Cañas, se sitúa en ese ámbito temático y no responde a la búsqueda de una novela de aventuras o de una narración fantástica. Su extensión es de 336 páginas.",
+      "texto": "Ídolos de paja / Idols of Straw se orienta a lectores interesados en historia y en cuestiones de poder y política. Su clasificación temática lo aleja de quienes buscan ficción de entretenimiento o un manual práctico de gestión empresarial.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Ídolos de paja / Idols of Straw está disponible en tapa blanda y contiene 336 páginas en castellano. Es un volumen físico que puede llevarse para leer durante los desplazamientos o conservarse para consultas posteriores. La encuadernación flexible permite manejarlo sin el peso adicional de unas cubiertas rígidas.",
+      "texto": "La edición de Ídolos de paja / Idols of Straw es en tapa blanda y tiene 336 páginas en castellano. Permite una lectura física continuada y la consulta de pasajes en papel, sin depender de un lector electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -24,15 +22,14 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Desterrando: La arquitectura del genocidio (Historia), de Eyal Weizman, comparte con Ídolos de paja / Idols of Straw el interés por la historia y sus relaciones con el poder. El primero anuncia un estudio sobre la arquitectura del genocidio, mientras que el libro de Nicolás Pernett Cañas se presenta bajo un título más abierto, sin delimitar ese mismo asunto.",
+      "texto": "Se puede comparar con 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, por su relación con la historia y el poder político. Ese título delimita un episodio de caída democrática, mientras Ídolos de paja / Idols of Straw se presenta bajo una clasificación más general de historia y política.",
       "evidencias": [
         "afines_catalogo",
         "titulo",
-        "autores",
         "categorias"
       ],
       "enlaces": [
-        "isbn-9788419399045"
+        "isbn-9788411005517"
       ]
     }
   ],

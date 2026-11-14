@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788430995110",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra de Niall Cullen se orienta a lectores interesados en ETA, la cuestión vasca y su interpretación desde Londres durante el periodo 1968-1993. Su encuadre en ciencia política la distancia de las novelas de ficción y de los libros sobre actualidad política sin una delimitación histórica concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "ETA y el «problema vasco»: La visión desde Londres (1968-1993) (Ciencia Política - Semilla y Surco - Serie de Ciencia Política) está editado en tapa blanda y tiene 352 páginas. La edición de Tecnos, en castellano, permite consultar en papel una obra centrada en un periodo histórico delimitado.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Niall Cullen se aproxima a A la sombra del Estado por su atención a cuestiones de poder y política. Mientras el título de Luis de la Corte Ibáñez aborda espionaje, operaciones encubiertas y desinformación, el de Cullen delimita su estudio a ETA y la visión desde Londres entre 1968-1993.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "375d7ec0523cc6cc",
+  "origen": "chatgpt-web"
+}

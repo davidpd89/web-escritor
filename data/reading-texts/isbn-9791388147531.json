@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El escalón 33 (edición limitada) (Campaña | Ahora por menos) se dirige a lectores de novela histórica que prefieren la ficción situada en un marco relacionado con el pasado. Sus 496 páginas corresponden a una lectura de extensión considerable. Encaja menos con quienes buscan ensayo histórico documental o una narración breve.",
+      "texto": "El escalón 33 (edición limitada) (Campaña | Ahora por menos) se dirige a lectores de novela histórica que prefieren narraciones extensas. Sus 496 páginas y su clasificación dentro de este género lo alejan de quienes buscan una lectura breve o una obra de divulgación histórica.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,39 +13,38 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "El escalón 33 (edición limitada) (Campaña | Ahora por menos) aparece como libro de bolsillo publicado por Penguin Bolsillo. Esta edición en castellano contiene 496 páginas y tiene fecha editorial del 2027-02-04. La denominación edición limitada forma parte del título y el formato de bolsillo identifica su presentación física.",
+      "texto": "Esta edición limitada de El escalón 33 (edición limitada) (Campaña | Ahora por menos) pertenece a Penguin Bolsillo y se presenta como libro de bolsillo en tapa blanda. Tiene 496 páginas en castellano, con publicación editorial fechada el 2027-02-04 y el ISBN 9791388147531.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
+        "editorial",
         "numero_paginas",
         "idioma",
-        "fecha_publicacion"
+        "fecha_publicacion",
+        "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de El escalón 33 (edición limitada) (Campaña | Ahora por menos) corresponde a un libro de bolsillo de 496 páginas, pensado para manejarse y transportarse en papel. Kindle permite llevarlo en un dispositivo compatible sin cargar con el volumen físico. El audiolibro facilita seguir la narración mediante escucha, por ejemplo durante desplazamientos.",
+      "texto": "La tapa blanda reúne las 496 páginas en un volumen de bolsillo para leer y conservar en papel. Kindle permite llevar la novela en un lector electrónico o en el móvil, mientras que el audiolibro ofrece la alternativa de escucharla durante desplazamientos o actividades cotidianas.",
       "evidencias": [
-        "titulo",
-        "edicion",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián, comparte con El escalón 33 (edición limitada) (Campaña | Ahora por menos) su pertenencia a la novela histórica. La diferencia visible está en la identificación de Astur con una saga sobre la Reconquista, mientras que el libro de Luis Zueco se presenta como una edición limitada de bolsillo. Ave César (Narrativas Históricas), de Rex Warner, ofrece otra comparación dentro de la narrativa histórica, con una referencia romana explícita en su título.",
+      "texto": "El escalón 33 (edición limitada) (Campaña | Ahora por menos) comparte el género histórico con Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon, aunque son obras de Luis Zueco y Valerio Massimo Manfredi, respectivamente. Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth ofrece otra lectura histórica de Valerio Massimo Manfredi, identificada en su título como una entrega distinta.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "edicion",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401039539",
-        "isbn-9788435064125"
+        "isbn-9786287897090",
+        "isbn-9786287897106"
       ]
     }
   ],

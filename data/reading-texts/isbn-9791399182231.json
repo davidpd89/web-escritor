@@ -4,47 +4,46 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en la historia del cine, sus directores y las transformaciones cinematográficas de los ochenta. Su planteamiento ensayístico y panorámico encaja menos con quien busca una biografía centrada en una única figura o una narración de ficción.",
+      "texto": "El cine de los ochenta y 80 directores: Generaciones, géneros y geografías de una década decisiva se dirige a lectores interesados en la historia y el análisis del cine de los años ochenta. Sus 332 páginas y la atención a distintas generaciones, géneros y geografías lo sitúan fuera del ensayo dedicado exclusivamente a otras disciplinas artísticas.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Estudia el cine de los ochenta mediante sus directores, las generaciones de cineastas, los géneros y las distintas geografías cinematográficas. Fernando Gil Delgado Manrique de Lara plantea una aproximación histórica y ensayística que relaciona las trayectorias de los realizadores con el contexto de aquella década.",
+      "texto": "El cine de los ochenta y 80 directores: Generaciones, géneros y geografías de una década decisiva organiza su aproximación al cine de los años ochenta mediante tres perspectivas: generaciones de directores, géneros cinematográficos y distribución geográfica. El planteamiento combina una mirada temporal con la diversidad de creadores y formas cinematográficas de esa década.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda presenta 332 páginas de ensayo sobre el cine de los ochenta y sus directores. El volumen físico permite avanzar por los distintos apartados y volver a consultar las cuestiones relacionadas con generaciones, géneros y geografías.",
+      "texto": "La tapa blanda reúne las 332 páginas de El cine de los ochenta y 80 directores: Generaciones, géneros y geografías de una década decisiva en un volumen físico de consulta. Es el formato de esta edición para quien quiere conservar el libro, revisar sus apartados o utilizarlo como referencia sobre el cine de los años ochenta.",
       "evidencias": [
-        "formatos_disponibles",
-        "numero_paginas",
         "titulo",
-        "categorias"
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Desde que era un crío, de Locus, comparte con la obra de Fernando Gil Delgado Manrique de Lara el interés por las trayectorias personales y el ámbito biográfico. El cine de los ochenta y 80 directores: Generaciones, géneros y geografías de una década decisiva: 14 (FilaSiete) se diferencia por estudiar una década cinematográfica desde sus directores, géneros y contextos geográficos, en lugar de centrarse en una trayectoria individual.",
+      "texto": "El cine de los ochenta y 80 directores: Generaciones, géneros y geografías de una década decisiva comparte con Clásicos Sin Filtros: El Impacto del Mundo Antiguo / Talking Classics: The Shock of the Old el interés por estudiar la cultura desde una perspectiva analítica. Se diferencian en el ámbito: Fernando Gil Delgado Manrique de Lara aborda el cine de los años ochenta, mientras que Mary Beard centra su título en el impacto del mundo antiguo.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399084894"
+        "isbn-9786076393055"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "76cd82b53c925dc1",
+  "fuente_hash": "a5bc5d5224bf8f62",
   "origen": "chatgpt-web"
 }

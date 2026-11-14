@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791387775575",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a quienes quieren obtener proteínas mediante recetas vegetales y buscan trasladar ese objetivo a su cocina cotidiana. Por su orientación gastronómica y nutricional, encaja menos con lectores que buscan recetas basadas en carne o pescado, o un tratado general de alimentación sin propuestas culinarias.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "El contenido gira en torno a la obtención de proteínas mediante preparaciones de origen vegetal, con recetas planteadas para facilitar su incorporación a la alimentación. Las 208 páginas de Tamara Alonso combinan el interés por la nutrición con su aplicación en la cocina, de modo que el libro puede utilizarse para buscar ideas de comidas vegetales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Oberon ofrece 208 páginas para consultar las recetas mientras se cocina y regresar a ellas cuando se planifican las comidas. Al tratarse de un libro centrado en proteínas vegetales, el ejemplar físico puede mantenerse junto a otros recetarios y utilizarse como referencia habitual.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA), de David Villalón y Mario Villalón, comparte el interés por la cocina y la huerta, pero incorpora vinos y cócteles frente al enfoque proteico vegetal de Tamara Alonso. Arroz (Comerse el mundo), de Tove Nilsson, concentra su propuesta en un alimento concreto, mientras De dónde saco las proteínas: Cómo conseguir las que necesitas con recetas fáciles, sabrosas y 100 % vegetales (Gastronomía y Nutrición) organiza su planteamiento alrededor de un objetivo nutricional.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387934293",
+        "isbn-9788419483898"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8468e8c341c5b3d2",
+  "origen": "chatgpt-web"
+}

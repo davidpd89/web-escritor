@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "No metas la pata en Japón se dirige a quienes preparan una visita a Japón y quieren entender las normas sociales que afectan a situaciones cotidianas. Su enfoque sobre costumbres y errores culturales encaja menos con quien busca una guía centrada en rutas, monumentos o itinerarios.",
+      "texto": "No metas la pata en Japón se dirige a viajeros interesados en las costumbres japonesas y las normas de convivencia cotidiana. Su atención a los malentendidos culturales, las formas de cortesía y el comportamiento en espacios compartidos encaja menos con quienes buscan una guía centrada en monumentos o itinerarios turísticos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,27 +13,28 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una lectura de viajes centrada en las diferencias culturales y las reglas de convivencia en Japón. Andreas Fels y Kerstin Fels abordan situaciones como el rechazo de una petición, el calzado apropiado en interiores o las molestias que puede causar un perfume intenso.",
+      "texto": "Andreas Fels y Kerstin Fels plantean en No metas la pata en Japón una aproximación a las diferencias culturales mediante situaciones habituales. Las formas de rechazar una propuesta, el calzado dentro de los espacios interiores y las normas de convivencia sirven para abordar posibles errores de comportamiento.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne 216 páginas en rústica con solapas, apropiadas para consultar las costumbres japonesas durante la preparación de un viaje. Kindle permite llevar el mismo título en el móvil y revisar sus consejos durante los desplazamientos sin cargar con el ejemplar físico.",
+      "texto": "No metas la pata en Japón cuenta con una edición en tapa blanda de 216 páginas, presentada en rústica con solapas por Geoplaneta. Kindle permite consultar el contenido desde el móvil durante un viaje, mientras el papel facilita hojear sus situaciones culturales sin utilizar una pantalla.",
       "evidencias": [
+        "titulo",
         "numero_paginas",
         "edicion",
+        "editorial",
         "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "No metas la pata en Japón comparte con Allí donde fueres... el interés por las costumbres y las formas de comportarse en Japón. El libro de Andreas Fels y Kerstin Fels aborda distintos errores culturales, mientras que el de Patrick Kinsella plantea específicamente cómo saludar correctamente. Frente a Amsterdam de cerca 2027-2028, de Catherine Le Nevez, se centra en la convivencia cultural y no en presentar una ciudad.",
+      "texto": "Allí donde fueres... y No metas la pata en Japón coinciden en su interés por las costumbres y las formas de comportarse en otros países. Patrick Kinsella plantea cuestiones como el saludo correcto en Japón, mientras Andreas Fels y Kerstin Fels se centran en las situaciones que pueden provocar malentendidos culturales durante una visita.",
       "evidencias": [
         "titulo",
         "autores",
@@ -41,13 +42,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408324331",
-        "isbn-9788408320890"
+        "isbn-9788408324331"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7d60108e0294c433",
+  "fuente_hash": "6f6005d53b58ec61",
   "origen": "chatgpt-web"
 }

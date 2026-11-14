@@ -4,40 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un amor sin futuro (Andanzas) encaja con lectores de narrativa contemporánea interesados en las relaciones sentimentales y el amor de pareja. Quien busque principalmente ciencia ficción, fantasía o ensayo encontrará una propuesta distinta, centrada en la narrativa y el ámbito sentimental.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece una edición física de 128 páginas de Un amor sin futuro (Andanzas), manejable para leer fuera de casa y guardar en la biblioteca. Es el formato disponible en esta ficha, con una extensión relativamente breve frente a novelas de mayor tamaño.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "numero_paginas",
-        "edicion",
-        "formatos_disponibles"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Amor en pole position (Dirty Air 3), de Lauren Asher, comparte con Un amor sin futuro (Andanzas) el amor como eje de la historia. La diferencia está en su ambientación: Amor en pole position se desarrolla en el mundo de la Fórmula 1 y pertenece al sports romance, mientras Betina González firma una obra incluida en narrativa contemporánea y amor y pareja.",
+      "texto": "Un amor sin futuro (Andanzas), de Betina González, pertenece a la narrativa contemporánea y tiene una extensión de 128 páginas. Se dirige a lectores que buscan ficción actual en un volumen breve, frente a quienes prefieren manuales prácticos o novelas de varios centenares de páginas.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788427055674"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un amor sin futuro (Andanzas) se presenta en tapa blanda, con 128 páginas publicadas por Tusquets Editores. Su extensión permite llevar el ejemplar físico en el bolso o consultarlo sin un lector electrónico; también puede elegirse como regalo para quien prefiera libros impresos de narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "466c311b5386d7fd",
+  "fuente_hash": "3c1da9fe1274546b",
   "origen": "chatgpt-web"
 }

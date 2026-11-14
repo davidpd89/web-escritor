@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388395031",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Breve historia de la alquimia: El arte que unió química, magia y espíritu se dirige a quienes buscan una aproximación histórica a las relaciones entre ciencia y espiritualidad. La obra de Luis Enrique Íñigo Fernández aborda la alquimia desde ese cruce temático, por lo que se aleja de una lectura centrada exclusivamente en química contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Breve historia de la alquimia: El arte que unió química, magia y espíritu se presenta en tapa blanda y contiene 264 páginas. Publicada por Erasmus Ediciones en castellano, ofrece un volumen físico de extensión intermedia para leer de forma continuada o retomar apartados durante una consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Breve historia de la alquimia: El arte que unió química, magia y espíritu y Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas) relacionan ámbitos del conocimiento que suelen estudiarse por separado. Luis Enrique Íñigo Fernández sitúa el foco en la alquimia y su dimensión histórica; Carlos Briones plantea desde el título una relación entre ciencia y arte. La diferencia principal está en los campos que cada obra conecta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401039287"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c87f68ed1b2b0d59",
+  "origen": "chatgpt-web"
+}

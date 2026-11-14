@@ -4,25 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La infoxicación nutricional; cómo decidir qué creer sobre alimentación y salud (Salud y bienestar) se dirige a lectores interesados en evaluar lo que leen sobre nutrición y salud. Su enfoque resulta menos afín a quienes buscan ficción o una lectura sobre bienestar sin relación directa con la alimentación.",
+      "texto": "La infoxicación nutricional; cómo decidir qué creer sobre alimentación y salud (Salud y bienestar) se dirige a quienes quieren evaluar afirmaciones sobre nutrición y salud. El libro de Nitida Pastor Perez aborda la selección de información alimentaria, por lo que se distancia de las obras centradas en recetas o relatos de ficción.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La infoxicación nutricional; cómo decidir qué creer sobre alimentación y salud (Salud y bienestar) se presenta en tapa blanda, con 184 páginas en castellano. El formato físico permite volver a los apartados sobre alimentación y salud y tener el volumen a mano durante la lectura o la consulta.",
+      "texto": "La tapa blanda ofrece las 184 páginas de La infoxicación nutricional; cómo decidir qué creer sobre alimentación y salud (Salud y bienestar) en un libro físico que puede consultarse mientras se revisan cuestiones de alimentación. Kindle permite acceder al contenido en formato digital desde el móvil o un lector electrónico, sin llevar el ejemplar impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La infoxicación nutricional; cómo decidir qué creer sobre alimentación y salud (Salud y bienestar) comparte el interés por la salud con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito. Nitida Pastor Perez se centra en cómo valorar las afirmaciones sobre alimentación, mientras que Liz Moody aborda también la felicidad, las relaciones y el éxito.",
+      "texto": "5 semanas para desinflamarte (edición limitada) y La infoxicación nutricional; cómo decidir qué creer sobre alimentación y salud (Salud y bienestar) se relacionan con la alimentación y sus efectos sobre la salud. Blanca García-Orea Haro plantea un enfoque sobre la inflamación, mientras Nitida Pastor Perez se centra en cómo decidir qué afirmaciones nutricionales merecen credibilidad.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9798890981776"
+        "isbn-9788466394390"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "79a7a38a09365de2",
+  "fuente_hash": "f1f99d4f91d18ab0",
   "origen": "chatgpt-web"
 }

@@ -4,16 +4,15 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El I ching visionario + cartas (CARTOMANCIA Y TAROT), de Paul O'Brien, se orienta a lectores interesados en el I ching, la cartomancia y las prácticas espirituales. La combinación de libro y cartas responde a una búsqueda distinta de la de quienes prefieren estudios históricos sobre religión o manuales de bienestar físico.",
+      "texto": "El I ching visionario + cartas (CARTOMANCIA Y TAROT) está orientado a lectores interesados en la espiritualidad y las prácticas de interpretación mediante cartas. Su temática se aparta de los manuales de salud centrados en aspectos físicos y de las obras de ficción narrativa.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El I ching visionario + cartas (CARTOMANCIA Y TAROT) se presenta en tapa blanda, con 232 páginas y cartas anunciadas en el propio título. El soporte impreso permite consultar el texto y utilizar las cartas como elementos físicos, en lugar de depender de una pantalla durante la consulta.",
+      "texto": "El I ching visionario + cartas (CARTOMANCIA Y TAROT) se ofrece en tapa blanda y reúne 232 páginas. El título incorpora cartas, por lo que la edición física combina material de lectura con ese componente adicional, a diferencia de un libro compuesto únicamente por texto.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -22,20 +21,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, comparte con El I ching visionario + cartas (CARTOMANCIA Y TAROT) el ámbito espiritual, pero se centra en astrología, filosofía y magia frente al I ching y las cartas. Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia, de Barbara Hand Clow, se aproxima desde la exploración de la consciencia, no desde un conjunto de cartas.",
+      "texto": "El I ching visionario + cartas (CARTOMANCIA Y TAROT) y Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia coinciden en su orientación espiritual. Paul O'Brien presenta una obra vinculada al I ching y las cartas, mientras que Barbara Hand Clow centra su libro en la consciencia y sus dimensiones.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9798888505335",
-        "isbn-9788411214315"
+        "isbn-9798888505335"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bb1dba6a0c9f8714",
+  "fuente_hash": "a0e2dad59522d900",
   "origen": "chatgpt-web"
 }

@@ -4,30 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Qué hago, ¿me mato?, de Marc Biarnés, está dirigido a adultos que disfrutan del humor crítico sobre la convivencia y las contradicciones de la sociedad. Sus 288 páginas emplean la exageración y las referencias al aislamiento para tratar el hartazgo cotidiano; no encaja con quien busca un manual de bienestar de tono sereno.",
+      "texto": "Qué hago, ¿me mato?, de Marc Biarnés, se dirige a adultos que buscan humor crítico sobre la convivencia y el comportamiento social. Su enfoque combina la frustración cotidiana con la sátira de quienes nos rodean; no responde a quien prefiera un manual de desarrollo personal con ejercicios y pautas prácticas.",
       "evidencias": [
         "titulo",
         "autores",
         "edad_recomendada",
         "categorias",
-        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Qué hago, ¿me mato? puede leerse en tapa blanda o Kindle. La edición impresa de Roca Editorial tiene 288 páginas y solapas, mientras que Kindle permite llevar la lectura en el móvil o en un dispositivo electrónico sin cargar con el volumen físico.",
+      "texto": "La tapa blanda con solapas permite leer las 288 páginas de Qué hago, ¿me mato? en papel, mientras que Kindle ofrece el mismo título en formato digital para llevarlo en el móvil o lector electrónico. La edición física de Roca Editorial es una opción para quien quiera conservarlo o regalarlo; Kindle evita transportar el volumen.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "numero_paginas",
         "edicion",
         "editorial",
-        "numero_paginas"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Qué hago, ¿me mato? y Calma para tensos (Bienestar, estilo de vida, salud) parten de cuestiones vinculadas al malestar cotidiano, aunque Marc Biarnés recurre al humor crítico y Marion Deuchars se sitúa en el ámbito del bienestar. También puede compararse con Escape room para resolver mientras haces caca (Voces de hoy), de Crispin Fenwick: ambos se vinculan al ocio, pero uno plantea una crítica social y el otro propone resolver un juego.",
+      "texto": "Qué hago, ¿me mato? comparte con Mortadeluxe el uso del humor, aunque Marc Biarnés aborda el hartazgo ante el comportamiento de los demás y Francisco Ibáñez recurre a las peripecias de Mortadelo y Filemón. Frente a 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia), de Dick Van Dyke, centrado en la longevidad y el optimismo, Qué hago, ¿me mato? presenta una visión desencantada de la convivencia cotidiana.",
       "evidencias": [
         "titulo",
         "autores",
@@ -36,8 +35,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388220258",
-        "isbn-9791388279492"
+        "isbn-9788402432063",
+        "isbn-9791387852290"
       ]
     }
   ],

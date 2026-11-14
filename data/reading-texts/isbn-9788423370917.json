@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Erguido hacia las estrellas: Una vida de Francisco de Vitoria (Áncora & Delfín) encaja con lectores interesados en las biografías de figuras vinculadas al pensamiento filosófico. La combinación de narrativa contemporánea, ensayo y filosofía lo distancia de quienes buscan exclusivamente ficción de aventuras o manuales prácticos.",
+      "texto": "Dirigido a lectores interesados en la filosofía, el ensayo y las vidas de figuras históricas, Erguido hacia las estrellas: Una vida de Francisco de Vitoria (Áncora & Delfín) aborda una trayectoria personal desde la escritura de Lorenzo Silva. Por su orientación filosófica y biográfica, se aleja de las lecturas centradas exclusivamente en la ficción de aventuras.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,25 +13,25 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Erguido hacia las estrellas: Una vida de Francisco de Vitoria (Áncora & Delfín) se presenta en tapa dura y contiene 192 páginas. El formato físico de Ediciones Destino permite conservar el volumen en una biblioteca y consultar sus páginas sin depender de dispositivos electrónicos.",
+      "texto": "La edición disponible es en tapa dura, publicada por Ediciones Destino y con 192 páginas en castellano. Este formato permite conservar el volumen en una biblioteca y consultar sus páginas sin depender de un dispositivo electrónico.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "editorial"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Erguido hacia las estrellas: Una vida de Francisco de Vitoria (Áncora & Delfín) comparte con Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes el interés por una figura concreta, aunque cambia el personaje estudiado. Frente a Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), se centra en una trayectoria personal en lugar de presentar una corriente política y económica.",
+      "texto": "Erguido hacia las estrellas: Una vida de Francisco de Vitoria (Áncora & Delfín) puede compararse con Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar, por su orientación filosófica. El primero se centra en una vida concreta, mientras que el segundo plantea la reflexión mediante aforismos. También comparte el interés por las ideas con El maestro de amor: 402 (Narrativa del Acantilado), de Mauricio Wiesenthal, aunque este último se presenta como narrativa.",
       "evidencias": [
         "titulo",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388182457",
-        "isbn-9786073873154"
+        "isbn-9791387964733",
+        "isbn-9791387548278"
       ]
     }
   ],

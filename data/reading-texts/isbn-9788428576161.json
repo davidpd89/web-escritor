@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788428576161",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Teología de santa Teresa de Lisieux, doctora de la Iglesia (Caminos) se dirige a lectores interesados en la teología cristiana y las figuras religiosas. Por su enfoque en la espiritualidad y la memoria biográfica, se aleja de las lecturas centradas en asuntos históricos o personales ajenos a la religión.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Teología de santa Teresa de Lisieux, doctora de la Iglesia (Caminos) se publica en tapa blanda, con 166 páginas en castellano. Esta edición de Editorial San Pablo permite consultar y señalar pasajes en papel sin recurrir a un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Teología de santa Teresa de Lisieux, doctora de la Iglesia (Caminos) comparte el ámbito religioso con Benedicto XVI. El Papa de la razón (vol. III): El pontificado, la renuncia y el retiro (2005-2022): 3 (Biblioteca Ratzinger). El libro de Juan José Llamedo González se centra en la teología de una santa, mientras que el de Pablo Blanco Sarto aborda una etapa del pontificado y la vida de un papa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788428576116"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a8e406e4b3c33367",
+  "origen": "chatgpt-web"
+}

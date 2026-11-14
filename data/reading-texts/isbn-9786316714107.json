@@ -4,32 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La elegancia animal se dirige a lectores interesados en el ensayo y la filosofía, más que a quienes buscan una novela de ficción. Bertrand Prevost firma un volumen de 160 páginas en castellano, publicado por Cactus, cuya extensión permite abordar la lectura en sesiones breves.",
+      "texto": "La elegancia animal está dirigida a lectores de ensayo y filosofía que buscan una aproximación reflexiva al asunto anunciado en su título. Por su clasificación, se distancia de las novelas de aventuras y de los manuales prácticos sobre el cuidado de animales.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "numero_paginas",
-        "idioma",
-        "editorial"
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La elegancia animal está disponible en tapa blanda, con 160 páginas que permiten transportarlo en una mochila o bolso para leer fuera de casa. La edición de Cactus reúne el ensayo de Bertrand Prevost en un volumen físico en castellano, apropiado para consultar pasajes y volver a ellos durante la lectura.",
+      "texto": "La elegancia animal se presenta en tapa blanda, con 160 páginas y edición de Cactus. Su extensión permite organizar la lectura en sesiones breves y volver a los pasajes de interés en el ejemplar impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "editorial",
-        "autores",
-        "idioma",
-        "categorias"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La elegancia animal comparte el terreno filosófico con Arendt y la antropología de la condición plural en doble movimiento, de Javier Pons-Gallach. Frente al enfoque sobre la condición plural que anuncia ese título, el libro de Bertrand Prevost sitúa lo animal en el centro de su planteamiento. Ambos se presentan como lecturas de reflexión, con autores y asuntos distintos.",
+      "texto": "La elegancia animal y Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar, se relacionan por su orientación hacia la reflexión filosófica. Bertrand Prevost plantea su obra como ensayo, mientras que el título de Raimon Panikkar identifica expresamente una colección de aforismos. Frente a ambos, Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, delimita su asunto al pensamiento económico y político.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,7 +32,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399308358"
+        "isbn-9791387548278",
+        "isbn-9791388182457"
       ]
     }
   ],

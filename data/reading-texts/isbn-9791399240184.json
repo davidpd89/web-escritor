@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791399240184",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La guitarra, otra voz en el aula: Un camino hacia la enseñanza musical y pedagógica se dirige a lectores interesados en la guitarra como recurso para la enseñanza musical. Su enfoque educativo se aleja de quienes buscan una novela o una historia de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La guitarra, otra voz en el aula: Un camino hacia la enseñanza musical y pedagógica está disponible en tapa blanda. Sus 84 páginas permiten manejar el volumen con facilidad y llevarlo al aula o consultarlo durante la preparación de actividades musicales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La guitarra, otra voz en el aula: Un camino hacia la enseñanza musical y pedagógica y All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial comparten el interés por la música. Antonio Bernal Navarro aborda su dimensión educativa, mientras que el título de Daniel Sedcontra se centra en la música industrial y su vertiente cultural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410045538"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8c2a92e499801133",
+  "origen": "chatgpt-web"
+}

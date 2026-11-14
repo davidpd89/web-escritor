@@ -4,40 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se orienta a lectores que buscan una novela de Haruki Murakami relacionada con la fantasía, el romance y las aventuras. Su combinación de géneros se aleja de una lectura centrada exclusivamente en el realismo cotidiano o en una investigación criminal.",
+      "texto": "La Ciudad Y Sus Muros Inciertos (Novela). Edición Tapa Dura / The City and Its Uncertain Walls (a Novel) se dirige a lectores interesados en la fantasía, las aventuras y el romance. Por su combinación de géneros y sus 568 páginas, encaja menos con quienes buscan una lectura breve centrada exclusivamente en relaciones sentimentales.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura protege las 568 páginas de esta novela de Haruki Murakami mediante una cubierta rígida. Es una opción física para quienes prefieren conservar el libro en su biblioteca o regalar una edición resistente, especialmente por su considerable extensión.",
+      "texto": "La tapa dura permite guardar esta obra de 568 páginas en una biblioteca personal y mantenerla protegida mediante una cubierta rígida. Es una opción para quienes prefieren leer en papel, conservar el ejemplar después de terminarlo o entregarlo como regalo.",
       "evidencias": [
         "formatos_disponibles",
         "numero_paginas",
-        "autores",
-        "titulo"
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE), de Kayla Edwards, comparte con la novela de Haruki Murakami la combinación de elementos fantásticos y románticos, aunque su título destaca expresamente el romance oscuro. Blanco de niebla y locura (TBR), de Lisette Marshall, pertenece también al ámbito de la fantasía y el romance, mientras que La Ciudad Y Sus Muros Inciertos (Novela). Edición Tapa Dura / The City and Its Uncertain Walls (a Novel) incorpora además las aventuras y la ciencia ficción.",
+      "texto": "Alas de escarcha y oro: El canto del cisne comparte con esta obra el terreno de la fantasía y presenta a Eira, que oculta sus dones y debilidades. Barbie dreamscape plantea, en cambio, un conflicto relacionado con futuros escritos y la posibilidad de alterarlos. La obra de Haruki Murakami reúne fantasía, aventuras y romance en una misma propuesta.",
       "evidencias": [
-        "titulo",
+        "afines_catalogo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788410116221",
-        "isbn-9788415955559"
+        "isbn-9791387949938",
+        "isbn-9791388277481"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a9cd93696e048de2",
+  "fuente_hash": "f1881f0b5129338a",
   "origen": "chatgpt-web"
 }

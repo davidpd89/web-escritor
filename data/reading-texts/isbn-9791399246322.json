@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399246322",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El placer de sonar juntos: La insólita vida dentro de una orquesta se dirige a lectores interesados en la música, el funcionamiento de las orquestas y el ensayo sobre actividades artísticas. Su atención a la vida dentro de una agrupación musical lo distancia de quienes buscan novelas de ficción o manuales de aprendizaje instrumental.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 240 páginas de El placer de sonar juntos: La insólita vida dentro de una orquesta en una edición física publicada por Editorial Rosamerón. Kindle ofrece una alternativa digital para leer en el móvil o en un lector electrónico, especialmente cuando se prefiere evitar el transporte del ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El placer de sonar juntos: La insólita vida dentro de una orquesta puede compararse con Charlotte Perriand. La libertad de repensar el mundo, de Varios autores, por su atención al ámbito artístico. La obra de Roberto Álvarez se centra en la vida de una orquesta, mientras que la segunda se ocupa de una figura vinculada a la creación y el diseño. Clásicos Sin Filtros: El Impacto del Mundo Antiguo / Talking Classics: The Shock of the Old, de Mary Beard, comparte el formato ensayístico, pero dirige su mirada al mundo antiguo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788416411993",
+        "isbn-9786076393055"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2db2b140dc89a3bd",
+  "origen": "chatgpt-web"
+}

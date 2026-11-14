@@ -4,39 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Este volumen de José Sanchis Sinisterra se dirige a lectores interesados en el teatro y en conocer distintas piezas de un mismo dramaturgo. Reúne cinco títulos teatrales y encaja menos con quienes buscan una novela de estructura narrativa continua.",
+      "texto": "Este volumen de José Sanchis Sinisterra se dirige a lectores interesados en el teatro y en las recopilaciones de obras de un mismo autor. Sus 432 páginas reúnen cuatro títulos en una edición de Punto de Vista Editores.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Punto de Vista Editores reúne 432 páginas en castellano. El formato permite consultar las distintas obras en un único volumen físico y marcar pasajes durante el estudio o la preparación de una representación.",
+      "texto": "La tapa blanda reúne 432 páginas en un único volumen que incluye cuatro títulos teatrales de José Sanchis Sinisterra. Permite consultar y conservar juntas las obras de esta edición de Punto de Vista Editores, en lugar de adquirirlas como ejemplares separados.",
       "evidencias": [
-        "formatos_disponibles",
+        "titulo",
+        "autores",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "titulo"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Arde Talía: Una pieza teatral sobre el infierno de la creación artística comparte con este volumen su relación con el teatro. La obra de Alba Quintas Garciandia, Ana Saiz, Talita Isla, Carmen Romero Lorenzo e Inés Galiano aborda la creación artística, mientras que José Sanchis Sinisterra reúne varias piezas de su autoría. La diferencia está entre una pieza centrada en la creación y una recopilación de obras teatrales.",
+      "texto": "El volumen de José Sanchis Sinisterra reúne obras teatrales, mientras que All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial, de Daniel Sedcontra, aborda la música industrial y su dimensión cultural. La diferencia está en el ámbito artístico de cada obra: teatro frente a música industrial.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399289510"
+        "isbn-9788410045538"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d0366fbd45fd28e7",
+  "fuente_hash": "682e17603b9ffb58",
   "origen": "chatgpt-web"
 }

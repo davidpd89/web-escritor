@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788411724425",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "99 Sudoku (LIBROS SINGULARES) se dirige a quienes buscan entretenimiento basado en sudokus y actividades de tiempo libre. Sus 120 páginas corresponden a un libro de ocio y aficiones, no a una novela con personajes y argumento continuado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "99 Sudoku (LIBROS SINGULARES) se publica en tapa blanda y cuenta con 120 páginas. El formato en papel permite trabajar directamente sobre los pasatiempos y transportar el libro para utilizarlo durante ratos libres, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "80 crímenes imposibles de resolver (FUERA DE ESCENA) comparte con 99 Sudoku (LIBROS SINGULARES) la propuesta de entretenimiento mediante retos, pero cambia los sudokus por crímenes que resolver. Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas también pertenece al ámbito de las aficiones, aunque se centra en el bordado y sus patrones, no en pasatiempos numéricos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388015816",
+        "isbn-9788498748208"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "017996f630a1cf8f",
+  "origen": "chatgpt-web"
+}

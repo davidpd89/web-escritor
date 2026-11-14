@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788431341770",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El lenguaje de la fertilidad humana (Divulgación - Clínica Universidad de los Andes) se dirige a lectores interesados en la fertilidad, la salud y las cuestiones relacionadas con la familia. Por su orientación divulgativa, se diferencia de las novelas juveniles y de los libros centrados en la crianza cotidiana después del nacimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El lenguaje de la fertilidad humana (Divulgación - Clínica Universidad de los Andes) está disponible en tapa blanda. Reúne 172 páginas en castellano, en un volumen físico publicado por Ediciones Universidad de Navarra, S.a., que puede consultarse por separado de otros materiales sobre salud y familia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "CONECTANDO CON MI BEBÉ: Relatos y actividades para vivir el embarazo con presencia, conexión y conciencia. Regalo para embarazadas. comparte el interés por la maternidad, pero se centra en las vivencias y actividades durante el embarazo. Convertirse en padre: 02 (Psicologia) aborda la paternidad desde la psicología, mientras que El lenguaje de la fertilidad humana (Divulgación - Clínica Universidad de los Andes) sitúa la fertilidad en el centro de su propuesta divulgativa.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788409936465",
+        "isbn-9791370550288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d27b7b6ce514ef0a",
+  "origen": "chatgpt-web"
+}

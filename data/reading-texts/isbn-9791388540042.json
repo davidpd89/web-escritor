@@ -4,26 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en la depresión desde el ámbito del bienestar y el desarrollo personal. Por su temática de salud mental, se aparta de las lecturas de entretenimiento y de quienes buscan una historia de ficción.",
+      "texto": "DEPRESIÓN: La enfermedad invisible se dirige a lectores interesados en la depresión desde el ámbito de la salud y el desarrollo personal. El libro de Manel Rodriguez Moreno trata una enfermedad concreta, por lo que su enfoque es distinto del de una lectura general sobre bienestar, hábitos saludables o longevidad.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "DEPRESIÓN: La enfermedad invisible se presenta en tapa blanda y tiene 176 páginas en castellano. La edición impresa permite interrumpir la lectura, señalar fragmentos y volver a ellos sin depender de un dispositivo electrónico.",
+      "texto": "La tapa blanda permite leer las 176 páginas de DEPRESIÓN: La enfermedad invisible en un volumen físico. Su extensión facilita distribuir la lectura en varias sesiones y volver a páginas anteriores para revisar cuestiones relacionadas con el tema del libro.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Comparte autor con El último baile, de Manel Rodriguez Moreno, pero DEPRESIÓN: La enfermedad invisible identifica expresamente la salud mental como asunto central. También puede compararse con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, que plantea un campo de bienestar más amplio, mientras este libro se concentra en la depresión.",
+      "texto": "DEPRESIÓN: La enfermedad invisible y 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito coinciden en su interés por la salud y el bienestar. Manel Rodriguez Moreno centra su libro en la depresión, mientras que Liz Moody plantea un abanico más amplio de cambios personales relacionados con la salud, las relaciones y la felicidad.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,13 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388540073",
         "isbn-9798890981776"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7487b19b498d59ac",
+  "fuente_hash": "a99d95e1ec3292bf",
   "origen": "chatgpt-web"
 }

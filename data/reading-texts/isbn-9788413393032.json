@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788413393032",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Esperpento o la Tragedia: España en la crisis de Occidente: 194 (Nuevo Ensayo) se dirige a lectores interesados en la historia, España y los ensayos sobre cuestiones históricas y sociales. Sus 178 páginas y su planteamiento ensayístico lo sitúan fuera de la narrativa de aventuras o de la ficción juvenil entendida como relato protagonizado por personajes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda concentra sus 178 páginas en un volumen físico ligero, fácil de transportar y consultar durante una lectura por capítulos. Es el formato disponible de El Esperpento o la Tragedia: España en la crisis de Occidente: 194 (Nuevo Ensayo), publicado por Encuentro.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Esperpento o la Tragedia: España en la crisis de Occidente: 194 (Nuevo Ensayo) comparte con España en la escena global. Redes de poder, comercio y cultura (siglos XV-XXI): 1 (Plural) el interés por abordar España desde una perspectiva histórica. El primero plantea su tema alrededor de la crisis de Occidente, mientras que el segundo recorre redes de poder, comercio y cultura desde los siglos XV hasta XXI.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370380779"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a259081cbba1c72b",
+  "origen": "chatgpt-web"
+}

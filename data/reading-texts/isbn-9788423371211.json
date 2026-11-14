@@ -4,36 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La jardinera, de Minyoung Kang, se dirige a quienes buscan suspense criminal contemporáneo con conflictos relacionados con las mujeres y la desaparición de hombres. No responde al esquema de una novela romántica ni al de una historia centrada exclusivamente en una investigación policial convencional.",
+      "texto": "La jardinera se dirige a lectores de novela negra y suspense interesados en desapariciones, conflictos entre hombres y mujeres y formas personales de ejercer justicia. La historia transcurre en un barrio de Seúl y gira alrededor de una joven que atiende una tienda de plantas. No encaja con quien busque fantasía épica o aventuras alejadas de un entorno urbano contemporáneo.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La jardinera sitúa su misterio en una tienda de plantas de un barrio de Seúl, regentada por Yoohee. El contraste entre ese negocio cotidiano y las desapariciones masculinas introduce un conflicto de justicia y violencia relacionado con las experiencias de varias mujeres.",
+      "texto": "La jardinera plantea un misterio criminal ambientado en un barrio de Seúl, donde una tienda de plantas sirve de punto de encuentro para mujeres con problemas que van más allá de la jardinería. La historia relaciona las desapariciones de hombres con una protagonista que ejerce su propia forma de justicia. Combina el suspense con conflictos personales y una ambientación urbana contemporánea.",
       "evidencias": [
         "titulo",
-        "sinopsis_editorial",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La jardinera se presenta en tapa blanda, en una edición de 232 páginas con solapas. Este formato permite transportar el volumen sin el peso habitual de una encuadernación rígida y conservar las solapas como protección adicional de la cubierta.",
+      "texto": "La jardinera puede leerse en tapa blanda o en Kindle. La edición física de Ediciones Destino tiene 232 páginas y se presenta en rústica con solapas, una opción para conservar el ejemplar en papel. Kindle permite llevar la misma lectura en el móvil o en un lector electrónico sin transportar el volumen.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
+        "edicion",
         "numero_paginas",
-        "edicion"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La jardinera comparte con Los crímenes del sanatorio (Serie Comisario Reykdal 1) el misterio criminal, aunque cambia el sanatorio y sus cinco sospechosos por una tienda de plantas de Seúl vinculada a desapariciones. Frente a El asesinato de Roger Ackroyd (Edición especial con cantos tintados), de Agatha Christie, desplaza el interés del enigma detectivesco hacia los conflictos de varias mujeres.",
+      "texto": "La jardinera y El asesinato de Roger Ackroyd (Edición especial con cantos tintados) comparten el interés por el crimen, pero la primera sitúa el conflicto en las desapariciones y la justicia ejercida por una mujer, mientras la segunda se centra en la investigación detectivesca. Los crímenes del sanatorio (Serie Comisario Reykdal 1) también parte de un crimen, aunque organiza su misterio alrededor de cinco sospechosos y un sanatorio.",
       "evidencias": [
         "titulo",
         "sinopsis_editorial",
@@ -47,6 +47,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5a4432b86dd7ac8d",
+  "fuente_hash": "a09f7e2ad6128173",
   "origen": "chatgpt-web"
 }

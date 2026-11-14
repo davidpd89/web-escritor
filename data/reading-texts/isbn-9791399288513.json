@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los espíritus de Victoria Park, de Alba Beldad, reúne fantasía, aventuras, ciencia ficción y relatos. Sus 104 páginas lo sitúan entre las lecturas de extensión breve, frente a novelas largas; por sus géneros, encaja menos con quienes buscan únicamente realismo contemporáneo.",
+      "texto": "Los espíritus de Victoria Park se dirige a lectores interesados en la fantasía, las aventuras y los relatos. Alba Beldad firma una obra de 104 páginas, de extensión más reducida que una novela larga. Por su clasificación temática, queda fuera de las búsquedas centradas exclusivamente en narrativa realista o ensayo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,32 +14,33 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los espíritus de Victoria Park cuenta con una edición en tapa blanda de 104 páginas, publicada por S Cuadernos de Safo. Su extensión permite llevar el libro en papel sin cargar con un volumen especialmente grueso y facilita volver a los relatos de forma independiente.",
+      "texto": "Los espíritus de Victoria Park se publica en tapa blanda y reúne 104 páginas en castellano. Es una edición física de extensión breve que puede transportarse y consultarse sin dispositivos electrónicos. S Cuadernos de Safo figura como editorial de esta obra de Alba Beldad.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "editorial",
-        "categorias"
+        "autores"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los espíritus de Victoria Park comparte la fantasía con SIZIGIA: El renacer de la leyenda: 1, de Tamara Allegue, y Alas de Hierro, de Rebecca Yarros. La obra de Alba Beldad combina aventuras, ciencia ficción y relatos en 104 páginas, mientras que los títulos afines incorporan referencias a leyendas o series. La diferencia para el lector está en la extensión breve y la presencia del relato como género en Los espíritus de Victoria Park.",
+      "texto": "Los espíritus de Victoria Park y Juramento de fuego y ceniza comparten su vinculación con la fantasía dentro de este catálogo. La obra de Alba Beldad se clasifica además como aventuras y relatos, mientras que Juramento de fuego y ceniza está firmada por Marta Montoya. Caníbales de caramelandia, de Carlton Mellick Iii, constituye otra referencia de autoría y título diferentes dentro de las lecturas relacionadas.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399318111"
+        "isbn-9788412837278",
+        "isbn-9791399236514"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ccadfdf945d01144",
+  "fuente_hash": "7f4c90cdfa2baa50",
   "origen": "chatgpt-web"
 }

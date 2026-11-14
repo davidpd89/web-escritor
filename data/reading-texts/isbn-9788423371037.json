@@ -4,31 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un señor de Barcelona (Contemporánea), de Josep Pla, encaja con lectores interesados en las biografías, las memorias y la historia. Sus 336 páginas responden a una lectura de orientación histórica y biográfica, distinta de una novela de aventuras o de fantasía.",
+      "texto": "Un señor de Barcelona (Contemporánea) se orienta a lectores interesados en la memoria biográfica y la historia vinculada a Barcelona. Su clasificación entre biografías e historia lo distancia de las novelas de aventuras y de los libros dedicados a mundos imaginarios.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Un señor de Barcelona (Contemporánea) contiene 336 páginas en castellano. Esta edición de Austral Editorial permite consultar y releer el volumen en papel, con una extensión menor que la de obras históricas de varios centenares de páginas adicionales.",
+      "texto": "Un señor de Barcelona (Contemporánea) tiene una edición en tapa blanda de 336 páginas, publicada por Austral Editorial. Es un volumen físico de extensión intermedia que permite leer y consultar el texto en papel, con una longitud inferior a la de obras de varios centenares de páginas adicionales.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Un señor de Barcelona (Contemporánea) puede compararse con Un infarto de miocardio: Sergi Pàmies (Destino Clásicos), también de Josep Pla. Comparten autoría, pero sus títulos apuntan a asuntos diferentes: uno identifica Barcelona y una figura masculina; el otro menciona un infarto de miocardio y a Sergi Pàmies.",
+      "texto": "Un infarto de miocardio: Sergi Pàmies (Destino Clásicos) comparte autor con Un señor de Barcelona (Contemporánea): ambos figuran bajo el nombre de Josep Pla. El primero identifica a Sergi Pàmies en su título, mientras que el segundo sitúa Barcelona en el centro de su referencia y se clasifica entre las biografías y la historia.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -38,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c83ae098103f79a2",
+  "fuente_hash": "ab9ec6c9c708a2ee",
   "origen": "chatgpt-web"
 }

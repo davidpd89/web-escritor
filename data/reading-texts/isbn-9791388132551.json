@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388132551",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi mamá y yo (NUBEOCHO) se dirige al público infantil y plantea desde su título una relación entre madre e hijo o hija. Sus 32 páginas lo sitúan entre las lecturas breves, frente a obras juveniles extensas o dirigidas principalmente a adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mi mamá y yo (NUBEOCHO) se publica en tapa dura, en una edición de Nubeocho de 32 páginas. La encuadernación rígida permite manejarlo y guardarlo como libro físico, mientras que su extensión facilita leerlo en sesiones breves o compartir la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi mamá y yo (NUBEOCHO) tiene como lectura afín Mi papá y yo (NUBEOCHO), también de Susannah Shane. Los títulos comparten autoría y una estructura centrada en un vínculo familiar, pero el primero menciona a la madre y el segundo al padre. La comparación permite distinguir ambos libros por la figura familiar que aparece en cada título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388132575"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "80d384c9bcfbc4da",
+  "origen": "chatgpt-web"
+}

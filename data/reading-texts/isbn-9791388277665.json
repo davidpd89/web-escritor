@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La leyenda de las mujeres gato (Sin límites) se dirige a lectores de fantasía interesados en historias vinculadas con personajes femeninos. Sus 320 páginas plantean una lectura de extensión media; encaja menos con quienes buscan narrativa histórica o realista.",
+      "texto": "La leyenda de las mujeres gato (Sin límites) encaja con lectores que buscan una obra de fantasía de Patricia García-Rojo. Sus 320 páginas ofrecen una lectura de extensión media dentro del género, mientras que quienes prefieren relatos realistas o libros prácticos encontrarán aquí una propuesta distinta.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La leyenda de las mujeres gato (Sin límites) se presenta en tapa blanda, con 320 páginas en castellano. Esta edición de Alfaguara permite leerla en papel y transportarla sin la rigidez de una cubierta dura.",
+      "texto": "La leyenda de las mujeres gato (Sin límites) cuenta con una edición en tapa blanda de 320 páginas, publicada en castellano por Alfaguara. Esta presentación reúne la obra en un volumen físico que puede leerse de principio a fin o retomarse sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -24,7 +25,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La leyenda de las mujeres gato (Sin límites) comparte autora con Secreto de bruja 5 - El diario de los sueños (Jóvenes lectores), también de Patricia García-Rojo. La primera se sitúa en la fantasía vinculada a personajes femeninos, mientras que el título de la segunda señala una temática de brujería y su identificación como lectura juvenil.",
+      "texto": "La leyenda de las mujeres gato (Sin límites) puede compararse con Secreto de bruja 5 - El diario de los sueños (Jóvenes lectores), también de Patricia García-Rojo. Ambos títulos remiten a elementos fantásticos, pero el segundo se identifica como una entrega numerada de una serie, mientras que el primero pone el acento en una leyenda.",
       "evidencias": [
         "titulo",
         "autores",
@@ -38,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3ff84a281c7459fd",
+  "fuente_hash": "9aef5f79319d936a",
   "origen": "chatgpt-web"
 }

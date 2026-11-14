@@ -4,49 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¡Cuac! ¡Cuac!: Con texturas en el interior (Libros con texturas) está orientado a lectores infantiles que disfrutan explorando libros mediante el tacto. Su propuesta de 14 páginas y superficies táctiles se aleja de las lecturas extensas basadas únicamente en texto.",
+      "texto": "Es un libro infantil pensado para explorar texturas mediante el contacto con sus páginas. Sus 14 páginas de cartón y su componente táctil lo diferencian de los cuentos destinados únicamente a escuchar una historia o practicar la lectura autónoma.",
       "evidencias": [
         "titulo",
         "categorias",
         "numero_paginas",
-        "sinopsis_editorial"
+        "edicion"
       ]
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "Se utiliza pasando las páginas y explorando con los dedos las texturas que incorpora en su interior. El formato de cartón permite manipular físicamente el libro, mientras que sus 14 páginas delimitan una actividad de exploración breve.",
+      "texto": "Se utiliza pasando las páginas y tocando las texturas incorporadas en el interior. El formato de cartón y sus 14 páginas permiten alternar la exploración táctil con la observación durante una actividad de lectura compartida.",
       "evidencias": [
         "titulo",
         "edicion",
-        "numero_paginas"
+        "numero_paginas",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¡Cuac! ¡Cuac!: Con texturas en el interior (Libros con texturas) se ofrece en tapa dura, mediante una edición de cartón de 14 páginas. El soporte físico resulta fundamental para tocar las texturas interiores, por lo que la experiencia de uso depende de manipular el ejemplar.",
+      "texto": "La edición física es un libro de cartón, presentado como tapa dura, con 14 páginas y texturas interiores. Esta construcción permite manipular las páginas y tocar sus superficies, dos acciones que forman parte de la experiencia propuesta por Louise Rupnik y Cristina Feliu Martínez.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "edicion",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "¡Cuac! ¡Cuac!: Con texturas en el interior (Libros con texturas) comparte con Animales, de Susaeta Ediciones, su orientación infantil y la presencia de animales. Animales reúne seis cuentos ilustrados, mientras que el libro de Louise Rupnik y Cristina Feliu Martínez incorpora texturas para una exploración táctil.",
-      "evidencias": [
+        "numero_paginas",
         "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791370341589"
+        "autores"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ea60868afb8c17f9",
+  "fuente_hash": "4605380b46552499",
   "origen": "chatgpt-web"
 }

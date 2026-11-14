@@ -4,41 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los Vengadores. La hora del Doctor Doom: Cuento (Marvel. Los Vengadores) está orientado a lectores infantiles interesados en aventuras de superhéroes. Sus 32 páginas y su presentación como cuento lo distinguen de las novelas extensas y de los relatos de superhéroes dirigidos principalmente a adultos.",
+      "texto": "Está dirigido a lectores infantiles que buscan aventuras protagonizadas por Los Vengadores y relacionadas con Doctor Doom. Por su clasificación infantil y juvenil y sus 32 páginas, se orienta a una lectura breve, no a quien prefiera novelas extensas o historias ajenas a los personajes de Marvel.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Los Vengadores. La hora del Doctor Doom: Cuento (Marvel. Los Vengadores) es de tapa dura y contiene 32 páginas en castellano. Su extensión facilita completar el cuento en pocas sesiones, y la cubierta rígida permite conservarlo como parte de una colección infantil de Marvel.",
+      "texto": "La tapa dura permite conservar y regalar este cuento de 32 páginas en una edición física de Libros Disney. Kindle ofrece la alternativa digital para leerlo en un dispositivo compatible, sin necesidad de transportar el volumen impreso. Ambas opciones corresponden al mismo título de Marvel.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
         "autores",
-        "categorias"
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El cuento de Los Vengadores protagonizado por Doctor Doom se relaciona con Marvel. ¿Dónde está Doctor Doom? (Varios), también de Marvel. Ambos pertenecen al ámbito de los personajes de Marvel, pero el primero se presenta como un cuento de aventuras y el segundo plantea una búsqueda desde su título.",
+      "texto": "¿Qué pasaría si el Doctor Doom dominara el Multiverso? comparte con el cuento de Los Vengadores la autoría de Marvel y la presencia de Doctor Doom, pero plantea un conflicto relacionado con el Multiverso. Spidey y su superequipo: ¡Equipo Spidey! Libro con solapas también presenta personajes de Marvel, aunque se centra en Spidey y su equipo y utiliza solapas, mientras que el cuento de Los Vengadores tiene 32 páginas y está disponible en tapa dura y Kindle.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410362673"
+        "isbn-9788410362697"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b4ece15dc09b01d6",
+  "fuente_hash": "6e21a6a9df2e14b4",
   "origen": "chatgpt-web"
 }

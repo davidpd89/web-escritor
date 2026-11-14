@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388372933",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Irisación artificial se dirige a lectores interesados en el ensayo, los relatos y la narrativa juvenil. Sus 302 páginas responden a una lectura de cierta extensión y encajan menos con quienes buscan exclusivamente manuales prácticos o cómics.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Irisación artificial cuenta con una edición en tapa blanda de 302 páginas, publicada en castellano. El formato físico permite avanzar por el volumen y volver a pasajes anteriores sin utilizar una pantalla, aunque su extensión exige transportar un libro de cierta longitud.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Irisación artificial puede ponerse junto a El genio griego: Ilíada o el poema de la fuerza y otros textos (Contemporánea | Narrativa), de Simone Weil, por su relación con la escritura ensayística. La obra de Adrian Hyde también se sitúa entre los relatos y la narrativa juvenil, mientras que el título de Simone Weil identifica expresamente la Ilíada y otros textos como materia de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394604"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a07eef29032f1d7d",
+  "origen": "chatgpt-web"
+}

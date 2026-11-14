@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388236044",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nosotras (Narrativa) se dirige a lectores interesados en la narrativa contemporánea, el misterio y el ensayo. Su combinación de ámbitos literarios se aleja de una lectura centrada exclusivamente en la divulgación práctica o en la fantasía.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nosotras (Narrativa) está disponible en tapa blanda, con 216 páginas en castellano. Esta edición de Galaxia Gutenberg permite leer el volumen en papel y transportarlo sin el peso habitual de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nosotras (Narrativa) comparte con Lynchianas la presencia de Vicente Luis Mora en la autoría y su relación con el ámbito del ensayo. La diferencia está en la firma: Nosotras (Narrativa) corresponde únicamente a Vicente Luis Mora, mientras que Lynchianas reúne a varios autores, entre ellos Sara Barquinero y Simon Critchley.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399146950"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "977d994af7d75171",
+  "origen": "chatgpt-web"
+}

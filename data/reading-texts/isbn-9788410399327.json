@@ -4,28 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Una tempestad para matar un beso: La balada del fuego solar 2 (Inlov Romantasy) encaja con lectores de fantasía juvenil que buscan romance y aventuras dentro de una misma obra. Sus 512 páginas y su orientación hacia la romantasy la alejan de quienes prefieren relatos breves o narrativa realista sin elementos fantásticos.",
+      "texto": "Una tempestad para matar un beso: La balada del fuego solar 2 (Inlov Romantasy) encaja con lectores de fantasía juvenil que buscan aventuras combinadas con romance. Quienes prefieren historias contemporáneas realistas, sin elementos fantásticos, encontrarán aquí una propuesta de género distinta; el título lo identifica como el n.º 2.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Una tempestad para matar un beso: La balada del fuego solar 2 (Inlov Romantasy) está disponible en tapa dura, con 512 páginas en castellano publicadas por Inlov. Esta edición física permite conservar el volumen en una biblioteca o regalarlo a lectores de fantasía juvenil. Su extensión requiere más espacio para transportarlo que un libro breve.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "edicion",
-        "idioma",
         "categorias"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Una tempestad para matar un beso: La balada del fuego solar 2 (Inlov Romantasy) está disponible en tapa dura y reúne 512 páginas. Es una opción física para conservar en la estantería o regalar, aunque su extensión supone un volumen considerable para transportarlo a diario.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Asistente del villano (edición especial limitada) (Faeris Editorial) comparte con Una tempestad para matar un beso: La balada del fuego solar 2 (Inlov Romantasy) su vinculación con la fantasía romántica. La obra de Julia Dippel se identifica en el título como el n.º 2 de La balada del fuego solar, mientras que la de Hannah Nicole Maehrer destaca por su condición de edición especial limitada. El hechizo más oscuro (Faeris Editorial) constituye otra referencia del catálogo para comparar propuestas de fantasía.",
+      "texto": "Edición LEGACY Muerte a la oscuridad- Black Bird Academy: Black Bird Academy: 1 (Inlov Romantasy) comparte con Una tempestad para matar un beso: La balada del fuego solar 2 (Inlov Romantasy) la combinación editorial de fantasía y romance, pero pertenece a una obra de Stella Tack, no de Julia Dippel. Asistente del villano (edición especial limitada) (Faeris Editorial), de Hannah Nicole Maehrer, ofrece otra referencia de fantasía romántica con una identidad editorial diferente.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,13 +30,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388108112",
-        "isbn-9791388108419"
+        "isbn-9788410399518",
+        "isbn-9791388108112"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7ea734dcd9ed634c",
+  "fuente_hash": "0b76c5cecde5e14a",
   "origen": "chatgpt-web"
 }

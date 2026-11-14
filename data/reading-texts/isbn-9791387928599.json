@@ -4,28 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El hombre que fue casi nadie (Salamandra Black), de Victoria González Torralba, se sitúa entre la novela histórica y el misterio, con el siglo XX como referencia temática. Sus 272 páginas encajan con quienes buscan una extensión moderada y una combinación de historia e intriga, pero no con quienes prefieren relatos de fantasía o romance como eje principal.",
+      "texto": "El hombre que fue casi nadie (Salamandra Black) encaja con lectores interesados en el misterio, el thriller y la novela histórica. La combinación de estos géneros lo distancia de las lecturas centradas exclusivamente en la divulgación histórica, aunque también figura en el ámbito de historia.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de El hombre que fue casi nadie (Salamandra Black) reúne 272 páginas y está publicada por Salamandra. Permite leer y consultar el texto en papel, mientras que Kindle ofrece una versión digital para llevarla en el móvil o en un lector electrónico sin ocupar espacio físico.",
+      "texto": "El hombre que fue casi nadie (Salamandra Black) ofrece dos opciones: tapa blanda y Kindle. La edición física de Salamandra tiene 272 páginas y permite conservar el ejemplar en papel; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el volumen.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "edicion",
-        "formatos_disponibles"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Esperanza en París: 1 (El legado del tiempo), de Miguel Tarín, y El hombre que fue casi nadie (Salamandra Black), de Victoria González Torralba, se relacionan por su orientación histórica. La segunda obra incorpora además el misterio y el thriller entre sus temas, mientras que Esperanza en París: 1 (El legado del tiempo) se identifica por su pertenencia a El legado del tiempo.",
+      "texto": "El hombre que fue casi nadie (Salamandra Black) comparte con El asesino de la almarada (Novela Histórica) la relación entre ficción e historia, con el misterio como punto de comparación. Victoria González Torralba firma el primero, mientras que Gastón Morata es el autor del segundo; el primero figura además entre los thrillers.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399311907"
+        "isbn-9791370205362"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "304016c698320342",
+  "fuente_hash": "bddf7e26e3b5dc94",
   "origen": "chatgpt-web"
 }

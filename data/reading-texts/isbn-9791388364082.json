@@ -4,28 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El peso del aire (Hispánica), de Raúl Tola, se dirige a lectores de narrativa contemporánea que buscan misterio y asuntos relacionados con el poder y la política. Su extensión de 448 páginas y su combinación de géneros lo alejan de las lecturas breves centradas exclusivamente en la acción.",
+      "texto": "El peso del aire (Hispánica) encaja con lectores de narrativa contemporánea que buscan conflictos relacionados con el poder, la política y el misterio. Su combinación de temas se aleja de las lecturas centradas exclusivamente en relaciones sentimentales o aventuras fantásticas.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El peso del aire (Hispánica) se edita en tapa blanda, con 448 páginas en castellano bajo el sello Alfaguara. Es un volumen físico de extensión considerable, pensado para una lectura prolongada y que puede guardarse o prestarse sin utilizar dispositivos digitales.",
+      "texto": "La edición en tapa blanda de El peso del aire (Hispánica), publicada por Alfaguara, contiene 448 páginas y permite conservar el libro en papel. Kindle ofrece una alternativa digital para leerlo en dispositivos compatibles, especialmente cuando se prefiere no transportar un volumen de esa extensión.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El peso del aire (Hispánica) comparte con El vuelo de los gansos el interés por los conflictos relacionados con el poder. La obra de Raúl Tola combina narrativa contemporánea, misterio y política, mientras que El vuelo de los gansos, de Ángel Boixadós, plantea el enfrentamiento al poder como una cuestión de principios.",
+      "texto": "El peso del aire (Hispánica) puede compararse con El vuelo de los gansos por su interés en los conflictos relacionados con el poder. La obra de Raúl Tola combina narrativa contemporánea, política y misterio, mientras que El vuelo de los gansos presenta el enfrentamiento al poder como una cuestión de principios.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1c2c29a6a6d4f5ae",
+  "fuente_hash": "7fea13acf97df672",
   "origen": "chatgpt-web"
 }

@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) se orienta a quienes buscan estudiar la convivencia y la mediación en el ámbito educativo. Su encuadre en derecho lo separa de las lecturas de ficción y de los manuales centrados en materias ajenas a la resolución de conflictos.",
+      "texto": "Se orienta a lectores interesados en la mediación educativa, la convivencia y la resolución de conflictos en contextos de enseñanza. Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos), de Mari Luz Sánchez García-Arista, se aparta de quienes buscan un manual sobre litigios, contratos o fiscalidad.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Editorial Reus S.a. tiene 236 páginas y está escrita en castellano. El soporte impreso permite consultar apartados y realizar anotaciones durante el estudio de la mediación educativa.",
+      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) se publica en tapa blanda, con 236 páginas en castellano. Esta edición de Editorial Reus S.a. permite consultar en papel los contenidos sobre mediación educativa y regresar a los apartados relacionados con la resolución de conflictos.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
         "idioma",
-        "titulo"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) y Blockchain: un desafío legal (Monografía) abordan materias relacionadas con el derecho, pero desde asuntos distintos. Mari Luz Sánchez García-Arista se centra en la mediación educativa y la convivencia, mientras que Ana Isabel Quiroz Ruiz trata un desafío legal asociado a blockchain.",
+      "texto": "Casos prácticos sobre el despido (Supuestos prácticos) y Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) se sitúan en el ámbito jurídico, pero tratan conflictos diferentes. El primero se ocupa del despido mediante supuestos prácticos; el libro de Mari Luz Sánchez García-Arista aborda la mediación y la convivencia educativa.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370610265"
+        "isbn-9791370651749"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d77b4a69ac058c77",
+  "fuente_hash": "6fb8cf0d74b9a482",
   "origen": "chatgpt-web"
 }

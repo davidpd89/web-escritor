@@ -4,28 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El mundo de Suzie Wong, de Richard Mason, se dirige a lectores de romance y narrativa contemporánea con interés por las historias vinculadas al siglo XX. Sus 480 páginas plantean una lectura extensa, menos ajustada a quienes buscan relatos breves o una obra centrada exclusivamente en la divulgación histórica.",
+      "texto": "El mundo de Suzie Wong se orienta a lectores que buscan narrativa contemporánea con elementos románticos e interés por la historia. Su combinación de géneros encaja menos con quienes prefieren obras exclusivamente documentales o relatos centrados en la fantasía.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El mundo de Suzie Wong cuenta con una edición en tapa blanda de 480 páginas, publicada en castellano por Albo & Zarco. El formato permite llevar una novela extensa en papel sin la rigidez de una cubierta dura, aunque su número de páginas supone cierto volumen para transportarla diariamente.",
+      "texto": "El mundo de Suzie Wong está disponible en tapa blanda, con 480 páginas en castellano publicadas por Albo & Zarco. Esta edición permite leer la obra en papel y conservarla en una biblioteca física; por su extensión, conviene tener en cuenta el volumen al transportarla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El mundo de Suzie Wong puede compararse con La carta perdida (Clean Romance) por su vinculación con el romance. La primera, escrita por Richard Mason, también se sitúa en la narrativa contemporánea y el ámbito del siglo XX; la segunda es una obra de Mimi Matthews identificada con la denominación Clean Romance.",
+      "texto": "El mundo de Suzie Wong y La carta perdida (Clean Romance) comparten su vinculación con el romance. La obra de Richard Mason también se sitúa en narrativa contemporánea e historia, mientras que el título de Mimi Matthews destaca expresamente su orientación hacia el romance limpio; la diferencia permite distinguir sus respectivos enfoques antes de elegir.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "93ef3b51289ab9a6",
+  "fuente_hash": "ea469f962c7b1a70",
   "origen": "chatgpt-web"
 }

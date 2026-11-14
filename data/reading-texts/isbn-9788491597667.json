@@ -4,34 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en los estudios literarios, la escritura carcelaria y las experiencias de prisión recogidas en las letras españolas. Su orientación ensayística y académica lo diferencia de una novela de ficción ambientada en una cárcel o de una lectura infantil sobre el encarcelamiento.",
+      "texto": "Está destinado a lectores interesados en los estudios literarios, los testimonios personales y las formas de escritura vinculadas al encarcelamiento. Por su carácter ensayístico y su extensión, se aleja de una novela carcelaria de ficción o de una lectura narrativa breve.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Analiza la escritura producida en contextos carcelarios dentro de la tradición literaria española. El enfoque se sitúa en los estudios literarios y permite abordar la relación entre el encarcelamiento, los testimonios personales y su expresión escrita.",
+      "texto": "«Que yago en esta prisión». Escritura carcelaria en las letras españolas: 20 (Estudios literarios. 'El niño de la noche') examina la escritura producida o relacionada con la experiencia de prisión dentro de la literatura española. Su adscripción a los estudios literarios y al ensayo sitúa el análisis de los textos en el centro, con una autoría colectiva que reúne distintas aportaciones.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de UJA Editorial ofrece 540 páginas en tapa blanda y en castellano. Por su extensión y orientación hacia los estudios literarios, el papel facilita la consulta de apartados, las anotaciones y la recuperación de pasajes durante una investigación.",
+      "texto": "UJA Editorial publica esta obra en tapa blanda, con 540 páginas en castellano. El volumen físico permite consultar y releer los estudios sobre escritura carcelaria, además de conservarlo como referencia para trabajos de investigación literaria.",
       "evidencias": [
         "editorial",
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
         "idioma",
         "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los niños de la Resistencia. Memorias vivas 1: Josette y Jean-Jacques, de Vincent Dugomier, comparte con el libro de Elisa Borsari y sus colaboradores el interés por las experiencias históricas y su memoria. Mientras el primero se centra en niños vinculados a la Resistencia, el segundo aborda la escritura carcelaria en las letras españolas desde los estudios literarios.",
+      "texto": "Gustavo Adolfo Bécquer y su Obra: Bibliografia (1853-2025): 184 (Literatura) comparte la orientación hacia el estudio de las letras españolas y cuenta también con la participación de Jesús Rubio Jiménez, aunque se concentra en la bibliografía de un autor. Alfred y Emily (Narrativa) se aproxima a las experiencias personales desde la narrativa de Doris Lessing, frente al tratamiento ensayístico y colectivo de la escritura carcelaria.",
       "evidencias": [
         "afines_catalogo",
         "titulo",
@@ -39,12 +41,13 @@
         "categorias"
       ],
       "enlaces": [
-        "isbn-9791388439148"
+        "isbn-9788447234813",
+        "isbn-9788426438515"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3ae40e373144ba9b",
+  "fuente_hash": "8d804e3bc557996b",
   "origen": "chatgpt-web"
 }

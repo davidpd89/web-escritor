@@ -4,16 +4,15 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El huracán que hay en ti: Comprende el TLP y encuentra tu equilibrio sin apagar tu intensidad (No ficción) se dirige a personas interesadas en comprender el trastorno límite de la personalidad y trabajar el equilibrio emocional. Àgatha aborda esta cuestión desde el desarrollo personal y el bienestar, por lo que su enfoque difiere del de una novela o un manual de nutrición.",
+      "texto": "El huracán que hay en ti: Comprende el TLP y encuentra tu equilibrio sin apagar tu intensidad (No ficción) se dirige a lectores interesados en comprender el TLP y abordar el equilibrio personal sin renunciar a la intensidad emocional. Por su enfoque de salud y bienestar, no responde a quien busca una historia de ficción o una novela romántica.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El huracán que hay en ti: Comprende el TLP y encuentra tu equilibrio sin apagar tu intensidad (No ficción) está disponible en tapa blanda, con 256 páginas en castellano. Este formato permite transportar el libro y volver a consultar sus contenidos sobre el TLP y el equilibrio personal sin depender de un dispositivo electrónico.",
+      "texto": "El huracán que hay en ti: Comprende el TLP y encuentra tu equilibrio sin apagar tu intensidad (No ficción) está disponible en tapa blanda, con 256 páginas en castellano. Su cubierta flexible permite llevarlo y consultar distintos pasajes durante la lectura, sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -23,19 +22,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El huracán que hay en ti: Comprende el TLP y encuentra tu equilibrio sin apagar tu intensidad (No ficción) comparte el interés por el bienestar personal con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito. Àgatha centra su obra en el TLP y el equilibrio emocional, mientras que Liz Moody aborda cambios relacionados con la salud, las relaciones y otros ámbitos de la vida.",
+      "texto": "Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida comparte con El huracán que hay en ti: Comprende el TLP y encuentra tu equilibrio sin apagar tu intensidad (No ficción) la búsqueda de equilibrio personal. La diferencia está en el enfoque anunciado: Àgatha se centra en comprender el TLP, mientras que Kelly Ann Street plantea la sanación de heridas personales. Ambos títulos abordan el bienestar desde asuntos distintos.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo"
+        "afines_catalogo",
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9798890981776"
+        "isbn-9788410451988"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "53cdce237f59cfa5",
+  "fuente_hash": "e5fb27007214f942",
   "origen": "chatgpt-web"
 }

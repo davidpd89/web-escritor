@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399297409",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El cerebro enjaulado está dirigido a lectores interesados en psicología y divulgación científica sobre el cerebro. Su clasificación temática lo sitúa fuera de las novelas de ficción y de las lecturas que buscan principalmente una historia protagonizada por personajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El cerebro enjaulado se publica en tapa blanda, con 134 páginas en castellano. La extensión permite abordar el volumen de David Molina Zuquin en sesiones de lectura y mantenerlo como libro físico de consulta sobre psicología y ciencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cerebro y estilo de vida: 1107 (Mayor), de José Luis Trejo, y El perfecto cerebro imperfecto / The Perfect Imperfect Brain, de Eduardo Calixto, comparten con El cerebro enjaulado el interés por el cerebro. Los títulos de José Luis Trejo y Eduardo Calixto anuncian respectivamente el estilo de vida y la imperfección cerebral, mientras que David Molina Zuquin presenta su obra desde la imagen del encierro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410673410",
+        "isbn-9786073880107"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c5c8df924c3a4846",
+  "origen": "chatgpt-web"
+}

@@ -4,31 +4,31 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Honey lemon soda 5 (Shôjo) encaja con lectores de manga que buscan romance y relaciones de pareja en una historia contemporánea. El título lo identifica como el n.º 5, por lo que resulta menos adecuado para quien quiere empezar una historia desde su primera entrega o busca aventuras de fantasía.",
+      "texto": "Honey lemon soda 5 (Shôjo), de Mayu Murata, se dirige a lectores de manga romántico ambientado en una narrativa contemporánea. Por su combinación de romance y cómic, no responde a la búsqueda de una novela de aventuras o fantasía.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Honey lemon soda 5 (Shôjo) se publica en tapa blanda, con 336 páginas en castellano. La edición física permite leer las viñetas en papel y conservar este volumen junto a los demás de la colección, con una cubierta flexible para transportarlo.",
+      "texto": "Honey lemon soda 5 (Shôjo) se publica en tapa blanda, con 336 páginas en castellano. Esta edición de Distrito Manga permite leerlo en papel y conservarlo junto a otros volúmenes de la colección.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "categorias"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Honey lemon soda 4 (Shôjo) es la comparación más directa con Honey lemon soda 5 (Shôjo): ambos títulos pertenecen a la misma colección y están firmados por Mayu Murata, aunque sus números identifican entregas distintas. Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, comparte la identificación shôjo, pero corresponde a otra obra y otra autora.",
+      "texto": "Honey lemon soda 4 (Shôjo) comparte autoría y título de colección con Honey lemon soda 5 (Shôjo); el título identifica ambos como volúmenes distintos. Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, también pertenece al ámbito del manga shôjo, pero presenta otra autoría y el título lo identifica como el n.º 1.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791387962487",
@@ -38,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "99a6d99db1200d05",
+  "fuente_hash": "370ab08f98eddc76",
   "origen": "chatgpt-web"
 }

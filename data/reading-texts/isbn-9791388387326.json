@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388387326",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en el ajedrez, las biografías y los conflictos relacionados con la ambición y las mentiras. Jaque mate: Talento, mentiras y ambición en el mayor escándalo de la historia del ajedrez (Sociedad), de Ben Mezrich, se sitúa en la no ficción; no responde a quien busque una novela de aventuras o un manual de estrategias de juego.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece una edición física de 296 páginas publicada por Debate, apropiada para leer en papel y conservar en la estantería. Kindle permite llevar Jaque mate: Talento, mentiras y ambición en el mayor escándalo de la historia del ajedrez (Sociedad) en un dispositivo de lectura sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Jaque mate: Talento, mentiras y ambición en el mayor escándalo de la historia del ajedrez (Sociedad) comparte con Jannik Sinner: El tenista que vino del futuro (Otros deportes) el interés por figuras vinculadas a disciplinas competitivas. El libro de Ben Mezrich se centra en el ajedrez y un escándalo, mientras que el de Alessandro Francesco Ruta aborda a un tenista; ambos se alejan de la ficción, pero tratan ámbitos deportivos distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387955496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cae4708a77da6c9d",
+  "origen": "chatgpt-web"
+}

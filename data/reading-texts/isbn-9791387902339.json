@@ -4,42 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ice Age. El cómic está dirigido a lectores que buscan aventuras en formato de cómic, con la naturaleza como parte de su temática. Sus 32 páginas lo sitúan en una extensión breve, lejos de las novelas gráficas largas.",
+      "texto": "Ice Age. El cómic se orienta a lectores interesados en las aventuras narradas mediante el lenguaje del cómic. Sus 32 páginas en tapa dura ofrecen una extensión breve; quien busque una novela larga en prosa encontrará aquí otro tipo de lectura.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne sus 32 páginas en una edición física de Libros Disney, con cubierta rígida para conservarla y compartirla. Es la opción disponible para quien prefiere pasar las páginas en papel frente a leer en pantalla.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "editorial",
-        "edicion",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "Ice Age. El cómic se publica en tapa dura, con 32 páginas en castellano. La encuadernación rígida permite conservarlo en una estantería y resulta práctica para regalar un ejemplar físico; su extensión también facilita leerlo en sesiones breves.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Ice Age. El cómic comparte con Princesas. Unicorn Wish 1, de Disney, el enfoque de aventuras y la autoría de Disney. La diferencia está en sus temas: el primero se centra en la naturaleza y el formato de cómic, mientras que el segundo incorpora magia y amistad.",
+      "texto": "Ice Age. El cómic y Agente Stitch 5. Los roedores de Roswell comparten la autoría de Disney y su relación con las aventuras. El primero se presenta como cómic de 32 páginas, mientras que el segundo gira alrededor de un misterio intergaláctico y la colaboración entre Stitch y sus amigos.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387901967"
+        "isbn-9791387901943"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "91d7e38fd4c346a8",
+  "fuente_hash": "9802a3bf25f9ec3a",
   "origen": "chatgpt-web"
 }

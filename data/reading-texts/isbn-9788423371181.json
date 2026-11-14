@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuando seamos inmortales se dirige a lectores de novela histórica interesados en el arte y las tensiones políticas del pasado español. Su trama relaciona la rivalidad artística con la situación del Imperio español, por lo que se aleja de una biografía exclusivamente dedicada a la técnica pictórica.",
+      "texto": "Cuando seamos inmortales encaja con lectores de novela histórica interesados en la pintura, la rivalidad artística y la política europea. Su argumento gira alrededor de Rubens y Velázquez en 1628, por lo que se aleja de quienes prefieren una historia contemporánea sin contexto histórico.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,8 +13,9 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela histórica ambientada en la corte española de 1628, con Rubens y Velázquez como figuras centrales. Tony Gratacós vincula la competencia entre artistas con el contexto político del Imperio español y el destino de Europa, combinando conflictos personales y acontecimientos históricos.",
+      "texto": "Cuando seamos inmortales propone una novela histórica que relaciona la creación artística con las tensiones políticas del Imperio español. Tony Gratacós sitúa a Rubens y Velázquez en el centro de un conflicto de rivalidad y supervivencia, con la corte española de 1628 como escenario.",
       "evidencias": [
+        "titulo",
         "autores",
         "categorias",
         "sinopsis_editorial"
@@ -22,18 +23,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura con sobrecubierta presenta las 528 páginas de Cuando seamos inmortales en una edición física apropiada para conservar o regalar. Kindle permite llevar esta novela histórica extensa en un dispositivo de lectura, sin cargar con el volumen impreso.",
+      "texto": "La tapa dura con sobrecubierta permite conservar las 528 páginas de Cuando seamos inmortales en una edición física de Ediciones Destino. Kindle ofrece el mismo título como opción de lectura digital, sin necesidad de transportar el volumen impreso.",
       "evidencias": [
         "titulo",
         "edicion",
+        "editorial",
         "numero_paginas",
-        "formatos_disponibles",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuando seamos inmortales y Ave César (Narrativas Históricas) se relacionan por su orientación hacia la narrativa histórica. La novela de Tony Gratacós sitúa su conflicto entre artistas y poder político en la corte española, mientras que el título de Rex Warner remite a una figura del mundo romano.",
+      "texto": "Cuando seamos inmortales y Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon comparten el interés por la ficción histórica. Tony Gratacós centra su novela en Rubens, Velázquez y la corte española de 1628, mientras que la obra de Valerio Massimo Manfredi remite desde su título a Aléxandros y a las arenas de Amón.",
       "evidencias": [
         "titulo",
         "autores",
@@ -42,7 +43,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788435064125"
+        "isbn-9786287897090"
       ]
     }
   ],

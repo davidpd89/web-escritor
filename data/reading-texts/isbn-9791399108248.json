@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Vivir con buen karma: Puedes crear las causas de la felicidad y evitar las causas del sufrimiento. aborda cuestiones de espiritualidad relacionadas con las acciones humanas y sus consecuencias. Se dirige a lectores interesados en esas reflexiones, más que a quienes buscan una novela de aventuras o una narración centrada en personajes ficticios.",
+      "texto": "Vivir con buen karma: Puedes crear las causas de la felicidad y evitar las causas del sufrimiento. se orienta a lectores interesados en la espiritualidad y en la relación entre las acciones personales, la felicidad y el sufrimiento. Por su planteamiento religioso y espiritual, se aleja de quienes buscan una lectura centrada exclusivamente en asuntos materiales o profesionales.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,22 +12,22 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Vivir con buen karma: Puedes crear las causas de la felicidad y evitar las causas del sufrimiento. se presenta en tapa blanda. La edición de Ediciones Amara tiene 286 páginas en castellano, reunidas en un volumen físico que permite avanzar por capítulos y volver a pasajes anteriores durante la lectura.",
+      "texto": "Vivir con buen karma: Puedes crear las causas de la felicidad y evitar las causas del sufrimiento. se presenta en tapa blanda, con 286 páginas en castellano. El formato físico permite avanzar por sus contenidos sobre el karma y volver a consultar pasajes durante la lectura, sin utilizar dispositivos electrónicos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "editorial",
         "numero_paginas",
         "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Vivir con buen karma: Puedes crear las causas de la felicidad y evitar las causas del sufrimiento. puede compararse con Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe. Ambos títulos se ocupan de cuestiones espirituales, pero el primero pone el acento en el karma y las causas del sufrimiento, mientras el segundo anuncia fundamentos y prácticas del Dharma.",
+      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación comparte con Vivir con buen karma: Puedes crear las causas de la felicidad y evitar las causas del sufrimiento. el interés por las cuestiones espirituales y sus consecuencias prácticas. Tsondru Yeshe presenta un enfoque sobre los fundamentos y la práctica del Dharma, mientras que Thubten Chodron sitúa el karma y las causas de la felicidad y el sufrimiento en el centro de su obra.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "afines_catalogo"
+        "autores",
+        "afines_catalogo",
+        "categorias"
       ],
       "enlaces": [
         "isbn-9791399210088"
@@ -36,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ebd51a9b704d4b8f",
+  "fuente_hash": "9af6676f9f59f8af",
   "origen": "chatgpt-web"
 }

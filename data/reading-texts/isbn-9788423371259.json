@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Bajo tierra seca: Edición limitada a precio especial (Colección Especial) se dirige a lectores de misterio y thriller con interés por la historia y el siglo XX. Su orientación hacia la intriga lo diferencia de una lectura centrada exclusivamente en la divulgación histórica.",
+      "texto": "Bajo tierra seca: Edición limitada a precio especial (Colección Especial) encaja con lectores que buscan misterio y thriller asociados a una dimensión histórica. No responde a una búsqueda de historia exclusivamente divulgativa, pues su clasificación editorial incluye expresamente la intriga.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,22 +12,21 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Booket presenta Bajo tierra seca: Edición limitada a precio especial (Colección Especial), de César Pérez Gellida, en una versión de bolsillo con cubierta flexible. Sus 512 páginas corresponden a la publicación fechada el 2027-01-08, identificada mediante el ISBN 9788423371259.",
+      "texto": "Bajo tierra seca: Edición limitada a precio especial (Colección Especial) aparece en una edición de bolsillo de Booket, identificada como colección especial. Sus 512 páginas están editadas en castellano y corresponden al ISBN 9788423371259, útil para distinguir este ejemplar de otras presentaciones del mismo título.",
       "evidencias": [
         "titulo",
-        "autores",
         "editorial",
         "edicion",
-        "formato_edicion",
         "numero_paginas",
-        "fecha_publicacion",
+        "idioma",
         "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es de tapa blanda y se presenta como libro de bolsillo, con 512 páginas. Este formato facilita llevar la novela en una bolsa y leerla por sesiones, aunque mantiene la extensión propia de una lectura larga.",
+      "texto": "Bajo tierra seca: Edición limitada a precio especial (Colección Especial) se ofrece en tapa blanda, concretamente en una edición de bolsillo. Sus 512 páginas forman un volumen físico que puede transportarse y conservarse sin necesidad de dispositivos electrónicos.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "edicion",
         "numero_paginas"
@@ -35,21 +34,22 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Nada bueno germina: Edición limitada a precio especial (Colección Especial) comparte con Bajo tierra seca: Edición limitada a precio especial (Colección Especial) la autoría de César Pérez Gellida y el tipo de edición anunciada. Criminales sin sombra (Salamandra Black), de Juan Carlos Galindo, plantea otra opción vinculada a la ficción criminal, con distinta autoría y colección editorial.",
+      "texto": "Bajo tierra seca: Edición limitada a precio especial (Colección Especial) y Nada bueno germina: Edición limitada a precio especial (Colección Especial) comparten autor, colección y clasificación entre misterio e historia. El cuerpo equivocado (Novela de intriga), de Jorge Ortega, también se relaciona con el misterio, pero presenta otra autoría y una identificación editorial centrada expresamente en la intriga.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "edicion",
         "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788423371266",
-        "isbn-9791387928285"
+        "isbn-9788425377105"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "40e288adfab36383",
+  "fuente_hash": "fcaa35b32277ff2b",
   "origen": "chatgpt-web"
 }

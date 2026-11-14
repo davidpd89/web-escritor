@@ -4,22 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Emilio y Margot 8 Monstruos a la vista está dirigido a lectores infantiles interesados en los cómics, los personajes fantásticos y las situaciones humorísticas. Su combinación de aventuras en un castillo y criaturas monstruosas encaja con quienes disfrutan de la fantasía desenfadada, no con quienes buscan relatos realistas o narraciones extensas sin apoyo gráfico.",
+      "texto": "Emilio y Margot 8 Monstruos a la vista se dirige a lectores infantiles que disfrutan del cómic, las travesuras y las situaciones disparatadas. Los monstruos intervienen en los problemas cotidianos de los protagonistas, desde las comidas hasta las obligaciones escolares. No está orientado a quien busque una historia realista sin elementos fantásticos.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es el formato disponible para sus 96 páginas, reunidas en un volumen físico de Kómikids. Su extensión permite manejar el cómic como un libro completo sin recurrir a una edición digital o a un audiolibro.",
+      "texto": "Emilio y Margot 8 Monstruos a la vista se presenta en tapa blanda, con una edición de 96 páginas publicada por Kómikids. Su encuadernación flexible permite manejar el volumen durante la lectura y guardarlo junto a otros cómics infantiles. Es una opción física para leer las aventuras de los protagonistas y sus monstruos.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "edicion",
-        "formatos_disponibles"
+        "editorial",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Emilio y Margot 8 Monstruos a la vista puede compararse con Anatol Lapifia Vol 10 ¡Sálvese quien pueda!: 9, también de Anne Didier y Olivier Muller. Ambos comparten autoría, pero Emilio y Margot 8 Monstruos a la vista desarrolla sus conflictos infantiles mediante monstruos que alteran la vida del castillo. Anatol Lapifia Vol 10 ¡Sálvese quien pueda!: 9 presenta otra serie y otros protagonistas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791387744366"
       ]
     }
   ],

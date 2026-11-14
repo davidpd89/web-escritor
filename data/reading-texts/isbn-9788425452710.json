@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las negras toman la palabra (fuera de colección), de Awa Thiam, se dirige a quienes buscan lecturas de ensayo e historia en castellano. Su clasificación temática lo aleja de quienes prefieren una novela de ficción o una lectura infantil.",
+      "texto": "Las negras toman la palabra (fuera de colección), de Awa Thiam, se dirige a quienes leen ensayo e historia, especialmente desde el interés por las voces de las mujeres negras. Su clasificación editorial lo sitúa en la no ficción, por lo que responde a una búsqueda distinta de la novela histórica o del relato de aventuras.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "idioma"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 232 páginas de Las negras toman la palabra (fuera de colección) en una edición física de Herder Editorial. Kindle permite consultar el mismo título desde un lector electrónico o un dispositivo compatible, sin transportar el ejemplar impreso.",
+      "texto": "Las negras toman la palabra (fuera de colección) puede leerse en tapa blanda o en Kindle. La edición física de Herder Editorial tiene 232 páginas y permite consultar el texto en papel; Kindle ofrece la alternativa digital para llevar la lectura en un dispositivo compatible. Ambos formatos corresponden al mismo título de Awa Thiam.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
+        "autores",
         "editorial",
+        "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Las negras toman la palabra (fuera de colección) y Campo de concentración: 82 (Biblioteca del Exilio) comparten su vinculación con lecturas de interés histórico. El primero es un ensayo de Awa Thiam, mientras que el segundo se presenta bajo una colección dedicada al exilio y lleva la firma de Eduardo de Ontañón.",
+      "texto": "Ayer enterramos a un niño en Palma: Vida y muerte de Chocolate (1965-1978) comparte con Las negras toman la palabra (fuera de colección) el interés por asuntos humanos tratados desde la no ficción, aunque el primero delimita una trayectoria personal y un periodo histórico. Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo) también pertenece al ámbito del ensayo, pero anuncia una reflexión sobre el amor y el arte, frente al protagonismo de las mujeres negras en el libro de Awa Thiam.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,7 +32,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410148659"
+        "isbn-9788467084122",
+        "isbn-9788417645311"
       ]
     }
   ],

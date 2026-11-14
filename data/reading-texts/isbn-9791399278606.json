@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La ciencia de equilibrar juegos se orienta a lectores interesados en cómo se ajusta el equilibrio de los juegos. Por su temática vinculada al tiempo libre, se distancia de los libros de actividades manuales y de quienes buscan una historia de ficción.",
+      "texto": "La ciencia de equilibrar juegos se orienta a lectores interesados en los juegos desde la perspectiva del equilibrio y su funcionamiento. Su ubicación en ocio y aficiones lo aleja de quienes buscan una novela de ficción o una lectura centrada en personajes.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,17 +12,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La ciencia de equilibrar juegos está disponible en tapa blanda y tiene 192 páginas en castellano. Su extensión permite abordar el equilibrio de juegos en un volumen físico relativamente breve, que puede consultarse y guardarse junto a otros libros sobre esta actividad.",
+      "texto": "La ciencia de equilibrar juegos se publica en tapa blanda y tiene 192 páginas. Es una edición física manejable para consultar sus contenidos sobre juegos y conservarla junto a otros libros dedicados al ocio.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La ciencia de equilibrar juegos y 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos) comparten una relación con el mundo de los juegos. Sergi Subirats se ocupa del equilibrio de juegos, mientras que el título de Varios autores propone una actividad de coloreado vinculada a Roblox.",
+      "texto": "La ciencia de equilibrar juegos y 99 Sudoku (LIBROS SINGULARES) comparten su relación con los juegos y las aficiones. El libro de Sergi Subirats aborda el equilibrio de los juegos, mientras que el título de Anónimo se centra específicamente en el sudoku, por lo que responden a intereses distintos dentro del ocio.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328384"
+        "isbn-9788411724425"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e59c2fc488540740",
+  "fuente_hash": "68ab408d6a220d92",
   "origen": "chatgpt-web"
 }

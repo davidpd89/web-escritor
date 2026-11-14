@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las buenas intenciones (Crimen y misterio) se dirige a lectores interesados en el thriller, el crimen y los temas históricos. Su combinación de misterio e historia se aparta de las novelas que prescinden de la intriga y de las obras dedicadas exclusivamente a explicar acontecimientos históricos.",
+      "texto": "Las buenas intenciones (Crimen y misterio), de Víctor del Árbol, se dirige a quienes buscan misterio con una dimensión histórica. Su clasificación la aleja de las lecturas centradas principalmente en el romance o la comedia contemporánea.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "autores"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de bolsillo de Las buenas intenciones (Crimen y misterio), publicada por Booket, tiene 400 páginas en tapa blanda. Kindle permite leerla en formato digital desde un dispositivo compatible, mientras que el audiolibro sustituye la lectura visual por la escucha. El bolsillo conserva la opción de lectura en papel con un formato transportable.",
+      "texto": "Las buenas intenciones (Crimen y misterio) ofrece 400 páginas en una edición de bolsillo de tapa blanda, adecuada para leer en papel y transportar. Kindle permite llevar el texto en formato digital, mientras que el audiolibro ofrece la alternativa de escucharlo durante otras actividades.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "editorial",
         "numero_paginas",
+        "edicion",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Las buenas intenciones (Crimen y misterio), de Víctor del Árbol, comparte el ámbito del crimen con Bajo tierra seca: Edición limitada a precio especial (Colección Especial), de César Pérez Gellida, y Criminales sin sombra (Salamandra Black), de Juan Carlos Galindo. La obra de Víctor del Árbol incorpora además una clasificación histórica, mientras que los otros títulos se presentan mediante referencias al crimen y a sus respectivas colecciones editoriales.",
+      "texto": "Las buenas intenciones (Crimen y misterio) comparte el ámbito del misterio con Criminales sin sombra (Salamandra Black), de Juan Carlos Galindo, aunque sus títulos y autorías corresponden a obras distintas. También puede compararse con Bajo tierra seca: Edición limitada a precio especial (Colección Especial), de César Pérez Gellida, otra referencia del catálogo vinculada a este ámbito de lectura.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "cf07803e455d8c80",
+  "fuente_hash": "1cfadd42b2df8a44",
   "origen": "chatgpt-web"
 }

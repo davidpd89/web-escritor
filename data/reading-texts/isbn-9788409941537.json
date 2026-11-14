@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Lo que no le cuento a mamá: El diario de Lina se orienta a lectores infantiles interesados en las relaciones familiares, la amistad y las experiencias personales. Por sus temas y sus 56 páginas, se distancia de las lecturas centradas en aventuras extensas o conflictos propios de la narrativa adulta.",
+      "texto": "Lo que no le cuento a mamá: El diario de Lina se sitúa entre las lecturas infantiles y juveniles relacionadas con la familia. Su planteamiento de diario y sus 56 páginas lo diferencian de los libros de crianza dirigidos específicamente a adultos; no está enfocado en temas históricos o técnicos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,16 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Lo que no le cuento a mamá: El diario de Lina se publica en tapa blanda y tiene 56 páginas. Su extensión permite manejar un ejemplar físico relativamente breve, tanto para leerlo en casa como para transportarlo en una mochila.",
+      "texto": "Lo que no le cuento a mamá: El diario de Lina se publica en tapa blanda, con 56 páginas en castellano. Es una edición física de extensión reducida que permite leer y conservar el diario en papel, sin necesidad de utilizar un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Lo que no le cuento a mamá: El diario de Lina puede compararse con El diario de Gurty. Vacaciones en la Provenza (Imagina) por el uso del diario como referencia en ambos títulos. También comparte el ámbito familiar con Tíos y Tías (AMOR DE FAMILIA), aunque el libro de María R incorpora la amistad entre sus temas.",
+      "texto": "Diario secreto de 2 hermanas magas: Magia, pifias y mucha superación. Lectura preadolescente comparte con Lo que no le cuento a mamá: El diario de Lina la referencia al diario y su relación con lectores jóvenes. El primero incorpora magia y superación, mientras que el libro de María R se presenta desde el vínculo familiar y aquello que Lina no cuenta a su madre.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,13 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410438491",
-        "isbn-9791388425059"
+        "isbn-9788409924523"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2a15b7afa684ec0e",
+  "fuente_hash": "cc0694225b5cb530",
   "origen": "chatgpt-web"
 }

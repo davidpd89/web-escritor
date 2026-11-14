@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a padres interesados en los cambios personales que acompañan al nacimiento de un hijo y en trabajar sus propias creencias durante el posparto. Su planteamiento psicológico y familiar resulta menos afín a quien busca exclusivamente información médica sobre embarazo o puerperio.",
+      "texto": "Está dirigido a quienes quieren examinar las creencias personales que cambian con la paternidad y trabajar sobre ellas después del nacimiento de un hijo. Su enfoque combina crianza, psicología y desarrollo personal; no está planteado como un manual de cuidados físicos del bebé.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,7 +12,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es el formato disponible para sus 130 páginas, con una extensión manejable para la lectura y la consulta de los ejercicios planteados en el título. Permite conservar el ejemplar físico y volver a los apartados sobre creencias y paternidad.",
+      "texto": "La edición disponible es en tapa blanda y tiene 130 páginas, una extensión manejable para consultar y retomar los ejercicios a lo largo del tiempo. El formato físico permite señalar reflexiones y conservar las anotaciones durante el trabajo sobre las creencias relacionadas con la paternidad.",
       "evidencias": [
         "formatos_disponibles",
         "numero_paginas",
@@ -21,18 +21,19 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos) aborda la organización familiar desde la psicología conductual. Ser padre o tener hijos: El posparto del que nadie habla: las 12 creencias que cambian cuando nace tu hijo y cómo trabajarlas en 65 + 1 días (Gestión por creencias para la vida) se concentra en la experiencia paterna tras el nacimiento.",
+      "texto": "SOMOS Journal: Reflexión, claridad y transformación personal comparte autoría con este libro: ambos son de Enrique Llimona Valonero y abordan el trabajo personal. La diferencia está en el alcance anunciado por sus títulos: SOMOS Journal plantea una reflexión general sobre la transformación individual, mientras que Ser padre o tener hijos se centra en las creencias vinculadas al nacimiento de un hijo.",
       "evidencias": [
         "titulo",
+        "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399249682"
+        "isbn-9788409886845"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9fe11deb6f8bd572",
+  "fuente_hash": "60a36e398a526bcc",
   "origen": "chatgpt-web"
 }

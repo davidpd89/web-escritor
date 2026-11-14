@@ -4,32 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a quienes buscan un ensayo sobre la relación entre el amor y el arte, con una perspectiva vinculada a la historia. Por su enfoque temático, encaja menos con quien espera una novela romántica o una guía práctica para resolver conflictos de pareja.",
+      "texto": "Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo), de Carlos del Amor, encaja con lectores interesados en el encuentro entre amor, arte e historia desde la no ficción. Sus 288 páginas corresponden a un ensayo, por lo que no responde a quien busque una novela romántica de ficción o una aventura fantástica.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo) está disponible en tapa blanda, con 288 páginas en castellano. Es una edición física que permite consultar y releer pasajes sobre amor y arte sin depender de una pantalla; su extensión también facilita calcular el tiempo de lectura.",
+      "texto": "Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo) se publica en tapa blanda, con 288 páginas en castellano. Esta presentación permite leerlo en papel y guardarlo en una estantería sin recurrir a una encuadernación rígida; la edición pertenece a Editorial Espasa.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "categorias"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo) puede compararse con Estuche Carlos del Amor (NO FICCIÓN), también de Carlos del Amor, por su relación con el amor, la historia y el ensayo. La diferencia está en la presentación y extensión: Amarte tiene 288 páginas, mientras que el otro título se presenta como estuche.",
+      "texto": "Estuche Carlos del Amor (NO FICCIÓN) comparte autoría con Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo), y ambos se sitúan en el ámbito del ensayo y la historia. Amarte centra su título en la relación entre amor y arte y se presenta como un volumen de 288 páginas en tapa blanda, mientras que la otra referencia adopta la presentación de estuche.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "afines_catalogo",
         "numero_paginas",
-        "afines_catalogo"
+        "formatos_disponibles"
       ],
       "enlaces": [
         "isbn-9788467083958"
@@ -38,6 +41,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0f02952cdb1b1a63",
+  "fuente_hash": "8653db27e7d424ef",
   "origen": "chatgpt-web"
 }

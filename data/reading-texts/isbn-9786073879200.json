@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary se dirige a lectores interesados en publicaciones vinculadas al arte y el diseño. Su planteamiento de diccionario lo distingue de una novela convencional, por lo que encaja menos con quienes buscan una narración de ficción continuada.",
+      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary, de El Aletz y Alejandro Carrillo, se orienta a lectores interesados en el perreo desde una propuesta vinculada al arte y el diseño. Su planteamiento de diccionario encaja menos con quien busca una novela de ficción o un manual de dibujo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,23 +13,21 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary se presenta en tapa blanda, con 320 páginas en castellano. Su extensión permite reservarle un espacio en la biblioteca y consultarlo físicamente. Es una edición de Penguin Random House Grupo Editorial.",
+      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary se presenta en tapa blanda, con 320 páginas en castellano. El formato físico permite consultar el volumen y volver a sus contenidos sin utilizar una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial",
         "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary comparte el ámbito artístico con All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial, de Daniel Sedcontra. El segundo título delimita su asunto a la música industrial, mientras que el de El Aletz y Alejandro Carrillo se presenta como diccionario vinculado al perreo. Son aproximaciones diferentes a expresiones culturales.",
+      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary y All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial abordan, desde sus títulos, ámbitos culturales distintos. El primero se centra en el perreo y está firmado por El Aletz y Alejandro Carrillo; el segundo se ocupa de la música industrial y está firmado por Daniel Sedcontra.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -39,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "054cc7b3a9fa17ce",
+  "fuente_hash": "b71085a0ea109772",
   "origen": "chatgpt-web"
 }

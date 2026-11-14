@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791370475895",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Manual sobre protección de consumidores y usuarios se dirige a lectores que necesitan estudiar cuestiones jurídicas relacionadas con el consumo. Carlos Lasarte Álvarez y Ángel Juárez Torrejón firman una obra de 422 páginas centrada en derecho, alejada de la narrativa de ficción y de las guías generales de compras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Manual sobre protección de consumidores y usuarios está editado en tapa blanda y tiene 422 páginas. La edición en castellano de Editorial Dykinson, S.l. permite trabajar con un ejemplar físico, marcar páginas y volver a consultar contenidos jurídicos sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Manual sobre protección de consumidores y usuarios comparte el ámbito jurídico del consumo con Derecho contractual del consumo: Introducción, condiciones generales de contratación. La obra de Carlos Lasarte Álvarez y Ángel Juárez Torrejón plantea la protección de consumidores y usuarios en términos generales, mientras que el título de Juan Felipe Criado-Castilla delimita su materia a la contratación y sus condiciones generales. La diferencia reside en el alcance anunciado de cada manual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370297305"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "83748bcfb14926d7",
+  "origen": "chatgpt-web"
+}

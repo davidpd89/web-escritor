@@ -4,31 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La novela de N V Peacock se dirige a lectores de thriller psicológico interesados en las consecuencias de huir del pasado. Su conflicto gira en torno al miedo y la amenaza, por lo que se aleja de las lecturas de misterio de tono ligero o humorístico.",
+      "texto": "La obra de N V Peacock se dirige a lectores de thriller psicológico interesados en los conflictos relacionados con el pasado y sus consecuencias. Su planteamiento de misterio, huida y amenaza se aleja de las historias centradas en el humor o en conflictos cotidianos sin suspense.",
       "evidencias": [
-        "titulo",
         "autores",
+        "titulo",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La novela de N V Peacock se publica en tapa blanda, con 368 páginas en castellano y edición de Harper+. Este formato permite transportarla en una mochila o bolso y leerla en papel sin la rigidez de una cubierta dura.",
+      "texto": "La edición en tapa blanda publicada por Harper+ contiene 368 páginas y permite conservar el thriller en papel o prestarlo a otros lectores. La versión Kindle ofrece la misma obra en formato digital para leerla en dispositivos compatibles, sin transportar el volumen físico.",
       "evidencias": [
-        "titulo",
-        "autores",
-        "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La novela de N V Peacock comparte con Aguas turbulentas, de Rankin Ian, el misterio relacionado con acontecimientos del pasado. La primera se centra en la huida y sus consecuencias psicológicas, mientras que Aguas turbulentas sitúa el encuentro entre pasado y presente en Edimburgo.",
+      "texto": "La novela de N V Peacock y Aguas turbulentas comparten el interés por las consecuencias del pasado. La primera se presenta como un thriller psicológico sobre la huida y sus costes; la obra de Rankin Ian sitúa el encuentro entre un pasado siniestro y un presente oscuro en Edimburgo.",
       "evidencias": [
-        "titulo",
         "autores",
+        "titulo",
         "categorias",
         "afines_catalogo"
       ],
@@ -39,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d1eabeecfdd711a8",
+  "fuente_hash": "15493757542e4882",
   "origen": "chatgpt-web"
 }

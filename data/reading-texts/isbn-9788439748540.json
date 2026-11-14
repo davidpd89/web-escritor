@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788439748540",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todos los cuentos (Random House) se dirige a quienes buscan relatos de Gabriel García Márquez dentro de la narrativa contemporánea y la fantasía. Su planteamiento como recopilación de cuentos lo distingue de una novela de argumento continuo, por lo que encaja menos con lectores que prefieren una única historia extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Random House se presenta en tapa blanda y contiene 512 páginas. Permite reunir los cuentos de Gabriel García Márquez en un volumen físico, aunque su extensión puede hacer menos cómodo transportarlo que un libro breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Crónica de una muerte anunciada comparte con Todos los cuentos (Random House) la autoría de Gabriel García Márquez, pero presenta una obra individual frente a una recopilación de relatos. El estuche esencial de Gabriel García Márquez reúne varios títulos del escritor, mientras que Todos los cuentos concentra la lectura en su producción cuentística dentro de un único volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395137"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9429a5bf2542f3dd",
+  "origen": "chatgpt-web"
+}

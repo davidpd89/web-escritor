@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788423441228",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Somos como dioses: Un manual de supervivencia para la era de la abundancia (Deusto) se dirige a lectores interesados en el ensayo y la divulgación científica, especialmente en cuestiones relacionadas con la abundancia. Sus 352 páginas y su orientación hacia la no ficción lo distancian de una lectura narrativa breve o de una novela de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Somos como dioses: Un manual de supervivencia para la era de la abundancia (Deusto) se presenta en tapa blanda, con 352 páginas en castellano. Esta edición permite consultar y señalar pasajes en papel, algo útil para una lectura de ensayo que se quiera revisar posteriormente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Somos como dioses: Un manual de supervivencia para la era de la abundancia (Deusto) y El juego de tronos de la IA: Cómo un puñado de hombres se disputa el dominio del mundo permiten acercarse a cuestiones contemporáneas desde la no ficción. Peter Diamandis y Steven Kotler sitúan el foco en la abundancia, mientras que Gustavo Entrala lo dirige hacia las disputas por el control de la inteligencia artificial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944374"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f5ed78621e0b5633",
+  "origen": "chatgpt-web"
+}

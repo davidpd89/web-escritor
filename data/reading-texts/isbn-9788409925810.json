@@ -4,25 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mi chico de Utah: 30 años, 4 amores, un mapa para reconocer el tuyo se dirige a lectores interesados en las experiencias personales, las relaciones afectivas y el desarrollo personal. Por su clasificación entre biografías y memorias, se aleja de quienes buscan una novela de ficción o una guía centrada exclusivamente en nutrición.",
+      "texto": "Mi chico de Utah: 30 años, 4 amores, un mapa para reconocer el tuyo se orienta a lectores interesados en las experiencias personales relacionadas con el amor y el conocimiento de uno mismo. Su vinculación con las memorias y el desarrollo personal lo distingue de los libros centrados exclusivamente en consejos de salud o en relaciones románticas de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer las 344 páginas de Mi chico de Utah: 30 años, 4 amores, un mapa para reconocer el tuyo en una edición física flexible. La tapa dura ofrece una encuadernación rígida para conservarlo o regalarlo, mientras que Kindle permite llevar la lectura en un dispositivo electrónico sin transportar el volumen.",
+      "texto": "Mi chico de Utah: 30 años, 4 amores, un mapa para reconocer el tuyo está disponible en tapa dura, tapa blanda y Kindle, con una edición impresa de referencia de 344 páginas. La tapa dura ofrece una encuadernación rígida para conservar el ejemplar; la tapa blanda facilita su transporte, mientras que Kindle permite llevar la lectura en formato digital.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi chico de Utah: 30 años, 4 amores, un mapa para reconocer el tuyo y El perro que me eligió: Lander y la vejez de un Shih Tzu comparten el interés por las experiencias personales y los vínculos afectivos. Dani Paz aborda las relaciones amorosas y el reconocimiento del amor propio, mientras que José Miguel Barguilla Zamora sitúa su libro en la relación con un perro y su vejez. Ambos parten de asuntos personales, pero exploran formas diferentes de afecto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409932573"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a06ff46ace0b753e",
+  "fuente_hash": "6b424427f1405073",
   "origen": "chatgpt-web"
 }

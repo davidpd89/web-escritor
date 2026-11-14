@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388514166",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en los protocolos de exploración ecográfica de la pared abdominal. Por su enfoque técnico y sus 80 páginas, se distingue de los libros de divulgación general y de las lecturas narrativas; quien busque una introducción amplia a distintas disciplinas científicas encontrará aquí un asunto mucho más delimitado.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar en papel las 80 páginas dedicadas al protocolo de exploración de la pared abdominal. Su extensión facilita manejar el volumen durante el estudio o tenerlo a mano para revisar el tema, sin recurrir a un manual de mayor tamaño.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "(ENAC0019) Herramientas de análisis coste/beneficio aplicadas a la eficiencia energética comparte el planteamiento técnico de abordar una materia delimitada, pero trata herramientas económicas y energéticas en lugar de ecografía. Abonado y fertilización en agricultura ecológica-AGAU001PO también se centra en conocimientos aplicados, aunque su campo es la agricultura. El libro de Playformación SL se diferencia de ambos por concentrarse en la exploración de la pared abdominal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388334627",
+        "isbn-9791388586422"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "322ffe4556277394",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Amargo, amargo (Literaturas), de Joanna Bator, se orienta a lectores de narrativa contemporánea e histórica interesados en las relaciones familiares. Sus 672 páginas requieren una lectura más prolongada que la de una novela breve, y su temática se aleja de la fantasía y las aventuras.",
+      "texto": "Amargo, amargo (Literaturas), de Joanna Bator, se dirige a lectores que buscan narrativa contemporánea relacionada también con la novela histórica. Sus 672 páginas requieren una lectura más prolongada que una novela breve y lo alejan de quienes prefieren obras de pocas sesiones.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,18 +14,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Amargo, amargo (Literaturas) es de tapa blanda y reúne 672 páginas en castellano. Por su extensión, resulta más cómoda para leer con apoyo que para sostenerla durante sesiones largas; Alfaguara publica esta presentación física.",
+      "texto": "Amargo, amargo (Literaturas) se presenta en tapa blanda, con 672 páginas publicadas por Alfaguara. El formato permite tener una edición física para leer y conservar, aunque su extensión supone transportar un volumen considerable frente a libros más cortos.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Amargo, amargo (Literaturas), de Joanna Bator, puede compararse con Hacia otro lugar (SUMA), de Mónica Rocha, como otra propuesta de ficción de distinta autoría. También comparte el ámbito narrativo con La casa de huéspedes, de Ana Lena Rivera, aunque la obra de Joanna Bator combina expresamente novela histórica, narrativa contemporánea y temática familiar.",
+      "texto": "Chamán (Trilogía de la familia Cole 2), de Noah Gordon, comparte con Amargo, amargo (Literaturas) su vinculación con la novela histórica, pero el título lo identifica como la segunda entrega de una trilogía. Conspiración en Londres, de Felipe Pigna, ofrece otra referencia de distinta autoría, mientras que la obra de Joanna Bator figura tanto en narrativa contemporánea como en novela histórica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,13 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388163043",
-        "isbn-9788466375375"
+        "isbn-9788408329688"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4f393abf778e53eb",
+  "fuente_hash": "c504cce22847575a",
   "origen": "chatgpt-web"
 }

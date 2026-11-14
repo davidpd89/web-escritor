@@ -4,41 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Donde el agua no muerde / Where the Water Doesn't Bite, de Rodrigo Unda, reúne intereses relacionados con el desarrollo personal, la familia y los elementos fantásticos. Encaja menos con quien busca exclusivamente una narración histórica o una guía técnica especializada, ya que sus temas abarcan también fantasía y ciencia ficción.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Donde el agua no muerde / Where the Water Doesn't Bite puede leerse en tapa blanda o Kindle y también escucharse como audiolibro. La edición física reúne 136 páginas en castellano; Kindle facilita llevar el texto en el móvil y el audiolibro permite seguirlo durante actividades que no requieren atención visual.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "edicion"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Donde el agua no muerde / Where the Water Doesn't Bite se relaciona con Cuando vi a la muerte prestar su sombrero / When I Saw Death Lend Its Hat, también de Rodrigo Unda. Ambos comparten autor y título bilingüe; el primero se clasifica en desarrollo personal, familia, fantasía y ciencia ficción, mientras que el segundo presenta la muerte como motivo explícito en su título.",
+      "texto": "Donde el agua no muerde / Where the Water Doesn't Bite se dirige a lectores interesados en el desarrollo personal y en los libros de Rodrigo Unda. Su clasificación lo sitúa fuera de la narrativa de misterio o la ficción fantástica; su extensión de 136 páginas permite abordar el volumen en sesiones relativamente breves.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Donde el agua no muerde / Where the Water Doesn't Bite ofrece tres opciones: tapa blanda, Kindle y audiolibro. La edición física tiene 136 páginas y permite la consulta en papel; Kindle facilita llevar la lectura en un dispositivo compatible, mientras que el audiolibro permite escucharla sin seguir el texto impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando vi a la muerte prestar su sombrero / When I Saw Death Lend Its Hat y Donde el agua no muerde / Where the Water Doesn't Bite comparten autor: Rodrigo Unda. Sus títulos plantean referencias distintas, una a la muerte y otra al agua; el segundo figura como libro de desarrollo personal y cuenta con 136 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9786073879613",
-        "isbn-9788466685481"
+        "isbn-9788466685481",
+        "isbn-9786073879613"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a1af36d82669b83c",
+  "fuente_hash": "fc36e6a46f66c5a6",
   "origen": "chatgpt-web"
 }

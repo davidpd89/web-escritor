@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370177010",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A bordo del Destino: 347 (HQN) se dirige a lectores de narrativa contemporánea e histórica interesados en historias relacionadas con el ámbito familiar. Encaja menos con quien busca un manual práctico de crianza, pese a su vinculación temática con la familia.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "A bordo del Destino: 347 (HQN) se publica en tapa blanda, con 288 páginas en castellano. Esta edición de Harlequin Ibérica, S.a. permite leer la obra en papel y conservarla como volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dime, niña bonita (Narrativa) comparte con A bordo del Destino: 347 (HQN) su presencia entre las lecturas de narrativa del catálogo, aunque son obras de Laura Galve y Maia Clark, respectivamente. Al faro: Nueva traducción al español: 82 (Clásicos en español), de Virginia Woolf, ofrece otra opción narrativa diferenciada por su condición de clásico en una nueva traducción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781836472568",
+        "isbn-9791387605964"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "88ff0e34f321c2e9",
+  "origen": "chatgpt-web"
+}

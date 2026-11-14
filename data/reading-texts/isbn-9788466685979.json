@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las chicas de la fábrica (Grandes novelas) está dirigida a lectores interesados en la novela histórica y la narrativa contemporánea. Sus 480 páginas la sitúan entre las novelas de extensión considerable; quienes busquen fantasía, aventuras o una lectura breve encontrarán una propuesta de género y formato diferentes.",
+      "texto": "Las chicas de la fábrica (Grandes novelas) se dirige a lectores de novela histórica y narrativa contemporánea. Sus 480 páginas ofrecen una lectura de mayor extensión que una novela breve, por lo que encaja menos con quien busca terminar un libro en pocas sesiones.",
       "evidencias": [
         "titulo",
-        "autores",
-        "numero_paginas",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Con 480 páginas, la tapa blanda permite leer Las chicas de la fábrica (Grandes novelas) en papel sin depender de dispositivos electrónicos. Kindle ofrece una edición digital para quienes prefieren llevar la novela en un lector electrónico y evitar el volumen físico de una obra extensa.",
+      "texto": "Las chicas de la fábrica (Grandes novelas) está disponible en tapa blanda y Kindle. La edición física de Ediciones B reúne 480 páginas para leer o conservar en papel, mientras que Kindle permite llevar esa misma extensión en formato digital sin cargar con el volumen.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formato_edicion",
-        "formatos_disponibles"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cosamala, de Alana S. Portero, puede compararse con Las chicas de la fábrica (Grandes novelas) por su vínculo con la historia y los conflictos del pasado. Sin embargo, Cosamala incorpora elementos góticos, un crimen real de la guerra civil y una historia de brujas, mientras que Las chicas de la fábrica se presenta dentro de la novela histórica y la narrativa contemporánea.",
+      "texto": "Las chicas de la fábrica (Grandes novelas) comparte el terreno de la novela histórica con Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon. La primera es una obra de Naomi López que combina narrativa histórica y contemporánea; la segunda, de Valerio Massimo Manfredi, identifica en su título una entrega numerada y un escenario asociado a Amón.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,7 +31,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788432251436"
+        "isbn-9786287897090"
       ]
     }
   ],

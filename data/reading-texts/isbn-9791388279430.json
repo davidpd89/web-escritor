@@ -4,37 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está orientado a lectores interesados en la historia social del cotilleo y en los ensayos sobre comportamientos humanos. Historia del salseo: Un viaje cotilla por el fenómeno universal del chisme (Voces de hoy) aborda el chisme como fenómeno universal, no como argumento de una novela de ficción.",
+      "texto": "Historia del salseo: Un viaje cotilla por el fenómeno universal del chisme (Voces de hoy) se dirige a lectores interesados en el ensayo, la historia y los fenómenos relacionados con la vida social. Su planteamiento corresponde a la no ficción, por lo que no está orientado a quienes buscan personajes y tramas de una novela.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece las 216 páginas de Historia del salseo: Un viaje cotilla por el fenómeno universal del chisme (Voces de hoy) en papel. La edición Kindle permite llevar el mismo título en un lector electrónico o en el móvil, sin transportar el volumen físico.",
+      "texto": "La tapa blanda reúne las 216 páginas de Historia del salseo: Un viaje cotilla por el fenómeno universal del chisme (Voces de hoy) en una edición física de Temas de Hoy. Kindle ofrece la alternativa digital para leer el ensayo en dispositivos electrónicos sin transportar el ejemplar impreso.",
       "evidencias": [
-        "formatos_disponibles",
+        "titulo",
+        "edicion",
         "numero_paginas",
-        "titulo"
+        "editorial",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La vida entremedias: Un diario balcánico (Báltica No Ficción) y la obra de Javi Hoyos comparten su pertenencia a la no ficción. Marc Casals presenta un diario vinculado a una región geográfica, mientras que Historia del salseo: Un viaje cotilla por el fenómeno universal del chisme (Voces de hoy) examina el cotilleo como fenómeno social desde el ensayo y la historia.",
+      "texto": "Historia del salseo: Un viaje cotilla por el fenómeno universal del chisme (Voces de hoy) puede compararse con Ayer enterramos a un niño en Palma: Vida y muerte de Chocolate (1965-1978), de Tomeu Canyelles Canyelles. Ambos títulos abordan fenómenos y realidades sociales desde la no ficción, aunque el primero se centra en el chisme y el segundo presenta una historia individual delimitada por unas fechas concretas.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399128451"
+        "isbn-9788417645311"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "93086448981e6631",
+  "fuente_hash": "3db0b16c8b2bce77",
   "origen": "chatgpt-web"
 }

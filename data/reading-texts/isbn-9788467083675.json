@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El libro de Tomás Alía se dirige a lectores interesados en la artesanía española, su historia y su relación con el arte y el diseño. Su enfoque de ensayo cultural también conecta con quienes buscan conocer las tradiciones del país, pero se aleja de la ficción narrativa y de los manuales prácticos de técnicas artesanales.",
+      "texto": "La obra de Tomás Alía se dirige a lectores interesados en la artesanía española, el diseño y sus vínculos con la historia. Su enfoque combina arte y ensayo, por lo que se aleja de la narrativa de ficción y de los manuales centrados en enseñar técnicas artesanales paso a paso.",
       "evidencias": [
         "autores",
         "titulo",
@@ -13,20 +13,19 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La obra de Tomás Alía está disponible en tapa dura, con 320 páginas en castellano y edición de Editorial Espasa. La encuadernación rígida permite conservar el volumen en una biblioteca personal y consultarlo en papel; también resulta una opción para regalar a personas interesadas en la artesanía y el diseño español.",
+      "texto": "La edición de Editorial Espasa se presenta en tapa dura, con 320 páginas en castellano dedicadas a una obra sobre artesanía española. La encuadernación rígida permite conservar el volumen como libro de consulta sobre arte y diseño, además de utilizarlo como regalo.",
       "evidencias": [
-        "autores",
+        "editorial",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial",
         "titulo",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La obra de Tomás Alía comparte con Charlotte Perriand. La libertad de repensar el mundo el interés por el diseño y su dimensión cultural. La primera aborda la artesanía española desde la historia y el arte, mientras que la segunda, firmada por Varios autores, se centra en Charlotte Perriand y su relación con una forma distinta de pensar el mundo.",
+      "texto": "La obra de Tomás Alía comparte con El mito del genio: Historia de una ficción (Artes) el interés por el arte, aunque la primera se centra en la artesanía española y la segunda en la figura del genio. También se relaciona con Charlotte Perriand. La libertad de repensar el mundo por su vínculo con el diseño, pero cambia el foco desde una figura concreta hacia la artesanía de un país.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,12 +33,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788416411993"
+        "isbn-9788416411993",
+        "isbn-9788430628803"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c22165c8ce81a4d8",
+  "fuente_hash": "006c57a51c058d94",
   "origen": "chatgpt-web"
 }

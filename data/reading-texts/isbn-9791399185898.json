@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399185898",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La primera casa (GATOPARDO) se orienta a lectores de narrativa contemporánea interesados en las relaciones familiares y el romance. Sus 272 páginas corresponden a una obra de ficción, no a un manual práctico de crianza ni a una guía de organización doméstica, aunque la familia figure entre sus temas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La primera casa (GATOPARDO) se publica en tapa blanda, con 272 páginas en castellano. Es una edición física que permite llevar la novela durante los desplazamientos y continuar la lectura sin depender de una pantalla. Gatopardo Ediciones reúne el texto en un único volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La primera casa (GATOPARDO) comparte el terreno de la ficción narrativa con Al faro: Nueva traducción al español: 82 (Clásicos en español), de Virginia Woolf. También puede compararse con A bordo del Destino: 347 (HQN), de Maia Clark, por su relación con las lecturas de romance. La obra de Avni Doshi combina narrativa contemporánea, familia y romance, mientras que los otros títulos se presentan respectivamente como un clásico traducido y una obra de la colección HQN.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370177010",
+        "isbn-9781836472568"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d074aceb7c1f0691",
+  "origen": "chatgpt-web"
+}

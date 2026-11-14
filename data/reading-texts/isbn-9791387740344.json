@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Rebels (Reservoir Gráfica) se dirige a quienes leen obras históricas y relatos biográficos relacionados con el siglo XX. Con 448 páginas, se sitúa en una extensión considerable y resulta menos afín a los lectores que prefieren novelas de fantasía o ciencia ficción.",
+      "texto": "Rebels (Reservoir Gráfica) se orienta a quienes leen obras de historia y testimonios biográficos o memorísticos. Con 448 páginas, requiere más tiempo que una lectura breve y se aleja de las preferencias centradas en la ficción romántica o las aventuras imaginarias.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,22 +13,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Rebels (Reservoir Gráfica) dispone de una edición en tapa blanda de 448 páginas, publicada en castellano por Reservoir Books. El formato de cubierta flexible permite manejar el volumen durante una lectura prolongada y guardarlo sin necesitar el espacio de una encuadernación rígida.",
+      "texto": "La edición de Rebels (Reservoir Gráfica) se presenta en tapa blanda y contiene 448 páginas. Publicada por Reservoir Books en castellano, permite incorporar este volumen de temática histórica y biográfica a una colección de libros físicos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "editorial",
         "idioma",
-        "editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Rebels (Reservoir Gráfica) tiene una correspondencia directa en el catálogo con Rebeldes (Reservoir Gráfica), también de Keum Suk Gendry-Kim. Coinciden en su orientación histórica y biográfica, mientras que sus títulos utilizan denominaciones diferentes; ambos aparecen asociados a la misma autora.",
+      "texto": "Rebels (Reservoir Gráfica) tiene como comparación directa Rebeldes (Reservoir Gráfica), también de Keum Suk Gendry-Kim. Coinciden en autoría, orientación histórica y biográfica y extensión de 448 páginas; sus títulos e ISBN son distintos, aunque ambas ediciones figuran en castellano.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
+        "isbn13",
+        "idioma",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -38,6 +42,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a5de9b8227918af2",
+  "fuente_hash": "f3dc472c2660046f",
   "origen": "chatgpt-web"
 }

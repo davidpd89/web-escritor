@@ -1,57 +1,52 @@
 {
   "id": "isbn-9791388387715",
-  "familia": "narrativa",
+  "familia": "no_ficcion",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La luz en la oscuridad se dirige a lectores adultos interesados en la astrofísica, los agujeros negros y las preguntas filosóficas que plantea el conocimiento científico. No es una novela de aventuras espaciales: Heino Falcke examina un descubrimiento astronómico real y sus consecuencias para comprender el universo y la existencia humana.",
+      "texto": "La luz en la oscuridad está dirigida a lectores adultos interesados en los agujeros negros y en las preguntas filosóficas que plantea la astrofísica. Su combinación de investigación científica y reflexión sobre la existencia se aparta de quienes buscan exclusivamente explicaciones técnicas sin cuestiones metafísicas.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
-      "modulo": "encaje_documentado",
-      "texto": "La luz en la oscuridad es una obra de divulgación científica que parte de la primera imagen de un agujero negro, publicada el 10 de abril de 2019. Heino Falcke relaciona ese logro astronómico con cuestiones sobre el espacio, el tiempo y el origen de la existencia. También aborda el diálogo entre ciencia, filosofía y fe, más allá de la explicación física del fenómeno.",
+      "modulo": "temas_y_enfoque",
+      "texto": "Heino Falcke reconstruye el trabajo científico que permitió obtener la primera imagen de un agujero negro y examina sus implicaciones para comprender el espacio y el tiempo. También relaciona los límites del conocimiento astrofísico con preguntas sobre el origen de la existencia, la fe y la razón.",
       "evidencias": [
-        "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La luz en la oscuridad se ofrece en tapa blanda y Kindle. La edición de Debate consta de 336 páginas y lleva solapas, un formato físico que permite conservar el libro y volver a sus explicaciones sobre astronomía. Kindle facilita consultar la obra en un lector electrónico o en el móvil sin transportar el ejemplar impreso.",
+      "texto": "La luz en la oscuridad está disponible en tapa blanda y Kindle. La edición física de Debate contiene 336 páginas y presenta solapas; Kindle permite leer el mismo título en formato digital, sin necesidad de llevar el ejemplar impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
         "editorial",
-        "numero_paginas",
-        "sinopsis_editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La luz en la oscuridad y El tercer cerebro está en los pies, de Neus Moya, comparten el interés por explicar cuestiones relacionadas con la ciencia y el conocimiento del mundo físico. Heino Falcke se ocupa de los agujeros negros y de sus implicaciones filosóficas; Neus Moya parte de las señales corporales que se perciben en los pies y en los primeros pasos del día.",
+      "texto": "La luz en la oscuridad puede compararse con La luna: Una historia ilustrada (La guía visual definitiva), de DK, porque ambas obras acercan al lector a la astronomía. Heino Falcke se centra en los agujeros negros y sus implicaciones filosóficas, mientras que el libro de DK examina el satélite terrestre desde perspectivas científicas, culturales e históricas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425373893"
+        "isbn-9780241837597"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "aab21c01a1634640",
+  "fuente_hash": "76fa56210d9ad766",
   "origen": "chatgpt-web"
 }

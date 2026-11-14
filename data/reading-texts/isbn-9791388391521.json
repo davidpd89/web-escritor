@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388391521",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Acaba de decir si quiero cuando desperté, de Rox, se orienta a lectores de literatura juvenil que también buscan poesía. Sus 132 páginas lo sitúan entre las lecturas breves; no responde al perfil de quien prefiere exclusivamente narrativa adulta extensa o novelas de gran volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Acaba de decir si quiero cuando desperté cuenta con una edición en tapa blanda de 132 páginas. El formato permite leer en papel y llevar el volumen en una mochila o bolso; Editorial Cuadranta lo publica en castellano, con una extensión que facilita distribuir la lectura en sesiones cortas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Acaba de decir si quiero cuando desperté puede compararse con s-t técnica mixta: (colección de poemas), de Aldo Sanz, por su vinculación con la poesía. También se relaciona con Vuela, extraña alma, de Emilio Arnaiz López, dentro de sus lecturas afines; la diferencia explícita es que la obra de Rox se clasifica además como literatura juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788498277500",
+        "isbn-9791388391477"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f0fdb18ab8dff1b0",
+  "origen": "chatgpt-web"
+}

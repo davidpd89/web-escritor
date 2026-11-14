@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388175718",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra de Delfín Carbonell se dirige a lectores interesados en conocer la literatura en lengua inglesa, especialmente el periodo comprendido entre Tolkien y Rowling. Su enfoque de ensayo y sus 138 páginas encajan con quienes buscan una aproximación breve al tema, no con quienes prefieren leer una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 138 páginas en castellano y permite consultar el contenido sin dispositivos electrónicos. Su extensión facilita llevar el ejemplar en una mochila y recuperar pasajes sobre los autores y la literatura en lengua inglesa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Delfín Carbonell puede compararse con Alfred y Emily (Narrativa), de Doris Lessing, por su relación con la literatura y la narrativa. La diferencia está en el enfoque: Carbonell presenta un ensayo sobre literatura en lengua inglesa, mientras que el libro de Lessing pertenece al ámbito narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426438515"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0f40fca0c681797f",
+  "origen": "chatgpt-web"
+}

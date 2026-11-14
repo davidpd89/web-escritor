@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409935987",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores que buscan una novela histórica con elementos de misterio, situada en el entorno de La Rioja y vinculada a la verdad y la memoria. Sus 220 páginas ofrecen una extensión intermedia; no responde a quien prefiera fantasía o una obra de divulgación sin trama novelesca.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura ofrece una encuadernación rígida para conservar o regalar esta novela de 220 páginas, mientras que la tapa blanda facilita transportarla. Kindle permite leerla en formato digital, también desde el móvil, sin llevar el ejemplar físico. Las tres opciones corresponden a la misma obra de ANA GONZáLEZ IZQUIERDO.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El asesino de la almarada (Novela Histórica) comparte con EL CALADO DE LA MEMORIA: Verdad, vino y agua en el corazón de La Rioja su vinculación con la novela histórica, aunque el título de la primera obra apunta a un asesinato y el de la segunda a la memoria y la verdad. El último secreto: Edición limitada a precio especial (Colección Especial) ofrece otra comparación por el interés en los secretos, mientras que la obra de ANA GONZáLEZ IZQUIERDO se identifica además con la narrativa histórica y sitúa su asunto en La Rioja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370205362",
+        "isbn-9788408331483"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fa8b2bd0123b4911",
+  "origen": "chatgpt-web"
+}

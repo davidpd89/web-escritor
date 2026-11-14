@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Historias para escuchar en el metro, de Ascensión Badiola, se dirige a quienes buscan relatos en castellano y prefieren este tipo de narrativa frente a una novela identificada como tal. Con 341 páginas, también responde a lectores que desean un volumen de relatos de extensión considerable, no un cuento infantil breve.",
+      "texto": "Historias para escuchar en el metro, de Ascensión Badiola, encaja con lectores que buscan relatos en castellano. Sus 341 páginas permiten dedicarle varias sesiones de lectura, aunque el título alude a escucharlos durante un trayecto. Quien prefiera una novela identificada como tal, en lugar de un libro de relatos, encontrará aquí una propuesta de otro tipo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,18 +15,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Historias para escuchar en el metro se publica en tapa blanda, con 341 páginas en castellano y edición de Autor-editor. El ejemplar físico permite leer durante los trayectos y conservar marcadas las páginas para continuar después, sin utilizar un lector electrónico.",
+      "texto": "Historias para escuchar en el metro está disponible en tapa blanda y Kindle. La edición impresa, de 341 páginas, permite leer en papel durante los desplazamientos; Kindle evita llevar ese volumen y facilita continuar la lectura desde el móvil. Aunque el título menciona escuchar, los formatos enumerados son el impreso y el digital.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Antología final: 282 (LITORAL), de Varios autores, ofrece un punto de comparación por su carácter antológico y su autoría colectiva. Historias para escuchar en el metro, de Ascensión Badiola, se identifica en cambio como un libro de relatos firmado por una sola autora. A sangre y fuego, de Manuel Chaves Nogales, se distingue por el enfrentamiento que constituye su materia testimonial y literaria.",
+      "texto": "Historias para escuchar en el metro puede compararse con Antología final: 282 (LITORAL), de Varios autores, por su relación con los textos reunidos y la lectura de piezas literarias. La diferencia identificable está en la autoría: el libro de Ascensión Badiola lleva una firma individual, mientras que Antología final: 282 (LITORAL) figura como obra de Varios autores.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,13 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408331810",
         "isbn-9788412931075"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "10bb68309ab29f78",
+  "fuente_hash": "8bbe343130af04fc",
   "origen": "chatgpt-web"
 }

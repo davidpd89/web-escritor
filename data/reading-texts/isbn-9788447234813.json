@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788447234813",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores que investigan la obra de Gustavo Adolfo Bécquer y necesitan una referencia bibliográfica sobre el autor. Su planteamiento de consulta y ensayo encaja menos con quien busca una novela o una recopilación de textos literarios para leer de principio a fin.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje del libro es la bibliografía relacionada con Gustavo Adolfo Bécquer y su obra durante el periodo 1853-2025. Jesús Rubio Jiménez y Antonio Martín Barrachina abordan esa materia desde una perspectiva de referencia literaria, en un volumen de 389 páginas orientado a la consulta y al estudio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, publicada por Editorial Universidad de Sevilla-secretariado de Publicaciones. Sus 389 páginas permiten reunir en un solo volumen físico la bibliografía correspondiente al periodo 1853-2025, con posibilidad de consultar y señalar referencias durante el estudio.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "«Que yago en esta prisión». Escritura carcelaria en las letras españolas: 20 (Estudios literarios. 'El niño de la noche') comparte el ámbito del estudio literario y la participación de Jesús Rubio Jiménez, pero se centra en la escritura carcelaria. Diccionario de conceptos y términos para entender y moverse en política: 16 (Biblos) también tiene una orientación de consulta, aunque trata terminología política y no bibliografía de un escritor.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788491597667",
+        "isbn-9791388175671"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "83716e5455aaf8f5",
+  "origen": "chatgpt-web"
+}

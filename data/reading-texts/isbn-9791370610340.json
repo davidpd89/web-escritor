@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a lectores interesados en el Derecho aplicado a la inteligencia artificial, especialmente en sus implicaciones para la justicia y el delito dentro del marco europeo. Su enfoque jurídico lo aleja de las lecturas centradas exclusivamente en el funcionamiento técnico de los algoritmos.",
+      "texto": "Orientado a lectores interesados en la regulación europea de la inteligencia artificial y su relación con la justicia penal. Su planteamiento jurídico sobre algoritmos, delito y desafíos de la IA se aparta de los manuales de programación y de los libros divulgativos centrados únicamente en tecnología.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,30 +12,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne las 290 páginas de Gobernanza algorítmica de la justicia y el delito en el marco europeo de la IA: IA, mitos, realidad y desafíos (Monografía). El formato físico permite consultar y marcar pasajes durante el estudio de sus cuestiones jurídicas.",
+      "texto": "La tapa blanda reúne las 290 páginas de esta monografía de Aranzadi en un volumen físico. Permite subrayar y consultar por separado las cuestiones de gobernanza algorítmica, justicia y delito que delimita el título, sin depender de un dispositivo electrónico.",
       "evidencias": [
-        "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Blockchain: un desafío legal (Monografía) comparte el interés por las consecuencias jurídicas de las tecnologías, pero se centra en blockchain, mientras que la obra de Miriam Esther Garcia Perez aborda la inteligencia artificial en la justicia y el delito. Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I también pertenece al ámbito jurídico, aunque dirige la atención hacia los contratos de consumo en lugar de la gobernanza algorítmica.",
+      "texto": "Blockchain: un desafío legal (Monografía), de Ana Isabel Quiroz Ruiz, comparte con la obra de Miriam Esther Garcia Perez el interés por los problemas jurídicos asociados a nuevas tecnologías. La primera se ocupa de blockchain; la segunda delimita su análisis a la inteligencia artificial, la justicia y el delito en el marco europeo. Ambas plantean cuestiones legales desde tecnologías distintas.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
+        "autores"
       ],
       "enlaces": [
-        "isbn-9791370610265",
-        "isbn-9791370297305"
+        "isbn-9791370610265"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a6241849bdeb8010",
+  "fuente_hash": "32a94c4ca65c5f0d",
   "origen": "chatgpt-web"
 }

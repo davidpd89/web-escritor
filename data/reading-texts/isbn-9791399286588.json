@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399286588",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de filosofía y ensayo interesados en la obra de Friederich Nietzche. Por su orientación filosófica, encaja menos con quienes buscan libros de ejercicios prácticos, manuales de productividad o introducciones generales a varias corrientes de pensamiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Así habló zaratrustra se presenta en tapa dura, con 472 páginas en castellano, en una edición de Ediciones Mi-lla SL. La encuadernación rígida favorece su conservación en una biblioteca y las consultas repetidas, aunque supone manejar un volumen extenso durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Así habló zaratrustra y Aforismos para reflexionar y meditar: 109 (Fragmentos) comparten el terreno de la reflexión filosófica. El primero es una obra de Friederich Nietzche, mientras que el segundo se presenta como una recopilación de aforismos de Raimon Panikkar. También puede compararse con Amo ergo sum: Mi visión del mundo: el sentido de la vida, los estados expandidos de la consciencia y el contacto con lo trascendente (Ensayo), cuyo título sitúa expresamente el sentido de la vida y la trascendencia entre sus asuntos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387548278",
+        "isbn-9791388182365"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4cd47f6c85d3e93f",
+  "origen": "chatgpt-web"
+}

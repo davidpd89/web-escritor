@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786287897090",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon, de Valerio Massimo Manfredi, encaja con lectores de novela histórica que buscan una narración vinculada al pasado. Su planteamiento se aleja de quienes prefieren ensayos históricos sin componente novelesco o relatos centrados exclusivamente en el presente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon se presenta en tapa blanda y contiene 190 páginas. Debolsillo la publica en castellano, en un volumen físico de extensión relativamente contenida que puede transportarse para leer durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon se relaciona directamente con Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth por compartir autor, Valerio Massimo Manfredi, y la denominación Aléxandros. Los títulos identifican los números II y III y distinguen sus referencias a Amón y al confín del mundo. También puede compararse con Conspiración en Londres, de Felipe Pigna, aunque esta última anuncia una conspiración situada en Londres frente a la referencia a Amón de la primera obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897106",
+        "isbn-9788408329688"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9af0a586c28e3aaf",
+  "origen": "chatgpt-web"
+}

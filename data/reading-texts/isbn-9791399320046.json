@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399320046",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores infantiles que disfrutan de los cuentos para dormir protagonizados por animales y criaturas fantásticas. Reúne cuatro relatos de Rosa y el gato Rosalino, por lo que se aleja de las novelas juveniles extensas y de las historias concebidas para lectores adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne los cuatro cuentos en un volumen de 112 páginas, pensado para tener las historias juntas en papel. Este formato permite alternar los relatos durante la lectura antes de dormir y conservarlos en un único libro, en lugar de manejar cada cuento por separado.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rosa, el dinosaurio Hilario y el gato Rosalino: Un cuento para dormir de Rosa y Rosalino: 9 (Rosa y el gato Rosalino) comparte autor y personajes con este recopilatorio. También Rosa, el troll Pol y el gato Rosalino: Un cuento para dormir de Rosa y Rosalino: 10 pertenece al mismo universo infantil. La diferencia es que el recopilatorio agrupa cuatro cuentos para dormir, mientras que esos títulos se centran en un personaje fantástico cada uno.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399320008",
+        "isbn-9791399320015"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d0072c6b69593869",
+  "origen": "chatgpt-web"
+}

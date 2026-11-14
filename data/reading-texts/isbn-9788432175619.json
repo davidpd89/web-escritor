@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788432175619",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ocio con dignidad (Bolsillo), de Carlos Marín-Blázquez, se dirige a quienes buscan un ensayo relacionado con el ocio. Sus 156 páginas ofrecen una extensión más corta que la de muchos libros de varios centenares de páginas; no responde a la búsqueda de una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ocio con dignidad (Bolsillo) está disponible en tapa blanda, con 156 páginas en castellano. La edición de Ediciones Rialp S.a. reúne el ensayo en un volumen físico que permite consultar y releer apartados sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9e2ef03e97fd52ba",
+  "origen": "chatgpt-web"
+}

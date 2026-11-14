@@ -4,25 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Regio (Novela) se orienta a lectores que buscan una novela contemporánea donde coincidan el misterio y el romance. Sus 352 páginas corresponden a una narración extensa, por lo que no encaja con quien prefiera un ensayo breve o una lectura centrada exclusivamente en historia o filosofía.",
+      "texto": "Regio (Novela) encaja con lectores de narrativa contemporánea que buscan una combinación de misterio y romance. Miguel Carbajosa presenta una obra clasificada también como thriller, por lo que se aleja de las lecturas centradas exclusivamente en el romance sin elementos de intriga.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Regio (Novela) ofrece sus 352 páginas en tapa blanda y Kindle. La edición física permite leer y conservar el volumen en papel; Kindle facilita llevar la novela en un lector electrónico o en el móvil sin transportar el ejemplar impreso.",
+      "texto": "Regio (Novela) puede leerse en tapa blanda o en Kindle, según se prefiera un ejemplar físico o la lectura digital. Sus 352 páginas forman un volumen de extensión media; la edición en papel de Roca Editorial permite conservarlo o regalarlo, mientras que Kindle evita transportar el libro físico.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Regio (Novela) comparte el romance con Apartamento 3B (Ficción), de Carolina Moura, aunque la obra de Miguel Carbajosa también se clasifica como misterio y narrativa contemporánea. Frente a Alas de escarcha y oro: El canto del cisne, de Marta Morillo, cuya presentación menciona dones ocultos, Regio (Novela) se sitúa en la narrativa contemporánea y cuenta con 352 páginas.",
+      "texto": "Regio (Novela) puede compararse con La última historia de Abby Bloom (Romántica) por su componente romántico. La novela de Miguel Carbajosa combina romance, misterio y narrativa contemporánea, mientras que la obra de Carmen Arteaga se presenta como romántica. Regio (Novela) cuenta con 352 páginas y añade la intriga a su clasificación temática.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,8 +33,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387949938",
-        "isbn-9788425375415"
+        "isbn-9791388365041"
       ]
     }
   ],

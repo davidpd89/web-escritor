@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791370310561",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sácale partido a tu horno (Gastronomía y cocina) se dirige a lectores interesados en la cocina y el aprovechamiento del horno como herramienta culinaria. Es una publicación de Varios autores de 120 páginas, centrada en el ámbito gastronómico y no en actividades de ocio ajenas a la cocina.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Sácale partido a tu horno (Gastronomía y cocina) está disponible en tapa blanda, con 120 páginas en castellano. Este formato permite consultar el volumen por partes y colocarlo junto a otros libros de cocina, sin ocupar el espacio de una obra de mayor extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sácale partido a tu horno (Gastronomía y cocina) y JOSPER: Pasión por las brasas (Tendencias gastronómicas) comparten autoría colectiva e interés por la preparación de alimentos mediante calor. El primero se centra en el horno, mientras que el segundo identifica las brasas como su asunto principal; ambos se diferencian de Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas, dedicado a labores textiles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408327295",
+        "isbn-9788498748208"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dbaf9a855cee950d",
+  "origen": "chatgpt-web"
+}

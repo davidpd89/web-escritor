@@ -4,29 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El Principito (El Jardín Secreto), de Antoine de Saint-Exupéry, se dirige a quienes buscan clásicos con contenido filosófico y una extensión breve. Sus 144 páginas también permiten acercarse a la narrativa contemporánea, mientras que quien prefiera una obra extensa encontrará aquí una lectura más corta.",
+      "texto": "El Principito (El Jardín Secreto) se orienta a lectores interesados en los clásicos narrativos con dimensión filosófica. Su clasificación literaria lo distingue de los tratados académicos de filosofía y de los libros centrados exclusivamente en cuestiones prácticas.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "numero_paginas"
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El Principito (El Jardín Secreto) se presenta en tapa dura, con 144 páginas en castellano. Esta edición de Editorial Alma permite conservar el volumen en una biblioteca física o regalarlo sin necesidad de escoger entre distintas encuadernaciones.",
+      "texto": "El Principito (El Jardín Secreto) cuenta con una edición en tapa dura de 144 páginas publicada por Editorial Alma. La encuadernación rígida resulta apropiada para conservar el ejemplar en una biblioteca personal o entregarlo como regalo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial",
         "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El Principito (El Jardín Secreto) comparte con El secreto mejor guardado del gran Museo del Prado la posibilidad de acercarse a contenidos culturales mediante un libro. La diferencia está en el enfoque: Antoine de Saint-Exupéry figura entre los clásicos y la filosofía, mientras que Diego Arboleda introduce el Museo del Prado y los cuentos de Andersen.",
+      "texto": "El Principito (El Jardín Secreto) comparte con El dilema del erizo (Narrativa), de Toon Tellegen, su pertenencia al terreno narrativo. La obra de Antoine de Saint-Exupéry figura además entre los clásicos y la filosofía, mientras que el título de Toon Tellegen se presenta como narrativa. También puede contrastarse con Memorias del subsuelo (edición de lujo ilustrada) (Pensamiento), de Fiódor M. Dostoievski, por su vinculación con la literatura de reflexión.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388306181"
+        "isbn-9788426433909",
+        "isbn-9788430628742"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "80b71ab3cbf17200",
+  "fuente_hash": "a56dd4613f54757f",
   "origen": "chatgpt-web"
 }

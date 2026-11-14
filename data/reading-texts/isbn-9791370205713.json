@@ -1,41 +1,41 @@
 {
   "id": "isbn-9791370205713",
-  "familia": "practico",
+  "familia": "no_ficcion",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Prepara tu segunda carrera: Las claves para construirla desde hoy (Economía y Empresa), de Alfonso Jiménez, se orienta a lectores que contemplan una nueva etapa profesional y quieren prepararla con antelación. Su enfoque sobre la carrera laboral y sus 400 páginas lo alejan de una lectura centrada exclusivamente en ficción o entretenimiento.",
+      "texto": "Está pensado para lectores que quieren preparar una nueva etapa profesional y examinar las decisiones relacionadas con su trayectoria laboral. Prepara tu segunda carrera: Las claves para construirla desde hoy (Economía y Empresa), de Alfonso Jiménez, no se centra en la ficción ni en instrucciones técnicas sobre herramientas informáticas concretas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Prepara tu segunda carrera: Las claves para construirla desde hoy (Economía y Empresa) está disponible en tapa blanda y Kindle. La edición impresa tiene 400 páginas y permite consultar el contenido en papel; Kindle facilita llevar esa extensión en un dispositivo compatible para leer durante desplazamientos.",
+      "texto": "La edición en tapa blanda de Prepara tu segunda carrera: Las claves para construirla desde hoy (Economía y Empresa) contiene 400 páginas y permite marcar físicamente los apartados que se quieran revisar. Kindle facilita llevar esa misma lectura en un dispositivo electrónico y consultarla sin cargar con el volumen impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Prepara tu segunda carrera: Las claves para construirla desde hoy (Economía y Empresa) y La era de la extracción: Cómo las plataformas tecnológicas conquistaron la economía y amenazan nuestro futuro (Shackleton Books) abordan cuestiones económicas desde perspectivas diferentes. Alfonso Jiménez se centra en la planificación de una segunda carrera profesional; Tim Wu examina el papel de las plataformas tecnológicas en la economía.",
+      "texto": "Gestión de proyectos de inteligencia artificial y Prepara tu segunda carrera: Las claves para construirla desde hoy (Economía y Empresa) se relacionan con el ámbito profesional, pero el primero se ocupa de proyectos tecnológicos y el segundo de construir una nueva trayectoria laboral. Asistentes y agentes empresariales con IA también aborda el entorno empresarial, aunque desde las herramientas de inteligencia artificial y no desde la planificación de una segunda carrera.",
       "evidencias": [
         "titulo",
-        "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788413619460"
+        "isbn-9788426742704",
+        "isbn-9788426742827"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5b8f8ebf06bfadca",
+  "fuente_hash": "e9cdf677591bfe49",
   "origen": "chatgpt-web"
 }

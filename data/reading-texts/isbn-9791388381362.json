@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388381362",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores interesados en los cuadernos de viaje, las memorias personales y la escritura vinculada a un territorio. Ruta del alba: (Cuaderno asturiano): 160 (Biblioteca de la Memoria, Serie Menor), de Antonio Moreno, combina los ámbitos de las memorias, el ensayo y los viajes, por lo que se aleja de las guías prácticas centradas en rutas y servicios turísticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ruta del alba: (Cuaderno asturiano): 160 (Biblioteca de la Memoria, Serie Menor) está editado en tapa blanda y tiene 228 páginas. Su extensión permite llevar este cuaderno de Antonio Moreno durante un desplazamiento o leerlo por etapas, conservando un ejemplar físico para posteriores consultas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La vida entremedias: Un diario balcánico (Báltica No Ficción) comparte con Ruta del alba: (Cuaderno asturiano): 160 (Biblioteca de la Memoria, Serie Menor) la relación entre escritura personal y territorio. Marc Casals sitúa su diario en el ámbito balcánico, mientras Antonio Moreno presenta un cuaderno asturiano. Al andar: Vivencias del Camino de Santiago añade otra perspectiva vinculada al desplazamiento y las vivencias del camino.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399128451",
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4dd5b35f1a2737b8",
+  "origen": "chatgpt-web"
+}

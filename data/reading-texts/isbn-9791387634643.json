@@ -4,15 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Espacio escénico: (Terminología, fundamentos y proceso creativo) (Pragmatika) se dirige a lectores interesados en los fundamentos y el proceso creativo del espacio escénico. Por su enfoque en arte y diseño, se aleja de quienes buscan una obra de ficción teatral o una narración centrada en personajes.",
+      "texto": "Espacio escénico: (Terminología, fundamentos y proceso creativo) (Pragmatika), de Jara Martínez Valderas, se orienta a quienes buscan conocimientos sobre el espacio escénico desde el arte y el diseño. Su atención a la terminología y los fundamentos lo aleja de las lecturas centradas exclusivamente en una historia de ficción.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Espacio escénico: (Terminología, fundamentos y proceso creativo) (Pragmatika) está disponible en tapa blanda y tiene 180 páginas. Este formato permite consultar la terminología y los fundamentos del espacio escénico en un volumen físico, tanto durante el estudio como al trabajar sobre un proyecto creativo.",
+      "texto": "Espacio escénico: (Terminología, fundamentos y proceso creativo) (Pragmatika) cuenta con una edición en tapa blanda de 180 páginas. El soporte impreso permite consultar la terminología y los fundamentos del espacio escénico y volver a ellos durante el trabajo creativo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -21,7 +22,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Espacio escénico: (Terminología, fundamentos y proceso creativo) (Pragmatika) y Arde Talía: Una pieza teatral sobre el infierno de la creación artística comparten el interés por la creación escénica. El libro de Jara Martínez Valderas aborda terminología y fundamentos del espacio, mientras que el de Alba Quintas Garciandia, Ana Saiz, Talita Isla, Carmen Romero Lorenzo e Inés Galiano se presenta como una pieza teatral sobre la creación artística.",
+      "texto": "Espacio escénico: (Terminología, fundamentos y proceso creativo) (Pragmatika) y Arde Talía: Una pieza teatral sobre el infierno de la creación artística comparten su relación con el ámbito escénico y la creación. La obra de Jara Martínez Valderas aborda terminología, fundamentos y proceso creativo, mientras que Arde Talía se presenta como una pieza teatral sobre la creación artística.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,6 +35,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6b6c5ba67d26fdc0",
+  "fuente_hash": "b4d6cae6103628a4",
   "origen": "chatgpt-web"
 }

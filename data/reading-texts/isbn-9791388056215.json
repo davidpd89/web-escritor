@@ -4,24 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Qué hacemos con los domingos por la tarde: Apuntes sobre la vida adulta (LIBROS DEL ASTEROIDE): 376 se dirige a quienes leen relatos y narrativa contemporánea sobre la vida adulta. Por su planteamiento, se aleja de las lecturas centradas en la fantasía o la aventura y se sitúa en un terreno más cotidiano.",
+      "texto": "Encaja con lectores de narrativa contemporánea y relatos interesados en la vida adulta y sus experiencias cotidianas. Qué hacemos con los domingos por la tarde: Apuntes sobre la vida adulta (LIBROS DEL ASTEROIDE): 376, de Ignacio Peyró, se aleja por su planteamiento de quienes buscan principalmente terror o aventuras fantásticas.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Qué hacemos con los domingos por la tarde: Apuntes sobre la vida adulta (LIBROS DEL ASTEROIDE): 376 está disponible en tapa blanda. Sus 208 páginas permiten llevar el volumen en el bolso o la mochila, y la encuadernación flexible facilita transportarlo durante los desplazamientos.",
+      "texto": "La tapa blanda ofrece las 208 páginas de Qué hacemos con los domingos por la tarde: Apuntes sobre la vida adulta (LIBROS DEL ASTEROIDE): 376 en un volumen físico que permite señalar y recuperar fragmentos. La edición Kindle facilita llevar la lectura en un dispositivo compatible y continuarla sin transportar el ejemplar en papel.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Qué hacemos con los domingos por la tarde: Apuntes sobre la vida adulta (LIBROS DEL ASTEROIDE): 376 comparte con Ficciones (Hispánica) su relación con la narrativa breve. La diferencia está en la orientación contemporánea y adulta del libro de Ignacio Peyró frente a la propuesta literaria de Jorge Luis Borges.",
+      "texto": "Comparte con Ficciones (Hispánica), de Jorge Luis Borges, su vinculación con los relatos, aunque Ignacio Peyró sitúa el interés temático en la vida adulta cotidiana. Después de medianoche. Trece historias para no dormir: Prólogo de Stephen King (Espasa Narrativa), de Daphne Du Maurier, también pertenece al terreno de las historias breves, pero su título apunta al desasosiego nocturno frente a los apuntes sobre la madurez.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,12 +30,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788467084429",
         "isbn-9791387846107"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0851e8ce5a415436",
+  "fuente_hash": "5342b3a1f175ccb6",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788433950925",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diarios: 1968-1980 (Narrativas hispánicas) se orienta a quienes leen memorias, relatos personales y literatura relacionada con los viajes. Sus 848 páginas requieren una dedicación distinta de la que busca quien prefiere narraciones breves o una novela de ficción convencional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Diarios: 1968-1980 (Narrativas hispánicas) reúne 848 páginas en castellano. Por su extensión, resulta un volumen considerable para transportar y puede leerse por sesiones; Editorial Anagrama lo publica en encuadernación flexible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diarios: 1968-1980 (Narrativas hispánicas) puede compararse con Domar a la divina garza y El mago de Viena porque los tres títulos pertenecen a Sergio Pitol. El primero se sitúa en las memorias y los viajes, mientras que Domar a la divina garza se presenta mediante referencias a la comedia, el esperpento y la tragedia; El mago de Viena incorpora un prólogo de Daniel Saldaña París.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788433950987",
+        "isbn-9788433951113"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "377c18850c330bd6",
+  "origen": "chatgpt-web"
+}

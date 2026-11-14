@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387787936",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sangre y traición (Phoebe), de Holly Renee, se dirige a quienes buscan una lectura centrada en el romance. Por su clasificación editorial, queda fuera de las preferencias de quienes buscan principalmente novela histórica, ensayo o divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Sangre y traición (Phoebe) reúne 268 páginas en un volumen físico que puede guardarse en la estantería o regalarse. La edición Kindle permite llevar la lectura en el móvil o en un lector electrónico, sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sangre y traición (Phoebe) comparte el terreno romántico con A mil por hora, de Hannah Grace, aunque este último plantea una relación vinculada a un piloto de F1. También puede compararse con 24 historias para enamorarte en navidad: Relatos navideños, de Patricia Bonet, cuya propuesta reúne relatos navideños en lugar de presentarse como un único título romántico sin esa estructura anunciada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409929177",
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b8f7fd7d3e8872a5",
+  "origen": "chatgpt-web"
+}

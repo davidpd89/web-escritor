@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788445022863",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Atlas de Lovecraft (Minotauro Ilustrados) se dirige a lectores interesados en explorar la fantasía y el terror desde una perspectiva de ensayo. Su planteamiento como atlas ilustrado lo diferencia de una novela de ficción narrativa, por lo que encaja menos con quien busca una historia contada exclusivamente mediante escenas y personajes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Atlas de Lovecraft (Minotauro Ilustrados) se publica en tapa dura, con 180 páginas en castellano. La edición de Minotauro permite conservar el atlas como volumen físico y consultar sus contenidos en papel, una opción práctica para quien prefiera tener este tipo de obra en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Atlas de Lovecraft (Minotauro Ilustrados) y Coraline comparten su relación con el terror y la fantasía, pero Alain T. Puysségur presenta un atlas de orientación ensayística, mientras Neil Gaiman desarrolla una historia sobre una puerta que conduce a otra versión de un hogar. Frente a Conan: Las Crónicas de Bolsillo 6: Clavos rojos / Más allá del río Negro (Las crónicas nemedias), de Robert Ervin Howard, el atlas se diferencia por su enfoque de consulta frente a una obra de relatos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412749410",
+        "lib-0001"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aa95534e8578a67e",
+  "origen": "chatgpt-web"
+}

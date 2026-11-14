@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La hija del veneno se dirige a lectores adultos de fantasía romántica oscura interesados en matrimonios impuestos, relaciones de enemistad que evolucionan hacia el amor y protagonistas moralmente ambiguas. Incluye asesinatos, hombres abusivos y amenazas sobrenaturales. No encaja con quien busque un romance realista o una fantasía sin violencia.",
+      "texto": "La hija del veneno se dirige a lectores adultos de fantasía romántica oscura, con relaciones marcadas por el peligro y la desconfianza. Su combinación de asesinatos, hombres abusivos y matrimonio impuesto encaja menos con quien busca romance ligero o conflictos sin violencia.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La hija del veneno combina fantasía oscura y romance alrededor de una mujer cuyo beso resulta mortal, salvo para el hombre con quien debe casarse. El matrimonio de inconveniencia y la evolución del rechazo hacia la atracción articulan el conflicto sentimental. La trama incorpora una doble identidad como justiciera, intrigas familiares y un entorno amenazado por vampiros.",
+      "texto": "La hija del veneno combina fantasía oscura y romance alrededor de una protagonista cuyo beso resulta mortal. El conflicto enfrenta a Harlow Carrenwell con Henry Havenwood, un prometido inmune a su veneno, mientras el matrimonio forzado y la convivencia en una fortaleza introducen una relación de enemigos a amantes.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -23,28 +23,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La hija del veneno cuenta con 792 páginas y una edición en tapa dura con sobrecubierta, adecuada para conservar el volumen o regalarlo. Kindle permite llevar esta extensa fantasía romántica en el móvil sin transportar el libro físico. El audiolibro ofrece la posibilidad de seguir la historia mediante escucha durante actividades cotidianas.",
+      "texto": "La edición en tapa dura con sobrecubierta de La hija del veneno reúne sus 792 páginas en un volumen físico, apropiado para conservarlo en una estantería. Kindle permite llevar esa extensión en un lector electrónico o móvil sin cargar con el libro; el audiolibro ofrece la alternativa de escucharlo durante otras actividades.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "edicion",
-        "formatos_disponibles",
-        "categorias"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La maldad más dulce (La Música del Engaño 1), de Raven Kennedy, comparte con La hija del veneno la presencia de una fantasía marcada por amenazas extraordinarias, aunque su planteamiento presenta seres destructivos y la novela de Sheila Masterson centra el conflicto en un matrimonio peligroso. Te querré para siempre: Hay personas que están destinadas a encontrarse (Destino Juvenil), de Sophie Jomain, permite comparar el interés por las relaciones sentimentales, frente al componente de violencia sobrenatural y fantasía oscura de La hija del veneno.",
+      "texto": "La hija del veneno puede compararse con La maldad más dulce (La Música del Engaño 1) por su componente fantástico y la presencia de amenazas sobrenaturales. La obra de Sheila Masterson centra el conflicto en un matrimonio peligroso y un beso letal, mientras que la de Raven Kennedy plantea un mundo amenazado por seres destructivos.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387629977",
-        "isbn-9788408331100"
+        "isbn-9791387629977"
       ]
     }
   ],

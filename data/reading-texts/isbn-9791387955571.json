@@ -4,41 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Deporte de contacto (Otros deportes), de Fredi Mosteirín, se dirige a lectores interesados en el deporte y el tiempo libre. Por su clasificación temática, queda fuera de las búsquedas centradas en ficción fantástica o narrativa romántica.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Deporte de contacto (Otros deportes) está disponible en tapa blanda, con 304 páginas en castellano. Esta edición de Libros de Ruta permite consultar el contenido en papel y conservarlo en una estantería dedicada a libros deportivos.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Deporte de contacto (Otros deportes) comparte el ámbito deportivo con El árbitro / The Referee, de Augusto Cruz, y Fútbol y anarquismo (RELECTURAS), de Miguel Fernández Ubiría. Los títulos de estas obras apuntan, respectivamente, al arbitraje y a la relación entre fútbol y anarquismo, mientras que el de Fredi Mosteirín plantea una referencia más amplia al deporte de contacto.",
+      "texto": "Deporte de contacto (Otros deportes), de Fredi Mosteirín, se sitúa entre las lecturas relacionadas con el deporte y el tiempo libre. Su temática encaja con el interés por las actividades deportivas, pero se aparta de los libros dedicados a manualidades, pasatiempos numéricos o juegos de lógica.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
         "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Deporte de contacto (Otros deportes) se presenta en tapa blanda, con 304 páginas publicadas por Libros de Ruta. Este formato permite leerlo en papel, conservarlo en una estantería o prestarlo sin depender de dispositivos electrónicos. Su extensión también permite distribuir la lectura entre varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Deporte de contacto (Otros deportes) comparte temática deportiva con ATP No. 1 Club. Iconos del tenis masculino (CONOCIMIENTO), de Mark Hodgkinson, aunque sus enfoques son distintos: Fredi Mosteirín aborda los deportes de contacto y el segundo título se centra en figuras del tenis masculino. La diferencia para el lector está en el interés por las disciplinas de contacto frente a los protagonistas del tenis.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9786073877817",
-        "isbn-9788410677548"
+        "isbn-9791387934248"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7c630ef99c503fd4",
+  "fuente_hash": "e123526151417b41",
   "origen": "chatgpt-web"
 }

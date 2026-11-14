@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores de historia, ensayo y estudios sobre migración y exilio, especialmente interesados en el internamiento de españoles y brigadistas en Argelia. El periodo 1941-1943 y el campo de Djelfa delimitan su objeto de estudio. Encaja menos con quienes buscan una panorámica histórica general sin un lugar y unas fechas concretas.",
+      "texto": "Dirigido a lectores de historia y ensayo interesados en el internamiento de españoles y brigadistas en Argelia durante 1941-1943. Por su asunto histórico y su extensión de 316 páginas, se orienta a quienes buscan estudiar ese episodio, más que a quienes prefieren una narración de ficción.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El eje del libro es el campo de internamiento de Djelfa, en Argelia, durante 1941-1943, con atención a españoles y brigadistas. Bernard Sicot aborda este asunto dentro del ámbito de la historia, el ensayo y el exilio. Su inclusión en Biblioteca del Exilio, Col. Anejos sitúa el volumen en una colección vinculada a esa temática.",
+      "texto": "El asunto central es el campo de internamiento de Djelfa, en Argelia, durante el periodo 1941-1943, con atención a españoles y brigadistas. Bernard Sicot aborda este episodio dentro de una obra clasificada como historia y ensayo, publicada en la colección Biblioteca del Exilio.",
       "evidencias": [
         "titulo",
         "autores",
@@ -22,30 +22,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es el formato disponible para las 316 páginas de Un presidio africano. El campo de internamiento de Djelfa: (Argelia 1941-1943). Esta encuadernación facilita manejar el volumen durante una lectura continuada o al consultar pasajes sobre el periodo histórico tratado. Su extensión permite abordar un estudio centrado en un campo de internamiento concreto.",
+      "texto": "La edición en tapa blanda reúne 316 páginas en castellano, publicadas por Editorial Renacimiento. Es una opción física para leer el estudio y volver a consultar sus pasajes; el formato de cubierta flexible facilita guardarlo en una mochila o llevarlo durante los desplazamientos.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Campo de concentración, de Eduardo de Ontañón, comparte con Un presidio africano el interés por los espacios de internamiento y su vinculación con Biblioteca del Exilio. La obra de Bernard Sicot delimita su estudio al campo de Djelfa, en Argelia, durante 1941-1943, con atención a españoles y brigadistas. La diferencia para el lector está en esa localización histórica concreta y en la autoría de cada volumen.",
+      "texto": "A sangre y fuego (Clásicos ilustrados), de Manuel Chaves Nogales, es una comparación por su vinculación con la historia española, mientras que Bernard Sicot delimita su obra al campo de Djelfa y al internamiento de españoles y brigadistas. Ayer enterramos a un niño en Palma: Vida y muerte de Chocolate (1965-1978), de Tomeu Canyelles Canyelles, también señala un periodo histórico concreto, pero centra su asunto en una trayectoria personal.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788410148659"
+        "isbn-9791387752590",
+        "isbn-9788417645311"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e9f192574d58ec97",
+  "fuente_hash": "305320bc5cb9b3e7",
   "origen": "chatgpt-web"
 }

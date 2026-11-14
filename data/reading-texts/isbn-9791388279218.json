@@ -4,44 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Troya, la guerra que acabó con los dioses: EDICIÓN CANTOS TINTADOS (Historias de hoy), de Pol Gise, encaja con lectores interesados en historia, narrativa juvenil y relatos vinculados a Troya. Su orientación histórica y narrativa lo aleja de las lecturas centradas en consejos prácticos o desarrollo personal.",
+      "texto": "Troya, la guerra que acabó con los dioses: EDICIÓN CANTOS TINTADOS (Historias de hoy) se dirige a lectores interesados en la historia y en la narrativa juvenil de temática histórica. Su orientación narrativa la diferencia de los manuales académicos o los estudios históricos centrados exclusivamente en la investigación.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Troya, la guerra que acabó con los dioses: EDICIÓN CANTOS TINTADOS (Historias de hoy) se presenta en una edición con cantos tintados. Temas de Hoy la publica en tapa dura, con 328 páginas en castellano y fecha de publicación del 2026-11-11, características que permiten identificar esta presentación concreta.",
+      "texto": "Esta versión de Troya, la guerra que acabó con los dioses: EDICIÓN CANTOS TINTADOS (Historias de hoy) se identifica expresamente por sus cantos tintados. Publicada por Temas de Hoy, corresponde a la edición del 2026-11-11 y lleva el ISBN 9791388279218, datos que permiten distinguirla al buscar un ejemplar concreto.",
       "evidencias": [
         "titulo",
         "editorial",
-        "edicion",
-        "numero_paginas",
-        "idioma",
-        "fecha_publicacion"
+        "fecha_publicacion",
+        "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura ofrece las 328 páginas de Troya, la guerra que acabó con los dioses: EDICIÓN CANTOS TINTADOS (Historias de hoy) en una edición física con cantos tintados, pensada para conservar el volumen. Kindle permite leer la misma obra en formato digital sin transportar el libro impreso, una diferencia práctica para la lectura fuera de casa.",
+      "texto": "Troya, la guerra que acabó con los dioses: EDICIÓN CANTOS TINTADOS (Historias de hoy) puede leerse en tapa dura o Kindle. La tapa dura reúne sus 328 páginas en un volumen físico con cantos tintados, mientras que Kindle permite llevar la lectura en un dispositivo compatible sin transportar el libro.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "edicion"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Estuche Anthropos: Pandora + Troya (Historias de hoy), de Pol Gise, es la comparación más directa por autoría y por la presencia de Troya en ambos títulos. El estuche identifica dos obras, Pandora y Troya, mientras que Troya, la guerra que acabó con los dioses: EDICIÓN CANTOS TINTADOS (Historias de hoy) corresponde a un volumen individual de 328 páginas con cantos tintados.",
+      "texto": "Estuche Anthropos: Pandora + Troya (Historias de hoy) comparte autoría con Troya, la guerra que acabó con los dioses: EDICIÓN CANTOS TINTADOS (Historias de hoy), pues ambos corresponden a Pol Gise. El estuche agrupa Pandora y Troya, mientras que esta edición se centra en el volumen dedicado a Troya y destaca por sus cantos tintados.",
       "evidencias": [
         "titulo",
         "autores",
-        "numero_paginas",
-        "edicion",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -51,6 +44,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a3106d26de1da85e",
+  "fuente_hash": "c9b226aab970d154",
   "origen": "chatgpt-web"
 }

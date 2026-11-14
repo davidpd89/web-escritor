@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia, de Barbara Hand Clow, aborda la consciencia desde el ámbito de la espiritualidad y el desarrollo personal. Se orienta a lectores interesados en esos temas, no a quienes buscan una novela de ficción o una guía centrada exclusivamente en cuestiones materiales.",
+      "texto": "Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia, de Barbara Hand Clow, se dirige a lectores interesados en la espiritualidad y la exploración de la consciencia. Su enfoque se aleja de los manuales centrados exclusivamente en alimentación o ejercicio físico, aunque también se clasifica dentro del bienestar.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,17 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La obra de Barbara Hand Clow puede leerse en tapa blanda o Kindle. La edición impresa tiene 320 páginas y permite consultar el texto en papel; Kindle ofrece una alternativa digital para leerlo en dispositivos compatibles, sin llevar consigo el ejemplar físico.",
+      "texto": "Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia ofrece tapa blanda y Kindle. La edición impresa tiene 320 páginas y permite consultar el texto en papel; Kindle facilita llevar esa lectura en un dispositivo electrónico y ajustar la visualización. Ambos formatos corresponden a la obra de Barbara Hand Clow.",
       "evidencias": [
+        "titulo",
         "autores",
         "formatos_disponibles",
-        "numero_paginas",
-        "formato_edicion"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia se relaciona con Consciencia Inmortal: Conversaciones con Sri Ramana Maharshihi, de Paul Brunton y Munagala Venkataramiah, por su interés en la consciencia. La obra de Barbara Hand Clow plantea el despertar de sus nueve dimensiones, mientras que el otro título presenta conversaciones. Son aproximaciones distintas dentro de la lectura espiritual.",
+      "texto": "Caminando a través de la sombra y Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia se relacionan por su interés en la exploración espiritual y personal. La obra de Calvin Amandus alude a la sombra como eje temático, mientras que Barbara Hand Clow plantea el despertar de la consciencia mediante nueve dimensiones. Creer sin pertenecer (TESTIMONIOS Y VIVENCIAS) introduce una perspectiva vinculada a la experiencia religiosa.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399252705"
+        "isbn-9798182903509",
+        "isbn-9791387667900"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "01e7e4aee616107c",
+  "fuente_hash": "6730b71d0488c72f",
   "origen": "chatgpt-web"
 }

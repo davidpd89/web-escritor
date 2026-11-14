@@ -4,41 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Caníbales de caramelandia, de Carlton Mellick Iii, encaja con lectores que buscan ficción relacionada con el terror, la fantasía y la ciencia ficción. Su clasificación también incluye aventuras y relatos, por lo que se distancia de las lecturas realistas centradas únicamente en conflictos cotidianos.",
+      "texto": "Caníbales de caramelandia se orienta a lectores de fantasía, aventuras y relatos. La combinación de estos géneros lo diferencia de la narrativa realista y de los ensayos, aunque su clasificación no determina por sí sola una edad de lectura concreta.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Caníbales de caramelandia está disponible en tapa blanda, en una edición de Orciny Press de 200 páginas. Su extensión permite llevar el volumen en una bolsa y leerlo por sesiones, mientras que el formato físico facilita conservarlo y prestarlo sin utilizar dispositivos electrónicos.",
+      "texto": "Caníbales de caramelandia está publicado en tapa blanda, con 200 páginas en castellano. Esta extensión permite distribuir la lectura en sesiones breves y la encuadernación física facilita llevar el volumen y retomarlo sin depender de una pantalla.",
       "evidencias": [
         "titulo",
-        "editorial",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "idioma",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Caníbales de caramelandia comparte el terreno de la ficción fantástica con Estuche EL REY PASTOR (TAPA BLANDA), de Rachel Gillig, aunque el primero incorpora también el terror y la ciencia ficción. Frente a la presentación en estuche de la obra de Rachel Gillig, la de Carlton Mellick Iii se publica como un volumen de 200 páginas en tapa blanda.",
+      "texto": "Caníbales de caramelandia y Juramento de fuego y ceniza comparten su vinculación con la fantasía, pero están firmados por Carlton Mellick Iii y Marta Montoya, respectivamente. También puede compararse con Alas de Hierro. Edición Especial Limitada Con Cantos Decorados / Iron Flame. Limited Special Edition with Sprayed Edges: 2 (Empíreo / Empyrean), de Rebecca Yarros: frente a esa edición especial identificada con una serie, Caníbales de caramelandia figura como un volumen de relatos y aventuras.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "formatos_disponibles",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388204319"
+        "isbn-9786073950664",
+        "isbn-9791399236514"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "20952b94a9b7f8cf",
+  "fuente_hash": "9e94f40ef81f1246",
   "origen": "chatgpt-web"
 }

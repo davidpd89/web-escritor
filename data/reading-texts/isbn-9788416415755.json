@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788416415755",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Electrotecnia (CFGM INSTALACIONES ELECTRICAS Y AUTOMATICAS) se orienta, por su título, a lectores interesados en la formación técnica sobre electricidad e instalaciones automáticas. Aunque figura en el ámbito juvenil, su materia lo distingue de las novelas juveniles centradas en personajes y conflictos de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Electrotecnia (CFGM INSTALACIONES ELECTRICAS Y AUTOMATICAS) está disponible en tapa blanda, con 286 páginas en castellano. El soporte físico permite consultar el contenido técnico, marcar apartados y conservar el volumen como referencia para el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alya a veces me susurra en ruso 9 (Shônen - Alya), de SunSunSun, comparte con Electrotecnia (CFGM INSTALACIONES ELECTRICAS Y AUTOMATICAS) su presencia entre las lecturas juveniles, pero pertenece a una serie de ficción. American Caper nº 01: 1 (Thriller), de Dan Houser, Lazlow, David Lapham y Brent Anderson, se identifica como thriller. Frente a ambos, el título de Altamar remite al estudio de la electrotecnia y las instalaciones eléctricas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791043309670",
+        "isbn-9788491738107"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d4a16b8a0ca67544",
+  "origen": "chatgpt-web"
+}

@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El primer posmoderno se dirige a lectores adultos interesados en la historia literaria española, las biografías culturales y las transformaciones artísticas del siglo XX. No está planteado como una novela de ficción convencional, sino como una aproximación a la trayectoria y las innovaciones de Gonzalo Suárez en la escritura y el cine.",
+      "texto": "Está dirigido a lectores adultos interesados en la trayectoria de Gonzalo Suárez y en los cambios de la literatura y el cine españoles del siglo XX. Su enfoque biográfico y cultural encaja menos con quienes buscan una novela de ficción convencional o una historia centrada exclusivamente en acontecimientos personales.",
       "evidencias": [
-        "titulo",
         "edad_recomendada",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Javier Cercas examina la ruptura de Gonzalo Suárez con el realismo dominante en la España de los años sesenta. Su enfoque relaciona la literatura fantástica, la novela policíaca, la metaliteratura y el periodismo con una forma temprana de posmodernidad, y extiende el análisis a las innovaciones cinematográficas del autor.",
+      "texto": "Javier Cercas examina el carácter pionero de Gonzalo Suárez en la narrativa y el cine españoles, especialmente desde los años sesenta. El libro relaciona su ruptura con el realismo con la literatura fantástica, la novela policíaca, la metaliteratura y otras formas de experimentación, para situar su obra en el desarrollo de la posmodernidad.",
       "evidencias": [
         "autores",
         "sinopsis_editorial",
@@ -23,27 +22,25 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El primer posmoderno se publica en tapa blanda con solapas, con 400 páginas para consultar y releer los pasajes dedicados a la literatura y el cine. La versión Kindle permite llevar el texto en formato digital y alternar su lectura con otras obras sin transportar el ejemplar físico.",
+      "texto": "La tapa blanda con solapas ofrece las 400 páginas en un volumen físico que puede consultarse y anotarse durante la lectura. Kindle permite acceder al mismo título desde un dispositivo electrónico y evita transportar el libro en papel, una diferencia práctica para una lectura extensa.",
       "evidencias": [
-        "titulo",
         "edicion",
-        "numero_paginas",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Esas muchachas que escriben poemas comparte con El primer posmoderno la atención a figuras vinculadas con la creación literaria, aunque se centra en mujeres poetas frente al estudio de Gonzalo Suárez. Canción de amor definitiva ofrece una perspectiva personal marcada por cambios vitales, mientras Javier Cercas aborda las transformaciones culturales a través de una trayectoria artística ajena.",
+      "texto": "El largo regreso de Josefina Carabias (Ensayo) comparte el interés por una figura vinculada a la cultura y la escritura, aunque se ocupa de Josefina Carabias en lugar de Gonzalo Suárez. Dostoievski, mi marido también se relaciona con la memoria de una figura literaria, pero está firmado por Ana G. Dostoievskaia, mientras que El primer posmoderno es una aproximación de Javier Cercas a la innovación narrativa y cinematográfica.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788426434272",
-        "isbn-9788401042119"
+        "isbn-9791399078251",
+        "isbn-9788426433282"
       ]
     }
   ],

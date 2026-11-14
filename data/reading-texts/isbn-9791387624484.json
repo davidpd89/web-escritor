@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Presencias en escena: El arte de actuar: 4 (Artes escénicas), de Ernesto Caballero, está dirigido a lectores interesados en el teatro, la interpretación y la reflexión sobre las artes. Su planteamiento se aleja de la narrativa de ficción y se sitúa en el terreno del ensayo y el arte.",
+      "texto": "Presencias en escena: El arte de actuar: 4 (Artes escénicas) se dirige a lectores interesados en la interpretación, las artes escénicas y el ensayo artístico. Su atención al trabajo actoral lo diferencia de los libros dedicados a la historia general del arte, la moda o el diseño de objetos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece un volumen de 240 páginas para leer en papel y consultar durante el estudio o la reflexión sobre la interpretación. Es la edición de Punto de Vista Editores disponible para este título.",
+      "texto": "Presencias en escena: El arte de actuar: 4 (Artes escénicas) está publicado en tapa blanda, con 240 páginas en castellano. Esta edición de Punto de Vista Editores permite consultar en papel un ensayo sobre la actuación y recuperar sus contenidos durante el estudio de las artes escénicas.",
       "evidencias": [
-        "numero_paginas",
+        "titulo",
         "formatos_disponibles",
-        "edicion",
-        "editorial"
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Presencias en escena: El arte de actuar: 4 (Artes escénicas), de Ernesto Caballero, puede compararse con De la estética como política: Para una rehabilitación del sentido en el cine (Signo e imagen), de Noël Burch, por su interés en la reflexión sobre las artes. La diferencia está en el objeto de atención: el primero se centra en la interpretación y el segundo aborda la estética vinculada al cine.",
+      "texto": "Charlotte Perriand. La libertad de repensar el mundo y Presencias en escena: El arte de actuar: 4 (Artes escénicas) comparten su vinculación con la reflexión artística, aunque sus títulos apuntan a objetos de estudio diferentes. El libro de Ernesto Caballero se centra en la actuación escénica, mientras que Charlotte Perriand. La libertad de repensar el mundo toma como referencia a una figura concreta y su relación con la transformación del mundo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,7 +32,7 @@
         "categorias"
       ],
       "enlaces": [
-        "isbn-9788437650586"
+        "isbn-9788416411993"
       ]
     }
   ],

@@ -4,25 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores de novela negra que siguen los misterios de Camilla Läckberg y los títulos de Crímenes de Fjällbacka. El título lo identifica como el n.º 12, por lo que quien busque una historia ajena a esa colección puede preferir otra lectura.",
+      "texto": "Dirigido a lectores de misterio y thriller que buscan una novela negra de Camilla Läckberg vinculada a Crímenes de Fjällbacka. Sus 560 páginas plantean una lectura extensa; por género, se aleja de las historias centradas en el romance o la comedia.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite manejar con flexibilidad las 560 páginas de esta entrega de Crímenes de Fjällbacka. Su cubierta facilita sujetar el ejemplar durante sesiones largas, mientras que la extensión invita a distribuir la lectura en varios días.",
+      "texto": "Para leer las 560 páginas en papel, la tapa blanda ofrece una encuadernación flexible y la tapa dura, una cubierta rígida más resistente al manejo. Kindle permite continuar la novela desde el móvil sin llevar el volumen físico. El audiolibro ofrece una alternativa para seguir la historia mediante escucha.",
       "evidencias": [
-        "formatos_disponibles",
         "numero_paginas",
-        "titulo"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La sombra de la sirena (Los crímenes de Fjällbacka) (Biblioteca Camilla Läckberg) comparte autora y colección con El Llanto de Los Muertos (Novela Negra) / The Weeper (Noir): 12 (Crímenes de Fjällbacka). Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir), de Ann Cleeves, ofrece otra referencia de narrativa criminal, aunque vinculada a Shetland y a una autora distinta.",
+      "texto": "La sombra de la sirena (Los crímenes de Fjällbacka) (Biblioteca Camilla Läckberg) comparte con este libro la autoría de Camilla Läckberg y su vinculación con los crímenes de Fjällbacka. Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir), de Ann Cleeves, ofrece otra referencia de narrativa criminal, pero con distinta autora y serie. El título de este libro lo identifica como el n.º 12 de Crímenes de Fjällbacka.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "078e52b0666f33dc",
+  "fuente_hash": "de3011d37e33a09d",
   "origen": "chatgpt-web"
 }

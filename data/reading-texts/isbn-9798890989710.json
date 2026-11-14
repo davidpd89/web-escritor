@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9798890989710",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Narcocracia: El Grande revela cómo los cárteles conquistaron México / Narcocracy: El Grande Reveals How the Cartels Conquered Mexico se dirige a lectores interesados en el narcotráfico, el poder político y los relatos sobre acontecimientos reales. Su temática se aleja de quienes buscan ficción o una aproximación general a la historia sin centrarse en los cárteles mexicanos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro aborda la expansión del poder de los cárteles en México a partir de las revelaciones de El Grande, figura mencionada en el título. Su planteamiento relaciona el narcotráfico con las estructuras de poder y se sitúa entre el ensayo político y los relatos de carácter biográfico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La obra de Anabel Hernández se ofrece en tapa blanda, en una edición de Grijalbo de 496 páginas. Este formato reúne el contenido en un único volumen físico y permite consultar distintos pasajes sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "autores",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Narcocracia: El Grande revela cómo los cárteles conquistaron México / Narcocracy: El Grande Reveals How the Cartels Conquered Mexico comparte con La cara oculta de Sheinbaum / The Hidden Face of the President, de Elena Chávez, el interés por el poder en México. La obra de Anabel Hernández se centra en los cárteles y las revelaciones de El Grande, mientras que la de Elena Chávez dirige su atención a una figura presidencial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073880244"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c4216367e174f353",
+  "origen": "chatgpt-web"
+}

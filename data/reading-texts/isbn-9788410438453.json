@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788410438453",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rosa: y el secreto de la flor de Panti (VOCES DE AMERICA), de Lola Walder, se orienta al público infantil interesado en historias sobre familia, amistad y secretos. Sus 24 páginas la sitúan entre las lecturas breves, frente a los libros juveniles de mayor extensión o centrados en conflictos adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Rosa: y el secreto de la flor de Panti (VOCES DE AMERICA) se publica en tapa dura, con 24 páginas en castellano. La encuadernación rígida de esta edición de Cuento de Luz resulta práctica para conservar el libro y compartir su lectura en formato físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "edeb7488f0c01207",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399291759",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "entre el amor y la pena, de Paula Ferga, se dirige a quienes buscan poesía y prefieren ese género a una narración extensa. Su título sitúa el amor y la pena como referencias temáticas, mientras que su clasificación poética lo diferencia de los manuales y las novelas de argumento continuado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "entre el amor y la pena está publicado en tapa blanda, con 116 páginas en castellano. Esta edición permite leer el poemario en papel, señalar versos y regresar a ellos sin necesidad de seguir una lectura continua.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "entre el amor y la pena y Antologia amorosa la voz a ti debida y razon de amor comparten una vinculación temática con el amor y se sitúan en el terreno poético. La obra de Paula Ferga tiene 116 páginas, mientras que la de Pedro Salinas se presenta como una antología amorosa, una diferencia relevante entre un poemario y una selección de textos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3835f23662eb1302",
+  "origen": "chatgpt-web"
+}

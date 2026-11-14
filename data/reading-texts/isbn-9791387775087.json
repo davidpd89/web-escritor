@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387775087",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El oráculo de las brujas y las malas hierbas: Manual y baraja de 50 cartas (Espiritualidad) se dirige a lectores interesados en los oráculos y las cartas vinculadas a la espiritualidad. Su planteamiento de manual con baraja se aleja de los libros centrados en nutrición o consejos generales de salud.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El oráculo de las brujas y las malas hierbas: Manual y baraja de 50 cartas (Espiritualidad) está disponible en tapa dura. Publicada por Oberon, reúne un manual de 62 páginas y una baraja de 50 cartas, por lo que el formato físico permite consultar el texto y utilizar las cartas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El oráculo de las brujas y las malas hierbas: Manual y baraja de 50 cartas (Espiritualidad) y Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida comparten el interés por cuestiones personales vinculadas al bienestar. La obra de Cecilia Lattari utiliza un manual y una baraja de 50 cartas, mientras que el título de Kelly Ann Street se centra en las heridas personales y el equilibrio emocional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410451988"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fa26c9a3535b6074",
+  "origen": "chatgpt-web"
+}

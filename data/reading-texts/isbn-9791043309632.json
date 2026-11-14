@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores de fantasía, aventuras y cómic que buscan una entrega de una serie shônen. El título lo identifica como el n.º 12, por lo que resulta menos adecuado para quien desea empezar por un volumen identificado como primero o prefiere narrativa sin formato de cómic.",
+      "texto": "Wistoria. Wand and Sword, 12 (Shônen - Wistoria) está dirigido a lectores de cómic y novela gráfica que buscan aventuras ambientadas en la fantasía. El título lo identifica como el n.º 12, por lo que resulta menos apropiado para quien prefiera comenzar una colección desde su primera entrega o busque narrativa exclusivamente en prosa.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Wistoria. Wand and Sword, 12 (Shônen - Wistoria) está disponible en tapa dura y reúne 192 páginas en castellano. Su encuadernación rígida facilita conservar esta entrega junto a otros volúmenes físicos y utilizarla como ejemplar de regalo.",
+      "texto": "Wistoria. Wand and Sword, 12 (Shônen - Wistoria) cuenta con una edición en tapa dura de 192 páginas en castellano. La encuadernación rígida facilita conservar el volumen junto a otros de la colección y ofrece una presentación física para regalar o releer sus páginas de cómic.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "World Trigger 5 (Shônen) y World Trigger 6 (Shônen), ambos de Daisuke Ashihara, comparten con Wistoria. Wand and Sword, 12 (Shônen - Wistoria) la identificación shônen y la presentación en entregas numeradas. La diferencia visible está en la serie y la autoría: los dos títulos de World Trigger pertenecen a Daisuke Ashihara, mientras que Wistoria figura a nombre de Omori Fujino y se clasifica también como fantasía.",
+      "texto": "Wistoria. Wand and Sword, 12 (Shônen - Wistoria) y Astro Royale 1 (Shônen): Universo Manga comparten su identificación como shônen, aunque pertenecen a obras de autores distintos y sus títulos señalan entregas diferentes. También puede compararse con A Buentiempo Mala Cara: 9 (Enseñanza Mágica Obligatoria), por la relación con la magia, mientras que Wistoria. Wand and Sword, 12 (Shônen - Wistoria) se presenta expresamente como fantasía y aventuras.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,13 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387962340",
-        "isbn-9791387962692"
+        "isbn-9791399305517",
+        "isbn-9791387962845"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3e53ded6b682037c",
+  "fuente_hash": "b8c150b2c1317702",
   "origen": "chatgpt-web"
 }

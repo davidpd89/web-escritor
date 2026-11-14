@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788441552906",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores interesados en aplicar criterios éticos y de cumplimiento al uso de la inteligencia artificial. Su enfoque práctico y sus 440 páginas lo acercan a quienes necesitan profundizar en la IA responsable, más que a quienes buscan una introducción breve a las herramientas de inteligencia artificial.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Aborda la inteligencia artificial desde dos cuestiones principales: el cumplimiento de requisitos y la ética de su utilización. El planteamiento práctico anunciado en el título sitúa estos asuntos en el terreno de la aplicación de criterios de responsabilidad, con una extensión de 440 páginas para desarrollar la materia.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Anaya Multimedia tiene 440 páginas y está concebida como un manual sobre cumplimiento y ética de la inteligencia artificial. El soporte impreso permite marcar apartados, incorporar anotaciones y consultar cuestiones concretas durante el estudio o el trabajo con sistemas de IA.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gestión de proyectos de inteligencia artificial, de Adrián González Sánchez y Malini Jain Runtasewee, trata la organización de proyectos tecnológicos, mientras el libro de Adrián González Sánchez, Juan Manuel Belloto y Alfonso Peralta se centra en el cumplimiento y la ética. Inteligencia artificial generativa en Microsoft Azure, de Adrián González Sánchez, Jaime De Mora y Jorge García, delimita su contenido a la inteligencia artificial generativa en una plataforma específica, frente al enfoque de responsabilidad del otro volumen.",
+      "evidencias": [
+        "afines_catalogo",
+        "autores",
+        "titulo"
+      ],
+      "enlaces": [
+        "isbn-9788426742827",
+        "isbn-9788426742841"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1b946c7f0ab5b768",
+  "origen": "chatgpt-web"
+}
