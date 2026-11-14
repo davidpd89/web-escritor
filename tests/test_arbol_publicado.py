@@ -27,7 +27,9 @@ import arbol_publicado  # noqa: E402
 PREGUNTAN_AL_INDICE = {
     # git_estado.preparar decide qué rutas puede preparar git: pregunta al índice, no al árbol publicado.
     'scripts/arbol_publicado.py', 'scripts/git_estado.py', 'scripts/materializar_generados.py', 'scripts/merge-main.py',
-    'scripts/refresh-reading-catalogue.py', 'tests/test_materializar_generados.py', 'tests/test_arbol_publicado.py',
+    'scripts/refresh-reading-catalogue.py',
+    # revision_existente elige código fuente versionado que revisar, no lo publicado.
+    'scripts/revision_existente.py', 'tests/test_materializar_generados.py', 'tests/test_arbol_publicado.py',
 }
 FORMAS = (
     ['git', 'ls-files', '-z', '*.html'],
