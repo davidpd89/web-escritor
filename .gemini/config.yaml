@@ -1,0 +1,19 @@
+# Gemini Code Assist (app gratuita de GitHub): solo revisa, nunca hace commits.
+have_fun: false
+code_review:
+  disable: false
+  comment_severity_threshold: MEDIUM
+  max_review_comments: -1
+  pull_request_opened:
+    help: false
+    summary: true
+    code_review: true
+# Páginas, datos y medios generados: miles de ficheros por carga que no aportan revisión.
+ignore_patterns:
+  - "recomendaciones/**"
+  - "pagefind/**"
+  - "assets/**"
+  - "data/reading-*/**"
+  - "data/*.json"
+  - "sitemap*.xml"
+  - "feed*.xml"

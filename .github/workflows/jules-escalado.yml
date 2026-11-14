@@ -1,0 +1,26 @@
+name: Escalar a Jules
+
+# Cuando la autorreparación local se rinde abre «Autorreparación agotada: …». Esa etiqueta hace que Google Jules
+# (cuota gratuita diaria) estudie el issue y proponga una PR de arreglo, que pasa por la misma CI y revisión que
+# cualquier otra. Solo en ese caso: Jules no compite con la autorreparación ni gasta cuota en issues normales.
+on:
+  issues:
+    types: [opened, reopened]
+
+permissions:
+  issues: write
+
+jobs:
+  label:
+    if: startsWith(github.event.issue.title, 'Autorreparación agotada')
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          gh label create jules --repo "$GITHUB_REPOSITORY" --color 4285F4 \
+            --description 'Google Jules propone un arreglo' 2>/dev/null || true
+          gh issue edit "$ISSUE" --repo "$GITHUB_REPOSITORY" --add-label jules
+          gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" --body 'Jules: arregla la clase de fallo (no el caso concreto), sigue AGENTS.md («Review guidelines») y añade el test que lo habría detectado. No toques datos ni páginas generadas.'
