@@ -228,7 +228,7 @@ def publish():
     title = f"Amazon: {stats['formats_added']} formatos y {stats['covers_replaced']} portadas; registro de {len(records)} fichas"
     git('switch', '-q', '-c', branch, cwd=tree)
     subprocess.run(['git', 'add', '--pathspec-from-file=-', '--pathspec-file-nul'], cwd=tree, check=True,
-                   input='\0'.join(paths).encode('utf-8'))
+                   input='\0'.join(git_estado.para_anadir(tree)).encode('utf-8'))
     git('commit', '-q', '-m', title, cwd=tree)
     git('push', '-q', 'origin', 'HEAD:refs/heads/' + branch, cwd=tree)
     body = LOCAL / 'pr-body.md'

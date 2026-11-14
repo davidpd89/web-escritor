@@ -17,3 +17,14 @@ def entradas(cwd, *pathspec, untracked='all'):
 
 def rutas(cwd, *pathspec, untracked='all'):
     return [path for _, path in entradas(cwd, *pathspec, untracked=untracked)]
+
+
+def para_anadir(cwd, *pathspec, untracked='all'):
+    """De `rutas`, solo las que todavía necesitan `git add`.
+
+    Un borrado ya completo en el índice (`git rm --cached`, o `git add -A` sobre un fichero que ya no existe)
+    sigue saliendo en `git status` — el árbol de trabajo coincide con el índice, así que su columna Y es ' ' — pero
+    no existe ni en el árbol ni en el índice: volver a pedirle `git add` a ese camino falla con «pathspec … did not
+    match any files» (14/11, página de autor retirada por `drop_retired_pages`). Lo que sí necesita `add` siempre
+    tiene la columna Y distinta de ' ' (sin seguir, modificado sin indexar, o borrado sin indexar)."""
+    return [path for estado, path in entradas(cwd, *pathspec, untracked=untracked) if estado[1] != ' ']

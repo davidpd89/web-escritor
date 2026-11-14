@@ -28,14 +28,18 @@ import materializar_generados as materializar  # noqa: E402
 generado = materializar.generado
 
 
-def clasificar(estado) -> tuple[list[str], list[str]]:
-    """Separa las entradas (XY, ruta) de `git_estado.entradas` en (a versionar, sueltos).
+def clasificar(estado) -> tuple[list[str], list[str], list[str]]:
+    """Separa las entradas (XY, ruta) de `git_estado.entradas` en (a versionar, sueltos, a añadir).
 
     Un fichero nuevo solo entra si es generado: informes sueltos (reports/…) que deja un builder no se versionan.
+    «A añadir» excluye los borrados ya completos en el índice (como `git_estado.para_anadir`): un conflicto de
+    rebase resuelto tomando la versión de main para un generado que main borró deja esa ruta así, y pedirle
+    `git add` de nuevo falla con «pathspec … did not match any files» al no existir ni en el árbol ni en el índice.
     """
     cambios = [p for xy, p in estado if xy != '??' or generado(p)]
     sueltos = [p for xy, p in estado if xy == '??' and not generado(p)]
-    return cambios, sueltos
+    anadir = [p for xy, p in estado if (xy != '??' or generado(p)) and xy[1] != ' ']
+    return cambios, sueltos, anadir
 
 
 def git(*args, check=True) -> subprocess.CompletedProcess:
@@ -100,14 +104,15 @@ def main() -> int:
     rebasar(a.onto)
     print('Regenerando artefactos')
     regenerar()
-    cambios, sueltos = clasificar(git_estado.entradas(ROOT))
+    cambios, sueltos, anadir = clasificar(git_estado.entradas(ROOT))
     fuera = [p for p in cambios if not generado(p) and not p.startswith(('data/', 'assets/'))]
     if fuera:
         print('Aviso: los builders tocaron ficheros fuera de lo generado: ' + ', '.join(fuera[:8]))
     if sueltos:
         print('Sin versionar (no son generados): ' + ', '.join(sueltos[:8]))
     if cambios:
-        git_paths(['add', '-A'], cambios)
+        if anadir:
+            git_paths(['add', '-A'], anadir)
         git('commit', '-q', '-m', f'Regenerar artefactos sobre {git("rev-parse", "--short", a.onto).stdout.strip()}')
         print(f'Commit de regeneración con {len(cambios)} fichero(s)')
     else:

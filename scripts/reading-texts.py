@@ -721,7 +721,7 @@ def _publish_once(out, publisher):
     branch = 'automation/reading-catalogue-textos-' + now.strftime('%Y-%m-%d-%H%M%S')
     count = len([p for p in paths if p.startswith('data/reading-texts/')])
     git('switch', '-q', '-c', branch, cwd=tree)
-    git_add(paths, cwd=tree)
+    git_add(git_estado.para_anadir(tree), cwd=tree)
     git('commit', '-q', '-m', f'Orientación propia en {count} fichas de lectura', cwd=tree)
     git('push', '-q', 'origin', 'HEAD:refs/heads/' + branch, cwd=tree)
     body = tree.parent / 'pr-body.md'

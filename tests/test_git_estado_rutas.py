@@ -35,6 +35,34 @@ class RutasTest(unittest.TestCase):
                              ['canción con espacio.txt', 'nuevo/index.html', 'viejo/index.html'])
             self.assertIn(('D ', 'viejo/index.html'), git_estado.entradas(repo))
 
+    def test_borrado_ya_indexado_sale_de_para_anadir_pero_no_de_rutas(self):
+        """14/11 (sync 43586171105): `drop_retired_pages` quita del índice y del árbol la ficha de un autor sin
+        libros publicados (`git rm --cached` + unlink), antes de que `assemble()` reúna las rutas cambiadas con
+        `git_estado.rutas` y les pida `git add`. Esa ruta ya no existe ni en el árbol ni en el índice: volver a
+        pedirle `add` falla con «pathspec … did not match any files», aunque `git status` la siga listando como
+        «D » (el árbol coincide con el índice, nada que añadir). `para_anadir` la excluye; `rutas` la conserva
+        para que la validación de rutas permitidas siga viéndola."""
+        with tempfile.TemporaryDirectory() as tmp:
+            repo = Path(tmp)
+            git(repo, 'init', '-q')
+            git(repo, 'config', 'user.email', 'qa@example.invalid'); git(repo, 'config', 'user.name', 'qa')
+            (repo / 'recomendaciones/autores/la-huertina-de-toni').mkdir(parents=True)
+            (repo / 'recomendaciones/autores/la-huertina-de-toni/index.html').write_text('ficha', encoding='utf-8')
+            git(repo, 'add', '-A'); git(repo, 'commit', '-qm', 'base')
+            git(repo, 'rm', '-q', '--cached', '--ignore-unmatch', '--', 'recomendaciones/autores/la-huertina-de-toni/index.html')
+            (repo / 'recomendaciones/autores/la-huertina-de-toni/index.html').unlink()
+            (repo / 'data/reading-catalogue.json'.split('/')[0]).mkdir()
+            (repo / 'data/reading-catalogue.json').write_text('{}', encoding='utf-8')
+            self.assertIn(('D ', 'recomendaciones/autores/la-huertina-de-toni/index.html'), git_estado.entradas(repo))
+            self.assertEqual(sorted(git_estado.rutas(repo)),
+                             ['data/reading-catalogue.json', 'recomendaciones/autores/la-huertina-de-toni/index.html'])
+            self.assertEqual(git_estado.para_anadir(repo), ['data/reading-catalogue.json'])
+            with self.assertRaises(subprocess.CalledProcessError):
+                git(repo, 'add', '--', *git_estado.rutas(repo))
+            git(repo, 'add', '--', *git_estado.para_anadir(repo))
+            self.assertEqual(sorted(git_estado.entradas(repo)),
+                             [('A ', 'data/reading-catalogue.json'), ('D ', 'recomendaciones/autores/la-huertina-de-toni/index.html')])
+
     def test_ningun_publicador_corta_la_salida_de_porcelain(self):
         """Toda lista de rutas a publicar sale de git_estado, no de `línea[3:]` ni de `cut -c4-`.
 

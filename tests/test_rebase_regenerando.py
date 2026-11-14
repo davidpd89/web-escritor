@@ -13,7 +13,7 @@ SPEC.loader.exec_module(rr)
 
 class ClasificarTest(unittest.TestCase):
     def test_nuevo_no_generado_no_se_versiona(self):
-        cambios, sueltos = rr.clasificar([
+        cambios, sueltos, anadir = rr.clasificar([
             (' M', 'recomendaciones/index.html'),
             (' M', 'data/reading-books.json'),
             ('??', 'pagefind/fragment/nuevo.pf_fragment'),
@@ -22,6 +22,18 @@ class ClasificarTest(unittest.TestCase):
         self.assertEqual(cambios, ['recomendaciones/index.html', 'data/reading-books.json',
                                    'pagefind/fragment/nuevo.pf_fragment'])
         self.assertEqual(sueltos, ['reports/performance-budget.json'])
+        self.assertEqual(anadir, cambios)
+
+    def test_borrado_ya_indexado_no_se_vuelve_a_anadir(self):
+        """14/11: un conflicto de rebase resuelto con la versión de main para un generado que main borró deja la
+        ruta como «D » (borrada también del índice); pedirle `git add` de nuevo falla con «pathspec … did not
+        match any files» porque ya no existe ni en el árbol ni en el índice."""
+        cambios, sueltos, anadir = rr.clasificar([
+            ('D ', 'pagefind/fragment/viejo.pf_fragment'),
+            (' M', 'recomendaciones/index.html'),
+        ])
+        self.assertEqual(cambios, ['pagefind/fragment/viejo.pf_fragment', 'recomendaciones/index.html'])
+        self.assertEqual(anadir, ['recomendaciones/index.html'])
 
     def test_generado(self):
         self.assertTrue(rr.generado('sitemap-libros.xml'))

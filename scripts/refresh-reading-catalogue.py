@@ -494,7 +494,7 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
     paths = git_estado.rutas(ROOT)
     if not paths or any(not publisher.allowed_path(p) for p in paths):
         raise ValueError('Cambios fuera de los artefactos permitidos: ' + str([p for p in paths if not publisher.allowed_path(p)]))
-    command('git', 'add', '--', *paths)
+    command('git', 'add', '--', *git_estado.para_anadir(ROOT))
     day = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
     branch = publisher.publication.fresh_branch('automation/reading-catalogue-' + day + '-', cwd=ROOT)
     bot_identity()
