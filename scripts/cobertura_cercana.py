@@ -93,14 +93,22 @@ def estado_rama(ref):
     return semillas, pendientes, descartados
 
 
-def clasificar(isbn, publicados, semillas, pendientes, descartados, dia):
+def pendientes_por_isbn(pendientes):
+    """La cola por ASIN, también por ISBN-13 cuando la fila lo lleva (un 979 no se deduce de su ASIN B0…)."""
+    return {**pendientes, **{row['isbn13']: row for row in pendientes.values() if row.get('isbn13')}}
+
+
+def clasificar(isbn, publicados, semillas, pendientes, descartados, dia, cuarentena=None):
     if isbn in publicados:
         return 'en_la_web', ''
+    if cuarentena and isbn in cuarentena:
+        return 'en_cuarentena', cuarentena[isbn]
     asin = isbn10(isbn) if isbn.startswith('978') else None
     if isbn in descartados or (asin and asin in descartados):
         return 'descartado', descartados.get(isbn) or descartados.get(asin)
-    if asin and asin in pendientes:
-        motivo = pendientes[asin].get('motivo', '')
+    clave = isbn if isbn in pendientes else asin
+    if clave and clave in pendientes:
+        motivo = pendientes[clave].get('motivo', '')
         return ('aplazado_por_cupo' if 'cupo' in motivo else 'pendiente_de_datos'), motivo
     if isbn in semillas:
         row = semillas[isbn]
@@ -141,9 +149,12 @@ def main(argv=None):
     catalogo = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
     publicados = {b.get('isbn13') for b in catalogo.get('libros', [])}
     semillas, pendientes, descartados = estado_rama(args.estado)
+    pendientes = pendientes_por_isbn(pendientes)
+    cuarentena = {h.get('isbn'): h.get('causa') or h.get('motivo', '') for h in json.loads(
+        (ROOT / 'data/reading-quarantine.json').read_text(encoding='utf-8')).get('libros', []) if h.get('isbn')}
     detalle = []
     for isbn, info in sorted(libros.items()):
-        situacion, motivo = clasificar(isbn, publicados, semillas, pendientes, descartados, args.dia)
+        situacion, motivo = clasificar(isbn, publicados, semillas, pendientes, descartados, args.dia, cuarentena)
         detalle.append({'isbn13': isbn, **info, 'situacion': situacion, 'motivo': motivo})
     cuenta = Counter(d['situacion'] for d in detalle)
     informe = {'dia': args.dia, 'ventana': [desde, hasta], 'libros': len(detalle), 'situacion': dict(cuenta),

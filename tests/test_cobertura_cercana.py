@@ -54,6 +54,13 @@ class Clasificar(unittest.TestCase):
         self.assertEqual(cc.clasificar(isbn, set(), cola, {}, {}, '2026-11-14')[0], 'en_cola')
         self.assertEqual(cc.clasificar(isbn, set(), *vacio, '2026-11-14')[0], 'sin_explicar')
 
+    def test_979_se_sigue_por_isbn13_y_cuarentena(self):
+        isbn = '9791399282313'  # sin ISBN-10: su ASIN es B0…
+        pend = cc.pendientes_por_isbn({'B0ABCDEFGH': {'motivo': 'aplazado por cupo de altas', 'isbn13': isbn}})
+        self.assertEqual(cc.clasificar(isbn, set(), {}, pend, {}, '2026-11-14')[0], 'aplazado_por_cupo')
+        self.assertEqual(cc.clasificar(isbn, set(), {}, {}, {}, '2026-11-14', {isbn: 'sinopsis'}),
+                         ('en_cuarentena', 'sinopsis'))
+
 
 if __name__ == '__main__':
     unittest.main()

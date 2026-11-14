@@ -528,9 +528,12 @@ def discarded_path():
     return WORK / 'descartados.jsonl'
 
 
-def schedule(pending, asin, day, motivo):
-    """Un intento más a 1/2/4/8/16/30 días; agotados, el libro sale de la cola y queda anotado."""
+def schedule(pending, asin, day, motivo, isbn=None):
+    """Un intento más a 1/2/4/8/16/30 días; agotados, el libro sale de la cola y queda anotado. `isbn` (ISBN-13)
+    viaja con la fila: un 979 no tiene ISBN-10 y su ASIN (B0…) no dice qué libro es; sin él no se puede seguir."""
     row = pending.get(asin) or {'primera': day, 'intentos': 0}
+    if isbn:
+        row['isbn13'] = isbn
     if row.get('ultima') == day:
         return
     row['intentos'] += 1
@@ -539,7 +542,8 @@ def schedule(pending, asin, day, motivo):
         discarded_path().parent.mkdir(parents=True, exist_ok=True)
         with discarded_path().open('a', encoding='utf-8') as out:
             out.write(json.dumps({'asin': asin, 'dia': day, 'motivo': motivo, 'primera': row['primera'],
-                                  'intentos': row['intentos'] - 1}, ensure_ascii=False) + '\n')
+                                  'intentos': row['intentos'] - 1}
+                                 | ({'isbn13': row['isbn13']} if row.get('isbn13') else {}), ensure_ascii=False) + '\n')
         return
     row |= {'motivo': motivo, 'ultima': day,
             'siguiente': (date.fromisoformat(day) + timedelta(days=RETRY_DAYS[row['intentos'] - 1])).isoformat()}
@@ -553,7 +557,7 @@ def update_pending(day, failures, resolved, write=True):
     popped = {asin: pending.pop(asin) for asin in resolved if asin in pending}
     for f in failures:
         if f['motivo'].startswith(RETRYABLE) and f.get('asin'):
-            schedule(pending, f['asin'], day, f['motivo'])
+            schedule(pending, f['asin'], day, f['motivo'], f.get('isbn13'))
     if write:
         write_json(pending_path(), pending)
     return pending, popped
@@ -573,6 +577,8 @@ def reencolar(day, deferred, rejected, previous=None, pending=None):
     def row_of(record, asin):
         row = pending.get(asin) or dict(previous.get(asin) or {'primera': day, 'intentos': 0})
         row = row | {'grupo': record.get('asin') or asin, 'ruta': list(reversed(record.get('nodos') or record.get('palabras_clave') or []))}
+        if asin == record.get('asin') and record.get('isbn13'):
+            row['isbn13'] = record['isbn13']  # para seguirlo por ISBN (un 979 no se deduce del ASIN)
         # Fecha de publicación de la edición: reintentar pide antes los que salen más cerca de hoy.
         published = (record.get('fecha_publicacion_edicion') or '')[:10]
         if re.fullmatch(r'\d{4}-\d{2}-\d{2}', published):

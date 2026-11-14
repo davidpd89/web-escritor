@@ -837,6 +837,20 @@ class Pendientes(unittest.TestCase):
             self.assertEqual(left, {})
             self.assertEqual(resolved['A1']['primera'], '2026-11-06')  # reencolar conserva desde cuándo espera
 
+    def test_pending_and_discarded_rows_keep_the_isbn13(self):
+        # Un 979 no tiene ISBN-10 y su ASIN (B0…) no dice qué libro es: la fila lleva el ISBN para seguirlo.
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            gap = [{'asin': 'B0X', 'isbn13': '9791399282313', 'motivo': 'sin editorial'}]
+            pending, _ = ca.update_pending('2026-11-06', gap, set())
+            self.assertEqual(pending['B0X']['isbn13'], '9791399282313')
+            for _ in range(len(ca.RETRY_DAYS)):
+                pending['B0X'].pop('ultima')
+                ca.schedule(pending, 'B0X', '2026-12-31', 'sin editorial')
+            self.assertNotIn('B0X', pending)
+            row = json.loads(ca.discarded_path().read_text(encoding='utf-8').splitlines()[-1])
+            self.assertEqual(row['isbn13'], '9791399282313')
+
     def test_download_asks_due_pending_items_first_in_batches_of_ten(self):
         class Items(FakeProvider):
             def post(self, url, body, headers):
