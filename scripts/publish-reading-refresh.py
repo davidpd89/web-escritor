@@ -48,11 +48,52 @@ def clean_main_tree(root, tree):
     return tree
 
 
+def node_modules_satisfies_lock(modules, lock):
+    """True si node_modules tiene instalado todo lo que declara su lockfile, en la versión del lockfile.
+
+    Compara el lockfile con la copia que npm deja en node_modules/.package-lock.json tras instalar. Un
+    directorio node_modules que existe pero está vacío o a medias (un `npm ci` interrumpido dejó
+    C:/GIT/web-escritor/node_modules como carpeta vacía) no tiene esa copia y no satisface nada. Los binarios
+    de otra plataforma del lockfile son `optional` y solo se instala el del equipo, así que no se exigen.
+    """
+    marker = modules / '.package-lock.json'
+    if not modules.is_dir() or not marker.exists():
+        return False
+    try:
+        installed = json.loads(marker.read_text(encoding='utf-8')).get('packages', {})
+        declared = json.loads(lock.read_text(encoding='utf-8')).get('packages', {})
+    except (OSError, ValueError):
+        return False
+    for name, meta in declared.items():
+        if not name or 'version' not in meta or meta.get('optional'):
+            continue
+        if installed.get(name, {}).get('version') != meta['version']:
+            return False
+    return True
+
+
+def ensure_node_modules(checkout):
+    """Instala (npm ci) las dependencias del checkout principal si su node_modules no satisface su lockfile.
+
+    Antes bastaba con que la carpeta node_modules existiera para enlazarla; si estaba vacía o desfasada del
+    lockfile, Pagefind caía con «npx canceled due to missing packages ... pagefind@1.6.0» y paraba la
+    publicación (07/11, 08/11, 13/11). Instalar exactamente el lockfile deja el enlace utilizable.
+    """
+    lock = checkout / 'package-lock.json'
+    modules = checkout / 'node_modules'
+    if not lock.exists() or node_modules_satisfies_lock(modules, lock):
+        return
+    print(f'Instalando node_modules del checkout principal (npm ci) en {checkout}…', flush=True)
+    subprocess.run('npm ci --no-audit --no-fund', cwd=checkout, shell=True, check=True)
+
+
 def link_node_modules(tree):
     """Enlaza tree/node_modules al node_modules del checkout principal del repositorio (no lo copia)."""
     common = subprocess.check_output(['git', 'rev-parse', '--path-format=absolute', '--git-common-dir'],
                                      cwd=tree, text=True).strip()
-    source, link = Path(common).parent / 'node_modules', Path(tree) / 'node_modules'
+    checkout = Path(common).parent
+    ensure_node_modules(checkout)
+    source, link = checkout / 'node_modules', Path(tree) / 'node_modules'
     if link.exists() or not source.is_dir():
         return
     if os.path.lexists(link):  # enlace roto

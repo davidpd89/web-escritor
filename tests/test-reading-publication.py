@@ -75,6 +75,58 @@ with tempfile.TemporaryDirectory() as tmp:
         os.rmdir(tree / 'node_modules')  # quitar la junction sin tocar su destino antes de borrar el temporal
     subprocess.run(['git', 'worktree', 'remove', '--force', str(tree)], **quiet)
 
+# node_modules que existe pero no satisface el lockfile (vacío, a medias o desfasado): sin reinstalarlo antes de
+# enlazarlo, `npx --no-install pagefind` caía con «npx canceled due to missing packages ... pagefind@1.6.0» y
+# paraba la publicación (07/11, 08/11, 13/11). Se exige todo lo no-opcional del lockfile, en su versión.
+LOCK = {'packages': {
+    '': {'name': 'web-escritor-ci-tools'},
+    'node_modules/pagefind': {'version': '1.6.0', 'dev': True},
+    'node_modules/@pagefind/windows-x64': {'version': '1.6.0', 'dev': True, 'optional': True},
+}}
+def _marker(pagefind_version, with_platform=True):
+    pkgs = {'node_modules/pagefind': {'version': pagefind_version}}
+    if with_platform:
+        pkgs['node_modules/@pagefind/windows-x64'] = {'version': '1.6.0'}
+    return {'packages': pkgs}
+
+with tempfile.TemporaryDirectory() as tmp:
+    checkout = Path(tmp)
+    lock = checkout / 'package-lock.json'
+    lock.write_text(json.dumps(LOCK), encoding='utf-8')
+    nm = checkout / 'node_modules'
+    marker = nm / '.package-lock.json'
+
+    # Carpeta node_modules vacía (el fallo real del 13/11): no satisface el lockfile.
+    nm.mkdir()
+    assert not m.node_modules_satisfies_lock(nm, lock), 'node_modules vacío no debe pasar por bueno'
+    # Instalado en la versión del lockfile: satisface (falte o no el binario opcional de plataforma).
+    marker.write_text(json.dumps(_marker('1.6.0')), encoding='utf-8')
+    assert m.node_modules_satisfies_lock(nm, lock)
+    marker.write_text(json.dumps(_marker('1.6.0', with_platform=False)), encoding='utf-8')
+    assert m.node_modules_satisfies_lock(nm, lock), 'un opcional de otra plataforma no debe exigirse'
+    # Desfasado respecto al lockfile (1.5.2 instalado, 1.6.0 pedido): no satisface -> hay que reinstalar.
+    marker.write_text(json.dumps(_marker('1.5.2')), encoding='utf-8')
+    assert not m.node_modules_satisfies_lock(nm, lock)
+
+    # ensure_node_modules reinstala (npm ci) cuando no satisface, y no lo hace cuando sí.
+    installs = []
+    def fake_run(cmd, **kwargs):
+        installs.append((cmd, kwargs.get('cwd')))
+        return subprocess.CompletedProcess(cmd, 0)
+    with patch.object(m.subprocess, 'run', fake_run):
+        m.ensure_node_modules(checkout)  # marker = 1.5.2, desfasado
+    assert installs and installs[0][0] == 'npm ci --no-audit --no-fund' and installs[0][1] == checkout, installs
+    installs.clear()
+    marker.write_text(json.dumps(_marker('1.6.0')), encoding='utf-8')
+    with patch.object(m.subprocess, 'run', fake_run):
+        m.ensure_node_modules(checkout)  # ya satisface
+    assert not installs, 'no debe reinstalar si node_modules ya satisface el lockfile'
+    # Sin lockfile no hay nada que instalar (checkout de prueba sin dependencias Node).
+    lock.unlink()
+    with patch.object(m.subprocess, 'run', fake_run):
+        m.ensure_node_modules(checkout)
+    assert not installs, 'sin package-lock.json no se ejecuta npm ci'
+
 deploy = (ROOT / '.github/workflows/deploy-pages.yml').read_text(encoding='utf-8')
 assert 'github.event.before || inputs.before_sha' in deploy
 assert 'git merge-base --is-ancestor "$BEFORE_SHA" HEAD' in deploy
