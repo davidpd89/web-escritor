@@ -26,6 +26,13 @@ reviews:
       enabled: false
     unit_tests:
       enabled: false
+    # Solo revisa: nada que escriba commits en las ramas (#1314).
+    autofix:
+      enabled: false
+    fix_ci:
+      enabled: false
+    resolve_merge_conflict:
+      enabled: false
   path_filters:
     - "!recomendaciones/**"
     - "!pagefind/**"

@@ -402,7 +402,14 @@ class CerrojoDeProceso(unittest.TestCase):
                 primero.kill()
                 primero.wait()
                 primero.stdout.close()
-            f = na.tomar_cerrojo(ruta)  # muerto sin borrar el fichero: se entra ya
+            # Muerto sin borrar el fichero: se entra sin esperar caducidad. Windows suelta el cerrojo de un proceso
+            # matado de forma asíncrona (sin plazo documentado): se dan unos segundos, no las 6 h de antes.
+            import time
+            limite = time.monotonic() + 5
+            f = na.tomar_cerrojo(ruta)
+            while f is None and time.monotonic() < limite:
+                time.sleep(0.1)
+                f = na.tomar_cerrojo(ruta)
             self.assertIsNotNone(f)
             f.close()
 

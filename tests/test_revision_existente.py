@@ -76,6 +76,30 @@ class RevisionExistenteTests(unittest.TestCase):
             self.assertNotIn('main', crear[crear.index('--base') + 1])
             self.assertEqual([a[4] for a in llamadas if a[:2] == ('pr', 'comment')], list(rev.DISPAROS))
 
+    def test_workflows_van_como_copia_y_lo_que_no_esta_en_main_se_omite(self):
+        """#1314 (CodeRabbit): el GITHUB_TOKEN no puede empujar commits que cambien .github/workflows/*, y un fichero
+        del grupo que no está en origin/main hacía fallar `git rm --cached`."""
+        with tempfile.TemporaryDirectory() as tmp:
+            repo = Path(tmp)
+            git(repo, 'init', '-q')
+            git(repo, 'config', 'user.email', 'qa@example.invalid')
+            git(repo, 'config', 'user.name', 'qa')
+            (repo / '.github/workflows').mkdir(parents=True)
+            (repo / '.github/workflows/carga.yml').write_text('on: push\n', encoding='utf-8')
+            (repo / 'a.py').write_text('print(1)\n', encoding='utf-8')
+            git(repo, 'add', '-A')
+            git(repo, 'commit', '-qm', 'base')
+            main = git(repo, 'rev-parse', 'HEAD')
+            with patch.object(rev, 'ROOT', repo):
+                base, cabeza = rev.arboles(main, ['a.py', '.github/workflows/carga.yml', 'solo-local.py'], 'x')
+            tocados = git(repo, 'log', '--format=', '--name-only', main + '..' + cabeza).split()
+            self.assertFalse([t for t in tocados if t.startswith('.github/')], tocados)
+            self.assertEqual(git(repo, 'diff', '--name-status', base, cabeza).splitlines(),
+                             ['A\t_revision/.github/workflows/carga.yml', 'A\ta.py'])
+            self.assertEqual(git(repo, 'show', cabeza + ':_revision/.github/workflows/carga.yml'), 'on: push')
+            with patch.object(rev, 'ROOT', repo), self.assertRaises(SystemExit):
+                rev.arboles(main, ['solo-local.py'], 'x')
+
     def test_un_reintento_reutiliza_la_pr_y_solo_completa_los_disparos(self):
         """#1314: un segundo intento del mismo día no empuja ramas ni crea PR; solo pide lo que faltó."""
         llamadas, empujes = [], []
