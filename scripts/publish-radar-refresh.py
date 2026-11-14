@@ -147,8 +147,9 @@ def main_cambio_entradas(repo, sha):
     data = json.loads(gh('api', f'repos/{repo}/compare/{sha}...main'))
     if not data.get('ahead_by'):
         return []
-    files = [item['filename'] for item in data.get('files', [])]
-    if len(files) >= 300:  # la API trunca la lista: no se puede descartar nada
+    # Un renombrado cuenta por los dos nombres: retirar una página generada (index.html -> .bak) también la cambia.
+    files = [name for item in data.get('files', []) for name in (item['filename'], item.get('previous_filename')) if name]
+    if len(data.get('files', [])) >= 300:  # la API trunca la lista: no se puede descartar nada
         return files[:5] + ['…']
     return [f for f in files if entrada_de_builders(f)]
 

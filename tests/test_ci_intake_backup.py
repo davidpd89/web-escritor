@@ -102,10 +102,24 @@ class MainTest(unittest.TestCase):
 
     def test_sin_respuesta_a_tiempo_carga(self):
         """#1312: sin plazo global, 50 ejecuciones x 20 s superaban los 2 minutos del job."""
-        runs = [{'id': i, 'status': 'completed'} for i in range(1, 6)]
+        # Cargas en verde: sin plazo, la 5 cedería la noche (run=false). Con plazo se corta antes y carga (CodeRabbit).
+        runs = [{'id': i, 'status': 'completed', 'head_branch': 'main', 'display_title': 'Reading catalogue intake'}
+                for i in range(1, 6)]
+        jobs = {i: [{'name': 'intake', 'conclusion': 'success', 'completed_at': f'2026-11-14T0{i}:00:00Z'}]
+                for i in range(1, 6)}
+        self.assertEqual(self.run_main(self.fake(runs, jobs)), 'run=false')
+        calls = []
+        api = self.fake(runs, jobs)
         clock = iter(range(0, 1000, 30))
         with mock.patch.object(backup.time, 'monotonic', lambda: next(clock)):
-            self.assertEqual(self.run_main(self.fake(runs, {i: [] for i in range(1, 6)})), 'run=true')
+            self.assertEqual(self.run_main(lambda *a, **k: calls.append(a[0]) or api(*a, **k)), 'run=true')
+        self.assertLess(sum('/jobs' in c for c in calls), 5)
+
+    def test_el_titulo_del_ensayo_es_el_del_workflow(self):
+        """CodeRabbit #1320: si el run-name y DRY_RUN_TITLE divergen, un ensayo cuenta como carga y cede la noche."""
+        yaml = (ROOT / '.github/workflows/reading-catalogue-sync.yml').read_text(encoding='utf-8')
+        run_name = next(line for line in yaml.splitlines() if line.startswith('run-name:'))
+        self.assertIn(f"inputs.dry_run && '{backup.DRY_RUN_TITLE}'", run_name)
 
     def test_workflow_tiene_respaldos_y_concurrencia_en_el_job(self):
         yaml = (ROOT / '.github/workflows/reading-catalogue-sync.yml').read_text(encoding='utf-8')
