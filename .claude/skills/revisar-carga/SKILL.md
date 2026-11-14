@@ -35,3 +35,11 @@ update-branch de una PR cada vez.
 - Reintentos: que un fallo conserve el punto de control (`automation/reading-datos-*`) y que el reintento
   no publique dos veces.
 - Que la corrección cubra la clase de fallo, no el libro concreto de esta noche.
+
+## Revisión del código existente (diaria)
+
+`revision-existente.yml` abre cada mañana una PR «Revisión del código existente: <grupo>» contra
+`revision/base-*`, que **no se fusiona nunca**, y un issue «Auditoría Jules: <grupo>». Al revisar la carga:
+`gh pr list --search "head:revision/" --json number,title` y leer sus comentarios (mismos `gh api` que en la
+puerta 1). Cada hallazgo real se arregla en una PR normal contra `main`, con su test, cubriendo la clase de
+fallo. Los descartes se responden en el hilo con el motivo. Grupos: `python scripts/revision_existente.py grupos`.

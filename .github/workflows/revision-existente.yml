@@ -1,0 +1,48 @@
+name: Revisión del código existente
+
+# Los fallos de la carga nocturna salen casi siempre de código antiguo, no del cambio del día. Cada día abre una PR
+# que no se fusiona nunca con un grupo de ficheros completos para Codex, Gemini Code Assist y CodeRabbit, y un issue
+# `jules` para que Jules audite el mismo grupo ejecutándolo. Lo hace scripts/revision_existente.py. Ni el push con
+# GITHUB_TOKEN ni sus commits con marca de no-CI disparan workflows: no ocupa la cola de Actions. Cierra las de hace
+# más de 3 días. Cron de madrugada como el resto (06:40 en Madrid en invierno): no compite con la carga porque
+# no lanza CI, solo crea ramas, una PR y un issue.
+on:
+  schedule:
+    - cron: '40 5 * * *'
+  workflow_dispatch:
+    inputs:
+      grupo:
+        description: 'Grupo concreto (vacío = el que toca hoy; lista con `python scripts/revision_existente.py grupos`)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: revision-existente
+  cancel-in-progress: false
+
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+          fetch-depth: 0
+      - env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GRUPO: ${{ inputs.grupo }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          python scripts/revision_existente.py cerrar --publicar
+          python scripts/revision_existente.py abrir --publicar ${GRUPO:+--grupo "$GRUPO"}

@@ -18,6 +18,9 @@ reviews:
       - "Actualizar catálogo de lectura"
       - "Actualizar artefactos generados"
       - "chore(social)"
+    # Revisión diaria del código existente (scripts/revision_existente.py): PR contra revision/base-*.
+    base_branches:
+      - "revision/.*"
   finishing_touches:
     docstrings:
       enabled: false
