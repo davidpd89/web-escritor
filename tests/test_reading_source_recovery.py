@@ -142,4 +142,31 @@ class CheckpointLifetimeTests(unittest.TestCase):
  def test_failed_publication_keeps_the_durable_checkpoint(self):self.check(True)
  def test_checkpoint_is_removed_only_after_verified_publication(self):self.check(False)
 
+class QuarantineRoundsTests(unittest.TestCase):
+ """Sin tope de rondas: se aparta mientras cada ronda nombre libros nuevos; repetir los mismos para la carga."""
+ def run_rounds(self,rounds):
+  with tempfile.TemporaryDirectory() as tmp,contextlib.ExitStack() as stack:
+   published=[];pending=list(rounds)
+   def failures():return [{'test':'contrato','libros':pending.pop(0)}] if pending else []
+   patches=[(refresh,'ROOT',Path(tmp)),(refresh,'command',lambda *a:None),(refresh,'bot_identity',lambda:None),
+    (refresh,'read_json',lambda p:{'rss_enabled':False}),(refresh,'quarantine_summary',lambda *a:''),
+    (refresh,'data_contract_failures',failures),(refresh,'drop_orphan_pages',lambda q:None),
+    (refresh.reading_quarantine,'flagged_books',lambda f,c:{b:'motivo' for b in f[0]['libros']}),
+    (refresh.reading_quarantine,'apply',lambda *a,**k:[]),
+    (refresh.materializar,'construir',lambda *a,**k:None),(refresh.materializar,'comprobar',lambda *a,**k:None),
+    (refresh.subprocess,'check_output',lambda *a,**k:' M data/reading-catalogue.json\n'),
+    (refresh.git_estado,'rutas',lambda *a,**k:['data/reading-catalogue.json']),
+    (refresh.git_estado,'preparar',lambda *a,**k:None),
+    (refresh.publisher,'allowed_path',lambda p:True),(refresh.publisher,'run',lambda b:published.append(b)),
+    (refresh.publisher.publication,'fresh_branch',lambda *a,**k:'automation/reading-catalogue-test'),
+    (refresh.publisher.publication,'gh',lambda *a:None),(refresh,'drop_checkpoint',lambda b:None)]
+   for owner,name,value in patches:stack.enter_context(patch.object(owner,name,value))
+   refresh.assemble({'new_books':['new'],'updated_books':[],'stats':{}},changed=True,checkpoint='saved')
+   return published
+ def test_more_than_three_rounds_with_new_books_still_publish(self):
+  self.assertEqual(len(self.run_rounds([['a'],['b'],['c'],['d'],['e']])),1)
+ def test_a_round_naming_the_same_books_stops_the_load(self):
+  with self.assertRaisesRegex(RuntimeError,'no se resuelven apartando libros'):
+   self.run_rounds([['a'],['a']])
+
 if __name__=='__main__':unittest.main()
