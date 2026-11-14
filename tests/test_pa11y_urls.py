@@ -21,7 +21,7 @@ class Pa11yUrls(unittest.TestCase):
 
     def test_las_paginas_sueltas_entran_siempre(self):
         for dia in range(5):
-            self.assertTrue(set(SUELTAS) <= set(pa11y.elegir(RUTAS, dia)))
+            self.assertEqual(set(SUELTAS) - set(pa11y.elegir(RUTAS, dia)), set())
 
     def test_la_rotacion_recorre_todas_las_fichas(self):
         vistas = set()

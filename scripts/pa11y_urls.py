@@ -49,10 +49,13 @@ def main(argv=None):
     p.add_argument('--config', default='.pa11yci')
     p.add_argument('--out', required=True)
     p.add_argument('--base', default='http://127.0.0.1:4173')
+    # El turno de la rotación lo fija el workflow una vez por ejecución (run_number): si cada shard mirase su reloj,
+    # dos shards a ambos lados de medianoche repartirían muestras distintas y alguna página quedaría sin auditar.
+    p.add_argument('--dia', type=int, default=None)
     args = p.parse_args(argv)
     with open(args.sitemap, encoding='utf-8') as f:
         rutas = LOC.findall(f.read())
-    dia = datetime.now(timezone.utc).date().toordinal()
+    dia = args.dia if args.dia is not None else datetime.now(timezone.utc).date().toordinal()
     mias = shard(elegir(rutas, dia), args.shard, args.shards)
     with open(args.config, encoding='utf-8') as f:
         config = json.load(f)
