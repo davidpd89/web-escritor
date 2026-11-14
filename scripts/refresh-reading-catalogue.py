@@ -484,7 +484,9 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
     def registrar(_root):
         git_estado.preparar(ROOT, [*staged, 'assets/pinterest/feeds'])
     flagged = {}
-    for _ in range(3):
+    # Sin tope de rondas: cada vuelta o pasa, o para (no nombra libros nuevos), o aparta al menos un libro más;
+    # con 1000 altas por tanda caben más de 3 tandas de problemas encadenados, y el catálogo es finito.
+    while True:
         # Misma cadena que rebase-regenerando y merge-main (scripts/materializar_generados.py).
         materializar.construir(ROOT, antes_de_indexar=registrar)
         materializar.comprobar(ROOT, assets=False)
@@ -500,8 +502,6 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
         quarantined = reading_quarantine.apply(ROOT, flagged=flagged)
         released = held_before - {h['libro']['id'] for h in quarantined}
         drop_orphan_pages(quarantined)
-    else:
-        raise RuntimeError('check-reading-data sigue fallando tras apartar libros en 3 rondas')
     command('git', 'diff', '--check')
     paths = git_estado.rutas(ROOT)
     if not paths or any(not publisher.allowed_path(p) for p in paths):
