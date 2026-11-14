@@ -42,12 +42,50 @@ def preparar(cwd, paths, env=None):
         known.add(tracked)
         parts = tracked.split('/')
         dirs.update('/'.join(parts[:i]) for i in range(1, len(parts)))
-    keep = [p for p in paths if (Path(cwd) / p).exists() or p.rstrip('/') in known or p.rstrip('/') in dirs]
+    # lexists: un enlace simbólico colgante existe para git aunque su destino no (Codex, #1315).
+    keep = [p for p in paths if os.path.lexists(Path(cwd) / p) or p.rstrip('/') in known or p.rstrip('/') in dirs]
     if keep:
         subprocess.run(['git', 'add', '-A', '--pathspec-from-file=-', '--pathspec-file-nul'], cwd=cwd, check=True,
                        input='\0'.join(keep).encode('utf-8', 'surrogateescape'),
                        env={**(env or os.environ), 'GIT_LITERAL_PATHSPECS': '1'})
     return keep
+
+
+def foto(cwd, *pathspec):
+    """{ruta: bytes, o None si está borrada} de lo cambiado frente a HEAD: el punto al que vuelve `restaurar`."""
+    from pathlib import Path
+    salida = {}
+    for path in rutas(cwd, *pathspec):
+        f = Path(cwd) / path
+        salida[path] = f.read_bytes() if f.is_file() else None
+    return salida
+
+
+def restaurar(cwd, antes, *pathspec):
+    """Deshace lo escrito desde `foto(cwd, *pathspec)` sin tocar lo que ya había: un paso que falla a medias
+    (precios, portadas) no se lleva por delante lo que dejó el paso anterior (las altas de la noche)."""
+    import os
+    from pathlib import Path
+    ahora = rutas(cwd, *pathspec)
+    volver = [p for p in ahora if p not in antes]
+    if volver:
+        arbol = subprocess.run(['git', 'ls-tree', '-r', '-z', '--name-only', 'HEAD'], cwd=cwd, capture_output=True,
+                               check=True).stdout.decode('utf-8', 'surrogateescape')
+        en_head = set(filter(None, arbol.split('\0')))
+        for path in (p for p in volver if p not in en_head):
+            (Path(cwd) / path).unlink(missing_ok=True)
+        desde_head = [p for p in volver if p in en_head]
+        if desde_head:
+            subprocess.run(['git', 'checkout', 'HEAD', '--pathspec-from-file=-', '--pathspec-file-nul'], cwd=cwd,
+                           check=True, input='\0'.join(desde_head).encode('utf-8', 'surrogateescape'),
+                           env={**os.environ, 'GIT_LITERAL_PATHSPECS': '1'})
+    for path, contenido in antes.items():
+        f = Path(cwd) / path
+        if contenido is None:
+            f.unlink(missing_ok=True)
+        elif not f.is_file() or f.read_bytes() != contenido:
+            f.parent.mkdir(parents=True, exist_ok=True)
+            f.write_bytes(contenido)
 
 
 def en_commit(cwd, commit, paths):

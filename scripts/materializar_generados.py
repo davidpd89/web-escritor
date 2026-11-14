@@ -42,7 +42,7 @@ CHECKS = ('build-reading-catalogue.py', 'build-page-order.py', 'build-site-shell
 RUTAS_NUEVAS = ('recomendaciones', 'editoriales', 'mapa-del-sitio')
 # Entradas de los builders: la misma lista que la clave de caché de .github/actions/materializar (lo comprueba un test).
 FUENTES = ('data/**', 'scripts/build-*.py', 'scripts/site_shell.py', 'scripts/reading*.py', 'scripts/templates/**',
-           'scripts/materializar_generados.py', '**/*.html.tmpl')
+           'scripts/materializar_generados.py', '**/*.html.tmpl', '**/*.html')
 TESTIGO = 'assets/page-order.generated.js'   # si está versionado, lo generado sigue en git (antes del corte)
 HUELLA = Path('.local') / 'materializado.huella'
 
@@ -58,8 +58,9 @@ def _py(root: Path, script: str, *args: str) -> None:
 
 def registrar_rutas_nuevas(root: Path = ROOT) -> list[str]:
     """`git add -N` de las páginas nuevas: ls-files las ve sin meter su contenido en el índice."""
-    nuevas = subprocess.run(['git', 'ls-files', '--others', '--exclude-standard', '--', *RUTAS_NUEVAS],
-                            cwd=root, capture_output=True, text=True, check=True, encoding='utf-8').stdout.split('\n')
+    # -z: sin él git entrecomilla las rutas con tildes («"recomendaciones/ni\303\261o.html"») y no acaban en .html.
+    nuevas = subprocess.run(['git', 'ls-files', '-z', '--others', '--exclude-standard', '--', *RUTAS_NUEVAS],
+                            cwd=root, capture_output=True, text=True, check=True, encoding='utf-8').stdout.split('\0')
     nuevas = [p for p in nuevas if p.endswith('.html')]
     if nuevas:
         subprocess.run(['git', 'add', '--intent-to-add', '--', *nuevas], cwd=root, check=True)

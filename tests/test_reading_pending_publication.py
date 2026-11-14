@@ -50,6 +50,23 @@ class PendingPublicationTests(unittest.TestCase):
 
         return calls, gh
 
+    def test_external_reviewer_status_does_not_mark_the_batch_red(self):
+        """DeepSource o CodeRabbit en rojo no son la verificación del lote: se publica tal cual."""
+        def status(*args):
+            return json.dumps({'statuses': [{'context': 'DeepSource: Python', 'state': 'failure'},
+                                            {'context': 'CodeRabbit', 'state': 'error'},
+                                            {'context': 'reflow-sitewide', 'state': 'success'}]})
+        with patch.object(publisher.publication, 'gh', side_effect=status):
+            self.assertEqual(publisher.failed_checks('o/r', 's'), [])
+
+    def test_own_failed_status_still_marks_the_batch_red(self):
+        def status(*args):
+            return json.dumps({'statuses': [{'context': 'DeepSource: Python', 'state': 'failure'},
+                                            {'context': 'reading-catalogue-publication', 'state': 'failure'},
+                                            {'context': 'reflow-sitewide', 'state': 'failure'}]})
+        with patch.object(publisher.publication, 'gh', side_effect=status):
+            self.assertEqual(publisher.failed_checks('o/r', 's'), ['reading-catalogue-publication', 'reflow-sitewide'])
+
     def test_current_batch_resumes_without_closing_or_regenerating(self):
         calls, gh = self.check_case(behind=0)
         with patch.object(publisher.publication, 'gh', side_effect=gh), patch.object(publisher, 'run') as run:
@@ -132,6 +149,22 @@ class PendingPublicationTests(unittest.TestCase):
                     with self.assertRaises(type(exc)):
                         publisher.run(BRANCH)
                 self.assertEqual(bool(posted), marked)
+
+    def test_failure_is_also_marked_on_the_head_after_update_branch(self):
+        """#1312: update-branch mueve la cabeza de H a M; el fallo va también en M, la que valida resume_pending."""
+        posted, heads = [], iter(['h' * 40, 'm' * 40])
+
+        def gh(*args):
+            if args[:2] == ('repo', 'view'):
+                return 'davidpd89/web-escritor'
+            return json.dumps({'number': 674, 'headRefOid': next(heads), 'mergeStateStatus': 'CLEAN'})
+
+        with patch.object(publisher.publication, 'gh', side_effect=gh), \
+             patch.object(publisher.publication, 'publish_generated', side_effect=RuntimeError('content-index failed')), \
+             patch.object(publisher.publication, 'report_job', side_effect=lambda *a: posted.append(a)):
+            with self.assertRaises(RuntimeError):
+                publisher.run(BRANCH)
+        self.assertEqual([a[1] for a in posted], ['h' * 40, 'm' * 40])
 
     def test_human_or_non_generated_work_is_never_closed(self):
         # Un commit firmado por una persona (no por la carga) nunca se cierra ni se regenera, aunque la rama

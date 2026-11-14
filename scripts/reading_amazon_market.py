@@ -1,9 +1,11 @@
 """Bounded Creators API prices; no browser session or invented ASINs."""
 import gzip
 import html
+import http.client
 import json
 import re
 import time
+import zlib
 from datetime import date,datetime, timedelta, timezone
 from decimal import Decimal, InvalidOperation
 from urllib.error import HTTPError, URLError
@@ -896,8 +898,11 @@ def fetch_amazon_image(url):
     request=Request(url,headers={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36'})
     if urlsplit(url).hostname not in COVER_IMAGE_HOSTS:
         raise ValueError('Imagen fuera de las fuentes de cubiertas')
-    with urlopen(request,timeout=30) as response:
-        return response.read(10_000_000)
+    try:
+        with urlopen(request,timeout=30) as response:
+            return response.read(10_000_000)
+    except http.client.HTTPException as exc:
+        raise OSError(f'Imagen de Amazon incompleta: {exc!r}') from exc
 
 
 def fetch_amazon_page(url):
@@ -905,10 +910,15 @@ def fetch_amazon_page(url):
     request=Request(url,headers={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36',
                                  'Accept-Encoding':'gzip','Accept':'*/*'})
     time.sleep(2)
-    with urlopen(request,timeout=30) as response:
-        body=response.read(8_000_000)
-        if response.headers.get('Content-Encoding')=='gzip':
-            body=gzip.decompress(body)
+    # Una respuesta cortada (IncompleteRead, gzip truncado o mayor que el tope) es un fallo de red de ESE libro:
+    # sale como OSError, que los barridos ya tratan libro a libro, y no como EOFError que tumbaba la noche (#1312).
+    try:
+        with urlopen(request,timeout=30) as response:
+            body=response.read(8_000_000)
+            if response.headers.get('Content-Encoding')=='gzip':
+                body=gzip.decompress(body)
+    except (EOFError,http.client.HTTPException,zlib.error) as exc:
+        raise OSError(f'Página de Amazon incompleta: {exc!r}') from exc
     return body.decode('utf-8','replace')
 
 
