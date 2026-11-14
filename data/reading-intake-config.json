@@ -258,8 +258,8 @@
   "amazon_catalogo": {
     "enabled": true,
     "peticiones": 600,
-    "altas": 200,
-    "notes": "Fuente de altas nocturnas: scripts/catalogo_amazon.py (semillas ISBN del sitemap de todostuslibros y novedades por sello en Creators API). Estado entre noches en la rama catalogo-estado (scripts/catalogo_estado.py), guardado solo tras poner los libros a salvo en una rama de datos. altas acota cada PR; la cadena nocturna lanza otro lote mientras entren libros. Sustituye a la ingesta editorial y al radar.",
+    "altas": 1000,
+    "notes": "Fuente de altas nocturnas: scripts/catalogo_amazon.py (semillas ISBN del sitemap de todostuslibros y novedades por sello en Creators API). Estado entre noches en la rama catalogo-estado (scripts/catalogo_estado.py), guardado solo tras poner los libros a salvo en una rama de datos. altas acota cada PR (1000: aplicar cuesta ~0,7 s por libro y el resto de la tanda, build, QA y precios, es fijo; con 200 la noche se iba en tandas casi vacías); la cadena nocturna lanza otro lote mientras entren libros. Sustituye a la ingesta editorial y al radar.",
     "semillas_fechas": {
       "peticiones": 450,
       "adelante": 30,
