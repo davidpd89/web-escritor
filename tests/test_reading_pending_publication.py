@@ -50,6 +50,23 @@ class PendingPublicationTests(unittest.TestCase):
 
         return calls, gh
 
+    def test_external_reviewer_status_does_not_mark_the_batch_red(self):
+        """DeepSource o CodeRabbit en rojo no son la verificación del lote: se publica tal cual."""
+        def status(*args):
+            return json.dumps({'statuses': [{'context': 'DeepSource: Python', 'state': 'failure'},
+                                            {'context': 'CodeRabbit', 'state': 'error'},
+                                            {'context': 'reflow-sitewide', 'state': 'success'}]})
+        with patch.object(publisher.publication, 'gh', side_effect=status):
+            self.assertEqual(publisher.failed_checks('o/r', 's'), [])
+
+    def test_own_failed_status_still_marks_the_batch_red(self):
+        def status(*args):
+            return json.dumps({'statuses': [{'context': 'DeepSource: Python', 'state': 'failure'},
+                                            {'context': 'reading-catalogue-publication', 'state': 'failure'},
+                                            {'context': 'reflow-sitewide', 'state': 'failure'}]})
+        with patch.object(publisher.publication, 'gh', side_effect=status):
+            self.assertEqual(publisher.failed_checks('o/r', 's'), ['reading-catalogue-publication', 'reflow-sitewide'])
+
     def test_current_batch_resumes_without_closing_or_regenerating(self):
         calls, gh = self.check_case(behind=0)
         with patch.object(publisher.publication, 'gh', side_effect=gh), patch.object(publisher, 'run') as run:

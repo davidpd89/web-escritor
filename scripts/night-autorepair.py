@@ -32,6 +32,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import estado_local  # noqa: E402
+import ci_checks  # noqa: E402
 
 # El Programador de tareas ejecuta la copia de origin/main (ver night-autorepair.cmd); el repo vivo se indica aparte.
 REPO = Path(os.environ.get('AUTOREPAIR_REPO') or Path(__file__).resolve().parents[1])
@@ -603,12 +604,10 @@ def pr_atascada(pr: dict, ahora: dt.datetime) -> str:
 
     Antes se esperaba sin límite: una PR con el CI rojo dejaba el flujo en «esperar_pr» para siempre, sin más intentos."""
     edad = ahora - dt.datetime.fromisoformat(pr['createdAt'].replace('Z', '+00:00'))
+    # Solo la CI propia: un revisor externo en rojo (DeepSource, SonarCloud…) no da la PR por perdida.
     checks = pr.get('statusCheckRollup') or []
-    concl = lambda c: (c.get('conclusion') or c.get('state') or '').upper()
-    pendientes = [c for c in checks if (c.get('status') or 'COMPLETED').upper() != 'COMPLETED'
-                  or concl(c) in ('PENDING', 'EXPECTED', '')]
-    rojos = sorted({c.get('name') or c.get('context') or '?' for c in checks
-                    if concl(c) in ('FAILURE', 'ERROR', 'TIMED_OUT', 'STARTUP_FAILURE', 'ACTION_REQUIRED')})
+    pendientes = ci_checks.pendientes(checks)
+    rojos = ci_checks.rojos(checks)
     if rojos and not pendientes and edad > dt.timedelta(minutes=PR_BLOQUEADA_MIN):
         return 'CI rojo en la PR: ' + ', '.join(rojos)[:300]
     if edad > dt.timedelta(hours=PR_CADUCA_H):
