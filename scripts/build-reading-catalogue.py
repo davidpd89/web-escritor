@@ -787,22 +787,6 @@ LANGUAGES = {'es': 'Español', 'ca': 'Català', 'gl': 'Galego', 'eu': 'Euskara',
 NEW_TAB='<span class="visually-hidden"> (otra pestaña)</span>'
 
 
-def newtab(html):
-    """Los enlaces internos del contenido abren pestaña nueva; migas de pan, pie y descargas se quedan igual."""
-    def mark(m):
-        t = m.group(0)
-        if not re.search(r'href="/(?!/)', t) or 'target=' in t or '.ics' in t:
-            return t
-        return t[:-1] + ' target="_blank" rel="noopener">'
-    anchors = lambda chunk: re.sub(r'<a[^>]*>', mark, chunk)
-    keep = re.compile(r'<nav class="book-breadcrumb"[\s\S]*?</nav>|<div class="catalogue-end">[\s\S]*?</div>')
-    out, pos = [], 0
-    for m in keep.finditer(html):
-        out += [anchors(html[pos:m.start()]), m.group(0)]
-        pos = m.end()
-    return ''.join(out + [anchors(html[pos:])])
-
-
 def release_line(b, upcoming=False):
     """«Próximamente · 18 de noviembre de 2026» en la línea superior, sin un bloque aparte."""
     when = publication_date_label(b)
@@ -1203,7 +1187,7 @@ def render_hub(data, books, template, page_number=1):
     if page_number > 1:
         filters = show = sort = upcoming = ''
     static_count = f'Mostrando {offset + 1}–{offset + len(visible_books)} de {len(books)} libros' if books else '0 libros'
-    catalogue = '<section class="catalogue-section" id="catalogo" aria-label="Buscar libros recomendados"><div class="' + ('catalogue-layout' if page_number == 1 else 'catalogue-static-layout') + '">' + filters + '<div class="catalogue-main"><div class="catalogue-results-head"><h2>El catálogo</h2><div class="catalogue-results-controls">' + show + sort + '</div>' + upcoming + '<div class="catalogue-count-line"><p role="status" aria-live="polite" data-catalogue-count>' + static_count + '</p>' + ('<button type="button" class="catalogue-clear-link" data-catalogue-clear hidden>Eliminar filtros</button>' if filters else '') + '</div>' + ('<div class="catalogue-active" data-catalogue-active hidden></div>' if filters else '') + '</div><ul class="catalogue-grid">' + newtab(''.join(cards)) + '</ul>' + catalogue_pager(page_number, page_count) + '<div class="catalogue-empty" data-catalogue-empty' + (' hidden' if books else '') + '><h2>' + ('No hay libros con estos filtros' if books else 'Estamos preparando la selección') + '</h2><p>Prueba con otros filtros o restablece la búsqueda.</p><a class="text-action" href="/cuaderno/#lecturas">Explorar las guías de lectura</a></div><noscript><p>Puedes consultar todas las fichas recorriendo las páginas del catálogo. Los filtros requieren JavaScript.</p></noscript></div></div></section>'
+    catalogue = '<section class="catalogue-section" id="catalogo" aria-label="Buscar libros recomendados"><div class="' + ('catalogue-layout' if page_number == 1 else 'catalogue-static-layout') + '">' + filters + '<div class="catalogue-main"><div class="catalogue-results-head"><h2>El catálogo</h2><div class="catalogue-results-controls">' + show + sort + '</div>' + upcoming + '<div class="catalogue-count-line"><p role="status" aria-live="polite" data-catalogue-count>' + static_count + '</p>' + ('<button type="button" class="catalogue-clear-link" data-catalogue-clear hidden>Eliminar filtros</button>' if filters else '') + '</div>' + ('<div class="catalogue-active" data-catalogue-active hidden></div>' if filters else '') + '</div><ul class="catalogue-grid">' + ''.join(cards) + '</ul>' + catalogue_pager(page_number, page_count) + '<div class="catalogue-empty" data-catalogue-empty' + (' hidden' if books else '') + '><h2>' + ('No hay libros con estos filtros' if books else 'Estamos preparando la selección') + '</h2><p>Prueba con otros filtros o restablece la búsqueda.</p><a class="text-action" href="/cuaderno/#lecturas">Explorar las guías de lectura</a></div><noscript><p>Puedes consultar todas las fichas recorriendo las páginas del catálogo. Los filtros requieren JavaScript.</p></noscript></div></div></section>'
     if page_number > 1:
         catalogue = '<p><a class="text-action" href="/recomendaciones/#catalogo" target="_self">Buscar en todo el catálogo</a></p>' + catalogue
     quiz='<details class="catalogue-quiz"><summary>¿Qué te apetece leer? Haz el test y encuentra tu próximo libro</summary><div class="catalogue-quiz__panel"><p>Puedes recorrer las páginas del catálogo para consultar todas las fichas.</p></div></details>' if books and page_number == 1 else ''
@@ -1352,7 +1336,6 @@ def render_detail_page(template,main,canonical,title,description,schema,b=None):
     if len(title) > 75:
         title = title[:63].rsplit(' ', 1)[0] + ' · ' + hashlib.sha256(canonical.encode()).hexdigest()[:8]
     page=template.replace('{{catalogue}}','')
-    main=newtab(main)
     page=re.sub(r'<main\b[\s\S]*?</main>',lambda _:main,page,count=1)
     page=re.sub(r'<title>.*?</title>',lambda _:'<title>'+esc(title)+'</title>',page,count=1)
     description=description if len(description)<=160 else description[:157].rsplit(' ',1)[0].rstrip('.,;:')+'…'

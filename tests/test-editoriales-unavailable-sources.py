@@ -76,7 +76,7 @@ class UnavailableSourcesTests(unittest.TestCase):
             page=(ROOT/'editoriales'/record['slug']/'index.html').read_text(encoding='utf-8')
             visible=re.sub(r'<script.*?</script>|<style.*?</style>|<[^>]+>',' ',page,flags=re.S)
             with self.subTest(slug=record['slug']):
-                self.assertIsNone(re.search(r'404|página no encontrada|page not found',visible,re.I))
+                self.assertIsNone(re.search(r'\b404\b|página no encontrada|page not found',visible,re.I))
         self.assertGreaterEqual(checked,1)
 
 
