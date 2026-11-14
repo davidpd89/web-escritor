@@ -28,7 +28,7 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 
-from catalogo_amazon import TTL_CARD_LINK, TTL_CATEGORIES, isbn10, isbn13, ttl_listing_url  # noqa: E402
+from catalogo_amazon import MOTIVO_CUPO, TTL_CARD_LINK, TTL_CATEGORIES, isbn10, isbn13, ttl_listing_url  # noqa: E402
 from reading_ttl_source import ttl_publication_date  # noqa: E402
 
 LINK_ISBN = re.compile(r'_([\d-]{13,17})$')
@@ -106,12 +106,13 @@ def clasificar(isbn, publicados, semillas, pendientes, descartados, dia, cuarent
     if cuarentena and isbn in cuarentena:
         return 'en_cuarentena', cuarentena[isbn]
     asin = isbn10(isbn) if isbn.startswith('978') else None
-    if isbn in descartados or (asin and asin in descartados):
-        return 'descartado', descartados.get(isbn) or descartados.get(asin)
+    # Lo activo antes que lo histórico: un descartado que volvió a la cola cuenta como pendiente.
     clave = isbn if isbn in pendientes else asin
     if clave and clave in pendientes:
         motivo = pendientes[clave].get('motivo', '')
-        return ('aplazado_por_cupo' if 'cupo' in motivo else 'pendiente_de_datos'), motivo
+        return ('aplazado_por_cupo' if motivo == MOTIVO_CUPO else 'pendiente_de_datos'), motivo
+    if isbn in descartados or (asin and asin in descartados):
+        return 'descartado', descartados.get(isbn) or descartados.get(asin)
     if isbn in semillas:
         row = semillas[isbn]
         cuando = row.get('siguiente', dia)

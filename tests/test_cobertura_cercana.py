@@ -41,8 +41,13 @@ class LeerListado(unittest.TestCase):
 
     def test_listado_que_repite_pagina_se_corta(self):
         a = '9788400000103'
-        fetch = self.fetch_de([[a], [a], [a]], {a: '14-11-2026'})
+        base, pedidas = self.fetch_de([[a], [a], [a]], {a: '14-11-2026'}), []
+
+        def fetch(url):
+            pedidas.append(url)
+            return base(url)
         self.assertEqual(set(cc.leer_listado(fetch, 'x', 'novedades', 'desc', '2026-11-14', '2026-11-16')), {a})
+        self.assertEqual(sum('/categoria/' in u for u in pedidas), 2)  # la 3 no se pide: la 2 repite la 1
 
 
 class Clasificar(unittest.TestCase):
@@ -63,6 +68,8 @@ class Clasificar(unittest.TestCase):
         isbn = '9791399282313'  # sin ISBN-10: su ASIN es B0…
         pend = cc.pendientes_por_isbn({'B0ABCDEFGH': {'motivo': 'aplazado por cupo de altas', 'isbn13': isbn}})
         self.assertEqual(cc.clasificar(isbn, set(), {}, pend, {}, '2026-11-14')[0], 'aplazado_por_cupo')
+        self.assertEqual(cc.clasificar(isbn, set(), {}, pend, {isbn: 'Amazon no lo tiene'}, '2026-11-14')[0],
+                         'aplazado_por_cupo')  # volvió a la cola: manda lo activo, no el descarte antiguo
         self.assertEqual(cc.clasificar(isbn, set(), {}, {}, {}, '2026-11-14', {isbn: 'sinopsis'}),
                          ('en_cuarentena', 'sinopsis'))
 
