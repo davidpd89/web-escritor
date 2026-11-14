@@ -296,8 +296,10 @@ def refresh(catalogue: dict, existing: dict, provider, *, now: datetime,
                 # request for every remaining ISBN in this daily batch.
                 stats["stopped"] = True
                 break
+    # Solo cambian las valoraciones: el resto del mercado (sales_ranks y lo que venga) se conserva tal cual.
     payload = {
-        "schema_version": 1,
+        **existing,
+        "schema_version": existing.get("schema_version", 1),
         "offers": existing.get("offers", []),
         "ratings": others + [after[i] for i in sorted(after)],
     }

@@ -7,32 +7,49 @@ desde los datos ya fusionados; un conflicto en cualquier otro fichero aborta la 
 
   python scripts/merge-main.py           # fusiona, regenera, comprueba y deja el commit hecho
 """
+import os
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
+import git_estado  # noqa: E402
 import materializar_generados as materializar  # noqa: E402
 
 
 def git(*args, check=True):
-    return subprocess.run(['git', *args], cwd=ROOT, check=check, capture_output=True, text=True, encoding='utf-8')
+    # Rutas literales: un `[` o `*` en el nombre de una ficha no se expande como patrón.
+    return subprocess.run(['git', *args], cwd=ROOT, check=check, capture_output=True, text=True, encoding='utf-8',
+                          env={**os.environ, 'GIT_LITERAL_PATHSPECS': '1'})
+
+
+def nul(*args):
+    """Salida -z de git partida por NUL: rutas con espacios o tildes enteras y sin comillas."""
+    return [item for item in git(*args).stdout.split('\0') if item]
 
 
 def main():
     if git('status', '--porcelain', '--untracked-files=no').stdout.strip():
         raise SystemExit('Hay cambios sin commit; guárdalos antes de fusionar.')
     git('fetch', '-q', 'origin', 'main')
-    if git('merge', '--no-edit', '--no-ff', 'origin/main', check=False).returncode:
-        conflicts = git('diff', '--name-only', '--diff-filter=U').stdout.split()
+    merge = git('merge', '--no-edit', '--no-ff', 'origin/main', check=False)
+    if merge.returncode:
+        conflicts = nul('diff', '--name-only', '-z', '--diff-filter=U')
+        if not conflicts or git('rev-parse', '-q', '--verify', 'MERGE_HEAD', check=False).returncode:
+            # Git se negó antes de fusionar (p. ej. un fichero sin seguimiento ocupa una ruta nueva de main): no hay
+            # conflictos que resolver y seguir dejaría la rama sin main dentro, como si hubiera ido bien (#1312).
+            if git('rev-parse', '-q', '--verify', 'MERGE_HEAD', check=False).returncode == 0:
+                git('merge', '--abort')
+            raise SystemExit('La fusión con origin/main falló sin conflictos que resolver:\n'
+                             + (merge.stderr or merge.stdout).strip())
         manual = [f for f in conflicts if not materializar.generado(f)]
         if manual:
             git('merge', '--abort')
             raise SystemExit('Conflictos en ficheros no generados, resuélvelos a mano: ' + ', '.join(manual))
         stages = {}
-        for line in git('ls-files', '-u').stdout.splitlines():
-            meta, path = line.split('	', 1)
+        for line in nul('ls-files', '-u', '-z'):
+            meta, path = line.split('\t', 1)
             stages.setdefault(path, set()).add(meta.split()[2])
         for f in conflicts:
             # Borrado en un lado y cambiado en el otro (fichas retiradas aquí y retocadas en main, fragmentos de
@@ -45,8 +62,8 @@ def main():
         print(f'{len(conflicts)} conflictos en generados: versión de main, se regeneran.', flush=True)
     materializar.construir(ROOT)
     materializar.comprobar(ROOT, assets=False)
-    git('add', '-A', '--', 'pagefind', 'recomendaciones', 'editoriales', 'editoriales-sitemap.xml', 'mapa-del-sitio',
-        'assets/page-order.generated.js')
+    git_estado.preparar(ROOT, ['pagefind', 'recomendaciones', 'editoriales', 'editoriales-sitemap.xml', 'mapa-del-sitio',
+                               'assets/page-order.generated.js'])
     git('add', '-u')
     staged = git('diff', '--cached', '--quiet', check=False).returncode
     if git('rev-parse', '-q', '--verify', 'MERGE_HEAD', check=False).returncode == 0:
