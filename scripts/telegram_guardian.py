@@ -36,10 +36,20 @@ def cycle_done_or_running(runs: list[dict], now: datetime) -> bool:
 
 
 def gh(*args: str) -> str:
-    return subprocess.run(["gh", *args], check=True, capture_output=True, text=True, timeout=120).stdout
+    return subprocess.run(["gh", *args], check=True, capture_output=True, text=True, timeout=45).stdout
 
 
 def main() -> int:
+    stamp = datetime.now().astimezone().strftime("%Y-%m-%d %H:%M:%S")
+    print(f"[{stamp}] inicio", flush=True)
+    try:
+        return run()
+    except Exception as exc:  # el log debe decir por qué falló (14/11: terminó sin escribir nada)
+        print(f"[{stamp}] ERROR: {type(exc).__name__}: {exc}", flush=True)
+        return 1
+
+
+def run() -> int:
     now = datetime.now().astimezone()
     if now.time() < START_AFTER:
         print("demasiado pronto")
