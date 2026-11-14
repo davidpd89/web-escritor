@@ -68,13 +68,24 @@ def coverage(rows, catalogue, connected, today):
             'editoriales_sin_conector': dict(uncovered.most_common(20))}
 
 
-def missing_isbns(rows, catalogue):
-    """ISBN que faltan y son españoles (978-84, 979-13) o están en castellano según Amazon, de la
-    fecha más reciente a la más antigua."""
+def missing_isbns(rows, catalogue, today=None):
+    """ISBN que faltan y son españoles (978-84, 979-13) o están en castellano según Amazon, por cercanía a hoy:
+    hoy, mañana y pasado; luego el futuro de más cercano a más lejano; luego el pasado de más reciente a más
+    antiguo; los sin fecha al final (la misma regla que `reading_intake_pipeline.cercania`)."""
+    today = today or date.today()
     known = {b.get('isbn13') for b in catalogue.get('libros', [])}
     unique = {r['isbn13']: r for r in rows if (r['isbn13'].startswith(('97884', '97913')) or r.get('castellano'))
               and r['isbn13'] not in known}
-    return [r['isbn13'] for r in sorted(unique.values(), key=lambda r: r['fecha'], reverse=True)]
+
+    def clave(r):
+        try:
+            dias = (date.fromisoformat(r['fecha']) - today).days
+        except (TypeError, ValueError):
+            return (3, 0)
+        if 0 <= dias <= 2:
+            return (0, dias)
+        return (1, dias) if dias > 0 else (2, -dias)
+    return [r['isbn13'] for r in sorted(unique.values(), key=clave)]
 
 
 def children(provider, tag, nodes):
@@ -131,6 +142,6 @@ def run(provider, catalogue, aliases, tag, today=None, pages=10, node=BOOKS_NODE
         pending += [(k, depth + 1) for k in kids]
     full += len(pending)
     if collect is not None:
-        collect.extend(missing_isbns(rows, catalogue))
+        collect.extend(missing_isbns(rows, catalogue, today))
     report = coverage(rows, catalogue, connected_publishers(catalogue, aliases), today or date.today())
     return {**report, 'peticiones': requests, 'nodos_leidos': scanned, 'nodos_sin_cubrir': full}

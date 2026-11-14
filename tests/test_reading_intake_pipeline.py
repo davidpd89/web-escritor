@@ -35,13 +35,15 @@ def document(**changes):
 
 
 class DateOrderTests(unittest.TestCase):
-    def test_upcoming_and_new_books_go_first_then_back_in_time(self):
+    def test_lo_que_sale_ya_va_primero_luego_lo_proximo_y_al_final_lo_publicado(self):
         src = {'id': 'planeta-es', 'provider': 'planeta'}
         other = {'id': 'penguin-es', 'provider': 'penguin'}
-        queue = {'https://a/old': src, 'https://a/soon': src, 'https://a/refresh': src,
-                 'https://b/new-9788400000001': other, 'https://a/broken': src, 'https://a/month': src}
-        dates = {'https://a/old': '2025-03-01', 'https://a/soon': '2027-01-15', 'https://a/refresh': '2024-01-01',
-                 'https://b/new-9788400000001': '2026-10-30', 'https://a/month': '2026-11'}
+        queue = {'https://a/old': src, 'https://a/far': src, 'https://a/refresh': src, 'https://a/tomorrow': src,
+                 'https://b/new-9788400000001': other, 'https://a/broken': src, 'https://a/month': src,
+                 'https://a/next-week': src}
+        dates = {'https://a/old': '2025-03-01', 'https://a/far': '2027-01-15', 'https://a/refresh': '2024-01-01',
+                 'https://a/tomorrow': '2026-11-03', 'https://b/new-9788400000001': '2026-10-30',
+                 'https://a/month': '2026-11', 'https://a/next-week': '2026-11-09'}
         class FakeHTTP:
             requests = hits = 0; budget = 400
             def get(self, url, **kwargs):
@@ -52,9 +54,18 @@ class DateOrderTests(unittest.TestCase):
         with patch.object(pipeline, 'read_edition', lambda source, doc, url: {'fecha_publicacion_edicion': dates[url]}):
             documents = pipeline.read_candidates(queue, {'https://a/refresh'}, FakeHTTP(), 60, set(), {}, {'items': {}}, '2026-11-02')
         self.assertIsInstance(documents['https://a/broken'], OSError)
-        order = [url for url, _ in pipeline.by_date(queue, {'https://a/refresh'}, documents)]
-        self.assertEqual(order, ['https://a/refresh', 'https://a/soon', 'https://a/month', 'https://b/new-9788400000001',
-                                 'https://a/old', 'https://a/broken'])
+        order = [url for url, _ in pipeline.by_date(queue, {'https://a/refresh'}, documents, '2026-11-02')]
+        self.assertEqual(order, ['https://a/refresh', 'https://a/month', 'https://a/tomorrow', 'https://a/next-week',
+                                 'https://a/far', 'https://b/new-9788400000001', 'https://a/old', 'https://a/broken'])
+
+    def test_cercania_de_fechas_incompletas_o_ilegibles(self):
+        hoy = pipeline.date(2026, 11, 2)
+        self.assertEqual(pipeline.cercania('2026-11-04', hoy), (0, 2))
+        self.assertEqual(pipeline.cercania('2026-11-05', hoy), (1, 3))
+        self.assertEqual(pipeline.cercania('2026', hoy), (0, 0))
+        self.assertEqual(pipeline.cercania('2026-10', hoy), (2, 2))
+        self.assertEqual(pipeline.cercania('2026-02-30', hoy), (3, 0))
+        self.assertEqual(pipeline.cercania('', hoy), (3, 0))
 
     def test_reading_leaves_budget_for_covers_and_skips_published_or_waiting(self):
         src = {'id': 'penguin-es', 'provider': 'penguin'}
