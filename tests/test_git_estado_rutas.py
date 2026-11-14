@@ -113,6 +113,20 @@ class RutasTest(unittest.TestCase):
             self.assertEqual(len(staged), 1201)
             self.assertNotIn('a', staged)
 
+    def test_en_commit_y_quitar_del_indice_toman_las_rutas_literales(self):
+        """CodeRabbit en #1319: `a[1].py` como patrón también casa con `a1.py` y lo sacaba del índice."""
+        with tempfile.TemporaryDirectory() as tmp:
+            repo = Path(tmp)
+            git(repo, 'init', '-q')
+            git(repo, 'config', 'user.email', 'qa@example.invalid'); git(repo, 'config', 'user.name', 'qa')
+            (repo / 'a1.py').write_text('1', encoding='utf-8')
+            (repo / 'a[1].py').write_text('2', encoding='utf-8')
+            git(repo, 'add', '-A'); git(repo, 'commit', '-qm', 'base')
+            self.assertEqual(git_estado.en_commit(repo, 'HEAD', ['a[1].py', 'falta.py']), ['a[1].py'])
+            git_estado.quitar_del_indice(repo, ['a[1].py'])
+            quitados = subprocess.check_output(['git', 'diff', '--cached', '--name-status'], cwd=repo, text=True)
+            self.assertEqual(quitados.split(), ['D', 'a[1].py'])
+
     def test_ningun_publicador_prepara_listas_de_rutas_a_mano(self):
         """`git add -- *rutas` falla con borrados ya preparados: las listas van por git_estado.preparar."""
         star = re.compile(r"""['"]add['"],\s*(?:['"]-A['"],\s*)?['"]--['"],\s*\*""")

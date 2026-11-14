@@ -4,6 +4,7 @@
 otro nuevo con HTML parecido) y entrecomilla rutas con espacios o tildes: cortar `línea[3:]` deja rutas que no
 existen y tumba la publicación. Aquí: `-z` (sin comillas) y `--no-renames` (cada lado del renombrado por separado).
 """
+import os
 import subprocess
 
 
@@ -30,7 +31,6 @@ def preparar(cwd, paths, env=None):
     Las rutas van por stdin (`--pathspec-from-file`), literales: miles de fichas no caben en la línea de órdenes
     de Windows (32 767 caracteres, WinError 206), y un `*` o `[` en un nombre no se expande como patrón.
     """
-    import os
     from pathlib import Path
     paths = list(dict.fromkeys(paths))
     if not paths:
@@ -55,16 +55,16 @@ def en_commit(cwd, commit, paths):
     if not paths:
         return []
     out = subprocess.run(['git', 'ls-tree', '-r', '-z', '--name-only', commit, '--', *paths], cwd=cwd,
-                         capture_output=True, check=True).stdout.decode('utf-8', 'surrogateescape')
+                         capture_output=True, check=True, env={**os.environ, 'GIT_LITERAL_PATHSPECS': '1'}
+                         ).stdout.decode('utf-8', 'surrogateescape')
     dentro = {p for p in out.split('\0') if p}
     return [p for p in paths if p in dentro]
 
 
 def quitar_del_indice(cwd, paths, env=None):
     """`git rm --cached` de rutas literales por stdin; no falla si alguna ya no está en el índice."""
-    import os
     if paths:
         subprocess.run(['git', 'rm', '-q', '--cached', '-f', '--ignore-unmatch', '--pathspec-from-file=-',
                         '--pathspec-file-nul'], cwd=cwd, check=True, capture_output=True,
                        input='\0'.join(paths).encode('utf-8', 'surrogateescape'),
-                       env={**os.environ, **(env or {})})
+                       env={**os.environ, **(env or {}), 'GIT_LITERAL_PATHSPECS': '1'})
