@@ -98,23 +98,30 @@ COMMENT_RE = re.compile(r"<!--.*?-->", re.S)
 TAG_RE = re.compile(r"<[^>]+>")
 
 
+def html_visible_chunks(src: str) -> tuple[str, list[tuple[int, int, str]]]:
+    """(fuente limpia, [(posición, línea aproximada, texto que ve el lector)]).
+
+    La fuente limpia conserva las posiciones del HTML salvo comentarios, scripts y estilos, que se vacían: así el
+    contrato previo a la PR de la carga puede ver qué ficha (`data-book-id`, enlace a /libros/) rodea cada trozo."""
+    out: list[tuple[int, int, str]] = []
+    blank = lambda m: re.sub(r"[^\n]", " ", m.group(0))  # mismo largo: las posiciones siguen valiendo
+    cleaned = SCRIPT_STYLE_RE.sub(blank, COMMENT_RE.sub(blank, src))
+    pos, line = 0, 1
+    for m in list(TAG_RE.finditer(cleaned)) + [None]:
+        end = m.start() if m else len(cleaned)
+        chunk = cleaned[pos:end]
+        if chunk.strip():
+            # «Juliette&#x27;s» es «Juliette's», no «Juliette s»
+            out.append((pos, line, html.unescape(chunk)))
+        if m:
+            line += cleaned.count("\n", pos, m.end())
+            pos = m.end()
+    return cleaned, out
+
+
 def html_visible_text(src: str) -> list[tuple[int, str, str]]:
     """Texto que ve el lector, con el numero de linea aproximado."""
-    out: list[tuple[int, str, str]] = []
-    cleaned = COMMENT_RE.sub(lambda m: "\n" * m.group(0).count("\n"), src)
-    cleaned = SCRIPT_STYLE_RE.sub(lambda m: "\n" * m.group(0).count("\n"), cleaned)
-    pos = 0
-    for m in TAG_RE.finditer(cleaned):
-        chunk = cleaned[pos:m.start()]
-        if chunk.strip():
-            clean = html.unescape(chunk)  # «Juliette&#x27;s» es «Juliette's», no «Juliette s»
-            out.append((cleaned[:pos].count("\n") + 1, clean, clean))
-        pos = m.end()
-    tail = cleaned[pos:]
-    if tail.strip():
-        clean = html.unescape(tail)
-        out.append((cleaned[:pos].count("\n") + 1, clean, clean))
-    return out
+    return [(line, text, text) for _, line, text in html_visible_chunks(src)[1]]
 
 
 def js_strings(src: str) -> list[tuple[int, str, str]]:
@@ -212,10 +219,14 @@ def scan(rel: str, path: Path) -> list[tuple[str, int, str, str]]:
     pieces = html_visible_text(src) if path.suffix == ".html" else js_strings(src)
     out = []
     for line, text, context in pieces:
-        for word in sorted(set(w.lower() for w in WORD_RE.findall(text))):
-            if not is_technical_use(text, word, context):
-                out.append((rel, line, word, re.sub(r"\s+", " ", text).strip()))
+        for word in flagged_words(text, context):
+            out.append((rel, line, word, re.sub(r"\s+", " ", text).strip()))
     return out
+
+
+def flagged_words(text: str, context: str = "") -> list[str]:
+    """Palabras sin tilde de un trozo de texto que este comprobador señala."""
+    return [w for w in sorted(set(w.lower() for w in WORD_RE.findall(text))) if not is_technical_use(text, w, context)]
 
 
 def main() -> int:
