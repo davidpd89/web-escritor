@@ -1,20 +1,20 @@
 {
- "generado": "2026-11-13T02:14:08+00:00",
- "publicados": 3631,
+ "generado": "2026-11-14T02:14:47+00:00",
+ "publicados": 3772,
  "secciones": {
   "portadas_tipograficas": {
-   "total": 343,
-   "proximos": 218,
+   "total": 385,
+   "proximos": 219,
    "por_mes": {
     "2027-08": 1,
     "2027-05": 3,
     "2027-04": 7,
     "2027-03": 4,
-    "2027-02": 80,
-    "2027-01": 40,
+    "2027-02": 79,
+    "2027-01": 36,
     "2026-12": 15,
-    "2026-11": 150,
-    "2026-10": 36,
+    "2026-11": 186,
+    "2026-10": 47,
     "2026-09": 1,
     "2026-08": 3,
     "2025-08": 1
@@ -223,11 +223,11 @@
    ]
   },
   "formatos_sin_precio": {
-   "total": 412,
-   "libros": 305,
+   "total": 410,
+   "libros": 303,
    "por_formato": {
     "ebook": 163,
-    "tapa-blanda": 104,
+    "tapa-blanda": 102,
     "audiolibro": 76,
     "tapa-dura": 69
    },
@@ -460,7 +460,7 @@
    ]
   },
   "sin_formatos_de_compra": {
-   "total": 44,
+   "total": 83,
    "muestra": [
     {
      "id": "isbn-9788408326861",
@@ -624,30 +624,30 @@
      "fecha_publicacion": "2026-11-11"
     },
     {
-     "id": "isbn-9788499502724",
-     "titulo": "La Dieta Carton: La alimentación natural que regenera y da vida (CON RECETAS): 39 (SALUD NATURAL)",
-     "isbn13": "9788499502724",
-     "editorial": "Ediciones Librería Argentina (ela)",
-     "fecha_publicacion": "2026-11-02"
-    },
-    {
      "id": "isbn-9791370651305",
      "titulo": "Fiscalidad de la renta fija, la renta variable y la cesión de capitales a terceros. Paso a paso: De los depósitos y los bonos a las acciones: claves ... de productos para inversores particulares",
      "isbn13": "9791370651305",
      "editorial": "Colex",
      "fecha_publicacion": "2026-10-27"
+    },
+    {
+     "id": "isbn-9798890989888",
+     "titulo": "Dulce Navidad / Cozy Christmas: Coloring Book for Adults and Kids (Coco Wyo)",
+     "isbn13": "9798890989888",
+     "editorial": "Bruguera Infantil",
+     "fecha_publicacion": "2026-10-20"
     }
    ]
   },
   "sin_texto": {
-   "total": 361,
-   "proximos": 94,
+   "total": 552,
+   "proximos": 139,
    "por_mes": {
     "2027-02": 1,
     "2027-01": 1,
-    "2026-12": 3,
-    "2026-11": 219,
-    "2026-10": 137
+    "2026-12": 4,
+    "2026-11": 380,
+    "2026-10": 166
    },
    "muestra": [
     {
@@ -833,10 +833,10 @@
   }
  },
  "cambio": {
-  "portadas_tipograficas": 56,
-  "formatos_sin_precio": 61,
-  "sin_formatos_de_compra": 1,
-  "sin_texto": -2033,
+  "portadas_tipograficas": 42,
+  "formatos_sin_precio": -2,
+  "sin_formatos_de_compra": 39,
+  "sin_texto": 191,
   "portada_sin_fichero": 0
  },
  "amazon": {
@@ -846,41 +846,6 @@
   "errores": {},
   "oportunidades": [],
   "sin_portada_en_amazon": [
-   {
-    "id": "isbn-9788419930279",
-    "titulo": "Madres: 20 (Clásicos modernos)",
-    "isbn13": "9788419930279",
-    "editorial": "Caleidoscopio de Libros, S.l.",
-    "fecha_publicacion": "2026-11-13"
-   },
-   {
-    "id": "isbn-9788449602122",
-    "titulo": "Madrid siglo 21: Arquitectura Urbanismo Paisaje",
-    "isbn13": "9788449602122",
-    "editorial": "Tanais.architecta",
-    "fecha_publicacion": "2026-11-13"
-   },
-   {
-    "id": "isbn-9791399155754",
-    "titulo": "El Mago de Oz: 1 (Desafiando a Oz)",
-    "isbn13": "9791399155754",
-    "editorial": "Kabo&bero Ediciones",
-    "fecha_publicacion": "2026-11-13"
-   },
-   {
-    "id": "isbn-9791399308709",
-    "titulo": "Diversos: Antología de relatos - Primer Premio de Relatos ­Fundación Las Fuentes: 1",
-    "isbn13": "9791399308709",
-    "editorial": "Editorial Graviola",
-    "fecha_publicacion": "2026-11-12"
-   },
-   {
-    "id": "isbn-9791399320206",
-    "titulo": "Las baterías del amor",
-    "isbn13": "9791399320206",
-    "editorial": "Nueva Eva",
-    "fecha_publicacion": "2026-11-12"
-   },
    {
     "id": "isbn-9791399178555",
     "titulo": "Bajo la estela de un legado",
@@ -896,11 +861,18 @@
     "fecha_publicacion": "2026-11-14"
    },
    {
-    "id": "isbn-9788419461438",
-    "titulo": "Casos clínicos internacionales en salud de la mujer",
-    "isbn13": "9788419461438",
-    "editorial": "International Marketing & Communication, S.a. (im&c)",
-    "fecha_publicacion": "2026-11-11"
+    "id": "isbn-9788419930279",
+    "titulo": "Madres: 20 (Clásicos modernos)",
+    "isbn13": "9788419930279",
+    "editorial": "Caleidoscopio de Libros, S.l.",
+    "fecha_publicacion": "2026-11-13"
+   },
+   {
+    "id": "isbn-9788449602122",
+    "titulo": "Madrid siglo 21: Arquitectura Urbanismo Paisaje",
+    "isbn13": "9788449602122",
+    "editorial": "Tanais.architecta",
+    "fecha_publicacion": "2026-11-13"
    },
    {
     "id": "isbn-9788410033030",
@@ -931,20 +903,6 @@
     "fecha_publicacion": "2026-11-15"
    },
    {
-    "id": "isbn-9789877713367",
-    "titulo": "El malestar en la cultura del soglo XXI",
-    "isbn13": "9789877713367",
-    "editorial": "Homo Sapiens Argentina",
-    "fecha_publicacion": "2026-11-11"
-   },
-   {
-    "id": "isbn-9791399279115",
-    "titulo": "Un hilo interminable: Principios psíquicos del Trauma Transgeneracional",
-    "isbn13": "9791399279115",
-    "editorial": "Talaiar Edicions",
-    "fecha_publicacion": "2026-11-11"
-   },
-   {
     "id": "isbn-9791399269444",
     "titulo": "El legado del anarquismo negro: 4 (Devenir)",
     "isbn13": "9791399269444",
@@ -966,6 +924,13 @@
     "fecha_publicacion": "2026-11-15"
    },
    {
+    "id": "isbn-9791399155754",
+    "titulo": "El Mago de Oz: 1 (Desafiando a Oz)",
+    "isbn13": "9791399155754",
+    "editorial": "Kabo&bero Ediciones",
+    "fecha_publicacion": "2026-11-13"
+   },
+   {
     "id": "isbn-9791388540035",
     "titulo": "La bruja buena del tiempo",
     "isbn13": "9791388540035",
@@ -973,18 +938,53 @@
     "fecha_publicacion": "2026-11-15"
    },
    {
-    "id": "isbn-9791399129878",
-    "titulo": "Los tristes del Paseo",
-    "isbn13": "9791399129878",
-    "editorial": "Editorial Tleo",
-    "fecha_publicacion": "2026-11-11"
+    "id": "isbn-9788499177908",
+    "titulo": "La virtud de la sensibilidad",
+    "isbn13": "9788499177908",
+    "editorial": "Redbook",
+    "fecha_publicacion": "2026-11-13"
    },
    {
-    "id": "isbn-9786316714107",
-    "titulo": "La elegancia animal",
-    "isbn13": "9786316714107",
-    "editorial": "Cactus",
-    "fecha_publicacion": "2026-11-11"
+    "id": "isbn-9788499177892",
+    "titulo": "La tragedia catara",
+    "isbn13": "9788499177892",
+    "editorial": "Redbook",
+    "fecha_publicacion": "2026-11-13"
+   },
+   {
+    "id": "isbn-9791399308709",
+    "titulo": "Diversos: Antología de relatos - Primer Premio de Relatos ­Fundación Las Fuentes: 1",
+    "isbn13": "9791399308709",
+    "editorial": "Editorial Graviola",
+    "fecha_publicacion": "2026-11-12"
+   },
+   {
+    "id": "isbn-9791399320206",
+    "titulo": "Las baterías del amor",
+    "isbn13": "9791399320206",
+    "editorial": "Nueva Eva",
+    "fecha_publicacion": "2026-11-12"
+   },
+   {
+    "id": "isbn-9788418467172",
+    "titulo": "Destinados a la bienaventuranza: Un estudio tomístico sobre escatología y ética (ESTUDIOS TOMISTAS)",
+    "isbn13": "9788418467172",
+    "editorial": "Ediciones Cor Iesu",
+    "fecha_publicacion": "2026-11-16"
+   },
+   {
+    "id": "isbn-9788419943477",
+    "titulo": "Conservadores que no conservan nada: Carta abierta dirigida al ayuntamiento de Ruan (FUERA DE COLECCIÓN)",
+    "isbn13": "9788419943477",
+    "editorial": "Libros de la Resistencia",
+    "fecha_publicacion": "2026-11-16"
+   },
+   {
+    "id": "isbn-9788419943583",
+    "titulo": "Otra forma de obrar: Textos sobre poesía y poéticas: 52 (Paralajes)",
+    "isbn13": "9788419943583",
+    "editorial": "Libros de la Resistencia",
+    "fecha_publicacion": "2026-11-16"
    }
   ]
  }
