@@ -1,0 +1,52 @@
+# CodeRabbit (gratis en repositorios públicos): solo revisa, nunca hace commits.
+language: es-ES
+early_access: false
+reviews:
+  profile: assertive
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: true
+  sequence_diagrams: false
+  changed_files_summary: false
+  auto_review:
+    enabled: true
+    drafts: false
+    # PR de datos de los robots: miles de páginas generadas, sin código que revisar.
+    ignore_title_keywords:
+      - "Actualizar catálogo de lectura"
+      - "Actualizar artefactos generados"
+      - "chore(social)"
+    # Revisión diaria del código existente (scripts/revision_existente.py): PR contra revision/base-*.
+    base_branches:
+      - "revision/.*"
+  finishing_touches:
+    docstrings:
+      enabled: false
+    unit_tests:
+      enabled: false
+  path_filters:
+    - "!recomendaciones/**"
+    - "!pagefind/**"
+    - "!assets/**"
+    - "!data/reading-*/**"
+    - "!data/*.json"
+    - "!sitemap*.xml"
+    - "!feed*.xml"
+  path_instructions:
+    - path: "**"
+      instructions: >-
+        Sigue .gemini/styleguide.md y la sección «Review guidelines» de AGENTS.md. Solo fallos reales; en español.
+    - path: "scripts/**"
+      instructions: >-
+        Carga nocturna: un libro defectuoso debe ir a cuarentena, nunca tumbar el lote. Rutas de git solo desde
+        scripts/git_estado.py. Cada regla de datos de la CI necesita su contrato tests/test_*_smoke.py que nombre ids.
+    - path: ".github/workflows/**"
+      instructions: >-
+        Horas nocturnas en Europe/Madrid. Reintentos acotados. No disparar CI de más: la cola de Actions es corta.
+    - path: "tests/**"
+      instructions: >-
+        Señala mocks que sustituyen la función que el test dice probar, y tests que pasarían con el fallo original.
+chat:
+  auto_reply: true
