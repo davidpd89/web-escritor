@@ -27,7 +27,8 @@ try {
     const boxes=pick('[data-catalogue-filters] input[data-facet]').filter(b=>!b.closest('label').hidden&&Number(b.closest('label').dataset.count)>0);
     const byFacet={};for(const b of boxes)(byFacet[b.dataset.facet]??=[]).push(b.value);
     const opts=k=>pick(`[data-filter="${k}"] option`).map(o=>o.value).filter(Boolean);
-    const today=new Date().toISOString().slice(0,10), ago=d=>new Date(Date.now()-d*864e5).toISOString().slice(0,10), ahead=d=>new Date(Date.now()+d*864e5).toISOString().slice(0,10);
+    // El «hoy» de la página es el de Madrid (assets/reading-catalogue.js), no el UTC: entre las 22/23 y las 00 UTC difieren.
+    const day=t=>new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Madrid'}).format(new Date(t)), today=day(Date.now()), ago=d=>day(Date.now()-d*864e5), ahead=d=>day(Date.now()+d*864e5);
     const single=[];
     for(const [k,vs] of Object.entries(byFacet)) for(const v of vs) single.push({estado:'todos',[k]:[v]});
     for(const v of opts('paginas')) single.push({paginas:v},{estado:'todos',paginas:v});
@@ -59,7 +60,7 @@ try {
     }
     document.querySelector('[data-filter="q"]').dispatchEvent(new Event('input',{bubbles:true}));
     // Reglas independientes, solo con los data-* publicados. Sin «precio en», el precio se mira en los formatos marcados.
-    const today=new Date().toISOString().slice(0,10);
+    const today=new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Madrid'}).format(new Date());  // el «hoy» de Madrid, como la página
     const bounds=c=>{const p=c.dataset.published,m=c.dataset.publishedMonth,y=c.dataset.year;
       if(p)return[p,p];if(m){const e=new Date(Date.UTC(+m.slice(0,4),+m.slice(5,7),0)).toISOString().slice(0,10);return[m+'-01',e];}if(y)return[y+'-01-01',y+'-12-31'];return['',''];};
     const range=c=>{const n=Number(c.dataset.pages);return !n?'':n<200?'breve':n<400?'media':n<600?'larga':'muy-larga';};

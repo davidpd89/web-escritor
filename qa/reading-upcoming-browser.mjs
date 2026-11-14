@@ -8,7 +8,7 @@ const base = process.env.RECOMMENDATIONS_BASE_URL || 'http://127.0.0.1:4173';
 const limitMs = Number(process.env.UPCOMING_LIMIT_MS || 8000);
 const browser = await chromium.launch({headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? {executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH} : {})});
 const results = [];
-const today = new Date().toISOString().slice(0, 10);
+const today = new Intl.DateTimeFormat('sv-SE', {timeZone: 'Europe/Madrid'}).format(new Date());  // el «hoy» de la página
 
 async function visible(page) {
   return page.$$eval('.catalogue-grid > [data-catalogue-book]:not([hidden])', cards => cards.map(card => ({
