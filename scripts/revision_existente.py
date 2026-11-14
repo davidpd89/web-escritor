@@ -50,7 +50,8 @@ def gh(*args):
 
 def lineas(path):
     try:
-        return sum(1 for _ in (ROOT / path).open(encoding='utf-8', errors='ignore'))
+        with (ROOT / path).open(encoding='utf-8', errors='ignore') as f:
+            return sum(1 for _ in f)
     except OSError:
         return 0
 
@@ -110,27 +111,51 @@ Indica cada fallo con un escenario concreto (entrada → resultado incorrecto). 
 DISPAROS = ('@codex review', '@coderabbitai full review')
 
 
+ESPEJO = '_revision/'
+
+
+def arboles(main, ficheros, nombre):
+    """Commits base y cabeza de la PR de revisión sobre `main`, sin tocar el checkout (índice aparte).
+
+    - Solo cuentan los ficheros que existen en `main`: el grupo sale del checkout local, que puede ir por detrás o
+      por delante (#1314, CodeRabbit); `rm --cached -f --ignore-unmatch` tampoco falla si alguno falta.
+    - El GITHUB_TOKEN no puede empujar commits que cambien `.github/workflows/*` (falta el permiso `workflows`): esos
+      ficheros se quedan en la base y la cabeza los añade como copia en `_revision/<ruta>`, que se lee igual."""
+    en_main = set(p for p in git('ls-tree', '-r', '-z', '--name-only', main, '--', *ficheros).split('\0') if p)
+    ficheros = [f for f in ficheros if f in en_main]
+    if not ficheros:
+        raise SystemExit('Ningún fichero del grupo %s está en main' % nombre)
+    flujos = [f for f in ficheros if f.startswith('.github/workflows/')]
+    resto = [f for f in ficheros if f not in flujos]
+    tmp = tempfile.mkdtemp()
+    try:
+        env = {'GIT_INDEX_FILE': os.path.join(tmp, 'index')}
+        git('read-tree', main, env=env)
+        if resto:
+            git('rm', '-q', '--cached', '-f', '--ignore-unmatch', '--', *resto, env=env)
+        base_arbol = git('write-tree', env=env)
+        git('read-tree', main, env=env)
+        for f in flujos:
+            _, _, blob = git('ls-tree', main, '--', f).split('\t', 1)[0].split()
+            git('update-index', '--add', '--cacheinfo', '100644,%s,%s' % (blob, ESPEJO + f), env=env)
+        cabeza_arbol = git('write-tree', env=env)
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+    base_commit = git('commit-tree', base_arbol, '-p', main, '-m', 'Revisión %s: base sin el grupo %s' % (nombre, SKIP))
+    cabeza_commit = git('commit-tree', cabeza_arbol, '-p', base_commit,
+                        '-m', 'Revisión %s: ficheros completos %s' % (nombre, SKIP))
+    return base_commit, cabeza_commit
+
+
 def abrir(nombre=None, publicar=False):
     nombre, ficheros = elegir(nombre)
     dia = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
-    lista = '\n'.join('- `%s`' % f for f in ficheros)
+    lista = '\n'.join('- `%s`' % f + (' (copia en `%s%s`)' % (ESPEJO, f) if f.startswith('.github/workflows/') else '')
+                      for f in ficheros)
     print('Grupo %s (%d ficheros, %d líneas)' % (nombre, len(ficheros), sum(lineas(f) for f in ficheros)))
     if not publicar:
         print(lista)
         return
-    git('fetch', '-q', 'origin', 'main')
-    main = git('rev-parse', 'origin/main')
-    indice = os.path.join(tempfile.mkdtemp(), 'index')  # índice aparte: no toca el checkout
-    env = {'GIT_INDEX_FILE': indice}
-    try:
-        git('read-tree', main, env=env)
-        git('rm', '-q', '--cached', '--', *ficheros, env=env)
-        arbol = git('write-tree', env=env)
-    finally:
-        shutil.rmtree(os.path.dirname(indice), ignore_errors=True)
-    base_commit = git('commit-tree', arbol, '-p', main, '-m', 'Revisión %s: base sin el grupo %s' % (nombre, SKIP))
-    cabeza_commit = git('commit-tree', main + '^{tree}', '-p', base_commit,
-                        '-m', 'Revisión %s: ficheros completos %s' % (nombre, SKIP))
     base, cabeza = PREFIX + 'base-%s-%s' % (nombre, dia), PREFIX + '%s-%s' % (nombre, dia)
     # Reintento del mismo día: la PR ya existe y `gh pr create` la rechazaría sin completar los disparos que faltan.
     # Se reutiliza sin mover sus ramas (#1314, CodeRabbit).
@@ -138,6 +163,8 @@ def abrir(nombre=None, publicar=False):
     if abierta:
         url, hechos = abierta[0]['url'], {c['body'].strip() for c in abierta[0]['comments']}
     else:
+        git('fetch', '-q', 'origin', 'main')
+        base_commit, cabeza_commit = arboles(git('rev-parse', 'origin/main'), ficheros, nombre)
         git('push', '-q', '--force', 'origin', '%s:refs/heads/%s' % (base_commit, base),
             '%s:refs/heads/%s' % (cabeza_commit, cabeza))
         url, hechos = gh('pr', 'create', '--base', base, '--head', cabeza, '--title',

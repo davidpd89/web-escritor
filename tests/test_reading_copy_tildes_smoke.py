@@ -15,38 +15,52 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 import git_estado  # noqa: E402
+from reading_intake_core import strip_shouting  # noqa: E402
 
 spec = importlib.util.spec_from_file_location('check_copy_tildes_contract', ROOT / 'scripts/check-copy-tildes.py')
 tildes = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(tildes)
 
 
-def strings(value):
+def strings(value, key=None):
+    """(campo, texto) de cada cadena del libro, con el nombre del campo que la contiene."""
     if isinstance(value, str):
-        yield value
+        yield key, value
     elif isinstance(value, dict):
-        for item in value.values():
-            yield from strings(item)
+        for k, item in value.items():
+            yield from strings(item, k)
     elif isinstance(value, list):
         for item in value:
-            yield from strings(item)
+            yield from strings(item, key)
 
 
-def pieces(text):
-    """Párrafos y líneas: el generador los pinta por separado y `scan` decide sobre cada uno, no sobre el campo."""
-    return [p for p in re.split(r'\n+', text) if p.strip()]
+def pieces(key, text):
+    """Los trozos tal como se publican, que es lo que `scan` lee.
+
+    La sinopsis se parte solo por párrafos (dos saltos), como `synopsis_paragraphs` del generador; el resto, por
+    líneas. A cada trozo se le quita además el marketing en mayúsculas como hace el generador: «EN FRANCES
+    ORIGINAL» pasa por técnico en el dato y se publica «en frances original» (#1314, CodeRabbit)."""
+    partes = text.split('\n\n') if key == 'sinopsis_completa' else re.split(r'\n+', text)
+    out = []
+    for parte in (' '.join(p.split()) for p in partes if p.strip()):
+        out.append(parte)
+        limpia = strip_shouting(parte)
+        if limpia != parte:
+            out.append(limpia)
+    return out
 
 
 def culprits(word, books):
     """Libros con la palabra sin tilde en algún texto que no sea técnico (ruta, slug, nombre propio).
 
-    Se decide por párrafo, como `scan`: con «en frances» en un párrafo y «en francés» en otro, mirar el campo
+    Se decide por trozo publicado, como `scan`: con «en frances» en un párrafo y «en francés» en otro, mirar el campo
     entero lo daba por técnico, el libro quedaba sin nombrar y la carga abortaba el lote (#1314, CodeRabbit).
+    Los borradores no se publican: no pueden causar un hallazgo y nombrarlos hacía que `isolate` abortara.
     """
     pattern = re.compile(r'\b' + re.escape(word) + r'\b', re.IGNORECASE)
-    return [b['id'] for b in books
+    return [b['id'] for b in books if b.get('estado') != 'borrador'
             if any(pattern.search(piece) and not tildes.is_technical_use(piece, word)
-                   for text in strings(b) for piece in pieces(text))]
+                   for key, text in strings(b) for piece in pieces(key, text))]
 
 
 def report(found):
@@ -83,6 +97,21 @@ class CulpritRule(unittest.TestCase):
                  {'id': 'isbn-2', 'titulo': 'Cartas', 'autores': ['Frances Burney']},
                  {'id': 'isbn-3', 'titulo': 'Otro', 'url': 'https://x.es/frances-libro'}]
         self.assertEqual(culprits('frances', books), ['isbn-1'])
+
+    def test_shouting_removed_by_the_generator_is_seen(self):
+        books = [{'id': 'isbn-7', 'sinopsis_completa': 'Esta novela cuenta una aventura EN FRANCES ORIGINAL que '
+                                                        'transforma la vida de todos sus protagonistas.'}]
+        self.assertEqual(culprits('frances', books), ['isbn-7'])
+
+    def test_a_draft_does_not_take_the_blame(self):
+        books = [{'id': 'isbn-5', 'estado': 'publicado', 'subtitulo': 'Edición en frances'},
+                 {'id': 'isbn-6', 'estado': 'borrador', 'subtitulo': 'Edición en frances'}]
+        self.assertEqual(culprits('frances', books), ['isbn-5'])
+
+    def test_synopsis_single_line_break_stays_in_one_paragraph(self):
+        books = [{'id': 'isbn-8', 'sinopsis_completa': 'Traducido del francés.\nEdición en frances revisada.'},
+                 {'id': 'isbn-9', 'subtitulo': 'Edición en frances'}]
+        self.assertEqual(culprits('frances', books), ['isbn-9'])
 
     def test_a_correct_paragraph_does_not_hide_a_wrong_one(self):
         books = [{'id': 'isbn-4', 'sinopsis_completa': 'Traducido del francés.\n\nEdición en frances revisada.'}]
