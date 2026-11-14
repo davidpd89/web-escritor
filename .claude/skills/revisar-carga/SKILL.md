@@ -9,6 +9,10 @@ La carga es: API → transformar → subir. Cada cambio pasa estas cuatro puerta
 si falla una; no se fusiona sin el ensayo.
 
 1. **Revisión de código.** `/code-review high` sobre la rama (o pedir a Codex `@codex review` en la PR).
+   En la PR revisan además, gratis y sin hacer commits, Gemini Code Assist (`/gemini review`), CodeRabbit
+   (`@coderabbitai review`) y Codex. Antes de fusionar, leer sus comentarios
+   (`gh pr view <n> --comments` y `gh api repos/{owner}/{repo}/pulls/<n>/comments`) y resolver o descartar
+   razonadamente cada P1/P2.
    Aplicar los hallazgos confirmados. Si un hallazgo dice «el enfoque es frágil», cambiar el enfoque,
    no parchear el síntoma.
 2. **Contratos de datos.** `python scripts/check-reading-data.py --fallos` debe salir vacío. Toda
