@@ -301,7 +301,8 @@ class PrAtascada(unittest.TestCase):
 
     def pr(self, minutos, *checks):
         return {'createdAt': (AHORA - dt.timedelta(minutes=minutos)).isoformat().replace('+00:00', 'Z'),
-                'statusCheckRollup': [{'name': n, 'status': s, 'conclusion': c} for n, s, c in checks]}
+                'statusCheckRollup': [{'__typename': 'CheckRun', 'name': n, 'status': s, 'conclusion': c, 'workflowName': 'CI'}
+                                      for n, s, c in checks]}
 
     def test_rojo_terminado_se_cierra(self):
         self.assertIn('python-tests', na.pr_atascada(self.pr(40, ('python-tests', 'COMPLETED', 'FAILURE'),
@@ -311,6 +312,13 @@ class PrAtascada(unittest.TestCase):
         self.assertEqual(na.pr_atascada(self.pr(40, ('a', 'COMPLETED', 'FAILURE'), ('b', 'IN_PROGRESS', None)), AHORA), '')
         self.assertEqual(na.pr_atascada(self.pr(10, ('a', 'COMPLETED', 'FAILURE')), AHORA), '')
         self.assertEqual(na.pr_atascada(self.pr(60, ('a', 'COMPLETED', 'SUCCESS')), AHORA), '')
+
+    def test_revisor_externo_en_rojo_no_cierra(self):
+        pr = self.pr(40, ('python-tests', 'COMPLETED', 'SUCCESS'))
+        pr['statusCheckRollup'] += [{'__typename': 'StatusContext', 'context': 'DeepSource: Python', 'state': 'FAILURE'},
+                                    {'__typename': 'CheckRun', 'name': 'SonarCloud Code Analysis', 'status': 'COMPLETED',
+                                     'conclusion': 'FAILURE', 'workflowName': ''}]
+        self.assertEqual(na.pr_atascada(pr, AHORA), '')
 
     def test_caduca(self):
         self.assertTrue(na.pr_atascada(self.pr(na.PR_CADUCA_H * 60 + 1, ('b', 'IN_PROGRESS', None)), AHORA))

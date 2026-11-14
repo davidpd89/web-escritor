@@ -192,10 +192,21 @@ def close_proposal(number, comment):
 UNRELATED_WORKFLOWS = ('pro-resources-qa.yml', 'convocatorias-browser-qa.yml')
 
 
+def own_contexts():
+    """Estados que escribe el propio publicador: los únicos que dicen si un lote falló."""
+    return {*publication.REQUIRED_JOBS.values(), 'reading-catalogue-publication'}
+
+
 def failed_checks(repo, sha):
-    """Required jobs the publisher already reported as failed on this exact commit."""
+    """Required jobs the publisher already reported as failed on this exact commit.
+
+    Solo cuentan los estados del publicador. Los revisores externos (DeepSource, CodeRabbit, SonarCloud…) también
+    escriben estados en el commit; uno rojo por un aviso de estilo hacía que un lote verde se cerrara y se
+    regenerara desde cero (14/11, DeepSource: Python «Blocking issues» en una PR sin cambios de Python)."""
     status = json.loads(publication.gh('api', f'repos/{repo}/commits/{sha}/status'))
-    return sorted({s['context'] for s in status.get('statuses', []) if s['state'] in ('failure', 'error')})
+    own = own_contexts()
+    return sorted({s['context'] for s in status.get('statuses', [])
+                   if s['state'] in ('failure', 'error') and s['context'] in own})
 
 
 def run(branch, timeout=5400):

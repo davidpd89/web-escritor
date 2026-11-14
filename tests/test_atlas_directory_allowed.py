@@ -56,10 +56,19 @@ class PendingBotPr(unittest.TestCase):
         return [c for c in calls if c[:2] == ('pr', 'close')]
 
     def test_a_red_check_closes_and_regenerates(self):
-        self.assertTrue(self._refresh('BLOCKED', [{'name': 'check-links', 'conclusion': 'FAILURE'}]))
+        self.assertTrue(self._refresh('BLOCKED', [{'name': 'check-links', 'conclusion': 'FAILURE', 'workflowName': 'Broken links'}]))
+
+    def test_an_external_reviewer_in_red_keeps_the_batch(self):
+        self.assertFalse(self._refresh('BLOCKED', [
+            {'__typename': 'StatusContext', 'context': 'DeepSource: Python', 'state': 'FAILURE'},
+            {'__typename': 'CheckRun', 'name': 'SonarCloud Code Analysis', 'conclusion': 'FAILURE', 'workflowName': ''}]))
+
+    def test_a_failed_status_from_the_publisher_still_counts(self):
+        self.assertTrue(self._refresh('BLOCKED', [
+            {'__typename': 'StatusContext', 'context': 'public-artifact-contract', 'state': 'FAILURE'}]))
 
     def test_a_pr_still_running_is_kept(self):
-        self.assertFalse(self._refresh('BLOCKED', [{'name': 'check-links', 'conclusion': None, 'status': 'IN_PROGRESS'}]))
+        self.assertFalse(self._refresh('BLOCKED', [{'name': 'check-links', 'conclusion': None, 'status': 'IN_PROGRESS', 'workflowName': 'Broken links'}]))
 
     def test_behind_main_closes(self):
         self.assertTrue(self._refresh('BEHIND', []))
