@@ -302,7 +302,7 @@ def amazon_intake(config, publish):
     phase, requests = ('todo', int(settings.get('peticiones', 600))) if publish else ('descargar', 20)
     import catalogo_amazon
     code = catalogo_amazon.main([phase, '--dia', day, '--peticiones', str(requests),
-                          '--altas', str(int(settings.get('altas', 200)))])
+                          '--altas', str(int(settings.get('altas', 1000)))])
     new = sorted(catalogue_ids(catalogue_path.read_bytes()) - before)
     summary = read_json(catalogo_amazon.WORK / f'informe-{day}.json', {})
     if code:
