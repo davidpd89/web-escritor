@@ -36,15 +36,33 @@ class RutasTest(unittest.TestCase):
             self.assertIn(('D ', 'viejo/index.html'), git_estado.entradas(repo))
 
     def test_ningun_publicador_corta_la_salida_de_porcelain(self):
-        """Toda lista de rutas a publicar sale de git_estado, no de `línea[3:]`."""
+        """Toda lista de rutas a publicar sale de git_estado, no de `línea[3:]` ni de `cut -c4-`.
+
+        Cubre comillas simples y dobles, `--porcelain`, `--short` y `-s`, en Python, JS, shell y workflows."""
+        asks = re.compile(r"""[^\n]*(?:--porcelain|--short|['"]status['"],\s*['"]-s['"]|git status -s\b)[^\n]*(?:\n[^\n]*)?""")
         offenders = []
-        for path in (ROOT / 'scripts').rglob('*.py'):
-            text = path.read_text(encoding='utf-8', errors='ignore')
-            # Una sentencia (hasta dos líneas) que pide `status --porcelain` sin -z y corta líneas.
-            for chunk in re.findall(r"[^\n]*'--porcelain'[^\n]*(?:\n[^\n]*)?", text):
-                if '[3:]' in chunk or ('splitlines' in chunk and "'-z'" not in chunk and '.strip()' not in chunk):
-                    offenders.append(f'{path.name}: {chunk.strip()[:80]}')
+        for base in ('scripts', 'qa', '.github'):
+            for path in (ROOT / base).rglob('*'):
+                if path.suffix not in ('.py', '.mjs', '.js', '.sh', '.yml', '.yaml') or path.name == 'git_estado.py':
+                    continue
+                text = path.read_text(encoding='utf-8', errors='ignore')
+                for chunk in asks.findall(text):
+                    cuts = '[3:]' in chunk or 'slice(3)' in chunk or 'cut -c4' in chunk
+                    splits = 'splitlines' in chunk and '-z' not in chunk and '.strip()' not in chunk
+                    if cuts or splits:
+                        offenders.append(f'{path.relative_to(ROOT)}: {chunk.strip()[:90]}')
         self.assertEqual(offenders, [])
+
+    def test_quien_importa_git_estado_se_puede_cargar_con_importlib(self):
+        """14/11: reading-texts.py importaba git_estado sin su carpeta en sys.path y su test, que lo carga con
+        importlib desde tests/, daba ModuleNotFoundError en la puerta de la PR."""
+        missing = []
+        for path in (ROOT / 'scripts').glob('*.py'):
+            text = path.read_text(encoding='utf-8', errors='ignore')
+            at = text.find('\nimport git_estado')
+            if at >= 0 and path.name != 'git_estado.py' and 'sys.path.insert' not in text[:at]:
+                missing.append(path.name)
+        self.assertEqual(missing, [])
 
 
 if __name__ == '__main__':

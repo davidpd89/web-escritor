@@ -626,7 +626,8 @@ def retry_order(rows, day):
             if window[0] <= published <= window[1]:
                 gaps.append((abs((published - today).days), published < today))
         return min(gaps) if gaps else None
-    near = sorted((g for g in groups if distance(g) is not None), key=lambda g: (distance(g), g))
+    gaps = {g: distance(g) for g in groups}
+    near = sorted((g for g in groups if gaps[g] is not None), key=lambda g: (gaps[g], g))
     oldest = sorted(groups, key=lambda g: (min(rows[a].get('siguiente', '') for a in groups[g]),
                                            min(rows[a].get('primera', '') for a in groups[g]), g))
     ordered, seen, olds = [], set(), iter(oldest)

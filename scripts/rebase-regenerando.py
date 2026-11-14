@@ -29,11 +29,10 @@ generado = materializar.generado
 
 
 def clasificar(estado) -> tuple[list[str], list[str]]:
-    """Separa la salida de `git status --porcelain` en (a versionar, sueltos).
+    """Separa las entradas (XY, ruta) de `git_estado.entradas` en (a versionar, sueltos).
 
     Un fichero nuevo solo entra si es generado: informes sueltos (reports/…) que deja un builder no se versionan.
     """
-    estado = [(l[:2], l[3:]) if isinstance(l, str) else l for l in estado]
     cambios = [p for xy, p in estado if xy != '??' or generado(p)]
     sueltos = [p for xy, p in estado if xy == '??' and not generado(p)]
     return cambios, sueltos
