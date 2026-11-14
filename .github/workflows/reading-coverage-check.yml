@@ -1,0 +1,60 @@
+name: Cobertura de hoy, mañana y pasado
+
+# Comprobación independiente de la carga: recorre los listados por fecha de todostuslibros y dice qué libros de
+# hoy, mañana y pasado no están en la web y por qué (cola, cupo, «Amazon no lo tiene»…), con scripts/cobertura_cercana.py.
+# 05:30 UTC: después de la carga de las 00:17 y de sus respaldos. Solo lee; si hay libros sin explicar, abre o
+# actualiza una issue.
+on:
+  schedule:
+    - cron: '30 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: reading-coverage-check
+  cancel-in-progress: false
+
+jobs:
+  cobertura:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+      - name: Estado de la carga
+        run: git fetch --no-tags --filter=blob:none origin catalogo-estado:refs/remotes/origin/catalogo-estado
+      - name: Comprobar cobertura
+        run: python3 scripts/cobertura_cercana.py --salida .ci/reading-intake/cobertura-cercana.json
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: cobertura-cercana
+          path: .ci/reading-intake/cobertura-cercana.json
+          retention-days: 14
+      - name: Issue si hay libros sin explicar
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 - <<'EOF' > /tmp/cuerpo.md
+          import json
+          r = json.load(open('.ci/reading-intake/cobertura-cercana.json', encoding='utf-8'))
+          sin = [d for d in r['fuera'] if d['situacion'] == 'sin_explicar']
+          if sin:
+              print(f"Día {r['dia']}, ventana {r['ventana'][0]} a {r['ventana'][1]}: {r['libros']} libros, cobertura {r['cobertura']}.\n")
+              print(f"Situación: {r['situacion']}\n")
+              print('Sin explicar (ni en la web, ni en la cola, ni pendientes, ni descartados):\n')
+              for d in sin[:50]:
+                  print(f"- {d['isbn13']} ({d['fecha'] or 'sin fecha'}, {d['categoria']})")
+          EOF
+          if [ ! -s /tmp/cuerpo.md ]; then echo "Nada sin explicar."; exit 0; fi
+          titulo='Cobertura: libros de hoy, mañana y pasado sin explicar'
+          n=$(gh issue list --state open --search "\"$titulo\" in:title" --json number -q '.[0].number')
+          if [ -n "$n" ]; then gh issue comment "$n" --body-file /tmp/cuerpo.md; else gh issue create --title "$titulo" --body-file /tmp/cuerpo.md; fi
