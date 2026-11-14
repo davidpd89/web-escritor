@@ -206,21 +206,25 @@ def files():
             yield rel.as_posix(), path
 
 
+def scan(rel: str, path: Path) -> list[tuple[str, int, str, str]]:
+    """(ruta, línea, palabra sin tilde, texto) de un fichero; lo usa también el contrato previo a la PR de la carga."""
+    src = path.read_text(encoding="utf-8", errors="replace")
+    pieces = html_visible_text(src) if path.suffix == ".html" else js_strings(src)
+    out = []
+    for line, text, context in pieces:
+        for word in sorted(set(w.lower() for w in WORD_RE.findall(text))):
+            if not is_technical_use(text, word, context):
+                out.append((rel, line, word, re.sub(r"\s+", " ", text).strip()))
+    return out
+
+
 def main() -> int:
     findings: list[str] = []
     scanned = 0
     for rel, path in files():
-        src = path.read_text(encoding="utf-8", errors="replace")
         scanned += 1
-        pieces = html_visible_text(src) if path.suffix == ".html" else js_strings(src)
-        for line, text, context in pieces:
-            for word in sorted(set(w.lower() for w in WORD_RE.findall(text))):
-                if is_technical_use(text, word, context):
-                    continue
-                snippet = re.sub(r"\s+", " ", text).strip()[:110]
-                findings.append(
-                    f'{rel}:{line}: "{word}" deberia ser "{ACCENTED_FORM[word]}" — {snippet}'
-                )
+        for rel, line, word, text in scan(rel, path):
+            findings.append(f'{rel}:{line}: "{word}" deberia ser "{ACCENTED_FORM[word]}" — {text[:110]}')
 
     if findings:
         print(f"COPY TILDES: FAILED ({len(findings)})")

@@ -43,6 +43,13 @@ def read_live(spreadsheet, token):
 AMAZON_FIELDS = ('formatos_compra', 'precios_amazon_revision', 'formatos_amazon_buscados', 'formatos_pagina_buscados', 'portadas_amazon_buscadas', 'portada_sustituida')
 
 
+def has_intake_record(book, state):
+    """Un libro automático (isbn-*) solo se conserva con su registro «publicado» en el estado de ingesta.
+    La usa también el contrato previo a la PR de la carga (test_reading_sheet_import_smoke)."""
+    evidence = state.get('items', {}).get('isbn13:' + book.get('isbn13', ''), {})
+    return evidence.get('estado_ingesta') == 'publicado' and evidence.get('libro_id') == book['id']
+
+
 def convert(snapshot, review, existing, root):
     sheets = snapshot['sheets']
     if any(tab not in sheets for tab in TABS):
@@ -117,8 +124,7 @@ def convert(snapshot, review, existing, root):
     for book in existing['libros']:
         if not book['id'].startswith('isbn-'):
             continue
-        evidence = state['items'].get('isbn13:' + book.get('isbn13', ''), {})
-        if evidence.get('estado_ingesta') != 'publicado' or evidence.get('libro_id') != book['id']:
+        if not has_intake_record(book, state):
             raise ValueError('Libro automático sin registro de ingesta: ' + book['id'])
         if any(b['id'] == book['id'] for b in data['libros']):
             raise ValueError('La hoja intenta reemplazar un libro editorial: ' + book['id'])
