@@ -236,8 +236,7 @@ class PasoQueConstruyeYComprueba(unittest.TestCase):
             for destino in re.findall(r'\btee (?:-a )?(\S+/)[^/\s]+', cmd):
                 with self.subTest(flow=flow, cmd=cmd):
                     carpeta = destino.rstrip('/')
-                    creadas = [c for linea in re.findall(r'mkdir -p ([^;&|
-]+)', cmd) for c in linea.split()]
+                    creadas = [c for linea in re.findall(r'\bmkdir -p ([^;&|\n]+)', cmd) for c in linea.split()]
                     self.assertIn(carpeta, creadas)
 
 
