@@ -34,6 +34,11 @@ class LeerListado(unittest.TestCase):
         dentro = cc.leer_listado(fetch, 'x', 'proximas_apariciones', 'asc', '2026-11-14', '2026-11-16')
         self.assertEqual(set(dentro), {a, b, c})
 
+    def test_pagina_con_primer_extremo_fuera_va_ficha_a_ficha(self):
+        a, b = '9788400000103', '9788400000202'
+        fetch = self.fetch_de([[a, b]], {a: '15-11-2026', b: '16-11-2026'})
+        self.assertEqual(set(cc.leer_listado(fetch, 'x', 'proximas_apariciones', 'asc', '2026-11-16', '2026-11-18')), {b})
+
     def test_listado_que_repite_pagina_se_corta(self):
         a = '9788400000103'
         fetch = self.fetch_de([[a], [a], [a]], {a: '14-11-2026'})

@@ -62,8 +62,10 @@ def leer_listado(fetch, categoria, modo, orden, desde, hasta):
         if not cartas or cartas == anterior:
             break
         anterior = cartas
+        # La página entera cae dentro solo si sus dos extremos caen dentro (el listado está ordenado por fecha).
         ultima = ttl_publication_date(fetch(cartas[-1][1]) or '')
-        if ultima and desde <= ultima <= hasta:
+        primera = ultima if len(cartas) == 1 else ttl_publication_date(fetch(cartas[0][1]) or '')
+        if ultima and primera and all(desde <= f <= hasta for f in (primera, ultima)):
             dentro.update((isbn, None) for isbn, _ in cartas[:-1])
             dentro[cartas[-1][0]] = ultima
             continue

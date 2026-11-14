@@ -851,6 +851,15 @@ class Pendientes(unittest.TestCase):
             row = json.loads(ca.discarded_path().read_text(encoding='utf-8').splitlines()[-1])
             self.assertEqual(row['isbn13'], '9791399282313')
 
+    def test_secondary_edition_keeps_its_own_isbn13(self):
+        def item(asin, ean):
+            return {'asin': asin, 'itemInfo': {'externalIds': {'eans': {'displayValues': [ean]}}}}
+        record = {'asin': 'B0P', 'isbn13': '9791399282313', 'item': item('B0P', '9791399282313'),
+                  'otras_ediciones': [item('B0S', '9791399090208')]}
+        self.assertEqual(ca.edition_isbn(record, 'B0P'), '9791399282313')
+        self.assertEqual(ca.edition_isbn(record, 'B0S'), '9791399090208')
+        self.assertIsNone(ca.edition_isbn(record, 'B0Z'))
+
     def test_download_asks_due_pending_items_first_in_batches_of_ten(self):
         class Items(FakeProvider):
             def post(self, url, body, headers):

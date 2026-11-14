@@ -577,8 +577,9 @@ def reencolar(day, deferred, rejected, previous=None, pending=None):
     def row_of(record, asin):
         row = pending.get(asin) or dict(previous.get(asin) or {'primera': day, 'intentos': 0})
         row = row | {'grupo': record.get('asin') or asin, 'ruta': list(reversed(record.get('nodos') or record.get('palabras_clave') or []))}
-        if asin == record.get('asin') and record.get('isbn13'):
-            row['isbn13'] = record['isbn13']  # para seguirlo por ISBN (un 979 no se deduce del ASIN)
+        isbn = edition_isbn(record, asin)
+        if isbn:
+            row['isbn13'] = isbn  # para seguirlo por ISBN (un 979 no se deduce del ASIN)
         # Fecha de publicación de la edición: reintentar pide antes los que salen más cerca de hoy.
         published = (record.get('fecha_publicacion_edicion') or '')[:10]
         if re.fullmatch(r'\d{4}-\d{2}-\d{2}', published):
@@ -593,6 +594,17 @@ def reencolar(day, deferred, rejected, previous=None, pending=None):
             schedule(pending, asin, day, 'rechazado al aplicar (ver fallos del día)')
     write_json(pending_path(), pending)
     return len(deferred), len(rejected)
+
+
+def edition_isbn(record, asin):
+    """ISBN-13 de la edición `asin` de un candidato: el suyo propio, nunca el de la edición principal."""
+    if asin == record.get('asin') and record.get('isbn13'):
+        return record['isbn13']
+    for item in [record.get('item'), *record.get('otras_ediciones', [])]:
+        if amazon_dict(item).get('asin') == asin:
+            books = sorted(i for i in item_isbns(item) if i.startswith(('978', '979')))
+            return books[0] if len(books) == 1 else None
+    return None
 
 
 def record_asins(record):
