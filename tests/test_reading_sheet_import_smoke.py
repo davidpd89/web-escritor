@@ -20,16 +20,8 @@ def read(path):
 
 
 def unregistered(catalogue, state):
-    """Libros automáticos (isbn-*) sin su registro «publicado» en el estado de ingesta, como exige la importación."""
-    items = state.get('items', {})
-    out = []
-    for book in catalogue['libros']:
-        if not book['id'].startswith('isbn-'):
-            continue
-        evidence = items.get('isbn13:' + book.get('isbn13', ''), {})
-        if evidence.get('estado_ingesta') != 'publicado' or evidence.get('libro_id') != book['id']:
-            out.append(book['id'])
-    return out
+    """Libros automáticos (isbn-*) sin el registro que exige la importación (misma regla, sheet.has_intake_record)."""
+    return [b['id'] for b in catalogue['libros'] if b['id'].startswith('isbn-') and not sheet.has_intake_record(b, state)]
 
 
 class SheetImportReproducesCatalogue(unittest.TestCase):
@@ -43,7 +35,7 @@ class SheetImportReproducesCatalogue(unittest.TestCase):
         catalogue = read('data/reading-catalogue.json')
         try:
             data, _ = sheet.convert(read('data/reading-sheet-snapshot.json'), read('data/reading-import-review.json'),
-                                    read('data/reading-catalogue.json'), ROOT)
+                                    json.loads(json.dumps(catalogue)), ROOT)
         except ValueError as exc:
             self.fail(str(exc))
         if data != catalogue:
