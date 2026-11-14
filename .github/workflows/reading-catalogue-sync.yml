@@ -1,4 +1,6 @@
 name: Reading catalogue intake
+# Los ensayos llevan su propio nombre: scripts/ci_intake_backup.py no los cuenta como carga publicada.
+run-name: ${{ inputs.dry_run && 'Ensayo sin publicar' || 'Reading catalogue intake' }}
 
 on:
   schedule:

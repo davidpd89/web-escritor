@@ -150,6 +150,22 @@ class PendingPublicationTests(unittest.TestCase):
                         publisher.run(BRANCH)
                 self.assertEqual(bool(posted), marked)
 
+    def test_failure_is_also_marked_on_the_head_after_update_branch(self):
+        """#1312: update-branch mueve la cabeza de H a M; el fallo va también en M, la que valida resume_pending."""
+        posted, heads = [], iter(['h' * 40, 'm' * 40])
+
+        def gh(*args):
+            if args[:2] == ('repo', 'view'):
+                return 'davidpd89/web-escritor'
+            return json.dumps({'number': 674, 'headRefOid': next(heads), 'mergeStateStatus': 'CLEAN'})
+
+        with patch.object(publisher.publication, 'gh', side_effect=gh), \
+             patch.object(publisher.publication, 'publish_generated', side_effect=RuntimeError('content-index failed')), \
+             patch.object(publisher.publication, 'report_job', side_effect=lambda *a: posted.append(a)):
+            with self.assertRaises(RuntimeError):
+                publisher.run(BRANCH)
+        self.assertEqual([a[1] for a in posted], ['h' * 40, 'm' * 40])
+
     def test_human_or_non_generated_work_is_never_closed(self):
         # Un commit firmado por una persona (no por la carga) nunca se cierra ni se regenera, aunque la rama
         # tenga nombre de automatización; tampoco cambios fuera de la política de artefactos generados.

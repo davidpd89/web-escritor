@@ -82,6 +82,8 @@ def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=(), blocke
                     'failure' if name == failure else 'success'},
                 {'databaseId':1,'headSha':'expected-sha','status':'completed','conclusion':'success'},
             ])
+        if args[0] == 'api' and args[1].endswith('...main'):
+            return json.dumps({'ahead_by': 0, 'files': []})  # main no movió entradas de los builders
         if args[:2] == ('pr','merge') and conflict:
             raise subprocess.CalledProcessError(1, ['gh', *args], stderr='Pull request is not mergeable')
         if args[:2] == ('workflow','run'):

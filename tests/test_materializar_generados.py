@@ -165,6 +165,26 @@ class RutasNuevas(unittest.TestCase):
             # Solo intención: el contenido no entra en el índice hasta el `git add` del llamador.
             self.assertEqual(git('diff', '--cached', '--name-only'), '')
 
+    def test_una_ficha_con_tilde_tambien_se_registra(self):
+        """#1312: sin -z git entrecomillaba «niño.html» y la ruta no acababa en .html."""
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            subprocess.run(['git', 'init', '-q'], cwd=root, check=True)
+            (root / 'recomendaciones').mkdir()
+            (root / 'recomendaciones' / 'niño.html').write_text('<p>x</p>', encoding='utf-8')
+            self.assertEqual(mat.registrar_rutas_nuevas(root), ['recomendaciones/niño.html'])
+
+    def test_la_huella_cambia_con_el_html_de_autor(self):
+        """#1312: Pagefind indexa el HTML de autor; si no entra en la huella, asegurar() no reconstruye."""
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            subprocess.run(['git', 'init', '-q'], cwd=root, check=True)
+            (root / 'index.html').write_text('<p>uno</p>', encoding='utf-8')
+            subprocess.run(['git', 'add', 'index.html'], cwd=root, check=True)
+            antes = mat.huella(root)
+            (root / 'index.html').write_text('<p>dos</p>', encoding='utf-8')
+            self.assertNotEqual(mat.huella(root), antes)
+
 
 if __name__ == '__main__':
     unittest.main()
