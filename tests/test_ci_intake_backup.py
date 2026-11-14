@@ -58,12 +58,54 @@ class MainTest(unittest.TestCase):
         self.assertEqual(self.run_main(OSError('down')), 'run=true')
 
     def test_se_excluye_a_si_misma_y_lee_el_job_intake(self):
-        def api(path, token):
+        def api(path, token, timeout=20):
             if '/workflows/' in path:
                 return {'workflow_runs': [{'id': 9, 'status': 'in_progress'}, {'id': 5, 'status': 'completed'}]}
             self.assertIn('/runs/5/jobs', path)
             return {'jobs': [{'name': 'clock', 'conclusion': 'success'}, {'name': 'intake', 'conclusion': 'success'}]}
         self.assertEqual(self.run_main(api), 'run=false')
+
+    def fake(self, runs, jobs):
+        def api(path, token, timeout=20):
+            if '/workflows/' in path:
+                return {'workflow_runs': runs}
+            return {'jobs': jobs[int(path.split('/runs/')[1].split('/')[0])]}
+        return api
+
+    def test_un_ensayo_no_cuenta_como_carga(self):
+        """#1312: un dry_run deja el job intake en verde sin publicar; no puede ceder la noche."""
+        runs = [{'id': 5, 'status': 'completed', 'display_title': backup.DRY_RUN_TITLE, 'head_branch': 'main'}]
+        jobs = {5: [{'name': 'intake', 'conclusion': 'success', 'completed_at': '2026-11-14T00:30:00Z'}]}
+        self.assertEqual(self.run_main(self.fake(runs, jobs)), 'run=true')
+        runs[0].update(display_title='Reading catalogue intake', head_branch='fix/otra')
+        self.assertEqual(self.run_main(self.fake(runs, jobs)), 'run=true')
+
+    def test_dos_relojes_solapados_no_se_ceden_el_paso(self):
+        """#1312: el más antiguo sin decidir bloquea al nuevo, pero el nuevo no bloquea al antiguo."""
+        clock = [{'name': 'clock', 'status': 'in_progress'}]
+        self.assertEqual(self.run_main(self.fake([{'id': 12, 'status': 'in_progress'}], {12: clock})), 'run=true')
+        self.assertEqual(self.run_main(self.fake([{'id': 3, 'status': 'in_progress'}], {3: clock})), 'run=false')
+        # Reloj ya decidido con el intake saltado: no bloquea.
+        done = [{'name': 'clock', 'status': 'completed', 'conclusion': 'success'},
+                {'name': 'intake', 'status': 'completed', 'conclusion': 'skipped'}]
+        self.assertEqual(self.run_main(self.fake([{'id': 3, 'status': 'in_progress'}], {3: done})), 'run=true')
+        # Intake en marcha: bloquea.
+        active = [{'name': 'clock', 'status': 'completed'}, {'name': 'intake', 'status': 'in_progress'}]
+        self.assertEqual(self.run_main(self.fake([{'id': 12, 'status': 'in_progress'}], {12: active})), 'run=false')
+
+    def test_un_reintento_se_ordena_por_cuando_termino(self):
+        """#1312: el reintento de una ejecución vieja conserva su id; manda la última en terminar."""
+        runs = [{'id': 8, 'status': 'completed'}, {'id': 4, 'status': 'completed'}]
+        jobs = {8: [{'name': 'intake', 'conclusion': 'failure', 'completed_at': '2026-11-14T01:00:00Z'}],
+                4: [{'name': 'intake', 'conclusion': 'success', 'completed_at': '2026-11-14T02:00:00Z'}]}
+        self.assertEqual(self.run_main(self.fake(runs, jobs)), 'run=false')
+
+    def test_sin_respuesta_a_tiempo_carga(self):
+        """#1312: sin plazo global, 50 ejecuciones x 20 s superaban los 2 minutos del job."""
+        runs = [{'id': i, 'status': 'completed'} for i in range(1, 6)]
+        clock = iter(range(0, 1000, 30))
+        with mock.patch.object(backup.time, 'monotonic', lambda: next(clock)):
+            self.assertEqual(self.run_main(self.fake(runs, {i: [] for i in range(1, 6)})), 'run=true')
 
     def test_workflow_tiene_respaldos_y_concurrencia_en_el_job(self):
         yaml = (ROOT / '.github/workflows/reading-catalogue-sync.yml').read_text(encoding='utf-8')
