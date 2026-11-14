@@ -443,6 +443,18 @@ class AgenteSinEscritura(unittest.TestCase):
             self.assertNotEqual(agente.returncode, 0)
             self.assertEqual(git('push', '-q', 'origin', 'HEAD:main').returncode, 0)
 
+    def test_el_lanzador_programado_copia_todos_los_modulos_locales(self):
+        """Codex/CodeRabbit en #1322: el .cmd solo copiaba night-autorepair.py y un import local nuevo
+        (ci_checks) tumbaba la vigilancia programada con ModuleNotFoundError."""
+        import re
+        scripts = Path(__file__).resolve().parents[1] / 'scripts'
+        fuente = (scripts / 'night-autorepair.py').read_text(encoding='utf-8')
+        locales = {m for m in re.findall(r'^(?:import|from) (\w+)', fuente, re.M) if (scripts / f'{m}.py').exists()}
+        lanzador = (scripts / 'night-autorepair.cmd').read_text(encoding='utf-8')
+        copiados = set(re.search(r'for %%M in \(([^)]*)\)', lanzador).group(1).split())
+        self.assertTrue(locales)
+        self.assertLessEqual(locales | {'night-autorepair'}, copiados)
+
     def test_gh_queda_sin_sesion(self):
         env = na.sin_escritura(Path(tempfile.mkdtemp()) / 'gh')
         self.assertEqual(env['GH_TOKEN'], '')
