@@ -22,6 +22,8 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'scripts'))
+import git_estado  # noqa: E402
 PREFIX = 'revision/'
 MAX_LINEAS = 1800
 SKIP = '[skip ci]'
@@ -121,8 +123,7 @@ def arboles(main, ficheros, nombre):
       por delante (#1314, CodeRabbit); `rm --cached -f --ignore-unmatch` tampoco falla si alguno falta.
     - El GITHUB_TOKEN no puede empujar commits que cambien `.github/workflows/*` (falta el permiso `workflows`): esos
       ficheros se quedan en la base y la cabeza los añade como copia en `_revision/<ruta>`, que se lee igual."""
-    en_main = set(p for p in git('ls-tree', '-r', '-z', '--name-only', main, '--', *ficheros).split('\0') if p)
-    ficheros = [f for f in ficheros if f in en_main]
+    ficheros = git_estado.en_commit(ROOT, main, ficheros)
     if not ficheros:
         raise SystemExit('Ningún fichero del grupo %s está en main' % nombre)
     flujos = [f for f in ficheros if f.startswith('.github/workflows/')]
@@ -132,7 +133,7 @@ def arboles(main, ficheros, nombre):
         env = {'GIT_INDEX_FILE': os.path.join(tmp, 'index')}
         git('read-tree', main, env=env)
         if resto:
-            git('rm', '-q', '--cached', '-f', '--ignore-unmatch', '--', *resto, env=env)
+            git_estado.quitar_del_indice(ROOT, resto, env=env)
         base_arbol = git('write-tree', env=env)
         git('read-tree', main, env=env)
         for f in flujos:

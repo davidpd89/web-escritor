@@ -3,8 +3,15 @@
 12/11 (#43155412537): `check-copy-tildes.py` solo corría en la CI de la PR y tumbó el lote por «frances» en
 recomendaciones/pagina/10. repair_title_accents ya repara los campos de prosa; este contrato es la red para
 cualquier otro campo que acabe en una página. Escanea solo los ficheros cambiados (el repo entero tarda 95 s) y
-nombra los libros cuyo texto contiene la palabra señalada: la carga los aparta y publica el resto.
+nombra los libros culpables: la carga los aparta y publica el resto.
+
+El culpable sale del HTML publicado, no de imitar al generador: cada trozo señalado pertenece a la ficha que lo
+rodea (`data-book-id` de la tarjeta, enlace a /recomendaciones/libros/<slug>/, o la propia página del libro).
+Imitar a mano cómo publica el generador fallaba de tres formas (#1319, Codex y CodeRabbit): la tarjeta recorta la
+sinopsis, `sinopsis_breve` se publica con las líneas unidas y los nombres no pasan por `strip_shouting`.
+El cotejo por texto queda solo para trozos fuera de toda ficha (JS, cabeceras).
 """
+import bisect
 import importlib.util
 import json
 import re
@@ -21,6 +28,13 @@ spec = importlib.util.spec_from_file_location('check_copy_tildes_contract', ROOT
 tildes = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(tildes)
 
+BOOK_PAGE = re.compile(r'(?:^|/)recomendaciones/libros/([^/]+)/')
+BOOK_MARK = re.compile(r'data-book-id="([^"]+)"|href="(?:https?://[^"/]+)?/recomendaciones/libros/([^"/#?]+)/')
+# Nombres propios: el generador no les quita las mayúsculas («Frances DE LA TOUR» se publica tal cual).
+NAME_FIELDS = {'autores', 'autor', 'editorial', 'sello', 'coleccion', 'traductores', 'ilustradores'}
+# Campos que se publican en un solo párrafo aunque el dato traiga saltos de línea.
+JOINED_FIELDS = {'sinopsis_breve', 'descripcion_breve'}
+
 
 def strings(value, key=None):
     """(campo, texto) de cada cadena del libro, con el nombre del campo que la contiene."""
@@ -35,32 +49,73 @@ def strings(value, key=None):
 
 
 def pieces(key, text):
-    """Los trozos tal como se publican, que es lo que `scan` lee.
-
-    La sinopsis se parte solo por párrafos (dos saltos), como `synopsis_paragraphs` del generador; el resto, por
-    líneas. A cada trozo se le quita además el marketing en mayúsculas como hace el generador: «EN FRANCES
-    ORIGINAL» pasa por técnico en el dato y se publica «en frances original» (#1314, CodeRabbit)."""
+    """Trozos de un campo para el cotejo por texto (solo fuera de fichas): por párrafos o líneas, el campo entero
+    unido, y la versión sin marketing en mayúsculas salvo en los nombres."""
     partes = text.split('\n\n') if key == 'sinopsis_completa' else re.split(r'\n+', text)
+    candidatos = [' '.join(p.split()) for p in partes if p.strip()]
+    if key in JOINED_FIELDS:
+        candidatos.append(' '.join(text.split()))
     out = []
-    for parte in (' '.join(p.split()) for p in partes if p.strip()):
+    for parte in dict.fromkeys(candidatos):
         out.append(parte)
-        limpia = strip_shouting(parte)
-        if limpia != parte:
-            out.append(limpia)
+        if key not in NAME_FIELDS and strip_shouting(parte) != parte:
+            out.append(strip_shouting(parte))
     return out
 
 
-def culprits(word, books):
-    """Libros con la palabra sin tilde en algún texto que no sea técnico (ruta, slug, nombre propio).
+def published(books):
+    return [b for b in books if b.get('estado') != 'borrador']
 
-    Se decide por trozo publicado, como `scan`: con «en frances» en un párrafo y «en francés» en otro, mirar el campo
-    entero lo daba por técnico, el libro quedaba sin nombrar y la carga abortaba el lote (#1314, CodeRabbit).
-    Los borradores no se publican: no pueden causar un hallazgo y nombrarlos hacía que `isolate` abortara.
-    """
+
+def culprits(word, books):
+    """Cotejo por texto: libros con la palabra sin tilde en algún trozo que no sea técnico.
+
+    Los borradores no se publican: no pueden causar un hallazgo y nombrarlos hacía que `isolate` abortara."""
     pattern = re.compile(r'\b' + re.escape(word) + r'\b', re.IGNORECASE)
-    return [b['id'] for b in books if b.get('estado') != 'borrador'
+    return [b['id'] for b in published(books)
             if any(pattern.search(piece) and not tildes.is_technical_use(piece, word)
                    for key, text in strings(b) for piece in pieces(key, text))]
+
+
+def mentions(book, word):
+    """El libro contiene la palabra en algún dato, en cualquier forma: basta para confirmar una ficha."""
+    pattern = re.compile(r'\b' + re.escape(word) + r'\b', re.IGNORECASE)
+    return any(pattern.search(text) for _, text in strings(book))
+
+
+def marks(cleaned, by_slug):
+    """[(posición, id)] de cada ficha o enlace a una ficha en el HTML publicado."""
+    out = []
+    for m in BOOK_MARK.finditer(cleaned):
+        book_id = m.group(1) or by_slug.get(m.group(2))
+        if book_id:
+            out.append((m.start(), book_id))
+    return out
+
+
+def html_culprits(rel, src, books):
+    """[(línea, palabra, texto, ids)] de una página: ids = la ficha que rodea cada trozo señalado."""
+    by_id = {b['id']: b for b in published(books)}
+    by_slug = {b['slug']: b['id'] for b in by_id.values() if b.get('slug')}
+    cleaned, chunks = tildes.html_visible_chunks(src)
+    found = marks(cleaned, by_slug)
+    positions = [p for p, _ in found]
+    page = BOOK_PAGE.search(rel)
+    own = by_slug.get(page.group(1)) if page else None
+    out = []
+    for pos, line, text in chunks:
+        for word in tildes.flagged_words(text, text):
+            i = bisect.bisect_right(positions, pos) - 1
+            owner = found[i][1] if i >= 0 else own
+            if owner in by_id and mentions(by_id[owner], word):
+                ids = [owner]
+            else:
+                # Fuera de toda ficha, o la ficha no tiene la palabra: cotejo por texto entre los libros de la
+                # página (o todos, si no enlaza ninguno).
+                local = {b for _, b in found} | ({own} if own else set())
+                ids = culprits(word, [by_id[b] for b in local if b in by_id] or books)
+            out.append((line, word, re.sub(r'\s+', ' ', text).strip(), ids))
+    return out
 
 
 def report(found):
@@ -71,6 +126,10 @@ def report(found):
     return '\n'.join(['Libros: ' + ' '.join(ids), *found[:40]] + ([f'… y {len(found) - 40} más'] if len(found) > 40 else []))
 
 
+def line_of(rel, line, word, text, ids):
+    return f'{rel}:{line}: «{word}» sin tilde en {" ".join(ids) or "ningún libro"} — {text[:110]}'
+
+
 def findings(root, books):
     out = []
     for rel in git_estado.rutas(root):
@@ -79,8 +138,12 @@ def findings(root, books):
             continue
         if any(part in tildes.SKIP_PARTS for part in Path(rel).parts):
             continue
-        for rel, line, word, text in tildes.scan(rel, path):
-            out.append(f'{rel}:{line}: «{word}» sin tilde en {" ".join(culprits(word, books)) or "ningún libro"} — {text[:110]}')
+        if rel.endswith('.html'):
+            src = path.read_text(encoding='utf-8', errors='replace')
+            out += [line_of(rel, *hit) for hit in html_culprits(rel, src, books)]
+        else:
+            out += [line_of(rel, line, word, text, culprits(word, books))
+                    for rel, line, word, text in tildes.scan(rel, path)]
     return out
 
 
@@ -89,6 +152,64 @@ class CopyTildesInChangedFiles(unittest.TestCase):
         books = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))['libros']
         found = findings(ROOT, books)
         self.assertEqual(found, [], report(found))
+
+
+def card(book_id, text):
+    return f'<article data-book-id="{book_id}"><h3>Título</h3><p>{text}</p></article>'
+
+
+class CulpritFromPublishedPage(unittest.TestCase):
+    def test_truncated_card_names_its_book(self):
+        """Codex P1: «francés» quedaba después del corte de la tarjeta; por el dato completo parecía técnico."""
+        sinopsis = 'Edición en frances revisada. ' + 'x ' * 120 + 'Traducido del francés.'
+        books = [{'id': 'isbn-1', 'slug': 'uno-1', 'sinopsis_completa': sinopsis},
+                 {'id': 'isbn-2', 'slug': 'dos-2', 'sinopsis_completa': 'Otra novela.'}]
+        page = card('isbn-2', 'Otra novela.') + card('isbn-1', 'Edición en frances revisada. x x x…')
+        hits = html_culprits('recomendaciones/pagina/2/index.html', page, books)
+        self.assertEqual([(w, ids) for _, w, _, ids in hits], [('frances', ['isbn-1'])])
+
+    def test_short_synopsis_published_with_lines_joined(self):
+        """CodeRabbit: `sinopsis_breve` se publica en un párrafo; partirla por líneas inventaba o perdía culpables."""
+        books = [{'id': 'isbn-3', 'slug': 'tres-3', 'sinopsis_breve': 'Traducción del\nfrances antiguo.'}]
+        page = card('isbn-3', 'Traducción del frances antiguo.')
+        hits = html_culprits('recomendaciones/index.html', page, books)
+        self.assertEqual([ids for *_, ids in hits], [['isbn-3']])
+        self.assertEqual(culprits('frances', books), ['isbn-3'])
+
+    def test_author_name_is_not_shouting_stripped(self):
+        """CodeRabbit: «Frances DE LA TOUR» se publica tal cual; quitarle mayúsculas lo convertía en culpable."""
+        books = [{'id': 'isbn-4', 'slug': 'cuatro-4', 'autores': ['Frances DE LA TOUR']},
+                 {'id': 'isbn-5', 'slug': 'cinco-5', 'subtitulo': 'Edición en frances'}]
+        self.assertEqual(culprits('frances', books), ['isbn-5'])
+        page = card('isbn-4', 'Frances DE LA TOUR') + card('isbn-5', 'Edición en frances')
+        hits = html_culprits('recomendaciones/pagina/3/index.html', page, books)
+        self.assertEqual([ids for *_, ids in hits], [['isbn-5']])
+
+    def test_link_to_the_book_page_marks_the_card(self):
+        books = [{'id': 'isbn-6', 'slug': 'seis-6', 'subtitulo': 'Edición en frances'}]
+        page = '<li><a href="/recomendaciones/libros/seis-6/">Seis</a> <span>Edición en frances</span></li>'
+        hits = html_culprits('recomendaciones/editoriales/x/index.html', page, books)
+        self.assertEqual([ids for *_, ids in hits], [['isbn-6']])
+
+    def test_book_page_owns_text_before_any_card(self):
+        books = [{'id': 'isbn-7', 'slug': 'siete-7', 'sinopsis_completa': 'Edición en frances.'},
+                 {'id': 'isbn-8', 'slug': 'ocho-8', 'titulo': 'Ocho'}]
+        page = '<main><p>Edición en frances.</p>' + card('isbn-8', 'Ocho') + '</main>'
+        hits = html_culprits('recomendaciones/libros/siete-7/index.html', page, books)
+        self.assertEqual([ids for *_, ids in hits], [['isbn-7']])
+
+    def test_header_text_falls_back_to_the_books_on_the_page(self):
+        books = [{'id': 'isbn-9', 'slug': 'nueve-9', 'subtitulo': 'Edición en frances'},
+                 {'id': 'isbn-10', 'slug': 'diez-10', 'subtitulo': 'Edición en frances'}]
+        page = '<h1>Edición en frances</h1>' + card('isbn-9', 'Nueve')
+        hits = html_culprits('recomendaciones/pagina/4/index.html', page, books)
+        self.assertEqual([ids for *_, ids in hits], [['isbn-9']])
+
+    def test_line_numbers_match_the_checker(self):
+        page = '<p>uno</p>\n<!-- a\nb -->\n<script>\nx\n</script>\n<p>Edición en frances</p>'
+        self.assertEqual([line for line, *_ in html_culprits('a/index.html', page, [])],
+                         [line for line, text, _ in tildes.html_visible_text(page) if 'frances' in text])
+        self.assertEqual([line for line, *_ in html_culprits('a/index.html', page, [])], [7])
 
 
 class CulpritRule(unittest.TestCase):
