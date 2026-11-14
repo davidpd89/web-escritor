@@ -69,6 +69,9 @@ def node_modules_satisfies_lock(modules, lock):
             continue
         if installed.get(name, {}).get('version') != meta['version']:
             return False
+        # La copia de npm no basta: un paquete borrado después dejaba npx sin pagefind (#1312, CodeRabbit).
+        if name.startswith('node_modules/') and not (modules.parent / name / 'package.json').is_file():
+            return False
     return True
 
 
@@ -192,10 +195,21 @@ def close_proposal(number, comment):
 UNRELATED_WORKFLOWS = ('pro-resources-qa.yml', 'convocatorias-browser-qa.yml')
 
 
+def own_contexts():
+    """Estados que escribe el propio publicador: los únicos que dicen si un lote falló."""
+    return {*publication.REQUIRED_JOBS.values(), 'reading-catalogue-publication'}
+
+
 def failed_checks(repo, sha):
-    """Required jobs the publisher already reported as failed on this exact commit."""
+    """Required jobs the publisher already reported as failed on this exact commit.
+
+    Solo cuentan los estados del publicador. Los revisores externos (DeepSource, CodeRabbit, SonarCloud…) también
+    escriben estados en el commit; uno rojo por un aviso de estilo hacía que un lote verde se cerrara y se
+    regenerara desde cero (14/11, DeepSource: Python «Blocking issues» en una PR sin cambios de Python)."""
     status = json.loads(publication.gh('api', f'repos/{repo}/commits/{sha}/status'))
-    return sorted({s['context'] for s in status.get('statuses', []) if s['state'] in ('failure', 'error')})
+    own = own_contexts()
+    return sorted({s['context'] for s in status.get('statuses', [])
+                   if s['state'] in ('failure', 'error') and s['context'] in own})
 
 
 def run(branch, timeout=5400):
@@ -217,9 +231,17 @@ def run(branch, timeout=5400):
         raise
     except RuntimeError as exc:
         # Leave the failure on the commit so the next batch regenerates instead of retesting it.
+        # update-branch mueve la cabeza: el fallo va también en la que validó publish_generated, o el siguiente
+        # resume_pending no lo ve y repite la misma CI en vez de regenerar (#1312, CodeRabbit).
         repo = publication.gh('repo', 'view', '--json', 'nameWithOwner', '--jq', '.nameWithOwner')
-        publication.report_job(repo, pr['headRefOid'], 'reading-catalogue-publication', 'failure',
-                               f'https://github.com/{repo}/pull/{pr["number"]}')
+        heads = [pr['headRefOid']]
+        try:
+            heads.append(json.loads(publication.gh('pr', 'view', branch, '--json', 'headRefOid'))['headRefOid'])
+        except (subprocess.CalledProcessError, ValueError, KeyError, TypeError):
+            pass
+        for head in dict.fromkeys(heads):
+            publication.report_job(repo, head, 'reading-catalogue-publication', 'failure',
+                                   f'https://github.com/{repo}/pull/{pr["number"]}')
         raise
 
 

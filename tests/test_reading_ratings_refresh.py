@@ -149,6 +149,15 @@ class GoogleRatingsTests(unittest.TestCase):
         self.assertEqual(result["ratings"], [old])
         self.assertEqual(stats["updated"], 0)
 
+    def test_refresh_keeps_sales_ranks_and_other_market_keys(self):
+        """#1312 (CodeRabbit): el payload se rehacía con offers+ratings y borraba sales_ranks cada noche."""
+        ranks = [{"libro_id": "lib-0001", "puesto": 3, "caduca_en": "2026-10-28T00:00:00Z"}]
+        market = {"schema_version": 1, "offers": [], "ratings": [], "sales_ranks": ranks, "otro": {"x": 1}}
+        result, _ = ratings.refresh({"libros": BOOKS}, market, lambda isbn: {"items": []},
+            now=datetime(2026,10,21,tzinfo=timezone.utc), budget=2)
+        self.assertEqual(result["sales_ranks"], ranks)
+        self.assertEqual(result["otro"], {"x": 1})
+
     def test_unrated_books_are_queued_before_rated_ones(self):
         rated = {"libro_id": "lib-0001", "fuente": "google_books",
                  "puntuacion": 4.2, "numero_valoraciones": 16,

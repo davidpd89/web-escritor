@@ -4,6 +4,7 @@
 otro nuevo con HTML parecido) y entrecomilla rutas con espacios o tildes: cortar `línea[3:]` deja rutas que no
 existen y tumba la publicación. Aquí: `-z` (sin comillas) y `--no-renames` (cada lado del renombrado por separado).
 """
+import os
 import subprocess
 
 
@@ -30,7 +31,6 @@ def preparar(cwd, paths, env=None):
     Las rutas van por stdin (`--pathspec-from-file`), literales: miles de fichas no caben en la línea de órdenes
     de Windows (32 767 caracteres, WinError 206), y un `*` o `[` en un nombre no se expande como patrón.
     """
-    import os
     from pathlib import Path
     paths = list(dict.fromkeys(paths))
     if not paths:
@@ -42,9 +42,67 @@ def preparar(cwd, paths, env=None):
         known.add(tracked)
         parts = tracked.split('/')
         dirs.update('/'.join(parts[:i]) for i in range(1, len(parts)))
-    keep = [p for p in paths if (Path(cwd) / p).exists() or p.rstrip('/') in known or p.rstrip('/') in dirs]
+    # lexists: un enlace simbólico colgante existe para git aunque su destino no (Codex, #1315).
+    keep = [p for p in paths if os.path.lexists(Path(cwd) / p) or p.rstrip('/') in known or p.rstrip('/') in dirs]
     if keep:
         subprocess.run(['git', 'add', '-A', '--pathspec-from-file=-', '--pathspec-file-nul'], cwd=cwd, check=True,
                        input='\0'.join(keep).encode('utf-8', 'surrogateescape'),
                        env={**(env or os.environ), 'GIT_LITERAL_PATHSPECS': '1'})
     return keep
+
+
+def foto(cwd, *pathspec):
+    """{ruta: bytes, o None si está borrada} de lo cambiado frente a HEAD: el punto al que vuelve `restaurar`."""
+    from pathlib import Path
+    salida = {}
+    for path in rutas(cwd, *pathspec):
+        f = Path(cwd) / path
+        salida[path] = f.read_bytes() if f.is_file() else None
+    return salida
+
+
+def restaurar(cwd, antes, *pathspec):
+    """Deshace lo escrito desde `foto(cwd, *pathspec)` sin tocar lo que ya había: un paso que falla a medias
+    (precios, portadas) no se lleva por delante lo que dejó el paso anterior (las altas de la noche)."""
+    import os
+    from pathlib import Path
+    ahora = rutas(cwd, *pathspec)
+    volver = [p for p in ahora if p not in antes]
+    if volver:
+        arbol = subprocess.run(['git', 'ls-tree', '-r', '-z', '--name-only', 'HEAD'], cwd=cwd, capture_output=True,
+                               check=True).stdout.decode('utf-8', 'surrogateescape')
+        en_head = set(filter(None, arbol.split('\0')))
+        for path in (p for p in volver if p not in en_head):
+            (Path(cwd) / path).unlink(missing_ok=True)
+        desde_head = [p for p in volver if p in en_head]
+        if desde_head:
+            subprocess.run(['git', 'checkout', 'HEAD', '--pathspec-from-file=-', '--pathspec-file-nul'], cwd=cwd,
+                           check=True, input='\0'.join(desde_head).encode('utf-8', 'surrogateescape'),
+                           env={**os.environ, 'GIT_LITERAL_PATHSPECS': '1'})
+    for path, contenido in antes.items():
+        f = Path(cwd) / path
+        if contenido is None:
+            f.unlink(missing_ok=True)
+        elif not f.is_file() or f.read_bytes() != contenido:
+            f.parent.mkdir(parents=True, exist_ok=True)
+            f.write_bytes(contenido)
+
+
+def en_commit(cwd, commit, paths):
+    """Las rutas de `paths` que existen en `commit` (ls-tree -z: sin comillas ni cortes de columna)."""
+    if not paths:
+        return []
+    out = subprocess.run(['git', 'ls-tree', '-r', '-z', '--name-only', commit, '--', *paths], cwd=cwd,
+                         capture_output=True, check=True, env={**os.environ, 'GIT_LITERAL_PATHSPECS': '1'}
+                         ).stdout.decode('utf-8', 'surrogateescape')
+    dentro = {p for p in out.split('\0') if p}
+    return [p for p in paths if p in dentro]
+
+
+def quitar_del_indice(cwd, paths, env=None):
+    """`git rm --cached` de rutas literales por stdin; no falla si alguna ya no está en el índice."""
+    if paths:
+        subprocess.run(['git', 'rm', '-q', '--cached', '-f', '--ignore-unmatch', '--pathspec-from-file=-',
+                        '--pathspec-file-nul'], cwd=cwd, check=True, capture_output=True,
+                       input='\0'.join(paths).encode('utf-8', 'surrogateescape'),
+                       env={**os.environ, **(env or {}), 'GIT_LITERAL_PATHSPECS': '1'})

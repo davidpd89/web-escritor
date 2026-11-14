@@ -13,6 +13,7 @@ on:
       - 'data/navigation.json'
       - 'scripts/build-*.py'
       - 'scripts/site_shell.py'
+      - 'scripts/pa11y_urls.py'
       - '.github/workflows/pa11y-baseline.yml'
   workflow_dispatch:
 
@@ -28,7 +29,8 @@ jobs:
   pa11y-shard:
     name: pa11y shard ${{ matrix.shard }}/4
     runs-on: ubuntu-24.04
-    # El sitemap completo (~1140 URL) tardaba 33 min en un solo job; repartido en 4, cada shard audita ~285.
+    # El sitemap completo (~1140 URL) tardaba 33 min en un solo job y con 5.160 URL (14/11) cada uno de los 4 shards
+    # agotaba los 30 min. La vía completa audita las páginas sueltas y una muestra rotatoria de cada plantilla.
     timeout-minutes: 30
     strategy:
       fail-fast: false
@@ -54,7 +56,7 @@ jobs:
             echo "relevant=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          if git diff --name-only "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}"             | grep -qE '\.html$|^assets/.*\.(css|js|mjs)$|^data/(content-registry|navigation)\.json$|^scripts/build-[^/]*\.py$|^scripts/site_shell\.py$|^\.pa11yci$|^sitemap\.xml$|^\.github/workflows/pa11y-baseline\.yml$'; then
+          if git diff --name-only "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}"             | grep -qE '\.html$|^assets/.*\.(css|js|mjs)$|^data/(content-registry|navigation)\.json$|^scripts/build-[^/]*\.py$|^scripts/site_shell\.py$|^scripts/pa11y_urls\.py$|^\.pa11yci$|^sitemap\.xml$|^\.github/workflows/pa11y-baseline\.yml$'; then
             echo "relevant=true" >> "$GITHUB_OUTPUT"
           else
             echo "relevant=false" >> "$GITHUB_OUTPUT"
@@ -120,7 +122,7 @@ jobs:
           cat /tmp/web-escritor-http.log
           exit 1
 
-      - name: Audit every URL in the sitemap
+      - name: Audit the sitemap
         if: steps.scope.outputs.run == 'true'
         id: pa11y
         shell: bash
@@ -131,8 +133,9 @@ jobs:
             ROUTES='${{ steps.lane.outputs.routes }}' python3 -c "import json, os; c = json.load(open('.pa11yci')); c['urls'] = ['http://127.0.0.1:4173' + r for r in os.environ['ROUTES'].split(',') if r]; json.dump(c, open('/tmp/pa11y-content.json', 'w'))"
             pa11y-ci --config /tmp/pa11y-content.json 2>&1 | tee pa11y-baseline.txt
           else
-            # Una de cada 4 URL del sitemap, a 4 páginas a la vez (los vCPU del runner).
-            SHARD=${{ matrix.shard }} python3 -c "import json, os, re; c = json.load(open('.pa11yci')); urls = re.findall(r'<loc>https://davidportodiaz\.com([^<]*)</loc>', open('sitemap.xml', encoding='utf-8').read()); c['concurrency'] = 4; c['urls'] = ['http://127.0.0.1:4173' + u for i, u in enumerate(urls) if i % 4 == int(os.environ['SHARD'])]; json.dump(c, open('/tmp/pa11y-full.json', 'w')); print(len(c['urls']), 'URL en este shard')"
+            # Páginas sueltas siempre y una muestra rotatoria de cada familia de plantilla (scripts/pa11y_urls.py),
+            # repartidas en 4 shards a 4 páginas a la vez (los vCPU del runner).
+            python3 scripts/pa11y_urls.py --shard ${{ matrix.shard }} --shards 4 --dia ${{ github.run_number }} --out /tmp/pa11y-full.json
             pa11y-ci --config /tmp/pa11y-full.json 2>&1 | tee pa11y-baseline.txt
           fi
           status=${PIPESTATUS[0]}

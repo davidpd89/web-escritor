@@ -65,6 +65,58 @@ class IntakeFailure(unittest.TestCase):
         calls.market.assert_called_once()
         calls.guardar.assert_called_once()
 
+    def test_failed_market_keeps_the_intake_and_fails_visibly(self):
+        """#1312 (CodeRabbit): una excepción en market_refresh salía antes de save_checkpoint y perdía las altas."""
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            git = lambda *a: subprocess.run(['git', *a], cwd=root, check=True, capture_output=True)
+            git('init', '-q'); git('config', 'user.email', 't@t'); git('config', 'user.name', 't')
+            (root / 'data').mkdir(); (root / 'assets/reading-covers').mkdir(parents=True)
+            catalogue, market = root / 'data/reading-catalogue.json', root / 'assets/reading-market.json'
+            catalogue.write_text('[]\n'); market.write_text('{"precios": 0}\n')
+            (root / 'assets/reading-covers/vieja.webp').write_bytes(b'vieja')
+            git('add', '.'); git('commit', '-qm', 'base')
+
+            def intake(config, publish):
+                catalogue.write_text('["alta"]\n')
+                (root / 'assets/reading-covers/alta.webp').write_bytes(b'alta')
+                return {'new_books': ['alta'], 'updated_books': [], 'stats': {'accepted': 1}}
+
+            def market_boom(config):
+                catalogue.write_text('["alta", "precio a medias"]\n')
+                market.write_text('{"precios": 1}\n')
+                (root / 'assets/reading-covers/precio.webp').write_bytes(b'precio')
+                (root / 'assets/reading-covers/vieja.webp').unlink()
+                raise TimeoutError('Creators API')
+
+            calls = MagicMock()
+            config = {'autopublish': True, 'amazon_catalogo': {'enabled': True}}
+            with patch.object(refresh, 'ROOT', root), \
+                 patch.object(refresh, 'read_json', return_value=config), \
+                 patch.object(refresh.subprocess, 'check_output', return_value=''), \
+                 patch.object(refresh.publisher.publication, 'gh', return_value='[]'), \
+                 patch.object(refresh, 'checkpoints', return_value=[]), \
+                 patch.object(refresh, 'amazon_intake', side_effect=intake), \
+                 patch.object(refresh, 'write_if_changed'), \
+                 patch.object(refresh, 'market_refresh', side_effect=market_boom), \
+                 patch.object(refresh, 'follow_main'), \
+                 patch.object(refresh, 'save_checkpoint', calls.save), \
+                 patch.object(refresh, 'health_report'), \
+                 patch.object(refresh.estado, 'guardar', calls.guardar), \
+                 patch.object(refresh, 'assemble', calls.assemble):
+                with self.assertRaises(RuntimeError) as raised:
+                    refresh.refresh(publish=True)
+            self.assertIsInstance(raised.exception.__cause__, TimeoutError)
+            self.assertEqual(catalogue.read_text(), '["alta"]\n')
+            self.assertEqual(market.read_text(), '{"precios": 0}\n')
+            self.assertTrue((root / 'assets/reading-covers/alta.webp').exists())
+            self.assertTrue((root / 'assets/reading-covers/vieja.webp').exists())
+            self.assertFalse((root / 'assets/reading-covers/precio.webp').exists())
+            calls.save.assert_called_once()
+            calls.guardar.assert_called_once()
+            self.assertEqual(calls.assemble.call_args.args[0]['new_books'], ['alta'])
+            self.assertFalse(calls.assemble.call_args.kwargs['changed'])
+
     def test_discard_reverts_tracked_and_removes_new_files_only_in_intake_paths(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

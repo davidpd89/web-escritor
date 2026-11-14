@@ -101,6 +101,10 @@ with tempfile.TemporaryDirectory() as tmp:
     assert not m.node_modules_satisfies_lock(nm, lock), 'node_modules vacío no debe pasar por bueno'
     # Instalado en la versión del lockfile: satisface (falte o no el binario opcional de plataforma).
     marker.write_text(json.dumps(_marker('1.6.0')), encoding='utf-8')
+    # #1312: la copia de npm dice 1.6.0 pero el paquete ya no está en disco: npx caería sin pagefind.
+    assert not m.node_modules_satisfies_lock(nm, lock), 'un paquete borrado no debe pasar por instalado'
+    (nm / 'pagefind').mkdir()
+    (nm / 'pagefind' / 'package.json').write_text('{}', encoding='utf-8')
     assert m.node_modules_satisfies_lock(nm, lock)
     marker.write_text(json.dumps(_marker('1.6.0', with_platform=False)), encoding='utf-8')
     assert m.node_modules_satisfies_lock(nm, lock), 'un opcional de otra plataforma no debe exigirse'

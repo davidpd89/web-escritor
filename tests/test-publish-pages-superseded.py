@@ -16,7 +16,7 @@ module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 
 
-def scenario(later_conclusion, later_contains=True, exact_conclusion='cancelled'):
+def scenario(later_conclusion, later_contains=True, exact_conclusion='cancelled', exact_present=True, main_files=()):
     def gh(*args):
         if args[:2] == ('repo', 'view'):
             return 'owner/repo'
@@ -28,11 +28,14 @@ def scenario(later_conclusion, later_contains=True, exact_conclusion='cancelled'
             return json.dumps({'number': 1, 'headRefOid': 'head', 'baseRefName': 'main', 'baseRefOid': 'base', 'state': 'OPEN'})
         if args[:2] == ('pr', 'merge') or args[:2] == ('workflow', 'run'):
             return ''
+        if args[0] == 'api' and args[1].endswith('/compare/head...main'):
+            return json.dumps({'ahead_by': len(main_files), 'files': [{'filename': f} for f in main_files]})
         if args[:2] == ('run', 'list'):
             exact = {'databaseId': 10, 'headSha': 'merged-sha', 'status': 'completed', 'conclusion': exact_conclusion}
+            listed = [exact] if exact_present else []
             if '--event' in args:  # sondeo del deploy exacto disparado por la publicación
-                return json.dumps([exact] if 'databaseId,headSha,status,conclusion' in args else [{'databaseId': 1}])
-            return json.dumps([exact,
+                return json.dumps(listed if 'databaseId,headSha,status,conclusion' in args else [{'databaseId': 1}])
+            return json.dumps([*listed,
                                {'databaseId': 12, 'headSha': 'newer-sha', 'status': 'completed', 'conclusion': later_conclusion},
                                {'databaseId': 11, 'headSha': 'other-sha', 'status': 'completed', 'conclusion': 'success'}])
         if args[0] == 'api' and '/compare/merged-sha...' in args[1]:
@@ -64,5 +67,26 @@ with patch.object(module.time, 'monotonic', lambda: next(clock)):
         pass
     else:
         raise AssertionError('un deploy que no contiene el merge no puede validar la publicación')
+
+# #1312: main avanzó antes del dispatch y no hay run con el SHA exacto: vale el deploy que contiene el merge.
+scenario('success', exact_present=False)
+clock = iter(range(0, 10**6, 60))
+with patch.object(module.time, 'monotonic', lambda: next(clock)):
+    try:
+        scenario('success', later_contains=False, exact_present=False)
+    except TimeoutError:
+        pass
+    else:
+        raise AssertionError('sin run exacto, un deploy que no contiene el merge no valida la publicación')
+
+# #1312: main cambió datos de los builders durante la CI: no se fusionan artefactos viejos.
+for files, stale in ((('redes-sociales/social-metrics.json',), False), (('data/reading-catalogue.json',), True),
+                     (('index.html',), True), (('pagefind/x.pf_meta',), True)):
+    try:
+        scenario('success', main_files=files)
+    except module.StaleMerge:
+        assert stale, files
+    else:
+        assert not stale, f'{files} debía regenerar'
 
 print('PASS Pages cancelado por concurrencia sigue al deploy posterior que contiene el merge')

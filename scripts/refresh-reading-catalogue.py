@@ -248,7 +248,18 @@ def refresh(*, publish=False):
     print(json.dumps(report['stats'], ensure_ascii=True), flush=True)
     if not publish:
         return
-    changed = market_refresh(config)
+    # Un fallo de precios o portadas (API caída, respuesta rara de un libro) no puede llevarse las altas: antes
+    # tumbaba la carga antes de save_checkpoint y la noche se perdía. Se deshace solo lo escrito por el mercado.
+    antes = git_estado.foto(ROOT, *SOURCE_PATHS)
+    market_failure = None
+    try:
+        changed = market_refresh(config)
+    except Exception as exc:  # noqa: BLE001
+        market_failure = exc
+        print(f'::error::Precios y portadas fallidos ({type(exc).__name__}: {exc}); se deshacen y siguen las altas',
+              flush=True)
+        git_estado.restaurar(ROOT, antes, *SOURCE_PATHS)
+        changed = False
     follow_main()
     day = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
     saved = save_checkpoint(day)
@@ -260,6 +271,8 @@ def refresh(*, publish=False):
     result = assemble(report, changed=changed, checkpoint=saved)
     if failure:
         raise RuntimeError('Las altas de Amazon fallaron; precios y portadas sí se publicaron') from failure
+    if market_failure:
+        raise RuntimeError('Precios y portadas fallaron; las altas sí se publicaron') from market_failure
     return result
 
 
@@ -302,7 +315,7 @@ def amazon_intake(config, publish):
     phase, requests = ('todo', int(settings.get('peticiones', 600))) if publish else ('descargar', 20)
     import catalogo_amazon
     code = catalogo_amazon.main([phase, '--dia', day, '--peticiones', str(requests),
-                          '--altas', str(int(settings.get('altas', 200)))])
+                          '--altas', str(int(settings.get('altas', 1000)))])
     new = sorted(catalogue_ids(catalogue_path.read_bytes()) - before)
     summary = read_json(catalogo_amazon.WORK / f'informe-{day}.json', {})
     if code:
@@ -471,7 +484,9 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
     def registrar(_root):
         git_estado.preparar(ROOT, [*staged, 'assets/pinterest/feeds'])
     flagged = {}
-    for _ in range(3):
+    # Sin tope de rondas: cada vuelta o pasa, o para (no nombra libros nuevos), o aparta al menos un libro más;
+    # con 1000 altas por tanda caben más de 3 tandas de problemas encadenados, y el catálogo es finito.
+    while True:
         # Misma cadena que rebase-regenerando y merge-main (scripts/materializar_generados.py).
         materializar.construir(ROOT, antes_de_indexar=registrar)
         materializar.comprobar(ROOT, assets=False)
@@ -487,8 +502,6 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
         quarantined = reading_quarantine.apply(ROOT, flagged=flagged)
         released = held_before - {h['libro']['id'] for h in quarantined}
         drop_orphan_pages(quarantined)
-    else:
-        raise RuntimeError('check-reading-data sigue fallando tras apartar libros en 3 rondas')
     command('git', 'diff', '--check')
     paths = git_estado.rutas(ROOT)
     if not paths or any(not publisher.allowed_path(p) for p in paths):

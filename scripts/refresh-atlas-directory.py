@@ -12,6 +12,7 @@ from zoneinfo import ZoneInfo
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # módulos hermanos también al cargarlo con importlib
 import git_estado
+import ci_checks
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('publication', ROOT / 'scripts/publish-radar-refresh.py')
@@ -43,8 +44,9 @@ def refresh(*, publish=False):
         info = json.loads(publication.gh('pr', 'view', branch, '--json', 'number,mergeStateStatus,author,statusCheckRollup'))
         # Detrás de main o con un check en rojo (2026-11-09: webs muertas en broken-links): conservarla bloquea cada
         # sincronización siguiente; se cierra y se regenera con los datos y el código de hoy.
-        failed = any((c.get('conclusion') or c.get('state')) in {'FAILURE', 'TIMED_OUT', 'ERROR'}
-                     for c in info.get('statusCheckRollup') or [])
+        # Solo la CI propia y los estados del publicador: un revisor externo en rojo no tira el lote.
+        failed = bool(ci_checks.rojos(info.get('statusCheckRollup'), publication.REQUIRED_JOBS.values(),
+                                      rojo={'FAILURE', 'TIMED_OUT', 'ERROR'}))
         stale = info.get('mergeStateStatus') in {'DIRTY', 'BEHIND'} or failed
         by_bot = info['author'].get('is_bot') and info['author'].get('login') == 'app/github-actions'
         if not (stale and by_bot):

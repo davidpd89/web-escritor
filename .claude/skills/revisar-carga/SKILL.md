@@ -15,10 +15,10 @@ si falla una; no se fusiona sin el ensayo.
    razonadamente cada P1/P2.
    Aplicar los hallazgos confirmados. Si un hallazgo dice «el enfoque es frágil», cambiar el enfoque,
    no parchear el síntoma.
-2. **Contratos de datos.** `python scripts/check-reading-data.py --fallos` debe salir vacío. Toda
-   comprobación que corra en la CI de la PR sobre datos de libros debe existir también como contrato
-   (`tests/test_*_smoke.py` o `test_market_*.py`) que **nombre los ids** de los libros que fallan, para que
-   `assemble` los aparte en vez de tumbar el lote.
+2. **Contratos de datos.** `python scripts/check-reading-data.py --fallos <ruta.json>` debe salir con código 0
+   y dejar en `<ruta.json>` una lista vacía (`[]`). Toda comprobación que corra en la CI de la PR sobre datos de
+   libros debe existir también como contrato `tests/test_*_smoke.py` que **nombre los ids** de los libros que
+   fallan, para que `assemble` los aparte en vez de tumbar el lote (un `test_market_*.py` no lo sustituye).
 3. **CI local.** `python scripts/local-ci.py --baseline`. Solo cuentan los fallos nuevos frente a main.
 4. **Ensayo real.** Tras subir la rama:
    `gh workflow run reading-catalogue-sync.yml --ref <rama> -f dry_run=true`

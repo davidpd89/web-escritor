@@ -92,6 +92,19 @@ class RutasTest(unittest.TestCase):
             self.assertEqual(sorted(staged.splitlines()),
                              ['A	rec/nuevo/index.html', 'D	rec/otro/index.html', 'D	rec/viejo/index.html'])
 
+    def test_preparar_incluye_un_enlace_simbolico_colgante(self):
+        """Codex en #1315: `exists()` sigue el enlace; uno colgante se omitía sin prepararse."""
+        with tempfile.TemporaryDirectory() as tmp:
+            repo = Path(tmp)
+            git(repo, 'init', '-q')
+            try:
+                (repo / 'enlace').symlink_to('no-esta')
+            except OSError:
+                self.skipTest('sin permiso para crear enlaces simbólicos')
+            git_estado.preparar(repo, ['enlace'])
+            staged = subprocess.check_output(['git', 'diff', '--cached', '--name-only'], cwd=repo, text=True)
+            self.assertEqual(staged.split(), ['enlace'])
+
     def test_preparar_miles_de_rutas_y_nombres_con_comodines(self):
         """Codex en #1312: miles de rutas en argv superan los 32 767 caracteres de Windows (WinError 206).
         Y `[ab]` no debe arrastrar otros ficheros como patrón."""
@@ -112,6 +125,20 @@ class RutasTest(unittest.TestCase):
             staged = subprocess.check_output(['git', 'diff', '--cached', '--name-only'], cwd=repo, text=True).splitlines()
             self.assertEqual(len(staged), 1201)
             self.assertNotIn('a', staged)
+
+    def test_en_commit_y_quitar_del_indice_toman_las_rutas_literales(self):
+        """CodeRabbit en #1319: `a[1].py` como patrón también casa con `a1.py` y lo sacaba del índice."""
+        with tempfile.TemporaryDirectory() as tmp:
+            repo = Path(tmp)
+            git(repo, 'init', '-q')
+            git(repo, 'config', 'user.email', 'qa@example.invalid'); git(repo, 'config', 'user.name', 'qa')
+            (repo / 'a1.py').write_text('1', encoding='utf-8')
+            (repo / 'a[1].py').write_text('2', encoding='utf-8')
+            git(repo, 'add', '-A'); git(repo, 'commit', '-qm', 'base')
+            self.assertEqual(git_estado.en_commit(repo, 'HEAD', ['a[1].py', 'falta.py']), ['a[1].py'])
+            git_estado.quitar_del_indice(repo, ['a[1].py'])
+            quitados = subprocess.check_output(['git', 'diff', '--cached', '--name-status'], cwd=repo, text=True)
+            self.assertEqual(quitados.split(), ['D', 'a[1].py'])
 
     def test_ningun_publicador_prepara_listas_de_rutas_a_mano(self):
         """`git add -- *rutas` falla con borrados ya preparados: las listas van por git_estado.preparar."""

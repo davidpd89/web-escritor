@@ -7,12 +7,17 @@ Explicit workflow_dispatch is supported by that token and needs no PAT.
 from __future__ import annotations
 
 import argparse
+import fnmatch
 import json
 import os
 import subprocess
 import sys
 import time
 from datetime import datetime
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import materializar_generados as materializar  # noqa: E402
 
 STALE_EXIT_CODE = 75  # EX_TEMPFAIL: main avanzó durante la CI; regenerar desde main
 
@@ -126,6 +131,29 @@ def superseding_pages(repo, merged_sha, after_id):
 CARGA = ('reading-catalogue-sync.yml',)
 
 
+def entrada_de_builders(path):
+    """Ruta que alimenta (o es) lo generado: si main la cambió, los artefactos de la PR ya no la reflejan."""
+    return materializar.generado(path) or any(fnmatch.fnmatch(path, patron) or fnmatch.fnmatch(path, patron.replace('**/', ''))
+                                              for patron in materializar.FUENTES)
+
+
+def main_cambio_entradas(repo, sha):
+    """Entradas de los builders que main cambió desde la base de la PR; vacío si la PR está al día.
+
+    main no exige ramas al día (strict desactivado: reiniciaba la CI de todas las PR abiertas), así que GitHub
+    fusiona sin conflicto artefactos construidos con datos viejos (#1312, CodeRabbit). Solo cuentan las entradas
+    de los builders: una instantánea de redes que entra a diario no obliga a regenerar.
+    """
+    data = json.loads(gh('api', f'repos/{repo}/compare/{sha}...main'))
+    if not data.get('ahead_by'):
+        return []
+    # Un renombrado cuenta por los dos nombres: retirar una página generada (index.html -> .bak) también la cambia.
+    files = [name for item in data.get('files', []) for name in (item['filename'], item.get('previous_filename')) if name]
+    if len(data.get('files', [])) >= 300:  # la API trunca la lista: no se puede descartar nada
+        return files[:5] + ['…']
+    return [f for f in files if entrada_de_builders(f)]
+
+
 def esperar_escritores(ceder_a, deadline, poll=60):
     propio = os.environ.get('GITHUB_RUN_ID', '')
     while True:
@@ -233,6 +261,10 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
             time.sleep(30)
 
     esperar_escritores(ceder_a, deadline)
+    movidas = main_cambio_entradas(repo, sha)
+    if movidas:
+        raise StaleMerge(f'main cambió entradas de lo generado durante la CI de #{pr["number"]} '
+                         f'({", ".join(movidas[:5])}); se regenera desde main')
     # A concurrent edit or newer main must pass normal branch rules too.
     # No --admin or bypass; every reported success above has real job evidence.
     try:
@@ -264,7 +296,9 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
             if followed is None:
                 runs = json.loads(gh('run', 'list', '--workflow', 'deploy-pages.yml', '--event', 'workflow_dispatch', '--limit', '100', '--json', 'databaseId,headSha,status,conclusion'))
                 exact = [r for r in runs if r['databaseId'] not in before_ids and r['headSha'] == merged_sha]
-                current = exact[0] if exact else None
+                # `--ref main` despacha desde la punta: si main avanzó tras la fusión no hay run con el SHA exacto, y
+                # vale un deploy posterior que contenga el merge (#1312, Codex y CodeRabbit).
+                current = exact[0] if exact else superseding_pages(repo, merged_sha, max(before_ids, default=0))
             else:
                 current = superseding_pages(repo, merged_sha, followed)
             if current and current['status'] == 'completed':

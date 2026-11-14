@@ -301,7 +301,8 @@ class PrAtascada(unittest.TestCase):
 
     def pr(self, minutos, *checks):
         return {'createdAt': (AHORA - dt.timedelta(minutes=minutos)).isoformat().replace('+00:00', 'Z'),
-                'statusCheckRollup': [{'name': n, 'status': s, 'conclusion': c} for n, s, c in checks]}
+                'statusCheckRollup': [{'__typename': 'CheckRun', 'name': n, 'status': s, 'conclusion': c, 'workflowName': 'CI'}
+                                      for n, s, c in checks]}
 
     def test_rojo_terminado_se_cierra(self):
         self.assertIn('python-tests', na.pr_atascada(self.pr(40, ('python-tests', 'COMPLETED', 'FAILURE'),
@@ -311,6 +312,13 @@ class PrAtascada(unittest.TestCase):
         self.assertEqual(na.pr_atascada(self.pr(40, ('a', 'COMPLETED', 'FAILURE'), ('b', 'IN_PROGRESS', None)), AHORA), '')
         self.assertEqual(na.pr_atascada(self.pr(10, ('a', 'COMPLETED', 'FAILURE')), AHORA), '')
         self.assertEqual(na.pr_atascada(self.pr(60, ('a', 'COMPLETED', 'SUCCESS')), AHORA), '')
+
+    def test_revisor_externo_en_rojo_no_cierra(self):
+        pr = self.pr(40, ('python-tests', 'COMPLETED', 'SUCCESS'))
+        pr['statusCheckRollup'] += [{'__typename': 'StatusContext', 'context': 'DeepSource: Python', 'state': 'FAILURE'},
+                                    {'__typename': 'CheckRun', 'name': 'SonarCloud Code Analysis', 'status': 'COMPLETED',
+                                     'conclusion': 'FAILURE', 'workflowName': ''}]
+        self.assertEqual(na.pr_atascada(pr, AHORA), '')
 
     def test_caduca(self):
         self.assertTrue(na.pr_atascada(self.pr(na.PR_CADUCA_H * 60 + 1, ('b', 'IN_PROGRESS', None)), AHORA))
@@ -402,7 +410,14 @@ class CerrojoDeProceso(unittest.TestCase):
                 primero.kill()
                 primero.wait()
                 primero.stdout.close()
-            f = na.tomar_cerrojo(ruta)  # muerto sin borrar el fichero: se entra ya
+            # Muerto sin borrar el fichero: se entra sin esperar caducidad. Windows suelta el cerrojo de un proceso
+            # matado de forma asíncrona (sin plazo documentado): se dan unos segundos, no las 6 h de antes.
+            import time
+            limite = time.monotonic() + 5
+            f = na.tomar_cerrojo(ruta)
+            while f is None and time.monotonic() < limite:
+                time.sleep(0.1)
+                f = na.tomar_cerrojo(ruta)
             self.assertIsNotNone(f)
             f.close()
 
@@ -434,6 +449,18 @@ class AgenteSinEscritura(unittest.TestCase):
             agente = git('push', '-q', 'origin', 'HEAD:main', env=na.sin_escritura(tmp / 'gh'))
             self.assertNotEqual(agente.returncode, 0)
             self.assertEqual(git('push', '-q', 'origin', 'HEAD:main').returncode, 0)
+
+    def test_el_lanzador_programado_copia_todos_los_modulos_locales(self):
+        """Codex/CodeRabbit en #1322: el .cmd solo copiaba night-autorepair.py y un import local nuevo
+        (ci_checks) tumbaba la vigilancia programada con ModuleNotFoundError."""
+        import re
+        scripts = Path(__file__).resolve().parents[1] / 'scripts'
+        fuente = (scripts / 'night-autorepair.py').read_text(encoding='utf-8')
+        locales = {m for m in re.findall(r'^(?:import|from) (\w+)', fuente, re.M) if (scripts / f'{m}.py').exists()}
+        lanzador = (scripts / 'night-autorepair.cmd').read_text(encoding='utf-8')
+        copiados = set(re.search(r'for %%M in \(([^)]*)\)', lanzador).group(1).split())
+        self.assertTrue(locales)
+        self.assertLessEqual(locales | {'night-autorepair'}, copiados)
 
     def test_gh_queda_sin_sesion(self):
         env = na.sin_escritura(Path(tempfile.mkdtemp()) / 'gh')
