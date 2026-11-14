@@ -110,6 +110,24 @@ class RepairTests(unittest.TestCase):
         self.assertEqual(q.repair_retire_non_reading(books, ROOT, '2026-11-13'), 1)
         self.assertEqual(books[0]['estado'], 'borrador')
 
+    def test_price_sweep_flag_is_consumed_not_persisted(self):
+        # `no_lectura` es transitorio del barrido; si queda en el libro, validate() lanza «campos
+        # desconocidos» (sync 43549972461). La reparación lo retira aunque el libro no se retire.
+        books = [{'id': SORRY, 'titulo': 'Sorry! But I Am With Hurry', 'estado': 'borrador',
+                  'no_lectura': 'método de idiomas'}]
+        q.repair_retire_non_reading(books, ROOT, '2026-11-13')
+        self.assertNotIn('no_lectura', books[0])
+
+    def test_unknown_field_error_names_the_book(self):
+        # Un campo colado (p. ej. no_lectura) debe nombrar su libro para que la cuarentena lo aparte
+        # en vez de tumbar el lote con un error sin dueño (culprit() devolvía None).
+        data = copy.deepcopy(DATA)
+        book = next(b for b in data['libros'] if b['estado'] == 'publicado')
+        book['no_lectura'] = 'método de idiomas'
+        with self.assertRaises(q.build.ValidationError) as cm:
+            q.build.validate(data, ROOT)
+        self.assertEqual(q.culprit(str(cm.exception), data), book['id'])
+
     def test_retired_book_keeps_no_price(self):
         offer = {'formato': 'tapa-blanda', 'url': 'https://www.amazon.es/dp/X', 'precio_centimos': 1795,
                  'precio_referencia_centimos': 1890}
