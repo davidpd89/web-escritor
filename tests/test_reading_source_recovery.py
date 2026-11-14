@@ -86,6 +86,7 @@ class CheckpointLifetimeTests(unittest.TestCase):
     (refresh.materializar,'construir',lambda *a,**k:None),(refresh.materializar,'comprobar',lambda *a,**k:None),
     (refresh.subprocess,'check_output',lambda *a,**k:' M data/reading-catalogue.json\n'),
     (refresh.git_estado,'rutas',lambda *a,**k:['data/reading-catalogue.json']),
+    (refresh.git_estado,'preparar',lambda *a,**k:None),
     (refresh.publisher,'allowed_path',lambda p:True),(refresh.publisher,'run',run),
     (refresh.publisher.publication,'fresh_branch',lambda *a,**k:'automation/reading-catalogue-test'),
     (refresh.publisher.publication,'gh',lambda *a:None),(refresh,'drop_checkpoint',lambda b:order.append('drop'))]

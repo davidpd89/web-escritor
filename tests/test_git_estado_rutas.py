@@ -64,6 +64,62 @@ class RutasTest(unittest.TestCase):
                 missing.append(path.name)
         self.assertEqual(missing, [])
 
+    def test_un_nombre_que_no_es_utf8_no_tumba_la_lectura(self):
+        """#1312: `decode('utf-8')` estricto rompía toda la carga por un solo nombre en latin-1 (Linux lo permite)."""
+        from unittest import mock
+        salida = mock.Mock(stdout=b'?? caf\xe9.html\0?? bien.html\0')
+        with mock.patch.object(git_estado.subprocess, 'run', return_value=salida):
+            rutas = git_estado.rutas('.')
+        self.assertEqual(rutas[1], 'bien.html')
+        self.assertEqual(rutas[0].encode('utf-8', 'surrogateescape'), b'caf\xe9.html')
+
+    def test_preparar_acepta_borrados_ya_preparados(self):
+        """14/11 (#43579987645): `registrar` añadió la carpeta entera y `git add -- <borrada>` tumbó la carga."""
+        with tempfile.TemporaryDirectory() as tmp:
+            repo = Path(tmp)
+            git(repo, 'init', '-q')
+            git(repo, 'config', 'user.email', 'qa@example.invalid'); git(repo, 'config', 'user.name', 'qa')
+            body = '<html>' + 'contenido de ficha muy parecido ' * 40 + '</html>'
+            for name in ('viejo', 'otro'):
+                (repo / 'rec' / name).mkdir(parents=True); (repo / 'rec' / name / 'index.html').write_text(body + name, encoding='utf-8')
+            git(repo, 'add', '-A'); git(repo, 'commit', '-qm', 'base')
+            (repo / 'rec/viejo/index.html').unlink()
+            (repo / 'rec/nuevo').mkdir(); (repo / 'rec/nuevo/index.html').write_text(body + 'x', encoding='utf-8')
+            (repo / 'rec/otro/index.html').unlink()  # borrado sin preparar
+            git(repo, 'add', '--', 'rec/viejo', 'rec/nuevo')  # lo que hace registrar con una carpeta
+            git_estado.preparar(repo, git_estado.rutas(repo) + ['no-existe/ni-existió'])
+            staged = subprocess.check_output(['git', 'diff', '--cached', '--name-status', '--no-renames'], cwd=repo, text=True)
+            self.assertEqual(sorted(staged.splitlines()),
+                             ['A	rec/nuevo/index.html', 'D	rec/otro/index.html', 'D	rec/viejo/index.html'])
+
+    def test_preparar_miles_de_rutas_y_nombres_con_comodines(self):
+        """Codex en #1312: miles de rutas en argv superan los 32 767 caracteres de Windows (WinError 206).
+        Y `[ab]` no debe arrastrar otros ficheros como patrón."""
+        with tempfile.TemporaryDirectory() as tmp:
+            repo = Path(tmp)
+            git(repo, 'init', '-q')
+            git(repo, 'config', 'user.email', 'qa@example.invalid'); git(repo, 'config', 'user.name', 'qa')
+            carpeta = repo / ('recomendaciones-con-un-nombre-largo-' * 2)
+            carpeta.mkdir()
+            nombres = ['ficha-%04d-%s.html' % (i, 'x' * 30) for i in range(1200)]
+            for n in nombres:
+                (carpeta / n).write_text(n, encoding='utf-8')
+            (repo / '[ab]').write_text('1', encoding='utf-8')
+            (repo / 'a').write_text('2', encoding='utf-8')
+            rutas = ['%s/%s' % (carpeta.name, n) for n in nombres] + ['[ab]']
+            self.assertGreater(sum(len(r) + 1 for r in rutas), 32767)
+            git_estado.preparar(repo, rutas)
+            staged = subprocess.check_output(['git', 'diff', '--cached', '--name-only'], cwd=repo, text=True).splitlines()
+            self.assertEqual(len(staged), 1201)
+            self.assertNotIn('a', staged)
+
+    def test_ningun_publicador_prepara_listas_de_rutas_a_mano(self):
+        """`git add -- *rutas` falla con borrados ya preparados: las listas van por git_estado.preparar."""
+        star = re.compile(r"""['"]add['"],\s*(?:['"]-A['"],\s*)?['"]--['"],\s*\*""")
+        offenders = [str(p.relative_to(ROOT)) for p in (ROOT / 'scripts').rglob('*.py')
+                     if p.name != 'git_estado.py' and star.search(p.read_text(encoding='utf-8', errors='ignore'))]
+        self.assertEqual(offenders, [])
+
 
 if __name__ == '__main__':
     unittest.main()

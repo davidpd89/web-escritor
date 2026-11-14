@@ -77,7 +77,7 @@ def refresh(*, publish=False):
     outside = [p for p in paths if not allowed_path(p)]
     if not paths or outside:
         raise ValueError('Cambios fuera de los artefactos permitidos: ' + str(outside))
-    command('git', 'add', '--', *paths)
+    git_estado.preparar(ROOT, paths)
     day = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
     branch = publication.fresh_branch('automation/atlas-directory-' + day + '-', cwd=ROOT)
     command('git', 'config', 'user.name', 'github-actions[bot]')

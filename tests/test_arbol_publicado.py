@@ -25,7 +25,8 @@ import arbol_publicado  # noqa: E402
 # Preguntan por el índice de git, no por lo publicado: materializar (qué está versionado), la fusión (conflictos),
 # la carga (qué rutas de datos versiona) y su test.
 PREGUNTAN_AL_INDICE = {
-    'scripts/arbol_publicado.py', 'scripts/materializar_generados.py', 'scripts/merge-main.py',
+    # git_estado.preparar decide qué rutas puede preparar git: pregunta al índice, no al árbol publicado.
+    'scripts/arbol_publicado.py', 'scripts/git_estado.py', 'scripts/materializar_generados.py', 'scripts/merge-main.py',
     'scripts/refresh-reading-catalogue.py', 'tests/test_materializar_generados.py', 'tests/test_arbol_publicado.py',
 }
 FORMAS = (
