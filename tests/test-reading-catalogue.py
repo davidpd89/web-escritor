@@ -75,6 +75,19 @@ with tempfile.TemporaryDirectory() as tmp:
     rejected(data, root, lambda d: d['libro_categorias'].append({'libro_id': 'contrato-uno', 'categoria_id': 'no-existe'}), 'categoría inexistente')
     rejected(data, root, lambda d: d['libro_categorias'].append(copy.deepcopy(d['libro_categorias'][0])), 'relación duplicada')
     rejected(data, root, lambda d: d.__setitem__('libro_categorias', []), 'sin categoría')
+    # El barrido de precios marca lo que no es lectura con `no_lectura`; antes tumbaba la carga por «campos
+    # desconocidos» (sync 43549972461). Ahora es un campo válido y la ficha sigue publicándose.
+    marcado = copy.deepcopy(data)
+    marcado['libros'][0]['no_lectura'] = 'método de idiomas'
+    assert len(m.validate(marcado, root)) == 1
+    # Un campo que el pipeline no debería escribir nombra al libro: la cuarentena lo aísla en vez de parar el lote.
+    try:
+        fantasma = copy.deepcopy(data)
+        fantasma['libros'][0]['campo_fantasma'] = 'x'
+        m.validate(fantasma, root)
+        raise AssertionError('Se aceptó un campo desconocido')
+    except m.ValidationError as exc:
+        assert str(exc).startswith('contrato-uno: campos desconocidos'), str(exc)
     multi = copy.deepcopy(data)
     second = copy.deepcopy(b)
     second.update(id='contrato-dos', slug='contrato-dos', titulo='Segundo título técnico', isbn13='9780140449136', descripcion_breve='Otra descripción original y suficientemente larga para el segundo libro de prueba técnica.')

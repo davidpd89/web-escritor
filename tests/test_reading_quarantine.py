@@ -75,6 +75,17 @@ class QuarantineTest(unittest.TestCase):
         with self.assertRaises(q.build.ValidationError):
             q.isolate(data, ROOT, DATA)
 
+    def test_unknown_field_from_the_pipeline_quarantines_the_book(self):
+        # Sync 43549972461: el barrido de precios escribió un campo que validate no reconocía; el error no nombraba
+        # el libro, culprit() devolvía None y toda la carga caía. Ahora el error nombra la ficha y se aparta sola.
+        data = copy.deepcopy(DATA)
+        pub = next(i for i, x in enumerate(data['libros']) if x['estado'] == 'publicado')
+        data['libros'][pub]['campo_fantasma'] = 'x'
+        clean, out = q.isolate(data, ROOT, DATA)
+        self.assertEqual([h['libro']['id'] for h in out], [DATA['libros'][pub]['id']])
+        self.assertIn('campos desconocidos', out[0]['motivo'])
+        self.assertEqual(clean, DATA)
+
     def test_duplicate_cover_blames_the_changed_book(self):
         # Ingesta 42588397174: el tomo que cambió tomó la portada de otro ya publicado; se apartaba al publicado
         # (sin cambios) y la carga entera fallaba.

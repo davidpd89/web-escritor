@@ -68,7 +68,7 @@ PRICE_FIELDS = {'precio_centimos', 'precio_referencia_centimos'}
 OFFER_MAX_DAYS = 3
 BOOK_FIELDS = set("id slug titulo autores descripcion_breve estado portada_local portada_fuente_url portada_edicion_verificada autorizacion_o_base_uso portada_fecha_revision portada_ancho portada_alto fuente_bibliografica_url fecha_verificacion descripcion_original_confirmada url_amazon_afiliada isbn13 edicion editorial fecha_publicacion anio_publicacion numero_paginas fuente_publicacion_url idioma edad_recomendada fuente_edad_url avisos_contenido lectura_personal_confirmada evidencia_lectura autoria_propia resenas fragmento_url fecha_actualizacion editorial_catalogo_slug pvp_centimos pvp_fecha_verificacion audio_descripcion audio_voz formatos_compra fragmento_texto fragmento_uso_autorizado fragmento_base_uso audio_fragmento".split())
 FORMATS = {"tapa-blanda": "Tapa blanda", "tapa-dura": "Tapa dura", "ebook": "Kindle", "audiolibro": "Audiolibro"}
-BOOK_FIELDS.update({'editorial_slug', 'formato_edicion', 'amazon_busqueda_isbn', 'fecha_publicacion_parcial', 'precios_amazon_revision', 'formatos_amazon_buscados', 'formatos_pagina_buscados', 'portadas_amazon_buscadas', 'portada_sustituida'})
+BOOK_FIELDS.update({'editorial_slug', 'formato_edicion', 'amazon_busqueda_isbn', 'fecha_publicacion_parcial', 'precios_amazon_revision', 'formatos_amazon_buscados', 'formatos_pagina_buscados', 'portadas_amazon_buscadas', 'portada_sustituida', 'no_lectura'})
 BOOK_FIELDS.update({'sinopsis_breve', 'sinopsis_fuente_url', 'sinopsis_tipo', 'categorias_excluidas', 'sinopsis_completa'})
 
 
@@ -122,7 +122,12 @@ def validate(data, root):
     book_ids, book_slugs, isbns, covers, hashes, amazon_urls, works, descriptions = (set() for _ in range(8))
     hash_owner = {}
     for b in books:
-        require(isinstance(b, dict) and not set(b) - BOOK_FIELDS, "Libro: campos desconocidos")
+        require(isinstance(b, dict), "Libro: debe ser un objeto")
+        # El id (si es válido) nombra al libro para que la cuarentena pueda aislarlo: un campo nuevo que escriba
+        # el pipeline (p. ej. el barrido de precios) aparta su ficha en vez de tumbar toda la carga.
+        tag = b['id'] if isinstance(b.get('id'), str) and SLUG.fullmatch(b.get('id') or '') else 'Libro'
+        unknown = set(b) - BOOK_FIELDS
+        require(not unknown, f"{tag}: campos desconocidos: {', '.join(sorted(unknown))}")
         for key in ("id", "slug", "titulo", "estado"):
             require(isinstance(b.get(key), str) and b[key].strip(), f"Libro sin {key}")
         name = b["id"]
