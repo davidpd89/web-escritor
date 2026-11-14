@@ -3,11 +3,11 @@ name: Revisión del código existente
 # Los fallos de la carga nocturna salen casi siempre de código antiguo, no del cambio del día. Cada día abre una PR
 # que no se fusiona nunca con un grupo de ficheros completos para Codex y CodeRabbit. Lo hace
 # scripts/revision_existente.py. Ni el push con GITHUB_TOKEN ni sus commits con marca de no-CI disparan workflows:
-# no ocupa la cola de Actions. Cierra las de hace más de 3 días. 06:40 en Madrid todo el año: no compite con la
+# no ocupa la cola de Actions. Cierra las de hace más de 3 días. 05:40 en Madrid todo el año: no compite con la
 # carga porque no lanza CI, solo crea ramas y una PR.
 on:
   schedule:
-    - cron: '40 6 * * *'
+    - cron: '40 5 * * *'
       timezone: Europe/Madrid
   workflow_dispatch:
     inputs:
