@@ -69,6 +69,9 @@ def node_modules_satisfies_lock(modules, lock):
             continue
         if installed.get(name, {}).get('version') != meta['version']:
             return False
+        # La copia de npm no basta: un paquete borrado después dejaba npx sin pagefind (#1312, CodeRabbit).
+        if name.startswith('node_modules/') and not (modules.parent / name / 'package.json').is_file():
+            return False
     return True
 
 
@@ -217,9 +220,17 @@ def run(branch, timeout=5400):
         raise
     except RuntimeError as exc:
         # Leave the failure on the commit so the next batch regenerates instead of retesting it.
+        # update-branch mueve la cabeza: el fallo va también en la que validó publish_generated, o el siguiente
+        # resume_pending no lo ve y repite la misma CI en vez de regenerar (#1312, CodeRabbit).
         repo = publication.gh('repo', 'view', '--json', 'nameWithOwner', '--jq', '.nameWithOwner')
-        publication.report_job(repo, pr['headRefOid'], 'reading-catalogue-publication', 'failure',
-                               f'https://github.com/{repo}/pull/{pr["number"]}')
+        heads = [pr['headRefOid']]
+        try:
+            heads.append(json.loads(publication.gh('pr', 'view', branch, '--json', 'headRefOid'))['headRefOid'])
+        except (subprocess.CalledProcessError, ValueError, KeyError, TypeError):
+            pass
+        for head in dict.fromkeys(heads):
+            publication.report_job(repo, head, 'reading-catalogue-publication', 'failure',
+                                   f'https://github.com/{repo}/pull/{pr["number"]}')
         raise
 
 

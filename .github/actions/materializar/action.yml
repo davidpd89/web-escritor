@@ -23,7 +23,7 @@ runs:
           assets/page-order.generated.js
           pagefind
           data/content-registry.json
-        key: generados-v1-${{ hashFiles('data/**', 'scripts/build-*.py', 'scripts/site_shell.py', 'scripts/reading*.py', 'scripts/templates/**', 'scripts/materializar_generados.py', '**/*.html.tmpl') }}
+        key: generados-v1-${{ hashFiles('data/**', 'scripts/build-*.py', 'scripts/site_shell.py', 'scripts/reading*.py', 'scripts/templates/**', 'scripts/materializar_generados.py', '**/*.html.tmpl', '**/*.html') }}
     # --asegurar no hace nada mientras lo generado esté versionado (el checkout ya lo trae) y, tras el corte,
     # construye con la cadena única. Solo se guarda caché si de verdad construyó.
     - id: build
