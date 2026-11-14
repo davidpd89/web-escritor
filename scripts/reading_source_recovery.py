@@ -1,7 +1,8 @@
 """Recuperación semántica de altas conservadas cuando main avanzó en los mismos JSON.
 
-Solo añade libros nuevos respecto a la base común. Nunca rebobina libros, precios ni registros
-ya publicados en main, ni recupera libros retirados o ya conservados en cuarentena.
+Añade los libros nuevos respecto a la base común y traslada los cambios de libros existentes que main no
+tocó (fusión a tres bandas por libro). Nunca rebobina libros, precios ni registros ya publicados en main:
+si main también cambió un libro, gana main. Tampoco recupera libros retirados o ya en cuarentena.
 """
 import io
 import json
@@ -32,6 +33,16 @@ def recover(root, source, base, latest):
     additions = [b for b in previous['libros'] if b['id'] not in known]
     ids = {b['id'] for b in additions}
     changed = {}
+    # Libros que ya existían: antes solo se trasladaban altas, y un punto de guardado con solo cambios de
+    # libros existentes devolvía None y se borraba sin publicarlos (#1312, CodeRabbit).
+    base_books = {b['id']: b for b in original['libros']}
+    position = {b['id']: i for i, b in enumerate(current['libros'])}
+    updated = []
+    for book in previous['libros']:
+        old, i = base_books.get(book['id']), position.get(book['id'])
+        if old is not None and i is not None and book != old and current['libros'][i] == old:
+            current['libros'][i] = book
+            updated.append(book['id'])
     current['libros'].extend(additions)
     relations = [r for r in previous.get('libro_categorias', []) if r['libro_id'] in ids]
     if relations:
@@ -41,7 +52,7 @@ def recover(root, source, base, latest):
         if not required <= {c['id'] for c in current['categorias']}:
             raise ValueError('La recuperación carece de categorías fuente')
         current.setdefault('libro_categorias', []).extend(relations)
-    if additions:
+    if additions or updated:
         changed[path] = current
     # El importador exige procedencia publicada para cada alta ISBN; se traslada el registro original.
     state_path = 'data/reading-intake-state.json'
@@ -91,15 +102,22 @@ def recover(root, source, base, latest):
             market.setdefault(key, []).extend(extra)
             changed[market_file] = market
     # Solo portadas/audio de las altas, con una lectura conjunta de blobs; main conserva sus archivos.
-    prefixes = tuple('assets/reading-covers/' + b['id'] for b in additions)
-    explicit = {b.get('portada_local', '').lstrip('/') for b in additions}
-    for book in additions:
+    moved = additions + [b for b in previous['libros'] if b['id'] in set(updated)]
+    prefixes = tuple('assets/reading-covers/' + b['id'] for b in moved)
+    explicit = {b.get('portada_local', '').lstrip('/') for b in moved} - {''}
+    for book in moved:
         for field in ('audio_descripcion', 'audio_fragmento'):
             value = book.get(field)
             if isinstance(value, str) and value.startswith('/assets/reading-audio/'):
                 explicit.add(value.lstrip('/'))
     entries = []
-    for row in (git(root, 'ls-tree', '-r', '-z', source, '--', 'assets/reading-covers', 'assets/reading-audio').split(b'\0') if additions else []):
+    def tree(ref):
+        rows = git(root, 'ls-tree', '-r', '-z', ref, '--', 'assets/reading-covers', 'assets/reading-audio').split(b'\0')
+        return {r.split(b'\t', 1)[1].decode('utf-8'): r.split(b'\t', 1)[0].split()[2].decode() for r in rows if r}
+    # Un fichero que main dejó como estaba en la base (portada rehecha del libro) se sustituye; uno que main
+    # cambió por su cuenta se respeta.
+    in_base, in_main = (tree(ref) if moved else {} for ref in (base, latest))
+    for row in (git(root, 'ls-tree', '-r', '-z', source, '--', 'assets/reading-covers', 'assets/reading-audio').split(b'\0') if moved else []):
         if not row:
             continue
         meta, raw_path = row.split(b'\t', 1)
@@ -108,8 +126,9 @@ def recover(root, source, base, latest):
             target = (root / name).resolve()
             if not any(target.is_relative_to((root / allowed).resolve()) for allowed in ('assets/reading-covers', 'assets/reading-audio')):
                 raise ValueError('Asset fuera del catálogo')
-            if not target.exists():
-                entries.append((target, meta.split()[2].decode()))
+            sha = meta.split()[2].decode()
+            if not target.exists() or (in_main.get(name) != sha and in_main.get(name) == in_base.get(name)):
+                entries.append((target, sha))
     blobs = {}
     if entries:
         hashes = sorted({sha for _, sha in entries})
