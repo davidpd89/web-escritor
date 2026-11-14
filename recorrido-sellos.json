@@ -547,54 +547,11 @@
     "fragua",
     "debols llo",
     "cristian diana",
-    "diane kane publishing"
+    "diane kane publishing",
+    "natalia sanchez diana",
+    "camara colombiana del libro"
   ],
   "cola": [
-    {
-      "consulta": "Diana",
-      "nivel": 1,
-      "nodo": "902674031",
-      "ruta": [
-        "Literatura y ficción"
-      ],
-      "sello": "Diana"
-    },
-    {
-      "consulta": "Diana",
-      "nivel": 1,
-      "nodo": "902685031",
-      "ruta": [
-        "Policíaca, negra y suspense"
-      ],
-      "sello": "Diana"
-    },
-    {
-      "consulta": "Diana",
-      "nivel": 1,
-      "nodo": "902693031",
-      "ruta": [
-        "Política"
-      ],
-      "sello": "Diana"
-    },
-    {
-      "consulta": "Diana",
-      "nivel": 1,
-      "nodo": "902702031",
-      "ruta": [
-        "Religión"
-      ],
-      "sello": "Diana"
-    },
-    {
-      "consulta": "Diana",
-      "nivel": 1,
-      "nodo": "902686031",
-      "ruta": [
-        "Romántica"
-      ],
-      "sello": "Diana"
-    },
     {
       "consulta": "Diana",
       "nivel": 1,
@@ -985,14 +942,16 @@
     "Fragua",
     "DEBOLS!LLO",
     "Cristian Diana",
-    "Diane Kane Publishing"
+    "Diane Kane Publishing",
+    "Natalia Sánchez Diana",
+    "Cámara Colombiana del Libro"
   ],
   "dia": "2026-11-08",
   "errores": [],
   "grupos": {
     "diana": {
-      "libros_es": 59,
-      "pendientes": 7
+      "libros_es": 87,
+      "pendientes": 2
     }
   },
   "hijos": {
@@ -1122,6 +1081,36 @@
       [
         "5274100031",
         "Thrillers y suspense"
+      ]
+    ],
+    "13440889031": [
+      [
+        "13440890031",
+        "Acción y aventura"
+      ],
+      [
+        "13440906031",
+        "Ciencia ficción, fantasía y terror"
+      ],
+      [
+        "13440893031",
+        "Colecciones y antologías"
+      ],
+      [
+        "13440896031",
+        "Interraciales"
+      ],
+      [
+        "13440897031",
+        "LGBTQ+"
+      ],
+      [
+        "13440904031",
+        "Poesía"
+      ],
+      [
+        "13440905031",
+        "Romance"
       ]
     ],
     "1349107031": [
@@ -1284,6 +1273,78 @@
       [
         "14177639031",
         "Vida urbana"
+      ]
+    ],
+    "14177707031": [
+      [
+        "14177708031",
+        "Humor"
+      ],
+      [
+        "14177709031",
+        "Humor negro"
+      ],
+      [
+        "14177710031",
+        "Sátira"
+      ]
+    ],
+    "15569863031": [
+      [
+        "15569865031",
+        "Antologías"
+      ],
+      [
+        "15569875031",
+        "Crimen y misterio internacional"
+      ],
+      [
+        "15569880031",
+        "Deportes"
+      ],
+      [
+        "15569864031",
+        "Detectives amateurs"
+      ],
+      [
+        "15569876031",
+        "Detectives multiculturales"
+      ],
+      [
+        "15569888031",
+        "Detectives tradicionales"
+      ],
+      [
+        "15569873031",
+        "Forense"
+      ],
+      [
+        "15569879031",
+        "Historias cortas"
+      ],
+      [
+        "14177595031",
+        "Histórico"
+      ],
+      [
+        "15569878031",
+        "Investigadores privados"
+      ],
+      [
+        "15569889031",
+        "Mujeres detectives"
+      ],
+      [
+        "15569877031",
+        "Procedimientos policíacos"
+      ],
+      [
+        "15569881031",
+        "Sobrenatural"
+      ],
+      [
+        "15569874031",
+        "Violento"
       ]
     ],
     "15569891031": [
@@ -1977,6 +2038,14 @@
         "Sociedad y ciencias sociales"
       ]
     ],
+    "86208390031": [],
+    "86208391031": [],
+    "86208392031": [],
+    "86208393031": [],
+    "89265420031": [],
+    "89265422031": [],
+    "89265425031": [],
+    "89265427031": [],
     "902503031": [
       [
         "902504031",
@@ -2850,6 +2919,172 @@
         "Thriller y suspense"
       ]
     ],
+    "902686031": [
+      [
+        "92041929031",
+        "Adaptaciones"
+      ],
+      [
+        "89265430031",
+        "Amish y menonitas"
+      ],
+      [
+        "89265429031",
+        "Ciencia ficción"
+      ],
+      [
+        "211757881031",
+        "Citas falsas"
+      ],
+      [
+        "86208392031",
+        "Comedia romántica"
+      ],
+      [
+        "86208391031",
+        "Contemporáneo"
+      ],
+      [
+        "211757885031",
+        "De amigos a enamorados"
+      ],
+      [
+        "89265423031",
+        "Deportes"
+      ],
+      [
+        "89265431031",
+        "Edad avanzada"
+      ],
+      [
+        "86208390031",
+        "Fantasía"
+      ],
+      [
+        "89265428031",
+        "Festividades"
+      ],
+      [
+        "89265419031",
+        "Gótico"
+      ],
+      [
+        "206205961031",
+        "Hispano y latino"
+      ],
+      [
+        "86208394031",
+        "Histórico"
+      ],
+      [
+        "27198635031",
+        "LGBTQ+"
+      ],
+      [
+        "89265425031",
+        "Limpio y sano"
+      ],
+      [
+        "92041930031",
+        "Médico"
+      ],
+      [
+        "89265426031",
+        "Multicultural e interracial"
+      ],
+      [
+        "89265420031",
+        "Oeste y frontera"
+      ],
+      [
+        "89265427031",
+        "Paranormal"
+      ],
+      [
+        "89265424031",
+        "Recopilaciones y antologías"
+      ],
+      [
+        "211757883031",
+        "Romance oscuro"
+      ],
+      [
+        "86208393031",
+        "Suspense romántico"
+      ],
+      [
+        "89265422031",
+        "Viajes en el tiempo"
+      ]
+    ],
+    "902691031": [
+      [
+        "14177766031",
+        "Antologías"
+      ],
+      [
+        "14177767031",
+        "Autoras"
+      ],
+      [
+        "14177768031",
+        "Periodos de tiempo"
+      ],
+      [
+        "14177776031",
+        "Regional y cultural"
+      ],
+      [
+        "14177801031",
+        "Temas y estilos"
+      ]
+    ],
+    "902692031": [
+      [
+        "14177809031",
+        "Antigua y clásica"
+      ],
+      [
+        "14177810031",
+        "Antologías"
+      ],
+      [
+        "14177811031",
+        "Autoras"
+      ],
+      [
+        "206206068031",
+        "Contemporánea"
+      ],
+      [
+        "14177813031",
+        "Infantil"
+      ],
+      [
+        "14177814031",
+        "Medieval"
+      ],
+      [
+        "211757898031",
+        "Monólogos y escenas"
+      ],
+      [
+        "14177815031",
+        "Regional y cultural"
+      ],
+      [
+        "14177839031",
+        "Shakespeare"
+      ],
+      [
+        "211757896031",
+        "Temas y asuntos"
+      ],
+      [
+        "206206066031",
+        "Tipo"
+      ]
+    ],
     "902702031": [
       [
         "902703031",
@@ -2985,7 +3220,7 @@
       ]
     ]
   },
-  "libros_es": 12123,
+  "libros_es": 12179,
   "origen": {
     "Editorial Akelarre Ediciones": "Akelarre Ediciones",
     "Editorial Asociacion HAY Soluciones para Todo": "Asociacion HAY Soluciones para Todo",
@@ -3001,14 +3236,14 @@
     "Editorial Plomo Ediciones": "Plomo Ediciones",
     "Grupo Planeta Mexico": "Grupo Planeta México"
   },
-  "particiones": 1140,
-  "peticiones": 2372,
+  "particiones": 1282,
+  "peticiones": 2551,
   "reintentos": 9163,
   "reintentos_dia": "2026-11-14",
-  "segundos": 133,
+  "segundos": 204,
   "sellos_leidos": 179,
-  "sellos_llenos": 121,
-  "sellos_nuevos": 79,
+  "sellos_llenos": 156,
+  "sellos_nuevos": 81,
   "sellos_saltados": 9,
   "variantes_probadas": [
     "matchstories|editorial matchstories",
