@@ -235,7 +235,10 @@ class PasoQueConstruyeYComprueba(unittest.TestCase):
         for cmd, _, flow in local_ci.collect(set(), True):
             for destino in re.findall(r'\btee (?:-a )?(\S+/)[^/\s]+', cmd):
                 with self.subTest(flow=flow, cmd=cmd):
-                    self.assertIn(f'mkdir -p {destino.rstrip("/")}', cmd)
+                    carpeta = destino.rstrip('/')
+                    creadas = [c for linea in re.findall(r'mkdir -p ([^;&|
+]+)', cmd) for c in linea.split()]
+                    self.assertIn(carpeta, creadas)
 
 
 class PuertaPorImpacto(unittest.TestCase):
