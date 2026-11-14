@@ -228,7 +228,10 @@ def repair_retire_non_reading(books, root, today):
     retired = 0
     for book in books:
         # El título lo dice, o lo dijeron sus nodos de Amazon en el barrido de precios (no_lectura).
-        if book.get('estado') != 'borrador' and (non_reading_reason(book.get('titulo') or '') or book.get('no_lectura')):
+        # `no_lectura` es una marca transitoria del barrido: se consume aquí y se retira del libro para que
+        # no llegue al catálogo (no es un campo válido y «campos desconocidos» tumbaría el lote entero).
+        flagged = book.pop('no_lectura', None)
+        if book.get('estado') != 'borrador' and (non_reading_reason(book.get('titulo') or '') or flagged):
             book['estado'] = 'borrador'
             book['fecha_actualizacion'] = today
             retired += 1

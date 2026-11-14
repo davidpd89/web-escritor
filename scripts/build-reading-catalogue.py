@@ -122,7 +122,12 @@ def validate(data, root):
     book_ids, book_slugs, isbns, covers, hashes, amazon_urls, works, descriptions = (set() for _ in range(8))
     hash_owner = {}
     for b in books:
-        require(isinstance(b, dict) and not set(b) - BOOK_FIELDS, "Libro: campos desconocidos")
+        unknown = set(b) - BOOK_FIELDS if isinstance(b, dict) else set()
+        # Nombrar el libro (y los campos) permite que la cuarentena aparte solo esa ficha; un campo colado
+        # por una fase de la carga ya no tumba todo el lote con un error sin dueño.
+        require(isinstance(b, dict) and not unknown,
+                f"{b['id']}: campos desconocidos: {', '.join(sorted(unknown))}"
+                if unknown and isinstance(b.get("id"), str) and SLUG.fullmatch(b["id"]) else "Libro: campos desconocidos")
         for key in ("id", "slug", "titulo", "estado"):
             require(isinstance(b.get(key), str) and b[key].strip(), f"Libro sin {key}")
         name = b["id"]
