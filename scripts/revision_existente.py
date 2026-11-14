@@ -2,10 +2,12 @@
 """Revisión rotativa del código que YA está en main, no solo de los cambios nuevos (David, 14/11/2026).
 
 Cada día toma un grupo de ficheros y abre una PR que nunca se fusiona: su base es main sin esos ficheros y su cabeza
-es main, así que el diff es el fichero entero y los revisores gratuitos (Codex, Gemini Code Assist, CodeRabbit) lo
-leen completo. Los commits llevan `[skip ci]` y el push con GITHUB_TOKEN no dispara workflows: no gasta la cola de
-Actions. Abre además un issue con la etiqueta `jules` para que Jules audite el mismo grupo ejecutando el código.
+es main, así que el diff es el fichero entero y los revisores gratuitos (Codex, CodeRabbit) lo leen completo. Los
+commits llevan la marca de no-CI y el push con GITHUB_TOKEN no dispara workflows: no gasta la cola de Actions.
 Las PR y ramas de revisión se cierran solas a los pocos días.
+
+Gemini Code Assist gratuito dejó de revisar el 17/07/2026 y Jules pasó a solo lectura el 11/11/2026 (cierra el
+31/12): no se usan (#1314, CodeRabbit).
 """
 import argparse
 import json
@@ -94,7 +96,7 @@ CUERPO = """Revisión del código **existente** (no de un cambio): el diff muest
 Grupo `{nombre}`:
 {lista}
 
-Qué buscar (ver AGENTS.md, «Review guidelines», y `.gemini/styleguide.md`):
+Qué buscar (ver AGENTS.md, «Review guidelines»):
 - Un libro, fila o fichero malo que tumba un lote entero en vez de quedar en cuarentena con su id.
 - Salida de git o de herramientas leída por texto o por cortes de columna (`[3:]`, `splitlines` sin `-z`).
 - Datos de un checkpoint o de una carga que se pueden perder si falla un paso intermedio.
@@ -105,17 +107,10 @@ Qué buscar (ver AGENTS.md, «Review guidelines», y `.gemini/styleguide.md`):
 Indica cada fallo con un escenario concreto (entrada → resultado incorrecto). No hace falta comentar estilo.
 """
 
-JULES = """Auditoría del código existente del grupo `{nombre}` (rotación diaria):
-{lista}
-
-Ejecuta y lee el código buscando fallos reales con escenario reproducible, sobre todo los descritos en AGENTS.md
-(«Review guidelines»). Para cada fallo real abre una PR contra `main` con el arreglo y un test que falle sin él;
-si no hay ninguno, comenta aquí lo revisado y cierra el issue. No abras PR de estilo ni de refactorización.
-PR de revisión de bots del mismo grupo: {pr}
-"""
+DISPAROS = ('@codex review', '@coderabbitai full review')
 
 
-def abrir(nombre=None, publicar=False, jules=True):
+def abrir(nombre=None, publicar=False):
     nombre, ficheros = elegir(nombre)
     dia = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
     lista = '\n'.join('- `%s`' % f for f in ficheros)
@@ -137,19 +132,22 @@ def abrir(nombre=None, publicar=False, jules=True):
     cabeza_commit = git('commit-tree', main + '^{tree}', '-p', base_commit,
                         '-m', 'Revisión %s: ficheros completos %s' % (nombre, SKIP))
     base, cabeza = PREFIX + 'base-%s-%s' % (nombre, dia), PREFIX + '%s-%s' % (nombre, dia)
-    git('push', '-q', '--force', 'origin', '%s:refs/heads/%s' % (base_commit, base),
-        '%s:refs/heads/%s' % (cabeza_commit, cabeza))
-    url = gh('pr', 'create', '--base', base, '--head', cabeza, '--title', 'Revisión del código existente: ' + nombre,
-             '--body', CUERPO.format(nombre=nombre, lista=lista))
+    # Reintento del mismo día: la PR ya existe y `gh pr create` la rechazaría sin completar los disparos que faltan.
+    # Se reutiliza sin mover sus ramas (#1314, CodeRabbit).
+    abierta = json.loads(gh('pr', 'list', '--head', cabeza, '--state', 'open', '--json', 'url,comments'))
+    if abierta:
+        url, hechos = abierta[0]['url'], {c['body'].strip() for c in abierta[0]['comments']}
+    else:
+        git('push', '-q', '--force', 'origin', '%s:refs/heads/%s' % (base_commit, base),
+            '%s:refs/heads/%s' % (cabeza_commit, cabeza))
+        url, hechos = gh('pr', 'create', '--base', base, '--head', cabeza, '--title',
+                         'Revisión del código existente: ' + nombre,
+                         '--body', CUERPO.format(nombre=nombre, lista=lista)), set()
     numero = url.rstrip('/').rsplit('/', 1)[-1]
-    for disparo in ('@codex review', '/gemini review', '@coderabbitai full review'):
-        gh('pr', 'comment', numero, '--body', disparo)
+    for disparo in DISPAROS:
+        if disparo not in hechos:
+            gh('pr', 'comment', numero, '--body', disparo)
     print('PR', url)
-    if jules:
-        gh('label', 'create', 'jules', '--color', '4285F4', '--description', 'Google Jules propone un arreglo', '--force')
-        issue = gh('issue', 'create', '--title', 'Auditoría Jules: ' + nombre, '--label', 'jules',
-                   '--body', JULES.format(nombre=nombre, lista=lista, pr=url))
-        print('Issue', issue)
 
 
 def cerrar(dias=3, publicar=False):
@@ -184,7 +182,6 @@ if __name__ == '__main__':
     sub = parser.add_subparsers(dest='orden', required=True)
     a = sub.add_parser('abrir')
     a.add_argument('--grupo')
-    a.add_argument('--sin-jules', action='store_true')
     a.add_argument('--publicar', action='store_true')
     c = sub.add_parser('cerrar')
     c.add_argument('--dias', type=int, default=3)
@@ -192,7 +189,7 @@ if __name__ == '__main__':
     l = sub.add_parser('grupos')
     args = parser.parse_args()
     if args.orden == 'abrir':
-        abrir(args.grupo, args.publicar, not args.sin_jules)
+        abrir(args.grupo, args.publicar)
     elif args.orden == 'cerrar':
         cerrar(args.dias, args.publicar)
     else:

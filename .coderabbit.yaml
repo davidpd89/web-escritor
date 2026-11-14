@@ -37,7 +37,7 @@ reviews:
   path_instructions:
     - path: "**"
       instructions: >-
-        Sigue .gemini/styleguide.md y la sección «Review guidelines» de AGENTS.md. Solo fallos reales; en español.
+        Sigue la sección «Review guidelines» de AGENTS.md. Solo fallos reales; en español.
     - path: "scripts/**"
       instructions: >-
         Carga nocturna: un libro defectuoso debe ir a cuarentena, nunca tumbar el lote. Rutas de git solo desde

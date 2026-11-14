@@ -9,8 +9,8 @@ La carga es: API → transformar → subir. Cada cambio pasa estas cuatro puerta
 si falla una; no se fusiona sin el ensayo.
 
 1. **Revisión de código.** `/code-review high` sobre la rama (o pedir a Codex `@codex review` en la PR).
-   En la PR revisan además, gratis y sin hacer commits, Gemini Code Assist (`/gemini review`), CodeRabbit
-   (`@coderabbitai review`) y Codex. Antes de fusionar, leer sus comentarios
+   En la PR revisan además, gratis y sin hacer commits, CodeRabbit (`@coderabbitai review`) y Codex.
+   (Gemini Code Assist gratuito dejó de revisar el 17/07/2026; Jules está en solo lectura desde el 11/11/2026.) Antes de fusionar, leer sus comentarios
    (`gh pr view <n> --comments` y `gh api repos/{owner}/{repo}/pulls/<n>/comments`) y resolver o descartar
    razonadamente cada P1/P2.
    Aplicar los hallazgos confirmados. Si un hallazgo dice «el enfoque es frágil», cambiar el enfoque,
@@ -39,7 +39,7 @@ update-branch de una PR cada vez.
 ## Revisión del código existente (diaria)
 
 `revision-existente.yml` abre cada mañana una PR «Revisión del código existente: <grupo>» contra
-`revision/base-*`, que **no se fusiona nunca**, y un issue «Auditoría Jules: <grupo>». Al revisar la carga:
+`revision/base-*`, que **no se fusiona nunca**. Al revisar la carga:
 `gh pr list --search "head:revision/" --json number,title` y leer sus comentarios (mismos `gh api` que en la
 puerta 1). Cada hallazgo real se arregla en una PR normal contra `main`, con su test, cubriendo la clase de
 fallo. Los descartes se responden en el hilo con el motivo. Grupos: `python scripts/revision_existente.py grupos`.

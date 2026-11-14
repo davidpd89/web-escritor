@@ -1,4 +1,5 @@
 import importlib.util
+import json
 import subprocess
 import sys
 import tempfile
@@ -53,11 +54,13 @@ class RevisionExistenteTests(unittest.TestCase):
 
             def gh(*args):
                 llamadas.append(args)
+                if args[:2] == ('pr', 'list'):
+                    return '[]'
                 return 'https://github.com/x/y/pull/7' if args[:2] == ('pr', 'create') else ''
 
             with patch.object(rev, 'ROOT', repo), patch.object(rev, 'gh', gh), \
                     patch.object(rev, 'FIJOS', [('prueba', ['scripts/a.py', 'scripts/b.py'])]):
-                rev.abrir('prueba', publicar=True, jules=False)
+                rev.abrir('prueba', publicar=True)
             ramas = git(origen, 'for-each-ref', '--format=%(refname:short)', 'refs/heads/revision/').split()
             base = next(r for r in ramas if '/base-' in r)
             cabeza = next(r for r in ramas if r != base)
@@ -71,6 +74,30 @@ class RevisionExistenteTests(unittest.TestCase):
             crear = next(a for a in llamadas if a[:2] == ('pr', 'create'))
             self.assertEqual(crear[crear.index('--base') + 1], base)
             self.assertNotIn('main', crear[crear.index('--base') + 1])
+            self.assertEqual([a[4] for a in llamadas if a[:2] == ('pr', 'comment')], list(rev.DISPAROS))
+
+    def test_un_reintento_reutiliza_la_pr_y_solo_completa_los_disparos(self):
+        """#1314: un segundo intento del mismo día no empuja ramas ni crea PR; solo pide lo que faltó."""
+        llamadas, empujes = [], []
+
+        def gh(*args):
+            llamadas.append(args)
+            if args[:2] == ('pr', 'list'):
+                return json.dumps([{'url': 'https://github.com/x/y/pull/9',
+                                    'comments': [{'body': rev.DISPAROS[0] + chr(10)}]}])
+            return ''
+
+        def git(*args, **_):  # sin red ni repo: solo importa que no se empuje nada
+            if args[:1] == ('push',):
+                empujes.append(args)
+            return 'f' * 40
+
+        with patch.object(rev, 'gh', gh), patch.object(rev, 'git', git),                 patch.object(rev, 'FIJOS', [('prueba', ['scripts/revision_existente.py'])]):
+            rev.abrir('prueba', publicar=True)
+        self.assertEqual(empujes, [])
+        self.assertFalse([a for a in llamadas if a[:2] == ('pr', 'create')])
+        self.assertEqual([a[2:] for a in llamadas if a[:2] == ('pr', 'comment')],
+                         [('9', '--body', rev.DISPAROS[1])])
 
 
 if __name__ == '__main__':

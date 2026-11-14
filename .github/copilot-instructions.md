@@ -1,6 +1,6 @@
 # Instrucciones para Copilot (revisión de código)
 
-Responde en español y señala solo fallos reales. La guía completa está en `.gemini/styleguide.md` y en la sección
+Responde en español y señala solo fallos reales. La guía completa está en la sección
 «Review guidelines» de `AGENTS.md`; las prioridades son:
 
 1. Un solo libro defectuoso no puede tumbar la carga nocturna: va a cuarentena y el resto se publica.
