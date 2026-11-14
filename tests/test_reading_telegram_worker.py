@@ -401,13 +401,19 @@ if __name__ == "__main__":
     unittest.main()
 
 
-def test_publisher_launches_early_and_waits_until_send_time():
-    """GitHub retrasa los crons (12/11: 11:30 -> 19:29). Se lanza antes de las 11:30 y el ciclo espera;
-    nunca hay relanzamientos cada 30 min."""
+def test_publisher_crons_are_utc_and_cover_both_dst_offsets():
+    """13 y 14/11: los crons con `timezone:` no dispararon nunca. Solo UTC, sin `timezone`; algun arranque
+    antes de las 11:30 Madrid en invierno (10:30Z) Y en verano (09:30Z), y rescates posteriores.
+    Nunca relanzamientos cada 30 min."""
     text = (Path(__file__).resolve().parents[1] / ".github/workflows/reading-telegram-publish.yml").read_text(encoding="utf-8")
-    crons = re.findall(r"cron:\s*'(\d+) (\d+) \* \* \*'", text)
-    assert crons and all(int(h) * 60 + int(m) < 11 * 60 + 30 for m, h in crons)
-    assert text.count("timezone: Europe/Madrid") == len(crons)
+    assert "timezone:" not in text
+    crons = [int(h) * 60 + int(m) for m, h in re.findall(r"cron:\s*'(\d+) (\d+) \* \* \*'", text)]
+    assert crons and len(crons) <= 12
+    # el ciclo espera como mucho 3 h (max_wait): el primer arranque ha de caer dentro de esa ventana en verano
+    assert min(crons) >= (9 * 60 + 30) - 180
+    assert any(c < 9 * 60 + 30 for c in crons)           # antes de las 11:30 de verano
+    assert any(c > 10 * 60 + 30 for c in crons)          # rescate tras las 11:30 de invierno
+    assert any(c > 13 * 60 for c in crons)               # rescate tardio
     assert "--wait-until-send" in text
 
 

@@ -2,28 +2,21 @@ name: Reading Telegram publish
 
 on:
   schedule:
-    # GitHub retrasa los crons de forma impredecible (el 12/11 el de las 11:30 arrancó a las 19:29).
-    # Se lanza con margen (9:30, 10:15 y 11:00 Madrid) y el ciclo ESPERA hasta las 11:30 exactas antes de
-    # enviar. Solo se envía a las 11:30; los demás arranques, si el día ya salió, no envían nada
-    # (estado durable por destino).
-    - cron: '30 9 * * *'
-      timezone: Europe/Madrid
-    - cron: '15 10 * * *'
-      timezone: Europe/Madrid
-    - cron: '0 11 * * *'
-      timezone: Europe/Madrid
-    # Arranques de rescate: si GitHub se salta los anteriores, uno posterior envía en cuanto arranca (pasadas
-    # las 11:30 no espera). Con el día ya enviado el ciclo no hace nada: el estado durable evita duplicados.
-    - cron: '17 11 * * *'
-      timezone: Europe/Madrid
-    - cron: '42 11 * * *'
-      timezone: Europe/Madrid
+    # CAUSA DEL FALLO (13 y 14/11): los crons con la clave de zona horaria (Europe/Madrid) NO disparaban nunca (los crons
+    # en UTC del resto del repo sí). Aquí todo va en UTC, sin esa clave. El worker espera por su cuenta
+    # hasta las 11:30 Madrid (invierno 10:30Z, verano 09:30Z), así que se arranca pronto y vale para ambos
+    # horarios: 08:12Z son las 09:12 (invierno) o 10:12 (verano), en ambos casos antes de las 11:30.
+    # Los arranques posteriores son de rescate: pasadas las 11:30 no esperan; con el día ya enviado no
+    # hacen nada (estado durable por destino) y la concurrencia deja un solo ciclo a la vez.
+    - cron: '12 8 * * *'
+    - cron: '12 9 * * *'
+    - cron: '42 9 * * *'
+    - cron: '12 10 * * *'
+    - cron: '42 10 * * *'
+    - cron: '12 11 * * *'
     - cron: '12 12 * * *'
-      timezone: Europe/Madrid
-    - cron: '7 13 * * *'
-      timezone: Europe/Madrid
-    - cron: '37 14 * * *'
-      timezone: Europe/Madrid
+    - cron: '12 13 * * *'
+    - cron: '12 14 * * *'
   workflow_dispatch:
     inputs:
       test_asin:
