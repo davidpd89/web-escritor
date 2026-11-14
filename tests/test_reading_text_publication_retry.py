@@ -20,7 +20,7 @@ class TextPublicationRetryTests(unittest.TestCase):
     (texts,'published',lambda d:[book]),(texts,'payload',lambda *a:{}),
     (texts,'valid_blocks',lambda *a:[{}]*10),(texts,'write_json',lambda *a:None),
     (texts,'git',lambda *a,**k:' M data/reading-texts/book.json\n' if k.get('capture') else None),
-    (texts,'git_add',lambda *a,**k:None),(texts.catalogue,'index_categories',lambda *a:None),
+    (texts,'git_add',lambda *a,**k:None),(texts.git_estado,'rutas',lambda *a,**k:['data/reading-texts/book.json']),(texts.catalogue,'index_categories',lambda *a:None),
     (texts.subprocess,'run',lambda *a,**k:None),(texts,'chat',lambda *a,**k:self.fail('Saved texts must not be regenerated'))]
    for owner,name,value in patches:stack.enter_context(patch.object(owner,name,value))
    try:return texts.publish(out),pub

@@ -26,6 +26,9 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # módulos hermanos también al cargarlo con importlib
+import git_estado
+
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / '.local/reading-texts/out'
 STATE = ROOT / '.local/reading-texts/state.json'
@@ -707,7 +710,7 @@ def _publish_once(out, publisher):
     for script in ('build-reading-catalogue.py', 'build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):
         run('scripts/' + script, '--check')
     run('scripts/check-reading-data.py')  # el código lo prueba el Required merge gate; aquí, solo los datos
-    paths = [line[3:] for line in git('status', '--porcelain', '--untracked-files=all', cwd=tree, capture=True).splitlines()]
+    paths = git_estado.rutas(tree)
     if not paths:
         print('Los textos ya están en main')
         return False

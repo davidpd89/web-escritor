@@ -29,6 +29,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'scripts'))
+import git_estado  # noqa: E402
 PORTS = (4173, 4175)
 TIMEOUT = 900
 # Pruebas y comprobaciones de solo lectura: node qa|tests, node --check|--test, python tests, check-*/audit-* y
@@ -595,7 +597,7 @@ def main(argv=None):
     base = git('merge-base', 'HEAD', 'origin/main')
     CONTEXTO.update(contexto_pr(base))
     changed = set(git('diff', '--name-only', base).splitlines())
-    changed |= {l[3:] for l in git('status', '--porcelain', '--untracked-files=all').splitlines() if l}
+    changed |= set(git_estado.rutas(ROOT))
     items = None if args.all else scoped(changed)
     if items is not None:
         print('Solo scripts sueltos y sus tests: puerta por alcance (el CI de GitHub sigue corriendo todo)')

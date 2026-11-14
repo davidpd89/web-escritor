@@ -10,6 +10,9 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # módulos hermanos también al cargarlo con importlib
+import git_estado
+
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('publication', ROOT / 'scripts/publish-radar-refresh.py')
 publication = importlib.util.module_from_spec(spec)
@@ -70,8 +73,7 @@ def refresh(*, publish=False):
     command(sys.executable, 'tests/test-atlas-pages.py')
     command(sys.executable, 'tests/test-atlas-wikidata-feed.py')
     command('git', 'diff', '--check')
-    paths = [line[3:] for line in subprocess.check_output(
-        ['git', 'status', '--porcelain', '--untracked-files=all'], cwd=ROOT, text=True).splitlines()]
+    paths = git_estado.rutas(ROOT)
     outside = [p for p in paths if not allowed_path(p)]
     if not paths or outside:
         raise ValueError('Cambios fuera de los artefactos permitidos: ' + str(outside))

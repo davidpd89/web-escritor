@@ -14,10 +14,10 @@ SPEC.loader.exec_module(rr)
 class ClasificarTest(unittest.TestCase):
     def test_nuevo_no_generado_no_se_versiona(self):
         cambios, sueltos = rr.clasificar([
-            ' M recomendaciones/index.html',
-            ' M data/reading-books.json',
-            '?? pagefind/fragment/nuevo.pf_fragment',
-            '?? reports/performance-budget.json',
+            (' M', 'recomendaciones/index.html'),
+            (' M', 'data/reading-books.json'),
+            ('??', 'pagefind/fragment/nuevo.pf_fragment'),
+            ('??', 'reports/performance-budget.json'),
         ])
         self.assertEqual(cambios, ['recomendaciones/index.html', 'data/reading-books.json',
                                    'pagefind/fragment/nuevo.pf_fragment'])
