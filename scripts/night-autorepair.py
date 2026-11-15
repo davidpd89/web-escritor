@@ -463,12 +463,20 @@ def quitar_worktree(wt):
     sh(['git', 'worktree', 'prune'])
 
 
+def patron_worktree(wt) -> str:
+    """La ruta del worktree seguida de separador, comilla, espacio o fin (Fable C5).
+
+    Con `Contains` a pelo, `…-123` casaba también con `…-1234` y la limpieza mataba los procesos del otro árbol.
+    Expresión válida igual en Python y en .NET (`-match`, sin distinguir mayúsculas como las rutas de Windows)."""
+    return re.escape(str(wt)) + r'(?=[\\/"\'\s]|$)'
+
+
 def matar_procesos_en(wt):
     """Procesos que siguen vivos con el worktree en su línea de órdenes: impiden borrarlo y gastan la máquina."""
     if os.name != 'nt':
         return
-    ruta = str(wt).replace("'", "''")
-    ps = ("Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -and $_.CommandLine.Contains('" + ruta + "') "
+    patron = patron_worktree(wt).replace("'", "''")
+    ps = ("Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -and $_.CommandLine -match '" + patron + "' "
           "-and $_.ProcessId -ne $PID } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }")
     try:
         sh(['powershell', '-NoProfile', '-Command', ps], timeout=120)
@@ -591,11 +599,25 @@ def pasos_de_la_puerta(wt, registro='', pasos_ci=None):
     return list(dict.fromkeys(pasos))
 
 
+ENTORNO_VETADO = {'PATH', 'PATHEXT', 'COMSPEC', 'NODE_OPTIONS', 'NODE_PATH', 'PYTHONPATH', 'PYTHONHOME',
+                  'PYTHONSTARTUP', 'PYTHONINSPECT'}
+
+
+def entorno_vetado(clave) -> bool:
+    """Variables que cambian qué código carga el intérprete (Fable C6): una orden que las fija no se ejecuta en local."""
+    clave = clave.upper()
+    return clave in ENTORNO_VETADO or clave.startswith(('LD_', 'DYLD_'))
+
+
 def preparar_orden(paso):
-    """`VAR=v python x.py a` → (argv, env): sin shell, el prefijo de entorno del YAML va al entorno del proceso."""
+    """`VAR=v python x.py a` → (argv, env): sin shell, el prefijo de entorno del YAML va al entorno del proceso.
+
+    Con una variable vetada devuelve argv vacío: `orden_segura` la rechaza y la puerta la deja a la CI."""
     args, env = paso.split(), {}
     while args and re.fullmatch(r'\w+=\S*', args[0]):
         clave, valor = args.pop(0).split('=', 1)
+        if entorno_vetado(clave):
+            return [], {}
         env[clave] = valor
     if args and args[0] == 'python':
         args[0] = sys.executable
@@ -649,8 +671,9 @@ def puerta_local(wt, registro='', pasos_ci=None):
     fallos ajenos al cambio y al entorno («83 ya fallaban en main», un píxel de la portada en móvil): ninguna reparación
     llegó a PR y todo lo arregló una persona. local-ci dejó de mantenerse el 14/11.
     Las pruebas de navegador de la CI sirven el sitio en 127.0.0.1:4173: si hay alguna, se levanta aquí igual."""
-    salida, fallos = [], []
+    salida, fallos, hechos = [], [], 0
     pasos = pasos_de_la_puerta(wt, registro, pasos_ci)
+    total = len(pasos)
     servidor = None
     if any(preparar_orden(p)[0][:1] == [exe('node')] for p in pasos):
         servidor = subprocess.Popen([sys.executable, '-m', 'http.server', '4173', '--bind', '127.0.0.1'], cwd=str(wt),
@@ -668,6 +691,7 @@ def puerta_local(wt, registro='', pasos_ci=None):
             if not orden_segura(args, wt):
                 salida.append(f'omitido (orden no permitida, la decide la CI de la PR): {paso}')
                 continue
+            hechos += 1
             try:
                 r = sh(args, cwd=wt, timeout=30 * 60, env=env)
                 codigo, texto = r.returncode, (r.stdout or '') + (r.stderr or '')
@@ -684,7 +708,8 @@ def puerta_local(wt, registro='', pasos_ci=None):
     dejar_como_el_indice(wt)
     if not salida:
         salida.append('sin pasos locales que repetir: decide la CI de la PR')
-    texto = '\n'.join(salida + [f'{len(fallos)} fallos'])
+    # La última línea sobrevive al recorte de 3000 caracteres: de ella sale el «Comprobado» de la PR (Fable C4).
+    texto = '\n'.join(salida + [f'{hechos} ejecutados, {total - hechos} omitidos, {len(fallos)} fallos'])
     guardar_puerta(wt, texto)
     return not fallos, texto[-3000:]
 
@@ -807,14 +832,26 @@ def reparar(flujo, run, dry, historial=None, auto=True):  # skipcq: PY-R1000 (or
                 # arreglos correctos rehechos desde cero, uno tras otro).
                 log(f"{flujo}: {nombre} no pasa la puerta local:\n{salida_puerta[-1500:]}"); sh(['git', 'reset', '-q'], cwd=wt)
                 prompt = prompt_continuar(prompt, nombre, salida_puerta); continue
-            return publicar_arreglo(flujo, run, wt, rama, nombre, resumen, trailer, auto)
+            return publicar_arreglo(flujo, run, wt, rama, nombre, resumen, trailer, auto, salida_puerta)
         log(f"{flujo}: ninguna IA dejó un arreglo válido")
         return {'fallido': True}
     finally:
         limpiar_worktree(wt)
 
 
-def publicar_arreglo(flujo, run, wt, rama, nombre, resumen, trailer, auto):
+def linea_comprobado(puerta: str) -> str:
+    """Lo que la puerta hizo de verdad (Fable C4): sin pasos ejecutados no se dice «en verde»."""
+    m = re.search(r'(\d+) ejecutados, (\d+) omitidos, (\d+) fallos\s*$', puerta or '')
+    if not m or m.group(1) == '0':
+        omitidos = f" ({m.group(2)} pasos omitidos)" if m and m.group(2) != '0' else ''
+        return f"- Sin verificación local{omitidos}: decide la CI de esta PR."
+    texto = f"- Puerta local dirigida: {m.group(1)} pasos ejecutados en verde"
+    if m.group(2) != '0':
+        texto += f", {m.group(2)} omitidos (los decide la CI)"
+    return texto + ". La batería completa la corre esta PR."
+
+
+def publicar_arreglo(flujo, run, wt, rama, nombre, resumen, trailer, auto, puerta=''):
     """Commit, push y PR del arreglo que pasó la puerta; auto-merge ya o, con la carga en marcha, en la primera pasada sin ella."""
     titulo = (resumen.splitlines() or [f'Reparar {flujo}'])[0].lstrip('# ').strip()[:90] or f'Reparar {flujo}'
     cuerpo = '\n'.join(resumen.splitlines()[1:]).strip()
@@ -824,7 +861,7 @@ def publicar_arreglo(flujo, run, wt, rama, nombre, resumen, trailer, auto):
     sh(['git', 'commit', '-q', '-F', '-'], cwd=wt, entrada=mensaje, check=True)
     sh(['git', 'push', '-q', '-u', 'origin', rama], cwd=wt, check=True, timeout=600)
     body = (f"## Qué falló\n`{flujo}` falló dos veces seguidas en main: {run['url']}\n\n## Arreglo ({nombre})\n{cuerpo or titulo}\n\n"
-            f"## Comprobado\n- Puerta local dirigida (los pasos que fallaron y las pruebas tocadas): en verde. La batería completa la corre esta PR.\n- Al entrar en main, el turno de noche relanza `{flujo}`.\n\n{PIE_PR}")
+            f"## Comprobado\n{linea_comprobado(puerta)}\n- Al entrar en main, el turno de noche relanza `{flujo}`.\n\n{PIE_PR}")
     url = sh(['gh', 'pr', 'create', '--repo', GH_REPO, '--base', 'main', '--head', rama, '--title', titulo, '--body-file', '-'],
              cwd=wt, entrada=body, check=True).stdout.strip().splitlines()[-1]
     numero = int(url.rstrip('/').rsplit('/', 1)[-1])

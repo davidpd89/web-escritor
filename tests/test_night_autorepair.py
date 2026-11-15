@@ -826,5 +826,78 @@ class AutoMergeTrasLaReparacion(unittest.TestCase):
         finally:
             na.sh, na.ingesta_en_marcha = originales
 
+
+class PuertaSinPasosNoDiceVerde(unittest.TestCase):
+    """Fable C4: con cero pasos ejecutados el cuerpo de la PR decía «en verde»."""
+
+    def test_sin_pasos_no_dice_en_verde(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            guardar = na.guardar_puerta
+            na.guardar_puerta = lambda w, t: None
+            try:
+                ok, texto = na.puerta_local(Path(tmp), '', [])
+            finally:
+                na.guardar_puerta = guardar
+        self.assertTrue(ok)
+        linea = na.linea_comprobado(texto)
+        self.assertNotIn('en verde', linea)
+        self.assertIn('Sin verificación local', linea)
+
+    def test_todo_omitido_no_dice_en_verde(self):
+        self.assertNotIn('en verde', na.linea_comprobado('omitido: x\n0 ejecutados, 3 omitidos, 0 fallos'))
+        self.assertIn('3 pasos omitidos', na.linea_comprobado('0 ejecutados, 3 omitidos, 0 fallos'))
+        self.assertIn('2 pasos ejecutados en verde', na.linea_comprobado('ok a\nok b\n2 ejecutados, 1 omitidos, 0 fallos'))
+
+    def test_el_cuerpo_de_la_pr_usa_la_puerta(self):
+        cuerpos = []
+
+        def sh(args, **kw):
+            if args[:3] == ['gh', 'pr', 'create']:
+                cuerpos.append(kw.get('entrada', ''))
+            return subprocess.CompletedProcess(args, 0, 'https://github.com/o/r/pull/9', '')
+        originales = na.sh, na.ingesta_en_marcha
+        try:
+            na.sh, na.ingesta_en_marcha = sh, lambda: False
+            na.publicar_arreglo('x.yml', {'url': 'u'}, Path('.'), 'rama', 'codex', 'Titulo', '', auto=False,
+                                puerta='0 ejecutados, 0 omitidos, 0 fallos')
+        finally:
+            na.sh, na.ingesta_en_marcha = originales
+        self.assertNotIn('en verde', cuerpos[0])
+
+
+class PatronDeWorktree(unittest.TestCase):
+    """Fable C5: `…-123` no puede casar con `…-1234`."""
+
+    def test_rutas_prefijo(self):
+        import re
+        patron = re.compile(na.patron_worktree(Path('C:/x/.worktrees/auto-123')), re.IGNORECASE)
+        base = str(Path('C:/x/.worktrees/auto-123'))
+        self.assertTrue(patron.search(f'node {base}\qa\a.mjs'))
+        self.assertTrue(patron.search(f'python -m http.server --directory "{base}"'))
+        self.assertTrue(patron.search(f'git -C {base} status'))
+        self.assertTrue(patron.search(f'cmd {base}'))
+        self.assertTrue(patron.search(f'node {base.upper()}/qa/a.mjs'))
+        self.assertFalse(patron.search(f'node {base}4\qa\a.mjs'))
+        self.assertFalse(patron.search(f'node {base}-b/qa/a.mjs'))
+
+
+class EntornoVetado(unittest.TestCase):
+    """Fable C6: variables que cambian qué código carga el intérprete no pasan a la puerta local."""
+
+    def test_node_options_omite_la_orden(self):
+        args, env = na.preparar_orden('NODE_OPTIONS=--require=x node qa/a.mjs')
+        self.assertEqual((args, env), ([], {}))
+        self.assertFalse(na.orden_segura(args, Path('.')))
+
+    def test_vetadas(self):
+        for paso in ('PYTHONPATH=x python tests/t.py', 'PATH=/tmp python tests/t.py', 'LD_PRELOAD=x.so node qa/a.mjs',
+                     'path=x python tests/t.py', 'DYLD_INSERT_LIBRARIES=x node qa/a.mjs'):
+            self.assertEqual(na.preparar_orden(paso)[0], [], paso)
+
+    def test_las_demas_pasan(self):
+        args, env = na.preparar_orden('READING_QA_BASE=http://127.0.0.1:4173 node qa/a.mjs')
+        self.assertEqual(env, {'READING_QA_BASE': 'http://127.0.0.1:4173'})
+        self.assertEqual(args[1:], ['qa/a.mjs'])
+
 if __name__ == '__main__':
     unittest.main()
