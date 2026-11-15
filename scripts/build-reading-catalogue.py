@@ -1274,7 +1274,7 @@ def render_hub(data, books, template, page_number=1):
     return inject_shell_auto(page)
 
 
-def render_book(data,b,template):
+def render_book(data,b,template):  # skipcq: PY-R1000 (orden P2-1: refactor con hash idéntico pendiente)
     canonical=SITE+url(b)
     title=book_title(b,same_author_books(data,b))
     description=own_meta_description(b) or book_meta_description(data,b)
@@ -1364,7 +1364,7 @@ def related_pool(data):
     return pool
 
 
-def related_books(data, book):
+def related_books(data, book):  # skipcq: PY-R1000 (orden P2-1: refactor con hash idéntico pendiente)
     # Cada categoría compartida pesa por lo rara que es («Hockey» dice más que «Romance») y no se cruzan públicos.
     own={c['id'] for c in categories(data,book)}
     wanted={c['id'] for c in categories(data,book) if c['tipo'] in {'genero','tematica'}}
@@ -1424,7 +1424,7 @@ def render_detail_page(template,main,canonical,title,description,schema,b=None):
     return inject_shell_auto(page)
 
 
-def render_author(a,data,books,template,all_authors=()):
+def render_author(a,data,books,template,all_authors=()):  # skipcq: PY-R1000 (orden P2-1: refactor con hash idéntico pendiente)
     selected=sorted([b for b in books if a['nombre'] in b['autores']], key=lambda b:(b.get('fecha_publicacion') or b.get('fecha_publicacion_parcial') or str(b.get('anio_publicacion','')), b['titulo']), reverse=True)
     canonical=SITE+author_url(a)
     topics={c['id']:c for b in selected for c in categories(data,b) if c['tipo'] in {'genero','tematica'}}

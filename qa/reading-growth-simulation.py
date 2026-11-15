@@ -26,6 +26,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('growth_builder', ROOT / 'scripts/build-reading-catalogue.py')
+if spec is None or spec.loader is None:
+    raise ImportError('no se puede cargar scripts/build-reading-catalogue.py')
 builder = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(builder)
 # Los clones reutilizan la portada de su original (no se generan miles de imágenes); el resto de reglas sigue igual.
