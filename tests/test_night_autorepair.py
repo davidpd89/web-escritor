@@ -879,12 +879,12 @@ class PatronDeWorktree(unittest.TestCase):
         import re
         patron = re.compile(na.patron_worktree(Path('C:/x/.worktrees/auto-123')), re.IGNORECASE)
         base = str(Path('C:/x/.worktrees/auto-123'))
-        self.assertTrue(patron.search(f'node {base}\qa\a.mjs'))
+        self.assertTrue(patron.search(rf'node {base}\qa\a.mjs'))
         self.assertTrue(patron.search(f'python -m http.server --directory "{base}"'))
         self.assertTrue(patron.search(f'git -C {base} status'))
         self.assertTrue(patron.search(f'cmd {base}'))
         self.assertTrue(patron.search(f'node {base.upper()}/qa/a.mjs'))
-        self.assertFalse(patron.search(f'node {base}4\qa\a.mjs'))
+        self.assertFalse(patron.search(rf'node {base}4\qa\a.mjs'))
         self.assertFalse(patron.search(f'node {base}-b/qa/a.mjs'))
 
 
