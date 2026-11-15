@@ -132,7 +132,6 @@ class Filtros(unittest.TestCase):
 
 class PuertaDejaElArbol(unittest.TestCase):
     def test_lo_que_escribe_la_puerta_no_entra_en_el_arreglo(self):
-        import subprocess
         with tempfile.TemporaryDirectory() as d:
             wt = Path(d)
             git = lambda *a: subprocess.run(['git', '-c', 'user.email=t@t', '-c', 'user.name=t', *a], cwd=wt, check=True,
@@ -398,7 +397,6 @@ class CerrojoDeProceso(unittest.TestCase):
                 'time.sleep(60)\n')
 
     def test_otro_proceso_no_entra_y_entra_al_morir_el_primero(self):
-        import subprocess
         script = Path(__file__).resolve().parents[1] / 'scripts' / 'night-autorepair.py'
         with tempfile.TemporaryDirectory() as tmp:
             ruta = Path(tmp) / 'lock'
@@ -560,7 +558,9 @@ class CambiosDel15Nov(unittest.TestCase):
             sh = na.sh
             na.sh = lambda args, **kw: ordenes.append(list(args)) or sh(args, **kw)
             self.assertTrue(na.vigia_carga(ahora=self.ahora))
-            lanzada = next(o for o in ordenes if o[:3] == ['gh', 'workflow', 'run'])
+            lanzadas = [o for o in ordenes if o[:3] == ['gh', 'workflow', 'run']]
+            self.assertEqual(len(lanzadas), 1, ordenes)
+            lanzada = lanzadas[0]
             self.assertEqual(lanzada[-2:], ['-f', 'respaldo=true'])
             self.assertIn('main', lanzada)
 
@@ -740,7 +740,6 @@ jobs:
 
 class PuertaDirigida(unittest.TestCase):
     def test_repite_lo_que_fallo_y_las_pruebas_tocadas(self):
-        import subprocess
         with tempfile.TemporaryDirectory() as tmp:
             wt = Path(tmp)
             subprocess.run(['git', 'init', '-q'], cwd=wt, check=True)
@@ -761,7 +760,6 @@ class PuertaDirigida(unittest.TestCase):
 
     def test_prueba_unittest_tocada_se_descubre_entera(self):
         """Codex en #1339: ejecutar el módulo directo saltaba las clases definidas tras `unittest.main()`."""
-        import subprocess
         with tempfile.TemporaryDirectory() as tmp:
             wt = Path(tmp)
             subprocess.run(['git', 'init', '-q'], cwd=wt, check=True)
@@ -785,7 +783,6 @@ class PlazoMataElArbol(unittest.TestCase):
 
     def test_el_nieto_muere_y_sh_vuelve(self):
         import os
-        import subprocess
         import time
         with tempfile.TemporaryDirectory() as tmp:
             pidf = Path(tmp) / 'nieto.pid'
