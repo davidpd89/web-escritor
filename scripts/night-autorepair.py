@@ -230,9 +230,37 @@ con lo cambiado (puertos, servidores, entorno), explícalo en AUTOREPAIR_SUMMARY
 
 # --- efectos (gh, git, CLIs) ---------------------------------------------------------------------------------------
 
+def matar_arbol(pid):
+    """El proceso y todos sus descendientes (servidores, navegadores, Lighthouse que lanzó un agente)."""
+    if os.name == 'nt':
+        subprocess.run(['taskkill', '/T', '/F', '/PID', str(pid)], capture_output=True, creationflags=SIN_VENTANA)
+    else:
+        try:
+            os.killpg(pid, 9)
+        except OSError:
+            pass
+
+
 def sh(args, cwd=REPO, timeout=600, env=None, check=False, entrada=None):
-    r = subprocess.run(args, cwd=str(cwd), capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=timeout,
-                       env={**os.environ, **(env or {})}, input=entrada, creationflags=SIN_VENTANA)
+    """subprocess.run con plazo que mata el árbol entero al agotarse.
+
+    15/11: un agente agotó sus 90 min y `subprocess.run` mató solo al hijo directo; sus nietos (Lighthouse, servidor)
+    siguieron vivos 10 h y, con las tuberías abiertas, la espera de la salida podía no acabar nunca: la pasada horaria
+    se quedaba colgada y el Programador de tareas no arrancaba otra (IgnoreNew)."""
+    p = subprocess.Popen(args, cwd=str(cwd), stdin=subprocess.PIPE if entrada is not None else subprocess.DEVNULL,
+                         stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, encoding='utf-8', errors='replace',
+                         env={**os.environ, **(env or {})}, creationflags=SIN_VENTANA,
+                         start_new_session=os.name != 'nt')
+    try:
+        out, err = p.communicate(entrada, timeout=timeout)
+    except subprocess.TimeoutExpired:
+        matar_arbol(p.pid)
+        try:
+            p.communicate(timeout=30)
+        except subprocess.TimeoutExpired:
+            pass
+        raise
+    r = subprocess.CompletedProcess(args, p.returncode, out, err)
     if check and r.returncode:
         raise RuntimeError(f"{' '.join(map(str, args[:4]))}… → {r.returncode}: {(r.stderr or r.stdout)[-400:]}")
     return r
@@ -371,6 +399,7 @@ def quitar_worktree(wt):
     10/11: un `worktree remove` a medias (ficheros abiertos al cortar la pasada) dejó la carpeta con solo el enlace a
     node_modules y sin registro en git; `remove` ya no la reconocía y atlas falló cada hora con «already exists».
     """
+    matar_procesos_en(wt)
     nm = wt / 'node_modules'
     if os.path.lexists(nm):
         # Primero el enlace, sin seguirlo: borrar su contenido sería borrar el node_modules del repo vivo.
@@ -380,6 +409,19 @@ def quitar_worktree(wt):
     if wt.exists() and not os.path.lexists(nm):
         shutil.rmtree(wt, ignore_errors=True)
     sh(['git', 'worktree', 'prune'])
+
+
+def matar_procesos_en(wt):
+    """Procesos que siguen vivos con el worktree en su línea de órdenes: impiden borrarlo y gastan la máquina."""
+    if os.name != 'nt':
+        return
+    ruta = str(wt).replace("'", "''")
+    ps = ("Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -and $_.CommandLine.Contains('" + ruta + "') "
+          "-and $_.ProcessId -ne $PID } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }")
+    try:
+        sh(['powershell', '-NoProfile', '-Command', ps], timeout=120)
+    except subprocess.TimeoutExpired:
+        pass
 
 
 def limpiar_worktree(wt):

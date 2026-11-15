@@ -560,3 +560,35 @@ class PuertaDirigida(unittest.TestCase):
                 na.guardar_puerta = guardar
             self.assertFalse(ok)
             self.assertIn('tests/test-nuevo.py', texto)
+
+
+class PlazoMataElArbol(unittest.TestCase):
+    """15/11: un agente agotó su plazo y sus nietos (Lighthouse) siguieron vivos 10 h con las tuberías abiertas."""
+
+    def test_el_nieto_muere_y_sh_vuelve(self):
+        import os
+        import subprocess
+        import sys
+        import time
+        with tempfile.TemporaryDirectory() as tmp:
+            pidf = Path(tmp) / 'nieto.pid'
+            hijo = ('import subprocess,sys,time\n'
+                    'p=subprocess.Popen([sys.executable,"-c","import time; time.sleep(600)"])\n'
+                    f'open(r"{pidf}","w").write(str(p.pid))\n'
+                    'time.sleep(600)\n')
+            inicio = time.monotonic()
+            with self.assertRaises(subprocess.TimeoutExpired):
+                na.sh([sys.executable, '-c', hijo], cwd=tmp, timeout=5)
+            self.assertLess(time.monotonic() - inicio, 60, 'sh se quedó esperando a las tuberías del nieto')
+            nieto = int(pidf.read_text())
+            time.sleep(1)
+            if os.name == 'nt':
+                vivo = str(nieto) in subprocess.run(['tasklist', '/FI', f'PID eq {nieto}', '/NH'], capture_output=True,
+                                                    text=True).stdout
+            else:
+                try:
+                    os.kill(nieto, 0)
+                    vivo = True
+                except OSError:
+                    vivo = False
+            self.assertFalse(vivo, 'el nieto sigue vivo tras el plazo')
