@@ -1,0 +1,31 @@
+version = 1
+
+# Espejo de los analizadores activos en la UI de DeepSource.
+# - El JS mezcla scripts clásicos (assets/) y módulos ES (qa/*.mjs, scripts/*.mjs): sin module_system,
+#   cada .mjs daba «Parsing error: 'import' and 'export' may appear only with 'sourceType: module'».
+# - Complejidad en «critical» (P0-8, .ci/fable-direccion-2026-11-15.md): render_book (41), render_author (53)
+#   y pasada (57) son deuda anterior; no deben bloquear las PR de estabilización. El refactor con hash
+#   idéntico es la orden P2-1; al cerrarla se baja el umbral. Seguridad y bug risk siguen bloqueando.
+
+test_patterns = ["tests/**"]
+
+[[analyzers]]
+name = "python"
+
+  [analyzers.meta]
+  runtime_version = "3.x.x"
+  cyclomatic_complexity_threshold = "critical"
+
+[[analyzers]]
+name = "javascript"
+
+  [analyzers.meta]
+  environment = ["nodejs", "browser"]
+  module_system = "es-modules"
+  cyclomatic_complexity_threshold = "critical"
+
+[[analyzers]]
+name = "shell"
+
+[[analyzers]]
+name = "secrets"
