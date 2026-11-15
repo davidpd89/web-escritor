@@ -2,7 +2,6 @@
 'use strict';
 // Caja «Ir a la página» del paginador estático (todas las páginas del listado, también /pagina/N/ sin filtros).
 (() => {
-  'use strict';
   for (const jump of document.querySelectorAll('form[data-catalogue-jump]')) {
     jump.hidden = false;
     jump.addEventListener('submit', event => {
@@ -14,7 +13,6 @@
   }
 })();
 (async () => {  // skipcq: JS-R1005 (orden P2-1: refactor pendiente)
-  'use strict';
   const root = document.querySelector('[data-reading-catalogue]');
   if (!root) return;
   // Small, linked static pages remain usable without JS. Enhance the hub only
