@@ -1,6 +1,7 @@
 import datetime as dt
 import importlib.util
 import tempfile
+import sys
 import unittest
 from pathlib import Path
 
@@ -476,7 +477,7 @@ class CambiosDel15Nov(unittest.TestCase):
         nombres = ('cargar_estado', 'guardar_estado', 'actions_caido', 'ultima_ejecucion', 'gh_json', 'sh',
                    'relanzar', 'avisar', 'log', 'ingesta_en_marcha', 'fallo_de_infraestructura', 'reparar',
                    'registro_fallo', 'ESTADO_DIR')
-        guardar = {k: getattr(na, k) for k in nombres}
+        self.originales = guardar = {k: getattr(na, k) for k in nombres}
         self.addCleanup(lambda: [setattr(na, k, v) for k, v in guardar.items()])
         tmp = tempfile.TemporaryDirectory(); self.addCleanup(tmp.cleanup)
         na.ESTADO_DIR = Path(tmp.name)   # vigia_carga toma lock-vigia: nunca en el estado real
@@ -560,17 +561,26 @@ class CambiosDel15Nov(unittest.TestCase):
                 return 1
         self.assertFalse(na.servidor_listo(Muerto(), plazo=0.5))
 
-    def test_sin_pyyaml_no_hay_pasos_pero_no_revienta(self):
-        import builtins
-        original = builtins.__import__
-
-        def sin_yaml(nombre, *a, **kw):
-            if nombre == 'yaml':
-                raise ImportError('sin PyYAML')
-            return original(nombre, *a, **kw)
-        builtins.__import__ = sin_yaml
-        self.addCleanup(setattr, builtins, '__import__', original)
+    def test_workflow_ilegible_no_hay_pasos_pero_no_revienta(self):
         self.assertEqual(na.pasos_del_workflow(Path('.'), 'no-existe.yml', ['x']), [])
+
+    def test_pyyaml_declarado_en_requirements(self):
+        # 15/11: la CI no tenía PyYAML y un except lo tragaba; en local pasaba 62/62.
+        req = (Path(__file__).resolve().parents[1] / 'scripts' / 'requirements.txt').read_text(encoding='utf-8')
+        self.assertRegex(req, r'(?m)^PyYAML==')
+
+    def test_orden_segura(self):
+        raiz = Path(__file__).resolve().parents[1]
+        na.sh = self.originales['sh']   # git ls-files real: el repo de verdad
+        py, node = sys.executable, na.exe('node')
+        self.assertTrue(na.orden_segura([py, 'tests/test_night_autorepair.py'], raiz))
+        self.assertTrue(na.orden_segura([py, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_x.py'], raiz))
+        self.assertFalse(na.orden_segura([py, '-m', 'pip', 'install', 'x'], raiz))
+        self.assertFalse(na.orden_segura([py, 'scripts/no-existe-nunca.py'], raiz))
+        self.assertFalse(na.orden_segura([py, 'tests/../evil.py'], raiz))
+        self.assertFalse(na.orden_segura([py, 'tests/test_night_autorepair.py', '$(rm)'], raiz))
+        self.assertFalse(na.orden_segura(['bash', 'tests/test_night_autorepair.py'], raiz))
+        self.assertFalse(na.orden_segura([node, '/etc/x.mjs'], raiz))
 
     def test_vigia_con_error_no_revienta_ni_marca(self):
         with tempfile.TemporaryDirectory() as tmp:

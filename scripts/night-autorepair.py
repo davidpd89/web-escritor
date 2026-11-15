@@ -38,6 +38,8 @@ from __future__ import annotations
 import argparse, datetime as dt, json, os, re, shutil, subprocess, sys, time
 from pathlib import Path
 
+import yaml  # PyYAML, declarado en scripts/requirements.txt (antes un except lo tragaba y la CI no lo tenía)
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import estado_local  # noqa: E402
 import ci_checks  # noqa: E402
@@ -493,9 +495,8 @@ def pasos_del_workflow(wt, fichero, nombres) -> list[str]:
     Solo órdenes simples `[VAR=v ...] python|node qa|tests|scripts/...`: tuberías, redirecciones o sustituciones no se
     repiten aquí (las decide la CI de la PR). El env sin expresiones `${{ }}` del workflow, trabajo y paso va delante."""
     try:
-        import yaml
         wf = yaml.safe_load((wt / '.github/workflows' / fichero).read_text(encoding='utf-8')) or {}
-    except Exception as exc:  # sin PyYAML, fichero ilegible o YAML roto: decide la CI de la PR
+    except (OSError, yaml.YAMLError) as exc:  # fichero ilegible o YAML roto: decide la CI de la PR
         log(f"puerta: no pude leer el workflow {fichero} ({exc})")
         return []
     pasos = []
@@ -581,6 +582,25 @@ def preparar_orden(paso):
     return args, env
 
 
+ARG_SEGURO = re.compile(r'[\w./=:,-]+')
+
+
+def orden_segura(args, wt) -> bool:
+    """Solo se ejecutan órdenes con intérprete fijo y un script versionado del propio repo (Sonar S6350).
+
+    Las órdenes salen del YAML del worktree: aunque sea del repo, no se lanza nada que no sea `python|node` sobre un
+    fichero de qa/, tests/ o scripts/ que git conoce, ni `python -m unittest`, ni argumentos con caracteres raros."""
+    if len(args) < 2 or args[0] not in (sys.executable, exe('node')):
+        return False
+    if not all(ARG_SEGURO.fullmatch(a) for a in args[1:]):
+        return False
+    if args[1] == '-m':
+        return args[0] == sys.executable and args[2:3] == ['unittest']
+    if not re.fullmatch(r'(?:qa|tests|scripts)/[\w./-]+', args[1]) or '..' in args[1]:
+        return False
+    return sh(['git', 'ls-files', '--error-unmatch', args[1]], cwd=wt).returncode == 0
+
+
 def servidor_listo(servidor, puerto=4173, plazo=20.0) -> bool:
     """True cuando el servidor que acabamos de lanzar acepta conexiones; False si muere o no responde a tiempo."""
     import socket
@@ -622,6 +642,9 @@ def puerta_local(wt, registro='', pasos_ci=None):
     try:
         for paso in pasos:
             args, env = preparar_orden(paso)
+            if not orden_segura(args, wt):
+                salida.append(f'omitido (orden no permitida, la decide la CI de la PR): {paso}')
+                continue
             try:
                 r = sh(args, cwd=wt, timeout=30 * 60, env=env)
                 codigo, texto = r.returncode, (r.stdout or '') + (r.stderr or '')
