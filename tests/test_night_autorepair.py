@@ -397,7 +397,7 @@ class CerrojoDeProceso(unittest.TestCase):
                 'time.sleep(60)\n')
 
     def test_otro_proceso_no_entra_y_entra_al_morir_el_primero(self):
-        import subprocess, sys
+        import subprocess
         script = Path(__file__).resolve().parents[1] / 'scripts' / 'night-autorepair.py'
         with tempfile.TemporaryDirectory() as tmp:
             ruta = Path(tmp) / 'lock'
@@ -557,7 +557,8 @@ class CambiosDel15Nov(unittest.TestCase):
 
     def test_servidor_listo_espera_el_puerto_y_detecta_la_caida(self):
         class Muerto:
-            def poll(self):
+            @staticmethod
+            def poll():
                 return 1
         self.assertFalse(na.servidor_listo(Muerto(), plazo=0.5))
 
@@ -745,7 +746,6 @@ class PlazoMataElArbol(unittest.TestCase):
     def test_el_nieto_muere_y_sh_vuelve(self):
         import os
         import subprocess
-        import sys
         import time
         with tempfile.TemporaryDirectory() as tmp:
             pidf = Path(tmp) / 'nieto.pid'

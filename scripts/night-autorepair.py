@@ -738,7 +738,7 @@ def rama_de_datos(wt, rama, flujo) -> str:
             "al acabar para el servidor y borra ese worktree.")
 
 
-def reparar(flujo, run, dry, historial=None, auto=True):
+def reparar(flujo, run, dry, historial=None, auto=True):  # skipcq: PY-R1000 (orden P2-1: refactor pendiente)
     completo = registro_fallo(run['databaseId'], run=run if es_local(flujo) else None)
     if flujo == INGESTA:
         completo += registro_qa_hijo(completo)
@@ -812,7 +812,7 @@ def publicar_arreglo(flujo, run, wt, rama, nombre, resumen, trailer, auto):
     return {'pr': numero, 'agente': nombre, 'titulo': titulo}
 
 
-def pasada(dry=False, solo=None, ahora=None):
+def pasada(dry=False, solo=None, ahora=None):  # skipcq: PY-R1000 (orden P2-1: refactor pendiente)
     estado = cargar_estado()
     ahora = ahora or dt.datetime.now(dt.timezone.utc)
     hoy = ahora.date().isoformat()

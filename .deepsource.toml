@@ -1,13 +1,16 @@
 version = 1
 
-# Espejo de los analizadores activos en la UI de DeepSource.
-# - El JS mezcla scripts clásicos (assets/) y módulos ES (qa/*.mjs, scripts/*.mjs): sin module_system,
-#   cada .mjs daba «Parsing error: 'import' and 'export' may appear only with 'sourceType: module'».
-# - Complejidad en «critical» (P0-8, .ci/fable-direccion-2026-11-15.md): render_book (41), render_author (53)
-#   y pasada (57) son deuda anterior; no deben bloquear las PR de estabilización. El refactor con hash
-#   idéntico es la orden P2-1; al cerrarla se baja el umbral. Seguridad y bug risk siguen bloqueando.
+# Espejo de los analizadores activos en la UI de DeepSource (P0-8, .ci/fable-direccion-2026-11-15.md).
+# - El JS mezcla scripts clásicos (assets/) y módulos ES: module_system = "es-modules".
+# - **/*.mjs fuera: 337 scripts de QA y tests usan await de nivel superior (ES2022) y el parser de DeepSource
+#   no lo admite; los daba como «Parsing error: 'import' and 'export' may appear only with sourceType: module».
+#   Siguen revisados por SonarCloud y CodeQL (javascript-typescript) en cada PR.
+# - pagefind/ es generado (DeepSource lo salta igualmente por exceso de avisos).
+# - Complejidad: el umbral no silenció pasada (57) ni reparar (18) en #1339; las funciones heredadas llevan
+#   skipcq: PY-R1000 / JS-R1005 con referencia a la orden P2-1 (refactor con hash idéntico). Lo nuevo se mide.
 
 test_patterns = ["tests/**"]
+exclude_patterns = ["**/*.mjs", "pagefind/**"]
 
 [[analyzers]]
 name = "python"
