@@ -10,6 +10,7 @@ import argparse
 import fnmatch
 import json
 import os
+import re
 import subprocess
 import sys
 import time
@@ -176,6 +177,9 @@ QA_REFRESHES = 2
 MIN_REFRESH_BUDGET = 1800  # segundos; con menos no cabe otra vuelta completa de CI
 
 
+GENERATED_BRANCH = re.compile(r'automation/[a-zA-Z0-9][a-zA-Z0-9._-]*')
+
+
 def main_cambio_qa(repo, sha):
     """Ficheros de código de CI que main tiene y la cabeza de la PR no (vacío si no hay)."""
     data = json.loads(gh('api', f'repos/{repo}/compare/{sha}...main'))
@@ -186,6 +190,9 @@ def main_cambio_qa(repo, sha):
 
 def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_before=False, pr_wait=120,
                       ceder_a=(), qa_refreshes=QA_REFRESHES):
+    # La rama acaba como argumento de `gh`: solo ramas generadas, sin espacios ni opciones.
+    if not GENERATED_BRANCH.fullmatch(branch):
+        raise ValueError(f'Rama no generada: {branch!r}')
     started = time.monotonic()
     repo = gh('repo', 'view', '--json', 'nameWithOwner', '--jq', '.nameWithOwner')
     pr = json.loads(gh('pr', 'view', branch, '--json', 'number,headRefOid,baseRefName,baseRefOid,state'))
@@ -363,7 +370,7 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
 
 
 def run(branch: str, timeout: int = 5400):
-    if not branch.startswith('automation/radar-clock-'):
+    if not re.fullmatch(r'automation/radar-clock-[a-zA-Z0-9-]+', branch):
         raise ValueError('Only generated radar-clock branches are accepted')
     allowed = {'convocatorias-escritores/index.html', 'convocatorias-escritores/opportunities.json',
                'convocatorias-escritores/deadlines.ics', '.lycheeignore'}
