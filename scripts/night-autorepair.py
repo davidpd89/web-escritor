@@ -773,7 +773,8 @@ def pasada(dry=False, solo=None):
                 elif previo.get('auto_pendiente') and not ingesta_en_marcha():
                     log(f"{flujo}: la carga terminó; activo el auto-merge de la PR #{previo['pr']}")
                     # check=True: si falla (API caída), la marca se queda y la siguiente pasada lo reintenta.
-                    dry or sh(['gh', 'pr', 'merge', str(previo['pr']), '--repo', GH_REPO, '--auto', '--squash'], check=True)
+                    if not dry:
+                        sh(['gh', 'pr', 'merge', str(previo['pr']), '--repo', GH_REPO, '--auto', '--squash'], check=True)
                     previo.pop('auto_pendiente', None)
                 elif (motivo := pr_atascada(pr, ahora)):
                     log(f"{flujo}: PR #{previo['pr']} no puede entrar ({motivo}); la cierro y cuento el intento como fallido")

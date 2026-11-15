@@ -650,7 +650,7 @@ jobs:
         self.assertEqual(vistos, ['1', '555'])
         self.assertEqual(pasos, ['GLOBAL=si QA_ORIGIN=http://127.0.0.1:4173 node qa/reading-intake-browser.mjs',
                                  'GLOBAL=si QA_ORIGIN=http://127.0.0.1:4173 ESTRICTO=true '
-                                 'python scripts/check-reading-data.py --strict'])
+                                 + 'python scripts/check-reading-data.py --strict'])
         argv, env = na.preparar_orden(pasos[1])
         self.assertEqual(argv[1:], ['scripts/check-reading-data.py', '--strict'])
         self.assertEqual(env['ESTRICTO'], 'true')
