@@ -15,13 +15,19 @@ import json
 import os
 import re
 import sys
+import urllib.parse
 import urllib.request
 import urllib.robotparser
 from datetime import date
+from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PROMPTS = ROOT / '.github' / 'empleados'
+# Todo lo que lee o escribe el script vive aquí: ningún argumento puede sacar una ruta fuera.
+DATOS = Path(os.environ.get('EMPLEADOS_DATOS') or ROOT / '.empleados').resolve()
+# Solo se descarga del sitio propio, por HTTPS: ni una URL del sitemap ni un argumento abren otra petición.
+HOSTS = {'davidportodiaz.com', 'www.davidportodiaz.com'}
 # Lunes=0. El investigador va una vez por semana (condición de Fable, R3-14).
 ROTACION = ['investigador', 'seo', 'geo', 'ux', 'rendimiento', 'arquitecto', 'tester']
 ROLES = set(ROTACION)
@@ -39,9 +45,33 @@ def elegir(rol=None, fecha=None):
     return ROTACION[fecha.weekday()]
 
 
+def url_segura(url):
+    """La URL si es HTTPS del sitio propio; ValueError si no."""
+    partes = urllib.parse.urlsplit(url)
+    if partes.scheme != 'https' or partes.hostname not in HOSTS or partes.username or partes.port:
+        raise ValueError(f'URL fuera del sitio: {url[:120]}')
+    return partes.geturl()
+
+
+def ruta_segura(nombre):
+    """Ruta dentro de DATOS; ValueError si un argumento intenta salir (../, absoluta a otro sitio)."""
+    ruta = Path(nombre).resolve()
+    if not ruta.is_relative_to(DATOS):
+        raise ValueError(f'ruta fuera de {DATOS}: {nombre}')
+    return ruta
+
+
+class _SinRedireccionAjena(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return super().redirect_request(req, fp, code, msg, headers, url_segura(newurl))
+
+
+_ABRIR = urllib.request.build_opener(_SinRedireccionAjena).open
+
+
 def descargar(url, limite=5_000_000):
-    req = urllib.request.Request(url, headers={'User-Agent': UA})
-    with urllib.request.urlopen(req, timeout=30) as r:  # noqa: S310 - URL propia
+    req = urllib.request.Request(url_segura(url), headers={'User-Agent': UA})
+    with _ABRIR(req, timeout=30) as r:  # noqa: S310 - url_segura: solo HTTPS del sitio propio
         return r.status, r.read(limite).decode('utf-8', 'replace')
 
 
@@ -92,10 +122,46 @@ def resumir_siteone(datos, maximo=12000):
     return texto[:maximo]
 
 
+class _Pagina(HTMLParser):
+    """Bloques JSON-LD, <title> y canonical con el parser de la biblioteca estándar (sin regex con backtracking)."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.jsonld, self.titulo, self.canonical = [], None, False
+        self._en = None
+
+    def handle_starttag(self, tag, attrs):
+        a = {k: (v or '') for k, v in attrs}
+        if tag == 'script' and 'ld+json' in a.get('type', '').lower():
+            self._en = 'jsonld'
+            self.jsonld.append('')
+        elif tag == 'title' and self.titulo is None:
+            self._en = 'title'
+            self.titulo = ''
+        elif tag == 'link' and 'canonical' in a.get('rel', '').lower().split() and a.get('href'):
+            self.canonical = True
+
+    def handle_endtag(self, tag):
+        if tag in ('script', 'title'):
+            self._en = None
+
+    def handle_data(self, data):
+        if self._en == 'jsonld':
+            self.jsonld[-1] += data
+        elif self._en == 'title':
+            self.titulo += data
+
+
+def leer_pagina(html):
+    p = _Pagina()
+    p.feed(html)
+    p.close()
+    return p
+
+
 def revisar_jsonld(html):
-    bloques = re.findall(r'<script[^>]+application/ld\+json[^>]*>(.*?)</script>', html, re.S | re.I)
     tipos, errores = [], 0
-    for b in bloques:
+    for b in leer_pagina(html).jsonld:
         try:
             d = json.loads(b)
         except ValueError:
@@ -134,12 +200,11 @@ def geo(base, muestra):
         try:
             _, html = descargar(u)
             tipos, errores = revisar_jsonld(html)
-            titulo = re.search(r'<title>(.*?)</title>', html, re.S)
-            canon = re.search(r'<link[^>]+rel="canonical"[^>]+href="([^"]+)"', html)
+            pagina = leer_pagina(html)
             out.append(f'- {u}: tipos={sorted(set(tipos)) or "NINGUNO"}'
                        f'{" JSON-LD roto=" + str(errores) if errores else ""}'
-                       f'; title={len(titulo.group(1).strip()) if titulo else 0} car.'
-                       f'; canonical={"sí" if canon else "NO"}')
+                       f'; title={len((pagina.titulo or "").strip())} car.'
+                       f'; canonical={"sí" if pagina.canonical else "NO"}')
         except Exception as e:  # noqa: BLE001
             out.append(f'- {u}: ERROR {type(e).__name__}')
     return '\n'.join(out)
@@ -174,17 +239,17 @@ def main(argv=None):
                 f.write(f'rol={rol}\n')
     elif a.orden == 'muestra':
         _, xml = descargar(a.sitemap)
-        Path(a.salida).write_text('\n'.join(ordenar_muestra(urls_sitemap(xml), a.n)) + '\n', encoding='utf-8')
+        ruta_segura(a.salida).write_text('\n'.join(ordenar_muestra(urls_sitemap(xml), a.n)) + '\n', encoding='utf-8')
     elif a.orden == 'resumir-siteone':
         try:
-            datos = json.loads(Path(a.json).read_text(encoding='utf-8'))
+            datos = json.loads(ruta_segura(a.json).read_text(encoding='utf-8'))
         except (OSError, ValueError) as ex:
             datos = {'summary': {'items': [{'status': 'CRITICAL', 'aplCode': 'crawler',
                                             'text': f'sin JSON del crawler: {type(ex).__name__}'}]}}
-        Path(a.salida).write_text(resumir_siteone(datos), encoding='utf-8')
+        ruta_segura(a.salida).write_text(resumir_siteone(datos), encoding='utf-8')
     elif a.orden == 'geo':
-        muestra = [u for u in Path(a.muestra).read_text(encoding='utf-8').split() if u]
-        Path(a.salida).write_text(geo(a.base, muestra), encoding='utf-8')
+        muestra = [u for u in ruta_segura(a.muestra).read_text(encoding='utf-8').split() if u]
+        ruta_segura(a.salida).write_text(geo(url_segura(a.base), muestra), encoding='utf-8')
     return 0
 
 

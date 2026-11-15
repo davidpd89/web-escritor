@@ -69,7 +69,7 @@ jobs:
           ROL: ${{ steps.rol.outputs.rol }}
         run: |
           mkdir -p /tmp/siteone && cd /tmp/siteone
-          curl -fsSL -o so.tgz "https://github.com/janreges/siteone-crawler/releases/download/$SITEONE/siteone-crawler-$SITEONE-linux-x64.tar.gz"
+          curl -fsSL --proto '=https' --proto-redir '=https' -o so.tgz "https://github.com/janreges/siteone-crawler/releases/download/$SITEONE/siteone-crawler-$SITEONE-linux-x64.tar.gz"
           tar xzf so.tgz
           BIN=$(find . -maxdepth 3 -type f \( -name 'siteone-crawler' -o -name 'crawler' \) | head -n 1)
           test -n "$BIN" && chmod +x "$BIN"

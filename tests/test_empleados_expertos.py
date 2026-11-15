@@ -3,6 +3,7 @@ import json
 import re
 import tempfile
 import unittest
+from unittest import mock
 from datetime import date
 from pathlib import Path
 
@@ -66,8 +67,28 @@ class ResumenTests(unittest.TestCase):
     def test_siteone_sin_json_no_rompe(self):
         with tempfile.TemporaryDirectory() as d:
             salida = Path(d) / 'r.md'
-            emp.main(['resumir-siteone', '--json', str(Path(d) / 'no.json'), '--salida', str(salida)])
+            with mock.patch.object(emp, 'DATOS', Path(d).resolve()):
+                emp.main(['resumir-siteone', '--json', str(Path(d) / 'no.json'), '--salida', str(salida)])
             self.assertIn('CRITICAL', salida.read_text(encoding='utf-8'))
+
+    def test_rutas_fuera_de_datos_se_rechazan(self):
+        with tempfile.TemporaryDirectory() as d, mock.patch.object(emp, 'DATOS', Path(d).resolve()):
+            self.assertEqual(emp.ruta_segura(str(Path(d) / 'a.md')), Path(d).resolve() / 'a.md')
+            with self.assertRaises(ValueError):
+                emp.ruta_segura(str(Path(d) / '..' / 'fuera.md'))
+
+    def test_solo_https_del_sitio_propio(self):
+        self.assertEqual(emp.url_segura('https://davidportodiaz.com/x?a=1'), 'https://davidportodiaz.com/x?a=1')
+        for mala in ('http://davidportodiaz.com/', 'https://evil.com/', 'https://davidportodiaz.com.evil.com/',
+                     'https://u@davidportodiaz.com/', 'file:///etc/passwd', 'https://davidportodiaz.com:8080/'):
+            with self.assertRaises(ValueError, msg=mala):
+                emp.url_segura(mala)
+
+    def test_titulo_y_canonical_sin_regex(self):
+        p = emp.leer_pagina('<html><head><title> Hola </title><link href="https://x/" rel="canonical"></head></html>')
+        self.assertEqual(p.titulo.strip(), 'Hola')
+        self.assertTrue(p.canonical)
+        self.assertFalse(emp.leer_pagina('<title>t</title>').canonical)
 
     def test_jsonld_tipos_y_roto(self):
         html = ('<script type="application/ld+json">' + json.dumps({'@graph': [{'@type': 'Book'}, {'@type': ['Offer']}]}) +
