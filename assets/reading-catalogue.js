@@ -1,16 +1,19 @@
 /* Static books and purchase links work without JS; optional market data expires. */
-(async () => {
+// Caja «Ir a la página» del paginador estático (todas las páginas del listado, también /pagina/N/ sin filtros).
+(() => {
   'use strict';
-  // Caja «Ir a la página» del paginador estático (todas las páginas del listado, también /pagina/N/ sin filtros).
   for (const jump of document.querySelectorAll('form[data-catalogue-jump]')) {
     jump.hidden = false;
     jump.addEventListener('submit', event => {
       event.preventDefault();
-      const input = jump.querySelector('input'), max = Number(input.max) || 1, raw = input.value.trim();
-      const page = /^\d+$/.test(raw) ? Math.max(1, Math.min(max, Number(raw))) : 1;
-      location.assign(page === 1 ? '/recomendaciones/' : '/recomendaciones/pagina/' + page + '/');
+      const input = jump.querySelector('input'), raw = input.value.trim();
+      const page = /^\d+$/.test(raw) ? Math.max(1, Math.min(Number(input.max) || 1, Number(raw))) : 1;
+      location.assign(page === 1 ? '/recomendaciones/' : `/recomendaciones/pagina/${page}/`);
     });
   }
+})();
+(async () => {
+  'use strict';
   const root = document.querySelector('[data-reading-catalogue]');
   if (!root) return;
   // Small, linked static pages remain usable without JS. Enhance the hub only
@@ -19,7 +22,7 @@
   // El paginador estático solo enlaza una ventana de páginas; el total va en data-catalogue-page-count.
   const pageCount = Number.parseInt(staticNav?.dataset.cataloguePageCount || '', 10);
   const continuation = pageCount > 1
-    ? Array.from({length: pageCount - 1}, (_, i) => ({href: '/recomendaciones/pagina/' + (i + 2) + '/'}))
+    ? Array.from({length: pageCount - 1}, (_, i) => ({href: `/recomendaciones/pagina/${i + 2}/`}))
     : [...new Map([...(staticNav?.querySelectorAll('a[data-catalogue-page]') || [])].map(a => [a.href, a])).values()];
   // El catálogo completo (todas las páginas) se descarga e indexa al primer uso de filtros, buscador o test, o al
   // cargar con un estado en la URL (#…). Antes, la primera página ya lleva novedad, valoraciones y precios del día.
@@ -163,9 +166,9 @@
   const isNew = (s, window) => { const days = ageDays(s); return window === 'proximamente' ? days < 0 : days >= 0 && (window === '15' ? days < 15 : days <= Number(window)); };
   function renderNovelty(scope = root) {
     for (const label of scope.querySelectorAll('[data-release-label]')) {
-      const fresh = isNew(label.dataset.releaseLabel, '30'),  // contrato: «Novedad» un mes (NOVELTY_DAYS)
-      upcoming = !fresh && isNew(label.dataset.releaseLabel, 'proximamente');
-      const text = fresh ? 'Novedad' : upcoming ? 'Pr\u00f3ximamente' : '';
+      const isFresh = isNew(label.dataset.releaseLabel, '30'),  // contrato: «Novedad» un mes (NOVELTY_DAYS)
+      upcoming = !isFresh && isNew(label.dataset.releaseLabel, 'proximamente');
+      const text = isFresh ? 'Novedad' : upcoming ? 'Pr\u00f3ximamente' : '';
       if (label.dataset.releaseFallback !== undefined) {
         const shown = text || label.dataset.releaseFallback;
         if (label.textContent !== shown) label.textContent = shown;
@@ -383,8 +386,8 @@
       if (save) { const hash = new URLSearchParams(Object.entries(v).filter(([k, value]) => !FACETS.includes(k) && value && !(k === 'orden' && value === 'editorial'))); for (const k of FACETS) for (const x of v[k]) hash.append(k, x); if (currentPage > 1) hash.set('pagina', String(currentPage)); history.replaceState(null, '', location.pathname + location.search + (hash.size ? '#' + hash : '')); }
       else {
         // #pagina fuera de rango: se corrige sin historial ni hashchange.
-        const hash = new URLSearchParams(location.hash.slice(1)), page = currentPage > 1 ? String(currentPage) : null;
-        if (hash.get('pagina') !== page && (hash.has('pagina') || page)) { if (page) hash.set('pagina', page); else hash.delete('pagina'); history.replaceState(history.state, '', location.pathname + location.search + (hash.size ? '#' + hash : '')); }
+        const hash = new URLSearchParams(location.hash.slice(1)), pageParam = currentPage > 1 ? String(currentPage) : null;
+        if (hash.get('pagina') !== pageParam && (hash.has('pagina') || pageParam)) { if (pageParam) hash.set('pagina', pageParam); else hash.delete('pagina'); history.replaceState(history.state, '', location.pathname + location.search + (hash.size ? '#' + hash : '')); }
       }
     }
   }
@@ -440,10 +443,10 @@
     currentPage = 1; apply();
     const heading = root.querySelector('.catalogue-results-head h2'); heading.tabIndex = -1; heading.focus({preventScroll: true});
   }
+  const pageFromHash = raw => /^\d+$/.test(raw || '') ? Math.max(1, Math.min(100000, Number(raw))) : 1;
   function restore() {
     const params = new URLSearchParams(location.hash.slice(1));
-    const rawPage = params.get('pagina') || '';
-    currentPage = /^\d+$/.test(rawPage) ? Math.max(1, Math.min(100000, Number(rawPage))) : 1;
+    currentPage = pageFromHash(params.get('pagina'));
     for (const f of fields) { const v = params.get(f.dataset.filter) || (f.dataset.filter === 'orden' ? 'editorial' : ''); f.value = f.tagName === 'SELECT' && ![...f.options].some(o => o.value === v) ? (f.dataset.filter === 'orden' ? 'editorial' : '') : v; }
     for (const box of boxes) box.checked = params.getAll(box.dataset.facet).includes(box.value);
     // Enlaces antiguos con #novedad=N: el filtro se quitó (09/11) y equivale a «Publicado desde» hace N días.
