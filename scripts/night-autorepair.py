@@ -348,6 +348,10 @@ def main_cambio_codigo(sha) -> list[str] | None:
 
     None si no se puede saber (API caída, SHA borrado por un force-push): entonces se relanza, como antes. Solo se
     repara sin relanzar cuando la comparación confirma que main no trae código nuevo."""
+    if not re.fullmatch(r'[0-9a-f]{7,40}', sha or ''):   # viene del estado local: solo un SHA llega a `gh api`
+        log(f"SHA no válido ({sha!r}); se relanza")
+        return None
+    sha = re.fullmatch(r'[0-9a-f]{7,40}', sha).group()
     try:
         data = gh_json('api', f'repos/{GH_REPO}/compare/{sha}...main')
     except Exception as exc:
