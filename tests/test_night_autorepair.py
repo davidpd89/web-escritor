@@ -77,16 +77,6 @@ class Decidir(unittest.TestCase):
         self.assertEqual(na.decidir(run(horas=2), {'relanzado': hace3h}, AHORA, na.MAX_INTENTOS_DIA, infra=True), 'relanzar')
 
 
-class CargaPerdida(unittest.TestCase):
-    def test_sin_carga_hoy_se_lanza_una_vez(self):
-        ayer = {'createdAt': '2026-11-08T00:20:00Z'}
-        self.assertTrue(na.carga_perdida(ayer, AHORA, False))
-        self.assertFalse(na.carga_perdida(ayer, AHORA, True))
-        self.assertTrue(na.carga_perdida(ayer, AHORA.replace(hour=1), False))
-        self.assertFalse(na.carga_perdida(ayer, AHORA.replace(hour=0, minute=50), False))
-        self.assertFalse(na.carga_perdida({'createdAt': '2026-11-09T00:21:00Z'}, AHORA, False))
-
-
 class Infraestructura(unittest.TestCase):
     def _jobs(self, jobs):
         from unittest import mock
@@ -549,13 +539,30 @@ class CambiosDel15Nov(unittest.TestCase):
         ayer = self.ahora - dt.timedelta(days=1)
         na.ultima_ejecucion = lambda f: {**run(conclusion='success'), 'createdAt': ayer.isoformat()}
 
-    def test_vigia_lanza_una_vez_la_carga_perdida(self):
+    def test_vigia_pide_un_respaldo_por_hora_entre_la_1_y_las_5(self):
+        """Fable R3-5: una vez por hora de 01:00 a 04:59 UTC, siempre con respaldo=true (decide ci_intake_backup)."""
         with tempfile.TemporaryDirectory() as tmp:
             self.vigia_preparado(tmp)
-            self.assertFalse(na.vigia_carga(ahora=self.ahora.replace(hour=0)))   # antes de la hora: nada
+            self.assertFalse(na.vigia_carga(ahora=self.ahora.replace(hour=0, minute=50)))   # antes: nada
             self.assertTrue(na.vigia_carga(ahora=self.ahora))
-            self.assertFalse(na.vigia_carga(ahora=self.ahora + dt.timedelta(minutes=15)))
-            self.assertEqual(self.hechos.count(('gh', 'workflow', 'run')), 1)
+            self.assertFalse(na.vigia_carga(ahora=self.ahora + dt.timedelta(minutes=15)))   # misma hora
+            self.assertTrue(na.vigia_carga(ahora=self.ahora + dt.timedelta(hours=1)))        # 04:00
+            self.assertFalse(na.vigia_carga(ahora=self.ahora + dt.timedelta(hours=2)))       # 05:00: fuera
+            self.assertEqual(self.hechos.count(('gh', 'workflow', 'run')), 2)
+
+    def test_c3_ejecucion_de_hoy_sin_intake_no_calla_al_vigia(self):
+        """C3: hoy hay una ejecución (un reloj que decidió «no cargar»): antes el vigía callaba; ahora pide el
+        respaldo con respaldo=true y es ci_intake_backup.py quien decide (con una carga en verde, no carga)."""
+        with tempfile.TemporaryDirectory() as tmp:
+            self.vigia_preparado(tmp)
+            na.ultima_ejecucion = lambda f: {**run(conclusion='success'), 'createdAt': self.ahora.isoformat()}
+            ordenes = []
+            sh = na.sh
+            na.sh = lambda args, **kw: ordenes.append(list(args)) or sh(args, **kw)
+            self.assertTrue(na.vigia_carga(ahora=self.ahora))
+            lanzada = next(o for o in ordenes if o[:3] == ['gh', 'workflow', 'run'])
+            self.assertEqual(lanzada[-2:], ['-f', 'respaldo=true'])
+            self.assertIn('main', lanzada)
 
     def test_pasada_y_vigia_comparten_la_marca(self):
         """Codex/CodeRabbit en #1339: la pasada tenía su propia marca y podía lanzar otra carga el mismo día."""

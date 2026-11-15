@@ -116,44 +116,37 @@ def decidir(run: dict | None, previo: dict | None, ahora: dt.datetime, intentos_
     return 'reparar'
 
 
-CARGA_PERDIDA_DESDE_H = 1  # UTC; el cron es a las 00:17
-
-
-def carga_perdida(ultima: dict | None, ahora: dt.datetime, lanzada_hoy: bool) -> bool:
-    """El cron de la carga (00:17 UTC) no llegó a crear ejecución: GitHub a veces se salta crons, sobre todo en
-    incidencias. A partir de las 01:00 UTC, si hoy no hay ninguna carga, se lanza una (una vez al día). Con 02:00 la
-    carga del 2026-11-10 no salió hasta la pasada de las 02:20 UTC: una hora menos de margen hasta las 06:00 Madrid."""
-    if lanzada_hoy or ahora.hour < CARGA_PERDIDA_DESDE_H:
-        return False
-    if not ultima:
-        return True
-    creado = dt.datetime.fromisoformat(ultima['createdAt'].replace('Z', '+00:00'))
-    return creado.date() < ahora.date()
+VIGIA_HORAS_UTC = range(1, 5)  # 01:00-04:59 UTC: después del cron (00:17) y del reloj externo (00:20)
 
 
 def vigia_carga(dry=False, ahora=None):
-    """El único que lanza la carga perdida: lo llaman la tarea del vigía (cada 15 min) y la pasada horaria.
+    """Pide un respaldo de la carga una vez por hora entre la 01:00 y las 05:00 UTC (Fable R3-5).
 
-    Cerrojo y marca diaria compartidos: antes la pasada tenía su propia marca (`carga_perdida` en state.json) y las
-    dos podían lanzar la carga el mismo día, sobre todo mientras la API aún no listaba la ejecución recién lanzada
-    (Codex/CodeRabbit en #1339). Los errores se registran; sin marca, el siguiente intento lo repite."""
+    El vigía ya no decide si la carga se perdió: antes miraba solo si había alguna ejecución de hoy, y una ejecución
+    cuyo job `intake` no corrió (un reloj que decidió «no cargar», un ensayo, una carga cancelada) lo dejaba callado.
+    Ahora lanza `respaldo=true` y decide `scripts/ci_intake_backup.py`, el mismo criterio que los crons y el reloj
+    externo: con una carga en verde esta noche, el respaldo no carga.
+
+    Cerrojo y marca por hora compartidos con la pasada horaria (Codex/CodeRabbit en #1339): nunca dos respaldos en
+    la misma hora. Los errores se registran; sin marca, el siguiente intento lo repite."""
     ahora = ahora or dt.datetime.now(dt.timezone.utc)
-    hoy = ahora.date().isoformat()
-    marca = ESTADO_DIR / 'carga-lanzada.txt'
-    if ahora.hour < CARGA_PERDIDA_DESDE_H:
+    if ahora.hour not in VIGIA_HORAS_UTC:
         return False
+    hora = f'{ahora:%Y-%m-%dT%H}'
+    marca = ESTADO_DIR / 'carga-lanzada.txt'
     cerrojo = tomar_cerrojo(ESTADO_DIR / 'lock-vigia')
     if cerrojo is None:
         return False  # el otro camino lo está comprobando ahora mismo
     try:
-        if marca.exists() and marca.read_text(encoding='utf-8').strip() == hoy:
+        if marca.exists() and marca.read_text(encoding='utf-8').strip() == hora:
             return False
-        if actions_caido() or not carga_perdida(ultima_ejecucion(INGESTA), ahora, False):
+        if actions_caido():
             return False
-        log(f"{'[dry] ' if dry else ''}{INGESTA}: a las {ahora:%H:%M} UTC no ha salido la carga de hoy; la lanzo (vigía)")
+        log(f"{'[dry] ' if dry else ''}{INGESTA}: respaldo de las {ahora:%H:%M} UTC (vigía); decide ci_intake_backup.py")
         if not dry:
-            sh(['gh', 'workflow', 'run', INGESTA, '--ref', 'main', '--repo', GH_REPO], check=True)
-            marca.write_text(hoy, encoding='utf-8')
+            sh(['gh', 'workflow', 'run', INGESTA, '--ref', 'main', '--repo', GH_REPO, '-f', 'respaldo=true'],
+               check=True)
+            marca.write_text(hora, encoding='utf-8')
         return True
     except Exception as exc:
         log(f"{INGESTA}: el vigía no pudo comprobar o lanzar la carga: {exc}")
