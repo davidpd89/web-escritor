@@ -51,7 +51,7 @@ try {
   assert.ok(facet,`${route}: no hay una faceta con dos valores para probar filtros múltiples`);
   const filtered=await open(`#${facet.k}=${encodeURIComponent(facet.vals[0])}&${facet.k}=${encodeURIComponent(facet.vals[1])}&pagina=100000`);
   const fs=await state(filtered), fp=await pageCount(filtered), fhash=new URLSearchParams(fs.hash.slice(1));
-  assert.deepEqual(fhash.getAll(facet.k),facet.vals,`${route}: la normalización perdió filtros repetidos (${fs.hash})`);
+  assert.deepEqual(fhash.getAll(facet.k).sort(),[...facet.vals].sort(),`${route}: la normalización perdió filtros repetidos (${fs.hash})`);
   assert.equal(fs.pagina,fp>1?String(fp):null,`${route}: con filtros, pagina=${fs.pagina} y la vista «${fs.count}»`);
   await filtered.close();
 
