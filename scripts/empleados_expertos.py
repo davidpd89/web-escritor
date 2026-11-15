@@ -10,11 +10,13 @@ Las herramientas deterministas miden; el experto LLM lee el resumen y propone (i
 Lista del equipo y estado: .ci/empleados-expertos.md.
 """
 import argparse
+import html
 import json
 import os
 import re
 import sys
 import urllib.request
+import urllib.robotparser
 from datetime import date
 from pathlib import Path
 
@@ -44,7 +46,7 @@ def descargar(url, limite=5_000_000):
 
 
 def urls_sitemap(xml):
-    return re.findall(r'<loc>\s*([^<\s]+)\s*</loc>', xml)
+    return [html.unescape(u) for u in re.findall(r'<loc>\s*([^<\s]+)\s*</loc>', xml)]  # &amp; -> &
 
 
 def ordenar_muestra(urls, n):
@@ -106,6 +108,16 @@ def revisar_jsonld(html):
     return [t for t in tipos if t], errores
 
 
+BOTS_IA = ('OAI-SearchBot', 'GPTBot', 'PerplexityBot', 'ClaudeBot', 'Google-Extended', 'Bingbot')
+
+
+def robots_bots(robots, base):
+    """Estado de cada bot en la portada según RFC 9309: sin grupo propio, hereda el de `User-agent: *`."""
+    rp = urllib.robotparser.RobotFileParser()
+    rp.parse(robots.splitlines())
+    return [(bot, 'permitido' if rp.can_fetch(bot, base.rstrip('/') + '/') else 'BLOQUEADO') for bot in BOTS_IA]
+
+
 def geo(base, muestra):
     base = base.rstrip('/')
     out = ['# Comprobaciones GEO deterministas', '']
@@ -114,10 +126,7 @@ def geo(base, muestra):
             st, cuerpo = descargar(base + ruta, 200_000)
             out.append(f'- {ruta}: {st}, {len(cuerpo)} car.')
             if ruta == '/robots.txt':
-                for bot in ('OAI-SearchBot', 'GPTBot', 'PerplexityBot', 'ClaudeBot', 'Google-Extended', 'Bingbot'):
-                    m = re.search(rf'User-agent:\s*{re.escape(bot)}\s*\n((?:(?!User-agent).*\n?)*)', cuerpo, re.I)
-                    bloqueo = bool(m and re.search(r'^Disallow:\s*/\s*$', m.group(1), re.M))
-                    out.append(f'  - {bot}: {"BLOQUEADO" if bloqueo else "permitido"}')
+                out += [f'  - {bot}: {estado}' for bot, estado in robots_bots(cuerpo, base)]
         except Exception as e:  # noqa: BLE001 - informe, no fallo
             out.append(f'- {ruta}: ERROR {type(e).__name__}')
     out += ['', '## JSON-LD por página']
@@ -174,7 +183,7 @@ def main(argv=None):
                                             'text': f'sin JSON del crawler: {type(ex).__name__}'}]}}
         Path(a.salida).write_text(resumir_siteone(datos), encoding='utf-8')
     elif a.orden == 'geo':
-        muestra = [u for u in Path(a.muestra).read_text(encoding='utf-8').split() if u][:25]
+        muestra = [u for u in Path(a.muestra).read_text(encoding='utf-8').split() if u]
         Path(a.salida).write_text(geo(a.base, muestra), encoding='utf-8')
     return 0
 

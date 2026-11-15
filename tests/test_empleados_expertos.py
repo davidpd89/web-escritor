@@ -43,6 +43,14 @@ class MuestraTests(unittest.TestCase):
     def test_sitemap_lee_loc(self):
         xml = '<urlset><url><loc> https://x.es/a/ </loc></url><url><loc>https://x.es/b/</loc></url></urlset>'
         self.assertEqual(emp.urls_sitemap(xml), ['https://x.es/a/', 'https://x.es/b/'])
+        self.assertEqual(emp.urls_sitemap('<loc>https://x.es/?a=1&amp;b=2</loc>'), ['https://x.es/?a=1&b=2'])
+
+    def test_robots_hereda_el_comodin(self):
+        bloqueo = dict(emp.robots_bots('User-agent: *\nDisallow: /\n', 'https://x.es'))
+        self.assertEqual(set(bloqueo.values()), {'BLOQUEADO'})
+        mixto = dict(emp.robots_bots('User-agent: GPTBot\nDisallow: /\n\nUser-agent: *\nAllow: /\n', 'https://x.es'))
+        self.assertEqual(mixto['GPTBot'], 'BLOQUEADO')
+        self.assertEqual(mixto['ClaudeBot'], 'permitido')
 
 
 class ResumenTests(unittest.TestCase):

@@ -9,7 +9,7 @@ Cada miembro sigue el mismo esquema:
 
 Todo es gratuito. El LLM es Claude por la cuenta (`CLAUDE_CODE_OAUTH_TOKEN`), sin pago por token.
 
-## Expertos LLM (`empleados-expertos.yml`, 09:17 en Madrid)
+## Expertos LLM (`empleados-expertos.yml`, 05:17 en Madrid)
 
 | Día | Rol | Datos que prepara el workflow | Salida |
 |---|---|---|---|
@@ -57,4 +57,6 @@ Pendiente de completar con las rondas de GPT (`scratchpad/gpt_respuestas`). Se p
 
 ## Hueco abierto
 
-Nadie consume las issues `fallo` ni las `experto`. Cerrar el ciclo issue → PR → CI → fusión necesita un PAT o una app, porque las PR creadas con GITHUB_TOKEN no disparan la CI. Está en las preguntas de Fable, ronda 4.
+Cubierto en parte por el turno de issues (#1374): el turno local de `night-autorepair.py` toma cada hora una issue `fallo` (primero) o `experto`, como mucho 3 al día. Abre la PR con las credenciales locales, así que la CI sí se dispara. Espera a los bots y corrige sus hilos (2 veces como mucho). Fusiona sin `--admin` y nunca durante la carga. Si no puede, cierra y etiqueta `necesita-david`.
+
+Sigue abierto: si el PC está apagado, nadie consume las issues. Hacerlo desde Actions necesita un PAT o una app, porque las PR creadas con GITHUB_TOKEN no disparan la CI. Está en las preguntas de Fable, ronda 4.

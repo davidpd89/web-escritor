@@ -1,13 +1,13 @@
 name: Equipo de expertos
 
-# Un experto distinto cada día (lunes investigador, martes SEO, miércoles GEO, jueves UX, viernes rendimiento,
+# Un experto distinto cada día, a las 05:17 en Madrid (madrugada, sin ocupar runners de día) (lunes investigador, martes SEO, miércoles GEO, jueves UX, viernes rendimiento,
 # sábado arquitecto, domingo tester). Las herramientas deterministas miden y el experto LLM (Claude por la cuenta,
 # sin coste por token) lee el resultado y abre como mucho 3 issues `experto`. No toca el repositorio ni abre PR.
 # Condiciones de Fable (R3-14): solo schedule y dispatch, modo de permisos por defecto (no auto), tope de turnos.
 # Equipo, herramientas y estado: .ci/empleados-expertos.md. Lógica: scripts/empleados_expertos.py.
 on:
   schedule:
-    - cron: '17 9 * * *'
+    - cron: '17 5 * * *'
       timezone: Europe/Madrid
   workflow_dispatch:
     inputs:
@@ -58,8 +58,9 @@ jobs:
         if: steps.rol.outputs.rol != 'investigador' && steps.rol.outputs.rol != 'arquitecto' && steps.rol.outputs.rol != 'tester'
         run: |
           mkdir -p .empleados
+          # Dos muestras repartidas por separado: cortar la larga dejaría solo páginas de primer nivel.
           python scripts/empleados_expertos.py muestra --sitemap "$WEB/sitemap.xml" --n 300 --salida .empleados/muestra-larga.txt
-          head -n 40 .empleados/muestra-larga.txt > .empleados/muestra.txt
+          python scripts/empleados_expertos.py muestra --sitemap "$WEB/sitemap.xml" --n 40 --salida .empleados/muestra.txt
 
       - name: SiteOne Crawler (MIT)
         if: steps.rol.outputs.rol == 'seo' || steps.rol.outputs.rol == 'rendimiento'
@@ -75,7 +76,7 @@ jobs:
           EXTRA=$([ "$ROL" = 'seo' ] && echo '--disable-all-assets' || true)
           "$BIN" --url="$WEB/sitemap.xml" --max-visited-urls=300 --workers=2 --max-reqs-per-sec=3 $EXTRA \
             --output-json-file="$GITHUB_WORKSPACE/.empleados/siteone.json" --output-html-report='' \
-            --result-storage=file --progress-interval=60 || true
+            --result-storage=file || true
 
       - name: Resumen SiteOne
         if: steps.rol.outputs.rol == 'seo' || steps.rol.outputs.rol == 'rendimiento'
@@ -85,7 +86,7 @@ jobs:
         if: steps.rol.outputs.rol == 'geo'
         run: python scripts/empleados_expertos.py geo --base "$WEB" --muestra .empleados/muestra.txt --salida .empleados/geo.md
 
-      - uses: anthropics/claude-code-action@v1
+      - uses: anthropics/claude-code-action@f3b070c88125d33dbae5653df5f143101d4ea9dc # v1
         env:
           GH_TOKEN: ${{ github.token }}
         with:
@@ -105,5 +106,6 @@ jobs:
         with:
           name: empleados-${{ steps.rol.outputs.rol }}
           path: .empleados/
+          include-hidden-files: true
           if-no-files-found: ignore
           retention-days: 14
