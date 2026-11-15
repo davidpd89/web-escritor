@@ -483,7 +483,8 @@ def limpiar_worktree(wt):
 
 
 def deshacer(wt):
-    sh(['git', 'checkout', '--', '.'], cwd=wt)
+    # reset --hard vacía también el índice: un fichero que el agente dejó en stage no sobrevive al descarte.
+    sh(['git', 'reset', '-q', '--hard', 'HEAD'], cwd=wt)
     sh(['git', 'clean', '-fdq', '-e', 'node_modules'], cwd=wt)
 
 
