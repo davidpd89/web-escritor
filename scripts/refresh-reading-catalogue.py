@@ -5,6 +5,7 @@ import importlib.util
 import json
 import os
 import re
+import shutil
 import subprocess
 import tempfile
 import urllib.request
@@ -433,8 +434,16 @@ def quarantine_summary(quarantined, released):
     return ''.join(lines) + ('\n' if lines else '')
 
 
+def quarantine_alert_note():
+    if not reading_quarantine.LAST['alert']:
+        return ''
+    return '**Alerta de cuarentena:** más del 5 % de las altas apartadas; se publica lo válido y queda una issue `fallo` por causa.\n\n'
+
+
 def quarantine_alert(report, quarantined):
     """Muchas altas apartadas: se publica lo válido, pero la carga no se da por limpia y queda una issue por causa."""
+    if not reading_quarantine.LAST['alert']:
+        return
     report['quarantine_rate_alert'] = True
     write_if_changed(ROOT / '.ci/reading-intake/publisher-report.json', report)
     groups = {}
@@ -457,7 +466,7 @@ def open_issue(title, body):
 
     Un fallo al crearla no tumba la carga (ya se publicó lo válido); queda el aviso en el log."""
     def gh(*args):
-        return subprocess.run(['gh', *args], cwd=ROOT, capture_output=True, text=True, encoding='utf-8', check=True).stdout
+        return subprocess.run([shutil.which('gh') or 'gh', *args], cwd=ROOT, capture_output=True, text=True, encoding='utf-8', check=True).stdout
     try:
         gh('label', 'create', 'fallo', '--color', 'B60205', '--description', 'Fallo detectado por un empleado automático', '--force')
         found = json.loads(gh('issue', 'list', '--state', 'open', '--label', 'fallo', '--search', f'"{title}" in:title',
@@ -540,8 +549,7 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
         quarantined = reading_quarantine.apply(ROOT, flagged=flagged)
         released = held_before - {h['libro']['id'] for h in quarantined}
         drop_orphan_pages(quarantined)
-    if reading_quarantine.LAST_ALERT:
-        quarantine_alert(report, quarantined)
+    quarantine_alert(report, quarantined)
     command('git', 'diff', '--check')
     paths = git_estado.rutas(ROOT)
     if not paths or any(not publisher.allowed_path(p) for p in paths):
@@ -563,8 +571,7 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
                      if replaced else '') + 'Incorpora ' + str(len(report['new_books'])) + ' ediciones verificadas en sus fichas editoriales oficiales.\n\n'
                     'Carga sin LLM ni API de pago; portadas optimizadas, ISBN comprobados, autores y enlaces internos generados. '
                     'No importa precios ni valoraciones sin un proveedor autorizado. Los candidatos incompletos quedan pendientes.\n\n'
-                    + ('**Alerta de cuarentena:** más del 5 % de las altas apartadas; se publica lo válido y queda una issue `fallo` por causa.\n\n'
-                       if reading_quarantine.LAST_ALERT else '')
+                    + quarantine_alert_note()
                     + quarantine_summary(quarantined, released) +
                     'Se ejecutan las pruebas reales del commit y las reglas de main antes de fusionar. Después se despliega y se comprueba producción.\n', encoding='utf-8')
     publisher.publication.gh('pr', 'create', '--base', 'main', '--head', branch,

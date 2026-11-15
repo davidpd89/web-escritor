@@ -308,7 +308,7 @@ def drop_retired_pages(data, root):
     return pages
 
 
-LAST_ALERT = False   # alerta de tasa de la última apply(); la lee refresh-reading-catalogue para el informe
+LAST = {'alert': False}   # alerta de tasa de la última apply(); la lee refresh-reading-catalogue para el informe
 
 
 def apply(root=ROOT, today=None, flagged=None):
@@ -327,8 +327,7 @@ def apply(root=ROOT, today=None, flagged=None):
     # Ids que entran a la cuarentena (catálogo + apartados de noches anteriores), antes de que isolate saque altas.
     entering = {'libros': [{'id': i} for i in {b['id'] for b in data['libros']} | {h['libro']['id'] for h in held}]}
     clean, out = isolate(data, root, previous, held, today=today, flagged=flagged)
-    global LAST_ALERT
-    LAST_ALERT = rate_alert(out, entering, previous)
+    LAST['alert'] = rate_alert(out, entering, previous)
     if clean != original:  # mismo formato que el último escritor del catálogo (precios), sin reordenar claves
         write_changed(path, clean)
     if out or held_path.exists():
