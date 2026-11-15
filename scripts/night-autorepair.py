@@ -361,14 +361,23 @@ def main_cambio_codigo(sha) -> list[str] | None:
         log(f"SHA no válido ({sha!r}); se relanza")
         return None
     sha = re.fullmatch(r'[0-9a-f]{7,40}', sha).group()
-    try:
-        data = gh_json('api', f'repos/{GH_REPO}/compare/{sha}...main')
-    except Exception as exc:
-        log(f"no pude comparar {sha[:9]} con main ({exc}); se relanza")
+    return codigo_nuevo_en_main(sha)
+
+
+def codigo_nuevo_en_main(sha, base='origin/main', repo=None) -> list[str] | None:
+    """`git diff --name-only sha...base` en local, filtrado a CODIGO_CI.
+
+    No la API de compare: devuelve como mucho 300 ficheros de toda la comparación y, tras una fusión de datos con
+    miles de HTML, el código quedaba fuera de la lista (Fable C2, ronda 3). None si git no puede compararlos."""
+    repo = repo or REPO
+    if base.startswith('origin/'):
+        sh(['git', 'fetch', '-q', 'origin', base.split('/', 1)[1]], cwd=repo, timeout=300)
+        sh(['git', 'fetch', '-q', 'origin', sha], cwd=repo, timeout=300)   # un SHA de rama de datos puede no estar
+    r = sh(['git', 'diff', '--name-only', f'{sha}...{base}', '--', *CODIGO_CI], cwd=repo, timeout=300)
+    if r.returncode != 0:
+        log(f"no pude comparar {sha[:9]} con {base}; se relanza")
         return None
-    if not data.get('ahead_by'):
-        return []
-    return [f['filename'] for f in data.get('files', []) if f['filename'].startswith(CODIGO_CI)]
+    return [f for f in (r.stdout or '').splitlines() if f.strip()]
 
 
 # Sin «.» en la clase: «[\w.-]+\.yml» retrocedía de forma superlineal (Sonar #1339).
@@ -611,7 +620,8 @@ def orden_segura(args, wt) -> bool:
         return args[0] == sys.executable and args[2:3] == ['unittest']
     if not re.fullmatch(r'(?:qa|tests|scripts)/[\w./-]+', args[1]) or '..' in args[1]:
         return False
-    return sh(['git', 'ls-files', '--error-unmatch', args[1]], cwd=wt).returncode == 0
+    # cat-file sobre el índice (`:ruta`, como ls-files) y no ls-files: el trinquete de tests/test_arbol_publicado.py prohíbe listar el árbol a pelo.
+    return sh(['git', 'cat-file', '-e', f':{args[1]}'], cwd=wt).returncode == 0
 
 
 def servidor_listo(servidor, puerto=4173, plazo=20.0) -> bool:

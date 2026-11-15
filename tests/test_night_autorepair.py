@@ -487,7 +487,7 @@ class CambiosDel15Nov(unittest.TestCase):
         self.estado, self.hechos = {}, []
         nombres = ('cargar_estado', 'guardar_estado', 'actions_caido', 'ultima_ejecucion', 'gh_json', 'sh',
                    'relanzar', 'avisar', 'log', 'ingesta_en_marcha', 'fallo_de_infraestructura', 'reparar',
-                   'registro_fallo', 'ESTADO_DIR')
+                   'registro_fallo', 'ESTADO_DIR', 'codigo_nuevo_en_main')
         self.originales = guardar = {k: getattr(na, k) for k in nombres}
         self.addCleanup(lambda: [setattr(na, k, v) for k, v in guardar.items()])
         tmp = tempfile.TemporaryDirectory(); self.addCleanup(tmp.cleanup)
@@ -509,14 +509,14 @@ class CambiosDel15Nov(unittest.TestCase):
 
     def test_carga_sin_codigo_nuevo_en_main_se_repara_en_vez_de_relanzar(self):
         na.ultima_ejecucion = lambda f: self.carga()
-        na.gh_json = lambda *a: {'ahead_by': 2, 'files': [{'filename': 'data/reading-catalogue.json'}]}
+        na.codigo_nuevo_en_main = lambda sha: []
         na.pasada(solo=na.INGESTA)
         self.assertNotIn(('relanzar', na.INGESTA), self.hechos)
         self.assertIn(('reparar', na.INGESTA, True), self.hechos)
 
     def test_carga_con_arreglo_en_main_se_relanza(self):
         na.ultima_ejecucion = lambda f: self.carga()
-        na.gh_json = lambda *a: {'ahead_by': 1, 'files': [{'filename': 'qa/reading-catalogue-browser.mjs'}]}
+        na.codigo_nuevo_en_main = lambda sha: ['qa/reading-catalogue-browser.mjs']
         na.pasada(solo=na.INGESTA)
         self.assertIn(('relanzar', na.INGESTA), self.hechos)
 
@@ -608,9 +608,7 @@ class CambiosDel15Nov(unittest.TestCase):
         """CodeRabbit en #1339: sin poder comparar con main (API, SHA borrado) se relanza, no se bloquea."""
         na.ultima_ejecucion = lambda f: self.carga()
 
-        def gh_json(*a):
-            raise RuntimeError('HTTP 404')
-        na.gh_json = gh_json
+        na.codigo_nuevo_en_main = lambda sha: None   # git diff imposible (SHA borrado, sin red)
         na.pasada(solo=na.INGESTA)
         self.assertIn(('relanzar', na.INGESTA), self.hechos)
 
@@ -630,6 +628,30 @@ class CambiosDel15Nov(unittest.TestCase):
         na.pasada(solo='x.yml')
         self.assertIn(('gh', 'pr', 'merge'), self.hechos)
         self.assertTrue(self.estado['x.yml'].get('auto_pendiente'))
+
+
+class CodigoNuevoEnMainSinTope(unittest.TestCase):
+    """Fable C2: la API de compare corta en 300 ficheros; tras una fusión de datos el código quedaba fuera."""
+
+    def test_el_fichero_350_de_400_aparece(self):
+        guardar = na.sh
+        self.addCleanup(lambda: setattr(na, 'sh', guardar))
+        with tempfile.TemporaryDirectory() as tmp:
+            git = lambda *a: subprocess.run(['git', *a], cwd=tmp, check=True, capture_output=True)
+            git('init', '-q', '-b', 'main')
+            git('config', 'user.email', 't@t'); git('config', 'user.name', 't')
+            Path(tmp, 'a.txt').write_text('a')
+            git('add', '.'); git('commit', '-qm', 'base')
+            base = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=tmp, text=True).strip()
+            Path(tmp, 'libros').mkdir(); Path(tmp, 'qa').mkdir()
+            for i in range(400):
+                destino = Path(tmp, 'qa', 'arreglo.mjs') if i == 349 else Path(tmp, 'libros', f'{i}.html')
+                destino.write_text(str(i))
+            git('add', '.'); git('commit', '-qm', 'datos')
+            self.assertEqual(na.codigo_nuevo_en_main(base, base='main', repo=tmp), ['qa/arreglo.mjs'])
+            self.assertEqual(na.codigo_nuevo_en_main(subprocess.check_output(
+                ['git', 'rev-parse', 'HEAD'], cwd=tmp, text=True).strip(), base='main', repo=tmp), [])
+            self.assertIsNone(na.codigo_nuevo_en_main('0' * 40, base='main', repo=tmp))
 
 
 class GhApiSinRepo(unittest.TestCase):
