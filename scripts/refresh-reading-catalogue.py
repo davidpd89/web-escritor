@@ -433,6 +433,44 @@ def quarantine_summary(quarantined, released):
     return ''.join(lines) + ('\n' if lines else '')
 
 
+def quarantine_alert(report, quarantined):
+    """Muchas altas apartadas: se publica lo válido, pero la carga no se da por limpia y queda una issue por causa."""
+    report['quarantine_rate_alert'] = True
+    write_if_changed(ROOT / '.ci/reading-intake/publisher-report.json', report)
+    groups = {}
+    for h in quarantined:
+        groups.setdefault(h.get('causa') or reading_quarantine.cause(h['motivo']), []).append(h['libro']['id'])
+    print(f'::warning::Cuarentena alta: {len(quarantined)} libros apartados en {len(groups)} causas; se publica lo válido', flush=True)
+    summary = os.getenv('GITHUB_STEP_SUMMARY')
+    if summary:
+        with open(summary, 'a', encoding='utf-8') as fh:
+            fh.write('**Carga con alerta de cuarentena** (no es una carga limpia):\n\n' + quarantine_summary(quarantined, set()))
+    if not os.getenv('GITHUB_ACTIONS') or os.getenv('DRY_RUN') == 'true':  # el ensayo no abre issues reales
+        return
+    for why, ids in groups.items():
+        open_issue('Cuarentena: ' + why[:120], f'{len(ids)} libros apartados en la carga del {datetime.now(ZoneInfo("Europe/Madrid")):%Y-%m-%d}: '
+                   + ', '.join(f'`{i}`' for i in ids[:30]) + (' …' if len(ids) > 30 else ''))
+
+
+def open_issue(title, body):
+    """Abre la issue `fallo` con ese título, o comenta en la abierta: una por causa, no una por noche.
+
+    Un fallo al crearla no tumba la carga (ya se publicó lo válido); queda el aviso en el log."""
+    def gh(*args):
+        return subprocess.run(['gh', *args], cwd=ROOT, capture_output=True, text=True, encoding='utf-8', check=True).stdout
+    try:
+        gh('label', 'create', 'fallo', '--color', 'B60205', '--description', 'Fallo detectado por un empleado automático', '--force')
+        found = json.loads(gh('issue', 'list', '--state', 'open', '--label', 'fallo', '--search', f'"{title}" in:title',
+                              '--json', 'number,title'))
+        same = [i for i in found if i['title'] == title]
+        if same:
+            gh('issue', 'comment', str(same[0]['number']), '--body', body)
+        else:
+            gh('issue', 'create', '--title', title, '--label', 'fallo', '--body', body)
+    except (subprocess.CalledProcessError, OSError, ValueError) as exc:
+        print(f'::warning::No se pudo abrir la issue «{title}»: {exc}', flush=True)
+
+
 def data_contract_failures():
     """Corre los contratos de datos; devuelve sus fallos ([{test, texto}], vacío si pasan)."""
     with tempfile.TemporaryDirectory() as tmp:
@@ -502,6 +540,8 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
         quarantined = reading_quarantine.apply(ROOT, flagged=flagged)
         released = held_before - {h['libro']['id'] for h in quarantined}
         drop_orphan_pages(quarantined)
+    if reading_quarantine.LAST_ALERT:
+        quarantine_alert(report, quarantined)
     command('git', 'diff', '--check')
     paths = git_estado.rutas(ROOT)
     if not paths or any(not publisher.allowed_path(p) for p in paths):
@@ -523,6 +563,8 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
                      if replaced else '') + 'Incorpora ' + str(len(report['new_books'])) + ' ediciones verificadas en sus fichas editoriales oficiales.\n\n'
                     'Carga sin LLM ni API de pago; portadas optimizadas, ISBN comprobados, autores y enlaces internos generados. '
                     'No importa precios ni valoraciones sin un proveedor autorizado. Los candidatos incompletos quedan pendientes.\n\n'
+                    + ('**Alerta de cuarentena:** más del 5 % de las altas apartadas; se publica lo válido y queda una issue `fallo` por causa.\n\n'
+                       if reading_quarantine.LAST_ALERT else '')
                     + quarantine_summary(quarantined, released) +
                     'Se ejecutan las pruebas reales del commit y las reglas de main antes de fusionar. Después se despliega y se comprueba producción.\n', encoding='utf-8')
     publisher.publication.gh('pr', 'create', '--base', 'main', '--head', branch,
