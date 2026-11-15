@@ -16,7 +16,6 @@ import json
 import re
 import sys
 import unittest
-from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -32,33 +31,45 @@ def cards(page):
 def problemas(catalogue, page):
     libros = [b for b in catalogue['libros'] if b.get('estado') == 'publicado']
     tarjetas = list(cards(page))
-    por_id = {t.get('book-id'): t for t in tarjetas}
-    fallos = []
-    publicados = {b['id'] for b in libros}
-    sobran = [t.get('book-id') for t in tarjetas if t.get('book-id') not in publicados]
-    if sobran:
-        fallos.append(f"tarjetas de libros no publicados: {', '.join(map(str, sobran))}")
     con_isbn = {}
     for t in tarjetas:
         if t.get('isbn'):
             con_isbn.setdefault(t['isbn'], []).append(t.get('book-id'))
-    isbns = Counter({i: len(ids) for i, ids in con_isbn.items()})
     # Los mensajes nombran solo el id culpable: la carga aparta todo id que aparezca en un fallo de contrato
     # (reading_quarantine.flagged_books), así que el libro afectado se cita por su ISBN, nunca por su id.
+    return (no_publicadas(libros, tarjetas) + isbn_repetidos(con_isbn)
+            + sin_tarjeta_o_isbn_distinto(libros, tarjetas) + isbn_ajeno_en_texto(tarjetas, con_isbn))
+
+
+def no_publicadas(libros, tarjetas):
+    publicados = {b['id'] for b in libros}
+    sobran = [t.get('book-id') for t in tarjetas if t.get('book-id') not in publicados]
+    return [f"tarjetas de libros no publicados: {', '.join(map(str, sobran))}"] if sobran else []
+
+
+def isbn_repetidos(con_isbn):
     # Un ISBN repetido no tiene culpable aquí (el builder ya veta isbn13 duplicados): lo nombra la comprobación por libro.
-    fallos += [f"ISBN {i} en {len(ids)} tarjetas: su búsqueda no da un solo libro"
-               for i, ids in con_isbn.items() if len(ids) > 1]
+    return [f"ISBN {i} en {len(ids)} tarjetas: su búsqueda no da un solo libro" for i, ids in con_isbn.items() if len(ids) > 1]
+
+
+def sin_tarjeta_o_isbn_distinto(libros, tarjetas):
+    por_id = {t.get('book-id'): t for t in tarjetas}
+    fallos = []
     for b in libros:
         t = por_id.get(b['id'])
         if t is None:
             fallos.append(f"{b['id']}: sin tarjeta en /recomendaciones/")
         elif b.get('isbn13') and t.get('isbn') != b['isbn13']:
             fallos.append(f"{b['id']}: la tarjeta lleva ISBN {t.get('isbn')!r} y el libro {b['isbn13']}")
+    return fallos
+
+
+def isbn_ajeno_en_texto(tarjetas, con_isbn):
+    fallos = []
     for t in tarjetas:
         for run in re.findall(r'\d{13,}', f"{t.get('title', '')} {t.get('author', '')}"):
-            for k in range(len(run) - 12):
-                if run[k:k + 13] in isbns and run[k:k + 13] != t.get('isbn'):
-                    fallos.append(f"{t.get('book-id')}: su título o autor contiene el ISBN {run[k:k + 13]} de otra ficha")
+            ajenos = {run[k:k + 13] for k in range(len(run) - 12)} & con_isbn.keys() - {t.get('isbn')}
+            fallos += [f"{t.get('book-id')}: su título o autor contiene el ISBN {i} de otra ficha" for i in sorted(ajenos)]
     return fallos
 
 
