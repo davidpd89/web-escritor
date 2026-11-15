@@ -23,6 +23,10 @@ on:
         description: 'Read-only live ratings/prices pilot; requires dry_run=true and never publishes'
         type: boolean
         default: false
+      respaldo:
+        description: 'Reloj externo (workers/intake-dispatch.mjs): carga solo si esta noche no hay otra en verde ni en curso'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -37,7 +41,7 @@ jobs:
     outputs:
       run: ${{ steps.madrid.outputs.run }}
     steps:
-      - if: github.event_name == 'schedule'
+      - if: github.event_name == 'schedule' || inputs.respaldo
         uses: actions/checkout@v5
         with:
           sparse-checkout: scripts/ci_intake_backup.py
@@ -46,14 +50,17 @@ jobs:
         env:
           EVENT: ${{ github.event_name }}
           SCHEDULE: ${{ github.event.schedule }}
+          RESPALDO: ${{ inputs.respaldo }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RUN_ID: ${{ github.run_id }}
         # Decided by the cron that fired, not the current hour: a delayed run still counts.
+        # El dispatch del reloj externo (respaldo=true) decide como un cron: nunca repite una carga en verde o en curso.
         run: |
           offset=$(TZ=Europe/Madrid date +%z)
-          case "$EVENT:$SCHEDULE:$offset" in
+          case "$EVENT:$RESPALDO:$SCHEDULE:$offset" in
+            workflow_dispatch:true:*) python3 scripts/ci_intake_backup.py >> "$GITHUB_OUTPUT" ;;
             workflow_dispatch:*) echo run=true >> "$GITHUB_OUTPUT" ;;
-            schedule:'17 0 * * *':*|schedule:'47 1 * * *':*|schedule:'17 3 * * *':*) python3 scripts/ci_intake_backup.py >> "$GITHUB_OUTPUT" ;;
+            schedule:*:'17 0 * * *':*|schedule:*:'47 1 * * *':*|schedule:*:'17 3 * * *':*) python3 scripts/ci_intake_backup.py >> "$GITHUB_OUTPUT" ;;
             *) echo run=false >> "$GITHUB_OUTPUT" ;;
           esac
   intake:

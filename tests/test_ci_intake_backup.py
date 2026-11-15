@@ -126,6 +126,11 @@ class MainTest(unittest.TestCase):
         for cron in ("'17 0 * * *'", "'47 1 * * *'", "'17 3 * * *'"):
             self.assertIn(f'cron: {cron}', yaml)
         self.assertIn('python3 scripts/ci_intake_backup.py', yaml)
+        # P0-4: el dispatch del reloj externo (workers/intake-dispatch.mjs) decide como un cron, antes que el
+        # dispatch manual (que carga siempre), y descarga el script para hacerlo: sin carga doble.
+        reloj = yaml.index('workflow_dispatch:true:*) python3 scripts/ci_intake_backup.py')
+        self.assertLess(reloj, yaml.index('workflow_dispatch:*) echo run=true'))
+        self.assertIn("if: github.event_name == 'schedule' || inputs.respaldo", yaml)
         # El grupo va en el job intake: un respaldo en cola nunca sustituye a la carga encadenada pendiente.
         self.assertNotIn('\nconcurrency:', yaml)
         self.assertIn('    concurrency:\n      group: reading-catalogue-intake', yaml.replace('\r\n', '\n'))
