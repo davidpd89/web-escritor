@@ -23,6 +23,8 @@ on:
       - 'qa/catalogue-filter-matrix.mjs'
       - 'qa/catalogue-filter-interaction-matrix.mjs'
       - 'qa/reading-upcoming-browser.mjs'
+      - 'qa/reading-intake-browser.mjs'
+      - 'tests/test_reading_catalogue_isbn_search.py'
       - 'qa/build-reading-scale-fixture.py'
       - 'assets/reading-market.json'
       - 'data/reading-authors.json'
@@ -106,6 +108,7 @@ jobs:
           paso() { echo "::group::$1"; if ! bash -c "$1"; then fallos+=("$1"); echo "::error::Paso fallido: $1"; fi; echo '::endgroup::'; }
           paso 'python scripts/build-reading-catalogue.py --check'
           paso 'python tests/test-reading-static-pagination.py'
+          paso 'python tests/test_reading_catalogue_isbn_search.py'
           paso 'python tests/test-catalogue-performance-budget-coverage.py'
           paso 'python tests/test-ahrefs-schema-regressions.py'
           paso 'node qa/reading-catalogue-browser.mjs'

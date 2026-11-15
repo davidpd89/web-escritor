@@ -19,7 +19,11 @@ try {
   await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
   await page.locator('[data-filter="q"]').waitFor({ state: 'visible' });
   assert.equal(await page.locator('[data-catalogue-book]').count(), books.length);
-  for (const b of imported) {
+  // Todos los ISBN los cubre tests/test_reading_catalogue_isbn_search.py en lineal; aquí una muestra repartida
+  // (primero, último y ~40 entre medias). Antes se tecleaban los 4945: cuadrático, no cabía en el job al crecer (15/11).
+  const step = Math.max(1, Math.floor(imported.length / 40));
+  const probes = [...new Set([...imported.filter((_, i) => i % step === 0), imported.at(-1)].filter(Boolean))];
+  for (const b of probes) {
     await page.locator('[data-filter="q"]').fill(b.isbn13);
     await page.waitForFunction(id => { const cards = [...document.querySelectorAll('[data-catalogue-book]')].filter(c => !c.hidden); return cards.length === 1 && cards[0].dataset.bookId === id; }, b.id);
     // ISBN is a useful lookup as well as title/author.
