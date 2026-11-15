@@ -10,6 +10,7 @@ import argparse
 import fnmatch
 import json
 import os
+import re
 import subprocess
 import sys
 import time
@@ -137,14 +138,14 @@ def entrada_de_builders(path):
                                               for patron in materializar.FUENTES)
 
 
-def main_cambio_entradas(repo, sha):
-    """Entradas de los builders que main cambió desde la base de la PR; vacío si la PR está al día.
+def main_cambio_entradas(repo, sha, hasta='main'):
+    """Entradas de los builders que `hasta` (main, o la cabeza ya puesta al día) cambió desde `sha`; vacío si nada.
 
     main no exige ramas al día (strict desactivado: reiniciaba la CI de todas las PR abiertas), así que GitHub
     fusiona sin conflicto artefactos construidos con datos viejos (#1312, CodeRabbit). Solo cuentan las entradas
     de los builders: una instantánea de redes que entra a diario no obliga a regenerar.
     """
-    data = json.loads(gh('api', f'repos/{repo}/compare/{sha}...main'))
+    data = json.loads(gh('api', f'repos/{repo}/compare/{sha}...{hasta}'))
     if not data.get('ahead_by'):
         return []
     # Un renombrado cuenta por los dos nombres: retirar una página generada (index.html -> .bak) también la cambia.
@@ -169,8 +170,42 @@ def esperar_escritores(ceder_a, deadline, poll=60):
         time.sleep(poll)
 
 
+# Código que decide un veredicto de CI: si main lo cambia tras abrirse la PR, repetir la CI sobre el mismo commit
+# vuelve a usar el código viejo. 15/11: #1333 y #1336 fallaron con pruebas ya arregladas en main (#1332, #1335).
+QA_CODE_PREFIXES = ('qa/', 'tests/', 'scripts/', '.github/', 'package.json', 'package-lock.json')
+QA_REFRESHES = 2
+MIN_REFRESH_BUDGET = 1800  # segundos; con menos no cabe otra vuelta completa de CI
+
+
+GENERATED_BRANCH = re.compile(r'automation/[a-zA-Z0-9][a-zA-Z0-9._-]*')
+
+
+def main_cambio_qa(repo, sha):
+    """Ficheros de código de CI que main tiene y la cabeza de la PR no (vacío si no hay)."""
+    data = json.loads(gh('api', f'repos/{repo}/compare/{sha}...main'))
+    if not data.get('ahead_by'):
+        return []
+    files = data.get('files', [])
+    if len(files) >= 300:  # la API trunca la lista: el arreglo de QA puede estar fuera; se cuenta como cambio
+        return [item['filename'] for item in files[:5]] + ['…']
+    return [item['filename'] for item in files if item['filename'].startswith(QA_CODE_PREFIXES)]
+
+
+def cancelar_si_sigue(run_id):
+    """Cancela una ejecución obsoleta; si terminó entre el listado y la cancelación, no es un error."""
+    try:
+        gh('run', 'cancel', str(run_id))
+    except subprocess.CalledProcessError:
+        if json.loads(gh('run', 'view', str(run_id), '--json', 'status'))['status'] != 'completed':
+            raise
+
+
 def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_before=False, pr_wait=120,
-                      ceder_a=()):
+                      ceder_a=(), qa_refreshes=QA_REFRESHES):
+    # La rama acaba como argumento de `gh`: solo ramas generadas, sin espacios ni opciones.
+    if not GENERATED_BRANCH.fullmatch(branch):
+        raise ValueError(f'Rama no generada: {branch!r}')
+    started = time.monotonic()
     repo = gh('repo', 'view', '--json', 'nameWithOwner', '--jq', '.nameWithOwner')
     pr = json.loads(gh('pr', 'view', branch, '--json', 'number,headRefOid,baseRefName,baseRefOid,state'))
     if pr['baseRefName'] != 'main' or pr['state'] != 'OPEN':
@@ -235,6 +270,46 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
             if result['conclusion'] != 'success':
                 # Browser jobs fail sporadically (one in four bot PRs lost its day this way);
                 # a single rerun of the failed jobs on the same commit still needs real green.
+                # Si main cambió el código de CI desde esta cabeza (un arreglo de pruebas a mitad de carga), repetir el
+                # mismo commit da el mismo fallo: se trae main a la rama y se valida la cabeza nueva desde cero.
+                remaining = timeout - (time.monotonic() - started)
+                cambios = main_cambio_qa(repo, sha) if qa_refreshes > 0 and remaining > MIN_REFRESH_BUDGET else []
+                if cambios:
+                    # Traer main a la rama no regenera lo generado y, una vez dentro, main_cambio_entradas ya no lo ve.
+                    entradas = main_cambio_entradas(repo, sha)
+                    if entradas:
+                        raise StaleMerge(f'main cambió entradas de lo generado ({", ".join(entradas[:5])}) durante la CI '
+                                         f'de #{pr["number"]}; se regenera desde main')
+                    print(f'REFRESH {workflow} ({result["databaseId"]}) falló y main cambió {", ".join(cambios[:5])}; '
+                          'actualizo la rama con main y repito la CI', flush=True)
+                    try:
+                        gh('api', '--method', 'PUT', f'repos/{repo}/pulls/{pr["number"]}/update-branch',
+                           '-f', f'expected_head_sha={sha}')
+                    except subprocess.CalledProcessError:
+                        raise StaleMerge(f'#{pr["number"]} no se puede poner al día con main; se regenera') from None
+                    for _ in range(20):  # la API responde 202 antes de mover la cabeza
+                        nueva = json.loads(gh('pr', 'view', branch, '--json', 'headRefOid'))['headRefOid']
+                        if nueva != sha:
+                            break
+                        time.sleep(15)
+                    else:
+                        raise RuntimeError(f'update-branch de #{pr["number"]} no movió la cabeza; PR left open')
+                    # update-branch fusiona la main de ese instante, no la comparada arriba: si entre medias entraron
+                    # entradas de builders, ya están en la cabeza nueva y solo se ven comparando las dos cabezas.
+                    entradas = main_cambio_entradas(repo, sha, nueva)
+                    if entradas:
+                        raise StaleMerge(f'la puesta al día de #{pr["number"]} trajo entradas de lo generado '
+                                         f'({", ".join(entradas[:5])}); se regenera desde main')
+                    if context:
+                        report_job(repo, sha, context, 'failure', url)
+                    for other in pending - {workflow}:  # la cabeza vieja ya no se fusiona: libera la cola
+                        for item in runs_on_sha(other, *source[other]):
+                            if item['status'] != 'completed':
+                                cancelar_si_sigue(item['databaseId'])
+                    remaining = timeout - (time.monotonic() - started)  # descontar la actualización y los sondeos
+                    return publish_generated(branch, allowed_path, workflows, timeout=int(remaining),
+                                             deploy_before=deploy_before, pr_wait=pr_wait, ceder_a=ceder_a,
+                                             qa_refreshes=qa_refreshes - 1)
                 if workflow not in retried:
                     retried.add(workflow)
                     gh('run', 'rerun', str(result['databaseId']), '--failed')
@@ -320,7 +395,7 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
 
 
 def run(branch: str, timeout: int = 5400):
-    if not branch.startswith('automation/radar-clock-'):
+    if not re.fullmatch(r'automation/radar-clock-[a-zA-Z0-9-]+', branch):
         raise ValueError('Only generated radar-clock branches are accepted')
     allowed = {'convocatorias-escritores/index.html', 'convocatorias-escritores/opportunities.json',
                'convocatorias-escritores/deadlines.ics', '.lycheeignore'}
