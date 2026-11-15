@@ -32,10 +32,12 @@ def pr(state='OPEN', creada_h=1, push_min=60, mergeable='MERGEABLE'):
 class FalsoNar(types.SimpleNamespace):
     """Lo mínimo del turno de noche que usa el turno de issues; registra las órdenes en vez de ejecutarlas."""
 
-    def __init__(self, issues=(), pr_vista=None, hilos=(), ingesta=False):
+    def __init__(self, issues=(), pr_vista=None, hilos=(), ingesta=False, verdes=('ci',), rc_cierre=0):
         super().__init__(GH_REPO='o/r', PIE_PR='pie', ordenes=[], registro=[], subprocess=subprocess,
-                         ci_checks=types.SimpleNamespace(rojos=lambda c: [], pendientes=lambda c: []))
+                         ci_checks=types.SimpleNamespace(rojos=lambda c: [], pendientes=lambda c: [],
+                                                         verdes=lambda c: list(verdes)))
         self._issues, self._pr, self._hilos, self._ingesta = list(issues), pr_vista, list(hilos), ingesta
+        self._rc_cierre = rc_cierre
 
     def ingesta_en_marcha(self):
         return self._ingesta
@@ -45,7 +47,8 @@ class FalsoNar(types.SimpleNamespace):
 
     def sh(self, args, **_kw):
         self.ordenes.append(args)
-        return subprocess.CompletedProcess(args, 0, '', '')
+        rc = self._rc_cierre if args[:3] == ['gh', 'pr', 'close'] else 0
+        return subprocess.CompletedProcess(args, rc, '', 'HTTP 502' if rc else '')
 
     def gh_json(self, *args):
         if args[:2] == ('issue', 'list'):
@@ -76,6 +79,13 @@ class EleccionTests(unittest.TestCase):
         self.assertIsNone(ti.elegir([issue(1)], fallidos))
         self.assertEqual(ti.elegir([issue(1)], {'issue:1': {'historial': [{'resultado': 'x'}]}})['number'], 1)
 
+    def test_solo_cuentan_los_intentos_fallidos(self):
+        # Una PR abierta y sus correcciones no son intentos fallidos: un solo fallo real deja otro intento.
+        e = {'historial': [{'resultado': 'PR abierta'}, {'resultado': 'correcciones: 2 hilos'},
+                           {'resultado': 'CI rojo: lint'}], 'pr': 4, 'pr_cerrada': True}
+        self.assertEqual(ti.fallidos(e), 1)
+        self.assertEqual(ti.elegir([issue(1)], {'issue:1': e})['number'], 1)
+
     def test_intentos_hoy_cuenta_todas_las_issues(self):
         estado = {'issue:1': {'historial': [{'fecha': '2026-11-16T01:00'}, {'fecha': '2026-11-15T23:00'}]},
                   'issue:2': {'historial': [{'fecha': '2026-11-16T03:00'}]}, 'flujo.yml': {'historial': [{'fecha': '2026-11-16'}]}}
@@ -88,8 +98,9 @@ class EleccionTests(unittest.TestCase):
 
 
 class VeredictoTests(unittest.TestCase):
-    def v(self, p, hilos=(), rojos=(), pend=()):
-        return ti.veredicto_pr(p, list(hilos), AHORA, list(rojos), list(pend))
+    @staticmethod
+    def v(p, hilos=(), rojos=(), pend=(), verdes=('ci',)):
+        return ti.veredicto_pr(p, list(hilos), AHORA, list(rojos), list(pend), list(verdes))
 
     def test_hilos_de_bots_solo_abiertos_y_de_bots(self):
         hs = [hilo('coderabbitai[bot]'), hilo('davidpd89'), hilo('chatgpt-codex-connector', resuelto=True),
@@ -99,6 +110,11 @@ class VeredictoTests(unittest.TestCase):
     def test_espera_a_la_ci_y_a_los_bots(self):
         self.assertEqual(self.v(pr(), pend=['x']), 'esperar')
         self.assertEqual(self.v(pr(push_min=5)), 'esperar')   # recién empujada: los bots no han comentado
+
+    def test_sin_ningun_check_verde_no_fusiona(self):
+        # Rollup vacío o todo cancelado: no hay prueba de que funcione.
+        self.assertEqual(self.v(pr(), verdes=()), 'esperar')
+        self.assertTrue(self.v(pr(creada_h=ti.CADUCA_H + 1), verdes=()).startswith('cerrar:'))
 
     def test_fusiona_solo_sin_hilos_de_bots(self):
         self.assertEqual(self.v(pr()), 'fusionar')
@@ -157,6 +173,24 @@ class PasadaTests(unittest.TestCase):
         self.assertTrue(estado['issue:7']['pr_cerrada'])
         self.assertTrue(any('necesita-david' in o for o in nar.ordenes))
         self.assertFalse(any(o[:3] == ['gh', 'pr', 'merge'] for o in nar.ordenes))
+
+    def test_cierre_fallido_no_libera_el_turno(self):
+        estado = {'issue:7': {'pr': 40, 'rama': 'r', 'pr_cerrada': False, 'correcciones': ti.MAX_CORRECCIONES,
+                              'historial': []}}
+        nar = FalsoNar(pr_vista=pr(), hilos=[hilo('coderabbitai[bot]')], rc_cierre=1)
+        ti.pasada_issues(nar, estado, AHORA)
+        self.assertFalse(estado['issue:7']['pr_cerrada'])
+        self.assertEqual(estado['issue:7']['historial'], [])
+        self.assertTrue(any('no se pudo cerrar' in m for m in nar.registro))
+
+    def test_agotada_sin_pr_pasa_a_david(self):
+        e = {'historial': [{'resultado': 'ninguna IA dejó un arreglo'}, {'resultado': 'error: x'}]}
+        nar = FalsoNar()
+        ti.a_david_si_agotada(nar, 7, e, 'error: x')
+        self.assertTrue(any('necesita-david' in o for o in nar.ordenes))
+        nar = FalsoNar()
+        ti.a_david_si_agotada(nar, 7, {'historial': [{'resultado': 'error: x'}]}, 'error: x')
+        self.assertEqual(nar.ordenes, [])
 
     def test_fusionada_libera_el_turno(self):
         estado = {'issue:7': {'pr': 40, 'rama': 'r', 'pr_cerrada': False, 'historial': []}}

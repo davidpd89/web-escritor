@@ -50,7 +50,13 @@ def elegible(issue: dict, estado: dict) -> bool:
     e = estado.get(clave(issue['number'])) or {}
     if e.get('pr') and not e.get('pr_cerrada'):
         return False
-    return sum(1 for h in e.get('historial', []) if not h.get('resultado', '').startswith('fusionada')) < MAX_INTENTOS
+    return fallidos(e) < MAX_INTENTOS
+
+
+def fallidos(e: dict) -> int:
+    """Intentos que acabaron mal: no cuentan la PR abierta, sus correcciones ni la fusión."""
+    return sum(1 for h in e.get('historial', [])
+               if not h.get('resultado', '').startswith(('fusionada', 'PR abierta', 'correcciones')))
 
 
 def elegir(issues: list[dict], estado: dict) -> dict | None:
@@ -96,8 +102,12 @@ def hilos_de_bots(hilos: list[dict]) -> list[dict]:
     return fuera
 
 
-def veredicto_pr(pr: dict, hilos: list[dict], ahora: dt.datetime, propios_rojos, propios_pendientes) -> str:
-    """Pura. 'esperar', 'fusionar', 'corregir', 'cerrar:<motivo>' o 'fusionada'/'cerrada'."""
+def veredicto_pr(pr: dict, hilos: list[dict], ahora: dt.datetime, propios_rojos, propios_pendientes,
+                 propios_verdes) -> str:
+    """Pura. 'esperar', 'fusionar', 'corregir', 'cerrar:<motivo>' o 'fusionada'/'cerrada'.
+
+    Sin ningún check propio en verde (rollup vacío, todo cancelado u omitido) no hay prueba: se espera, y la caducidad
+    acaba cerrándola si la CI no llega a correr."""
     if pr['state'] == 'MERGED':
         return 'fusionada'
     if pr['state'] == 'CLOSED':
@@ -110,7 +120,7 @@ def veredicto_pr(pr: dict, hilos: list[dict], ahora: dt.datetime, propios_rojos,
         return 'cerrar:CI rojo: ' + ', '.join(propios_rojos)[:200]
     if ahora - creada > dt.timedelta(hours=CADUCA_H):
         return f'cerrar:{CADUCA_H} h sin poder entrar'
-    if propios_pendientes or desde_push < dt.timedelta(minutes=ESPERA_BOTS_MIN):
+    if propios_pendientes or not propios_verdes or desde_push < dt.timedelta(minutes=ESPERA_BOTS_MIN):
         return 'esperar'
     if hilos_de_bots(hilos):
         return 'corregir'
@@ -121,7 +131,8 @@ def veredicto_pr(pr: dict, hilos: list[dict], ahora: dt.datetime, propios_rojos,
 
 def comentarios_enlazados(texto: str, gh_json, repo: str) -> str:
     """El texto de los comentarios de revisión que la issue enlaza (`/pull/N#discussion_rID`)."""
-    partes, vistos = [], set()
+    partes: list[str] = []
+    vistos: set[str] = set()
     for _pr, cid in RE_DISCUSION.findall(texto or ''):
         if cid in vistos or len(vistos) >= 12:
             continue
@@ -221,7 +232,8 @@ def anotar(e: dict, agente: str, resultado: str, ahora: dt.datetime, pr=None):
 
 
 def correr_agentes(nar, wt, prompt, etiqueta):
-    """Rotación de agentes sobre el worktree. Devuelve ('nofix', texto, agente) | ('ok', resumen, agente, trailer, puerta) | None."""
+    """Rotación de agentes sobre el worktree. Siempre 5 campos: ('nofix', texto, agente, '', '') |
+    ('ok', resumen, agente, trailer, puerta) | None."""
     for nombre, argv, env, trailer in nar.agentes():
         nar.log(f"{etiqueta}: probando {nombre}")
         args = [nar.exe(argv[0]), *argv[1:]] + (['-C', str(wt), '-'] if nombre == 'codex' else [])
@@ -230,22 +242,30 @@ def correr_agentes(nar, wt, prompt, etiqueta):
                        env={**nar.sin_escritura(nar.ESTADO_DIR / 'gh-sin-credenciales'), **env})
             salida = (r.stdout or '') + (r.stderr or '')
         except nar.subprocess.TimeoutExpired:
-            nar.log(f"{etiqueta}: {nombre} superó 90 min"); nar.deshacer(wt); continue
+            nar.log(f"{etiqueta}: {nombre} superó 90 min")
+            nar.deshacer(wt)
+            continue
         if nar.sin_cuota(salida) and r.returncode:
-            nar.log(f"{etiqueta}: {nombre} sin cuota → siguiente"); nar.deshacer(wt); continue
+            nar.log(f"{etiqueta}: {nombre} sin cuota → siguiente")
+            nar.deshacer(wt)
+            continue
         nofix = wt / 'AUTOREPAIR_NOFIX.md'
         if nofix.exists():
-            return ('nofix', nofix.read_text(encoding='utf-8', errors='replace')[:1500], nombre)
+            return ('nofix', nofix.read_text(encoding='utf-8', errors='replace')[:1500], nombre, '', '')
         resumen_f = wt / 'AUTOREPAIR_SUMMARY.md'
         resumen = resumen_f.read_text(encoding='utf-8', errors='replace').strip() if resumen_f.exists() else ''
         resumen_f.unlink(missing_ok=True)
         nar.sh(['git', 'add', '-A', '--', '.', ':!node_modules'], cwd=wt)
         ok, motivo = nar.diff_valido(nar.sh(['git', 'diff', '--cached'], cwd=wt).stdout)
         if not ok:
-            nar.log(f"{etiqueta}: {nombre} rechazado ({motivo})"); nar.sh(['git', 'reset', '-q'], cwd=wt); nar.deshacer(wt); continue
+            nar.log(f"{etiqueta}: {nombre} rechazado ({motivo})")
+            nar.sh(['git', 'reset', '-q'], cwd=wt)
+            nar.deshacer(wt)
+            continue
         pasa, puerta = nar.puerta_local(wt)
         if not pasa:
-            nar.log(f"{etiqueta}: {nombre} no pasa la puerta local:\n{puerta[-1500:]}"); nar.sh(['git', 'reset', '-q'], cwd=wt)
+            nar.log(f"{etiqueta}: {nombre} no pasa la puerta local:\n{puerta[-1500:]}")
+            nar.sh(['git', 'reset', '-q'], cwd=wt)
             prompt = nar.prompt_continuar(prompt, nombre, puerta)
             continue
         return ('ok', resumen, nombre, trailer, puerta)
@@ -260,6 +280,15 @@ def commit(nar, wt, resumen, defecto, pie, trailer):
     return titulo, cuerpo
 
 
+def a_david_si_agotada(nar, numero, e: dict, motivo: str):
+    """Con MAX_INTENTOS fallidos la issue pasa a David, acabe como acabe el último intento (sin arreglo, puerta
+    roja, excepción o PR cerrada)."""
+    n = fallidos(e)
+    if n >= MAX_INTENTOS:
+        etiquetar(nar, numero, 'necesita-david', f'El turno de issues lo intentó {n} veces sin éxito: '
+                  f'{motivo}.\n\n{nar.PIE_PR}')
+
+
 def trabajar_issue(nar, issue: dict, e: dict, ahora: dt.datetime):
     numero = issue['number']
     etiqueta = f'issue #{numero}'
@@ -270,9 +299,10 @@ def trabajar_issue(nar, issue: dict, e: dict, ahora: dt.datetime):
         res = correr_agentes(nar, wt, prompt, etiqueta)
         if res is None:
             anotar(e, '-', 'ninguna IA dejó un arreglo que pasara la puerta local', ahora)
+            a_david_si_agotada(nar, numero, e, 'ninguna IA dejó un arreglo que pasara la puerta local')
             return
         if res[0] == 'nofix':
-            _, texto, agente = res
+            _, texto, agente, _, _ = res
             tipo = motivo_nofix(texto)
             anotar(e, agente, f'sin arreglo ({tipo}): {texto[:200]}', ahora)
             cuerpo = f"Turno de issues ({agente}): {texto}\n\n{nar.PIE_PR}"
@@ -281,6 +311,7 @@ def trabajar_issue(nar, issue: dict, e: dict, ahora: dt.datetime):
                         '--comment', cuerpo[:60000]])
             else:
                 etiquetar(nar, numero, 'necesita-david' if tipo == 'externa' else 'sin-arreglo-auto', cuerpo[:60000])
+                a_david_si_agotada(nar, numero, e, f'sin arreglo ({tipo})')
             return
         _, resumen, agente, trailer, puerta = res
         titulo, cuerpo = commit(nar, wt, resumen, f'Arreglar #{numero}', f'Turno de issues ({agente}): issue #{numero}.', trailer)
@@ -329,45 +360,52 @@ def corregir(nar, numero: int, e: dict, hilos: list[dict], ahora: dt.datetime) -
         nar.limpiar_worktree(wt)
 
 
+def corregir_o_cerrar(nar, numero: int, e: dict, hilos: list[dict], ahora: dt.datetime) -> str:
+    """Hilos de bots abiertos: otra ronda de correcciones o, agotadas, el motivo para cerrar."""
+    abiertos = hilos_de_bots(hilos)
+    if e.get('correcciones', 0) >= MAX_CORRECCIONES:
+        return f'cerrar:{len(abiertos)} hilos de bots siguen abiertos tras {MAX_CORRECCIONES} correcciones'
+    e['correcciones'] = e.get('correcciones', 0) + 1
+    if not corregir(nar, numero, e, abiertos, ahora):
+        return 'cerrar:los avisos de los bots no se pudieron corregir'
+    return 'corregida'
+
+
+def cerrar_pr(nar, numero: int, e: dict, motivo: str, ahora: dt.datetime):
+    """Cierra la PR. Si gh falla, la PR sigue abierta en el estado y se reintenta en la próxima pasada."""
+    r = nar.sh(['gh', 'pr', 'close', str(e['pr']), '--repo', nar.GH_REPO, '--delete-branch', '--comment',
+                f'Cerrada por el turno de issues: {motivo}. El siguiente intento parte de este historial.'])
+    if r.returncode:
+        nar.log(f"issue #{numero}: no se pudo cerrar la PR #{e['pr']}: {(r.stderr or r.stdout or '').strip()[:300]}")
+        return
+    e['pr_cerrada'] = True
+    anotar(e, '-', motivo, ahora, e['pr'])
+    a_david_si_agotada(nar, numero, e, motivo)
+
+
 def seguir_pr(nar, k: str, e: dict, ahora: dt.datetime, dry=False):
     numero = int(k.split(':', 1)[1])
     pr = nar.gh_json('pr', 'view', str(e['pr']), '--json', 'state,createdAt,mergeable,statusCheckRollup,commits')
     checks = pr.get('statusCheckRollup') or []
     hilos = leer_hilos(nar, e['pr']) if pr['state'] == 'OPEN' else []
-    v = veredicto_pr(pr, hilos, ahora, nar.ci_checks.rojos(checks), nar.ci_checks.pendientes(checks))
+    v = veredicto_pr(pr, hilos, ahora, nar.ci_checks.rojos(checks), nar.ci_checks.pendientes(checks),
+                     nar.ci_checks.verdes(checks))
     nar.log(f"issue #{numero}: PR #{e['pr']} → {v}")
     if dry or v == 'esperar':
         return
-    if v == 'fusionada':
+    if v in ('fusionada', 'cerrada'):
         e['pr_cerrada'] = True
-        anotar(e, '-', 'fusionada', ahora, e['pr'])
-    elif v == 'cerrada':
-        e['pr_cerrada'] = True
-        anotar(e, '-', 'PR cerrada sin entrar', ahora, e['pr'])
-    elif v == 'fusionar':
-        if nar.ingesta_en_marcha():
-            return   # cada avance de main repite la CI de la carga
-        nar.sh(['gh', 'pr', 'merge', str(e['pr']), '--repo', nar.GH_REPO, '--squash', '--delete-branch'], check=True)
-        nar.log(f"issue #{numero}: PR #{e['pr']} fusionada")
-    elif v == 'corregir':
-        abiertos = hilos_de_bots(hilos)
-        if e.get('correcciones', 0) >= MAX_CORRECCIONES:
-            v = f'cerrar:{len(abiertos)} hilos de bots siguen abiertos tras {MAX_CORRECCIONES} correcciones'
-        else:
-            e['correcciones'] = e.get('correcciones', 0) + 1
-            if not corregir(nar, numero, e, abiertos, ahora):
-                v = 'cerrar:los avisos de los bots no se pudieron corregir'
+        anotar(e, '-', 'fusionada' if v == 'fusionada' else 'PR cerrada sin entrar', ahora, e['pr'])
+        return
+    if v == 'fusionar':
+        if not nar.ingesta_en_marcha():   # cada avance de main repite la CI de la carga
+            nar.sh(['gh', 'pr', 'merge', str(e['pr']), '--repo', nar.GH_REPO, '--squash', '--delete-branch'], check=True)
+            nar.log(f"issue #{numero}: PR #{e['pr']} fusionada")
+        return
+    if v == 'corregir':
+        v = corregir_o_cerrar(nar, numero, e, hilos, ahora)
     if v.startswith('cerrar:'):
-        motivo = v.split(':', 1)[1]
-        nar.sh(['gh', 'pr', 'close', str(e['pr']), '--repo', nar.GH_REPO, '--delete-branch', '--comment',
-                f'Cerrada por el turno de issues: {motivo}. El siguiente intento parte de este historial.'])
-        e['pr_cerrada'] = True
-        anotar(e, '-', motivo, ahora, e['pr'])
-        fallidos = sum(1 for h in e['historial'] if h['resultado'] not in ('PR abierta', 'fusionada')
-                       and not h['resultado'].startswith('correcciones'))
-        if fallidos >= MAX_INTENTOS:
-            etiquetar(nar, numero, 'necesita-david', f'El turno de issues lo intentó {fallidos} veces sin éxito: '
-                      f'{motivo}.\n\n{nar.PIE_PR}')
+        cerrar_pr(nar, numero, e, v.split(':', 1)[1], ahora)
 
 
 def pasada_issues(nar, estado: dict, ahora: dt.datetime | None = None, dry=False):
@@ -399,3 +437,4 @@ def pasada_issues(nar, estado: dict, ahora: dt.datetime | None = None, dry=False
     except Exception as exc:
         nar.log(f"issue #{issue['number']}: error del turno de issues: {exc}")
         anotar(e, '-', f'error: {str(exc)[:300]}', ahora)
+        a_david_si_agotada(nar, issue['number'], e, f'error: {str(exc)[:200]}')
