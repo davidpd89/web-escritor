@@ -467,3 +467,96 @@ class AgenteSinEscritura(unittest.TestCase):
         self.assertEqual(env['GH_TOKEN'], '')
         self.assertTrue(Path(env['GH_CONFIG_DIR']).is_dir())
         self.assertEqual(list(Path(env['GH_CONFIG_DIR']).iterdir()), [])
+
+
+class CambiosDel15Nov(unittest.TestCase):
+    """15/11: la carga se relanzó idéntica, la puerta rechazó todo arreglo y nadie vigiló la carga perdida."""
+
+    def setUp(self):
+        self.estado, self.hechos = {}, []
+        nombres = ('cargar_estado', 'guardar_estado', 'actions_caido', 'ultima_ejecucion', 'gh_json', 'sh',
+                   'relanzar', 'avisar', 'log', 'ingesta_en_marcha', 'fallo_de_infraestructura', 'reparar',
+                   'registro_fallo', 'ESTADO_DIR')
+        guardar = {k: getattr(na, k) for k in nombres}
+        self.addCleanup(lambda: [setattr(na, k, v) for k, v in guardar.items()])
+        na.cargar_estado = lambda: self.estado
+        na.guardar_estado = lambda e: None
+        na.actions_caido = lambda: ''
+        na.log = lambda m: None
+        na.ingesta_en_marcha = lambda: False
+        na.fallo_de_infraestructura = lambda i: False
+        na.relanzar = lambda f, r: self.hechos.append(('relanzar', f))
+        na.sh = lambda args, **kw: self.hechos.append(tuple(args[:3]))
+        na.reparar = lambda f, r, d, h=None, auto=True: self.hechos.append(('reparar', f, auto)) or {'pr': 7}
+
+    def carga(self):
+        hoy = dt.datetime.now(dt.timezone.utc)
+        return {**run(), 'headSha': 'abc123456', 'createdAt': (hoy - dt.timedelta(minutes=30)).isoformat()}
+
+    def test_carga_sin_codigo_nuevo_en_main_se_repara_en_vez_de_relanzar(self):
+        na.ultima_ejecucion = lambda f: self.carga()
+        na.gh_json = lambda *a: {'ahead_by': 2, 'files': [{'filename': 'data/reading-catalogue.json'}]}
+        na.pasada(solo=na.INGESTA)
+        self.assertNotIn(('relanzar', na.INGESTA), self.hechos)
+        self.assertIn(('reparar', na.INGESTA, True), self.hechos)
+
+    def test_carga_con_arreglo_en_main_se_relanza(self):
+        na.ultima_ejecucion = lambda f: self.carga()
+        na.gh_json = lambda *a: {'ahead_by': 1, 'files': [{'filename': 'qa/reading-catalogue-browser.mjs'}]}
+        na.pasada(solo=na.INGESTA)
+        self.assertIn(('relanzar', na.INGESTA), self.hechos)
+
+    def test_con_la_carga_en_marcha_se_repara_sin_auto_merge_y_se_activa_despues(self):
+        hoy = dt.datetime.now(dt.timezone.utc)
+        self.estado['x.yml'] = {'relanzado': (hoy - dt.timedelta(hours=3)).isoformat()}
+        na.ultima_ejecucion = lambda f: {**run(), 'createdAt': (hoy - dt.timedelta(hours=1)).isoformat()}
+        na.ingesta_en_marcha = lambda: True
+        na.reparar = lambda f, r, d, h=None, auto=True: self.hechos.append(('reparar', f, auto)) or \
+            {'pr': 7, 'auto_pendiente': not auto}
+        na.pasada(solo='x.yml')
+        self.assertIn(('reparar', 'x.yml', False), self.hechos)
+        self.assertTrue(self.estado['x.yml'].get('auto_pendiente'))
+        na.ingesta_en_marcha = lambda: False
+        na.gh_json = lambda *a: {'state': 'OPEN', 'createdAt': hoy.isoformat(), 'statusCheckRollup': []}
+        na.pasada(solo='x.yml')
+        self.assertIn(('gh', 'pr', 'merge'), self.hechos)
+        self.assertNotIn('auto_pendiente', self.estado['x.yml'])
+
+    def test_registro_de_la_carga_trae_el_fallo_de_la_qa_hija(self):
+        na.registro_fallo = lambda run_id, lineas=250, run=None: f'error real {run_id}'
+        texto = 'RuntimeError: recommendations-browser-qa.yml failed (555)\nrecommendations-browser-qa.yml failed (555)'
+        hijo = na.registro_qa_hijo(texto)
+        self.assertIn('error real 555', hijo)
+        self.assertEqual(hijo.count('error real'), 1)
+
+    def test_vigia_lanza_una_vez_la_carga_perdida(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            na.ESTADO_DIR = Path(tmp)
+            ayer = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=1)
+            na.ultima_ejecucion = lambda f: {**run(conclusion='success'), 'createdAt': ayer.isoformat()}
+            lanzar = dt.datetime.now(dt.timezone.utc).hour >= na.CARGA_PERDIDA_DESDE_H
+            self.assertEqual(na.vigia_carga(), lanzar)
+            self.assertFalse(na.vigia_carga())
+            self.assertEqual(self.hechos.count(('gh', 'workflow', 'run')), int(lanzar))
+
+
+class PuertaDirigida(unittest.TestCase):
+    def test_repite_lo_que_fallo_y_las_pruebas_tocadas(self):
+        import subprocess
+        with tempfile.TemporaryDirectory() as tmp:
+            wt = Path(tmp)
+            subprocess.run(['git', 'init', '-q'], cwd=wt, check=True)
+            (wt / 'tests').mkdir()
+            (wt / 'tests' / 'test-nuevo.py').write_text('raise SystemExit(1)\n')
+            (wt / 'tests' / 'otro.py').write_text('')
+            subprocess.run(['git', 'add', '-A'], cwd=wt, check=True)
+            pasos = na.pasos_de_la_puerta(wt, '')
+            self.assertEqual(pasos, ['python tests/test-nuevo.py'])
+            guardar = na.guardar_puerta
+            na.guardar_puerta = lambda w, t: None
+            try:
+                ok, texto = na.puerta_local(wt, '')
+            finally:
+                na.guardar_puerta = guardar
+            self.assertFalse(ok)
+            self.assertIn('tests/test-nuevo.py', texto)
