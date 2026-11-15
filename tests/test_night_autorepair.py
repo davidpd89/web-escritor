@@ -103,6 +103,16 @@ class Infraestructura(unittest.TestCase):
         with self._jobs([{'conclusion': 'failure', 'steps': [{'conclusion': 'success'}, {'conclusion': 'failure'}]}]):
             self.assertFalse(na.fallo_de_infraestructura(1))
 
+    def test_solo_un_id_numerico_llega_a_gh(self):
+        """S6350: el id viene del estado local; una opción colada (`--repo otro`) no debe llegar a `gh`."""
+        self.assertEqual(na.id_ejecucion(43710574822), '43710574822')
+        for malo in ('--repo x/y', '1 --web', '', None, '12a'):
+            with self.assertRaises(ValueError):
+                na.id_ejecucion(malo)
+        with self._jobs([]) as gh:
+            self.assertFalse(na.fallo_de_infraestructura('--web'))
+            gh.assert_not_called()
+
 
 class Filtros(unittest.TestCase):
     def test_cuota_agotada(self):

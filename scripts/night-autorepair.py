@@ -321,11 +321,20 @@ def actions_caido():
     return None
 
 
+def id_ejecucion(run_id) -> str:
+    """El id de una ejecución como texto solo de dígitos: viene del estado local y de registros, así que nada más
+    llega a `gh` (Sonar S6350; `int()` no le basta como saneado). ValueError si no lo es."""
+    valido = re.fullmatch(r'\d{1,20}', str(run_id))
+    if not valido:
+        raise ValueError(f'id de ejecución no válido: {run_id!r}')
+    return valido.group()
+
+
 def fallo_de_infraestructura(run_id) -> bool:
     """Una ejecución fallida sin trabajos, o cuyos trabajos fallaron sin llegar a ejecutar ningún paso, es GitHub
     (caída, «workflow file issue» durante incidencias, runner perdido), no el código."""
     try:
-        jobs = gh_json('run', 'view', str(int(run_id)), '--json', 'jobs')['jobs']
+        jobs = gh_json('run', 'view', id_ejecucion(run_id), '--json', 'jobs')['jobs']
     except Exception:
         return False
     fallidos = [j for j in jobs if j.get('conclusion') in ('failure', 'timed_out', 'startup_failure', None)]
@@ -378,7 +387,7 @@ def registro_qa_hijo(texto, lineas=150) -> str:
 def registro_fallo(run_id, lineas=250, run=None):
     if run is not None and 'registro' in run:   # publicación local: la cola de su publish.log y la traza
         return '\n'.join(l for l in run['registro'].splitlines() if l.strip())[-24000:]
-    r = sh(['gh', 'run', 'view', str(int(run_id)), '--log-failed', '--repo', GH_REPO], timeout=300)
+    r = sh(['gh', 'run', 'view', id_ejecucion(run_id), '--log-failed', '--repo', GH_REPO], timeout=300)
     texto = re.sub(r'\x1b\[[0-9;]*m', '', r.stdout or r.stderr or '')
     # Fuera fechas y ruido de setup: lo que importa está al final.
     utiles = [re.sub(r'^\S+\t\S+\t\S+Z ', '', l) for l in texto.splitlines() if l.strip()]
@@ -544,7 +553,7 @@ def pasos_de_las_ejecuciones(flujo, run, registro, wt) -> list[str]:
     pasos = []
     for fichero, run_id in ejecuciones:
         try:
-            jobs = gh_json('run', 'view', str(int(run_id)), '--json', 'jobs')['jobs']
+            jobs = gh_json('run', 'view', id_ejecucion(run_id), '--json', 'jobs')['jobs']
         except Exception as exc:
             log(f"puerta: sin metadatos de {fichero} ({run_id}): {exc}")
             continue
@@ -949,7 +958,7 @@ def relanzar(flujo, run):
     if flujo == 'reading-telegram-publish.yml':
         # El dispatch manual exige test_asin. Reintentar el fallo conserva el evento diario
         # y su historial de entregas; el checkout del workflow obtiene el código actual de main.
-        sh(['gh', 'run', 'rerun', str(int(run['databaseId'])), '--failed', '--repo', GH_REPO], check=True)
+        sh(['gh', 'run', 'rerun', id_ejecucion(run['databaseId']), '--failed', '--repo', GH_REPO], check=True)
         return
     if not es_local(flujo):
         sh(['gh', 'workflow', 'run', flujo, '--ref', 'main', '--repo', GH_REPO], check=True)
