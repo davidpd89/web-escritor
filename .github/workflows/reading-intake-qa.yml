@@ -43,8 +43,11 @@ concurrency:
 jobs:
   offline-tests:
     runs-on: ubuntu-latest
-    # La batería offline ronda los 5-6 min y crece con cada caso; con 5 min la QA de la ingesta se cancelaba.
-    timeout-minutes: 15
+    # Es un corte contra cuelgues, no un presupuesto: varias pruebas recorren las páginas publicadas y crecen con el
+    # catálogo (~1000 libros por noche). Con 5 min se cancelaba en 2026-11; con 15, el 15/11 una carga de 997 libros
+    # (4946 en total) pasó de 14 min y la PR de publicación se cerró. 45 deja margen dentro de la espera del
+    # publicador (scripts/publish-reading-refresh.py, 90 min).
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5
         with:
