@@ -205,7 +205,8 @@ try {
   await secondBox.check();
   await page.waitForFunction(expected => Number(document.querySelector('[data-catalogue-count]').textContent.match(/^\d+/)?.[0]) === expected, union.expected);
   assert.ok((await visibleIds()).every(id => model.some(card => card.id === id)));
-  assert.deepEqual(new URLSearchParams(new URL(page.url()).hash.slice(1)).getAll(union.key), union.values);
+  // El orden de los valores repetidos en la URL sigue el de las opciones (que cambia con los recuentos), no el de los clics.
+  assert.deepEqual(new URLSearchParams(new URL(page.url()).hash.slice(1)).getAll(union.key).sort(), [...union.values].sort());
 
   // Búsqueda sin diacríticos e ISBN con etiqueta/separadores.
   const accent = model.find(card => /[áéíóúüñ]/i.test(card.search));
