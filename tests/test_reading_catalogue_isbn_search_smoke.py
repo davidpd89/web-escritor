@@ -43,7 +43,10 @@ def problemas(catalogue, page):
         if t.get('isbn'):
             con_isbn.setdefault(t['isbn'], []).append(t.get('book-id'))
     isbns = Counter({i: len(ids) for i, ids in con_isbn.items()})
-    fallos += [f"ISBN {i} en {len(ids)} tarjetas ({', '.join(map(str, ids))}): su búsqueda no da un solo libro"
+    # Los mensajes nombran solo el id culpable: la carga aparta todo id que aparezca en un fallo de contrato
+    # (reading_quarantine.flagged_books), así que el libro afectado se cita por su ISBN, nunca por su id.
+    # Un ISBN repetido no tiene culpable aquí (el builder ya veta isbn13 duplicados): lo nombra la comprobación por libro.
+    fallos += [f"ISBN {i} en {len(ids)} tarjetas: su búsqueda no da un solo libro"
                for i, ids in con_isbn.items() if len(ids) > 1]
     for b in libros:
         t = por_id.get(b['id'])
@@ -55,8 +58,7 @@ def problemas(catalogue, page):
         for run in re.findall(r'\d{13,}', f"{t.get('title', '')} {t.get('author', '')}"):
             for k in range(len(run) - 12):
                 if run[k:k + 13] in isbns and run[k:k + 13] != t.get('isbn'):
-                    otros = ', '.join(map(str, con_isbn[run[k:k + 13]]))
-                    fallos.append(f"{t.get('book-id')}: su título o autor contiene el ISBN {run[k:k + 13]} de {otros}")
+                    fallos.append(f"{t.get('book-id')}: su título o autor contiene el ISBN {run[k:k + 13]} de otra ficha")
     return fallos
 
 
@@ -76,9 +78,11 @@ class BusquedaPorIsbn(unittest.TestCase):
                   '<article data-catalogue-book data-book-id="libro-c" data-title="T 9780000000001" data-isbn="9780000000003">'
                   '<article data-catalogue-book data-book-id="libro-d" data-title="T" data-isbn="9780000000004">')
         detectados = '\n'.join(problemas(falso, pagina))
-        self.assertIn('en 2 tarjetas (libro-a, libro-b)', detectados)
+        self.assertIn('ISBN 9780000000001 en 2 tarjetas', detectados)
         self.assertIn('libro-b: la tarjeta lleva', detectados)
-        self.assertIn('libro-c: su título o autor contiene el ISBN 9780000000001 de libro-a, libro-b', detectados)
+        self.assertIn('libro-c: su título o autor contiene el ISBN 9780000000001 de otra ficha', detectados)
+        # Solo los culpables (libro-b, libro-c, libro-d) aparecen por id; libro-a no ha hecho nada.
+        self.assertNotIn('libro-a', detectados)
         self.assertIn('no publicados: libro-d', detectados)
 
     def test_cada_libro_publicado_se_encuentra_por_su_isbn(self):
