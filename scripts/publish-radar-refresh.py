@@ -169,8 +169,24 @@ def esperar_escritores(ceder_a, deadline, poll=60):
         time.sleep(poll)
 
 
+# Código que decide un veredicto de CI: si main lo cambia tras abrirse la PR, repetir la CI sobre el mismo commit
+# vuelve a usar el código viejo. 15/11: #1333 y #1336 fallaron con pruebas ya arregladas en main (#1332, #1335).
+QA_CODE_PREFIXES = ('qa/', 'tests/', 'scripts/', '.github/', 'package.json', 'package-lock.json')
+QA_REFRESHES = 2
+MIN_REFRESH_BUDGET = 1800  # segundos; con menos no cabe otra vuelta completa de CI
+
+
+def main_cambio_qa(repo, sha):
+    """Ficheros de código de CI que main tiene y la cabeza de la PR no (vacío si no hay)."""
+    data = json.loads(gh('api', f'repos/{repo}/compare/{sha}...main'))
+    if not data.get('ahead_by'):
+        return []
+    return [item['filename'] for item in data.get('files', []) if item['filename'].startswith(QA_CODE_PREFIXES)]
+
+
 def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_before=False, pr_wait=120,
-                      ceder_a=()):
+                      ceder_a=(), qa_refreshes=QA_REFRESHES):
+    started = time.monotonic()
     repo = gh('repo', 'view', '--json', 'nameWithOwner', '--jq', '.nameWithOwner')
     pr = json.loads(gh('pr', 'view', branch, '--json', 'number,headRefOid,baseRefName,baseRefOid,state'))
     if pr['baseRefName'] != 'main' or pr['state'] != 'OPEN':
@@ -235,6 +251,33 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
             if result['conclusion'] != 'success':
                 # Browser jobs fail sporadically (one in four bot PRs lost its day this way);
                 # a single rerun of the failed jobs on the same commit still needs real green.
+                # Si main cambió el código de CI desde esta cabeza (un arreglo de pruebas a mitad de carga), repetir el
+                # mismo commit da el mismo fallo: se trae main a la rama y se valida la cabeza nueva desde cero.
+                remaining = timeout - (time.monotonic() - started)
+                cambios = main_cambio_qa(repo, sha) if qa_refreshes > 0 and remaining > MIN_REFRESH_BUDGET else []
+                if cambios:
+                    print(f'REFRESH {workflow} ({result["databaseId"]}) falló y main cambió {", ".join(cambios[:5])}; '
+                          'actualizo la rama con main y repito la CI', flush=True)
+                    try:
+                        gh('api', '--method', 'PUT', f'repos/{repo}/pulls/{pr["number"]}/update-branch',
+                           '-f', f'expected_head_sha={sha}')
+                    except subprocess.CalledProcessError:
+                        raise StaleMerge(f'#{pr["number"]} no se puede poner al día con main; se regenera') from None
+                    for _ in range(20):  # la API responde 202 antes de mover la cabeza
+                        if json.loads(gh('pr', 'view', branch, '--json', 'headRefOid'))['headRefOid'] != sha:
+                            break
+                        time.sleep(15)
+                    else:
+                        raise RuntimeError(f'update-branch de #{pr["number"]} no movió la cabeza; PR left open')
+                    if context:
+                        report_job(repo, sha, context, 'failure', url)
+                    for other in pending - {workflow}:  # la cabeza vieja ya no se fusiona: libera la cola
+                        for item in runs_on_sha(other, *source[other]):
+                            if item['status'] != 'completed':
+                                gh('run', 'cancel', str(item['databaseId']))
+                    return publish_generated(branch, allowed_path, workflows, timeout=int(remaining),
+                                             deploy_before=deploy_before, pr_wait=pr_wait, ceder_a=ceder_a,
+                                             qa_refreshes=qa_refreshes - 1)
                 if workflow not in retried:
                     retried.add(workflow)
                     gh('run', 'rerun', str(result['databaseId']), '--failed')
