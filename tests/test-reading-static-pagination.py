@@ -13,7 +13,7 @@ budget = next(b for b in json.loads((ROOT / 'data/performance-budgets.json').rea
 class Page(HTMLParser):
     def __init__(self):
         super().__init__()
-        self.cards, self.links, self.blocks = [], [], []
+        self.cards, self.links, self.blocks, self.rel, self.count = [], [], [], {}, None
         self.active, self.canonical, self.total, self.version = False, None, None, None
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -21,6 +21,10 @@ class Page(HTMLParser):
             self.cards.append(a)
         if 'data-catalogue-page' in a:
             self.links.append(a['href'])
+            if a.get('rel') in ('prev', 'next'):
+                self.rel[a['rel']] = a['href']
+        if 'data-catalogue-page-count' in a:
+            self.count = int(a['data-catalogue-page-count'])
         if 'data-catalogue-version' in a:
             self.total, self.version = int(a['data-catalogue-total']), a['data-catalogue-version']
         if tag == 'link' and a.get('rel') == 'canonical':
@@ -41,7 +45,14 @@ for path, route in zip(pages, routes):
     assert page.canonical == 'https://davidportodiaz.com' + route, path
     assert page.total == len(expected), path
     assert 0 <= len(page.cards) <= 96, path
-    assert set(page.links) == set(routes) - {route}, path
+    # Paginador en ventana (patrón GOV.UK): primera, última, vecinas y Anterior/Siguiente; nunca todos los números.
+    n = routes.index(route) + 1
+    window = {1, len(routes), *range(max(1, n - 1), min(len(routes), n + 1) + 1)} - {n}
+    assert set(page.links) == {routes[i - 1] for i in window}, path
+    assert len(page.links) <= 7, path
+    assert page.rel.get('prev') == (routes[n - 2] if n > 1 else None), path
+    assert page.rel.get('next') == (routes[n] if n < len(routes) else None), path
+    assert page.count == (len(routes) if len(routes) > 1 else None), path
     versions.add(page.version)
     itemlist = next(json.loads(b) for b in page.blocks if json.loads(b).get('@type') == 'ItemList')
     assert itemlist['numberOfItems'] == len(page.cards)
