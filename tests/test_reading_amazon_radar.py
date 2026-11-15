@@ -90,12 +90,18 @@ class RadarTest(unittest.TestCase):
         self.assertEqual(report['editoriales_sin_conector'], {'Destino': 1, 'Anagrama': 1})
         self.assertNotIn('No debe salir', str(report))
 
-    def test_missing_isbns_are_spanish_newest_first_and_collected(self):
+    def test_missing_isbns_are_spanish_closest_first_and_collected(self):
         rows = radar_rows(PAGE)
-        self.assertEqual(missing_isbns(rows, CATALOGUE), ['9788423300006', '9788420000008', '9788433900005'])
+        self.assertEqual(missing_isbns(rows, CATALOGUE, TODAY), ['9788420000008', '9788423300006', '9788433900005'])
+        manana = radar_rows({'searchResult': {'items': [item('9788400000103', 'Lumen', '2026-12-01'),
+                                                         item('9788400000202', 'Lumen', '2026-11-03'),
+                                                         item('9788400000301', 'Lumen', '2026-11-01'),
+                                                         item('9788400000400', 'Lumen', '')]}})
+        self.assertEqual(missing_isbns(manana, CATALOGUE, TODAY),
+                         ['9788400000202', '9788400000103', '9788400000301', '9788400000400'])
         collected = []
         run(Provider([PAGE]), CATALOGUE, ALIASES, 'tag-21', today=TODAY, pages=1, collect=collected)
-        self.assertEqual(collected, missing_isbns(rows, CATALOGUE))
+        self.assertEqual(collected, missing_isbns(rows, CATALOGUE, TODAY))
 
     def test_spanish_language_counts_even_with_foreign_isbn(self):
         foreign = item('9781234567897', 'Yen Press', '2026-12-01')

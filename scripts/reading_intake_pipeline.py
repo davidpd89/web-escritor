@@ -535,13 +535,50 @@ def read_candidates(queue, refresh_urls, http, limit, existing, known_urls, stat
     return documents
 
 
-def by_date(queue, refresh_urls, documents):
-    """Revisiones primero; después lo que sale antes de lo ya publicado, de la fecha más reciente a la más antigua."""
-    def published(item):
+def periodo(fecha):
+    """(primer día, último día) de una fecha completa, de un mes (AAAA-MM) o de un año (AAAA); None si no se lee."""
+    try:
+        partes = [int(x) for x in str(fecha or '').split('-')[:3]]
+        if len(partes) == 3:
+            dia = date(*partes)
+            return dia, dia
+        if len(partes) == 2:
+            inicio = date(partes[0], partes[1], 1)
+            return inicio, (inicio.replace(day=28) + timedelta(days=4)).replace(day=1) - timedelta(days=1)
+        if len(partes) == 1:
+            return date(partes[0], 1, 1), date(partes[0], 12, 31)
+    except (TypeError, ValueError):
+        pass
+    return None
+
+
+def cercania(fecha, hoy):
+    """Clave de orden: hoy, mañana y pasado; luego el futuro de más cercano a más lejano; luego el pasado de más
+    reciente a más antiguo; al final lo que no tiene fecha legible. Una fecha incompleta (mes o año) cuenta por su
+    día más cercano a hoy: «2026-11» un 2 de noviembre es hoy."""
+    tramo = periodo(fecha)
+    if not tramo:
+        return (3, 0)
+    inicio, fin = tramo
+    if inicio <= hoy <= fin:
+        return (0, 0)
+    if inicio > hoy:
+        dias = (inicio - hoy).days
+        return (0 if dias <= 2 else 1, dias)
+    return (2, (hoy - fin).days)
+
+
+def by_date(queue, refresh_urls, documents, today=None):
+    """Revisiones primero; después por cercanía a hoy (`cercania`): lo que sale ya, luego lo próximo, luego lo
+    publicado. Antes iba de la fecha más reciente a la más antigua y la preventa de dentro de seis meses se
+    comía el cupo antes que lo que salía mañana."""
+    hoy = date.fromisoformat(today) if today else datetime.now(ZoneInfo('Europe/Madrid')).date()
+
+    def clave(item):
         record = documents.get(item[0])
-        return record.get('fecha_publicacion_edicion', '') if isinstance(record, dict) else ''
-    ordered = sorted(queue.items(), key=published, reverse=True)
-    return sorted(ordered, key=lambda item: item[0] not in refresh_urls)
+        fecha = record.get('fecha_publicacion_edicion', '') if isinstance(record, dict) else ''
+        return (item[0] not in refresh_urls, cercania(fecha, hoy))
+    return sorted(queue.items(), key=clave)
 
 
 def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False, today=None, isbns=()):
@@ -635,7 +672,7 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
             if source_dir.exists():
                 shutil.copytree(source_dir, validation_root / 'assets' / folder)
         documents = read_candidates(queue, refresh_urls, http, limit, existing, known_urls, state, today)
-        for url, source in by_date(queue, refresh_urls, documents):
+        for url, source in by_date(queue, refresh_urls, documents, today):
             if len(new_books) >= limit or http.requests >= http.budget:
                 break
             isbn = candidate_isbn(url, source, known_urls)

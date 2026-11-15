@@ -528,9 +528,16 @@ def discarded_path():
     return WORK / 'descartados.jsonl'
 
 
-def schedule(pending, asin, day, motivo):
-    """Un intento más a 1/2/4/8/16/30 días; agotados, el libro sale de la cola y queda anotado."""
+# Motivo de los aplazados por el cupo de altas: lo comparan la cola y el informe de cobertura (igualdad, no subcadena).
+MOTIVO_CUPO = 'aplazado por cupo de altas'
+
+
+def schedule(pending, asin, day, motivo, isbn=None):
+    """Un intento más a 1/2/4/8/16/30 días; agotados, el libro sale de la cola y queda anotado. `isbn` (ISBN-13)
+    viaja con la fila: un 979 no tiene ISBN-10 y su ASIN (B0…) no dice qué libro es; sin él no se puede seguir."""
     row = pending.get(asin) or {'primera': day, 'intentos': 0}
+    if isbn:
+        row['isbn13'] = isbn
     if row.get('ultima') == day:
         return
     row['intentos'] += 1
@@ -539,7 +546,8 @@ def schedule(pending, asin, day, motivo):
         discarded_path().parent.mkdir(parents=True, exist_ok=True)
         with discarded_path().open('a', encoding='utf-8') as out:
             out.write(json.dumps({'asin': asin, 'dia': day, 'motivo': motivo, 'primera': row['primera'],
-                                  'intentos': row['intentos'] - 1}, ensure_ascii=False) + '\n')
+                                  'intentos': row['intentos'] - 1}
+                                 | ({'isbn13': row['isbn13']} if row.get('isbn13') else {}), ensure_ascii=False) + '\n')
         return
     row |= {'motivo': motivo, 'ultima': day,
             'siguiente': (date.fromisoformat(day) + timedelta(days=RETRY_DAYS[row['intentos'] - 1])).isoformat()}
@@ -553,7 +561,7 @@ def update_pending(day, failures, resolved, write=True):
     popped = {asin: pending.pop(asin) for asin in resolved if asin in pending}
     for f in failures:
         if f['motivo'].startswith(RETRYABLE) and f.get('asin'):
-            schedule(pending, f['asin'], day, f['motivo'])
+            schedule(pending, f['asin'], day, f['motivo'], f.get('isbn13'))
     if write:
         write_json(pending_path(), pending)
     return pending, popped
@@ -573,6 +581,9 @@ def reencolar(day, deferred, rejected, previous=None, pending=None):
     def row_of(record, asin):
         row = pending.get(asin) or dict(previous.get(asin) or {'primera': day, 'intentos': 0})
         row = row | {'grupo': record.get('asin') or asin, 'ruta': list(reversed(record.get('nodos') or record.get('palabras_clave') or []))}
+        isbn = edition_isbn(record, asin)
+        if isbn:
+            row['isbn13'] = isbn  # para seguirlo por ISBN (un 979 no se deduce del ASIN)
         # Fecha de publicación de la edición: reintentar pide antes los que salen más cerca de hoy.
         published = (record.get('fecha_publicacion_edicion') or '')[:10]
         if re.fullmatch(r'\d{4}-\d{2}-\d{2}', published):
@@ -580,13 +591,24 @@ def reencolar(day, deferred, rejected, previous=None, pending=None):
         return row
     for record in deferred:
         for asin in record_asins(record):
-            pending[asin] = row_of(record, asin) | {'motivo': 'aplazado por cupo de altas', 'siguiente': day}
+            pending[asin] = row_of(record, asin) | {'motivo': MOTIVO_CUPO, 'siguiente': day}
     for record in rejected:
         for asin in record_asins(record):
             pending[asin] = row_of(record, asin)
             schedule(pending, asin, day, 'rechazado al aplicar (ver fallos del día)')
     write_json(pending_path(), pending)
     return len(deferred), len(rejected)
+
+
+def edition_isbn(record, asin):
+    """ISBN-13 de la edición `asin` de un candidato: el suyo propio, nunca el de la edición principal."""
+    if asin == record.get('asin') and record.get('isbn13'):
+        return record['isbn13']
+    for item in [record.get('item'), *record.get('otras_ediciones', [])]:
+        if amazon_dict(item).get('asin') == asin:
+            books = sorted(i for i in item_isbns(item) if i.startswith(('978', '979')))
+            return books[0] if len(books) == 1 else None
+    return None
 
 
 def record_asins(record):
@@ -1675,7 +1697,7 @@ def main(argv=None):
         # Con más obras aplazadas de las que caben en tres pasadas no se buscan semillas nuevas: solo crecería la
         # cola. Cuenta obras (grupo), no ASIN: cada obra trae varias ediciones. Las semillas esperan en semillas.json.
         backlog = len({row.get('grupo', asin) for asin, row in read_json(pending_path(), {}).items()
-                       if row.get('motivo') == 'aplazado por cupo de altas'})
+                       if row.get('motivo') == MOTIVO_CUPO})
         known = {b.get('isbn13') for b in read_json(ROOT / 'data/reading-catalogue.json')['libros']}
         dated = cfg.get('semillas_fechas', {})
         if dated.get('peticiones', 300):  # lo que sale cada día, sin depender de qué sellos conozcamos
