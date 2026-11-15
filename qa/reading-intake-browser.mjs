@@ -19,7 +19,7 @@ try {
   await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
   await page.locator('[data-filter="q"]').waitFor({ state: 'visible' });
   assert.equal(await page.locator('[data-catalogue-book]').count(), books.length);
-  // Todos los ISBN los cubre tests/test_reading_catalogue_isbn_search.py en lineal; aquí una muestra repartida
+  // Todos los ISBN los cubre tests/test_reading_catalogue_isbn_search_smoke.py en lineal; aquí una muestra repartida
   // (primero, último y ~40 entre medias). Antes se tecleaban los 4945: cuadrático, no cabía en el job al crecer (15/11).
   const step = Math.max(1, Math.floor(imported.length / 40));
   const probes = [...new Set([...imported.filter((_, i) => i % step === 0), imported.at(-1)].filter(Boolean))];
