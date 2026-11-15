@@ -1,0 +1,61 @@
+name: Catálogo de lectura a +1000 y +5000 libros
+
+# Cada carga nocturna añade hasta 1000 libros. Esta simulación clona los publicados con identidad nueva y pinta el
+# catálogo entero en memoria (qa/reading-growth-simulation.py) para ver antes de que llegue qué se rompe al crecer:
+# build cuadrático, primera página o páginas de sello que engordan, hidratación que no cabe en el móvil.
+# Solo lee; si se pasa de algún presupuesto, abre o actualiza una issue.
+on:
+  schedule:
+    - cron: '45 4 * * *'
+  workflow_dispatch:
+    inputs:
+      extra:
+        description: Libros extra a simular, separados por espacios
+        default: '0 1000 5000'
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: reading-growth-simulation
+  cancel-in-progress: false
+
+jobs:
+  crecimiento:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Simular crecimiento
+        id: sim
+        env:
+          EXTRA: ${{ inputs.extra || '0 1000 5000' }}
+        run: |
+          set -o pipefail
+          python3 qa/reading-growth-simulation.py --extra $EXTRA --json .ci/reading-growth.json | tee /tmp/sim.txt
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: reading-growth
+          path: .ci/reading-growth.json
+          retention-days: 30
+      - name: Issue si el crecimiento rompe un presupuesto
+        if: failure() && steps.sim.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          { echo "La simulación de crecimiento del catálogo se pasó de presupuesto ($RUN_URL):"; echo; echo '```'; tail -40 /tmp/sim.txt; echo '```'; } > /tmp/cuerpo.md
+          titulo='Crecimiento del catálogo: presupuesto superado en la simulación'
+          n=$(gh issue list --state open --search "\"$titulo\" in:title" --json number -q '.[0].number')
+          if [ -n "$n" ]; then gh issue comment "$n" --body-file /tmp/cuerpo.md; else gh issue create --title "$titulo" --body-file /tmp/cuerpo.md; fi
