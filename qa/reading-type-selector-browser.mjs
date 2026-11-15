@@ -81,7 +81,7 @@ try {
     const disabledNow = await page.locator('input[data-facet="genero"]:disabled').evaluateAll(list => list.map(o => o.value));
     assert.ok(disabledNow.length > 0, 'Con «Cocina» hay géneros sin libros desactivados');
     // Como en la vista por defecto, cuentan los ya publicados: un próximo lanzamiento no reactiva la opción.
-    const releasedIn = (group, value) => page.locator(`[data-catalogue-book][data-group="${group}"][data-categories~="${value}"]`).evaluateAll(cards => cards.filter(c => { const d = c.dataset.published || c.dataset.publishedMonth || c.dataset.year || ''; return !d || d <= new Date().toISOString().slice(0, 10); }).length);
+    const releasedIn = (group, value) => page.locator(`[data-catalogue-book][data-group="${group}"][data-categories~="${value}"]`).evaluateAll(cards => cards.filter(c => { const d = c.dataset.published || c.dataset.publishedMonth || c.dataset.year || ''; return !d || d <= new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Madrid'}).format(new Date()); }).length);
     for (const value of disabledNow.slice(0, 5)) {
       assert.equal(await releasedIn('cocina', value), 0, `La opción desactivada ${value} no tiene libros de cocina publicados`);
     }
@@ -89,7 +89,7 @@ try {
     await page.waitForFunction(() => !document.querySelector('[data-facets-pending]'));
     const stillDisabled = await page.locator('input[data-facet="genero"]:disabled').evaluateAll(list => list.map(o => o.value));
     // Cuentan los ya publicados (vista por defecto); una categoría con solo próximos lanzamientos también se desactiva.
-    const releasedWith = value => page.locator(`[data-catalogue-book][data-categories~="${value}"]`).evaluateAll(cards => cards.filter(c => { const d = c.dataset.published || c.dataset.publishedMonth || c.dataset.year || ''; return !d || d <= new Date().toISOString().slice(0, 10); }).length);
+    const releasedWith = value => page.locator(`[data-catalogue-book][data-categories~="${value}"]`).evaluateAll(cards => cards.filter(c => { const d = c.dataset.published || c.dataset.publishedMonth || c.dataset.year || ''; return !d || d <= new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Madrid'}).format(new Date()); }).length);
     for (const value of stillDisabled) assert.equal(await releasedWith(value), 0, `Sin tipo elegido solo queda desactivado lo que no tiene ningún libro publicado (${value})`);
     assert.ok(stillDisabled.length < disabledNow.length, 'Quitar el tipo vuelve a activar opciones');
     assert.deepEqual(errors, [], 'Sin errores de JavaScript');
