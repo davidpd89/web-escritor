@@ -147,6 +147,11 @@ class ModeloTests(unittest.TestCase):
         self.assertNotRegex(cuerpo, r'@[A-Za-z]')
         self.assertIn('**Evidencia**', cuerpo)
 
+    def test_respuesta_no_valida_pasa_al_siguiente_y_acaba_en_rojo(self):
+        with mock.patch.object(emp, '_pedir_modelo', side_effect=ValueError('OK')),                 mock.patch.object(emp, 'datos_rol', return_value='datos'),                 tempfile.TemporaryDirectory() as d, mock.patch.object(emp, 'DATOS', Path(d)):
+            with self.assertRaises(SystemExit):
+                emp.experto('seo', dry=True)
+
     def test_publicar_salta_titulos_ya_abiertos(self):
         props = [{'titulo': 'ya existe', 'evidencia': 'e', 'impacto': 'i', 'arreglo': 'a', 'comprobar': 'c'},
                  {'titulo': 'nueva', 'evidencia': 'e', 'impacto': 'i', 'arreglo': 'a', 'comprobar': 'c'}]

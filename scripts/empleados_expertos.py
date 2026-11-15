@@ -370,6 +370,9 @@ def experto(rol, dry=False):
         except urllib.error.HTTPError as e:
             print(f'{modelo}: HTTP {e.code}')   # 429 = cuota diaria agotada: siguiente modelo
             continue
+        except (urllib.error.URLError, TimeoutError, ValueError, KeyError, IndexError, TypeError) as e:
+            print(f'{modelo}: respuesta no válida ({type(e).__name__})')   # sin JSON de chat: siguiente modelo
+            continue
         ruta_segura(DATOS / 'respuesta-modelo.json').write_text(texto, encoding='utf-8')
         creadas = publicar(propuestas(texto), rol, modelo, dry)
         print(f'{modelo}: {len(creadas)} issues', *creadas, sep='\n- ')
