@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Reloj externo de la carga nocturna (workers/intake-dispatch.mjs). Sin rutas: solo Cron Triggers (UTC).
+  // 00:20 justo después del cron de GitHub (00:17); 01:50 reintenta si esa carga no terminó en verde.
+  "name": "web-escritor-intake-dispatch",
+  "main": "workers/intake-dispatch.mjs",
+  "compatibility_date": "2026-08-21",
+  "workers_dev": false,
+  "triggers": { "crons": ["20 0 * * *", "50 1 * * *"] },
+  "observability": { "enabled": true }
+}
