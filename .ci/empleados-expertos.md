@@ -102,6 +102,6 @@ Las guías de la ronda 6 (Google sobre la IA generativa, el INP de web.dev, WCAG
 
 ## Hueco abierto
 
-Cubierto en parte por el turno de issues (#1374): el turno local de `night-autorepair.py` toma cada hora una issue `fallo` (primero) o `experto`, como mucho 3 al día. Abre la PR con las credenciales locales, así que la CI sí se dispara. Espera a los bots y corrige sus hilos (2 veces como mucho). Fusiona sin `--admin` y nunca durante la carga. Si no puede, cierra y etiqueta `necesita-david`.
+Cubierto en parte por el turno de issues (#1374): el turno local de `night-autorepair.py` toma una issue `fallo` al día como mucho (las `experto` no gastan tokens: las revisa David o una sesión). Abre la PR con las credenciales locales, así que la CI sí se dispara. Espera a los bots y corrige sus hilos (2 veces como mucho). Fusiona sin `--admin` y nunca durante la carga. Si no puede, cierra y etiqueta `necesita-david`.
 
 Sigue abierto: si el PC está apagado, nadie consume las issues. Hacerlo desde Actions necesita un PAT o una app, porque las PR creadas con GITHUB_TOKEN no disparan la CI. Está en las preguntas de Fable, ronda 4.
