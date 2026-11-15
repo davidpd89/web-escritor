@@ -11,4 +11,4 @@ Busca clases de fallo, no casos sueltos:
 - issues `fallo` que nadie consume;
 - dependencias de servicios externos sin degradación.
 
-Lee las issues abiertas con la etiqueta `fallo` y los informes recientes de `.ci/` para no repetir lo que ya se sabe. Cada propuesta debe cubrir la clase de fallo e incluir el test que la fijaría.
+Los datos traen las issues `fallo` recientes y los informes más nuevos de `.ci/`; apóyate en ellos. Cada propuesta debe cubrir la clase de fallo e incluir el test que la fijaría.

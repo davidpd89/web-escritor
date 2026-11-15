@@ -7,26 +7,46 @@ Cada miembro sigue el mismo esquema:
 - **Experto LLM**: lee lo que han medido, propone y abre issues `experto`.
 - **Revisores de PR**: comentan las PR; sus avisos bloquean la fusión, que es manual.
 
-Todo es gratuito. El LLM es Claude por la cuenta (`CLAUDE_CODE_OAUTH_TOKEN`), sin pago por token.
+Todo es gratuito. El LLM de los expertos es **GitHub Models** (`openai/gpt-4.1`, con `gpt-4.1-mini` de respaldo), que se paga con el `GITHUB_TOKEN` del run (`models: read`): unas 50 peticiones diarias gratis y aquí se usa 1. Claude queda solo para emergencias (atascos y bloqueos en `night-autorepair.py`), nunca como revisor en bucle (decisión de David del 15/11).
+
+## Plantilla (nombres)
+
+| Puesto | Nombre | Quién es en realidad | Cuándo |
+|---|---|---|---|
+| Arquitecta | **Alba** | experto `arquitecto` (GitHub Models) + Fable en las sesiones de dirección | sábados + sesiones |
+| Investigador | **Iker** | experto `investigador`: busca en GitHub repos activos y los compara con esta lista | lunes |
+| SEO / Google | **Sara** | SiteOne Crawler + experto `seo` | martes |
+| Posicionamiento en IA (GEO) | **Gael** | `empleados_expertos.py geo` (robots, llms.txt, JSON-LD) + experto `geo` | miércoles |
+| UX | **Úrsula** | muestra de 40 URL + experto `ux`; pa11y y axe miden la accesibilidad | jueves |
+| Rendimiento (frontend) | **Rita** | SiteOne con recursos, Lighthouse CI, presupuestos + experto `rendimiento` | viernes + cada PR |
+| Tester automático | **Tomás** | pytest, smoke y QA de navegador en cada PR + experto `tester` (código sin test) | cada PR + domingos |
+| Tester manual | **Marta** | QA de navegador real (`*-browser-qa.yml`) y pa11y sobre producción; la «mano» humana es David cuando quiere | diario |
+| Seguridad | **Sergio** | zizmor, pip-audit y gitleaks (`security-weekly-audit.yml`), CodeQL + experto `seguridad` (cabeceras, ficheros sensibles, bots de IA) | domingos |
+| Revisores de código | **Coral**, **Óscar**, **Diego**, **Sonia** | CodeRabbit, Codex, DeepSource y SonarCloud en cada PR | cada PR |
+| Desarrollador de guardia (backend y frontend) | **Nico** | `night-autorepair.py` y el turno de issues: repara flujos críticos caídos e issues `fallo` | cada hora, solo si algo falla |
+| Operaciones | **Olga** | la carga nocturna, precios, portadas, Telegram y deploy (workflows programados) | cada noche |
+
+Los desarrolladores no programan funciones nuevas solos: el código nuevo sale de las sesiones de David con Opus/Fable o de la reparación de guardia.
 
 ## Expertos LLM (`empleados-expertos.yml`, 05:17 en Madrid)
 
 | Día | Rol | Datos que prepara el workflow | Salida |
 |---|---|---|---|
-| lunes | investigador | (búsqueda web) | 1 issue con ≤5 herramientas nuevas |
+| lunes | investigador | repos de GitHub activos del último mes por temas (`datos_rol`) | ≤3 issues, una por herramienta |
 | martes | seo | SiteOne Crawler v2.5.1 (MIT) sobre 300 URL del sitemap | ≤3 issues |
 | miércoles | geo | robots/llms.txt/JSON-LD de 40 URL (`empleados_expertos.py geo`) | ≤3 issues |
 | jueves | ux | muestra de 40 URL | ≤3 issues |
 | viernes | rendimiento | SiteOne con recursos + `performance-budgets.json` | ≤3 issues |
 | sábado | arquitecto | issues `fallo` + `.ci/` + código de la carga | ≤3 issues |
-| domingo | tester | tests y código crítico | ≤3 issues |
+| domingo | tester | scripts que ningún test nombra | ≤3 issues |
+| domingo 05:47 | seguridad | cabeceras, bots de IA en robots.txt, ficheros versionados con nombre sensible (`empleados_expertos.py seguridad`) | ≤3 issues |
 
 Para lanzar un rol a mano: `gh workflow run empleados-expertos.yml -f rol=seo`.
 
-Límites (condiciones de Fable, R3-14):
-- `--max-turns 25` y `--permission-mode default`;
-- solo puede leer el repositorio y crear o comentar issues;
-- `contents: read` e `issues: write`.
+Límites:
+- el modelo no ejecuta nada: devuelve JSON y el script crea las issues (como mucho 3, sin repetir títulos abiertos, sin menciones @);
+- `contents: read`, `issues: write` y `models: read`;
+- si GitHub Models no responde, el run sale en rojo y no se gasta nada más.
 
 Lo que ya existía: `revision-existente.yml` abre cada día una PR con código antiguo para que la revisen los bots.
 
@@ -48,7 +68,7 @@ Lo que ya existía: `revision-existente.yml` abre cada día una PR con código a
 | rendimiento | Lighthouse CI 0.16 | `lighthouse-ci.yml`, `performance-budget-qa.yml` |
 | accesibilidad | pa11y-ci 5 | `pa11y-baseline.yml`, `a11y-regressions-browser-qa.yml` |
 | enlaces | propio | `broken-links.yml` |
-| seguridad | CodeQL, supply chain npm | `codeql.yml`, `npm-supply-chain-watch.yml` |
+| seguridad | CodeQL, supply chain npm; zizmor, pip-audit y gitleaks con línea base | `codeql.yml`, `npm-supply-chain-watch.yml`, `security-weekly-audit.yml` |
 | producción | smoke y cabeceras | `production-smoke-monitor.yml`, `live-security-headers-audit.yml` |
 
 ## Candidatos (investigación del 15/11, GPT por chat y WebSearch)

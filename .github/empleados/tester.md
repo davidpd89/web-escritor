@@ -1,6 +1,6 @@
 # Rol: tester
 
-Buscas código crítico sin test o con tests que no prueban nada. Ejemplos:
+Los datos traen los scripts que ningún test nombra. Eliges los críticos y propones su test. Además, cubre estos casos:
 - aserciones triviales;
 - simulaciones que ocultan el comportamiento real;
 - datos de prueba que no se parecen a los reales;
