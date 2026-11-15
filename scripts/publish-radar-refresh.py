@@ -138,14 +138,14 @@ def entrada_de_builders(path):
                                               for patron in materializar.FUENTES)
 
 
-def main_cambio_entradas(repo, sha):
-    """Entradas de los builders que main cambió desde la base de la PR; vacío si la PR está al día.
+def main_cambio_entradas(repo, sha, hasta='main'):
+    """Entradas de los builders que `hasta` (main, o la cabeza ya puesta al día) cambió desde `sha`; vacío si nada.
 
     main no exige ramas al día (strict desactivado: reiniciaba la CI de todas las PR abiertas), así que GitHub
     fusiona sin conflicto artefactos construidos con datos viejos (#1312, CodeRabbit). Solo cuentan las entradas
     de los builders: una instantánea de redes que entra a diario no obliga a regenerar.
     """
-    data = json.loads(gh('api', f'repos/{repo}/compare/{sha}...main'))
+    data = json.loads(gh('api', f'repos/{repo}/compare/{sha}...{hasta}'))
     if not data.get('ahead_by'):
         return []
     # Un renombrado cuenta por los dos nombres: retirar una página generada (index.html -> .bak) también la cambia.
@@ -288,11 +288,18 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
                     except subprocess.CalledProcessError:
                         raise StaleMerge(f'#{pr["number"]} no se puede poner al día con main; se regenera') from None
                     for _ in range(20):  # la API responde 202 antes de mover la cabeza
-                        if json.loads(gh('pr', 'view', branch, '--json', 'headRefOid'))['headRefOid'] != sha:
+                        nueva = json.loads(gh('pr', 'view', branch, '--json', 'headRefOid'))['headRefOid']
+                        if nueva != sha:
                             break
                         time.sleep(15)
                     else:
                         raise RuntimeError(f'update-branch de #{pr["number"]} no movió la cabeza; PR left open')
+                    # update-branch fusiona la main de ese instante, no la comparada arriba: si entre medias entraron
+                    # entradas de builders, ya están en la cabeza nueva y solo se ven comparando las dos cabezas.
+                    entradas = main_cambio_entradas(repo, sha, nueva)
+                    if entradas:
+                        raise StaleMerge(f'la puesta al día de #{pr["number"]} trajo entradas de lo generado '
+                                         f'({", ".join(entradas[:5])}); se regenera desde main')
                     if context:
                         report_job(repo, sha, context, 'failure', url)
                     for other in pending - {workflow}:  # la cabeza vieja ya no se fusiona: libera la cola

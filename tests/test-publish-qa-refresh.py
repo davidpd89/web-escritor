@@ -16,7 +16,8 @@ module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 
 
-def scenario(main_files, conflict=False, workflows=('qa.yml',), cancel_race=False):
+def scenario(main_files, conflict=False, workflows=('qa.yml',), cancel_race=False, traidos=()):
+    """`traidos`: lo que la puesta al día metió de verdad en la rama (main pudo avanzar tras la comparación)."""
     state = {'head': 'old', 'calls': [], 'clock': 0.0}
 
     def gh(*args):
@@ -33,16 +34,21 @@ def scenario(main_files, conflict=False, workflows=('qa.yml',), cancel_race=Fals
             return json.dumps({'number': 7, 'headRefOid': state['head'], 'baseRefName': 'main',
                                'baseRefOid': 'base', 'state': 'OPEN'})
         if args[0] == 'api' and '/compare/' in args[1]:
-            files = main_files if args[1].endswith('/compare/old...main') else []
+            files = {'/compare/old...main': main_files, '/compare/old...new': list(main_files) + list(traidos)}.get(
+                args[1][args[1].index('/compare/'):], [])
             return json.dumps({'ahead_by': len(files), 'files': [{'filename': f} for f in files]})
         if args[0] == 'api' and args[1:3] == ('--method', 'PUT'):
             if conflict:
                 raise module.subprocess.CalledProcessError(1, 'gh')
             state['head'] = 'new'
             return ''
-        if args[:2] == ('run', 'list') and cancel_race and args[3] == 'b.yml' and state['head'] == 'old':
-            return json.dumps([{'databaseId': 9, 'headSha': 'old', 'status': 'in_progress', 'conclusion': None}])
+        if args[:2] == ('run', 'list') and cancel_race and args[3] == 'b.yml':
+            # La ejecución de la cabeza vieja sigue listada (en marcha) también después de la puesta al día.
+            vieja = [{'databaseId': 9, 'headSha': 'old', 'status': 'in_progress', 'conclusion': None}]
+            nueva = [{'databaseId': 2, 'headSha': 'new', 'status': 'completed', 'conclusion': 'success'}]
+            return json.dumps(vieja + (nueva if state['head'] == 'new' else []))
         if args[:2] == ('run', 'cancel') and cancel_race:
+            state['cancelado'] = True
             raise module.subprocess.CalledProcessError(1, 'gh')  # terminó entre el listado y la cancelación
         if args[:2] == ('run', 'view'):
             return json.dumps({'status': 'completed'})
@@ -97,6 +103,15 @@ with patch.object(module, 'gh', lambda *a: truncada):
 
 # Una ejecución obsoleta termina justo antes de cancelarla: no tumba la publicación.
 state = scenario(['qa/x.mjs'], workflows=('qa.yml', 'b.yml'), cancel_race=True)
+assert state.get('cancelado'), 'el escenario debe intentar cancelar la ejecución vieja'
 assert any(c[:2] == ('pr', 'merge') and 'new' in c for c in state['calls']), state['calls']
+
+# main avanzó entre la comparación y la puesta al día y trajo entradas de builders: se regenera (CodeRabbit, #1337).
+try:
+    scenario(['qa/x.mjs'], traidos=['data/reading-catalogue.json'])
+except module.StaleMerge as exc:
+    assert 'puesta al día' in str(exc), exc
+else:
+    raise AssertionError('entradas traídas por la puesta al día: debía pedir regenerar')
 
 print('OK publicación: arreglos de CI en main se traen a la PR de datos')
