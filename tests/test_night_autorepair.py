@@ -383,10 +383,6 @@ class Pasada(unittest.TestCase):
         self.assertEqual(self.estado['x.yml']['issue'], 99)
 
 
-if __name__ == '__main__':
-    unittest.main()
-
-
 class CerrojoDeProceso(unittest.TestCase):
     """El cerrojo es del proceso: otro no entra mientras vive, y entra en cuanto muere, sin esperar caducidad."""
 
@@ -529,15 +525,143 @@ class CambiosDel15Nov(unittest.TestCase):
         self.assertIn('error real 555', hijo)
         self.assertEqual(hijo.count('error real'), 1)
 
+    def vigia_preparado(self, tmp):
+        na.ESTADO_DIR = Path(tmp)
+        self.ahora = dt.datetime(2026, 11, 15, 3, 0, tzinfo=dt.timezone.utc)
+        ayer = self.ahora - dt.timedelta(days=1)
+        na.ultima_ejecucion = lambda f: {**run(conclusion='success'), 'createdAt': ayer.isoformat()}
+
     def test_vigia_lanza_una_vez_la_carga_perdida(self):
         with tempfile.TemporaryDirectory() as tmp:
-            na.ESTADO_DIR = Path(tmp)
-            ayer = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=1)
-            na.ultima_ejecucion = lambda f: {**run(conclusion='success'), 'createdAt': ayer.isoformat()}
-            lanzar = dt.datetime.now(dt.timezone.utc).hour >= na.CARGA_PERDIDA_DESDE_H
-            self.assertEqual(na.vigia_carga(), lanzar)
-            self.assertFalse(na.vigia_carga())
-            self.assertEqual(self.hechos.count(('gh', 'workflow', 'run')), int(lanzar))
+            self.vigia_preparado(tmp)
+            self.assertFalse(na.vigia_carga(ahora=self.ahora.replace(hour=0)))   # antes de la hora: nada
+            self.assertTrue(na.vigia_carga(ahora=self.ahora))
+            self.assertFalse(na.vigia_carga(ahora=self.ahora + dt.timedelta(minutes=15)))
+            self.assertEqual(self.hechos.count(('gh', 'workflow', 'run')), 1)
+
+    def test_pasada_y_vigia_comparten_la_marca(self):
+        """Codex/CodeRabbit en #1339: la pasada tenía su propia marca y podía lanzar otra carga el mismo día."""
+        with tempfile.TemporaryDirectory() as tmp:
+            self.vigia_preparado(tmp)
+            self.assertTrue(na.vigia_carga(ahora=self.ahora))
+            ultima = na.ultima_ejecucion   # la API aún no lista la recién lanzada: la carga de ayer sigue siendo la última
+            na.ultima_ejecucion = lambda f: ultima(f)
+            na.vigia_carga(ahora=self.ahora + dt.timedelta(minutes=20))
+            self.assertEqual(self.hechos.count(('gh', 'workflow', 'run')), 1)
+
+    def test_vigia_con_error_no_revienta_ni_marca(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            self.vigia_preparado(tmp)
+
+            def falla(args, **kw):
+                raise RuntimeError('gh caído')
+            na.sh = falla
+            self.assertFalse(na.vigia_carga(ahora=self.ahora))
+            self.assertFalse((Path(tmp) / 'carga-lanzada.txt').exists())
+
+    def test_comparacion_imposible_relanza(self):
+        """CodeRabbit en #1339: sin poder comparar con main (API, SHA borrado) se relanza, no se bloquea."""
+        na.ultima_ejecucion = lambda f: self.carga()
+
+        def gh_json(*a):
+            raise RuntimeError('HTTP 404')
+        na.gh_json = gh_json
+        na.pasada(solo=na.INGESTA)
+        self.assertIn(('relanzar', na.INGESTA), self.hechos)
+
+    def test_auto_merge_que_falla_queda_pendiente(self):
+        """Codex en #1339: el merge diferido fallaba en silencio y se borraba `auto_pendiente`."""
+        hoy = dt.datetime.now(dt.timezone.utc)
+        self.estado['x.yml'] = {'relanzado': (hoy - dt.timedelta(hours=3)).isoformat(), 'auto_pendiente': True,
+                                'pr': 7}
+        na.ultima_ejecucion = lambda f: {**run(), 'createdAt': (hoy - dt.timedelta(hours=1)).isoformat()}
+        na.gh_json = lambda *a: {'state': 'OPEN', 'createdAt': hoy.isoformat(), 'statusCheckRollup': []}
+
+        def sh(args, **kw):
+            self.hechos.append(tuple(args[:3]))
+            if args[:3] == ['gh', 'pr', 'merge']:
+                raise RuntimeError('gh pr merge → 1')
+        na.sh = sh
+        na.pasada(solo='x.yml')
+        self.assertIn(('gh', 'pr', 'merge'), self.hechos)
+        self.assertTrue(self.estado['x.yml'].get('auto_pendiente'))
+
+
+class GhApiSinRepo(unittest.TestCase):
+    def test_gh_api_no_lleva_repo_y_el_resto_si(self):
+        """Codex en #1339: `gh api … --repo` → «unknown flag: --repo» en cada pasada."""
+        llamadas = []
+        guardar = na.sh
+        self.addCleanup(lambda: setattr(na, 'sh', guardar))
+        na.sh = lambda args, **kw: llamadas.append(args) or type('R', (), {'stdout': '{}'})()
+        na.gh_json('api', 'repos/o/r/compare/a...main')
+        na.gh_json('run', 'view', '1', '--json', 'jobs')
+        self.assertNotIn('--repo', llamadas[0])
+        self.assertIn('--repo', llamadas[1])
+
+
+class PasosPorMetadatos(unittest.TestCase):
+    """Codex en #1339: los pasos de navegador (`node qa/…`) no salían del registro y la puerta no los repetía."""
+
+    WORKFLOW = '''
+env:
+  GLOBAL: si
+jobs:
+  qa:
+    env:
+      QA_ORIGIN: http://127.0.0.1:4173
+      TOKEN: ${{ secrets.X }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Navegador
+        run: |
+          python -m http.server 4173 &
+          node qa/reading-intake-browser.mjs
+      - name: Datos
+        env:
+          ESTRICTO: true
+        run: >-
+          python scripts/check-reading-data.py
+          --strict
+      - name: Tuberia
+        run: python tests/x.py | tee salida.log
+      - name: Bien
+        run: node qa/otra.mjs
+'''
+
+    def setUp(self):
+        guardar = {k: getattr(na, k) for k in ('gh_json', 'log')}
+        self.addCleanup(lambda: [setattr(na, k, v) for k, v in guardar.items()])
+        na.log = lambda m: None
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.wt = Path(self.tmp.name)
+        (self.wt / '.github/workflows').mkdir(parents=True)
+        (self.wt / '.github/workflows/qa.yml').write_text(self.WORKFLOW, encoding='utf-8')
+        pasos = [{'name': n, 'conclusion': c} for n, c in
+                 (('Navegador', 'failure'), ('Datos', 'failure'), ('Tuberia', 'failure'), ('Bien', 'success'))]
+        self.jobs = {'jobs': [{'name': 'qa', 'conclusion': 'failure', 'steps': pasos}]}
+
+    def test_saca_las_ordenes_de_los_pasos_fallidos(self):
+        vistos = []
+        na.gh_json = lambda *a: vistos.append(a[2]) or self.jobs
+        registro = 'Error: recommendations-x\nqa.yml failed (555)\n'
+        pasos = na.pasos_de_las_ejecuciones(na.INGESTA, {'databaseId': 1}, registro, self.wt)
+        self.assertEqual(vistos, ['1', '555'])
+        self.assertEqual(pasos, ['GLOBAL=si QA_ORIGIN=http://127.0.0.1:4173 node qa/reading-intake-browser.mjs',
+                                 'GLOBAL=si QA_ORIGIN=http://127.0.0.1:4173 ESTRICTO=true '
+                                 'python scripts/check-reading-data.py --strict'])
+        argv, env = na.preparar_orden(pasos[1])
+        self.assertEqual(argv[1:], ['scripts/check-reading-data.py', '--strict'])
+        self.assertEqual(env['ESTRICTO'], 'true')
+
+    def test_sin_metadatos_vuelve_al_registro(self):
+        def gh_json(*a):
+            raise RuntimeError('API caída')
+        na.gh_json = gh_json
+        registro = "FAIL: test_a (test_modulo.Clase.test_a)"
+        self.assertEqual(na.pasos_de_las_ejecuciones('qa.yml', {'databaseId': 1}, registro, self.wt),
+                         ['python -m unittest discover -s tests -p test_modulo.py'])
 
 
 class PuertaDirigida(unittest.TestCase):
@@ -560,6 +684,26 @@ class PuertaDirigida(unittest.TestCase):
                 na.guardar_puerta = guardar
             self.assertFalse(ok)
             self.assertIn('tests/test-nuevo.py', texto)
+
+    def test_prueba_unittest_tocada_se_descubre_entera(self):
+        """Codex en #1339: ejecutar el módulo directo saltaba las clases definidas tras `unittest.main()`."""
+        import subprocess
+        with tempfile.TemporaryDirectory() as tmp:
+            wt = Path(tmp)
+            subprocess.run(['git', 'init', '-q'], cwd=wt, check=True)
+            (wt / 'tests').mkdir()
+            (wt / 'tests' / 'test_cosa.py').write_text(
+                'import unittest\nif __name__ == "__main__":\n    unittest.main()\n'
+                'class Tarde(unittest.TestCase):\n    def test_x(self):\n        self.fail("vista")\n')
+            subprocess.run(['git', 'add', '-A'], cwd=wt, check=True)
+            self.assertEqual(na.pasos_de_la_puerta(wt, ''), ['python -m unittest discover -s tests -p test_cosa.py'])
+            guardar = na.guardar_puerta
+            na.guardar_puerta = lambda w, t: None
+            try:
+                ok, texto = na.puerta_local(wt, '', [])
+            finally:
+                na.guardar_puerta = guardar
+            self.assertFalse(ok, texto)
 
 
 class PlazoMataElArbol(unittest.TestCase):
@@ -592,3 +736,7 @@ class PlazoMataElArbol(unittest.TestCase):
                 except OSError:
                     vivo = False
             self.assertFalse(vivo, 'el nieto sigue vivo tras el plazo')
+
+
+if __name__ == '__main__':
+    unittest.main()

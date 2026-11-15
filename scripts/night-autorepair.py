@@ -129,21 +129,35 @@ def carga_perdida(ultima: dict | None, ahora: dt.datetime, lanzada_hoy: bool) ->
     return creado.date() < ahora.date()
 
 
-def vigia_carga(dry=False):
-    """Solo el lanzamiento de la carga perdida, con su propio estado: corre aunque la pasada horaria esté reparando."""
-    ahora = dt.datetime.now(dt.timezone.utc)
+def vigia_carga(dry=False, ahora=None):
+    """El único que lanza la carga perdida: lo llaman la tarea del vigía (cada 15 min) y la pasada horaria.
+
+    Cerrojo y marca diaria compartidos: antes la pasada tenía su propia marca (`carga_perdida` en state.json) y las
+    dos podían lanzar la carga el mismo día, sobre todo mientras la API aún no listaba la ejecución recién lanzada
+    (Codex/CodeRabbit en #1339). Los errores se registran; sin marca, el siguiente intento lo repite."""
+    ahora = ahora or dt.datetime.now(dt.timezone.utc)
     hoy = ahora.date().isoformat()
     marca = ESTADO_DIR / 'carga-lanzada.txt'
-    lanzada = marca.exists() and marca.read_text(encoding='utf-8').strip() == hoy
-    if lanzada or ahora.hour < CARGA_PERDIDA_DESDE_H or actions_caido():
+    if ahora.hour < CARGA_PERDIDA_DESDE_H:
         return False
-    if not carga_perdida(ultima_ejecucion(INGESTA), ahora, False):
+    cerrojo = tomar_cerrojo(ESTADO_DIR / 'lock-vigia')
+    if cerrojo is None:
+        return False  # el otro camino lo está comprobando ahora mismo
+    try:
+        if marca.exists() and marca.read_text(encoding='utf-8').strip() == hoy:
+            return False
+        if actions_caido() or not carga_perdida(ultima_ejecucion(INGESTA), ahora, False):
+            return False
+        log(f"{'[dry] ' if dry else ''}{INGESTA}: a las {ahora:%H:%M} UTC no ha salido la carga de hoy; la lanzo (vigía)")
+        if not dry:
+            sh(['gh', 'workflow', 'run', INGESTA, '--ref', 'main', '--repo', GH_REPO], check=True)
+            marca.write_text(hoy, encoding='utf-8')
+        return True
+    except Exception as exc:
+        log(f"{INGESTA}: el vigía no pudo comprobar o lanzar la carga: {exc}")
         return False
-    log(f"{'[dry] ' if dry else ''}{INGESTA}: a las {ahora:%H:%M} UTC no ha salido la carga de hoy; la lanzo (vigía)")
-    if not dry:
-        sh(['gh', 'workflow', 'run', INGESTA, '--ref', 'main', '--repo', GH_REPO], check=True)
-        marca.write_text(hoy, encoding='utf-8')
-    return True
+    finally:
+        cerrojo.close()
 
 
 def sin_cuota(salida: str) -> bool:
@@ -238,7 +252,7 @@ def matar_arbol(pid):
         try:
             os.killpg(pid, 9)
         except OSError:
-            pass
+            pass   # el grupo ya terminó: no queda nada que matar
 
 
 def sh(args, cwd=REPO, timeout=600, env=None, check=False, entrada=None):
@@ -271,7 +285,8 @@ def exe(nombre):
 
 
 def gh_json(*args):
-    r = sh(['gh', *args, '--repo', GH_REPO], check=True)
+    # `gh api` no admite --repo («unknown flag»): ahí el repo va en la ruta (repos/{GH_REPO}/…).
+    r = sh(['gh', *args] + ([] if args[0] == 'api' else ['--repo', GH_REPO]), check=True)
     return json.loads(r.stdout or 'null')
 
 
@@ -324,9 +339,16 @@ CODIGO_CI = ('qa/', 'tests/', 'scripts/', '.github/', 'package.json', 'package-l
 RAMA_DATOS = re.compile(r'automation/reading-catalogue-[\w-]+')
 
 
-def main_cambio_codigo(sha) -> list[str]:
-    """Código (pruebas, scripts, workflows) que main tiene y `sha` no: si no hay, relanzar repite el mismo resultado."""
-    data = gh_json('api', f'repos/{GH_REPO}/compare/{sha}...main')
+def main_cambio_codigo(sha) -> list[str] | None:
+    """Código (pruebas, scripts, workflows) que main tiene y `sha` no: si no hay, relanzar repite el mismo resultado.
+
+    None si no se puede saber (API caída, SHA borrado por un force-push): entonces se relanza, como antes. Solo se
+    repara sin relanzar cuando la comparación confirma que main no trae código nuevo."""
+    try:
+        data = gh_json('api', f'repos/{GH_REPO}/compare/{sha}...main')
+    except Exception as exc:
+        log(f"no pude comparar {sha[:9]} con main ({exc}); se relanza")
+        return None
     if not data.get('ahead_by'):
         return []
     return [f['filename'] for f in data.get('files', []) if f['filename'].startswith(CODIGO_CI)]
@@ -421,7 +443,7 @@ def matar_procesos_en(wt):
     try:
         sh(['powershell', '-NoProfile', '-Command', ps], timeout=120)
     except subprocess.TimeoutExpired:
-        pass
+        pass   # sh ya mató el árbol de PowerShell; quitar_worktree sigue con lo que pueda borrar
 
 
 def limpiar_worktree(wt):
@@ -456,35 +478,127 @@ def dejar_como_el_indice(wt):
     sh(['git', 'clean', '-fdq', '--', '.', ':!node_modules'], cwd=wt)
 
 
-def pasos_de_la_puerta(wt, registro=''):
-    """Los pasos que fallaron en el workflow más las pruebas de tests/ que el arreglo crea o cambia."""
-    pasos = pasos_fallidos(registro)
+ORDEN_CI = re.compile(r'((?:\w+=[^\s\'"]+ )*)(python3?|node) ((?:qa|tests|scripts)/[\w./-]+(?: [^|&;<>`$()\'"]*)?)')
+
+
+def pasos_del_workflow(wt, fichero, nombres) -> list[str]:
+    """Las órdenes de los pasos `nombres` de `.github/workflows/<fichero>` del worktree (con el arreglo aplicado).
+
+    Solo órdenes simples `[VAR=v ...] python|node qa|tests|scripts/...`: tuberías, redirecciones o sustituciones no se
+    repiten aquí (las decide la CI de la PR). El env sin expresiones `${{ }}` del workflow, trabajo y paso va delante."""
+    import yaml
+    try:
+        wf = yaml.safe_load((wt / '.github/workflows' / fichero).read_text(encoding='utf-8')) or {}
+    except (OSError, yaml.YAMLError) as exc:
+        log(f"puerta: no pude leer el workflow {fichero} ({exc})")
+        return []
+    texto = lambda v: str(v).lower() if isinstance(v, bool) else str(v)  # noqa: E731
+    pasos = []
+    for job in (wf.get('jobs') or {}).values():
+        for paso in (job or {}).get('steps') or []:
+            run = (paso or {}).get('run')
+            if not run:
+                continue
+            if (paso.get('name') or 'Run ' + run.strip().splitlines()[0]) not in nombres:
+                continue
+            env = {**(wf.get('env') or {}), **(job.get('env') or {}), **(paso.get('env') or {})}
+            prefijo = ''.join(f'{k}={texto(v)} ' for k, v in env.items()
+                              if '${{' not in texto(v) and re.fullmatch(r'[^\s\'"]+', texto(v)))
+            for linea in re.sub(r'\\\n\s*', ' ', run).splitlines():
+                m = ORDEN_CI.fullmatch(linea.strip())
+                if m:
+                    pasos.append(f"{prefijo}{m.group(1)}{'python' if m.group(2).startswith('python') else 'node'} {m.group(3).strip()}")
+    return pasos
+
+
+def pasos_de_las_ejecuciones(flujo, run, registro, wt) -> list[str]:
+    """Las órdenes de los pasos que fallaron, por los metadatos de la ejecución (trabajos y pasos con conclusión
+    «failure») y el YAML del workflow, no por el texto del registro.
+
+    15/11 (Codex en #1339): el registro solo dejaba ver `CalledProcessError` de scripts y `FAIL:` de unittest; los pasos
+    de navegador (`node qa/...`) que tumbaron la carga nunca llegaban a la puerta y un arreglo sin verificar pasaba.
+    La carga solo publica «<workflow>.yml failed (<id>)» de la CI de su PR de datos (mensaje del propio publicador):
+    se siguen también esas ejecuciones. Los flujos locales no tienen metadatos: ahí sigue el registro."""
+    if es_local(flujo):
+        return pasos_fallidos(registro)
+    ejecuciones = [(flujo, run['databaseId'])]
+    if flujo == INGESTA:
+        ejecuciones += list(dict.fromkeys(re.findall(r'([\w.-]+\.yml) failed \((\d+)\)', registro)))
+    pasos = []
+    for fichero, run_id in ejecuciones:
+        try:
+            jobs = gh_json('run', 'view', str(run_id), '--json', 'jobs')['jobs']
+        except Exception as exc:
+            log(f"puerta: sin metadatos de {fichero} ({run_id}): {exc}")
+            continue
+        nombres = {s.get('name') for j in jobs for s in j.get('steps') or [] if s.get('conclusion') == 'failure'}
+        pasos += pasos_del_workflow(wt, fichero, nombres)
+    return list(dict.fromkeys(pasos)) or pasos_fallidos(registro)
+
+
+def paso_de_prueba(wt, fichero) -> str:
+    """unittest descubre todas las clases del módulo; ejecutarlo directo salta las definidas tras `unittest.main()`."""
+    try:
+        usa_unittest = 'unittest' in (wt / fichero).read_text(encoding='utf-8', errors='replace')
+    except OSError:
+        usa_unittest = False
+    if usa_unittest and fichero.count('/') == 1:
+        return f'python -m unittest discover -s tests -p {fichero.split("/")[1]}'
+    return f'python {fichero}'
+
+
+def pasos_de_la_puerta(wt, registro='', pasos_ci=None):
+    """Los pasos que fallaron en la CI (por metadatos si los hay) más las pruebas de tests/ que el arreglo crea o cambia."""
+    pasos = list(pasos_ci) if pasos_ci is not None else pasos_fallidos(registro)
     cambiados = sh(['git', 'diff', '--cached', '--name-only'], cwd=wt).stdout.split()
-    pasos += [f'python {f}' for f in cambiados if re.fullmatch(r'tests/test[-_][\w.-]*\.py', f) and (wt / f).exists()]
+    pasos += [paso_de_prueba(wt, f) for f in cambiados
+              if re.fullmatch(r'tests/test[-_][\w.-]*\.py', f) and (wt / f).exists()]
     return list(dict.fromkeys(pasos))
 
 
-def puerta_local(wt, registro=''):
+def preparar_orden(paso):
+    """`VAR=v python x.py a` → (argv, env): sin shell, el prefijo de entorno del YAML va al entorno del proceso."""
+    args, env = paso.split(), {}
+    while args and re.fullmatch(r'\w+=\S*', args[0]):
+        clave, valor = args.pop(0).split('=', 1)
+        env[clave] = valor
+    if args and args[0] == 'python':
+        args[0] = sys.executable
+    elif args and args[0] == 'node':
+        args[0] = exe('node')
+    return args, env
+
+
+def puerta_local(wt, registro='', pasos_ci=None):
     """Puerta dirigida: solo lo que falló y lo tocado; la batería completa la corre la CI de la PR antes del auto-merge.
 
     15/11: la puerta anterior (`local-ci.py --baseline`, toda la batería por impacto) rechazó cada arreglo de la noche por
     fallos ajenos al cambio y al entorno («83 ya fallaban en main», un píxel de la portada en móvil): ninguna reparación
-    llegó a PR y todo lo arregló una persona. local-ci dejó de mantenerse el 14/11."""
+    llegó a PR y todo lo arregló una persona. local-ci dejó de mantenerse el 14/11.
+    Las pruebas de navegador de la CI sirven el sitio en 127.0.0.1:4173: si hay alguna, se levanta aquí igual."""
     salida, fallos = [], []
-    for paso in pasos_de_la_puerta(wt, registro):
-        args = paso.split()
-        if args[0] == 'python':
-            args[0] = sys.executable
-        try:
-            r = sh(args, cwd=wt, timeout=30 * 60)
-            codigo, texto = r.returncode, (r.stdout or '') + (r.stderr or '')
-        except subprocess.TimeoutExpired:
-            codigo, texto = 124, 'agotó 30 min'
-        if codigo:
-            fallos.append(paso)
-            salida.append(f'## {paso}  (código {codigo})\n' + '\n'.join(texto.strip().splitlines()[-40:]))
-        else:
-            salida.append(f'ok {paso}')
+    pasos = pasos_de_la_puerta(wt, registro, pasos_ci)
+    servidor = None
+    if any(preparar_orden(p)[0][:1] == [exe('node')] for p in pasos):
+        servidor = subprocess.Popen([sys.executable, '-m', 'http.server', '4173', '--bind', '127.0.0.1'], cwd=str(wt),
+                                    stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=SIN_VENTANA,
+                                    start_new_session=os.name != 'nt')
+    try:
+        for paso in pasos:
+            args, env = preparar_orden(paso)
+            try:
+                r = sh(args, cwd=wt, timeout=30 * 60, env=env)
+                codigo, texto = r.returncode, (r.stdout or '') + (r.stderr or '')
+            except subprocess.TimeoutExpired:
+                codigo, texto = 124, 'agotó 30 min'
+            if codigo:
+                fallos.append(paso)
+                salida.append(f'## {paso}  (código {codigo})\n' + '\n'.join(texto.strip().splitlines()[-40:]))
+            else:
+                salida.append(f'ok {paso}')
+    finally:
+        if servidor is not None:
+            matar_arbol(servidor.pid)
     dejar_como_el_indice(wt)
     if not salida:
         salida.append('sin pasos locales que repetir: decide la CI de la PR')
@@ -549,6 +663,22 @@ def instantanea(flujo) -> str:
             + '\n\n'.join(partes)[-8000:] + "\n```")
 
 
+def rama_de_datos(wt, rama, flujo) -> str:
+    """El agente va sin credenciales: el orquestador le deja la rama de datos para reproducir con el catálogo real."""
+    try:
+        r = sh(['git', 'fetch', '-q', 'origin', f'{rama}:refs/remotes/origin/{rama}'], cwd=wt, timeout=600)
+    except subprocess.TimeoutExpired:
+        log(f"{flujo}: no pude traer {rama} (agotó 10 min); el agente reproduce con los datos de main")
+        return ''
+    if r.returncode:
+        log(f"{flujo}: no pude traer {rama} ({(r.stderr or '').strip()[-200:]}); el agente reproduce con los datos de main")
+        return ''
+    return (f"\n\nLa rama de datos que falló está en `origin/{rama}`. Para reproducir con el catálogo real: "
+            f"`git worktree add --detach ../datos-repro origin/{rama}`, copia ahí qa/ y tests/ de tu worktree, "
+            "sirve con `python -m http.server 4173 --bind 127.0.0.1` y ejecuta la prueba que falló; "
+            "al acabar para el servidor y borra ese worktree.")
+
+
 def reparar(flujo, run, dry, historial=None, auto=True):
     registro = registro_fallo(run['databaseId'], run=run if es_local(flujo) else None)
     if flujo == INGESTA:
@@ -560,15 +690,10 @@ def reparar(flujo, run, dry, historial=None, auto=True):
     wt, rama = preparar_worktree(flujo, run['databaseId'])
     prompt = prompt_reparacion(flujo, run, registro, historial, instantanea(flujo))
     datos = list(dict.fromkeys(RAMA_DATOS.findall(registro)))
-    if datos:
-        # El agente va sin credenciales: el orquestador le deja la rama de datos para reproducir con el catálogo real.
-        r = sh(['git', 'fetch', '-q', 'origin', f'{datos[-1]}:refs/remotes/origin/{datos[-1]}'], cwd=wt, timeout=600)
-        if r.returncode == 0:
-            prompt += (f"\n\nLa rama de datos que falló está en `origin/{datos[-1]}`. Para reproducir con el catálogo real: "
-                       f"`git worktree add --detach ../datos-repro origin/{datos[-1]}`, copia ahí qa/ y tests/ de tu worktree, "
-                       "sirve con `python -m http.server 4173 --bind 127.0.0.1` y ejecuta la prueba que falló; "
-                       "al acabar para el servidor y borra ese worktree.")
     try:
+        if datos:
+            prompt += rama_de_datos(wt, datos[-1], flujo)
+        pasos_ci = pasos_de_las_ejecuciones(flujo, run, registro, wt)
         for nombre, argv, env, trailer in agentes():
             log(f"{flujo}: probando {nombre}")
             args = [exe(argv[0]), *argv[1:]] + (['-C', str(wt), '-'] if nombre == 'codex' else [])
@@ -591,7 +716,7 @@ def reparar(flujo, run, dry, historial=None, auto=True):
             ok, motivo = diff_valido(sh(['git', 'diff', '--cached'], cwd=wt).stdout)
             if not ok:
                 log(f"{flujo}: {nombre} rechazado ({motivo})"); sh(['git', 'reset', '-q'], cwd=wt); deshacer(wt); continue
-            pasa, salida_puerta = puerta_local(wt, registro)
+            pasa, salida_puerta = puerta_local(wt, registro, pasos_ci)
             if not pasa:
                 # No se tira el arreglo: el siguiente agente parte de él y de lo que dijo la puerta (10/11: tres
                 # arreglos correctos rehechos desde cero, uno tras otro).
@@ -628,14 +753,8 @@ def pasada(dry=False, solo=None):
     caida = actions_caido()
     if caida:
         log(f"GitHub Actions en incidencia ({caida}): no relanzo ni reparo nada; reintento en la siguiente pasada")
-    if not solo or solo == INGESTA:
-        try:
-            if not caida and carga_perdida(ultima_ejecucion(INGESTA), ahora, estado.get('carga_perdida') == hoy):
-                log(f"{'[dry] ' if dry else ''}{INGESTA}: hoy no se ha lanzado la carga nocturna; la lanzo")
-                dry or sh(['gh', 'workflow', 'run', INGESTA, '--ref', 'main', '--repo', GH_REPO], check=True)
-                estado['carga_perdida'] = hoy
-        except Exception as exc:
-            log(f"{INGESTA}: no pude comprobar si la carga se lanzó: {exc}")
+    if (not solo or solo == INGESTA) and not caida:
+        vigia_carga(dry, ahora)
     for flujo in [solo] if solo else [*VIGILADOS, *flujos_locales()]:
         try:
             run = ultima_ejecucion(flujo)
@@ -653,7 +772,8 @@ def pasada(dry=False, solo=None):
                     anotar(previo, 'PR cerrada sin entrar')
                 elif previo.get('auto_pendiente') and not ingesta_en_marcha():
                     log(f"{flujo}: la carga terminó; activo el auto-merge de la PR #{previo['pr']}")
-                    dry or sh(['gh', 'pr', 'merge', str(previo['pr']), '--repo', GH_REPO, '--auto', '--squash'])
+                    # check=True: si falla (API caída), la marca se queda y la siguiente pasada lo reintenta.
+                    dry or sh(['gh', 'pr', 'merge', str(previo['pr']), '--repo', GH_REPO, '--auto', '--squash'], check=True)
                     previo.pop('auto_pendiente', None)
                 elif (motivo := pr_atascada(pr, ahora)):
                     log(f"{flujo}: PR #{previo['pr']} no puede entrar ({motivo}); la cierro y cuento el intento como fallido")
@@ -666,7 +786,7 @@ def pasada(dry=False, solo=None):
             infra = bool(fallido) and not es_local(flujo) and fallo_de_infraestructura(run['databaseId'])
             accion = decidir(run, previo, ahora, intentos, infra)
             if (accion == 'relanzar' and flujo == INGESTA and not infra and not (previo or {}).get('sin_arreglo')
-                    and run.get('headSha') and not main_cambio_codigo(run['headSha'])):
+                    and run.get('headSha') and main_cambio_codigo(run['headSha']) == []):
                 log(f"{flujo}: falló y main no trae código nuevo desde {run['headSha'][:9]}: relanzar repetiría el fallo; reparo")
                 accion = 'reparar' if intentos < MAX_INTENTOS_DIA else 'agotado'
             if caida and accion in ('relanzar', 'reparar'):
@@ -864,13 +984,7 @@ def main():
     a = ap.parse_args()
     ESTADO_DIR.mkdir(parents=True, exist_ok=True)
     if a.vigia_carga:
-        cerrojo = tomar_cerrojo(ESTADO_DIR / 'lock-vigia')
-        if cerrojo is None:
-            return 0
-        try:
-            vigia_carga(a.dry_run)
-        finally:
-            cerrojo.close()
+        vigia_carga(a.dry_run)   # toma él mismo lock-vigia: la pasada horaria lo llama también
         return 0
     cerrojo = tomar_cerrojo(ESTADO_DIR / 'lock')
     if cerrojo is None:
