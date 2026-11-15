@@ -1,4 +1,5 @@
 /* Static books and purchase links work without JS; optional market data expires. */
+'use strict';
 // Caja «Ir a la página» del paginador estático (todas las páginas del listado, también /pagina/N/ sin filtros).
 (() => {
   'use strict';
@@ -12,7 +13,7 @@
     });
   }
 })();
-(async () => {
+(async () => {  // skipcq: JS-R1005 (orden P2-1: refactor pendiente)
   'use strict';
   const root = document.querySelector('[data-reading-catalogue]');
   if (!root) return;
@@ -383,11 +384,11 @@
       if (refineCount) { const active = fields.filter(f => !['q', 'orden', 'estado'].includes(f.dataset.filter) && f.value && !f.disabled).length + boxes.filter(b => b.checked).length; refineCount.textContent = active ? '· ' + active + (active === 1 ? ' activo' : ' activos') : ''; }
       root.querySelector('[data-catalogue-count]').textContent = visible + (visible === 1 ? ' libro' : ' libros') + (pages > 1 ? ' · página ' + currentPage + ' de ' + pages : ''); root.querySelector('[data-catalogue-empty]').hidden = visible !== 0;
       renderActive(v);
-      if (save) { const hash = new URLSearchParams(Object.entries(v).filter(([k, value]) => !FACETS.includes(k) && value && !(k === 'orden' && value === 'editorial'))); for (const k of FACETS) for (const x of v[k]) hash.append(k, x); if (currentPage > 1) hash.set('pagina', String(currentPage)); history.replaceState(null, '', location.pathname + location.search + (hash.size ? '#' + hash : '')); }
+      if (save) { const hash = new URLSearchParams(Object.entries(v).filter(([k, value]) => !FACETS.includes(k) && value && !(k === 'orden' && value === 'editorial'))); for (const k of FACETS) for (const x of v[k]) hash.append(k, x); if (currentPage > 1) hash.set('pagina', String(currentPage)); history.replaceState(null, '', `${location.pathname}${location.search}${hash.size ? `#${hash}` : ''}`); }
       else {
         // #pagina fuera de rango: se corrige sin historial ni hashchange.
         const hash = new URLSearchParams(location.hash.slice(1)), pageParam = currentPage > 1 ? String(currentPage) : null;
-        if (hash.get('pagina') !== pageParam && (hash.has('pagina') || pageParam)) { if (pageParam) hash.set('pagina', pageParam); else hash.delete('pagina'); history.replaceState(history.state, '', location.pathname + location.search + (hash.size ? '#' + hash : '')); }
+        if (hash.get('pagina') !== pageParam && (hash.has('pagina') || pageParam)) { if (pageParam) hash.set('pagina', pageParam); else hash.delete('pagina'); history.replaceState(history.state, '', `${location.pathname}${location.search}${hash.size ? `#${hash}` : ''}`); }
       }
     }
   }
@@ -444,7 +445,7 @@
     const heading = root.querySelector('.catalogue-results-head h2'); heading.tabIndex = -1; heading.focus({preventScroll: true});
   }
   const pageFromHash = raw => /^\d+$/.test(raw || '') ? Math.max(1, Math.min(100000, Number(raw))) : 1;
-  function restore() {
+  function restore() {  // skipcq: JS-R1005 (orden P2-1: refactor pendiente)
     const params = new URLSearchParams(location.hash.slice(1));
     currentPage = pageFromHash(params.get('pagina'));
     for (const f of fields) { const v = params.get(f.dataset.filter) || (f.dataset.filter === 'orden' ? 'editorial' : ''); f.value = f.tagName === 'SELECT' && ![...f.options].some(o => o.value === v) ? (f.dataset.filter === 'orden' ? 'editorial' : '') : v; }
