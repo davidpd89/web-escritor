@@ -439,7 +439,7 @@ class AgenteSinEscritura(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             tmp = Path(tmp)
             git = lambda *a, env=None, cwd=tmp / 'wt': subprocess.run(['git', *a], cwd=cwd, capture_output=True, text=True,
-                                                                     env={**os.environ, **(env or {})})
+                                                                     env={**os.environ, **(env or {})}, check=False)  # el push del agente debe fallar
             git('init', '-q', '--bare', str(tmp / 'remoto.git'), cwd=tmp)
             git('clone', '-q', str(tmp / 'remoto.git'), str(tmp / 'wt'), cwd=tmp)
             (tmp / 'wt' / 'a.txt').write_text('x')
