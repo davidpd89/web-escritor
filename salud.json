@@ -1,21 +1,21 @@
 {
- "generado": "2026-11-14T03:39:20+00:00",
- "publicados": 3972,
+ "generado": "2026-11-15T02:16:07+00:00",
+ "publicados": 4946,
  "secciones": {
   "portadas_tipograficas": {
-   "total": 412,
-   "proximos": 223,
+   "total": 603,
+   "proximos": 306,
    "por_mes": {
     "2027-08": 1,
-    "2027-05": 3,
+    "2027-05": 5,
     "2027-04": 7,
-    "2027-03": 4,
-    "2027-02": 79,
-    "2027-01": 37,
-    "2026-12": 18,
-    "2026-11": 183,
-    "2026-10": 73,
-    "2026-09": 1,
+    "2027-03": 5,
+    "2027-02": 83,
+    "2027-01": 39,
+    "2026-12": 58,
+    "2026-11": 254,
+    "2026-10": 137,
+    "2026-09": 8,
     "2026-08": 3,
     "2025-08": 1
    },
@@ -223,13 +223,13 @@
    ]
   },
   "formatos_sin_precio": {
-   "total": 425,
-   "libros": 317,
+   "total": 459,
+   "libros": 345,
    "por_formato": {
-    "ebook": 167,
-    "tapa-blanda": 110,
-    "audiolibro": 77,
-    "tapa-dura": 71
+    "ebook": 183,
+    "tapa-blanda": 122,
+    "audiolibro": 81,
+    "tapa-dura": 73
    },
    "muestra": [
     {
@@ -460,7 +460,7 @@
    ]
   },
   "sin_formatos_de_compra": {
-   "total": 86,
+   "total": 162,
    "muestra": [
     {
      "id": "isbn-9788408326861",
@@ -561,20 +561,6 @@
      "fecha_publicacion": "2026-09-09"
     },
     {
-     "id": "isbn-9788000079806",
-     "titulo": "Babymoni: ¡Soy Feliz!: 5 (Babymoni en Español)",
-     "isbn13": "9788000079806",
-     "editorial": "Albatros Nakladatelstvi As",
-     "fecha_publicacion": "2027-02-25"
-    },
-    {
-     "id": "isbn-9788491459866",
-     "titulo": "Estado desde la sociedad, El. Espacios de poder en la España del siglo XIX. (ÁLBUMES ILUSTRADOS)",
-     "isbn13": "9788491459866",
-     "editorial": "Picarona",
-     "fecha_publicacion": "2026-11-23"
-    },
-    {
      "id": "isbn-9798890988430",
      "titulo": "Como Ningún Lugar En El Mundo / No Place on Earth",
      "isbn13": "9798890988430",
@@ -636,19 +622,36 @@
      "isbn13": "9798890989888",
      "editorial": "Bruguera Infantil",
      "fecha_publicacion": "2026-10-20"
+    },
+    {
+     "id": "isbn-9798890988805",
+     "titulo": "Junie B. Jones Y Su Gran Bocota. El Cómic / Junie B. Jones and Her Big Fat Mouth: The Graphic Novel (Junie B. Jones El Cómic)",
+     "isbn13": "9798890988805",
+     "editorial": "Beascoa",
+     "fecha_publicacion": "2026-10-20"
+    },
+    {
+     "id": "isbn-9798890989901",
+     "titulo": "Mieditos Tiernos / Spooky Cutie: Coloring Book for Adults and Kids (Coco Wyo)",
+     "isbn13": "9798890989901",
+     "editorial": "Bruguera Infantil",
+     "fecha_publicacion": "2026-10-20"
     }
    ]
   },
   "sin_texto": {
-   "total": 752,
-   "proximos": 149,
+   "total": 1746,
+   "proximos": 417,
    "por_mes": {
-    "2027-02": 1,
-    "2027-01": 5,
-    "2026-12": 9,
-    "2026-11": 386,
-    "2026-10": 337,
-    "2026-09": 14
+    "2027-05": 2,
+    "2027-04": 1,
+    "2027-03": 5,
+    "2027-02": 27,
+    "2027-01": 50,
+    "2026-12": 86,
+    "2026-11": 715,
+    "2026-10": 754,
+    "2026-09": 106
    },
    "muestra": [
     {
@@ -785,13 +788,6 @@
      "fecha_publicacion": "2026-11-23"
     },
     {
-     "id": "isbn-9788410794672",
-     "titulo": "Aprender para leer: Literatura auténtica en la enseñanza de inglés (Horizontes Educación)",
-     "isbn13": "9788410794672",
-     "editorial": "Editorial Octaedro, S.l.",
-     "fecha_publicacion": "2026-11-01"
-    },
-    {
      "id": "isbn-9791399244502",
      "titulo": "Valencia (LAS AFUERAS)",
      "isbn13": "9791399244502",
@@ -825,6 +821,13 @@
      "isbn13": "9786316599896",
      "editorial": "Puck",
      "fecha_publicacion": "2026-11-01"
+    },
+    {
+     "id": "isbn-9786316617576",
+     "titulo": "La biblioteca de los márgenes (Plata)",
+     "isbn13": "9786316617576",
+     "editorial": "Plata",
+     "fecha_publicacion": "2026-11-01"
     }
    ]
   },
@@ -834,10 +837,10 @@
   }
  },
  "cambio": {
-  "portadas_tipograficas": 27,
-  "formatos_sin_precio": 15,
-  "sin_formatos_de_compra": 3,
-  "sin_texto": 200,
+  "portadas_tipograficas": 191,
+  "formatos_sin_precio": 34,
+  "sin_formatos_de_compra": 76,
+  "sin_texto": 994,
   "portada_sin_fichero": 0
  },
  "amazon": {
@@ -847,34 +850,6 @@
   "errores": {},
   "oportunidades": [],
   "sin_portada_en_amazon": [
-   {
-    "id": "isbn-9791399178555",
-    "titulo": "Bajo la estela de un legado",
-    "isbn13": "9791399178555",
-    "editorial": "Fílide Ediciones",
-    "fecha_publicacion": "2026-11-14"
-   },
-   {
-    "id": "isbn-9791399178548",
-    "titulo": "El lienzo de las musas: Relatos premiados",
-    "isbn13": "9791399178548",
-    "editorial": "Fílide Ediciones",
-    "fecha_publicacion": "2026-11-14"
-   },
-   {
-    "id": "isbn-9788419930279",
-    "titulo": "Madres: 20 (Clásicos modernos)",
-    "isbn13": "9788419930279",
-    "editorial": "Caleidoscopio de Libros, S.l.",
-    "fecha_publicacion": "2026-11-13"
-   },
-   {
-    "id": "isbn-9788449602122",
-    "titulo": "Madrid siglo 21: Arquitectura Urbanismo Paisaje",
-    "isbn13": "9788449602122",
-    "editorial": "Tanais.architecta",
-    "fecha_publicacion": "2026-11-13"
-   },
    {
     "id": "isbn-9788410033030",
     "titulo": "El Cangrejo Juguetón. ¡Descubre la magia del circo!: 3",
@@ -925,13 +900,6 @@
     "fecha_publicacion": "2026-11-15"
    },
    {
-    "id": "isbn-9791399155754",
-    "titulo": "El Mago de Oz: 1 (Desafiando a Oz)",
-    "isbn13": "9791399155754",
-    "editorial": "Kabo&bero Ediciones",
-    "fecha_publicacion": "2026-11-13"
-   },
-   {
     "id": "isbn-9791388540035",
     "titulo": "La bruja buena del tiempo",
     "isbn13": "9791388540035",
@@ -939,32 +907,11 @@
     "fecha_publicacion": "2026-11-15"
    },
    {
-    "id": "isbn-9788499177908",
-    "titulo": "La virtud de la sensibilidad",
-    "isbn13": "9788499177908",
-    "editorial": "Redbook",
-    "fecha_publicacion": "2026-11-13"
-   },
-   {
-    "id": "isbn-9788499177892",
-    "titulo": "La tragedia catara",
-    "isbn13": "9788499177892",
-    "editorial": "Redbook",
-    "fecha_publicacion": "2026-11-13"
-   },
-   {
-    "id": "isbn-9791399308709",
-    "titulo": "Diversos: Antología de relatos - Primer Premio de Relatos ­Fundación Las Fuentes: 1",
-    "isbn13": "9791399308709",
-    "editorial": "Editorial Graviola",
-    "fecha_publicacion": "2026-11-12"
-   },
-   {
-    "id": "isbn-9791399320206",
-    "titulo": "Las baterías del amor",
-    "isbn13": "9791399320206",
-    "editorial": "Nueva Eva",
-    "fecha_publicacion": "2026-11-12"
+    "id": "isbn-9791399178555",
+    "titulo": "Bajo la estela de un legado",
+    "isbn13": "9791399178555",
+    "editorial": "Fílide Ediciones",
+    "fecha_publicacion": "2026-11-14"
    },
    {
     "id": "isbn-9788418467172",
@@ -985,6 +932,62 @@
     "titulo": "Otra forma de obrar: Textos sobre poesía y poéticas: 52 (Paralajes)",
     "isbn13": "9788419943583",
     "editorial": "Libros de la Resistencia",
+    "fecha_publicacion": "2026-11-16"
+   },
+   {
+    "id": "isbn-9788448271817",
+    "titulo": "Regina de Miguel: Aguas intoxicadas",
+    "isbn13": "9788448271817",
+    "editorial": "Generalitat Valenciana",
+    "fecha_publicacion": "2026-11-16"
+   },
+   {
+    "id": "isbn-9791399178548",
+    "titulo": "El lienzo de las musas: Relatos premiados",
+    "isbn13": "9791399178548",
+    "editorial": "Fílide Ediciones",
+    "fecha_publicacion": "2026-11-14"
+   },
+   {
+    "id": "isbn-9791399159400",
+    "titulo": "Rebrotar: Un camino a la renaturalización: 7 (Centella)",
+    "isbn13": "9791399159400",
+    "editorial": "Episkaia",
+    "fecha_publicacion": "2026-11-16"
+   },
+   {
+    "id": "isbn-9788412972573",
+    "titulo": "Admirados Soñadores",
+    "isbn13": "9788412972573",
+    "editorial": "Letras de Almagre",
+    "fecha_publicacion": "2026-11-16"
+   },
+   {
+    "id": "isbn-9788448271831",
+    "titulo": "Jaime I, un viaje documental y visual",
+    "isbn13": "9788448271831",
+    "editorial": "Generalitat Valenciana",
+    "fecha_publicacion": "2026-11-16"
+   },
+   {
+    "id": "isbn-9788488020987",
+    "titulo": "La palabra encendida: 29 (Vanguardia clásica)",
+    "isbn13": "9788488020987",
+    "editorial": "Ardora Ediciones",
+    "fecha_publicacion": "2026-11-16"
+   },
+   {
+    "id": "isbn-9788496113206",
+    "titulo": "La imagen de España a través de sus invenciones",
+    "isbn13": "9788496113206",
+    "editorial": "Oficina Española de Patentes y Marcas.",
+    "fecha_publicacion": "2026-11-16"
+   },
+   {
+    "id": "isbn-9791399229158",
+    "titulo": "SACU: Sistema de Asistencia Cognitiva Universal",
+    "isbn13": "9791399229158",
+    "editorial": "Unquinto",
     "fecha_publicacion": "2026-11-16"
    }
   ]

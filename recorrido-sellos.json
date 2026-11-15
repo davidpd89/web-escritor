@@ -549,30 +549,276 @@
     "cristian diana",
     "diane kane publishing",
     "natalia sanchez diana",
-    "camara colombiana del libro"
+    "camara colombiana del libro",
+    "gustavo cinca",
+    "gustavo miguel cinca",
+    "colectivo 5w"
   ],
   "cola": [
     {
-      "consulta": "Diana",
+      "consulta": "Cinca",
+      "nivel": 3,
+      "nodo": "202398618031",
+      "ruta": [
+        "Cómics, manga y novelas gráficas",
+        "Cómics y novelas gráficas",
+        "Antologías"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 3,
+      "nodo": "202398616031",
+      "ruta": [
+        "Cómics, manga y novelas gráficas",
+        "Cómics y novelas gráficas",
+        "Biografías"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 3,
+      "nodo": "202398621031",
+      "ruta": [
+        "Cómics, manga y novelas gráficas",
+        "Cómics y novelas gráficas",
+        "Humorístico"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 3,
+      "nodo": "202398617031",
+      "ruta": [
+        "Cómics, manga y novelas gráficas",
+        "Cómics y novelas gráficas",
+        "Literaria y ficticia"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 3,
+      "nodo": "202398620031",
+      "ruta": [
+        "Cómics, manga y novelas gráficas",
+        "Cómics y novelas gráficas",
+        "No ficción"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 2,
+      "nodo": "14759429031",
+      "ruta": [
+        "Cómics, manga y novelas gráficas",
+        "Cómo crear cómics y manga"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 2,
+      "nodo": "28166968031",
+      "ruta": [
+        "Cómics, manga y novelas gráficas",
+        "Manga"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 1,
+      "nodo": "902520031",
+      "ruta": [
+        "Deportes y aire libre"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 1,
+      "nodo": "902590031",
+      "ruta": [
+        "Derecho"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 1,
+      "nodo": "902595031",
+      "ruta": [
+        "Economía y empresa"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 1,
+      "nodo": "902681031",
+      "ruta": [
+        "Erótica"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 1,
+      "nodo": "1349107031",
+      "ruta": [
+        "Fantasía y ciencia ficción"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 1,
+      "nodo": "902600031",
+      "ruta": [
+        "Historia"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 1,
+      "nodo": "902610031",
+      "ruta": [
+        "Hogar, manualidades y estilos de vida"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 1,
+      "nodo": "902620031",
+      "ruta": [
+        "Humor"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 1,
+      "nodo": "902621031",
+      "ruta": [
+        "Infantil"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 1,
+      "nodo": "902652031",
+      "ruta": [
+        "Informática, internet y medios digitales"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 1,
+      "nodo": "12942013031",
+      "ruta": [
+        "Juvenil"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 1,
+      "nodo": "902665031",
+      "ruta": [
+        "Lengua, lingüística y redacción"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 1,
+      "nodo": "27198630031",
+      "ruta": [
+        "Libros LGBTQ+"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 1,
+      "nodo": "902729031",
+      "ruta": [
+        "Libros y guías de viaje"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 1,
+      "nodo": "902674031",
+      "ruta": [
+        "Literatura y ficción"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 1,
+      "nodo": "902685031",
+      "ruta": [
+        "Policíaca, negra y suspense"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 1,
+      "nodo": "902693031",
+      "ruta": [
+        "Política"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 1,
+      "nodo": "902702031",
+      "ruta": [
+        "Religión"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
+      "nivel": 1,
+      "nodo": "902686031",
+      "ruta": [
+        "Romántica"
+      ],
+      "sello": "Cinca"
+    },
+    {
+      "consulta": "Cinca",
       "nivel": 1,
       "nodo": "902716031",
       "ruta": [
         "Salud, familia y desarrollo personal"
       ],
-      "sello": "Diana"
+      "sello": "Cinca"
     },
     {
-      "consulta": "Diana",
+      "consulta": "Cinca",
       "nivel": 1,
       "nodo": "902721031",
       "ruta": [
         "Sociedad y ciencias sociales"
       ],
-      "sello": "Diana"
+      "sello": "Cinca"
     },
-    "Distrito Manga",
-    "Antígona",
-    "Cinca",
     "Cristiandad",
     "Ediciones de Intervención Cultural",
     "Ediciones JC",
@@ -944,14 +1190,17 @@
     "Cristian Diana",
     "Diane Kane Publishing",
     "Natalia Sánchez Diana",
-    "Cámara Colombiana del Libro"
+    "Cámara Colombiana del Libro",
+    "gustavo Cinca",
+    "Gustavo Miguel Cinca",
+    "COLECTIVO 5W"
   ],
   "dia": "2026-11-08",
   "errores": [],
   "grupos": {
-    "diana": {
-      "libros_es": 87,
-      "pendientes": 2
+    "cinca": {
+      "libros_es": 59,
+      "pendientes": 28
     }
   },
   "hijos": {
@@ -1549,6 +1798,12 @@
         "Yuri"
       ]
     ],
+    "4893907031": [
+      [
+        "4893908031",
+        "Pequeños animales"
+      ]
+    ],
     "5272177031": [
       [
         "13355944031",
@@ -2096,6 +2351,40 @@
         "Veterinaria"
       ]
     ],
+    "902504031": [
+      [
+        "4893763031",
+        "Acuicultura y piscicultura"
+      ],
+      [
+        "4893757031",
+        "Agricultura sostenible"
+      ],
+      [
+        "4893759031",
+        "Agricultura tropical"
+      ],
+      [
+        "4893756031",
+        "Ciencia y producción agrícola"
+      ],
+      [
+        "4893761031",
+        "Control de plagas"
+      ],
+      [
+        "4893758031",
+        "Ganadería"
+      ],
+      [
+        "4893762031",
+        "Horticultura"
+      ],
+      [
+        "4893760031",
+        "Ingeniería forestal y silvicultura"
+      ]
+    ],
     "902510031": [
       [
         "4893806031",
@@ -2132,6 +2421,62 @@
       [
         "4893812031",
         "Teoría matemática"
+      ]
+    ],
+    "902512031": [
+      [
+        "4893867031",
+        "Ciencia y tecnología medioambientales"
+      ],
+      [
+        "4893871031",
+        "Conservación del medio ambiente"
+      ],
+      [
+        "4893872031",
+        "Contaminación y amenazas al medio ambiente"
+      ],
+      [
+        "4893873031",
+        "Desastres naturales"
+      ],
+      [
+        "4893868031",
+        "Ecología"
+      ],
+      [
+        "4893870031",
+        "Gestión medioambiental y de residuos"
+      ],
+      [
+        "4893874031",
+        "Impacto social"
+      ],
+      [
+        "4893875031",
+        "Sostenibilidad"
+      ]
+    ],
+    "902515031": [
+      [
+        "4893895031",
+        "Ingeniería y comercio ferroviario"
+      ],
+      [
+        "4893896031",
+        "Ingeniería y comercio naval"
+      ],
+      [
+        "4893898031",
+        "Sistemas de transporte inteligentes"
+      ],
+      [
+        "4893897031",
+        "Tecnología aeroespacial y aeronáutica"
+      ],
+      [
+        "4893894031",
+        "Tecnología y comercio del automóvil"
       ]
     ],
     "902516031": [
@@ -3220,7 +3565,7 @@
       ]
     ]
   },
-  "libros_es": 12179,
+  "libros_es": 12375,
   "origen": {
     "Editorial Akelarre Ediciones": "Akelarre Ediciones",
     "Editorial Asociacion HAY Soluciones para Todo": "Asociacion HAY Soluciones para Todo",
@@ -3236,14 +3581,14 @@
     "Editorial Plomo Ediciones": "Plomo Ediciones",
     "Grupo Planeta Mexico": "Grupo Planeta México"
   },
-  "particiones": 1282,
-  "peticiones": 2551,
-  "reintentos": 9163,
-  "reintentos_dia": "2026-11-14",
-  "segundos": 204,
-  "sellos_leidos": 179,
-  "sellos_llenos": 156,
-  "sellos_nuevos": 81,
+  "particiones": 1352,
+  "peticiones": 2626,
+  "reintentos": 8882,
+  "reintentos_dia": "2026-11-15",
+  "segundos": 84,
+  "sellos_leidos": 182,
+  "sellos_llenos": 168,
+  "sellos_nuevos": 84,
   "sellos_saltados": 9,
   "variantes_probadas": [
     "matchstories|editorial matchstories",

@@ -138,9 +138,9 @@
     "ultima": "2026-11-09"
   },
   "antigona": {
-    "libros_es": 8,
+    "libros_es": 11,
     "nombre": "Antígona",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-15"
   },
   "apache libros": {
     "libros_es": 19,
@@ -369,9 +369,9 @@
     "ultima": "2026-11-06"
   },
   "cinca": {
-    "libros_es": 17,
+    "libros_es": 11,
     "nombre": "Cinca",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-15"
   },
   "cinco tintas": {
     "libros_es": 20,
@@ -561,7 +561,11 @@
   "diana": {
     "libros_es": 7,
     "nombre": "Diana",
-    "ultima": "2026-11-12"
+    "particion": {
+      "libros_es": 115,
+      "ultima": "2026-11-15"
+    },
+    "ultima": "2026-11-15"
   },
   "diane sawyer": {
     "libros_es": 0,
@@ -580,9 +584,9 @@
     "ultima": "2026-11-12"
   },
   "distrito manga": {
-    "libros_es": 67,
+    "libros_es": 74,
     "nombre": "Distrito Manga",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-15"
   },
   "dolmen ediciones": {
     "libros_es": 30,
