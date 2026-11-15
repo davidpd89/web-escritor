@@ -247,7 +247,9 @@ con lo cambiado (puertos, servidores, entorno), explícalo en AUTOREPAIR_SUMMARY
 def matar_arbol(pid):
     """El proceso y todos sus descendientes (servidores, navegadores, Lighthouse que lanzó un agente)."""
     if os.name == 'nt':
-        subprocess.run(['taskkill', '/T', '/F', '/PID', str(pid)], capture_output=True, creationflags=SIN_VENTANA)
+        taskkill = str(Path(os.environ.get('SystemRoot', r'C:\Windows')) / 'System32' / 'taskkill.exe')
+        # check=False a propósito: si el árbol ya terminó, taskkill sale con 128 y no hay nada que hacer.
+        subprocess.run([taskkill, '/T', '/F', '/PID', str(pid)], capture_output=True, creationflags=SIN_VENTANA, check=False)
     else:
         try:
             os.killpg(pid, 9)
@@ -272,7 +274,7 @@ def sh(args, cwd=REPO, timeout=600, env=None, check=False, entrada=None):
         try:
             p.communicate(timeout=30)
         except subprocess.TimeoutExpired:
-            pass
+            log(f"{args[0]}: tras matar el árbol las tuberías siguen abiertas; se abandonan")   # nada más que hacer
         raise
     r = subprocess.CompletedProcess(args, p.returncode, out, err)
     if check and r.returncode:
@@ -486,29 +488,35 @@ def pasos_del_workflow(wt, fichero, nombres) -> list[str]:
 
     Solo órdenes simples `[VAR=v ...] python|node qa|tests|scripts/...`: tuberías, redirecciones o sustituciones no se
     repiten aquí (las decide la CI de la PR). El env sin expresiones `${{ }}` del workflow, trabajo y paso va delante."""
-    import yaml
     try:
+        import yaml
         wf = yaml.safe_load((wt / '.github/workflows' / fichero).read_text(encoding='utf-8')) or {}
-    except (OSError, yaml.YAMLError) as exc:
+    except Exception as exc:  # sin PyYAML, fichero ilegible o YAML roto: decide la CI de la PR
         log(f"puerta: no pude leer el workflow {fichero} ({exc})")
         return []
-    texto = lambda v: str(v).lower() if isinstance(v, bool) else str(v)  # noqa: E731
     pasos = []
     for job in (wf.get('jobs') or {}).values():
         for paso in (job or {}).get('steps') or []:
             run = (paso or {}).get('run')
-            if not run:
-                continue
-            if (paso.get('name') or 'Run ' + run.strip().splitlines()[0]) not in nombres:
-                continue
-            env = {**(wf.get('env') or {}), **(job.get('env') or {}), **(paso.get('env') or {})}
-            prefijo = ''.join(f'{k}={texto(v)} ' for k, v in env.items()
-                              if '${{' not in texto(v) and re.fullmatch(r'[^\s\'"]+', texto(v)))
-            for linea in re.sub(r'\\\n\s*', ' ', run).splitlines():
-                m = ORDEN_CI.fullmatch(linea.strip())
-                if m:
-                    pasos.append(f"{prefijo}{m.group(1)}{'python' if m.group(2).startswith('python') else 'node'} {m.group(3).strip()}")
+            if run and (paso.get('name') or 'Run ' + run.strip().splitlines()[0]) in nombres:
+                pasos += ordenes_del_paso(run, {**(wf.get('env') or {}), **(job.get('env') or {}), **(paso.get('env') or {})})
     return pasos
+
+
+def _texto_env(valor) -> str:
+    return str(valor).lower() if isinstance(valor, bool) else str(valor)
+
+
+def ordenes_del_paso(run: str, env: dict) -> list[str]:
+    """Las órdenes simples de un `run:` con el env literal delante (sin `${{ }}` ni valores con espacios o comillas)."""
+    prefijo = ''.join(f'{k}={_texto_env(v)} ' for k, v in env.items()
+                      if '${{' not in _texto_env(v) and re.fullmatch(r'[^\s\'"]+', _texto_env(v)))
+    ordenes = []
+    for linea in re.sub(r'\\\n\s*', ' ', run).splitlines():
+        m = ORDEN_CI.fullmatch(linea.strip())
+        if m:
+            ordenes.append(f"{prefijo}{m.group(1)}{'python' if m.group(2).startswith('python') else 'node'} {m.group(3).strip()}")
+    return ordenes
 
 
 def pasos_de_las_ejecuciones(flujo, run, registro, wt) -> list[str]:
@@ -569,6 +577,24 @@ def preparar_orden(paso):
     return args, env
 
 
+def servidor_listo(servidor, puerto=4173, plazo=20.0) -> bool:
+    """True cuando el servidor que acabamos de lanzar acepta conexiones; False si muere o no responde a tiempo."""
+    import socket
+    limite = time.monotonic() + plazo
+    while time.monotonic() < limite:
+        if servidor.poll() is not None:
+            return False
+        try:
+            with socket.create_connection(('127.0.0.1', puerto), timeout=1):
+                pass
+            # Con el puerto ya ocupado responde otro servidor (otro árbol) y el nuestro muere al poco: se comprueba.
+            time.sleep(0.5)
+            return servidor.poll() is None
+        except OSError:
+            time.sleep(0.3)
+    return False
+
+
 def puerta_local(wt, registro='', pasos_ci=None):
     """Puerta dirigida: solo lo que falló y lo tocado; la batería completa la corre la CI de la PR antes del auto-merge.
 
@@ -583,6 +609,12 @@ def puerta_local(wt, registro='', pasos_ci=None):
         servidor = subprocess.Popen([sys.executable, '-m', 'http.server', '4173', '--bind', '127.0.0.1'], cwd=str(wt),
                                     stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=SIN_VENTANA,
                                     start_new_session=os.name != 'nt')
+        if not servidor_listo(servidor):
+            # Puerto ocupado o arranque fallido: las pruebas de navegador fallarían por el entorno, no por el arreglo.
+            log("puerta: el servidor 127.0.0.1:4173 no arrancó; los pasos de navegador los decide la CI de la PR")
+            matar_arbol(servidor.pid)
+            servidor = None
+            pasos = [p for p in pasos if preparar_orden(p)[0][:1] != [exe('node')]]
     try:
         for paso in pasos:
             args, env = preparar_orden(paso)
@@ -680,20 +712,22 @@ def rama_de_datos(wt, rama, flujo) -> str:
 
 
 def reparar(flujo, run, dry, historial=None, auto=True):
-    registro = registro_fallo(run['databaseId'], run=run if es_local(flujo) else None)
+    completo = registro_fallo(run['databaseId'], run=run if es_local(flujo) else None)
     if flujo == INGESTA:
-        registro = (registro + registro_qa_hijo(registro))[-30000:]
+        completo += registro_qa_hijo(completo)
+    # Rama de datos y ejecuciones hijas se buscan en el registro entero; solo el prompt lleva el recorte (CodeRabbit #1339).
+    registro = completo[-30000:]
     if dry:
         log(f"[dry] {flujo}: repararía con {[a[0] for a in agentes()]}; registro {len(registro)} caracteres; "
             f"{len(historial or [])} intentos anteriores")
         return None
     wt, rama = preparar_worktree(flujo, run['databaseId'])
     prompt = prompt_reparacion(flujo, run, registro, historial, instantanea(flujo))
-    datos = list(dict.fromkeys(RAMA_DATOS.findall(registro)))
+    datos = list(dict.fromkeys(RAMA_DATOS.findall(completo)))
     try:
         if datos:
             prompt += rama_de_datos(wt, datos[-1], flujo)
-        pasos_ci = pasos_de_las_ejecuciones(flujo, run, registro, wt)
+        pasos_ci = pasos_de_las_ejecuciones(flujo, run, completo, wt)
         for nombre, argv, env, trailer in agentes():
             log(f"{flujo}: probando {nombre}")
             args = [exe(argv[0]), *argv[1:]] + (['-C', str(wt), '-'] if nombre == 'codex' else [])
@@ -722,33 +756,38 @@ def reparar(flujo, run, dry, historial=None, auto=True):
                 # arreglos correctos rehechos desde cero, uno tras otro).
                 log(f"{flujo}: {nombre} no pasa la puerta local:\n{salida_puerta[-1500:]}"); sh(['git', 'reset', '-q'], cwd=wt)
                 prompt = prompt_continuar(prompt, nombre, salida_puerta); continue
-            titulo = (resumen.splitlines() or [f'Reparar {flujo}'])[0].lstrip('# ').strip()[:90] or f'Reparar {flujo}'
-            cuerpo = '\n'.join(resumen.splitlines()[1:]).strip()
-            mensaje = f"{titulo}\n\nReparación automática del turno de noche ({nombre}) tras dos fallos de {flujo}.\n{run['url']}\n\n{cuerpo}".strip()
-            if trailer:
-                mensaje += '\n\n' + trailer
-            sh(['git', 'commit', '-q', '-F', '-'], cwd=wt, entrada=mensaje, check=True)
-            sh(['git', 'push', '-q', '-u', 'origin', rama], cwd=wt, check=True, timeout=600)
-            body = (f"## Qué falló\n`{flujo}` falló dos veces seguidas en main: {run['url']}\n\n## Arreglo ({nombre})\n{cuerpo or titulo}\n\n"
-                    f"## Comprobado\n- Puerta local dirigida (los pasos que fallaron y las pruebas tocadas): en verde. La batería completa la corre esta PR.\n- Al entrar en main, el turno de noche relanza `{flujo}`.\n\n{PIE_PR}")
-            url = sh(['gh', 'pr', 'create', '--repo', GH_REPO, '--base', 'main', '--head', rama, '--title', titulo, '--body-file', '-'],
-                     cwd=wt, entrada=body, check=True).stdout.strip().splitlines()[-1]
-            numero = int(url.rstrip('/').rsplit('/', 1)[-1])
-            if not auto:
-                log(f"{flujo}: PR {url} ({nombre}); la carga está en marcha: auto-merge en la primera pasada sin carga")
-                return {'pr': numero, 'agente': nombre, 'titulo': titulo, 'auto_pendiente': True}
-            sh(['gh', 'pr', 'merge', str(numero), '--repo', GH_REPO, '--auto', '--squash'])
-            log(f"{flujo}: PR {url} con auto-merge ({nombre})")
-            return {'pr': numero, 'agente': nombre, 'titulo': titulo}
+            return publicar_arreglo(flujo, run, wt, rama, nombre, resumen, trailer, auto)
         log(f"{flujo}: ninguna IA dejó un arreglo válido")
         return {'fallido': True}
     finally:
         limpiar_worktree(wt)
 
 
-def pasada(dry=False, solo=None):
+def publicar_arreglo(flujo, run, wt, rama, nombre, resumen, trailer, auto):
+    """Commit, push y PR del arreglo que pasó la puerta; auto-merge ya o, con la carga en marcha, en la primera pasada sin ella."""
+    titulo = (resumen.splitlines() or [f'Reparar {flujo}'])[0].lstrip('# ').strip()[:90] or f'Reparar {flujo}'
+    cuerpo = '\n'.join(resumen.splitlines()[1:]).strip()
+    mensaje = f"{titulo}\n\nReparación automática del turno de noche ({nombre}) tras dos fallos de {flujo}.\n{run['url']}\n\n{cuerpo}".strip()
+    if trailer:
+        mensaje += '\n\n' + trailer
+    sh(['git', 'commit', '-q', '-F', '-'], cwd=wt, entrada=mensaje, check=True)
+    sh(['git', 'push', '-q', '-u', 'origin', rama], cwd=wt, check=True, timeout=600)
+    body = (f"## Qué falló\n`{flujo}` falló dos veces seguidas en main: {run['url']}\n\n## Arreglo ({nombre})\n{cuerpo or titulo}\n\n"
+            f"## Comprobado\n- Puerta local dirigida (los pasos que fallaron y las pruebas tocadas): en verde. La batería completa la corre esta PR.\n- Al entrar en main, el turno de noche relanza `{flujo}`.\n\n{PIE_PR}")
+    url = sh(['gh', 'pr', 'create', '--repo', GH_REPO, '--base', 'main', '--head', rama, '--title', titulo, '--body-file', '-'],
+             cwd=wt, entrada=body, check=True).stdout.strip().splitlines()[-1]
+    numero = int(url.rstrip('/').rsplit('/', 1)[-1])
+    if not auto:
+        log(f"{flujo}: PR {url} ({nombre}); la carga está en marcha: auto-merge en la primera pasada sin carga")
+        return {'pr': numero, 'agente': nombre, 'titulo': titulo, 'auto_pendiente': True}
+    sh(['gh', 'pr', 'merge', str(numero), '--repo', GH_REPO, '--auto', '--squash'])
+    log(f"{flujo}: PR {url} con auto-merge ({nombre})")
+    return {'pr': numero, 'agente': nombre, 'titulo': titulo}
+
+
+def pasada(dry=False, solo=None, ahora=None):
     estado = cargar_estado()
-    ahora = dt.datetime.now(dt.timezone.utc)
+    ahora = ahora or dt.datetime.now(dt.timezone.utc)
     hoy = ahora.date().isoformat()
     caida = actions_caido()
     if caida:

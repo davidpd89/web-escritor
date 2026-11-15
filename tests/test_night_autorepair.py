@@ -331,6 +331,9 @@ class Pasada(unittest.TestCase):
                                                 'gh_json', 'sh', 'relanzar', 'avisar', 'log', 'ingesta_en_marcha',
                                                 'fallo_de_infraestructura')}
         self.addCleanup(lambda: [setattr(na, k, v) for k, v in guardar.items()])
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        na.ESTADO_DIR = Path(tmp.name)   # pasada(solo=INGESTA) llama a vigia_carga: nunca con el estado real (CodeRabbit #1339)
         na.cargar_estado = lambda: self.estado
         na.guardar_estado = lambda e: None
         na.actions_caido = lambda: ''
@@ -485,7 +488,8 @@ class CambiosDel15Nov(unittest.TestCase):
         na.sh = lambda args, **kw: self.hechos.append(tuple(args[:3]))
         na.reparar = lambda f, r, d, h=None, auto=True: self.hechos.append(('reparar', f, auto)) or {'pr': 7}
 
-    def carga(self):
+    @staticmethod
+    def carga():
         hoy = dt.datetime.now(dt.timezone.utc)
         return {**run(), 'headSha': 'abc123456', 'createdAt': (hoy - dt.timedelta(minutes=30)).isoformat()}
 
@@ -544,10 +548,27 @@ class CambiosDel15Nov(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             self.vigia_preparado(tmp)
             self.assertTrue(na.vigia_carga(ahora=self.ahora))
-            ultima = na.ultima_ejecucion   # la API aún no lista la recién lanzada: la carga de ayer sigue siendo la última
-            na.ultima_ejecucion = lambda f: ultima(f)
-            na.vigia_carga(ahora=self.ahora + dt.timedelta(minutes=20))
+            # La API aún no lista la recién lanzada (la de ayer sigue siendo la última): la pasada no debe lanzar otra.
+            na.pasada(solo=na.INGESTA, ahora=self.ahora + dt.timedelta(minutes=20))
             self.assertEqual(self.hechos.count(('gh', 'workflow', 'run')), 1)
+
+    def test_servidor_listo_espera_el_puerto_y_detecta_la_caida(self):
+        class Muerto:
+            def poll(self):
+                return 1
+        self.assertFalse(na.servidor_listo(Muerto(), plazo=0.5))
+
+    def test_sin_pyyaml_no_hay_pasos_pero_no_revienta(self):
+        import builtins
+        original = builtins.__import__
+
+        def sin_yaml(nombre, *a, **kw):
+            if nombre == 'yaml':
+                raise ImportError('sin PyYAML')
+            return original(nombre, *a, **kw)
+        builtins.__import__ = sin_yaml
+        self.addCleanup(setattr, builtins, '__import__', original)
+        self.assertEqual(na.pasos_del_workflow(Path('.'), 'no-existe.yml', ['x']), [])
 
     def test_vigia_con_error_no_revienta_ni_marca(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -727,7 +748,7 @@ class PlazoMataElArbol(unittest.TestCase):
             nieto = int(pidf.read_text())
             time.sleep(1)
             if os.name == 'nt':
-                vivo = str(nieto) in subprocess.run(['tasklist', '/FI', f'PID eq {nieto}', '/NH'], capture_output=True,
+                vivo = str(nieto) in subprocess.run(['tasklist', '/FI', f'PID eq {nieto}', '/NH'], capture_output=True, check=False,
                                                     text=True).stdout
             else:
                 try:
