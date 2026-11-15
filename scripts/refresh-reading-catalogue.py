@@ -445,7 +445,14 @@ def quarantine_alert(report, quarantined):
     if not reading_quarantine.LAST['alert']:
         return
     report['quarantine_rate_alert'] = True
-    write_if_changed(ROOT / '.ci/reading-intake/publisher-report.json', report)
+    # Se añade al informe guardado, no se sustituye: un lote recuperado guarda ahí stats.accepted y recuperado_de,
+    # y la cadena nocturna lee stats.accepted. Un fallo al escribirlo no tumba la publicación de lo válido.
+    path = ROOT / '.ci/reading-intake/publisher-report.json'
+    try:
+        saved = read_json(path) if path.exists() else {}
+        write_if_changed(path, {**report, **saved, 'quarantine_rate_alert': True})
+    except (OSError, ValueError) as exc:
+        print(f'::warning::No se pudo marcar la alerta en publisher-report.json: {exc}', flush=True)
     groups = {}
     for h in quarantined:
         groups.setdefault(h.get('causa') or reading_quarantine.cause(h['motivo']), []).append(h['libro']['id'])
@@ -469,11 +476,15 @@ def open_issue(title, body):
         return subprocess.run([shutil.which('gh') or 'gh', *args], cwd=ROOT, capture_output=True, text=True, encoding='utf-8', check=True).stdout
     try:
         gh('label', 'create', 'fallo', '--color', 'B60205', '--description', 'Fallo detectado por un empleado automático', '--force')
-        found = json.loads(gh('issue', 'list', '--state', 'open', '--label', 'fallo', '--search', f'"{title}" in:title',
-                              '--json', 'number,title'))
+        query = title.replace('"', ' ')  # unas comillas en la causa romperían la búsqueda literal
+        found = json.loads(gh('issue', 'list', '--state', 'open', '--label', 'fallo', '--limit', '200',
+                              '--search', f'"{query}" in:title', '--json', 'number,title'))
         same = [i for i in found if i['title'] == title]
         if same:
-            gh('issue', 'comment', str(same[0]['number']), '--body', body)
+            seen = json.loads(gh('issue', 'view', str(same[0]['number']), '--json', 'body,comments'))
+            # Un reintento de la misma carga (código 75) repite el mismo texto: no se comenta dos veces.
+            if body != seen.get('body') and all(c.get('body') != body for c in seen.get('comments', [])):
+                gh('issue', 'comment', str(same[0]['number']), '--body', body)
         else:
             gh('issue', 'create', '--title', title, '--label', 'fallo', '--body', body)
     except (subprocess.CalledProcessError, OSError, ValueError) as exc:
