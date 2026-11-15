@@ -356,10 +356,14 @@ def main_cambio_codigo(sha) -> list[str] | None:
     return [f['filename'] for f in data.get('files', []) if f['filename'].startswith(CODIGO_CI)]
 
 
+# Sin «.» en la clase: «[\w.-]+\.yml» retrocedía de forma superlineal (Sonar #1339).
+RE_QA_HIJO = re.compile(r'\b([\w-]+\.yml) failed \((\d+)\)')
+
+
 def registro_qa_hijo(texto, lineas=150) -> str:
     """La carga solo dice «recommendations-browser-qa.yml failed (ID)»: el fallo real está en la CI de la PR de datos."""
     partes = []
-    for flujo, run_id in dict.fromkeys(re.findall(r'([\w.-]+\.yml) failed \((\d+)\)', texto)):
+    for flujo, run_id in dict.fromkeys(RE_QA_HIJO.findall(texto)):
         hijo = registro_fallo(run_id, lineas)
         partes.append(f"\n--- fallo en {flujo} (ejecución {run_id}, CI de la PR de datos) ---\n{hijo}")
     return ''.join(partes)
@@ -531,7 +535,7 @@ def pasos_de_las_ejecuciones(flujo, run, registro, wt) -> list[str]:
         return pasos_fallidos(registro)
     ejecuciones = [(flujo, run['databaseId'])]
     if flujo == INGESTA:
-        ejecuciones += list(dict.fromkeys(re.findall(r'([\w.-]+\.yml) failed \((\d+)\)', registro)))
+        ejecuciones += list(dict.fromkeys(RE_QA_HIJO.findall(registro)))
     pasos = []
     for fichero, run_id in ejecuciones:
         try:
@@ -918,7 +922,7 @@ def relanzar(flujo, run):
     if flujo == 'reading-telegram-publish.yml':
         # El dispatch manual exige test_asin. Reintentar el fallo conserva el evento diario
         # y su historial de entregas; el checkout del workflow obtiene el código actual de main.
-        sh(['gh', 'run', 'rerun', str(run['databaseId']), '--failed', '--repo', GH_REPO], check=True)
+        sh(['gh', 'run', 'rerun', str(int(run['databaseId'])), '--failed', '--repo', GH_REPO], check=True)
         return
     if not es_local(flujo):
         sh(['gh', 'workflow', 'run', flujo, '--ref', 'main', '--repo', GH_REPO], check=True)
@@ -993,6 +997,7 @@ def tomar_cerrojo(ruta):
     moría sin borrar el fichero bloqueaba las siguientes hasta que caducaba. Devuelve el fichero abierto (cerrarlo lo
     suelta) o None si otro proceso lo tiene.
     """
+    Path(ruta).parent.mkdir(parents=True, exist_ok=True)
     f = open(ruta, 'a+')
     try:
         if os.name == 'nt':
@@ -1025,16 +1030,15 @@ def main():
     ESTADO_DIR.mkdir(parents=True, exist_ok=True)
     if a.vigia_carga:
         vigia_carga(a.dry_run)   # toma él mismo lock-vigia: la pasada horaria lo llama también
-        return 0
+        return
     cerrojo = tomar_cerrojo(ESTADO_DIR / 'lock')
     if cerrojo is None:
-        print('Otra pasada sigue en marcha'); return 0
+        print('Otra pasada sigue en marcha'); return
     try:
         pasada(a.dry_run, a.solo)
     finally:
         cerrojo.close()
-    return 0
 
 
 if __name__ == '__main__':
-    sys.exit(main())
+    main()

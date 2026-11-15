@@ -478,6 +478,8 @@ class CambiosDel15Nov(unittest.TestCase):
                    'registro_fallo', 'ESTADO_DIR')
         guardar = {k: getattr(na, k) for k in nombres}
         self.addCleanup(lambda: [setattr(na, k, v) for k, v in guardar.items()])
+        tmp = tempfile.TemporaryDirectory(); self.addCleanup(tmp.cleanup)
+        na.ESTADO_DIR = Path(tmp.name)   # vigia_carga toma lock-vigia: nunca en el estado real
         na.cargar_estado = lambda: self.estado
         na.guardar_estado = lambda e: None
         na.actions_caido = lambda: ''
