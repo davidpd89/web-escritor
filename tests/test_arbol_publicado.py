@@ -30,6 +30,8 @@ PREGUNTAN_AL_INDICE = {
     'scripts/refresh-reading-catalogue.py',
     # revision_existente elige código fuente versionado que revisar, no lo publicado.
     'scripts/revision_existente.py', 'tests/test_materializar_generados.py', 'tests/test_arbol_publicado.py',
+    # El trinquete de bytes de control mira el código fuente versionado, no las páginas generadas.
+    'tests/test_source_control_bytes.py',
 }
 FORMAS = (
     ['git', 'ls-files', '-z', '*.html'],

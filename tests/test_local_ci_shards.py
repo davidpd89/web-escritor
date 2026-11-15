@@ -195,7 +195,7 @@ class ContextoDeGitHubEnLocal(unittest.TestCase):
         sin_valor = []
         for wf in (ROOT / '.github/workflows').glob('*.yml'):
             for k, v in re.findall(r'^\s+([A-Z_]+):\s*(\$\{\{.*?\}\})\s*$', wf.read_text(encoding='utf-8'), re.M):
-                if re.search(r'pull_request\.(base|head)\.sha|github\.(sha|event_name|head_ref)', v):
+                if re.search(r'pull_request\.(base|head)\.sha|github\.(sha|event_name|head_ref)\b', v):
                     if not local_ci.plain_env({k: v}, {**self.CTX, 'github.event.pull_request.head.sha': 'h3ad',
                                                         'github.head_ref': 'r', 'github.ref_name': 'r'}):
                         sin_valor.append(f'{wf.name}: {k}')
@@ -233,9 +233,11 @@ class PasoQueConstruyeYComprueba(unittest.TestCase):
     def test_todo_tee_a_una_carpeta_la_crea_antes(self):
         # trinquete: el 10/11 global-discoverability salía «inestable» porque el mkdir -p del paso se descartaba
         for cmd, _, flow in local_ci.collect(set(), True):
-            for destino in re.findall(r'tee (?:-a )?(\S+/)[^/\s]+', cmd):
+            for destino in re.findall(r'\btee (?:-a )?(\S+/)[^/\s]+', cmd):
                 with self.subTest(flow=flow, cmd=cmd):
-                    self.assertIn(f'mkdir -p {destino.rstrip("/")}', cmd)
+                    carpeta = destino.rstrip('/')
+                    creadas = [c for linea in re.findall(r'\bmkdir -p ([^;&|\n]+)', cmd) for c in linea.split()]
+                    self.assertIn(carpeta, creadas)
 
 
 class PuertaPorImpacto(unittest.TestCase):
