@@ -906,15 +906,16 @@ class EntornoVetado(unittest.TestCase):
 class DeshacerVaciaElIndice(unittest.TestCase):
     def test_fichero_en_stage_no_sobrevive(self):
         with tempfile.TemporaryDirectory() as d:
-            g = lambda *a: subprocess.run(['git', *a], cwd=d, check=True, capture_output=True)
+            def g(*a):
+                return subprocess.run(['git', *a], cwd=d, check=True, capture_output=True, text=True)
+
             g('init', '-q'); g('config', 'user.email', 't@t'); g('config', 'user.name', 't')
             (Path(d) / 'a.txt').write_text('a', encoding='utf-8'); g('add', '.'); g('commit', '-qm', 'a')
             (Path(d) / 'a.txt').write_text('cambio', encoding='utf-8')
             (Path(d) / 'AUTOREPAIR_NOFIX.md').write_text('x', encoding='utf-8'); g('add', 'AUTOREPAIR_NOFIX.md')
             (Path(d) / 'suelto.txt').write_text('x', encoding='utf-8')
             na.deshacer(Path(d))
-            self.assertEqual(subprocess.run(['git', 'status', '--porcelain'], cwd=d, capture_output=True,
-                                            text=True).stdout, '')
+            self.assertEqual(g('status', '--porcelain').stdout, '')
 
 
 if __name__ == '__main__':
