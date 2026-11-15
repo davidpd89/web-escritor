@@ -1,0 +1,109 @@
+name: Equipo de expertos
+
+# Un experto distinto cada día (lunes investigador, martes SEO, miércoles GEO, jueves UX, viernes rendimiento,
+# sábado arquitecto, domingo tester). Las herramientas deterministas miden y el experto LLM (Claude por la cuenta,
+# sin coste por token) lee el resultado y abre como mucho 3 issues `experto`. No toca el repositorio ni abre PR.
+# Condiciones de Fable (R3-14): solo schedule y dispatch, modo de permisos por defecto (no auto), tope de turnos.
+# Equipo, herramientas y estado: .ci/empleados-expertos.md. Lógica: scripts/empleados_expertos.py.
+on:
+  schedule:
+    - cron: '17 9 * * *'
+      timezone: Europe/Madrid
+  workflow_dispatch:
+    inputs:
+      rol:
+        description: 'Rol concreto (vacío = el del día): investigador, seo, geo, ux, rendimiento, arquitecto, tester'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: empleados-expertos
+  cancel-in-progress: false
+
+env:
+  WEB: https://davidportodiaz.com
+  SITEONE: v2.5.1
+
+jobs:
+  experto:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+
+      - id: rol
+        env:
+          ROL: ${{ inputs.rol }}
+        run: python scripts/empleados_expertos.py elegir ${ROL:+--rol "$ROL"}
+
+      - name: Etiquetas
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ROL: ${{ steps.rol.outputs.rol }}
+        run: |
+          gh label create experto --color 5319e7 --description 'Hallazgo del equipo de expertos' --force
+          gh label create "rol:$ROL" --color c5def5 --force
+
+      - name: Muestra del sitemap
+        if: steps.rol.outputs.rol != 'investigador' && steps.rol.outputs.rol != 'arquitecto' && steps.rol.outputs.rol != 'tester'
+        run: |
+          mkdir -p .empleados
+          python scripts/empleados_expertos.py muestra --sitemap "$WEB/sitemap.xml" --n 300 --salida .empleados/muestra-larga.txt
+          head -n 40 .empleados/muestra-larga.txt > .empleados/muestra.txt
+
+      - name: SiteOne Crawler (MIT)
+        if: steps.rol.outputs.rol == 'seo' || steps.rol.outputs.rol == 'rendimiento'
+        continue-on-error: true
+        env:
+          ROL: ${{ steps.rol.outputs.rol }}
+        run: |
+          mkdir -p /tmp/siteone && cd /tmp/siteone
+          curl -fsSL -o so.tgz "https://github.com/janreges/siteone-crawler/releases/download/$SITEONE/siteone-crawler-$SITEONE-linux-x64.tar.gz"
+          tar xzf so.tgz
+          BIN=$(find . -maxdepth 3 -type f \( -name 'siteone-crawler' -o -name 'crawler' \) | head -n 1)
+          test -n "$BIN" && chmod +x "$BIN"
+          EXTRA=$([ "$ROL" = 'seo' ] && echo '--disable-all-assets' || true)
+          "$BIN" --url="$WEB/sitemap.xml" --max-visited-urls=300 --workers=2 --max-reqs-per-sec=3 $EXTRA \
+            --output-json-file="$GITHUB_WORKSPACE/.empleados/siteone.json" --output-html-report='' \
+            --result-storage=file --progress-interval=60 || true
+
+      - name: Resumen SiteOne
+        if: steps.rol.outputs.rol == 'seo' || steps.rol.outputs.rol == 'rendimiento'
+        run: python scripts/empleados_expertos.py resumir-siteone --json .empleados/siteone.json --salida .empleados/siteone.md
+
+      - name: Comprobaciones GEO
+        if: steps.rol.outputs.rol == 'geo'
+        run: python scripts/empleados_expertos.py geo --base "$WEB" --muestra .empleados/muestra.txt --salida .empleados/geo.md
+
+      - uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ github.token }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ github.token }}
+          prompt: |
+            Lee .github/empleados/comun.md y .github/empleados/${{ steps.rol.outputs.rol }}.md y sigue sus instrucciones.
+            Tu rol hoy: ${{ steps.rol.outputs.rol }}. Repositorio: ${{ github.repository }}. Datos preparados en .empleados/.
+          claude_args: >-
+            --model claude-sonnet-5-5
+            --max-turns 25
+            --permission-mode default
+            --allowedTools "Read,Grep,Glob,Write,WebSearch,WebFetch,Bash(gh issue list:*),Bash(gh issue view:*),Bash(gh issue create:*),Bash(gh issue comment:*),Bash(gh label list:*)"
+
+      - if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: empleados-${{ steps.rol.outputs.rol }}
+          path: .empleados/
+          if-no-files-found: ignore
+          retention-days: 14
