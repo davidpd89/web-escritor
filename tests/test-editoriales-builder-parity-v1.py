@@ -51,13 +51,29 @@ with tempfile.TemporaryDirectory() as tmp_dir:
     # El HTML publicado lleva los avisos de caducidad (>90 días) del día real
     # del sitio, igual que exige check-professional-resources. Con
     # max(verified_at) ambas pruebas se contradecían (10/11).
-    target_date = be.site_today()
-    be.build(DATA, tmp, target_date, False)
+    # Ventana de reloj (site_clock.clock_window): una PR no queda roja porque
+    # hoy una ficha cruzó los 90 días; eso lo arregla radar-clock-refresh, que
+    # comprueba con RELOJ_ESTRICTO=1.
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from site_clock import clock_window
 
+    def drift(day: date, out: Path) -> list[str]:
+        be.build(DATA, out, day, False)
+        return [rel.as_posix() for rel in expected_paths
+                if (out / rel).read_text(encoding="utf-8") != (ROOT / rel).read_text(encoding="utf-8")]
+
+    window = clock_window()
+    target_date = window[0]
+    differing = drift(target_date, tmp)
+    for older in window[1:]:
+        if not differing:
+            break
+        with tempfile.TemporaryDirectory() as older_dir:
+            if not drift(older, Path(older_dir)):
+                print(f"  aviso: generados del {older}, no de hoy ({target_date}); los pondrá al día radar-clock-refresh")
+                differing = []
     for rel in expected_paths:
-        generated = (tmp / rel).read_text(encoding="utf-8")
-        committed = (ROOT / rel).read_text(encoding="utf-8")
-        check(generated == committed, f"{rel.as_posix()} está sincronizado con el builder")
+        check(rel.as_posix() not in differing, f"{rel.as_posix()} está sincronizado con el builder")
 
     # Una fecha de ejecución distinta no debe alterar los archivos si
     # ninguna ficha cruza el umbral de caducidad entre ambas fechas.

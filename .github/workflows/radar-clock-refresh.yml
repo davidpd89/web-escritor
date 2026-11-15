@@ -27,6 +27,11 @@ concurrency:
   group: refresh-radar-clock
   cancel-in-progress: false
 
+# Reloj estricto (site_clock.clock_window): decide si refrescar: debe ver el desfase del mismo día.
+# Las PR aceptan generados de hasta 2 días; esto no.
+env:
+  RELOJ_ESTRICTO: "1"
+
 jobs:
   refresh:
     runs-on: ubuntu-latest

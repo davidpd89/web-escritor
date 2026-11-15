@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Intrinsic QA for professional writer resources; no network requests."""
 from __future__ import annotations
-import importlib.util,json,re,unicodedata
+import importlib.util,json,re,sys,unicodedata
 from datetime import date,timedelta
 from pathlib import Path
 from urllib.parse import urlsplit
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from site_clock import clock_window  # noqa: E402
 ROOT=Path(__file__).resolve().parents[1]
 STATUS={"open","closed","indirect","award_only","unknown"}
 BAD_URL=re.compile(r"[\s\\\x00-\x1f\x7f<>\"{}|^`]")
@@ -51,17 +53,22 @@ def check_editorials():
     # as needing review. This guard makes that threshold advance with the real
     # execution date, so a static build cannot silently cross day 91 without
     # regenerating its warning state.
-    stale_now=[i for i in published if b.stale(i,real_today)]
+    # Window: see site_clock.clock_window (RELOJ_ESTRICTO=1 -> only today).
+    drift={d:editorial_stale_drift(b,published,d) for d in clock_window()}
+    if all(drift.values()):fail(drift[real_today][0])
+def editorial_stale_drift(b,published,day):
+    errors=[]
+    stale_now=[i for i in published if b.stale(i,day)]
     index_html=(ROOT/"editoriales/index.html").read_text(encoding="utf-8")
     marker="Verificación antigua: revisa la fuente oficial antes de enviar."
     if index_html.count(marker)!=len(stale_now):
-        fail(f"editoriales index stale-warning drift for {real_today}: expected {len(stale_now)} marker(s), found {index_html.count(marker)}")
+        errors.append(f"editoriales index stale-warning drift for {day}: expected {len(stale_now)} marker(s), found {index_html.count(marker)}")
     detail_marker="<strong>Revisión recomendada:</strong>"
     for item in published:
         detail=(ROOT/"editoriales"/item["slug"]/"index.html").read_text(encoding="utf-8")
-        expected_stale=b.stale(item,real_today)
-        if (detail_marker in detail)!=expected_stale:
-            fail(f"{item['slug']}: detail stale-warning drift for real execution date {real_today}")
+        if (detail_marker in detail)!=b.stale(item,day):
+            errors.append(f"{item['slug']}: detail stale-warning drift for real execution date {day}")
+    return errors
 def normalized_title(value):
     folded=unicodedata.normalize("NFD",str(value)).encode("ascii","ignore").decode("ascii").casefold()
     return re.sub(r"[^a-z0-9]+"," ",folded).strip()
@@ -136,8 +143,14 @@ def check_radar():
     pub=load(Path("convocatorias-escritores/opportunities.json"));generated_for=iso(pub.get("generated_for"),"generated_for");expected=b.active_items(items,generated_for);expected_watch=b.watch_items(watchlist,generated_for)
     if pub.get("items")!=expected:fail("radar public JSON drifted from source/builder at its generated_for clock")
     if pub.get("watchlist",[])!=expected_watch:fail("radar public watchlist drifted from source/builder")
-    check_radar_freshness(b,items,pub.get("items"),generated_for,real_today)
-    if pub.get("watchlist",[])!=b.watch_items(watchlist,real_today):fail("radar watchlist public output is stale for real execution date")
+    radar_errors=[]
+    for day in clock_window():
+        try:
+            check_radar_freshness(b,items,pub.get("items"),generated_for,day)
+            if pub.get("watchlist",[])!=b.watch_items(watchlist,day):fail("radar watchlist public output is stale for real execution date")
+            break
+        except AssertionError as e:radar_errors.append(str(e))
+    else:fail(radar_errors[0])
     html=(ROOT/"convocatorias-escritores/index.html").read_text(encoding="utf-8")
     if html!=b.build_html(items,generated_for,watchlist):fail("radar HTML drifted from builder")
     if STATIC_DAYS.search(html):fail("radar HTML contains static countdown")

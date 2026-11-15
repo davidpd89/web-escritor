@@ -114,6 +114,11 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'workflow_run' }}
 
 
+# Reloj estricto (site_clock.clock_window): la auditoría del sitio publicado vigila la frescura exacta.
+# Las PR aceptan generados de hasta 2 días; esto no.
+env:
+  RELOJ_ESTRICTO: "1"
+
 jobs:
   static-regression:
     if: github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
