@@ -325,7 +325,7 @@ def fallo_de_infraestructura(run_id) -> bool:
     """Una ejecución fallida sin trabajos, o cuyos trabajos fallaron sin llegar a ejecutar ningún paso, es GitHub
     (caída, «workflow file issue» durante incidencias, runner perdido), no el código."""
     try:
-        jobs = gh_json('run', 'view', str(run_id), '--json', 'jobs')['jobs']
+        jobs = gh_json('run', 'view', str(int(run_id)), '--json', 'jobs')['jobs']
     except Exception:
         return False
     fallidos = [j for j in jobs if j.get('conclusion') in ('failure', 'timed_out', 'startup_failure', None)]
@@ -374,7 +374,7 @@ def registro_qa_hijo(texto, lineas=150) -> str:
 def registro_fallo(run_id, lineas=250, run=None):
     if run is not None and 'registro' in run:   # publicación local: la cola de su publish.log y la traza
         return '\n'.join(l for l in run['registro'].splitlines() if l.strip())[-24000:]
-    r = sh(['gh', 'run', 'view', str(run_id), '--log-failed', '--repo', GH_REPO], timeout=300)
+    r = sh(['gh', 'run', 'view', str(int(run_id)), '--log-failed', '--repo', GH_REPO], timeout=300)
     texto = re.sub(r'\x1b\[[0-9;]*m', '', r.stdout or r.stderr or '')
     # Fuera fechas y ruido de setup: lo que importa está al final.
     utiles = [re.sub(r'^\S+\t\S+\t\S+Z ', '', l) for l in texto.splitlines() if l.strip()]
@@ -540,7 +540,7 @@ def pasos_de_las_ejecuciones(flujo, run, registro, wt) -> list[str]:
     pasos = []
     for fichero, run_id in ejecuciones:
         try:
-            jobs = gh_json('run', 'view', str(run_id), '--json', 'jobs')['jobs']
+            jobs = gh_json('run', 'view', str(int(run_id)), '--json', 'jobs')['jobs']
         except Exception as exc:
             log(f"puerta: sin metadatos de {fichero} ({run_id}): {exc}")
             continue
