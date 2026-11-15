@@ -656,9 +656,9 @@ def git(*args, cwd=ROOT, capture=False):
 
 
 def git_add(paths, cwd=ROOT):
-    """Añade las rutas por stdin: cientos de fichas regeneradas superan el límite de línea de comandos de Windows."""
-    subprocess.run(['git', 'add', '--pathspec-from-file=-', '--pathspec-file-nul'], cwd=cwd, check=True,
-                   input='\0'.join(paths).encode('utf-8'))
+    """Prepara las rutas con `git_estado.preparar`: por stdin (límite de línea de Windows) y sin fallar por un borrado
+    que ya está en el índice (#1318)."""
+    git_estado.preparar(cwd, paths)
 
 
 CATALOGUE_YIELD = timedelta(hours=2)
