@@ -185,7 +185,19 @@ def main_cambio_qa(repo, sha):
     data = json.loads(gh('api', f'repos/{repo}/compare/{sha}...main'))
     if not data.get('ahead_by'):
         return []
-    return [item['filename'] for item in data.get('files', []) if item['filename'].startswith(QA_CODE_PREFIXES)]
+    files = data.get('files', [])
+    if len(files) >= 300:  # la API trunca la lista: el arreglo de QA puede estar fuera; se cuenta como cambio
+        return [item['filename'] for item in files[:5]] + ['…']
+    return [item['filename'] for item in files if item['filename'].startswith(QA_CODE_PREFIXES)]
+
+
+def cancelar_si_sigue(run_id):
+    """Cancela una ejecución obsoleta; si terminó entre el listado y la cancelación, no es un error."""
+    try:
+        gh('run', 'cancel', str(run_id))
+    except subprocess.CalledProcessError:
+        if json.loads(gh('run', 'view', str(run_id), '--json', 'status'))['status'] != 'completed':
+            raise
 
 
 def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_before=False, pr_wait=120,
@@ -263,6 +275,11 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
                 remaining = timeout - (time.monotonic() - started)
                 cambios = main_cambio_qa(repo, sha) if qa_refreshes > 0 and remaining > MIN_REFRESH_BUDGET else []
                 if cambios:
+                    # Traer main a la rama no regenera lo generado y, una vez dentro, main_cambio_entradas ya no lo ve.
+                    entradas = main_cambio_entradas(repo, sha)
+                    if entradas:
+                        raise StaleMerge(f'main cambió entradas de lo generado ({", ".join(entradas[:5])}) durante la CI '
+                                         f'de #{pr["number"]}; se regenera desde main')
                     print(f'REFRESH {workflow} ({result["databaseId"]}) falló y main cambió {", ".join(cambios[:5])}; '
                           'actualizo la rama con main y repito la CI', flush=True)
                     try:
@@ -281,7 +298,8 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
                     for other in pending - {workflow}:  # la cabeza vieja ya no se fusiona: libera la cola
                         for item in runs_on_sha(other, *source[other]):
                             if item['status'] != 'completed':
-                                gh('run', 'cancel', str(item['databaseId']))
+                                cancelar_si_sigue(item['databaseId'])
+                    remaining = timeout - (time.monotonic() - started)  # descontar la actualización y los sondeos
                     return publish_generated(branch, allowed_path, workflows, timeout=int(remaining),
                                              deploy_before=deploy_before, pr_wait=pr_wait, ceder_a=ceder_a,
                                              qa_refreshes=qa_refreshes - 1)

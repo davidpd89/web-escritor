@@ -16,8 +16,8 @@ module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 
 
-def scenario(main_files, conflict=False):
-    state = {'head': 'old', 'calls': []}
+def scenario(main_files, conflict=False, workflows=('qa.yml',), cancel_race=False):
+    state = {'head': 'old', 'calls': [], 'clock': 0.0}
 
     def gh(*args):
         state['calls'].append(args)
@@ -40,6 +40,12 @@ def scenario(main_files, conflict=False):
                 raise module.subprocess.CalledProcessError(1, 'gh')
             state['head'] = 'new'
             return ''
+        if args[:2] == ('run', 'list') and cancel_race and args[3] == 'b.yml' and state['head'] == 'old':
+            return json.dumps([{'databaseId': 9, 'headSha': 'old', 'status': 'in_progress', 'conclusion': None}])
+        if args[:2] == ('run', 'cancel') and cancel_race:
+            raise module.subprocess.CalledProcessError(1, 'gh')  # terminó entre el listado y la cancelación
+        if args[:2] == ('run', 'view'):
+            return json.dumps({'status': 'completed'})
         if args[:2] == ('run', 'list'):
             ok = state['head'] == 'new'
             return json.dumps([{'databaseId': 1 if not ok else 2, 'headSha': state['head'], 'status': 'completed',
@@ -50,7 +56,7 @@ def scenario(main_files, conflict=False):
 
     with patch.object(module, 'gh', gh), patch.object(module.time, 'sleep', lambda s: None), \
          patch.object(module, 'report_job', lambda *a, **k: None):
-        module.publish_generated('automation/x', lambda p: True, ('qa.yml',), pr_wait=0)
+        module.publish_generated('automation/x', lambda p: True, workflows, pr_wait=0)
     return state
 
 
@@ -75,4 +81,22 @@ except module.StaleMerge:
     pass
 else:
     raise AssertionError('conflicto: debía pedir regenerar')
+# main trajo a la vez un arreglo de QA y entradas de los builders: actualizar la rama dejaría lo generado viejo y
+# ocultaría el cambio a la comprobación previa a fusionar; se regenera desde main (Codex/CodeRabbit en #1337).
+try:
+    scenario(['qa/x.mjs', 'data/reading-catalogue.json'])
+except module.StaleMerge as exc:
+    assert 'reading-catalogue.json' in str(exc), exc
+else:
+    raise AssertionError('entradas de builders en main: debía pedir regenerar')
+
+# Comparación truncada (300 ficheros): el arreglo de QA puede no estar en la lista; no se repite el commit viejo.
+truncada = json.dumps({'ahead_by': 400, 'files': [{'filename': f'data/{i}.json'} for i in range(300)]})
+with patch.object(module, 'gh', lambda *a: truncada):
+    assert module.main_cambio_qa('o/r', 'old'), 'truncada: debe contar como cambio'
+
+# Una ejecución obsoleta termina justo antes de cancelarla: no tumba la publicación.
+state = scenario(['qa/x.mjs'], workflows=('qa.yml', 'b.yml'), cancel_race=True)
+assert any(c[:2] == ('pr', 'merge') and 'new' in c for c in state['calls']), state['calls']
+
 print('OK publicación: arreglos de CI en main se traen a la PR de datos')
