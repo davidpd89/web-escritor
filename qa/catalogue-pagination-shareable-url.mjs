@@ -32,7 +32,9 @@ try {
   const open=async hash=>{const page=await context.newPage();await page.goto(BASE+route+hash,{waitUntil:'domcontentloaded'});await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });return page;};
   const total=await pageCount(second);
   assert.ok(total>=3,`${route}: se esperaban al menos 3 páginas para probar la normalización (hay ${total})`);
-  for (const [hash,expected] of [['#pagina=99',String(total)],['#pagina=100000',String(total)],[`#pagina=${total}`,String(total)],['#pagina=2','2'],['#pagina=1',null],['#pagina=0',null],['#pagina=-3',null],['#pagina=abc',null],['#pagina=',null]]) {
+  // Fuera de rango se deriva del total: con el catálogo creciendo, un número fijo (99) acaba siendo una página válida.
+  const beyond=total+1;
+  for (const [hash,expected] of [[`#pagina=${beyond}`,String(total)],['#pagina=100000',String(total)],[`#pagina=${total}`,String(total)],['#pagina=2','2'],['#pagina=1',null],['#pagina=0',null],['#pagina=-3',null],['#pagina=abc',null],['#pagina=',null]]) {
     const page=await open(hash);
     const s=await state(page);
     assert.equal(s.pagina,expected,`${route}${hash}: la URL dice pagina=${s.pagina} y la vista muestra «${s.count}»`);
@@ -47,7 +49,7 @@ try {
   // Filtros múltiples: se conservan y la página se limita a las coincidencias filtradas.
   const facet=await second.evaluate(()=>{const boxes=[...document.querySelectorAll('input[data-facet]')];const by={};for(const b of boxes)(by[b.dataset.facet]??=[]).push(b.value);const [k,vals]=Object.entries(by).find(([,v])=>v.length>=2)||[];return k?{k,vals:vals.slice(0,2)}:null;});
   assert.ok(facet,`${route}: no hay una faceta con dos valores para probar filtros múltiples`);
-  const filtered=await open(`#${facet.k}=${encodeURIComponent(facet.vals[0])}&${facet.k}=${encodeURIComponent(facet.vals[1])}&pagina=99`);
+  const filtered=await open(`#${facet.k}=${encodeURIComponent(facet.vals[0])}&${facet.k}=${encodeURIComponent(facet.vals[1])}&pagina=100000`);
   const fs=await state(filtered), fp=await pageCount(filtered), fhash=new URLSearchParams(fs.hash.slice(1));
   assert.deepEqual(fhash.getAll(facet.k),facet.vals,`${route}: la normalización perdió filtros repetidos (${fs.hash})`);
   assert.equal(fs.pagina,fp>1?String(fp):null,`${route}: con filtros, pagina=${fs.pagina} y la vista «${fs.count}»`);
@@ -64,7 +66,7 @@ try {
   // Hash cambiado en la misma página: una sola entrada de historial, sin bucles, y Atrás vuelve.
   const nav=await open('');
   const length=(await state(nav)).length;
-  await nav.evaluate(()=>{location.hash='#pagina=99';});
+  await nav.evaluate(b=>{location.hash=`#pagina=${b}`;},beyond);
   await nav.waitForFunction(t=>new URLSearchParams(location.hash.slice(1)).get('pagina')===t,String(total));
   await nav.waitForTimeout(300);
   const ns=await state(nav);
