@@ -1,5 +1,6 @@
 import datetime as dt
 import importlib.util
+import subprocess
 import tempfile
 import sys
 import unittest
@@ -780,6 +781,28 @@ class PlazoMataElArbol(unittest.TestCase):
                     vivo = False
             self.assertFalse(vivo, 'el nieto sigue vivo tras el plazo')
 
+
+
+class AutoMergeTrasLaReparacion(unittest.TestCase):
+    """La reparación dura horas: si entretanto arrancó la carga, el auto-merge espera a una pasada sin ella."""
+    def test_carga_que_arranca_durante_la_reparacion(self):
+        originales = na.sh, na.ingesta_en_marcha
+        llamadas = []
+
+        def sh(args, **_):
+            llamadas.append(args[:3])
+            return subprocess.CompletedProcess(args, 0, 'https://github.com/o/r/pull/9', '')
+        try:
+            na.sh, na.ingesta_en_marcha = sh, lambda: True
+            r = na.publicar_arreglo('x.yml', {'url': 'u'}, Path('.'), 'rama', 'codex', 'Titulo', '', auto=True)
+            self.assertTrue(r.get('auto_pendiente'))
+            self.assertNotIn(['gh', 'pr', 'merge'], llamadas)
+            na.ingesta_en_marcha = lambda: False
+            r = na.publicar_arreglo('x.yml', {'url': 'u'}, Path('.'), 'rama', 'codex', 'Titulo', '', auto=True)
+            self.assertNotIn('auto_pendiente', r)
+            self.assertIn(['gh', 'pr', 'merge'], llamadas)
+        finally:
+            na.sh, na.ingesta_en_marcha = originales
 
 if __name__ == '__main__':
     unittest.main()

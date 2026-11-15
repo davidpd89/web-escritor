@@ -767,7 +767,6 @@ def reparar(flujo, run, dry, historial=None, auto=True):  # skipcq: PY-R1000 (or
     try:
         if datos:
             prompt += rama_de_datos(wt, datos[-1], flujo)
-        pasos_ci = pasos_de_las_ejecuciones(flujo, run, completo, wt)
         for nombre, argv, env, trailer in agentes():
             log(f"{flujo}: probando {nombre}")
             args = [exe(argv[0]), *argv[1:]] + (['-C', str(wt), '-'] if nombre == 'codex' else [])
@@ -790,6 +789,8 @@ def reparar(flujo, run, dry, historial=None, auto=True):  # skipcq: PY-R1000 (or
             ok, motivo = diff_valido(sh(['git', 'diff', '--cached'], cwd=wt).stdout)
             if not ok:
                 log(f"{flujo}: {nombre} rechazado ({motivo})"); sh(['git', 'reset', '-q'], cwd=wt); deshacer(wt); continue
+            # Tras cada arreglo: si el agente cambió el comando de un paso en el YAML, la puerta corre el nuevo.
+            pasos_ci = pasos_de_las_ejecuciones(flujo, run, completo, wt)
             pasa, salida_puerta = puerta_local(wt, registro, pasos_ci)
             if not pasa:
                 # No se tira el arreglo: el siguiente agente parte de él y de lo que dijo la puerta (10/11: tres
@@ -817,6 +818,8 @@ def publicar_arreglo(flujo, run, wt, rama, nombre, resumen, trailer, auto):
     url = sh(['gh', 'pr', 'create', '--repo', GH_REPO, '--base', 'main', '--head', rama, '--title', titulo, '--body-file', '-'],
              cwd=wt, entrada=body, check=True).stdout.strip().splitlines()[-1]
     numero = int(url.rstrip('/').rsplit('/', 1)[-1])
+    # Los agentes y la puerta pueden durar horas: se vuelve a mirar si arrancó una carga antes de activar el auto-merge.
+    auto = auto and (flujo == INGESTA or not ingesta_en_marcha())
     if not auto:
         log(f"{flujo}: PR {url} ({nombre}); la carga está en marcha: auto-merge en la primera pasada sin carga")
         return {'pr': numero, 'agente': nombre, 'titulo': titulo, 'auto_pendiente': True}
