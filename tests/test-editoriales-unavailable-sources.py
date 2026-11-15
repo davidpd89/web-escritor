@@ -64,7 +64,8 @@ class UnavailableSourcesTests(unittest.TestCase):
                 builder.validate_record(record,set(),date(2026,10,21))
 
     def test_published_unavailable_pages_avoid_the_production_soft_404_signal(self):
-        # qa/production-global-integrity-audit.mjs rejects visible /404|página no encontrada/.
+        # Como qa/production-global-integrity-audit.mjs: «404» solo cuenta en <title>/<h1> (en el cuerpo puede ser un
+        # dato, p. ej. el historial de comprobaciones); las frases de error, en todo el texto visible.
         import json,re
         data=json.loads((ROOT/'data'/'editoriales.json').read_text(encoding='utf-8'))
         records=data['publishers']
@@ -75,8 +76,10 @@ class UnavailableSourcesTests(unittest.TestCase):
             checked+=1
             page=(ROOT/'editoriales'/record['slug']/'index.html').read_text(encoding='utf-8')
             visible=re.sub(r'<script.*?</script>|<style.*?</style>|<[^>]+>',' ',page,flags=re.S)
+            heads=' '.join(a or b for a,b in re.findall(r'<title[^>]*>(.*?)</title>|<h1[^>]*>(.*?)</h1>',page,re.S|re.I))
             with self.subTest(slug=record['slug']):
-                self.assertIsNone(re.search(r'\b404\b|página no encontrada|page not found',visible,re.I))
+                self.assertIsNone(re.search(r'\b404\b',heads))
+                self.assertIsNone(re.search(r'página no encontrada|page not found',visible,re.I))
         self.assertGreaterEqual(checked,1)
 
 
