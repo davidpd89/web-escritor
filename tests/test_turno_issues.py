@@ -62,9 +62,12 @@ class FalsoNar(types.SimpleNamespace):
 
 
 class EleccionTests(unittest.TestCase):
-    def test_fallo_antes_que_experto_y_la_mas_antigua(self):
+    def test_solo_fallo_y_la_mas_antigua(self):
         lista = [issue(9, ('experto',)), issue(7, ('fallo',)), issue(5, ('experto',)), issue(8, ('fallo',))]
         self.assertEqual(ti.elegir(lista, {})['number'], 7)
+        # Las propuestas de los expertos no gastan tokens de Claude/Codex.
+        self.assertIsNone(ti.elegir([issue(5, ('experto',))], {}))
+        self.assertEqual(ti.MAX_DIA, 1)
 
     def test_vetos(self):
         self.assertIsNone(ti.elegir([issue(1, ('fallo', 'necesita-david'))], {}))

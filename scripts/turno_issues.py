@@ -1,4 +1,4 @@
-"""Turno de issues: consume las issues `fallo` y `experto` sin que nadie lo pida (David, 15/11: «un ecosistema que
+"""Turno de issues: consume las issues `fallo` sin que nadie lo pida (David, 15/11: «un ecosistema que
 funcione solo»).
 
 Lo llama la pasada horaria de night-autorepair.py al final, con su mismo cerrojo: nunca coincide con una reparación de
@@ -6,8 +6,8 @@ un flujo ni lanza dos agentes a la vez en este equipo. Recibe el módulo del tur
 worktree, la rotación de agentes, la puerta local y `diff_valido` sin importarlo en círculo.
 
 Ciclo de una issue (estado en state.json, clave `issue:N`):
-1. Elegir: abierta, con `fallo` o `experto`, de un autor de confianza, sin `necesita-david` ni `sin-arreglo-auto`.
-   Primero `fallo`, después la más antigua. Una sola PR de issue abierta a la vez y como mucho MAX_DIA intentos al día.
+1. Elegir: abierta, con `fallo` (las `experto` no gastan tokens), de un autor de confianza, sin `necesita-david` ni `sin-arreglo-auto`.
+   La más antigua primero. Una sola PR de issue abierta a la vez y como mucho MAX_DIA intentos al día.
    Con la carga en marcha no se empieza nada.
 2. Arreglar: worktree desde origin/main y agentes sin credenciales (como la autorreparación). El prompt lleva la issue,
    sus comentarios y el texto de los comentarios de bots que enlaza (el agente no tiene gh para abrirlos).
@@ -24,11 +24,13 @@ from __future__ import annotations
 import datetime as dt
 import re
 
-ETIQUETAS = ('fallo', 'experto')
+# Solo `fallo`: las propuestas `experto` no gastan Claude/Codex (David, 15/11: tokens solo para emergencias).
+# Las consume una sesión o una herramienta gratuita.
+ETIQUETAS = ('fallo',)
 VETADAS = {'necesita-david', 'sin-arreglo-auto', 'wontfix', 'seguimiento'}
 AUTORES = {'davidpd89', 'github-actions', 'app/github-actions', 'github-actions[bot]'}
 BOTS = {'coderabbitai', 'chatgpt-codex-connector', 'deepsource-io', 'sonarqubecloud', 'gemini-code-assist', 'google-labs-jules'}
-MAX_DIA = 3              # intentos nuevos al día (cada uno hasta 3 agentes × 90 min)
+MAX_DIA = 1              # intento nuevo al día (cada uno hasta 3 agentes × 90 min): reserva cuota para la noche
 MAX_INTENTOS = 2         # intentos fallidos por issue antes de pasarla a David
 MAX_CORRECCIONES = 2     # rondas de correcciones por hilos de bots en la misma PR
 ESPERA_BOTS_MIN = 20     # tras el último push, tiempo para que CodeRabbit/Codex comenten
