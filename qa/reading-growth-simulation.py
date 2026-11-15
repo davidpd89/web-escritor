@@ -7,6 +7,10 @@ Clona los libros publicados con ids, slugs e ISBN nuevos (válidos y únicos), r
 renderiza todo en memoria con scripts/build-reading-catalogue.py (no escribe nada en el repo). Uso:
 
     python qa/reading-growth-simulation.py [--extra 1000 2000 ...] [--json salida.json]
+    python qa/reading-growth-simulation.py --extra 5000 --materializar   # escribe el catálogo crecido en el árbol
+
+Con --materializar escribe en disco las páginas del último tamaño (solo en un checkout desechable, como el runner):
+así la QA de navegador (paginación, filtros, búsqueda) se prueba contra el catálogo del futuro.
 
 Falla si se supera algún presupuesto de PRESUPUESTOS para el tamaño simulado.
 """
@@ -74,9 +78,14 @@ def crecer(data, extra):
     return data
 
 
-def medir(data):
+def medir(data, materializar=False):
     t = time.perf_counter()
     books, outputs = builder.render_outputs(ROOT, data)
+    if materializar:
+        for ruta, texto in outputs.items():
+            destino = ROOT / ruta
+            destino.parent.mkdir(parents=True, exist_ok=True)
+            destino.write_bytes(texto.encode('utf-8'))
     segundos = time.perf_counter() - t
     hub = {k: v for k, v in outputs.items() if re.fullmatch(r'recomendaciones/(pagina/\d+/)?index\.html', k)}
     sellos = {k: v for k, v in outputs.items() if re.match(r'(recomendaciones/)?(editoriales|autores)/[^/]+/index\.html', k)}
@@ -99,11 +108,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--extra', type=int, nargs='*', default=[0, 1000])
     parser.add_argument('--json', type=Path)
+    parser.add_argument('--materializar', action='store_true', help='escribe en el árbol las páginas del último tamaño')
     args = parser.parse_args()
     data = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
     filas, fallos = [], []
     for extra in args.extra:
-        fila = {'extra': extra, **medir(crecer(data, extra))}
+        ultimo = args.materializar and extra == args.extra[-1]
+        fila = {'extra': extra, **medir(crecer(data, extra), materializar=ultimo)}
         filas.append(fila)
         print(json.dumps(fila, ensure_ascii=False), flush=True)
         mil = max(fila['libros'], 1) / 1000

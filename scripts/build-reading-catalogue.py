@@ -393,7 +393,7 @@ def index_categories(data):
     CATEGORY_INDEX = (data, index)
 
 
-_CATALOGUE_CACHE = {}
+_CATALOGUE_CACHE: dict[str, object] = {}
 
 
 def catalogue_cache(data):
@@ -1654,7 +1654,7 @@ def render_author(a,data,books,template,all_authors=()):
     related=[]
     if topics and all_authors:
         def group():
-            out={}
+            out: dict[str, list[dict]] = {}
             for b in books:
                 for name in b['autores']:
                     out.setdefault(name,[]).append(b)

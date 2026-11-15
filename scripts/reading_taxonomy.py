@@ -119,7 +119,7 @@ def extra_categories(record: dict) -> list[tuple[str, str, str]]:
 # Clasificación propia: categorías que se deducen de las ya asignadas y del título, sin fuentes externas.
 # (id, nombre, tipo, descripción, categorías que la activan, patrón sobre el título normalizado).
 # Romantasy es la excepción: exige romance y algún género de fantasía a la vez.
-DERIVED = (
+DERIVED: tuple[tuple[str, str, str, str, set[str], str | None], ...] = (
     ('romantasy', 'Romantasy', 'genero', 'Fantasía con la historia de amor en el centro.',
      set(), None),
     ('edicion-especial', 'Ediciones especiales', 'contenido',
@@ -226,9 +226,9 @@ def non_reading_reason(title: str, nodes=()) -> str | None:
         if re.search(pattern, text):
             return why
     for node in nodes:
-        why = NON_READING_NODES.get(normalize_text(node))
-        if why:
-            return why
+        node_why = NON_READING_NODES.get(normalize_text(node))
+        if node_why:
+            return node_why
     return None
 
 
