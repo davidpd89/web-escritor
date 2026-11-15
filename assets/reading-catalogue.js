@@ -600,6 +600,8 @@
       const events = ['pointerdown', 'focusin', 'keydown'], controls = 'input, select, textarea, button, summary, label';
       const go = event => {
         if (event.type !== 'hashchange' && !event.target.closest?.(controls)) return;
+        // La caja «Ir a la página» estática navega por sí sola: si hidratara, el paginador nuevo borraría lo tecleado.
+        if (event.target.closest?.('[data-catalogue-jump]')) return;
         events.forEach(type => root.removeEventListener(type, go, true));
         window.removeEventListener('hashchange', go);
         resolve();
