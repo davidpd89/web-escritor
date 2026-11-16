@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """gh() repite los fallos transitorios de GitHub y no duplica una PR que el intento fallido sí creó."""
 from __future__ import annotations
-import importlib.util, subprocess
+import importlib.util, json, subprocess
 from pathlib import Path
 from unittest import mock
 
@@ -60,9 +60,53 @@ with mock.patch.object(mod.time, 'sleep', lambda s: None):
         except subprocess.CalledProcessError:
             pass
     assert len(calls) == mod.GH_ATTEMPTS, calls
-    # 6. Escrituras no se repiten: un dispatch o merge que sí llegó no se duplica.
-    for args in (('workflow', 'run', 'x.yml'), ('pr', 'merge', '9', '--squash'),
-                 ('api', '--method', 'PUT', 'repos/o/r/pulls/9/update-branch'), ('api', 'repos/o/r/statuses/s', '-f', 'state=failure')):
+    # 6. F7 (Fable R4-10): una escritura que da un 502 se repite solo tras comprobar que no llegó; si llegó, no.
+    def github(llego):
+        """gh falso: cada escritura falla con 502 la primera vez; `llego` dice si ese primer intento tuvo efecto."""
+        estado = {'merged': False, 'closed': False, 'attempt': 1, 'runs': [1], 'cancel': False, 'fallos': set()}
+        def script(a, n):
+            clave = tuple(a[:2])
+            escritura = clave in {('pr', 'merge'), ('pr', 'close'), ('run', 'rerun'), ('run', 'cancel'), ('workflow', 'run')}                 or (a[0] == 'api' and '--method' in a)
+            if escritura:
+                primero = clave not in estado['fallos']
+                estado['fallos'].add(clave)
+                if primero and not llego:
+                    return 1, '', 'HTTP 502: Bad Gateway'
+                {('pr', 'merge'): lambda: estado.update(merged=True), ('pr', 'close'): lambda: estado.update(closed=True),
+                 ('run', 'rerun'): lambda: estado.update(attempt=estado['attempt'] + 1),
+                 ('run', 'cancel'): lambda: estado.update(cancel=True),
+                 ('workflow', 'run'): lambda: estado['runs'].insert(0, max(estado['runs']) + 1)}.get(clave, lambda: None)()
+                return (1, '', 'HTTP 502: Bad Gateway') if primero else (0, 'hecho', '')
+            if clave == ('pr', 'view'):
+                return 0, json.dumps({'state': 'MERGED' if estado['merged'] else 'CLOSED' if estado['closed'] else 'OPEN'}), ''
+            if clave == ('run', 'view'):
+                return 0, json.dumps({'attempt': estado['attempt'], 'status': 'completed' if estado['cancel'] else 'in_progress'}), ''
+            if clave == ('run', 'list'):
+                return 0, json.dumps([{'databaseId': i} for i in estado['runs']]), ''
+            return 0, '', ''
+        return script, estado
+    escrituras = {('workflow', 'run', 'x.yml', '--ref', 'automation/x-1'): lambda e: len(e['runs']) == 2,
+                  ('pr', 'merge', '9', '--squash'): lambda e: e['merged'],
+                  ('pr', 'close', '9'): lambda e: e['closed'],
+                  ('run', 'rerun', '77', '--failed'): lambda e: e['attempt'] == 2,
+                  ('run', 'cancel', '77'): lambda e: e['cancel'],
+                  ('api', '--method', 'POST', 'repos/o/r/statuses/abcdef1', '-f', 'state=success'): lambda e: True,
+                  ('api', '--method', 'PUT', 'repos/o/r/pulls/9/update-branch', '-f', 'expected_head_sha=abcdef1'): lambda e: True}
+    for llego in (False, True):
+        for args, hecho in escrituras.items():
+            script, estado = github(llego)
+            run, calls = fake(lambda a, n: script(a, n))
+            with mock.patch.object(mod.subprocess, 'run', run):
+                mod.gh(*args)  # el 502 ya no tumba la carga
+            assert hecho(estado), (llego, args, estado)
+            veces = sum(1 for c in calls if tuple(c[:len(args)]) == args)
+            idempotente = args[0] == 'api'
+            assert veces == (2 if not llego or idempotente else 1), (llego, args, calls)
+            if args[:2] == ('workflow', 'run'):
+                assert len(estado['runs']) == 2, ('dispatch duplicado', llego, estado)
+    # Escrituras sin comprobación conocida no se repiten a ciegas.
+    for args in (('api', '--method', 'DELETE', 'repos/o/r/git/refs/heads/x'), ('api', '--method', 'POST', 'repos/o/r/issues'),
+                 ('api', '--method', 'PUT', 'repos/o/r/pulls/9/update-branch')):
         run, calls = fake(lambda a, n: (1, '', GRAPHQL))
         with mock.patch.object(mod.subprocess, 'run', run):
             try:

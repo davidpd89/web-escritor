@@ -74,8 +74,9 @@ class StaleMerge(RuntimeError):
 TRANSIENT_GH = ('Something went wrong', 'HTTP 500', 'HTTP 502', 'HTTP 503', 'HTTP 504', 'Bad Gateway',
                 'Service Unavailable', 'Gateway Timeout', 'timed out', 'connection reset', 'TLS handshake timeout')
 GH_ATTEMPTS = 4
-# Solo lecturas y `pr create` (que antes de repetir busca la PR): repetir un `workflow run`, `pr merge` o
-# `pr close` cuyo primer intento sí llegó a GitHub duplicaría ejecuciones o fallaría tras haber funcionado.
+# Lecturas y `pr create` (que antes de repetir busca la PR) se repiten tal cual. Las escrituras solo con una
+# comprobación previa (_comprobacion_escritura): repetir a ciegas un `workflow run` o un `pr merge` que sí llegó a
+# GitHub duplicaría ejecuciones o fallaría tras haber funcionado.
 READ_ONLY_GH = {('pr', 'view'), ('pr', 'list'), ('pr', 'checks'), ('pr', 'diff'), ('run', 'list'), ('run', 'view'),
                 ('repo', 'view'), ('workflow', 'view'), ('pr', 'create')}
 
@@ -96,7 +97,45 @@ def _existing_pr(args):
     return found.stdout.strip() or None if found.returncode == 0 else None
 
 
+def _flag(args, nombre):
+    return args[args.index(nombre) + 1] if nombre in args and args.index(nombre) + 1 < len(args) else None
+
+
+def _comprobacion_escritura(args):
+    """F7 (Fable R4-10): para una escritura, (foto previa, ¿ya ocurrió?) o None si no se sabe comprobar.
+
+    Antes de repetir una escritura cuyo primer intento dio un 5xx se mira si sí llegó a GitHub: un `pr merge` que
+    fusionó, un `workflow run` que creó la ejecución, un `run rerun` que subió el número de intento, un `pr close` o
+    un `run cancel` que ya tienen efecto. Un status (POST) y `update-branch` con `expected_head_sha` son idempotentes:
+    repetirlos no duplica nada. Sin comprobación, la escritura no se repite (como antes).
+    """
+    a = tuple(args)
+    if a[:2] == ('pr', 'merge') and len(a) > 2:
+        return None, lambda _: json.loads(gh('pr', 'view', a[2], '--json', 'state'))['state'] == 'MERGED'
+    if a[:2] == ('pr', 'close') and len(a) > 2:
+        return None, lambda _: json.loads(gh('pr', 'view', a[2], '--json', 'state'))['state'] != 'OPEN'
+    if a[:2] == ('run', 'cancel') and len(a) > 2:
+        return None, lambda _: json.loads(gh('run', 'view', a[2], '--json', 'status'))['status'] == 'completed'
+    if a[:2] == ('run', 'rerun') and len(a) > 2:
+        def intento():
+            return json.loads(gh('run', 'view', a[2], '--json', 'attempt'))['attempt']
+        return intento(), lambda antes: intento() > antes
+    if a[:2] == ('workflow', 'run') and len(a) > 2:
+        def ids():
+            filtro = ['--branch', _flag(a, '--ref')] if _flag(a, '--ref') else []
+            return {r['databaseId'] for r in json.loads(gh('run', 'list', '--workflow', a[2], *filtro, '--event',
+                                                           'workflow_dispatch', '--limit', '20', '--json', 'databaseId'))}
+        return ids(), lambda antes: bool(ids() - antes)
+    if a[:1] == ('api',) and _flag(a, '--method') in ('POST', 'PUT'):
+        ruta = next((x for x in a[1:] if x.startswith('repos/')), '')
+        if re.fullmatch(r'repos/[^/]+/[^/]+/statuses/[0-9a-f]{7,40}', ruta) or (
+                ruta.endswith('/update-branch') and any(x.startswith('expected_head_sha=') for x in a)):
+            return None, lambda _: False
+    return None
+
+
 def gh(*args: str):
+    comprobacion = None if _retryable(args) else _comprobacion_escritura(args)
     for attempt in range(1, GH_ATTEMPTS + 1):
         try:
             result = subprocess.run(['gh', *args], check=True, capture_output=True, text=True, encoding='utf-8', errors='replace')
@@ -105,12 +144,16 @@ def gh(*args: str):
             # capture_output hides gh's own explanation; surface it in the job log.
             stderr = (exc.stderr or '').strip()
             print(f'gh {" ".join(args[:3])} failed: {stderr}', file=sys.stderr, flush=True)
-            if attempt == GH_ATTEMPTS or not _retryable(args) or not any(m.lower() in stderr.lower() for m in TRANSIENT_GH):
+            repetible = _retryable(args) or comprobacion is not None
+            if attempt == GH_ATTEMPTS or not repetible or not any(m.lower() in stderr.lower() for m in TRANSIENT_GH):
                 raise
             time.sleep(5 * attempt)
             created = _existing_pr(args)
             if created:
                 return created
+            if comprobacion is not None and comprobacion[1](comprobacion[0]):
+                print(f'gh {" ".join(args[:3])}: el intento fallido sí llegó a GitHub; no se repite', flush=True)
+                return ''
 
 
 def superseding_pages(repo, merged_sha, after_id):
