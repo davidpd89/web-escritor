@@ -150,6 +150,52 @@ class QuarantineTest(unittest.TestCase):
             failures = json.loads(out.read_text(encoding='utf-8'))
         self.assertEqual(list(q.flagged_books(failures, DATA)), [book_id])
 
+    def test_declared_books_win_over_ids_quoted_in_the_text(self):
+        """R4-2b: «relacionado con X» citaba al vecino y el regex apartaba los dos; manda lo que declara el contrato."""
+        a, b = DATA['libros'][0]['id'], DATA['libros'][1]['id']
+        failures = [{'test': 'm.C.test_related', 'regla': 'relacionados', 'libros': {a: f'edad lejana: {b}'},
+                     'texto': f'Incumplen: relacionados (1 libros): {a}: edad lejana: {b}'}]
+        named = q.flagged_books(failures, DATA)
+        self.assertEqual(list(named), [a])
+        self.assertIn('relacionados: edad lejana', named[a])
+
+    def test_a_declared_book_outside_the_catalogue_is_a_broken_rule(self):
+        failures = [{'test': 'm.C.t', 'regla': 'r', 'libros': {'no-existe-este-libro': 'x'}, 'texto': ''}]
+        self.assertIsNone(q.flagged_books(failures, DATA))
+        self.assertIsNone(q.flagged_books([{'test': 'm.C.t', 'regla': 'r', 'libros': {}, 'texto': ''}], DATA))
+
+    def test_data_check_keeps_the_books_a_contract_declares(self):
+        """De punta a punta: un contrato con `incumplen` que cita a otro libro en el motivo; la puerta guarda los
+        pares y la carga aparta solo el declarado (también desde un subTest)."""
+        import importlib.util
+        from unittest import mock
+        spec = importlib.util.spec_from_file_location('check_reading_data', ROOT / 'scripts/check-reading-data.py')
+        check = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(check)
+        a, b, c = (x['id'] for x in DATA['libros'][:3])
+        with tempfile.TemporaryDirectory() as tmp:
+            Path(tmp, 'contrato_declara.py').write_text('\n'.join([
+                'import unittest',
+                'from contrato_libros import incumplen',
+                'class T(unittest.TestCase):',
+                '    def test_x(self):',
+                f'        incumplen("regla x", {{{a!r}: "vecino " + {b!r}}})',
+                '    def test_y(self):',
+                '        with self.subTest(n=1):',
+                f'            incumplen("regla y", {{{c!r}: "malo"}})',
+                '']), encoding='utf-8')
+            out = Path(tmp) / 'fallos.json'
+            sys.path.insert(0, tmp)
+            try:
+                with mock.patch.object(check, 'contracts', lambda: ['contrato_declara']), \
+                        mock.patch.object(sys, 'argv', ['check', '--fallos', str(out)]):
+                    self.assertEqual(check.main(), 1)
+            finally:
+                sys.path.remove(tmp)
+            failures = json.loads(out.read_text(encoding='utf-8'))
+        self.assertEqual(sorted(f.get('regla') for f in failures), ['regla x', 'regla y'])
+        self.assertEqual(sorted(q.flagged_books(failures, DATA)), sorted([a, c]))
+
     def test_restore_cover_brings_back_the_published_file(self):
         import subprocess
         with tempfile.TemporaryDirectory() as tmp:

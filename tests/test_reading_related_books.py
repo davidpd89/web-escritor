@@ -5,6 +5,8 @@ import re
 import unittest
 from pathlib import Path
 
+from contrato_libros import incumplen
+
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('reading_catalogue_related', ROOT / 'scripts/build-reading-catalogue.py')
 builder = importlib.util.module_from_spec(spec)
@@ -24,6 +26,7 @@ class RelatedBooksTest(unittest.TestCase):
         return [self.by_url[u] for u in dict.fromkeys(re.findall(r'<a href="([^"]+)">', html))]
 
     def test_related_books_never_cross_audiences_or_distant_ages(self):
+        malos = {}
         for b in self.books:
             cats = {c['id'] for c in builder.categories(self.data, b)}
             for x in self.related(b):
@@ -31,9 +34,17 @@ class RelatedBooksTest(unittest.TestCase):
                     continue
                 other = {c['id'] for c in builder.categories(self.data, x)}
                 pa, pb = builder.audience(cats), builder.audience(other)
-                self.assertFalse(pa and pb and pa != pb, (b['titulo'], x['titulo']))
                 ages = builder.min_age(b), builder.min_age(x)
-                self.assertFalse(None not in ages and abs(ages[0] - ages[1]) > 4, (b['titulo'], x['titulo']))
+                if pa and pb and pa != pb:
+                    motivo = f'relacionado con público distinto ({pa} / {pb})'
+                elif None not in ages and abs(ages[0] - ages[1]) > 4:
+                    motivo = f'relacionado con edad lejana ({ages[0]} / {ages[1]})'
+                else:
+                    continue
+                # Los dos de la pareja: la cuarentena solo aparta el que cambió en esta carga.
+                malos.setdefault(b['id'], f"{motivo}: {x['id']}")
+                malos.setdefault(x['id'], f"{motivo}: {b['id']}")
+        incumplen('relacionados del mismo público y edad cercana', malos)
 
     def test_rare_shared_categories_outrank_common_ones(self):
         """Con «Romance» y «Hockey» delante, gana quien comparte «Hockey» aunque su título vaya después en el alfabeto."""

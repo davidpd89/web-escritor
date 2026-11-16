@@ -45,18 +45,43 @@ def contracts():
     return list(DATA_CONTRACTS) + sorted(found - set(DATA_CONTRACTS))
 
 
+class Resultado(unittest.TextTestResult):
+    """Guarda los libros que declara cada contrato con `contrato_libros.incumplen` (R4-2b), por id de test."""
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.libros = {}
+
+    def _guardar(self, test, err):
+        from contrato_libros import Incumplen
+        if err is not None and isinstance(err[1], Incumplen):
+            self.libros[test.id()] = {'regla': err[1].regla, 'libros': err[1].libros}
+
+    def addFailure(self, test, err):
+        self._guardar(test, err)
+        super().addFailure(test, err)
+
+    def addSubTest(self, test, subtest, err):
+        self._guardar(subtest, err)
+        super().addSubTest(test, subtest, err)
+
+
+def fallos(result):
+    """[{test, texto}] y, si el contrato los declaró, {regla, libros: {id: motivo}}."""
+    return [{'test': test.id(), 'texto': text, **result.libros.get(test.id(), {})}
+            for test, text in result.failures + result.errors]
+
+
 def main():
     sys.path.insert(0, str(ROOT / 'tests'))
     start = time.monotonic()
     suite = unittest.defaultTestLoader.loadTestsFromNames(contracts())
-    result = unittest.TextTestRunner(verbosity=1).run(suite)
+    result = unittest.TextTestRunner(verbosity=1, resultclass=Resultado).run(suite)
     print(f'datos del catálogo: {result.testsRun} contratos en {time.monotonic() - start:.0f}s')
     if '--fallos' in sys.argv:
         path = Path(sys.argv[sys.argv.index('--fallos') + 1])
-        path.write_text(json.dumps([{'test': test.id(), 'texto': text} for test, text in result.failures + result.errors],
-                                   ensure_ascii=False, indent=1), encoding='utf-8')
+        path.write_text(json.dumps(fallos(result), ensure_ascii=False, indent=1), encoding='utf-8')
     return 0 if result.wasSuccessful() else 1
-
 
 if __name__ == '__main__':
     raise SystemExit(main())
