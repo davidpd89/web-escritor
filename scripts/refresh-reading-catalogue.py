@@ -484,8 +484,13 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
     def registrar(_root):
         git_estado.preparar(ROOT, [*staged, 'assets/pinterest/feeds'])
     flagged = {}
-    # Sin tope de rondas: cada vuelta o pasa, o para (no nombra libros nuevos), o aparta al menos un libro más;
-    # con 1000 altas por tanda caben más de 3 tandas de problemas encadenados, y el catálogo es finito.
+    # Sin tope de rondas: cada vuelta o pasa, o para (no nombra libros nuevos ni la cuarentena hace nada con los ya
+    # nombrados), o avanza; con 1000 altas por tanda caben más de 3 tandas de problemas encadenados, y el catálogo
+    # es finito. Un libro repetido no es automáticamente «la regla rota»: 16/11, isbn-9791388205675 volvía a
+    # nombrarse en la segunda ronda porque la primera solo pudo revertirlo (había cambiado un dato ajeno al
+    # contrato, como la fecha del barrido de precios) sin arreglar el motivo; revertirlo lo deja idéntico a su
+    # versión publicada, y esa segunda ronda es la que la cuarentena por fin puede apartar de verdad (isolate()
+    # la retira). Solo para si, además de repetirse, la cuarentena no mueve nada (como hacía antes de verificar).
     while True:
         # Misma cadena que rebase-regenerando y merge-main (scripts/materializar_generados.py).
         materializar.construir(ROOT, antes_de_indexar=registrar)
@@ -495,11 +500,17 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
         if not failures:
             break
         named = reading_quarantine.flagged_books(failures, read_json(ROOT / reading_quarantine.CATALOGUE))
-        if named is None or set(named) <= set(flagged):
-            raise RuntimeError('check-reading-data falló en contratos que no se resuelven apartando libros: '
+        if named is None:
+            raise RuntimeError('check-reading-data falló en contratos que no nombran ningún libro: '
                                + '; '.join(f['test'] for f in failures)[:600])
+        repeated = set(named) <= set(flagged)
         flagged.update(named)
         quarantined = reading_quarantine.apply(ROOT, flagged=flagged)
+        # No basta con que la cuarentena mueva algo: puede estar moviendo libros de noches anteriores sin
+        # relación con los que se repiten aquí. Solo cuenta como avance si toca a los propios repetidos.
+        if repeated and not ({h['libro']['id'] for h in quarantined} & set(named)):
+            raise RuntimeError('check-reading-data falló en contratos que no se resuelven apartando libros: '
+                               + '; '.join(f['test'] for f in failures)[:600])
         released = held_before - {h['libro']['id'] for h in quarantined}
         drop_orphan_pages(quarantined)
     command('git', 'diff', '--check')
