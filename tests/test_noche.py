@@ -169,6 +169,17 @@ class HilosRevisionTest(unittest.TestCase):
             self.assertEqual(out.getvalue(), 'cargar=true\n')
 
 
+    def test_abrir_con_libro_ilegible_no_lo_sobrescribe(self):
+        import catalogo_estado
+        with unittest.mock.patch.object(noche, 'leer', side_effect=OSError('git')), \
+                unittest.mock.patch.object(catalogo_estado, 'escribir') as esc, \
+                unittest.mock.patch('sys.stdout', new_callable=io.StringIO) as out, \
+                unittest.mock.patch.dict('os.environ', {'GITHUB_STEP_SUMMARY': ''}):
+            self.assertEqual(noche.main(['abrir', '--motivo', 'cron']), 0)
+        self.assertEqual(out.getvalue(), 'cargar=true\n')
+        esc.assert_not_called()  # un libro vacío pisaría el historial remoto que no se pudo leer
+
+
 class GuardiaTest(unittest.TestCase):
     """Hecho de R4-1: ninguna de esas decisiones vuelve a mirar listas de ejecuciones de Actions."""
 

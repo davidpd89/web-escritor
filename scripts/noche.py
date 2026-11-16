@@ -206,14 +206,16 @@ def _juez(now, _run, _intento, _args) -> int:
 def _abrir(now, run, intento, args) -> int:
     # Como el juez: sin libro legible o escribible se carga. El turno del grupo de concurrencia ya garantiza
     # una sola carga a la vez; lo que se pierde es el apunte, no la noche.
+    legible = True
     try:
         libro = leer()
     except Exception as exc:  # noqa: BLE001
-        libro = None
-        _resumen_job(f'Libro de la noche ilegible ({type(exc).__name__}): se decide sin él.')
+        libro, legible = None, False
+        _resumen_job(f'Libro de la noche ilegible ({type(exc).__name__}): se decide sin él y no se reescribe.')
     cargar, porque, noche = abrir(libro, now, run, intento, os.environ.get('GITHUB_SHA', ''), args.motivo)
     try:
-        escribir(noche, f'Noche {noche["dia"]}: {"empieza" if cargar else "no carga"} {run}')
+        if legible:  # un libro vacío pisaría el historial remoto que no se pudo leer
+            escribir(noche, f'Noche {noche["dia"]}: {"empieza" if cargar else "no carga"} {run}')
     except Exception as exc:  # noqa: BLE001
         _resumen_job(f'Libro de la noche sin guardar ({type(exc).__name__}): la carga sigue.')
     print(f"cargar={'true' if cargar else 'false'}")
