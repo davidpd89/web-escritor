@@ -107,6 +107,23 @@ class QuarantineTest(unittest.TestCase):
         self.assertIn('test_no_meta', named[book_id])
         self.assertIsNone(q.flagged_books(failures + [{'test': 't.x', 'texto': 'ImportError: no module'}], DATA))
 
+    def test_flagged_books_also_by_isbn(self):
+        """El 16/11 el contrato de títulos anónimos citaba «Título · ISBN13» sin id y la carga paró entera."""
+        book = next(b for b in DATA['libros'] if b.get('isbn13'))
+        failures = [{'test': 't.test_titles', 'texto': f"AssertionError: 3 not less than or equal to 2 : ['Algo · {book['isbn13']}']"}]
+        self.assertEqual(list(q.flagged_books(failures, DATA)), [book['id']])
+
+    def test_count_contract_blames_the_changed_books_not_the_published_ones(self):
+        """Un contrato de recuento nombra publicados intactos y un alta: sale el alta, los publicados siguen."""
+        data = copy.deepcopy(DATA)
+        new = copy.deepcopy(data['libros'][0])
+        new['id'] = 'alta-de-prueba-cuenta'
+        data['libros'].append(new)
+        stale = [b['id'] for b in DATA['libros'][1:3]]
+        clean, out = q.isolate(data, ROOT, DATA, flagged={i: 'recuento' for i in stale + [new['id']]})
+        self.assertEqual([h['libro']['id'] for h in out], [new['id']])
+        self.assertEqual(clean['libros'], DATA['libros'])
+
     def test_data_check_writes_its_failures_for_the_intake(self):
         """check-reading-data --fallos deja cada fallo con su texto: de ahí la carga saca los libros a apartar."""
         import importlib.util
