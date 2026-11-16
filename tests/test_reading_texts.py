@@ -279,10 +279,10 @@ class ReadingTextsTest(unittest.TestCase):
             without = builder.render_book(gone, self.book, template)
         finally:
             builder.OWN_TEXTS.clear()
-        self.assertLess(page.index('Antes de elegir este libro'), page.index('Sinopsis de la editorial'))
+        self.assertLess(page.index('Antes de elegir este libro'), page.index('catalogue-synopsis-heading'))
         self.assertIn('<h3>Qué tipo de lectura propone</h3>', page)
         self.assertIn('Antes de elegirlo: qué tipo de lectura propone y para quién es.', page)
-        self.assertIn('href="' + builder.url(affine) + '"', page.split('Sinopsis de la editorial')[0])
+        self.assertIn('href="' + builder.url(affine) + '"', page.split('catalogue-synopsis-heading')[0])
         self.assertNotIn('Con qué otros libros compararlo', without)
         self.assertIn('<h3>Para quién es</h3>', without)
         self.assertNotIn('Preguntas frecuentes', page)

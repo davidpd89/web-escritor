@@ -488,7 +488,13 @@ def own_text_section(b, data=None):
     if not blocks:
         return ''
     return ('<section class="catalogue-own-text"><h2>Antes de elegir este libro</h2>' + blocks
-            + '</section><h2 class="catalogue-synopsis-heading">Sinopsis de la editorial</h2>')
+            + '</section><h2 class="catalogue-synopsis-heading">' + synopsis_heading(b) + '</h2>')
+
+
+def synopsis_heading(b):
+    """Solo hay «Sinopsis de la editorial» si la editorial la escribió (sinopsis_breve con procedencia).
+    Sin ella el bloque es la frase de datos de la edición, y decir otra cosa es falso (H7, P0-7)."""
+    return 'Sinopsis de la editorial' if b.get('sinopsis_breve') else 'Datos de la edición'
 
 
 def age_phrase(age):
