@@ -29,7 +29,7 @@ DATA_CONTRACTS = (
     # 16/11: la carga 43805010918 salió roja en la QA de la PR por un libro con un solo módulo (isbn-9791388205675)
     # que esta puerta no miraba, y se perdió el lote entero en vez de apartar ese libro. Los métodos que recorren
     # el catálogo real con aserciones por libro entran aquí; tests/test_check_reading_data_cobertura.py lo vigila.
-    'test_reading_texts.ReadingTextsTest.test_every_published_book_gets_at_least_two_modules',
+    'test_reading_texts.ReadingTextsTest.test_every_published_book_gets_its_own_reader_module',
     'test_reading_texts.ReadingTextsTest.test_families_and_modules_follow_the_evidence',
     'test_reading_texts.ReadingTextsTest.test_affines_share_audience_and_are_described_by_content_not_labels',
     'test_atlas_integration_real_catalogue.RealCatalogueBridge.test_every_published_book_resolves_to_an_existing_page',

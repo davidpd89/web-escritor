@@ -61,11 +61,49 @@ class ReadingTextsTest(unittest.TestCase):
             for m in p['modulos_permitidos']:
                 self.assertIn(p['familia'], texts.MODULES[m['modulo']][0], b['id'])
 
-    def test_every_published_book_gets_at_least_two_modules(self):
+    def test_every_published_book_gets_its_own_reader_module(self):
+        # Solo lo que depende del libro: «lecturas_afines» sale del resto del catálogo y aparece o desaparece cuando
+        # crece (una etiqueta deja de ser rara). Exigir 2 módulos contándolo paraba cargas enteras por un libro que no
+        # había cambiado; el generador ya escribe min(MIN_BLOCKS, módulos) bloques.
         for b in texts.published(self.data):
             mods = {m['modulo'] for m in texts.payload(self.data, b)['modulos_permitidos']}
-            self.assertGreaterEqual(len(mods), 2, b['id'])
             self.assertIn('para_quien', mods, b['id'])
+
+    def test_a_book_left_with_only_its_own_module_keeps_its_published_text(self):
+        # Al crecer el catálogo un libro puede perder «lecturas_afines»: su texto de «para_quien» se sigue publicando.
+        p = {**self.payload, 'modulos_permitidos': [m for m in self.payload['modulos_permitidos'] if m['modulo'] == 'para_quien']}
+        block = {**self.others[0], 'evidencias': ['categorias', 'sinopsis_editorial']}
+        record = {'id': self.book['id'], 'bloques': [block]}
+        self.assertEqual([x['modulo'] for x in texts.publishable_blocks(p, record)], ['para_quien'])
+
+    def test_publishing_keeps_a_single_own_module_and_drops_a_text_under_the_threshold(self):
+        # La decisión real de _publish_once: se sustituyen solo GitHub, el árbol limpio y los builds.
+        only_own = {**self.payload, 'modulos_permitidos': [m for m in self.payload['modulos_permitidos'] if m['modulo'] == 'para_quien']}
+        block = {**self.others[0], 'evidencias': ['categorias', 'sinopsis_editorial']}
+        record = {'id': self.book['id'], 'bloques': [block]}
+
+        class Stop(Exception):
+            pass
+
+        def publish(p):
+            with tempfile.TemporaryDirectory() as tmp:
+                out, tree = Path(tmp, 'out'), Path(tmp, 'tree')
+                (tree / 'data').mkdir(parents=True)
+                out.mkdir()
+                texts.write_json(tree / 'data/reading-catalogue.json', self.data)
+                texts.write_json(out / (self.book['id'] + '.json'), record)
+                publisher = mock.Mock()
+                publisher.publication.gh.return_value = '[]'
+                publisher.clean_main_tree.return_value = tree
+                with mock.patch.object(texts, 'payload', return_value=p),                         mock.patch.object(texts.subprocess, 'run', side_effect=Stop):
+                    with self.assertRaises(Stop):
+                        texts._publish_once(out, publisher)
+                written = tree / 'data/reading-texts' / (self.book['id'] + '.json')
+                return texts.read_json(written)['bloques'] if written.exists() else None
+
+        self.assertEqual([x['modulo'] for x in publish(only_own)], ['para_quien'])
+        two = {**self.payload, 'modulos_permitidos': [m for m in self.payload['modulos_permitidos'] if m['modulo'] == 'para_quien'] + [{'modulo': 'encaje_documentado'}]}
+        self.assertIsNone(publish(two))
 
     def test_valid_blocks_pass_and_affines_are_linked(self):
         blocks, errors = self.check()
