@@ -46,7 +46,8 @@ def contracts():
 
 
 class Resultado(unittest.TextTestResult):
-    """Guarda los libros que declara cada contrato con `contrato_libros.incumplen` (R4-2b), por id de test."""
+    """Guarda los libros que declara cada contrato con `contrato_libros.incumplen` (R4-2b), por objeto de test:
+    dos subTests con los mismos parámetros comparten `test.id()` y uno pisaría los libros del otro."""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -55,11 +56,15 @@ class Resultado(unittest.TextTestResult):
     def _guardar(self, test, err):
         from contrato_libros import Incumplen
         if err is not None and isinstance(err[1], Incumplen):
-            self.libros[test.id()] = {'regla': err[1].regla, 'libros': err[1].libros}
+            self.libros[id(test)] = {'regla': err[1].regla, 'libros': err[1].libros}
 
     def addFailure(self, test, err):
         self._guardar(test, err)
         super().addFailure(test, err)
+
+    def addError(self, test, err):  # también un `incumplen` desde setUpClass
+        self._guardar(test, err)
+        super().addError(test, err)
 
     def addSubTest(self, test, subtest, err):
         self._guardar(subtest, err)
@@ -68,7 +73,7 @@ class Resultado(unittest.TextTestResult):
 
 def fallos(result):
     """[{test, texto}] y, si el contrato los declaró, {regla, libros: {id: motivo}}."""
-    return [{'test': test.id(), 'texto': text, **result.libros.get(test.id(), {})}
+    return [{'test': test.id(), 'texto': text, **result.libros.get(id(test), {})}
             for test, text in result.failures + result.errors]
 
 

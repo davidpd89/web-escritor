@@ -160,9 +160,11 @@ class QuarantineTest(unittest.TestCase):
         self.assertIn('relacionados: edad lejana', named[a])
 
     def test_a_declared_book_outside_the_catalogue_is_a_broken_rule(self):
-        failures = [{'test': 'm.C.t', 'regla': 'r', 'libros': {'no-existe-este-libro': 'x'}, 'texto': ''}]
+        # el texto cita un libro real: una declaración inválida no cae a la ruta del regex
+        real = DATA['libros'][0]['id']
+        failures = [{'test': 'm.C.t', 'regla': 'r', 'libros': {'no-existe-este-libro': 'x'}, 'texto': real}]
         self.assertIsNone(q.flagged_books(failures, DATA))
-        self.assertIsNone(q.flagged_books([{'test': 'm.C.t', 'regla': 'r', 'libros': {}, 'texto': ''}], DATA))
+        self.assertIsNone(q.flagged_books([{'test': 'm.C.t', 'regla': 'r', 'libros': {}, 'texto': real}], DATA))
 
     def test_data_check_keeps_the_books_a_contract_declares(self):
         """De punta a punta: un contrato con `incumplen` que cita a otro libro en el motivo; la puerta guarda los
@@ -172,7 +174,7 @@ class QuarantineTest(unittest.TestCase):
         spec = importlib.util.spec_from_file_location('check_reading_data', ROOT / 'scripts/check-reading-data.py')
         check = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(check)
-        a, b, c = (x['id'] for x in DATA['libros'][:3])
+        a, b, c, d, e, f = (x['id'] for x in DATA['libros'][:6])
         with tempfile.TemporaryDirectory() as tmp:
             Path(tmp, 'contrato_declara.py').write_text('\n'.join([
                 'import unittest',
@@ -183,6 +185,17 @@ class QuarantineTest(unittest.TestCase):
                 '    def test_y(self):',
                 '        with self.subTest(n=1):',
                 f'            incumplen("regla y", {{{c!r}: "malo"}})',
+                '    def test_z(self):  # dos subTests con el mismo id: cada uno conserva sus libros',
+                '        with self.subTest():',
+                f'            incumplen("regla z", {{{d!r}: "uno"}})',
+                '        with self.subTest():',
+                f'            incumplen("regla z", {{{e!r}: "otro"}})',
+                'class U(unittest.TestCase):',
+                '    @classmethod',
+                '    def setUpClass(cls):  # addError, no addFailure',
+                f'        incumplen("regla u", {{{f!r}: "fixture"}})',
+                '    def test_u(self):',
+                '        pass',
                 '']), encoding='utf-8')
             out = Path(tmp) / 'fallos.json'
             sys.path.insert(0, tmp)
@@ -193,8 +206,8 @@ class QuarantineTest(unittest.TestCase):
             finally:
                 sys.path.remove(tmp)
             failures = json.loads(out.read_text(encoding='utf-8'))
-        self.assertEqual(sorted(f.get('regla') for f in failures), ['regla x', 'regla y'])
-        self.assertEqual(sorted(q.flagged_books(failures, DATA)), sorted([a, c]))
+        self.assertEqual(sorted(x.get('regla') for x in failures), ['regla u', 'regla x', 'regla y', 'regla z', 'regla z'])
+        self.assertEqual(sorted(q.flagged_books(failures, DATA)), sorted([a, c, d, e, f]))
 
     def test_restore_cover_brings_back_the_published_file(self):
         import subprocess
