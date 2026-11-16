@@ -21,7 +21,7 @@ def periodo(fecha):
         if len(partes) == 1:
             return date(partes[0], 1, 1), date(partes[0], 12, 31)
     except (TypeError, ValueError):
-        pass
+        return None  # fecha imposible (2026-02-30, mes 13): cuenta como ilegible
     return None
 
 

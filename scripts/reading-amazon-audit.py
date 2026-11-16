@@ -69,7 +69,7 @@ def due(data, records, now):
     books = [(last(b), b) for b in data['libros'] if b.get('estado') == 'publicado']
     today = now.date()
     return [b for when, b in sorted(((w, b) for w, b in books if w is not None),
-                                    key=lambda x: (x[0], cercania(x[1], today) if x[0] == '' else (0, 0)))]
+                                    key=lambda x: (x[0], (not sin_sinopsis(x[1]), cercania(x[1], today)) if x[0] == '' else (0, (0, 0))))]
 
 
 def apply_synopsis(book, record):

@@ -28,7 +28,7 @@ from reading_intake_core import affiliate_destination, clean_author, clean_title
 from reading_intake_fetch import read_json, write_if_changed
 from reading_intake_publishers import resolve_publishers
 import sinopsis_google_books
-from fecha_cercana import cercania, periodo  # noqa: F401 - una sola regla de «fechas cercanas primero»
+from fecha_cercana import cercania  # una sola regla de «fechas cercanas primero»
 from reading_taxonomy import apply_derived, extra_categories, non_reading_reason, reference_work, REFERENCE_ID
 from reading_catalogue_publishers import catalogue_publisher, PublisherError
 from reading_generic_source import generic_edition, generic_links, reviewed_hosts

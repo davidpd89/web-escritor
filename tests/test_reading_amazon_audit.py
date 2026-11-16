@@ -116,6 +116,12 @@ class AmazonAuditTests(unittest.TestCase):
         self.assertEqual(len(ids), 499)  # b0 se auditó ayer; el resto, sin límite
         self.assertEqual(ids[-2:], ['b1', 'b2'])
 
+    def test_sin_registro_van_antes_los_libros_sin_sinopsis_aunque_sean_mas_lejanos(self):
+        now = datetime(2026, 11, 16, 12, tzinfo=ZoneInfo('Europe/Madrid'))
+        books = [{'id': 'cerca-con', 'estado': 'publicado', 'sinopsis_breve': 'x', 'fecha_publicacion': '2026-11-16'},
+                 {'id': 'lejos-sin', 'estado': 'publicado', 'fecha_publicacion': '2019-01-01'}]
+        self.assertEqual([b['id'] for b in audit.due({'libros': books}, {}, now)], ['lejos-sin', 'cerca-con'])
+
     def test_records_reach_the_catalogue_and_the_public_register(self):
         with tempfile.TemporaryDirectory() as tmp:
             tree = Path(tmp)
