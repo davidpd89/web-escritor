@@ -11,6 +11,7 @@ import hashlib
 import html
 import json
 import math
+import os
 import re
 import sys
 from datetime import date, timedelta
@@ -886,8 +887,21 @@ def render_deals(books):
     return json.dumps({'schema_version': 1, 'ofertas': deals}, ensure_ascii=False, indent=2) + '\n'
 
 
+HOY = None  # día del despliegue (--hoy): si se da, manda sobre la fecha de los datos (D1, R4-4)
+
+
+def dia_del_despliegue(hoy=None, entorno=None):
+    """`--hoy` o, si no, CATALOGO_HOY (el despliegue la fija con la fecha de Madrid para toda la cadena de
+    materializar); None si no hay ninguna. Una fecha mal escrita aborta (ValueError) en vez de publicar otro día."""
+    valor = hoy.isoformat() if hoy else (entorno or {}).get('CATALOGO_HOY', '')
+    return date.fromisoformat(valor).isoformat() if valor else None
+
+
 def data_anchor(books):
-    """Fecha de referencia derivada de los datos (no del reloj): la salida es determinista."""
+    """Fecha de referencia: el día del despliegue (`--hoy`) o, sin él, la derivada de los datos (no del reloj).
+    Así el portal cambia de día aunque una noche no haya carga, y la salida sigue siendo determinista."""
+    if HOY:
+        return HOY
     return max((b.get('fecha_actualizacion') or b.get('fecha_verificacion') or '' for b in books), default='')
 
 
@@ -1654,8 +1668,11 @@ def main():
     parser.add_argument('--root', type=Path, default=ROOT)
     parser.add_argument('--data', type=Path)
     parser.add_argument('--check', action='store_true')
+    parser.add_argument('--hoy', type=date.fromisoformat, help='día del despliegue (AAAA-MM-DD, Madrid); sin él, el de los datos')
     args = parser.parse_args()
     root = args.root.resolve()
+    global HOY  # skipcq: PYL-W0603 - parámetro del proceso, se fija una vez al arrancar
+    HOY = dia_del_despliegue(args.hoy, os.environ)
     try:
         data = json.loads((args.data or root / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
         books, outputs = render_outputs(root, data)

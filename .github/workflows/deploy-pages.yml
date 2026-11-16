@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main
+  # Cambio de día (D1, R4-4): a las 00:05 de Madrid se vuelve a publicar con la fecha nueva aunque no haya
+  # commits (novedades, próximos, ofertas). GitHub usa UTC: 22:05 en verano y 23:05 en invierno; el job «dia»
+  # descarta la que cae a las 23 de Madrid (aún el día anterior). Un retraso de GitHub no la pierde.
+  schedule:
+    - cron: '5 22 * * *'
+    - cron: '5 23 * * *'
   workflow_dispatch:
     inputs:
       before_sha:
@@ -21,9 +27,33 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  # Un disparo programado que cae a las 23 de Madrid es del día anterior: no publica. Push y manuales, siempre.
+  dia:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 2
+    outputs:
+      hoy: ${{ steps.dia.outputs.hoy }}
+      seguir: ${{ steps.dia.outputs.seguir }}
+    steps:
+      - name: Día del despliegue (Madrid)
+        id: dia
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "hoy=$(TZ=Europe/Madrid date +%F)" >> "$GITHUB_OUTPUT"
+          if [ "$EVENT_NAME" = schedule ] && [ "$(TZ=Europe/Madrid date +%H)" = 23 ]; then
+            echo "seguir=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "seguir=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  build:
+    needs: dia
+    if: needs.dia.outputs.seguir == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25  # rehacer la cadena con el día (~4-8 min) además de construir y subir
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -42,6 +72,25 @@ jobs:
 
       - name: Materializar generados
         uses: ./.github/actions/materializar
+
+      # Lo que depende del día (portal, páginas, próximos, ofertas, descuentos caducados) se rehace con la fecha
+      # de Madrid de hoy, no con la de los datos del último commit: así el día cambia aunque una noche no haya
+      # carga. Toda la cadena (shell, sitemap, Pagefind) para que nada quede del día anterior.
+      # Pagefind (último eslabón de la cadena) se ejecuta con `npx --no-install pagefind`: hace falta Node y el
+      # node_modules del lockfile. Sin scripts de instalación: el binario de Pagefind va en un paquete opcional.
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Instalar Pagefind (lockfile)
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Rehacer lo generado con el día de hoy
+        env:
+          CATALOGO_HOY: ${{ needs.dia.outputs.hoy }}
+        run: python scripts/materializar_generados.py --solo-construir
 
       - name: Build public artifact (allowlist-first)
         run: python scripts/build-public-dist.py --out .preview-dist
