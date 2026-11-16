@@ -59,13 +59,13 @@ class ReadingTextsTest(unittest.TestCase):
         for b in texts.published(self.data):
             p = texts.payload(self.data, b)
             for m in p['modulos_permitidos']:
-                self.assertIn(p['familia'], texts.MODULES[m['modulo']][0])
+                self.assertIn(p['familia'], texts.MODULES[m['modulo']][0], b['id'])
 
     def test_every_published_book_gets_at_least_two_modules(self):
         for b in texts.published(self.data):
             mods = {m['modulo'] for m in texts.payload(self.data, b)['modulos_permitidos']}
             self.assertGreaterEqual(len(mods), 2, b['id'])
-            self.assertIn('para_quien', mods)
+            self.assertIn('para_quien', mods, b['id'])
 
     def test_valid_blocks_pass_and_affines_are_linked(self):
         blocks, errors = self.check()
@@ -254,8 +254,8 @@ class ReadingTextsTest(unittest.TestCase):
                 ages = texts.min_age(b), texts.min_age(x)
                 self.assertFalse(None not in ages and abs(ages[0] - ages[1]) > 4, (b['id'], x['id']))
             for line in texts.payload(self.data, b)['evidencias'].get('afines_catalogo', []):
-                self.assertNotIn('comparte:', line)
-                self.assertRegex(line, r'^«.+», de .+: \S')
+                self.assertNotIn('comparte:', line, b['id'])
+                self.assertRegex(line, r'^«.+», de .+: \S', b['id'])
         self.assertGreater(compared, 100)
         self.assertEqual(texts.min_age({'edad_recomendada': 'Adultos'}), 18)
         self.assertEqual(texts.min_age({'edad_recomendada': 'De 9 a 12 años'}), 9)
