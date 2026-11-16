@@ -100,9 +100,17 @@ jobs:
         # con el libro (otra carga pudo empezar o publicar mientras esperaba) y la carga se anota en curso.
         id: libro
         if: ${{ !inputs.dry_run }}
+        # Cada dato en su variable (sin expresión compuesta): el CI local también los resuelve.
         env:
-          MOTIVO: ${{ github.event_name == 'schedule' && 'cron' || (inputs.respaldo && 'respaldo' || inputs.motivo || 'manual') }}
-        run: python scripts/noche.py abrir --motivo "$MOTIVO" >> "$GITHUB_OUTPUT"
+          EVENT: ${{ github.event_name }}
+          RESPALDO: ${{ inputs.respaldo }}
+          PEDIDO: ${{ inputs.motivo }}
+        shell: bash
+        run: |
+          MOTIVO="${PEDIDO:-manual}"
+          if [ "$RESPALDO" = 'true' ]; then MOTIVO=respaldo; fi
+          if [ "$EVENT" = 'schedule' ]; then MOTIVO=cron; fi
+          python scripts/noche.py abrir --motivo "$MOTIVO" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@v5
         if: inputs.dry_run || steps.libro.outputs.cargar == 'true'
         with:
