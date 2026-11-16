@@ -97,6 +97,32 @@ def _existing_pr(args):
     return found.stdout.strip() or None if found.returncode == 0 else None
 
 
+APP_VARS = ('REPARADOR_APP_ID', 'REPARADOR_APP_INSTALLATION_ID', 'REPARADOR_APP_PRIVATE_KEY')
+
+
+def app_env():
+    """Entorno con el token de la App para `gh pr create`, o None si no hay App o falla (R4-9).
+
+    Una PR abierta con GITHUB_TOKEN no dispara ninguna CI: la carga tenía que despachar cada workflow y publicar a
+    mano sus estados en el commit. Abierta con la App, GitHub lanza las comprobaciones `pull_request` de siempre y
+    publish_generated solo las reutiliza. El token caduca a la hora, por eso se genera aquí, justo antes de usarlo, y
+    no al empezar el paso (la PR del 16/11 se abrió 51 min después). Sin App, o si falla, se sigue con el token por
+    defecto: la vía de despacho funciona igual que antes.
+    """
+    if not all(os.environ.get(name) for name in APP_VARS):
+        return None
+    try:  # la rama ya está empujada: nada de aquí puede tumbar la carga (sin node, colgado, clave mala)
+        made = subprocess.run(['node', str(Path(__file__).with_name('app_token.mjs'))], capture_output=True, text=True,
+                              encoding='utf-8', errors='replace', timeout=60)
+        problema = '' if made.returncode == 0 and made.stdout.strip() else made.stderr.strip()[:200] or 'sin salida'
+    except (OSError, subprocess.SubprocessError) as exc:
+        problema = exc.__class__.__name__
+    if problema:
+        print(f'AVISO: sin token de la App ({problema}); la PR se abre con el token por defecto', file=sys.stderr, flush=True)
+        return None
+    return {**os.environ, 'GH_TOKEN': made.stdout.strip()}
+
+
 def _flag(args, nombre):
     return args[args.index(nombre) + 1] if nombre in args and args.index(nombre) + 1 < len(args) else None
 
@@ -167,11 +193,13 @@ YA_APLICADA = '<escritura ya aplicada en GitHub>'
 
 
 def gh(*args: str):
+    env = app_env() if tuple(args[:2]) == ('pr', 'create') else None
     comprobacion = None if _retryable(args) else _comprobacion_escritura(args)
     efecto = comprobacion[1] if comprobacion else None  # None: no hay efecto que comprobar
     for attempt in range(1, GH_ATTEMPTS + 1):
         try:
-            result = subprocess.run(['gh', *args], check=True, capture_output=True, text=True, encoding='utf-8', errors='replace')
+            result = subprocess.run(['gh', *args], check=True, capture_output=True, text=True, encoding='utf-8', errors='replace',
+                                    env=env)
             return result.stdout.strip()
         except subprocess.CalledProcessError as exc:
             # capture_output hides gh's own explanation; surface it in the job log.
@@ -344,11 +372,12 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
         time.sleep(30)
     # Dispatched workflows validate only runs started by this invocation, never old green runs.
     for workflow in workflows:
-        if workflow in REQUIRED_JOBS:
-            report_job(repo, sha, REQUIRED_JOBS[workflow], 'pending', f'https://github.com/{repo}/pull/{pr["number"]}')
         if workflow in source:
+            # Una ejecución pull_request ya publica su comprobación en la PR: un estado a mano la duplicaría (r4 F6).
             print(f'REUSE pull_request run {pinned[workflow]} of {workflow} @ {sha}', flush=True)
             continue
+        if workflow in REQUIRED_JOBS:
+            report_job(repo, sha, REQUIRED_JOBS[workflow], 'pending', f'https://github.com/{repo}/pull/{pr["number"]}')
         # Se fija la ejecución despachada por su id: nunca una anterior verde ni una de otro despacho.
         source[workflow], pinned[workflow] = ('workflow_dispatch', frozenset()), despachar(repo, workflow, branch)
 
@@ -368,6 +397,8 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
                 continue
             url = f'https://github.com/{repo}/actions/runs/{result["databaseId"]}'
             context = REQUIRED_JOBS.get(workflow)
+            # Solo las ejecuciones despachadas necesitan su estado a mano; las pull_request ya figuran en la PR.
+            manual = source[workflow][0] == 'workflow_dispatch'
             if result['conclusion'] != 'success':
                 # Browser jobs fail sporadically (one in four bot PRs lost its day this way);
                 # a single rerun of the failed jobs on the same commit still needs real green.
@@ -404,7 +435,7 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
                     if entradas:
                         raise StaleMerge(f'la puesta al día de #{pr["number"]} trajo entradas de lo generado '
                                          f'({", ".join(entradas[:5])}); se regenera desde main')
-                    if context:
+                    if context and manual:
                         report_job(repo, sha, context, 'failure', url)
                     for other in pending - {workflow}:  # la cabeza vieja ya no se fusiona: libera la cola
                         for item in runs_on_sha(other, *source[other]):
@@ -419,7 +450,7 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
                     gh('run', 'rerun', str(result['databaseId']), '--failed')
                     print(f'RETRY {workflow} ({result["databaseId"]})', flush=True)
                     continue
-                if context:
+                if context and manual:
                     report_job(repo, sha, context, 'failure', url)
                 raise RuntimeError(f'{workflow} failed ({result["databaseId"]}); PR left open')
             if context:
@@ -431,9 +462,11 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
                 if len(matching) == 1 and matching[0].get('status') != 'completed':
                     continue
                 if len(matching) != 1 or matching[0]['conclusion'] != 'success':
-                    report_job(repo, sha, context, 'failure', url)
+                    if manual:
+                        report_job(repo, sha, context, 'failure', url)
                     raise RuntimeError(f'{workflow}: required job missing, skipped or unsuccessful')
-                report_job(repo, sha, context, 'success', matching[0]['html_url'])
+                if manual:
+                    report_job(repo, sha, context, 'success', matching[0]['html_url'])
             pending.remove(workflow)
             print(f'PASS {workflow} @ {sha}', flush=True)
         if pending:
