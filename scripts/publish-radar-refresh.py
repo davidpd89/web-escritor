@@ -195,6 +195,27 @@ def gh(*args: str):
                 raise
 
 
+def despachar(repo, workflow, ref, **inputs):
+    """R5-14 (hallazgos 26-29, E14): despacha y devuelve el id de LA ejecución creada (`return_run_details`).
+
+    Sin listados de antes y después: la ejecución se crea de forma asíncrona (a los 5 s puede no estar listada y se
+    despacharía dos veces) y un despacho ajeno en medio daba un falso «ya llegó». Con el id se sigue esa ejecución y
+    ninguna otra. Un fallo del POST no se repite a ciegas (gh() no tiene comprobación para él): sin id no se sabe si
+    llegó, y una carga que falla se reintenta entera mejor que duplicar despliegues.
+    """
+    campos = [x for k, v in inputs.items() for x in ('-f', f'inputs[{k}]={v}')]
+    respuesta = gh('api', '--method', 'POST', f'repos/{repo}/actions/workflows/{workflow}/dispatches',
+                   '-f', f'ref={ref}', '-F', 'return_run_details=true', *campos)
+    try:
+        return int(json.loads(respuesta)['workflow_run_id'])
+    except (ValueError, KeyError, TypeError):
+        raise RuntimeError(f'El despacho de {workflow} no devolvió el id de su ejecución: {respuesta[:200]!r}') from None
+
+
+def ejecucion(run_id):
+    return json.loads(gh('run', 'view', str(run_id), '--json', 'databaseId,headSha,status,conclusion'))
+
+
 def superseding_pages(repo, merged_sha, after_id):
     """Primer deploy de Pages posterior a `after_id` cuyo commit contiene `merged_sha` (cualquier evento)."""
     runs = json.loads(gh('run', 'list', '--workflow', 'deploy-pages.yml', '--branch', 'main', '--limit', '50',
@@ -328,10 +349,8 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
         if workflow in source:
             print(f'REUSE pull_request run {pinned[workflow]} of {workflow} @ {sha}', flush=True)
             continue
-        runs = json.loads(gh('run', 'list', '--workflow', workflow, '--branch', branch,
-                             '--event', 'workflow_dispatch', '--limit', '100', '--json', 'databaseId'))
-        source[workflow] = ('workflow_dispatch', frozenset(item['databaseId'] for item in runs))
-        gh('workflow', 'run', workflow, '--ref', branch)
+        # Se fija la ejecución despachada por su id: nunca una anterior verde ni una de otro despacho.
+        source[workflow], pinned[workflow] = ('workflow_dispatch', frozenset()), despachar(repo, workflow, branch)
 
     deadline = time.monotonic() + timeout
     pending = set(workflows)
@@ -441,12 +460,7 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
         raise RuntimeError('PR was not merged; refusing to deploy')
     # A GITHUB_TOKEN merge does not fire push CI/Pages either. Dispatch Pages
     # explicitly; its workflow_run starts the existing live production audits.
-    before_runs = json.loads(gh('run', 'list', '--workflow', 'deploy-pages.yml', '--event', 'workflow_dispatch', '--limit', '100', '--json', 'databaseId'))
-    before_ids = {r['databaseId'] for r in before_runs}
-    args = ['workflow', 'run', 'deploy-pages.yml', '--ref', 'main']
-    if deploy_before:
-        args += ['-f', f'before_sha={pr["baseRefOid"]}']
-    gh(*args)
+    propio = despachar(repo, 'deploy-pages.yml', 'main', **({'before_sha': pr['baseRefOid']} if deploy_before else {}))
     merged_sha = merged['mergeCommit']['oid']
     print(f'Dispatched Pages after validated merge {merged_sha}', flush=True)
     if deploy_before:
@@ -454,11 +468,12 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
         followed = None  # deploy posterior que contiene merged_sha, tras cancelarse el nuestro por concurrencia
         while time.monotonic() < deadline:
             if followed is None:
-                runs = json.loads(gh('run', 'list', '--workflow', 'deploy-pages.yml', '--event', 'workflow_dispatch', '--limit', '100', '--json', 'databaseId,headSha,status,conclusion'))
-                exact = [r for r in runs if r['databaseId'] not in before_ids and r['headSha'] == merged_sha]
-                # `--ref main` despacha desde la punta: si main avanzó tras la fusión no hay run con el SHA exacto, y
-                # vale un deploy posterior que contenga el merge (#1312, Codex y CodeRabbit).
-                current = exact[0] if exact else superseding_pages(repo, merged_sha, max(before_ids, default=0))
+                # Nuestro deploy, por su id. `ref main` despacha desde la punta: si main avanzó tras la fusión su
+                # commit es posterior y debe contener el merge (#1312); si no lo contiene, no valida nada.
+                current = ejecucion(propio)
+                if current['headSha'] != merged_sha and gh(
+                        'api', f'repos/{repo}/compare/{merged_sha}...{current["headSha"]}', '--jq', '.status') not in ('ahead', 'identical'):
+                    raise RuntimeError(f'Pages {propio} @ {current["headSha"]} no contiene el merge {merged_sha}')
             else:
                 current = superseding_pages(repo, merged_sha, followed)
             if current and current['status'] == 'completed':

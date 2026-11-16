@@ -214,7 +214,9 @@ with mock.patch.object(mod.time, 'sleep', lambda s: None):
     # Escrituras sin comprobación conocida no se repiten a ciegas; `workflow run` tampoco (R5-14: sin id de ejecución).
     for args in (('api', '--method', 'DELETE', 'repos/o/r/git/refs/heads/x'), ('api', '--method', 'POST', 'repos/o/r/issues'),
                  ('api', '--method', 'PUT', 'repos/o/r/pulls/9/update-branch'),
-                 ('workflow', 'run', 'x.yml', '--ref', 'automation/x-1')):
+                 ('workflow', 'run', 'x.yml', '--ref', 'automation/x-1'),
+                 ('api', '--method', 'POST', 'repos/o/r/actions/workflows/x.yml/dispatches', '-f', 'ref=main',
+                  '-F', 'return_run_details=true')):
         run, calls = fake(lambda a, n: (1, '', GRAPHQL))
         with mock.patch.object(mod.subprocess, 'run', run):
             try:
