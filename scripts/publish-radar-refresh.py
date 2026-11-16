@@ -107,8 +107,9 @@ def _comprobacion_escritura(args):
     Antes de repetir una escritura cuyo primer intento dio un 5xx se mira si sí llegó a GitHub: un `pr merge` que
     fusionó, un `workflow run` que creó la ejecución, un `run rerun` que subió el número de intento, un `pr close` o
     un `run cancel` que ya tienen efecto. Un status (POST) es idempotente. `update-branch` con `expected_head_sha`
-    llegó si la cabeza nueva de la PR es un commit cuyo padre es la cabeza esperada (repetirlo daría 422); otro
-    movimiento de la cabeza no prueba nada y se repite (su 422 es el StaleMerge de siempre). `workflow run` no se
+    llegó si la cabeza nueva de la PR es un merge de dos padres: la cabeza esperada y un commit que ya está en la
+    rama base (repetirlo daría 422). Un push lineal sobre la cabeza esperada u otro movimiento no prueban nada y
+    se repite (su 422 es el StaleMerge de siempre). `workflow run` no se
     repite: sin el id de la ejecución, una ejecución nueva en la misma rama puede ser de otro despacho (R5-14 usará
     `return_run_details`). Sin comprobación, la escritura no se repite (como antes).
     """
@@ -131,11 +132,16 @@ def _comprobacion_escritura(args):
         previa = next((x.split('=', 1)[1] for x in a if x.startswith('expected_head_sha=')), None)
         if pr and previa:
             def aplicado(_):
-                cabeza = gh('api', f'repos/{pr[1]}/pulls/{pr[2]}', '--jq', '.head.sha')
+                datos = json.loads(gh('api', f'repos/{pr[1]}/pulls/{pr[2]}', '--jq', '{cabeza: .head.sha, base: .base.ref}'))
+                cabeza = datos['cabeza']
                 if cabeza.startswith(previa) or previa.startswith(cabeza):
                     return False
                 padres = json.loads(gh('api', f'repos/{pr[1]}/commits/{cabeza}', '--jq', '[.parents[].sha]'))
-                return any(p.startswith(previa) for p in padres)
+                otros = [p for p in padres if not p.startswith(previa)]
+                if len(padres) != 2 or len(otros) != 1:
+                    return False
+                return gh('api', f'repos/{pr[1]}/compare/{otros[0]}...{datos["base"]}', '--jq', '.status') in (
+                    'ahead', 'identical')
             return None, aplicado
     return None
 
@@ -152,6 +158,9 @@ def gh(*args: str):
             print(f'gh {" ".join(args[:3])} failed: {stderr}', file=sys.stderr, flush=True)
             repetible = _retryable(args) or comprobacion is not None
             if not repetible or not any(m.lower() in stderr.lower() for m in TRANSIENT_GH):
+                raise
+            # Tras el último intento solo se espera si hay un efecto que comprobar; una lectura se rinde ya.
+            if attempt == GH_ATTEMPTS and comprobacion is None and tuple(args[:2]) != ('pr', 'create'):
                 raise
             time.sleep(5 * attempt)
             # El efecto se comprueba también tras el último intento: un merge que llegó con 502 no es un fallo.

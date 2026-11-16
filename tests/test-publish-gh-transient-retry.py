@@ -54,12 +54,14 @@ with mock.patch.object(mod.time, 'sleep', lambda s: None):
 
     # 5. Transitorio persistente: se rinde tras GH_ATTEMPTS, sin bucle infinito.
     run, calls = fake(lambda a, n: (1, '', 'HTTP 502: Bad Gateway'))
-    with mock.patch.object(mod.subprocess, 'run', run):
+    pausas = []
+    with mock.patch.object(mod.subprocess, 'run', run), mock.patch.object(mod.time, 'sleep', pausas.append):
         try:
             mod.gh('api', 'x'); raise SystemExit('should raise')
         except subprocess.CalledProcessError:
             pass
     assert len(calls) == mod.GH_ATTEMPTS, calls
+    assert pausas == [5 * n for n in range(1, mod.GH_ATTEMPTS)], pausas  # sin pausa tras el último intento
     # 6. F7 (Fable R4-10): una escritura que da un 502 se repite solo tras comprobar que no llegó; si llegó, no.
     def github(llego):
         """gh falso: cada escritura falla con 502 la primera vez; `llego` dice si ese primer intento tuvo efecto."""
@@ -83,7 +85,9 @@ with mock.patch.object(mod.time, 'sleep', lambda s: None):
                     clave, update_branch if a[-3:-2] == ['repos/o/r/pulls/9/update-branch'] else lambda: None)()
                 return (1, '', 'HTTP 502: Bad Gateway') if primero else (0, 'hecho', '')
             if a[:2] == ['api', 'repos/o/r/pulls/9']:
-                return 0, estado['head'], ''
+                return 0, json.dumps({'cabeza': estado['head'], 'base': 'main'}), ''
+            if a[0] == 'api' and '/compare/' in a[1]:
+                return 0, 'ahead', ''
             if a[0] == 'api' and a[1].startswith('repos/o/r/commits/'):
                 return 0, json.dumps(estado['padres'].get(a[1].rsplit('/', 1)[1], [])), ''
             if clave == ('pr', 'view'):
@@ -126,9 +130,26 @@ with mock.patch.object(mod.time, 'sleep', lambda s: None):
         if '--method' in a:
             return (1, '', 'HTTP 502: Bad Gateway') if n == 1 else (1, '', 'HTTP 422: expected head sha mismatch')
         if a[1] == 'repos/o/r/pulls/9':
-            return 0, 'ajeno22', ''
+            return 0, json.dumps({'cabeza': 'ajeno22', 'base': 'main'}), ''
         return 0, json.dumps(['otro333']), ''
     run, calls = fake(otro_push)
+    with mock.patch.object(mod.subprocess, 'run', run):
+        try:
+            mod.gh('api', '--method', 'PUT', 'repos/o/r/pulls/9/update-branch', '-f', 'expected_head_sha=abcdef1')
+            raise SystemExit('should raise')
+        except subprocess.CalledProcessError as exc:
+            assert '422' in exc.stderr, exc.stderr
+    assert sum('--method' in c for c in calls) == 2, calls
+    # Un push lineal de otro escritor sobre la cabeza esperada no prueba que update-branch llegara: se repite.
+    def lineal(a, n):
+        if '--method' in a:
+            return (1, '', 'HTTP 502: Bad Gateway') if n == 1 else (1, '', 'HTTP 422: expected head sha mismatch')
+        if a[1] == 'repos/o/r/pulls/9':
+            return 0, json.dumps({'cabeza': 'lineal33', 'base': 'main'}), ''
+        if '/compare/' in a[1]:
+            return 0, 'ahead', ''
+        return 0, json.dumps(['abcdef1999']), ''
+    run, calls = fake(lineal)
     with mock.patch.object(mod.subprocess, 'run', run):
         try:
             mod.gh('api', '--method', 'PUT', 'repos/o/r/pulls/9/update-branch', '-f', 'expected_head_sha=abcdef1')
