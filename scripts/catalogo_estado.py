@@ -21,7 +21,8 @@ ROOT = Path(__file__).resolve().parents[1]
 WORK = ROOT / '.local/catalogo'
 BRANCH = 'catalogo-estado'
 FILES = ('semillas.json', 'pendientes.json', 'sellos.json', 'rendimiento-sellos.json', 'recorrido-sellos.json',
-         'pendientes-creacion.json', 'descartados.jsonl', 'salud.json')
+         'pendientes-creacion.json', 'descartados.jsonl', 'salud.json',
+         'altas-por-dia.json')
 
 
 def git(*args, env=None, data=None, check=True):
