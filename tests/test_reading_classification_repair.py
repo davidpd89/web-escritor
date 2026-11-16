@@ -248,6 +248,18 @@ class JuvenileAudienceTests(unittest.TestCase):
         self.assertNotIn('narrativa-juvenil', got)
         self.assertTrue({'filosofia', 'juvenil'} <= got, got)
 
+    def test_a_node_genre_dropped_later_still_repairs_the_audience(self):
+        # «aventuras» salía del nodo (la materia no la respalda): al quitarla, la novela juvenil queda sola con la
+        # no ficción y el público se repara en la segunda pasada.
+        data, ident = self.catalogue(['aventuras', 'filosofia', 'juvenil', 'narrativa-juvenil'])
+        book = next(b for b in data['libros'] if b['id'] == ident)
+        book['descripcion_breve'] = 'Ensayo. La editorial la incluye en filosofía, juvenil.'
+        repair_classification(data, '2026-11-16')
+        got = labels(data)[ident]
+        self.assertNotIn('aventuras', got)
+        self.assertNotIn('narrativa-juvenil', got)
+        self.assertTrue({'filosofia', 'juvenil'} <= got, got)
+
     def test_juvenile_novel_keeps_its_genre(self):
         for cats in (['narrativa-juvenil', 'juvenil'], ['narrativa-juvenil', 'historia', 'aventuras', 'juvenil']):
             with self.subTest(cats):

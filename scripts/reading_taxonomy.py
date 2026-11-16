@@ -479,7 +479,9 @@ def repair_classification(catalogue, today=None):
     # Género antes y después de quitar etiquetas: el tema de un nodo («tema-viajes») deja su género de respaldo
     # antes de irse, y un libro que pierde su género por nodo recibe otro. Una sola pasada basta (idempotente).
     touched = set(repair_juvenile_audience(catalogue, by_book)) | set(ensure_genre(catalogue, by_book, fallback))
-    touched |= set(repair_amazon_rules(catalogue, by_book, fallback)) | set(ensure_genre(catalogue, by_book, fallback))
+    touched |= set(repair_amazon_rules(catalogue, by_book, fallback))
+    # Quitar etiquetas de nodo puede dejar «narrativa-juvenil» sola con la no ficción: el público se repara otra vez.
+    touched |= set(repair_juvenile_audience(catalogue, by_book)) | set(ensure_genre(catalogue, by_book, fallback))
     if today:
         for book in catalogue['libros']:
             if book['id'] in touched:
