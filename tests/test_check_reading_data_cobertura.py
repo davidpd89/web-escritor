@@ -18,6 +18,7 @@ spec.loader.exec_module(puerta)
 
 # Recorren libros de fixtures o de un repo temporal, no el catálogo publicado: un fallo es de código, no de un libro.
 CODIGO = {
+    'test_reading_amazon_audit.AmazonAuditTests.test_every_published_book_is_due_oldest_first_without_a_cap',
     'test_reading_amazon_audit.AmazonAuditTests.test_cover_follows_the_book_in_main_not_the_kind_stored_in_the_record',
     'test_reading_enrichment.EnrichmentTests.test_editorial_outage_preserves_catalogue_and_allows_independent_refresh',
     'test_reading_intake_multibook_contract.MultiBookContractTests.test_three_independent_pages_one_hub_and_categories',
@@ -31,6 +32,27 @@ CODIGO = {
     'test_reading_texts.ReadingTextsTest.test_book_page_renders_modules_before_editorial_synopsis',
 }
 ITERABLES = ('published(', 'libros', 'books')
+UN_ARGUMENTO = ('assertTrue', 'assertFalse', 'assertIsNone', 'assertIsNotNone')
+
+
+def asserts_sin_mensaje(metodo):
+    """Aserciones dentro de un bucle sobre libros sin mensaje: su fallo no nombra el libro y la cuarentena
+    (reading_quarantine.flagged_books) no puede apartarlo, así que para el lote entero."""
+    for bucle in (n for n in ast.walk(metodo) if isinstance(n, ast.For) and any(k in ast.unparse(n.iter) for k in ITERABLES)):
+        for x in ast.walk(bucle):
+            nombre = getattr(getattr(x, 'func', None), 'attr', '')
+            if isinstance(x, ast.Call) and nombre.startswith('assert') and nombre != 'assertRaises':
+                minimo = 1 if nombre in UN_ARGUMENTO else 2
+                if len(x.args) <= minimo and not any(k.arg == 'msg' for k in x.keywords):
+                    yield f'{metodo.name}:{x.lineno} {nombre}'
+
+
+def metodos():
+    for fichero in sorted((ROOT / 'tests').glob('test_*.py')):
+        fuente = fichero.read_text(encoding='utf-8', errors='ignore')
+        for clase in (n for n in ast.parse(fuente).body if isinstance(n, ast.ClassDef)):
+            for metodo in (n for n in clase.body if isinstance(n, ast.FunctionDef) and n.name.startswith('test')):
+                yield f'{fichero.stem}.{clase.name}.{metodo.name}', metodo
 
 
 def por_libro():
@@ -65,6 +87,11 @@ class CoberturaPuertaTest(unittest.TestCase):
     def test_la_lista_de_codigo_no_se_pudre(self):
         vistos = set(por_libro())
         self.assertEqual(sorted(CODIGO - vistos), [], 'métodos en CODIGO que ya no existen o no recorren libros')
+
+    def test_los_contratos_por_libro_nombran_el_libro(self):
+        por_metodo = [n for n in puerta.DATA_CONTRACTS if n.count('.') == 2]
+        sin = [f'{n} {a}' for n, m in metodos() if n in por_metodo for a in asserts_sin_mensaje(m)]
+        self.assertEqual(sin, [], 'añadir el id del libro como mensaje de la aserción')
 
     def test_los_contratos_de_la_puerta_existen(self):
         import sys

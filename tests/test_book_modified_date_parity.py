@@ -36,13 +36,13 @@ class ModifiedDateParity(unittest.TestCase):
                 continue
             page = ROOT / 'recomendaciones/libros' / book['slug'] / 'index.html'
             with self.subTest(page=str(page)):
-                self.assertTrue(page.is_file(), f'{page}: falta HTML')
+                self.assertTrue(page.is_file(), f"{book['id']} {page}: falta HTML")
                 parser = Schemas()
                 parser.feed(page.read_text(encoding='utf-8'))
                 pages = [e for e in parser.entities if e.get('@type') == 'WebPage']
-                self.assertEqual(len(pages), 1, f'{page}: WebPage ausente o duplicado')
+                self.assertEqual(len(pages), 1, f"{book['id']} {page}: WebPage ausente o duplicado")
                 expected = book['fecha_actualizacion']
-                self.assertEqual(pages[0].get('dateModified'), expected, f'{page}: dateModified no coincide con {expected}')
+                self.assertEqual(pages[0].get('dateModified'), expected, f"{book['id']} {page}: dateModified no coincide con {expected}")
                 checked += 1
         self.assertGreater(checked, 0, 'No se comprobaron fechas')
 

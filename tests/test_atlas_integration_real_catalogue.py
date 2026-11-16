@@ -33,7 +33,7 @@ class RealCatalogueBridge(unittest.TestCase):
         for book in self.published():
             data = snapshot_with_real_book(book["id"])
             url = links.canonical_links(data, REAL)["wrk-example"]
-            self.assertTrue((ROOT / url.lstrip("/") / "index.html").is_file(), url)
+            self.assertTrue((ROOT / url.lstrip("/") / "index.html").is_file(), f"{book['id']}: {url}")
 
     def test_unknown_book_id_fails_closed(self):
         with self.assertRaises(ValueError):
