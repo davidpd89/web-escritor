@@ -1,21 +1,21 @@
 {
- "generado": "2026-11-15T02:16:07+00:00",
- "publicados": 4946,
+ "generado": "2026-11-16T01:39:43+00:00",
+ "publicados": 5938,
  "secciones": {
   "portadas_tipograficas": {
-   "total": 603,
-   "proximos": 306,
+   "total": 833,
+   "proximos": 340,
    "por_mes": {
     "2027-08": 1,
     "2027-05": 5,
     "2027-04": 7,
     "2027-03": 5,
-    "2027-02": 83,
-    "2027-01": 39,
-    "2026-12": 58,
-    "2026-11": 254,
-    "2026-10": 137,
-    "2026-09": 8,
+    "2027-02": 85,
+    "2027-01": 57,
+    "2026-12": 71,
+    "2026-11": 325,
+    "2026-10": 262,
+    "2026-09": 9,
     "2026-08": 3,
     "2025-08": 1
    },
@@ -223,13 +223,13 @@
    ]
   },
   "formatos_sin_precio": {
-   "total": 459,
-   "libros": 345,
+   "total": 576,
+   "libros": 440,
    "por_formato": {
-    "ebook": 183,
-    "tapa-blanda": 122,
-    "audiolibro": 81,
-    "tapa-dura": 73
+    "ebook": 221,
+    "tapa-blanda": 163,
+    "tapa-dura": 100,
+    "audiolibro": 92
    },
    "muestra": [
     {
@@ -460,7 +460,7 @@
    ]
   },
   "sin_formatos_de_compra": {
-   "total": 162,
+   "total": 196,
    "muestra": [
     {
      "id": "isbn-9788408326861",
@@ -561,6 +561,13 @@
      "fecha_publicacion": "2026-09-09"
     },
     {
+     "id": "isbn-9788491459866",
+     "titulo": "Estado desde la sociedad, El. Espacios de poder en la España del siglo XIX. (ÁLBUMES ILUSTRADOS)",
+     "isbn13": "9788491459866",
+     "editorial": "Picarona",
+     "fecha_publicacion": "2026-11-23"
+    },
+    {
      "id": "isbn-9798890988430",
      "titulo": "Como Ningún Lugar En El Mundo / No Place on Earth",
      "isbn13": "9798890988430",
@@ -594,13 +601,6 @@
      "isbn13": "9798890984005",
      "editorial": "Vintage Espanol",
      "fecha_publicacion": "2026-08-18"
-    },
-    {
-     "id": "isbn-9791388396397",
-     "titulo": "El código de Dios: La ley del universo para que las cosas sucedan (Enigma)",
-     "isbn13": "9791388396397",
-     "editorial": "Arcopress",
-     "fecha_publicacion": "2026-11-17"
     },
     {
      "id": "isbn-9791399129878",
@@ -640,18 +640,18 @@
    ]
   },
   "sin_texto": {
-   "total": 1746,
-   "proximos": 417,
+   "total": 2738,
+   "proximos": 573,
    "por_mes": {
     "2027-05": 2,
-    "2027-04": 1,
-    "2027-03": 5,
-    "2027-02": 27,
-    "2027-01": 50,
-    "2026-12": 86,
-    "2026-11": 715,
-    "2026-10": 754,
-    "2026-09": 106
+    "2027-04": 2,
+    "2027-03": 8,
+    "2027-02": 43,
+    "2027-01": 109,
+    "2026-12": 147,
+    "2026-11": 918,
+    "2026-10": 1301,
+    "2026-09": 208
    },
    "muestra": [
     {
@@ -837,10 +837,10 @@
   }
  },
  "cambio": {
-  "portadas_tipograficas": 191,
-  "formatos_sin_precio": 34,
-  "sin_formatos_de_compra": 76,
-  "sin_texto": 994,
+  "portadas_tipograficas": 230,
+  "formatos_sin_precio": 117,
+  "sin_formatos_de_compra": 34,
+  "sin_texto": 992,
   "portada_sin_fichero": 0
  },
  "amazon": {
@@ -850,69 +850,6 @@
   "errores": {},
   "oportunidades": [],
   "sin_portada_en_amazon": [
-   {
-    "id": "isbn-9788410033030",
-    "titulo": "El Cangrejo Juguetón. ¡Descubre la magia del circo!: 3",
-    "isbn13": "9788410033030",
-    "editorial": "Editorial Germinar",
-    "fecha_publicacion": "2026-11-15"
-   },
-   {
-    "id": "isbn-9788412486483",
-    "titulo": "Senderos entre los árboles",
-    "isbn13": "9788412486483",
-    "editorial": "Fundacióin Museo Evaristo Valle",
-    "fecha_publicacion": "2026-11-15"
-   },
-   {
-    "id": "isbn-9788412983449",
-    "titulo": "Vida y milagros: 2 (La enciclopedia inabarcable)",
-    "isbn13": "9788412983449",
-    "editorial": "Adel Editores",
-    "fecha_publicacion": "2026-11-15"
-   },
-   {
-    "id": "isbn-9788414074916",
-    "titulo": "Lazos (Laude)",
-    "isbn13": "9788414074916",
-    "editorial": "Editorial Luis Vives (edelvives)",
-    "fecha_publicacion": "2026-11-15"
-   },
-   {
-    "id": "isbn-9791399269444",
-    "titulo": "El legado del anarquismo negro: 4 (Devenir)",
-    "isbn13": "9791399269444",
-    "editorial": "Calumnia",
-    "fecha_publicacion": "2026-11-15"
-   },
-   {
-    "id": "isbn-9791399272741",
-    "titulo": "Juntos y extraños: 21 (Dabisse Romero)",
-    "isbn13": "9791399272741",
-    "editorial": "Editorial Anáfora",
-    "fecha_publicacion": "2026-11-15"
-   },
-   {
-    "id": "isbn-9788412557855",
-    "titulo": "El peso de la abulia",
-    "isbn13": "9788412557855",
-    "editorial": "Anantes",
-    "fecha_publicacion": "2026-11-15"
-   },
-   {
-    "id": "isbn-9791388540035",
-    "titulo": "La bruja buena del tiempo",
-    "isbn13": "9791388540035",
-    "editorial": "Livensoul",
-    "fecha_publicacion": "2026-11-15"
-   },
-   {
-    "id": "isbn-9791399178555",
-    "titulo": "Bajo la estela de un legado",
-    "isbn13": "9791399178555",
-    "editorial": "Fílide Ediciones",
-    "fecha_publicacion": "2026-11-14"
-   },
    {
     "id": "isbn-9788418467172",
     "titulo": "Destinados a la bienaventuranza: Un estudio tomístico sobre escatología y ética (ESTUDIOS TOMISTAS)",
@@ -940,13 +877,6 @@
     "isbn13": "9788448271817",
     "editorial": "Generalitat Valenciana",
     "fecha_publicacion": "2026-11-16"
-   },
-   {
-    "id": "isbn-9791399178548",
-    "titulo": "El lienzo de las musas: Relatos premiados",
-    "isbn13": "9791399178548",
-    "editorial": "Fílide Ediciones",
-    "fecha_publicacion": "2026-11-14"
    },
    {
     "id": "isbn-9791399159400",
@@ -988,6 +918,76 @@
     "titulo": "SACU: Sistema de Asistencia Cognitiva Universal",
     "isbn13": "9791399229158",
     "editorial": "Unquinto",
+    "fecha_publicacion": "2026-11-16"
+   },
+   {
+    "id": "isbn-9789508894922",
+    "titulo": "¡Qué emoción! ¿Qué emoción? (EN POCAS PALABRAS)",
+    "isbn13": "9789508894922",
+    "editorial": "La Marca Editora",
+    "fecha_publicacion": "2026-11-16"
+   },
+   {
+    "id": "isbn-9791399126235",
+    "titulo": "Tecnomusas: Utopías y distopías de mujeres conectadas: 1",
+    "isbn13": "9791399126235",
+    "editorial": "Apache Libros",
+    "fecha_publicacion": "2026-11-16"
+   },
+   {
+    "id": "isbn-9791399321012",
+    "titulo": "Derrumbe y Regeneración",
+    "isbn13": "9791399321012",
+    "editorial": "Edicions Zaku",
+    "fecha_publicacion": "2026-11-16"
+   },
+   {
+    "id": "isbn-9788412966589",
+    "titulo": "Jodidas hormiguitas",
+    "isbn13": "9788412966589",
+    "editorial": "Comitia Editorial Sl",
+    "fecha_publicacion": "2026-11-16"
+   },
+   {
+    "id": "isbn-9791370260217",
+    "titulo": "El Maset del Pedralbino (Llíria, Valencia): Necrópolis y asentamiento de una comunidad edetana: 134 (Trabajos Varios del SIP)",
+    "isbn13": "9791370260217",
+    "editorial": "Diputación de Valencia",
+    "fecha_publicacion": "2026-11-16"
+   },
+   {
+    "id": "isbn-9791388240058",
+    "titulo": "Una visita de San Nicolás: o Era la Nochebuena: 1 (Fuera de colección)",
+    "isbn13": "9791388240058",
+    "editorial": "Ofelia Editora",
+    "fecha_publicacion": "2026-11-16"
+   },
+   {
+    "id": "isbn-9791399288308",
+    "titulo": "Metamorfosis del Estado de Bienestar: hacia un nuevo paradigma de Estado Social digital: 39 (Obras Colectivas)",
+    "isbn13": "9791399288308",
+    "editorial": "Fundación Manuel Giménez Abad",
+    "fecha_publicacion": "2026-11-16"
+   },
+   {
+    "id": "isbn-9788428576109",
+    "titulo": "Las apariencias engañan: La parábola de “los últimos serán los primeros y los primeros serán los últimos” (Mashal)",
+    "isbn13": "9788428576109",
+    "editorial": "Editorial San Pablo",
+    "fecha_publicacion": "2026-11-16"
+   },
+   {
+    "id": "isbn-9788428576116",
+    "titulo": "Benedicto XVI. El Papa de la razón (vol. III): El pontificado, la renuncia y el retiro (2005-2022): 3 (Biblioteca Ratzinger)",
+    "isbn13": "9788428576116",
+    "editorial": "Editorial San Pablo",
+    "fecha_publicacion": "2026-11-16"
+   },
+   {
+    "id": "isbn-9788428576130",
+    "titulo": "¿Me permites que te ayude como psicólogo y filósofo? (Alétheia XL)",
+    "isbn13": "9788428576130",
+    "editorial": "Editorial San Pablo",
     "fecha_publicacion": "2026-11-16"
    }
   ]
