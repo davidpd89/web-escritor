@@ -40,7 +40,7 @@ class BuscarTests(unittest.TestCase):
         self.assertEqual(clases([libro(1, 'La sombra del viento'), libro(2, 'La sombra del veinto')]), ['titulo_parecido'])
 
     def test_el_mismo_titulo_con_subtitulo_se_avisa(self):
-        self.assertEqual(clases([libro(1, 'Cartas de Ciudad Reloj'), libro(2, 'Cartas de Ciudad Reloj: edición numerada')]),
+        self.assertEqual(clases([libro(1, 'Cartas de Ciudad Reloj'), libro(2, 'Cartas de Ciudad Reloj: una novela')]),
                          ['titulo_parecido'])
 
     def test_espacios_en_otro_sitio_se_avisa(self):
@@ -61,6 +61,25 @@ class BuscarTests(unittest.TestCase):
         hallazgos, ediciones = d.buscar([libro(1, 'Coraline'), libro(2, 'Coraline', formato='tapa-dura'),
                                          libro(3, 'Coraline', editorial='otro-sello')])
         self.assertEqual((hallazgos, ediciones), ([], 3))
+
+    def test_paginas_idioma_o_marca_de_edicion_distintos_son_otro_producto(self):
+        # Los 7 hallazgos de la primera revisión (16/11) eran de esta clase: no deben volver a salir.
+        casos = [
+            [libro(1, 'Dinosaurios', numero_paginas=64), libro(2, 'Dinosaurios', numero_paginas=24)],
+            [libro(1, 'El día de la Trilla (Empíreo) Edición limitada con cantos tintados'), libro(2, 'El día de la Trilla (Empíreo)')],
+            [libro(1, 'Orgullo y prejuicio (ED. Especial)'), libro(2, 'Orgullo y prejuicio')],
+            [libro(1, '¿Hay conciencia en tu cerebro?'), libro(2, '¿Hay conciencia en tu cerebro? / Is There Consciousness in Your Brain?')],
+            [libro(1, 'Rebeldes', idioma='es'), libro(2, 'Rebeldes', idioma='ca')],
+        ]
+        for libros in casos:
+            with self.subTest(titulo=libros[0]['titulo']):
+                hallazgos, ediciones = d.buscar(libros)
+                self.assertEqual((hallazgos, ediciones), ([], 1))
+
+    def test_sin_dato_de_paginas_o_idioma_sigue_avisando(self):
+        self.assertEqual(clases([libro(1, 'Dinosaurios', numero_paginas=64), libro(2, 'Dinosaurios')]), ['misma_edicion'])
+        self.assertEqual(clases([libro(1, 'Dinosaurios', numero_paginas=64, idioma='es'),
+                                 libro(2, 'Dinosaurios', numero_paginas=64, idioma='es')]), ['misma_edicion'])
 
     def test_autores_distintos_no_se_comparan(self):
         self.assertEqual(clases([libro(1, 'Dinosaurios'), libro(2, 'Dinosaurios', autor='Luis Gil')]), [])

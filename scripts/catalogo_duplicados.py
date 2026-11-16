@@ -9,7 +9,8 @@ Clases de hallazgo:
   misma_edicion   mismo autor, mismo título, mismo formato y misma editorial, con ISBN distinto
   titulo_parecido mismo autor, mismo formato y editorial, y títulos casi iguales (errata, subtítulo o espacios)
 
-Dos ediciones de la misma obra (tapa dura y blanda, o editoriales distintas) son legítimas: se cuentan, no se listan.
+Dos ediciones de la misma obra (tapa dura y blanda, editoriales, idiomas o número de páginas distintos, o una edición
+especial, limitada, numerada o bilingüe frente a la normal) son legítimas: se cuentan, no se listan.
 Usa RapidFuzz si está instalado (CI); si no, difflib de la biblioteca estándar, con el mismo resultado en lo esencial.
 
 Uso: python scripts/catalogo_duplicados.py [--catalogo RUTA] [--umbral 92] [--salida informe.md] [--json datos.json] [--estricto]
@@ -87,9 +88,28 @@ def casi_iguales(titulo_a, titulo_b, umbral=UMBRAL):
     return nota if nota >= max(umbral, 97) else None  # mismas letras con los espacios en otro sitio
 
 
+MARCA_EDICION = re.compile(r'\b(?:edicion|ed)\s+(especial|limitada|numerada|coleccionista|aniversario|ilustrada|bilingue|de lujo)\b')
+
+
+def marcas_edicion(titulo):
+    """Lo que el título dice de la edición: «Edición limitada…» → {'limitada'}; «Título / Title» → {'bilingue'}."""
+    marcas = set(MARCA_EDICION.findall(normalizar(titulo)))
+    if ' / ' in str(titulo or ''):
+        marcas.add('bilingue')
+    return marcas
+
+
+def distinto(a, b, campo):
+    return bool(a.get(campo)) and bool(b.get(campo)) and a.get(campo) != b.get(campo)
+
+
 def misma_tirada(a, b):
+    """Mismo producto salvo el ISBN. Formato, editorial, idioma, páginas o marca de edición distintos: otro producto."""
     return (a.get('formato_edicion') == b.get('formato_edicion')
-            and (a.get('editorial_slug') or normalizar(a.get('editorial'))) == (b.get('editorial_slug') or normalizar(b.get('editorial'))))
+            and (a.get('editorial_slug') or normalizar(a.get('editorial'))) == (b.get('editorial_slug') or normalizar(b.get('editorial')))
+            and not distinto(a, b, 'idioma')
+            and not distinto(a, b, 'numero_paginas')
+            and marcas_edicion(a.get('titulo')) == marcas_edicion(b.get('titulo')))
 
 
 def repetidos(libros, campo):
