@@ -21,6 +21,7 @@ import sys
 from datetime import date
 from pathlib import Path
 
+from git_estado import en_commit
 from reading_intake_fetch import write_if_changed
 from reading_ratings_refresh import write_changed
 
@@ -61,9 +62,7 @@ def committed(root):
     libro contaría como nuevo, el tope crecería al catálogo entero y los publicados se apartarían de la web en vez
     de volver a su versión buena."""
     try:
-        listado = subprocess.run([GIT, 'ls-tree', '--name-only', 'HEAD', '--', CATALOGUE], cwd=root,
-                                 capture_output=True, check=True, text=True).stdout.strip()
-        if not listado:
+        if not en_commit(root, 'HEAD', [CATALOGUE]):
             return None
         out = subprocess.run([GIT, 'show', 'HEAD:' + CATALOGUE], cwd=root, capture_output=True, check=True)
         return json.loads(out.stdout.decode('utf-8'))

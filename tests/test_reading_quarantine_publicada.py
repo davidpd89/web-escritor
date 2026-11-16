@@ -5,6 +5,7 @@ apartan (se borran de la web) en vez de volver a su versión buena. Si `git show
 cuarentena aborta; solo un HEAD que de verdad no tiene catálogo (no hay nada publicado) da `None`.
 """
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -21,6 +22,17 @@ CATALOGO = {'schema_version': 1, 'categorias': [], 'libros': [{'id': 'publicado-
 
 
 GIT = shutil.which('git') or 'git'
+_GIT_ENV = {}
+
+
+def setUpModule():
+    # Un hook o un worktree pueden dejar GIT_DIR/GIT_WORK_TREE/GIT_INDEX_FILE: el repo temporal sería el de fuera.
+    for clave in [k for k in os.environ if k.startswith('GIT_')]:
+        _GIT_ENV[clave] = os.environ.pop(clave)
+
+
+def tearDownModule():
+    os.environ.update(_GIT_ENV)
 
 
 def git(root, *args):
