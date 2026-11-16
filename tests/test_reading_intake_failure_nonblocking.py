@@ -1,6 +1,7 @@
 """Un fallo de las altas de Amazon no deja la noche sin precios ni portadas (run 42572925804, 09/11/2026).
 
 refresh() abortaba en amazon_intake antes de market_refresh: ni precios ni cambio de portadas por la API.
+Desde R4-5 (F2) lo publicado no acaba en rojo: el paso descartado queda en DESCARTADOS y la carga sale «degradada».
 """
 import importlib.util
 import json
@@ -43,7 +44,7 @@ class IntakeFailure(unittest.TestCase):
                 error = exc
         return calls, error
 
-    def test_failed_intake_still_refreshes_prices_and_covers_then_fails_visibly(self):
+    def test_failed_intake_still_refreshes_prices_and_covers_and_is_recorded_as_degraded(self):
         def boom(config, publish):
             raise KeyError('isbn-9791388351112')
         calls, error = self.run_refresh(boom)
@@ -55,17 +56,19 @@ class IntakeFailure(unittest.TestCase):
         self.assertIn('KeyError', report['stats']['error'])
         # La cola de semillas no avanza: la noche siguiente reintenta esas altas.
         calls.guardar.assert_not_called()
-        self.assertIsNotNone(error)
-        self.assertIsInstance(error.__cause__, KeyError)
+        self.assertIsNone(error)
+        self.assertIsInstance(refresh.DESCARTADOS['amazon'], KeyError)
+        self.assertNotIn('mercado', refresh.DESCARTADOS)
 
     def test_successful_intake_keeps_the_normal_flow(self):
         calls, error = self.run_refresh(lambda config, publish: {'new_books': ['a'], 'updated_books': [], 'stats': {'accepted': 1}})
         self.assertIsNone(error)
+        self.assertEqual(refresh.DESCARTADOS, {})
         calls.discard.assert_not_called()
         calls.market.assert_called_once()
         calls.guardar.assert_called_once()
 
-    def test_failed_market_keeps_the_intake_and_fails_visibly(self):
+    def test_failed_market_keeps_the_intake_and_is_recorded_as_degraded(self):
         """#1312 (CodeRabbit): una excepción en market_refresh salía antes de save_checkpoint y perdía las altas."""
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -104,9 +107,8 @@ class IntakeFailure(unittest.TestCase):
                  patch.object(refresh, 'health_report'), \
                  patch.object(refresh.estado, 'guardar', calls.guardar), \
                  patch.object(refresh, 'assemble', calls.assemble):
-                with self.assertRaises(RuntimeError) as raised:
-                    refresh.refresh(publish=True)
-            self.assertIsInstance(raised.exception.__cause__, TimeoutError)
+                refresh.refresh(publish=True)
+            self.assertIsInstance(refresh.DESCARTADOS['mercado'], TimeoutError)
             self.assertEqual(catalogue.read_text(), '["alta"]\n')
             self.assertEqual(market.read_text(), '{"precios": 0}\n')
             self.assertTrue((root / 'assets/reading-covers/alta.webp').exists())

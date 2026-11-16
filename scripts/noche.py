@@ -93,6 +93,7 @@ def toca_reintento(libro: dict | None, now: datetime, run: int | None = None, in
     if now.astimezone(MADRID).hour >= HORA_FIN:
         return False, 'ya no es de noche'
     r = resumen(libro, now)
+    propio = None
     if run is not None:
         propio = next((i for i in de_hoy(libro, now)['intentos']
                        if i.get('run') == run and i.get('intento') == intento), None)
@@ -103,6 +104,17 @@ def toca_reintento(libro: dict | None, now: datetime, run: int | None = None, in
     fallidos = r['fallidos']
     if fallidos >= MAX_FALLIDOS:
         return False, f'{fallidos} cargas fallidas esta noche'
+    if propio is not None:
+        # D2 (R4-5): un fallo de código da lo mismo sobre el mismo código; espera al arreglo de día (issue `fallo`).
+        if propio.get('clase') == 'codigo':
+            return False, f"fallo de código (firma {propio.get('firma')}): sin reintento, va a la issue `fallo`"
+        # La guarda no es «main avanzó» (cualquier commit de un bot lo mueve): es «ya se intentó esta noche con la
+        # misma firma sobre el mismo código».
+        repetido = next((i for i in de_hoy(libro, now)['intentos'] if i is not propio and i.get('firma')
+                         and i.get('firma') == propio.get('firma') and i.get('sha') == propio.get('sha')), None)
+        if repetido:
+            return False, (f"la ejecución {repetido.get('run')} ya falló esta noche con la firma "
+                           f"{propio.get('firma')} sobre el mismo código")
     return True, f'{fallidos} cargas fallidas esta noche: se reintenta'
 
 
@@ -241,11 +253,25 @@ def _abrir(now, run, intento, args) -> int:
     return 0
 
 
+def resultado_de_la_carga(resultado, informe):
+    """(resultado, clase, firma) del cierre: el del job, afinado con lo que escribió la carga (R4-5). Un job en
+    verde con pasos descartados es `degradado`; uno en rojo toma la clase y la firma del fallo."""
+    informe = informe or {}
+    if resultado == 'success' and informe.get('resultado') == 'degradado':
+        return 'degradado', None, ','.join(p['firma'] for p in informe.get('degradado', []))
+    if resultado == 'failure' and informe.get('resultado') == 'fallido':
+        return resultado, informe.get('clase'), informe.get('firma')
+    return resultado, None, None
+
+
 def _cerrar(now, run, intento, args) -> int:
     # El cierre nunca cambia el resultado de la carga (ni la rama success()/failure() de la cadena): si no se
     # escribe, el intento queda en_curso y el siguiente turno lo cierra como corte.
     try:
-        noche = cerrar(leer(), now, run, intento, args.resultado, sha=_head())
+        import resultado_carga
+        from pathlib import Path
+        final, clase, firma = resultado_de_la_carga(args.resultado, resultado_carga.leer(Path.cwd()))
+        noche = cerrar(leer(), now, run, intento, final, clase, firma, sha=_head())
         escribir(noche, f'Noche {noche["dia"]}: {run} {args.resultado}')
     except Exception as exc:  # noqa: BLE001
         _resumen_job(f'Libro de la noche sin cerrar ({type(exc).__name__}): lo cerrará el siguiente turno.')
