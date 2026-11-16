@@ -69,7 +69,7 @@ def due(data, records, now):
     books = [(last(b), b) for b in data['libros'] if b.get('estado') == 'publicado']
     today = now.date()
     return [b for when, b in sorted(((w, b) for w, b in books if w is not None),
-                                    key=lambda x: (x[0], cercania(x[1], today) if x[0] == '' else 0))]
+                                    key=lambda x: (x[0], cercania(x[1], today) if x[0] == '' else (0, 0)))]
 
 
 def apply_synopsis(book, record):
@@ -137,7 +137,7 @@ def start_publish():
 
 def days_from(book, today):
     """Distancia en días entre la fecha de publicación (completa, solo mes o solo año) y hoy; sin fecha, al final."""
-    value = (book.get('fecha_publicacion') or '')[:10]
+    value = str(book.get('fecha_publicacion') or '')[:10]
     if len(value) in (4, 7):
         value += '-01-01'[len(value) - 4:]
     try:

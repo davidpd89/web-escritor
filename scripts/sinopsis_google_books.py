@@ -18,6 +18,7 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
+import fecha_cercana
 from reading_editorial_sources import editorial_excerpt, editorial_synopsis
 
 API = 'https://www.googleapis.com/books/v1/volumes'
@@ -33,9 +34,9 @@ def consulta_google(clave, timeout=18):
             params['key'] = clave
         req = Request(API + '?' + urlencode(params), headers={'Accept': 'application/json', 'User-Agent': UA})
         try:
-            with urlopen(req, timeout=timeout) as resp:
+            with urlopen(req, timeout=timeout) as resp:  # skipcq: BAN-B310 - URL fija https (API)
                 return json.load(resp)
-        except (HTTPError, URLError, TimeoutError, OSError, ValueError):
+        except (OSError, ValueError):  # HTTPError, URLError y TimeoutError son OSError
             return None
     return consulta
 
@@ -63,10 +64,8 @@ def sinopsis_de(texto):
 
 
 def cercania(book, hoy):
-    try:
-        return abs((date.fromisoformat(book.get('fecha_publicacion', '')) - hoy).days)
-    except ValueError:
-        return 10 ** 6
+    """Fechas cercanas primero (scripts/fecha_cercana.py): la misma regla que las altas."""
+    return fecha_cercana.de_libro(book, hoy)
 
 
 def de_google(respuesta, isbn):
@@ -98,8 +97,11 @@ def rellenar(catalogo, consulta, intentos, hoy, max_libros=120, extraer=de_googl
         respuesta = consulta(book['isbn13'])
         if respuesta is None:
             break  # Google caído o sin cuota: lo que quede, la próxima noche (sin marcar como intentado).
-        hallado = extraer(respuesta, book['isbn13'])
-        textos = sinopsis_de(hallado[1]) if hallado else None
+        try:
+            hallado = extraer(respuesta, book['isbn13'])
+            textos = sinopsis_de(hallado[1]) if hallado else None
+        except Exception:  # noqa: BLE001 - una ficha rara no tumba el lote: ese libro, a reintentar
+            hallado = textos = None
         if not textos:
             intentos[book['isbn13']] = (hoy + timedelta(days=reintento_dias)).isoformat()
             if fallos is not None:

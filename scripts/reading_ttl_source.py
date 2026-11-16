@@ -261,11 +261,11 @@ def consulta_ttl(pausa: float = 1.0, timeout: float = 20):
         time.sleep(max(0.0, pausa - (time.monotonic() - ultimo[0])))
         ultimo[0] = time.monotonic()
         try:
-            with urlopen(Request(ttl_url(isbn), headers={'User-Agent': 'DavidPortoReadingCatalogue/1.0'}), timeout=timeout) as r:
+            with urlopen(Request(ttl_url(isbn), headers={'User-Agent': 'DavidPortoReadingCatalogue/1.0'}), timeout=timeout) as r:  # skipcq: BAN-B310
                 return r.read().decode('utf-8', errors='replace')
         except HTTPError as exc:
             return '' if exc.code in (404, 410) else None
-        except (URLError, TimeoutError, OSError, SourceError):
+        except (OSError, SourceError):  # URLError y TimeoutError son OSError
             return None
     return consulta
 

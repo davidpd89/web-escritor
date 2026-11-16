@@ -22,10 +22,28 @@ def libro(isbn, fecha='2026-11-16', **extra):
     return {'isbn13': isbn, 'estado': 'publicado', 'fecha_publicacion': fecha, **extra}
 
 
+class HilosRevision1383Test(unittest.TestCase):
+    def test_cercania_tolera_fechas_vacias_parciales_y_no_textuales(self):
+        libros = [libro('9788400000001', None), libro('9788400000002', '2020-01-01'),
+                  libro('9788400000003', '', fecha_publicacion_parcial='2026-11'), libro('9788400000004', 20261116)]
+        orden = [b['isbn13'][-1] for b in sorted(libros, key=lambda b: gb.cercania(b, HOY))]
+        self.assertEqual(orden[:2], ['3', '2'], 'el mes en curso antes que 2020; lo ilegible al final')
+
+    def test_una_ficha_rara_no_tumba_el_lote(self):
+        cat = {'libros': [libro('9788400000001'), libro('9788400000002')]}
+        def extraer(respuesta, isbn):
+            if isbn.endswith('1'):
+                raise ValueError('Invalid IPv6 URL')
+            return gb.de_google(respuesta, isbn)
+        intentos = {}
+        self.assertEqual(gb.rellenar(cat, volumen, intentos, HOY, extraer=extraer), 1)
+        self.assertIn('9788400000001', intentos, 'se reintenta otro día')
+
+
 class SinopsisGoogleTest(unittest.TestCase):
     def test_rellena_con_isbn_exacto_y_procedencia(self):
         cat = {'libros': [libro('9788400000001')]}
-        n = gb.rellenar(cat, lambda isbn: volumen(isbn), {}, HOY)
+        n = gb.rellenar(cat, volumen, {}, HOY)
         b = cat['libros'][0]
         self.assertEqual(n, 1)
         self.assertEqual(b['sinopsis_tipo'], 'extracto_editorial')
