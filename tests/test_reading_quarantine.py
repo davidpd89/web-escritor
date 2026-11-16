@@ -94,9 +94,26 @@ class QuarantineTest(unittest.TestCase):
         self.assertIn('sinopsis gritada', out[0]['motivo'])
         self.assertEqual(clean, before)
 
-    def test_flagged_published_book_without_changes_is_a_rule_problem(self):
-        with self.assertRaises(q.build.ValidationError):
-            q.isolate(DATA, ROOT, DATA, flagged={DATA['libros'][0]['id']: 'x'})
+    def test_flagged_published_book_without_changes_is_retired_not_a_rule_problem(self):
+        # 16/11: isbn-9791388205675 llevaba semanas publicado con un solo módulo (su afinidad con "Historia" ronda
+        # el umbral y cruza de un día para otro según crece el catálogo) y, al añadirse ese contrato a la QA de la
+        # PR (#1387), la cuarentena no tenía a qué revertirlo (ya era su versión buena) y paraba el lote entero
+        # cada noche. Revertir sería un no-op: el libro sale de publicación hasta que se corrija el dato.
+        book_id = DATA['libros'][0]['id']
+        clean, out = q.isolate(copy.deepcopy(DATA), ROOT, DATA, flagged={book_id: 'contrato de datos x: un solo módulo'})
+        self.assertEqual([h['libro']['id'] for h in out], [book_id])
+        retired = next(b for b in clean['libros'] if b['id'] == book_id)
+        self.assertEqual(retired['estado'], 'borrador')
+        self.assertNotIn(book_id, {b['id'] for b in clean['libros'] if b['estado'] == 'publicado'})
+
+    def test_flagged_published_book_without_changes_keeps_its_price_history_in_quarantine(self):
+        data = copy.deepcopy(DATA)
+        book_id = next(b['id'] for b in data['libros'] if b.get('formatos_compra'))
+        clean, out = q.isolate(data, ROOT, DATA, flagged={book_id: 'x'})
+        priced = next(b for b in DATA['libros'] if b['id'] == book_id)
+        self.assertEqual(out[0]['libro']['formatos_compra'], priced['formatos_compra'])
+        retired = next(b for b in clean['libros'] if b['id'] == book_id)
+        self.assertFalse(any('precio_centimos' in o for o in retired['formatos_compra']))
 
     def test_flagged_books_only_when_every_failure_names_a_book(self):
         book_id = DATA['libros'][0]['id']
