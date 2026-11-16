@@ -32,6 +32,7 @@ DATA_CONTRACTS = (
     'test_reading_texts.ReadingTextsTest.test_every_published_book_gets_its_own_reader_module',
     'test_reading_texts.ReadingTextsTest.test_families_and_modules_follow_the_evidence',
     'test_reading_texts.ReadingTextsTest.test_affines_share_audience_and_are_described_by_content_not_labels',
+    'test_reading_texts.ReadingTextsTest.test_affines_survive_catalogue_growth',
     'test_atlas_integration_real_catalogue.RealCatalogueBridge.test_every_published_book_resolves_to_an_existing_page',
     'test_book_modified_date_parity.ModifiedDateParity.test_dates_match_published_pages',
 )

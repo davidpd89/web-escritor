@@ -278,6 +278,16 @@ class ReadingTextsTest(unittest.TestCase):
                              ['encaje_documentado', 'lecturas_afines', 'para_quien', 'que_formato_elegir'])
             self.assertNotIn('categorías', json.dumps(saved, ensure_ascii=False))
 
+    def test_affines_survive_catalogue_growth(self):
+        """Un libro con afines no los pierde porque su tema se vuelva común: llevado al límite (ningún afín pasa el
+        umbral de rareza), sigue teniendo afines y su segundo módulo. Así una carga no tumba a un libro ya publicado."""
+        con_afines = [b for b in texts.published(self.data)
+                      if texts.affine_books(self.data, b, {c['id'] for c in builder.categories(self.data, b)})][:40]
+        self.assertTrue(con_afines)
+        with mock.patch.object(texts, 'MIN_AFFINITY', float('inf')):
+            for b in con_afines:
+                self.assertTrue(texts.affine_books(self.data, b, {c['id'] for c in builder.categories(self.data, b)}), b['id'])
+
     def test_affines_share_audience_and_are_described_by_content_not_labels(self):
         """Afines del mismo público y descritos por su sinopsis: así el texto compara libros, no etiquetas del menú."""
         compared = 0
