@@ -5,8 +5,7 @@ Las reglas están en tests/test_noche.py; aquí, que el wrapper delega en el lib
 import importlib.util
 import io
 import sys
-import unittest
-import unittest.mock
+import unittest.mock  # también enlaza `unittest`
 from contextlib import redirect_stdout
 from pathlib import Path
 

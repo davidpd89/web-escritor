@@ -193,45 +193,43 @@ def _resumen_job(texto):
             fh.write(texto + '\n')
 
 
-def main(argv=None) -> int:
-    p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument('accion', choices=['juez', 'abrir', 'cerrar', 'cadena', 'reintento'])
-    p.add_argument('--motivo', default='manual')
-    p.add_argument('--resultado', default='failure')
-    p.add_argument('--aceptados', type=int, default=0)
-    args = p.parse_args(argv)
-    now = datetime.now(timezone.utc)
-    run = int(os.environ.get('GITHUB_RUN_ID') or 0)
-    intento = int(os.environ.get('GITHUB_RUN_ATTEMPT') or 1)
-    if args.accion == 'juez':
-        try:
-            cargar, porque = decidir(leer(), now)
-        except Exception as exc:  # noqa: BLE001 - sin libro se carga: el job intake vuelve a decidir con el turno
-            cargar, porque = True, f'libro de la noche ilegible ({type(exc).__name__}): decide el job intake'
-        print(f"run={'true' if cargar else 'false'}")
-        _resumen_job(f"Reloj: {'carga' if cargar else 'no carga'}, {porque}.")
-        return 0
-    if args.accion == 'abrir':
-        # Como el juez: sin libro legible o escribible se carga. El turno del grupo de concurrencia ya garantiza
-        # una sola carga a la vez; lo que se pierde es el apunte, no la noche.
-        try:
-            libro = leer()
-        except Exception as exc:  # noqa: BLE001
-            libro = None
-            _resumen_job(f'Libro de la noche ilegible ({type(exc).__name__}): se decide sin él.')
-        cargar, porque, noche = abrir(libro, now, run, intento, os.environ.get('GITHUB_SHA', ''), args.motivo)
-        try:
-            escribir(noche, f'Noche {noche["dia"]}: {"empieza" if cargar else "no carga"} {run}')
-        except Exception as exc:  # noqa: BLE001
-            _resumen_job(f'Libro de la noche sin guardar ({type(exc).__name__}): la carga sigue.')
-        print(f"cargar={'true' if cargar else 'false'}")
-        _resumen_job(f"Libro de la noche: {'carga' if cargar else 'no carga'}, {porque}.")
-        return 0
+def _juez(now, _run, _intento, _args) -> int:
+    try:
+        cargar, porque = decidir(leer(), now)
+    except Exception as exc:  # noqa: BLE001 - sin libro se carga: el job intake vuelve a decidir con el turno
+        cargar, porque = True, f'libro de la noche ilegible ({type(exc).__name__}): decide el job intake'
+    print(f"run={'true' if cargar else 'false'}")
+    _resumen_job(f"Reloj: {'carga' if cargar else 'no carga'}, {porque}.")
+    return 0
+
+
+def _abrir(now, run, intento, args) -> int:
+    # Como el juez: sin libro legible o escribible se carga. El turno del grupo de concurrencia ya garantiza
+    # una sola carga a la vez; lo que se pierde es el apunte, no la noche.
+    try:
+        libro = leer()
+    except Exception as exc:  # noqa: BLE001
+        libro = None
+        _resumen_job(f'Libro de la noche ilegible ({type(exc).__name__}): se decide sin él.')
+    cargar, porque, noche = abrir(libro, now, run, intento, os.environ.get('GITHUB_SHA', ''), args.motivo)
+    try:
+        escribir(noche, f'Noche {noche["dia"]}: {"empieza" if cargar else "no carga"} {run}')
+    except Exception as exc:  # noqa: BLE001
+        _resumen_job(f'Libro de la noche sin guardar ({type(exc).__name__}): la carga sigue.')
+    print(f"cargar={'true' if cargar else 'false'}")
+    _resumen_job(f"Libro de la noche: {'carga' if cargar else 'no carga'}, {porque}.")
+    return 0
+
+
+def _cerrar(now, run, intento, args) -> int:
+    noche = cerrar(leer(), now, run, intento, args.resultado)
+    escribir(noche, f'Noche {noche["dia"]}: {run} {args.resultado}')
+    return 0
+
+
+def _despacho(now, run, intento, args) -> int:
+    """cadena o reintento: 0 si toca despachar (y queda apuntado como pendiente), 1 si no."""
     libro = leer()
-    if args.accion == 'cerrar':
-        noche = cerrar(libro, now, run, intento, args.resultado)
-        escribir(noche, f'Noche {noche["dia"]}: {run} {args.resultado}')
-        return 0
     if args.accion == 'cadena':
         toca, porque = toca_cadena(libro, now, args.aceptados)
     else:
@@ -241,6 +239,21 @@ def main(argv=None) -> int:
         noche = pendiente(libro, now, args.accion)
         escribir(noche, f'Noche {noche["dia"]}: {args.accion} despachado tras {run}')
     return 0 if toca else 1
+
+
+ACCIONES = {'juez': _juez, 'abrir': _abrir, 'cerrar': _cerrar, 'cadena': _despacho, 'reintento': _despacho}
+
+
+def main(argv=None) -> int:
+    p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    p.add_argument('accion', choices=list(ACCIONES))
+    p.add_argument('--motivo', default='manual')
+    p.add_argument('--resultado', default='failure')
+    p.add_argument('--aceptados', type=int, default=0)
+    args = p.parse_args(argv)
+    run = int(os.environ.get('GITHUB_RUN_ID') or 0)
+    intento = int(os.environ.get('GITHUB_RUN_ATTEMPT') or 1)
+    return ACCIONES[args.accion](datetime.now(timezone.utc), run, intento, args)
 
 
 if __name__ == '__main__':

@@ -7,8 +7,7 @@ import io
 import json
 import random
 import sys
-import unittest
-import unittest.mock
+import unittest.mock  # también enlaza `unittest`
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 

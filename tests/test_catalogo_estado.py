@@ -34,7 +34,7 @@ class EstadoTest(unittest.TestCase):
         return patch.multiple(estado, ROOT=repo, WORK=repo / '.local/catalogo')
 
     def test_first_run_starts_empty_and_saves_then_restores_elsewhere(self):
-        a, b = self.repos
+        a, b = self.repos[0], self.repos[1]
         with self.use(a):
             self.assertEqual(estado.restaurar(), 0)
             work = a / '.local/catalogo'
@@ -61,7 +61,7 @@ class EstadoTest(unittest.TestCase):
 
     def test_libro_de_la_noche_y_estado_no_se_pisan(self):
         """R4-1: noche.json lo escribe el job intake mientras la ingesta guarda su estado en la misma rama."""
-        a, b = self.repos
+        a, b = self.repos[0], self.repos[1]
         with self.use(a):
             (a / '.local/catalogo').mkdir(parents=True)
             (a / '.local/catalogo/semillas.json').write_text('{"cola": [1]}', encoding='utf-8')
