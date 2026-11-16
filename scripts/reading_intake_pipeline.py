@@ -32,7 +32,7 @@ from reading_taxonomy import apply_derived, extra_categories, non_reading_reason
 from reading_catalogue_publishers import catalogue_publisher, PublisherError
 from reading_generic_source import generic_edition, generic_links, reviewed_hosts
 from reading_planeta_source import COVER_HOSTS as PLANETA_COVER_HOSTS, planeta_edition, planeta_links
-from reading_ttl_source import sitemap_children, sitemap_products, ttl_edition, ttl_url, typographic_cover, url_isbn
+from reading_ttl_source import consulta_ttl, ttl_sinopsis, sitemap_children, sitemap_products, ttl_edition, ttl_url, typographic_cover, url_isbn
 from reading_titles import proper_words, tidy_title
 from urllib.parse import urlsplit
 from reading_author_wikipedia import WikipediaSummaries, fill_missing_bios
@@ -833,6 +833,12 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                 stats['pending'] += 1
         update_authors(authors, catalogue, new_books + updated_books, today)
         stats['synopses_completed'] = fill_full_synopses(catalogue, providers, http, int(config.get('max_synopsis_backfill', 6)))
+        # Las altas de Amazon llegan sin sinopsis: primero la ficha de todostuslibros por ISBN (1 s por petición,
+        # 600 por noche ~10 min, cercanas primero) y después Google Books para lo que quede.
+        if os.getenv('READING_SYNOPSIS_NETWORK', '1') == '1' and not os.getenv('PYTEST_CURRENT_TEST'):
+            stats['synopses_ttl'] = sinopsis_google_books.rellenar(
+                catalogue, consulta_ttl(), state.setdefault('sinopsis_ttl', {}), day,
+                int(config.get('max_ttl_synopsis', 600)), extraer=ttl_sinopsis)
         # Respaldo para las fichas que siguen sin sinopsis: Google Books por ISBN exacto y en español (P1-11).
         # Sin clave (tests, ensayos locales) no sale a la red.
         google_key = os.getenv('GOOGLE_BOOKS_API_KEY', '').strip()
