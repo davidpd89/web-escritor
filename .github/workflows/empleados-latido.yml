@@ -1,0 +1,66 @@
+name: Latido de empleados
+
+# Pasa lista a diario: qué workflow programado no ha fichado o lleva varias ejecuciones en rojo.
+# Mantiene un único issue con la etiqueta «latido» y lo cierra cuando todos vuelven a verde.
+on:
+  pull_request:
+    paths:
+      - "data/expertos.json"
+      - "scripts/empleados_latido.py"
+      - "tests/test_empleados_registro.py"
+      - ".github/workflows/**"
+  workflow_dispatch:
+  schedule:
+    - cron: '43 6 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  latido:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+      issues: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            data/expertos.json
+            scripts/empleados_latido.py
+            tests/test_empleados_registro.py
+            .github/workflows
+      - name: Registro y workflows cuadran
+        run: |
+          python scripts/empleados_latido.py registro
+          python -m unittest tests.test_empleados_registro
+      - name: Pasar lista
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENTO: ${{ github.event_name }}
+        run: |
+          # En una PR solo se mide; el issue lo toca la ejecución diaria o la manual.
+          if [ "$EVENTO" = "pull_request" ]; then
+            python scripts/empleados_latido.py latido --salida latido.md
+          else
+            python scripts/empleados_latido.py latido --salida latido.md --issue
+          fi
+          cat latido.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Guardar informe
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: latido-empleados
+          path: latido.md
+          if-no-files-found: ignore
+          retention-days: 30

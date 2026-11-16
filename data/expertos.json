@@ -1,0 +1,209 @@
+{
+  "version": 1,
+  "actualizado": "2026-11-16",
+  "nota": "Plantilla de empleados automáticos. Cada workflow de .github/workflows pertenece a un único departamento; scripts/empleados_latido.py lo comprueba y mide a diario quién ficha. Todo es gratuito: lo descartado dice por qué.",
+  "plazos": {
+    "radar-source-monitor": 6
+  },
+  "departamentos": [
+    {
+      "id": "revision-codigo",
+      "nombre": "Revisión de código",
+      "mision": "Leer cada PR y el código existente antes de que llegue a producción.",
+      "workflows": ["revision-existente"],
+      "externos": ["CodeRabbit", "SonarCloud", "DeepSource", "Codex"],
+      "pendientes": [
+        {"herramienta": "Expertos por rol (PR #1373)", "motivo": "Un experto distinto cada día abre hasta 3 issues; falta dejar su CI en verde y fusionar."}
+      ],
+      "descartados": [
+        {"herramienta": "Reviewdog", "motivo": "Duplica los comentarios en línea que ya ponen CodeRabbit, SonarCloud y DeepSource."}
+      ]
+    },
+    {
+      "id": "calidad",
+      "nombre": "Calidad",
+      "mision": "Que nada entre en main sin pasar la batería completa de pruebas.",
+      "workflows": ["required-merge-gate", "tool-tests", "release-readiness-pre-main", "design-evidence-hardening", "lab-mejoras-offline", "research-editoriales-offline"],
+      "descartados": [
+        {"herramienta": "MegaLinter", "motivo": "Lanza decenas de linters por PR sobre una cola de Actions ya saturada; se añaden uno a uno los que aportan."},
+        {"herramienta": "ESLint y Biome", "motivo": "El JavaScript ya lo analizan SonarCloud, DeepSource y CodeQL en cada PR."}
+      ]
+    },
+    {
+      "id": "limpieza",
+      "nombre": "Limpieza",
+      "mision": "Código muerto, duplicados y formato.",
+      "workflows": [],
+      "vacante": "Nadie busca código muerto ni duplicado. SonarCloud mide duplicación en lo nuevo, no en lo heredado.",
+      "pendientes": [
+        {"herramienta": "jscpd", "motivo": "Informe semanal de duplicados en scripts/ y assets/; primero solo informativo."},
+        {"herramienta": "Knip", "motivo": "Ficheros y exportaciones sin uso en qa/ y tests/; hay cientos de .mjs y necesita configuración de entradas."}
+      ]
+    },
+    {
+      "id": "ciberseguridad",
+      "nombre": "Ciberseguridad",
+      "mision": "Vulnerabilidades en el código y cabeceras de seguridad en producción.",
+      "workflows": ["codeql", "csp-public-shell-qa", "live-security-headers-audit", "assistant-hardening-qa", "runtime-scoping-qa"],
+      "descartados": [
+        {"herramienta": "Semgrep", "motivo": "CodeQL y SonarCloud ya cubren JavaScript y Python; se revisa si aparecen fallos que no ven."}
+      ]
+    },
+    {
+      "id": "dependencias",
+      "nombre": "Dependencias",
+      "mision": "Paquetes con vulnerabilidades conocidas o comprometidos, y versiones al día.",
+      "workflows": ["npm-supply-chain-watch"],
+      "externos": ["Dependabot (.github/dependabot.yml, una PR agrupada al mes)", "OSV-Scanner (dentro de higiene-repo)"],
+      "descartados": [
+        {"herramienta": "Renovate", "motivo": "Hace lo mismo que Dependabot, que ya viene con GitHub y no necesita instalar otra app."}
+      ]
+    },
+    {
+      "id": "seguridad-github",
+      "nombre": "Seguridad de GitHub y de la propia CI",
+      "mision": "Que los workflows estén bien escritos, no filtren secretos y no den más permisos de los necesarios.",
+      "workflows": ["higiene-repo", "empleados-latido"],
+      "pendientes": [
+        {"herramienta": "OpenSSF Scorecard", "motivo": "Nota global del repositorio; se añade cuando actionlint y zizmor estén limpios, para no empezar con una lista de avisos ya conocidos."}
+      ]
+    },
+    {
+      "id": "seo-tecnico",
+      "nombre": "SEO técnico",
+      "mision": "Que cada página sea rastreable, tenga su canonical, sus datos estructurados y esté en los índices.",
+      "workflows": ["lighthouse-ci", "content-index-check", "public-artifact-contract", "machine-authority-check", "global-discoverability-closure-qa", "findability-browser-qa", "section-context-parity-qa", "public-time-semantics-qa"],
+      "descartados": [
+        {"herramienta": "Unlighthouse", "motivo": "Recorrer el sitio entero con Lighthouse tarda horas con el catálogo actual; lighthouse-ci mide una muestra por PR."}
+      ]
+    },
+    {
+      "id": "seo-google",
+      "nombre": "SEO en Google y buscadores",
+      "mision": "Saber qué indexa Google y con qué consultas llega la gente.",
+      "workflows": [],
+      "vacante": "No hay nadie leyendo Search Console de forma automática. Necesita una cuenta de servicio de Google (gratuita) guardada como secreto.",
+      "pendientes": [
+        {"herramienta": "Search Console API", "motivo": "Informe semanal de páginas no indexadas y consultas; requiere que David cree la cuenta de servicio y la añada a la propiedad."}
+      ]
+    },
+    {
+      "id": "rendimiento",
+      "nombre": "Rendimiento",
+      "mision": "Que la web cargue rápido en móvil y no empeore con cada cambio.",
+      "workflows": ["performance-budget-qa", "live-compression-origin-audit"],
+      "descartados": [
+        {"herramienta": "sitespeed.io", "motivo": "Mide lo mismo que Lighthouse CI y el presupuesto de rendimiento, con ejecuciones más largas."}
+      ]
+    },
+    {
+      "id": "peso",
+      "nombre": "Peso del sitio",
+      "mision": "Imágenes en su formato y tamaño, y el sitio dentro del límite del alojamiento.",
+      "workflows": ["image-format-ladder-qa"],
+      "pendientes": [
+        {"herramienta": "Freno de tamaño (PR #1402)", "motivo": "Para la carga antes de llegar al tope de 1 GB de Pages; pendiente de fusionar."}
+      ],
+      "descartados": [
+        {"herramienta": "Size Limit", "motivo": "Está pensado para paquetes de JavaScript; aquí pesan las portadas y las páginas generadas."}
+      ]
+    },
+    {
+      "id": "accesibilidad",
+      "nombre": "Accesibilidad",
+      "mision": "Que la web se pueda usar con teclado, lector de pantalla y zoom.",
+      "workflows": ["pa11y-baseline", "a11y-regressions-browser-qa", "sitewide-reflow-qa"]
+    },
+    {
+      "id": "enlaces",
+      "nombre": "Enlaces",
+      "mision": "Ningún enlace roto, dentro o fuera de la web.",
+      "workflows": ["broken-links", "navigation-roundtrip-audit", "navigation-menus-qa"],
+      "descartados": [
+        {"herramienta": "Linkinator", "motivo": "Lychee ya recorre los enlaces cada semana."}
+      ]
+    },
+    {
+      "id": "analitica",
+      "nombre": "Analítica y privacidad",
+      "mision": "Medir sin romper el consentimiento ni enviar datos a quien no toca.",
+      "workflows": ["analytics-hostname-allowlist-qa", "analytics-taxonomy-qa", "consent-banner-visual-viewport-qa", "newsletter-consent-qa", "privacy-legal-browser-qa", "third-party-integrations-qa"]
+    },
+    {
+      "id": "testing-funcional",
+      "nombre": "Testing funcional",
+      "mision": "Que cada sección de la web haga lo que promete en un navegador de verdad.",
+      "workflows": ["autor-browser-qa", "convocatorias-browser-qa", "cuaderno-browser-qa", "cuaderno-topics-browser-qa", "editoriales-browser-qa", "eventos-browser-qa", "ferias-browser-qa", "ferias-archive-parity-qa", "premios-browser-qa", "prensa-browser-qa", "metodologia-editorial-browser-qa", "identity-public-browser-qa", "samuel-ecosystem-browser-qa", "explore-territories-qa", "home-editorial-fallback-qa", "home-map-interaction-qa", "pro-resources-qa", "tools-browser-qa", "tools-events-memory-browser-qa", "tools-publishing-browser-qa", "tools-structure-browser-qa", "manecillas-buy-cta-qa", "manecillas-fragments-nav-qa", "manecillas-funnel-qa", "pwa-offline-qa", "sitewide-console-errors-qa", "assistant-copy-qa"]
+    },
+    {
+      "id": "visual",
+      "nombre": "Regresión visual",
+      "mision": "Que un cambio no descoloque lo que ya se veía bien.",
+      "workflows": ["visual-regression-qa", "small-ui-audit"],
+      "descartados": [
+        {"herramienta": "Lost Pixel", "motivo": "visual-regression-qa ya compara capturas con Playwright sin depender de un servicio externo."}
+      ]
+    },
+    {
+      "id": "compatibilidad",
+      "nombre": "Compatibilidad entre navegadores",
+      "mision": "Que funcione igual en Chromium, Firefox y WebKit.",
+      "workflows": ["cross-engine-smoke"],
+      "descartados": [
+        {"herramienta": "BrowserStack Open Source", "motivo": "Exige repositorio de código abierto y solicitud manual; Playwright ya cubre los tres motores."}
+      ]
+    },
+    {
+      "id": "contenidos",
+      "nombre": "Contenidos",
+      "mision": "Datos editoriales correctos y textos coherentes entre páginas.",
+      "workflows": ["editorial-facts-check", "content-parity-manecillas"],
+      "pendientes": [
+        {"herramienta": "cspell en español", "motivo": "Ortografía de los textos propios (no de las sinopsis de terceros); necesita un diccionario de nombres propios para no dar miles de falsos avisos."}
+      ],
+      "descartados": [
+        {"herramienta": "Vale", "motivo": "Sus reglas de estilo están hechas para inglés."}
+      ]
+    },
+    {
+      "id": "catalogo",
+      "nombre": "Catálogo y validación de datos",
+      "mision": "Que la carga nocturna entre entera, aparte el libro defectuoso y no rompa las fichas.",
+      "workflows": ["reading-catalogue-sync", "reading-coverage-check", "reading-failure-resilience", "reading-intake-qa", "reading-general-catalogue-ux-qa", "recommendations-browser-qa", "atlas-catalogue-qa", "atlas-contract", "atlas-directory-sync"],
+      "pendientes": [
+        {"herramienta": "JSON Schema del catálogo", "motivo": "schemas/ solo cubre el atlas; un esquema de data/reading-catalogue.json validaría cada libro antes de construir páginas."}
+      ]
+    },
+    {
+      "id": "monitorizacion",
+      "nombre": "Monitorización de producción",
+      "mision": "Enterarse antes que los lectores de que la web publicada falla.",
+      "workflows": ["production-smoke-monitor", "live-production-pwa-qa", "postdeploy-deep-audit", "staging-smoke-test", "weekly-full-audit"],
+      "descartados": [
+        {"herramienta": "Upptime", "motivo": "Hace un commit cada pocos minutos y consume la cola de Actions; production-smoke-monitor ya mira cada 6 horas."},
+        {"herramienta": "Uptime Kuma", "motivo": "Necesita un servidor propio encendido siempre."}
+      ]
+    },
+    {
+      "id": "automatizacion",
+      "nombre": "Automatización y publicación",
+      "mision": "Desplegar la web y publicar en los canales sin intervención.",
+      "workflows": ["deploy-pages", "radar-clock-refresh", "radar-source-monitor", "reading-telegram-publish", "reading-telegram-preview", "reading-pinterest-rss-qa"],
+      "descartados": [
+        {"herramienta": "Release Please y Changesets", "motivo": "Sirven para versionar paquetes; la web se publica en continuo, sin versiones."}
+      ]
+    },
+    {
+      "id": "gestion-pr",
+      "nombre": "Gestión de PR y mejoras",
+      "mision": "Ordenar las PR y los turnos de mejora para que no se pisen.",
+      "workflows": ["mejoras-web-grupo", "mejoras-web-preview", "qa-gpt-grupo"],
+      "pendientes": [
+        {"herramienta": "Turno de issues (PR #1374)", "motivo": "Reparto y reparación nocturna de issues; falta dejar su CI en verde y fusionar."}
+      ],
+      "descartados": [
+        {"herramienta": "Danger JS", "motivo": "Las normas de PR ya las aplican el Required merge gate y la skill de revisión de carga."}
+      ]
+    }
+  ]
+}
