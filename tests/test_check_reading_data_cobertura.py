@@ -47,29 +47,30 @@ def asserts_sin_mensaje(metodo):
                     yield f'{metodo.name}:{x.lineno} {nombre}'
 
 
-def metodos():
+def metodos(solo_catalogo=False):
+    """Métodos test_* de tests/ (con `solo_catalogo`, solo de los módulos que leen el catálogo real)."""
     for fichero in sorted((ROOT / 'tests').glob('test_*.py')):
         fuente = fichero.read_text(encoding='utf-8', errors='ignore')
+        if solo_catalogo and 'reading-catalogue.json' not in fuente:
+            continue
         for clase in (n for n in ast.parse(fuente).body if isinstance(n, ast.ClassDef)):
             for metodo in (n for n in clase.body if isinstance(n, ast.FunctionDef) and n.name.startswith('test')):
                 yield f'{fichero.stem}.{clase.name}.{metodo.name}', metodo
 
 
+def recorre_libros(metodo):
+    """¿Hay un bucle (o comprensión) sobre libros con aserciones en su ámbito?"""
+    for bucle in (n for n in ast.walk(metodo) if isinstance(n, (ast.For, ast.comprehension))):
+        ambito = bucle if isinstance(bucle, ast.For) else metodo
+        if any(k in ast.unparse(bucle.iter) for k in ITERABLES) and any(
+                isinstance(x, ast.Call) and getattr(x.func, 'attr', '').startswith('assert') for x in ast.walk(ambito)):
+            return True
+    return False
+
+
 def por_libro():
     """Métodos test_* de módulos que leen el catálogo real con un bucle sobre libros y aserciones dentro."""
-    for fichero in sorted((ROOT / 'tests').glob('test_*.py')):
-        fuente = fichero.read_text(encoding='utf-8', errors='ignore')
-        if 'reading-catalogue.json' not in fuente:
-            continue
-        for clase in (n for n in ast.parse(fuente).body if isinstance(n, ast.ClassDef)):
-            for metodo in (n for n in clase.body if isinstance(n, ast.FunctionDef) and n.name.startswith('test')):
-                for bucle in (n for n in ast.walk(metodo) if isinstance(n, (ast.For, ast.comprehension))):
-                    ambito = bucle if isinstance(bucle, ast.For) else metodo
-                    asserts = any(isinstance(x, ast.Call) and getattr(x.func, 'attr', '').startswith('assert')
-                                  for x in ast.walk(ambito))
-                    if asserts and any(k in ast.unparse(bucle.iter) for k in ITERABLES):
-                        yield f'{fichero.stem}.{clase.name}.{metodo.name}'
-                        break
+    return [nombre for nombre, metodo in metodos(solo_catalogo=True) if recorre_libros(metodo)]
 
 
 class CoberturaPuertaTest(unittest.TestCase):
