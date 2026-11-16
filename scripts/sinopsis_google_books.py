@@ -13,7 +13,7 @@ from __future__ import annotations
 
 import json
 import re
-from datetime import timedelta
+from datetime import date, timedelta
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
@@ -116,11 +116,36 @@ def rellenar(catalogo, consulta, intentos, hoy, max_libros=120, extraer=de_googl
     return puestas
 
 
-def pendientes(catalogo, fallos, minimo=2):
-    """ISBN publicados sin sinopsis en los que Google ya falló `minimo` veces: a buscar a mano (u otra fuente).
-    Poda `fallos` de los que ya tienen sinopsis o dejaron de estar publicados."""
+PLAZO_MANUAL = 20  # días sin sinopsis antes de pasar a mano o a GPT (el compromiso es que ninguna llegue a 30)
+VENCIDA = 30
+
+
+def pendientes(catalogo, fallos, minimo=2, desde=None, hoy=None, plazo=PLAZO_MANUAL):
+    """ISBN publicados sin sinopsis a buscar a mano (o con GPT): los que Google ya falló `minimo` veces y, con
+    `desde` (ISBN -> primer día visto sin sinopsis, se anota aquí), los que llevan `plazo` días o más, aunque las
+    fuentes automáticas sigan intentándolo. Los más antiguos primero. Poda `fallos` y `desde` de los que ya tienen
+    sinopsis o dejaron de estar publicados."""
     vacios = {b['isbn13'] for b in catalogo['libros'] if b.get('estado') == 'publicado' and b.get('isbn13')
               and not b.get('sinopsis_breve') and not b.get('sinopsis_completa') and b.get('sinopsis_tipo') != 'resumen_propio'}
-    for isbn in [i for i in fallos if i not in vacios]:
-        del fallos[isbn]
-    return sorted(i for i, n in fallos.items() if n >= minimo)
+    for registro in (fallos, desde if desde is not None else {}):
+        for isbn in [i for i in registro if i not in vacios]:
+            del registro[isbn]
+    lista = {i for i, n in fallos.items() if n >= minimo}
+    if desde is not None and hoy is not None:
+        for isbn in vacios:
+            desde.setdefault(isbn, hoy.isoformat())
+        lista |= {i for i in vacios if dias_sin(desde, i, hoy) >= plazo}
+    return sorted(lista, key=lambda i: (-dias_sin(desde or {}, i, hoy), i))
+
+
+def dias_sin(desde, isbn, hoy):
+    """Días que lleva el ISBN sin sinopsis según `desde` (0 si no consta o la fecha no se lee)."""
+    try:
+        return (hoy - date.fromisoformat(desde[isbn])).days
+    except (KeyError, TypeError, ValueError):
+        return 0
+
+
+def vencidas(desde, hoy, limite=VENCIDA):
+    """Cuántos ISBN llevan `limite` días o más sin sinopsis (debe ser 0: lo vigila el informe de cada carga)."""
+    return sum(dias_sin(desde, i, hoy) >= limite for i in desde)

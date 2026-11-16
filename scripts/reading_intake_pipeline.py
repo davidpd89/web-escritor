@@ -818,8 +818,12 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
             day, int(config.get('max_google_synopsis', 120)),
             fallos=state.setdefault('sinopsis_fallos_google', {})) if google_key and red else 0
         # La lista, en el estado (para la búsqueda manual o con GPT); en el informe, cuántos son.
-        state['sinopsis_pendientes'] = sinopsis_google_books.pendientes(catalogue, state.setdefault('sinopsis_fallos_google', {}))
+        # Plazo: con 20 días sin sinopsis entra en la lista aunque las fuentes sigan probando; ninguna llega a 30.
+        state['sinopsis_pendientes'] = sinopsis_google_books.pendientes(
+            catalogue, state.setdefault('sinopsis_fallos_google', {}), desde=state.setdefault('sinopsis_desde', {}),
+            hoy=day)
         stats['synopses_pending_manual'] = len(state['sinopsis_pendientes'])
+        stats['synopses_overdue_30d'] = sinopsis_google_books.vencidas(state['sinopsis_desde'], day)
         publicadas = [b for b in catalogue['libros'] if b.get('estado') == 'publicado']
         # Cobertura de sinopsis real (objetivo P1-11: ≥ 60 %), en el informe de cada carga.
         stats['synopsis_coverage'] = round(sum(bool(b.get('sinopsis_breve')) for b in publicadas) / max(1, len(publicadas)), 3)

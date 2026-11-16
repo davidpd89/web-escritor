@@ -1,7 +1,7 @@
 """P1-11: sinopsis de respaldo desde Google Books, solo con ISBN exacto, en español y con procedencia https."""
 import sys
 import unittest
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
@@ -38,6 +38,29 @@ class HilosRevision1383Test(unittest.TestCase):
         intentos = {}
         self.assertEqual(gb.rellenar(cat, volumen, intentos, HOY, extraer=extraer), 1)
         self.assertIn('9788400000001', intentos, 'se reintenta otro día')
+
+
+class PlazoSinopsisTest(unittest.TestCase):
+    """Ningún libro pasa 30 días sin sinopsis: a los 20 entra en la lista manual/GPT aunque Google no haya fallado."""
+
+    def test_a_los_veinte_dias_pasa_a_mano_los_mas_antiguos_primero(self):
+        cat = {'libros': [libro('9788400000001'), libro('9788400000002'), libro('9788400000003')]}
+        desde = {}
+        self.assertEqual(gb.pendientes(cat, {}, desde=desde, hoy=HOY), [], 'el primer día solo se anota')
+        self.assertEqual(set(desde), {'9788400000001', '9788400000002', '9788400000003'})
+        desde['9788400000002'] = (HOY - timedelta(days=25)).isoformat()
+        desde['9788400000003'] = (HOY - timedelta(days=21)).isoformat()
+        self.assertEqual(gb.pendientes(cat, {}, desde=desde, hoy=HOY), ['9788400000002', '9788400000003'])
+        self.assertEqual(gb.vencidas(desde, HOY), 0)
+        desde['9788400000002'] = (HOY - timedelta(days=31)).isoformat()
+        self.assertEqual(gb.vencidas(desde, HOY), 1)
+
+    def test_con_sinopsis_sale_del_registro(self):
+        cat = {'libros': [libro('9788400000001')]}
+        desde = {'9788400000001': '2020-01-01', '9788400000009': 'basura'}
+        cat['libros'][0]['sinopsis_breve'] = 'x' * 40
+        self.assertEqual(gb.pendientes(cat, {}, desde=desde, hoy=HOY), [])
+        self.assertEqual(desde, {})
 
 
 class SinopsisGoogleTest(unittest.TestCase):
