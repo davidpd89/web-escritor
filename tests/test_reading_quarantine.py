@@ -109,7 +109,7 @@ class QuarantineTest(unittest.TestCase):
 
     def test_flagged_books_also_by_isbn(self):
         """El 16/11 el contrato de títulos anónimos citaba «Título · ISBN13» sin id y la carga paró entera."""
-        book = next(b for b in DATA['libros'] if b.get('isbn13'))
+        book = [b for b in DATA['libros'] if b.get('isbn13')][0]
         failures = [{'test': 't.test_titles', 'texto': f"AssertionError: 3 not less than or equal to 2 : ['Algo · {book['isbn13']}']"}]
         self.assertEqual(list(q.flagged_books(failures, DATA)), [book['id']])
 
