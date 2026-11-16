@@ -1,0 +1,61 @@
+name: Código duplicado
+
+# Empleado gratuito: jscpd busca bloques copiados (15 líneas o más) en scripts/, qa/ y assets/*.js.
+# Semanal e informativo: deja la cifra y la lista de clones en el resumen y no bloquea. No corre en las PR
+# (SonarCloud ya mide la duplicación de lo nuevo); este mira lo heredado. Configuración: qa/jscpd.json.
+# Medido el 16/11/2026: 35 clones, 0,8 % de líneas duplicadas en 604 ficheros, unos 30 segundos.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 7 * * 1'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  jscpd:
+    name: jscpd
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /scripts/
+            /qa/
+            /assets/*.js
+      - name: jscpd
+        id: jscpd
+        continue-on-error: true
+        run: |
+          npx --yes jscpd@4 --config qa/jscpd.json scripts qa assets/*.js > /dev/null
+      - name: Resumen
+        if: always()
+        run: |
+          python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          from pathlib import Path
+          informe = Path('jscpd-informe/jscpd-report.json')
+          print('## Código duplicado (jscpd, informativo)\n')
+          if not informe.exists():
+              print('jscpd no dejó informe: ver el log del paso «jscpd».')
+              raise SystemExit
+          datos = json.loads(informe.read_text(encoding='utf-8'))
+          total = datos['statistics']['total']
+          print(f"{total['clones']} clones, {total['duplicatedLines']} líneas duplicadas "
+                f"({total['percentage']:.1f} %) en {total['sources']} ficheros.\n")
+          clones = sorted(datos['duplicates'], key=lambda c: -c['lines'])[:40]
+          if clones:
+              print('| Líneas | Primero | Segundo |\n| ---: | --- | --- |')
+              for c in clones:
+                  a, b = c['firstFile'], c['secondFile']
+                  print(f"| {c['lines']} | `{a['name']}:{a['start']}` | `{b['name']}:{b['start']}` |")
+          PY
