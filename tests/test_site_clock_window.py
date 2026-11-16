@@ -2,9 +2,9 @@
 import os
 import sys
 import unittest
+import unittest.mock as mock
 from datetime import datetime, timezone
 from pathlib import Path
-from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -27,9 +27,12 @@ class ClockWindow(unittest.TestCase):
 
     def test_quien_decide_refrescar_es_estricto(self):
         # Si el refresco fuese tolerante, vería «al día» unos generados de ayer y no regeneraría.
-        for wf in ("radar-clock-refresh.yml", "postdeploy-deep-audit.yml"):
-            text = (ROOT / ".github" / "workflows" / wf).read_text(encoding="utf-8")
-            self.assertIn('RELOJ_ESTRICTO: "1"', text, wf)
+        text = (ROOT / ".github" / "workflows" / "radar-clock-refresh.yml").read_text(encoding="utf-8")
+        self.assertIn('RELOJ_ESTRICTO: "1"', text)
+        # La auditoría también corre en PR: allí tolerante, estricta en push/cron/dispatch.
+        text = (ROOT / ".github" / "workflows" / "postdeploy-deep-audit.yml").read_text(encoding="utf-8")
+        self.assertIn("RELOJ_ESTRICTO: ${{ github.event_name == 'pull_request' && '0' || '1' }}", text)
+        self.assertNotIn('RELOJ_ESTRICTO: "1"', text)
 
 
 if __name__ == "__main__":
