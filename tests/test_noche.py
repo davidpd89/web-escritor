@@ -278,5 +278,13 @@ class GuardiaTest(unittest.TestCase):
             self.assertIn(f'            {script}\n', wf)
 
 
+class AperturaPerdidaTest(unittest.TestCase):
+    def test_si_la_apertura_no_se_escribio_el_cierre_anota_el_fallo(self):
+        ahora = noche.datetime(2026, 11, 16, 2, 0, tzinfo=noche.timezone.utc)
+        libro = noche.cerrar(None, ahora, 7, 1, 'failure', 'red')
+        self.assertEqual(noche.resumen(libro, ahora)['fallidos'], 1)
+        self.assertEqual(libro['intentos'][0]['run'], 7)
+
+
 if __name__ == '__main__':
     unittest.main()

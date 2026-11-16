@@ -160,6 +160,12 @@ def cerrar(libro, now, run, intento, resultado, clase=None, firma=None, sha=None
                 if sha:  # el segundo intento hace reset --hard origin/main: el código que acabó la carga
                     entrada['sha'] = sha
             break
+    else:
+        # la escritura de apertura falló: el resultado se anota igual, así cuenta para reintentos y MAX_FALLIDOS
+        if final is not None and not any(i.get('run') == run and i.get('intento') == intento
+                                         for i in noche['intentos']):
+            noche['intentos'].append({'run': run, 'intento': intento, 'sha': sha, 'motivo': None, 'inicio': iso(now),
+                                      'fin': iso(now), 'resultado': final, 'clase': clase, 'firma': firma})
     return noche
 
 
