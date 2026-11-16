@@ -6,9 +6,9 @@ import importlib.util
 import io
 import sys
 import unittest
+import unittest.mock
 from contextlib import redirect_stdout
 from pathlib import Path
-from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
@@ -22,8 +22,8 @@ spec.loader.exec_module(backup)
 class JuezTest(unittest.TestCase):
     def juez(self, libro):
         out = io.StringIO()
-        with mock.patch.object(noche, 'leer', return_value=libro), redirect_stdout(out), \
-                mock.patch.dict('os.environ', {'GITHUB_STEP_SUMMARY': ''}):
+        with unittest.mock.patch.object(noche, 'leer', return_value=libro), redirect_stdout(out), \
+                unittest.mock.patch.dict('os.environ', {'GITHUB_STEP_SUMMARY': ''}):
             self.assertEqual(noche.main(['juez']), 0)
         return out.getvalue().strip()
 

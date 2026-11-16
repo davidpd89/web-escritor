@@ -59,7 +59,7 @@ def de_hoy(libro: dict | None, now: datetime) -> dict:
     return {'dia': dia(now), 'intentos': []}
 
 
-def efectivo(intento: dict, now: datetime) -> str:
+def efectivo(intento: dict, now: datetime) -> str | None:
     """Resultado contando el tiempo: un en_curso sin cerrar tras el tope del job fue un corte (fallido) y un
     pendiente que nunca arrancó caduca (no cuenta)."""
     resultado = intento.get('resultado')
@@ -98,11 +98,22 @@ def decidir(libro: dict | None, now: datetime) -> tuple[bool, str]:
     return True, 'ninguna carga esta noche'
 
 
-def toca_reintento(libro: dict | None, now: datetime) -> tuple[bool, str]:
-    """Tras una carga fallida (ya cerrada en el libro): un reintento si es de noche y no se llegó al tope."""
+def toca_reintento(libro: dict | None, now: datetime, run: int | None = None, intento: int | None = None
+                   ) -> tuple[bool, str]:
+    """Tras una carga fallida (ya cerrada en el libro): un reintento si es de noche, no se llegó al tope, esta carga
+    consta como fallida (no un paso posterior que falló tras publicar ni un cierre que no llegó a escribirse) y no
+    hay otra en marcha."""
     if now.astimezone(MADRID).hour >= HORA_FIN:
         return False, 'ya no es de noche'
-    fallidos = resumen(libro, now)['fallidos']
+    r = resumen(libro, now)
+    if run is not None:
+        propio = next((i for i in de_hoy(libro, now)['intentos']
+                       if i.get('run') == run and i.get('intento') == intento), None)
+        if propio is None or efectivo(propio, now) != 'fallido':
+            return False, f"esta carga no consta fallida en el libro ({(propio or {}).get('resultado', 'sin apunte')})"
+    if [i for i in r['activos'] if i.get('run') != run]:
+        return False, 'ya hay otra carga en marcha o despachada'
+    fallidos = r['fallidos']
     if fallidos >= MAX_FALLIDOS:
         return False, f'{fallidos} cargas fallidas esta noche'
     return True, f'{fallidos} cargas fallidas esta noche: se reintenta'
@@ -135,7 +146,11 @@ RESULTADOS = {'success': 'publicado', 'failure': 'fallido', 'cancelled': 'cancel
 
 
 def cerrar(libro, now, run, intento, resultado, clase=None, firma=None):
-    noche = de_hoy(libro, now)
+    """Cierra el apunte de esta carga en el libro donde se abrió, aunque haya cruzado la medianoche de Madrid
+    (abierta a las 23:50, cerrada a las 00:10): el resultado nunca se pierde. El libro de la noche siguiente
+    empieza de cero al primer apunte, como siempre."""
+    abierta = libro and any(i.get('run') == run and i.get('intento') == intento for i in libro.get('intentos', []))
+    noche = libro if abierta else de_hoy(libro, now)
     final = RESULTADOS.get(resultado, resultado)
     for entrada in noche['intentos']:
         if entrada.get('run') == run and entrada.get('intento') == intento and entrada.get('resultado') == 'en_curso':
@@ -163,8 +178,11 @@ def leer():
 
 
 def escribir(noche, mensaje):
+    import contextlib
     import catalogo_estado
-    catalogo_estado.escribir(FICHERO, (json.dumps(noche, ensure_ascii=False, indent=1) + '\n').encode(), mensaje)
+    # stdout es del protocolo (cargar=, run=, que van a $GITHUB_OUTPUT): los avisos de git van a stderr.
+    with contextlib.redirect_stdout(sys.stderr):
+        catalogo_estado.escribir(FICHERO, (json.dumps(noche, ensure_ascii=False, indent=1) + '\n').encode(), mensaje)
 
 
 def _resumen_job(texto):
@@ -193,13 +211,23 @@ def main(argv=None) -> int:
         print(f"run={'true' if cargar else 'false'}")
         _resumen_job(f"Reloj: {'carga' if cargar else 'no carga'}, {porque}.")
         return 0
-    libro = leer()
     if args.accion == 'abrir':
+        # Como el juez: sin libro legible o escribible se carga. El turno del grupo de concurrencia ya garantiza
+        # una sola carga a la vez; lo que se pierde es el apunte, no la noche.
+        try:
+            libro = leer()
+        except Exception as exc:  # noqa: BLE001
+            libro = None
+            _resumen_job(f'Libro de la noche ilegible ({type(exc).__name__}): se decide sin él.')
         cargar, porque, noche = abrir(libro, now, run, intento, os.environ.get('GITHUB_SHA', ''), args.motivo)
-        escribir(noche, f'Noche {noche["dia"]}: {"empieza" if cargar else "no carga"} {run}')
+        try:
+            escribir(noche, f'Noche {noche["dia"]}: {"empieza" if cargar else "no carga"} {run}')
+        except Exception as exc:  # noqa: BLE001
+            _resumen_job(f'Libro de la noche sin guardar ({type(exc).__name__}): la carga sigue.')
         print(f"cargar={'true' if cargar else 'false'}")
         _resumen_job(f"Libro de la noche: {'carga' if cargar else 'no carga'}, {porque}.")
         return 0
+    libro = leer()
     if args.accion == 'cerrar':
         noche = cerrar(libro, now, run, intento, args.resultado)
         escribir(noche, f'Noche {noche["dia"]}: {run} {args.resultado}')
@@ -207,7 +235,7 @@ def main(argv=None) -> int:
     if args.accion == 'cadena':
         toca, porque = toca_cadena(libro, now, args.aceptados)
     else:
-        toca, porque = toca_reintento(libro, now)
+        toca, porque = toca_reintento(libro, now, run, intento)
     _resumen_job(f'{args.accion.capitalize()}: {porque}.')
     if toca:
         noche = pendiente(libro, now, args.accion)

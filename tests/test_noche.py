@@ -3,13 +3,14 @@
 Antes cada decisión deducía «esta noche» de listas de Actions: el juez desde las 00:00 UTC, el reintento desde la
 medianoche de Madrid. Una carga fallida a las 00:30 de Madrid (23:30 UTC) la contaba el reintento y no el juez.
 """
+import io
 import json
 import random
 import sys
 import unittest
+import unittest.mock
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
@@ -33,7 +34,6 @@ class SimulacionF1Test(unittest.TestCase):
             ahora += timedelta(minutes=7)
             dia = ahora.astimezone(noche.MADRID).date()
             fallidas = sum(r == 'fallido' and h.astimezone(noche.MADRID).date() == dia for h, r in historia)
-            hora = ahora.astimezone(noche.MADRID).hour
             # Las tres decisiones ven la misma noche: la de Madrid.
             self.assertEqual(noche.resumen(libro, ahora)['fallidos'], fallidas, ahora)
             ultima = next((r for h, r in reversed(historia) if h.astimezone(noche.MADRID).date() == dia), None)
@@ -58,7 +58,6 @@ class SimulacionF1Test(unittest.TestCase):
             if final == 'publicado':
                 self.assertEqual(noche.toca_cadena(libro, fin, 5)[0], de_noche, fin)
             ahora = fin
-            del hora
         return historia
 
     def test_invierno_utc_mas_1(self):
@@ -129,10 +128,46 @@ class ReglasTest(unittest.TestCase):
         self.assertFalse(noche.toca_cadena(None, self.T, 0)[0], 'sin altas no se encadena')
 
     def test_juez_sin_libro_legible_carga(self):
-        with mock.patch.object(noche, 'leer', side_effect=OSError('git')), \
-                mock.patch('sys.stdout') as out, mock.patch.dict('os.environ', {}, clear=False):
+        with unittest.mock.patch.object(noche, 'leer', side_effect=OSError('git')), \
+                unittest.mock.patch('sys.stdout') as out, unittest.mock.patch.dict('os.environ', {}, clear=False):
             self.assertEqual(noche.main(['juez']), 0)
         self.assertIn('run=true', ''.join(c.args[0] for c in out.write.call_args_list))
+
+
+class HilosRevisionTest(unittest.TestCase):
+    """Revisión de #1385: casos en los que el libro perdía una carga o autorizaba un reintento de más."""
+    T = datetime(2026, 11, 16, 1, 0, tzinfo=UTC)
+
+    def test_cierre_tras_medianoche_de_madrid_se_guarda_en_su_noche(self):
+        abre = datetime(2026, 11, 15, 22, 50, tzinfo=UTC)  # 23:50 Madrid
+        libro = ida_y_vuelta(noche.abrir(None, abre, 1, 1, 's', 'manual')[2])
+        cerrado = noche.cerrar(libro, abre + timedelta(minutes=20), 1, 1, 'success')  # 00:10 Madrid
+        self.assertEqual(cerrado['dia'], '2026-11-15')
+        self.assertEqual([i['resultado'] for i in cerrado['intentos']], ['publicado'])
+
+    def test_reintento_solo_si_esta_carga_consta_fallida(self):
+        libro = noche.abrir(None, self.T, 5, 1, 's', 'cron')[2]
+        self.assertFalse(noche.toca_reintento(libro, self.T, 5, 1)[0], 'el cierre no llegó: sigue en curso')
+        publicado = noche.cerrar(libro, self.T, 5, 1, 'success')
+        self.assertFalse(noche.toca_reintento(publicado, self.T, 5, 1)[0], 'publicó y falló un paso posterior')
+        fallido = noche.cerrar(noche.abrir(None, self.T, 5, 1, 's', 'cron')[2], self.T, 5, 1, 'failure')
+        self.assertTrue(noche.toca_reintento(fallido, self.T, 5, 1)[0])
+        otro = noche.pendiente(fallido, self.T, 'cadena')
+        self.assertFalse(noche.toca_reintento(otro, self.T, 5, 1)[0], 'ya hay otra despachada')
+
+    def test_abrir_sin_libro_carga_y_no_ensucia_github_output(self):
+        import catalogo_estado
+
+        def escribe(*_a, **_k):
+            print('Estado guardado en catalogo-estado@abc')  # lo que imprime catalogo_estado._commit
+
+        for leer, esc in ((OSError('git'), escribe), (None, OSError('push'))):
+            with unittest.mock.patch.object(noche, 'leer', side_effect=leer, return_value=None), \
+                    unittest.mock.patch.object(catalogo_estado, 'escribir', side_effect=esc), \
+                    unittest.mock.patch('sys.stdout', new_callable=io.StringIO) as out, \
+                    unittest.mock.patch.dict('os.environ', {'GITHUB_STEP_SUMMARY': ''}):
+                self.assertEqual(noche.main(['abrir', '--motivo', 'cron']), 0)
+            self.assertEqual(out.getvalue(), 'cargar=true\n')
 
 
 class GuardiaTest(unittest.TestCase):
@@ -152,6 +187,8 @@ class GuardiaTest(unittest.TestCase):
         self.assertIn('python scripts/noche.py abrir --motivo "$MOTIVO" >> "$GITHUB_OUTPUT"', wf)
         self.assertIn("if: ${{ !inputs.dry_run }}", wf, 'un ensayo no escribe en el libro')
         self.assertIn('python scripts/noche.py cerrar --resultado "$RESULTADO"', wf)
+        # Un fallo antes de la carga (carga=skipped) cuenta como el job: fallida, con tope de reintentos.
+        self.assertIn('then RESULTADO="$JOB"; fi', wf)
         self.assertIn("if: inputs.dry_run || steps.libro.outputs.cargar == 'true'", wf)
         self.assertIn('-f motivo=cadena', wf)
         self.assertIn('-f motivo=reintento', wf)

@@ -163,9 +163,16 @@ jobs:
       - name: Close the night turn
         # Siempre que la carga se anotó: publicada, fallida o cancelada (también si el job se cancela).
         if: ${{ always() && !inputs.dry_run && steps.libro.outputs.cargar == 'true' }}
+        # Un fallo antes de la carga (dependencias, caché) deja la carga en skipped: cuenta como el job (fallida),
+        # para que el reintento no repita sin tope un fallo de instalación.
         env:
-          RESULTADO: ${{ steps.carga.outcome }}
-        run: python scripts/noche.py cerrar --resultado "$RESULTADO"
+          CARGA: ${{ steps.carga.outcome }}
+          JOB: ${{ job.status }}
+        shell: bash
+        run: |
+          RESULTADO="$CARGA"
+          if [ -z "$RESULTADO" ] || [ "$RESULTADO" = 'skipped' ]; then RESULTADO="$JOB"; fi
+          python scripts/noche.py cerrar --resultado "$RESULTADO"
       - name: Chain the next night batch
         # GitHub drops most hourly crons under load (2026-11-04: one scheduled run all night), so a
         # batch that published new books dispatches the next one itself. Night only (00-06 Madrid, the
