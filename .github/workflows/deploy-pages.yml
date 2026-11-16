@@ -53,12 +53,14 @@ jobs:
       - name: Site budget (fails over 900 MB)
         run: python scripts/presupuesto_sitio.py medir --dist .preview-dist --out "$RUNNER_TEMP/presupuesto-sitio.json"
 
+      # Siempre: el despliegue que falla por pasar de 900 MB es la medida que la carga necesita para frenar.
       - name: Upload site budget
+        if: always()
         uses: actions/upload-artifact@v6
         with:
           name: presupuesto-sitio
           path: ${{ runner.temp }}/presupuesto-sitio.json
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 30
 
       - name: Derive changed public URLs for IndexNow

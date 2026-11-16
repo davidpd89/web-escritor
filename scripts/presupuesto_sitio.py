@@ -61,10 +61,33 @@ def altas_max(medida, libros_ahora, hechas_hoy, tope=TOPE_NOCHE, freno_mb=FRENO_
     return max(0, min(tope - hechas_hoy, libres // coste))
 
 
-def ultima_medida(runs=5):
-    """La medida del último despliegue correcto que la trae (gh); None si no hay ninguna."""
+CLAVES = ('bytes', 'libros', 'coste_por_libro')
+
+
+def valida(medida):
+    """La medida si trae sus cifras como enteros no negativos; si no, None (sin medida no hay altas)."""
+    if not isinstance(medida, dict):
+        return None
+    for clave in CLAVES:
+        valor = medida.get(clave)
+        if not isinstance(valor, int) or isinstance(valor, bool) or valor < 0:
+            return None
+    return medida
+
+
+def leer_medida(path):
     try:
-        ids = subprocess.run(['gh', 'run', 'list', '--workflow', 'deploy-pages.yml', '--status', 'success',
+        return valida(json.loads(Path(path).read_text(encoding='utf-8')))
+    except (OSError, ValueError):
+        return None
+
+
+def ultima_medida(runs=5):
+    """La medida del último despliegue terminado que la trae (gh); None si no hay ninguna legible.
+
+    Cuenta también un despliegue fallido: el que no subió por pasar de 900 MB es justo la medida que frena las altas."""
+    try:
+        ids = subprocess.run(['gh', 'run', 'list', '--workflow', 'deploy-pages.yml', '--status', 'completed',
                               '--limit', str(runs), '--json', 'databaseId', '-q', '.[].databaseId'],
                              cwd=ROOT, capture_output=True, text=True, check=True, timeout=60).stdout.split()
     except (OSError, subprocess.SubprocessError):
@@ -77,14 +100,21 @@ def ultima_medida(runs=5):
             except (OSError, subprocess.SubprocessError):
                 continue
             path = Path(tmp) / f'{ARTEFACTO}.json'
-            if got.returncode == 0 and path.exists():
-                return json.loads(path.read_text(encoding='utf-8'))
+            medida = leer_medida(path) if got.returncode == 0 else None
+            if medida:
+                return medida
     return None
 
 
 def _ledger(work):
-    path = Path(work) / LEDGER
-    return json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
+    """Altas por día. Un fichero ilegible o con cifras raras no tumba la carga: se queda lo válido."""
+    try:
+        datos = json.loads((Path(work) / LEDGER).read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return {}
+    if not isinstance(datos, dict):
+        return {}
+    return {dia: n for dia, n in datos.items() if isinstance(n, int) and not isinstance(n, bool) and n >= 0}
 
 
 def cupo_de_hoy(work, day, libros_ahora):

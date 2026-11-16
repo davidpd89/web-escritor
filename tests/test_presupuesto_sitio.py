@@ -61,6 +61,58 @@ class AltasMax(unittest.TestCase):
         self.assertEqual(ps.altas_max({'bytes': 1, 'libros': 0, 'coste_por_libro': 0}, libros_ahora=10, hechas_hoy=0), 0)
 
 
+
+class MedidaYRegistro(unittest.TestCase):
+    """Un artefacto o un registro estropeados no tumban la carga: sin medida legible no hay altas."""
+
+    def test_unreadable_or_incomplete_measurement_is_no_measurement(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'm.json'
+            for texto in ('{roto', '[]', '{"bytes": 1, "libros": 2}', '{"bytes": "1", "libros": 2, "coste_por_libro": 3}',
+                          '{"bytes": -1, "libros": 2, "coste_por_libro": 3}'):
+                with self.subTest(texto):
+                    path.write_text(texto, encoding='utf-8')
+                    self.assertIsNone(ps.leer_medida(path))
+            path.write_text('{"bytes": 1, "libros": 2, "coste_por_libro": 3}', encoding='utf-8')
+            self.assertEqual(ps.leer_medida(path)['coste_por_libro'], 3)
+
+    def test_ultima_medida_skips_a_broken_artifact_and_takes_the_next(self):
+        llamadas = []
+
+        def fake(cmd, **kw):
+            llamadas.append(cmd)
+            if cmd[:3] == ['gh', 'run', 'list']:
+                return type('R', (), {'stdout': ' '.join(['11', '22']), 'returncode': 0})()
+            destino = Path(cmd[cmd.index('-D') + 1]) / f'{ps.ARTEFACTO}.json'
+            destino.write_text('{roto' if cmd[3] == '11' else '{"bytes": 5, "libros": 1, "coste_por_libro": 5}',
+                               encoding='utf-8')
+            return type('R', (), {'stdout': '', 'returncode': 0})()
+        with patch.object(ps.subprocess, 'run', fake):
+            self.assertEqual(ps.ultima_medida()['bytes'], 5)
+        self.assertIn('completed', llamadas[0], 'un despliegue fallido por tamaño también trae medida')
+
+    def test_malformed_ledger_counts_as_empty(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / ps.LEDGER
+            for texto in ('{roto', '[1, 2]', '"x"'):
+                with self.subTest(texto):
+                    path.write_text(texto, encoding='utf-8')
+                    self.assertEqual(ps._ledger(tmp), {})
+            path.write_text('{"2026-11-01": 3, "2026-11-02": "x", "2026-11-03": -1, "2026-11-04": true}',
+                            encoding='utf-8')
+            self.assertEqual(ps._ledger(tmp), {'2026-11-01': 3})
+            ps.anotar(tmp, '2026-11-01', 2)
+            self.assertEqual(ps._ledger(tmp), {'2026-11-01': 5})
+
+    def test_anotar_keeps_only_the_last_14_days(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            for dia in range(1, 21):
+                ps.anotar(tmp, f'2026-11-{dia:02d}', dia)
+            ledger = ps._ledger(tmp)
+            self.assertEqual(sorted(ledger), [f'2026-11-{d:02d}' for d in range(7, 21)])
+            self.assertEqual(ledger['2026-11-20'], 20)
+
+
 class CargaSinPresupuesto(unittest.TestCase):
     def run_intake(self, cupo, nuevos=()):
         config = {'amazon_catalogo': {'enabled': True, 'altas': 1000, 'peticiones': 600}}
