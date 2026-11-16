@@ -146,6 +146,11 @@ def _comprobacion_escritura(args):
     return None
 
 
+# Lo que devuelve gh() cuando un intento falló pero la escritura sí llegó a GitHub: no hay salida de gh que dar, y
+# '' parecería una salida vacía real (Fable R5-14, hallazgo 27). Quien lo use como JSON o URL falla a la vista.
+YA_APLICADA = '<escritura ya aplicada en GitHub>'
+
+
 def gh(*args: str):
     comprobacion = None if _retryable(args) else _comprobacion_escritura(args)
     efecto = comprobacion[1] if comprobacion else None  # None: no hay efecto que comprobar
@@ -170,7 +175,7 @@ def gh(*args: str):
                 return created
             if efecto is not None and efecto(comprobacion[0]):
                 print(f'gh {" ".join(args[:3])}: el intento fallido sí llegó a GitHub; no se repite', flush=True)
-                return ''
+                return YA_APLICADA
             if attempt == GH_ATTEMPTS:
                 raise
 

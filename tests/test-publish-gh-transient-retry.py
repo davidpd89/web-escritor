@@ -123,7 +123,7 @@ with mock.patch.object(mod.time, 'sleep', lambda s: None):
         return 0, json.dumps({'state': 'MERGED' if fusion['merged'] else 'OPEN'}), ''
     run, calls = fake(merge_tardio)
     with mock.patch.object(mod.subprocess, 'run', run):
-        assert mod.gh('pr', 'merge', '9', '--squash') == ''
+        assert mod.gh('pr', 'merge', '9', '--squash') == mod.YA_APLICADA
     assert fusion['merges'] == mod.GH_ATTEMPTS, calls
     # update-branch con 502 y la cabeza movida por otro push (no hija de la esperada): se repite y el 422 se propaga.
     def otro_push(a, n):
