@@ -67,8 +67,17 @@ def cercania(book, hoy):
         return 10 ** 6
 
 
-def rellenar(catalogo, consulta, intentos, hoy, max_libros=120):
-    """Pone sinopsis a las fichas publicadas que no tienen; devuelve cuántas. `intentos` se modifica en sitio."""
+def de_google(respuesta, isbn):
+    hallado = volumen_del_isbn(respuesta, isbn)
+    return (f'https://books.google.com/books?id={hallado[0]}', hallado[1]) if hallado else None
+
+
+def rellenar(catalogo, consulta, intentos, hoy, max_libros=120, extraer=de_google):
+    """Pone sinopsis a las fichas publicadas que no tienen; devuelve cuántas. `intentos` se modifica en sitio.
+
+    `consulta(isbn)` devuelve None si la fuente está caída (se para sin marcar); `extraer(respuesta, isbn)` da
+    (url de procedencia, texto) solo si la respuesta es de ese ISBN exacto.
+    """
     hoy_iso = hoy.isoformat()
     for isbn in [i for i, hasta in intentos.items() if hasta <= hoy_iso]:
         del intentos[isbn]
@@ -86,7 +95,7 @@ def rellenar(catalogo, consulta, intentos, hoy, max_libros=120):
         respuesta = consulta(book['isbn13'])
         if respuesta is None:
             break  # Google caído o sin cuota: lo que quede, la próxima noche (sin marcar como intentado).
-        hallado = volumen_del_isbn(respuesta, book['isbn13'])
+        hallado = extraer(respuesta, book['isbn13'])
         textos = sinopsis_de(hallado[1]) if hallado else None
         if not textos:
             intentos[book['isbn13']] = (hoy + timedelta(days=REINTENTO_DIAS)).isoformat()
@@ -94,6 +103,6 @@ def rellenar(catalogo, consulta, intentos, hoy, max_libros=120):
         book['sinopsis_breve'], completa = textos
         book['sinopsis_completa'] = completa
         book['sinopsis_tipo'] = 'extracto_editorial'
-        book['sinopsis_fuente_url'] = f'https://books.google.com/books?id={hallado[0]}'
+        book['sinopsis_fuente_url'] = hallado[0]
         puestas += 1
     return puestas

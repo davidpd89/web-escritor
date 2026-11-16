@@ -243,3 +243,43 @@ def typographic_cover(record: dict) -> tuple[bytes, bytes, tuple[int, int]]:
     preview = io.BytesIO()
     small.save(preview, 'WEBP', quality=80, method=4)
     return out.getvalue(), preview.getvalue(), (width, height)
+
+
+def consulta_ttl(pausa: float = 1.0, timeout: float = 20):
+    """isbn -> HTML de su ficha en todostuslibros ('' si no existe; None si la web falla).
+
+    Para las altas que llegan desde Amazon sin sinopsis (16/11: todas las 4.112 sin sinopsis venían de ahí). La ficha
+    de la librería trae la sinopsis editorial: en una muestra de 15, 11 la tenían (Open Library 0 y Google sin cuota).
+    robots.txt permite /libros/; una petición por segundo, como pide para ClaudeBot.
+    """
+    import time
+    from urllib.error import HTTPError, URLError
+    from urllib.request import Request, urlopen
+    ultimo = [0.0]
+
+    def consulta(isbn: str):
+        time.sleep(max(0.0, pausa - (time.monotonic() - ultimo[0])))
+        ultimo[0] = time.monotonic()
+        try:
+            with urlopen(Request(ttl_url(isbn), headers={'User-Agent': 'DavidPortoReadingCatalogue/1.0'}), timeout=timeout) as r:
+                return r.read().decode('utf-8', errors='replace')
+        except HTTPError as exc:
+            return '' if exc.code in (404, 410) else None
+        except (URLError, TimeoutError, OSError, SourceError):
+            return None
+    return consulta
+
+
+def ttl_sinopsis(document: str, isbn: str):
+    """(url canónica, HTML de la sinopsis) si la ficha es de ese ISBN exacto; si no, None."""
+    if not document:
+        return None
+    canonical = re.search(r'<link rel="canonical" href="([^"]+)"', document)
+    page = html.unescape(canonical.group(1)) if canonical else ''
+    parts = urlsplit(page)
+    if parts.scheme != 'https' or parts.hostname != HOST or url_isbn(page) != isbn:
+        return None
+    block = re.search(r'id="collapseSynopsis"[^>]*>(.*?)</div>', document, re.S)
+    texto = block.group(1) if block else html.escape(str(_book(document).get('description', '')))
+    return (page, texto) if texto.strip() else None
+
