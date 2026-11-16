@@ -22,12 +22,10 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: pages
-  cancel-in-progress: true
-
 jobs:
-  # Un disparo programado que cae a las 23 de Madrid es del día anterior: no publica. Push y manuales, siempre.
+  # De los dos horarios, solo publica el que corresponde a las 00:05 de Madrid (22:05 UTC en verano, 23:05 en
+  # invierno), decidido por el cron que disparó y el horario vigente, no por la hora de llegada: un retraso de
+  # GitHub no lo pierde y en verano no se publica dos veces. Push y manuales, siempre.
   dia:
     runs-on: ubuntu-latest
     timeout-minutes: 2
@@ -39,19 +37,26 @@ jobs:
         id: dia
         env:
           EVENT_NAME: ${{ github.event_name }}
+          CRON: ${{ github.event.schedule }}
         shell: bash
         run: |
           set -euo pipefail
           echo "hoy=$(TZ=Europe/Madrid date +%F)" >> "$GITHUB_OUTPUT"
-          if [ "$EVENT_NAME" = schedule ] && [ "$(TZ=Europe/Madrid date +%H)" = 23 ]; then
-            echo "seguir=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "seguir=true" >> "$GITHUB_OUTPUT"
+          seguir=true
+          if [ "$EVENT_NAME" = schedule ]; then
+            # +0200 verano: vale el de las 22 UTC; +0100 invierno: el de las 23 UTC.
+            if [ "$(TZ=Europe/Madrid date +%z)" = +0200 ]; then propio='5 22 * * *'; else propio='5 23 * * *'; fi
+            [ "$CRON" = "$propio" ] || seguir=false
           fi
+          echo "seguir=$seguir" >> "$GITHUB_OUTPUT"
 
   build:
     needs: dia
     if: needs.dia.outputs.seguir == 'true'
+    # La concurrencia va en el build, no en el workflow: un disparo descartado no cancela un despliegue por push.
+    concurrency:
+      group: pages-build
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     timeout-minutes: 25  # rehacer la cadena con el día (~4-8 min) además de construir y subir
     steps:
@@ -69,6 +74,12 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scripts/requirements.txt
+
+      # La cadena (build-reading-catalogue.py) importa Pillow: en un runner limpio no está.
+      - name: Dependencias Python
+        run: python -m pip install -r scripts/requirements.txt
 
       - name: Materializar generados
         uses: ./.github/actions/materializar
@@ -156,6 +167,9 @@ jobs:
 
   deploy:
     needs: build
+    concurrency:
+      group: pages-deploy
+      cancel-in-progress: false  # un despliegue a medias no se corta; el siguiente espera
     runs-on: ubuntu-latest
     environment:
       name: github-pages

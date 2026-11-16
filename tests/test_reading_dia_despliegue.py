@@ -57,6 +57,25 @@ class DespliegueTest(unittest.TestCase):
         self.assertIn('TZ=Europe/Madrid date +%F', dia)
         self.assertEqual(self.wf['jobs']['build']['if'], "needs.dia.outputs.seguir == 'true'")
 
+    def test_un_solo_despliegue_diario_por_el_cron_que_disparo(self):
+        # En verano los dos horarios caen a las 00:05 y 01:05 de Madrid: decidir por la hora publicaba dos veces.
+        paso = self.wf['jobs']['dia']['steps'][0]
+        self.assertEqual(paso['env']['CRON'], '${{ github.event.schedule }}')
+        self.assertIn("+0200 ]; then propio='5 22 * * *'; else propio='5 23 * * *'", paso['run'])
+        self.assertNotIn('date +%H', paso['run'])
+
+    def test_un_disparo_descartado_no_cancela_un_despliegue_por_push(self):
+        self.assertNotIn('concurrency', self.wf)
+        self.assertEqual(self.wf['jobs']['build']['concurrency'], {'group': 'pages-build', 'cancel-in-progress': True})
+        self.assertFalse(self.wf['jobs']['deploy']['concurrency']['cancel-in-progress'])
+
+    def test_dependencias_python_antes_de_la_cadena(self):
+        pasos = self.wf['jobs']['build']['steps']
+        nombres = [p.get('name', '') for p in pasos]
+        pip = nombres.index('Dependencias Python')
+        self.assertIn('requirements.txt', pasos[pip]['run'])
+        self.assertLess(pip, nombres.index('Materializar generados'))
+
     def test_lo_generado_se_rehace_con_el_dia_antes_de_publicar(self):
         pasos = self.wf['jobs']['build']['steps']
         nombres = [p.get('name', '') for p in pasos]
