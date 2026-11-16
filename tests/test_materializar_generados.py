@@ -104,6 +104,45 @@ jobs:
         clave = re.search(r"hashFiles\((.*?)\) \}\}", texto).group(1)
         self.assertEqual(tuple(re.findall(r"'([^']+)'", clave)), mat.FUENTES)
 
+    def test_fuentes_son_la_closure_de_los_builders(self):
+        """Los scripts/*.py de FUENTES han de ser exactamente los que importan los builders (closure de imports de
+        scripts/build-*.py + site_shell + materializar). Ni de más —un scripts/reading*.py que no toca ningún builder
+        disparaba StaleMerge en balde (16/11: reading-texts.py)— ni de menos —un auxiliar olvidado deja la caché y el
+        guardia de lo generado ciegos a un cambio real—. Así el glob no vuelve a desajustarse al crecer scripts/."""
+        import ast, fnmatch
+        sc = ROOT / 'scripts'
+        mods = {p.stem: p for p in sc.glob('*.py')}
+
+        def imports_locales(path):
+            nombres = set()
+            try:
+                arbol = ast.parse(path.read_text(encoding='utf-8', errors='replace'))
+            except SyntaxError:
+                return nombres
+            for n in ast.walk(arbol):
+                if isinstance(n, ast.Import):
+                    nombres.update(a.name.split('.')[0] for a in n.names)
+                elif isinstance(n, ast.ImportFrom) and n.module and n.level == 0:
+                    nombres.add(n.module.split('.')[0])
+            return {m for m in nombres if m in mods}
+
+        raices = list(sc.glob('build-*.py')) + [sc / 'site_shell.py', sc / 'materializar_generados.py']
+        vistos, pila, closure = set(), list(raices), set(raices)
+        while pila:
+            f = pila.pop()
+            if f in vistos:
+                continue
+            vistos.add(f)
+            for m in imports_locales(f):
+                if mods[m] not in closure:
+                    closure.add(mods[m])
+                    pila.append(mods[m])
+        closure = {f'scripts/{p.name}' for p in closure}
+        cubiertos = {f'scripts/{p.name}' for p in sc.glob('*.py')
+                     if any(fnmatch.fnmatch(f'scripts/{p.name}', pat) for pat in mat.FUENTES)}
+        self.assertEqual(cubiertos, closure,
+                         msg=f'sobran {sorted(cubiertos - closure)}; faltan {sorted(closure - cubiertos)}')
+
 
 class AsegurarAntesDeLaSuite(unittest.TestCase):
     """Paso 3: la suite lee lo generado del árbol; tras el corte se materializa una vez, no test a test."""

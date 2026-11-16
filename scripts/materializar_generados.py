@@ -41,8 +41,18 @@ CHECKS = ('build-reading-catalogue.py', 'build-page-order.py', 'build-site-shell
           'build-pagefind-index.py')
 RUTAS_NUEVAS = ('recomendaciones', 'editoriales', 'mapa-del-sitio')
 # Entradas de los builders: la misma lista que la clave de caché de .github/actions/materializar (lo comprueba un test).
-FUENTES = ('data/**', 'scripts/build-*.py', 'scripts/site_shell.py', 'scripts/reading*.py', 'scripts/templates/**',
-           'scripts/materializar_generados.py', '**/*.html.tmpl', '**/*.html')
+# Los módulos de scripts/ se enumeran, no se barren con `scripts/reading*.py`: solo tres reading_* alimentan a algún
+# builder (intake_core, publisher_links, taxonomy). El resto de scripts/reading*.py —el barrido reading-texts, el radar
+# de Amazon, Telegram, la cuarentena, los intake/publisher de la carga…— no cambia ningún artefacto generado, y el glob
+# los contaba como entradas: cada noche que main tocaba uno disparaba un StaleMerge en balde (16/11: reading-texts.py).
+# A la vez se añaden los auxiliares que los builders sí importan y el glob se saltaba (arbol_publicado, genre_families,
+# site_clock, support_*): un cambio de main en ellos ni invalidaba la caché ni avisaba de lo generado desfasado.
+# test_fuentes_son_la_closure_de_los_builders fija esta lista a la closure real de imports de scripts/build-*.py.
+FUENTES = ('data/**', 'scripts/build-*.py', 'scripts/site_shell.py', 'scripts/materializar_generados.py',
+           'scripts/arbol_publicado.py', 'scripts/genre_families.py', 'scripts/site_clock.py',
+           'scripts/reading_intake_core.py', 'scripts/reading_publisher_links.py', 'scripts/reading_taxonomy.py',
+           'scripts/support_channels.py', 'scripts/support_paypal_link.py', 'scripts/support_stripe_link.py',
+           'scripts/templates/**', '**/*.html.tmpl', '**/*.html')
 TESTIGO = 'assets/page-order.generated.js'   # si está versionado, lo generado sigue en git (antes del corte)
 HUELLA = Path('.local') / 'materializado.huella'
 
