@@ -110410,6 +110410,25 @@
       "sourceFile": "recomendaciones/editoriales/index.html"
     },
     {
+      "id": "reading-index-novedades",
+      "url": "/recomendaciones/novedades/",
+      "label": "Novedades",
+      "shortLabel": "Novedades",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "footerEligible": true,
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/novedades/index.html"
+    },
+    {
       "id": "reading-page-2",
       "url": "/recomendaciones/pagina/2/",
       "label": "Libros recomendados: página 2",

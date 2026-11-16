@@ -1646,6 +1646,62 @@ def render_publishers_index(catalogue_publishers, books, template, data=None):
     return page.replace('</body>', '<script defer src="/assets/catalogue-authors.js?v=' + AUTHORS_ASSET_VERSION + '"></script>\n</body>', 1)
 
 
+NOVELTIES_URL = '/recomendaciones/novedades/'
+NOVELTIES_DAYS = 4
+NOVELTIES_ASSET_VERSION = '1'
+WEEKDAYS_ES = ('lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo')
+
+
+def novelty_days(books):
+    """Cuatro días naturales consecutivos desde la fecha de los datos (no del reloj) y los libros de cada uno.
+    La fecha es absoluta en el HTML; «Hoy», «Mañana» y «Pasado mañana» los pone el JS con el día de Madrid."""
+    stamp = data_anchor(books)
+    if not stamp:
+        return []
+    first = date.fromisoformat(stamp[:10])
+    days = [first + timedelta(days=n) for n in range(NOVELTIES_DAYS)]
+    by_day = {d.isoformat(): [] for d in days}
+    for b in books:
+        if b.get('fecha_publicacion') in by_day:
+            by_day[b['fecha_publicacion']].append(b)
+    return [(d, sorted(by_day[d.isoformat()], key=lambda b: b['titulo'].casefold())) for d in days]
+
+
+def day_label(d):
+    return f'{WEEKDAYS_ES[d.weekday()]} {d.day} de {MONTHS_ES[d.month]} de {d.year}'
+
+
+def render_novelties(books, template):
+    """/recomendaciones/novedades/: lo que sale hoy y los tres días siguientes, por fecha absoluta (P1-1)."""
+    canonical = SITE + NOVELTIES_URL
+    days = novelty_days(books)
+    total = sum(len(bs) for _, bs in days)
+    summary = ('Libros que salen a la venta del ' + day_label(days[0][0]) + ' al ' + day_label(days[-1][0]) + ': ' + str(total)
+               + (' novedad.' if total == 1 else ' novedades.')) if days else 'Novedades de los libros recomendados.'
+    sections, listed = [], []
+    for d, bs in days:
+        items = ''.join('<li><a href="' + url(b) + '">' + image(b, True, '120px', 'catalogue-index__image', '') + '<span>' + esc(b['titulo']) + '</span></a>'
+                        + '<p>' + esc(', '.join(b['autores'])) + (' · ' + esc(b['editorial']) if b.get('editorial') else '') + '</p></li>' for b in bs)
+        listed += bs
+        sections.append('<section class="catalogue-novelty-day" data-novelty-day="' + d.isoformat() + '" aria-labelledby="dia-' + d.isoformat() + '">'
+                        '<h2 id="dia-' + d.isoformat() + '"><span data-novelty-relative hidden></span> <time datetime="' + d.isoformat() + '">' + esc(day_label(d)) + '</time></h2>'
+                        + ('<ul class="catalogue-author-books">' + items + '</ul>' if bs else '<p>Ningún libro del catálogo sale este día.</p>') + '</section>')
+    main = ('<main id="contenido" tabindex="-1" class="v1-main reading-catalogue catalogue-author-page catalogue-novelties" data-family="recomendaciones"><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">Novedades</li></ol></nav>'
+            '<header class="catalogue-author-hero"><p class="eyebrow">Libros recomendados</p><h1>Novedades de libros: hoy y próximos días</h1><p>' + esc(summary) + '</p></header>'
+            + ''.join(sections) +
+            '<div class="catalogue-end"><a class="text-action" href="/' + ICS_PATH + '">Calendario de próximos lanzamientos</a> · <a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div></main>')
+    item_list = {'@type': 'ItemList', '@id': canonical + '#novedades', 'name': 'Novedades de libros', 'numberOfItems': len(listed),
+                 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': SITE + url(b), 'name': b['titulo']} for i, b in enumerate(listed)]}
+    schema = {'@context': 'https://schema.org', '@graph': [{'@type': 'CollectionPage', '@id': canonical, 'url': canonical, 'name': 'Novedades de libros', 'dateModified': collection_modified({}, books), 'mainEntity': {'@id': canonical + '#novedades'}},
+                                                          item_list, _breadcrumb_schema([('Inicio', '/'), ('Libros recomendados', '/recomendaciones/'), ('Novedades', NOVELTIES_URL)])]}
+    page = render_detail_page(template, main, canonical, 'Novedades de libros: hoy y próximos días | David Porto Díaz', summary, schema, None)
+    page = page.replace('</head>', '<link rel="stylesheet" href="/assets/catalogue-authors.css?v=' + AUTHORS_ASSET_VERSION + '">\n</head>', 1)
+    return page.replace('</body>', '<script defer src="/assets/catalogue-novedades.js?v=' + NOVELTIES_ASSET_VERSION + '"></script>\n</body>', 1)
+
+
+NOVELTIES_HUB_LINK = '<p><a class="text-action" href="' + NOVELTIES_URL + '">Novedades de hoy y de los próximos días →</a></p></header>'
+
+
 def registry_entries(books):
     return [{"id": "reading-book-" + b["id"], "url": url(b), "label": b["titulo"], "shortLabel": b["titulo"], "type": "article", "territory": "recomendaciones", "parentId": "recommendations-hub", "hubId": "recommendations-hub", "discoverability": "secondary", "audience": ["reader"], "jobs": ["buscar-lecturas"], "sourceFile": url(b).lstrip('/') + 'index.html'} for b in books]
 
@@ -1707,6 +1763,8 @@ def render_outputs(root, data):
     for p in active_publishers:
         outputs[publisher_url(p).lstrip('/') + 'index.html'] = render_publisher(p, data, books, template, {a['nombre'] for a in authors}, active_authors)
     outputs['recomendaciones/editoriales/index.html'] = render_publishers_index(catalogue_publishers, books, template, data)
+    outputs[NOVELTIES_URL.lstrip('/') + 'index.html'] = render_novelties(books, template)
+    outputs['recomendaciones/index.html'] = outputs['recomendaciones/index.html'].replace('momento del año.</p></header>', 'momento del año.</p>' + NOVELTIES_HUB_LINK, 1)
     outputs[ICS_PATH] = render_release_ics(books)
     outputs[DEALS_PATH] = render_deals(books)
     outputs[LLMS_PATH] = render_llms_index(data, books, active_authors, active_publishers)
@@ -1721,7 +1779,7 @@ def render_outputs(root, data):
     registry['entries'] = [e for e in registry['entries'] if not e['id'].startswith(('reading-book-', 'reading-author-', 'reading-publisher-', 'reading-index-', 'reading-page-'))] + registry_entries(books)
     registry['entries'] += [{'id': 'reading-author-' + a['slug'], 'url': author_url(a), 'label': a['nombre'], 'shortLabel': a['nombre'], 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': author_url(a).lstrip('/') + 'index.html'} for a in active_authors]
     registry['entries'] += [{'id': 'reading-publisher-' + p['slug'], 'url': publisher_url(p), 'label': p['nombre'], 'shortLabel': p['nombre'], 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': publisher_url(p).lstrip('/') + 'index.html'} for p in active_publishers]
-    registry['entries'] += [{'id': 'reading-index-' + key, 'url': '/recomendaciones/' + key + '/', 'label': label, 'shortLabel': label, 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'footerEligible': True, 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': 'recomendaciones/' + key + '/index.html'} for key, label in (('autores', 'Autores'), ('editoriales', 'Editoriales del catálogo'))]
+    registry['entries'] += [{'id': 'reading-index-' + key, 'url': '/recomendaciones/' + key + '/', 'label': label, 'shortLabel': label, 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'footerEligible': True, 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': 'recomendaciones/' + key + '/index.html'} for key, label in (('autores', 'Autores'), ('editoriales', 'Editoriales del catálogo'), ('novedades', 'Novedades'))]
     registry['entries'] += [{'id':f'reading-page-{n}','url':catalogue_page_url(n),'label':f'Libros recomendados: página {n}','shortLabel':f'Página {n}','type':'article','territory':'recomendaciones','parentId':'recommendations-hub','hubId':'recommendations-hub','discoverability':'secondary','searchIndex':False,'sourceFile':catalogue_page_url(n).lstrip('/')+'index.html'} for n in range(2, max(1, math.ceil(len(books) / CATALOGUE_PAGE_SIZE)) + 1)]
     registry['entries'] += retired_entries(previous, registry['entries'])
     outputs['data/content-registry.json'] = json.dumps(registry, ensure_ascii=False, indent=2) + '\n'

@@ -239,6 +239,9 @@ def tag_from_books(books: list[dict]) -> str:
     )
 
 
+NOVELTIES_PAGE = "https://davidportodiaz.com/recomendaciones/novedades/"
+
+
 def digest(
     books: list[dict],
     day: str,
@@ -281,6 +284,7 @@ def digest(
     sub = f"{escape(label)} · {count}" if label else count
     text = (
         f"{head}\n{sub}\n\n" + "\n".join(lines) + "\n\n" + "\n".join(links)
+        + f'\n🗓️ <a href="{NOVELTIES_PAGE}">Novedades de hoy y próximos días en la web</a>'
     )
     return {"asin": key, "digest": True, "text": text, "release_date": day}
 
