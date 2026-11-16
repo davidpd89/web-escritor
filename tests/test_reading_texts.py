@@ -69,6 +69,13 @@ class ReadingTextsTest(unittest.TestCase):
             mods = {m['modulo'] for m in texts.payload(self.data, b)['modulos_permitidos']}
             self.assertIn('para_quien', mods, b['id'])
 
+    def test_a_book_left_with_only_its_own_module_keeps_its_published_text(self):
+        # Al crecer el catálogo un libro puede perder «lecturas_afines»: su texto de «para_quien» se sigue publicando.
+        p = {**self.payload, 'modulos_permitidos': [m for m in self.payload['modulos_permitidos'] if m['modulo'] == 'para_quien']}
+        block = {**self.others[0], 'evidencias': ['categorias', 'sinopsis_editorial']}
+        record = {'id': self.book['id'], 'bloques': [block]}
+        self.assertEqual([x['modulo'] for x in texts.publishable_blocks(p, record)], ['para_quien'])
+
     def test_valid_blocks_pass_and_affines_are_linked(self):
         blocks, errors = self.check()
         self.assertEqual(errors, [])

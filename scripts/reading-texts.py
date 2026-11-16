@@ -680,6 +680,12 @@ def catalogue_in_ci(opened, now=None):
     return None
 
 
+def publishable_blocks(p, record):
+    """Bloques que se publican: el umbral es el del validador, min(MIN_BLOCKS, módulos permitidos).
+    Un libro que hoy solo admite «para_quien» (perdió sus afines al crecer el catálogo) conserva su texto."""
+    return valid_blocks(p, record.get('bloques'))
+
+
 def _publish_once(out, publisher):
     """Copia los textos a un árbol limpio de origin/main y publica con el flujo protegido del barrido."""
     texts = sorted(out.glob('*.json'))
@@ -701,8 +707,8 @@ def _publish_once(out, publisher):
         record = read_json(path)
         if path.stem in ids:
             # Se publica solo lo que pasa el validador vigente, aunque se guardara con uno más permisivo.
-            blocks = valid_blocks(payload(data, next(b for b in published(data) if b['id'] == path.stem)), record.get('bloques'))
-            if len(blocks) >= MIN_BLOCKS:
+            blocks = publishable_blocks(payload(data, next(b for b in published(data) if b['id'] == path.stem)), record)
+            if blocks:
                 write_json(target / path.name, {**record, 'bloques': blocks})
     run = lambda *cmd: subprocess.run([sys.executable, *cmd], cwd=tree, check=True)
     for script in ('build-reading-catalogue.py', 'build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):
