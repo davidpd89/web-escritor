@@ -41,6 +41,7 @@ from zoneinfo import ZoneInfo
 MADRID = ZoneInfo('Europe/Madrid')
 FICHERO = 'noche.json'
 HORA_FIN = 6                 # la noche de carga acaba a las 06:00 de Madrid (después Actions es del código)
+SIN_REINTENTO = ('codigo', 'dato')  # mismo lote y mismo código dan el mismo fallo: va a la issue `fallo`
 MAX_FALLIDOS = 3             # cargas fallidas por noche: con 3, ni relojes ni reintentos vuelven a cargar
 DESPACHADOS = ('cadena', 'reintento')  # cargan si su pendiente sigue en el libro; manual carga siempre
 
@@ -106,8 +107,9 @@ def toca_reintento(libro: dict | None, now: datetime, run: int | None = None, in
         return False, f'{fallidos} cargas fallidas esta noche'
     if propio is not None:
         # D2 (R4-5): un fallo de código da lo mismo sobre el mismo código; espera al arreglo de día (issue `fallo`).
-        if propio.get('clase') == 'codigo':
-            return False, f"fallo de código (firma {propio.get('firma')}): sin reintento, va a la issue `fallo`"
+        if propio.get('clase') in SIN_REINTENTO:
+            return False, (f"fallo de {propio['clase'].replace('codigo', 'código')} (firma {propio.get('firma')}): "
+                           "sin reintento, va a la issue `fallo`")
         # La guarda no es «main avanzó» (cualquier commit de un bot lo mueve): es «ya se intentó esta noche con la
         # misma firma sobre el mismo código».
         repetido = next((i for i in de_hoy(libro, now)['intentos'] if i is not propio and i.get('firma')
@@ -118,13 +120,29 @@ def toca_reintento(libro: dict | None, now: datetime, run: int | None = None, in
     return True, f'{fallidos} cargas fallidas esta noche: se reintenta'
 
 
-def toca_cadena(libro: dict | None, now: datetime, aceptados: int) -> tuple[bool, str]:
+def _firmas(intento: dict) -> set:
+    f = intento.get('firma')
+    return set(f) if isinstance(f, list) else {f} if f else set()
+
+
+def toca_cadena(libro: dict | None, now: datetime, aceptados: int, run: int | None = None,
+                intento: int | None = None) -> tuple[bool, str]:
     if now.astimezone(MADRID).hour >= HORA_FIN:
         return False, 'ya no es de noche'
     if aceptados <= 0:
         return False, 'el lote no trajo libros nuevos'
     if resumen(libro, now)['pendientes']:
         return False, 'ya hay otra carga despachada'
+    # Tope por firma también para las degradadas (R5-12, hallazgo 6): si otra carga de esta noche ya se degradó con
+    # el mismo paso roto sobre el mismo código, encadenar repite el descarte; se para y lo arregla el día.
+    noche = de_hoy(libro, now)['intentos']
+    propio = next((i for i in noche if run is not None and i.get('run') == run and i.get('intento') == intento), None)
+    if propio is not None and propio.get('resultado') == 'degradado':
+        repetido = next((i for i in noche if i is not propio and i.get('resultado') == 'degradado'
+                         and i.get('sha') == propio.get('sha') and _firmas(i) & _firmas(propio)), None)
+        if repetido:
+            return False, (f"la ejecución {repetido.get('run')} ya se degradó esta noche con la firma "
+                           f"{', '.join(sorted(_firmas(repetido) & _firmas(propio)))} sobre el mismo código")
     return True, f'{aceptados} altas: se encadena el siguiente lote'
 
 
@@ -258,7 +276,7 @@ def resultado_de_la_carga(resultado, informe):
     verde con pasos descartados es `degradado`; uno en rojo toma la clase y la firma del fallo."""
     informe = informe or {}
     if resultado == 'success' and informe.get('resultado') == 'degradado':
-        return 'degradado', None, ','.join(p['firma'] for p in informe.get('degradado', []))
+        return 'degradado', None, [p['firma'] for p in informe.get('degradado', [])]  # lista, no texto (hallazgo 9)
     if resultado == 'failure' and informe.get('resultado') == 'fallido':
         return resultado, informe.get('clase'), informe.get('firma')
     return resultado, None, None
@@ -284,7 +302,7 @@ def _despacho(now, run, intento, args) -> int:
     try:
         libro = leer()
         if args.accion == 'cadena':
-            toca, porque = toca_cadena(libro, now, args.aceptados)
+            toca, porque = toca_cadena(libro, now, args.aceptados, run, intento)
         else:
             toca, porque = toca_reintento(libro, now, run, intento)
         if toca:

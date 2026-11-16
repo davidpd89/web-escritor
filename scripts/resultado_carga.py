@@ -4,11 +4,8 @@
   publicado  todo fue bien;
   degradado  la carga publicó, pero un paso (altas de Amazon, precios y portadas) falló y se descartó: código 0,
              la cadena sigue y el fallo queda en una issue `fallo` con su firma;
-  fallido    no se publicó nada. Clase:
-               transitorio  red, 5xx, límite de peticiones: un reintento sobre el mismo commit tiene sentido;
-               codigo       todo lo demás (un contrato o una prueba que falla con este catálogo): reintentar sobre el
-                            mismo código da el mismo fallo; se abre una issue `fallo` y espera al arreglo de día.
-             (Un libro malo es *dato*: la cuarentena lo aparta y la carga no falla.)
+  fallido    no se publicó nada; la clase sale de la etapa en la que saltó (ver CLASE_DE_ETAPA).
+             (Un libro malo lo aparta la cuarentena y la carga no falla: `dato` es solo el contrato que no pudo.)
 
 La carga escribe `.ci/reading-intake/resultado.json`; el cierre del turno lo copia al libro de la noche
 (scripts/noche.py) y el reintento decide con la clase y la firma, no con «main avanzó».
@@ -17,21 +14,56 @@ from __future__ import annotations
 
 import hashlib
 import json
-import re
 import socket
 import subprocess
 import urllib.error
+from contextlib import contextmanager
 from pathlib import Path
 
 FICHERO = Path('.ci/reading-intake/resultado.json')
 
-# Mensajes de fallos de red o de servicio que se van solos (en `gh`, `git`, urllib y las API de las fuentes).
-TRANSITORIO = re.compile(
-    r'HTTP (?:Error )?(?:429|5\d\d)\b|\b(?:429|50[0-4]) (?:Too Many|Internal|Bad Gateway|Service|Gateway)'
-    r'|timed? ?out|Connection (?:reset|refused|aborted)|Temporary failure in name resolution'
-    r'|Could not resolve host|rate limit|secondary rate|RemoteDisconnected|EOF occurred|TLS|SSL',
-    re.IGNORECASE)
+# R5-12 (Fable, hallazgos 7 y 8): la clase sale de la ETAPA en la que saltó el fallo, no del texto del mensaje. Antes
+# era una expresión regular sobre mensajes (`TLS|SSL` casaba palabras normales, `timed? ?out`...) y la firma salía
+# del primer renglón, que en un subproceso es la orden entera. Ahora:
+#   transitorio  consulta externa o escritura remota (fuentes, gh, git push): reintentar tiene sentido;
+#   dato         un contrato de datos que la cuarentena no pudo resolver: mismo lote, mismo fallo;
+#   entorno      la cuarentena o la preparación no encontraron lo que esperaban (versión publicada, checkout):
+#                cuenta para el tope de 3 fallidas y no se trata como dato;
+#   codigo       construcción y publicación: reintentar sobre el mismo código da lo mismo;
+#   desconocido  un fallo fuera de toda etapa declarada: no se da por código sin más; se reintenta dentro del tope
+#                y se abre issue para mirarlo de día.
+CLASE_DE_ETAPA = {
+    'remoto': 'transitorio',
+    'consulta': 'transitorio',
+    'contrato': 'dato',
+    'cuarentena': 'entorno',
+    'preparacion': 'entorno',
+    'construccion': 'codigo',
+    'publicacion': 'codigo',
+}
+CLASES = (*sorted(set(CLASE_DE_ETAPA.values())), 'desconocido')
+# Tipos que dicen «red o servicio» sea cual sea la etapa (por tipo, nunca por texto).
 TIPOS_TRANSITORIOS = (urllib.error.URLError, ConnectionError, TimeoutError, socket.timeout)
+# Se reintenta de noche (dentro del tope y la guarda por firma) / se abre issue `fallo` para el arreglo de día.
+SE_REINTENTA = ('transitorio', 'entorno', 'desconocido')
+SE_REPORTA = ('codigo', 'dato', 'desconocido')
+
+
+@contextmanager
+def etapa(nombre: str, regla: str | None = None):
+    """Marca la excepción que salga del bloque con su etapa (y su regla, si la hay) sin cambiar su tipo: quien la
+    captura por tipo (StaleMerge) la sigue viendo igual. Manda la etapa más interior: no se pisa una ya puesta."""
+    if nombre not in CLASE_DE_ETAPA:
+        raise ValueError(f'etapa sin clase: {nombre}')
+    try:
+        yield
+    except Exception as exc:
+        if getattr(exc, 'etapa', None) is None:
+            try:
+                exc.etapa, exc.regla = nombre, regla
+            except AttributeError:  # una excepción sin __dict__: se envuelve, con la original como causa
+                raise RuntimeError(type(exc).__name__) from exc
+        raise
 
 
 def cadena(exc: BaseException | None):
@@ -43,35 +75,42 @@ def cadena(exc: BaseException | None):
         exc = exc.__cause__ or exc.__context__
 
 
-def _texto(exc: BaseException) -> str:
-    partes = [str(exc)]
-    if isinstance(exc, subprocess.CalledProcessError):
-        partes += [str(exc.stderr or ''), str(exc.output or '')]
-    return ' '.join(partes)
+def _etapa(exc: BaseException) -> tuple[str | None, str | None]:
+    for e in cadena(exc):
+        if getattr(e, 'etapa', None):
+            return e.etapa, getattr(e, 'regla', None)
+    return None, None
 
 
 def clase(exc: BaseException) -> str:
-    """transitorio si algún eslabón de la cadena es de red o de servicio; si no, codigo."""
+    """Por tipo primero (red, 429 o 5xx en cualquier eslabón ⇒ transitorio; un 4xx no se arregla esperando ⇒
+    codigo), y si no, por la etapa."""
     for e in cadena(exc):
         if isinstance(e, urllib.error.HTTPError):
-            if e.code == 429 or e.code >= 500:
-                return 'transitorio'
-            continue  # un 4xx de una API (404, 400) no se arregla esperando
-        if isinstance(e, TIPOS_TRANSITORIOS) or TRANSITORIO.search(_texto(e)):
+            return 'transitorio' if e.code == 429 or e.code >= 500 else 'codigo'
+        if isinstance(e, TIPOS_TRANSITORIOS):
             return 'transitorio'
-    return 'codigo'
+    nombre, _ = _etapa(exc)
+    return CLASE_DE_ETAPA.get(nombre, 'desconocido')
+
+
+def _identidad(e: BaseException) -> str:
+    """Lo estructurado de un eslabón: su tipo y, si lo tiene, el código HTTP o el programa que falló."""
+    if isinstance(e, urllib.error.HTTPError):
+        return f'{type(e).__name__}:{e.code}'
+    if isinstance(e, subprocess.CalledProcessError):
+        orden = e.cmd if isinstance(e.cmd, (list, tuple)) else [e.cmd]
+        programa = next((Path(str(a)).name for a in orden if str(a).endswith(('.py', '.mjs', '.js', '.sh'))),
+                        Path(str(orden[0])).name if orden else '')
+        return f'{type(e).__name__}:{programa}'
+    return type(e).__name__
 
 
 def firma(exc: BaseException) -> str:
-    """Huella estable del fallo: tipos y mensajes de la cadena sin números, ids ni rutas temporales. Dos noches con
-    el mismo fallo dan la misma firma aunque cambien el lote, los ISBN o la ejecución."""
-    partes = []
-    for e in cadena(exc):
-        texto = str(e).splitlines()[0] if str(e) else ''
-        texto = re.sub(r'[0-9a-f]{7,40}', 'H', texto)           # SHA y hashes
-        texto = re.sub(r'\d+', 'N', texto)                       # ISBN, números de PR y de ejecución, cuentas
-        texto = re.sub(r'(?:/tmp|[A-Z]:\\)[^\s\'"]*', 'P', texto)  # rutas temporales
-        partes.append(f'{type(e).__name__}:{texto[:200]}')
+    """(etapa, tipos de la cadena, regla), sin texto libre: dos noches con el mismo fallo dan la misma firma aunque
+    cambien el lote, los ISBN, la ejecución o la redacción del mensaje."""
+    nombre, regla = _etapa(exc)
+    partes = [nombre or '-', regla or '-', *(_identidad(e) for e in cadena(exc))]
     return hashlib.sha1('|'.join(partes).encode('utf-8')).hexdigest()[:12]
 
 
@@ -108,13 +147,13 @@ def leer(root: Path) -> dict | None:
 
 def a_reportar(resultado: dict | None) -> list[dict]:
     """Lo que necesita un arreglo de día: cada paso descartado de una carga degradada y el fallo de código de una
-    fallida. Un transitorio no abre issue (lo cubre el reintento)."""
+    fallida de clase SE_REPORTA. Un transitorio o de entorno no abre issue (lo cubren el reintento y el tope)."""
     if not resultado:
         return []
     if resultado.get('resultado') == 'degradado':
         return list(resultado.get('degradado', []))
-    if resultado.get('resultado') == 'fallido' and resultado.get('clase') == 'codigo':
-        return [{'paso': 'carga', 'clase': 'codigo', 'firma': resultado['firma'], 'error': resultado.get('error', '')}]
+    if resultado.get('resultado') == 'fallido' and resultado.get('clase') in SE_REPORTA:
+        return [{'paso': 'carga', 'clase': resultado['clase'], 'firma': resultado['firma'], 'error': resultado.get('error', '')}]
     return []
 
 
