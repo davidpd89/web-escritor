@@ -76,11 +76,25 @@ BOOK_FIELDS.update({'sinopsis_breve', 'sinopsis_fuente_url', 'sinopsis_tipo', 'c
 class ValidationError(ValueError):
     """Fallo de validación con su dueño como dato: `libro` (id del libro, o None si es una regla general), `regla`
     (el motivo sin el libro, para agrupar incidencias) y `otro` (el libro gemelo de una portada duplicada). La
-    cuarentena aparta por estos atributos; el texto es solo para personas y puede cambiar sin consecuencias."""
+    cuarentena aparta por estos atributos; el texto es solo para personas y puede cambiar sin consecuencias.
+    `general` marca un fallo de un fichero común (sellos, autores): nunca se atribuye a la ficha en curso, porque
+    apartar ese libro ocultaría el error y el siguiente lote lo arrastraría."""
 
-    def __init__(self, message, libro=None, regla=None, otro=None):
+    def __init__(self, message, libro=None, regla=None, otro=None, general=False):
         super().__init__(message)
-        self.libro, self.regla, self.otro = libro, regla, otro
+        self.libro, self.regla, self.otro, self.general = libro, regla, otro, general
+
+
+def fallo_general(carga):
+    """Los fallos al validar un fichero común salen como generales (`ValidationError.general`)."""
+    @functools.wraps(carga)
+    def envuelta(*args, **kwargs):
+        try:
+            return carga(*args, **kwargs)
+        except ValidationError as exc:
+            exc.general, exc.libro = True, None
+            raise
+    return envuelta
 
 
 def require(ok, message, libro=None, regla=None, otro=None):
@@ -130,7 +144,7 @@ def con_libro(valida):
         try:
             return valida(data, root, actual)
         except ValidationError as exc:
-            if exc.libro is None:
+            if exc.libro is None and not exc.general:
                 exc.libro = actual.get('libro')
             if exc.regla is None:
                 exc.regla = _regla(str(exc), exc.libro)
@@ -636,6 +650,7 @@ def author_records(root=ROOT):
     return AUTHOR_CACHE[key]
 
 
+@fallo_general
 def load_author_records(path):
     payload = json.loads(path.read_text(encoding='utf-8'))
     require(set(payload) == {'schema_version', 'autores'} and payload['schema_version'] == 1, 'Contrato de autores inválido')
@@ -674,6 +689,7 @@ def publisher_records(root=ROOT):
     return PUBLISHER_CACHE[key]
 
 
+@fallo_general
 def load_publisher_records(path):
     payload = json.loads(path.read_text(encoding='utf-8'))
     require(set(payload) == {'schema_version', 'editoriales'} and payload['schema_version'] == 1, 'Contrato de sellos inválido')

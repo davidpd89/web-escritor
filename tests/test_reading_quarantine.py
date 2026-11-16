@@ -344,6 +344,23 @@ class FallosEstructuradosTest(unittest.TestCase):
             q.build.validate(data, ROOT)
         self.assertEqual({ctx.exception.libro, ctx.exception.otro}, {DATA['libros'][0]['id'], DATA['libros'][5]['id']})
 
+    def test_un_fichero_comun_roto_es_un_fallo_general_y_no_aparta_al_libro_en_curso(self):
+        """Un `reading-publishers.json` inválido que salta al validar una ficha con `editorial_catalogo_slug` no se
+        atribuye a esa ficha: apartarla ocultaría el error y el lote seguiría con el fichero roto."""
+        with tempfile.TemporaryDirectory() as tmp:
+            roto = Path(tmp) / 'reading-publishers.json'
+            roto.write_text(json.dumps({'schema_version': 1, 'editoriales': [], 'extra': 1}), encoding='utf-8')
+            with self.assertRaises(q.build.ValidationError) as ctx:
+                q.build.load_publisher_records(roto)
+            self.assertTrue(ctx.exception.general)
+            with unittest.mock.patch.object(q.build, 'publisher_records', lambda root=None: q.build.load_publisher_records(roto)):
+                with self.assertRaises(q.build.ValidationError) as ctx:
+                    q.build.validate(copy.deepcopy(DATA), ROOT)
+                self.assertIsNone(ctx.exception.libro)
+                self.assertTrue(ctx.exception.general)
+                with self.assertRaises(q.build.ValidationError):
+                    q.isolate(copy.deepcopy(DATA), ROOT, DATA, today='2026-11-17')
+
     def test_la_cuarentena_no_lee_mensajes_con_regex(self):
         """Guarda: dentro de isolate no hay `re.` ni se busca el culpable en el texto del fallo."""
         import ast
