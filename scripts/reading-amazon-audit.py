@@ -177,6 +177,14 @@ def apply_ratings(tree, published, tag):
     return len(found)
 
 
+def public_record(book, record):
+    """Lo que se publica de la auditoría de un libro: la ficha de Amazon frente a lo que muestra la web (sin el
+    texto de la sinopsis, que ya va en la ficha del libro)."""
+    shown = [o['formato'] for o in book.get('formatos_compra', [])]
+    return {**{k: v for k, v in record.items() if k != 'sinopsis_amazon'}, 'mostrados': shown,
+            'faltan': [f for f in record['amazon'] if f not in shown], 'portada': cover_kind(book)}
+
+
 def apply_records(tree, records, tag, fetch_bytes=fetch_amazon_image, convert=None, today=None, covers=COVERS_PER_PUBLISH):
     """Lleva el registro al catálogo del árbol: formatos que faltan y portada real donde la nuestra es generada.
     La portada se decide por el libro tal como está en main, no por lo que decía el registro al auditarlo: antes
@@ -206,9 +214,7 @@ def apply_records(tree, records, tag, fetch_bytes=fetch_amazon_image, convert=No
     stats['ratings'] = apply_ratings(tree, published, tag)
     public = {}
     for book, record in published:
-        shown = [o['formato'] for o in book.get('formatos_compra', [])]
-        public[book['id']] = {**{k: v for k, v in record.items() if k != 'sinopsis_amazon'}, 'mostrados': shown, 'faltan': [f for f in record['amazon'] if f not in shown],
-                              'portada': cover_kind(book)}
+        public[book['id']] = public_record(book, record)
     write_json(tree / 'data/reading-catalogue.json', data)
     write_json(tree / PUBLISHED, {'nota': 'Registro por libro de la ficha de Amazon frente a lo que muestra la web; '
                                           'lo escribe scripts/reading-amazon-audit.py.',

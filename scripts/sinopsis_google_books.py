@@ -127,21 +127,32 @@ PLAZO_MANUAL = 20  # días sin sinopsis antes de pasar a mano o a GPT (el compro
 VENCIDA = 30
 
 
+def vacio(book):
+    """Publicada con ISBN y sin ninguna sinopsis (ni propia ni extraída)."""
+    return (book.get('estado') == 'publicado' and bool(book.get('isbn13')) and not book.get('sinopsis_breve')
+            and not book.get('sinopsis_completa') and book.get('sinopsis_tipo') != 'resumen_propio')
+
+
+def podar(registro, vigentes):
+    """Quita del registro los ISBN que ya no están en `vigentes`."""
+    for isbn in [i for i in registro if i not in vigentes]:
+        del registro[isbn]
+
+
 def pendientes(catalogo, fallos, minimo=2, desde=None, hoy=None, plazo=PLAZO_MANUAL):
     """ISBN publicados sin sinopsis a buscar a mano (o con GPT): los que Google ya falló `minimo` veces y, con
     `desde` (ISBN -> primer día visto sin sinopsis, se anota aquí), los que llevan `plazo` días o más, aunque las
     fuentes automáticas sigan intentándolo. Los más antiguos primero. Poda `fallos` y `desde` de los que ya tienen
     sinopsis o dejaron de estar publicados."""
-    vacios = {b['isbn13'] for b in catalogo['libros'] if b.get('estado') == 'publicado' and b.get('isbn13')
-              and not b.get('sinopsis_breve') and not b.get('sinopsis_completa') and b.get('sinopsis_tipo') != 'resumen_propio'}
-    for registro in (fallos, desde if desde is not None else {}):
-        for isbn in [i for i in registro if i not in vacios]:
-            del registro[isbn]
+    vacios = {b['isbn13'] for b in catalogo['libros'] if vacio(b)}
+    podar(fallos, vacios)
     lista = {i for i, n in fallos.items() if n >= minimo}
-    if desde is not None and hoy is not None:
-        for isbn in vacios:
-            desde.setdefault(isbn, hoy.isoformat())
-        lista |= {i for i in vacios if dias_sin(desde, i, hoy) >= plazo}
+    if desde is not None:
+        podar(desde, vacios)
+        if hoy is not None:
+            for isbn in vacios:
+                desde.setdefault(isbn, hoy.isoformat())
+            lista |= {i for i in vacios if dias_sin(desde, i, hoy) >= plazo}
     return sorted(lista, key=lambda i: (-dias_sin(desde or {}, i, hoy), i))
 
 
