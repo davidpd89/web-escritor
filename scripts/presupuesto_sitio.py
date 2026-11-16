@@ -9,6 +9,7 @@ los elige `catalogo_amazon.priorizar`). Sin medida no hay altas: se falla cerrad
 """
 import argparse
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -126,12 +127,18 @@ def cupo_de_hoy(work, day, libros_ahora):
 
 
 def anotar(work, day, altas):
-    """Suma las altas de la noche; guarda solo los últimos 14 días."""
+    """Suma las altas de la noche; guarda solo los últimos 14 días.
+
+    Se escribe aparte y se sustituye de una vez: un corte a mitad no deja un registro truncado que mañana valdría
+    como vacío y doblaría el cupo de la noche."""
     ledger = _ledger(work)
     ledger[day] = ledger.get(day, 0) + altas
     ledger = dict(sorted(ledger.items())[-14:])
     Path(work).mkdir(parents=True, exist_ok=True)
-    (Path(work) / LEDGER).write_text(json.dumps(ledger, indent=2) + '\n', encoding='utf-8')
+    destino = Path(work) / LEDGER
+    tmp = destino.with_name(destino.name + '.tmp')
+    tmp.write_text(json.dumps(ledger, indent=2) + '\n', encoding='utf-8')
+    os.replace(tmp, destino)
 
 
 def main(argv=None):

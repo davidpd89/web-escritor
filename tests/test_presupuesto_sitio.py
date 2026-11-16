@@ -91,6 +91,29 @@ class MedidaYRegistro(unittest.TestCase):
             self.assertEqual(ps.ultima_medida()['bytes'], 5)
         self.assertIn('completed', llamadas[0], 'un despliegue fallido por tamaño también trae medida')
 
+    def test_ultima_medida_without_gh_or_any_download_is_no_measurement(self):
+        def sin_gh(cmd, **kw):
+            raise FileNotFoundError('gh')
+        with patch.object(ps.subprocess, 'run', sin_gh):
+            self.assertIsNone(ps.ultima_medida())
+
+        def descarga_falla(cmd, **kw):
+            if cmd[:3] == ['gh', 'run', 'list']:
+                return type('R', (), {'stdout': '11 22', 'returncode': 0})()
+            if cmd[3] == '11':
+                raise ps.subprocess.TimeoutExpired(cmd, 120)
+            return type('R', (), {'stdout': '', 'returncode': 1})()
+        with patch.object(ps.subprocess, 'run', descarga_falla):
+            self.assertIsNone(ps.ultima_medida())
+
+    def test_anotar_never_leaves_a_half_written_ledger(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            ps.anotar(tmp, '2026-11-01', 3)
+            with patch.object(ps.os, 'replace', side_effect=OSError('corte')):
+                with self.assertRaises(OSError):
+                    ps.anotar(tmp, '2026-11-01', 2)
+            self.assertEqual(ps._ledger(tmp), {'2026-11-01': 3})
+
     def test_malformed_ledger_counts_as_empty(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / ps.LEDGER
