@@ -295,7 +295,7 @@ MUTACIONES = {
 
 
 def mutado(n, cambio):
-    data, book, cats = without(n)
+    data, book, _ = without(n)
     roto = copy.deepcopy(DATA)
     cambio(roto['libros'][n])
     return data, roto, book

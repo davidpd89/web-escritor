@@ -7,6 +7,7 @@ La carga desde Drive y Pinterest pertenecen a fases posteriores.
 from __future__ import annotations
 
 import argparse
+import functools
 import hashlib
 import html
 import json
@@ -120,20 +121,25 @@ def valid_isbn(value):
     return isinstance(value, str) and bool(re.fullmatch(r"97[89][0-9]{10}", value)) and sum(int(n) * (1 if i % 2 == 0 else 3) for i, n in enumerate(value)) % 10 == 0
 
 
-def validate(data, root):
-    """Valida el catálogo; un fallo dentro de la ficha de un libro sale con ese libro en `ValidationError.libro`."""
-    actual = {}
-    try:
-        return _validate(data, root, actual)
-    except ValidationError as exc:
-        if exc.libro is None:
-            exc.libro = actual.get('libro')
-        if exc.regla is None:
-            exc.regla = _regla(str(exc), exc.libro)
-        raise
+def con_libro(valida):
+    """Un fallo dentro de la ficha de un libro sale con ese libro en `ValidationError.libro` (y su motivo en
+    `regla`): `valida` anota en `actual['libro']` la ficha que está revisando."""
+    @functools.wraps(valida)
+    def envuelta(data, root):
+        actual = {}
+        try:
+            return valida(data, root, actual)
+        except ValidationError as exc:
+            if exc.libro is None:
+                exc.libro = actual.get('libro')
+            if exc.regla is None:
+                exc.regla = _regla(str(exc), exc.libro)
+            raise
+    return envuelta
 
 
-def _validate(data, root, actual):
+@con_libro
+def validate(data, root, actual):
     require(isinstance(data, dict) and data.get("schema_version") == 1, "schema_version debe ser 1")
     require(set(data) == {"schema_version", "categorias", "libros", "libro_categorias"}, "Campos raíz desconocidos o ausentes")
     cats, books, relations = data["categorias"], data["libros"], data["libro_categorias"]
