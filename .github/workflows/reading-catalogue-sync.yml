@@ -168,7 +168,18 @@ jobs:
           failed=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow reading-catalogue-sync.yml --limit 30 \
             --json databaseId,conclusion,createdAt \
             -q "[.[] | select(.databaseId != ${GITHUB_RUN_ID} and .conclusion == \"failure\" and .createdAt >= \"$since\")] | length")
-          echo "Madrid hour $hour, earlier failures tonight $failed"
+          # 2026-11-16: a contract failure was retried twice on the same code and failed the same way
+          # each time. A retry only helps if main moved (a fix landed) or this is the first failure of
+          # this code tonight (a transient error); otherwise the night-autorepair watcher takes over.
+          same=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow reading-catalogue-sync.yml --limit 30 \
+            --json databaseId,conclusion,createdAt,headSha \
+            -q "[.[] | select(.databaseId != ${GITHUB_RUN_ID} and .conclusion == \"failure\" and .createdAt >= \"$since\" and .headSha == \"$GITHUB_SHA\")] | length")
+          main=$(gh api "repos/$GITHUB_REPOSITORY/commits/main" -q .sha)
+          echo "Madrid hour $hour, earlier failures tonight $failed, on this same code $same, main moved: $([ "$main" != "$GITHUB_SHA" ] && echo yes || echo no)"
+          if [ "$same" -gt 0 ] && [ "$main" = "$GITHUB_SHA" ]; then
+            echo "Failed batch: same code already failed tonight and main has not moved; no blind retry." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
           if [ "$hour" -lt 6 ] && [ "$failed" -lt 2 ]; then
             gh workflow run reading-catalogue-sync.yml --repo "$GITHUB_REPOSITORY" --ref main
             echo "Failed batch: one retry dispatched (recovers the saved data branch)." >> "$GITHUB_STEP_SUMMARY"

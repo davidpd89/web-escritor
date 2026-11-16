@@ -217,6 +217,18 @@ class WorkflowRetryContractTests(unittest.TestCase):
             self.assertIn('-ne 75', source, rel)
             self.assertIn('switch --quiet --detach origin/main', source, rel)
 
+    def test_night_retry_never_repeats_the_same_code_twice(self):
+        # 16/11: a deterministic contract failure was retried twice on the same commit; the third run
+        # can only differ if main moved, so the step stops before dispatching when it did not.
+        source = (ROOT / '.github/workflows/reading-catalogue-sync.yml').read_text(encoding='utf-8')
+        step = source[source.index('- name: Retry a failed night batch'):]
+        step = step[:step.index('\n      - name:', 1)]
+        self.assertIn('.headSha == \\"$GITHUB_SHA\\"', step)
+        self.assertIn('commits/main', step)
+        guard, dispatch = step.index('[ "$main" = "$GITHUB_SHA" ]'), step.index('gh workflow run')
+        self.assertLess(guard, dispatch)
+        self.assertIn('exit 0', step[guard:dispatch])
+
 
 if __name__ == '__main__':
     unittest.main()
