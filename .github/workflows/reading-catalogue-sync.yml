@@ -1,5 +1,5 @@
 name: Reading catalogue intake
-# Los ensayos llevan su propio nombre: scripts/ci_intake_backup.py no los cuenta como carga publicada.
+# Los ensayos llevan su propio nombre y no se anotan en el libro de la noche (scripts/noche.py).
 run-name: ${{ inputs.dry_run && 'Ensayo sin publicar' || 'Reading catalogue intake' }}
 
 on:
@@ -10,7 +10,8 @@ on:
     - cron: '17 0 * * *'
     # Respaldo: GitHub descarta crons con carga (07/11: el de las 00:17 no saltó y no entró ningún libro) y retrasa
     # otros horas (06/11: uno a las 03:52). Los tres cargan solo si esta noche no hay otra carga en verde ni en
-    # curso (scripts/ci_intake_backup.py), así un cron retrasado no repite la de un respaldo.
+    # curso según el libro de la noche (scripts/ci_intake_backup.py -> scripts/noche.py), así un cron retrasado
+    # no repite la de un respaldo.
     - cron: '47 1 * * *'
     - cron: '17 3 * * *'
   workflow_dispatch:
@@ -27,6 +28,10 @@ on:
         description: 'Reloj externo (workers/intake-dispatch.mjs): carga solo si esta noche no hay otra en verde ni en curso'
         type: boolean
         default: false
+      motivo:
+        description: 'Quién lanza la carga: manual, cadena o reintento (lo anotan la cadena y el reintento; scripts/noche.py)'
+        type: string
+        default: manual
 
 permissions:
   contents: write
@@ -44,7 +49,10 @@ jobs:
       - if: github.event_name == 'schedule' || inputs.respaldo
         uses: actions/checkout@v5
         with:
-          sparse-checkout: scripts/ci_intake_backup.py
+          sparse-checkout: |
+            scripts/ci_intake_backup.py
+            scripts/noche.py
+            scripts/catalogo_estado.py
           sparse-checkout-cone-mode: false
       - id: madrid
         env:
@@ -56,11 +64,10 @@ jobs:
         # Decided by the cron that fired, not the current hour: a delayed run still counts.
         # El dispatch del reloj externo (respaldo=true) decide como un cron: nunca repite una carga en verde o en curso.
         run: |
-          offset=$(TZ=Europe/Madrid date +%z)
-          case "$EVENT:$RESPALDO:$SCHEDULE:$offset" in
+          case "$EVENT:$RESPALDO:$SCHEDULE" in
             workflow_dispatch:true:*) python3 scripts/ci_intake_backup.py >> "$GITHUB_OUTPUT" ;;
             workflow_dispatch:*) echo run=true >> "$GITHUB_OUTPUT" ;;
-            schedule:*:'17 0 * * *':*|schedule:*:'47 1 * * *':*|schedule:*:'17 3 * * *':*) python3 scripts/ci_intake_backup.py >> "$GITHUB_OUTPUT" ;;
+            schedule:*:'17 0 * * *'|schedule:*:'47 1 * * *'|schedule:*:'17 3 * * *') python3 scripts/ci_intake_backup.py >> "$GITHUB_OUTPUT" ;;
             *) echo run=false >> "$GITHUB_OUTPUT" ;;
           esac
   intake:
@@ -88,21 +95,34 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
+      - name: Take the night turn
+        # Libro de la noche (Fable R4-1): con el turno del grupo de concurrencia cogido, un reloj vuelve a decidir
+        # con el libro (otra carga pudo empezar o publicar mientras esperaba) y la carga se anota en curso.
+        id: libro
+        if: ${{ !inputs.dry_run }}
+        env:
+          MOTIVO: ${{ github.event_name == 'schedule' && 'cron' || (inputs.respaldo && 'respaldo' || inputs.motivo || 'manual') }}
+        run: python scripts/noche.py abrir --motivo "$MOTIVO" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@v5
+        if: inputs.dry_run || steps.libro.outputs.cargar == 'true'
         with:
           node-version: '22'
       - name: Install pinned validation and search dependencies
+        if: inputs.dry_run || steps.libro.outputs.cargar == 'true'
         run: |
           python -m pip install --requirement scripts/requirements.txt
           python -m pip install --requirement scripts/requirements-reading-audio.txt
           npm ci
       - name: Restore public editorial response cache
+        if: inputs.dry_run || steps.libro.outputs.cargar == 'true'
         uses: actions/cache@v5
         with:
           path: .ci/reading-editorial-cache
           key: reading-editorial-v1-${{ github.run_id }}
           restore-keys: reading-editorial-v1-
       - name: Discover, validate and publish through protected main
+        id: carga
+        if: inputs.dry_run || steps.libro.outputs.cargar == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DRY_RUN: ${{ inputs.dry_run }}
@@ -132,45 +152,42 @@ jobs:
               git clean --quiet -fd
             done
           fi
+      - name: Close the night turn
+        # Siempre que la carga se anotó: publicada, fallida o cancelada (también si el job se cancela).
+        if: ${{ always() && !inputs.dry_run && steps.libro.outputs.cargar == 'true' }}
+        env:
+          RESULTADO: ${{ steps.carga.outcome }}
+        run: python scripts/noche.py cerrar --resultado "$RESULTADO"
       - name: Chain the next night batch
         # GitHub drops most hourly crons under load (2026-11-04: one scheduled run all night), so a
-        # batch that published new books dispatches the next one itself. Night only (00-06 Madrid),
-        # so daytime merges from other work never wait behind a load. A batch with nothing new, a
-        # resumed PR or a failure stops the chain; the next cron picks up again.
-        if: success() && !inputs.dry_run
+        # batch that published new books dispatches the next one itself. Night only (00-06 Madrid, the
+        # same night as the clocks and the retry: scripts/noche.py), so daytime merges from other work never
+        # wait behind a load. A batch with nothing new or a failure stops the chain; the next cron picks up again.
+        if: success() && !inputs.dry_run && steps.libro.outputs.cargar == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: bash
         run: |
           set -euo pipefail
-          hour=$(TZ=Europe/Madrid date +%-H)
           accepted=$(python -c "import json,pathlib;p=pathlib.Path('.ci/reading-intake/publisher-report.json');print(json.loads(p.read_text(encoding='utf-8')).get('stats',{}).get('accepted',0) if p.exists() else 0)")
-          echo "Madrid hour $hour, accepted $accepted"
-          if [ "$hour" -lt 6 ] && [ "$accepted" -gt 0 ]; then
-            gh workflow run reading-catalogue-sync.yml --repo "$GITHUB_REPOSITORY" --ref main
-            echo "Next night batch dispatched (accepted $accepted at $hour h Madrid)." >> "$GITHUB_STEP_SUMMARY"
+          if python scripts/noche.py cadena --aceptados "$accepted"; then
+            gh workflow run reading-catalogue-sync.yml --repo "$GITHUB_REPOSITORY" --ref main -f motivo=cadena
+            echo "Next night batch dispatched (accepted $accepted)." >> "$GITHUB_STEP_SUMMARY"
           fi
       - name: Retry a failed night batch
         # 2026-11-14: two batches failed after accepting 200 books each and the chain stopped until the
         # next night. A failed batch leaves its data on automation/reading-datos-*, so a new run publishes
         # it without querying the sources again (and a fixed main may already be in place). Night only,
-        # and at most two retries per night (three failed runs in all, counting manual and dry runs since
-        # Madrid midnight), so a broken rule never loops.
-        if: failure() && !inputs.dry_run
+        # and at most three failed loads per night, counted in the night book (scripts/noche.py), so a
+        # broken rule never loops.
+        if: failure() && !inputs.dry_run && steps.libro.outputs.cargar == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: bash
         run: |
           set -euo pipefail
-          hour=$(TZ=Europe/Madrid date +%-H)
-          # Madrid midnight in UTC (GNU `date -u -d` would read 'today 00:00' as UTC midnight).
-          since=$(python3 -c "from datetime import datetime,timezone;from zoneinfo import ZoneInfo;n=datetime.now(ZoneInfo('Europe/Madrid'));print(n.replace(hour=0,minute=0,second=0,microsecond=0).astimezone(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'))")
-          failed=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow reading-catalogue-sync.yml --limit 30 \
-            --json databaseId,conclusion,createdAt \
-            -q "[.[] | select(.databaseId != ${GITHUB_RUN_ID} and .conclusion == \"failure\" and .createdAt >= \"$since\")] | length")
-          echo "Madrid hour $hour, earlier failures tonight $failed"
-          if [ "$hour" -lt 6 ] && [ "$failed" -lt 2 ]; then
-            gh workflow run reading-catalogue-sync.yml --repo "$GITHUB_REPOSITORY" --ref main
+          if python scripts/noche.py reintento; then
+            gh workflow run reading-catalogue-sync.yml --repo "$GITHUB_REPOSITORY" --ref main -f motivo=reintento
             echo "Failed batch: one retry dispatched (recovers the saved data branch)." >> "$GITHUB_STEP_SUMMARY"
           fi
       - name: Read-only live provider pilot

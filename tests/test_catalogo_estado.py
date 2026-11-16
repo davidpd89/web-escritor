@@ -59,5 +59,25 @@ class EstadoTest(unittest.TestCase):
         self.assertEqual(run('rev-parse', 'refs/heads/catalogo-estado', cwd=self.remote), second)
 
 
+    def test_libro_de_la_noche_y_estado_no_se_pisan(self):
+        """R4-1: noche.json lo escribe el job intake mientras la ingesta guarda su estado en la misma rama."""
+        a, b = self.repos
+        with self.use(a):
+            (a / '.local/catalogo').mkdir(parents=True)
+            (a / '.local/catalogo/semillas.json').write_text('{"cola": [1]}', encoding='utf-8')
+            estado.guardar('estado')
+            estado.restaurar()
+        with self.use(b):
+            estado.escribir('noche.json', b'{"dia": "2026-11-16"}', 'libro')
+            self.assertEqual(estado.leer('semillas.json'), b'{"cola": [1]}', 'escribir conserva el resto')
+        with self.use(a):
+            (a / '.local/catalogo/semillas.json').write_text('{"cola": []}', encoding='utf-8')
+            (a / '.local/catalogo/noche.json').write_text('{"dia": "viejo"}', encoding='utf-8')
+            estado.guardar('estado 2')
+            self.assertEqual(estado.leer('noche.json'), b'{"dia": "2026-11-16"}',
+                             'guardar conserva el libro del remoto, no la copia restaurada')
+            self.assertEqual(estado.leer('semillas.json'), b'{"cola": []}')
+            self.assertIsNone(estado.leer('no-existe.json'))
+
 if __name__ == '__main__':
     unittest.main()

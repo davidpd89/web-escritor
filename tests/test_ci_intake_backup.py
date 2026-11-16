@@ -1,139 +1,63 @@
-"""Cron de respaldo de la ingesta: carga solo si esta noche no hay otra carga en verde ni en curso."""
+"""Juez de los relojes de la ingesta (scripts/ci_intake_backup.py): desde R4-1 decide con el libro de la noche.
+
+Las reglas están en tests/test_noche.py; aquí, que el wrapper delega en el libro y el contrato del workflow.
+"""
 import importlib.util
 import io
-import os
-import pathlib
+import sys
 import unittest
-from contextlib import redirect_stderr, redirect_stdout
+from contextlib import redirect_stdout
+from pathlib import Path
 from unittest import mock
 
-ROOT = pathlib.Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'scripts'))
+import noche  # noqa: E402
+
 spec = importlib.util.spec_from_file_location('ci_intake_backup', ROOT / 'scripts/ci_intake_backup.py')
 backup = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(backup)
 
 
-class DecideTest(unittest.TestCase):
-    def test_cron_principal_descartado_carga(self):
-        # 07/11: el cron de las 00:17 no saltó; no hay ninguna ejecución esta noche.
-        self.assertTrue(backup.decide([])[0])
-
-    def test_carga_en_curso_no_duplica(self):
-        self.assertFalse(backup.decide([{'id': 1, 'status': 'in_progress'}])[0])
-        self.assertFalse(backup.decide([{'id': 1, 'status': 'queued'}])[0])
-
-    def test_carga_en_verde_no_repite(self):
-        self.assertFalse(backup.decide([{'id': 1, 'status': 'completed', 'intake': 'success'}])[0])
-
-    def test_reloj_que_no_cargo_no_cuenta(self):
-        # Otro respaldo que decidió no cargar termina en verde sin job intake: no es una carga hecha.
-        self.assertTrue(backup.decide([{'id': 2, 'status': 'completed', 'intake': 'skipped'},
-                                       {'id': 3, 'status': 'completed', 'intake': None}])[0])
-
-    def test_cargas_fallidas_se_reintentan(self):
-        self.assertTrue(backup.decide([{'id': 1, 'status': 'completed', 'intake': 'failure'},
-                                       {'id': 2, 'status': 'completed', 'intake': 'cancelled'}])[0])
-
-    def test_decide_la_ultima_carga(self):
-        # Reintento que salió bien: no se repite.
-        self.assertFalse(backup.decide([{'id': 1, 'status': 'completed', 'intake': 'failure'},
-                                        {'id': 2, 'status': 'completed', 'intake': 'success'}])[0])
-        # 08/11: lote encadenado fallido tras uno en verde → la cadena se retoma (orden de la API, del más nuevo).
-        self.assertTrue(backup.decide([{'id': 7, 'status': 'completed', 'intake': None},
-                                       {'id': 6, 'status': 'completed', 'intake': 'failure'},
-                                       {'id': 5, 'status': 'completed', 'intake': 'success'}])[0])
-
-
-class MainTest(unittest.TestCase):
-    def run_main(self, side_effect):
-        out, err = io.StringIO(), io.StringIO()
-        env = {'GITHUB_REPOSITORY': 'o/r', 'GITHUB_TOKEN': 't', 'RUN_ID': '9'}
-        with mock.patch.dict(os.environ, env, clear=False), mock.patch.object(backup, 'api', side_effect=side_effect), \
-                redirect_stdout(out), redirect_stderr(err):
-            os.environ.pop('GITHUB_STEP_SUMMARY', None)
-            self.assertEqual(backup.main(), 0)
+class JuezTest(unittest.TestCase):
+    def juez(self, libro):
+        out = io.StringIO()
+        with mock.patch.object(noche, 'leer', return_value=libro), redirect_stdout(out), \
+                mock.patch.dict('os.environ', {'GITHUB_STEP_SUMMARY': ''}):
+            self.assertEqual(noche.main(['juez']), 0)
         return out.getvalue().strip()
 
-    def test_sin_api_carga(self):
-        self.assertEqual(self.run_main(OSError('down')), 'run=true')
+    def test_el_wrapper_usa_el_libro(self):
+        self.assertIs(backup.noche, noche)
+        self.assertFalse(hasattr(backup, 'api'), 'ya no consulta la API de Actions')
 
-    def test_se_excluye_a_si_misma_y_lee_el_job_intake(self):
-        def api(path, token, timeout=20):
-            if '/workflows/' in path:
-                return {'workflow_runs': [{'id': 9, 'status': 'in_progress'}, {'id': 5, 'status': 'completed'}]}
-            self.assertIn('/runs/5/jobs', path)
-            return {'jobs': [{'name': 'clock', 'conclusion': 'success'}, {'name': 'intake', 'conclusion': 'success'}]}
-        self.assertEqual(self.run_main(api), 'run=false')
+    def test_sin_cargas_esta_noche_carga(self):
+        self.assertEqual(self.juez(None), 'run=true')
 
-    def fake(self, runs, jobs):
-        def api(path, token, timeout=20):
-            if '/workflows/' in path:
-                return {'workflow_runs': runs}
-            return {'jobs': jobs[int(path.split('/runs/')[1].split('/')[0])]}
-        return api
+    def test_con_una_carga_en_curso_no_carga(self):
+        libro = noche.abrir(None, noche.datetime.now(noche.timezone.utc), 1, 1, 's', 'cron')[2]
+        self.assertEqual(self.juez(libro), 'run=false')
 
-    def test_un_ensayo_no_cuenta_como_carga(self):
-        """#1312: un dry_run deja el job intake en verde sin publicar; no puede ceder la noche."""
-        runs = [{'id': 5, 'status': 'completed', 'display_title': backup.DRY_RUN_TITLE, 'head_branch': 'main'}]
-        jobs = {5: [{'name': 'intake', 'conclusion': 'success', 'completed_at': '2026-11-14T00:30:00Z'}]}
-        self.assertEqual(self.run_main(self.fake(runs, jobs)), 'run=true')
-        runs[0].update(display_title='Reading catalogue intake', head_branch='fix/otra')
-        self.assertEqual(self.run_main(self.fake(runs, jobs)), 'run=true')
 
-    def test_dos_relojes_solapados_no_se_ceden_el_paso(self):
-        """#1312: el más antiguo sin decidir bloquea al nuevo, pero el nuevo no bloquea al antiguo."""
-        clock = [{'name': 'clock', 'status': 'in_progress'}]
-        self.assertEqual(self.run_main(self.fake([{'id': 12, 'status': 'in_progress'}], {12: clock})), 'run=true')
-        self.assertEqual(self.run_main(self.fake([{'id': 3, 'status': 'in_progress'}], {3: clock})), 'run=false')
-        # Reloj ya decidido con el intake saltado: no bloquea.
-        done = [{'name': 'clock', 'status': 'completed', 'conclusion': 'success'},
-                {'name': 'intake', 'status': 'completed', 'conclusion': 'skipped'}]
-        self.assertEqual(self.run_main(self.fake([{'id': 3, 'status': 'in_progress'}], {3: done})), 'run=true')
-        # Intake en marcha: bloquea.
-        active = [{'name': 'clock', 'status': 'completed'}, {'name': 'intake', 'status': 'in_progress'}]
-        self.assertEqual(self.run_main(self.fake([{'id': 12, 'status': 'in_progress'}], {12: active})), 'run=false')
-
-    def test_un_reintento_se_ordena_por_cuando_termino(self):
-        """#1312: el reintento de una ejecución vieja conserva su id; manda la última en terminar."""
-        runs = [{'id': 8, 'status': 'completed'}, {'id': 4, 'status': 'completed'}]
-        jobs = {8: [{'name': 'intake', 'conclusion': 'failure', 'completed_at': '2026-11-14T01:00:00Z'}],
-                4: [{'name': 'intake', 'conclusion': 'success', 'completed_at': '2026-11-14T02:00:00Z'}]}
-        self.assertEqual(self.run_main(self.fake(runs, jobs)), 'run=false')
-
-    def test_sin_respuesta_a_tiempo_carga(self):
-        """#1312: sin plazo global, 50 ejecuciones x 20 s superaban los 2 minutos del job."""
-        # Cargas en verde: sin plazo, la 5 cedería la noche (run=false). Con plazo se corta antes y carga (CodeRabbit).
-        runs = [{'id': i, 'status': 'completed', 'head_branch': 'main', 'display_title': 'Reading catalogue intake'}
-                for i in range(1, 6)]
-        jobs = {i: [{'name': 'intake', 'conclusion': 'success', 'completed_at': f'2026-11-14T0{i}:00:00Z'}]
-                for i in range(1, 6)}
-        self.assertEqual(self.run_main(self.fake(runs, jobs)), 'run=false')
-        calls = []
-        api = self.fake(runs, jobs)
-        clock = iter(range(0, 1000, 30))
-        with mock.patch.object(backup.time, 'monotonic', lambda: next(clock)):
-            self.assertEqual(self.run_main(lambda *a, **k: calls.append(a[0]) or api(*a, **k)), 'run=true')
-        self.assertLess(sum('/jobs' in c for c in calls), 5)
-
-    def test_el_titulo_del_ensayo_es_el_del_workflow(self):
-        """CodeRabbit #1320: si el run-name y DRY_RUN_TITLE divergen, un ensayo cuenta como carga y cede la noche."""
-        yaml = (ROOT / '.github/workflows/reading-catalogue-sync.yml').read_text(encoding='utf-8')
-        run_name = next(line for line in yaml.splitlines() if line.startswith('run-name:'))
-        self.assertIn(f"inputs.dry_run && '{backup.DRY_RUN_TITLE}'", run_name)
+class ContratoWorkflowTest(unittest.TestCase):
+    def setUp(self):
+        self.yaml = (ROOT / '.github/workflows/reading-catalogue-sync.yml').read_text(encoding='utf-8').replace('\r\n', '\n')
 
     def test_workflow_tiene_respaldos_y_concurrencia_en_el_job(self):
-        yaml = (ROOT / '.github/workflows/reading-catalogue-sync.yml').read_text(encoding='utf-8')
         for cron in ("'17 0 * * *'", "'47 1 * * *'", "'17 3 * * *'"):
-            self.assertIn(f'cron: {cron}', yaml)
-        self.assertIn('python3 scripts/ci_intake_backup.py', yaml)
+            self.assertIn(f'cron: {cron}', self.yaml)
         # P0-4: el dispatch del reloj externo (workers/intake-dispatch.mjs) decide como un cron, antes que el
         # dispatch manual (que carga siempre), y descarga el script para hacerlo: sin carga doble.
-        reloj = yaml.index('workflow_dispatch:true:*) python3 scripts/ci_intake_backup.py')
-        self.assertLess(reloj, yaml.index('workflow_dispatch:*) echo run=true'))
-        self.assertIn("if: github.event_name == 'schedule' || inputs.respaldo", yaml)
+        reloj = self.yaml.index('workflow_dispatch:true:*) python3 scripts/ci_intake_backup.py')
+        self.assertLess(reloj, self.yaml.index('workflow_dispatch:*) echo run=true'))
+        self.assertIn("if: github.event_name == 'schedule' || inputs.respaldo", self.yaml)
         # El grupo va en el job intake: un respaldo en cola nunca sustituye a la carga encadenada pendiente.
-        self.assertNotIn('\nconcurrency:', yaml)
-        self.assertIn('    concurrency:\n      group: reading-catalogue-intake', yaml.replace('\r\n', '\n'))
+        self.assertNotIn('\nconcurrency:', self.yaml)
+        self.assertIn('    concurrency:\n      group: reading-catalogue-intake', self.yaml)
+
+    def test_un_ensayo_no_entra_en_el_libro(self):
+        paso = self.yaml[self.yaml.index('name: Take the night turn'):self.yaml.index('uses: actions/setup-node')]
+        self.assertIn('if: ${{ !inputs.dry_run }}', paso)
 
 
 if __name__ == '__main__':
