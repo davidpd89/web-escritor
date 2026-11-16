@@ -3747,7 +3747,7 @@
       }
     },
     "isbn-9786073950664": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "6073950667",
       "amazon": {
         "tapa-dura": "6073950667"
@@ -3766,7 +3766,7 @@
       }
     },
     "isbn-9786073951289": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "6073951280",
       "amazon": {
         "tapa-blanda": "6073951280",
@@ -3782,7 +3782,11 @@
       "sin_confirmar": [],
       "portada": "amazon",
       "estado": "ok",
-      "portada_amazon": "https://m.media-amazon.com/images/I/51GT6BT301L.jpg"
+      "portada_amazon": "https://m.media-amazon.com/images/I/51GT6BT301L.jpg",
+      "valoracion": {
+        "puntuacion": 5.0,
+        "numero_valoraciones": 3
+      }
     },
     "isbn-9786073953238": {
       "fecha": "2026-11-12",
@@ -4934,7 +4938,7 @@
       }
     },
     "isbn-9786316947055": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "6316947054",
       "amazon": {
         "tapa-blanda": "6316947054",
@@ -4950,8 +4954,8 @@
       "estado": "ok",
       "portada_amazon": null,
       "valoracion": {
-        "puntuacion": 5.0,
-        "numero_valoraciones": 2
+        "puntuacion": 4.2,
+        "numero_valoraciones": 10
       }
     },
     "isbn-9786630230147": {
@@ -5094,16 +5098,19 @@
       "portada_amazon": null
     },
     "isbn-9788000079806": {
-      "fecha": "2026-11-15",
-      "asin": "8000079801",
-      "amazon": {},
+      "fecha": "2026-11-16",
+      "asin": "B0GHWNXXFS",
+      "amazon": {
+        "tapa-dura": "B0GHWNXXFS"
+      },
       "mostrados": [
         "tapa-dura"
       ],
       "faltan": [],
       "sin_confirmar": [],
       "portada": "amazon",
-      "estado": "sin_ficha"
+      "estado": "ok",
+      "portada_amazon": "https://m.media-amazon.com/images/I/41Pgg09Qt+L.jpg"
     },
     "isbn-9788324538553": {
       "fecha": "2026-11-15",
@@ -5338,8 +5345,8 @@
       }
     },
     "isbn-9788401037658": {
-      "fecha": "2026-11-09",
-      "asin": "8401037654",
+      "fecha": "2026-11-16",
+      "asin": "8466353933",
       "amazon": {
         "tapa-blanda": "8466353933",
         "tapa-dura": "8401037654",
@@ -5356,7 +5363,7 @@
       "sin_confirmar": [],
       "portada": "amazon",
       "estado": "ok",
-      "portada_amazon": "https://m.media-amazon.com/images/I/61wPaxOq41L.jpg",
+      "portada_amazon": "https://m.media-amazon.com/images/I/51-WuM7ZkGL.jpg",
       "valoracion": {
         "puntuacion": 4.0,
         "numero_valoraciones": 368
@@ -6967,7 +6974,7 @@
       "portada_amazon": null
     },
     "isbn-9788408314936": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8408314939",
       "amazon": {
         "tapa-dura": "8408314939"
@@ -7310,7 +7317,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51uit3KNWNL.jpg"
     },
     "isbn-9788408322924": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": "8408322923",
       "amazon": {},
       "mostrados": [],
@@ -7460,7 +7467,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51mqg3-ZtFL.jpg"
     },
     "isbn-9788408324003": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8408324004",
       "amazon": {
         "tapa-dura": "8408324004"
@@ -7490,7 +7497,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51ujwk54ohL.jpg"
     },
     "isbn-9788408324102": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8408324101",
       "amazon": {
         "tapa-dura": "8408324101",
@@ -8742,7 +8749,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51-xzgGkjhL.jpg"
     },
     "isbn-9788408327202": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8408327208",
       "amazon": {
         "tapa-dura": "8408327208"
@@ -8757,7 +8764,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41A2UTRguzL.jpg"
     },
     "isbn-9788408327264": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8408327267",
       "amazon": {
         "tapa-dura": "8408327267"
@@ -8793,7 +8800,7 @@
       }
     },
     "isbn-9788408327295": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8408327291",
       "amazon": {
         "tapa-dura": "8408327291",
@@ -8810,7 +8817,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/417TQrbKajL.jpg"
     },
     "isbn-9788408327332": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "840832733X",
       "amazon": {
         "tapa-dura": "840832733X"
@@ -8996,7 +9003,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41YpSUp-lVL.jpg"
     },
     "isbn-9788408327769": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8408327763",
       "amazon": {
         "tapa-dura": "8408327763",
@@ -9064,7 +9071,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41WBwqWg-kL.jpg"
     },
     "isbn-9788408327981": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8408327984",
       "amazon": {
         "tapa-blanda": "8408327984",
@@ -9209,11 +9216,11 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51XFVV6vIwL.jpg"
     },
     "isbn-9788408328148": {
-      "fecha": "2026-11-09",
-      "asin": "840832814X",
+      "fecha": "2026-11-16",
+      "asin": "B0BCSB1LXF",
       "amazon": {
         "tapa-blanda": "B0BCSB1LXF",
-        "tapa-dura": "840832814X",
+        "tapa-dura": "8420671770",
         "ebook": "B0DDL6VK3C",
         "audiolibro": "B08FZXHDG7"
       },
@@ -9227,10 +9234,10 @@
       "sin_confirmar": [],
       "portada": "amazon",
       "estado": "ok",
-      "portada_amazon": "https://m.media-amazon.com/images/I/41c0PtwlCgL.jpg",
+      "portada_amazon": "https://m.media-amazon.com/images/I/311T5Mb6fSL.jpg",
       "valoracion": {
         "puntuacion": 4.5,
-        "numero_valoraciones": 1084
+        "numero_valoraciones": 1087
       }
     },
     "isbn-9788408328162": {
@@ -9588,8 +9595,8 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41qB-ENWqCL.jpg"
     },
     "isbn-9788408328605": {
-      "fecha": "2026-11-09",
-      "asin": "8408328603",
+      "fecha": "2026-11-16",
+      "asin": "8408108042",
       "amazon": {
         "tapa-blanda": "8408108042",
         "tapa-dura": "8408328603",
@@ -9606,10 +9613,10 @@
       "sin_confirmar": [],
       "portada": "amazon",
       "estado": "ok",
-      "portada_amazon": "https://m.media-amazon.com/images/I/41KWm+NDzxL.jpg",
+      "portada_amazon": "https://m.media-amazon.com/images/I/41jdy6fh4iL.jpg",
       "valoracion": {
         "puntuacion": 4.4,
-        "numero_valoraciones": 2938
+        "numero_valoraciones": 2941
       }
     },
     "isbn-9788408328612": {
@@ -9649,7 +9656,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41cbNoJn3-L.jpg"
     },
     "isbn-9788408328667": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8408328662",
       "amazon": {
         "tapa-dura": "8408328662",
@@ -9780,7 +9787,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41HrLRreGbL.jpg"
     },
     "isbn-9788408328872": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8408328875",
       "amazon": {
         "tapa-blanda": "8408328875"
@@ -10047,7 +10054,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51NfETkxm1L.jpg"
     },
     "isbn-9788408329688": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8408329685",
       "amazon": {
         "tapa-blanda": "8408329685",
@@ -10068,7 +10075,7 @@
       }
     },
     "isbn-9788408329695": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8408329693",
       "amazon": {
         "tapa-blanda": "8408329693",
@@ -11353,7 +11360,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/31llHpqRQNL.jpg"
     },
     "isbn-9788409902552": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8409902559",
       "amazon": {
         "tapa-blanda": "8409902559"
@@ -13073,7 +13080,7 @@
       }
     },
     "isbn-9788409933419": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8409933411",
       "amazon": {
         "tapa-blanda": "8409933411"
@@ -13085,7 +13092,11 @@
       "sin_confirmar": [],
       "portada": "amazon",
       "estado": "ok",
-      "portada_amazon": "https://m.media-amazon.com/images/I/21t08Rn1DhL.jpg"
+      "portada_amazon": "https://m.media-amazon.com/images/I/21t08Rn1DhL.jpg",
+      "valoracion": {
+        "puntuacion": 5.0,
+        "numero_valoraciones": 1
+      }
     },
     "isbn-9788409933440": {
       "fecha": "2026-11-15",
@@ -13179,7 +13190,7 @@
       }
     },
     "isbn-9788409933914": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8409933918",
       "amazon": {
         "tapa-blanda": "8409933918"
@@ -13979,7 +13990,7 @@
       }
     },
     "isbn-9788409939299": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8409939290",
       "amazon": {
         "tapa-blanda": "8409939290",
@@ -14053,14 +14064,16 @@
       }
     },
     "isbn-9788409939992": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8409939991",
       "amazon": {
         "tapa-blanda": "8409939991",
+        "tapa-dura": "8409950626",
         "ebook": "B0HQ5BH1CP"
       },
       "mostrados": [
         "tapa-blanda",
+        "tapa-dura",
         "ebook"
       ],
       "faltan": [],
@@ -15162,7 +15175,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41rKTK-6eUL.jpg"
     },
     "isbn-9788410148659": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "841014865X",
       "amazon": {
         "tapa-blanda": "841014865X"
@@ -15174,7 +15187,7 @@
       "sin_confirmar": [],
       "portada": "amazon",
       "estado": "ok",
-      "portada_amazon": null
+      "portada_amazon": "https://m.media-amazon.com/images/I/51+NgEsLs7L.jpg"
     },
     "isbn-9788410158252": {
       "fecha": "2026-11-13",
@@ -16461,7 +16474,7 @@
       }
     },
     "isbn-9788410333963": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": "8410333961",
       "amazon": {},
       "mostrados": [],
@@ -16750,7 +16763,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/31yIIJx6j4L.jpg"
     },
     "isbn-9788410387157": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8410387158",
       "amazon": {
         "tapa-blanda": "8410387158",
@@ -21766,7 +21779,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41UPINXAsvL.jpg"
     },
     "isbn-9788411723558": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8411723550",
       "amazon": {
         "tapa-blanda": "8411723550"
@@ -21986,7 +21999,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41hoJUiBS1L.jpg"
     },
     "isbn-9788411782920": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8411782921",
       "amazon": {
         "tapa-dura": "8411782921",
@@ -22475,7 +22488,7 @@
       "portada_amazon": null
     },
     "isbn-9788412823066": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8412823060",
       "amazon": {
         "tapa-blanda": "8412823060"
@@ -23501,7 +23514,7 @@
       }
     },
     "isbn-9788413434513": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8413434513",
       "amazon": {
         "tapa-dura": "8413434513"
@@ -24307,7 +24320,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51x413QAuWL.jpg"
     },
     "isbn-9788414076118": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8414076114",
       "amazon": {
         "tapa-dura": "8414076114"
@@ -24776,7 +24789,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/412whWu-xwL.jpg"
     },
     "isbn-9788416502943": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8416502943",
       "amazon": {
         "tapa-blanda": "8416502943",
@@ -25742,7 +25755,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41XVRGy0dML.jpg"
     },
     "isbn-9788418690846": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8418690844",
       "amazon": {
         "tapa-blanda": "8418690844"
@@ -26173,7 +26186,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/31weLv9MivL.jpg"
     },
     "isbn-9788419120649": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8419120642",
       "amazon": {
         "tapa-dura": "8419120642"
@@ -26188,7 +26201,7 @@
       "portada_amazon": null
     },
     "isbn-9788419120694": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8419120693",
       "amazon": {
         "tapa-blanda": "8419120693"
@@ -27426,7 +27439,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41EHqsWRq8L.jpg"
     },
     "isbn-9788419702944": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8419702943",
       "amazon": {
         "tapa-blanda": "8419702943"
@@ -27505,7 +27518,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41xescYX-pL.jpg"
     },
     "isbn-9788419737595": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8419737593",
       "amazon": {
         "tapa-dura": "8419737593"
@@ -27954,7 +27967,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41sQG8QRNEL.jpg"
     },
     "isbn-9788419879745": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8419879746",
       "amazon": {
         "tapa-blanda": "8419879746"
@@ -29062,7 +29075,7 @@
       }
     },
     "isbn-9788423371068": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8423371069",
       "amazon": {
         "tapa-dura": "8423371069"
@@ -30730,7 +30743,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/61aRHaFBPdL.jpg"
     },
     "isbn-9788425452710": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8425452716",
       "amazon": {
         "tapa-blanda": "8425452716",
@@ -30933,7 +30946,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/31gDFYvwAAL.jpg"
     },
     "isbn-9788425455117": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8425455111",
       "amazon": {
         "tapa-blanda": "8425455111",
@@ -30984,7 +30997,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41Lhl+Kg3gL.jpg"
     },
     "isbn-9788425921445": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8425921449",
       "amazon": {
         "tapa-blanda": "8425921449"
@@ -33793,7 +33806,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/418LYlmJtuL.jpg"
     },
     "isbn-9788431341749": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8431341742",
       "amazon": {
         "tapa-blanda": "8431341742"
@@ -34539,7 +34552,7 @@
       }
     },
     "isbn-9788433949820": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8433949829",
       "amazon": {
         "tapa-blanda": "8433949829"
@@ -35373,7 +35386,7 @@
       }
     },
     "isbn-9788435011877": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8435011879",
       "amazon": {
         "tapa-dura": "8435011879",
@@ -36644,7 +36657,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51q2DC86BOL.jpg"
     },
     "isbn-9788445142790": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8445142798",
       "amazon": {
         "tapa-dura": "8445142798"
@@ -39215,7 +39228,7 @@
       }
     },
     "isbn-9788466392709": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "846639270X",
       "amazon": {
         "tapa-blanda": "846639270X"
@@ -41345,11 +41358,11 @@
       }
     },
     "isbn-9788466684996": {
-      "fecha": "2026-11-09",
-      "asin": "8466684999",
+      "fecha": "2026-11-16",
+      "asin": "8413143144",
       "amazon": {
         "tapa-blanda": "8413143144",
-        "tapa-dura": "8466684999",
+        "tapa-dura": "8466663991",
         "ebook": "B00699MB26",
         "audiolibro": "B08F5D8K4K"
       },
@@ -41363,10 +41376,10 @@
       "sin_confirmar": [],
       "portada": "amazon",
       "estado": "ok",
-      "portada_amazon": "https://m.media-amazon.com/images/I/411ZZn66tFL.jpg",
+      "portada_amazon": "https://m.media-amazon.com/images/I/51qZahs0H6L.jpg",
       "valoracion": {
         "puntuacion": 4.6,
-        "numero_valoraciones": 6183
+        "numero_valoraciones": 6191
       }
     },
     "isbn-9788466685009": {
@@ -41522,7 +41535,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41ZJ9GPg8RL.jpg"
     },
     "isbn-9788466685481": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8466685480",
       "amazon": {
         "tapa-blanda": "8466685480",
@@ -41543,11 +41556,11 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41abZLJCa7L.jpg",
       "valoracion": {
         "puntuacion": 4.6,
-        "numero_valoraciones": 399
+        "numero_valoraciones": 402
       }
     },
     "isbn-9788466685528": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8466685529",
       "amazon": {
         "tapa-blanda": "8466685529",
@@ -41564,7 +41577,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/61t63ijqnmL.jpg"
     },
     "isbn-9788466685849": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8466685847",
       "amazon": {
         "tapa-blanda": "8466685847",
@@ -42147,7 +42160,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41+4zHkgeCL.jpg"
     },
     "isbn-9788467083842": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8467083840",
       "amazon": {
         "tapa-blanda": "8467074698",
@@ -42164,7 +42177,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/310G1EnbGhL.jpg",
       "valoracion": {
         "puntuacion": 4.7,
-        "numero_valoraciones": 298
+        "numero_valoraciones": 300
       }
     },
     "isbn-9788467083880": {
@@ -42498,7 +42511,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41HYSxVzc+L.jpg"
     },
     "isbn-9788467084344": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8467084340",
       "amazon": {
         "tapa-dura": "8467084340",
@@ -43533,7 +43546,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51sO3Ojm+EL.jpg"
     },
     "isbn-9788467984149": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8467984147",
       "amazon": {
         "tapa-dura": "8467984147"
@@ -43687,7 +43700,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51EHKlm1QrL.jpg"
     },
     "isbn-9788467984965": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": "8467984961",
       "amazon": {},
       "mostrados": [],
@@ -43881,7 +43894,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41L4h9eJ34L.jpg"
     },
     "isbn-9788467985948": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8467985941",
       "amazon": {
         "tapa-dura": "8467985941"
@@ -44065,7 +44078,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41q59iPggxL.jpg"
     },
     "isbn-9788468378985": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8468378984",
       "amazon": {
         "tapa-dura": "8468378984"
@@ -44665,7 +44678,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/416lqmnupFL.jpg"
     },
     "isbn-9788478857517": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8478857516",
       "amazon": {
         "tapa-blanda": "8478857516"
@@ -44879,7 +44892,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41uzFG7j2iL.jpg"
     },
     "isbn-9788483933886": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8483933888",
       "amazon": {
         "tapa-dura": "8483933888"
@@ -45573,7 +45586,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41T+N5RY1BL.jpg"
     },
     "isbn-9788491427759": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8491427759",
       "amazon": {
         "tapa-dura": "8491427759"
@@ -45817,7 +45830,7 @@
       "titulo_amazon": "DONDE DUERMEN LAS EXCAVADORAS? (ALBUM ILUSTRADO)"
     },
     "isbn-9788491597667": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8491597662",
       "amazon": {
         "tapa-blanda": "8491597662"
@@ -45829,10 +45842,10 @@
       "sin_confirmar": [],
       "portada": "amazon",
       "estado": "ok",
-      "portada_amazon": "https://m.media-amazon.com/images/I/31qgB79ZgQL.jpg"
+      "portada_amazon": "https://m.media-amazon.com/images/I/319+cOMekLL.jpg"
     },
     "isbn-9788491597681": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8491597689",
       "amazon": {
         "tapa-blanda": "8491597689"
@@ -46195,7 +46208,7 @@
       "portada_amazon": null
     },
     "isbn-9788494341410": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8494341413",
       "amazon": {
         "tapa-blanda": "8494341413"
@@ -46306,7 +46319,7 @@
       "portada_amazon": null
     },
     "isbn-9788495112392": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "8495112396",
       "amazon": {
         "tapa-blanda": "8495112396"
@@ -46985,7 +46998,7 @@
       }
     },
     "isbn-9789507885365": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "9507885366",
       "amazon": {
         "tapa-blanda": "9507885366",
@@ -47004,7 +47017,7 @@
       "portada_amazon": null,
       "valoracion": {
         "puntuacion": 5.0,
-        "numero_valoraciones": 5
+        "numero_valoraciones": 6
       }
     },
     "isbn-9789507885372": {
@@ -47484,7 +47497,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41CyvmZ18gL.jpg"
     },
     "isbn-9789873626340": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "9873626344",
       "amazon": {
         "tapa-blanda": "9873626344",
@@ -47588,7 +47601,7 @@
       }
     },
     "isbn-9789877901528": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "9877901528",
       "amazon": {
         "tapa-blanda": "9877901528"
@@ -47752,7 +47765,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51SoaPEYQzL.jpg"
     },
     "isbn-9791039589369": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H71YLKCX",
       "amazon": {
         "tapa-blanda": "B0H71YLKCX"
@@ -47797,7 +47810,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51g+7kH036L.jpg"
     },
     "isbn-9791043309663": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H87S4ZHM",
       "amazon": {
         "tapa-dura": "B0H87S4ZHM"
@@ -47827,7 +47840,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51PefFJ+fKL.jpg"
     },
     "isbn-9791043309885": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H87Z6P7Z",
       "amazon": {
         "tapa-dura": "B0H87Z6P7Z"
@@ -48343,7 +48356,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51KMgSZ3ZYL.jpg"
     },
     "isbn-9791370109059": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -48449,7 +48462,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41iWNHC4zyL.jpg"
     },
     "isbn-9791370174606": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HPG79SRD",
       "amazon": {
         "tapa-blanda": "B0HPG79SRD",
@@ -48545,7 +48558,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41YxOHA7K1L.jpg"
     },
     "isbn-9791370181918": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -48570,7 +48583,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41qFmJzrO-L.jpg"
     },
     "isbn-9791370201906": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HN53ZGG1",
       "amazon": {
         "tapa-blanda": "B0HN53ZGG1"
@@ -48615,7 +48628,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41UHrhDnQtL.jpg"
     },
     "isbn-9791370203733": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HCKDS9JM",
       "amazon": {
         "tapa-blanda": "B0HCKDS9JM",
@@ -48662,7 +48675,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41trYvw4-oL.jpg"
     },
     "isbn-9791370204396": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HKFRNS4X",
       "amazon": {
         "tapa-blanda": "B0HKFRNS4X",
@@ -48713,7 +48726,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51S4z+70X2L.jpg"
     },
     "isbn-9791370204976": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HKFQD478",
       "amazon": {
         "tapa-blanda": "B0HKFQD478",
@@ -48826,7 +48839,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41vDzuswUlL.jpg"
     },
     "isbn-9791370205393": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HKFS34HR",
       "amazon": {
         "tapa-blanda": "B0HKFS34HR",
@@ -48873,13 +48886,15 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41KLcg7+inL.jpg"
     },
     "isbn-9791370205515": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HKFWS9RB",
       "amazon": {
-        "tapa-blanda": "B0HKFWS9RB"
+        "tapa-blanda": "B0HKFWS9RB",
+        "ebook": "B0HR81FQNG"
       },
       "mostrados": [
-        "tapa-blanda"
+        "tapa-blanda",
+        "ebook"
       ],
       "faltan": [],
       "sin_confirmar": [],
@@ -48903,7 +48918,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41r0sgMgOWL.jpg"
     },
     "isbn-9791370205577": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HKFV7VS1",
       "amazon": {
         "tapa-blanda": "B0HKFV7VS1"
@@ -48958,7 +48973,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/418SsEwG6WL.jpg"
     },
     "isbn-9791370205652": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HKFVCRKG",
       "amazon": {
         "tapa-blanda": "B0HKFVCRKG",
@@ -48975,7 +48990,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41wEhJdYGVL.jpg"
     },
     "isbn-9791370205713": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HKFX1YYB",
       "amazon": {
         "tapa-blanda": "B0HKFX1YYB",
@@ -49026,7 +49041,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41fS6-7onXL.jpg"
     },
     "isbn-9791370205904": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HN57W6RQ",
       "amazon": {
         "tapa-blanda": "B0HN57W6RQ"
@@ -49056,7 +49071,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41GMazzjjXL.jpg"
     },
     "isbn-9791370205997": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -49541,7 +49556,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51puNDhi76L.jpg"
     },
     "isbn-9791370341176": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HJD3B753",
       "amazon": {
         "tapa-dura": "B0HJD3B753"
@@ -49553,10 +49568,10 @@
       "sin_confirmar": [],
       "portada": "amazon",
       "estado": "ok",
-      "portada_amazon": "https://m.media-amazon.com/images/I/61E8pPQI50L.jpg"
+      "portada_amazon": "https://m.media-amazon.com/images/I/51gdryIQWGL.jpg"
     },
     "isbn-9791370341282": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -49566,7 +49581,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791370341480": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HJCT3F8T",
       "amazon": {
         "tapa-dura": "B0HJCT3F8T"
@@ -49578,10 +49593,10 @@
       "sin_confirmar": [],
       "portada": "amazon",
       "estado": "ok",
-      "portada_amazon": "https://m.media-amazon.com/images/I/51TQMRGT9VL.jpg"
+      "portada_amazon": "https://m.media-amazon.com/images/I/51U8c8GksBL.jpg"
     },
     "isbn-9791370341589": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -49591,7 +49606,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791370342043": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -49601,7 +49616,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791370342654": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -49611,7 +49626,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791370342883": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HJGZ5G3C",
       "amazon": {
         "tapa-dura": "B0HJGZ5G3C"
@@ -49623,10 +49638,10 @@
       "sin_confirmar": [],
       "portada": "amazon",
       "estado": "ok",
-      "portada_amazon": "https://m.media-amazon.com/images/I/51o7Wlnk3-L.jpg"
+      "portada_amazon": "https://m.media-amazon.com/images/I/51zga2lZ+AL.jpg"
     },
     "isbn-9791370343149": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -49674,7 +49689,7 @@
       }
     },
     "isbn-9791370343170": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -49729,43 +49744,52 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41M3LTKiATL.jpg"
     },
     "isbn-9791370381790": {
-      "fecha": "2026-11-15",
-      "asin": null,
-      "amazon": {},
+      "fecha": "2026-11-16",
+      "asin": "B0HR9YCZVQ",
+      "amazon": {
+        "tapa-blanda": "B0HR9YCZVQ"
+      },
       "mostrados": [
         "tapa-blanda"
       ],
       "faltan": [],
       "sin_confirmar": [],
       "portada": "amazon",
-      "estado": "sin_asin"
+      "estado": "ok",
+      "portada_amazon": "https://m.media-amazon.com/images/I/4133HqP5jNL.jpg"
     },
     "isbn-9791370382568": {
-      "fecha": "2026-11-15",
-      "asin": null,
-      "amazon": {},
+      "fecha": "2026-11-16",
+      "asin": "B0HR9YLP52",
+      "amazon": {
+        "tapa-blanda": "B0HR9YLP52"
+      },
       "mostrados": [
         "tapa-blanda"
       ],
       "faltan": [],
       "sin_confirmar": [],
       "portada": "amazon",
-      "estado": "sin_asin"
+      "estado": "ok",
+      "portada_amazon": "https://m.media-amazon.com/images/I/51QywHS-nLL.jpg"
     },
     "isbn-9791370382643": {
-      "fecha": "2026-11-15",
-      "asin": null,
-      "amazon": {},
+      "fecha": "2026-11-16",
+      "asin": "B0HR9QGCPL",
+      "amazon": {
+        "tapa-blanda": "B0HR9QGCPL"
+      },
       "mostrados": [
         "tapa-blanda"
       ],
       "faltan": [],
       "sin_confirmar": [],
       "portada": "amazon",
-      "estado": "sin_asin"
+      "estado": "ok",
+      "portada_amazon": "https://m.media-amazon.com/images/I/517rMBX-RCL.jpg"
     },
     "isbn-9791370383060": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -49805,7 +49829,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41crVrJoF4L.jpg"
     },
     "isbn-9791370384968": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -49849,19 +49873,22 @@
       "portada_amazon": null
     },
     "isbn-9791370385804": {
-      "fecha": "2026-11-15",
-      "asin": null,
-      "amazon": {},
+      "fecha": "2026-11-16",
+      "asin": "B0HR9L12Y2",
+      "amazon": {
+        "tapa-blanda": "B0HR9L12Y2"
+      },
       "mostrados": [
         "tapa-blanda"
       ],
       "faltan": [],
       "sin_confirmar": [],
       "portada": "amazon",
-      "estado": "sin_asin"
+      "estado": "ok",
+      "portada_amazon": "https://m.media-amazon.com/images/I/41O2XOU-DxL.jpg"
     },
     "isbn-9791370386085": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -49886,16 +49913,19 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41Pe9K5Cb0L.jpg"
     },
     "isbn-9791370408084": {
-      "fecha": "2026-11-15",
-      "asin": null,
-      "amazon": {},
+      "fecha": "2026-11-16",
+      "asin": "B0HR9MHWXQ",
+      "amazon": {
+        "tapa-blanda": "B0HR9MHWXQ"
+      },
       "mostrados": [
         "tapa-blanda"
       ],
       "faltan": [],
       "sin_confirmar": [],
       "portada": "amazon",
-      "estado": "sin_asin"
+      "estado": "ok",
+      "portada_amazon": "https://m.media-amazon.com/images/I/3182HrhxTTL.jpg"
     },
     "isbn-9791370475369": {
       "fecha": "2026-11-14",
@@ -49958,7 +49988,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41deICUbxxL.jpg"
     },
     "isbn-9791370476281": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -50240,16 +50270,19 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/514d9ewFKGL.jpg"
     },
     "isbn-9791370550295": {
-      "fecha": "2026-11-15",
-      "asin": null,
-      "amazon": {},
+      "fecha": "2026-11-16",
+      "asin": "B0HRFNSCMN",
+      "amazon": {
+        "tapa-blanda": "B0HRFNSCMN"
+      },
       "mostrados": [
         "tapa-blanda"
       ],
       "faltan": [],
       "sin_confirmar": [],
       "portada": "amazon",
-      "estado": "sin_asin"
+      "estado": "ok",
+      "portada_amazon": "https://m.media-amazon.com/images/I/51j++im7i+L.jpg"
     },
     "isbn-9791370550301": {
       "fecha": "2026-11-15",
@@ -50282,7 +50315,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/21xL94zcafL.jpg"
     },
     "isbn-9791370590932": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -50292,7 +50325,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791370596477": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -50991,7 +51024,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51m3qihhbHL.jpg"
     },
     "isbn-9791370650865": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HP8S52MJ",
       "amazon": {
         "tapa-blanda": "B0HP8S52MJ"
@@ -51006,7 +51039,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/419Qu2wvaeL.jpg"
     },
     "isbn-9791370650902": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -51061,7 +51094,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41R2SSkIBhL.jpg"
     },
     "isbn-9791370651046": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -51131,7 +51164,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41n3VPs4POL.jpg"
     },
     "isbn-9791370651305": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -52112,7 +52145,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51MrYTgN2zL.jpg"
     },
     "isbn-9791387583880": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -52122,7 +52155,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791387583910": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -52132,7 +52165,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791387592370": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HNGX1VMF",
       "amazon": {
         "tapa-dura": "B0HNGX1VMF",
@@ -52153,7 +52186,7 @@
       }
     },
     "isbn-9791387592493": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HNH4G41V",
       "amazon": {
         "tapa-dura": "B0HNH4G41V"
@@ -52168,7 +52201,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41D6LbwSozL.jpg"
     },
     "isbn-9791387592660": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HKZK3M1D",
       "amazon": {
         "tapa-blanda": "B0HKZK3M1D",
@@ -52182,10 +52215,14 @@
       "sin_confirmar": [],
       "portada": "amazon",
       "estado": "ok",
-      "portada_amazon": "https://m.media-amazon.com/images/I/411ew8eNzNL.jpg"
+      "portada_amazon": "https://m.media-amazon.com/images/I/411ew8eNzNL.jpg",
+      "valoracion": {
+        "puntuacion": 5.0,
+        "numero_valoraciones": 1
+      }
     },
     "isbn-9791387592981": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HQJD3S4D",
       "amazon": {
         "tapa-dura": "B0HQJD3S4D"
@@ -52200,7 +52237,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51pT97SVIAL.jpg"
     },
     "isbn-9791387592998": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HC7GWMFK",
       "amazon": {
         "tapa-dura": "B0HC7GWMFK"
@@ -52215,11 +52252,11 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41c-t5jnKaL.jpg",
       "valoracion": {
         "puntuacion": 4.6,
-        "numero_valoraciones": 30
+        "numero_valoraciones": 31
       }
     },
     "isbn-9791387593391": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HP9YGKF1",
       "amazon": {
         "tapa-blanda": "B0HP9YGKF1"
@@ -52231,7 +52268,7 @@
       "sin_confirmar": [],
       "portada": "amazon",
       "estado": "ok",
-      "portada_amazon": "https://m.media-amazon.com/images/I/51vFSNDLCQL.jpg"
+      "portada_amazon": "https://m.media-amazon.com/images/I/41wig2bmx1L.jpg"
     },
     "isbn-9791387595678": {
       "fecha": "2026-11-11",
@@ -52272,7 +52309,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41J7YtuZcnL.jpg"
     },
     "isbn-9791387595722": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H9YMGF7Z",
       "amazon": {
         "tapa-blanda": "B0H9YMGF7Z",
@@ -52286,7 +52323,11 @@
       "sin_confirmar": [],
       "portada": "amazon",
       "estado": "ok",
-      "portada_amazon": "https://m.media-amazon.com/images/I/417vtAdyF2L.jpg"
+      "portada_amazon": "https://m.media-amazon.com/images/I/417vtAdyF2L.jpg",
+      "valoracion": {
+        "puntuacion": 5.0,
+        "numero_valoraciones": 1
+      }
     },
     "isbn-9791387596736": {
       "fecha": "2026-11-11",
@@ -52321,7 +52362,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51Q6-3r0VpL.jpg"
     },
     "isbn-9791387597450": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HJYMFN1Y",
       "amazon": {
         "tapa-blanda": "B0HJYMFN1Y"
@@ -52336,7 +52377,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/31GPkSm-NYL.jpg"
     },
     "isbn-9791387597498": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HFQY7YY2",
       "amazon": {
         "tapa-blanda": "B0HFQY7YY2"
@@ -52351,7 +52392,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51H8vZo9iPL.jpg"
     },
     "isbn-9791387597511": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HKJRVMY6",
       "amazon": {
         "tapa-dura": "B0HKJRVMY6"
@@ -52366,7 +52407,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/31Z6xUSO7SL.jpg"
     },
     "isbn-9791387597535": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HHQ1HT5L",
       "amazon": {
         "tapa-dura": "B0HHQ1HT5L"
@@ -52378,7 +52419,7 @@
       "sin_confirmar": [],
       "portada": "amazon",
       "estado": "ok",
-      "portada_amazon": "https://m.media-amazon.com/images/I/51cFWGa2AFL.jpg"
+      "portada_amazon": "https://m.media-amazon.com/images/I/413Eufm+noL.jpg"
     },
     "isbn-9791387598211": {
       "fecha": "2026-11-14",
@@ -52451,16 +52492,19 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41EAqNBUjpL.jpg"
     },
     "isbn-9791387599621": {
-      "fecha": "2026-11-15",
-      "asin": null,
-      "amazon": {},
+      "fecha": "2026-11-16",
+      "asin": "B0HM3Y1HMQ",
+      "amazon": {
+        "tapa-blanda": "B0HM3Y1HMQ"
+      },
       "mostrados": [
         "tapa-blanda"
       ],
       "faltan": [],
       "sin_confirmar": [],
       "portada": "amazon",
-      "estado": "sin_asin"
+      "estado": "ok",
+      "portada_amazon": "https://m.media-amazon.com/images/I/71w0dNLsoTL.jpg"
     },
     "isbn-9791387599638": {
       "fecha": "2026-11-13",
@@ -52984,7 +53028,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51n6jnfskbL.jpg"
     },
     "isbn-9791387634711": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HM3FQL1Q",
       "amazon": {
         "tapa-blanda": "B0HM3FQL1Q"
@@ -53522,7 +53566,7 @@
       }
     },
     "isbn-9791387690595": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H6Q6SNP4",
       "amazon": {
         "tapa-blanda": "B0H6Q6SNP4",
@@ -53539,7 +53583,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41a0ZGECz1L.jpg",
       "valoracion": {
         "puntuacion": 5.0,
-        "numero_valoraciones": 2
+        "numero_valoraciones": 3
       }
     },
     "isbn-9791387690625": {
@@ -54351,7 +54395,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41YjMRP+eOL.jpg"
     },
     "isbn-9791387744410": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HBC9P3N1",
       "amazon": {
         "tapa-blanda": "B0HBC9P3N1"
@@ -54366,7 +54410,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41qRF0u9R3L.jpg"
     },
     "isbn-9791387745196": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H8Z4Q7TR",
       "amazon": {
         "tapa-blanda": "B0H8Z4Q7TR"
@@ -54582,7 +54626,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51UT-5Abn0L.jpg"
     },
     "isbn-9791387749255": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H8JSKK93",
       "amazon": {
         "tapa-blanda": "B0H8JSKK93",
@@ -54598,8 +54642,8 @@
       "estado": "ok",
       "portada_amazon": "https://m.media-amazon.com/images/I/51-K2PUGoxL.jpg",
       "valoracion": {
-        "puntuacion": 4.0,
-        "numero_valoraciones": 10
+        "puntuacion": 4.1,
+        "numero_valoraciones": 11
       }
     },
     "isbn-9791387749286": {
@@ -54720,7 +54764,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51d6Rl7Y82L.jpg"
     },
     "isbn-9791387751333": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HNT99354",
       "amazon": {
         "tapa-blanda": "B0HNT99354"
@@ -54766,7 +54810,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51Wg37iuRaL.jpg"
     },
     "isbn-9791387752453": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0GSRSFWLP",
       "amazon": {
         "tapa-dura": "B0GSRSFWLP"
@@ -54826,7 +54870,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41N3pit0GgL.jpg"
     },
     "isbn-9791387752750": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HKSJTQZX",
       "amazon": {
         "tapa-blanda": "B0HKSJTQZX"
@@ -54894,7 +54938,7 @@
       }
     },
     "isbn-9791387759414": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -54964,7 +55008,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51JZmoMhYYL.jpg"
     },
     "isbn-9791387766320": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HHF97TYY",
       "amazon": {
         "tapa-blanda": "B0HHF97TYY"
@@ -55036,7 +55080,7 @@
       }
     },
     "isbn-9791387775551": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H4VNDCBT",
       "amazon": {
         "tapa-blanda": "B0H4VNDCBT",
@@ -55074,7 +55118,7 @@
       }
     },
     "isbn-9791387775582": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H4W16PGQ",
       "amazon": {
         "tapa-blanda": "B0H4W16PGQ",
@@ -55090,8 +55134,8 @@
       "estado": "ok",
       "portada_amazon": "https://m.media-amazon.com/images/I/41OaKIa3otL.jpg",
       "valoracion": {
-        "puntuacion": 5.0,
-        "numero_valoraciones": 6
+        "puntuacion": 4.9,
+        "numero_valoraciones": 12
       }
     },
     "isbn-9791387775599": {
@@ -55209,7 +55253,7 @@
       }
     },
     "isbn-9791387781163": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H7JQ863J",
       "amazon": {
         "tapa-dura": "B0H7JQ863J"
@@ -55223,8 +55267,8 @@
       "estado": "ok",
       "portada_amazon": "https://m.media-amazon.com/images/I/4148JlBdrSL.jpg",
       "valoracion": {
-        "puntuacion": 4.0,
-        "numero_valoraciones": 1
+        "puntuacion": 4.5,
+        "numero_valoraciones": 2
       }
     },
     "isbn-9791387787882": {
@@ -55650,7 +55694,7 @@
       }
     },
     "isbn-9791387811174": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HKG4WD7J",
       "amazon": {
         "tapa-blanda": "B0HKG4WD7J"
@@ -55665,7 +55709,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51V1Pk0Ph5L.jpg",
       "valoracion": {
         "puntuacion": 5.0,
-        "numero_valoraciones": 10
+        "numero_valoraciones": 13
       }
     },
     "isbn-9791387811495": {
@@ -55819,7 +55863,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/413PCc9Q5gL.jpg"
     },
     "isbn-9791387840099": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HLZRY6P1",
       "amazon": {
         "tapa-blanda": "B0HLZRY6P1"
@@ -55829,7 +55873,9 @@
         "ebook"
       ],
       "faltan": [],
-      "sin_confirmar": [],
+      "sin_confirmar": [
+        "ebook"
+      ],
       "portada": "amazon",
       "estado": "ok",
       "portada_amazon": null
@@ -56062,7 +56108,7 @@
       }
     },
     "isbn-9791387852283": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HKFR31RH",
       "amazon": {
         "tapa-blanda": "B0HKFR31RH",
@@ -56195,7 +56241,7 @@
       }
     },
     "isbn-9791387871482": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HC7L4Y2L",
       "amazon": {
         "tapa-blanda": "B0HC7L4Y2L"
@@ -56207,7 +56253,7 @@
       "sin_confirmar": [],
       "portada": "amazon",
       "estado": "ok",
-      "portada_amazon": "https://m.media-amazon.com/images/I/511lCGTrZIL.jpg"
+      "portada_amazon": "https://m.media-amazon.com/images/I/41JsxzVI8uL.jpg"
     },
     "isbn-9791387871499": {
       "fecha": "2026-11-14",
@@ -56279,7 +56325,7 @@
       }
     },
     "isbn-9791387871758": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HC7926ZJ",
       "amazon": {
         "tapa-blanda": "B0HC7926ZJ"
@@ -56515,7 +56561,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41JK7AcbC9L.jpg"
     },
     "isbn-9791387884260": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HNWF69PR",
       "amazon": {
         "tapa-dura": "B0HNWF69PR"
@@ -56549,7 +56595,7 @@
       }
     },
     "isbn-9791387886912": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -56559,7 +56605,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791387886929": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -57136,7 +57182,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41BYu3E77ML.jpg"
     },
     "isbn-9791387905781": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H5RJV53K",
       "amazon": {
         "tapa-blanda": "B0H5RJV53K",
@@ -57150,7 +57196,11 @@
       "sin_confirmar": [],
       "portada": "amazon",
       "estado": "ok",
-      "portada_amazon": "https://m.media-amazon.com/images/I/51ORfjjL-LL.jpg"
+      "portada_amazon": "https://m.media-amazon.com/images/I/51ORfjjL-LL.jpg",
+      "valoracion": {
+        "puntuacion": 5.0,
+        "numero_valoraciones": 2
+      }
     },
     "isbn-9791387905873": {
       "fecha": "2026-11-14",
@@ -57395,7 +57445,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/61XH04qqnaL.jpg"
     },
     "isbn-9791387911683": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HPG5M7NC",
       "amazon": {
         "tapa-blanda": "B0HPG5M7NC"
@@ -57490,7 +57540,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51wVE5ljWbL.jpg"
     },
     "isbn-9791387921767": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HH5R6VRW",
       "amazon": {
         "tapa-dura": "B0HH5R6VRW"
@@ -57526,7 +57576,7 @@
       }
     },
     "isbn-9791387922412": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HJLQT2JJ",
       "amazon": {
         "tapa-dura": "B0HJLQT2JJ",
@@ -58546,7 +58596,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51sZfULnePL.jpg"
     },
     "isbn-9791387938055": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H33TRCWD",
       "amazon": {
         "tapa-blanda": "B0H33TRCWD",
@@ -59047,7 +59097,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41tUYZGJNGL.jpg"
     },
     "isbn-9791387953959": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HHNDXV9Z",
       "amazon": {
         "tapa-blanda": "B0HHNDXV9Z"
@@ -60501,7 +60551,7 @@
       }
     },
     "isbn-9791387973988": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HMXL7XGC",
       "amazon": {
         "tapa-blanda": "B0HMXL7XGC",
@@ -61321,7 +61371,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41DqNrVqWML.jpg"
     },
     "isbn-9791388003240": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HLFV4PWK",
       "amazon": {
         "tapa-dura": "B0HLFV4PWK"
@@ -61381,7 +61431,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/415zGiTP9UL.jpg"
     },
     "isbn-9791388003622": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HMWVPY6F",
       "amazon": {
         "tapa-dura": "B0HMWVPY6F"
@@ -61428,7 +61478,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/61qu38gOvdL.jpg"
     },
     "isbn-9791388010385": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -61787,7 +61837,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/31+4WpiG0zL.jpg"
     },
     "isbn-9791388032226": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HHDYMWJB",
       "amazon": {
         "tapa-blanda": "B0HHDYMWJB",
@@ -61857,7 +61907,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/5151Go+wNLL.jpg"
     },
     "isbn-9791388032677": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HHFDKVHH",
       "amazon": {
         "tapa-blanda": "B0HHFDKVHH",
@@ -61878,7 +61928,7 @@
       }
     },
     "isbn-9791388032691": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HJH8ZMP9",
       "amazon": {
         "tapa-dura": "B0HJH8ZMP9"
@@ -61946,7 +61996,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51CTbI8dwKL.jpg"
     },
     "isbn-9791388032745": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HJRG3B23",
       "amazon": {
         "tapa-blanda": "B0HJRG3B23",
@@ -62093,7 +62143,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51QMQDvcpFL.jpg"
     },
     "isbn-9791388036989": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HN555Z43",
       "amazon": {
         "tapa-blanda": "B0HN555Z43"
@@ -62348,7 +62398,7 @@
       "portada_amazon": null
     },
     "isbn-9791388042027": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -62432,7 +62482,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51wk31XUNuL.jpg"
     },
     "isbn-9791388042324": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -62635,7 +62685,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/611223+8kQL.jpg"
     },
     "isbn-9791388051128": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HBKFJK5Y",
       "amazon": {
         "tapa-blanda": "B0HBKFJK5Y"
@@ -62875,7 +62925,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/31IuZERRiGL.jpg"
     },
     "isbn-9791388056215": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H8C1H7VY",
       "amazon": {
         "tapa-blanda": "B0H8C1H7VY",
@@ -62892,11 +62942,11 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41vvIiqB25L.jpg",
       "valoracion": {
         "puntuacion": 4.2,
-        "numero_valoraciones": 13
+        "numero_valoraciones": 18
       }
     },
     "isbn-9791388056222": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HGX7561F",
       "amazon": {
         "tapa-blanda": "B0HGX7561F",
@@ -63177,7 +63227,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41djZ3xa5VL.jpg"
     },
     "isbn-9791388080968": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HJ619GWV",
       "amazon": {
         "tapa-blanda": "B0HJ619GWV",
@@ -63425,7 +63475,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/31WERw1weqL.jpg"
     },
     "isbn-9791388099458": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HLL9NVQS",
       "amazon": {
         "tapa-blanda": "B0HLL9NVQS"
@@ -63440,7 +63490,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41scCQcjZ6L.jpg"
     },
     "isbn-9791388099496": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HQXK8HBQ",
       "amazon": {
         "tapa-blanda": "B0HQXK8HBQ"
@@ -63532,7 +63582,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51Ssr4hNZsL.jpg"
     },
     "isbn-9791388100932": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HH5735G5",
       "amazon": {
         "tapa-dura": "B0HH5735G5",
@@ -63665,7 +63715,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41+K9RPTtYL.jpg"
     },
     "isbn-9791388101519": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HH5FDMZZ",
       "amazon": {
         "tapa-dura": "B0HH5FDMZZ",
@@ -63891,7 +63941,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41W8qwdJaSL.jpg"
     },
     "isbn-9791388102004": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HH591DJP",
       "amazon": {
         "tapa-blanda": "B0HH591DJP"
@@ -63969,7 +64019,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41ruCBdp83L.jpg"
     },
     "isbn-9791388102172": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HH5FFR7C",
       "amazon": {
         "tapa-blanda": "B0HH5FFR7C"
@@ -64029,7 +64079,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/517vMmq0GDL.jpg"
     },
     "isbn-9791388102233": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HH5R5NXS",
       "amazon": {
         "tapa-blanda": "B0HH5R5NXS"
@@ -64039,7 +64089,9 @@
         "ebook"
       ],
       "faltan": [],
-      "sin_confirmar": [],
+      "sin_confirmar": [
+        "ebook"
+      ],
       "portada": "amazon",
       "estado": "ok",
       "portada_amazon": "https://m.media-amazon.com/images/I/41rHZ9xefYL.jpg"
@@ -64095,7 +64147,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/410sNZ8is7L.jpg"
     },
     "isbn-9791388102349": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HH5MGV66",
       "amazon": {
         "tapa-dura": "B0HH5MGV66",
@@ -64408,7 +64460,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/511v6-hNACL.jpg"
     },
     "isbn-9791388102721": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H7JH66TV",
       "amazon": {
         "tapa-dura": "B0H7JH66TV"
@@ -64485,7 +64537,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51f-VdxmBtL.jpg"
     },
     "isbn-9791388103384": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HH5F15Y5",
       "amazon": {
         "tapa-dura": "B0HH5F15Y5"
@@ -64930,7 +64982,7 @@
       "portada_amazon": null
     },
     "isbn-9791388107313": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -64940,7 +64992,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791388107450": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -65101,7 +65153,7 @@
       }
     },
     "isbn-9791388108365": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H4VRXYXF",
       "amazon": {
         "tapa-blanda": "B0H4VRXYXF",
@@ -65121,8 +65173,8 @@
       "estado": "ok",
       "portada_amazon": "https://m.media-amazon.com/images/I/41pDzkhg9TL.jpg",
       "valoracion": {
-        "puntuacion": 3.7,
-        "numero_valoraciones": 4
+        "puntuacion": 4.5,
+        "numero_valoraciones": 49
       }
     },
     "isbn-9791388108419": {
@@ -65544,7 +65596,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/418PBMoLERL.jpg"
     },
     "isbn-9791388136399": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H8SXDM2F",
       "amazon": {
         "tapa-blanda": "B0H8SXDM2F",
@@ -65563,7 +65615,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41QFg6MHW4L.jpg"
     },
     "isbn-9791388136405": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H8SRN221",
       "amazon": {
         "tapa-blanda": "B0H8SRN221",
@@ -66067,7 +66119,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41Us0zANzgL.jpg"
     },
     "isbn-9791388147012": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H5WVDYYT",
       "amazon": {
         "tapa-dura": "B0H5WVDYYT"
@@ -66120,10 +66172,9 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51u-mrNTPmL.jpg"
     },
     "isbn-9791388147272": {
-      "fecha": "2026-11-09",
-      "asin": "B0H5WTKH4G",
+      "fecha": "2026-11-16",
+      "asin": "9562625516",
       "amazon": {
-        "tapa-blanda": "9562625516",
         "tapa-dura": "B0H5WTKH4G"
       },
       "mostrados": [
@@ -66131,10 +66182,12 @@
         "tapa-dura"
       ],
       "faltan": [],
-      "sin_confirmar": [],
+      "sin_confirmar": [
+        "tapa-blanda"
+      ],
       "portada": "amazon",
       "estado": "ok",
-      "portada_amazon": "https://m.media-amazon.com/images/I/41-PYTIF5GL.jpg"
+      "portada_amazon": null
     },
     "isbn-9791388147302": {
       "fecha": "2026-11-11",
@@ -66411,7 +66464,7 @@
       }
     },
     "isbn-9791388147623": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H5WTKZSP",
       "amazon": {
         "tapa-dura": "B0H5WTKZSP"
@@ -66621,7 +66674,7 @@
       }
     },
     "isbn-9791388148781": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -66699,7 +66752,7 @@
       }
     },
     "isbn-9791388154126": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -66709,7 +66762,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791388154164": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -67327,7 +67380,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51G6bPN3VmL.jpg"
     },
     "isbn-9791388176340": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -67354,7 +67407,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/31eknIa+W3L.jpg"
     },
     "isbn-9791388176364": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -67445,7 +67498,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/417cw3tFG9L.jpg"
     },
     "isbn-9791388179396": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HK4H9TSM",
       "amazon": {
         "tapa-blanda": "B0HK4H9TSM"
@@ -67844,7 +67897,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51agJZRipKL.jpg"
     },
     "isbn-9791388202902": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HHRZGLCG",
       "amazon": {
         "tapa-blanda": "B0HHRZGLCG"
@@ -67936,7 +67989,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/516jS5b3BgL.jpg"
     },
     "isbn-9791388204241": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H62NH3WL",
       "amazon": {
         "tapa-dura": "B0H62NH3WL"
@@ -67966,7 +68019,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51so-FGyvcL.jpg"
     },
     "isbn-9791388204319": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HLK2GCTN",
       "amazon": {
         "tapa-blanda": "B0HLK2GCTN"
@@ -68011,7 +68064,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41rGelTLt7L.jpg"
     },
     "isbn-9791388205521": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H6MN5P45",
       "amazon": {
         "tapa-blanda": "B0H6MN5P45"
@@ -68161,7 +68214,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/4198ZsCy0gL.jpg"
     },
     "isbn-9791388206641": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -68281,7 +68334,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41wf0ioZ60L.jpg"
     },
     "isbn-9791388215308": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HJR732GN",
       "amazon": {
         "tapa-blanda": "B0HJR732GN"
@@ -68919,7 +68972,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51muFwFmMjL.jpg"
     },
     "isbn-9791388228063": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HM3TT2KC",
       "amazon": {
         "tapa-blanda": "B0HM3TT2KC",
@@ -68966,7 +69019,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/515qewcsaML.jpg"
     },
     "isbn-9791388234583": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -69229,7 +69282,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41XaD2wxtQL.jpg"
     },
     "isbn-9791388250880": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HMHVF546",
       "amazon": {
         "tapa-blanda": "B0HMHVF546"
@@ -69291,7 +69344,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51fvWZpgeJL.jpg"
     },
     "isbn-9791388259142": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HNMQCZVX",
       "amazon": {
         "tapa-dura": "B0HNMQCZVX"
@@ -69351,7 +69404,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51jv4zexctL.jpg"
     },
     "isbn-9791388259586": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HPKNX7VW",
       "amazon": {
         "tapa-blanda": "B0HPKNX7VW"
@@ -70141,7 +70194,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51xIqGu3G+L.jpg"
     },
     "isbn-9791388287107": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HLSZYQC4",
       "amazon": {
         "tapa-blanda": "B0HLSZYQC4",
@@ -70369,7 +70422,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41fXXhxlBWL.jpg"
     },
     "isbn-9791388299407": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HNDFTFTP",
       "amazon": {
         "tapa-blanda": "B0HNDFTFTP"
@@ -71201,7 +71254,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41cY7yTsF6L.jpg"
     },
     "isbn-9791388342219": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -71271,19 +71324,22 @@
       "portada_amazon": null
     },
     "isbn-9791388349621": {
-      "fecha": "2026-11-15",
-      "asin": null,
-      "amazon": {},
+      "fecha": "2026-11-16",
+      "asin": "B0HQV2L383",
+      "amazon": {
+        "tapa-blanda": "B0HQV2L383"
+      },
       "mostrados": [
         "tapa-blanda"
       ],
       "faltan": [],
       "sin_confirmar": [],
       "portada": "generada",
-      "estado": "sin_asin"
+      "estado": "ok",
+      "portada_amazon": null
     },
     "isbn-9791388349645": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -71308,7 +71364,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41X4SpSIrpL.jpg"
     },
     "isbn-9791388352058": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HN4TD68N",
       "amazon": {
         "tapa-blanda": "B0HN4TD68N"
@@ -71514,7 +71570,7 @@
       }
     },
     "isbn-9791388364235": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H5WTJKFC",
       "amazon": {
         "tapa-blanda": "B0H5WTJKFC",
@@ -71641,7 +71697,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41XZGS2-HdL.jpg"
     },
     "isbn-9791388366048": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HKSF5CLD",
       "amazon": {
         "tapa-blanda": "B0HKSF5CLD"
@@ -71656,7 +71712,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/21kfNDmT7IL.jpg"
     },
     "isbn-9791388366062": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HM3SBY8B",
       "amazon": {
         "tapa-blanda": "B0HM3SBY8B"
@@ -71746,7 +71802,7 @@
       "portada_amazon": null
     },
     "isbn-9791388372933": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -71756,7 +71812,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791388376092": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -71783,7 +71839,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41K2DpaKBSL.jpg"
     },
     "isbn-9791388377068": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -71981,7 +72037,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41m-GFyeVyL.jpg"
     },
     "isbn-9791388381454": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HPGBN7GP",
       "amazon": {
         "tapa-blanda": "B0HPGBN7GP"
@@ -72041,16 +72097,19 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/31iQR7ZdQ4L.jpg"
     },
     "isbn-9791388386060": {
-      "fecha": "2026-11-15",
-      "asin": null,
-      "amazon": {},
+      "fecha": "2026-11-16",
+      "asin": "B0HQ3S28V5",
+      "amazon": {
+        "tapa-blanda": "B0HQ3S28V5"
+      },
       "mostrados": [
         "tapa-blanda"
       ],
       "faltan": [],
       "sin_confirmar": [],
       "portada": "amazon",
-      "estado": "sin_asin"
+      "estado": "ok",
+      "portada_amazon": "https://m.media-amazon.com/images/I/51I2-B0na-L.jpg"
     },
     "isbn-9791388387074": {
       "fecha": "2026-11-14",
@@ -72551,7 +72610,7 @@
       "portada_amazon": null
     },
     "isbn-9791388391583": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -72657,7 +72716,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/419LwQRdRmL.jpg"
     },
     "isbn-9791388396397": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -72667,7 +72726,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791388396427": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HKG11CJ1",
       "amazon": {
         "tapa-blanda": "B0HKG11CJ1",
@@ -72684,7 +72743,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41ceYcZR7LL.jpg",
       "valoracion": {
         "puntuacion": 5.0,
-        "numero_valoraciones": 3
+        "numero_valoraciones": 7
       }
     },
     "isbn-9791388398018": {
@@ -72703,7 +72762,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51nui9e1uvL.jpg"
     },
     "isbn-9791388401428": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -72728,7 +72787,7 @@
       "portada_amazon": null
     },
     "isbn-9791388402845": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -72738,8 +72797,8 @@
       "estado": "sin_asin"
     },
     "isbn-9791388404214": {
-      "fecha": "2026-11-09",
-      "asin": "B0HPTMM8G8",
+      "fecha": "2026-11-16",
+      "asin": "B0HPTMNNDP",
       "amazon": {
         "tapa-blanda": "B0HPTMNNDP",
         "tapa-dura": "B0HPTMM8G8",
@@ -72754,7 +72813,7 @@
       "sin_confirmar": [],
       "portada": "amazon",
       "estado": "ok",
-      "portada_amazon": "https://m.media-amazon.com/images/I/415cngrV9ML.jpg"
+      "portada_amazon": "https://m.media-amazon.com/images/I/41tsERILhZL.jpg"
     },
     "isbn-9791388406041": {
       "fecha": "2026-11-12",
@@ -72941,7 +73000,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41k5p1tyonL.jpg"
     },
     "isbn-9791388411588": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HNGP82FX",
       "amazon": {
         "tapa-blanda": "B0HNGP82FX",
@@ -73026,7 +73085,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51oPElcCVhL.jpg"
     },
     "isbn-9791388412103": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HK75B7DS",
       "amazon": {
         "tapa-blanda": "B0HK75B7DS",
@@ -73040,7 +73099,7 @@
       "sin_confirmar": [],
       "portada": "amazon",
       "estado": "ok",
-      "portada_amazon": "https://m.media-amazon.com/images/I/41aJi6XtvXL.jpg"
+      "portada_amazon": "https://m.media-amazon.com/images/I/41amWO2PLZL.jpg"
     },
     "isbn-9791388414022": {
       "fecha": "2026-11-14",
@@ -73665,7 +73724,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41ayyMh6A9L.jpg"
     },
     "isbn-9791388439254": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HPP9CDQD",
       "amazon": {
         "tapa-dura": "B0HPP9CDQD"
@@ -73770,7 +73829,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51mFQ3CRdUL.jpg"
     },
     "isbn-9791388441295": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HPTV8JG1",
       "amazon": {
         "tapa-blanda": "B0HPTV8JG1"
@@ -73943,7 +74002,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41NkZCC2nWL.jpg"
     },
     "isbn-9791388444173": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HN4W9SRJ",
       "amazon": {
         "tapa-blanda": "B0HN4W9SRJ"
@@ -74189,7 +74248,7 @@
       "portada_amazon": null
     },
     "isbn-9791388465116": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -74340,7 +74399,7 @@
       "portada_amazon": null
     },
     "isbn-9791388484070": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HLPVB9HK",
       "amazon": {
         "tapa-blanda": "B0HLPVB9HK"
@@ -74400,7 +74459,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51iaU6zOpBL.jpg"
     },
     "isbn-9791388487361": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HKN45KCT",
       "amazon": {
         "tapa-blanda": "B0HKN45KCT"
@@ -74584,7 +74643,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51b455ty7HL.jpg"
     },
     "isbn-9791388495151": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HNGRSXLB",
       "amazon": {
         "tapa-blanda": "B0HNGRSXLB"
@@ -74629,7 +74688,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51373KMWaYL.jpg"
     },
     "isbn-9791388501012": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -74654,7 +74713,7 @@
       "portada_amazon": null
     },
     "isbn-9791388508905": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -74664,7 +74723,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791388508974": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -74674,7 +74733,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791388510250": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HMD4ZCDJ",
       "amazon": {
         "tapa-blanda": "B0HMD4ZCDJ"
@@ -74796,7 +74855,7 @@
       "portada_amazon": null
     },
     "isbn-9791388535048": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -74851,7 +74910,7 @@
       "portada_amazon": null
     },
     "isbn-9791388540059": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HNT98L6C",
       "amazon": {
         "tapa-blanda": "B0HNT98L6C"
@@ -74881,7 +74940,7 @@
       "portada_amazon": null
     },
     "isbn-9791388540073": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HNSW9XJQ",
       "amazon": {
         "tapa-blanda": "B0HNSW9XJQ"
@@ -74956,7 +75015,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/21eEyug8GKL.jpg"
     },
     "isbn-9791388581076": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -75041,7 +75100,7 @@
       "portada_amazon": null
     },
     "isbn-9791388586156": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -75141,7 +75200,7 @@
       "portada_amazon": null
     },
     "isbn-9791388586835": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -75151,7 +75210,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791388586842": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -75161,7 +75220,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791388586859": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -75171,7 +75230,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791388586873": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -75230,7 +75289,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51QlbgMA0gL.jpg"
     },
     "isbn-9791388613050": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -75257,7 +75316,7 @@
       "portada_amazon": null
     },
     "isbn-9791388613111": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -75284,7 +75343,7 @@
       "portada_amazon": null
     },
     "isbn-9791388613388": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -75294,7 +75353,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791388613463": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -75304,7 +75363,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791388613753": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -75314,7 +75373,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791399004731": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -75467,7 +75526,7 @@
       }
     },
     "isbn-9791399026344": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HPPCGRR3",
       "amazon": {
         "tapa-blanda": "B0HPPCGRR3",
@@ -75484,7 +75543,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41VHKKmsn3L.jpg"
     },
     "isbn-9791399033342": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -75610,7 +75669,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41m6jV5xgQL.jpg"
     },
     "isbn-9791399054552": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HMWYQW8S",
       "amazon": {
         "tapa-dura": "B0HMWYQW8S",
@@ -75693,7 +75752,7 @@
       }
     },
     "isbn-9791399062243": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -75703,7 +75762,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791399062267": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -75713,7 +75772,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791399067347": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HP8W5KGJ",
       "amazon": {
         "tapa-blanda": "B0HP8W5KGJ"
@@ -75824,7 +75883,7 @@
       }
     },
     "isbn-9791399079487": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HMHJWH9N",
       "amazon": {
         "tapa-blanda": "B0HMHJWH9N"
@@ -75948,16 +76007,19 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41ySc65RjdL.jpg"
     },
     "isbn-9791399090567": {
-      "fecha": "2026-11-15",
-      "asin": null,
-      "amazon": {},
+      "fecha": "2026-11-16",
+      "asin": "B0HR9P4BPH",
+      "amazon": {
+        "tapa-blanda": "B0HR9P4BPH"
+      },
       "mostrados": [
         "tapa-blanda"
       ],
       "faltan": [],
       "sin_confirmar": [],
       "portada": "generada",
-      "estado": "sin_asin"
+      "estado": "ok",
+      "portada_amazon": null
     },
     "isbn-9791399091977": {
       "fecha": "2026-11-10",
@@ -76352,7 +76414,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41oOUk4YsFL.jpg"
     },
     "isbn-9791399129878": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -76407,7 +76469,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41vo5rrqqxL.jpg"
     },
     "isbn-9791399132458": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -76417,7 +76479,7 @@
       "estado": "sin_asin"
     },
     "isbn-9791399132656": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -76489,7 +76551,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41BSlUbjy+L.jpg"
     },
     "isbn-9791399139167": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HNNZGQRX",
       "amazon": {
         "tapa-blanda": "B0HNNZGQRX"
@@ -76504,7 +76566,7 @@
       "portada_amazon": null
     },
     "isbn-9791399142365": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HCC7JJLR",
       "amazon": {
         "tapa-blanda": "B0HCC7JJLR"
@@ -76624,7 +76686,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/318BYO4qW5L.jpg"
     },
     "isbn-9791399152401": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H4VXTPN6",
       "amazon": {
         "tapa-blanda": "B0H4VXTPN6"
@@ -77014,7 +77076,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41rHewhnKmL.jpg"
     },
     "isbn-9791399172089": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HM3PYV6Q",
       "amazon": {
         "tapa-blanda": "B0HM3PYV6Q"
@@ -77369,7 +77431,7 @@
       "portada_amazon": null
     },
     "isbn-9791399187359": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H6G6ZBK3",
       "amazon": {
         "tapa-blanda": "B0H6G6ZBK3"
@@ -77520,7 +77582,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/414oj2xpfXL.jpg"
     },
     "isbn-9791399190298": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HHM6Y8GN",
       "amazon": {
         "tapa-blanda": "B0HHM6Y8GN"
@@ -77535,7 +77597,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51yIYY4-7rL.jpg"
     },
     "isbn-9791399190519": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -77581,19 +77643,22 @@
       }
     },
     "isbn-9791399200744": {
-      "fecha": "2026-11-15",
-      "asin": null,
-      "amazon": {},
+      "fecha": "2026-11-16",
+      "asin": "B0HL4NS434",
+      "amazon": {
+        "tapa-blanda": "B0HL4NS434"
+      },
       "mostrados": [
         "tapa-blanda"
       ],
       "faltan": [],
       "sin_confirmar": [],
       "portada": "generada",
-      "estado": "sin_asin"
+      "estado": "ok",
+      "portada_amazon": null
     },
     "isbn-9791399200751": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HL95SZYZ",
       "amazon": {
         "tapa-blanda": "B0HL95SZYZ"
@@ -77800,7 +77865,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51JYnsPVAOL.jpg"
     },
     "isbn-9791399210088": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HP1W71G7",
       "amazon": {
         "tapa-dura": "B0HP1W71G7",
@@ -77817,7 +77882,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41NB7mBHbSL.jpg"
     },
     "isbn-9791399210729": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HPGB2ZXQ",
       "amazon": {
         "tapa-blanda": "B0HPGB2ZXQ"
@@ -77977,7 +78042,7 @@
       "portada_amazon": null
     },
     "isbn-9791399221107": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HB4TD4SL",
       "amazon": {
         "tapa-blanda": "B0HB4TD4SL"
@@ -78007,7 +78072,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41OKE3UlIWL.jpg"
     },
     "isbn-9791399221848": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HN28MLSZ",
       "amazon": {
         "tapa-blanda": "B0HN28MLSZ"
@@ -78097,7 +78162,7 @@
       "portada_amazon": null
     },
     "isbn-9791399226997": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HD3K8T8Z",
       "amazon": {
         "tapa-blanda": "B0HD3K8T8Z"
@@ -78240,7 +78305,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41DPMG0gnWL.jpg"
     },
     "isbn-9791399230086": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H7LWFVXV",
       "amazon": {
         "tapa-blanda": "B0H7LWFVXV"
@@ -78604,7 +78669,7 @@
       }
     },
     "isbn-9791399248548": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -78644,7 +78709,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41VP-CDQhJL.jpg"
     },
     "isbn-9791399249217": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HLNYS64H",
       "amazon": {
         "tapa-blanda": "B0HLNYS64H"
@@ -79160,7 +79225,7 @@
       "portada_amazon": null
     },
     "isbn-9791399267655": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -79367,7 +79432,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41DiqXu2H8L.jpg"
     },
     "isbn-9791399274523": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -79454,7 +79519,7 @@
       "portada_amazon": null
     },
     "isbn-9791399277920": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HNLWGDL7",
       "amazon": {
         "tapa-blanda": "B0HNLWGDL7"
@@ -79777,7 +79842,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/317IgLqDR2L.jpg"
     },
     "isbn-9791399284935": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -79885,7 +79950,7 @@
       }
     },
     "isbn-9791399286564": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -79935,7 +80000,7 @@
       "portada_amazon": null
     },
     "isbn-9791399288513": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HNDG3CHK",
       "amazon": {
         "tapa-blanda": "B0HNDG3CHK"
@@ -79965,7 +80030,7 @@
       "portada_amazon": null
     },
     "isbn-9791399289800": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HP8X7GQ3",
       "amazon": {
         "tapa-blanda": "B0HP8X7GQ3",
@@ -79982,16 +80047,19 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/519emb2K55L.jpg"
     },
     "isbn-9791399291759": {
-      "fecha": "2026-11-15",
-      "asin": null,
-      "amazon": {},
+      "fecha": "2026-11-16",
+      "asin": "B0HR9B4DT7",
+      "amazon": {
+        "tapa-blanda": "B0HR9B4DT7"
+      },
       "mostrados": [
         "tapa-blanda"
       ],
       "faltan": [],
       "sin_confirmar": [],
       "portada": "generada",
-      "estado": "sin_asin"
+      "estado": "ok",
+      "portada_amazon": null
     },
     "isbn-9791399292770": {
       "fecha": "2026-11-12",
@@ -80032,7 +80100,7 @@
       }
     },
     "isbn-9791399292879": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -80102,7 +80170,7 @@
       "portada_amazon": null
     },
     "isbn-9791399294705": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HKWL8297",
       "amazon": {
         "tapa-dura": "B0HKWL8297"
@@ -80132,7 +80200,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51SM2MwoY9L.jpg"
     },
     "isbn-9791399295214": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HLPYQ3LM",
       "amazon": {
         "tapa-dura": "B0HLPYQ3LM"
@@ -80567,7 +80635,7 @@
       "portada_amazon": null
     },
     "isbn-9791399302554": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -80628,7 +80696,7 @@
       }
     },
     "isbn-9791399303971": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -80668,7 +80736,7 @@
       "portada_amazon": null
     },
     "isbn-9791399305128": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -80962,7 +81030,7 @@
       "portada_amazon": null
     },
     "isbn-9791399308365": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -81117,7 +81185,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51Sq91XWt8L.jpg"
     },
     "isbn-9791399316339": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -81159,7 +81227,7 @@
       "portada_amazon": null
     },
     "isbn-9791399318111": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0HPYLQL4G",
       "amazon": {
         "tapa-blanda": "B0HPYLQL4G",
@@ -81504,7 +81572,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/513t2l7HoSL.jpg"
     },
     "isbn-9798182920681": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -82224,7 +82292,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41CfSIkvqLL.jpg"
     },
     "isbn-9798890984005": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -82249,7 +82317,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51wJ+S3t9OL.jpg"
     },
     "isbn-9798890988294": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -82282,7 +82350,7 @@
       }
     },
     "isbn-9798890988430": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -82394,7 +82462,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41Chb8TQ1TL.jpg"
     },
     "isbn-9798890988805": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -82494,7 +82562,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51sNMuSTxDL.jpg"
     },
     "isbn-9798890989444": {
-      "fecha": "2026-11-09",
+      "fecha": "2026-11-16",
       "asin": "B0H6HH5RYG",
       "amazon": {
         "tapa-dura": "B0H6HH5RYG",
@@ -82513,7 +82581,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/41u1dojMvEL.jpg",
       "valoracion": {
         "puntuacion": 3.8,
-        "numero_valoraciones": 1492
+        "numero_valoraciones": 1630
       }
     },
     "isbn-9798890989451": {
@@ -82643,7 +82711,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51rtlhf-dfL.jpg"
     },
     "isbn-9798890989710": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -82728,7 +82796,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51M5zFyLGTL.jpg"
     },
     "isbn-9798890989819": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -82738,7 +82806,7 @@
       "estado": "sin_asin"
     },
     "isbn-9798890989871": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -82748,7 +82816,7 @@
       "estado": "sin_asin"
     },
     "isbn-9798890989888": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -82758,7 +82826,7 @@
       "estado": "sin_asin"
     },
     "isbn-9798890989901": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -82798,7 +82866,7 @@
       "portada_amazon": null
     },
     "isbn-9798892678179": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
@@ -83024,7 +83092,7 @@
       "portada_amazon": "https://m.media-amazon.com/images/I/51vrR-XZkYL.jpg"
     },
     "isbn-9798982255228": {
-      "fecha": "2026-11-15",
+      "fecha": "2026-11-16",
       "asin": null,
       "amazon": {},
       "mostrados": [],
