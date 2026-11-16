@@ -197,10 +197,17 @@ def affine_index(data):
         cats = {c['id'] for c in catalogue.categories(data, x)}
         rows.append((x, cats, min_age(x), audience(cats)))
     counts = {}
-    for _, cats, _, _ in rows:
+    # Listas invertidas: un afín comparte categoría o autor, así que affine_books solo mira esos candidatos (recorrer
+    # todo el catálogo por cada libro hacía cuadrático el lote: 150 s el contrato con ~5.000 libros).
+    by_cat, by_author, position = {}, {}, {}
+    for i, (x, cats, _, _) in enumerate(rows):
+        position.setdefault(x['id'], i)
         for c in cats:
             counts[c] = counts.get(c, 0) + 1
-    result = (rows, counts)
+            by_cat.setdefault(c, []).append(i)
+        for a in set(x['autores']):
+            by_author.setdefault(a, []).append(i)
+    result = (rows, counts, by_cat, by_author, position)
     if key is not None and key[0] is data:
         AFFINE_INDEX = (key, result)
     return result
@@ -217,13 +224,15 @@ def affine_books(data, b, cat_ids):
     """
     names = {c['id']: c['nombre'] for c in data['categorias'] if c['tipo'] in ('genero', 'tematica')}
     wanted = cat_ids & set(names)
-    index, counts = affine_index(data)
-    own = next((c for x, c, _, _ in index if x['id'] == b['id']), set())
+    index, counts, by_cat, by_author, position = affine_index(data)
+    own = index[position[b['id']]][1] if b['id'] in position else set()
     df = {c: counts.get(c, 0) - (c in own) + 1 for c in wanted}
-    total = len(index) - any(x['id'] == b['id'] for x, _, _, _ in index) + 1
+    total = len(index) - (b['id'] in position) + 1
     age, public = min_age(b), audience(cat_ids)
+    # Solo puede entrar quien comparte una categoría buscada o un autor (también en `weak`): esos son los candidatos.
+    candidates = sorted({i for c in wanted for i in by_cat.get(c, ())} | {i for a in set(b['autores']) for i in by_author.get(a, ())})
     rows, weak = [], []
-    for x, x_cats, other, other_public in index:
+    for x, x_cats, other, other_public in (index[i] for i in candidates):
         if x['id'] == b['id']:
             continue
         shared = wanted & x_cats
