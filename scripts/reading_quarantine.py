@@ -100,10 +100,15 @@ def isolate(data, root, previous=None, held=(), today=None, flagged=None):
     good_rel = {}
     for r in (previous or {}).get('libro_categorias', []):
         good_rel.setdefault(r['libro_id'], []).append(r)
+    # Un contrato de recuento (p. ej. «como mucho 2 títulos anónimos») cita también libros ya publicados que no han
+    # cambiado: si entre los señalados hay alguno cambiado, los culpables son esos y los intactos se quedan (si el
+    # contrato sigue fallando sin ellos, la carga lo ve al repetirlo). Solo intactos: es la regla y se para.
+    by_id = {b['id']: b for b in data['libros']}
+    blame = {i: why for i, why in (flagged or {}).items() if i in by_id and good.get(i) != by_id[i]} or dict(flagged or {})
     out, reverted = [], set()
     while True:
         try:
-            for book_id, why in (flagged or {}).items():
+            for book_id, why in blame.items():
                 if book_id not in reverted and any(b['id'] == book_id for b in data['libros']):
                     raise build.ValidationError(f'{book_id}: {why}')
             build.validate(data, root)
@@ -147,9 +152,13 @@ def flagged_books(failures, data):
     """De los fallos de los contratos de datos, {id: motivo} si TODOS nombran algún libro del catálogo; si alguno no
     nombra ninguno es una regla rota (o código), no un dato, y se devuelve None para que la carga pare."""
     ids = {b['id'] for b in data['libros']}
+    # Hay contratos que citan el libro por su ISBN-13 («Título · 9788412345678») en vez de por su id.
+    by_isbn = {b['isbn13']: b['id'] for b in data['libros'] if b.get('isbn13')}
     out = {}
     for failure in failures:
-        named = [t for t in dict.fromkeys(re.findall(r'[a-z0-9]+(?:-[a-z0-9]+)+', failure['texto'])) if t in ids]
+        found = [t for t in re.findall(r'[a-z0-9]+(?:-[a-z0-9]+)+', failure['texto']) if t in ids]
+        found += [by_isbn[t] for t in re.findall(r'(?<!\d)97[89]\d{10}(?!\d)', failure['texto']) if t in by_isbn]
+        named = list(dict.fromkeys(found))
         if not named:
             return None
         last = [line for line in failure['texto'].strip().splitlines() if line.strip()][-1:] or ['']
