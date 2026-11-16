@@ -270,16 +270,19 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
             if result['conclusion'] != 'success':
                 # Browser jobs fail sporadically (one in four bot PRs lost its day this way);
                 # a single rerun of the failed jobs on the same commit still needs real green.
+                # main cambió entradas de lo generado (datos, html, plantillas) aunque no tocara código de QA: repetir
+                # el mismo commit, o traer main con update-branch, deja lo generado desfasado frente al main actual
+                # (un simple merge de dos regeneraciones no es una regeneración real). Se regenera desde main siempre,
+                # haya o no cambiado también el código de QA (16/11: PR #1328 se quedó 3 noches reintentando lo mismo).
+                entradas = main_cambio_entradas(repo, sha)
+                if entradas:
+                    raise StaleMerge(f'main cambió entradas de lo generado ({", ".join(entradas[:5])}) durante la CI '
+                                     f'de #{pr["number"]}; se regenera desde main')
                 # Si main cambió el código de CI desde esta cabeza (un arreglo de pruebas a mitad de carga), repetir el
                 # mismo commit da el mismo fallo: se trae main a la rama y se valida la cabeza nueva desde cero.
                 remaining = timeout - (time.monotonic() - started)
                 cambios = main_cambio_qa(repo, sha) if qa_refreshes > 0 and remaining > MIN_REFRESH_BUDGET else []
                 if cambios:
-                    # Traer main a la rama no regenera lo generado y, una vez dentro, main_cambio_entradas ya no lo ve.
-                    entradas = main_cambio_entradas(repo, sha)
-                    if entradas:
-                        raise StaleMerge(f'main cambió entradas de lo generado ({", ".join(entradas[:5])}) durante la CI '
-                                         f'de #{pr["number"]}; se regenera desde main')
                     print(f'REFRESH {workflow} ({result["databaseId"]}) falló y main cambió {", ".join(cambios[:5])}; '
                           'actualizo la rama con main y repito la CI', flush=True)
                     try:
