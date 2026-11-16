@@ -182,10 +182,8 @@
       "id": "contenidos",
       "nombre": "Contenidos",
       "mision": "Datos editoriales correctos y textos coherentes entre páginas.",
-      "workflows": ["editorial-facts-check", "content-parity-manecillas"],
-      "pendientes": [
-        {"herramienta": "cspell en español", "motivo": "Ortografía de los textos propios (no de las sinopsis de terceros); necesita un diccionario de nombres propios para no dar miles de falsos avisos."}
-      ],
+      "workflows": ["editorial-facts-check", "content-parity-manecillas", "ortografia"],
+      "pendientes": [],
       "descartados": [
         {"herramienta": "Vale", "motivo": "Sus reglas de estilo están hechas para inglés."},
         {"herramienta": "Decap CMS", "motivo": "El contenido llega por PR y por la carga automática; un panel de edición no aporta."},
