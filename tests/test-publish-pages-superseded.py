@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Un deploy de Pages cancelado por concurrencia no es un fallo si un deploy posterior publica el mismo commit.
 
-deploy-pages.yml usa `concurrency: pages, cancel-in-progress: true`: un push a main durante nuestro deploy lo cancela
+deploy-pages.yml cancela el build anterior (`concurrency: pages-build`, cancel-in-progress): un push a main durante nuestro deploy lo cancela
 y el deploy nuevo ya contiene nuestro merge. 2026-11-04: la ingesta 41906759739 mergeó #1162 y luego se dio por
 fallida («Pages failed ... 41919892051») por esa cancelación. Un fallo real sigue rompiendo la publicación.
 """
