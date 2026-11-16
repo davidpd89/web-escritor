@@ -5,7 +5,8 @@ al final lo que no tiene fecha legible (vacía, `None`, texto roto). Acepta fech
 """
 from __future__ import annotations
 
-from datetime import date, timedelta
+from calendar import monthrange
+from datetime import date
 
 
 def periodo(fecha):
@@ -17,11 +18,11 @@ def periodo(fecha):
             return dia, dia
         if len(partes) == 2:
             inicio = date(partes[0], partes[1], 1)
-            return inicio, (inicio.replace(day=28) + timedelta(days=4)).replace(day=1) - timedelta(days=1)
+            return inicio, inicio.replace(day=monthrange(*partes)[1])  # sin aritmética: 9999-12 no desborda
         if len(partes) == 1:
             return date(partes[0], 1, 1), date(partes[0], 12, 31)
-    except (TypeError, ValueError):
-        return None  # fecha imposible (2026-02-30, mes 13): cuenta como ilegible
+    except (TypeError, ValueError, OverflowError):
+        return None  # fecha imposible (2026-02-30, mes 13, año 0): cuenta como ilegible
     return None
 
 
