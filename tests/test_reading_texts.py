@@ -76,6 +76,35 @@ class ReadingTextsTest(unittest.TestCase):
         record = {'id': self.book['id'], 'bloques': [block]}
         self.assertEqual([x['modulo'] for x in texts.publishable_blocks(p, record)], ['para_quien'])
 
+    def test_publishing_keeps_a_single_own_module_and_drops_a_text_under_the_threshold(self):
+        # La decisión real de _publish_once: se sustituyen solo GitHub, el árbol limpio y los builds.
+        only_own = {**self.payload, 'modulos_permitidos': [m for m in self.payload['modulos_permitidos'] if m['modulo'] == 'para_quien']}
+        block = {**self.others[0], 'evidencias': ['categorias', 'sinopsis_editorial']}
+        record = {'id': self.book['id'], 'bloques': [block]}
+
+        class Stop(Exception):
+            pass
+
+        def publish(p):
+            with tempfile.TemporaryDirectory() as tmp:
+                out, tree = Path(tmp, 'out'), Path(tmp, 'tree')
+                (tree / 'data').mkdir(parents=True)
+                out.mkdir()
+                texts.write_json(tree / 'data/reading-catalogue.json', self.data)
+                texts.write_json(out / (self.book['id'] + '.json'), record)
+                publisher = mock.Mock()
+                publisher.publication.gh.return_value = '[]'
+                publisher.clean_main_tree.return_value = tree
+                with mock.patch.object(texts, 'payload', return_value=p),                         mock.patch.object(texts.subprocess, 'run', side_effect=Stop):
+                    with self.assertRaises(Stop):
+                        texts._publish_once(out, publisher)
+                written = tree / 'data/reading-texts' / (self.book['id'] + '.json')
+                return texts.read_json(written)['bloques'] if written.exists() else None
+
+        self.assertEqual([x['modulo'] for x in publish(only_own)], ['para_quien'])
+        two = {**self.payload, 'modulos_permitidos': [m for m in self.payload['modulos_permitidos'] if m['modulo'] == 'para_quien'] + [{'modulo': 'encaje_documentado'}]}
+        self.assertIsNone(publish(two))
+
     def test_valid_blocks_pass_and_affines_are_linked(self):
         blocks, errors = self.check()
         self.assertEqual(errors, [])

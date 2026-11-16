@@ -683,7 +683,8 @@ def catalogue_in_ci(opened, now=None):
 def publishable_blocks(p, record):
     """Bloques que se publican: el umbral es el del validador, min(MIN_BLOCKS, módulos permitidos).
     Un libro que hoy solo admite «para_quien» (perdió sus afines al crecer el catálogo) conserva su texto."""
-    return valid_blocks(p, record.get('bloques'))
+    blocks = valid_blocks(p, record.get('bloques'))
+    return blocks if len(blocks) >= min(MIN_BLOCKS, len(p['modulos_permitidos'])) else []
 
 
 def _publish_once(out, publisher):
@@ -700,14 +701,14 @@ def _publish_once(out, publisher):
     tree = publisher.clean_main_tree(ROOT, ROOT / '.local/reading-texts/main')
     data = read_json(tree / 'data/reading-catalogue.json')
     catalogue.index_categories(data)
-    ids = {b['id'] for b in published(data)}
+    books = {b['id']: b for b in published(data)}
     target = tree / 'data/reading-texts'
     target.mkdir(exist_ok=True)
     for path in texts:
         record = read_json(path)
-        if path.stem in ids:
+        if path.stem in books:
             # Se publica solo lo que pasa el validador vigente, aunque se guardara con uno más permisivo.
-            blocks = publishable_blocks(payload(data, next(b for b in published(data) if b['id'] == path.stem)), record)
+            blocks = publishable_blocks(payload(data, books[path.stem]), record)
             if blocks:
                 write_json(target / path.name, {**record, 'bloques': blocks})
     run = lambda *cmd: subprocess.run([sys.executable, *cmd], cwd=tree, check=True)
