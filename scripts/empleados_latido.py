@@ -78,9 +78,9 @@ def fallos_registro(registro, workflows):
             asignados.add(nombre)
             if nombre not in workflows:
                 fallos.append(f'{ident}: el workflow «{nombre}» no existe en .github/workflows')
-        for item in dep.get('descartados', []) + dep.get('pendientes', []):
+        for item in dep.get('descartados', []) + dep.get('pendientes', []) + dep.get('cubiertos', []):
             if not item.get('herramienta') or not item.get('motivo'):
-                fallos.append(f'{ident}: descartado o pendiente sin herramienta o sin motivo')
+                fallos.append(f'{ident}: descartado, pendiente o cubierto sin herramienta o sin motivo')
     for nombre in sorted(set(workflows) - asignados):
         fallos.append(f'el workflow «{nombre}» no tiene departamento: añádelo a data/expertos.json')
     for nombre, dias in registro.get('plazos', {}).items():
