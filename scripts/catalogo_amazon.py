@@ -1117,6 +1117,21 @@ def node_subjects(item):
     return list(dict.fromkeys(subject for _, subject in sorted(found)))
 
 
+NON_FICTION_SUBJECTS = {'Biografías y memorias', 'Filosofía', 'Historia', 'Psicología', 'Ensayo', 'Guías y referencia',
+                        'Cocina', 'Autoayuda', 'Familia y crianza', 'Salud', 'Economía', 'Ciencia', 'Tiempo libre',
+                        'Religión y espiritualidad', 'Derecho', 'Poder y política', 'Viajes', 'Arte y diseño'}
+FICTION_SUBJECTS = {'Narrativa contemporánea', 'Aventuras', 'Fantasía', 'Novela histórica', 'Clásicos', 'Misterio',
+                    'Terror', 'Romance', 'Ciencia ficción', 'Relatos'}
+
+
+def public_subjects(materias):
+    """«Libros juveniles» es un público: sin ficción y con no ficción, «Novela juvenil» pasa a «Juvenil», que la
+    clasificación lee como sección (público juvenil, sin género). Origen: B0HPDWJ7SJ, «Manifiesto comunista»."""
+    if set(materias) & NON_FICTION_SUBJECTS and not set(materias) & FICTION_SUBJECTS:
+        return ['Juvenil' if m == 'Novela juvenil' else m for m in materias]
+    return list(materias)
+
+
 def node_names(item):
     """Nombres de los nodos para el diagnóstico de lo no mapeado: el contextual, que es el que se añade al mapa."""
     names = []
@@ -1188,7 +1203,7 @@ def to_record(entry, day, proper=None):
     # libro (non_reading_reason es la misma prueba que retira los ya publicados en la cuarentena).
     if why := non_reading_reason(title, nodes):
         raise Rejected('no es un libro de lectura: ' + why)
-    materias = list(dict.fromkeys(node_subjects(item) + [SUBJECT_OF_NODE[key(n)] for n in nodes if key(n) in SUBJECT_OF_NODE]))
+    materias = public_subjects(dict.fromkeys(node_subjects(item) + [SUBJECT_OF_NODE[key(n)] for n in nodes if key(n) in SUBJECT_OF_NODE]))
     record = {
         'isbn13': isbn, 'asin': asin, 'titulo': title, 'autores': authors, 'editorial': publisher,
         'encuadernacion': binding_text[:1].upper() + binding_text[1:], 'formato_edicion': fmt,

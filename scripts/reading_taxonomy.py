@@ -191,6 +191,11 @@ def apply_derived(catalogue: dict) -> dict[str, list[str]]:
 
 REFERENCE_ID = 'guias-y-referencia'
 FICTION_GENRES = {'narrativa','narrativa-juvenil','novela-historica','romance','romantasy','fantasia','fantasia-juvenil','fantasia-oscura','ciencia-ficcion','misterio-y-thriller','terror','aventuras','relatos'}
+NON_FICTION_GENRES = {'arte-y-diseno', 'biografias-y-memorias', 'cocina', 'derecho', 'desarrollo-personal',
+                      'divulgacion-cientifica', 'economia-y-empresa', 'ensayo', 'familia-y-crianza', 'filosofia',
+                      'guias-y-referencia', 'historia', 'nutricion-y-bienestar', 'ocio-y-aficiones',
+                      'politica-y-actualidad', 'psicologia', 'religion-y-espiritualidad', 'viajes'}
+JUVENILE_NOVEL, JUVENILE_AUDIENCE = 'narrativa-juvenil', 'juvenil'
 
 
 def reference_work(title, assigned):
@@ -396,6 +401,29 @@ def repair_amazon_rules(catalogue: dict, by_book: dict, fallback: GenreFallback)
     return repaired
 
 
+def juvenile_audience_only(assigned: set) -> bool:
+    """No ficción sin otro género de ficción: «novela juvenil» venía del nodo raíz del público, no del libro."""
+    return (JUVENILE_NOVEL in assigned and bool(assigned & NON_FICTION_GENRES)
+            and not assigned & (FICTION_GENRES - {JUVENILE_NOVEL}))
+
+
+def repair_juvenile_audience(catalogue: dict, by_book: dict) -> list:
+    """Altas de Amazon: el nodo «Libros juveniles» (público) se leía como la materia «Novela juvenil» y el
+    «Manifiesto comunista» salía como narrativa juvenil (2026-11-16). Se quita el género y queda el público."""
+    repaired = []
+    for book in catalogue['libros']:
+        assigned = by_book.get(book['id'], set())
+        if AMAZON_SOURCE not in (book.get('fuente_bibliografica_url') or '') or not juvenile_audience_only(assigned):
+            continue
+        catalogue['libro_categorias'] = [r for r in catalogue['libro_categorias']
+                                         if not (r['libro_id'] == book['id'] and r['categoria_id'] == JUVENILE_NOVEL)]
+        if JUVENILE_AUDIENCE not in assigned:
+            catalogue['libro_categorias'].append({'libro_id': book['id'], 'categoria_id': JUVENILE_AUDIENCE})
+        by_book[book['id']] = (assigned - {JUVENILE_NOVEL}) | {JUVENILE_AUDIENCE}
+        repaired.append(book['id'])
+    return repaired
+
+
 def ensure_genre(catalogue: dict, by_book: dict, fallback: GenreFallback) -> dict:
     """Da un género a cada libro no borrador que no lo tenga. Devuelve {libro: género}."""
     cats = {c['id']: c for c in catalogue['categorias']}
@@ -450,7 +478,7 @@ def repair_classification(catalogue, today=None):
     fallback = GenreFallback(catalogue, by_book)
     # Género antes y después de quitar etiquetas: el tema de un nodo («tema-viajes») deja su género de respaldo
     # antes de irse, y un libro que pierde su género por nodo recibe otro. Una sola pasada basta (idempotente).
-    touched = set(ensure_genre(catalogue, by_book, fallback))
+    touched = set(repair_juvenile_audience(catalogue, by_book)) | set(ensure_genre(catalogue, by_book, fallback))
     touched |= set(repair_amazon_rules(catalogue, by_book, fallback)) | set(ensure_genre(catalogue, by_book, fallback))
     if today:
         for book in catalogue['libros']:
