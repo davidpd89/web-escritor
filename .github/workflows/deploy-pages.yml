@@ -46,6 +46,10 @@ jobs:
       - name: Build public artifact (allowlist-first)
         run: python scripts/build-public-dist.py --out .preview-dist
 
+      # R5-6: la instantánea social vive en la rama social-estado; se superpone la más reciente válida.
+      - name: Overlay social snapshot from social-estado
+        run: python scripts/social_estado.py --out .preview-dist
+
       - name: Verify built artifact satisfies the public-artifact contract
         run: python scripts/build-public-dist.py --check-contents --out .preview-dist
 
