@@ -211,6 +211,9 @@ def affine_books(data, b, cat_ids):
 
     Cada categoría compartida pesa según lo rara que es: compartir «Fantasía» dice poco y compartir «Hockey», mucho.
     Un álbum de 4 años y una novela de 12, o una juvenil y una de adultos, no se comparan aunque coincidan las etiquetas.
+    La rareza se mide sobre el catálogo y el catálogo crece: un libro publicado cuyo único afín pasaba justo el umbral
+    lo perdía (y con él su segundo módulo) cuando entraban libros de su tema, sin que su ficha cambiara, y la carga
+    no podía apartarlo (16/11, isbn-9791388205675). Si ninguno pasa el umbral, valen los que comparten tema y público.
     """
     names = {c['id']: c['nombre'] for c in data['categorias'] if c['tipo'] in ('genero', 'tematica')}
     wanted = cat_ids & set(names)
@@ -219,7 +222,7 @@ def affine_books(data, b, cat_ids):
     df = {c: counts.get(c, 0) - (c in own) + 1 for c in wanted}
     total = len(index) - any(x['id'] == b['id'] for x, _, _, _ in index) + 1
     age, public = min_age(b), audience(cat_ids)
-    rows = []
+    rows, weak = [], []
     for x, x_cats, other, other_public in index:
         if x['id'] == b['id']:
             continue
@@ -229,8 +232,12 @@ def affine_books(data, b, cat_ids):
                            or (public and other_public and public != other_public)):
             continue
         score = sum(math.log(total / df[c]) for c in shared)
+        row = (author, score, x['titulo'].casefold(), x, sorted(names[c] for c in shared) or ['autor'])
         if author or (shared and score >= MIN_AFFINITY):
-            rows.append((author, score, x['titulo'].casefold(), x, sorted(names[c] for c in shared) or ['autor']))
+            rows.append(row)
+        elif shared:
+            weak.append(row)
+    rows = rows or weak
     rows.sort(key=lambda r: (-r[0], -r[1], r[2]))
     return [(r[3], r[4]) for r in rows[:AFFINES]]
 
