@@ -838,7 +838,10 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
         google_key = os.getenv('GOOGLE_BOOKS_API_KEY', '').strip()
         stats['synopses_google'] = sinopsis_google_books.rellenar(
             catalogue, sinopsis_google_books.consulta_google(google_key), state.setdefault('sinopsis_google', {}),
-            day, int(config.get('max_google_synopsis', 40))) if google_key else 0
+            day, int(config.get('max_google_synopsis', 120))) if google_key else 0
+        publicadas = [b for b in catalogue['libros'] if b.get('estado') == 'publicado']
+        # Cobertura de sinopsis real (objetivo P1-11: ≥ 60 %), en el informe de cada carga.
+        stats['synopsis_coverage'] = round(sum(bool(b.get('sinopsis_breve')) for b in publicadas) / max(1, len(publicadas)), 3)
         stats['author_profiles_updated'] = enrich_author_bios(authors, state, http, today)
         wiki = config.get('author_wikipedia', {})
         if wiki.get('enabled'):

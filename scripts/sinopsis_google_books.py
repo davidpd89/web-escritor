@@ -67,7 +67,7 @@ def cercania(book, hoy):
         return 10 ** 6
 
 
-def rellenar(catalogo, consulta, intentos, hoy, max_libros=40):
+def rellenar(catalogo, consulta, intentos, hoy, max_libros=120):
     """Pone sinopsis a las fichas publicadas que no tienen; devuelve cuántas. `intentos` se modifica en sitio."""
     hoy_iso = hoy.isoformat()
     for isbn in [i for i, hasta in intentos.items() if hasta <= hoy_iso]:
