@@ -1,4 +1,129 @@
 {
-  "libros": [],
+  "libros": [
+    {
+      "categorias": [
+        "divulgacion-cientifica"
+      ],
+      "causa": "contrato de datos test_no_meta_description_or_card_opens_with_a_shouted_tagline: AssertionError: <re.Match object; span=(N, N), match='dERMATOLOGÍA GENERAL BÁSI",
+      "desde": "2026-11-16",
+      "fuente": "https://www.amazon.es/dp/8478857508",
+      "intentos": 1,
+      "isbn": "9788478857500",
+      "libro": {
+        "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788478857500&tag=davidporto-21",
+        "anio_publicacion": 2026,
+        "autores": [
+          "Juan Ferrando Barberá"
+        ],
+        "autorizacion_o_base_uso": "Cubierta de la edición tomada de su ficha de Amazon.es para su identificación bibliográfica",
+        "descripcion_breve": "dERMATOLOGÍA GENERAL BÁSICA, de Juan Ferrando Barberá. Edición de Grupo Aula Médica, S.l. en castellano, en tapa blanda. Consta de 152 páginas. La editorial la incluye en ciencia. Publicación editorial: 2026-10-30.",
+        "descripcion_original_confirmada": true,
+        "edicion": "Tapa blanda · Grupo Aula Médica, S.l.",
+        "editorial": "Grupo Aula Médica, S.l.",
+        "estado": "publicado",
+        "fecha_actualizacion": "2026-11-16",
+        "fecha_publicacion": "2026-10-30",
+        "fecha_verificacion": "2026-11-16",
+        "formato_edicion": "tapa-blanda",
+        "formatos_compra": [
+          {
+            "fecha_verificacion": "2026-11-16",
+            "formato": "tapa-blanda",
+            "fuente_url": "https://www.amazon.es/dp/8478857508",
+            "precio_centimos": 6125,
+            "url": "https://www.amazon.es/dp/8478857508?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
+          }
+        ],
+        "fuente_bibliografica_url": "https://www.amazon.es/dp/8478857508",
+        "fuente_publicacion_url": "https://www.amazon.es/dp/8478857508",
+        "id": "isbn-9788478857500",
+        "idioma": "es",
+        "isbn13": "9788478857500",
+        "numero_paginas": 152,
+        "portada_alto": 500,
+        "portada_ancho": 328,
+        "portada_edicion_verificada": true,
+        "portada_fecha_revision": "2026-11-16",
+        "portada_fuente_url": "https://m.media-amazon.com/images/I/41nfw3MsrAL.jpg",
+        "portada_local": "/assets/reading-covers/isbn-9788478857500.webp",
+        "portada_sustituida": true,
+        "precios_amazon_revision": "2026-11-16",
+        "resenas": [
+          {
+            "fecha_verificacion": "2026-11-16",
+            "titulo": "Buscar reseñas en Goodreads",
+            "url": "https://www.goodreads.com/search?q=9788478857500"
+          }
+        ],
+        "slug": "dermatologia-general-basica-9788478857500",
+        "titulo": "dERMATOLOGÍA GENERAL BÁSICA"
+      },
+      "motivo": "isbn-9788478857500: contrato de datos test_no_meta_description_or_card_opens_with_a_shouted_tagline: AssertionError: <re.Match object; span=(0, 29), match='dERMATOLOGÍA GENERAL BÁSICA, '> is not None : ('isbn-9788478857500', 'dERMATOLOGÍA GENERAL BÁSICA, de Juan Ferrando Barberá. Edición de Grupo Aula Méd')",
+      "ultimo_intento": "2026-11-16"
+    },
+    {
+      "categorias": [
+        "derecho",
+        "tema-derecho"
+      ],
+      "causa": "contrato de datos test_catalogue_titles_are_bounded_distinct_and_name_the_author: AssertionError: N not less than or equal to N : [('isbn-<isbn>', 'Guiones para",
+      "desde": "2026-11-16",
+      "fuente": "https://www.amazon.es/dp/8430995285",
+      "intentos": 1,
+      "isbn": "9788430995288",
+      "libro": {
+        "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788430995288&tag=davidporto-21",
+        "anio_publicacion": 2027,
+        "autores": [
+          "Vicente J. Valera Gómez de la Peña"
+        ],
+        "autorizacion_o_base_uso": "Cubierta de la edición tomada de su ficha de Amazon.es para su identificación bibliográfica",
+        "descripcion_breve": "Martina mini. Las 1040 preguntas \"clave\" de la LPAC: Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común (Derecho - Práctica Jurídica), de Vicente J. Valera Gómez de la Peña. Edición de Tecnos en castellano, en tapa blanda. Consta de 256 páginas. La editorial la incluye en derecho. Publicación editorial: 2027-01-21.",
+        "descripcion_original_confirmada": true,
+        "edicion": "Tapa blanda · Tecnos",
+        "editorial": "Tecnos",
+        "estado": "publicado",
+        "fecha_actualizacion": "2026-11-16",
+        "fecha_publicacion": "2027-01-21",
+        "fecha_verificacion": "2026-11-16",
+        "formato_edicion": "tapa-blanda",
+        "formatos_compra": [
+          {
+            "fecha_verificacion": "2026-11-16",
+            "formato": "tapa-blanda",
+            "fuente_url": "https://www.amazon.es/dp/8430995285",
+            "precio_centimos": 1282,
+            "precio_referencia_centimos": 1350,
+            "url": "https://www.amazon.es/dp/8430995285?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
+          }
+        ],
+        "fuente_bibliografica_url": "https://www.amazon.es/dp/8430995285",
+        "fuente_publicacion_url": "https://www.amazon.es/dp/8430995285",
+        "id": "isbn-9788430995288",
+        "idioma": "es",
+        "isbn13": "9788430995288",
+        "numero_paginas": 256,
+        "portada_alto": 500,
+        "portada_ancho": 368,
+        "portada_edicion_verificada": true,
+        "portada_fecha_revision": "2026-11-16",
+        "portada_fuente_url": "https://m.media-amazon.com/images/I/41Ew-dGaXLL.jpg",
+        "portada_local": "/assets/reading-covers/isbn-9788430995288.webp",
+        "portada_sustituida": true,
+        "precios_amazon_revision": "2026-11-16",
+        "resenas": [
+          {
+            "fecha_verificacion": "2026-11-16",
+            "titulo": "Buscar reseñas en Goodreads",
+            "url": "https://www.goodreads.com/search?q=9788430995288"
+          }
+        ],
+        "slug": "martina-mini-las-1040-preguntas-clave-de-la-lpac-ley-39-2015-de-1-de-octubr-9788430995288",
+        "titulo": "Martina mini. Las 1040 preguntas \"clave\" de la LPAC: Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común (Derecho - Práctica Jurídica)"
+      },
+      "motivo": "isbn-9788430995288: contrato de datos test_catalogue_titles_are_bounded_distinct_and_name_the_author: AssertionError: 4 not less than or equal to 2 : [('isbn-9791399005448', 'Guiones para la adoración eucarística con… · 9791399005448'), ('isbn-9791399293715', 'Guía andaluza para el manejo de la… · 9791399293715'), ('isbn-9788430995271', 'Ma",
+      "ultimo_intento": "2026-11-16"
+    }
+  ],
   "schema_version": 1
 }
