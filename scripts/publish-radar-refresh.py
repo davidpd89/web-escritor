@@ -106,8 +106,11 @@ def _comprobacion_escritura(args):
 
     Antes de repetir una escritura cuyo primer intento dio un 5xx se mira si sí llegó a GitHub: un `pr merge` que
     fusionó, un `workflow run` que creó la ejecución, un `run rerun` que subió el número de intento, un `pr close` o
-    un `run cancel` que ya tienen efecto. Un status (POST) y `update-branch` con `expected_head_sha` son idempotentes:
-    repetirlos no duplica nada. Sin comprobación, la escritura no se repite (como antes).
+    un `run cancel` que ya tienen efecto. Un status (POST) es idempotente. `update-branch` con `expected_head_sha`
+    llegó si la cabeza nueva de la PR es un commit cuyo padre es la cabeza esperada (repetirlo daría 422); otro
+    movimiento de la cabeza no prueba nada y se repite (su 422 es el StaleMerge de siempre). `workflow run` no se
+    repite: sin el id de la ejecución, una ejecución nueva en la misma rama puede ser de otro despacho (R5-14 usará
+    `return_run_details`). Sin comprobación, la escritura no se repite (como antes).
     """
     a = tuple(args)
     if a[:2] == ('pr', 'merge') and len(a) > 2:
@@ -120,17 +123,20 @@ def _comprobacion_escritura(args):
         def intento():
             return json.loads(gh('run', 'view', a[2], '--json', 'attempt'))['attempt']
         return intento(), lambda antes: intento() > antes
-    if a[:2] == ('workflow', 'run') and len(a) > 2:
-        def ids():
-            filtro = ['--branch', _flag(a, '--ref')] if _flag(a, '--ref') else []
-            return {r['databaseId'] for r in json.loads(gh('run', 'list', '--workflow', a[2], *filtro, '--event',
-                                                           'workflow_dispatch', '--limit', '20', '--json', 'databaseId'))}
-        return ids(), lambda antes: bool(ids() - antes)
     if a[:1] == ('api',) and _flag(a, '--method') in ('POST', 'PUT'):
         ruta = next((x for x in a[1:] if x.startswith('repos/')), '')
-        if re.fullmatch(r'repos/[^/]+/[^/]+/statuses/[0-9a-f]{7,40}', ruta) or (
-                ruta.endswith('/update-branch') and any(x.startswith('expected_head_sha=') for x in a)):
+        if re.fullmatch(r'repos/[^/]+/[^/]+/statuses/[0-9a-f]{7,40}', ruta):
             return None, lambda _: False
+        pr = re.fullmatch(r'repos/([^/]+/[^/]+)/pulls/(\d+)/update-branch', ruta)
+        previa = next((x.split('=', 1)[1] for x in a if x.startswith('expected_head_sha=')), None)
+        if pr and previa:
+            def aplicado(_):
+                cabeza = gh('api', f'repos/{pr[1]}/pulls/{pr[2]}', '--jq', '.head.sha')
+                if cabeza.startswith(previa) or previa.startswith(cabeza):
+                    return False
+                padres = json.loads(gh('api', f'repos/{pr[1]}/commits/{cabeza}', '--jq', '[.parents[].sha]'))
+                return any(p.startswith(previa) for p in padres)
+            return None, aplicado
     return None
 
 
@@ -145,15 +151,18 @@ def gh(*args: str):
             stderr = (exc.stderr or '').strip()
             print(f'gh {" ".join(args[:3])} failed: {stderr}', file=sys.stderr, flush=True)
             repetible = _retryable(args) or comprobacion is not None
-            if attempt == GH_ATTEMPTS or not repetible or not any(m.lower() in stderr.lower() for m in TRANSIENT_GH):
+            if not repetible or not any(m.lower() in stderr.lower() for m in TRANSIENT_GH):
                 raise
             time.sleep(5 * attempt)
+            # El efecto se comprueba también tras el último intento: un merge que llegó con 502 no es un fallo.
             created = _existing_pr(args)
             if created:
                 return created
             if comprobacion is not None and comprobacion[1](comprobacion[0]):
                 print(f'gh {" ".join(args[:3])}: el intento fallido sí llegó a GitHub; no se repite', flush=True)
                 return ''
+            if attempt == GH_ATTEMPTS:
+                raise
 
 
 def superseding_pages(repo, merged_sha, after_id):
