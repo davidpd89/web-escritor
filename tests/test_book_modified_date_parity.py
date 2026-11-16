@@ -42,7 +42,7 @@ class ModifiedDateParity(unittest.TestCase):
                     parser.feed(page.read_text(encoding='utf-8'))
                 except json.JSONDecodeError as error:
                     self.fail(f"{book['id']} {page}: JSON-LD no válido: {error}")
-                pages = [e for e in parser.entities if e.get('@type') == 'WebPage']
+                pages = [e for e in parser.entities if isinstance(e, dict) and e.get('@type') == 'WebPage']
                 self.assertEqual(len(pages), 1, f"{book['id']} {page}: WebPage ausente o duplicado")
                 expected = book['fecha_actualizacion']
                 self.assertEqual(pages[0].get('dateModified'), expected, f"{book['id']} {page}: dateModified no coincide con {expected}")

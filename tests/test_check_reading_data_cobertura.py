@@ -7,6 +7,7 @@ catálogo real (`data/reading-catalogue.json`) con aserciones dentro del bucle y
 CODIGO, la lista explícita de tests de código con datos de prueba.
 """
 import ast
+import re
 import importlib.util
 import unittest
 from pathlib import Path
@@ -76,7 +77,8 @@ def mensaje(llamada):
 
 def nombra_el_libro(texto, variables):
     """¿El mensaje incluye el id del libro del bucle (`b['id']`, `b.get('id')`, `b["id"]`)?"""
-    return any(f"{v}['id']" in texto or f"{v}.get('id')" in texto for v in variables)
+    # con límite de nombre: `other_book['id']` no nombra a `book` aunque lo contenga
+    return any(re.search(rf"(?<![\w.]){re.escape(v)}(\['id'\]|\.get\('id'\))", texto) for v in variables)
 
 
 def asserts_sin_mensaje(metodo):
@@ -150,7 +152,8 @@ class CoberturaPuertaTest(unittest.TestCase):
         self.assertEqual(list(asserts_sin_mensaje(metodo(bueno))), [])
         for malo in ("        self.assertTrue(b['ok'], 'mensaje fijo')\n",
                      "        self.assertTrue(b['ok'], f\"https://x/{b['slug']}\")\n",
-                     "        self.assertTrue(b['ok'])\n"):
+                     "        self.assertTrue(b['ok'])\n",
+                     "        self.assertTrue(b['ok'], f\"{ab['id']}: otro libro\")\n"):
             with self.subTest(malo=malo):
                 fuente = bueno.split('        self.')[0] + malo
                 self.assertEqual(len(list(asserts_sin_mensaje(metodo(fuente)))), 1, 'sin id del libro no vale')
