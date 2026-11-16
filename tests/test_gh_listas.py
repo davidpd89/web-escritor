@@ -1,10 +1,13 @@
 """Fable R4-12 (F9): ninguna lista de GitHub se corta en silencio.
 
-`gh ... list --limit N` y `per_page=N` devuelven como mucho N sin avisar. La guarda recorre scripts/*.py por AST y
+`gh ... list --limit N` y `per_page=N` devuelven como mucho N sin avisar. La guarda recorre scripts/**/*.py por AST y
 exige que toda lista pase por scripts/gh_listas.py, que pagina, falla al llegar al tope o declara una ventana.
+R5-15: también los workflows y los scripts que no son Python (shell, cmd, PowerShell, JS), por texto; ahí no hay
+ayudante, así que cada lista es `gh api --paginate` o una ventana declarada en VENTANAS con su motivo.
 """
 import ast
 import json
+import re
 import sys
 import unittest
 from pathlib import Path
@@ -54,11 +57,83 @@ def infracciones(fuente, nombre='x.py'):
                 yield f'{nombre}:{nodo.lineno} lista de gh sin gh_listas'
 
 
+_LISTA_TEXTO = re.compile(r'\bgh\s+(?:' + '|'.join(sorted(LISTABLES)) + r')\s+list\b')
+TEXTOS = ('.yml', '.yaml', '.sh', '.cmd', '.bat', '.ps1', '.mjs', '.js', '.cjs')
+CONTINUACION = ('\\', '^', '`')  # bash, cmd, PowerShell
+
+# Ventanas declaradas fuera de Python: (fichero, trozo de la línea) -> por qué cortar no cambia la respuesta.
+VENTANAS = {
+    ('.github/workflows/radar-source-monitor.yml', 'gh issue list --state open --search'):
+        'solo pregunta si existe una issue con ese título: si hay alguna, la primera página la trae',
+    ('.github/workflows/reading-coverage-check.yml', 'gh issue list --state open --search'):
+        'solo pregunta si existe una issue con ese título: si hay alguna, la primera página la trae',
+    ('.github/workflows/weekly-full-audit.yml', '--event workflow_dispatch --limit 1 '):
+        'la ejecución más reciente, antes de lanzar: una ventana de 1 a propósito',
+    ('.github/workflows/weekly-full-audit.yml', '--event workflow_dispatch --limit 5 '):
+        'busca la ejecución lanzada hace un minuto en ese workflow, rama y evento: está entre las 5 últimas',
+}
+
+
+def lineas_logicas(texto):
+    """Líneas con las continuaciones unidas, con el número de la primera."""
+    actual, inicio = '', None
+    for n, linea in enumerate(texto.splitlines(), 1):
+        inicio = inicio or n
+        if linea.rstrip().endswith(CONTINUACION):
+            actual += linea.rstrip()[:-1] + ' '
+            continue
+        yield inicio, actual + linea
+        actual, inicio = '', None
+    if actual:
+        yield inicio, actual
+
+
+def infracciones_texto(texto, nombre):
+    for n, linea in lineas_logicas(texto):
+        if _LISTA_TEXTO.search(linea) or ('per_page=' in linea and '--paginate' not in linea and 'gh ' in linea):
+            yield nombre, n, ' '.join(linea.split())
+
+
+def _ficheros_texto():
+    for base in (ROOT / '.github' / 'workflows', ROOT / 'scripts'):
+        for f in sorted(base.rglob('*')):
+            if f.suffix in TEXTOS and 'node_modules' not in f.parts:
+                yield f
+
+
 class GuardaTest(unittest.TestCase):
     def test_ningun_script_corta_una_lista_en_silencio(self):
-        fuera = [i for f in sorted((ROOT / 'scripts').glob('*.py')) if f.name != 'gh_listas.py'
-                 for i in infracciones(f.read_text(encoding='utf-8'), f.name)]
+        fuera = [i for f in sorted((ROOT / 'scripts').rglob('*.py'))
+                 if f.name != 'gh_listas.py' and '__pycache__' not in f.parts
+                 for i in infracciones(f.read_text(encoding='utf-8'), str(f.relative_to(ROOT)))]
         self.assertEqual(fuera, [], 'usar gh_listas.lista/ultimas/rest_todas/rest_ultimas')
+
+    def test_ningun_workflow_ni_script_de_texto_corta_una_lista_en_silencio(self):
+        usadas, fuera = set(), []
+        for f in _ficheros_texto():
+            rel = f.relative_to(ROOT).as_posix()
+            for _, n, linea in infracciones_texto(f.read_text(encoding='utf-8', errors='replace'), rel):
+                ventana = next((k for k in VENTANAS if k[0] == rel and k[1] in linea), None)
+                if ventana:
+                    usadas.add(ventana)
+                else:
+                    fuera.append(f'{rel}:{n} {linea[:120]}')
+        self.assertEqual(fuera, [], 'usar gh api --paginate o declarar la ventana en VENTANAS con su motivo')
+        self.assertEqual(sorted(set(VENTANAS) - usadas), [], 'ventanas muertas: quitarlas de VENTANAS')
+
+    def test_la_guarda_de_texto_ve_cada_forma(self):
+        malos = ['n=$(gh run list --workflow x.yml --limit 30 \\\n  --json databaseId)',
+                 'gh pr list --state open',
+                 'gh api "repos/$R/actions/runs?per_page=100" --jq .total_count',
+                 'gh issue ^\n  list --state open']
+        for malo in malos:
+            with self.subTest(malo=malo):
+                self.assertTrue(list(infracciones_texto(malo, 'x.yml')))
+        buenos = ['gh api --paginate "repos/$R/actions/workflows/x.yml/runs?status=failure&per_page=100"',
+                  'gh run view 1 --json status', 'gh workflow run x.yml --ref main']
+        for bueno in buenos:
+            with self.subTest(bueno=bueno):
+                self.assertEqual(list(infracciones_texto(bueno, 'x.yml')), [])
 
     def test_la_guarda_ve_cada_forma(self):
         malos = ["gh('run', 'list', '--limit', '20')",

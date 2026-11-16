@@ -167,9 +167,10 @@ jobs:
           hour=$(TZ=Europe/Madrid date +%-H)
           # Madrid midnight in UTC (GNU `date -u -d` would read 'today 00:00' as UTC midnight).
           since=$(python3 -c "from datetime import datetime,timezone;from zoneinfo import ZoneInfo;n=datetime.now(ZoneInfo('Europe/Madrid'));print(n.replace(hour=0,minute=0,second=0,microsecond=0).astimezone(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'))")
-          failed=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow reading-catalogue-sync.yml --limit 30 \
-            --json databaseId,conclusion,createdAt \
-            -q "[.[] | select(.databaseId != ${GITHUB_RUN_ID} and .conclusion == \"failure\" and .createdAt >= \"$since\")] | length")
+          # Todas las fallidas desde medianoche, paginadas: con --limit 30 una noche de muchos reintentos contaba de
+          # menos y relanzaba de más (Fable R5-15).
+          failed=$(gh api --paginate "repos/$GITHUB_REPOSITORY/actions/workflows/reading-catalogue-sync.yml/runs?status=failure&created=%3E%3D$since&per_page=100" \
+            -q ".workflow_runs[] | select(.id != ${GITHUB_RUN_ID}) | .id" | wc -l)
           echo "Madrid hour $hour, earlier failures tonight $failed"
           if [ "$hour" -lt 6 ] && [ "$failed" -lt 2 ]; then
             gh workflow run reading-catalogue-sync.yml --repo "$GITHUB_REPOSITORY" --ref main
