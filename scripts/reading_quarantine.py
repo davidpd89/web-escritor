@@ -15,11 +15,13 @@ arregla el script que la produce) con su test de regresión, y la siguiente carg
 import importlib.util
 import json
 import re
+import shutil
 import subprocess
 import sys
 from datetime import date
 from pathlib import Path
 
+from git_estado import en_commit
 from reading_intake_fetch import write_if_changed
 from reading_ratings_refresh import write_changed
 
@@ -50,12 +52,22 @@ def cause(message):
     return re.sub(r'\d+', 'N', text)[:160] or 'sin motivo'
 
 
+GIT = shutil.which('git') or 'git'  # ruta completa del ejecutable (no depende del PATH al lanzar)
+
+
 def committed(root):
+    """Catálogo publicado (HEAD). None solo si HEAD no tiene catálogo: no hay nada publicado que proteger.
+
+    Cualquier otro fallo (no hay repo, git roto, JSON ilegible) aborta (F4, R4-3): sin la versión publicada todo
+    libro contaría como nuevo, el tope crecería al catálogo entero y los publicados se apartarían de la web en vez
+    de volver a su versión buena."""
     try:
-        out = subprocess.run(['git', 'show', 'HEAD:' + CATALOGUE], cwd=root, capture_output=True, check=True)
+        if not en_commit(root, 'HEAD', [CATALOGUE]):
+            return None
+        out = subprocess.run([GIT, 'show', 'HEAD:' + CATALOGUE], cwd=root, capture_output=True, check=True)
         return json.loads(out.stdout.decode('utf-8'))
-    except (subprocess.CalledProcessError, ValueError, OSError):
-        return None
+    except (subprocess.CalledProcessError, ValueError, OSError) as exc:
+        raise RuntimeError(f'Cuarentena: no se puede leer el catálogo publicado (HEAD:{CATALOGUE}): {exc}') from exc
 
 
 def limit(data, previous):
@@ -337,6 +349,7 @@ def apply(root=ROOT, today=None, flagged=None):
     """Aplica la cuarentena a los datos del árbol de trabajo. Devuelve la lista de libros apartados."""
     today = today or date.today().isoformat()
     path, held_path = root / CATALOGUE, root / QUARANTINE
+    published = committed(root)  # antes que nada: sin la versión publicada no se toca el árbol (F4)
     data = json.loads(path.read_text(encoding='utf-8'))
     original = json.loads(json.dumps(data))
     held = json.loads(held_path.read_text(encoding='utf-8'))['libros'] if held_path.exists() else []
@@ -345,7 +358,7 @@ def apply(root=ROOT, today=None, flagged=None):
     # Después de las reparaciones: el género de respaldo por sello cuenta solo lo que sigue publicado.
     from reading_taxonomy import repair_classification
     repair_classification(data, today=today)
-    clean, out = isolate(data, root, committed(root), held, today=today, flagged=flagged)
+    clean, out = isolate(data, root, published, held, today=today, flagged=flagged)
     if clean != original:  # mismo formato que el último escritor del catálogo (precios), sin reordenar claves
         write_changed(path, clean)
     if out or held_path.exists():
