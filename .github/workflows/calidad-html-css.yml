@@ -1,0 +1,86 @@
+name: Calidad de HTML y CSS
+
+# Dos empleados gratuitos: HTML-validate (HTML mal formado en portada y en una muestra fija de fichas) y
+# Stylelint (errores reales en el CSS propio: propiedades desconocidas, duplicados, colores inválidos).
+# Informativo: deja el resultado en el resumen y no bloquea. Cuando una herramienta quede limpia, se le
+# quita el «continue-on-error» y pasa a ser obligatoria.
+# La muestra es 1 de cada 150 fichas por orden alfabético: crece con el catálogo sin descargar el sitio entero.
+on:
+  pull_request:
+    paths:
+      - "styles.css"
+      - "assets/**/*.css"
+      - "qa/htmlvalidate.json"
+      - "qa/stylelint.json"
+      - ".github/workflows/calidad-html-css.yml"
+  workflow_dispatch:
+  schedule:
+    - cron: '53 6 * * 3'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  html-css:
+    name: HTML-validate y Stylelint
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*.html
+            /styles.css
+            /assets/**/*.css
+            /qa/htmlvalidate.json
+            /qa/stylelint.json
+      - name: Elegir la muestra de fichas
+        id: muestra
+        continue-on-error: true
+        run: |
+          git ls-tree -r --name-only HEAD -- recomendaciones | grep '\.html$' | sort | awk 'NR % 150 == 1' > muestra.txt
+          git sparse-checkout add --stdin < muestra.txt
+          ls ./*.html >> muestra.txt
+          echo "Páginas en la muestra: $(wc -l < muestra.txt)"
+      - name: HTML-validate
+        id: html
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          xargs -d '\n' npx --yes html-validate@9 --config qa/htmlvalidate.json < muestra.txt > html-validate.txt 2>&1
+      - name: Stylelint
+        id: css
+        continue-on-error: true
+        run: |
+          npx --yes stylelint@16 --config qa/stylelint.json --formatter compact "styles.css" "assets/**/*.css" > stylelint.txt 2>&1
+      - name: Resumen
+        if: always()
+        env:
+          MUESTRA: ${{ steps.muestra.outcome }}
+          HTML: ${{ steps.html.outcome }}
+          CSS: ${{ steps.css.outcome }}
+        run: |
+          {
+            echo "Muestra: $MUESTRA ($(wc -l < muestra.txt 2>/dev/null || echo 0) páginas)."
+            echo "## HTML-validate: $HTML"; echo '```'; tail -n 120 html-validate.txt 2>/dev/null; echo '```'
+            echo "## Stylelint: $CSS"; echo '```'; tail -n 120 stylelint.txt 2>/dev/null; echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Guardar informes
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: calidad-html-css
+          path: |
+            muestra.txt
+            html-validate.txt
+            stylelint.txt
+          if-no-files-found: ignore
+          retention-days: 30

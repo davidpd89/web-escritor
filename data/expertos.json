@@ -23,10 +23,11 @@
       "id": "calidad",
       "nombre": "Calidad",
       "mision": "Que nada entre en main sin pasar la batería completa de pruebas.",
-      "workflows": ["required-merge-gate", "tool-tests", "release-readiness-pre-main", "design-evidence-hardening", "lab-mejoras-offline", "research-editoriales-offline"],
+      "workflows": ["calidad-html-css", "design-evidence-hardening", "lab-mejoras-offline", "release-readiness-pre-main", "required-merge-gate", "research-editoriales-offline", "tool-tests"],
       "descartados": [
         {"herramienta": "MegaLinter", "motivo": "Lanza decenas de linters por PR sobre una cola de Actions ya saturada; se añaden uno a uno los que aportan."},
-        {"herramienta": "ESLint y Biome", "motivo": "El JavaScript ya lo analizan SonarCloud, DeepSource y CodeQL en cada PR."}
+        {"herramienta": "ESLint y Biome", "motivo": "El JavaScript ya lo analizan SonarCloud, DeepSource y CodeQL en cada PR."},
+        {"herramienta": "TypeDoc", "motivo": "No hay TypeScript en el repositorio."}
       ]
     },
     {
@@ -38,6 +39,9 @@
       "pendientes": [
         {"herramienta": "jscpd", "motivo": "Informe semanal de duplicados en scripts/ y assets/; primero solo informativo."},
         {"herramienta": "Knip", "motivo": "Ficheros y exportaciones sin uso en qa/ y tests/; hay cientos de .mjs y necesita configuración de entradas."}
+      ],
+      "descartados": [
+        {"herramienta": "Dependency Cruiser", "motivo": "El sitio no tiene módulos que se importen entre sí; el código muerto lo cubrirá Knip (pendiente)."}
       ]
     },
     {
@@ -56,7 +60,9 @@
       "workflows": ["npm-supply-chain-watch"],
       "externos": ["Dependabot (.github/dependabot.yml, una PR agrupada al mes)", "OSV-Scanner (dentro de higiene-repo)"],
       "descartados": [
-        {"herramienta": "Renovate", "motivo": "Hace lo mismo que Dependabot, que ya viene con GitHub y no necesita instalar otra app."}
+        {"herramienta": "Renovate", "motivo": "Hace lo mismo que Dependabot, que ya viene con GitHub y no necesita instalar otra app."},
+        {"herramienta": "License Checker", "motivo": "Solo hay herramientas de CI en package.json: no se distribuye código de terceros."},
+        {"herramienta": "CycloneDX", "motivo": "Un inventario SBOM no aporta a un sitio estático sin dependencias en producción."}
       ]
     },
     {
@@ -66,6 +72,10 @@
       "workflows": ["higiene-repo", "empleados-latido", "bypass-usado"],
       "pendientes": [
         {"herramienta": "OpenSSF Scorecard", "motivo": "Nota global del repositorio; se añade cuando actionlint y zizmor estén limpios, para no empezar con una lista de avisos ya conocidos."}
+      ],
+      "descartados": [
+        {"herramienta": "Restic", "motivo": "Git y GitHub ya son la copia; no hay base de datos ni servidor que respaldar."},
+        {"herramienta": "Rclone", "motivo": "Git y GitHub ya son la copia; no hay base de datos ni servidor que respaldar."}
       ]
     },
     {
@@ -75,6 +85,9 @@
       "workflows": ["lighthouse-ci", "content-index-check", "public-artifact-contract", "machine-authority-check", "global-discoverability-closure-qa", "findability-browser-qa", "section-context-parity-qa", "public-time-semantics-qa"],
       "descartados": [
         {"herramienta": "Unlighthouse", "motivo": "Recorrer el sitio entero con Lighthouse tarda horas con el catálogo actual; lighthouse-ci mide una muestra por PR."}
+      ],
+      "cubiertos": [
+        {"herramienta": "Pagefind", "motivo": "Ya es el buscador del sitio; lo vigila findability-browser-qa."}
       ]
     },
     {
@@ -127,13 +140,24 @@
       "id": "analitica",
       "nombre": "Analítica y privacidad",
       "mision": "Medir sin romper el consentimiento ni enviar datos a quien no toca.",
-      "workflows": ["analytics-hostname-allowlist-qa", "analytics-taxonomy-qa", "consent-banner-visual-viewport-qa", "newsletter-consent-qa", "privacy-legal-browser-qa", "third-party-integrations-qa"]
+      "workflows": ["analytics-hostname-allowlist-qa", "analytics-taxonomy-qa", "consent-banner-visual-viewport-qa", "newsletter-consent-qa", "privacy-legal-browser-qa", "third-party-integrations-qa"],
+      "cubiertos": [
+        {"herramienta": "GDPR Site Auditor", "motivo": "privacy-legal-browser-qa ya comprueba consentimiento, cookies y textos legales."},
+        {"herramienta": "Klaro", "motivo": "El sitio ya tiene su propio banner de consentimiento, probado en CI."}
+      ],
+      "descartados": [
+        {"herramienta": "GrowthBook", "motivo": "Sin backend ni tráfico suficiente para pruebas A/B fiables."},
+        {"herramienta": "Unleash", "motivo": "Sin backend: no hay dónde evaluar banderas de funciones."}
+      ]
     },
     {
       "id": "testing-funcional",
       "nombre": "Testing funcional",
       "mision": "Que cada sección de la web haga lo que promete en un navegador de verdad.",
-      "workflows": ["autor-browser-qa", "convocatorias-browser-qa", "cuaderno-browser-qa", "cuaderno-topics-browser-qa", "editoriales-browser-qa", "eventos-browser-qa", "ferias-browser-qa", "ferias-archive-parity-qa", "premios-browser-qa", "prensa-browser-qa", "metodologia-editorial-browser-qa", "identity-public-browser-qa", "samuel-ecosystem-browser-qa", "explore-territories-qa", "home-editorial-fallback-qa", "home-map-interaction-qa", "pro-resources-qa", "tools-browser-qa", "tools-events-memory-browser-qa", "tools-publishing-browser-qa", "tools-structure-browser-qa", "manecillas-buy-cta-qa", "manecillas-fragments-nav-qa", "manecillas-funnel-qa", "pwa-offline-qa", "sitewide-console-errors-qa", "assistant-copy-qa"]
+      "workflows": ["autor-browser-qa", "convocatorias-browser-qa", "cuaderno-browser-qa", "cuaderno-topics-browser-qa", "editoriales-browser-qa", "eventos-browser-qa", "ferias-browser-qa", "ferias-archive-parity-qa", "premios-browser-qa", "prensa-browser-qa", "metodologia-editorial-browser-qa", "identity-public-browser-qa", "samuel-ecosystem-browser-qa", "explore-territories-qa", "home-editorial-fallback-qa", "home-map-interaction-qa", "pro-resources-qa", "tools-browser-qa", "tools-events-memory-browser-qa", "tools-publishing-browser-qa", "tools-structure-browser-qa", "manecillas-buy-cta-qa", "manecillas-fragments-nav-qa", "manecillas-funnel-qa", "pwa-offline-qa", "sitewide-console-errors-qa", "assistant-copy-qa"],
+      "descartados": [
+        {"herramienta": "MSW", "motivo": "Playwright ya intercepta la red en las pruebas; no hace falta otra capa."}
+      ]
     },
     {
       "id": "visual",
@@ -141,7 +165,8 @@
       "mision": "Que un cambio no descoloque lo que ya se veía bien.",
       "workflows": ["visual-regression-qa", "small-ui-audit"],
       "descartados": [
-        {"herramienta": "Lost Pixel", "motivo": "visual-regression-qa ya compara capturas con Playwright sin depender de un servicio externo."}
+        {"herramienta": "Lost Pixel", "motivo": "visual-regression-qa ya compara capturas con Playwright sin depender de un servicio externo."},
+        {"herramienta": "Storybook", "motivo": "No hay componentes ni framework: las páginas se comparan enteras con pixelmatch."}
       ]
     },
     {
@@ -162,16 +187,29 @@
         {"herramienta": "cspell en español", "motivo": "Ortografía de los textos propios (no de las sinopsis de terceros); necesita un diccionario de nombres propios para no dar miles de falsos avisos."}
       ],
       "descartados": [
-        {"herramienta": "Vale", "motivo": "Sus reglas de estilo están hechas para inglés."}
+        {"herramienta": "Vale", "motivo": "Sus reglas de estilo están hechas para inglés."},
+        {"herramienta": "Decap CMS", "motivo": "El contenido llega por PR y por la carga automática; un panel de edición no aporta."},
+        {"herramienta": "textstat", "motivo": "Mide legibilidad en inglés; en español sus fórmulas no valen para sinopsis."},
+        {"herramienta": "Weblate", "motivo": "El sitio es solo en español."},
+        {"herramienta": "LibreTranslate", "motivo": "El sitio es solo en español y exige servidor propio."}
       ]
     },
     {
       "id": "catalogo",
       "nombre": "Catálogo y validación de datos",
       "mision": "Que la carga nocturna entre entera, aparte el libro defectuoso y no rompa las fichas.",
-      "workflows": ["reading-catalogue-sync", "reading-coverage-check", "reading-failure-resilience", "reading-intake-qa", "reading-general-catalogue-ux-qa", "recommendations-browser-qa", "atlas-catalogue-qa", "atlas-contract", "atlas-directory-sync"],
+      "workflows": ["atlas-catalogue-qa", "atlas-contract", "atlas-directory-sync", "catalogo-duplicados", "reading-catalogue-sync", "reading-coverage-check", "reading-failure-resilience", "reading-general-catalogue-ux-qa", "reading-intake-qa", "recommendations-browser-qa"],
       "pendientes": [
         {"herramienta": "JSON Schema del catálogo", "motivo": "schemas/ solo cubre el atlas; un esquema de data/reading-catalogue.json validaría cada libro antes de construir páginas."}
+      ],
+      "descartados": [
+        {"herramienta": "Spectral", "motivo": "No hay API ni OpenAPI que validar."},
+        {"herramienta": "KeyBERT", "motivo": "Modelo pesado en cada ejecución de CI. Revisar si se hacen recomendaciones por parecido."},
+        {"herramienta": "Sentence Transformers", "motivo": "Modelo pesado en cada ejecución de CI. Revisar si se hacen recomendaciones por parecido."},
+        {"herramienta": "scikit-learn", "motivo": "Sin caso de uso hoy; revisar junto con las recomendaciones por parecido."},
+        {"herramienta": "Frictionless", "motivo": "Duplica el JSON Schema del catálogo, que ya está pendiente."},
+        {"herramienta": "OpenRefine", "motivo": "Herramienta manual de escritorio: no se puede dejar trabajando sola."},
+        {"herramienta": "Open Library", "motivo": "Probada para sinopsis: 0 de 15 libros en español. Se usa todostuslibros."}
       ]
     },
     {
@@ -181,7 +219,12 @@
       "workflows": ["production-smoke-monitor", "live-production-pwa-qa", "postdeploy-deep-audit", "staging-smoke-test", "weekly-full-audit"],
       "descartados": [
         {"herramienta": "Upptime", "motivo": "Hace un commit cada pocos minutos y consume la cola de Actions; production-smoke-monitor ya mira cada 6 horas."},
-        {"herramienta": "Uptime Kuma", "motivo": "Necesita un servidor propio encendido siempre."}
+        {"herramienta": "Uptime Kuma", "motivo": "Necesita un servidor propio encendido siempre."},
+        {"herramienta": "DNSControl", "motivo": "Un solo dominio con pocos registros: gestionarlo como código no compensa."},
+        {"herramienta": "Cert Spotter", "motivo": "El certificado lo renueva GitHub Pages; production-smoke-monitor avisa si el sitio deja de responder."}
+      ],
+      "pendientes": [
+        {"herramienta": "Sentry", "motivo": "Errores de JavaScript de los lectores reales. Gratis, pero es un script de terceros: necesita cuenta de David y tocar la CSP y el consentimiento. Decide David."}
       ]
     },
     {
@@ -190,7 +233,15 @@
       "mision": "Desplegar la web y publicar en los canales sin intervención.",
       "workflows": ["deploy-pages", "radar-clock-refresh", "radar-source-monitor", "reading-telegram-publish", "reading-telegram-preview", "reading-pinterest-rss-qa"],
       "descartados": [
-        {"herramienta": "Release Please y Changesets", "motivo": "Sirven para versionar paquetes; la web se publica en continuo, sin versiones."}
+        {"herramienta": "Release Please y Changesets", "motivo": "Sirven para versionar paquetes; la web se publica en continuo, sin versiones."},
+        {"herramienta": "Mermaid CLI", "motivo": "GitHub ya pinta los diagramas Mermaid de los documentos."},
+        {"herramienta": "Postiz", "motivo": "Exige servidor propio; las redes se publican ya desde su propio repositorio."},
+        {"herramienta": "Activepieces", "motivo": "Exige servidor propio; la automatización es GitHub Actions."},
+        {"herramienta": "Satori", "motivo": "Generar una imagen social por libro suma peso al sitio, que es el recurso escaso."}
+      ],
+      "cubiertos": [
+        {"herramienta": "Validador de feeds RSS", "motivo": "reading-pinterest-rss-qa ya comprueba el feed que se publica."},
+        {"herramienta": "changedetection.io", "motivo": "radar-source-monitor ya vigila los cambios en las fuentes, sin servidor propio."}
       ]
     },
     {
@@ -203,6 +254,28 @@
       ],
       "descartados": [
         {"herramienta": "Danger JS", "motivo": "Las normas de PR ya las aplican el Required merge gate y la skill de revisión de carga."}
+      ],
+      "cubiertos": [
+        {"herramienta": "WeKan", "motivo": "El tablero son los issues y las PR de GitHub; otro tablero duplica el trabajo."}
+      ]
+    },
+    {
+      "id": "comunidad",
+      "nombre": "Comunidad y lectores",
+      "mision": "Boletín, formularios y conversación con los lectores.",
+      "workflows": [],
+      "externos": ["Brevo"],
+      "cubiertos": [
+        {"herramienta": "listmonk", "motivo": "El boletín ya sale por Brevo, sin servidor propio."}
+      ],
+      "descartados": [
+        {"herramienta": "Formbricks", "motivo": "Encuestas: exige servidor propio o cuenta nueva, y no hay volumen de lectores que las pida."},
+        {"herramienta": "Fider", "motivo": "Buzón de sugerencias con servidor propio; hoy basta el correo."},
+        {"herramienta": "Tally", "motivo": "Formularios de terceros: otra cuenta y otro script; el alta al boletín ya está en Brevo."},
+        {"herramienta": "MJML", "motivo": "Las plantillas del boletín se hacen en el editor de Brevo."},
+        {"herramienta": "Mautic", "motivo": "Automatización de marketing con servidor propio; Brevo ya la cubre."},
+        {"herramienta": "Twenty CRM", "motivo": "No hay clientes que gestionar."},
+        {"herramienta": "giscus", "motivo": "Comentarios en fichas: script de terceros y moderación diaria sin nadie que la haga."}
       ]
     }
   ]
