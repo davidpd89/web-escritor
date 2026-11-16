@@ -338,10 +338,14 @@ def fallo_de_infraestructura(run_id) -> bool:
 
 
 def ingesta_en_marcha():
-    # Por estado y completa: una carga en curso más antigua que las 3 últimas también cuenta. Primero los estados
-    # previos y «in_progress» al final: una ejecución que avanza entre dos consultas aparece en la siguiente.
+    # Por estado y completa: una carga en curso más antigua que las 3 últimas también cuenta. Los estados van en el
+    # orden en que avanza una ejecución (requested -> ... -> in_progress): una que avanza entre dos consultas aparece
+    # en la siguiente. Un único listado sin --status no sirve: las completadas llenan cualquier tope.
     return any(gh_listas.lista(gh_json, 'run', 'list', '--workflow', INGESTA, '--status', estado, '--json', 'status', tope=50)
-               for estado in ('pending', 'waiting', 'queued', 'in_progress'))
+               for estado in ESTADOS_EN_MARCHA)
+
+
+ESTADOS_EN_MARCHA = ('requested', 'pending', 'waiting', 'queued', 'in_progress')
 
 
 CODIGO_CI = ('qa/', 'tests/', 'scripts/', '.github/', 'package.json', 'package-lock.json')
