@@ -120,9 +120,14 @@ def isolate(data, root, previous=None, held=(), today=None, flagged=None):
                     b for b in data['libros'] if b['id'] == book_id)) and any(b['id'] == twin[1] for b in data['libros']):
                 # De dos portadas iguales, la culpable es la que ha cambiado, no la que ya estaba publicada así.
                 book_id = twin[1]
-            # Sin libro, su versión buena también falla o la publicada falla sin cambios: es la regla, no el dato.
-            if not book_id or book_id in reverted or good.get(book_id) == next(
-                    b for b in data['libros'] if b['id'] == book_id):
+            current = book_id and next((b for b in data['libros'] if b['id'] == book_id), None)
+            stuck = current is not None and good.get(book_id) == current  # revertir sería un no-op: ya es esa versión
+            # Sin libro, o ya se reintentó: es la regla, no el dato. Publicado, sin cambios y aun así inválido por el
+            # esquema (build.validate, sin pasar por `flagged`) tampoco se despublica en silencio: es la regla.
+            # Un contrato de datos por libro (QA de la PR, `flagged`) que sigue señalando la misma versión ya
+            # publicada sí se aparta: revertir no cambia nada y parar el lote cada noche no corrige el dato (origen:
+            # isbn-9791388205675 con un solo módulo, 16/11 — #1387 quiso apartarlo y la carga seguía parando entera).
+            if not book_id or book_id in reverted or (stuck and book_id not in blame):
                 raise
             if len(out) >= cap:
                 raise build.ValidationError(
@@ -136,8 +141,17 @@ def isolate(data, root, previous=None, held=(), today=None, flagged=None):
                         'fuente': book.get('fuente_publicacion_url') or book.get('fuente_bibliografica_url', ''),
                         'desde': prior.get('desde', today), 'intentos': int(prior.get('intentos', 0)) + 1, 'ultimo_intento': today})
             mine = [r for r in data['libro_categorias'] if r['libro_id'] == book_id]
-            if book_id in good:
-                # Ya publicado: sigue en línea con su última versión buena; si esa también falla, la regla está rota.
+            if stuck:
+                # Ya es su versión publicada: no hay a qué revertir, así que sale de publicación hasta que se corrija el dato.
+                # `out[-1]['libro']` guarda el original (datos originales de la cuarentena): formatos_compra se
+                # copia antes de despreciar el precio para no mutar también ese registro.
+                retired = {**book, 'estado': 'borrador', 'fecha_actualizacion': today,
+                           'formatos_compra': [dict(o) for o in book.get('formatos_compra', [])]}
+                unprice(retired)
+                data['libros'][at] = retired
+                reverted.add(book_id)
+            elif book_id in good:
+                # Ya publicado con otra versión buena: vuelve a ella; si esa también falla, la regla está rota.
                 data['libros'][at] = good[book_id]
                 restore_cover(root, good[book_id])
                 if mine != good_rel.get(book_id, []):

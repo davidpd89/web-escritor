@@ -144,7 +144,7 @@ class CheckpointLifetimeTests(unittest.TestCase):
 
 class QuarantineRoundsTests(unittest.TestCase):
  """Sin tope de rondas: se aparta mientras cada ronda nombre libros nuevos; repetir los mismos para la carga."""
- def run_rounds(self,rounds):
+ def run_rounds(self,rounds,apply=lambda *a,**k:[]):
   with tempfile.TemporaryDirectory() as tmp,contextlib.ExitStack() as stack:
    published=[];pending=list(rounds)
    def failures():return [{'test':'contrato','libros':pending.pop(0)}] if pending else []
@@ -152,7 +152,7 @@ class QuarantineRoundsTests(unittest.TestCase):
     (refresh,'read_json',lambda p:{'rss_enabled':False}),(refresh,'quarantine_summary',lambda *a:''),
     (refresh,'data_contract_failures',failures),(refresh,'drop_orphan_pages',lambda q:None),
     (refresh.reading_quarantine,'flagged_books',lambda f,c:{b:'motivo' for b in f[0]['libros']}),
-    (refresh.reading_quarantine,'apply',lambda *a,**k:[]),
+    (refresh.reading_quarantine,'apply',apply),
     (refresh.materializar,'construir',lambda *a,**k:None),(refresh.materializar,'comprobar',lambda *a,**k:None),
     (refresh.subprocess,'check_output',lambda *a,**k:' M data/reading-catalogue.json\n'),
     (refresh.git_estado,'rutas',lambda *a,**k:['data/reading-catalogue.json']),
@@ -168,5 +168,22 @@ class QuarantineRoundsTests(unittest.TestCase):
  def test_a_round_naming_the_same_books_stops_the_load(self):
   with self.assertRaisesRegex(RuntimeError,'no se resuelven apartando libros'):
    self.run_rounds([['a'],['a']])
+ def test_a_repeated_book_the_quarantine_can_still_act_on_keeps_the_load_going(self):
+  # 16/11: isbn-9791388205675 se repitió en la segunda ronda porque la primera solo pudo revertirlo (un dato
+  # ajeno al contrato había cambiado); la segunda ronda ya lo encuentra idéntico a su versión publicada y
+  # isolate() lo retira. Repetir el mismo libro no es «regla rota» mientras la cuarentena siga moviendo algo.
+  calls=[]
+  def apply(*a,**k):
+   calls.append(None)
+   # La 1ª llamada es la cuarentena inicial (antes del bucle) y la 2ª es la 1ª ronda: ninguna aparta nada
+   # todavía. La 3ª es la ronda que repite «a» y por fin lo retira.
+   return [] if len(calls)<3 else [{'libro':{'id':'a'},'motivo':'un solo módulo'}]
+  self.assertEqual(len(self.run_rounds([['a'],['a']],apply=apply)),1)
+  self.assertEqual(len(calls),3)
+ def test_unrelated_quarantine_activity_does_not_mask_a_repeated_book_stuck(self):
+  # La cuarentena puede seguir moviendo libros de noches anteriores (`held`) sin relación con el que se repite
+  # aquí; que `apply` no devuelva una lista vacía no basta para creer que el repetido avanza.
+  with self.assertRaisesRegex(RuntimeError,'no se resuelven apartando libros'):
+   self.run_rounds([['a'],['a']],apply=lambda *a,**k:[{'libro':{'id':'otro-libro-en-cuarentena'},'motivo':'x'}])
 
 if __name__=='__main__':unittest.main()
