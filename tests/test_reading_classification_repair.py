@@ -15,8 +15,10 @@ import reading_quarantine as q  # noqa: E402
 from reading_amazon_market import item_non_reading  # noqa: E402
 from reading_taxonomy import (FALLBACK_GENRES, READER_TYPES, GenreFallback, collection_genre,  # noqa: E402
                               non_reading_reason, repair_classification)  # noqa: E402
+from reading_taxonomy import AMAZON_SOURCE, FICTION_GENRES, NON_FICTION_GENRES  # noqa: E402
 
 DATA = json.loads((ROOT / q.CATALOGUE).read_text(encoding='utf-8'))
+BOOKS = {b['id']: b for b in DATA['libros']}
 NACHO, MADRID, CONSPIRACY = 'isbn-9788419913982', 'isbn-9788449602122', 'isbn-9791388204272'
 WATASHI, SORRY, MYSTERY = 'isbn-9788419441928', 'isbn-9788495794161', 'isbn-9788425375989'
 
@@ -224,6 +226,42 @@ class RetiredRegistryTests(unittest.TestCase):
             self.assertEqual((entry['status'], entry['searchIndex'], entry['sitemap'], entry['sourceFile']),
                              ('deprecated', False, False, ''))
         self.assertEqual(build.retired_entries(gone, []), gone, 'sigue declarada en las cargas siguientes')
+
+class JuvenileAudienceTests(unittest.TestCase):
+    """«Libros juveniles» es un público, no la novela juvenil: el «Manifiesto comunista» de Amazon salía como
+    narrativa juvenil por el nodo raíz del público (2026-11-16). Un libro de no ficción sin otro género de ficción
+    queda con su público «juvenil» y sin «narrativa-juvenil»; una novela juvenil la conserva."""
+
+    @staticmethod
+    def catalogue(cats, title='Manifiesto de prueba'):
+        base = copy.deepcopy(DATA)
+        book = {'id': 'isbn-9780000000001', 'isbn13': '9780000000001', 'titulo': title,
+                'estado': 'publicado', 'fuente_bibliografica_url': 'https://www.amazon.es/dp/B000000001'}
+        base['libros'].append(book)
+        base['libro_categorias'] += [{'libro_id': book['id'], 'categoria_id': c} for c in cats]
+        return base, book['id']
+
+    def test_non_fiction_loses_juvenile_novel_and_keeps_the_audience(self):
+        data, ident = self.catalogue(['comic-y-novela-grafica', 'filosofia', 'juvenil', 'narrativa-juvenil'])
+        repair_classification(data, '2026-11-16')
+        got = labels(data)[ident]
+        self.assertNotIn('narrativa-juvenil', got)
+        self.assertTrue({'filosofia', 'juvenil'} <= got, got)
+
+    def test_juvenile_novel_keeps_its_genre(self):
+        for cats in (['narrativa-juvenil', 'juvenil'], ['narrativa-juvenil', 'historia', 'aventuras', 'juvenil']):
+            with self.subTest(cats):
+                data, ident = self.catalogue(cats, 'La isla de prueba')  # «manifiesto» en el título es no ficción
+                repair_classification(data, '2026-11-16')
+                self.assertIn('narrativa-juvenil', labels(data)[ident])
+
+    def test_published_catalogue_has_no_juvenile_novel_that_is_only_non_fiction(self):
+        data = copy.deepcopy(DATA)
+        repair_classification(data)
+        wrong = [b for b, got in labels(data).items() if 'narrativa-juvenil' in got
+                 and got & NON_FICTION_GENRES and not got & (FICTION_GENRES - {'narrativa-juvenil'})
+                 and AMAZON_SOURCE in (BOOKS.get(b, {}).get('fuente_bibliografica_url') or '')]
+        self.assertEqual(wrong, [])
 
 
 if __name__ == '__main__':
