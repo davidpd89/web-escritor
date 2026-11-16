@@ -12,6 +12,7 @@ import hashlib
 import importlib.util
 import io
 import json
+import os
 import re
 import shutil
 import sys
@@ -26,6 +27,7 @@ from reading_editorial_sources import CachedHTTP, SourceError, penguin_edition, 
 from reading_intake_core import affiliate_destination, clean_author, clean_title, split_authors, normalize_text, publisher_slug, tidy_prose
 from reading_intake_fetch import read_json, write_if_changed
 from reading_intake_publishers import resolve_publishers
+import sinopsis_google_books
 from reading_taxonomy import apply_derived, extra_categories, non_reading_reason, reference_work, REFERENCE_ID
 from reading_catalogue_publishers import catalogue_publisher, PublisherError
 from reading_generic_source import generic_edition, generic_links, reviewed_hosts
@@ -831,6 +833,12 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                 stats['pending'] += 1
         update_authors(authors, catalogue, new_books + updated_books, today)
         stats['synopses_completed'] = fill_full_synopses(catalogue, providers, http, int(config.get('max_synopsis_backfill', 6)))
+        # Respaldo para las fichas que siguen sin sinopsis: Google Books por ISBN exacto y en español (P1-11).
+        # Sin clave (tests, ensayos locales) no sale a la red.
+        google_key = os.getenv('GOOGLE_BOOKS_API_KEY', '').strip()
+        stats['synopses_google'] = sinopsis_google_books.rellenar(
+            catalogue, sinopsis_google_books.consulta_google(google_key), state.setdefault('sinopsis_google', {}),
+            day, int(config.get('max_google_synopsis', 40))) if google_key else 0
         stats['author_profiles_updated'] = enrich_author_bios(authors, state, http, today)
         wiki = config.get('author_wikipedia', {})
         if wiki.get('enabled'):
