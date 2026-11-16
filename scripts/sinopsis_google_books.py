@@ -4,8 +4,10 @@ La ficha editorial sigue siendo la primera fuente (`fill_full_synopses`). Para l
 sin sinopsis, se pide a Google Books el volumen con ese ISBN-13 exacto y en español, y su descripción se guarda
 como extracto editorial con procedencia https. Las más cercanas a hoy primero (novedades antes que fondo).
 
-Cada ISBN sin resultado útil no se vuelve a pedir en REINTENTO_DIAS: el registro vive en el estado de la ingesta
-(`sinopsis_google`, ISBN -> fecha de reintento) y se poda solo, así no crece con el catálogo.
+Cada ISBN sin resultado útil se vuelve a pedir pasados `reintento_dias` (2 por defecto: la misma noche ya pasa a
+la fuente siguiente, así que esperar más solo deja la ficha vacía). El registro vive en el estado de la ingesta
+(`sinopsis_ttl`/`sinopsis_google`, ISBN -> fecha de reintento) y se poda solo. `fallos` (ISBN -> veces sin
+resultado) señala los que ninguna fuente automática da: pasan a la lista de pendientes para buscarlos a mano.
 """
 from __future__ import annotations
 
@@ -19,7 +21,7 @@ from urllib.request import Request, urlopen
 from reading_editorial_sources import editorial_excerpt, editorial_synopsis
 
 API = 'https://www.googleapis.com/books/v1/volumes'
-REINTENTO_DIAS = 30
+REINTENTO_DIAS = 2
 UA = 'DavidPortoReadingCatalogue/1.0 (davidportodiaz.com)'
 
 
@@ -72,7 +74,8 @@ def de_google(respuesta, isbn):
     return (f'https://books.google.com/books?id={hallado[0]}', hallado[1]) if hallado else None
 
 
-def rellenar(catalogo, consulta, intentos, hoy, max_libros=120, extraer=de_google):
+def rellenar(catalogo, consulta, intentos, hoy, max_libros=120, extraer=de_google, reintento_dias=REINTENTO_DIAS,
+             fallos=None):
     """Pone sinopsis a las fichas publicadas que no tienen; devuelve cuántas. `intentos` se modifica en sitio.
 
     `consulta(isbn)` devuelve None si la fuente está caída (se para sin marcar); `extraer(respuesta, isbn)` da
@@ -98,11 +101,25 @@ def rellenar(catalogo, consulta, intentos, hoy, max_libros=120, extraer=de_googl
         hallado = extraer(respuesta, book['isbn13'])
         textos = sinopsis_de(hallado[1]) if hallado else None
         if not textos:
-            intentos[book['isbn13']] = (hoy + timedelta(days=REINTENTO_DIAS)).isoformat()
+            intentos[book['isbn13']] = (hoy + timedelta(days=reintento_dias)).isoformat()
+            if fallos is not None:
+                fallos[book['isbn13']] = fallos.get(book['isbn13'], 0) + 1
             continue
         book['sinopsis_breve'], completa = textos
         book['sinopsis_completa'] = completa
         book['sinopsis_tipo'] = 'extracto_editorial'
         book['sinopsis_fuente_url'] = hallado[0]
+        if fallos is not None:
+            fallos.pop(book['isbn13'], None)
         puestas += 1
     return puestas
+
+
+def pendientes(catalogo, fallos, minimo=2):
+    """ISBN publicados sin sinopsis en los que Google ya falló `minimo` veces: a buscar a mano (u otra fuente).
+    Poda `fallos` de los que ya tienen sinopsis o dejaron de estar publicados."""
+    vacios = {b['isbn13'] for b in catalogo['libros'] if b.get('estado') == 'publicado' and b.get('isbn13')
+              and not b.get('sinopsis_breve') and not b.get('sinopsis_completa') and b.get('sinopsis_tipo') != 'resumen_propio'}
+    for isbn in [i for i in fallos if i not in vacios]:
+        del fallos[isbn]
+    return sorted(i for i, n in fallos.items() if n >= minimo)

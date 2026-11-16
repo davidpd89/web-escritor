@@ -35,13 +35,13 @@ class SinopsisGoogleTest(unittest.TestCase):
         self.assertIn('\n\n', b['sinopsis_completa'])
         self.assertNotIn('<p>', b['sinopsis_completa'])
 
-    def test_otro_isbn_u_otro_idioma_no_valen_y_esperan_30_dias(self):
+    def test_otro_isbn_u_otro_idioma_no_valen_y_esperan_2_dias(self):
         cat = {'libros': [libro('9788400000001'), libro('9788400000002')]}
         intentos = {}
         respuestas = {'9788400000001': volumen('9788400000999'), '9788400000002': volumen('9788400000002', 'en')}
         self.assertEqual(gb.rellenar(cat, respuestas.get, intentos, HOY), 0)
         self.assertNotIn('sinopsis_breve', cat['libros'][0])
-        self.assertEqual(intentos, {'9788400000001': '2026-12-16', '9788400000002': '2026-12-16'})
+        self.assertEqual(intentos, {'9788400000001': '2026-11-18', '9788400000002': '2026-11-18'})
         llamadas = []
         gb.rellenar(cat, lambda i: llamadas.append(i) or volumen(i), intentos, HOY)
         self.assertEqual(llamadas, [], 'no se repite antes del reintento')

@@ -54,5 +54,21 @@ class SinopsisTTLTest(unittest.TestCase):
         self.assertEqual(intentos, {})
 
 
+    def test_sin_resultado_reintenta_a_los_dias_dados_y_tras_dos_fallos_queda_pendiente(self):
+        cat = {'libros': [libro('9788491058571'), libro('9788408331148')]}
+        intentos, fallos = {}, {}
+        gb.rellenar(cat, lambda i: '', intentos, HOY, extraer=ttl_sinopsis, fallos=fallos)
+        self.assertEqual(intentos['9788491058571'], '2026-11-18')  # 2 días, no 30
+        self.assertEqual(gb.pendientes(cat, fallos), [])  # un solo fallo: aún no
+        gb.rellenar(cat, lambda i: '', intentos, date(2026, 11, 18), extraer=ttl_sinopsis, fallos=fallos)
+        self.assertEqual(gb.pendientes(cat, fallos), ['9788408331148', '9788491058571'])
+        cat['libros'][0]['sinopsis_breve'] = 'Ya la tiene por otra fuente.'
+        self.assertEqual(gb.pendientes(cat, fallos), ['9788408331148'])
+        self.assertNotIn('9788491058571', fallos)
+        intentos = {}
+        gb.rellenar(cat, lambda i: '', intentos, HOY, extraer=ttl_sinopsis, reintento_dias=7)
+        self.assertEqual(intentos['9788408331148'], '2026-11-23')
+
+
 if __name__ == '__main__':
     unittest.main()
