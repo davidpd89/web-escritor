@@ -551,6 +551,37 @@ def by_date(queue, refresh_urls, documents, today=None):
     return sorted(queue.items(), key=clave)
 
 
+def sinopsis_de_respaldo(catalogue, state, config, day, stats):
+    """Sinopsis para las fichas que la ficha editorial no cubre (altas de Amazon); anota en `stats` cuántas y la
+    cobertura."""
+    # Las altas de Amazon llegan sin sinopsis: primero la ficha de todostuslibros por ISBN (1 s por petición,
+    # 1000 por noche ~17 min, cercanas primero; sin ficha, se reintenta a la semana) y la misma noche Google Books
+    # para lo que quede (sin resultado, otra vez a los 2 días). Lo que Google no da en dos intentos queda en
+    # `sinopsis_pendientes` del informe; la auditoría local lee además la ficha de Amazon (reading-amazon-audit).
+    red = os.getenv('READING_SYNOPSIS_NETWORK', '1') == '1' and not os.getenv('PYTEST_CURRENT_TEST')
+    if red:
+        stats['synopses_ttl'] = sinopsis_google_books.rellenar(
+            catalogue, consulta_ttl(), state.setdefault('sinopsis_ttl', {}), day,
+            int(config.get('max_ttl_synopsis', 1000)), extraer=ttl_sinopsis, reintento_dias=7)
+    # Respaldo para las fichas que siguen sin sinopsis: Google Books por ISBN exacto y en español (P1-11).
+    # Sin clave (tests, ensayos locales) no sale a la red.
+    google_key = os.getenv('GOOGLE_BOOKS_API_KEY', '').strip()
+    stats['synopses_google'] = sinopsis_google_books.rellenar(
+        catalogue, sinopsis_google_books.consulta_google(google_key), state.setdefault('sinopsis_google', {}),
+        day, int(config.get('max_google_synopsis', 120)),
+        fallos=state.setdefault('sinopsis_fallos_google', {})) if google_key and red else 0
+    # La lista, en el estado (para la búsqueda manual o con GPT); en el informe, cuántos son.
+    # Plazo: con 20 días sin sinopsis entra en la lista aunque las fuentes sigan probando; ninguna llega a 30.
+    state['sinopsis_pendientes'] = sinopsis_google_books.pendientes(
+        catalogue, state.setdefault('sinopsis_fallos_google', {}), desde=state.setdefault('sinopsis_desde', {}),
+        hoy=day)
+    stats['synopses_pending_manual'] = len(state['sinopsis_pendientes'])
+    stats['synopses_overdue_30d'] = sinopsis_google_books.vencidas(state['sinopsis_desde'], day)
+    publicadas = [b for b in catalogue['libros'] if b.get('estado') == 'publicado']
+    # Cobertura de sinopsis real (objetivo P1-11: ≥ 60 %), en el informe de cada carga.
+    stats['synopsis_coverage'] = round(sum(bool(b.get('sinopsis_breve')) for b in publicadas) / max(1, len(publicadas)), 3)
+
+
 def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False, today=None, isbns=()):
     """`isbns`: novedades y próximos lanzamientos que faltan según el radar de Amazon, de lo más
     nuevo a lo más antiguo. Solo se usan en esta ejecución; la ficha sale de todostuslibros."""
@@ -801,32 +832,7 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                 stats['pending'] += 1
         update_authors(authors, catalogue, new_books + updated_books, today)
         stats['synopses_completed'] = fill_full_synopses(catalogue, providers, http, int(config.get('max_synopsis_backfill', 6)))
-        # Las altas de Amazon llegan sin sinopsis: primero la ficha de todostuslibros por ISBN (1 s por petición,
-        # 1000 por noche ~17 min, cercanas primero; sin ficha, se reintenta a la semana) y la misma noche Google Books
-        # para lo que quede (sin resultado, otra vez a los 2 días). Lo que Google no da en dos intentos queda en
-        # `sinopsis_pendientes` del informe; la auditoría local lee además la ficha de Amazon (reading-amazon-audit).
-        red = os.getenv('READING_SYNOPSIS_NETWORK', '1') == '1' and not os.getenv('PYTEST_CURRENT_TEST')
-        if red:
-            stats['synopses_ttl'] = sinopsis_google_books.rellenar(
-                catalogue, consulta_ttl(), state.setdefault('sinopsis_ttl', {}), day,
-                int(config.get('max_ttl_synopsis', 1000)), extraer=ttl_sinopsis, reintento_dias=7)
-        # Respaldo para las fichas que siguen sin sinopsis: Google Books por ISBN exacto y en español (P1-11).
-        # Sin clave (tests, ensayos locales) no sale a la red.
-        google_key = os.getenv('GOOGLE_BOOKS_API_KEY', '').strip()
-        stats['synopses_google'] = sinopsis_google_books.rellenar(
-            catalogue, sinopsis_google_books.consulta_google(google_key), state.setdefault('sinopsis_google', {}),
-            day, int(config.get('max_google_synopsis', 120)),
-            fallos=state.setdefault('sinopsis_fallos_google', {})) if google_key and red else 0
-        # La lista, en el estado (para la búsqueda manual o con GPT); en el informe, cuántos son.
-        # Plazo: con 20 días sin sinopsis entra en la lista aunque las fuentes sigan probando; ninguna llega a 30.
-        state['sinopsis_pendientes'] = sinopsis_google_books.pendientes(
-            catalogue, state.setdefault('sinopsis_fallos_google', {}), desde=state.setdefault('sinopsis_desde', {}),
-            hoy=day)
-        stats['synopses_pending_manual'] = len(state['sinopsis_pendientes'])
-        stats['synopses_overdue_30d'] = sinopsis_google_books.vencidas(state['sinopsis_desde'], day)
-        publicadas = [b for b in catalogue['libros'] if b.get('estado') == 'publicado']
-        # Cobertura de sinopsis real (objetivo P1-11: ≥ 60 %), en el informe de cada carga.
-        stats['synopsis_coverage'] = round(sum(bool(b.get('sinopsis_breve')) for b in publicadas) / max(1, len(publicadas)), 3)
+        sinopsis_de_respaldo(catalogue, state, config, day, stats)
         stats['author_profiles_updated'] = enrich_author_bios(authors, state, http, today)
         wiki = config.get('author_wikipedia', {})
         if wiki.get('enabled'):

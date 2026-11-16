@@ -92,7 +92,7 @@ def _textos(extraer, respuesta, isbn):
     try:
         hallado = extraer(respuesta, isbn)
         textos = sinopsis_de(hallado[1]) if hallado else None
-    except Exception:  # noqa: BLE001
+    except Exception:  # noqa: BLE001  # skipcq: PYL-W0703 - una ficha rara no tumba el lote
         return None
     return (hallado[0], textos) if textos else None
 
