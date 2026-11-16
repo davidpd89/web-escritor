@@ -171,6 +171,7 @@ jobs:
       group: pages-deploy
       cancel-in-progress: false  # un despliegue a medias no se corta; el siguiente espera
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -179,12 +180,8 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v5
 
-  verify-production:
-    name: Verify production after deploy
-    needs: deploy
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
+      # La verificación va en este job: el grupo pages-deploy solo cubre `deploy` y, en un job aparte, otro
+      # despliegue podía publicar un SHA más nuevo antes de verificar este (#1391).
       - name: Checkout deployed SHA
         uses: actions/checkout@v5
         with:
@@ -227,7 +224,7 @@ jobs:
     name: Notify IndexNow after verified deploy
     needs:
       - build
-      - verify-production
+      - deploy
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
