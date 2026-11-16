@@ -38,11 +38,10 @@ class SimulacionF1Test(unittest.TestCase):
             ultima = next((r for h, r in reversed(historia) if h.astimezone(noche.MADRID).date() == dia), None)
             esperado = fallidas < noche.MAX_FALLIDOS and ultima not in ('publicado',)
             self.assertEqual(noche.decidir(libro, ahora)[0], esperado, (ahora, fallidas, ultima))
-            cargar, _, libro = noche.abrir(libro, ahora, run, 1, 'sha', 'cron' if run % 3 else 'cadena')
+            cargar, _, libro = noche.abrir(libro, ahora, run, 1, 'sha', 'cron' if run % 3 else 'manual')
             libro = ida_y_vuelta(libro)
             if not cargar:
                 continue
-            self.assertFalse(noche.decidir(libro, ahora + timedelta(minutes=1))[0], 'en curso: ningún reloj carga')
             fin = ahora + timedelta(minutes=5)
             resultado = rnd.choice(['success', 'failure', 'failure', 'cancelled'])
             libro = ida_y_vuelta(noche.cerrar(libro, fin, run, 1, resultado))
@@ -71,8 +70,10 @@ class SimulacionF1Test(unittest.TestCase):
         t = datetime(2026, 11, 15, 23, 30, tzinfo=UTC)
         libro = noche.abrir(None, t, 1, 1, 's', 'cron')[2]
         libro = noche.cerrar(libro, t + timedelta(minutes=10), 1, 1, 'failure')
+        libro = noche.pendiente(libro, t + timedelta(minutes=11), 'reintento')
         libro = noche.abrir(libro, t + timedelta(minutes=20), 2, 1, 's', 'reintento')[2]
         libro = noche.cerrar(libro, t + timedelta(minutes=40), 2, 1, 'failure')
+        libro = noche.pendiente(libro, t + timedelta(minutes=41), 'reintento')
         libro = noche.abrir(libro, t + timedelta(minutes=50), 3, 1, 's', 'reintento')[2]
         libro = noche.cerrar(libro, t + timedelta(minutes=70), 3, 1, 'failure')
         despues = t + timedelta(hours=1, minutes=30)  # 00:00 UTC pasadas: el juez viejo empezaba de cero
@@ -90,21 +91,18 @@ class SimulacionF1Test(unittest.TestCase):
 class ReglasTest(unittest.TestCase):
     T = datetime(2026, 11, 16, 1, 0, tzinfo=UTC)
 
-    def test_corte_sin_cierre_cuenta_como_fallida_tras_el_tope_del_job(self):
+    def test_corte_sin_cierre_cuenta_como_fallida_al_coger_el_turno(self):
         libro = noche.abrir(None, self.T, 1, 1, 's', 'cron')[2]
-        self.assertFalse(noche.decidir(libro, self.T + timedelta(minutes=200))[0], 'aún puede estar viva')
-        self.assertTrue(noche.decidir(libro, self.T + timedelta(minutes=260))[0], 'murió sin cerrar: se reintenta')
-        self.assertEqual(noche.resumen(libro, self.T + timedelta(minutes=260))['fallidos'], 1)
-
-    def test_pendiente_bloquea_y_caduca(self):
-        libro = noche.pendiente(None, self.T, 'cadena')
-        self.assertFalse(noche.decidir(libro, self.T + timedelta(minutes=5))[0], 'un despacho en vuelo')
-        self.assertTrue(noche.decidir(libro, self.T + timedelta(minutes=30))[0], 'un despacho perdido no bloquea')
+        cargar, _, libro = noche.abrir(ida_y_vuelta(libro), self.T + timedelta(minutes=5), 2, 1, 's', 'respaldo')
+        self.assertTrue(cargar, 'el grupo no deja dos a la vez: el en_curso ajeno murió')
+        self.assertEqual([(i['run'], i['resultado'], i['clase']) for i in libro['intentos']],
+                         [(1, 'fallido', 'corte'), (2, 'en_curso', None)])
 
     def test_dos_relojes_a_la_vez_cargan_una_vez(self):
         """El segundo coge el turno del grupo de concurrencia después y vuelve a decidir con el libro."""
         libro = noche.abrir(None, self.T, 1, 1, 's', 'cron')[2]
-        cargar, porque, _ = noche.abrir(ida_y_vuelta(libro), self.T + timedelta(seconds=30), 2, 1, 's', 'respaldo')
+        libro = noche.cerrar(ida_y_vuelta(libro), self.T + timedelta(minutes=20), 1, 1, 'success')
+        cargar, porque, _ = noche.abrir(ida_y_vuelta(libro), self.T + timedelta(minutes=21), 2, 1, 's', 'respaldo')
         self.assertFalse(cargar, porque)
 
     def test_cadena_y_reintento_cargan_aunque_haya_pendiente_y_lo_consumen(self):
@@ -178,6 +176,76 @@ class HilosRevisionTest(unittest.TestCase):
             self.assertEqual(noche.main(['abrir', '--motivo', 'cron']), 0)
         self.assertEqual(out.getvalue(), 'cargar=true\n')
         esc.assert_not_called()  # un libro vacío pisaría el historial remoto que no se pudo leer
+
+
+class R59Test(unittest.TestCase):
+    """Fable R5-9 (§2.6, hallazgos 1-4 y 13 de #1385): el turno decide todo lo que depende de «hay otra activa»."""
+    T = datetime(2026, 11, 16, 1, 0, tzinfo=UTC)
+
+    def test_runner_muerto_no_bloquea_la_noche(self):
+        libro = ida_y_vuelta(noche.abrir(None, self.T, 1, 1, 's', 'cron')[2])  # nunca se cierra
+        self.assertTrue(noche.decidir(libro, self.T + timedelta(minutes=30))[0], 'el juez no espera 250 min')
+        cargar, _, libro = noche.abrir(libro, self.T + timedelta(minutes=30), 2, 1, 's', 'respaldo')
+        self.assertTrue(cargar, 'con el turno, un en_curso ajeno está muerto')
+        muerto = libro['intentos'][0]
+        self.assertEqual((muerto['resultado'], muerto['clase']), ('fallido', 'corte'))
+        self.assertEqual(noche.resumen(libro, self.T)['fallidos'], 1)
+
+    def test_despacho_desalojado_lo_hereda_quien_tiene_el_turno(self):
+        libro = noche.cerrar(noche.abrir(None, self.T, 1, 1, 's', 'cron')[2], self.T, 1, 1, 'success')
+        libro = ida_y_vuelta(noche.pendiente(libro, self.T, 'cadena'))
+        cargar, _, libro = noche.abrir(libro, self.T + timedelta(minutes=2), 3, 1, 's', 'respaldo')
+        self.assertTrue(cargar, 'GitHub desalojó la cadena: el reloj carga por ella')
+        self.assertEqual([(i['motivo'], i['resultado']) for i in libro['intentos']],
+                         [('cron', 'publicado'), ('cadena', 'en_curso')])
+        # La cadena llega tarde (no la desalojaron): ya no hay pendiente, no carga dos veces.
+        libro = noche.cerrar(ida_y_vuelta(libro), self.T + timedelta(minutes=9), 3, 1, 'success')
+        cargar, porque, despues = noche.abrir(ida_y_vuelta(libro), self.T + timedelta(minutes=10), 4, 1, 's', 'cadena')
+        self.assertFalse(cargar, porque)
+        self.assertEqual(despues['intentos'], libro['intentos'], 'quien no carga no toca el libro')
+
+    def test_el_pendiente_no_bloquea_al_juez(self):
+        libro = noche.pendiente(None, self.T, 'cadena')
+        self.assertTrue(noche.decidir(libro, self.T + timedelta(minutes=1))[0], 'lo decide el job con el turno')
+
+    def test_cierre_que_falla_no_cambia_el_resultado_de_la_carga(self):
+        with unittest.mock.patch.object(noche, 'leer', side_effect=OSError('git')), \
+                unittest.mock.patch('sys.stdout', new_callable=io.StringIO), \
+                unittest.mock.patch.dict('os.environ', {'GITHUB_STEP_SUMMARY': ''}):
+            self.assertEqual(noche.main(['cerrar', '--resultado', 'success']), 0)
+
+    def test_despacho_que_falla_no_despacha_ni_rompe_el_paso(self):
+        for accion in ('cadena', 'reintento'):
+            with unittest.mock.patch.object(noche, 'leer', side_effect=OSError('git')), \
+                    unittest.mock.patch('sys.stdout', new_callable=io.StringIO), \
+                    unittest.mock.patch.dict('os.environ', {'GITHUB_STEP_SUMMARY': ''}):
+                self.assertEqual(noche.main([accion, '--aceptados', '5']), 1, accion)
+        import catalogo_estado
+        with unittest.mock.patch.object(noche, 'leer', return_value=None), \
+                unittest.mock.patch.object(catalogo_estado, 'escribir', side_effect=OSError('push')), \
+                unittest.mock.patch.object(noche, 'datetime', wraps=datetime) as dt, \
+                unittest.mock.patch('sys.stdout', new_callable=io.StringIO), \
+                unittest.mock.patch.dict('os.environ', {'GITHUB_STEP_SUMMARY': ''}):
+            dt.now.return_value = self.T
+            self.assertEqual(noche.main(['cadena', '--aceptados', '5']), 1, 'sin pendiente anotado no se despacha')
+
+    def test_el_sha_es_el_del_codigo_que_corre(self):
+        import catalogo_estado
+        guardado = {}
+
+        def escribe(_f, data, _m):
+            guardado.update(json.loads(data))
+
+        with unittest.mock.patch.object(noche, 'leer', return_value=None), \
+                unittest.mock.patch.object(noche, '_head', return_value='b' * 40), \
+                unittest.mock.patch.object(catalogo_estado, 'escribir', side_effect=escribe), \
+                unittest.mock.patch('sys.stdout', new_callable=io.StringIO), \
+                unittest.mock.patch.dict('os.environ', {'GITHUB_STEP_SUMMARY': '', 'GITHUB_SHA': 'a' * 40}):
+            noche.main(['abrir', '--motivo', 'manual'])
+        self.assertEqual(guardado['intentos'][0]['sha'], 'b' * 40)
+
+    def test_sin_relojes_por_tiempo(self):
+        self.assertFalse(hasattr(noche, 'SIN_CIERRE') or hasattr(noche, 'PENDIENTE_CADUCA'))
 
 
 class GuardiaTest(unittest.TestCase):

@@ -33,9 +33,15 @@ class JuezTest(unittest.TestCase):
     def test_sin_cargas_esta_noche_carga(self):
         self.assertEqual(self.juez(None), 'run=true')
 
-    def test_con_una_carga_en_curso_no_carga(self):
-        libro = noche.abrir(None, noche.datetime.now(noche.timezone.utc), 1, 1, 's', 'cron')[2]
+    def test_con_la_carga_de_esta_noche_publicada_no_carga(self):
+        ahora = noche.datetime.now(noche.timezone.utc)
+        libro = noche.cerrar(noche.abrir(None, ahora, 1, 1, 's', 'cron')[2], ahora, 1, 1, 'success')
         self.assertEqual(self.juez(libro), 'run=false')
+
+    def test_con_una_carga_en_curso_decide_el_turno(self):
+        """R5-9: el juez no adivina si un en_curso sigue vivo; con el turno, abrir lo cierra como corte o espera."""
+        libro = noche.abrir(None, noche.datetime.now(noche.timezone.utc), 1, 1, 's', 'cron')[2]
+        self.assertEqual(self.juez(libro), 'run=true')
 
 
 class ContratoWorkflowTest(unittest.TestCase):

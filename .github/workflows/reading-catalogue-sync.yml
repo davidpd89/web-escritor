@@ -9,9 +9,9 @@ on:
     # Actions queda libre para el código. Hasta el 06/11 había 8 cron diarios que competían con las PR de código.
     - cron: '17 0 * * *'
     # Respaldo: GitHub descarta crons con carga (07/11: el de las 00:17 no saltó y no entró ningún libro) y retrasa
-    # otros horas (06/11: uno a las 03:52). Los tres cargan solo si esta noche no hay otra carga en verde ni en
-    # curso según el libro de la noche (scripts/ci_intake_backup.py -> scripts/noche.py), así un cron retrasado
-    # no repite la de un respaldo.
+    # otros horas (06/11: uno a las 03:52). Los tres cargan solo si esta noche no hay otra carga en verde según el
+    # libro de la noche (scripts/ci_intake_backup.py -> scripts/noche.py); lo que sigue en curso lo resuelve el job
+    # intake con el turno del grupo, así un cron retrasado no repite la de un respaldo.
     - cron: '47 1 * * *'
     - cron: '17 3 * * *'
   workflow_dispatch:

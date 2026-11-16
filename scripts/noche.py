@@ -16,6 +16,12 @@ Solo lo escribe el job `intake` (y la cadena/el reintento, que anotan un `pendie
 Como todos los jobs `intake` comparten grupo de concurrencia, «leer y anotar» al empezar es atómico entre cargas:
 dos relojes que deciden a la vez cargar nunca cargan dos veces (el segundo vuelve a decidir y ve el primero).
 
+Sin relojes por tiempo (R5-9): antes de coger el turno, el juez solo descarta lo evidente (la última publicó o quedó
+degradada, o van 3 fallidas). Lo que depende de «hay otra activa» se decide con el turno cogido, donde el grupo no
+deja dos a la vez: un `en_curso` ajeno murió sin cerrar (se cierra fallido, clase `corte`) y un `pendiente` es un
+despacho que GitHub desalojó del grupo (quien tiene el turno carga por él y hereda su motivo). La cadena o el
+reintento que llegan sin su pendiente ya los cargó otro: no cargan.
+
   python scripts/noche.py juez           # reloj: imprime run=true|false
   python scripts/noche.py abrir --motivo cron|respaldo|manual   # intake: imprime cargar=true|false
   python scripts/noche.py cerrar --resultado success|failure|cancelled
@@ -27,17 +33,16 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import subprocess
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 
 MADRID = ZoneInfo('Europe/Madrid')
 FICHERO = 'noche.json'
 HORA_FIN = 6                 # la noche de carga acaba a las 06:00 de Madrid (después Actions es del código)
 MAX_FALLIDOS = 3             # cargas fallidas por noche: con 3, ni relojes ni reintentos vuelven a cargar
-SIN_CIERRE = timedelta(minutes=250)  # el job tiene 240 min: un en_curso más viejo murió sin cerrar (corte)
-PENDIENTE_CADUCA = timedelta(minutes=20)  # un despacho que no arrancó en 20 min se perdió
-FORZADOS = ('manual', 'cadena', 'reintento')  # cargan siempre; cron y respaldo deciden con el libro
+DESPACHADOS = ('cadena', 'reintento')  # cargan si su pendiente sigue en el libro; manual carga siempre
 
 
 def dia(now: datetime) -> str:
@@ -48,10 +53,6 @@ def iso(now: datetime) -> str:
     return now.astimezone(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
 
 
-def _cuando(texto: str) -> datetime:
-    return datetime.strptime(texto, '%Y-%m-%dT%H:%M:%SZ').replace(tzinfo=timezone.utc)
-
-
 def de_hoy(libro: dict | None, now: datetime) -> dict:
     """El libro de esta noche; el de otra noche no cuenta (se sustituye al primer apunte)."""
     if libro and libro.get('dia') == dia(now):
@@ -59,36 +60,22 @@ def de_hoy(libro: dict | None, now: datetime) -> dict:
     return {'dia': dia(now), 'intentos': []}
 
 
-def efectivo(intento: dict, now: datetime) -> str | None:
-    """Resultado contando el tiempo: un en_curso sin cerrar tras el tope del job fue un corte (fallido) y un
-    pendiente que nunca arrancó caduca (no cuenta)."""
-    resultado = intento.get('resultado')
-    edad = now - _cuando(intento['inicio'])
-    if resultado == 'en_curso' and edad > SIN_CIERRE:
-        return 'fallido'
-    if resultado == 'pendiente' and edad > PENDIENTE_CADUCA:
-        return 'caducado'
-    return resultado
-
-
 def resumen(libro: dict | None, now: datetime) -> dict:
     noche = de_hoy(libro, now)
-    estados = [(i, efectivo(i, now)) for i in noche['intentos']]
+    estados = [(i, i.get('resultado')) for i in noche['intentos']]
     cerrados = [(i, e) for i, e in estados if e in ('publicado', 'degradado', 'fallido', 'cancelado')]
     cerrados.sort(key=lambda par: (par[0].get('fin') or par[0]['inicio'], par[0].get('run') or 0))
     return {
-        'activos': [i for i, e in estados if e in ('en_curso', 'pendiente')],
+        'pendientes': [i for i, e in estados if e == 'pendiente'],
         'ultimo': cerrados[-1] if cerrados else None,
         'fallidos': sum(e == 'fallido' for _, e in estados),
     }
 
 
 def decidir(libro: dict | None, now: datetime) -> tuple[bool, str]:
-    """¿Carga un reloj (cron o respaldo)? La misma regla dentro del job intake, ya con el turno cogido."""
+    """¿Carga un reloj (cron o respaldo)? Solo lo evidente: una carga en curso o pendiente no cuenta aquí, la
+    resuelve el job intake con el turno cogido (`abrir`)."""
     r = resumen(libro, now)
-    if r['activos']:
-        a = r['activos'][0]
-        return False, f"hay una carga {a['resultado']} esta noche (ejecución {a.get('run') or 'por arrancar'})"
     if r['fallidos'] >= MAX_FALLIDOS:
         return False, f"{r['fallidos']} cargas fallidas esta noche: no se insiste hasta mañana"
     if r['ultimo'] and r['ultimo'][1] in ('publicado', 'degradado'):
@@ -102,17 +89,17 @@ def toca_reintento(libro: dict | None, now: datetime, run: int | None = None, in
                    ) -> tuple[bool, str]:
     """Tras una carga fallida (ya cerrada en el libro): un reintento si es de noche, no se llegó al tope, esta carga
     consta como fallida (no un paso posterior que falló tras publicar ni un cierre que no llegó a escribirse) y no
-    hay otra en marcha."""
+    hay otro despacho pendiente. Corre con el turno: un en_curso ajeno está muerto y no cuenta."""
     if now.astimezone(MADRID).hour >= HORA_FIN:
         return False, 'ya no es de noche'
     r = resumen(libro, now)
     if run is not None:
         propio = next((i for i in de_hoy(libro, now)['intentos']
                        if i.get('run') == run and i.get('intento') == intento), None)
-        if propio is None or efectivo(propio, now) != 'fallido':
+        if propio is None or propio.get('resultado') != 'fallido':
             return False, f"esta carga no consta fallida en el libro ({(propio or {}).get('resultado', 'sin apunte')})"
-    if [i for i in r['activos'] if i.get('run') != run]:
-        return False, 'ya hay otra carga en marcha o despachada'
+    if r['pendientes']:
+        return False, 'ya hay otra carga despachada'
     fallidos = r['fallidos']
     if fallidos >= MAX_FALLIDOS:
         return False, f'{fallidos} cargas fallidas esta noche'
@@ -124,19 +111,31 @@ def toca_cadena(libro: dict | None, now: datetime, aceptados: int) -> tuple[bool
         return False, 'ya no es de noche'
     if aceptados <= 0:
         return False, 'el lote no trajo libros nuevos'
-    activos = [i for i in resumen(libro, now)['activos'] if i.get('run') != int(os.environ.get('GITHUB_RUN_ID') or 0)]
-    if activos:
-        return False, 'ya hay otra carga en marcha o despachada'
+    if resumen(libro, now)['pendientes']:
+        return False, 'ya hay otra carga despachada'
     return True, f'{aceptados} altas: se encadena el siguiente lote'
 
 
 def abrir(libro, now, run, intento, sha, motivo):
-    """Coge el turno: decide (si es un reloj) y anota el intento en curso. Devuelve (cargar, motivo, libro)."""
+    """Ya con el turno del grupo: cierra los muertos, decide y anota el intento en curso.
+    Devuelve (cargar, motivo, libro)."""
     noche = de_hoy(libro, now)
-    cargar, porque = (True, f'carga {motivo}') if motivo in FORZADOS else decidir(noche, now)
-    # El despacho que esperaba a esta carga ya arrancó (o se perdió): fuera los pendientes.
-    noche['intentos'] = [i for i in noche['intentos'] if i.get('resultado') != 'pendiente']
-    if cargar:
+    for ajeno in noche['intentos']:  # el grupo no deja dos a la vez: este murió sin cerrar
+        if ajeno.get('resultado') == 'en_curso' and (ajeno.get('run'), ajeno.get('intento')) != (run, intento):
+            ajeno.update(fin=iso(now), resultado='fallido', clase='corte')
+    pendientes = [i for i in noche['intentos'] if i.get('resultado') == 'pendiente']
+    if motivo == 'manual':
+        cargar, porque = True, 'carga manual'
+    elif motivo in DESPACHADOS:
+        cargar, porque = (True, f'carga {motivo}') if pendientes else (
+            False, f'{motivo} sin despacho pendiente: ya la cargó quien tuvo el turno antes')
+    elif pendientes:
+        motivo = pendientes[0].get('motivo') or motivo
+        cargar, porque = True, f'despacho {motivo} desalojado del grupo: lo carga este turno'
+    else:
+        cargar, porque = decidir(noche, now)
+    if cargar:  # solo quien carga consume los despachos que esperaban
+        noche['intentos'] = [i for i in noche['intentos'] if i.get('resultado') != 'pendiente']
         noche['intentos'].append({'run': run, 'intento': intento, 'sha': sha, 'motivo': motivo, 'inicio': iso(now),
                                   'fin': None, 'resultado': 'en_curso', 'clase': None, 'firma': None})
     return cargar, porque, noche
@@ -145,7 +144,7 @@ def abrir(libro, now, run, intento, sha, motivo):
 RESULTADOS = {'success': 'publicado', 'failure': 'fallido', 'cancelled': 'cancelado', 'skipped': None}
 
 
-def cerrar(libro, now, run, intento, resultado, clase=None, firma=None):
+def cerrar(libro, now, run, intento, resultado, clase=None, firma=None, sha=None):
     """Cierra el apunte de esta carga en el libro donde se abrió, aunque haya cruzado la medianoche de Madrid
     (abierta a las 23:50, cerrada a las 00:10): el resultado nunca se pierde. El libro de la noche siguiente
     empieza de cero al primer apunte, como siempre."""
@@ -158,6 +157,8 @@ def cerrar(libro, now, run, intento, resultado, clase=None, firma=None):
                 noche['intentos'].remove(entrada)
             else:
                 entrada.update(fin=iso(now), resultado=final, clase=clase, firma=firma)
+                if sha:  # el segundo intento hace reset --hard origin/main: el código que acabó la carga
+                    entrada['sha'] = sha
             break
     return noche
 
@@ -183,6 +184,15 @@ def escribir(noche, mensaje):
     # stdout es del protocolo (cargar=, run=, que van a $GITHUB_OUTPUT): los avisos de git van a stderr.
     with contextlib.redirect_stdout(sys.stderr):
         catalogo_estado.escribir(FICHERO, (json.dumps(noche, ensure_ascii=False, indent=1) + '\n').encode(), mensaje)
+
+
+def _head():
+    """El commit del código que corre (no GITHUB_SHA: la carga puede hacer reset --hard origin/main)."""
+    try:
+        return subprocess.run(['git', 'rev-parse', 'HEAD'], capture_output=True, text=True, check=True,
+                              timeout=30).stdout.strip()
+    except (OSError, subprocess.SubprocessError):
+        return os.environ.get('GITHUB_SHA', '')
 
 
 def _resumen_job(texto):
@@ -212,7 +222,9 @@ def _abrir(now, run, intento, args) -> int:
     except Exception as exc:  # noqa: BLE001
         libro, legible = None, False
         _resumen_job(f'Libro de la noche ilegible ({type(exc).__name__}): se decide sin él y no se reescribe.')
-    cargar, porque, noche = abrir(libro, now, run, intento, os.environ.get('GITHUB_SHA', ''), args.motivo)
+    cargar, porque, noche = abrir(libro, now, run, intento, _head(), args.motivo)
+    if not legible and not cargar:  # sin libro no se sabe si otro ya la cargó: se carga
+        cargar, porque = True, 'libro ilegible: se carga'
     try:
         if legible:  # un libro vacío pisaría el historial remoto que no se pudo leer
             escribir(noche, f'Noche {noche["dia"]}: {"empieza" if cargar else "no carga"} {run}')
@@ -224,22 +236,31 @@ def _abrir(now, run, intento, args) -> int:
 
 
 def _cerrar(now, run, intento, args) -> int:
-    noche = cerrar(leer(), now, run, intento, args.resultado)
-    escribir(noche, f'Noche {noche["dia"]}: {run} {args.resultado}')
+    # El cierre nunca cambia el resultado de la carga (ni la rama success()/failure() de la cadena): si no se
+    # escribe, el intento queda en_curso y el siguiente turno lo cierra como corte.
+    try:
+        noche = cerrar(leer(), now, run, intento, args.resultado, sha=_head())
+        escribir(noche, f'Noche {noche["dia"]}: {run} {args.resultado}')
+    except Exception as exc:  # noqa: BLE001
+        _resumen_job(f'Libro de la noche sin cerrar ({type(exc).__name__}): lo cerrará el siguiente turno.')
     return 0
 
 
 def _despacho(now, run, intento, args) -> int:
-    """cadena o reintento: 0 si toca despachar (y queda apuntado como pendiente), 1 si no."""
-    libro = leer()
-    if args.accion == 'cadena':
-        toca, porque = toca_cadena(libro, now, args.aceptados)
-    else:
-        toca, porque = toca_reintento(libro, now, run, intento)
+    """cadena o reintento: 0 si toca despachar (y queda apuntado como pendiente), 1 si no. Sin libro legible o sin
+    pendiente escrito no se despacha: un despacho sin apunte no lo podría heredar nadie."""
+    try:
+        libro = leer()
+        if args.accion == 'cadena':
+            toca, porque = toca_cadena(libro, now, args.aceptados)
+        else:
+            toca, porque = toca_reintento(libro, now, run, intento)
+        if toca:
+            noche = pendiente(libro, now, args.accion)
+            escribir(noche, f'Noche {noche["dia"]}: {args.accion} despachado tras {run}')
+    except Exception as exc:  # noqa: BLE001
+        toca, porque = False, f'libro de la noche no disponible ({type(exc).__name__}): no se despacha'
     _resumen_job(f'{args.accion.capitalize()}: {porque}.')
-    if toca:
-        noche = pendiente(libro, now, args.accion)
-        escribir(noche, f'Noche {noche["dia"]}: {args.accion} despachado tras {run}')
     return 0 if toca else 1
 
 

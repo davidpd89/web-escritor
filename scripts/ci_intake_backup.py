@@ -5,8 +5,8 @@ Decide con el libro de la noche (`noche.json` en la rama `catalogo-estado`, scri
 que leen el reintento y la cadena, y no con listas de ejecuciones de Actions (Fable R4-1, F1: el juez contaba desde
 las 00:00 UTC y el reintento desde la medianoche de Madrid, y las listas se truncaban en noches largas).
 
-No carga si esta noche (día de Madrid) hay una carga en curso o un despacho pendiente, si la última terminó
-publicada o si ya van 3 fallidas. Si el libro no se puede leer, carga: el job `intake` vuelve a decidir con el
+Solo descarta lo evidente (R5-9): no carga si esta noche (día de Madrid) la última terminó publicada o degradada,
+o si ya van 3 fallidas. Una carga en curso o un despacho pendiente los resuelve el job `intake` con el turno. Si el libro no se puede leer, carga: el job `intake` vuelve a decidir con el
 turno cogido (grupo de concurrencia), así que un reloj de más nunca produce una carga doble.
 
 Escribe `run=true|false` en stdout (para $GITHUB_OUTPUT) y el motivo en stderr y en el resumen del job.
