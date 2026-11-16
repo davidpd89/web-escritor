@@ -13,8 +13,7 @@ from __future__ import annotations
 
 import json
 import re
-from datetime import date, timedelta
-from urllib.error import HTTPError, URLError
+from datetime import timedelta
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 

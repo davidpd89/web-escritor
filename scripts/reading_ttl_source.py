@@ -253,7 +253,7 @@ def consulta_ttl(pausa: float = 1.0, timeout: float = 20):
     robots.txt permite /libros/; una petición por segundo, como pide para ClaudeBot.
     """
     import time
-    from urllib.error import HTTPError, URLError
+    from urllib.error import HTTPError
     from urllib.request import Request, urlopen
     ultimo = [0.0]
 
