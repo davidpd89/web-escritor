@@ -1,5 +1,5 @@
 {
-  "generated_for": "2026-11-09",
+  "generated_for": "2026-11-16",
   "items": [
     {
       "id": "proyecto-mariposa-relato-2026",
@@ -205,6 +205,156 @@
     }
   ],
   "expired": [
+    {
+      "id": "premio-primavera-novela-2027",
+      "title": "Premio Primavera de Novela 2027",
+      "type": "premio",
+      "organizer": "Editorial Espasa",
+      "deadline": "2026-11-15",
+      "genres": [
+        "novela"
+      ],
+      "eligibility": "Personas mayores de edad; obra original e inédita y no pendiente de resolución en otro concurso en el momento de presentarla.",
+      "prize": "100.000 € y publicación",
+      "fee_eur": 0,
+      "submission_mode": "Candidatura mediante el portal oficial de premios de Planeta; manuscrito PDF/DOC/DOCX y datos solicitados.",
+      "source_url": "https://premios.planetadelibros.com/es-ES/candidatura/?id=premio-primavera-novela-2027",
+      "verified_at": "2026-10-02",
+      "editorial_note": "La candidatura oficial confirma el 15 de noviembre de 2026, mínimo 150 páginas y declaraciones de autoría y exclusividad.",
+      "published": true
+    },
+    {
+      "id": "espasa-calpe-juvenil-2027",
+      "title": "I Premio Espasa Calpe de Novela Juvenil 2027",
+      "type": "premio",
+      "organizer": "Editorial Espasa Calpe",
+      "deadline": "2026-11-15",
+      "genres": [
+        "novela juvenil",
+        "young adult"
+      ],
+      "eligibility": "Personas de 14 a 39 años; las personas menores de edad deben aportar la autorización prevista en las bases.",
+      "prize": "60.000 € y publicación",
+      "fee_eur": 0,
+      "submission_mode": "Candidatura online en el portal oficial; manuscrito PDF/DOC/DOCX y documentación adicional cuando corresponda.",
+      "source_url": "https://premios.planetadelibros.com/es-ES/candidatura/?id=espasa-calpe-novela-juvenil-2027",
+      "verified_at": "2026-10-02",
+      "editorial_note": "La fuente oficial confirma el cierre el 15 de noviembre y las FAQ fijan una extensión de 75.000 a 200.000 palabras.",
+      "published": true
+    },
+    {
+      "id": "vidas-que-inspiran-2026",
+      "title": "II Premio Literario «Vidas que Inspiran» 2026",
+      "type": "premio",
+      "organizer": "Fundación MAPFRE · Centro de Investigación Ageingnomics y Plataforma Editorial",
+      "deadline": "2026-11-15",
+      "genres": [
+        "narrativa",
+        "ficción",
+        "no ficción"
+      ],
+      "eligibility": "Personas mayores de edad residentes en España; obra en castellano, inédita y no premiada anteriormente, protagonizada por personas sénior y con una visión positiva de esta etapa de la vida.",
+      "prize": "3.000 € y publicación por Plataforma Editorial, con tirada mínima de 1.500 ejemplares",
+      "fee_eur": 0,
+      "submission_mode": "Envío digital en Word o equivalente, firmado con seudónimo, al correo vidasqueinspiran@plataformaeditorial.com.",
+      "source_url": "https://www.plataformaeditorial.com/premio-literario/1/1/11010/2-edicion-premio-literario-vidas-que-inspiran-fundacion-mapfre",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La convocatoria oficial está abierta del 15 de julio al 15 de noviembre de 2026 y admite ficción o no ficción de entre 80 y 120 páginas.",
+      "published": true
+    },
+    {
+      "id": "tu-historia-en-pantalla-2026",
+      "title": "Concurso «Tu historia en pantalla» 2026",
+      "type": "concurso",
+      "organizer": "Kasa Vela Producciones",
+      "deadline": "2026-11-15",
+      "genres": [
+        "relato",
+        "narrativa"
+      ],
+      "eligibility": "Mayores de 18 años de cualquier nacionalidad o residencia; relato original de 500 a 3.000 palabras conforme a las bases.",
+      "prize": "Adaptación y producción audiovisual del relato ganador como cortometraje",
+      "fee_eur": 0,
+      "submission_mode": "Participación a través del formulario habilitado por Kasa Vela en la convocatoria oficial.",
+      "source_url": "https://www.somoskasavela.com/convocatorias/tu-historia-en-pantalla",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La convocatoria oficial declara participación gratuita, cierre el 15 de noviembre de 2026 y resultado el 30 de noviembre.",
+      "published": true
+    },
+    {
+      "published": true,
+      "fee_eur": 0,
+      "verified_at": "2026-10-03",
+      "id": "esstudio-agatha-christie-2026",
+      "title": "Concurso de Relatos Cortos de Misterio «Si Agatha Christie levantara la cabeza…»",
+      "type": "concurso",
+      "organizer": "Esstudio Ediciones",
+      "deadline": "2026-11-15",
+      "genres": [
+        "misterio",
+        "relato"
+      ],
+      "prize": "Ganador: edición de un libro propio bajo contrato y 10 ejemplares; seleccionados: publicación en antología",
+      "eligibility": "Autores de cualquier procedencia; un relato por participante, máximo dos páginas en Times New Roman 12.",
+      "submission_mode": "Word por correo a info@esstudioediciones.com con asunto «Relatos de misterio» y datos del autor.",
+      "source_url": "https://www.esstudioediciones.com/blog/419/concurso-de-relatos-cortos-de-misterio-si-agatha-christie-levantara-la-cabeza-de-esstudio-edciones.html",
+      "editorial_note": "El premio es editorial, no económico. La propia convocatoria permite que Esstudio publique las obras presentadas; conviene revisar cualquier contrato antes de aceptarlo."
+    },
+    {
+      "published": true,
+      "fee_eur": 0,
+      "verified_at": "2026-10-03",
+      "id": "esta-noche-te-cuento-culpa-2026",
+      "title": "Esta Noche Te Cuento 2026 · «La culpa»",
+      "type": "concurso",
+      "organizer": "Esta Noche Te Cuento",
+      "deadline": "2026-11-15",
+      "genres": [
+        "microrrelato"
+      ],
+      "prize": "Publicación y premios en especie; los dos ganadores anuales reciben estancia, trofeo y ejemplares",
+      "eligibility": "Mayores de 18 años; un relato por convocatoria, original e inédito, de menos de 200 palabras y ajustado al tema «La culpa».",
+      "submission_mode": "Formulario del sitio Esta Noche Te Cuento, con registro previo de participante.",
+      "source_url": "https://estanochetecuento.com/",
+      "editorial_note": "Todos los relatos admitidos se publican en el blog, por lo que el texto deja de ser inédito para otros concursos. La convocatoria actual cierra el 15 de noviembre."
+    },
+    {
+      "id": "microrrelato-bilingue-madrid-2026",
+      "title": "IV Concurso bilingüe de Microrrelatos francés-español 2026",
+      "type": "concurso",
+      "organizer": "Institut français de Madrid y Biblioteca Pública Municipal Iván de Vargas",
+      "deadline": "2026-11-14",
+      "genres": [
+        "microrrelato"
+      ],
+      "eligibility": "Personas a partir de 16 años residentes en la Comunidad de Madrid; un microrrelato inédito en español o francés de hasta 100 palabras.",
+      "prize": "Lotes de libros en español o francés para los relatos ganadores",
+      "fee_eur": 0,
+      "submission_mode": "Formulario oficial online; máximo 100 palabras y título de máximo 10 palabras. La convocatoria indica cierre el 15 de noviembre de 2026 a las 00:00; el radar usa el 14/11 como último día civil completo seguro.",
+      "source_url": "https://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Vicalvaro/Actividades-y-eventos/IV-Concurso-bilingue-de-Microrrelatos-frances-espanol/?vgnextchannel=497b48e063f28010VgnVCM100000dc0ca8c0RCRD&vgnextfmt=default&vgnextoid=61fa9b05da8b0a10VgnVCM100000891ecb1aRCRD",
+      "verified_at": "2026-10-04",
+      "editorial_note": "Fuente municipal y formulario verificados. La ceremonia está anunciada para el 16 de diciembre de 2026 en la Biblioteca Iván de Vargas.",
+      "published": true
+    },
+    {
+      "id": "caperucita-feroz-cuentos-2026",
+      "title": "X Premio «Caperucita Feroz» · Conjunto de cuentos",
+      "type": "premio",
+      "organizer": "Ápeiron Ediciones",
+      "deadline": "2026-11-09",
+      "genres": [
+        "relato",
+        "cuentos"
+      ],
+      "eligibility": "Personas mayores de 18 años de cualquier nacionalidad; conjunto original e inédito de cuentos conforme a las bases de la modalidad.",
+      "prize": "Publicación, ejemplares y derechos de autor según las bases de la convocatoria",
+      "fee_eur": null,
+      "submission_mode": "Formulario electrónico oficial de Ápeiron Ediciones con el manuscrito y los datos requeridos.",
+      "source_url": "https://www.apeironediciones.com/concursos",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Ápeiron identifica actualmente «Caperucita feroz» como convocatoria abierta. Es una modalidad de conjunto de cuentos y requiere un manuscrito extenso.",
+      "published": true
+    },
     {
       "id": "valores-para-unir-modalidad-b-2026",
       "title": "XIV Premio Intergeneracional de Ensayo y Relato Breves «Valores para Unir» — Modalidad B",
