@@ -115,11 +115,41 @@ def isolate(data, root, previous=None, held=(), today=None, flagged=None):
             return data, out
         except build.ValidationError as exc:
             book_id = owner(exc, data)
+            rel, pos = getattr(exc, 'relacion', None), getattr(exc, 'posicion', None)
+            if not book_id and isinstance(rel, int) and 0 <= rel < len(data['libro_categorias']):
+                # Relación de un libro que no existe: no hay libro que apartar, sobra la relación (R5-10).
+                print(f'Cuarentena: se quita la relación {data["libro_categorias"][rel]} ({getattr(exc, "regla", None)})', flush=True)
+                del data['libro_categorias'][rel]
+                continue
+            if not book_id and isinstance(pos, int) and 0 <= pos < len(data['libros']):
+                # Ficha sin id utilizable (inválido o repetido): sale del lote por su posición, como un libro nuevo.
+                if len(out) >= cap:
+                    raise build.ValidationError(f'Error global: más de {cap} libros apartados en un lote') from exc
+                book = data['libros'].pop(pos)
+                key = book.get('id') if isinstance(book, dict) and isinstance(book.get('id'), str) else None
+                if key and not any(b.get('id') == key for b in data['libros'] if isinstance(b, dict)):
+                    data['libro_categorias'] = [r for r in data['libro_categorias'] if r.get('libro_id') != key]
+                if key:
+                    out.append({'libro': book, 'categorias': [], 'motivo': str(exc), 'causa': cause(getattr(exc, 'regla', None) or exc),
+                                'isbn': book.get('isbn13', ''), 'fuente': book.get('fuente_publicacion_url') or book.get('fuente_bibliografica_url', ''),
+                                'desde': before.get(key, {}).get('desde', today), 'intentos': int(before.get(key, {}).get('intentos', 0)) + 1,
+                                'ultimo_intento': today})
+                else:
+                    print(f'Cuarentena: se descarta una ficha sin id en la posición {pos} ({getattr(exc, "regla", None)})', flush=True)
+                continue
             twin = getattr(exc, 'otro', None)
-            if book_id and twin and twin not in reverted and (book_id in reverted or good.get(book_id) == next(
-                    b for b in data['libros'] if b['id'] == book_id)) and any(b['id'] == twin for b in data['libros']):
-                # De dos portadas iguales, la culpable es la que ha cambiado, no la que ya estaba publicada así.
-                book_id = twin
+            twin = twin if twin and any(b['id'] == twin for b in data['libros']) else None
+
+            def changed(i):
+                return i not in reverted and good.get(i) != next(b for b in data['libros'] if b['id'] == i)
+            if book_id and twin and twin != book_id:
+                if not changed(book_id) and changed(twin):
+                    # De dos fichas que chocan (portada, ISBN, slug, obra…), la culpable es la que ha cambiado, no
+                    # la que ya estaba publicada así.
+                    book_id = twin
+                elif changed(book_id) and changed(twin):
+                    # Cambiaron las dos: ninguna es de fiar; la otra se aparta en la siguiente vuelta.
+                    blame.setdefault(twin, getattr(exc, 'regla', None) or 'choca con otra ficha cambiada')
             current = book_id and next((b for b in data['libros'] if b['id'] == book_id), None)
             stuck = current is not None and good.get(book_id) == current  # revertir sería un no-op: ya es esa versión
             # Sin libro, o ya se reintentó: es la regla, no el dato. Publicado, sin cambios y aun así inválido por el

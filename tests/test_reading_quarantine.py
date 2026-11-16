@@ -391,5 +391,102 @@ class FallosEstructuradosTest(unittest.TestCase):
         self.assertNotIn('culprit', llamadas)
 
 
+class DuenoSiempreTest(unittest.TestCase):
+    """R5-10 (hallazgos 15, 17, 18): todo fallo de una ficha o relación sale con dueño; solo el esquema global no."""
+
+    def test_un_libro_con_id_invalido_se_aparta_sin_tumbar_el_lote(self):
+        before, book, _ = without(0)
+        data = copy.deepcopy(before)
+        malo = copy.deepcopy(book)
+        malo['id'] = 'Id Malo'
+        data['libros'].append(malo)
+        clean, out = q.isolate(data, ROOT, before, today='2026-11-16')
+        self.assertEqual([h['libro']['id'] for h in out], ['Id Malo'])
+        self.assertEqual(clean, before)
+
+    def test_un_id_repetido_aparta_la_segunda_ficha(self):
+        before, book, _ = without(0)
+        data = copy.deepcopy(DATA)
+        copia = copy.deepcopy(data['libros'][1])
+        copia['slug'] = copia['slug'] + '-bis'
+        data['libros'].append(copia)
+        clean, out = q.isolate(data, ROOT, DATA, today='2026-11-16')
+        self.assertEqual(clean, DATA)
+        self.assertEqual(len(out), 1)
+
+    def test_una_relacion_rota_se_quita_sin_tumbar_el_lote(self):
+        data = copy.deepcopy(DATA)
+        data['libro_categorias'].append({'libro_id': 'libro-que-no-existe', 'categoria_id': DATA['categorias'][0]['id']})
+        clean, out = q.isolate(data, ROOT, DATA, today='2026-11-16')
+        self.assertEqual((clean, out), (DATA, []))
+
+    def test_una_relacion_a_una_categoria_inexistente_aparta_su_libro(self):
+        before, book, _ = without(0)
+        data = copy.deepcopy(DATA)
+        data['libro_categorias'].append({'libro_id': book['id'], 'categoria_id': 'categoria-que-no-existe'})
+        clean, out = q.isolate(data, ROOT, before, today='2026-11-16')
+        self.assertEqual([h['libro']['id'] for h in out], [book['id']])
+        self.assertEqual(clean, before)
+
+    def test_mismo_isbn_aparta_el_que_cambio_aunque_sea_el_primero(self):
+        # El fallo salta en la segunda ficha (sin cambios); la culpable es la primera, que tomó su ISBN.
+        data = copy.deepcopy(DATA)
+        for libro in data['libros'][:2]:
+            libro.pop('amazon_busqueda_isbn', None)  # la búsqueda Amazon repite el ISBN y fallaría antes
+        data['libros'][0]['isbn13'] = DATA['libros'][1]['isbn13']
+        with self.assertRaises(q.build.ValidationError) as ctx:
+            q.build.validate(copy.deepcopy(data), ROOT)
+        self.assertEqual({ctx.exception.libro, ctx.exception.otro}, {DATA['libros'][0]['id'], DATA['libros'][1]['id']})
+        antes = copy.deepcopy(DATA)
+        antes['libros'][1].pop('amazon_busqueda_isbn', None)
+        clean, out = q.isolate(data, ROOT, antes, today='2026-11-16')
+        self.assertEqual([h['libro']['id'] for h in out], [DATA['libros'][0]['id']])
+        self.assertEqual(clean['libros'][0], DATA['libros'][0])
+
+    def test_unicidades_entre_dos_fichas_traen_la_otra(self):
+        cambios = {
+            'slug': lambda a, b: a.update(slug=b['slug']),
+            'descripción': lambda a, b: a.update(descripcion_breve=b['descripcion_breve']),
+            'obra': lambda a, b: a.update(titulo=b['titulo'], autores=list(b['autores'])),
+        }
+        for nombre, cambio in cambios.items():
+            with self.subTest(nombre):
+                data = copy.deepcopy(DATA)
+                cambio(data['libros'][0], data['libros'][1])
+                with self.assertRaises(q.build.ValidationError) as ctx:
+                    q.build.validate(data, ROOT)
+                self.assertEqual({ctx.exception.libro, ctx.exception.otro}, {DATA['libros'][0]['id'], DATA['libros'][1]['id']})
+
+    def test_si_cambiaron_los_dos_se_apartan_los_dos(self):
+        before = copy.deepcopy(DATA)
+        ids = {DATA['libros'][0]['id'], DATA['libros'][1]['id']}
+        before['libros'] = [b for b in before['libros'] if b['id'] not in ids]
+        before['libro_categorias'] = [r for r in before['libro_categorias'] if r['libro_id'] not in ids]
+        data = copy.deepcopy(DATA)
+        data['libros'][0].pop('amazon_busqueda_isbn', None)
+        data['libros'][0]['isbn13'] = DATA['libros'][1]['isbn13']
+        clean, out = q.isolate(data, ROOT, before, today='2026-11-16')
+        self.assertEqual({h['libro']['id'] for h in out}, ids)
+        self.assertEqual(clean, before)
+
+    def test_una_excepcion_al_recorrer_una_ficha_es_de_esa_ficha(self):
+        before, book, _ = without(0)
+        data = copy.deepcopy(DATA)
+        data['libros'][0]['amazon_busqueda_isbn'] = 123  # urlparse revienta con un entero
+        with self.assertRaises(q.build.ValidationError) as ctx:
+            q.build.validate(copy.deepcopy(data), ROOT)
+        self.assertEqual((ctx.exception.libro, ctx.exception.regla), (book['id'], 'excepcion'))
+        clean, out = q.isolate(data, ROOT, before, today='2026-11-16')
+        self.assertEqual([h['libro']['id'] for h in out], [book['id']])
+        self.assertEqual(clean, before)
+
+    def test_el_esquema_global_sigue_sin_dueno(self):
+        data = copy.deepcopy(DATA)
+        data['extra'] = 1
+        with self.assertRaises(q.build.ValidationError) as ctx:
+            q.build.validate(data, ROOT)
+        self.assertEqual((ctx.exception.libro, ctx.exception.posicion, ctx.exception.relacion), (None, None, None))
+
+
 if __name__ == '__main__':
     unittest.main()
