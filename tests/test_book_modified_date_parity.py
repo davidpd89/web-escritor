@@ -38,7 +38,10 @@ class ModifiedDateParity(unittest.TestCase):
             with self.subTest(page=str(page)):
                 self.assertTrue(page.is_file(), f"{book['id']} {page}: falta HTML")
                 parser = Schemas()
-                parser.feed(page.read_text(encoding='utf-8'))
+                try:
+                    parser.feed(page.read_text(encoding='utf-8'))
+                except json.JSONDecodeError as error:
+                    self.fail(f"{book['id']} {page}: JSON-LD no válido: {error}")
                 pages = [e for e in parser.entities if e.get('@type') == 'WebPage']
                 self.assertEqual(len(pages), 1, f"{book['id']} {page}: WebPage ausente o duplicado")
                 expected = book['fecha_actualizacion']

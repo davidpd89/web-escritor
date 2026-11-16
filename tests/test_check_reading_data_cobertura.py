@@ -20,6 +20,7 @@ spec.loader.exec_module(puerta)
 CODIGO = {
     'test_reading_amazon_audit.AmazonAuditTests.test_every_published_book_is_due_oldest_first_without_a_cap',
     'test_reading_amazon_audit.AmazonAuditTests.test_cover_follows_the_book_in_main_not_the_kind_stored_in_the_record',
+    'test_reading_amazon_audit.AmazonAuditTests.test_cover_cap_goes_to_the_books_closest_to_today',
     'test_reading_enrichment.EnrichmentTests.test_editorial_outage_preserves_catalogue_and_allows_independent_refresh',
     'test_reading_intake_multibook_contract.MultiBookContractTests.test_three_independent_pages_one_hub_and_categories',
     'test_reading_intake_multibook_contract.MultiBookContractTests.test_partially_ready_book_does_not_break_other_two',
@@ -35,15 +36,61 @@ ITERABLES = ('published(', 'libros', 'books')
 UN_ARGUMENTO = ('assertTrue', 'assertFalse', 'assertIsNone', 'assertIsNotNone')
 
 
+def alias_de_libros(metodo):
+    """Nombres que, por asignación, guardan el catálogo real o una parte suya (`catalogo = json.loads(<...>
+    reading-catalogue.json ...)`, `libros = catalogo['libros']`, `todo = libros`): el iterable se reconoce por su
+    origen, no por cómo se llama la variable. Solo se sigue el acceso directo (nombre, índice, atributo); lo que se
+    calcula a partir del catálogo con otras funciones ya no es «el catálogo»."""
+    asignaciones = [(n.targets, n.value) for n in ast.walk(metodo) if isinstance(n, ast.Assign)]
+    alias, antes = set(), None
+    while alias != antes:
+        antes = set(alias)
+        for destinos, valor in asignaciones:
+            leido = not isinstance(valor, (ast.List, ast.Tuple, ast.ListComp)) and 'reading-catalogue.json' in ast.unparse(valor)
+            if leido or raiz(valor) in alias:  # una lista de rutas que incluye el catálogo no es el catálogo
+                alias |= {d.id for d in destinos if isinstance(d, ast.Name)}
+    return alias
+
+
+def raiz(nodo):
+    """Nombre raíz de `x`, `x['libros']`, `x.libros` o `x['libros'][0]`; None si es otra expresión."""
+    while isinstance(nodo, (ast.Subscript, ast.Attribute)):
+        nodo = nodo.value
+    return nodo.id if isinstance(nodo, ast.Name) else None
+
+
+def sobre_libros(iterable, alias):
+    """¿Recorre libros este iterable (por las claves conocidas o por un alias asignado desde el catálogo)?"""
+    texto = ast.unparse(iterable)
+    return any(k in texto for k in ITERABLES) or raiz(iterable) in alias
+
+
+def mensaje(llamada):
+    """El mensaje de una aserción (posicional tras sus operandos o `msg=`), o None."""
+    nombre = llamada.func.attr
+    minimo = 1 if nombre in UN_ARGUMENTO else 2
+    if len(llamada.args) > minimo:
+        return llamada.args[minimo]
+    return next((k.value for k in llamada.keywords if k.arg == 'msg'), None)
+
+
+def nombra_el_libro(texto, variables):
+    """¿El mensaje incluye el id del libro del bucle (`b['id']`, `b.get('id')`, `b["id"]`)?"""
+    return any(f"{v}['id']" in texto or f"{v}.get('id')" in texto for v in variables)
+
+
 def asserts_sin_mensaje(metodo):
-    """Aserciones dentro de un bucle sobre libros sin mensaje: su fallo no nombra el libro y la cuarentena
-    (reading_quarantine.flagged_books) no puede apartarlo, así que para el lote entero."""
-    for bucle in (n for n in ast.walk(metodo) if isinstance(n, ast.For) and any(k in ast.unparse(n.iter) for k in ITERABLES)):
+    """Aserciones dentro de un bucle sobre libros cuyo mensaje no nombra el id del libro: su fallo no se puede
+    atribuir y la cuarentena (reading_quarantine.flagged_books) no puede apartarlo, así que para el lote entero.
+    Una URL o un texto fijo no bastan: hace falta el id."""
+    alias = alias_de_libros(metodo)
+    for bucle in (n for n in ast.walk(metodo) if isinstance(n, ast.For) and sobre_libros(n.iter, alias)):
+        variables = {x.id for x in ast.walk(bucle.target) if isinstance(x, ast.Name)}
         for x in ast.walk(bucle):
             nombre = getattr(getattr(x, 'func', None), 'attr', '')
             if isinstance(x, ast.Call) and nombre.startswith('assert') and nombre != 'assertRaises':
-                minimo = 1 if nombre in UN_ARGUMENTO else 2
-                if len(x.args) <= minimo and not any(k.arg == 'msg' for k in x.keywords):
+                texto = mensaje(x)
+                if texto is None or not nombra_el_libro(ast.unparse(texto), variables):
                     yield f'{metodo.name}:{x.lineno} {nombre}'
 
 
@@ -60,9 +107,10 @@ def metodos(solo_catalogo=False):
 
 def recorre_libros(metodo):
     """¿Hay un bucle (o comprensión) sobre libros con aserciones en su ámbito?"""
+    alias = alias_de_libros(metodo)
     for bucle in (n for n in ast.walk(metodo) if isinstance(n, (ast.For, ast.comprehension))):
         ambito = bucle if isinstance(bucle, ast.For) else metodo
-        if any(k in ast.unparse(bucle.iter) for k in ITERABLES) and any(
+        if sobre_libros(bucle.iter, alias) and any(
                 isinstance(x, ast.Call) and getattr(x.func, 'attr', '').startswith('assert') for x in ast.walk(ambito)):
             return True
     return False
@@ -93,6 +141,23 @@ class CoberturaPuertaTest(unittest.TestCase):
         por_metodo = [n for n in puerta.DATA_CONTRACTS if n.count('.') == 2]
         sin = [f'{n} {a}' for n, m in metodos() if n in por_metodo for a in asserts_sin_mensaje(m)]
         self.assertEqual(sin, [], 'añadir el id del libro como mensaje de la aserción')
+
+    def test_la_guardia_exige_el_id_y_sigue_los_alias(self):
+        def metodo(cuerpo):
+            return ast.parse('def test_x(self):\n' + cuerpo).body[0]
+
+        bueno = "    catalogo = json.loads(ruta.read_text())\n    for b in catalogo['libros']:\n        self.assertTrue(b['ok'], f\"{b['id']}: mal\")\n"
+        self.assertEqual(list(asserts_sin_mensaje(metodo(bueno))), [])
+        for malo in ("        self.assertTrue(b['ok'], 'mensaje fijo')\n",
+                     "        self.assertTrue(b['ok'], f\"https://x/{b['slug']}\")\n",
+                     "        self.assertTrue(b['ok'])\n"):
+            with self.subTest(malo=malo):
+                fuente = bueno.split('        self.')[0] + malo
+                self.assertEqual(len(list(asserts_sin_mensaje(metodo(fuente)))), 1, 'sin id del libro no vale')
+        alias = "    cat = json.loads((ROOT / 'data/reading-catalogue.json').read_text())\n    todo = cat['x']\n    for b in todo:\n        self.assertTrue(b)\n"
+        self.assertTrue(recorre_libros(metodo(alias)), 'el alias asignado desde el catálogo cuenta')
+        ajeno = "    filas = [1, 2]\n    for b in filas:\n        self.assertTrue(b)\n"
+        self.assertFalse(recorre_libros(metodo(ajeno)), 'un bucle sobre otra cosa no es un contrato por libro')
 
     def test_los_contratos_de_la_puerta_existen(self):
         import sys
