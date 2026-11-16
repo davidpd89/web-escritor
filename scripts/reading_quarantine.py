@@ -15,6 +15,7 @@ arregla el script que la produce) con su test de regresión, y la siguiente carg
 import importlib.util
 import json
 import re
+import shutil
 import subprocess
 import sys
 from datetime import date
@@ -50,6 +51,9 @@ def cause(message):
     return re.sub(r'\d+', 'N', text)[:160] or 'sin motivo'
 
 
+GIT = shutil.which('git') or 'git'  # ruta completa del ejecutable (no depende del PATH al lanzar)
+
+
 def committed(root):
     """Catálogo publicado (HEAD). None solo si HEAD no tiene catálogo: no hay nada publicado que proteger.
 
@@ -57,11 +61,11 @@ def committed(root):
     libro contaría como nuevo, el tope crecería al catálogo entero y los publicados se apartarían de la web en vez
     de volver a su versión buena."""
     try:
-        listado = subprocess.run(['git', 'ls-tree', '--name-only', 'HEAD', '--', CATALOGUE], cwd=root,
+        listado = subprocess.run([GIT, 'ls-tree', '--name-only', 'HEAD', '--', CATALOGUE], cwd=root,
                                  capture_output=True, check=True, text=True).stdout.strip()
         if not listado:
             return None
-        out = subprocess.run(['git', 'show', 'HEAD:' + CATALOGUE], cwd=root, capture_output=True, check=True)
+        out = subprocess.run([GIT, 'show', 'HEAD:' + CATALOGUE], cwd=root, capture_output=True, check=True)
         return json.loads(out.stdout.decode('utf-8'))
     except (subprocess.CalledProcessError, ValueError, OSError) as exc:
         raise RuntimeError(f'Cuarentena: no se puede leer el catálogo publicado (HEAD:{CATALOGUE}): {exc}') from exc
