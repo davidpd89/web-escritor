@@ -233,9 +233,9 @@ class JuvenileAudienceTests(unittest.TestCase):
     queda con su público «juvenil» y sin «narrativa-juvenil»; una novela juvenil la conserva."""
 
     @staticmethod
-    def catalogue(cats):
+    def catalogue(cats, title='Manifiesto de prueba'):
         base = copy.deepcopy(DATA)
-        book = {'id': 'isbn-9780000000001', 'isbn13': '9780000000001', 'titulo': 'Manifiesto de prueba',
+        book = {'id': 'isbn-9780000000001', 'isbn13': '9780000000001', 'titulo': title,
                 'estado': 'publicado', 'fuente_bibliografica_url': 'https://www.amazon.es/dp/B000000001'}
         base['libros'].append(book)
         base['libro_categorias'] += [{'libro_id': book['id'], 'categoria_id': c} for c in cats]
@@ -251,7 +251,7 @@ class JuvenileAudienceTests(unittest.TestCase):
     def test_juvenile_novel_keeps_its_genre(self):
         for cats in (['narrativa-juvenil', 'juvenil'], ['narrativa-juvenil', 'historia', 'aventuras', 'juvenil']):
             with self.subTest(cats):
-                data, ident = self.catalogue(cats)
+                data, ident = self.catalogue(cats, 'La isla de prueba')  # «manifiesto» en el título es no ficción
                 repair_classification(data, '2026-11-16')
                 self.assertIn('narrativa-juvenil', labels(data)[ident])
 

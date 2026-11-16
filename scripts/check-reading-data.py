@@ -25,7 +25,7 @@ DATA_CONTRACTS = (
     'test_reading_pvp_coherence', 'test_reading_related_books', 'test_reading_taxonomy_derived',
     'test_reading_intake_pipeline.ContractTests.test_catalogue_titles_are_bounded_distinct_and_name_the_author',
     'test_reading_author_split', 'test_published_book_author_parity', 'test_published_book_jsonld_identity_parity',
-    'test_published_isbn_schema_parity', 'test_book_title_schema_consistency',
+    'test_published_isbn_schema_parity', 'test_book_title_schema_consistency', 'test_reading_category_invariants',
     # 16/11: la carga 43805010918 salió roja en la QA de la PR por un libro con un solo módulo (isbn-9791388205675)
     # que esta puerta no miraba, y se perdió el lote entero en vez de apartar ese libro. Los métodos que recorren
     # el catálogo real con aserciones por libro entran aquí; tests/test_check_reading_data_cobertura.py lo vigila.
