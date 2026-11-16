@@ -61,10 +61,12 @@ class ReadingTextsTest(unittest.TestCase):
             for m in p['modulos_permitidos']:
                 self.assertIn(p['familia'], texts.MODULES[m['modulo']][0], b['id'])
 
-    def test_every_published_book_gets_at_least_two_modules(self):
+    def test_every_published_book_gets_its_own_reader_module(self):
+        # Solo lo que depende del libro: «lecturas_afines» sale del resto del catálogo y aparece o desaparece cuando
+        # crece (una etiqueta deja de ser rara). Exigir 2 módulos contándolo paraba cargas enteras por un libro que no
+        # había cambiado; el generador ya escribe min(MIN_BLOCKS, módulos) bloques.
         for b in texts.published(self.data):
             mods = {m['modulo'] for m in texts.payload(self.data, b)['modulos_permitidos']}
-            self.assertGreaterEqual(len(mods), 2, b['id'])
             self.assertIn('para_quien', mods, b['id'])
 
     def test_valid_blocks_pass_and_affines_are_linked(self):
