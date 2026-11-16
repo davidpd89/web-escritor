@@ -44,7 +44,9 @@ jobs:
       - if: github.event_name == 'schedule' || inputs.respaldo
         uses: actions/checkout@v5
         with:
-          sparse-checkout: scripts/ci_intake_backup.py
+          sparse-checkout: |
+            scripts/ci_intake_backup.py
+            scripts/gh_listas.py
           sparse-checkout-cone-mode: false
       - id: madrid
         env:

@@ -251,9 +251,10 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
         if workflow in source:
             print(f'REUSE pull_request run {pinned[workflow]} of {workflow} @ {sha}', flush=True)
             continue
-        # Ventana a propósito: las ejecuciones nuevas salen arriba, así que antes/después con la misma ventana basta.
-        runs = gh_listas.ultimas(gh, 'run', 'list', '--workflow', workflow, '--branch', branch,
-                                 '--event', 'workflow_dispatch', '--json', 'databaseId', n=100)
+        # Instantánea con la misma consulta que el sondeo (rama, commit y evento, completa): una ejecución antigua del
+        # mismo commit nunca pasa por nueva aunque haya quedado fuera de una ventana.
+        runs = gh_listas.lista(gh, 'run', 'list', '--workflow', workflow, '--branch', branch, '--commit', sha,
+                               '--event', 'workflow_dispatch', '--json', 'databaseId', tope=100)
         source[workflow] = ('workflow_dispatch', frozenset(item['databaseId'] for item in runs))
         gh('workflow', 'run', workflow, '--ref', branch)
 
