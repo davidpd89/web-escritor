@@ -106,9 +106,10 @@ def _comprobacion_escritura(args):
 
     Antes de repetir una escritura cuyo primer intento dio un 5xx se mira si sí llegó a GitHub: un `pr merge` que
     fusionó, un `workflow run` que creó la ejecución, un `run rerun` que subió el número de intento, un `pr close` o
-    un `run cancel` que ya tienen efecto. Un status (POST) es idempotente. `update-branch` con `expected_head_sha`
-    llegó si la cabeza nueva de la PR es un merge de dos padres: la cabeza esperada y un commit que ya está en la
-    rama base (repetirlo daría 422). Un push lineal sobre la cabeza esperada u otro movimiento no prueban nada y
+    un `run cancel` que ya tienen efecto. Un status (POST) es idempotente: se repite sin comprobar nada
+    (`(None, None)`) y tras su último fallo no se espera. `update-branch` con `expected_head_sha` llegó si la cabeza
+    nueva de la PR es un merge de dos padres: la cabeza esperada y la punta actual de la rama base (repetirlo daría
+    422; un merge con un main anterior no es esta actualización). Un push lineal sobre la cabeza esperada u otro movimiento no prueban nada y
     se repite (su 422 es el StaleMerge de siempre). `workflow run` no se
     repite: sin el id de la ejecución, una ejecución nueva en la misma rama puede ser de otro despacho (R5-14 usará
     `return_run_details`). Sin comprobación, la escritura no se repite (como antes).
@@ -127,7 +128,7 @@ def _comprobacion_escritura(args):
     if a[:1] == ('api',) and _flag(a, '--method') in ('POST', 'PUT'):
         ruta = next((x for x in a[1:] if x.startswith('repos/')), '')
         if re.fullmatch(r'repos/[^/]+/[^/]+/statuses/[0-9a-f]{7,40}', ruta):
-            return None, lambda _: False
+            return None, None
         pr = re.fullmatch(r'repos/([^/]+/[^/]+)/pulls/(\d+)/update-branch', ruta)
         previa = next((x.split('=', 1)[1] for x in a if x.startswith('expected_head_sha=')), None)
         if pr and previa:
@@ -140,14 +141,14 @@ def _comprobacion_escritura(args):
                 otros = [p for p in padres if not p.startswith(previa)]
                 if len(padres) != 2 or len(otros) != 1:
                     return False
-                return gh('api', f'repos/{pr[1]}/compare/{otros[0]}...{datos["base"]}', '--jq', '.status') in (
-                    'ahead', 'identical')
+                return otros[0] == gh('api', f'repos/{pr[1]}/git/ref/heads/{datos["base"]}', '--jq', '.object.sha')
             return None, aplicado
     return None
 
 
 def gh(*args: str):
     comprobacion = None if _retryable(args) else _comprobacion_escritura(args)
+    efecto = comprobacion[1] if comprobacion else None  # None: no hay efecto que comprobar
     for attempt in range(1, GH_ATTEMPTS + 1):
         try:
             result = subprocess.run(['gh', *args], check=True, capture_output=True, text=True, encoding='utf-8', errors='replace')
@@ -160,14 +161,14 @@ def gh(*args: str):
             if not repetible or not any(m.lower() in stderr.lower() for m in TRANSIENT_GH):
                 raise
             # Tras el último intento solo se espera si hay un efecto que comprobar; una lectura se rinde ya.
-            if attempt == GH_ATTEMPTS and comprobacion is None and tuple(args[:2]) != ('pr', 'create'):
+            if attempt == GH_ATTEMPTS and efecto is None and tuple(args[:2]) != ('pr', 'create'):
                 raise
             time.sleep(5 * attempt)
             # El efecto se comprueba también tras el último intento: un merge que llegó con 502 no es un fallo.
             created = _existing_pr(args)
             if created:
                 return created
-            if comprobacion is not None and comprobacion[1](comprobacion[0]):
+            if efecto is not None and efecto(comprobacion[0]):
                 print(f'gh {" ".join(args[:3])}: el intento fallido sí llegó a GitHub; no se repite', flush=True)
                 return ''
             if attempt == GH_ATTEMPTS:

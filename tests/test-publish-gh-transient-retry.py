@@ -86,8 +86,8 @@ with mock.patch.object(mod.time, 'sleep', lambda s: None):
                 return (1, '', 'HTTP 502: Bad Gateway') if primero else (0, 'hecho', '')
             if a[:2] == ['api', 'repos/o/r/pulls/9']:
                 return 0, json.dumps({'cabeza': estado['head'], 'base': 'main'}), ''
-            if a[0] == 'api' and '/compare/' in a[1]:
-                return 0, 'ahead', ''
+            if a[0] == 'api' and a[1] == 'repos/o/r/git/ref/heads/main':
+                return 0, 'main000', ''
             if a[0] == 'api' and a[1].startswith('repos/o/r/commits/'):
                 return 0, json.dumps(estado['padres'].get(a[1].rsplit('/', 1)[1], [])), ''
             if clave == ('pr', 'view'):
@@ -146,8 +146,8 @@ with mock.patch.object(mod.time, 'sleep', lambda s: None):
             return (1, '', 'HTTP 502: Bad Gateway') if n == 1 else (1, '', 'HTTP 422: expected head sha mismatch')
         if a[1] == 'repos/o/r/pulls/9':
             return 0, json.dumps({'cabeza': 'lineal33', 'base': 'main'}), ''
-        if '/compare/' in a[1]:
-            return 0, 'ahead', ''
+        if a[1] == 'repos/o/r/git/ref/heads/main':
+            return 0, 'main000', ''
         return 0, json.dumps(['abcdef1999']), ''
     run, calls = fake(lineal)
     with mock.patch.object(mod.subprocess, 'run', run):
@@ -157,6 +157,34 @@ with mock.patch.object(mod.time, 'sleep', lambda s: None):
         except subprocess.CalledProcessError as exc:
             assert '422' in exc.stderr, exc.stderr
     assert sum('--method' in c for c in calls) == 2, calls
+    # Un merge de la cabeza esperada con un main anterior (no la punta actual) no es esta actualización: se repite.
+    def main_viejo(a, n):
+        if '--method' in a:
+            return (1, '', 'HTTP 502: Bad Gateway') if n == 1 else (1, '', 'HTTP 422: expected head sha mismatch')
+        if a[1] == 'repos/o/r/pulls/9':
+            return 0, json.dumps({'cabeza': 'merge77', 'base': 'main'}), ''
+        if a[1] == 'repos/o/r/git/ref/heads/main':
+            return 0, 'main999', ''
+        return 0, json.dumps(['abcdef1999', 'main000']), ''
+    run, calls = fake(main_viejo)
+    with mock.patch.object(mod.subprocess, 'run', run):
+        try:
+            mod.gh('api', '--method', 'PUT', 'repos/o/r/pulls/9/update-branch', '-f', 'expected_head_sha=abcdef1')
+            raise SystemExit('should raise')
+        except subprocess.CalledProcessError as exc:
+            assert '422' in exc.stderr, exc.stderr
+    assert sum('--method' in c for c in calls) == 2, calls
+    # Un status que falla en todos los intentos no espera tras el último: no hay efecto que comprobar.
+    pausas.clear()
+    run, calls = fake(lambda a, n: (1, '', 'HTTP 502: Bad Gateway'))
+    with mock.patch.object(mod.subprocess, 'run', run), mock.patch.object(mod.time, 'sleep', pausas.append):
+        try:
+            mod.gh('api', '--method', 'POST', 'repos/o/r/statuses/abcdef1', '-f', 'state=success')
+            raise SystemExit('should raise')
+        except subprocess.CalledProcessError:
+            pass
+    assert len(calls) == mod.GH_ATTEMPTS, calls
+    assert pausas == [5 * n for n in range(1, mod.GH_ATTEMPTS)], pausas
     # Escrituras sin comprobación conocida no se repiten a ciegas; `workflow run` tampoco (R5-14: sin id de ejecución).
     for args in (('api', '--method', 'DELETE', 'repos/o/r/git/refs/heads/x'), ('api', '--method', 'POST', 'repos/o/r/issues'),
                  ('api', '--method', 'PUT', 'repos/o/r/pulls/9/update-branch'),
