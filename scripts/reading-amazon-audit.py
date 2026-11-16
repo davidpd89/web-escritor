@@ -21,6 +21,7 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 import git_estado  # noqa: E402
+import gh_listas  # noqa: E402
 from reading_amazon_market import audit_book, apply_audit, cover_kind, fetch_amazon_image, fetch_amazon_page, replace_cover  # noqa: E402
 
 LOCAL = ROOT / '.local/reading-amazon-audit'
@@ -235,7 +236,7 @@ def publish():
     body.write_text('Auditoría continua de la ficha de Amazon de cada libro publicado (scripts/reading-amazon-audit.py): '
                     'añade los formatos que Amazon vende y la web no mostraba, cambia las portadas generadas por la real '
                     f'y actualiza {PUBLISHED}. Los precios los pone el barrido nocturno de la API.\n', encoding='utf-8')
-    for old in json.loads(publisher.publication.gh('pr', 'list', '--state', 'open', '--json', 'number,headRefName')):
+    for old in gh_listas.lista(publisher.publication.gh, 'pr', 'list', '--state', 'open', '--json', 'number,headRefName'):
         if old['headRefName'].startswith('automation/reading-catalogue-amazon-'):
             publisher.publication.gh('pr', 'close', str(old['number']), '--comment', 'Sustituida por una auditoría más reciente.')
     publisher.publication.gh('pr', 'create', '--base', 'main', '--head', branch, '--title', title, '--body-file', str(body))

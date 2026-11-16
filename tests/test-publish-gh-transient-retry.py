@@ -31,14 +31,14 @@ with mock.patch.object(mod.time, 'sleep', lambda s: None):
 
     # 2. `pr create` falló pero la PR existe: se devuelve su URL sin crear otra.
     url = 'https://github.com/o/r/pull/9'
-    run, calls = fake(lambda a, n: (1, '', GRAPHQL) if a[:2] == ['pr', 'create'] else (0, url + '\n', ''))
+    run, calls = fake(lambda a, n: (1, '', GRAPHQL) if a[:2] == ['pr', 'create'] else (0, '[{"url": "%s"}]\n' % url, ''))
     with mock.patch.object(mod.subprocess, 'run', run):
         assert mod.gh('pr', 'create', '--base', 'main', '--head', 'automation/x-1', '--title', 't') == url
     assert [c[:2] for c in calls] == [['pr', 'create'], ['pr', 'list']], calls
     assert calls[1][calls[1].index('--head') + 1] == 'automation/x-1'
 
     # 3. `pr create` falló y no existe: se repite la creación.
-    run, calls = fake(lambda a, n: (0, '', '') if a[:2] == ['pr', 'list'] else ((1, '', GRAPHQL) if n == 1 else (0, url, '')))
+    run, calls = fake(lambda a, n: (0, '[]', '') if a[:2] == ['pr', 'list'] else ((1, '', GRAPHQL) if n == 1 else (0, url, '')))
     with mock.patch.object(mod.subprocess, 'run', run):
         assert mod.gh('pr', 'create', '--head', 'automation/x-1') == url
     assert [c[:2] for c in calls] == [['pr', 'create'], ['pr', 'list'], ['pr', 'create']], calls

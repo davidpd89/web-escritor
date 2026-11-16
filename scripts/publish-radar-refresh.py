@@ -19,6 +19,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import materializar_generados as materializar  # noqa: E402
+import gh_listas  # noqa: E402
 
 STALE_EXIT_CODE = 75  # EX_TEMPFAIL: main avanzó durante la CI; regenerar desde main
 
@@ -91,9 +92,13 @@ def _existing_pr(args):
     if args[:2] != ('pr', 'create') or '--head' not in args:
         return None
     head = args[args.index('--head') + 1]
-    found = subprocess.run(['gh', 'pr', 'list', '--head', head, '--state', 'open', '--json', 'url', '--jq', '.[0].url'],
-                           capture_output=True, text=True, encoding='utf-8', errors='replace')
-    return found.stdout.strip() or None if found.returncode == 0 else None
+    def crudo(*a):
+        return subprocess.run(['gh', *a], check=True, capture_output=True, text=True, encoding='utf-8', errors='replace').stdout
+    try:
+        found = gh_listas.lista(crudo, 'pr', 'list', '--head', head, '--state', 'open', '--json', 'url', tope=10)
+    except (subprocess.CalledProcessError, gh_listas.Truncada, ValueError):
+        return None
+    return found[0]['url'] if found else None
 
 
 def gh(*args: str):
@@ -115,8 +120,9 @@ def gh(*args: str):
 
 def superseding_pages(repo, merged_sha, after_id):
     """Primer deploy de Pages posterior a `after_id` cuyo commit contiene `merged_sha` (cualquier evento)."""
-    runs = json.loads(gh('run', 'list', '--workflow', 'deploy-pages.yml', '--branch', 'main', '--limit', '50',
-                         '--json', 'databaseId,headSha,status,conclusion'))
+    # Ventana a propósito: un deploy posterior más reciente que contenga el merge vale igual.
+    runs = gh_listas.ultimas(gh, 'run', 'list', '--workflow', 'deploy-pages.yml', '--branch', 'main',
+                             '--json', 'databaseId,headSha,status,conclusion', n=50)
     for item in sorted((r for r in runs if r['databaseId'] > after_id), key=lambda r: r['databaseId']):
         if item['headSha'] == merged_sha or gh('api', f'repos/{repo}/compare/{merged_sha}...{item["headSha"]}',
                                                '--jq', '.status') in ('ahead', 'identical'):
@@ -159,8 +165,8 @@ def esperar_escritores(ceder_a, deadline, poll=60):
     propio = os.environ.get('GITHUB_RUN_ID', '')
     while True:
         activos = [f"{wf}#{item['databaseId']}" for wf in ceder_a
-                   for item in json.loads(gh('run', 'list', '--workflow', wf, '--status', 'in_progress',
-                                             '--limit', '20', '--json', 'databaseId') or '[]')
+                   for item in gh_listas.lista(gh, 'run', 'list', '--workflow', wf, '--status', 'in_progress',
+                                                     '--json', 'databaseId', tope=100)
                    if str(item['databaseId']) != propio]
         if not activos:
             return
@@ -216,9 +222,8 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
     if not paths or any(not allowed_path(item['filename']) or (item.get('previous_filename') and not allowed_path(item['previous_filename'])) for item in paths):
         raise ValueError('PR contains a path outside the generated-artifact policy')
     def runs_on_sha(workflow, event, exclude=frozenset()):
-        runs = json.loads(gh('run', 'list', '--workflow', workflow, '--branch', branch,
-                             '--event', event, '--limit', '100', '--json',
-                             'databaseId,headSha,status,conclusion'))
+        runs = gh_listas.lista(gh, 'run', 'list', '--workflow', workflow, '--branch', branch, '--commit', sha,
+                               '--event', event, '--json', 'databaseId,headSha,status,conclusion', tope=100)
         return [item for item in runs if item['databaseId'] not in exclude and item['headSha'] == sha]
 
     # A PR opened with a user token already starts its pull_request CI on this exact commit; dispatching the same
@@ -246,8 +251,9 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
         if workflow in source:
             print(f'REUSE pull_request run {pinned[workflow]} of {workflow} @ {sha}', flush=True)
             continue
-        runs = json.loads(gh('run', 'list', '--workflow', workflow, '--branch', branch,
-                             '--event', 'workflow_dispatch', '--limit', '100', '--json', 'databaseId'))
+        # Ventana a propósito: las ejecuciones nuevas salen arriba, así que antes/después con la misma ventana basta.
+        runs = gh_listas.ultimas(gh, 'run', 'list', '--workflow', workflow, '--branch', branch,
+                                 '--event', 'workflow_dispatch', '--json', 'databaseId', n=100)
         source[workflow] = ('workflow_dispatch', frozenset(item['databaseId'] for item in runs))
         gh('workflow', 'run', workflow, '--ref', branch)
 
@@ -359,7 +365,9 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
         raise RuntimeError('PR was not merged; refusing to deploy')
     # A GITHUB_TOKEN merge does not fire push CI/Pages either. Dispatch Pages
     # explicitly; its workflow_run starts the existing live production audits.
-    before_runs = json.loads(gh('run', 'list', '--workflow', 'deploy-pages.yml', '--event', 'workflow_dispatch', '--limit', '100', '--json', 'databaseId'))
+    # Ventana a propósito (las nuevas salen arriba): la misma ventana antes y después separa las ejecuciones nuevas.
+    before_runs = gh_listas.ultimas(gh, 'run', 'list', '--workflow', 'deploy-pages.yml', '--event', 'workflow_dispatch',
+                                    '--json', 'databaseId', n=100)
     before_ids = {r['databaseId'] for r in before_runs}
     args = ['workflow', 'run', 'deploy-pages.yml', '--ref', 'main']
     if deploy_before:
@@ -372,7 +380,8 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
         followed = None  # deploy posterior que contiene merged_sha, tras cancelarse el nuestro por concurrencia
         while time.monotonic() < deadline:
             if followed is None:
-                runs = json.loads(gh('run', 'list', '--workflow', 'deploy-pages.yml', '--event', 'workflow_dispatch', '--limit', '100', '--json', 'databaseId,headSha,status,conclusion'))
+                runs = gh_listas.ultimas(gh, 'run', 'list', '--workflow', 'deploy-pages.yml', '--event', 'workflow_dispatch',
+                                        '--json', 'databaseId,headSha,status,conclusion', n=100)
                 exact = [r for r in runs if r['databaseId'] not in before_ids and r['headSha'] == merged_sha]
                 # `--ref main` despacha desde la punta: si main avanzó tras la fusión no hay run con el SHA exacto, y
                 # vale un deploy posterior que contenga el merge (#1312, Codex y CodeRabbit).

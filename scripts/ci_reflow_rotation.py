@@ -20,6 +20,10 @@ import os
 import re
 import sys
 import urllib.request
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import gh_listas  # noqa: E402
 
 ARTIFACT = re.compile(r'^reflow-rotation-slot-(\d+)$')
 WORKFLOW = 'sitewide-reflow-qa.yml'
@@ -57,7 +61,9 @@ def api(path: str, token: str) -> dict:
 
 
 def main_history(repo: str, token: str, run_id: str) -> list[dict]:
-    runs = api(f'/repos/{repo}/actions/workflows/{WORKFLOW}/runs?branch=main&per_page={LOOKBACK}', token)['workflow_runs']
+    # Ventana a propósito: las LOOKBACK ejecuciones más recientes de main.
+    runs = gh_listas.rest_ultimas(lambda p: api(p, token), f'/repos/{repo}/actions/workflows/{WORKFLOW}/runs?branch=main',
+                                  'workflow_runs', LOOKBACK)
     history = []
     for run in runs:
         if str(run['id']) == run_id or run.get('event') not in MAIN_EVENTS or run.get('head_branch') != 'main':
@@ -68,7 +74,8 @@ def main_history(repo: str, token: str, run_id: str) -> list[dict]:
             state = 'done'
         else:
             state = 'running'
-        names = [a['name'] for a in api(f"/repos/{repo}/actions/runs/{run['id']}/artifacts?per_page=100", token)['artifacts']]
+        names = [a['name'] for a in gh_listas.rest_todas(lambda p: api(p, token), f"/repos/{repo}/actions/runs/{run['id']}/artifacts",
+                                                         'artifacts')]
         slots = [int(m.group(1)) for m in map(ARTIFACT.match, names) if m]
         history.append({'number': run['run_number'], 'state': state, 'slot': slots[0] if slots else None})
     return history

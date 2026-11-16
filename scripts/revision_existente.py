@@ -24,6 +24,7 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 import git_estado  # noqa: E402
+import gh_listas  # noqa: E402
 PREFIX = 'revision/'
 MAX_LINEAS = 1800
 SKIP = '[skip ci]'
@@ -160,7 +161,7 @@ def abrir(nombre=None, publicar=False):
     base, cabeza = PREFIX + 'base-%s-%s' % (nombre, dia), PREFIX + '%s-%s' % (nombre, dia)
     # Reintento del mismo día: la PR ya existe y `gh pr create` la rechazaría sin completar los disparos que faltan.
     # Se reutiliza sin mover sus ramas (#1314, CodeRabbit).
-    abierta = json.loads(gh('pr', 'list', '--head', cabeza, '--state', 'open', '--json', 'url,comments'))
+    abierta = gh_listas.lista(gh, 'pr', 'list', '--head', cabeza, '--state', 'open', '--json', 'url,comments', tope=10)
     if abierta:
         url, hechos = abierta[0]['url'], {c['body'].strip() for c in abierta[0]['comments']}
     else:
@@ -181,8 +182,9 @@ def abrir(nombre=None, publicar=False):
 def cerrar(dias=3, publicar=False):
     """Cierra las PR de revisión con más de `dias` y borra sus dos ramas; las sueltas sin PR también."""
     limite = datetime.now(timezone.utc) - timedelta(days=dias)
-    prs = json.loads(gh('pr', 'list', '--state', 'all', '--limit', '200', '--search', 'head:' + PREFIX,
-                        '--json', 'number,state,createdAt,headRefName,baseRefName'))
+    # Solo las abiertas: son las únicas que se cierran o protegen ramas; con `all` el histórico llenaba el tope.
+    prs = gh_listas.lista(gh, 'pr', 'list', '--state', 'open', '--search', 'head:' + PREFIX,
+                          '--json', 'number,state,createdAt,headRefName,baseRefName')
     vivas = set()
     for pr in prs:
         if not pr['headRefName'].startswith(PREFIX):

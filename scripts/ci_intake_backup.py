@@ -30,6 +30,10 @@ import os
 import sys
 import time
 import urllib.request
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import gh_listas  # noqa: E402
 
 WORKFLOW = 'reading-catalogue-sync.yml'
 INTAKE_JOB = 'intake'
@@ -75,14 +79,14 @@ def tonight(repo: str, token: str, run_id: str, now: dt.datetime) -> list[dict]:
         return api(path, token, timeout=min(20, left))
 
     since = now.strftime('%Y-%m-%dT00:00:00Z')
-    found = call(f'/repos/{repo}/actions/workflows/{WORKFLOW}/runs?created=%3E%3D{since}&per_page=50')['workflow_runs']
+    found = gh_listas.rest_todas(call, f'/repos/{repo}/actions/workflows/{WORKFLOW}/runs?created=%3E%3D{since}', 'workflow_runs')
     runs = []
     for run in found:
         if str(run['id']) == run_id:
             continue
         entry = {'id': run['id'], 'status': run.get('status'),
                  'publica': run.get('head_branch', 'main') == 'main' and run.get('display_title') != DRY_RUN_TITLE}
-        jobs = call(f"/repos/{repo}/actions/runs/{run['id']}/jobs?per_page=20")['jobs']
+        jobs = gh_listas.rest_todas(call, f"/repos/{repo}/actions/runs/{run['id']}/jobs", 'jobs')
         intake = next((job for job in jobs if job.get('name') == INTAKE_JOB), None)
         if run.get('status') == 'completed':
             entry['intake'] = intake and intake.get('conclusion')
