@@ -100,6 +100,50 @@ class AyudantesTest(unittest.TestCase):
         with self.assertRaises(gh_listas.Truncada):
             gh_listas.rest_todas(lambda r: {'jobs': list(range(100))}, '/r', 'jobs', max_paginas=2)
 
+    def test_rest_todas_no_repite_lo_que_la_lista_viva_empuja(self):
+        # Entre la página 1 y la 2 llega un elemento nuevo: el último de la 1 reaparece al principio de la 2.
+        paginas = {1: [{'id': i} for i in range(100, 0, -1)], 2: [{'id': 1}, {'id': 0}]}
+        todas = gh_listas.rest_todas(lambda r: paginas[int(r.rsplit('page=', 1)[1])], '/r')
+        self.assertEqual([x['id'] for x in todas], list(range(100, -1, -1)))
+
+
+class ExistingPrTest(unittest.TestCase):
+    """R5-11 (hallazgo 30): si no se sabe si la PR ya existe, no se crea otra."""
+
+    @classmethod
+    def setUpClass(cls):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location('publish_radar_refresh', ROOT / 'scripts' / 'publish-radar-refresh.py')
+        cls.mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cls.mod)
+
+    def _con_gh(self, stdout=None, error=None):
+        import subprocess
+        from unittest import mock
+
+        def run(cmd, **kw):
+            if error:
+                raise error
+            n = int(cmd[cmd.index('--limit') + 1])
+            return subprocess.CompletedProcess(cmd, 0, stdout=json.dumps(stdout(n)), stderr='')
+        return mock.patch.object(self.mod.subprocess, 'run', run)
+
+    def test_mas_resultados_que_el_tope_no_es_no_hay(self):
+        args = ('pr', 'create', '--head', 'rama')
+        with self._con_gh(lambda n: [{'url': f'u{i}'} for i in range(n)]):
+            with self.assertRaises(gh_listas.Truncada):
+                self.mod._existing_pr(args)
+
+    def test_si_gh_falla_no_es_no_hay(self):
+        import subprocess
+        with self._con_gh(error=subprocess.CalledProcessError(1, 'gh')):
+            with self.assertRaises(subprocess.CalledProcessError):
+                self.mod._existing_pr(('pr', 'create', '--head', 'rama'))
+
+    def test_encuentra_la_que_llego_a_crearse(self):
+        with self._con_gh(lambda n: [{'url': 'https://x/pull/1'}]):
+            self.assertEqual(self.mod._existing_pr(('pr', 'create', '--head', 'rama')), 'https://x/pull/1')
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -88,16 +88,16 @@ def _retryable(args):
 
 
 def _existing_pr(args):
-    """URL de la PR que un `gh pr create` fallido pudo llegar a crear, para no duplicarla al repetir."""
+    """URL de la PR que un `gh pr create` fallido pudo llegar a crear, para no duplicarla al repetir.
+
+    Si no se puede saber (gh falla, lista truncada, JSON roto) se lanza: «no lo sé» nunca vale como «no hay», porque
+    el reintento crearía una PR duplicada (Fable R5-11, hallazgo 30)."""
     if args[:2] != ('pr', 'create') or '--head' not in args:
         return None
     head = args[args.index('--head') + 1]
     def crudo(*a):
         return subprocess.run(['gh', *a], check=True, capture_output=True, text=True, encoding='utf-8', errors='replace').stdout
-    try:
-        found = gh_listas.lista(crudo, 'pr', 'list', '--head', head, '--state', 'open', '--json', 'url', tope=10)
-    except (subprocess.CalledProcessError, gh_listas.Truncada, ValueError):
-        return None
+    found = gh_listas.lista(crudo, 'pr', 'list', '--head', head, '--state', 'open', '--json', 'url')
     return found[0]['url'] if found else None
 
 

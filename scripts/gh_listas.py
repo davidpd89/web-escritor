@@ -7,7 +7,8 @@ ejecución en curso que no contaba. Toda lista pasa por aquí y dice qué quiere
 
   lista(gh, *args, tope)        todas; si llegan `tope`, `Truncada` (mejor fallar que decidir con media lista);
   ultimas(gh, *args, n)         las n más recientes a propósito (gh ordena de nueva a antigua): una ventana;
-  rest_todas(api, ruta, clave)  REST página a página hasta una página corta;
+  rest_todas(api, ruta, clave)  REST página a página hasta una página corta, sin repetidos por id (la lista
+                                cambia entre páginas: un elemento nuevo empuja otro a la página siguiente);
   rest_ultimas(api, ruta, clave, n)  REST, la primera página de n a propósito.
 
 tests/test_gh_listas.py exige que ningún script use `--limit` o `per_page` fuera de este módulo.
@@ -50,11 +51,17 @@ def rest_todas(api, ruta: str, clave: str | None = None, por_pagina: int = POR_P
                max_paginas: int = MAX_PAGINAS) -> list:
     """Todas las páginas de un listado REST. `api(ruta)` devuelve el JSON; `clave` es la lista dentro del objeto
     (`workflow_runs`, `jobs`, `artifacts`) o None si la respuesta ya es una lista."""
-    todo = []
+    todo, vistos = [], set()
     for pagina in range(1, max_paginas + 1):
         datos = api(_con(ruta, per_page=por_pagina, page=pagina))
         items = datos[clave] if clave else datos
-        todo += items
+        for item in items:
+            ident = item.get('id') if isinstance(item, dict) else None
+            if ident is not None:
+                if ident in vistos:
+                    continue
+                vistos.add(ident)
+            todo.append(item)
         if len(items) < por_pagina:
             return todo
     raise Truncada(f'{ruta}: más de {max_paginas} páginas')
