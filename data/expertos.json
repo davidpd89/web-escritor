@@ -34,10 +34,8 @@
       "id": "limpieza",
       "nombre": "Limpieza",
       "mision": "Código muerto, duplicados y formato.",
-      "workflows": [],
-      "vacante": "Nadie busca código muerto ni duplicado. SonarCloud mide duplicación en lo nuevo, no en lo heredado.",
+      "workflows": ["duplicados-codigo"],
       "pendientes": [
-        {"herramienta": "jscpd", "motivo": "Informe semanal de duplicados en scripts/ y assets/; primero solo informativo."},
         {"herramienta": "Knip", "motivo": "Ficheros y exportaciones sin uso en qa/ y tests/; hay cientos de .mjs y necesita configuración de entradas."}
       ],
       "descartados": [
