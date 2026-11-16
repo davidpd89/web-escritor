@@ -5,6 +5,7 @@ apartan (se borran de la web) en vez de volver a su versión buena. Si `git show
 cuarentena aborta; solo un HEAD que de verdad no tiene catálogo (no hay nada publicado) da `None`.
 """
 import json
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -19,8 +20,11 @@ CATALOGO = {'schema_version': 1, 'categorias': [], 'libros': [{'id': 'publicado-
             'libro_categorias': []}
 
 
+GIT = shutil.which('git') or 'git'
+
+
 def git(root, *args):
-    subprocess.run(['git', *args], cwd=root, check=True, capture_output=True)
+    subprocess.run([GIT, *args], cwd=root, check=True, capture_output=True)
 
 
 def arbol(root, commit=True):
