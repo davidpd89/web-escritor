@@ -73,12 +73,25 @@ BOOK_FIELDS.update({'sinopsis_breve', 'sinopsis_fuente_url', 'sinopsis_tipo', 'c
 
 
 class ValidationError(ValueError):
-    pass
+    """Fallo de validación con su dueño como dato: `libro` (id del libro, o None si es una regla general), `regla`
+    (el motivo sin el libro, para agrupar incidencias) y `otro` (el libro gemelo de una portada duplicada). La
+    cuarentena aparta por estos atributos; el texto es solo para personas y puede cambiar sin consecuencias."""
+
+    def __init__(self, message, libro=None, regla=None, otro=None):
+        super().__init__(message)
+        self.libro, self.regla, self.otro = libro, regla, otro
 
 
-def require(ok, message):
+def require(ok, message, libro=None, regla=None, otro=None):
     if not ok:
-        raise ValidationError(message)
+        raise ValidationError(message, libro=libro, regla=regla, otro=otro)
+
+
+def _regla(message, libro):
+    """El motivo sin el id del libro delante («<id>: …» o «<id>.campo: …»)."""
+    if libro and message.startswith(libro):
+        return message[len(libro):].lstrip('.:').strip() or message
+    return message
 
 
 def esc(value):
@@ -100,7 +113,7 @@ def day(raw, name):
     try:
         return date.fromisoformat(raw)
     except ValueError as exc:
-        raise ValidationError(f"{name}: fecha inválida") from exc
+        raise ValidationError(f"{name}: fecha inválida", regla='fecha inválida') from exc
 
 
 def valid_isbn(value):
@@ -108,6 +121,19 @@ def valid_isbn(value):
 
 
 def validate(data, root):
+    """Valida el catálogo; un fallo dentro de la ficha de un libro sale con ese libro en `ValidationError.libro`."""
+    actual = {}
+    try:
+        return _validate(data, root, actual)
+    except ValidationError as exc:
+        if exc.libro is None:
+            exc.libro = actual.get('libro')
+        if exc.regla is None:
+            exc.regla = _regla(str(exc), exc.libro)
+        raise
+
+
+def _validate(data, root, actual):
     require(isinstance(data, dict) and data.get("schema_version") == 1, "schema_version debe ser 1")
     require(set(data) == {"schema_version", "categorias", "libros", "libro_categorias"}, "Campos raíz desconocidos o ausentes")
     cats, books, relations = data["categorias"], data["libros"], data["libro_categorias"]
@@ -122,6 +148,8 @@ def validate(data, root):
     book_ids, book_slugs, isbns, covers, hashes, amazon_urls, works, descriptions = (set() for _ in range(8))
     hash_owner = {}
     for b in books:
+        # Todo fallo desde aquí hasta el final de la ficha es de este libro (si tiene un id utilizable).
+        actual['libro'] = b['id'] if isinstance(b, dict) and isinstance(b.get('id'), str) and SLUG.fullmatch(b['id']) else None
         unknown = set(b) - BOOK_FIELDS if isinstance(b, dict) else set()
         # Nombrar el libro (y los campos) permite que la cuarentena aparte solo esa ficha; un campo colado
         # por una fase de la carga ya no tumba todo el lote con un error sin dueño.
@@ -202,7 +230,8 @@ def validate(data, root):
         file = (root / cover.lstrip("/")).resolve()
         require(file.is_relative_to(root.resolve()) and file.is_file(), f"{name}: portada local inexistente")
         digest = hashlib.sha256(file.read_bytes()).hexdigest()
-        require(cover not in covers and digest not in hash_owner, f"{name}: portada duplicada (igual que {hash_owner.get(digest, 'otra ruta')})")
+        require(cover not in covers and digest not in hash_owner, f"{name}: portada duplicada (igual que {hash_owner.get(digest, 'otra ruta')})",
+                regla='portada duplicada', otro=hash_owner.get(digest))
         covers.add(cover); hash_owner[digest] = b.get("id", name)
         require(all(type(b.get(k)) is int and b[k] > 0 for k in ("portada_ancho", "portada_alto")), f"{name}: dimensiones de portada obligatorias")
         try:
@@ -211,7 +240,7 @@ def validate(data, root):
                 require(img.format in {'JPEG', 'PNG', 'WEBP'}, f"{name}: formato de portada inválido")
                 img.verify()
         except OSError as exc:
-            raise ValidationError(f"{name}: portada corrupta") from exc
+            raise ValidationError(f"{name}: portada corrupta", libro=name, regla='portada corrupta') from exc
         if b.get("url_amazon_afiliada"):
             url = b["url_amazon_afiliada"]
             require(https(url), f"{name}: URL Amazon inválida")
@@ -247,24 +276,26 @@ def validate(data, root):
             require(isinstance(review["titulo"], str) and review["titulo"].strip() and https(review["url"]) and review["url"] not in seen_reviews, f"{name}: reseña sin título/URL o duplicada")
             day(review["fecha_verificacion"], name + ".reseña")
             seen_reviews.add(review["url"])
+    actual['libro'] = None
     excluded_by_book = {}
     for b in books:
         excluded = b.get('categorias_excluidas', [])
-        require(isinstance(excluded, list) and all(isinstance(c, str) and c in ids for c in excluded), f"{b['id']}: exclusiones de categorías inválidas")
+        require(isinstance(excluded, list) and all(isinstance(c, str) and c in ids for c in excluded), f"{b['id']}: exclusiones de categorías inválidas", libro=b['id'])
         excluded_by_book[b['id']] = set(excluded)
     seen = set()
     for rel in relations:
         require(isinstance(rel, dict) and set(rel) == {"libro_id", "categoria_id"}, "Relación mal formada")
         pair = (rel["libro_id"], rel["categoria_id"])
         require(pair[0] in book_ids and pair[1] in ids and pair not in seen, "Relación duplicada o referencia inexistente")
-        require(pair[1] not in excluded_by_book[pair[0]], f"{pair[0]}: categoría {pair[1]} asignada y excluida simultáneamente")
+        require(pair[1] not in excluded_by_book[pair[0]], f"{pair[0]}: categoría {pair[1]} asignada y excluida simultáneamente",
+                libro=pair[0], regla='categoría asignada y excluida simultáneamente')
         seen.add(pair)
     # Conjunto precalculado: buscar por libro en todas las relaciones crecía con el cuadrado del catálogo.
     active = {c["id"] for c in cats if c["activa"]}
     with_active = {r["libro_id"] for r in relations if r["categoria_id"] in active}
     for b in books:
         if b["estado"] != "borrador":
-            require(b["id"] in with_active, f"{b['id']}: sin categoría activa")
+            require(b["id"] in with_active, f"{b['id']}: sin categoría activa", libro=b['id'])
     return [b for b in books if b["estado"] == "publicado"]
 
 

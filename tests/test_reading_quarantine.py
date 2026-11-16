@@ -6,6 +6,7 @@ import shutil
 import sys
 import tempfile
 import unittest
+import unittest.mock
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -163,11 +164,11 @@ class QuarantineTest(unittest.TestCase):
             q.restore_cover(root, {'portada_local': '/assets/reading-covers/isbn-1.webp'})
             self.assertEqual(cover.read_bytes(), b'publicada')
 
-    def test_culprit_is_a_known_book_id(self):
+    def test_owner_is_a_known_book_id(self):
         first = DATA['libros'][0]['id']
-        self.assertEqual(q.culprit(f'{first}: falta edicion', DATA), first)
-        self.assertEqual(q.culprit(f'{first}.mes: fecha inválida', DATA), first)
-        self.assertIsNone(q.culprit('Relación duplicada o referencia inexistente', DATA))
+        self.assertEqual(q.owner(q.build.ValidationError('x', libro=first), DATA), first)
+        self.assertIsNone(q.owner(q.build.ValidationError('x', libro='no-existe'), DATA))
+        self.assertIsNone(q.owner(q.build.ValidationError(f'{first}: texto con id pero sin dueño'), DATA))
 
 
     def test_100_books_20_bad_the_80_good_continue(self):
@@ -281,6 +282,79 @@ class QuarantineTest(unittest.TestCase):
         self.assertEqual(pieces[0], "En mi Era Pistacho: Juliette's version")
         flagged = [w for t in pieces for w in q.tildes.WORD_RE.findall(t) if not q.tildes.is_technical_use(t, w.lower())]
         self.assertEqual(flagged, ['edicion'])
+
+
+# Mutaciones que rompen un libro concreto (índice en DATA): cada una sale por una regla distinta del validador.
+MUTACIONES = {
+    'autores vacíos': (0, lambda b: b.update(autores=[])),
+    'descripción corta': (1, lambda b: b.update(descripcion_breve='corta')),
+    'título vacío': (2, lambda b: b.update(titulo='')),
+    'fecha rota': (3, lambda b: b.update(fecha_publicacion='2026-13-45')),
+    'campo desconocido': (4, lambda b: b.update(campo_inventado=1)),
+}
+
+
+def mutado(n, cambio):
+    data, book, cats = without(n)
+    roto = copy.deepcopy(DATA)
+    cambio(roto['libros'][n])
+    return data, roto, book
+
+
+class FallosEstructuradosTest(unittest.TestCase):
+    """R4-2 (D3/F5): la cuarentena aparta por el libro que trae el fallo como dato, nunca leyendo su texto."""
+
+    def test_validate_nombra_el_libro_y_la_regla(self):
+        for nombre, (n, cambio) in MUTACIONES.items():
+            with self.subTest(nombre):
+                _, roto, book = mutado(n, cambio)
+                with self.assertRaises(q.build.ValidationError) as ctx:
+                    q.build.validate(roto, ROOT)
+                self.assertEqual(ctx.exception.libro, book['id'])
+                self.assertTrue(ctx.exception.regla)
+                self.assertNotIn(book['id'], ctx.exception.regla, 'la regla no lleva el libro: agrupa incidencias')
+
+    def test_renombrar_el_mensaje_no_cambia_a_quien_se_aparta(self):
+        """Propiedad: el texto del fallo puede citar otro libro (un título con el id de otro, un mensaje reescrito)
+        o ninguno; el apartado es siempre el que trae el fallo."""
+        real = q.build.validate
+        otro = DATA['libros'][7]['id']
+        for texto in (f'{otro}: mensaje reescrito', 'mensaje reescrito sin libro', f'Error en {otro}.campo: x'):
+            for nombre, (n, cambio) in MUTACIONES.items():
+                with self.subTest(texto=texto, regla=nombre):
+                    antes, roto, book = mutado(n, cambio)
+
+                    def reescrito(data, root, texto=texto):
+                        try:
+                            return real(data, root)
+                        except q.build.ValidationError as exc:
+                            exc.args = (texto,)
+                            raise
+
+                    with unittest.mock.patch.object(q.build, 'validate', reescrito):
+                        clean, out = q.isolate(roto, ROOT, antes, today='2026-11-17')
+                    self.assertEqual([h['libro']['id'] for h in out], [book['id']])
+                    self.assertEqual(clean, antes)
+
+    def test_portada_duplicada_trae_la_gemela_como_dato(self):
+        data = copy.deepcopy(DATA)
+        for key in ('portada_local', 'portada_ancho', 'portada_alto'):
+            data['libros'][0][key] = data['libros'][5][key]
+        with self.assertRaises(q.build.ValidationError) as ctx:
+            q.build.validate(data, ROOT)
+        self.assertEqual({ctx.exception.libro, ctx.exception.otro}, {DATA['libros'][0]['id'], DATA['libros'][5]['id']})
+
+    def test_la_cuarentena_no_lee_mensajes_con_regex(self):
+        """Guarda: dentro de isolate no hay `re.` ni se busca el culpable en el texto del fallo."""
+        import ast
+        import inspect
+        import textwrap
+        arbol = ast.parse(textwrap.dedent(inspect.getsource(q.isolate)))
+        usos = [n for n in ast.walk(arbol) if isinstance(n, ast.Attribute) and isinstance(n.value, ast.Name)
+                and n.value.id == 're']
+        llamadas = [n.func.id for n in ast.walk(arbol) if isinstance(n, ast.Call) and isinstance(n.func, ast.Name)]
+        self.assertEqual(usos, [])
+        self.assertNotIn('culprit', llamadas)
 
 
 if __name__ == '__main__':
