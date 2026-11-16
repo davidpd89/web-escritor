@@ -49,7 +49,45 @@ class RelatedBooksTest(unittest.TestCase):
             html = builder.related_books(data, data['libros'][0])
         finally:
             builder.categories = original
-        self.assertLess(html.index('Zeta sobre hielo'), html.index('A romance 0'))
+        titles = re.findall(r'<a href="[^"]+">([^<]+)</a>', html)
+        self.assertEqual(titles[0], 'Zeta sobre hielo')
+
+    def test_links_are_spread_across_the_catalogue(self):
+        """H8: el bloque reparte los enlaces; ≥ 95 % de fichas reciben alguno y ninguna más de 40."""
+        inbound = {b['id']: 0 for b in self.books}
+        for b in self.books:
+            for x in self.related(b):
+                inbound[x['id']] += 1
+        reached = sum(1 for n in inbound.values() if n)
+        self.assertGreaterEqual(reached / len(inbound), 0.95, f'{reached}/{len(inbound)} fichas con enlace entrante')
+        self.assertLessEqual(max(inbound.values()), builder.RELATED_INBOUND_CAP)
+
+    def test_ties_follow_publication_date_not_alphabet(self):
+        """Con la misma categoría compartida gana la fecha más cercana, no el primer título del alfabeto."""
+        data = {'categorias': [{'id': 'romance', 'nombre': 'Romance', 'tipo': 'genero', 'orden': 1}], 'libros': []}
+        template = self.books[0]
+        def book(i, titulo, fecha):
+            out = {**template, 'id': i, 'slug': i, 'titulo': titulo, 'autores': [i], 'categorias': ['romance'],
+                   'fecha_publicacion': fecha}
+            out.pop('fecha_publicacion_parcial', None)
+            return out
+        data['libros'] = [book('a', 'Origen', '2026-11-01'), book('z', 'Zeta cercana', '2026-10-30'),
+                          *[book(f'r{n}', f'A lejana {n}', f'19{50 + n}-01-01') for n in range(6)]]
+        original = builder.categories
+        builder.categories = lambda d, b: [c for c in d['categorias'] if c['id'] in b['categorias']]
+        try:
+            html = builder.related_books(data, data['libros'][0])
+        finally:
+            builder.categories = original
+        titles = re.findall(r'<a href="[^"]+">([^<]+)</a>', html)
+        self.assertEqual(titles, ['Zeta cercana', *[f'A lejana {n}' for n in range(5, 0, -1)]])  # 1950 queda fuera
+
+    def test_publication_day_handles_partial_and_missing_dates(self):
+        self.assertEqual(builder.publication_day({'fecha_publicacion': '2026-02-03'}), builder.date(2026, 2, 3).toordinal())
+        self.assertEqual(builder.publication_day({'fecha_publicacion_parcial': '2026-02'}), builder.date(2026, 2, 15).toordinal())
+        self.assertEqual(builder.publication_day({'anio_publicacion': 1999}), builder.date(1999, 7, 1).toordinal())
+        self.assertEqual(builder.publication_day({'fecha_publicacion': 'basura'}), 0)
+        self.assertEqual(builder.publication_day({}), 0)
 
 
 if __name__ == '__main__':

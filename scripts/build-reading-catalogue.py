@@ -13,6 +13,7 @@ import json
 import heapq
 import math
 import re
+import zlib
 import sys
 from datetime import date, timedelta
 from pathlib import Path
@@ -1354,7 +1355,8 @@ def related_pool(data):
         for c in ids:
             counts[c] = counts.get(c, 0) + 1
     pool = {'books': books, 'cats': cats, 'counts': counts,
-            'publics': {i: audience(ids) for i, ids in cats.items()}, 'ages': {x['id']: min_age(x) for x in books}}
+            'publics': {i: audience(ids) for i, ids in cats.items()}, 'ages': {x['id']: min_age(x) for x in books},
+            'days': {x['id']: publication_day(x) for x in books}}
     # Índices inversos (categoría → posiciones, autor → posiciones): cada ficha solo mira los libros que comparten
     # algo con ella, no el catálogo entero.
     by_cat, by_author = {}, {}
@@ -1370,11 +1372,32 @@ def related_pool(data):
     return pool
 
 
-def related_books(data, book):  # skipcq: PY-R1000 (orden P2-1: refactor con hash idéntico pendiente)
+def publication_day(book):
+    """Día ordinal aproximado de publicación para comparar cercanía: mes suelto a día 15, año suelto a 1 de julio."""
+    full=book.get('fecha_publicacion') or ''
+    try:
+        if full:
+            return date.fromisoformat(full).toordinal()
+        month=book.get('fecha_publicacion_parcial') or ''
+        if month:
+            return date.fromisoformat(month[:7]+'-15').toordinal()
+        year=int(book.get('anio_publicacion') or 0)
+        return date(year,7,1).toordinal() if 1<=year<=9999 else 0
+    except ValueError:
+        return 0
+
+
+RELATED_SLOTS = 6
+RELATED_INBOUND_CAP = 40  # H8: ninguna ficha recibe más de 40 enlaces de «También te puede interesar»
+RELATED_DEPTH = 60  # candidatos que guarda cada ficha para el tope y el rescate; ordenar todos costaba ×3
+
+
+def related_candidates(data, book, pool=None):  # skipcq: PY-R1000 (orden P2-1: refactor con hash idéntico pendiente)
+    """Los RELATED_DEPTH mejores candidatos válidos de una ficha, del más parecido al menos parecido."""
     # Cada categoría compartida pesa por lo rara que es («Hockey» dice más que «Romance») y no se cruzan públicos.
     own={c['id'] for c in categories(data,book)}
     wanted={c['id'] for c in categories(data,book) if c['tipo'] in {'genero','tematica'}}
-    pool=related_pool(data)
+    pool=pool or related_pool(data)
     inside=book['id'] in pool['cats']  # el propio libro no cuenta en el total ni en la rareza de sus categorías
     total=len(pool['books'])-inside+1
     df={c:1+pool['counts'].get(c,0)-(inside and c in own) for c in wanted}
@@ -1400,10 +1423,63 @@ def related_books(data, book):  # skipcq: PY-R1000 (orden P2-1: refactor con has
         # Orden fijo (no depende del hash) y redondeo a 9 decimales: empates reales que math.log resolvía por el
         # último bit distinto en Windows y en Linux cambiaban los relacionados entre local y CI (PR #1227).
         ranked.append((same_author,round(sum(weight[c] for c in sorted(shared)),9),candidate))
-    ranked=heapq.nsmallest(6,ranked,key=lambda row:(-row[0],-row[1],row[2]['titulo'].casefold(),row[2]['id']))
-    if not ranked:
+    # Empate (lo normal con una sola categoría compartida): fecha de publicación más cercana, misma editorial y un
+    # hash estable del par. Desempatar por título mandaba todos los enlaces a «1984» y «A bordo…» (H8: 488 entrantes).
+    when=publication_day(book)
+    days=pool['days']
+    seed=zlib.crc32((book['id']+'|').encode())  # crc32 encadenado: estable entre plataformas y barato con 10.000 fichas
+    ranked=heapq.nsmallest(RELATED_DEPTH,ranked,key=lambda row:(-row[0],-row[1],abs(days[row[2]['id']]-when),row[2].get('editorial')!=book.get('editorial'),zlib.crc32(row[2]['id'].encode(),seed),row[2]['id']))
+    return [candidate for _,_,candidate in ranked]
+
+
+def related_assignment(data, pool):
+    """Reparto global de los relacionados de las fichas publicadas (H8).
+
+    1. Cada ficha, en orden de id, toma sus 6 mejores candidatos que aún no tengan 40 entrantes.
+    2. Rescate: cada ficha que nadie enlaza ocupa el último hueco de la ficha que mejor la puntúa, si lo que
+       desplaza conserva al menos otro entrante. Así casi ninguna ficha queda huérfana del bloque y ninguna acapara.
+    """
+    if 'assignment' in pool:
+        return pool['assignment']
+    full={b['id']:related_candidates(data,b,pool) for b in pool['books']}
+    inbound={b['id']:0 for b in pool['books']}
+    picks={}
+    for bid in sorted(full):
+        chosen=[c for c in full[bid] if inbound[c['id']]<RELATED_INBOUND_CAP][:RELATED_SLOTS]
+        chosen+=[c for c in full[bid] if c not in chosen][:RELATED_SLOTS-len(chosen)]
+        for c in chosen:
+            inbound[c['id']]+=1
+        picks[bid]=chosen
+    where={}
+    for bid in sorted(full):
+        for pos,c in enumerate(full[bid]):
+            where.setdefault(c['id'],[]).append((pos,bid))
+    for orphan in sorted(k for k,n in inbound.items() if n==0):
+        for _,bid in sorted(where.get(orphan,())):
+            chosen=picks[bid]
+            target=next(c for c in full[bid] if c['id']==orphan)
+            if len(chosen)<RELATED_SLOTS:
+                chosen.append(target)
+            elif inbound[chosen[-1]['id']]>1:
+                inbound[chosen[-1]['id']]-=1
+                chosen[-1]=target
+            else:
+                continue
+            inbound[orphan]+=1
+            break
+    pool['assignment']=picks
+    return picks
+
+
+def related_books(data, book):
+    pool=related_pool(data)
+    if book['id'] in pool['cats']:
+        chosen=related_assignment(data,pool)[book['id']]
+    else:  # vista previa de una ficha aún no publicada: no entra en el reparto
+        chosen=related_candidates(data,book,pool)[:RELATED_SLOTS]
+    if not chosen:
         return ''
-    return '<section class="catalogue-related" aria-labelledby="related-books"><h2 id="related-books">También te puede interesar</h2><ul>'+''.join('<li><a class="catalogue-related__cover" href="'+url(candidate)+'" tabindex="-1" aria-hidden="true">'+image(candidate,True,'120px','catalogue-related__image','')+'</a><a href="'+url(candidate)+'">'+esc(candidate['titulo'])+'</a><p>'+esc(', '.join(candidate['autores']))+'</p></li>' for _,_,candidate in ranked[:6])+'</ul></section>'
+    return '<section class="catalogue-related" aria-labelledby="related-books"><h2 id="related-books">También te puede interesar</h2><ul>'+''.join('<li><a class="catalogue-related__cover" href="'+url(candidate)+'" tabindex="-1" aria-hidden="true">'+image(candidate,True,'120px','catalogue-related__image','')+'</a><a href="'+url(candidate)+'">'+esc(candidate['titulo'])+'</a><p>'+esc(', '.join(candidate['autores']))+'</p></li>' for candidate in chosen)+'</ul></section>'
 
 
 def render_detail_page(template,main,canonical,title,description,schema,b=None):
