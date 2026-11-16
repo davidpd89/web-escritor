@@ -72,6 +72,31 @@ def de_google(respuesta, isbn):
     return (f'https://books.google.com/books?id={hallado[0]}', hallado[1]) if hallado else None
 
 
+def sin_sinopsis(book):
+    """Publicada, sin sinopsis propia ni extraída y con un ISBN-13 que se pueda pedir."""
+    return (book.get('estado') == 'publicado' and not book.get('sinopsis_breve') and not book.get('sinopsis_completa')
+            and book.get('sinopsis_tipo') != 'resumen_propio' and bool(re.fullmatch(r'97[89]\d{10}', book.get('isbn13') or '')))
+
+
+def candidatos(catalogo, intentos, hoy):
+    """Fichas a pedir hoy, las de fecha más cercana primero; poda de `intentos` los reintentos ya vencidos."""
+    hoy_iso = hoy.isoformat()
+    for isbn in [i for i, hasta in intentos.items() if hasta <= hoy_iso]:
+        del intentos[isbn]
+    return sorted((b for b in catalogo['libros'] if sin_sinopsis(b) and b['isbn13'] not in intentos),
+                  key=lambda b: (cercania(b, hoy), b['isbn13']))
+
+
+def _textos(extraer, respuesta, isbn):
+    """(url, (breve, completa)) o None; una ficha rara no tumba el lote: ese libro, a reintentar."""
+    try:
+        hallado = extraer(respuesta, isbn)
+        textos = sinopsis_de(hallado[1]) if hallado else None
+    except Exception:  # noqa: BLE001
+        return None
+    return (hallado[0], textos) if textos else None
+
+
 def rellenar(catalogo, consulta, intentos, hoy, max_libros=120, extraer=de_google, reintento_dias=REINTENTO_DIAS,
              fallos=None):
     """Pone sinopsis a las fichas publicadas que no tienen; devuelve cuántas. `intentos` se modifica en sitio.
@@ -79,39 +104,21 @@ def rellenar(catalogo, consulta, intentos, hoy, max_libros=120, extraer=de_googl
     `consulta(isbn)` devuelve None si la fuente está caída (se para sin marcar); `extraer(respuesta, isbn)` da
     (url de procedencia, texto) solo si la respuesta es de ese ISBN exacto.
     """
-    hoy_iso = hoy.isoformat()
-    for isbn in [i for i, hasta in intentos.items() if hasta <= hoy_iso]:
-        del intentos[isbn]
-    candidatos = sorted((b for b in catalogo['libros']
-                         if b.get('estado') == 'publicado' and not b.get('sinopsis_breve') and not b.get('sinopsis_completa')
-                         and b.get('sinopsis_tipo') != 'resumen_propio'
-                         and re.fullmatch(r'97[89]\d{10}', b.get('isbn13') or '')
-                         and b['isbn13'] not in intentos),
-                        key=lambda b: (cercania(b, hoy), b['isbn13']))
-    puestas = pedidas = 0
-    for book in candidatos:
-        if pedidas >= max_libros:
-            break
-        pedidas += 1
-        respuesta = consulta(book['isbn13'])
+    fallos = {} if fallos is None else fallos
+    puestas = 0
+    for book in candidatos(catalogo, intentos, hoy)[:max_libros]:
+        isbn = book['isbn13']
+        respuesta = consulta(isbn)
         if respuesta is None:
             break  # Google caído o sin cuota: lo que quede, la próxima noche (sin marcar como intentado).
-        try:
-            hallado = extraer(respuesta, book['isbn13'])
-            textos = sinopsis_de(hallado[1]) if hallado else None
-        except Exception:  # noqa: BLE001 - una ficha rara no tumba el lote: ese libro, a reintentar
-            hallado = textos = None
-        if not textos:
-            intentos[book['isbn13']] = (hoy + timedelta(days=reintento_dias)).isoformat()
-            if fallos is not None:
-                fallos[book['isbn13']] = fallos.get(book['isbn13'], 0) + 1
+        hallado = _textos(extraer, respuesta, isbn)
+        if not hallado:
+            intentos[isbn] = (hoy + timedelta(days=reintento_dias)).isoformat()
+            fallos[isbn] = fallos.get(isbn, 0) + 1
             continue
-        book['sinopsis_breve'], completa = textos
-        book['sinopsis_completa'] = completa
+        book['sinopsis_fuente_url'], (book['sinopsis_breve'], book['sinopsis_completa']) = hallado
         book['sinopsis_tipo'] = 'extracto_editorial'
-        book['sinopsis_fuente_url'] = hallado[0]
-        if fallos is not None:
-            fallos.pop(book['isbn13'], None)
+        fallos.pop(isbn, None)
         puestas += 1
     return puestas
 
