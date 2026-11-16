@@ -149,10 +149,13 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+      # /version.json {sha, hoy}: qué commit y qué día de Madrid están publicados (R5-13, vigilancia del día).
       - name: Stamp exact release identity
+        env:
+          CATALOGO_HOY: ${{ needs.dia.outputs.hoy }}
         run: |
-          python scripts/stamp-release-identity.py --out .preview-dist --sha "$GITHUB_SHA"
-          python scripts/stamp-release-identity.py --check --out .preview-dist --sha "$GITHUB_SHA"
+          python scripts/stamp-release-identity.py --out .preview-dist --sha "$GITHUB_SHA" --hoy "$CATALOGO_HOY"
+          python scripts/stamp-release-identity.py --check --out .preview-dist --sha "$GITHUB_SHA" --hoy "$CATALOGO_HOY"
 
       - name: Stop Pages from Jekyll-processing the artifact
         run: touch .preview-dist/.nojekyll

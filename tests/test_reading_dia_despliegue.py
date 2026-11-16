@@ -4,6 +4,7 @@ Antes, `data_anchor` salía solo de las fechas de los datos: una noche sin carga
 lanzamientos y los descuentos en el día anterior. Ahora `--hoy` o CATALOGO_HOY mandan, y el despliegue los fija
 con la fecha de Madrid y se dispara también al cambiar el día.
 """
+import ast
 import importlib.util
 import sys
 import unittest
@@ -43,6 +44,75 @@ class DiaDelDespliegueTest(unittest.TestCase):
         self.assertEqual(b.dia_del_despliegue(date(2026, 11, 18), {'CATALOGO_HOY': '2026-11-17'}), '2026-11-18')
         with self.assertRaises(ValueError):
             b.dia_del_despliegue(None, {'CATALOGO_HOY': '17/11/2026'})  # nunca publicar otro día por error
+
+
+RELOJ = {('date', 'today'), ('datetime', 'now'), ('datetime', 'today'), ('datetime', 'utcnow'), ('time', 'time'),
+         ('time', 'localtime'), ('time', 'gmtime'), ('time', 'strftime'), ('time', 'time_ns')}
+
+
+def _cadena_de_construccion():
+    """Los builders de materializar y sus módulos locales importados, transitivamente."""
+    import materializar_generados as m
+    vistos, cola = set(), [ROOT / 'scripts' / builder[0] for builder in m.BUILDERS]
+    while cola:
+        f = cola.pop()
+        if f in vistos or not f.exists():
+            continue
+        vistos.add(f)
+        for n in ast.walk(ast.parse(f.read_text(encoding='utf-8'))):
+            nombres = ([a.name for a in n.names] if isinstance(n, ast.Import)
+                       else [n.module] if isinstance(n, ast.ImportFrom) and n.module and n.level == 0 else [])
+            cola.extend(ROOT / 'scripts' / (x.split('.')[0] + '.py') for x in nombres)
+    return vistos
+
+
+class UnSoloRelojTest(unittest.TestCase):
+    """R5-13 (hallazgo 24): ninguna pieza de la cadena lee el reloj por su cuenta; solo site_clock.site_today, que
+    obedece a CATALOGO_HOY. Si no, la CI con «mañana» y el deploy cruzando la medianoche mezclarían días."""
+
+    def test_la_cadena_solo_lee_el_reloj_en_site_today(self):
+        modulos = _cadena_de_construccion()
+        self.assertIn(ROOT / 'scripts/build-reading-catalogue.py', modulos)
+        self.assertIn(ROOT / 'scripts/site_clock.py', modulos)
+        lecturas = []
+        for f in modulos:
+            arbol = ast.parse(f.read_text(encoding='utf-8'))
+            permitidas = set()
+            if f.name == 'site_clock.py':
+                fn = next(n for n in arbol.body if isinstance(n, ast.FunctionDef) and n.name == 'site_today')
+                permitidas = {id(n) for n in ast.walk(fn)}
+            for n in ast.walk(arbol):
+                if isinstance(n, ast.Call) and isinstance(n.func, ast.Attribute) and id(n) not in permitidas:
+                    base = n.func.value
+                    nombre = base.attr if isinstance(base, ast.Attribute) else getattr(base, 'id', None)
+                    if (nombre, n.func.attr) in RELOJ:
+                        lecturas.append(f'{f.relative_to(ROOT)}:{n.lineno} {nombre}.{n.func.attr}()')
+        self.assertEqual(lecturas, [])
+
+    def test_site_today_obedece_al_dia_fijado(self):
+        import site_clock
+        anterior = site_clock.os.environ.pop('CATALOGO_HOY', None)
+        try:
+            site_clock.os.environ['CATALOGO_HOY'] = '2030-01-02'
+            self.assertEqual(site_clock.site_today(), date(2030, 1, 2))
+            site_clock.os.environ['CATALOGO_HOY'] = '02/01/2030'
+            with self.assertRaises(ValueError):
+                site_clock.site_today()
+        finally:
+            site_clock.os.environ.pop('CATALOGO_HOY', None)
+            if anterior is not None:
+                site_clock.os.environ['CATALOGO_HOY'] = anterior
+
+    def test_badge_sin_ancla_usa_el_dia_fijado(self):
+        anterior = b.site_clock.os.environ.get('CATALOGO_HOY')
+        try:
+            b.site_clock.os.environ['CATALOGO_HOY'] = '2026-11-17'
+            self.assertEqual(b.badge({'fecha_publicacion': '2026-11-18'}), 'proximamente')
+            self.assertEqual(b.badge({'fecha_publicacion': '2026-11-17'}), 'novedad')
+        finally:
+            b.site_clock.os.environ.pop('CATALOGO_HOY', None)
+            if anterior is not None:
+                b.site_clock.os.environ['CATALOGO_HOY'] = anterior
 
 
 class DespliegueTest(unittest.TestCase):

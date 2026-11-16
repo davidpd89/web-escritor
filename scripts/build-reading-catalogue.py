@@ -22,6 +22,7 @@ from PIL import Image
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from site_shell import inject_shell_auto
 from reading_intake_core import strip_shouting, decode_text_entities
+import site_clock
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://davidportodiaz.com"
@@ -374,7 +375,7 @@ def badge(b, anchor=None):
     stamp = b.get('fecha_publicacion')
     if not stamp:
         return ''
-    today = date.fromisoformat(anchor[:10]) if anchor else date.today()
+    today = date.fromisoformat(anchor[:10]) if anchor else site_clock.site_today()
     days = (today - date.fromisoformat(stamp)).days
     return 'proximamente' if days < 0 else 'novedad' if days <= NOVELTY_DAYS else ''
 
@@ -893,8 +894,8 @@ HOY = None  # día del despliegue (--hoy): si se da, manda sobre la fecha de los
 def dia_del_despliegue(hoy=None, entorno=None):
     """`--hoy` o, si no, CATALOGO_HOY (el despliegue la fija con la fecha de Madrid para toda la cadena de
     materializar); None si no hay ninguna. Una fecha mal escrita aborta (ValueError) en vez de publicar otro día."""
-    valor = hoy.isoformat() if hoy else (entorno or {}).get('CATALOGO_HOY', '')
-    return date.fromisoformat(valor).isoformat() if valor else None
+    dia = hoy or site_clock.dia_fijado(entorno or {})
+    return dia.isoformat() if dia else None
 
 
 def data_anchor(books):
