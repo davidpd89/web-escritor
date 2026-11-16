@@ -7,6 +7,7 @@ La carga desde Drive y Pinterest pertenecen a fases posteriores.
 from __future__ import annotations
 
 import argparse
+import functools
 import hashlib
 import html
 import json
@@ -73,12 +74,42 @@ BOOK_FIELDS.update({'sinopsis_breve', 'sinopsis_fuente_url', 'sinopsis_tipo', 'c
 
 
 class ValidationError(ValueError):
-    pass
+    """Fallo de validación con su dueño como dato: `libro` (id del libro, o None si es una regla general), `regla`
+    (el motivo sin el libro, para agrupar incidencias) y `otro` (el libro gemelo de una portada duplicada). La
+    cuarentena aparta por estos atributos; el texto es solo para personas y puede cambiar sin consecuencias.
+    `general` marca un fallo de un fichero común (sellos, autores): nunca se atribuye a la ficha en curso, porque
+    apartar ese libro ocultaría el error y el siguiente lote lo arrastraría.
+    Sin id utilizable (id inválido o repetido) el dueño va por su sitio: `posicion` en `libros` o `relacion` en
+    `libro_categorias` (R5-10). `otro` es el libro con el que choca cualquier unicidad entre dos fichas."""
+
+    def __init__(self, message, libro=None, regla=None, otro=None, general=False, posicion=None, relacion=None):
+        super().__init__(message)
+        self.libro, self.regla, self.otro, self.general = libro, regla, otro, general
+        self.posicion, self.relacion = posicion, relacion
 
 
-def require(ok, message):
+def fallo_general(carga):
+    """Los fallos al validar un fichero común salen como generales (`ValidationError.general`)."""
+    @functools.wraps(carga)
+    def envuelta(*args, **kwargs):
+        try:
+            return carga(*args, **kwargs)
+        except ValidationError as exc:
+            exc.general, exc.libro = True, None
+            raise
+    return envuelta
+
+
+def require(ok, message, libro=None, regla=None, otro=None):
     if not ok:
-        raise ValidationError(message)
+        raise ValidationError(message, libro=libro, regla=regla, otro=otro)
+
+
+def _regla(message, libro):
+    """El motivo sin el id del libro delante («<id>: …» o «<id>.campo: …»)."""
+    if libro and message.startswith(libro):
+        return message[len(libro):].lstrip('.:').strip() or message
+    return message
 
 
 def esc(value):
@@ -100,14 +131,43 @@ def day(raw, name):
     try:
         return date.fromisoformat(raw)
     except ValueError as exc:
-        raise ValidationError(f"{name}: fecha inválida") from exc
+        raise ValidationError(f"{name}: fecha inválida", regla='fecha inválida') from exc
 
 
 def valid_isbn(value):
     return isinstance(value, str) and bool(re.fullmatch(r"97[89][0-9]{10}", value)) and sum(int(n) * (1 if i % 2 == 0 else 3) for i, n in enumerate(value)) % 10 == 0
 
 
-def validate(data, root):
+def con_libro(valida):
+    """Un fallo dentro de la ficha de un libro sale con ese libro en `ValidationError.libro` (y su motivo en
+    `regla`): `valida` anota en `actual['libro']` la ficha que está revisando."""
+    @functools.wraps(valida)
+    def envuelta(data, root):
+        actual = {}
+        try:
+            return valida(data, root, actual)
+        except ValidationError as exc:
+            if exc.libro is None and exc.posicion is None and exc.relacion is None and not exc.general:
+                exc.libro = actual.get('libro')
+                if exc.libro is None:
+                    exc.posicion, exc.relacion = actual.get('posicion'), actual.get('relacion')
+            if exc.regla is None:
+                exc.regla = _regla(str(exc), exc.libro)
+            raise
+        except Exception as exc:
+            # R5-10 (18): un dato con forma inesperada que revienta el código al recorrer una ficha o una relación
+            # es de esa ficha; solo lo que salta fuera de ellas (esquema global) sigue sin dueño.
+            libro, posicion, relacion = actual.get('libro'), actual.get('posicion'), actual.get('relacion')
+            if libro is None and posicion is None and relacion is None:
+                raise
+            raise ValidationError(f'{libro or "libro"}: excepción {type(exc).__name__}: {exc}'[:300], libro=libro,
+                                  regla='excepcion', posicion=None if libro else posicion,
+                                  relacion=None if libro else relacion) from exc
+    return envuelta
+
+
+@con_libro
+def validate(data, root, actual):
     require(isinstance(data, dict) and data.get("schema_version") == 1, "schema_version debe ser 1")
     require(set(data) == {"schema_version", "categorias", "libros", "libro_categorias"}, "Campos raíz desconocidos o ausentes")
     cats, books, relations = data["categorias"], data["libros"], data["libro_categorias"]
@@ -119,9 +179,20 @@ def validate(data, root):
         require(SLUG.fullmatch(c["id"]) and SLUG.fullmatch(c["slug"]) and c["id"] not in ids and c["slug"] not in slugs, "Categoría duplicada o clave inválida")
         require(c["tipo"] in TYPES and type(c["activa"]) is bool and type(c["orden"]) is int, "Categoría: tipo/orden/activa inválidos")
         ids.add(c["id"]); slugs.add(c["slug"])
-    book_ids, book_slugs, isbns, covers, hashes, amazon_urls, works, descriptions = (set() for _ in range(8))
-    hash_owner = {}
-    for b in books:
+    book_ids, covers = set(), set()
+    # Cada unicidad entre dos fichas guarda quién tenía ya el valor: el fallo lleva a los dos (`libro` y `otro`) y la
+    # cuarentena aparta el que cambió, no el que ya estaba publicado así (R5-10, hallazgo 15).
+    slug_owner, isbn_owner, amazon_owner, work_owner, desc_owner, hash_owner = ({} for _ in range(6))
+
+    def unico(owners, key, name, regla):
+        require(key not in owners, f'{name}: {regla} (igual que {owners.get(key)})', regla=regla, otro=owners.get(key))
+        owners[key] = name
+
+    for pos, b in enumerate(books):
+        # Todo fallo desde aquí hasta el final de la ficha es de este libro: por su id si es utilizable y único; si
+        # no, por su posición en la lista.
+        actual['posicion'] = pos
+        actual['libro'] = b['id'] if isinstance(b, dict) and isinstance(b.get('id'), str) and SLUG.fullmatch(b['id']) and b['id'] not in book_ids else None
         unknown = set(b) - BOOK_FIELDS if isinstance(b, dict) else set()
         # Nombrar el libro (y los campos) permite que la cuarentena aparte solo esa ficha; un campo colado
         # por una fase de la carga ya no tumba todo el lote con un error sin dueño.
@@ -131,16 +202,17 @@ def validate(data, root):
         for key in ("id", "slug", "titulo", "estado"):
             require(isinstance(b.get(key), str) and b[key].strip(), f"Libro sin {key}")
         name = b["id"]
-        require(SLUG.fullmatch(name) and name not in book_ids and SLUG.fullmatch(b["slug"]) and b["slug"] not in book_slugs, f"{name}: id/slug inválido o duplicado")
-        book_ids.add(name); book_slugs.add(b["slug"])
+        require(SLUG.fullmatch(name) and name not in book_ids, f"{name}: id inválido o duplicado", regla='id inválido o duplicado')
+        require(SLUG.fullmatch(b["slug"]), f"{name}: slug inválido")
+        unico(slug_owner, b['slug'], name, 'slug duplicado')
+        book_ids.add(name)
         require(b["estado"] in {"borrador", "listo", "publicado"}, f"{name}: estado inválido")
         require(isinstance(b.get("autores"), list) and b["autores"] and all(isinstance(a, str) and a.strip() for a in b["autores"]), f"{name}: autores debe ser una lista")
         work = (b['titulo'].strip().casefold(), tuple(sorted(a.strip().casefold() for a in b['autores'])))
-        require(work not in works, f"{name}: obra duplicada; reunir las ediciones en una ficha")
-        works.add(work)
+        unico(work_owner, work, name, 'obra duplicada; reunir las ediciones en una ficha')
         if b.get("isbn13"):
-            require(valid_isbn(b["isbn13"]) and b["isbn13"] not in isbns, f"{name}: ISBN inválido o duplicado")
-            isbns.add(b["isbn13"])
+            require(valid_isbn(b["isbn13"]), f"{name}: ISBN inválido")
+            unico(isbn_owner, b['isbn13'], name, 'ISBN duplicado')
         if b.get('editorial_slug'):
             require(SLUG.fullmatch(b['editorial_slug']) and (root / 'editoriales' / b['editorial_slug'] / 'index.html').is_file(), f'{name}: editorial inexistente')
         if b.get('editorial_catalogo_slug'):
@@ -164,8 +236,7 @@ def validate(data, root):
         require(b.get("portada_edicion_verificada") is True and b.get("descripcion_original_confirmada") is True, f"{name}: falta confirmación de edición/descripción original")
         require(type(b.get("lectura_personal_confirmada", False)) is bool and type(b.get("autoria_propia", False)) is bool, f"{name}: confirmaciones deben ser booleanas")
         require(40 <= len(b["descripcion_breve"]) <= 1200, f"{name}: descripción debe tener 40–1200 caracteres")
-        require(b['descripcion_breve'].strip().casefold() not in descriptions, f"{name}: descripción duplicada")
-        descriptions.add(b['descripcion_breve'].strip().casefold())
+        unico(desc_owner, b['descripcion_breve'].strip().casefold(), name, 'descripción duplicada')
         if b.get('sinopsis_breve'):
             require(isinstance(b['sinopsis_breve'], str) and 30 <= len(b['sinopsis_breve']) <= 700, f'{name}: sinopsis inválida')
             require(b.get('sinopsis_tipo') in {'extracto_editorial', 'resumen_propio'} and https(b.get('sinopsis_fuente_url')), f'{name}: sinopsis sin procedencia')
@@ -202,7 +273,8 @@ def validate(data, root):
         file = (root / cover.lstrip("/")).resolve()
         require(file.is_relative_to(root.resolve()) and file.is_file(), f"{name}: portada local inexistente")
         digest = hashlib.sha256(file.read_bytes()).hexdigest()
-        require(cover not in covers and digest not in hash_owner, f"{name}: portada duplicada (igual que {hash_owner.get(digest, 'otra ruta')})")
+        require(cover not in covers and digest not in hash_owner, f"{name}: portada duplicada (igual que {hash_owner.get(digest, 'otra ruta')})",
+                regla='portada duplicada', otro=hash_owner.get(digest))
         covers.add(cover); hash_owner[digest] = b.get("id", name)
         require(all(type(b.get(k)) is int and b[k] > 0 for k in ("portada_ancho", "portada_alto")), f"{name}: dimensiones de portada obligatorias")
         try:
@@ -211,7 +283,7 @@ def validate(data, root):
                 require(img.format in {'JPEG', 'PNG', 'WEBP'}, f"{name}: formato de portada inválido")
                 img.verify()
         except OSError as exc:
-            raise ValidationError(f"{name}: portada corrupta") from exc
+            raise ValidationError(f"{name}: portada corrupta", libro=name, regla='portada corrupta') from exc
         if b.get("url_amazon_afiliada"):
             url = b["url_amazon_afiliada"]
             require(https(url), f"{name}: URL Amazon inválida")
@@ -220,8 +292,7 @@ def validate(data, root):
             short = parsed.hostname == "amzn.to" and bool(re.fullmatch(r"/[A-Za-z0-9]+", parsed.path)) and not parsed.query
             require(direct or short, f"{name}: se requiere enlace de producto Amazon.es con tag o enlace corto verificado")
             product = (parsed.hostname, parsed.path) if short else re.search(r"(?:dp|gp/product)/([A-Z0-9]{10})", parsed.path).group(1)
-            require(product not in amazon_urls, f"{name}: producto Amazon duplicado")
-            amazon_urls.add(product)
+            unico(amazon_owner, product, name, 'producto Amazon duplicado')
         formats = b.get('formatos_compra', [])
         require(isinstance(formats, list), f'{name}: formatos_compra debe ser una lista')
         seen_formats = set()
@@ -247,24 +318,30 @@ def validate(data, root):
             require(isinstance(review["titulo"], str) and review["titulo"].strip() and https(review["url"]) and review["url"] not in seen_reviews, f"{name}: reseña sin título/URL o duplicada")
             day(review["fecha_verificacion"], name + ".reseña")
             seen_reviews.add(review["url"])
+    actual['libro'] = actual['posicion'] = None
     excluded_by_book = {}
     for b in books:
         excluded = b.get('categorias_excluidas', [])
-        require(isinstance(excluded, list) and all(isinstance(c, str) and c in ids for c in excluded), f"{b['id']}: exclusiones de categorías inválidas")
+        require(isinstance(excluded, list) and all(isinstance(c, str) and c in ids for c in excluded), f"{b['id']}: exclusiones de categorías inválidas", libro=b['id'])
         excluded_by_book[b['id']] = set(excluded)
     seen = set()
-    for rel in relations:
+    for i, rel in enumerate(relations):
+        # Una relación rota es de su libro si existe; si no, de la propia relación (la cuarentena la quita).
+        actual['libro'] = rel.get('libro_id') if isinstance(rel, dict) and rel.get('libro_id') in book_ids else None
+        actual['relacion'] = i
         require(isinstance(rel, dict) and set(rel) == {"libro_id", "categoria_id"}, "Relación mal formada")
         pair = (rel["libro_id"], rel["categoria_id"])
         require(pair[0] in book_ids and pair[1] in ids and pair not in seen, "Relación duplicada o referencia inexistente")
-        require(pair[1] not in excluded_by_book[pair[0]], f"{pair[0]}: categoría {pair[1]} asignada y excluida simultáneamente")
+        require(pair[1] not in excluded_by_book[pair[0]], f"{pair[0]}: categoría {pair[1]} asignada y excluida simultáneamente",
+                libro=pair[0], regla='categoría asignada y excluida simultáneamente')
         seen.add(pair)
+    actual['libro'] = actual['relacion'] = None
     # Conjunto precalculado: buscar por libro en todas las relaciones crecía con el cuadrado del catálogo.
     active = {c["id"] for c in cats if c["activa"]}
     with_active = {r["libro_id"] for r in relations if r["categoria_id"] in active}
     for b in books:
         if b["estado"] != "borrador":
-            require(b["id"] in with_active, f"{b['id']}: sin categoría activa")
+            require(b["id"] in with_active, f"{b['id']}: sin categoría activa", libro=b['id'])
     return [b for b in books if b["estado"] == "publicado"]
 
 
@@ -599,6 +676,7 @@ def author_records(root=ROOT):
     return AUTHOR_CACHE[key]
 
 
+@fallo_general
 def load_author_records(path):
     payload = json.loads(path.read_text(encoding='utf-8'))
     require(set(payload) == {'schema_version', 'autores'} and payload['schema_version'] == 1, 'Contrato de autores inválido')
@@ -637,6 +715,7 @@ def publisher_records(root=ROOT):
     return PUBLISHER_CACHE[key]
 
 
+@fallo_general
 def load_publisher_records(path):
     payload = json.loads(path.read_text(encoding='utf-8'))
     require(set(payload) == {'schema_version', 'editoriales'} and payload['schema_version'] == 1, 'Contrato de sellos inválido')

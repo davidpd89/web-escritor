@@ -122,13 +122,13 @@ class RepairTests(unittest.TestCase):
 
     def test_unknown_field_error_names_the_book(self):
         # Un campo colado (p. ej. no_lectura) debe nombrar su libro para que la cuarentena lo aparte
-        # en vez de tumbar el lote con un error sin dueño (culprit() devolvía None).
+        # en vez de tumbar el lote con un error sin dueño (el fallo no tenía dueño).
         data = copy.deepcopy(DATA)
         book = next(b for b in data['libros'] if b['estado'] == 'publicado')
         book['no_lectura'] = 'método de idiomas'
         with self.assertRaises(q.build.ValidationError) as cm:
             q.build.validate(data, ROOT)
-        self.assertEqual(q.culprit(str(cm.exception), data), book['id'])
+        self.assertEqual(q.owner(cm.exception, data), book['id'])
 
     def test_retired_book_keeps_no_price(self):
         offer = {'formato': 'tapa-blanda', 'url': 'https://www.amazon.es/dp/X', 'precio_centimos': 1795,
