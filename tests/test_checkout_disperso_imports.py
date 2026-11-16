@@ -5,6 +5,7 @@ descargan ese fichero: la carga y el reflow habrían fallado con ModuleNotFoundE
 """
 import ast
 import fnmatch
+import functools
 import unittest
 from pathlib import Path
 
@@ -13,21 +14,26 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 
 
+@functools.cache
+def directos(script):
+    """Módulos de scripts/ que `script` importa directamente (cada fichero se analiza una sola vez)."""
+    salida = set()
+    for nodo in ast.walk(ast.parse((ROOT / script).read_text(encoding='utf-8'))):
+        nombres = [a.name for a in nodo.names] if isinstance(nodo, ast.Import) else \
+            [nodo.module] if isinstance(nodo, ast.ImportFrom) and nodo.module and not nodo.level else []
+        salida.update(r for r in (f"scripts/{n.split('.')[0]}.py" for n in nombres) if (ROOT / r).exists())
+    return frozenset(salida)
+
+
+@functools.cache
 def propios(script):
     """Módulos de scripts/ que importa `script`, transitivamente."""
     vistos, pendientes = set(), [script]
     while pendientes:
-        actual = pendientes.pop()
-        arbol = ast.parse((ROOT / actual).read_text(encoding='utf-8'))
-        for nodo in ast.walk(arbol):
-            nombres = [a.name for a in nodo.names] if isinstance(nodo, ast.Import) else \
-                [nodo.module] if isinstance(nodo, ast.ImportFrom) and nodo.module and not nodo.level else []
-            for nombre in nombres:
-                ruta = f"scripts/{nombre.split('.')[0]}.py"
-                if (ROOT / ruta).exists() and ruta not in vistos:
-                    vistos.add(ruta)
-                    pendientes.append(ruta)
-    return vistos
+        for ruta in directos(pendientes.pop()) - vistos:
+            vistos.add(ruta)
+            pendientes.append(ruta)
+    return frozenset(vistos)
 
 
 def cubre(rutas, fichero):
@@ -37,15 +43,20 @@ def cubre(rutas, fichero):
     for r in rutas:
         neg, patron = r.startswith('!'), r.lstrip('!').lstrip('/')
         if patron == fichero or (patron.endswith('/') and fichero.startswith(patron)) or (
-                '*' in patron and fnmatch.fnmatchcase(fichero, patron)) or (patron.endswith('/*') and fichero.startswith(patron[:-1])):
+                any(c in patron for c in '*?[') and fnmatch.fnmatchcase(fichero, patron)) or (
+                patron.endswith('/*') and fichero.startswith(patron[:-1])):
             dentro = not neg
     return dentro
 
 
+TODOS = sorted(p.relative_to(ROOT).as_posix() for p in (ROOT / 'scripts').glob('*.py'))
+
+
 def faltan(disperso):
-    """Módulos propios que importan los scripts del checkout y que el checkout no trae."""
+    """Módulos propios que importan los scripts del checkout (nombrados o traídos por un directorio o comodín) y
+    que el checkout no trae."""
     rutas = [r.strip() for r in disperso.splitlines() if r.strip()]
-    scripts = [r.lstrip('/') for r in rutas if r.lstrip('/').startswith('scripts/') and r.endswith('.py')]
+    scripts = [s for s in TODOS if cubre(rutas, s)]
     return sorted({m for s in scripts for m in propios(s) if not cubre(rutas, m)}), len(scripts)
 
 
@@ -71,6 +82,12 @@ class CheckoutDisperso(unittest.TestCase):
         self.assertEqual(caso('scripts/ci_intake_backup.py', 'scripts/'), [])
         self.assertEqual(caso('scripts/ci_intake_backup.py', 'scripts/*'), [])
         self.assertEqual(caso('/*', '!/assets/no usadas/'), [])
+        # Un directorio trae ci_intake_backup.py aunque no se nombre; una exclusión con ? o [] sí quita gh_listas.
+        self.assertEqual(caso('scripts/', '!/scripts/gh_listas.py'), ['scripts/gh_listas.py'])
+        self.assertEqual(caso('scripts/ci_intake_backup.py', 'scripts/gh_listas.py', '!/scripts/gh_lista?.py'),
+                         ['scripts/gh_listas.py'])
+        self.assertEqual(caso('scripts/ci_intake_backup.py', 'scripts/gh_listas.py', '!/scripts/gh_[l]istas.py'),
+                         ['scripts/gh_listas.py'])
 
 
 if __name__ == '__main__':
