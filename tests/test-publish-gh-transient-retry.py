@@ -11,6 +11,15 @@ mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
 GRAPHQL = 'GraphQL: Something went wrong while executing your query on 2026-11-04T11:07:05Z.'
 
 
+def primera_vez():
+    """True solo en la primera escritura (--method) que ve: la foto previa de update-branch hace lecturas antes."""
+    visto = []
+    def es_primera(a):
+        visto.append(1)
+        return len(visto) == 1
+    return es_primera
+
+
 def fake(script):
     calls = []
     def run(cmd, **kw):
@@ -126,9 +135,9 @@ with mock.patch.object(mod.time, 'sleep', lambda s: None):
         assert mod.gh('pr', 'merge', '9', '--squash') == mod.YA_APLICADA
     assert fusion['merges'] == mod.GH_ATTEMPTS, calls
     # update-branch con 502 y la cabeza movida por otro push (no hija de la esperada): se repite y el 422 se propaga.
-    def otro_push(a, n):
+    def otro_push(a, n, primera=primera_vez()):
         if '--method' in a:
-            return (1, '', 'HTTP 502: Bad Gateway') if n == 1 else (1, '', 'HTTP 422: expected head sha mismatch')
+            return (1, '', 'HTTP 502: Bad Gateway') if primera(a) else (1, '', 'HTTP 422: expected head sha mismatch')
         if a[1] == 'repos/o/r/pulls/9':
             return 0, json.dumps({'cabeza': 'ajeno22', 'base': 'main'}), ''
         return 0, json.dumps(['otro333']), ''
@@ -141,9 +150,9 @@ with mock.patch.object(mod.time, 'sleep', lambda s: None):
             assert '422' in exc.stderr, exc.stderr
     assert sum('--method' in c for c in calls) == 2, calls
     # Un push lineal de otro escritor sobre la cabeza esperada no prueba que update-branch llegara: se repite.
-    def lineal(a, n):
+    def lineal(a, n, primera=primera_vez()):
         if '--method' in a:
-            return (1, '', 'HTTP 502: Bad Gateway') if n == 1 else (1, '', 'HTTP 422: expected head sha mismatch')
+            return (1, '', 'HTTP 502: Bad Gateway') if primera(a) else (1, '', 'HTTP 422: expected head sha mismatch')
         if a[1] == 'repos/o/r/pulls/9':
             return 0, json.dumps({'cabeza': 'lineal33', 'base': 'main'}), ''
         if a[1] == 'repos/o/r/git/ref/heads/main':
@@ -158,9 +167,9 @@ with mock.patch.object(mod.time, 'sleep', lambda s: None):
             assert '422' in exc.stderr, exc.stderr
     assert sum('--method' in c for c in calls) == 2, calls
     # Un merge de la cabeza esperada con un main anterior (no la punta actual) no es esta actualización: se repite.
-    def main_viejo(a, n):
+    def main_viejo(a, n, primera=primera_vez()):
         if '--method' in a:
-            return (1, '', 'HTTP 502: Bad Gateway') if n == 1 else (1, '', 'HTTP 422: expected head sha mismatch')
+            return (1, '', 'HTTP 502: Bad Gateway') if primera(a) else (1, '', 'HTTP 422: expected head sha mismatch')
         if a[1] == 'repos/o/r/pulls/9':
             return 0, json.dumps({'cabeza': 'merge77', 'base': 'main'}), ''
         if a[1] == 'repos/o/r/git/ref/heads/main':
@@ -174,6 +183,23 @@ with mock.patch.object(mod.time, 'sleep', lambda s: None):
         except subprocess.CalledProcessError as exc:
             assert '422' in exc.stderr, exc.stderr
     assert sum('--method' in c for c in calls) == 2, calls
+    # main avanza después de aplicarse el PUT: la base del merge es la foto previa, no la punta nueva. No se repite.
+    tras_put = {'puts': 0}
+    def main_avanza(a, n):
+        if '--method' in a:
+            tras_put['puts'] += 1
+            return 1, '', 'HTTP 502: Bad Gateway'
+        if a[1] == 'repos/o/r/pulls/9':
+            return 0, json.dumps({'cabeza': 'merge1' if tras_put['puts'] else 'abcdef1999', 'base': 'main'}), ''
+        if a[1] == 'repos/o/r/git/ref/heads/main':
+            return 0, 'main111' if tras_put['puts'] else 'main000', ''
+        if a[1].startswith('repos/o/r/compare/'):
+            return 0, 'behind', ''
+        return 0, json.dumps(['abcdef1999', 'main000']), ''
+    run, calls = fake(main_avanza)
+    with mock.patch.object(mod.subprocess, 'run', run):
+        assert mod.gh('api', '--method', 'PUT', 'repos/o/r/pulls/9/update-branch', '-f', 'expected_head_sha=abcdef1') == mod.YA_APLICADA
+    assert tras_put['puts'] == 1, calls
     # Un status que falla en todos los intentos no espera tras el último: no hay efecto que comprobar.
     pausas.clear()
     run, calls = fake(lambda a, n: (1, '', 'HTTP 502: Bad Gateway'))

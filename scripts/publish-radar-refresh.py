@@ -108,8 +108,10 @@ def _comprobacion_escritura(args):
     fusionó, un `workflow run` que creó la ejecución, un `run rerun` que subió el número de intento, un `pr close` o
     un `run cancel` que ya tienen efecto. Un status (POST) es idempotente: se repite sin comprobar nada
     (`(None, None)`) y tras su último fallo no se espera. `update-branch` con `expected_head_sha` llegó si la cabeza
-    nueva de la PR es un merge de dos padres: la cabeza esperada y la punta actual de la rama base (repetirlo daría
-    422; un merge con un main anterior no es esta actualización). Un push lineal sobre la cabeza esperada u otro movimiento no prueban nada y
+    nueva de la PR es un merge de dos padres: la cabeza esperada y una base que contiene la punta que tenía la rama
+    base justo antes del PUT (foto previa). main puede avanzar mientras se espera el reintento: compararlo con la punta
+    de ahora daría la actualización por no llegada y el reintento, un 422 (repetirlo daría 422; un merge con un main
+    anterior a la foto no es esta actualización). Un push lineal sobre la cabeza esperada u otro movimiento no prueban nada y
     se repite (su 422 es el StaleMerge de siempre). `workflow run` no se
     repite: sin el id de la ejecución, una ejecución nueva en la misma rama puede ser de otro despacho (R5-14 usará
     `return_run_details`). Sin comprobación, la escritura no se repite (como antes).
@@ -132,8 +134,19 @@ def _comprobacion_escritura(args):
         pr = re.fullmatch(r'repos/([^/]+/[^/]+)/pulls/(\d+)/update-branch', ruta)
         previa = next((x.split('=', 1)[1] for x in a if x.startswith('expected_head_sha=')), None)
         if pr and previa:
-            def aplicado(_):
-                datos = json.loads(gh('api', f'repos/{pr[1]}/pulls/{pr[2]}', '--jq', '{cabeza: .head.sha, base: .base.ref}'))
+            def datos_pr():
+                return json.loads(gh('api', f'repos/{pr[1]}/pulls/{pr[2]}', '--jq', '{cabeza: .head.sha, base: .base.ref}'))
+
+            def punta(base):
+                return gh('api', f'repos/{pr[1]}/git/ref/heads/{base}', '--jq', '.object.sha')
+
+            try:
+                foto = punta(datos_pr()['base'])
+            except (subprocess.CalledProcessError, ValueError, KeyError):
+                foto = None  # sin foto solo vale la punta de después
+
+            def aplicado(foto):
+                datos = datos_pr()
                 cabeza = datos['cabeza']
                 if cabeza.startswith(previa) or previa.startswith(cabeza):
                     return False
@@ -141,8 +154,10 @@ def _comprobacion_escritura(args):
                 otros = [p for p in padres if not p.startswith(previa)]
                 if len(padres) != 2 or len(otros) != 1:
                     return False
-                return otros[0] == gh('api', f'repos/{pr[1]}/git/ref/heads/{datos["base"]}', '--jq', '.object.sha')
-            return None, aplicado
+                if otros[0] in (foto, punta(datos['base'])):
+                    return True
+                return bool(foto) and gh('api', f'repos/{pr[1]}/compare/{foto}...{otros[0]}', '--jq', '.status') in ('ahead', 'identical')
+            return foto, aplicado
     return None
 
 
