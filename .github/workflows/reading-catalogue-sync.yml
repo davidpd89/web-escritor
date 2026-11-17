@@ -138,11 +138,19 @@ jobs:
           HARDCOVER_API_KEY: ${{ secrets.HARDCOVER_API_KEY }}
           AMAZON_CREATORS_CLIENT_ID: ${{ secrets.AMAZON_CREATORS_CLIENT_ID }}
           AMAZON_CREATORS_CLIENT_SECRET: ${{ secrets.AMAZON_CREATORS_CLIENT_SECRET }}
+          # R4-9: la PR se abre con la App para que dispare sus comprobaciones; sin ellas se despacha como antes.
+          REPARADOR_APP_ID: ${{ vars.REPARADOR_APP_ID }}
+          REPARADOR_APP_INSTALLATION_ID: ${{ vars.REPARADOR_APP_INSTALLATION_ID }}
+          REPARADOR_APP_PRIVATE_KEY: ${{ secrets.REPARADOR_APP_PRIVATE_KEY }}
         shell: bash
         run: |
           set -euo pipefail
           if [ "$DRY_RUN" = 'true' ]; then
             python scripts/refresh-reading-catalogue.py
+            # El ensayo no abre PR: comprueba aparte que la App da token (R4-9), sin mostrarlo.
+            if [ -n "${REPARADOR_APP_ID:-}" ]; then
+              if node scripts/app_token.mjs >/dev/null; then echo 'Token de la App: OK'; else echo '::warning::Sin token de la App: la PR se abriría con GITHUB_TOKEN'; fi
+            fi
           else
             # Exit 75: main moved while the bot PR was in CI. The second attempt
             # finds that green PR still open and carries its source data (books,
