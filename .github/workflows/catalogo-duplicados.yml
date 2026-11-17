@@ -9,7 +9,7 @@ name: Duplicados del catálogo
 on:
   workflow_dispatch:
   schedule:
-    - cron: '41 6 * * 2'
+    - cron: '41 4 * * 2'
 
 permissions:
   contents: read

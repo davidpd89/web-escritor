@@ -19,7 +19,7 @@ on:
       - ".github/workflows/ortografia.yml"
   workflow_dispatch:
   schedule:
-    - cron: '41 6 * * 4'
+    - cron: '41 5 * * 4'
 
 permissions:
   contents: read
