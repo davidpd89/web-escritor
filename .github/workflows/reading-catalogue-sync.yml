@@ -36,6 +36,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  issues: write
   actions: write
   statuses: write
 
@@ -142,11 +143,19 @@ jobs:
           HARDCOVER_API_KEY: ${{ secrets.HARDCOVER_API_KEY }}
           AMAZON_CREATORS_CLIENT_ID: ${{ secrets.AMAZON_CREATORS_CLIENT_ID }}
           AMAZON_CREATORS_CLIENT_SECRET: ${{ secrets.AMAZON_CREATORS_CLIENT_SECRET }}
+          # R4-9: la PR se abre con la App para que dispare sus comprobaciones; sin ellas se despacha como antes.
+          REPARADOR_APP_ID: ${{ vars.REPARADOR_APP_ID }}
+          REPARADOR_APP_INSTALLATION_ID: ${{ vars.REPARADOR_APP_INSTALLATION_ID }}
+          REPARADOR_APP_PRIVATE_KEY: ${{ secrets.REPARADOR_APP_PRIVATE_KEY }}
         shell: bash
         run: |
           set -euo pipefail
           if [ "$DRY_RUN" = 'true' ]; then
             python scripts/refresh-reading-catalogue.py
+            # El ensayo no abre PR: comprueba aparte que la App da token (R4-9), sin mostrarlo.
+            if [ -n "${REPARADOR_APP_ID:-}" ]; then
+              if node scripts/app_token.mjs >/dev/null; then echo 'Token de la App: OK'; else echo '::warning::Sin token de la App: la PR se abriría con GITHUB_TOKEN'; fi
+            fi
           else
             # Exit 75: main moved while the bot PR was in CI. The second attempt
             # finds that green PR still open and carries its source data (books,
@@ -188,10 +197,11 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          accepted=$(python -c "import json,pathlib;p=pathlib.Path('.ci/reading-intake/publisher-report.json');print(json.loads(p.read_text(encoding='utf-8')).get('stats',{}).get('accepted',0) if p.exists() else 0)")
-          if python scripts/noche.py cadena --aceptados "$accepted"; then
+          # Also while saved data branches remain (Fable F8): several checkpoints used to need several nights.
+          read -r accepted saved <<< "$(python -c "import json,pathlib;p=pathlib.Path('.ci/reading-intake/publisher-report.json');s=json.loads(p.read_text(encoding='utf-8')).get('stats',{}) if p.exists() else {};print(int(s.get('accepted',0)),int(s.get('checkpoints_restantes',0)))")"
+          if python scripts/noche.py cadena --aceptados "$accepted" --guardadas "$saved"; then
             gh workflow run reading-catalogue-sync.yml --repo "$GITHUB_REPOSITORY" --ref main -f motivo=cadena
-            echo "Next night batch dispatched (accepted $accepted)." >> "$GITHUB_STEP_SUMMARY"
+            echo "Next night batch dispatched (accepted $accepted, saved $saved)." >> "$GITHUB_STEP_SUMMARY"
           fi
       - name: Retry a failed night batch
         # 2026-11-14: two batches failed after accepting 200 books each and the chain stopped until the
