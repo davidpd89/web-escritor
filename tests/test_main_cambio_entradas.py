@@ -20,6 +20,24 @@ class MainCambioEntradas(unittest.TestCase):
         with compare([{'filename': 'data/reading-catalogue.json'}], ahead=0):
             self.assertEqual(publication.main_cambio_entradas('o/r', 's'), [])
 
+    def test_1419_un_script_que_ningun_builder_lee_no_dispara_regeneracion(self):
+        """main cambió scripts/reading-texts.py durante la CI de #1419 y StaleMerge regeneró la carga entera: ningún
+        builder lo importa (lo lleva reading_intake_pipeline.py, fuera de la cadena), así que no es una entrada."""
+        with compare([{'filename': 'scripts/reading-texts.py'}]):
+            self.assertEqual(publication.main_cambio_entradas('o/r', 's'), [])
+        with compare([{'filename': 'scripts/reading-amazon-audit.py'}]):
+            self.assertEqual(publication.main_cambio_entradas('o/r', 's'), [])
+
+    def test_un_script_que_un_builder_importa_si_dispara_regeneracion(self):
+        with compare([{'filename': 'scripts/reading_intake_core.py'}]):
+            self.assertEqual(publication.main_cambio_entradas('o/r', 's'), ['scripts/reading_intake_core.py'])
+        with compare([{'filename': 'scripts/site_clock.py'}]):
+            self.assertEqual(publication.main_cambio_entradas('o/r', 's'), ['scripts/site_clock.py'])
+
+    def test_un_builder_dispara_regeneracion_por_el_nombre(self):
+        with compare([{'filename': 'scripts/build-reading-catalogue.py'}]):
+            self.assertEqual(publication.main_cambio_entradas('o/r', 's'), ['scripts/build-reading-catalogue.py'])
+
     def test_una_pagina_retirada_por_renombrado_cuenta(self):
         """CodeRabbit #1320: index.html -> index.html.bak solo traía el destino, que no es entrada de nadie."""
         files = [{'filename': 'recomendaciones/libros/x/index.html.bak', 'status': 'renamed',

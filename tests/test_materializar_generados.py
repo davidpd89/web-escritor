@@ -149,6 +149,28 @@ class AsegurarAntesDeLaSuite(unittest.TestCase):
             self.assertEqual(len(construidas), 3)
 
 
+class EntradasBuilders(unittest.TestCase):
+    def test_scripts_no_importados_por_ningun_builder_quedan_fuera(self):
+        """#1419: decenas de scripts/reading*.py (auditoría de Amazon, textos, radar) no los lee ningún builder."""
+        entradas = mat.entradas_builders()
+        self.assertNotIn('scripts/reading-texts.py', entradas)
+        self.assertNotIn('scripts/reading-amazon-audit.py', entradas)
+        self.assertNotIn('scripts/reading_intake_pipeline.py', entradas)
+
+    def test_scripts_importados_transitivamente_entran(self):
+        entradas = mat.entradas_builders()
+        for nombre in ('scripts/reading_intake_core.py', 'scripts/reading_taxonomy.py',
+                       'scripts/reading_publisher_links.py', 'scripts/site_clock.py',
+                       'scripts/genre_families.py', 'scripts/arbol_publicado.py'):
+            self.assertIn(nombre, entradas, nombre)
+
+    def test_los_builders_y_el_propio_modulo_entran(self):
+        entradas = mat.entradas_builders()
+        for script, *_ in mat.BUILDERS:
+            self.assertIn('scripts/' + script, entradas)
+        self.assertIn('scripts/materializar_generados.py', entradas)
+
+
 class RutasNuevas(unittest.TestCase):
     def test_una_ficha_nueva_la_ve_ls_files_antes_de_indexar(self):
         with tempfile.TemporaryDirectory() as d:

@@ -10,6 +10,7 @@ las fichas nuevas antes de los builders que leen `git ls-files` (site-shell, Pag
 """
 from __future__ import annotations
 
+import ast
 import fnmatch
 import os
 import subprocess
@@ -49,6 +50,49 @@ HUELLA = Path('.local') / 'materializado.huella'
 
 def generado(path: str) -> bool:
     return any(fnmatch.fnmatch(path, patron) for patron in GENERADOS)
+
+
+def _modulos_importados(ruta: Path) -> set[str]:
+    """Nombres de módulo que `ruta` importa (import estático por AST; no ejecuta el fichero)."""
+    try:
+        arbol = ast.parse(ruta.read_text(encoding='utf-8'))
+    except (OSError, SyntaxError, UnicodeDecodeError):
+        return set()
+    nombres: set[str] = set()
+    for nodo in ast.walk(arbol):
+        if isinstance(nodo, ast.Import):
+            nombres.update(alias.name.split('.')[0] for alias in nodo.names)
+        elif isinstance(nodo, ast.ImportFrom) and nodo.module and nodo.level == 0:
+            nombres.add(nodo.module.split('.')[0])
+    return nombres
+
+
+def entradas_builders(root: Path = ROOT) -> frozenset[str]:
+    """scripts/*.py que algún builder lee, directa o transitivamente, por import real (no por el nombre del fichero).
+
+    Decenas de scripts/reading*.py (la auditoría de Amazon, los textos de ChatGPT, el radar de convocatorias…) viven
+    junto a los builders sin que ninguno los importe. publish-radar-refresh.py usaba FUENTES —pensada como clave de
+    caché de .github/actions/materializar, deliberadamente ancha— para decidir si main adelantó una entrada real de
+    lo generado; su patrón `scripts/reading*.py` coincidía con todos ellos por igual y forzaba una regeneración
+    completa de la carga por un script que ningún builder lee (#1419, scripts/reading-texts.py). Seguir los imports
+    de verdad corrige también el caso contrario: scripts como site_clock.py o genre_families.py sí alimentan algún
+    builder y ningún patrón de FUENTES los nombraba.
+    """
+    vistos: set[str] = set()
+    cola = ['materializar_generados.py', *(script for script, *_ in BUILDERS)]
+    while cola:
+        nombre = cola.pop()
+        if nombre in vistos:
+            continue
+        vistos.add(nombre)
+        ruta = root / 'scripts' / nombre
+        if not ruta.is_file():
+            continue
+        for modulo in _modulos_importados(ruta):
+            candidato = modulo + '.py'
+            if candidato not in vistos and (root / 'scripts' / candidato).is_file():
+                cola.append(candidato)
+    return frozenset('scripts/' + nombre for nombre in vistos)
 
 
 def _py(root: Path, script: str, *args: str) -> None:

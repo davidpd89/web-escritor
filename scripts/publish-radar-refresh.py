@@ -133,7 +133,19 @@ CARGA = ('reading-catalogue-sync.yml',)
 
 
 def entrada_de_builders(path):
-    """Ruta que alimenta (o es) lo generado: si main la cambió, los artefactos de la PR ya no la reflejan."""
+    """Ruta que alimenta (o es) lo generado: si main la cambió, los artefactos de la PR ya no la reflejan.
+
+    scripts/*.py se decide por import real (materializar.entradas_builders()), no por el nombre del fichero:
+    FUENTES usa `scripts/reading*.py` como clave de caché (deliberadamente ancha) y coincide con una treintena de
+    scripts que ningún builder lee (la auditoría de Amazon, los textos de ChatGPT, el radar de convocatorias…);
+    cualquier cambio en uno de ellos forzaba una regeneración completa de la carga aunque el builder no leyera nada
+    nuevo (#1419, scripts/reading-texts.py). scripts/build-*.py se queda por el nombre: algunos builders se cargan
+    entre sí con importlib en vez de `import`, y el import estático no sigue esas rutas dinámicas.
+    """
+    if fnmatch.fnmatch(path, 'scripts/build-*.py'):
+        return True
+    if path.startswith('scripts/') and path.endswith('.py'):
+        return path in materializar.entradas_builders()
     return materializar.generado(path) or any(fnmatch.fnmatch(path, patron) or fnmatch.fnmatch(path, patron.replace('**/', ''))
                                               for patron in materializar.FUENTES)
 
