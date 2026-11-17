@@ -2,13 +2,9 @@ name: Latido de empleados
 
 # Pasa lista a diario: qué workflow programado no ha fichado o lleva varias ejecuciones en rojo.
 # Mantiene un único issue con la etiqueta «latido» y lo cierra cuando todos vuelven a verde.
+# Sin pull_request: el job escribe issues y R5-8 prohíbe escrituras en workflows de PR. En las PR, el cuadre
+# registro/workflows lo comprueba tests/test_empleados_registro.py dentro de la puerta obligatoria.
 on:
-  pull_request:
-    paths:
-      - "data/expertos.json"
-      - "scripts/empleados_latido.py"
-      - "tests/test_empleados_registro.py"
-      - ".github/workflows/**"
   workflow_dispatch:
   schedule:
     - cron: '43 5 * * *'
@@ -17,8 +13,8 @@ permissions:
   contents: read
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
 
 jobs:
   latido:
@@ -49,12 +45,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           EVENTO: ${{ github.event_name }}
         run: |
-          # En una PR solo se mide; el issue lo toca la ejecución diaria o la manual.
-          if [ "$EVENTO" = "pull_request" ]; then
-            python scripts/empleados_latido.py latido --salida latido.md
-          else
-            python scripts/empleados_latido.py latido --salida latido.md --issue
-          fi
+          # El issue solo lo toca la ejecución de main (empleados_latido.py ignora --issue desde otra rama).
+          python scripts/empleados_latido.py latido --salida latido.md --issue
           cat latido.md >> "$GITHUB_STEP_SUMMARY"
       - name: Guardar informe
         if: always()
