@@ -47,10 +47,12 @@ class RatingWorkflowContract(unittest.TestCase):
         # GitHub drops crons: a night batch that published books dispatches the next one.
         self.assertIn("name: Chain the next night batch", yaml)
         self.assertIn("gh workflow run reading-catalogue-sync.yml", yaml)
-        # La noche (00-06 Madrid) y las altas las decide el libro de la noche (scripts/noche.py, R4-1).
-        self.assertIn('python scripts/noche.py cadena --aceptados "$accepted"', yaml)
-        # refresh-reading-catalogue.py writes the ingest report: the count lives under "stats".
-        self.assertIn(".get('stats',{}).get('accepted',0)", yaml)
+        # La noche (00-06 Madrid) y las altas las decide el libro de la noche (scripts/noche.py, R4-1); también
+        # encadena mientras queden ramas de datos guardadas (F8): chain_report escribe ambas bajo "stats".
+        self.assertIn('python scripts/noche.py cadena --aceptados "$accepted" --guardadas "$saved"', yaml)
+        self.assertIn(".get('stats',{})", yaml)
+        self.assertIn("s.get('accepted',0)", yaml)
+        self.assertIn("s.get('checkpoints_restantes',0)", yaml)
         self.assertIn("!inputs.dry_run", yaml)
         self.assertIn("secrets.GOOGLE_BOOKS_API_KEY", yaml)
         self.assertIn("secrets.HARDCOVER_API_KEY", yaml)
