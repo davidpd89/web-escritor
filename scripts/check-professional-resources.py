@@ -46,22 +46,15 @@ def check_editorials():
     details={p.parent.name for p in (ROOT/"editoriales").glob("*/index.html")}
     if details!=expected:fail(f"editoriales detail coverage mismatch data={sorted(expected)} details={sorted(details)}")
 
-    # Real-clock freshness: unlike a deadline, an editorial entry does not
-    # disappear after N days; instead the builder marks >90-day verifications
-    # as needing review. This guard makes that threshold advance with the real
-    # execution date, so a static build cannot silently cross day 91 without
-    # regenerating its warning state.
-    stale_now=[i for i in published if b.stale(i,real_today)]
-    index_html=(ROOT/"editoriales/index.html").read_text(encoding="utf-8")
-    marker="Verificación antigua: revisa la fuente oficial antes de enviar."
-    if index_html.count(marker)!=len(stale_now):
-        fail(f"editoriales index stale-warning drift for {real_today}: expected {len(stale_now)} marker(s), found {index_html.count(marker)}")
-    detail_marker="<strong>Revisión recomendada:</strong>"
-    for item in published:
-        detail=(ROOT/"editoriales"/item["slug"]/"index.html").read_text(encoding="utf-8")
-        expected_stale=b.stale(item,real_today)
-        if (detail_marker in detail)!=expected_stale:
-            fail(f"{item['slug']}: detail stale-warning drift for real execution date {real_today}")
+    # No date-dependent warnings (17/11/2026): the old >90-day "needs review"
+    # markers made the committed HTML depend on the build date, so main drifted
+    # whenever an entry crossed day 91 and every PR went red. The pages must not
+    # carry them at all; tests/test-editoriales-builder-parity-v1.py proves the
+    # output is identical across build dates.
+    for rel in ["editoriales/index.html",*[f"editoriales/{i['slug']}/index.html" for i in published]]:
+        html=(ROOT/rel).read_text(encoding="utf-8")
+        if "Verificación antigua:" in html or "Revisión recomendada:" in html:
+            fail(f"{rel}: date-dependent freshness warning is back")
 def normalized_title(value):
     folded=unicodedata.normalize("NFD",str(value)).encode("ascii","ignore").decode("ascii").casefold()
     return re.sub(r"[^a-z0-9]+"," ",folded).strip()

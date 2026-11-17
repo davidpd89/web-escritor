@@ -48,9 +48,7 @@ expected_paths.extend(Path(f"editoriales/{record['slug']}/index.html") for recor
 
 with tempfile.TemporaryDirectory() as tmp_dir:
     tmp = Path(tmp_dir)
-    # El HTML publicado lleva los avisos de caducidad (>90 días) del día real
-    # del sitio, igual que exige check-professional-resources. Con
-    # max(verified_at) ambas pruebas se contradecían (10/11).
+    # El HTML no depende del día del build (sin caducidad por fecha, 17/11).
     target_date = be.site_today()
     be.build(DATA, tmp, target_date, False)
 
@@ -59,23 +57,18 @@ with tempfile.TemporaryDirectory() as tmp_dir:
         committed = (ROOT / rel).read_text(encoding="utf-8")
         check(generated == committed, f"{rel.as_posix()} está sincronizado con el builder")
 
-    # Una fecha de ejecución distinta no debe alterar los archivos si
-    # ninguna ficha cruza el umbral de caducidad entre ambas fechas.
-    next_date = date.fromordinal(target_date.toordinal() + 1)
-    crosses = [r["slug"] for r in published if be.stale(r, target_date) != be.stale(r, next_date)]
-    if crosses:
-        print(f"  skip determinismo: {', '.join(crosses)} cruza el umbral de 90 días mañana")
-    else:
-        with tempfile.TemporaryDirectory() as other_dir:
-            other = Path(other_dir)
-            be.build(DATA, other, next_date, False)
-            for rel in expected_paths:
-                first_output = (tmp / rel).read_bytes()
-                second_output = (other / rel).read_bytes()
-                check(
-                    first_output == second_output,
-                    f"{rel.as_posix()} es determinista entre dos fechas de ejecución",
-                )
+    # Una fecha de ejecución distinta no debe alterar ningún archivo: un año
+    # después la salida es idéntica byte a byte (antes se saltaba si una ficha
+    # cruzaba el umbral de 90 días, y main se quedaba desfasado ese día).
+    later_date = date.fromordinal(target_date.toordinal() + 400)
+    with tempfile.TemporaryDirectory() as other_dir:
+        other = Path(other_dir)
+        be.build(DATA, other, later_date, False)
+        for rel in expected_paths:
+            check(
+                (tmp / rel).read_bytes() == (other / rel).read_bytes(),
+                f"{rel.as_posix()} es idéntico entre dos fechas de ejecución",
+            )
 
     generated_index = (tmp / "editoriales/index.html").read_text(encoding="utf-8")
     check('class="v1"' in generated_index, "el índice generado mantiene shell V1")
