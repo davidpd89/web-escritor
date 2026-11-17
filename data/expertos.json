@@ -63,7 +63,7 @@
       "id": "seguridad-github",
       "nombre": "Seguridad de GitHub y de la propia CI",
       "mision": "Que los workflows estén bien escritos, no filtren secretos y no den más permisos de los necesarios.",
-      "workflows": ["higiene-repo", "empleados-latido"],
+      "workflows": ["higiene-repo", "empleados-latido", "bypass-usado"],
       "pendientes": [
         {"herramienta": "OpenSSF Scorecard", "motivo": "Nota global del repositorio; se añade cuando actionlint y zizmor estén limpios, para no empezar con una lista de avisos ya conocidos."}
       ]
