@@ -16,9 +16,15 @@ SHOUT_SHARE = 0.7
 
 
 def is_shouted(word):
-    """Palabra de dos o más letras escrita entera en mayúsculas («MICROBIOS», «II», «IA»)."""
+    """Palabra «a voces»: dos o más letras en mayúsculas y como mucho una en minúscula. Cubre las escritas
+    enteras en mayúsculas («MICROBIOS», «II», «IA») y las que traen la inicial caída de la fuente
+    («dERMATOLOGÍA»: un bloqueo de mayúsculas sin el shift inicial). La comprobación del catálogo publicado
+    (test_reading_editorial_shouting) las rechaza igual por su racha de 2+ mayúsculas seguidas, así que el
+    normalizador tiene que verlas igual o el título gritado llega a la ficha y tumba la carga (16/11,
+    isbn-9788478857500 «dERMATOLOGÍA GENERAL BÁSICA»)."""
     letters = [c for c in word if c.isalpha() and c not in 'ªº']
-    return len(letters) >= 2 and all(c.isupper() for c in letters)
+    uppers = sum(c.isupper() for c in letters)
+    return uppers >= 2 and len(letters) - uppers <= 1
 
 
 TRAILING_GROUP = re.compile(r'\s*\([^()]*\)\s*$')
@@ -94,7 +100,7 @@ def tidy_title(title, proper=None):
             return 0 <= i < len(cores) and cores[i] and key(cores[i]) in proper
 
         for i, (word, core) in enumerate(zip(parts, cores)):
-            if not core.isupper():
+            if not (core.isupper() or is_shouted(core)):
                 words.append(word)  # lo que ya viene en minúscula o mixto se respeta: «Vol.», «Nº», «(Andalucía)»
             elif core and ROMAN.match(core) and len(core) <= 4 and core.lower() not in {'mi', 'di', 'li', 'ci'}:
                 words.append(word)
